@@ -788,8 +788,9 @@ export default function CharacterManager() {
       setChar(newChar);
       setSelectedId(newChar.id);
       setTab("stats");
-    } catch {
-      setError("Couldn't create a new character.");
+    } catch (err) {
+      console.error("Character creation failed:", err);
+      setError(`Couldn't create a new character: ${err?.message || "database request failed"}`);
     }
   }
 
@@ -818,8 +819,9 @@ export default function CharacterManager() {
       if (saveVersions.current[id] !== deletionVersion) {
         await window.storage.delete(`char-detail:${id}`);
       }
-    } catch {
-      setError("Couldn't delete that character.");
+    } catch (err) {
+      console.error("Character deletion failed:", err);
+      setError(`Couldn't delete that character: ${err?.message || "database request failed"}`);
     }
   }
 
@@ -908,7 +910,7 @@ export default function CharacterManager() {
   const effAbilities = char ? effectiveAbilities(char) : null;
 
   return (
-    <div style={{ background: PAPER, minHeight: 600, fontFamily: "Inter, sans-serif" }}>
+    <div className="cm-root" style={{ background: PAPER, minHeight: 600, fontFamily: "Inter, sans-serif" }}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap');
         .cm-scroll::-webkit-scrollbar { width: 8px; }
@@ -928,7 +930,7 @@ export default function CharacterManager() {
         input:focus, select:focus, textarea:focus { outline: none; border-color: ${BRASS} !important; box-shadow: 0 0 0 2px ${BRASS}33; }
       `}</style>
 
-      <div className="cm-app-shell" style={{ borderBottom: `2px solid ${BRASS}99`, padding: "18px 32px", display: "flex", alignItems: "center", justifyContent: "space-between", background: `linear-gradient(180deg, ${PAPER_DARK}, ${PAPER})` }}>
+      <div className="cm-app-shell cm-topbar" style={{ borderBottom: `2px solid ${BRASS}99`, padding: "18px 32px", display: "flex", alignItems: "center", justifyContent: "space-between", background: `linear-gradient(180deg, ${PAPER_DARK}, ${PAPER})` }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <div style={{ width: 34, height: 34, borderRadius: "50%", border: `2px solid ${BRASS}`, display: "flex", alignItems: "center", justifyContent: "center", background: INK }}>
             <ScrollText size={16} color={PARCHMENT_TEXT} />
@@ -940,9 +942,9 @@ export default function CharacterManager() {
         </div>
       </div>
 
-      <div style={{ display: "flex" }}>
+      <div className="cm-body">
       {/* Sidebar ledger */}
-      <div className="cm-scroll" style={{ width: sidebarCollapsed ? 48 : 250, transition: "width 0.2s ease", borderRight: `2px solid ${BRASS}55`, padding: sidebarCollapsed ? "12px 8px" : "20px 14px", overflowY: "auto", maxHeight: 700, background: PAPER_DARK + "55", flexShrink: 0 }}>
+      <div className="cm-scroll cm-sidebar" style={{ width: sidebarCollapsed ? 48 : 250, transition: "width 0.2s ease", borderRight: `2px solid ${BRASS}55`, padding: sidebarCollapsed ? "12px 8px" : "20px 14px", overflowY: "auto", maxHeight: 700, background: PAPER_DARK + "55", flexShrink: 0 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: sidebarCollapsed ? "center" : "space-between", marginBottom: sidebarCollapsed ? 0 : 16 }}>
           {!sidebarCollapsed && <h2 style={{ fontFamily: "Fraunces, serif", fontWeight: 600, fontSize: 17, color: INK, margin: 0, letterSpacing: 0.2 }}>Your ledger</h2>}
           <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
@@ -964,7 +966,7 @@ export default function CharacterManager() {
       </div>
 
       {/* Main sheet */}
-      <div className="cm-scroll" style={{ flex: 1, padding: "28px 36px", overflowY: "auto", maxHeight: 700 }}>
+      <div className="cm-scroll cm-main" style={{ flex: 1, padding: "28px 36px", overflowY: "auto", maxHeight: 700 }}>
         {error && <div style={{ color: RED, fontSize: 13, marginBottom: 12, background: "#FBF8EE", border: `1px solid ${RED}55`, borderRadius: 6, padding: "8px 12px" }}>{error}</div>}
 
         {!char ? (
@@ -972,7 +974,7 @@ export default function CharacterManager() {
         ) : (
           <>
             {/* Header bar */}
-            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20, flexWrap: "wrap", background: "#FBF8EE", border: `1px solid ${BRASS}66`, borderRadius: 10, padding: "14px 18px", boxShadow: "0 1px 3px rgba(43,38,32,0.08)" }}>
+            <div className="cm-character-header" style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 20, flexWrap: "wrap", background: "#FBF8EE", border: `1px solid ${BRASS}66`, borderRadius: 10, padding: "14px 18px", boxShadow: "0 1px 3px rgba(43,38,32,0.08)" }}>
               <div style={{
                 width: 56, height: 56, borderRadius: "50%", flexShrink: 0,
                 background: INK, border: `2px solid ${BRASS}`,
@@ -1298,63 +1300,50 @@ function BackgroundIcon() {
 
 function StartScreen({ onBegin, hasCharacters, onOpenFirst }) {
   return (
-    <div style={{ borderRadius: 10, overflow: "hidden", background: NIGHT, marginTop: -4 }}>
-      <div style={{ padding: "36px 32px 28px" }}>
-        <div style={{ fontFamily: "Inter, sans-serif", fontSize: 12, letterSpacing: 1, color: BRASS, textTransform: "uppercase", marginBottom: 6 }}>
-          Ready, set,
+    <div className="cm-dashboard">
+      <section className="cm-hero">
+        <div className="cm-hero-art" aria-hidden="true">
+          <div className="cm-hero-candle" />
+          <div className="cm-hero-book cm-book-one" />
+          <div className="cm-hero-book cm-book-two" />
+          <div className="cm-hero-map" />
+          <div className="cm-hero-die">20</div>
         </div>
-        <div style={{ fontFamily: "Fraunces, serif", fontWeight: 700, fontSize: 42, color: PARCHMENT_TEXT, lineHeight: 1.05, marginBottom: 10 }}>
-          Write your first entry.
+        <div className="cm-hero-content">
+          <div className="cm-eyebrow">Your next campaign starts here</div>
+          <h1>Welcome, Adventurer!</h1>
+          <p>Create, manage, and prepare your D&D characters in a ledger built for the table. Keep your heroes organized and ready for the next quest.</p>
+          <div className="cm-hero-actions">
+            <button className="cm-primary-action cm-btn" onClick={onBegin}><Plus size={17} /> Create New Character</button>
+            {hasCharacters && <button className="cm-secondary-action cm-btn" onClick={onOpenFirst}>Open a Character</button>}
+          </div>
         </div>
-        <div style={{ fontFamily: "Inter, sans-serif", fontSize: 14, color: PARCHMENT_TEXT, opacity: 0.7, maxWidth: 480 }}>
-          Your adventurer takes shape from a class, a species, and a background. Everything you enter is saved to your own ledger automatically.
-        </div>
+      </section>
 
-        {hasCharacters && (
-          <button
-            onClick={onOpenFirst}
-            className="cm-btn"
-            style={{
-              marginTop: 18,
-              fontFamily: "Inter, sans-serif",
-              fontSize: 13,
-              padding: "9px 16px",
-              borderRadius: 20,
-              border: `1px solid ${BRASS}`,
-              background: "transparent",
-              color: BRASS,
-              cursor: "pointer",
-            }}
-          >
-            Open an existing character
-          </button>
-        )}
+      <div className="cm-stat-strip">
+        <div className="cm-stat"><div className="cm-stat-icon"><Swords size={19} /></div><div><strong>{hasCharacters ? "Your" : "0"}</strong><span>{hasCharacters ? "Characters" : "Characters"}</span></div></div>
+        <div className="cm-stat"><div className="cm-stat-icon"><BookOpen size={19} /></div><div><strong>Ready</strong><span>For Adventure</span></div></div>
+        <div className="cm-stat"><div className="cm-stat-icon"><Sparkles size={19} /></div><div><strong>1</strong><span>Living Ledger</span></div></div>
       </div>
 
-      <div style={{ padding: "0 32px 32px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16 }}>
-        <StartCard
-          eyebrow="Choose"
-          title="Class"
-          blurb="Your vocation, special talents, and favored tactics in a fight."
-          art={<ClassIcon />}
-          onClick={onBegin}
-          primary
-        />
-        <StartCard
-          eyebrow="Choose"
-          title="Species"
-          blurb="Your ancestry, and the traits it lends you."
-          art={<SpeciesIcon />}
-          onClick={onBegin}
-        />
-        <StartCard
-          eyebrow="Choose"
-          title="Background"
-          blurb="How you spent the years leading up to a life of adventure."
-          art={<BackgroundIcon />}
-          onClick={onBegin}
-        />
-      </div>
+      <section className="cm-section-panel">
+        <div className="cm-section-heading">
+          <div><div className="cm-eyebrow">Your ledger</div><h2>Your Characters</h2></div>
+          <button className="cm-primary-action cm-btn cm-small-action" onClick={onBegin}><Plus size={16} /> Create New Character</button>
+        </div>
+        <div className="cm-empty-state">
+          <div className="cm-empty-book"><BookOpen size={48} /></div>
+          <h3>No characters yet</h3>
+          <p>Every great adventure begins with a single hero. Create your first character and start building their story.</p>
+          <button className="cm-secondary-action cm-btn" onClick={onBegin}>Build Your Hero</button>
+        </div>
+      </section>
+
+      <section className="cm-feature-grid">
+        <div className="cm-feature-card"><Swords size={23}/><div><h3>Build Your Hero</h3><p>Shape class, species, background, abilities, equipment, and more.</p></div></div>
+        <div className="cm-feature-card"><BookOpen size={23}/><div><h3>Stay Organized</h3><p>Keep your characters together and ready for any campaign.</p></div></div>
+        <div className="cm-feature-card"><Sparkles size={23}/><div><h3>Play With Confidence</h3><p>Quickly reach the stats, actions, spells, and notes you need at the table.</p></div></div>
+      </section>
     </div>
   );
 }

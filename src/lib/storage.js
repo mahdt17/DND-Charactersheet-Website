@@ -62,7 +62,7 @@ export function createCloudStorage(supabase, userId) {
 
         const { error } = await supabase
           .from("characters")
-          .upsert(row, { onConflict: "user_id,id" });
+          .upsert(row);
 
         if (error) throw error;
 

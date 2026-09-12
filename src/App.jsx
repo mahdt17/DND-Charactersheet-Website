@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CharacterManager from "./CharacterManager";
+import { ScrollText, Sun, Moon } from "lucide-react";
 import { supabase, supabaseConfigured } from "./lib/supabase";
 import { createCloudStorage } from "./lib/storage";
 
@@ -8,7 +9,23 @@ const PAPER = "#EDE6D3";
 const RED = "#7A2E2E";
 const BRASS = "#A9822C";
 
-function AuthScreen() {
+function ThemeToggle({ theme, onToggle }) {
+  const dark = theme === "dark";
+  return (
+    <button
+      type="button"
+      className="theme-toggle"
+      onClick={onToggle}
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      title={dark ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {dark ? <Sun size={16} /> : <Moon size={16} />}
+      <span>{dark ? "Light" : "Dark"}</span>
+    </button>
+  );
+}
+
+function AuthScreen({ theme, onToggleTheme }) {
   const [mode, setMode] = useState("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +36,6 @@ function AuthScreen() {
     e.preventDefault();
     setBusy(true);
     setMessage("");
-
     try {
       if (mode === "signin") {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
@@ -27,11 +43,7 @@ function AuthScreen() {
       } else {
         const { data, error } = await supabase.auth.signUp({ email, password });
         if (error) throw error;
-        setMessage(
-          data.session
-            ? "Account created."
-            : "Account created. Check your email if confirmation is enabled."
-        );
+        setMessage(data.session ? "Your account is ready." : "Account created. Check your email to confirm your account.");
       }
     } catch (err) {
       setMessage(err.message || "Authentication failed.");
@@ -41,47 +53,31 @@ function AuthScreen() {
   }
 
   return (
-    <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", padding: 24, background: PAPER, color: INK }}>
-      <form onSubmit={submit} style={{ width: "min(430px, 100%)", background: "#f8f3e7", border: `2px solid ${BRASS}88`, borderRadius: 12, padding: 28, boxShadow: "0 10px 35px rgba(43,38,32,.12)" }}>
-        <h1 style={{ fontFamily: "Georgia, serif", margin: "0 0 6px" }}>Adventurer's Ledger</h1>
-        <p style={{ opacity: .65, marginTop: 0 }}>Cloud-saved character manager</p>
+    <div className={`auth-page theme-${theme}`}>
+      <div className="auth-theme-control"><ThemeToggle theme={theme} onToggle={onToggleTheme} /></div>
+      <div className="auth-atmosphere" />
+      <form onSubmit={submit} className="auth-card">
+        <div className="auth-emblem"><ScrollText size={24} /></div>
+        <div className="auth-kicker">Adventurer's Ledger</div>
+        <h1>{mode === "signin" ? "Welcome back, adventurer." : "Begin your adventure."}</h1>
+        <p className="auth-subtitle">Your characters, campaigns, and stories — kept in one legendary ledger.</p>
 
-        <label style={{ display: "block", marginTop: 18 }}>
-          Email
-          <input
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            type="email"
-            required
-            style={{ width: "100%", marginTop: 6, padding: 10, border: `1px solid ${BRASS}77`, borderRadius: 6, background: "white" }}
-          />
+        <label className="auth-field">
+          <span>Email</span>
+          <input value={email} onChange={e => setEmail(e.target.value)} type="email" required placeholder="you@example.com" />
+        </label>
+        <label className="auth-field">
+          <span>Password</span>
+          <input value={password} onChange={e => setPassword(e.target.value)} type="password" required minLength={6} placeholder="At least 6 characters" />
         </label>
 
-        <label style={{ display: "block", marginTop: 14 }}>
-          Password
-          <input
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            type="password"
-            required
-            minLength={6}
-            style={{ width: "100%", marginTop: 6, padding: 10, border: `1px solid ${BRASS}77`, borderRadius: 6, background: "white" }}
-          />
-        </label>
-
-        <button disabled={busy} style={{ width: "100%", marginTop: 20, padding: 11, border: 0, borderRadius: 6, background: RED, color: "#fff", cursor: "pointer" }}>
-          {busy ? "Working…" : mode === "signin" ? "Sign in" : "Create account"}
+        <button disabled={busy} className="auth-primary">
+          {busy ? "Opening the ledger…" : mode === "signin" ? "Enter the Ledger" : "Create Account"}
         </button>
-
-        <button
-          type="button"
-          onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setMessage(""); }}
-          style={{ width: "100%", marginTop: 10, padding: 9, border: `1px solid ${BRASS}88`, borderRadius: 6, background: "transparent", color: INK, cursor: "pointer" }}
-        >
+        <button type="button" onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setMessage(""); }} className="auth-secondary">
           {mode === "signin" ? "Create a new account" : "I already have an account"}
         </button>
-
-        {message && <p style={{ marginBottom: 0, fontSize: 13, color: INK }}>{message}</p>}
+        {message && <p className="auth-message">{message}</p>}
       </form>
     </div>
   );
@@ -90,6 +86,16 @@ function AuthScreen() {
 export default function App() {
   const [session, setSession] = useState(null);
   const [ready, setReady] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem("ledger-theme") || "dark");
+
+  useEffect(() => {
+    localStorage.setItem("ledger-theme", theme);
+    document.documentElement.dataset.ledgerTheme = theme;
+  }, [theme]);
+
+  function toggleTheme() {
+    setTheme((current) => current === "dark" ? "light" : "dark");
+  }
 
   useEffect(() => {
     if (!supabase) {
@@ -127,19 +133,20 @@ export default function App() {
   }
 
   if (!ready) {
-    return <div style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: PAPER }}>Loading…</div>;
+    return <div className={`auth-page theme-${theme}`}><div className="auth-theme-control"><ThemeToggle theme={theme} onToggle={toggleTheme} /></div><div className="auth-loading">Opening your ledger…</div></div>;
   }
 
-  if (!session) return <AuthScreen />;
+  if (!session) return <AuthScreen theme={theme} onToggleTheme={toggleTheme} />;
 
   window.storage = createCloudStorage(supabase, session.user.id);
 
   return (
-    <div>
-      <div style={{ position: "fixed", right: 12, top: 10, zIndex: 10000 }}>
+    <div className={`app-theme theme-${theme}`}>
+      <div className="app-controls">
+        <ThemeToggle theme={theme} onToggle={toggleTheme} />
         <button
           onClick={() => supabase.auth.signOut()}
-          style={{ border: `1px solid ${BRASS}88`, background: PAPER, color: INK, borderRadius: 6, padding: "6px 10px", cursor: "pointer", fontSize: 12 }}
+          className="cm-signout"
         >
           Sign out
         </button>
