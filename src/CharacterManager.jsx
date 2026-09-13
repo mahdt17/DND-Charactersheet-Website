@@ -731,6 +731,86 @@ function ClassDetail({ data, onChoose }) {
   );
 }
 
+
+function CreationChoiceCard({ selected, title, description, meta, onClick, children }) {
+  return (
+    <button type="button" className={`creation-choice ${selected ? "is-selected" : ""}`} onClick={onClick}>
+      <div className="creation-choice-head">
+        <div><div className="creation-choice-title">{title}</div>{meta && <div className="creation-choice-meta">{meta}</div>}</div>
+        <span className="creation-choice-check">{selected ? "✓" : ""}</span>
+      </div>
+      {description && <div className="creation-choice-description">{description}</div>}
+      {children}
+    </button>
+  );
+}
+function CreationProgress({ step, total }) {
+  return <div className="creation-progress">{Array.from({length: total}).map((_,i)=><div key={i} className={`creation-progress-segment ${i<=step?"is-active":""}`} />)}</div>;
+}
+function CreationStepHeader({ eyebrow, title, description }) {
+  return <div className="creation-step-header"><div className="creation-eyebrow">{eyebrow}</div><h2>{title}</h2><p>{description}</p></div>;
+}
+function CreationWizard({ onCancel, onFinish }) {
+  const steps=["Basics","Species","Class","Background","Abilities","Training","Review"];
+  const [step,setStep]=useState(0);
+  const [draft,setDraft]=useState({name:"",ruleset:"2014",level:1,race:"",className:"",background:"",abilityMethod:"standard",abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},skillExtras:[]});
+  const selectedRace=RACE_DATA[draft.race], selectedClass=CLASS_DATA[draft.className], selectedBackground=BACKGROUND_DATA[draft.background];
+  const standardValues=[15,14,13,12,10,8];
+  const pointCosts={8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
+  const pointSpend=Object.values(draft.abilities).reduce((s,v)=>s+(pointCosts[Math.max(8,Math.min(15,Number(v)||8))]??0),0);
+  const skillExtraNeeded=draft.race==="Half-Elf"?2:0;
+  const valid=()=>{
+    if(step===0)return draft.name.trim().length>=2;
+    if(step===1)return !!draft.race;
+    if(step===2)return !!draft.className;
+    if(step===3)return !!draft.background;
+    if(step===4)return draft.abilityMethod==="standard"?new Set(Object.values(draft.abilities).map(Number)).size===6: draft.abilityMethod==="pointbuy"?pointSpend<=27:Object.values(draft.abilities).every(v=>Number(v)>=1&&Number(v)<=20);
+    if(step===5)return draft.skillExtras.length===skillExtraNeeded;
+    return true;
+  };
+  function setAbility(k,v){setDraft(d=>({...d,abilities:{...d.abilities,[k]:Number(v)}}));}
+  function toggleSkill(name){setDraft(d=>{const has=d.skillExtras.includes(name); if(has)return {...d,skillExtras:d.skillExtras.filter(x=>x!==name)}; if(d.skillExtras.length>=skillExtraNeeded)return d; return {...d,skillExtras:[...d.skillExtras,name]};});}
+  function next(){if(valid())setStep(s=>Math.min(steps.length-1,s+1));}
+  function finish(){
+    let built={...blankCharacter(draft.name.trim()),name:draft.name.trim(),ruleset:draft.ruleset,level:1,abilities:draft.abilities};
+    built=applyRace(built,draft.race); built=applyClass(built,draft.className); built=applyBackground(built,draft.background);
+    if(draft.skillExtras.length) built={...built,skillProf:{...(built.skillProf||{}),...Object.fromEntries(draft.skillExtras.map(x=>[x,true]))}};
+    onFinish(syncProgression({...built,ruleset:draft.ruleset},1));
+  }
+  const stepPrompt=[
+    ["Start with the basics","Name your character and choose which ruleset this character belongs to."],
+    ["Choose your species","Your choice will automatically apply its speed, traits, and ability bonuses."],
+    ["Choose your class","Your class determines hit die, saving throws, proficiencies, features, and spellcasting."],
+    ["Choose your background","Your background adds skills, tools, story flavor, and starting gear."],
+    ["Assign your abilities","Choose a score method. The final sheet will calculate modifiers automatically."],
+    ["Review your training","Most proficiencies are derived automatically. Only ask for choices when the character needs one."],
+    ["Everything is ready","Review the result. Finish to create the populated character sheet."],
+  ];
+  return <div className="creation-overlay" role="dialog" aria-modal="true">
+    <div className="creation-shell">
+      <aside className="creation-sidebar">
+        <div className="creation-brand"><div className="creation-brand-mark">✦</div><div><strong>Create your character</strong><span>Guided setup</span></div></div>
+        <CreationProgress step={step} total={steps.length}/>
+        <div className="creation-step-list">{steps.map((name,i)=><button type="button" key={name} className={`creation-step-item ${i===step?"is-current":""} ${i<step?"is-complete":""}`} onClick={()=>i<=step&&setStep(i)}><span>{i<step?"✓":String(i+1).padStart(2,"0")}</span><div><strong>{name}</strong><small>{i<step?"Complete":i===step?"Current step":"Upcoming"}</small></div></button>)}</div>
+        <button type="button" className="creation-cancel" onClick={onCancel}>Cancel</button>
+      </aside>
+      <section className="creation-content">
+        <div className="creation-topbar"><div><span>Step {step+1} of {steps.length}</span><strong>{steps[step]}</strong></div><div className="creation-top-summary">{draft.name||"New character"}{draft.className?` · ${draft.className}`:""}</div></div>
+        <div className="creation-scroll">
+          {step===0&&<><CreationStepHeader eyebrow="Character basics" title={stepPrompt[0][0]} description={stepPrompt[0][1]}/><div className="creation-section-grid two"><label className="creation-field"><span>Character name</span><input autoFocus value={draft.name} onChange={e=>setDraft(d=>({...d,name:e.target.value}))} placeholder="e.g. Newman"/><small>You can change this later.</small></label><label className="creation-field"><span>Starting level</span><select value="1" disabled><option value="1">Level 1</option></select><small>Guided creation currently starts at level 1.</small></label></div><div className="creation-section"><div className="creation-section-title">Ruleset</div><div className="creation-grid two">{[["2014","2014 5e","Classic 5th Edition"],["2024","2024 rules","Revised 5th Edition"]].map(([id,t,m])=><CreationChoiceCard key={id} selected={draft.ruleset===id} title={t} meta={m} description={id==="2014"?"Use the current 2014-style data available in the app.":"Store this as a 2024 character; rules-specific content will continue to expand."} onClick={()=>setDraft(d=>({...d,ruleset:id}))}/>)}</div></div></>}
+          {step===1&&<><CreationStepHeader eyebrow="Ancestry" title={stepPrompt[1][0]} description={stepPrompt[1][1]}/><div className="creation-grid three">{Object.entries(RACE_DATA).map(([n,d])=><CreationChoiceCard key={n} selected={draft.race===n} title={n} meta={`${d.size} · ${d.speed}`} description={d.blurb} onClick={()=>setDraft(x=>({...x,race:n,skillExtras:n==="Half-Elf"?x.skillExtras.slice(0,2):[]}))}><div className="creation-choice-foot">{d.abilityBonus}</div></CreationChoiceCard>)}</div>{selectedRace&&<div className="creation-info-panel"><strong>{draft.race}</strong><span>{selectedRace.traits.map(([n])=>n).join(" · ")}</span></div>}</>}
+          {step===2&&<><CreationStepHeader eyebrow="Calling" title={stepPrompt[2][0]} description={stepPrompt[2][1]}/><div className="creation-grid three">{Object.entries(CLASS_DATA).map(([n,d])=><CreationChoiceCard key={n} selected={draft.className===n} title={n} meta={`${d.hitDie} · ${d.primaryAbility}`} description={d.blurb} onClick={()=>setDraft(x=>({...x,className:n}))}><div className="creation-choice-foot">{d.saves} saves</div></CreationChoiceCard>)}</div>{selectedClass&&<div className="creation-detail-panel"><div><strong>Level 1 features</strong></div><div className="creation-feature-list">{selectedClass.features.map(([n,d])=><div key={n}><b>{n}</b><span>{d}</span></div>)}</div></div>}</>}
+          {step===3&&<><CreationStepHeader eyebrow="Origin" title={stepPrompt[3][0]} description={stepPrompt[3][1]}/><div className="creation-grid three">{Object.entries(BACKGROUND_DATA).map(([n,d])=><CreationChoiceCard key={n} selected={draft.background===n} title={n} meta={d.skills} description={d.blurb} onClick={()=>setDraft(x=>({...x,background:n}))}><div className="creation-choice-foot">{d.feature[0]}</div></CreationChoiceCard>)}</div>{selectedBackground&&<div className="creation-info-panel"><strong>{selectedBackground.feature[0]}</strong><span>{selectedBackground.feature[1]}</span></div>}</>}
+          {step===4&&<><CreationStepHeader eyebrow="Abilities" title={stepPrompt[4][0]} description={stepPrompt[4][1]}/><div className="creation-methods">{[["standard","Standard array","15, 14, 13, 12, 10, 8"],["pointbuy","Point buy","27 points"],["custom","Custom","Enter your own values"]].map(([id,t,m])=><button type="button" key={id} className={`creation-method ${draft.abilityMethod===id?"is-selected":""}`} onClick={()=>setDraft(d=>({ ...d,abilityMethod:id,abilities:id==="standard"?{str:15,dex:14,con:13,int:12,wis:10,cha:8}:id==="pointbuy"?{str:8,dex:8,con:8,int:8,wis:8,cha:8}:d.abilities}))}><strong>{t}</strong><span>{m}</span></button>)}</div><div className="ability-builder">{ABILITIES.map(a=><label className="ability-builder-row" key={a.key}><span><b>{a.label}</b><small>{fmtMod(abilityMod(Number(draft.abilities[a.key])))}</small></span><select value={draft.abilities[a.key]} onChange={e=>setAbility(a.key,e.target.value)}>{(draft.abilityMethod==="standard"?standardValues:draft.abilityMethod==="pointbuy"?[8,9,10,11,12,13,14,15]:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]).map(v=><option key={v} value={v} disabled={draft.abilityMethod==="standard"&&v!==draft.abilities[a.key]&&Object.values(draft.abilities).includes(v)}>{v}</option>)}</select>{draft.abilityMethod==="pointbuy"&&<small>{pointCosts[Math.max(8,Math.min(15,Number(draft.abilities[a.key])))]??0} pts</small>}</label>)}</div>{draft.abilityMethod==="pointbuy"&&<div className={`creation-budget ${pointSpend>27?"over":""}`}><span>Points spent</span><strong>{pointSpend} / 27</strong></div>}</>}
+          {step===5&&<><CreationStepHeader eyebrow="Training" title={stepPrompt[5][0]} description={stepPrompt[5][1]}/><div className="training-summary"><div className="training-card"><span>Saving throws</span><strong>{selectedClass?.saves||"—"}</strong></div><div className="training-card"><span>Armor</span><strong>{selectedClass?.armor||"—"}</strong></div><div className="training-card"><span>Weapons</span><strong>{selectedClass?.weapons||"—"}</strong></div><div className="training-card"><span>Background skills</span><strong>{selectedBackground?.skills||"—"}</strong></div></div>{skillExtraNeeded>0&&<div className="creation-section"><div className="creation-section-title">Choose {skillExtraNeeded} extra skills</div><p className="creation-helper">Your {draft.race} grants additional skill choices.</p><div className="skill-picker-grid">{SKILLS.map(([n])=><button type="button" key={n} className={`skill-pill ${draft.skillExtras.includes(n)?"is-selected":""}`} onClick={()=>toggleSkill(n)}>{draft.skillExtras.includes(n)?"✓ ":""}{n}</button>)}</div></div>}<div className="creation-auto-note"><strong>Applied automatically</strong><span>Species traits, class saving throws, class HP, background skills, background equipment, speed, and level 1 features are applied when you finish.</span></div></>}
+          {step===6&&<><CreationStepHeader eyebrow="Final review" title={stepPrompt[6][0]} description={stepPrompt[6][1]}/><div className="review-hero"><div className="review-avatar">{(draft.name||"?").charAt(0).toUpperCase()}</div><div><h3>{draft.name||"Unnamed adventurer"}</h3><p>{draft.race||"No species"} · {draft.className||"No class"} · {draft.background||"No background"} · Level 1</p></div></div><div className="review-grid">{ABILITIES.map(a=>{const s=Number(draft.abilities[a.key]),b=draft.race?raceBonus(draft.race,a.key):0;return <div className="review-stat" key={a.key}><span>{a.label}</span><strong>{s+b}</strong><small>{fmtMod(abilityMod(s+b))}</small></div>})}</div><div className="review-sections"><div><span>Hit die</span><strong>{selectedClass?.hitDie||"—"}</strong></div><div><span>Speed</span><strong>{selectedRace?.speed||"—"}</strong></div><div><span>Saving throws</span><strong>{selectedClass?.saves||"—"}</strong></div><div><span>Background skills</span><strong>{selectedBackground?.skills||"—"}</strong></div><div className="wide"><span>Starting features</span><strong>{selectedClass?.features.map(([n])=>n).join(" · ")||"—"}</strong></div><div className="wide"><span>Background equipment</span><strong>{selectedBackground?.equipment||"—"}</strong></div></div></>}
+        </div>
+        <div className="creation-footer"><button type="button" className="creation-secondary" onClick={step===0?onCancel:()=>setStep(s=>s-1)}>{step===0?"Cancel":"Back"}</button><div className="creation-footer-status">{!valid()&&<span>{step===0?"Add a name to continue.":step===4?"Finish assigning your ability scores.":"Complete this step to continue."}</span>}</div>{step<steps.length-1?<button type="button" className="creation-primary" disabled={!valid()} onClick={next}>Continue <ChevronRight size={17}/></button>:<button type="button" className="creation-primary" onClick={finish}>Create Character <Plus size={17}/></button>}</div>
+      </section>
+    </div>
+  </div>;
+}
+
 export default function CharacterManager() {
   const [index, setIndex] = useState(null);
   const [selectedId, setSelectedId] = useState(null);
@@ -741,6 +821,7 @@ export default function CharacterManager() {
   const [activeNote, setActiveNote] = useState(null);
   const [saveState, setSaveState] = useState("idle");
   const [error, setError] = useState(null);
+  const [creationWizardOpen, setCreationWizardOpen] = useState(false);
   const saveTimer = useRef(null);
   const saveTimerId = useRef(null);
   const saveVersions = useRef({});
@@ -777,18 +858,16 @@ export default function CharacterManager() {
   }
 
   async function createCharacter() {
-    const newChar = blankCharacter("New adventurer");
+    setError(null);
+    setCreationWizardOpen(true);
+  }
+
+  async function finishCharacterCreation(newChar) {
     try {
       await window.storage.set(`char-detail:${newChar.id}`, JSON.stringify(newChar));
-      const newIndex = [
-        ...(index || []),
-        { id: newChar.id, name: newChar.name, race: "", className: "", level: 1 },
-      ];
+      const newIndex = [...(index || []), { id:newChar.id, name:newChar.name, race:newChar.race||"", className:newChar.className||"", level:newChar.level||1 }];
       await window.storage.set("char-index", JSON.stringify(newIndex));
-      setIndex(newIndex);
-      setChar(newChar);
-      setSelectedId(newChar.id);
-      setTab("stats");
+      setIndex(newIndex); setChar(newChar); setSelectedId(newChar.id); setTab("stats"); setCreationWizardOpen(false);
     } catch (err) {
       console.error("Character creation failed:", err);
       setError(`Couldn't create a new character: ${err?.message || "database request failed"}`);
@@ -905,6 +984,10 @@ export default function CharacterManager() {
         <Loader2 className="animate-spin" size={20} style={{ marginRight: 8 }} /> Opening the ledger…
       </div>
     );
+  }
+
+  if (creationWizardOpen) {
+    return <CreationWizard onCancel={() => setCreationWizardOpen(false)} onFinish={finishCharacterCreation} />;
   }
 
   const pb = char ? profBonus(char.level) : 2;
