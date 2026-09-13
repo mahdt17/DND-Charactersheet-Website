@@ -164,3 +164,70 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
   .app-controls { right:8px; top:8px; }
   .app-controls .theme-toggle span { display:none; }
 }
+
+
+/* Dark-mode readability fixes for the character sheet. The character component
+   contains legacy inline colors, so these selectors intentionally use !important
+   to guarantee readable text and controls in dark mode. */
+.theme-dark .cm-root [style*="color: rgb(43, 38, 32)"],
+.theme-dark .cm-root [style*="color: rgb(43,38,32)"],
+.theme-dark .cm-root [style*="color: #2B2620"],
+.theme-dark .cm-root [style*="color: #2b2620"] {
+  color: #eef1f7 !important;
+}
+.theme-dark .cm-root [style*="background: rgb(251, 248, 238)"],
+.theme-dark .cm-root [style*="background: rgb(251,248,238)"],
+.theme-dark .cm-root [style*="background: #FBF8EE"],
+.theme-dark .cm-root [style*="background: #fbf8ee"] {
+  background: #171b24 !important;
+  border-color: #303747 !important;
+}
+.theme-dark .cm-root [style*="color: rgb(122, 46, 46)"],
+.theme-dark .cm-root [style*="color: #7A2E2E"],
+.theme-dark .cm-root [style*="color: #7a2e2e"] {
+  color: #ff8d8d !important;
+}
+.theme-dark .cm-root [style*="color: rgb(169, 130, 44)"],
+.theme-dark .cm-root [style*="color: #A9822C"],
+.theme-dark .cm-root [style*="color: #a9822c"] {
+  color: #d9b85c !important;
+}
+.theme-dark .cm-root [style*="color: rgb(74, 94, 67)"],
+.theme-dark .cm-root [style*="color: #4A5E43"],
+.theme-dark .cm-root [style*="color: #4a5e43"] {
+  color: #8fd1a8 !important;
+}
+.theme-dark .cm-root [style*="border-left: 2px solid"] {
+  color: #eef1f7 !important;
+}
+
+/* Give frequently edited combat values enough room to read at a glance. */
+.cm-vital-card {
+  min-width: 158px !important;
+  min-height: 86px;
+}
+.cm-number-box {
+  min-height: 42px !important;
+  padding: 7px 8px !important;
+  border-radius: 9px !important;
+}
+.cm-vital-card .cm-number-box {
+  width: 64px !important;
+  font-size: 19px !important;
+}
+.cm-vital-card .cm-number-box[style*="36"] {
+  width: 54px !important;
+}
+.cm-vital-card input[type="number"] {
+  color: var(--text) !important;
+  background: var(--surface-2) !important;
+  border-color: var(--border) !important;
+}
+.theme-dark .cm-vital-card input[type="number"] {
+  color: #eef1f7 !important;
+  background: #12161e !important;
+  border-color: #3a4253 !important;
+}
+.theme-dark .cm-vital-card span {
+  color: #d7dce6 !important;
+}
