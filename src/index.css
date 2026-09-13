@@ -231,3 +231,27 @@ button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-
 .theme-dark .cm-vital-card span {
   color: #d7dce6 !important;
 }
+
+
+/* Prevent important character-sheet numbers from being clipped. */
+.cm-vital-row { width: 100%; align-items: stretch; overflow: visible; }
+.cm-vital-card { flex: 0 0 auto; box-sizing: border-box; overflow: visible; }
+.cm-vital-speed { min-width: 128px !important; }
+.cm-vital-hit-points { min-width: 255px !important; }
+.cm-vital-card input[type="number"] {
+  min-width: 58px !important;
+  width: 58px !important;
+  height: 42px !important;
+  box-sizing: border-box !important;
+  padding-left: 7px !important;
+  padding-right: 7px !important;
+  flex: 0 0 auto !important;
+  overflow: visible !important;
+}
+.cm-vital-speed input[type="number"] { min-width: 58px !important; width: 58px !important; }
+.cm-vital-hit-points input[type="number"]:last-child { min-width: 52px !important; width: 52px !important; }
+.cm-vital-hit-points > div { flex-wrap: nowrap; }
+.cm-vital-hit-points span { white-space: nowrap; }
+@media (max-width: 1000px) {
+  .cm-vital-hit-points { min-width: 235px !important; }
+}

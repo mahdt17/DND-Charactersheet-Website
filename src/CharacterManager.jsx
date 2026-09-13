@@ -1058,7 +1058,7 @@ export default function CharacterManager() {
 
               {/* Column 3 */}
               <div style={{ display: "flex", flexDirection: "column", gap: 14, minWidth: 0 }}>
-                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                <div className="cm-vital-row" style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
                   <VitalCard icon={<Swords size={16} color={BRASS} />} label="Proficiency">
                     <span style={{ fontFamily: "IBM Plex Mono, monospace", fontSize: 20, fontWeight: 600, color: INK }}>{fmtMod(pb)}</span>
                   </VitalCard>
@@ -1188,7 +1188,7 @@ export default function CharacterManager() {
 
 function VitalCard({ icon, label, children }) {
   return (
-    <div className="cm-card-hover cm-vital-card" style={{ border: `1px solid ${BRASS}88`, borderRadius: 8, padding: "12px 16px", background: "#FBF8EE", minWidth: 140, boxShadow: "0 1px 3px rgba(43,38,32,0.08)" }}>
+    <div className={`cm-card-hover cm-vital-card cm-vital-${label.toLowerCase().replace(/\s+/g, "-")}`} style={{ border: `1px solid ${BRASS}88`, borderRadius: 8, padding: "12px 16px", background: "#FBF8EE", minWidth: 140, boxShadow: "0 1px 3px rgba(43,38,32,0.08)" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
         {icon}
         <span style={{ fontSize: 11, color: INK, opacity: 0.65, letterSpacing: 0.2 }}>{label}</span>
