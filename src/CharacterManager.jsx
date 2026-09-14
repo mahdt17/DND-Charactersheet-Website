@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Plus, Trash2, Heart, Shield, Sparkles, ScrollText, Swords, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Loader2, BookOpen, X } from "lucide-react";
 
+import EquipmentChoice, { resolveEquipment } from "./StartingEquipment";
+import subraces from "./data/subraces.json";
+import equipmentData from "./data/equipment.json";
+import { spellCatalog, countsFor, castingAbility, maxSpellLevel, classes as srdClasses, classLevel, subclasses, armorFor } from "./lib/rules";
+
 const INK = "#2B2620";
 const PAPER = "#EDE6D3";
 const PAPER_DARK = "#E2DAC2";
@@ -305,7 +310,7 @@ function raceBonus(raceName, key) {
 function effectiveAbilities(char) {
   const out = {};
   ABILITIES.forEach((a) => {
-    out[a.key] = (char.abilities[a.key] || 0) + raceBonus(char.race, a.key);
+    out[a.key] = (char.abilities[a.key] || 0) + raceBonus(char.race, a.key) + (char.ancestryBonuses?.[a.key] || 0);
   });
   return out;
 }
@@ -335,7 +340,7 @@ function applyClass(char, className) {
   const isUntouchedDefault = char.hp.max === 10 && char.hp.current === 10 && char.hp.temp === 0 && !char.className && char.level === 1;
   if (isUntouchedDefault) {
     const dieMax = parseInt(data.hitDie.replace("d", ""), 10);
-    const conMod = abilityMod((char.abilities.con || 10) + raceBonus(char.race, "con"));
+    const conMod = abilityMod(effectiveAbilities(char).con);
     const startHp = Math.max(1, dieMax + conMod);
     hp = { current: startHp, max: startHp, temp: 0 };
   }
@@ -407,38 +412,7 @@ const FIXED_RACIAL_SPELLS = {
 
 // Starter 2014 spell catalog used by the guided creator and level-up flow.
 // This intentionally contains concise descriptions; the content database will eventually expand this.
-const SPELL_DATA = [
-  { name:"Guidance", level:0, school:"Divination", classes:["Cleric","Druid"], description:"Touch a willing creature and help it add a small bonus to one ability check before the spell ends." },
-  { name:"Sacred Flame", level:0, school:"Evocation", classes:["Cleric"], description:"Call down radiant fire on a creature that fails a Dexterity save." },
-  { name:"Light", level:0, school:"Evocation", classes:["Bard","Cleric","Druid","Sorcerer","Wizard"], description:"Make one touched object shed bright light." },
-  { name:"Druidcraft", level:0, school:"Transmutation", classes:["Druid"], description:"Create a minor nature-themed magical effect." },
-  { name:"Produce Flame", level:0, school:"Conjuration", classes:["Druid"], description:"Create a small magical flame that can illuminate or be hurled at a target." },
-  { name:"Fire Bolt", level:0, school:"Evocation", classes:["Sorcerer","Wizard"], description:"Make a ranged spell attack that deals fire damage." },
-  { name:"Ray of Frost", level:0, school:"Evocation", classes:["Sorcerer","Wizard"], description:"Launch freezing magic that damages and slows a target." },
-  { name:"Mage Hand", level:0, school:"Conjuration", classes:["Bard","Sorcerer","Warlock","Wizard"], description:"Create a spectral hand that can manipulate unattended objects at range." },
-  { name:"Minor Illusion", level:0, school:"Illusion", classes:["Bard","Sorcerer","Warlock","Wizard"], description:"Create a small sound or image that lasts briefly." },
-  { name:"Prestidigitation", level:0, school:"Transmutation", classes:["Bard","Sorcerer","Warlock","Wizard"], description:"Perform several tiny magical tricks and harmless sensory effects." },
-  { name:"Vicious Mockery", level:0, school:"Enchantment", classes:["Bard"], description:"Insult a creature with magic, dealing psychic damage and imposing disadvantage on its next attack." },
-  { name:"Eldritch Blast", level:0, school:"Evocation", classes:["Warlock"], description:"Fire a beam of crackling energy at a target with a ranged spell attack." },
-
-  { name:"Bless", level:1, school:"Enchantment", classes:["Cleric","Paladin"], description:"Bolster up to three creatures so their attacks and saving throws become more reliable." },
-  { name:"Cure Wounds", level:1, school:"Evocation", classes:["Bard","Cleric","Druid","Paladin","Ranger"], description:"Touch a creature to restore hit points." },
-  { name:"Healing Word", level:1, school:"Evocation", classes:["Bard","Cleric","Druid"], description:"Restore hit points to a creature you can see at range as a bonus action." },
-  { name:"Guiding Bolt", level:1, school:"Evocation", classes:["Cleric"], description:"Make a ranged spell attack that deals radiant damage and helps the next attack against the target." },
-  { name:"Entangle", level:1, school:"Conjuration", classes:["Druid"], description:"Cause plants to restrain creatures in an area on failed Strength saves." },
-  { name:"Faerie Fire", level:1, school:"Evocation", classes:["Bard","Druid"], description:"Outline creatures in light, making them easier to hit and preventing invisibility from hiding them." },
-  { name:"Goodberry", level:1, school:"Transmutation", classes:["Druid","Ranger"], description:"Create magical berries that each restore a small amount of hit points and provide nourishment." },
-  { name:"Magic Missile", level:1, school:"Evocation", classes:["Sorcerer","Wizard"], description:"Create darts of magical force that automatically strike visible targets." },
-  { name:"Shield", level:1, school:"Abjuration", classes:["Sorcerer","Wizard"], description:"React to an incoming attack to briefly increase your Armor Class and stop magic missile." },
-  { name:"Sleep", level:1, school:"Enchantment", classes:["Bard","Sorcerer","Wizard"], description:"Send creatures into magical sleep starting with the weakest in the area." },
-  { name:"Detect Magic", level:1, school:"Divination", classes:["Bard","Cleric","Druid","Sorcerer","Wizard"], description:"Sense the presence of magic and learn about nearby magical effects." },
-  { name:"Armor of Agathys", level:1, school:"Abjuration", classes:["Warlock"], description:"Gain temporary hit points and punish creatures that hit you with cold damage." },
-  { name:"Hex", level:1, school:"Enchantment", classes:["Warlock"], description:"Curse a creature so your attacks deal extra necrotic damage and one ability becomes less effective." },
-  { name:"Hunter's Mark", level:1, school:"Divination", classes:["Ranger"], description:"Mark a creature to deal extra damage to it and gain an edge tracking it." },
-  { name:"Charm Person", level:1, school:"Enchantment", classes:["Bard","Druid","Sorcerer","Warlock","Wizard"], description:"Temporarily charm a humanoid into treating you as a friendly acquaintance." },
-  { name:"Thunderwave", level:1, school:"Evocation", classes:["Bard","Druid","Sorcerer","Wizard"], description:"Release a booming wave that damages and pushes creatures away on a failed Constitution save." },
-  { name:"Chromatic Orb", level:1, school:"Evocation", classes:["Sorcerer","Wizard"], description:"Make a ranged spell attack that deals your choice of elemental damage." },
-];
+const SPELL_DATA = spellCatalog;
 
 const CANTRIP_COUNTS_2014 = {
   Bard:[0,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,4,4],
@@ -461,22 +435,7 @@ const SUBCLASS_FEATURES = {
 };
 
 function spellCountsFor(char, level) {
-  const className = char.className;
-  const abilities = effectiveAbilities({ ...char, level });
-  const castingKey = ({ Bard:"cha", Cleric:"wis", Druid:"wis", Paladin:"cha", Ranger:"wis", Sorcerer:"cha", Warlock:"cha", Wizard:"int" })[className] || null;
-  const abilityModifier = abilityMod(abilities[castingKey] || 10);
-  const cantrips = CANTRIP_COUNTS_2014[className]?.[level] || 0;
-  if (FULL_CASTER_CLASSES.has(className) && ["Cleric","Druid"].includes(className)) {
-    return { cantrips, prepared: Math.max(1, level + abilityModifier), known: null, mode:"prepared" };
-  }
-  if (className === "Wizard") return { cantrips, prepared: null, known: Math.max(6, 6 + Math.max(0, level - 1) * 2), mode:"spellbook" };
-  if (HALF_CASTER_CLASSES.has(className) || SPELL_KNOWN_CLASSES.has(className)) {
-    const known = KNOWN_SPELL_COUNTS_2014[className]?.[level] || 0;
-    const mode = SPELL_KNOWN_CLASSES.has(className) ? "known" : "prepared";
-    const prepared = mode === "prepared" ? Math.max(1, Math.floor(level / 2) + abilityModifier) : null;
-    return { cantrips, prepared, known, mode };
-  }
-  return { cantrips:0, prepared:null, known:null, mode:"none" };
+  return countsFor(char.className, level, effectiveAbilities(char)[castingAbility[char.className]] || 10);
 }
 
 function availableSpells(className, level, cantripOnly=false) {
@@ -607,8 +566,7 @@ function OpenChooserButton({ label, value, onClick, width }) {
     <button
       type="button"
       onClick={onClick}
-      className="cm-btn"
-      className="cm-number-box"
+      className="cm-btn cm-number-box"
       style={{
         ...inputBase,
         width,
@@ -829,27 +787,52 @@ function CreationProgress({ step, total }) {
 function CreationStepHeader({ eyebrow, title, description }) {
   return <div className="creation-step-header"><div className="creation-eyebrow">{eyebrow}</div><h2>{title}</h2><p>{description}</p></div>;
 }
+function useWizardFocus(onCancel) {
+  const close=useRef(onCancel);close.current=onCancel;
+  useEffect(()=>{
+    const previous=document.activeElement, overflow=document.body.style.overflow;
+    document.body.style.overflow='hidden';
+    const overlay=document.querySelector('.creation-overlay');
+    const getFocusable=()=>Array.from(overlay?.querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea:not(:disabled)')||[]).filter(e=>e.getClientRects().length);
+    getFocusable()[0]?.focus();
+    const handle=e=>{if(e.key==='Escape'){e.preventDefault();close.current();}if(e.key==='Tab'){const list=getFocusable();const first=list[0],last=list[list.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}};
+    document.addEventListener('keydown',handle);
+    return()=>{document.body.style.overflow=overflow;document.removeEventListener('keydown',handle);previous?.focus();};
+  },[]);
+}
+function ancestryBonusesFor(draft) {
+  const bonuses={};
+  for(const b of subraces.find(s=>s.name===draft.subrace)?.ability_bonuses||[])bonuses[b.ability_score.index]=b.bonus;
+  if(draft.race==='Half-Elf')for(const key of draft.ancestryChoices||[])bonuses[key]=(bonuses[key]||0)+1;
+  return bonuses;
+}
 function CreationWizard({ onCancel, onFinish }) {
+  useWizardFocus(onCancel);
   const [step,setStep]=useState(0);
-  const [draft,setDraft]=useState({name:"",ruleset:"2014",level:1,race:"",className:"",background:"",abilityMethod:"standard",abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},skillExtras:[],spellChoices:{cantrips:[],spells:[]}});
+  const [draft,setDraft]=useState({name:"",ruleset:"2014",level:1,race:"",className:"",background:"",abilityMethod:"standard",abilities:{str:15,dex:14,con:13,int:12,wis:10,cha:8},subclass:"",subrace:"",ancestryChoices:[],gear:{},classSkills:[],skillExtras:[],spellChoices:{cantrips:[],spells:[]}});
+  const srdClass=srdClasses.find(c=>c.name===draft.className);
+  const earlySubclass=["Cleric","Sorcerer","Warlock"].includes(draft.className);
   const selectedRace=RACE_DATA[draft.race], selectedClass=CLASS_DATA[draft.className], selectedBackground=BACKGROUND_DATA[draft.background];
   const hasSpellStep=!!SPELL_PROGRESSION[draft.className];
   const steps=hasSpellStep?["Basics","Species","Class","Background","Abilities","Training","Spells","Review"]:["Basics","Species","Class","Background","Abilities","Training","Review"];
   const reviewStep=steps.length-1;
   const spellStep=hasSpellStep?steps.length-2:-1;
-  const starterSpellCounts=hasSpellStep?spellCountsFor({className:draft.className,race:draft.race,abilities:draft.abilities},1):null;
+  const starterSpellCounts=hasSpellStep?spellCountsFor({className:draft.className,race:draft.race,abilities:draft.abilities,ancestryBonuses:ancestryBonusesFor(draft)},1):null;
   const starterSpellLimit=starterSpellCounts?.mode==="known"||starterSpellCounts?.mode==="spellbook"?starterSpellCounts.known:starterSpellCounts?.mode==="prepared"?starterSpellCounts.prepared:0;
   const standardValues=[15,14,13,12,10,8];
   const pointCosts={8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
   const pointSpend=Object.values(draft.abilities).reduce((s,v)=>s+(pointCosts[Math.max(8,Math.min(15,Number(v)||8))]??0),0);
+  const classTraining=srdClasses.find(c=>c.name===draft.className)?.proficiency_choices?.find(c=>c.type==='proficiencies'&&c.from?.options?.some(o=>o.item?.index?.startsWith('skill-')));
+  const classSkillOptions=(classTraining?.from?.options||[]).map(o=>o.item?.name?.replace('Skill: ', '')).filter(Boolean);
+  const classSkillNeeded=classTraining?.choose||0;
   const skillExtraNeeded=draft.race==="Half-Elf"?2:0;
   const valid=()=>{
     if(step===0)return draft.name.trim().length>=2;
-    if(step===1)return !!draft.race;
+    if(step===1)return !!draft.race && (draft.race!=="Half-Elf" || draft.ancestryChoices.length===2) && (!subraces.some(s=>s.race.name===draft.race)||!!draft.subrace);
     if(step===2)return !!draft.className;
     if(step===3)return !!draft.background;
     if(step===4)return draft.abilityMethod==="standard"?new Set(Object.values(draft.abilities).map(Number)).size===6: draft.abilityMethod==="pointbuy"?pointSpend<=27:Object.values(draft.abilities).every(v=>Number(v)>=1&&Number(v)<=20);
-    if(step===5)return draft.skillExtras.length===skillExtraNeeded;
+    if(step===5)return (!earlySubclass||draft.subclass.trim().length>=2) && draft.skillExtras.length===skillExtraNeeded && draft.classSkills.length===classSkillNeeded && !draft.classSkills.some(n=>selectedBackground?.skills.includes(n)) && !draft.skillExtras.some(n=>draft.classSkills.includes(n)||selectedBackground?.skills.includes(n));
     if(step===spellStep){
       if(!hasSpellStep) return true;
       const c=(draft.spellChoices?.cantrips||[]).length;
@@ -860,12 +843,21 @@ function CreationWizard({ onCancel, onFinish }) {
     }
     return true;
   };
-  function setAbility(k,v){setDraft(d=>({...d,abilities:{...d.abilities,[k]:Number(v)}}));}
+  function setAbility(k,v){setDraft(d=>{const abilities={...d.abilities};const other=Object.keys(abilities).find(key=>key!==k&&abilities[key]===Number(v));if(d.abilityMethod==='standard'&&other)abilities[other]=abilities[k];abilities[k]=Number(v);return {...d,abilities};});}
   function toggleSkill(name){setDraft(d=>{const has=d.skillExtras.includes(name); if(has)return {...d,skillExtras:d.skillExtras.filter(x=>x!==name)}; if(d.skillExtras.length>=skillExtraNeeded)return d; return {...d,skillExtras:[...d.skillExtras,name]};});}
   function next(){if(valid())setStep(s=>Math.min(steps.length-1,s+1));}
   function finish(){
-    let built={...blankCharacter(draft.name.trim()),name:draft.name.trim(),ruleset:draft.ruleset,level:1,abilities:draft.abilities};
+    let built={...blankCharacter(draft.name.trim()),name:draft.name.trim(),ruleset:draft.ruleset,level:1,abilities:draft.abilities,subclass:draft.subclass,subrace:draft.subrace,ancestryBonuses:ancestryBonusesFor(draft)};
     built=applyRace(built,draft.race); built=applyClass(built,draft.className); built=applyBackground(built,draft.background);
+    const fixed=(srdClass?.starting_equipment||[]).map(e=>{const d=equipmentData.find(x=>x.index===e.equipment.index);return {id:uid(),name:e.equipment.name,qty:e.quantity,equipmentIndex:e.equipment.index,weight:d?.weight||0,auto:'class'};});
+    const chosenGear=(srdClass?.starting_equipment_options||[]).flatMap((c,i)=>resolveEquipment(c,draft.gear[i]));
+    built={...built,inventory:[...built.inventory,...fixed,...chosenGear]};
+    if(draft.subrace==='Hill Dwarf')built={...built,hp:{...built.hp,max:built.hp.max+1,current:built.hp.current+1}};
+    const money=built.inventory.filter(i=>/^\d+ gp$/.test(i.name)).reduce((n,i)=>n+parseInt(i.name),0);
+    built={...built,currency:{gp:money},inventory:built.inventory.filter(i=>!/^\d+ gp$/.test(i.name)),ac:10+abilityMod(effectiveAbilities(built).dex)};
+    built={...built,autoArmor:true,inventory:built.inventory.map(i=>({...i,equipped:i.auto==='class'&&!!(equipmentData.find(e=>e.index===i.equipmentIndex)?.armor_class||equipmentData.find(e=>e.index===i.equipmentIndex)?.damage)}))};
+    built.ac=armorFor(built,effectiveAbilities(built));
+    if(draft.classSkills.length) built={...built,skillProf:{...built.skillProf,...Object.fromEntries(draft.classSkills.map(x=>[x,true]))}};
     if(draft.skillExtras.length) built={...built,skillProf:{...(built.skillProf||{}),...Object.fromEntries(draft.skillExtras.map(x=>[x,true]))}};
     if(hasSpellStep){
       const chosen=[...(draft.spellChoices?.cantrips||[]),...(draft.spellChoices?.spells||[])].map((name)=>{const d=SPELL_DATA.find(x=>x.name===name);return d?{id:`spell:${uid()}`,name:d.name,level:d.level===0?"Cantrip":`${d.level}th-level spell`.replace("1th","1st"),source:draft.className,school:d.school,description:d.description,prepared:starterSpellCounts?.mode==="prepared"}:null}).filter(Boolean);
@@ -883,7 +875,7 @@ function CreationWizard({ onCancel, onFinish }) {
     ["Choose your spells","Your class determines the spell choices available at level 1. The selected spells are added directly to your spellbook."],
     ["Everything is ready","Review the result. Finish to create the populated character sheet."],
   ];
-  return <div className="creation-overlay" role="dialog" aria-modal="true">
+  return <div className="creation-overlay" role="dialog" aria-modal="true" aria-label="Guided character setup">
     <div className="creation-shell">
       <aside className="creation-sidebar">
         <div className="creation-brand"><div className="creation-brand-mark">✦</div><div><strong>Create your character</strong><span>Guided setup</span></div></div>
@@ -894,13 +886,13 @@ function CreationWizard({ onCancel, onFinish }) {
       <section className="creation-content">
         <div className="creation-topbar"><div><span>Step {step+1} of {steps.length}</span><strong>{steps[step]}</strong></div><div className="creation-top-summary">{draft.name||"New character"}{draft.className?` · ${draft.className}`:""}</div></div>
         <div className="creation-scroll">
-          {step===0&&<><CreationStepHeader eyebrow="Character basics" title={stepPrompt[0][0]} description={stepPrompt[0][1]}/><div className="creation-section-grid two"><label className="creation-field"><span>Character name</span><input autoFocus value={draft.name} onChange={e=>setDraft(d=>({...d,name:e.target.value}))} placeholder="e.g. Newman"/><small>You can change this later.</small></label><label className="creation-field"><span>Starting level</span><select value="1" disabled><option value="1">Level 1</option></select><small>Guided creation currently starts at level 1.</small></label></div><div className="creation-section"><div className="creation-section-title">Ruleset</div><div className="creation-grid two">{[["2014","2014 5e","Classic 5th Edition"],["2024","2024 rules","Revised 5th Edition"]].map(([id,t,m])=><CreationChoiceCard key={id} selected={draft.ruleset===id} title={t} meta={m} description={id==="2014"?"Use the current 2014-style data available in the app.":"Store this as a 2024 character; rules-specific content will continue to expand."} onClick={()=>setDraft(d=>({...d,ruleset:id}))}/>)}</div></div></>}
-          {step===1&&<><CreationStepHeader eyebrow="Ancestry" title={stepPrompt[1][0]} description={stepPrompt[1][1]}/><div className="creation-grid three">{Object.entries(RACE_DATA).map(([n,d])=><CreationChoiceCard key={n} selected={draft.race===n} title={n} meta={`${d.size} · ${d.speed}`} description={d.blurb} onClick={()=>setDraft(x=>({...x,race:n,skillExtras:n==="Half-Elf"?x.skillExtras.slice(0,2):[]}))}><div className="creation-choice-foot">{d.abilityBonus}</div></CreationChoiceCard>)}</div>{selectedRace&&<div className="creation-info-panel"><strong>{draft.race}</strong><span>{selectedRace.traits.map(([n])=>n).join(" · ")}</span></div>}</>}
-          {step===2&&<><CreationStepHeader eyebrow="Calling" title={stepPrompt[2][0]} description={stepPrompt[2][1]}/><div className="creation-grid three">{Object.entries(CLASS_DATA).map(([n,d])=><CreationChoiceCard key={n} selected={draft.className===n} title={n} meta={`${d.hitDie} · ${d.primaryAbility}`} description={d.blurb} onClick={()=>setDraft(x=>({...x,className:n,spellChoices:{cantrips:[],spells:[]}}))}><div className="creation-choice-foot">{d.saves} saves</div></CreationChoiceCard>)}</div>{selectedClass&&<div className="creation-detail-panel"><div><strong>Level 1 features</strong></div><div className="creation-feature-list">{selectedClass.features.map(([n,d])=><div key={n}><b>{n}</b><span>{d}</span></div>)}</div></div>}</>}
+          {step===0&&<><CreationStepHeader eyebrow="Character basics" title={stepPrompt[0][0]} description={stepPrompt[0][1]}/><div className="creation-section-grid two"><label className="creation-field"><span>Character name</span><input autoFocus value={draft.name} onChange={e=>setDraft(d=>({...d,name:e.target.value}))} placeholder="e.g. Newman"/><small>You can change this later.</small></label><label className="creation-field"><span>Starting level</span><select value="1" disabled><option value="1">Level 1</option></select><small>Guided creation currently starts at level 1.</small></label></div><div className="creation-section"><div className="creation-section-title">Ruleset</div><div className="creation-grid two">{[["2014","2014 5e","SRD 5.1 · Classic 5th Edition"]].map(([id,t,m])=><CreationChoiceCard key={id} selected={draft.ruleset===id} title={t} meta={m} description={id==="2014"?"Use the current 2014-style data available in the app.":"Store this as a 2024 character; rules-specific content will continue to expand."} onClick={()=>setDraft(d=>({...d,ruleset:id}))}/>)}</div></div></>}
+          {step===1&&<><CreationStepHeader eyebrow="Ancestry" title={stepPrompt[1][0]} description={stepPrompt[1][1]}/><div className="creation-grid three">{Object.entries(RACE_DATA).map(([n,d])=><CreationChoiceCard key={n} selected={draft.race===n} title={n} meta={`${d.size} · ${d.speed}`} description={d.blurb} onClick={()=>setDraft(x=>({...x,race:n,subrace:"",ancestryChoices:[],skillExtras:n==="Half-Elf"?x.skillExtras.slice(0,2):[]}))}><div className="creation-choice-foot">{d.abilityBonus}</div></CreationChoiceCard>)}</div>{subraces.some(s=>s.race.name===draft.race)&&<div className="creation-section"><div className="creation-section-title">Choose your subrace</div><div className="creation-grid two">{subraces.filter(s=>s.race.name===draft.race).map(s=><CreationChoiceCard key={s.index} title={s.name} description={s.desc} selected={draft.subrace===s.name} onClick={()=>setDraft(d=>({...d,subrace:s.name}))}/>)}</div><p className="creation-helper">SRD subraces are included. Additional traits and choice-based magic can be recorded in Features.</p></div>}{draft.race==='Half-Elf'&&<div className="creation-section"><div className="creation-section-title">Choose two other abilities to increase by 1</div><div className="skill-picker-grid">{ABILITIES.filter(a=>a.key!=='cha').map(a=><button key={a.key} className={`skill-pill ${draft.ancestryChoices.includes(a.key)?'is-selected':''}`} onClick={()=>setDraft(d=>({...d,ancestryChoices:d.ancestryChoices.includes(a.key)?d.ancestryChoices.filter(k=>k!==a.key):d.ancestryChoices.length<2?[...d.ancestryChoices,a.key]:d.ancestryChoices}))}>{a.label} +1</button>)}</div></div>}{selectedRace&&<div className="creation-info-panel"><strong>{draft.race}</strong><span>{selectedRace.traits.map(([n])=>n).join(" · ")}</span></div>}</>}
+          {step===2&&<><CreationStepHeader eyebrow="Calling" title={stepPrompt[2][0]} description={stepPrompt[2][1]}/><div className="creation-grid three">{Object.entries(CLASS_DATA).map(([n,d])=><CreationChoiceCard key={n} selected={draft.className===n} title={n} meta={`${d.hitDie} · ${d.primaryAbility}`} description={d.blurb} onClick={()=>setDraft(x=>({...x,className:n,subclass:"",gear:{},classSkills:[],spellChoices:{cantrips:[],spells:[]}}))}><div className="creation-choice-foot">{d.saves} saves</div></CreationChoiceCard>)}</div>{selectedClass&&<div className="creation-detail-panel"><div><strong>Level 1 features</strong></div><div className="creation-feature-list">{selectedClass.features.map(([n,d])=><div key={n}><b>{n}</b><span>{d}</span></div>)}</div></div>}</>}
           {step===3&&<><CreationStepHeader eyebrow="Origin" title={stepPrompt[3][0]} description={stepPrompt[3][1]}/><div className="creation-grid three">{Object.entries(BACKGROUND_DATA).map(([n,d])=><CreationChoiceCard key={n} selected={draft.background===n} title={n} meta={d.skills} description={d.blurb} onClick={()=>setDraft(x=>({...x,background:n}))}><div className="creation-choice-foot">{d.feature[0]}</div></CreationChoiceCard>)}</div>{selectedBackground&&<div className="creation-info-panel"><strong>{selectedBackground.feature[0]}</strong><span>{selectedBackground.feature[1]}</span></div>}</>}
-          {step===4&&<><CreationStepHeader eyebrow="Abilities" title={stepPrompt[4][0]} description={stepPrompt[4][1]}/><div className="creation-methods">{[["standard","Standard array","15, 14, 13, 12, 10, 8"],["pointbuy","Point buy","27 points"],["custom","Custom","Enter your own values"]].map(([id,t,m])=><button type="button" key={id} className={`creation-method ${draft.abilityMethod===id?"is-selected":""}`} onClick={()=>setDraft(d=>({ ...d,abilityMethod:id,abilities:id==="standard"?{str:15,dex:14,con:13,int:12,wis:10,cha:8}:id==="pointbuy"?{str:8,dex:8,con:8,int:8,wis:8,cha:8}:d.abilities}))}><strong>{t}</strong><span>{m}</span></button>)}</div><div className="ability-builder">{ABILITIES.map(a=><label className="ability-builder-row" key={a.key}><span><b>{a.label}</b><small>{fmtMod(abilityMod(Number(draft.abilities[a.key])))}</small></span><select value={draft.abilities[a.key]} onChange={e=>setAbility(a.key,e.target.value)}>{(draft.abilityMethod==="standard"?standardValues:draft.abilityMethod==="pointbuy"?[8,9,10,11,12,13,14,15]:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]).map(v=><option key={v} value={v} disabled={draft.abilityMethod==="standard"&&v!==draft.abilities[a.key]&&Object.values(draft.abilities).includes(v)}>{v}</option>)}</select>{draft.abilityMethod==="pointbuy"&&<small>{pointCosts[Math.max(8,Math.min(15,Number(draft.abilities[a.key])))]??0} pts</small>}</label>)}</div>{draft.abilityMethod==="pointbuy"&&<div className={`creation-budget ${pointSpend>27?"over":""}`}><span>Points spent</span><strong>{pointSpend} / 27</strong></div>}</>}
-          {step===5&&<><CreationStepHeader eyebrow="Training" title={stepPrompt[5][0]} description={stepPrompt[5][1]}/><div className="training-summary"><div className="training-card"><span>Saving throws</span><strong>{selectedClass?.saves||"—"}</strong></div><div className="training-card"><span>Armor</span><strong>{selectedClass?.armor||"—"}</strong></div><div className="training-card"><span>Weapons</span><strong>{selectedClass?.weapons||"—"}</strong></div><div className="training-card"><span>Background skills</span><strong>{selectedBackground?.skills||"—"}</strong></div></div>{skillExtraNeeded>0&&<div className="creation-section"><div className="creation-section-title">Choose {skillExtraNeeded} extra skills</div><p className="creation-helper">Your {draft.race} grants additional skill choices.</p><div className="skill-picker-grid">{SKILLS.map(([n])=><button type="button" key={n} className={`skill-pill ${draft.skillExtras.includes(n)?"is-selected":""}`} onClick={()=>toggleSkill(n)}>{draft.skillExtras.includes(n)?"✓ ":""}{n}</button>)}</div></div>}<div className="creation-auto-note"><strong>Applied automatically</strong><span>Species traits, class saving throws, class HP, background skills, background equipment, speed, and level 1 features are applied when you finish.</span></div></>}
-          {step===spellStep&&<><CreationStepHeader eyebrow="Spellcasting" title={stepPrompt[6][0]} description={stepPrompt[6][1]}/>{starterSpellCounts?.cantrips>0&&<div className="creation-section"><div className="creation-section-title">Cantrips · choose {starterSpellCounts.cantrips}</div><div className="skill-picker-grid">{availableSpells(draft.className,0,true).map(sp=><button type="button" key={sp.name} className={`skill-pill ${(draft.spellChoices?.cantrips||[]).includes(sp.name)?"is-selected":""}`} onClick={()=>setDraft(d=>{const list=d.spellChoices.cantrips;const has=list.includes(sp.name);return {...d,spellChoices:{...d.spellChoices,cantrips:has?list.filter(x=>x!==sp.name):list.length>=starterSpellCounts.cantrips?list:[...list,sp.name]}};})}>{(draft.spellChoices?.cantrips||[]).includes(sp.name)?"✓ ":""}{sp.name}</button>)}</div></div>}{starterSpellLimit>0&&<div className="creation-section"><div className="creation-section-title">Starting spells · choose {starterSpellLimit}</div><div className="spell-choice-grid">{availableSpells(draft.className,1,false).filter(sp=>sp.level>0).map(sp=><button type="button" key={sp.name} className={`spell-choice ${(draft.spellChoices?.spells||[]).includes(sp.name)?"is-selected":""}`} onClick={()=>setDraft(d=>{const list=d.spellChoices.spells;const has=list.includes(sp.name);return {...d,spellChoices:{...d.spellChoices,spells:has?list.filter(x=>x!==sp.name):list.length>=starterSpellLimit?list:[...list,sp.name]}};})}><strong>{(draft.spellChoices?.spells||[]).includes(sp.name)?"✓ ":""}{sp.name}</strong><span>Level {sp.level} · {sp.school}</span><small>{sp.description}</small></button>)}</div></div>}<div className="creation-auto-note"><strong>Added automatically</strong><span>Selected spells will be placed on the character sheet when you finish creation. Spellcasting ability and progression are calculated from your class.</span></div></>}\n          {step===reviewStep&&<><CreationStepHeader eyebrow="Final review" title={stepPrompt[steps.length-1][0]} description={stepPrompt[steps.length-1][1]}/><div className="review-hero"><div className="review-avatar">{(draft.name||"?").charAt(0).toUpperCase()}</div><div><h3>{draft.name||"Unnamed adventurer"}</h3><p>{draft.race||"No species"} · {draft.className||"No class"} · {draft.background||"No background"} · Level 1</p></div></div><div className="review-grid">{ABILITIES.map(a=>{const s=Number(draft.abilities[a.key]),b=draft.race?raceBonus(draft.race,a.key):0;return <div className="review-stat" key={a.key}><span>{a.label}</span><strong>{s+b}</strong><small>{fmtMod(abilityMod(s+b))}</small></div>})}</div><div className="review-sections"><div><span>Hit die</span><strong>{selectedClass?.hitDie||"—"}</strong></div><div><span>Speed</span><strong>{selectedRace?.speed||"—"}</strong></div><div><span>Saving throws</span><strong>{selectedClass?.saves||"—"}</strong></div><div><span>Background skills</span><strong>{selectedBackground?.skills||"—"}</strong></div><div className="wide"><span>Starting features</span><strong>{selectedClass?.features.map(([n])=>n).join(" · ")||"—"}</strong></div><div className="wide"><span>Background equipment</span><strong>{selectedBackground?.equipment||"—"}</strong></div></div></>}
+          {step===4&&<><CreationStepHeader eyebrow="Abilities" title={stepPrompt[4][0]} description={stepPrompt[4][1]}/><div className="creation-methods">{[["standard","Standard array","15, 14, 13, 12, 10, 8"],["pointbuy","Point buy","27 points"],["custom","Custom","Enter your own values"]].map(([id,t,m])=><button type="button" key={id} className={`creation-method ${draft.abilityMethod===id?"is-selected":""}`} onClick={()=>setDraft(d=>({ ...d,abilityMethod:id,abilities:id==="standard"?{str:15,dex:14,con:13,int:12,wis:10,cha:8}:id==="pointbuy"?{str:8,dex:8,con:8,int:8,wis:8,cha:8}:d.abilities}))}><strong>{t}</strong><span>{m}</span></button>)}</div><div className="ability-builder">{ABILITIES.map(a=><label className="ability-builder-row" key={a.key}><span><b>{a.label}</b><small>{fmtMod(abilityMod(Number(draft.abilities[a.key])))}</small></span><select value={draft.abilities[a.key]} onChange={e=>setAbility(a.key,e.target.value)}>{(draft.abilityMethod==="standard"?standardValues:draft.abilityMethod==="pointbuy"?[8,9,10,11,12,13,14,15]:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]).map(v=><option key={v} value={v}>{v}</option>)}</select>{draft.abilityMethod==="pointbuy"&&<small>{pointCosts[Math.max(8,Math.min(15,Number(draft.abilities[a.key])))]??0} pts</small>}</label>)}</div>{draft.abilityMethod==="pointbuy"&&<div className={`creation-budget ${pointSpend>27?"over":""}`}><span>Points spent</span><strong>{pointSpend} / 27</strong></div>}</>}
+          {step===5&&<><CreationStepHeader eyebrow="Training" title={stepPrompt[5][0]} description={stepPrompt[5][1]}/><div className="training-summary"><div className="training-card"><span>Saving throws</span><strong>{selectedClass?.saves||"—"}</strong></div><div className="training-card"><span>Armor</span><strong>{selectedClass?.armor||"—"}</strong></div><div className="training-card"><span>Weapons</span><strong>{selectedClass?.weapons||"—"}</strong></div><div className="training-card"><span>Background skills</span><strong>{selectedBackground?.skills||"—"}</strong></div></div>{classSkillNeeded>0&&<div className="creation-section"><div className="creation-section-title">Class skills · choose {classSkillNeeded}</div><div className="skill-picker-grid">{classSkillOptions.map(n=><button type="button" key={n} className={`skill-pill ${draft.classSkills.includes(n)?"is-selected":""}`} disabled={selectedBackground?.skills.includes(n)} onClick={()=>setDraft(d=>({...d,classSkills:d.classSkills.includes(n)?d.classSkills.filter(x=>x!==n):d.classSkills.length<classSkillNeeded?[...d.classSkills,n]:d.classSkills}))}>{draft.classSkills.includes(n)?"✓ ":""}{n}</button>)}</div></div>}{skillExtraNeeded>0&&<div className="creation-section"><div className="creation-section-title">Choose {skillExtraNeeded} extra skills</div><p className="creation-helper">Your {draft.race} grants additional skill choices.</p><div className="skill-picker-grid">{SKILLS.map(([n])=><button type="button" key={n} className={`skill-pill ${draft.skillExtras.includes(n)?"is-selected":""}`} disabled={selectedBackground?.skills.includes(n)||draft.classSkills.includes(n)} onClick={()=>toggleSkill(n)}>{draft.skillExtras.includes(n)?"✓ ":""}{n}</button>)}</div></div>}{earlySubclass&&<div className="creation-section"><label className="creation-field"><span>Choose a subclass</span><input list="starter-subclasses" value={draft.subclass} onChange={e=>setDraft(d=>({...d,subclass:e.target.value}))} placeholder="Choose an SRD subclass or enter your own"/><datalist id="starter-subclasses">{subclasses.filter(s=>s.class.name===draft.className).map(s=><option key={s.index} value={s.name}/>)}</datalist></label></div>}<div className="creation-section"><div className="creation-section-title">Starting class equipment</div><p className="creation-helper">Review the suggested choices or select a different loadout. Equipment is added to your inventory.</p>{(srdClass?.starting_equipment_options||[]).map((choice,i)=><EquipmentChoice key={`${draft.className}-${i}`} choice={choice} value={draft.gear[i]} onChange={value=>setDraft(d=>({...d,gear:{...d.gear,[i]:value}}))}/>)}</div><div className="creation-auto-note"><strong>Applied automatically</strong><span>Species traits, class saving throws, class HP, background skills, background equipment, speed, and level 1 features are applied when you finish.</span></div></>}
+          {step===spellStep&&<><CreationStepHeader eyebrow="Spellcasting" title={stepPrompt[6][0]} description={stepPrompt[6][1]}/>{starterSpellCounts?.cantrips>0&&<div className="creation-section"><div className="creation-section-title">Cantrips · choose {starterSpellCounts.cantrips}</div><div className="skill-picker-grid">{availableSpells(draft.className,0,true).map(sp=><button type="button" key={sp.name} className={`skill-pill ${(draft.spellChoices?.cantrips||[]).includes(sp.name)?"is-selected":""}`} onClick={()=>setDraft(d=>{const list=d.spellChoices.cantrips;const has=list.includes(sp.name);return {...d,spellChoices:{...d.spellChoices,cantrips:has?list.filter(x=>x!==sp.name):list.length>=starterSpellCounts.cantrips?list:[...list,sp.name]}};})}>{(draft.spellChoices?.cantrips||[]).includes(sp.name)?"✓ ":""}{sp.name}</button>)}</div></div>}{starterSpellLimit>0&&<div className="creation-section"><div className="creation-section-title">Starting spells · choose {starterSpellLimit}</div><div className="spell-choice-grid">{availableSpells(draft.className,1,false).filter(sp=>sp.level>0).map(sp=><button type="button" key={sp.name} className={`spell-choice ${(draft.spellChoices?.spells||[]).includes(sp.name)?"is-selected":""}`} onClick={()=>setDraft(d=>{const list=d.spellChoices.spells;const has=list.includes(sp.name);return {...d,spellChoices:{...d.spellChoices,spells:has?list.filter(x=>x!==sp.name):list.length>=starterSpellLimit?list:[...list,sp.name]}};})}><strong>{(draft.spellChoices?.spells||[]).includes(sp.name)?"✓ ":""}{sp.name}</strong><span>Level {sp.level} · {sp.school}</span><small>{sp.description}</small></button>)}</div></div>}<div className="creation-auto-note"><strong>Added automatically</strong><span>Selected spells will be placed on the character sheet when you finish creation. Spellcasting ability and progression are calculated from your class.</span></div></>}\n          {step===reviewStep&&<><CreationStepHeader eyebrow="Final review" title={stepPrompt[7][0]} description={stepPrompt[7][1]}/><div className="review-hero"><div className="review-avatar">{(draft.name||"?").charAt(0).toUpperCase()}</div><div><h3>{draft.name||"Unnamed adventurer"}</h3><p>{draft.race||"No species"} · {draft.className||"No class"} · {draft.background||"No background"} · Level 1</p></div></div><div className="review-grid">{ABILITIES.map(a=>{const s=Number(draft.abilities[a.key]),b=(draft.race?raceBonus(draft.race,a.key):0)+(ancestryBonusesFor(draft)[a.key]||0);return <div className="review-stat" key={a.key}><span>{a.label}</span><strong>{s+b}</strong><small>{fmtMod(abilityMod(s+b))}</small></div>})}</div><div className="review-sections"><div><span>Hit die</span><strong>{selectedClass?.hitDie||"—"}</strong></div><div><span>Speed</span><strong>{selectedRace?.speed||"—"}</strong></div><div><span>Saving throws</span><strong>{selectedClass?.saves||"—"}</strong></div><div><span>Background skills</span><strong>{selectedBackground?.skills||"—"}</strong></div><div className="wide"><span>Starting features</span><strong>{selectedClass?.features.map(([n])=>n).join(" · ")||"—"}</strong></div><div className="wide"><span>Background equipment</span><strong>{selectedBackground?.equipment||"—"}</strong></div></div></>}
         </div>
         <div className="creation-footer"><button type="button" className="creation-secondary" onClick={step===0?onCancel:()=>setStep(s=>s-1)}>{step===0?"Cancel":"Back"}</button><div className="creation-footer-status">{!valid()&&<span>{step===0?"Add a name to continue.":step===4?"Finish assigning your ability scores.":"Complete this step to continue."}</span>}</div>{step<steps.length-1?<button type="button" className="creation-primary" disabled={!valid()} onClick={next}>Continue <ChevronRight size={17}/></button>:<button type="button" className="creation-primary" onClick={finish}>Create Character <Plus size={17}/></button>}</div>
       </section>
@@ -910,16 +902,17 @@ function CreationWizard({ onCancel, onFinish }) {
 
 
 function LevelUpWizard({ char, onCancel, onFinish }) {
+  useWizardFocus(onCancel);
   const targetLevel = Math.min(20, char.level + 1);
   const classData = CLASS_DATA[char.className];
-  const newFeatures = (classData?.table || []).find(([lvl]) => lvl === targetLevel)?.[1] || [];
-  const hasASI = newFeatures.some((f) => /ability score improvement/i.test(f));
+  const newFeatures = (classLevel(char.className,targetLevel).features||[]).map(f=>f.name);
+  const hasASI = (classLevel(char.className,targetLevel).ability_score_bonuses||0) > (classLevel(char.className,char.level).ability_score_bonuses||0);
   const subclassFeature = SUBCLASS_FEATURES[char.className];
-  const needsSubclass = !!subclassFeature && newFeatures.some((f) => f === subclassFeature || f.toLowerCase().includes(subclassFeature.toLowerCase().replace(" feature", ""))) && !char.subclass;
+  const needsSubclass = targetLevel >= ({Cleric:1,Sorcerer:1,Warlock:1,Wizard:2,Druid:2}[char.className]||3) && !char.subclass;
   const spellcasting = !!SPELL_PROGRESSION[char.className];
   const counts = spellcasting ? spellCountsFor(char, targetLevel) : null;
   const prevCounts = spellcasting ? spellCountsFor(char, char.level) : null;
-  const cantripGain = counts ? Math.max(0, counts.cantrips - (prevCounts?.cantrips || 0)) : 0;
+  const cantripGain = counts ? Math.max(0, counts.cantrips - (char.spells || []).filter(s => s.source !== char.race && (s.level === "Cantrip" || s.level === 0)).length) : 0;
   const currentCantrips = (char.spells || []).filter((s) => s.level === "Cantrip" || s.level === 0).map((s) => s.name);
   const currentChosen = (char.spells || []).filter((s) => s.source !== char.race || !s.auto).map((s) => s.name);
   const knownTarget = counts?.known ?? counts?.prepared ?? 0;
@@ -931,13 +924,15 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
   const [step, setStep] = useState(0);
   const [abilityPlan, setAbilityPlan] = useState({ mode: "plus-two", first: "str", second: "str" });
   const [subclass, setSubclass] = useState(char.subclass || "");
+  const [featName,setFeatName]=useState("");
+  const [featNotes,setFeatNotes]=useState("");
   const [newSpells, setNewSpells] = useState([]);
   const [newCantrips, setNewCantrips] = useState([]);
   const [preparedSpells, setPreparedSpells] = useState((char.spells || []).filter((s) => s.prepared).map((s) => s.name));
 
   const abilityChanges = () => {
     const base = { ...char.abilities };
-    if (!hasASI) return base;
+    if (!hasASI || abilityPlan.mode==="feat") return base;
     if (abilityPlan.mode === "plus-two") {
       base[abilityPlan.first] = Math.min(20, Number(base[abilityPlan.first]) + 2);
     } else {
@@ -951,9 +946,9 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
   const toggleChoice = (name, list, setter, limit) => {
     setter((prev) => prev.includes(name) ? prev.filter((x) => x !== name) : (prev.length >= limit ? prev : [...prev, name]));
   };
-  const spellCandidates = availableSpells(char.className, Math.min(9, Math.max(1, Math.ceil(targetLevel / 2))), false);
+  const spellCandidates = availableSpells(char.className, maxSpellLevel(char.className, targetLevel), false);
   const cantripCandidates = availableSpells(char.className, 0, true);
-  const preparedLimit = counts?.mode === "prepared" ? Math.max(1, counts.prepared || 1) : null;
+  const preparedLimit = counts?.mode === "prepared" ? countsFor(char.className,targetLevel,effectiveNextAbilities[castingAbility[char.className]]).prepared : null;
   const knownLimit = counts?.mode === "known" || counts?.mode === "spellbook" ? spellGain : 0;
 
   const steps = [];
@@ -967,12 +962,15 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
 
   const valid = () => {
     if (steps[step] === "Ability improvement" || steps[step] === "Level choices") {
+      if (needsSubclass && subclass.trim().length<2) return false;
       if (hasASI) {
-        if (abilityPlan.mode === "plus-two") return Number(char.abilities[abilityPlan.first]) <= 18;
-        return abilityPlan.first !== abilityPlan.second && Number(char.abilities[abilityPlan.first]) <= 19 && Number(char.abilities[abilityPlan.second]) <= 19;
+        if (abilityPlan.mode==="feat") return featName.trim().length>=2;
+        if (abilityPlan.mode === "plus-two") return effectiveAbilities(char)[abilityPlan.first] <= 18;
+        return abilityPlan.first !== abilityPlan.second && effectiveAbilities(char)[abilityPlan.first] <= 19 && effectiveAbilities(char)[abilityPlan.second] <= 19;
       }
       if (needsSubclass) return subclass.trim().length >= 2;
     }
+    if (steps[step] === "Subclass" && subclass.trim().length < 2) return false;
     if (isSpell) {
       if (cantripGain > 0 && newCantrips.length !== cantripGain) return false;
       if (knownLimit > 0 && newSpells.length !== knownLimit) return false;
@@ -986,9 +984,10 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
     const nextAbilities = abilityChanges();
     const nextDraft = { ...char, level: targetLevel, abilities: nextAbilities };
     const nextConMod = abilityMod(effectiveAbilities(nextDraft).con);
-    const gain = Math.max(1, avgHitDie(char.hitDie) + nextConMod);
-    let next = syncProgression({ ...nextDraft, hp: { ...char.hp, max: char.hp.max + gain, current: char.hp.current + gain } }, targetLevel);
+    const gain = Math.max(1, avgHitDie(char.hitDie) + nextConMod)+(char.subrace==="Hill Dwarf"?1:0);
+    let next = syncProgression({ ...nextDraft, hp: { ...char.hp, max: char.hp.max + gain + (nextConMod-oldConMod)*char.level, current: char.hp.current + gain + (nextConMod-oldConMod)*char.level } }, targetLevel);
     if (hasASI) next = { ...next, abilityImprovement: { level: targetLevel, mode: abilityPlan.mode, first: abilityPlan.first, second: abilityPlan.mode === "plus-one-two" ? abilityPlan.second : null } };
+    if (hasASI && abilityPlan.mode==="feat") next={...next,feats:[...(char.feats||[]),{id:uid(),name:featName.trim(),description:featNotes,level:targetLevel}]};
     if (needsSubclass) next = { ...next, subclass: subclass.trim() };
     if (spellcasting) {
       const existing = Array.isArray(char.spells) ? char.spells.filter((s) => !(s._levelUpPending)) : [];
@@ -997,14 +996,15 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
         ...newSpells.map((name) => { const d = SPELL_DATA.find((x) => x.name === name); return { id:`spell:${uid()}`, name, level:`${d.level}st-level spell`.replace("1st", d.level===1?"1st":`${d.level}th`), source:char.className, school:d.school, description:d.description, acquiredLevel:targetLevel, prepared:counts?.mode === "prepared" }; }),
       ];
       if (counts?.mode === "prepared") {
-        next.spells = [...existing.filter((s) => s.level === "Cantrip" || s.level === 0), ...existing.filter((s) => s.level !== "Cantrip" && s.level !== 0).map((s) => ({ ...s, prepared: preparedSpells.includes(s.name) })), ...additions];
+        next.spells = [...existing.map(s=>({...s,prepared:preparedSpells.includes(s.name)})), ...preparedSpells.filter(name=>!existing.some(s=>s.name===name)).map(name=>({...SPELL_DATA.find(s=>s.name===name),id:`spell:${uid()}`,source:char.className,prepared:true})), ...additions];
       } else next.spells = [...existing, ...additions];
       next.spellInfo = { ...spellCountsFor(next, targetLevel), casterType: FULL_CASTER_CLASSES.has(char.className) ? "Full caster" : HALF_CASTER_CLASSES.has(char.className) ? "Half caster" : "Pact caster / spells known", spellcastingAbility: classDataAbility(char.className), level: targetLevel };
     }
+    if(next.autoArmor)next.ac=armorFor(next,effectiveAbilities(next));
     onFinish(next);
   }
 
-  return <div className="creation-overlay" role="dialog" aria-modal="true">
+  return <div className="creation-overlay" role="dialog" aria-modal="true" aria-label="Guided character setup">
     <div className="creation-shell levelup-shell">
       <aside className="creation-sidebar">
         <div className="creation-brand"><div className="creation-brand-mark">↑</div><div><strong>Level up {char.name}</strong><span>Guided progression</span></div></div>
@@ -1028,20 +1028,18 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
             <CreationStepHeader eyebrow="Your choice" title={hasASI ? "Improve your abilities" : "Choose your subclass"} description={hasASI && needsSubclass ? "This level grants both an Ability Score Improvement and a subclass choice." : hasASI ? "Increase one ability by 2 or two abilities by 1. The application will recalculate your modifiers and HP." : "Enter or choose the subclass you are taking at this level. The subclass database will become richer as content is added."}/>
             {hasASI && <div className="creation-section">
               <div className="creation-methods">
-                {[ ["plus-two","+2 to one ability","Increase one score by 2"], ["plus-one-two","+1 to two abilities","Split the increase between two different scores"] ].map(([id,t,m]) => <button type="button" key={id} className={`creation-method ${abilityPlan.mode===id?"is-selected":""}`} onClick={()=>setAbilityPlan(x=>({...x,mode:id}))}><strong>{t}</strong><span>{m}</span></button>)}
+                {[ ["plus-two","+2 to one ability","Increase one score by 2"], ["plus-one-two","+1 to two abilities","Split the increase between two different scores"], ["feat","Take a feat","Optional rule · DM approval"] ].map(([id,t,m]) => <button type="button" key={id} className={`creation-method ${abilityPlan.mode===id?"is-selected":""}`} onClick={()=>setAbilityPlan(x=>({...x,mode:id}))}><strong>{t}</strong><span>{m}</span></button>)}
               </div>
-              <div className="ability-builder">
-                {ABILITIES.map(a => <label className="ability-builder-row" key={a.key}><span><b>{a.label}</b><small>Current {char.abilities[a.key]} · Next {effectiveNextAbilities[a.key]}</small></span><select value={abilityPlan.first} onChange={e=>setAbilityPlan(x=>({...x,first:e.target.value}))}>{ABILITIES.map(x=><option key={x.key} value={x.key}>{x.label}{Number(char.abilities[x.key])>=20?" (max)":""}</option>)}</select>{abilityPlan.mode==="plus-one-two" && <select value={abilityPlan.second} onChange={e=>setAbilityPlan(x=>({...x,second:e.target.value}))}>{ABILITIES.map(x=><option key={x.key} value={x.key}>{x.label}</option>)}</select>}</label>)}
-              </div>
-              <div className="creation-auto-note"><strong>Automatically recalculated</strong><span>Ability modifiers, saving throws, skills, attack modifiers, and Constitution-based HP will update from your new scores.</span></div>
+              {abilityPlan.mode==='feat'?<><label className="creation-field"><span>Feat name</span><input value={featName} onChange={e=>setFeatName(e.target.value)}/></label><label className="creation-field"><span>Feat effects and prerequisites</span><textarea rows={4} value={featNotes} onChange={e=>setFeatNotes(e.target.value)}/><small>Confirm eligibility with your DM. Record any ability bonuses or other effects manually on the sheet.</small></label></>:<><div className="creation-section-grid two"><label className="creation-field"><span>{abilityPlan.mode==='plus-two'?'Ability to increase by 2':'First ability (+1)'}</span><select value={abilityPlan.first} onChange={e=>setAbilityPlan(x=>({...x,first:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>{abilityPlan.mode==='plus-one-two'&&<label className="creation-field"><span>Second ability (+1)</span><select value={abilityPlan.second} onChange={e=>setAbilityPlan(x=>({...x,second:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>}</div><div className="review-grid">{ABILITIES.map(a=><div key={a.key} className="review-stat"><span>{a.label}</span><strong>{effectiveAbilities(char)[a.key]} → {effectiveNextAbilities[a.key]}</strong></div>)}</div></>}
+              <div className="creation-auto-note"><strong>Automatically recalculated</strong><span>Ability modifiers, saving throws, skills, spell attacks, and Constitution-based HP update automatically. Review custom attacks and feat effects manually.</span></div>
             </div>}
-            {needsSubclass && <div className="creation-section"><div className="creation-section-title">{subclassFeature}</div><label className="creation-field"><span>Subclass name</span><input value={subclass} onChange={e=>setSubclass(e.target.value)} placeholder="e.g. Champion, Life Domain, School of Evocation"/><small>The full subclass catalog will be added to the content database. Your current choice is saved now so the sheet can track it.</small></label></div>}
+            {needsSubclass && <div className="creation-section"><div className="creation-section-title">{subclassFeature}</div><label className="creation-field"><span>Subclass name</span><input list="level-subclasses" value={subclass} onChange={e=>setSubclass(e.target.value)} placeholder="Choose an SRD subclass or enter your own"/><datalist id="level-subclasses">{subclasses.filter(s=>s.class.name===char.className).map(s=><option key={s.index} value={s.name}/>)}</datalist><small>SRD subclass features appear on your sheet. Custom subclass effects require manual input.</small></label></div>}
           </>}
           {isSpell && <>
             <CreationStepHeader eyebrow="Spellcasting" title="Choose your new spells" description="Only spells available to your class are shown. Your current selections remain on the character sheet, and new choices are added automatically when you finish leveling up."/>
-            {cantripGain > 0 && <div className="creation-section"><div className="creation-section-title">New cantrips · choose {cantripGain}</div><div className="skill-picker-grid">{cantripCandidates.map(s=><button type="button" key={s.name} className={`skill-pill ${newCantrips.includes(s.name)?"is-selected":""}`} onClick={()=>toggleChoice(s.name,newCantrips,setNewCantrips,cantripGain)}>{newCantrips.includes(s.name)?"✓ ":""}{s.name}</button>)}</div></div>}
-            {knownLimit > 0 && <div className="creation-section"><div className="creation-section-title">New spells · choose {knownLimit}</div><div className="spell-choice-grid">{spellCandidates.filter(s=>s.level>0).map(s=><button type="button" key={s.name} className={`spell-choice ${newSpells.includes(s.name)?"is-selected":""}`} onClick={()=>toggleChoice(s.name,newSpells,setNewSpells,knownLimit)}><strong>{s.name}</strong><span>Level {s.level} · {s.school}</span><small>{s.description}</small></button>)}</div></div>}
-            {counts?.mode === "prepared" && <div className="creation-section"><div className="creation-section-title">Prepared spells · up to {preparedLimit}</div><p className="creation-helper">Prepared spell management is separate from the spell list. Choose the spells you want ready for the day.</p><div className="spell-choice-grid">{spellCandidates.filter(s=>s.level>0).map(s=>{const selected=preparedSpells.includes(s.name); const existing=char.spells?.some(x=>x.name===s.name); return <button type="button" key={s.name} className={`spell-choice ${selected?"is-selected":""}`} onClick={()=>existing && toggleChoice(s.name,preparedSpells,setPreparedSpells,preparedLimit)} disabled={!existing}><strong>{selected?"✓ ":""}{s.name}</strong><span>Level {s.level} · {s.school}{existing?"":" · add to spell list first"}</span><small>{s.description}</small></button>})}</div></div>}
+            {cantripGain > 0 && <div className="creation-section"><div className="creation-section-title">New cantrips · choose {cantripGain}</div><div className="skill-picker-grid">{cantripCandidates.filter(s=>!currentCantrips.includes(s.name)).map(s=><button type="button" key={s.name} className={`skill-pill ${newCantrips.includes(s.name)?"is-selected":""}`} onClick={()=>toggleChoice(s.name,newCantrips,setNewCantrips,cantripGain)}>{newCantrips.includes(s.name)?"✓ ":""}{s.name}</button>)}</div></div>}
+            {knownLimit > 0 && <div className="creation-section"><div className="creation-section-title">New spells · choose {knownLimit}</div><div className="spell-choice-grid">{spellCandidates.filter(s=>s.level>0&&!currentChosen.includes(s.name)).map(s=><button type="button" key={s.name} className={`spell-choice ${newSpells.includes(s.name)?"is-selected":""}`} onClick={()=>toggleChoice(s.name,newSpells,setNewSpells,knownLimit)}><strong>{s.name}</strong><span>Level {s.level} · {s.school}</span><small>{s.description}</small></button>)}</div></div>}
+            {counts?.mode === "prepared" && <div className="creation-section"><div className="creation-section-title">Prepared spells · up to {preparedLimit}</div><p className="creation-helper">Prepared spell management is separate from the spell list. Choose the spells you want ready for the day.</p><div className="spell-choice-grid">{spellCandidates.filter(s=>s.level>0).map(s=>{const selected=preparedSpells.includes(s.name); const existing=char.spells?.some(x=>x.name===s.name); return <button type="button" key={s.name} className={`spell-choice ${selected?"is-selected":""}`} onClick={()=>toggleChoice(s.name,preparedSpells,setPreparedSpells,preparedLimit)}><strong>{selected?"✓ ":""}{s.name}</strong><span>Level {s.level} · {s.school}</span><small>{s.description}</small></button>})}</div></div>}
           </>}
           {isReview && <>
             <CreationStepHeader eyebrow="Final review" title={`You're becoming level ${targetLevel}`} description="Review every automatic change and every choice before the character is updated."/>
@@ -1049,9 +1047,9 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
             <div className="review-sections">
               <div><span>Class features</span><strong>{newFeatures.length?newFeatures.join(" · "):"No named features"}</strong></div>
               <div><span>Proficiency bonus</span><strong>{fmtMod(profBonus(targetLevel))}</strong></div>
-              <div><span>Hit points</span><strong>{char.hp.max} → {char.hp.max + Math.max(1, avgHitDie(char.hitDie) + abilityMod(effectiveNextAbilities.con))}</strong></div>
+              <div><span>Hit points</span><strong>{char.hp.max} → {char.hp.max + Math.max(1, avgHitDie(char.hitDie) + abilityMod(effectiveNextAbilities.con)) + (char.subrace==="Hill Dwarf"?1:0) + (abilityMod(effectiveNextAbilities.con)-abilityMod(effectiveAbilities(char).con))*char.level}</strong></div>
               <div><span>Subclass</span><strong>{subclass || char.subclass || "No change"}</strong></div>
-              {hasASI && <div className="wide"><span>Ability improvement</span><strong>{abilityPlan.mode==="plus-two"?`+2 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label}`:`+1 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label} and +1 ${ABILITIES.find(a=>a.key===abilityPlan.second)?.label}`}</strong></div>}
+              {hasASI && <div className="wide"><span>Ability improvement</span><strong>{abilityPlan.mode==="feat"?featName:abilityPlan.mode==="plus-two"?`+2 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label}`:`+1 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label} and +1 ${ABILITIES.find(a=>a.key===abilityPlan.second)?.label}`}</strong></div>}
               {spellcasting && <div className="wide"><span>Spell choices</span><strong>{[...newCantrips,...newSpells].length?([...newCantrips,...newSpells].join(" · ")):`No new known spells selected this level.`}</strong></div>}
             </div>
           </>}
@@ -1919,3 +1917,5 @@ function InventoryTab({ char, updateChar, onShowNote }) {
   function removeItem(id) { updateChar({ ...char, inventory: char.inventory.filter((i) => i.id !== id) }); }
   return <div><div style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" }}><TextInput placeholder="Item name" value={draftName} onChange={(e) => setDraftName(e.target.value)} onKeyDown={(e) => e.key === "Enter" && addItem()} style={{ flex: "1 1 130px" }} /><input type="number" value={draftQty} min={1} onChange={(e) => setDraftQty(parseInt(e.target.value || "1", 10))} style={{ ...inputBase, width: 56, fontFamily: "IBM Plex Mono, monospace", textAlign: "center" }} /><TextInput placeholder="Description (optional)" value={draftDescription} onChange={(e) => setDraftDescription(e.target.value)} style={{ flex: "1 1 180px" }} /><button onClick={addItem} className="cm-btn" style={{ background: MOSS, color: "#FBF8EE", border: "none", borderRadius: 4, padding: "0 14px", display: "flex", alignItems: "center", gap: 6, fontSize: 13 }}><Plus size={14} /> Add</button></div>{char.inventory.length === 0 ? <p style={{ fontSize: 13, color: INK, opacity: 0.55 }}>No items carried yet.</p> : <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>{char.inventory.map((item) => <div key={item.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 10px", borderBottom: `1px solid ${BRASS}44` }}><button onClick={() => onShowNote({ title: item.name, subtitle: "Inventory item", description: item.description || "No description has been added for this item yet.", meta: `Quantity ×${item.qty}` })} className="cm-btn cm-clickable" style={{ background: "none", border: "none", padding: 0, color: INK, fontSize: 14, textAlign: "left", textDecoration: "underline", textDecorationStyle: "dotted", textUnderlineOffset: 3 }}>{item.name}</button><div style={{ display: "flex", alignItems: "center", gap: 10 }}><span style={{ fontFamily: "IBM Plex Mono, monospace", fontSize: 13, color: INK, opacity: 0.75 }}>×{item.qty}</span><button onClick={() => removeItem(item.id)} aria-label="Remove item" style={{ background: "none", border: "none", color: RED, opacity: 0.6, cursor: "pointer" }}><X size={14} /></button></div></div>)}</div>}</div>;
 }
+
+export { CreationWizard, LevelUpWizard, ABILITIES, SKILLS, RACE_DATA, CLASS_DATA, BACKGROUND_DATA, blankCharacter, effectiveAbilities, abilityMod, fmtMod, profBonus, syncProgression };

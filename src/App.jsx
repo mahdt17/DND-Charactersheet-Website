@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import CharacterManager from "./CharacterManager";
+import React, { useEffect, useState, useRef } from "react";
+import ModernLedger, { demoStorage } from "./ModernLedger";
 import { ScrollText, Sun, Moon } from "lucide-react";
 import { supabase, supabaseConfigured } from "./lib/supabase";
 import { createCloudStorage } from "./lib/storage";
@@ -25,7 +25,7 @@ function ThemeToggle({ theme, onToggle }) {
   );
 }
 
-function AuthScreen({ theme, onToggleTheme }) {
+function AuthScreen({ theme, onToggleTheme, onDemo }) {
   const [mode, setMode] = useState("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -34,6 +34,7 @@ function AuthScreen({ theme, onToggleTheme }) {
 
   async function submit(e) {
     e.preventDefault();
+    if (!supabase) { setMessage("Sign-in is not configured in this preview. Explore the demo to try the app."); return; }
     setBusy(true);
     setMessage("");
     try {
@@ -60,7 +61,7 @@ function AuthScreen({ theme, onToggleTheme }) {
         <div className="auth-emblem"><ScrollText size={24} /></div>
         <div className="auth-kicker">Adventurer's Ledger</div>
         <h1>{mode === "signin" ? "Welcome back, adventurer." : "Begin your adventure."}</h1>
-        <p className="auth-subtitle">Your characters, campaigns, and stories — kept in one legendary ledger.</p>
+        <p className="auth-subtitle">Your next adventure starts here. Build a hero, gather your party, and bring your story to the table.</p>
 
         <label className="auth-field">
           <span>Email</span>
@@ -77,6 +78,7 @@ function AuthScreen({ theme, onToggleTheme }) {
         <button type="button" onClick={() => { setMode(mode === "signin" ? "signup" : "signin"); setMessage(""); }} className="auth-secondary">
           {mode === "signin" ? "Create a new account" : "I already have an account"}
         </button>
+        <button type="button" className="auth-demo" onClick={onDemo}>Explore the demo <span>→</span></button>
         {message && <p className="auth-message">{message}</p>}
       </form>
     </div>
@@ -85,6 +87,8 @@ function AuthScreen({ theme, onToggleTheme }) {
 
 export default function App() {
   const [session, setSession] = useState(null);
+  const [demo, setDemo] = useState(false);
+  const demoRef=useRef(null);
   const [ready, setReady] = useState(false);
   const [theme, setTheme] = useState(() => localStorage.getItem("ledger-theme") || "dark");
 
@@ -110,7 +114,7 @@ export default function App() {
         setSession(data.session);
         setReady(true);
       }
-    });
+    }).catch(()=>{if(active)setReady(true);});
 
     const { data: listener } = supabase.auth.onAuthStateChange((_event, next) => {
       setSession(next);
@@ -122,36 +126,11 @@ export default function App() {
     };
   }, []);
 
-  if (!supabaseConfigured) {
-    return (
-      <div style={{ minHeight: "100vh", padding: 40, fontFamily: "system-ui", color: INK, background: PAPER }}>
-        <h1>Adventurer's Ledger</h1>
-        <p>Supabase is not configured yet.</p>
-        <p>Create a <code>.env</code> file from <code>.env.example</code> and add your Supabase URL and publishable key.</p>
-      </div>
-    );
-  }
-
   if (!ready) {
     return <div className={`auth-page theme-${theme}`}><div className="auth-theme-control"><ThemeToggle theme={theme} onToggle={toggleTheme} /></div><div className="auth-loading">Opening your ledger…</div></div>;
   }
 
-  if (!session) return <AuthScreen theme={theme} onToggleTheme={toggleTheme} />;
-
-  window.storage = createCloudStorage(supabase, session.user.id);
-
-  return (
-    <div className={`app-theme theme-${theme}`}>
-      <div className="app-controls">
-        <ThemeToggle theme={theme} onToggle={toggleTheme} />
-        <button
-          onClick={() => supabase.auth.signOut()}
-          className="cm-signout"
-        >
-          Sign out
-        </button>
-      </div>
-      <CharacterManager />
-    </div>
-  );
+  if (!session && !demo) return <AuthScreen theme={theme} onToggleTheme={toggleTheme} onDemo={()=>{demoRef.current=demoStorage();setDemo(true);}} />;
+  window.storage = demo ? demoRef.current : createCloudStorage(supabase, session.user.id);
+  return <div className={`app-theme theme-${theme}`}><ModernLedger key={demo?'demo':session.user.id} demo={demo} theme={theme} onToggleTheme={toggleTheme} onSignOut={async()=>{if(demo){setDemo(false);demoRef.current=null;}else{await supabase.auth.signOut();}}}/></div>;
 }

@@ -1,0 +1,143 @@
+import assert from 'node:assert/strict';
+import { chromium } from 'playwright';
+import { createServer } from 'vite';
+import fs from 'node:fs/promises';
+const server=await createServer({server:{host:'127.0.0.1',port:5174}});await server.listen();
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--disable-gpu']});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await fs.mkdir('test-results',{recursive:true});
+const check=async(name,fn)=>{await fn();console.log('PASS',name);};
+const nav=async name=>page.locator('.ledger-nav nav').getByRole('button',{name}).click();
+const continueWizard=async()=>page.locator('.creation-footer').getByRole('button',{name:'Continue'}).click();
+try {
+ await page.goto('http://127.0.0.1:5174/');
+ await page.getByRole('button',{name:'Explore the demo'}).click();
+ await page.getByRole('button',{name:'Open character'}).click();
+ await check('HP damage, healing, and temporary HP',async()=>{
+  await page.getByRole('button',{name:'Edit',exact:true}).click();
+  await page.getByLabel('Temporary HP',{exact:true}).fill('5');
+  await page.getByRole('button',{name:'Done',exact:true}).click();
+  await page.getByRole('spinbutton',{name:'Hit point adjustment'}).fill('7');
+  await page.getByRole('button',{name:'Damage',exact:true}).click();
+  assert.match(await page.locator('.hp-value').innerText(),/^15/);
+  await page.getByRole('button',{name:'Heal',exact:true}).click();
+  assert.match(await page.locator('.hp-value').innerText(),/^20/);
+ });
+ await check('Spell details, spending slots, and long rest',async()=>{
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  const row=page.locator('.spell-item').filter({hasText:'Magic Missile'});
+  await row.getByRole('button',{name:'Cast',exact:true}).click();
+  await page.getByRole('button',{name:'Cast & spend slot'}).click();
+  assert.match(await page.getByRole('button',{name:/Level 1 slot 1/}).getAttribute('class'),/used/);
+  await page.getByRole('button',{name:'Rest',exact:true}).click();
+  await page.getByRole('button',{name:'Long rest',exact:true}).click();
+  await page.getByRole('button',{name:'Complete long rest'}).click();
+  assert.doesNotMatch(await page.getByRole('button',{name:/Level 1 slot 1/}).getAttribute('class'),/used/);
+ });
+ await check('Dice rolls and disadvantage',async()=>{
+  await page.getByRole('button',{name:'Dice roller',exact:true}).click();
+  await page.getByRole('combobox',{name:'D20 roll mode'}).selectOption('disadvantage');
+  await page.getByRole('button',{name:'d20',exact:true}).click();
+  assert.match(await page.locator('.roll-result').first().innerText(),/disadvantage/);
+  await page.getByRole('button',{name:'Close dice roller'}).click();
+ });
+ await check('Wizard level 4 ASI and new spells',async()=>{
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await continueWizard();
+  await page.getByLabel('Ability to increase by 2').selectOption('con');
+  // Legacy/demo character has no subclass; level-up must repair that missing choice.
+  if(await page.getByLabel('Subclass name').count())await page.getByLabel('Subclass name').fill('Evocation');
+  await continueWizard();
+  await page.locator('.skill-pill').filter({hasText:'Acid Splash'}).click();
+  const spellButtons=page.locator('.spell-choice');
+  // Demo wizard has 5 leveled spells; the level 4 target is 12.
+  const limitText=await page.locator('.creation-section-title').filter({hasText:'New spells'}).innerText();
+  const n=Number(limitText.match(/choose (\d+)/)[1]);
+  for(let i=0;i<n;i++)await spellButtons.nth(i).click();
+  await continueWizard();
+  await page.getByRole('button',{name:'Apply level up'}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 4'}).waitFor();
+  // +7 level HP, +3 retroactive constitution HP.
+  assert.match(await page.locator('.hp-value').innerText(),/^30/);
+ });
+ await check('Campaign create, roster and notebook',async()=>{
+  await nav('Campaigns');await page.getByRole('button',{name:'New campaign',exact:true}).click();
+  await page.getByLabel('Campaign name').fill('The Silver Road');
+  await page.getByRole('button',{name:'Create campaign',exact:true}).click();
+  await page.getByLabel('Campaign journal').fill('Find the missing cartographer.');
+  await page.getByLabel('Add one of your characters').selectOption('demo-arden');
+  assert.match(await page.locator('.roster-row').innerText(),/Arden Ashwood/);
+  await nav('Characters');await nav('Campaigns');
+  await page.locator('.compendium-card').filter({hasText:'The Silver Road'}).click();
+  assert.equal(await page.getByLabel('Campaign journal').inputValue(),'Find the missing cartographer.');
+ });
+ await check('Encounter create, creatures and turns',async()=>{
+  await nav('Encounters');await page.getByLabel('Encounter name').fill('Roadside ambush');
+  await page.getByRole('button',{name:'New encounter'}).click();
+  await page.getByLabel('Search monsters').fill('goblin');
+  await page.getByRole('button',{name:'Add Goblin',exact:true}).click();
+  await page.getByRole('button',{name:'Add Goblin',exact:true}).click();
+  await page.getByRole('button',{name:'Roll initiative',exact:true}).click();
+  await page.getByRole('button',{name:'Start combat'}).click();
+  await page.getByRole('button',{name:'Next turn'}).click();
+  await page.getByRole('button',{name:'Next turn'}).click();
+  assert.match(await page.locator('.encounter-toolbar').innerText(),/ROUND 2/);
+ });
+ await check('SRD search through level 9',async()=>{
+  await nav('Compendium');await page.getByLabel('Spell level',{exact:true}).selectOption('9');
+  await page.getByLabel('Search compendium').fill('wish');
+  await page.locator('.compendium-card').filter({hasText:'Wish'}).click();
+  assert.match(await page.locator('.l-dialog').innerText(),/mightiest spell/);
+  await page.getByRole('button',{name:'Close dialog'}).click();
+ });
+ await check('Character creation, standard-array swap and class gear',async()=>{
+  await nav('Characters');await page.getByRole('button',{name:'All characters'}).click();
+  await page.getByRole('button',{name:'Create character',exact:true}).click();
+  await page.getByLabel('Character name').fill('Bryn Ironwood');await continueWizard();
+  await page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:/^Human$/})}).click();await continueWizard();
+  await page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:/^Fighter$/})}).click();await continueWizard();
+  await page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:/^Sage$/})}).click();await continueWizard();
+  const strength=page.locator('.ability-builder-row').filter({hasText:'Strength'}).getByRole('combobox');
+  await strength.selectOption('14');
+  assert.equal(await page.locator('.ability-builder-row').filter({hasText:'Dexterity'}).getByRole('combobox').inputValue(),'15');
+  await continueWizard();
+  await page.getByRole('button',{name:'Acrobatics',exact:true}).click();
+  await page.getByRole('button',{name:'Athletics',exact:true}).click();
+  await continueWizard();
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'Bryn Ironwood'}).waitFor();
+  await page.getByRole('tab',{name:'Inventory',exact:true}).click();
+  assert.match(await page.locator('.sheet-tab-content').innerText(),/Chain Mail/);
+ });
+ await check('Autosave failure, retry and latest-value recovery',async()=>{
+  await page.getByRole('tab',{name:'Notes',exact:true}).click();
+  await page.evaluate(()=>{window.originalSet=window.storage.set;window.storage.set=async()=>{throw new Error('Simulated offline');};});
+  const notes=page.getByLabel('Backstory, personality, bonds, and session notes');
+  await notes.fill('First draft');await notes.fill('Latest draft survives retry');
+  await page.getByRole('alert').filter({hasText:'Simulated offline'}).waitFor();
+  await page.evaluate(()=>{window.storage.set=window.originalSet;});
+  await page.getByRole('button',{name:'Retry',exact:true}).click();
+  await page.waitForFunction(async()=>{const index=JSON.parse((await window.storage.get('char-index')).value);const hero=index.find(c=>c.name==='Bryn Ironwood');return JSON.parse((await window.storage.get('char-detail:'+hero.id)).value).notes==='Latest draft survives retry';});
+  await page.getByRole('tab',{name:'Inventory',exact:true}).click();
+ });
+ await check('Light and dark layouts, desktop and mobile' ,async()=>{
+  await page.screenshot({path:'test-results/desktop-dark.png',fullPage:true});
+  await page.getByRole('button',{name:'Light appearance'}).click();
+  await page.screenshot({path:'test-results/desktop-light.png',fullPage:true});
+  await page.setViewportSize({width:390,height:844});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+  await page.screenshot({path:'test-results/mobile-light.png',fullPage:true});
+  await page.getByRole('button',{name:'Toggle navigation'}).click();
+  await page.getByRole('button',{name:'Dark appearance'}).click();
+  await page.getByRole('button',{name:'Toggle navigation'}).click();
+  await page.screenshot({path:'test-results/mobile-dark.png',fullPage:true});
+  await page.getByRole('button',{name:'All characters'}).click();
+  await page.getByRole('button',{name:'Create character',exact:true}).click();
+  await page.getByLabel('Character name').fill('Mobile Wizard');await continueWizard();
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+  assert.equal(await page.locator('.creation-scroll').evaluate(e=>e.scrollHeight>e.clientHeight),true);
+  await page.screenshot({path:'test-results/mobile-wizard.png',fullPage:true});
+ });
+ assert.deepEqual(errors,[]);console.log('PASS no browser runtime errors');
+} finally {await browser.close();await server.close();}

@@ -10,6 +10,7 @@ export function createCloudStorage(supabase, userId) {
           .from("characters")
           .select("id,name,race,class_name,level")
           .eq("user_id", userId)
+          .neq("id", "ledger-workspace")
           .order("created_at", { ascending: true });
 
         if (error) throw error;
@@ -62,7 +63,7 @@ export function createCloudStorage(supabase, userId) {
 
         const { error } = await supabase
           .from("characters")
-          .upsert(row);
+          .upsert(row, { onConflict: "user_id,id" });
 
         if (error) throw error;
 
