@@ -112,6 +112,20 @@ try {
   assert.match(await page.locator('.l-dialog').innerText(),/mightiest spell/);
   await page.getByRole('button',{name:'Close dialog'}).click();
  });
+ await check('Revised 5e spell and feat references',async()=>{
+  await nav('Compendium');
+  await page.getByRole('button',{name:'5.5e · 2024 SRD',exact:true}).click();
+  const catalog=page.getByRole('region',{name:'Revised 5e catalog'});
+  await catalog.getByLabel('Search revised references').fill('Cure Wounds');
+  await catalog.getByRole('button',{name:/Cure Wounds/}).click();
+  assert.match(await page.locator('.l-dialog').innerText(),/2d8/);
+  await page.getByRole('button',{name:'Close dialog'}).click();
+  await catalog.getByLabel('Revised category').selectOption('Feats');
+  await catalog.getByLabel('Search revised references').fill('Alert');
+  await catalog.getByRole('button',{name:/Alert/}).click();
+  assert.match(await page.locator('.l-dialog').innerText(),/Initiative Swap/);
+  await page.getByRole('button',{name:'Close dialog'}).click();
+ });
  await check('Character creation, standard-array swap and class gear',async()=>{
   await nav('Characters');await page.getByRole('button',{name:'All characters'}).click();
   await page.getByRole('button',{name:'Create character',exact:true}).click();

@@ -24,3 +24,7 @@ SOFTWARE.
 This work includes material taken from the System Reference Document 5.1 (SRD 5.1) by Wizards of the Coast LLC and available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License available at https://creativecommons.org/licenses/by/4.0/legalcode.
 
 Machine-readable data: https://github.com/5e-bits/5e-database, src/2014/en. Unmodified JSON data; the app derives a spell search catalog and implements additional interface and calculations.
+
+This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
+
+Revised machine-readable reference data: https://github.com/5e-bits/5e-database, src/2024/en. Retrieved September 14, 2026. Source records are preserved; the reference browser formats descriptions and metadata for display. This catalog is separate from 2014 character automation.

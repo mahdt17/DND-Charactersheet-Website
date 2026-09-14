@@ -14,7 +14,12 @@ BASE = "https://new.dndtools.org"
 CATEGORIES = ["spells", "feats", "classes", "races", "monsters", "templates", "skills",
               "equipment", "items", "deities", "domains", "psionics", "rules", "rulebooks"]
 OUTPUT = Path("public/catalogs/dndtools")
+SNAPSHOT = str(int(time.time()))
 AGENT = "AdventurersLedger-ReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)"
+
+
+class CountChanged(ValueError):
+    pass
 
 
 class Listing(HTMLParser):
@@ -61,23 +66,25 @@ class Listing(HTMLParser):
         return int(match.group(1).replace(",", ""))
 
 
-def read_listing(category, page):
-    url = BASE + "/" + category + ("?page=" + str(page) if page > 1 else "")
+def read_listing(category, page, expected=None):
+    url = BASE + "/" + category + "?page=" + str(page) + "&catalog_snapshot=" + SNAPSHOT
     for attempt in range(3):
         try:
             time.sleep(1)
-            with urlopen(Request(url, headers={"User-Agent": AGENT}), timeout=45) as response:
+            with urlopen(Request(url, headers={"User-Agent": AGENT, "Cache-Control": "no-cache"}), timeout=45) as response:
                 if urlparse(response.url).netloc != urlparse(BASE).netloc:
                     raise ValueError("Unexpected redirect: " + response.url)
                 html = response.read().decode("utf-8")
             listing = Listing(category)
             listing.feed(html)
+            if expected is not None and listing.total != expected:
+                raise CountChanged(f"{category} page {page}: expected {expected}, got {listing.total}")
             return listing
         except HTTPError as error:
             if error.code not in (429, 500, 502, 503, 504) or attempt == 2:
                 raise
             time.sleep(min(60, 5 * (attempt + 1)))
-        except (URLError, TimeoutError):
+        except (URLError, TimeoutError, CountChanged):
             if attempt == 2:
                 raise
             time.sleep(5 * (attempt + 1))
@@ -97,9 +104,9 @@ def main():
         page_size = len(found)
         pages = math.ceil(expected / page_size) if page_size else 1
         for page in range(2, pages + 1):
-            listing = read_listing(category, page)
+            listing = read_listing(category, page, expected)
             if listing.total != expected:
-                raise ValueError("Result count changed during import: " + category)
+                raise ValueError(f"Result count changed during import: {category} page {page}, {expected} -> {listing.total}")
             before = len(found)
             found.update(listing.links)
             if len(found) == before:
