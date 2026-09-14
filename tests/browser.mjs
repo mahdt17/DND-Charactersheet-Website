@@ -117,7 +117,7 @@ try {
   await page.getByRole('button',{name:'5.5e · 2024 SRD',exact:true}).click();
   const catalog=page.getByRole('region',{name:'Revised 5e catalog'});
   await catalog.getByLabel('Search revised references').fill('Cure Wounds');
-  await catalog.getByRole('button',{name:/Cure Wounds/}).click();
+  await catalog.locator('.compendium-card').filter({has:page.getByRole('heading',{name:'Cure Wounds',exact:true})}).click();
   assert.match(await page.locator('.l-dialog').innerText(),/2d8/);
   await page.getByRole('button',{name:'Close dialog'}).click();
   await catalog.getByLabel('Revised category').selectOption('Feats');
