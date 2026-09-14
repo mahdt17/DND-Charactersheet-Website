@@ -280,3 +280,16 @@ button:focus-visible,a:focus-visible { outline:2px solid var(--accent); outline-
 .print-sheet { display:none; }
 @media(max-width:700px) { .sheet-layout { display:flex; flex-direction:column; } .sheet-left { display:contents; } .sheet-layout>* { width:100%; } .sheet-left>.ability-grid { order:-2; width:100%; } .sheet-right { order:-1; width:100%; } .sheet-left>.l-panel { width:100%; } }
 @media print { .sheet-tab-content,.sheet-right { display:none!important; } .print-sheet { display:block; columns:2; gap:30px; margin-top:24px; } .print-sheet h2 { break-after:avoid; } .print-sheet p { font-size:12px; break-inside:avoid; margin:4px 0; } }
+
+/* Compact spell choices for creation and advancement. */
+.spell-picker-filters { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:10px; }
+.spell-picker-selected { display:flex; flex-wrap:wrap; gap:6px; margin:12px 0; }
+.spell-picker-toggle { display:flex; align-items:center; gap:8px; margin-top:12px; }
+.spell-picker-toggle input { width:auto; }
+.spell-picker-row { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:10px; padding:12px 0; border-bottom:1px solid var(--border); }
+.spell-picker-row p { margin:5px 0; }
+.spell-picker-row details { grid-column:1 / -1; }
+.spell-picker-row summary { cursor:pointer; }
+.spell-picker-row details p { white-space:pre-wrap; line-height:1.6; }
+.spell-picker-pagination { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:16px; }
+@media(max-width:650px) { .spell-picker-filters { grid-template-columns:1fr 1fr; } }
