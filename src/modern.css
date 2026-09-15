@@ -68,7 +68,9 @@ button:focus-visible,a:focus-visible { outline:2px solid var(--accent); outline-
 .card-stats { display:flex; gap:18px; margin:25px 0 20px; font-size:13px; color:var(--muted); }
 .card-stats span { display:flex; align-items:center; gap:7px; }
 .card-stats span:first-child svg { color:var(--health); }
-.character-card-body>.l-button { width:100%; justify-content:space-between; }
+.character-card-actions { display:grid; gap:10px; }
+.character-card-actions .l-button { width:100%; justify-content:space-between; }
+.character-card-actions .l-button.danger { justify-content:center; }
 .new-character-card { min-height:315px; background:transparent; border:1px dashed var(--border); border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; padding:25px; }
 .new-character-card svg { padding:11px; width:49px; height:49px; border:1px solid var(--border); border-radius:50%; color:var(--accent); }
 .new-character-card span { color:var(--muted); font-size:13px; }
