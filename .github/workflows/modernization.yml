@@ -1,0 +1,34 @@
+name: Validate modernization
+on:
+  push:
+    branches: [codex/modernize-editions-wizard]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: modernization-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: node tests/casting.mjs
+      - run: node tests/editions.mjs
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser
+      - run: node tests/browser-editions.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: modernization-browser-results
+          path: test-results/

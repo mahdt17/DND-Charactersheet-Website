@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 import { createServer } from 'vite';
 import fs from 'node:fs/promises';
 const server=await createServer({server:{host:'127.0.0.1',port:5174}});await server.listen();
-const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--disable-gpu']});
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
 const page=await browser.newPage({viewport:{width:1440,height:1000}});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 await fs.mkdir('test-results',{recursive:true});
@@ -30,6 +30,8 @@ try {
   await row.getByRole('button',{name:'Cast',exact:true}).click();
   await page.getByRole('button',{name:'Cast & spend slot'}).click();
   assert.match(await page.getByRole('button',{name:/Level 1 slot 1/}).getAttribute('class'),/used/);
+  assert.match(await page.locator('.roll-result').first().innerText(),/Magic Missile/);
+  await page.getByRole('button',{name:'Close dice roller'}).click();
   await page.getByRole('button',{name:'Rest',exact:true}).click();
   await page.getByRole('button',{name:'Long rest',exact:true}).click();
   await page.getByRole('button',{name:'Complete long rest'}).click();
@@ -49,17 +51,36 @@ try {
   // Legacy/demo character has no subclass; level-up must repair that missing choice.
   if(await page.getByLabel('Subclass name').count())await page.getByLabel('Subclass name').fill('Evocation');
   await continueWizard();
-  await page.locator('.skill-pill').filter({hasText:'Acid Splash'}).click();
-  const spellButtons=page.locator('.spell-choice');
-  // Demo wizard has 5 leveled spells; the level 4 target is 12.
-  const limitText=await page.locator('.creation-section-title').filter({hasText:'New spells'}).innerText();
-  const n=Number(limitText.match(/choose (\d+)/)[1]);
-  for(let i=0;i<n;i++)await spellButtons.nth(i).click();
+  const cantrips=page.getByRole('region',{name:'New cantrips',exact:true});
+  await cantrips.getByLabel('Search spells',{exact:true}).fill('Acid');
+  await cantrips.getByRole('button',{name:'Select Acid Splash',exact:true}).click();
+  await cantrips.getByLabel('Search spells',{exact:true}).fill('nothing matches');
+  assert.equal(await cantrips.getByRole('button',{name:'Remove Acid Splash',exact:true}).count(),1);
+  const picker=page.getByRole('region',{name:'New spells',exact:true});
+  const limitText=await picker.locator('.creation-section-title').innerText();
+  const n=Number(limitText.match(/\/ (\d+) selected/)[1]);
+  for(let i=0;i<n;i++)await picker.locator('.spell-picker-row').getByRole('button',{name:/^Select /}).first().click();
   await continueWizard();
   await page.getByRole('button',{name:'Apply level up'}).click();
   await page.locator('.sheet-identity').filter({hasText:'LEVEL 4'}).waitFor();
   // +7 level HP, +3 retroactive constitution HP.
   assert.match(await page.locator('.hp-value').innerText(),/^30/);
+ });
+ await check('Exhaustion levels and separate feat and trait tabs',async()=>{
+  await page.getByLabel('Add condition',{exact:true}).selectOption('Exhaustion');
+  await page.getByLabel('Exhaustion level',{exact:true}).fill('3');
+  assert.match(await page.locator('.feature-detail').filter({hasText:'Exhaustion ·'}).innerText(),/attack rolls and saving throws/);
+  await page.getByRole('button',{name:'Rest',exact:true}).click();
+  await page.getByRole('button',{name:'Long rest',exact:true}).click();
+  await page.getByLabel(/Reduce exhaustion by one/).check();
+  await page.getByRole('button',{name:'Complete long rest'}).click();
+  assert.equal(await page.getByLabel('Exhaustion level',{exact:true}).inputValue(),'2');
+  await page.getByRole('tab',{name:'Feats',exact:true}).click();
+  await page.getByLabel('Additional feat notes').fill('Homebrew feat ruling');
+  await page.getByRole('tab',{name:'Traits',exact:true}).click();
+  assert.match(await page.locator('.sheet-tab-content').innerText(),/Darkvision/);
+  await page.getByRole('tab',{name:'Feats',exact:true}).click();
+  assert.equal(await page.getByLabel('Additional feat notes').inputValue(),'Homebrew feat ruling');
  });
  await check('Campaign create, roster and notebook',async()=>{
   await nav('Campaigns');await page.getByRole('button',{name:'New campaign',exact:true}).click();
@@ -91,19 +112,34 @@ try {
   assert.match(await page.locator('.l-dialog').innerText(),/mightiest spell/);
   await page.getByRole('button',{name:'Close dialog'}).click();
  });
+ await check('Revised 5e spell and feat references',async()=>{
+  await nav('Compendium');
+  await page.getByRole('button',{name:'5.5e · 2024 SRD',exact:true}).click();
+  const catalog=page.getByRole('region',{name:'Revised 5e catalog'});
+  await catalog.getByLabel('Search revised references').fill('Cure Wounds');
+  await catalog.locator('.compendium-card').filter({has:page.getByRole('heading',{name:'Cure Wounds',exact:true})}).click();
+  assert.match(await page.locator('.l-dialog').innerText(),/2d8/);
+  await page.getByRole('button',{name:'Close dialog'}).click();
+  await catalog.getByLabel('Revised category').selectOption('Feats');
+  await catalog.getByLabel('Search revised references').fill('Alert');
+  await catalog.getByRole('button',{name:/Alert/}).click();
+  assert.match(await page.locator('.l-dialog').innerText(),/Initiative Swap/);
+  await page.getByRole('button',{name:'Close dialog'}).click();
+ });
  await check('Character creation, standard-array swap and class gear',async()=>{
   await nav('Characters');await page.getByRole('button',{name:'All characters'}).click();
   await page.getByRole('button',{name:'Create character',exact:true}).click();
   await page.getByLabel('Character name').fill('Bryn Ironwood');await continueWizard();
-  await page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:/^Human$/})}).click();await continueWizard();
   await page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:/^Fighter$/})}).click();await continueWizard();
+  await page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:/^Human$/})}).click();await continueWizard();
   await page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:/^Sage$/})}).click();await continueWizard();
-  const strength=page.locator('.ability-builder-row').filter({hasText:'Strength'}).getByRole('combobox');
+  const strength=page.getByLabel(/^Strength · total/);
   await strength.selectOption('14');
-  assert.equal(await page.locator('.ability-builder-row').filter({hasText:'Dexterity'}).getByRole('combobox').inputValue(),'15');
+  assert.equal(await page.getByLabel(/^Dexterity · total/).inputValue(),'15');
   await continueWizard();
   await page.getByRole('button',{name:'Acrobatics',exact:true}).click();
   await page.getByRole('button',{name:'Athletics',exact:true}).click();
+  await continueWizard();
   await continueWizard();
   await page.getByRole('button',{name:'Create Character',exact:true}).click();
   await page.locator('.sheet-identity').filter({hasText:'Bryn Ironwood'}).waitFor();
