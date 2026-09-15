@@ -178,5 +178,28 @@ try {
   assert.equal(await page.locator('.creation-scroll').evaluate(e=>e.scrollHeight>e.clientHeight),true);
   await page.screenshot({path:'test-results/mobile-wizard.png',fullPage:true});
  });
+ await check('Delete directly from character cards with confirmation and saved removal',async()=>{
+  await page.locator('.creation-footer').getByRole('button',{name:'Back',exact:true}).click();
+  await page.locator('.creation-footer').getByRole('button',{name:'Cancel',exact:true}).click();
+  const card=page.locator('.character-card').filter({has:page.getByRole('heading',{name:'Bryn Ironwood',exact:true})});
+  const before=await page.locator('.character-card').count();
+  const key=await page.evaluate(async()=>JSON.parse((await window.storage.get('char-index')).value).find(c=>c.name==='Bryn Ironwood').id);
+  await card.getByRole('button',{name:'Delete Bryn Ironwood',exact:true}).click();
+  const dialog=page.getByRole('dialog',{name:'Delete Bryn Ironwood?',exact:true});
+  await dialog.getByRole('button',{name:'Cancel',exact:true}).click();
+  assert.equal(await card.count(),1);
+  await card.getByRole('button',{name:'Delete Bryn Ironwood',exact:true}).click();
+  await dialog.getByRole('button',{name:'Delete character',exact:true}).click();
+  await card.waitFor({state:'detached'});
+  assert.equal(await page.locator('.character-card').count(),before-1);
+  assert.equal(await page.evaluate(async key=>await window.storage.get('char-detail:'+key),key),null);
+  assert.equal(await page.evaluate(async key=>JSON.parse((await window.storage.get('char-index')).value).some(c=>c.id===key),key),false);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+  await page.screenshot({path:'test-results/mobile-character-delete.png',fullPage:true});
+  await page.setViewportSize({width:1440,height:1000});
+  await nav('Compendium');await nav('Characters');
+  assert.equal(await card.count(),0);
+  assert.equal(await page.locator('.character-card').count(),before-1);
+ });
  assert.deepEqual(errors,[]);console.log('PASS no browser runtime errors');
 } finally {await browser.close();await server.close();}
