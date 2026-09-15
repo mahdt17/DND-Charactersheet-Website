@@ -1,0 +1,11 @@
+import React,{useState,useEffect} from 'react';
+import {modern,legacy,keyOf,editionName} from './lib/editions';
+import feats14 from './data/feats.json';
+import {useReferenceIndex} from './lib/referenceIndex';
+
+export default function FeatChoices({char,patch,homebrew=[]}){
+ const [open,setOpen]=useState(false),[query,setQuery]=useState(''),[page,setPage]=useState(0),reference=useReferenceIndex();
+ useEffect(()=>setPage(0),[query]);
+ const candidates=[...feats14.map(f=>({...f,edition:'2014'})),...modern.feats.map(f=>({...f,edition:'2024'})),...(legacy.feats||[]),...homebrew.filter(f=>f.category==='feat'),...reference.entries.filter(f=>f.category==='feat')].filter(f=>(char.ruleset==='custom'||f.edition===(char.ruleset||'2014'))&&f.name.toLowerCase().includes(query.toLowerCase()));
+ return <><button className="l-button" onClick={()=>setOpen(!open)}>{open?'Close feat catalog':'Choose from feat catalog'}</button>{open&&<div className="l-panel"><label className="l-field"><span>Search feats</span><input value={query} onChange={e=>setQuery(e.target.value)}/></label><p>Check prerequisites and feat allowances before adding a choice. Record ability changes on your sheet.</p>{reference.loading&&<p role="status">Loading references…</p>}{reference.error&&<p role="alert">{reference.error}</p>}{candidates.slice(page*20,page*20+20).map(f=>{const selected=(char.feats||[]).some(x=>keyOf(x)===keyOf(f));return <details className="feature-detail" key={keyOf(f)}><summary>{f.name} · {editionName(f.edition)}{f.referenceOnly?' · Reference':''}</summary><p className="preserve-lines">{f.description||f.desc?.join('\n')}</p>{f.sourceUrl&&<p><a href={f.sourceUrl} target="_blank" rel="noreferrer">Read source</a></p>}<button className="l-button" disabled={selected} onClick={()=>patch({feats:[...(char.feats||[]),{...f,catalogId:keyOf(f),id:crypto.randomUUID(),level:char.level}]})}>{selected?'Added':'Add feat'}</button></details>;})}<div className="l-toolbar"><button className="l-button" disabled={!page} onClick={()=>setPage(page-1)}>Previous</button><span>{candidates.length} feats · Page {page+1}</span><button className="l-button" disabled={(page+1)*20>=candidates.length} onClick={()=>setPage(page+1)}>Next</button></div></div>}</>;
+}

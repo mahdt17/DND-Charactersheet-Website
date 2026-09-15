@@ -1,0 +1,121 @@
+{
+  "source": "https://new.dndtools.org",
+  "kind": "name-and-source-link-index",
+  "complete": true,
+  "fetchedAt": "2026-09-15T03:01:07.480832+00:00",
+  "categories": [
+    {
+      "id": "spells",
+      "count": 5035,
+      "sourceCount": 5035,
+      "observedSourceCounts": [
+        5035
+      ]
+    },
+    {
+      "id": "feats",
+      "count": 3666,
+      "sourceCount": 3666,
+      "observedSourceCounts": [
+        3666,
+        3667
+      ]
+    },
+    {
+      "id": "classes",
+      "count": 1054,
+      "sourceCount": 1054,
+      "observedSourceCounts": [
+        1054
+      ]
+    },
+    {
+      "id": "races",
+      "count": 150,
+      "sourceCount": 150,
+      "observedSourceCounts": [
+        150
+      ]
+    },
+    {
+      "id": "monsters",
+      "count": 1653,
+      "sourceCount": 1653,
+      "observedSourceCounts": [
+        1653
+      ]
+    },
+    {
+      "id": "templates",
+      "count": 155,
+      "sourceCount": 155,
+      "observedSourceCounts": [
+        155
+      ]
+    },
+    {
+      "id": "skills",
+      "count": 80,
+      "sourceCount": 80,
+      "observedSourceCounts": [
+        80
+      ]
+    },
+    {
+      "id": "equipment",
+      "count": 65,
+      "sourceCount": 65,
+      "observedSourceCounts": [
+        65
+      ]
+    },
+    {
+      "id": "items",
+      "count": 1455,
+      "sourceCount": 1455,
+      "observedSourceCounts": [
+        1455
+      ]
+    },
+    {
+      "id": "deities",
+      "count": 670,
+      "sourceCount": 670,
+      "observedSourceCounts": [
+        670
+      ]
+    },
+    {
+      "id": "domains",
+      "count": 368,
+      "sourceCount": 368,
+      "observedSourceCounts": [
+        368
+      ]
+    },
+    {
+      "id": "psionics",
+      "count": 703,
+      "sourceCount": 703,
+      "observedSourceCounts": [
+        703
+      ]
+    },
+    {
+      "id": "rules",
+      "count": 273,
+      "sourceCount": 273,
+      "observedSourceCounts": [
+        273
+      ]
+    },
+    {
+      "id": "rulebooks",
+      "count": 281,
+      "sourceCount": 281,
+      "observedSourceCounts": [
+        281
+      ]
+    }
+  ]
+}

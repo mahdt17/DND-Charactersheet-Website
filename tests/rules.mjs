@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {createServer} from 'vite';
 import {createCloudStorage} from '../src/lib/storage.js';
-const server=await createServer({server:{middlewareMode:true}});
+const server=await createServer({server:{middlewareMode:true},optimizeDeps:{noDiscovery:true,include:[]}});
 try {
  const r=await server.ssrLoadModule('/src/lib/rules.js');
  assert.equal(r.spellCatalog.length,319);

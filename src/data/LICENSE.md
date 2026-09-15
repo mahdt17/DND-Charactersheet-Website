@@ -27,4 +27,6 @@ Machine-readable data: https://github.com/5e-bits/5e-database, src/2014/en. Unmo
 
 This work includes material from the System Reference Document 5.2.1 (“SRD 5.2.1”) by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
 
-Revised machine-readable reference data: https://github.com/5e-bits/5e-database, src/2024/en. Retrieved September 14, 2026. Source records are preserved; the reference browser formats descriptions and metadata for display. This catalog is separate from 2014 character automation.
+Revised machine-readable reference data: https://github.com/5e-bits/5e-database, src/2024/en. Retrieved September 14, 2026. Source records are preserved; the reference browser formats descriptions and metadata for display. Revised characters use the 2024 progression records; 2014 data remains separate.
+
+3.5 Open Game Content: data derived from https://github.com/olimot/srd-v3.5. The complete Open Game License 1.0a, copyright notices and content designation are in public/OGL-1.0a.txt. The build converts HTML descriptions to text and retains class tables.

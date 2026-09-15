@@ -22,37 +22,13 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: node tests/casting.mjs
+      - run: node tests/editions.mjs
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
+      - run: node tests/browser-editions.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: modernization-browser-results
           path: test-results/
-  reference-catalog:
-    if: github.event_name == 'push'
-    needs: validate
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: codex/modernize-editions-wizard
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Import complete reference index
-        run: |
-          if [ ! -f public/catalogs/dndtools/manifest.json ]; then
-            python scripts/import_dndtools.py
-          fi
-      - name: Save verified catalog on modernization branch
-        run: |
-          git add public/catalogs/dndtools
-          if ! git diff --cached --quiet; then
-            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Import verified DnD Tools reference index'
-            git push origin HEAD:codex/modernize-editions-wizard
-          fi

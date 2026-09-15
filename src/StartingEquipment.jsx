@@ -8,6 +8,7 @@ function optionsFor(choice) {
   return (category?.equipment||[]).map(of=>({option_type:'counted_reference',of,count:1}));
 }
 function label(option) {
+  if(option.option_type==='money')return `${option.count} ${option.unit}`;
   if(option.option_type==='multiple')return option.items.map(label).join(' + ');
   if(option.option_type==='choice')return option.choice.desc;
   return `${option.count>1?`${option.count} × `:''}${option.of?.name||option.item?.name||'Equipment'}`;
@@ -18,6 +19,7 @@ export function resolveEquipment(choice,value=[]) {
 }
 function resolveOption(option,children) {
   if(!option)return [];
+  if(option.option_type==='money')return [{id:crypto.randomUUID(),name:option.unit,qty:option.count,money:true}];
   if(option.option_type==='multiple')return option.items.flatMap((o,i)=>resolveOption(o,children?.[i]));
   if(option.option_type==='choice')return resolveEquipment(option.choice,children);
   const ref=option.of||option.item;

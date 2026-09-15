@@ -14,12 +14,8 @@ BASE = "https://new.dndtools.org"
 CATEGORIES = ["spells", "feats", "classes", "races", "monsters", "templates", "skills",
               "equipment", "items", "deities", "domains", "psionics", "rules", "rulebooks"]
 OUTPUT = Path("public/catalogs/dndtools")
-SNAPSHOT = str(int(time.time()))
+STAGING = Path("/tmp/dndtools-verified-staging")
 AGENT = "AdventurersLedger-ReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)"
-
-
-class CountChanged(ValueError):
-    pass
 
 
 class Listing(HTMLParser):
@@ -66,8 +62,8 @@ class Listing(HTMLParser):
         return int(match.group(1).replace(",", ""))
 
 
-def read_listing(category, page, expected=None):
-    url = BASE + "/" + category + "?page=" + str(page) + "&catalog_snapshot=" + SNAPSHOT
+def read_listing(category, page, direction="desc"):
+    url = BASE + "/" + category + "?pageSize=500&sort=name&dir=" + direction + "&page=" + str(page)
     for attempt in range(3):
         try:
             time.sleep(1)
@@ -77,14 +73,13 @@ def read_listing(category, page, expected=None):
                 html = response.read().decode("utf-8")
             listing = Listing(category)
             listing.feed(html)
-            if expected is not None and listing.total != expected:
-                raise CountChanged(f"{category} page {page}: expected {expected}, got {listing.total}")
+            print(f"Read {category} {direction} page {page}: {len(listing.links)} links, {listing.total} reported", flush=True)
             return listing
         except HTTPError as error:
             if error.code not in (429, 500, 502, 503, 504) or attempt == 2:
                 raise
             time.sleep(min(60, 5 * (attempt + 1)))
-        except (URLError, TimeoutError, CountChanged):
+        except (URLError, TimeoutError):
             if attempt == 2:
                 raise
             time.sleep(5 * (attempt + 1))
@@ -95,7 +90,15 @@ def main():
     datasets = {}
     manifest = {"source": BASE, "kind": "name-and-source-link-index", "complete": True,
                 "fetchedAt": datetime.now(timezone.utc).isoformat(), "categories": []}
+    STAGING.mkdir(parents=True, exist_ok=True)
     for category in CATEGORIES:
+        checkpoint = STAGING / (category + ".json")
+        if checkpoint.exists() and time.time() - checkpoint.stat().st_mtime < 3600:
+            saved = json.loads(checkpoint.read_text())
+            datasets[category] = saved["entries"]
+            manifest["categories"].append(saved["metadata"])
+            print(f"Resumed verified {category}: {len(saved['entries'])}", flush=True)
+            continue
         first = read_listing(category, 1)
         expected = first.total
         found = dict(first.links)
@@ -103,21 +106,40 @@ def main():
             raise ValueError("No entry links found for " + category)
         page_size = len(found)
         pages = math.ceil(expected / page_size) if page_size else 1
+        reported = {expected}
         for page in range(2, pages + 1):
-            listing = read_listing(category, page, expected)
-            if listing.total != expected:
-                raise ValueError(f"Result count changed during import: {category} page {page}, {expected} -> {listing.total}")
+            listing = read_listing(category, page)
+            reported.add(listing.total)
             before = len(found)
             found.update(listing.links)
             if len(found) == before:
                 raise ValueError("Pagination repeated or returned no entries: " + category)
+        expected = max(reported)
+        # Some source pages report a stale total. Reconcile a second traversal
+        # in the opposite order, retaining source IDs rather than display names.
+        if len(reported) > 1 or len(found) != expected:
+            second = {}
+            for page in range(1, math.ceil(expected / page_size) + 1):
+                listing = read_listing(category, page, "asc")
+                reported.add(listing.total)
+                second.update(listing.links)
+            same_ids = set(second) == set(found)
+            found.update(second)
+            expected = max(reported)
+            if len(second) != expected:
+                if same_ids and len(found) in reported:
+                    print(f"Reconciled {category}: both traversals contain {len(found)} identical IDs; page totals report {sorted(reported)}", flush=True)
+                    expected = len(found)
+                else:
+                    raise ValueError(f"{category}: ascending {len(second)}, union {len(found)}, reported {sorted(reported)}")
         if len(found) != expected:
             raise ValueError(f"{category}: expected {expected}, imported {len(found)}")
         entries = [{"id": url.removeprefix(BASE + "/"), "name": name, "url": url,
                     "category": category, "edition": "3.5-reference"} for url, name in found.items()]
         entries.sort(key=lambda entry: (entry["name"].casefold(), entry["id"]))
         datasets[category] = entries
-        manifest["categories"].append({"id": category, "count": len(entries), "sourceCount": expected})
+        manifest["categories"].append({"id": category, "count": len(entries), "sourceCount": expected, "observedSourceCounts": sorted(reported)})
+        checkpoint.write_text(json.dumps({"entries": entries, "metadata": manifest["categories"][-1]}))
         print(f"Verified {category}: {len(entries)} / {expected}", flush=True)
     OUTPUT.mkdir(parents=True, exist_ok=True)
     for category, entries in datasets.items():

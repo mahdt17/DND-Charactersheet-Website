@@ -311,7 +311,7 @@ function raceBonus(raceName, key) {
 function effectiveAbilities(char) {
   const out = {};
   ABILITIES.forEach((a) => {
-    out[a.key] = (char.abilities[a.key] || 0) + raceBonus(char.race, a.key) + (char.ancestryBonuses?.[a.key] || 0);
+    out[a.key] = (char.abilities[a.key] || 0) + (char.abilityBonuses ? (char.abilityBonuses[a.key] || 0) : raceBonus(char.race, a.key) + (char.ancestryBonuses?.[a.key] || 0));
   });
   return out;
 }
