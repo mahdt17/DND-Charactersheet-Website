@@ -1,3 +1,4 @@
+import ClassProgression from './ClassProgression';
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Plus, Trash2, Heart, Shield, Sparkles, ScrollText, Swords, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Loader2, BookOpen, X } from "lucide-react";
 
@@ -1018,7 +1019,7 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
         <button type="button" className="creation-cancel" onClick={onCancel}>Cancel</button>
       </aside>
       <section className="creation-content">
-        <div className="creation-topbar"><div><span>Level {targetLevel}</span><strong>{steps[step]}</strong></div><div className="creation-top-summary">{char.race} · {char.className} · {char.name}</div></div>
+        <div className="creation-topbar"><div><ClassProgression char={char} score={effectiveAbilities(char)[castingAbility[char.className]]||10}/><span>Level {targetLevel}</span><strong>{steps[step]}</strong></div><div className="creation-top-summary">{char.race} · {char.className} · {char.name}</div></div>
         <div className="creation-scroll">
           {steps[step] === "Level summary" && <>
             <CreationStepHeader eyebrow="Advance" title={`Level ${targetLevel} is available`} description={`Your ${char.className} gains everything listed for level ${targetLevel}. Choices that require your input are collected next.`}/>

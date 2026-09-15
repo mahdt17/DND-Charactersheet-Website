@@ -23,10 +23,12 @@ jobs:
       - run: npm test
       - run: node tests/casting.mjs
       - run: node tests/editions.mjs
+      - run: node tests/setup-choices.mjs
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:browser
       - run: node tests/browser-editions.mjs
+      - run: node tests/browser-casting-setup.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
