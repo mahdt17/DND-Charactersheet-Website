@@ -301,3 +301,13 @@ button:focus-visible,a:focus-visible { outline:2px solid var(--accent); outline-
 .compact-spell-row{display:flex;align-items:center;gap:12px;padding:10px}.spell-expand{flex:1;min-width:0;text-align:left;background:transparent;border:0;color:inherit;cursor:pointer;padding:5px}.spell-expand strong,.spell-expand small{display:block}.spell-expand small{opacity:.7;margin-top:5px}.spell-expanded{padding:0 16px 14px}.spell-expanded p{line-height:1.6}.casting-panel{margin-top:20px}.legacy-skill{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:12px}.legacy-skill .l-field{width:72px}.legacy-skill strong{width:100%}.pager{justify-content:space-between;margin:14px 0}.preserve-lines{white-space:pre-wrap;overflow-wrap:anywhere}
 .creation-scroll .creation-field{min-width:0}.creation-scroll .spell-picker{min-width:0}.creation-scroll .compact-spell .l-button{white-space:normal}.l-panel pre{overflow:auto;max-width:100%;font-size:12px}
 @media(max-width:600px){.spell-filters{grid-template-columns:1fr 1fr}.spell-filters .l-field:first-child{grid-column:1/-1}.compact-spell-row{gap:6px;padding:8px}.compact-spell-row>.l-button{font-size:12px;padding:8px}.pager{gap:7px;font-size:12px}.casting-panel .l-toolbar{flex-wrap:wrap}.spell-table .spell-item{flex-wrap:wrap}.creation-footer-status{font-size:11px}}
+
+/* Keep class references usable at narrow widths without widening the sheet. */
+.progression-scroll{max-width:100%;overflow:auto;margin:1rem 0;border:1px solid var(--border,#394050);border-radius:10px}
+.progression-table{border-collapse:collapse;min-width:650px;width:100%;font-size:.85rem;text-align:left}
+.progression-table caption{text-align:left;padding:12px;font-weight:700}
+.progression-table th,.progression-table td{padding:10px 12px;border-bottom:1px solid var(--border,#394050);vertical-align:top}
+.progression-table th{text-transform:capitalize}
+.progression-table tr[aria-current=step]{background:rgba(155,140,255,.18)}
+.progression-table td:nth-child(3){min-width:240px}
+.language-choices{margin:1.5rem 0;padding:1rem;border:1px solid var(--border,#394050);border-radius:12px}

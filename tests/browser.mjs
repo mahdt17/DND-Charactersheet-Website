@@ -139,6 +139,9 @@ try {
   await continueWizard();
   await page.getByRole('button',{name:'Acrobatics',exact:true}).click();
   await page.getByRole('button',{name:'Athletics',exact:true}).click();
+  await page.getByLabel('Human language 1',{exact:true}).selectOption('Dwarvish');
+  await page.getByLabel('Sage language 1',{exact:true}).selectOption('Elvish');
+  await page.getByLabel('Sage language 2',{exact:true}).selectOption('Giant');
   await continueWizard();
   await continueWizard();
   await page.getByRole('button',{name:'Create Character',exact:true}).click();
