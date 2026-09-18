@@ -23,10 +23,12 @@ def main():
     rows=[]
     missing_files=[]
     for shard in range(args.shard_count):
-        path=args.candidate_root/"dndtools"/f"{args.category}-shard-{shard}.json"
-        if not path.exists():
-            missing_files.append(str(path))
+        name=f"{args.category}-shard-{shard}.json"
+        matches=list(args.candidate_root.rglob(name))
+        if len(matches)!=1:
+            missing_files.append(f"{name}: expected exactly one extracted shard, found {len(matches)}")
             continue
+        path=matches[0]
         payload=json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(payload,list):
             raise SystemExit(f"Candidate shard is not a list: {path}")
