@@ -4738,6 +4738,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/bloodbriars-1560": {
+      "name": "Bloodbriars",
+      "sourceSha256": "15e80323e64583b0a7dacdbacdf1f4f671dd57d8c2a7c8ee76a97df7aff57883",
+      "effectSummary": "Invisible razor-sharp briars surround the target. The subject suffers no effect while remaining still and taking no action that requires movement, but in any round it moves, attacks, casts a spell with material or somatic components, or otherwise performs a movement-dependent action, it takes 1d8 damage with no save. This damage can disrupt spellcasting; a spellcaster taking it must make a Concentration check against DC 10 + spell level + damage dealt or lose the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodbriars-1560",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bloodfreeze-arrow-288": {
+      "name": "Bloodfreeze Arrow",
+      "sourceSha256": "b7acf6f4d236129eeb683ccac6f4bfa618e48ac2a7b4d5da247e5f20b93ecdd6",
+      "effectSummary": "Transforms one masterwork arrow or bolt so a successful hit deals normal weapon damage plus 2d6 cold damage and paralyzes the target. A successful Fortitude save negates the paralysis, and a paralyzed target can attempt a new Fortitude save at the start of each of the caster's turns to end it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodfreeze-arrow-288",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bloodhound-1889": {
+      "name": "Bloodhound",
+      "sourceSha256": "dac6a33c4069373fa6e28de5c1e4174da35d2b51c129aa3698900724becf4231",
+      "effectSummary": "While the spell lasts, a failed Wilderness Lore check to track a creature can be rerolled immediately against the same DC. If the reroll also fails, the caster must spend 30 minutes searching outdoors or 5 minutes indoors before attempting to pick up that trail again.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodhound-1889",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bloodhound-369": {
+      "name": "Bloodhound",
+      "sourceSha256": "41f85886544a25c61ba2fc6d0e8436e71bb5c66f4f5212a6c885bac59f12839b",
+      "effectSummary": "While the spell lasts, a failed Survival check to track a creature can be rerolled immediately against the same DC. If the reroll also fails, the caster must spend 30 minutes searching outdoors or 5 minutes indoors before attempting to reestablish that trail.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodhound-369",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bloodhound-3977": {
+      "name": "Bloodhound",
+      "sourceSha256": "07046c768ce0fab4c26747e8d1c15f18f586123707d937bfd37848a0a54f0c83",
+      "effectSummary": "While the spell lasts, a failed Survival check to track a creature can be rerolled immediately against the same DC. If the reroll also fails, the caster must spend 30 minutes searching outdoors or 5 minutes indoors before attempting to reestablish that trail.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodhound-3977",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bloodletting-849": {
+      "name": "Bloodletting",
+      "sourceSha256": "1d18438636fac46666fc16b4d855e10cb60db824eb853c109b6b9474925c8e66",
+      "effectSummary": "Enchants one light weapon for up to 3 rounds. The next time it actually damages a living creature, that creature begins bleeding for 1d6 damage each round for the spell's remaining duration. DC 15 Heal or at least 1 point of magical healing ends the bleeding. A hit that deals no damage does not trigger the effect. Spell resistance is checked when the weapon first damages the creature; failure discharges the spell without causing bleeding. The spell also ends unused after 3 rounds or immediately if the weapon leaves the caster's hand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodletting-849",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bloodletting-strike-3684": {
+      "name": "Bloodletting Strike",
+      "sourceSha256": "3fc3dedf4ae90c7085d611fdab32993f6fa606a0f893a2faaa700632433d5b76",
+      "effectSummary": "As part of the maneuver, make one melee attack. On a hit, the target takes the attack's normal damage plus 4 Constitution damage. A successful Fortitude save against DC 15 + the initiator's Wisdom modifier reduces the Constitution damage to 2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodletting-strike-3684",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bloodspear-289": {
+      "name": "Bloodspear",
+      "sourceSha256": "cdf20a901a9e85d6a626f4eb045c52dc32f3a95a946970c64cf6627ce483250d",
+      "effectSummary": "Temporarily gives one spear the wounding special ability. The spell ends 1 round after the weapon leaves the caster's hand. Only one bloodspear can be active for the caster at a time, and the spell has no effect on a spear that already has wounding or on an artifact.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodspear-289",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bloodstar-1457": {
+      "name": "Bloodstar",
+      "sourceSha256": "5721d7fc1e62f5493c94199530e2e7b7311f6dc7af9bd150a609e76b627d6aca",
+      "effectSummary": "Creates a hovering bloodstar anywhere within range that sheds light in a 20-foot radius. The caster can move it elsewhere within range by concentrating as a standard action. It has hardness 10 and 20 hit points. Any initially designated creature within 10 feet that takes damage from any source must make a saving throw each time; on failure it takes 1 Constitution damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodstar-1457",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bloodstar-3978": {
+      "name": "Bloodstar",
+      "sourceSha256": "96b267d55a06aa29b6eb2012c0b5e458a0f21bb45fbc4fe2c2f84283ffdd4104",
+      "effectSummary": "Creates a hovering bloodstar anywhere within range that sheds light in a 20-foot radius. The caster can move it elsewhere within range by concentrating as a standard action. Any initially designated creature within 10 feet that takes damage from any source must make a saving throw each time; on failure it takes 1 Constitution damage. This version of the bloodstar cannot be attacked or harmed by physical attacks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bloodstar-3978",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blunt-natural-weapons-1114": {
+      "name": "Blunt Natural Weapons",
+      "sourceSha256": "708c4f54d561e2ecd2dee3d76a6a54b057e3f182ff6604d1dbf9c9a377bf0117",
+      "effectSummary": "Weakens the target's natural weapons. For every five caster levels, reduce each natural weapon's damage die by one step, to a minimum of 1d2 damage. Dragonblood casters cast this spell at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blunt-natural-weapons-1114",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blunt-weapon-3323": {
+      "name": "Blunt Weapon",
+      "sourceSha256": "1392a3a57e1b8f2c3a3573a58acf95c3c40ece3b5e8703e80994c4b97ec2e778",
+      "effectSummary": "Makes manufactured piercing and slashing weapons semisubstantial, reducing their base weapon damage by half while leaving the wielder's Strength bonus, enhancement bonus, and other magical abilities unchanged. A carried weapon uses its wielder's Fortitude save, and a magic weapon adds its enhancement bonus to that save. Natural weapons are unaffected. Projectiles remain blunted after leaving the spell's area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blunt-weapon-3323",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blur-2664": {
+      "name": "Blur",
+      "sourceSha256": "e9db4dda145c728f4d9a6915600fd2fed4f9b823454e50a39dec6409164bdb22",
+      "effectSummary": "Distorts the subject's outline and grants concealment, giving attacks against it a 20% miss chance. See invisibility does not negate the effect, but true seeing does. An opponent that cannot see the subject gains no additional benefit from the blur itself beyond the normal penalties for attacking an unseen target.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blur-2664",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bo-of-water-2060": {
+      "name": "Bo of Water",
+      "sourceSha256": "478cdcc5e171aa7e7c7235c1735342c3eaea2228b0e48558e66f3af5a6d0e903",
+      "effectSummary": "Creates a 6-foot staff of water that the caster can wield proficiently as a melee weapon. It deals 1d8 damage +1 per two caster levels, maximum +10, and counts as a +1 weapon for overcoming damage reduction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bo-of-water-2060",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bodak-birth-230": {
+      "name": "Bodak Birth",
+      "sourceSha256": "37ce411452e08b3e0c2016b4acd221cbaf50cd03ec98daeb4756594e71e8f24e",
+      "effectSummary": "Transforms one willing subject into a bodak, replacing its former game statistics with the bodak's. Before casting, the caster must make a figurine of the subject and bathe it in the blood of at least three Small or larger animals. Anyone holding the figurine can attempt to mentally command the bodak; it resists with a Will save and, if controlled, receives a new save each day to break free. Destroying the figurine disintegrates the bodak.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bodak-birth-230",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bodaks-glare-2187": {
+      "name": "Bodak's Glare",
+      "sourceSha256": "01eb8531c8897b7127da75be56064d65279b2def985e60943c9ba971f83ea5fe",
+      "effectSummary": "Targets one creature within range that can see the caster; the target need not deliberately meet the caster's gaze. A failed Fortitude save kills it instantly. A humanoid slain this way becomes a bodak 24 hours later unless resurrected first. The resulting bodak is not automatically controlled but can be commanded normally through rebuking undead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bodaks-glare-2187",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bodaks-glare-3979": {
+      "name": "Bodak's Glare",
+      "sourceSha256": "b502561bd8a6265cd50daf9bd8e747618c5d5b5893190d366da5040a5035da2a",
+      "effectSummary": "Targets one creature within range that can see the caster; the target need not deliberately meet the caster's gaze. A failed Fortitude save kills it instantly. A humanoid slain this way becomes a bodak 24 hours later unless resurrected first. The resulting bodak is not automatically controlled but can be commanded normally through rebuking undead. This printing requires a black onyx focus worth at least 500 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bodaks-glare-3979",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-blades-1742": {
+      "name": "Body Blades",
+      "sourceSha256": "84da0fa582fc27d256d817945a762130cbc3326a65fc788560a36efa22b7ff07",
+      "effectSummary": "Covers the caster in harmless daggerlike spikes. The caster is proficient with them and can deal 1d6 piercing damage on a successful grapple attack, use them as a light martial melee weapon including as an off-hand weapon, and deal lethal damage while grappling. A creature that grapples the caster takes 2 damage. The caster also gains +4 on Escape Artist checks to escape a net, rope, grappler, or entangling spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-blades-1742",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-blades-3980": {
+      "name": "Body Blades",
+      "sourceSha256": "78cb8f83d193fa5fc33c4a356901e7ecfa847938389ec07a3511b10562858254",
+      "effectSummary": "Covers the caster in harmless daggerlike spikes. The caster is proficient with them and deals 1d6 + caster level piercing damage on a successful grapple attack, maximum 1d6+5; the spikes can also be used as a light melee or off-hand weapon. A creature that initiates a grapple with the caster takes the same spike damage, and the caster gains a bonus on the opposed grapple check equal to the damage dealt. The caster also gains +4 on Escape Artist checks to escape a net, rope, grappler, or entangling spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-blades-3980",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-blaze-3155": {
+      "name": "Body Blaze",
+      "sourceSha256": "768a83395ff5cfd075ed43fc2f07835450d87c5698cab9d4294303f9d5313714",
+      "effectSummary": "Surrounds the caster in harmless flame and leaves a vertical wall of fire along every path the caster travels across a horizontal surface. The trail can be up to 20 feet high and deals 2d6 fire damage +1 per caster level, maximum +20, to creatures passing through it; crossing a square multiple times does not make that square deal extra damage. The caster is immune to their own wall. Passing through another creature's square exposes it to the wall's damage. Any 5-foot section that takes at least 20 cold damage in one round is extinguished.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-blaze-3155",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
