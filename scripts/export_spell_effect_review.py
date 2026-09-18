@@ -31,6 +31,7 @@ def main():
                     "sourceBook":details.get("sourceBook"),"school":details.get("school"),
                     "level":details.get("level"),"classLevels":details.get("classLevels"),
                     "domainLevels":details.get("domainLevels"),
+                    "tables":parser.tables,
                     "effectSource":d35.spell_description_text(parser),
                 })
         except Exception as exc:
