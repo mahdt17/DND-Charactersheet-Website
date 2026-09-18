@@ -1574,6 +1574,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/antimagic-aura-1571": {
+      "name": "Antimagic Aura",
+      "sourceSha256": "e4259ab5a62ced68260347b5fc2a03372e04977749de78bda8b9c8588a016d0d",
+      "effectSummary": "Surrounds one creature and its equipment with an antimagic barrier. Most spells, spell-like abilities, supernatural abilities, and magic items affecting or used by the subject are suppressed rather than dispelled; suppressed effects resume when the aura ends, and their durations continue to expire while suppressed. The subject also cannot cast spells or use spell-like abilities or magic items while affected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antimagic-aura-1571",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antimagic-field-2301": {
+      "name": "Antimagic Field",
+      "sourceSha256": "11c42f57c0ca04996f27d9772dedd2fab9d4daa8a7987788bf6bff0392c3f9bd",
+      "effectSummary": "Creates a mobile antimagic field around the caster that suppresses, but does not dispel, most spells, spell-like abilities, supernatural abilities, and magic-item functions in the area; suppressed durations continue to elapse. Summoned creatures and incorporeal undead wink out while inside and return when the field ends, with spell resistance checked if the field is created around a summoned creature that has it. Instantaneous conjuration results, ordinary creatures and missiles, self-supporting constructs, corporeal undead, elementals, and outsiders remain present, though their magical abilities can be suppressed. Dispel magic cannot remove the field; overlapping antimagic fields do not interfere; certain force/prismatic effects, artifacts, and deities are unaffected; and portions of creatures extending outside the field remain unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antimagic-field-2301",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antimagic-ray-3839": {
+      "name": "Antimagic Ray",
+      "sourceSha256": "cb6056dd7e61eb806a29156b4d471b8aa94e3368dfa85bc477bf6e8ddd00502e",
+      "effectSummary": "Requires a ranged touch attack. On a hit and failed Will save, a creature functions as though inside an antimagic field: it cannot cast spells or use supernatural or spell-like abilities, and such abilities do not affect it, but it can still use spell-completion and spell-trigger items. Against an object, the object's magical powers and ongoing or newly targeted magical effects are suppressed. Only the struck creature or object is affected; worn, carried, or touching objects are not suppressed with it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antimagic-ray-3839",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antimagic-ray-994": {
+      "name": "Antimagic Ray",
+      "sourceSha256": "b39372e9320a3f761a4518ffe4b53e1294dcb3116406e7f87099a237a493670f",
+      "effectSummary": "Requires a ranged touch attack. A struck creature functions as though inside an antimagic field: it cannot cast spells or use supernatural or spell-like abilities, and such abilities do not affect it, though it can still use spell-completion and spell-trigger items. Against an object, the object's magical powers and ongoing or newly targeted magical effects are suppressed; attended or magic items receive the spell's saving throw, while unattended nonmagical items do not. Only the target itself is affected, not objects it wears, carries, or touches.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antimagic-ray-994",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antipathy-2526": {
+      "name": "Antipathy",
+      "sourceSha256": "750f9f8710b2e6360f8bff11af8824a058318eecf53f0d242525bf8078174baf",
+      "effectSummary": "Makes an object or location repel one specifically named kind of intelligent creature or one specifically named alignment. Affected creatures are compelled to leave and avoid the object or area for the spell's duration. A creature that succeeds on its saving throw can remain or touch the object but suffers distracting discomfort that reduces Dexterity by 4. Antipathy counters and dispels sympathy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antipathy-2526",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antiplant-shell-2302": {
+      "name": "Antiplant Shell",
+      "sourceSha256": "6afb24c397c41ef13965c291f01a20c412b224829e58d6a2ee6427fc3d99f880",
+      "effectSummary": "Creates an invisible mobile barrier that protects creatures inside from attacks by plant creatures and animated plants. Deliberately forcing the barrier against a creature it keeps at bay collapses the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antiplant-shell-2302",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anyspell-1217": {
+      "name": "Anyspell",
+      "sourceSha256": "4d6edf6742c81d971725b55bdaa26b4fc6a68dd78246fd945b8f3fcb4f91d594",
+      "effectSummary": "Lets the caster read and prepare one arcane spell of 2nd level or lower from a spellbook or scroll during the 15-minute casting time. The chosen spell occupies the caster's 3rd-level domain slot; reading it from a scroll erases that scroll. When later cast, it functions as a wizard spell at the caster's cleric level, but Wisdom sets its save DC and must be at least 10 + spell level. A holy symbol replaces noncostly material components, while costly materials, focuses, and XP costs must still be supplied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anyspell-1217",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anyspell-3840": {
+      "name": "Anyspell",
+      "sourceSha256": "3110d4bc0eabbb1b4b5c524e835fe4e7193c64388a2eb28b1ee31158da3b8467",
+      "effectSummary": "Lets the caster read and prepare one arcane spell of 2nd level or lower from a spellbook or scroll during the 15-minute casting time. The chosen spell occupies the caster's 3rd-level domain slot; reading it from a scroll erases that scroll. When later cast, it functions as a wizard spell at the caster's cleric level, but Wisdom sets its save DC and must be at least 10 + spell level. A holy symbol replaces noncostly material components, while costly materials, focuses, and XP costs must still be supplied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anyspell-3840",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/apocalypse-from-the-sky-131": {
+      "name": "Apocalypse from the Sky",
+      "sourceSha256": "e63ce263a63ccb8a1fa1752f77b5aa8209d106ededbfc378df2c64b16c936a5c",
+      "effectSummary": "Deals 10d6 fire, acid, or sonic damage, chosen by the caster, to every creature and object in the enormous spell area, including the caster. Casting requires an artifact as the material component and inflicts a corruption cost of 3d6 Constitution damage and 4d6 Wisdom drain. Merely preparing the spell deals 1d3 Wisdom damage, plus another 1d3 Wisdom damage for each day it remains prepared.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/apocalypse-from-the-sky-131",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/apparition-2084": {
+      "name": "Apparition",
+      "sourceSha256": "1251b5cb20d4a8412f13266402ea7e5dac5da525d064de75ff9cb84d89040e1e",
+      "effectSummary": "Gives the subject a horrifying altered face of the caster's design, but it cannot duplicate a known creature. Creatures other than the caster and the caster's allies that view the subject must make a Will save or become shaken, taking the normal -2 morale penalty on attack rolls, weapon damage rolls, and saving throws.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/apparition-2084",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/apparition-512": {
+      "name": "Apparition",
+      "sourceSha256": "d42b0fdf505bdb1088783dc5faae9aedf22411d0d9a702acccca90dc66352c36",
+      "effectSummary": "Gives the subject a horrifying altered face of the caster's design, but it cannot duplicate a specific creature or person. Any creature other than the caster and the caster's allies that views the subject and fails its save becomes shaken.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/apparition-512",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/appraising-touch-3842": {
+      "name": "Appraising Touch",
+      "sourceSha256": "da4e8bf30596bda01e750de23b99445d3c70c2bbf36659e98fcb305e1ddf35b1",
+      "effectSummary": "Grants a +10 insight bonus on Appraise checks made to determine the value of items the caster touches. Each such Appraise check takes 2 minutes instead of 1 minute. Even on a failed check, the caster never misjudges an item's value by more than 50%.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/appraising-touch-3842",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arc-of-lightning-1947": {
+      "name": "Arc of Lightning",
+      "sourceSha256": "ecd52dc5ae852ccc0e4f094bf5ee658624939ed9305242739d537a2e3f677d7a",
+      "effectSummary": "Creates a line of electricity between two creatures the caster can target and that are both within range. The two endpoint creatures and everything in the line between them take 1d6 electricity damage per caster level, maximum 15d6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arc-of-lightning-1947",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arc-of-lightning-3843": {
+      "name": "Arc of Lightning",
+      "sourceSha256": "e3020ba1939f74fa628c7ac9a314d56a443d538d06cee41dc200378e57315c32",
+      "effectSummary": "Creates a line of electricity between two creatures the caster can target and that are both within range. The two endpoint creatures and every square in the line between them take 1d6 electricity damage per caster level, maximum 15d6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arc-of-lightning-3843",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arc-of-lightning-450": {
+      "name": "Arc of Lightning",
+      "sourceSha256": "ecd52dc5ae852ccc0e4f094bf5ee658624939ed9305242739d537a2e3f677d7a",
+      "effectSummary": "Creates a line of electricity between two creatures the caster can target and that are both within range. The two endpoint creatures and everything in the line between them take 1d6 electricity damage per caster level, maximum 15d6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arc-of-lightning-450",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-eye-2475": {
+      "name": "Arcane Eye",
+      "sourceSha256": "a7543d94b77f21fa17f1fb014f56f802f1480b41ede7cdcd6b304ccac11602e3",
+      "effectSummary": "Creates an invisible movable magical sensor that sees exactly as the caster would from its location. It moves 30 feet per round while mainly looking ahead or 10 feet per round while carefully examining walls, floor, and ceiling, can travel beyond line of sight and through openings at least 1 inch wide, but cannot pass solid barriers or planar boundaries. The caster must concentrate to receive its vision; without concentration the eye remains inert until concentration resumes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-eye-2475",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-fusion-890": {
+      "name": "Arcane Fusion",
+      "sourceSha256": "0ca953830d9c755ccdf8ffc12053c4ce7025dad18c76705ec329ba23f11e8780",
+      "effectSummary": "Lets a sorcerer cast one known 1st-level spell and one known 4th-level-or-lower spell together as a single standard action without spending additional spell slots. Neither chosen spell can normally take longer than 1 standard action, and they resolve in the order chosen with their normal ranges, targets, durations, saves, and spell resistance. Metamagic-adjusted level and casting time determine eligibility, and all material, focus, XP, or other special costs of the chosen spells must still be paid.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-fusion-890",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-fusion-greater-891": {
+      "name": "Arcane Fusion, Greater",
+      "sourceSha256": "37d80acfc0365fcf7f11efdc6f9e2692bf55877544c545bd5b93274479be9ef0",
+      "effectSummary": "Functions like arcane fusion, but combines any known sorcerer spell of 4th level or lower with any known sorcerer spell of 7th level or lower, casting both together through this spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-fusion-greater-891",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-lock-2303": {
+      "name": "Arcane Lock",
+      "sourceSha256": "3d1bd365329af47ebf230676257ef6bc4bb60242302d238f331a608aff48c510",
+      "effectSummary": "Magically locks a door, chest, or portal. The caster can pass through freely, but others must break it open, dispel it, or use knock. The spell increases the normal break DC by 10. Knock suppresses the lock for 10 minutes rather than removing it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-lock-2303",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-mark-2898": {
+      "name": "Arcane Mark",
+      "sourceSha256": "e00fd41078589bebb8ef36aa65855b5bb2cc9318f2a3c7de86f41d7d9db7e2ef",
+      "effectSummary": "Inscribes a personal rune of up to six characters on any substance without damaging it; the mark can be visible or invisible. Detect magic, see invisibility, true seeing, a gem of seeing, or a robe of eyes can reveal an invisible mark, while read magic reveals any words. The mark cannot be dispelled, but the caster or erase can remove it; on a living creature it fades naturally in about a month. An object must bear an arcane mark before it can be used with Drawmij's instant summons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-mark-2898",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
