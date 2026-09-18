@@ -547,6 +547,25 @@
           "role": "independent sourcebook cross-check of the omitted table"
         }
       ]
+    },
+    "spells/citys-might-3051": {
+      "name": "City's Might",
+      "effectSummary": "While within 100 feet of a qualifying community, grants enhancement bonuses to Strength and Constitution plus damage reduction based on settlement size: large town or smaller +2 Strength/Constitution and DR 2/adamantine; small city +4 and DR 4/adamantine; large city +6 and DR 6/adamantine; metropolis +10 and DR 10/adamantine. If cast more than 100 feet from a community it has no effect, and moving more than 100 feet from the community ends the spell immediately.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/citys-might-3051",
+          "role": "primary catalog identity, source, duration, range, community-distance rule, and statement that bonuses scale with community size; numeric scaling omitted"
+        },
+        {
+          "url": "https://dnd-wiki.org/wiki/Urbanmeld_(3.5e_Soulmeld)",
+          "role": "independent 3.5 rules implementation explicitly reproducing the City's Might settlement-size bonus table"
+        },
+        {
+          "url": "https://www.scribd.com/document/541789819/SpellForge-3-5-4-5-1",
+          "role": "independent 3.5 spell reference confirming City's Might as the Races of Destiny Str/Con enhancement plus adamantine-DR spell"
+        }
+      ]
     }
   }
 }
