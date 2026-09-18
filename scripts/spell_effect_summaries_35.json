@@ -4278,6 +4278,230 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/blast-of-force-693": {
+      "name": "Blast of Force",
+      "sourceSha256": "d13177fa5a4225d3e7ba9a2e60789f81a120e35727d504272ce63b2546c8057b",
+      "effectSummary": "Makes a ranged touch attack that deals 1d6 force damage per two caster levels, maximum 5d6. A creature hit must also make a Fortitude save or be knocked down, applying size and stability modifiers as though resisting a bull rush.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blast-of-force-693",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blast-of-sand-3130": {
+      "name": "Blast of Sand",
+      "sourceSha256": "ae02393500852fcef35315456d592431eb21ff936966afaa71d3e535f9b874b0",
+      "effectSummary": "Deals 1d6 damage per caster level, maximum 10d6, in the spell's area. When applying this damage to objects, do not divide it by four as normal for certain environmental damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blast-of-sand-3130",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blast-rod-4943": {
+      "name": "Blast Rod",
+      "sourceSha256": "d12e4d7e8d7e763c3bc256dd44ad134721d636a5f2a45b9c7d8cc52c38bfd1d9",
+      "effectSummary": "Stores up to 1d8 damage per caster level in a rod, maximum 10d8. As a standard action, the wielder chooses how many stored dice to expend and makes a ranged touch attack against a target within 60 feet. The chosen dice are spent whether the attack hits or misses, allowing the stored damage to be released in one large blast or several smaller ones.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blast-rod-4943",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blaze-of-light-1408": {
+      "name": "Blaze of Light",
+      "sourceSha256": "835bd7b605867d69591f18b46c9d3bf32cbca29d61402828745ee903518f9546",
+      "effectSummary": "Creates a cone of bright light. Creatures in the cone that fail a Fortitude save are dazzled for 1 minute; sightless creatures are unaffected. As a light-descriptor spell, it counters and dispels equal-or-lower-level darkness spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blaze-of-light-1408",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bleakness-2965": {
+      "name": "Bleakness",
+      "sourceSha256": "9af92f67c9c0c88ecab23387f8bf9df5cb9d7d03fd23b6e4ae8e7dd8e14e87f4",
+      "effectSummary": "Creates an area of negative-energy darkness. Living creatures take 1d6 damage when they enter and another 1d6 at the beginning of each turn they remain, unless protected from negative energy such as by death ward. Undead in the area instead gain turn resistance +4 and fast healing 3. Bleakness counters or dispels equal-or-lower-level light spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bleakness-2965",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bleed-616": {
+      "name": "Bleed",
+      "sourceSha256": "7bf8b38ed80ea378c828db5d56d4fcbef1ea619dc5abcefe946d77ce14547bb6",
+      "effectSummary": "For the duration, every new hit from a piercing or slashing weapon or effect that damages the subject also deals 1 Constitution damage; this ability damage is not multiplied on a critical hit. If a second bleed is applied before the first expires, the subject also takes -4 on Fortitude saves against disease, poison, sickened, and nauseated effects. Creatures without discernible anatomy and creatures immune to critical hits are immune.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bleed-616",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bless-weapon-2786": {
+      "name": "Bless Weapon",
+      "sourceSha256": "186f7ee4d384492982b5f70ac37515151aed4c2b78378e70fd9766c6160786e0",
+      "effectSummary": "Makes one weapon count as +1 for bypassing the damage reduction of evil creatures and striking evil incorporeal creatures without actually granting a numeric enhancement bonus. The weapon becomes good-aligned, suppressing any other alignment while the spell lasts. Against evil foes, every critical threat automatically confirms unless the weapon already has a magical critical-hit property such as keen or vorpal. Individual arrows or bolts can be blessed, but blessing a projectile weapon does not pass the effect to its ammunition.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bless-weapon-2786",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blessed-sight-36": {
+      "name": "Blessed Sight",
+      "sourceSha256": "69ab4af278d9aa5fbceb95d043f98d48fc4c020d00f4719b6edb1b1e30529ec9",
+      "effectSummary": "Continuously reveals the location and strength of all evil auras the caster can see within 120 feet, functioning similarly to detect evil but without concentration and with faster aura identification.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blessed-sight-36",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blessing-of-the-righteous-2966": {
+      "name": "Blessing of the Righteous",
+      "sourceSha256": "12556638461d6dfda12b555dfc0c06d08b384dfbbf334b75355a63544c2f084a",
+      "effectSummary": "The caster and allies gain +1d6 holy damage on melee and ranged attacks, and those attacks count as good-aligned for overcoming damage reduction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blessing-of-the-righteous-2966",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blight-1906": {
+      "name": "Blight",
+      "sourceSha256": "53f6bea4bae83ad48d66aab24d9f52d9455b80ca7902e150941d9ba3e21c979e",
+      "effectSummary": "Has two versions. Blight Area kills all normal plants in a 100-foot spread centered on one touched normal plant with no saving throw, without harming the soil. Blight Plant Creature targets one mobile or intelligent plant and deals 1d6 damage per caster level, maximum 15d6, with Fortitude half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blight-1906",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blight-2714": {
+      "name": "Blight",
+      "sourceSha256": "59f1a1f0d8bf51bb47f493eeb190610ef4065cbff77c2cee4d99e5c6b0b142bc",
+      "effectSummary": "Withers one plant. A plant creature takes 1d6 damage per caster level, maximum 15d6, with Fortitude half. A noncreature plant receives no save and immediately withers and dies. Soil and surrounding plants are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blight-2714",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blight-965": {
+      "name": "Blight",
+      "sourceSha256": "26de091f7753684e749797c97f418e33daebbe1e93b3e737eb0eeac311aa6abc",
+      "effectSummary": "Has two versions. Blight Area kills all normal plants in a 100-foot spread centered on one touched normal plant with no saving throw, without harming the soil. Blight Plant Creature targets one mobile or intelligent plant and deals 1d6 damage per caster level, maximum 15d6, with Fortitude half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blight-965",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blinding-beauty-100": {
+      "name": "Blinding Beauty",
+      "sourceSha256": "63a2b39475716ff24a1d4ff98838ee7de0bee8441d5ea2eaf1989bfc4aab1e5b",
+      "effectSummary": "Humanoids within 60 feet that look directly at the caster must make a Fortitude save or become permanently blinded as by blindness. The caster can suppress or resume the blinding effect as a free action during the spell. Casting requires one week of sexual abstinence beforehand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blinding-beauty-100",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blinding-breath-3965": {
+      "name": "Blinding Breath",
+      "sourceSha256": "9e0751f7edca2e98880b1049fc79ce6580da483eb2fa45774b2a9cda57d633d7",
+      "effectSummary": "Functions as breath flare for the breath weapon produced as part of casting, but creatures that fail their saving throws against that breath weapon are permanently blinded instead of dazzled. The underlying breath-flare effect applies to qualifying fire or electricity breath weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blinding-breath-3965",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/breath-flare-3966",
+          "role": "primary-site rule dependency explicitly incorporated by Blinding Breath"
+        }
+      ]
+    },
+    "spells/blinding-color-surge-2983": {
+      "name": "Blinding Color Surge",
+      "sourceSha256": "705d56054f7c4e68b29de1ad88ac0f503e64f2e2fb2bd5b505d3afb6dc26a892",
+      "effectSummary": "Strips color from the caster and gear and projects it at one target. The target must make a Will save or be blinded for 1 round. Regardless of whether the target saves or resists the spell, the caster gains invisibility for the spell's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blinding-color-surge-2983",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blinding-glory-21": {
+      "name": "Blinding Glory",
+      "sourceSha256": "65f1ad09c9a39d391c2890bc301d27a6e2250dee5f130565fec12f241aa7874b",
+      "effectSummary": "Creates brilliant daylight-like illumination that no magical darkness can counter or dispel. Evil creatures within the light are blinded. If the area overlaps magical darkness, including utterdark, the overlapping magical effects temporarily negate each other so the underlying normal lighting applies there.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blinding-glory-21",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blinding-spittle-1739": {
+      "name": "Blinding Spittle",
+      "sourceSha256": "f94db85a197762638c8a9318cf5a70fb66d501f7d72141df2a48e314af0d8f6a",
+      "effectSummary": "Makes a ranged touch attack at -4 to spit caustic fluid into a target's eyes. On a hit, the target is blinded until its eyes are washed with water or another rinsing fluid. Creatures without eyes or that do not rely on sight are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blinding-spittle-1739",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blinding-spittle-2279": {
+      "name": "Blinding Spittle",
+      "sourceSha256": "c15fc8a5d683397dbdf736c707b50a67f52b30520f1714a49c006cc76af834d4",
+      "effectSummary": "Makes a ranged touch attack at -4 to spit caustic fluid into a target's eyes. On a hit, the target is blinded until its eyes are washed with water or another rinsing fluid. Creatures without eyes or that do not rely on sight are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blinding-spittle-2279",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blinding-spittle-3968": {
+      "name": "Blinding Spittle",
+      "sourceSha256": "40e3964819b387e830d7f5c5d32d9022cf67e4a1441d4b93123d28b3b11d5e6b",
+      "effectSummary": "Makes a ranged touch attack at -4 to spit caustic fluid into a target's eyes. On a hit, the target is blinded until it spends a standard action washing its eyes with water or another rinsing fluid. Creatures without eyes or that do not rely on sight are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blinding-spittle-3968",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blindsight-1740": {
+      "name": "Blindsight",
+      "sourceSha256": "b7b6370b8fb6c3db32883a93d8b8a5198a57be04715fc9a4a7efa2daca1ffbe8",
+      "effectSummary": "Grants blindsight out to 30 feet based on vibration sensitivity. Within that radius the subject can maneuver and fight as effectively as a sighted creature without Spot or Listen checks to notice creatures, and invisibility and darkness are irrelevant. The subject cannot perceive ethereal creatures through this blindsight.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blindsight-1740",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
