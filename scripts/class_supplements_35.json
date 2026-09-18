@@ -449,9 +449,10 @@
         },
         {
           "url": "https://new.dndtools.org/classes/moto-avenger-640",
-          "role": "primary statistics, skills, progression and features"
+          "role": "primary parsed class statistics, skills, progression and features"
         }
-      ]
+      ],
+      "notes": "Original class source is Oriental Adventures (3.0-era material); prerequisite supplement preserves the printed source requirements."
     },
     "classes/righteous-zealot-351": {
       "name": "Righteous Zealot",
@@ -469,7 +470,7 @@
         },
         {
           "url": "https://new.dndtools.org/classes/righteous-zealot-351",
-          "role": "primary statistics, progression and features"
+          "role": "primary parsed class statistics, progression and features"
         }
       ]
     },
@@ -489,12 +490,12 @@
       ],
       "provenance": [
         {
-          "url": "https://www.realmshelps.net/charbuild/classes/prestige/Spellfire_Hierophant",
-          "role": "requirements cross-check"
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Forgotten%20Realms%20Setting/Players%20Guide%20To%20Faerun.pdf",
+          "role": "Player's Guide to Faerûn requirements cross-check"
         },
         {
           "url": "https://new.dndtools.org/classes/spellfire-hierophant-1038",
-          "role": "primary statistics, progression and features"
+          "role": "primary parsed class statistics, progression and features"
         }
       ]
     },
@@ -503,12 +504,105 @@
       "skillPoints": "2 + Int",
       "provenance": [
         {
-          "url": "https://anyflip.com/ogyal/wqig/basic/51-100",
-          "role": "Stormwrack printed skill-points cross-check"
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/general/stormcaster.shtml",
+          "role": "skill-points cross-check"
         },
         {
           "url": "https://new.dndtools.org/classes/stormcaster-831",
-          "role": "primary requirements, skills, progression and features"
+          "role": "primary parsed requirements, class skills, progression and features"
+        }
+      ]
+    },
+    "classes/nentyar-hunter-888": {
+      "name": "Nentyar Hunter",
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special",
+          "1st",
+          "2nd",
+          "3rd",
+          "4th",
+          "5th"
+        ],
+        [
+          "1st",
+          "+0",
+          "+2",
+          "+2",
+          "+0",
+          "Woodland stride",
+          "2",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        [
+          "2nd",
+          "+1",
+          "+3",
+          "+3",
+          "+0",
+          "Swift tracker",
+          "2",
+          "1",
+          "—",
+          "—",
+          "—"
+        ],
+        [
+          "3rd",
+          "+2",
+          "+3",
+          "+3",
+          "+1",
+          "Swiftness of the stag",
+          "3",
+          "2",
+          "1",
+          "—",
+          "—"
+        ],
+        [
+          "4th",
+          "+3",
+          "+4",
+          "+4",
+          "+1",
+          "Eyes of the hawk",
+          "3",
+          "2",
+          "2",
+          "1",
+          "—"
+        ],
+        [
+          "5th",
+          "+3",
+          "+4",
+          "+4",
+          "+1",
+          "Heart of the lion",
+          "3",
+          "3",
+          "2",
+          "2",
+          "1"
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://dndtools.org/classes/nentyar-hunter/",
+          "role": "requirements, progression and class-skill cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/nentyar-hunter-888",
+          "role": "primary parsed class statistics, requirements and features"
         }
       ]
     }
