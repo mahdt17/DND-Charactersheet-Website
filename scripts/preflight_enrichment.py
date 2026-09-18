@@ -6,13 +6,13 @@ the observed parse success rate is below the configured threshold.
 
 Usage:
   python scripts/preflight_enrichment.py
-  python scripts/preflight_enrichment.py --dnd-sample 20 --wikidot-sample 15 --min-rate 0.85
+  python scripts/preflight_enrichment.py --dnd-sample 50 --wikidot-sample 40 --min-rate 1.0
+  python scripts/preflight_enrichment.py --full --min-rate 1.0 --report test-results/enrichment-full-audit.json
 """
 from __future__ import annotations
 
 import argparse
 import json
-import math
 import sys
 import time
 from pathlib import Path
@@ -53,12 +53,12 @@ def summarize(name, passed, failed, samples):
     }
 
 
-def dndtools_preflight(sample_size, delay):
+def dndtools_preflight(sample_size, delay, strict=True):
     results = []
     categories = ["classes", "feats", "spells", "items", "equipment"]
     for category in categories:
         rows = json.loads((DND_CATALOG / f"{category}.json").read_text(encoding="utf-8"))
-        sample = even_sample(rows, sample_size)
+        sample = list(rows) if sample_size is None else even_sample(rows, sample_size)
         passed = failed = 0
         failures = []
         for entry in sample:
@@ -70,6 +70,9 @@ def dndtools_preflight(sample_size, delay):
                 parser.close()
                 details = d35.PARSERS[category](parser, entry)
                 d35.validate_details(entry, category, parser, details)
+                gaps = d35.enrichment_gaps(category, details)
+                if strict and gaps:
+                    raise ValueError("Critical gameplay fields missing: " + ", ".join(gaps))
                 passed += 1
             except Exception as exc:
                 failed += 1
@@ -102,7 +105,7 @@ def wikidot_rows(category, delay):
     return discover(page)
 
 
-def wikidot_preflight(sample_size, delay):
+def wikidot_preflight(sample_size, delay, strict=True):
     results = []
     for category in ["classes", "spells", "feats", "items"]:
         passed = failed = 0
@@ -119,13 +122,16 @@ def wikidot_preflight(sample_size, delay):
                 "examples":[{"name":"INDEX DISCOVERY","url":w5.INDEX_URLS.get(category,""),"error":str(exc)[:240]}],
             })
             continue
-        sample = rows if category == "classes" else even_sample(rows, sample_size)
+        sample = rows if category == "classes" or sample_size is None else even_sample(rows, sample_size)
         for row in sample:
             page = None
             try:
                 page = w5.parse(row["url"], delay)
                 result = w5.DETAIL_PARSERS[row["category"]](row, page)
                 w5.validate_detail(row, page, result)
+                gaps = w5.enrichment_gaps(row, result)
+                if strict and gaps:
+                    raise ValueError("Critical gameplay fields missing: " + ", ".join(gaps))
                 passed += 1
             except Exception as exc:
                 failed += 1
@@ -152,27 +158,40 @@ def main():
                     help="Per-category 3.5 sample size, evenly spread across the catalog.")
     ap.add_argument("--wikidot-sample", type=int, default=15,
                     help="Per-category 5e sample size for spells/feats/items; all base classes are tested.")
-    ap.add_argument("--min-rate", type=float, default=0.85,
-                    help="Minimum success rate required per category.")
+    ap.add_argument("--min-rate", type=float, default=1.0,
+                    help="Minimum success rate required per category. Release gate is 1.0.")
     ap.add_argument("--delay", type=float, default=0.10)
+    ap.add_argument("--full", action="store_true",
+                    help="Audit every discovered record instead of sampling.")
+    ap.add_argument("--report", type=Path,
+                    help="Optional JSON report path. Writing a report does not alter catalog data.")
     args = ap.parse_args()
 
+    dnd_sample = None if args.full else args.dnd_sample
+    wikidot_sample = None if args.full else args.wikidot_sample
     started = time.time()
     results = []
-    results.extend(dndtools_preflight(args.dnd_sample, args.delay))
-    results.extend(wikidot_preflight(args.wikidot_sample, args.delay))
+    results.extend(dndtools_preflight(dnd_sample, args.delay, strict=True))
+    results.extend(wikidot_preflight(wikidot_sample, args.delay, strict=True))
 
     report = {
         "readOnly": True,
-        "dndSamplePerCategory": args.dnd_sample,
-        "wikidotSamplePerCategory": args.wikidot_sample,
+        "fullCatalog": bool(args.full),
+        "strictGameplayCompleteness": True,
+        "dndSamplePerCategory": "ALL" if args.full else args.dnd_sample,
+        "wikidotSamplePerCategory": "ALL" if args.full else args.wikidot_sample,
         "minimumRate": args.min_rate,
         "elapsedSeconds": round(time.time() - started, 2),
         "categories": results,
     }
+    report["criticalMissingCount"] = sum(r["failed"] for r in results)
+    report["passed"] = all(r["successRate"] >= args.min_rate for r in results) and report["criticalMissingCount"] == 0
+    if args.report:
+        args.report.parent.mkdir(parents=True, exist_ok=True)
+        args.report.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, indent=2))
 
-    bad = [r for r in results if r["successRate"] < args.min_rate]
+    bad = [r for r in results if r["successRate"] < args.min_rate or r["failed"] > 0]
     if bad:
         print("\nPRECHECK FAILED:", ", ".join(
             f"{r['category']}={r['successRate']:.1%}" for r in bad
