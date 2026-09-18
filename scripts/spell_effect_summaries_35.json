@@ -6767,6 +6767,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/change-self-3783": {
+      "name": "Change self",
+      "sourceSha256": "780e2ccfa06139156474e08cd9cbd58b5cae1bd91ae633987b7da556b38d32fc",
+      "effectSummary": "Creates an illusory disguise affecting the caster and carried equipment. The caster can appear up to 1 foot taller or shorter and alter apparent build and features while remaining the same general body type. The illusion does not grant the chosen form's abilities or mannerisms and does not change actual tactile or audible properties. Using it as a disguise grants +10 on the Disguise check, and creatures that physically interact with the glamer can make a Will save to recognize the illusion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/change-self-3783",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/changestaff-2792": {
+      "name": "Changestaff",
+      "sourceSha256": "50ea059bac6cea79a2a700c84731ff6d06734dbb0fd68291a30eea2c01cb31e7",
+      "effectSummary": "Transforms a specially prepared quarterstaff planted in the ground into a Huge treantlike creature that defends the caster and obeys spoken commands. It fights like a treant but cannot communicate with true treants or control trees. If reduced to 0 hit points or fewer, it crumbles and the staff is destroyed; otherwise it reverts to the intact prepared staff when the spell ends and can be reused for future castings. The creature always returns at full strength when newly created.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/changestaff-2792",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/changestones-3507": {
+      "name": "Changestones",
+      "sourceSha256": "a0864d40c2fa5577182adf8a6d3c731f65b6d33a318cc35f8b9726e9d5e2eec8",
+      "effectSummary": "Transforms specially prepared stones into stone-born liths that defend the caster and obey spoken commands. They fight like liths but cannot communicate with true liths or use lith psionic powers. A stone-born lith reduced to 0 hit points or fewer crumbles and destroys its prepared stone; otherwise it reverts to the reusable prepared stone when the spell ends and returns at full strength on the next casting. The caster can prepare one stone per four caster levels, maximum five at 20th level; each stone requires 200 gp in materials and one day of purification.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/changestones-3507",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channel-celestial-102": {
+      "name": "Channel Celestial",
+      "sourceSha256": "1bdb99232281bc8274086a5cd296feb77044725116ba686823c5c85740b2412e",
+      "effectSummary": "Allows a willing celestial of up to 12 Hit Dice that is physically present to occupy the caster's body using the celestial-channeling rules. The spell grants the celestial the ability to channel even if it lacks that ability normally. If the celestial was summoned, channeling ends when the summoning duration ends. The caster must have abstained from intoxicants and stimulants for 24 hours, be under no other spell, and have no ability damage, ability drain, or energy drain when casting. Casting inflicts 1d3 Strength and 1d3 Dexterity damage as a sacrifice cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channel-celestial-102",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channel-greater-celestial-103": {
+      "name": "Channel Greater Celestial",
+      "sourceSha256": "41138d135637c594bee16eacded8021b23d2694d0f8d660a26080a648ff6b8d1",
+      "effectSummary": "Functions as channel celestial but allows a willing celestial of up to 24 Hit Dice. The caster must have abstained from intoxicants and stimulants for one week, be under no other spell, and have no ability damage, ability drain, or energy drain when casting. Casting inflicts 1d6 Strength and 1d6 Dexterity damage as a sacrifice cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channel-greater-celestial-103",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channel-the-dragon-1076": {
+      "name": "Channel the Dragon",
+      "sourceSha256": "259f519ae55be892a671cfa3be16cac59b941e85836193dddc7ea872c10ddeca",
+      "effectSummary": "Grants a repeatable 15-foot cone breath weapon and a defense based on the chosen favored element. After each breath, the caster waits 1d4 rounds before breathing again; spell resistance does not apply. Earth/copper breath slows for 1d6 rounds on a failed Will save and grants DR 5/adamantine. Fire/red deals 7d6 fire, Reflex half, and grants fire resistance 30. Metal/silver paralyzes for 1 round on a failed Will save and grants DR 5/adamantine. Water/white deals 7d6 cold, Reflex half, and grants cold resistance 30. Wood/green deals 7d6 acid, Reflex half, and grants acid resistance 30.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channel-the-dragon-1076",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channel-the-mishtai-1832": {
+      "name": "Channel the Mishtai",
+      "sourceSha256": "a40743c5842d453ed0e60b32040c9593a91f3fc9e30394d1b756bf2c7b134634",
+      "effectSummary": "Channels a random mishtai spirit into a willing host with Intelligence, Wisdom, and Charisma of at least 5. Roll 1d6, or 1d10 for a skarn or rilkan, to determine the spirit and effect: 1 gives -2 on all skill checks and requires a Will save or 1-round daze; 2 gives +2 insight on Strength- and Constitution-based ability/skill checks but removes literacy; 3 gives +2 insight on Charisma-based ability/skill checks and -2 Fortitude; 4 gives +2 insight on Intelligence-based ability/skill checks and -1 attack; 5 gives +2 insight on Dexterity- and Wisdom-based ability/skill checks and -2 Will; 6 gives +1 insight to arcane caster level but costs 1 hit point per Hit Die; 7 gives +1 insight on melee attack and damage and martial-weapon proficiency; 8 gives +4 insight on Hide and Move Silently plus sneak attack +1d6; 9 grants 1 essentia; 10 gives +2 insight on attack and damage against evil creatures plus fear immunity. Each invested essentia extends the duration by 1 minute.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channel-the-mishtai-1832",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channel-the-mishtai-greater-1833": {
+      "name": "Channel the Mishtai, Greater",
+      "sourceSha256": "52242043b2c43c61c629a5c1b47000117a60d71d93fc137b90df2c42a3539a4a",
+      "effectSummary": "Functions as channel the mishtai, but the caster chooses the spirit instead of rolling randomly. A rilkan or skarn can choose any of the ten listed spirits; other subjects can choose only among the first six. The same spirit cannot be channeled more than once per week. Each invested essentia extends the duration by 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channel-the-mishtai-greater-1833",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channeled-divine-health-2919": {
+      "name": "Channeled Divine Health",
+      "sourceSha256": "92efaa27547ae694d9eff4e314f3f2e145f777abc9f4a8049b1c0979c68fa275",
+      "effectSummary": "Healing, range, and casting time scale with channeling time. As a swift action, touch one creature for 1d8 healing. As a standard action, heal one creature at close range for 1d8 + caster level, maximum +10. As a full-round action, heal one creature at medium range for 2d8 + caster level, maximum +15. After 2 full rounds, heal one creature at long range for 4d8 + caster level, maximum +20. Undead take the same amount as damage instead. The caster need not choose the channeling duration in advance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channeled-divine-health-2919",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channeled-divine-shield-2905": {
+      "name": "Channeled Divine Shield",
+      "sourceSha256": "47cca35ba311f482626566e61b24c3e80e992b82da1f6a80e923a1aac8b76d3f",
+      "effectSummary": "Grants damage reduction against evil based on casting time: DR 2/evil as a swift action, DR 5/evil as a standard action, DR 8/evil as a full-round action, or DR 10/evil after 2 rounds. The spell's duration begins only when casting finishes, and the caster need not decide the channeling time in advance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channeled-divine-shield-2905",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channeled-lifetheft-850": {
+      "name": "Channeled Lifetheft",
+      "sourceSha256": "37c58084d85aa403d05dde5aecb4a9a23f348609317fa121b2fd3f0aeb7a9991",
+      "effectSummary": "Drains one foe with strength based on casting time. As a swift action, the target becomes fatigued and the caster gains 5 temporary hit points. As a standard action, the target becomes fatigued and takes 5d4 damage while the caster gains temporary hit points equal to 5 + damage dealt. As a full-round action, the target becomes exhausted and takes 5d4 damage while the caster gains temporary hit points equal to 10 + damage dealt. After 2 full rounds, the target becomes exhausted and takes 5d8 damage while the caster gains temporary hit points equal to 10 + damage dealt. The temporary hit points last up to 1 hour, and the caster need not choose channeling time in advance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channeled-lifetheft-850",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channeled-pyroburst-2967": {
+      "name": "Channeled Pyroburst",
+      "sourceSha256": "3249e02f3df0b5975f618ebf690803b16837f35e640043f6dcf95e3a8aff39d0",
+      "effectSummary": "Creates fire damage based on casting time. As a swift action, one target takes 1d4 fire per two caster levels, maximum 10d4. As a standard action, creatures in a 10-foot spread take 1d6 per caster level, maximum 10d6. As a full-round action, creatures in a 15-foot spread take 1d8 per caster level, maximum 10d8. After 2 rounds, creatures in a 20-foot spread take 1d10 per caster level, maximum 10d10. The caster need not choose channeling time in advance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channeled-pyroburst-2967",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/channeled-sound-blast-818": {
+      "name": "Channeled Sound Blast",
+      "sourceSha256": "4c7f18e4711e2554c5695c51cea15b36d905e15fba62336a9eb9a121623f7331",
+      "effectSummary": "Creates sonic damage based on casting time, with a maximum of 10 damage dice. As a swift action, a 15-foot cone deals 1d4 sonic per two caster levels. As a standard action, a 30-foot cone deals 1d6 per caster level. As a full-round action, a 30-foot cone deals 1d8 per caster level. After 2 full rounds, a 60-foot-radius spread deals 1d10 per caster level and permanently deafens creatures that fail Fortitude saves; the caster is immune to this final version. The caster need not choose channeling time in advance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/channeled-sound-blast-818",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chaos-hammer-2594": {
+      "name": "Chaos Hammer",
+      "sourceSha256": "a34e44e2d5671ed5db58ed07543718c3bfd5f821963b978898840a68e5fab983",
+      "effectSummary": "Damages lawful and neutral nonchaotic creatures. Lawful creatures take 1d8 damage per two caster levels, maximum 5d8, and are slowed for 1d6 rounds; lawful outsiders instead take 1d6 per caster level, maximum 10d6. A Will save halves damage and negates slow. Neutral creatures take half the normal lawful-creature damage and are not slowed, with a successful Will save reducing that again to one-quarter.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chaos-hammer-2594",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/charge-triceratops-4017": {
+      "name": "Charge of the Triceratops",
+      "sourceSha256": "9e28cfe6415ef4df6f8b72ba634fc818ab16e9e7562e0930f9d483bbc886ea25",
+      "effectSummary": "Grants a horn gore attack and +4 enhancement to natural armor. The gore deals 1d8 damage for Medium subjects, 1d6 for Small, or 2d6 for Large. A gore used during a charge deals double damage. As a primary weapon it adds 1-1/2 Strength to damage; as a secondary weapon it takes -5 on the attack roll and adds half Strength.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/charge-triceratops-4017",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/charging-minotaur-3712": {
+      "name": "Charging Minotaur",
+      "sourceSha256": "e2c4a5f3683c441c5513b27f4f0c028a97a83b53028f509fb0ccdcd790fa96d2",
+      "effectSummary": "As part of a charge, make a bull rush that does not provoke attacks of opportunity from either the movement or the bull rush. Resolve the bull rush normally; if the initiator's Strength check wins, the target also takes 2d6 + Strength modifier bludgeoning damage and is pushed back as normal. The initiator does not need to follow the target to push it more than 5 feet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/charging-minotaur-3712",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/charm-monster-mass-2534": {
+      "name": "Charm Monster, Mass",
+      "sourceSha256": "5a745bd6f7933d4e2d3db68d077e82a81c5b37ab0be53e78949ca19e7608ca86",
+      "effectSummary": "Functions as charm monster but affects multiple creatures whose combined Hit Dice do not exceed twice caster level, or at least one creature regardless of Hit Dice. If more creatures are available than can be affected, the caster chooses targets one at a time until reaching a creature whose Hit Dice would exceed the remaining limit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/charm-monster-mass-2534",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/charm-person-2535": {
+      "name": "Charm Person",
+      "sourceSha256": "86259a01f58d11722663a6bfb6636972d1c21048e274653a8f1eb2b8539bd775",
+      "effectSummary": "Makes one humanoid regard the caster as a trusted friend and ally. A target currently threatened or attacked by the caster or allies gains +5 on the save. The spell does not grant direct control: unusual requests require an opposed Charisma check, cannot be retried, and the target never follows suicidal or obviously harmful orders. A threatening act by the caster or apparent allies breaks the charm. Communication requires a shared language or effective pantomime.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/charm-person-2535",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/charm-person-mass-3039": {
+      "name": "Charm Person, Mass",
+      "sourceSha256": "448be5fcc43b2fc70f4c7df1e49f2ce44de3fe6dd36de24266f8e8d0da9ff2b0",
+      "effectSummary": "Functions as charm person but affects multiple creatures whose combined Hit Dice do not exceed twice caster level, or at least one creature regardless of Hit Dice. If more potential targets are present than can be affected, the caster chooses them one at a time until reaching a creature whose Hit Dice would exceed the remaining limit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/charm-person-mass-3039",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/charnel-fire-201": {
+      "name": "Charnel Fire",
+      "sourceSha256": "334a653b021305cce7d64d91eb60618f4cb9c97e9d02982cf98fc38a1b952a44",
+      "effectSummary": "Completely destroys one dead body so no remains are left; a creature whose body is destroyed this way can be restored only by true resurrection. If cast on a corporeal undead creature, it receives a Will save and spell resistance applies; failure destroys that undead permanently.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/charnel-fire-201",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
