@@ -914,6 +914,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/amplify-1730": {
+      "name": "Amplify",
+      "sourceSha256": "c933f4840c3b95a707471188ae84cf62607629e05034746f51ebf5eda107c76a",
+      "effectSummary": "Amplifies all sounds in the area, reducing the DC to hear them by 20. Creatures inside the area do not notice that their voices or other sounds have been amplified.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/amplify-1730",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/amplify-3825": {
+      "name": "Amplify",
+      "sourceSha256": "1ad2e22d6434afcbab047b1e16f05416ef49bd5a25673305e347ffcd01f5d386",
+      "effectSummary": "Amplifies all sounds in the area, reducing the DC to hear them by 20 without alerting creatures inside that their sounds are louder. The spell can be centered on a creature and move with it; an unwilling creature can negate this with a Will save and spell resistance. It counters and dispels silence, and silence likewise counters and dispels it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/amplify-3825",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/analyze-dweomer-2474": {
+      "name": "Analyze Dweomer",
+      "sourceSha256": "48ae151caa70350ce773a92f680b7d870bb68a0a7d420d1e1b18224b74ee1324",
+      "effectSummary": "Each round, the caster can examine one visible creature or object as a free action. For a magic item, the spell reveals its functions, activation methods, and remaining charges; for a creature or object under active spells, it reveals each spell, its effect, and caster level. An attended object can make a Will save; on success, nothing beyond ordinary observation is learned and that object cannot be affected by another analyze dweomer for 24 hours. Artifacts are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/analyze-dweomer-2474",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/analyze-portal-1197": {
+      "name": "Analyze Portal",
+      "sourceSha256": "c83f94741c3cb68d62fe226372511668964e3ace7f951039b37b09f3755444ee",
+      "effectSummary": "After studying an area for 1 round, reveals the sizes and locations of magical portals there. Once a portal is found, each round of study can reveal, in order, its activation key, special activation conditions, whether it is one-way or two-way, other standard portal properties, and finally a 1-round glimpse of its destination. Each property requires a caster-level check against DC 17 and can be retried on a later round. For unusual portals, the spell only reveals limited information: whether a random portal can currently activate, the current destination of a variable portal, the creature destination of a creature-only portal but not a separate equipment destination, and only the fact that a malfunctioning portal malfunctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/analyze-portal-1197",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/analyze-portal-1857": {
+      "name": "Analyze Portal",
+      "sourceSha256": "c47a5437a774dc47deb5928a633dbaf87ed325d94261f117237feb21f5e5996b",
+      "effectSummary": "After studying an area for 1 round, reveals the sizes and locations of magical portals there. Once a portal is found, each round of study can reveal, in order, its activation key, special activation conditions, whether it is one-way or two-way, other standard portal properties, and then a 1-round glimpse of its destination. Each property requires a caster-level check against DC 17 and can be retried on a later round. Unusual portals reveal only limited information: a random portal's current activatability, a variable portal's current destination, where a creature-only portal sends creatures but not separately transported equipment, and only that a malfunctioning portal is malfunctioning.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/analyze-portal-1857",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/analyze-portal-2174": {
+      "name": "Analyze Portal",
+      "sourceSha256": "88fc62ee804e29c919cd05739ef3fed173ce7374f00133738c863e4d5822a3c8",
+      "effectSummary": "After studying an area for 1 round, reveals the sizes and locations of portals there. Once a portal is found, each round of study can reveal, in order, its activation key, special activation conditions, whether it is one-way or two-way, and then a 1-round glimpse of its destination. Each property requires a caster-level check against DC 17 and can be retried on a later round. Unusual portals reveal only limited information: a random portal's current activatability, a variable portal's current destination, where a creature-only portal sends creatures but not separately transported equipment, and only that a malfunctioning portal is malfunctioning.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/analyze-portal-2174",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/analyze-portal-3826": {
+      "name": "Analyze Portal",
+      "sourceSha256": "61fa732b597d7fb38aee34097fc65678ddc81b9b2c520e9b0125f3e19f43a63b",
+      "effectSummary": "After studying an area for 1 round, reveals the sizes and locations of magical portals or gate effects there. Once a portal is found, each round of study can reveal, in order, its activation key, special activation conditions, whether it is one-way or two-way, and then a 1-round glimpse of its destination. Each property requires a caster-level check against DC 17 and can be retried on a later round. Unusual portals reveal only limited information: a random portal's current activatability, a variable portal's current destination, where a creature-only portal sends creatures but not separately transported equipment, and only that a malfunctioning portal is malfunctioning.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/analyze-portal-3826",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/analyze-touchstone-2175": {
+      "name": "Analyze Touchstone",
+      "sourceSha256": "c7b4c8bf3e63da3a5d9eae4c6f362e183762256935109e2d69339eb33fc1dbca",
+      "effectSummary": "After studying an area for 1 round, reveals the location of any planar touchstone there. Once a touchstone is found, each round of study can reveal, in order, the Planar Touchstone feat's base ability for that site, the conditions needed to recharge its higher-order ability, the higher-order ability itself, and the number of uses gained after recharging. Each property requires a caster-level check against DC 15 and can be retried on a later round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/analyze-touchstone-2175",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anarchic-storm-2147": {
+      "name": "Anarchic Storm",
+      "sourceSha256": "f57def73f466a352a22f36b1ffb321022c86bbe5cb8371c2c502ee13dd30ca04",
+      "effectSummary": "Creates a fixed driving rain that imposes -4 on Listen, Spot, and Search checks and -4 on ranged attacks made into, out of, or through the storm. It automatically extinguishes unprotected flames and has a 50% chance to extinguish protected flames. Lawful creatures take 2d6 damage each round, doubled for lawful outsiders, and each round one randomly selected lawful outsider in the area is struck for 5d6 electricity damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anarchic-storm-2147",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anarchic-storm-3827": {
+      "name": "Anarchic Storm",
+      "sourceSha256": "4e8fb6a4899b0073359079d5565c250fee20a24549661767e97ea14ff017de43",
+      "effectSummary": "Creates a fixed driving rain that imposes -4 on Listen, Spot, and Search checks and -4 on ranged attacks made into, out of, or through the storm. It automatically extinguishes unprotected flames and has a 50% chance to extinguish protected flames. Lawful creatures take 2d6 damage each round, doubled for lawful outsiders, and each round one randomly selected lawful outsider in the area is struck for 5d6 electricity damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anarchic-storm-3827",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anarchic-water-3828": {
+      "name": "Anarchic Water",
+      "sourceSha256": "281bdd06c7b121d9f3e9089717b41928f9af166a3ce80b012a549d332f5a9f02",
+      "effectSummary": "Transforms 1 pint of water into anarchic water. A flask can be thrown as a splash weapon with a 10-foot range increment; a direct hit deals 2d4 damage to a lawful outsider and lawful outsiders within 5 feet take 1 splash damage. Against an incorporeal creature, the flask must be opened and poured from an adjacent square with a ranged touch attack that does not provoke attacks of opportunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anarchic-water-3828",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ancestral-vengeance-2029": {
+      "name": "Ancestral Vengeance",
+      "sourceSha256": "954befd2addd11cc10f8703739aebdab19413abf9d86b95e612b4d137840abd6",
+      "effectSummary": "Calls an ancestral spirit to strike the target automatically. The attack deals 1d6 damage per two caster levels, maximum 5d6, or 1d6 per caster level, maximum 10d6, if the target is undead. A successful Fortitude save halves the damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ancestral-vengeance-2029",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ancient-knowledge-4758": {
+      "name": "Ancient Knowledge",
+      "sourceSha256": "a492f2671b063ac13cea4b67f3253e7430eb3f7d97d4bfac91327bb975e7d21c",
+      "effectSummary": "Before making a Knowledge check, the caster can discharge the spell as an immediate action for a +5 insight bonus on that check. The check can still be attempted untrained. A character with a Mark of Finding dragonmark or Favored in House (Tharashk) treats the affected Knowledge check as trained even without ranks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ancient-knowledge-4758",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ancient-mountain-hammer-3708": {
+      "name": "Ancient Mountain Hammer",
+      "sourceSha256": "a1429fd23db900f02b64e835f0bc1a79d899a2c4b8826ec8157e7b1da0852f46",
+      "effectSummary": "As part of the maneuver, make one melee attack. On a hit, it deals an extra 12d6 damage and automatically ignores damage reduction and hardness.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ancient-mountain-hammer-3708",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anger-of-the-noonday-sun-3830": {
+      "name": "Anger of the Noonday Sun",
+      "sourceSha256": "26b2b23059f2e709e71c36ce7a57d9faefbdb895692a7d467f024b474de5d021",
+      "effectSummary": "Creatures in the area that can see the caster must save or be blinded for 1 minute per caster level. Undead in the area take 1d6 damage per two caster levels, maximum 10d6, with a Reflex save for half; undead specifically harmed by bright light are destroyed on a failed save. Fungi, mold, oozes, and slimes take the same damage as undead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anger-of-the-noonday-sun-3830",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anger-of-the-noonday-sun-690": {
+      "name": "Anger of the Noonday Sun",
+      "sourceSha256": "5d0300807f193543323c666d40ecea6c6295dc93b68fd166db93b391c60ea61e",
+      "effectSummary": "Creatures in the area that can see the caster must save or be blinded for 1 minute per caster level. Undead in the area take 1d6 damage per two caster levels, maximum 10d6, with a Reflex save for half; undead specifically harmed by bright light are destroyed on a failed save. Fungi, mold, oozes, and slimes take the same damage as undead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anger-of-the-noonday-sun-690",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/angry-ache-198": {
+      "name": "Angry Ache",
+      "sourceSha256": "63b1bd15c063db2a2f6d0c99009a5aa1d5f58535c384673bba16a3a66ed8af89",
+      "effectSummary": "The subject suffers pain whenever it attacks, imposing a -2 circumstance penalty on all attack rolls for every four caster levels, to a maximum penalty of -10.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/angry-ache-198",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animal-friendship-5028": {
+      "name": "Animal Friendship",
+      "sourceSha256": "ce2156e2f36857ae431dd44816e02fda19b42cad214410279bda8aaeb113e68e",
+      "effectSummary": "Wins the lasting, nonmagical loyalty of an animal only if the caster genuinely intends friendship. The animal can learn three specific tricks or tasks per point of Intelligence. The caster can maintain befriended animals whose total Hit Dice do not exceed twice caster level, though adventuring conditions generally reduce the practical total to about half that amount; existing animal friends can be dismissed to make room for new ones.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animal-friendship-5028",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animal-growth-2775": {
+      "name": "Animal Growth",
+      "sourceSha256": "d6006d14a00af5dc42666046cc4546bdad3b885cbf670795b87a6218cedbb940",
+      "effectSummary": "Increases each affected animal by one size category, doubling height and length and multiplying weight by eight. Each gains +8 size Strength, +4 size Constitution, -2 size Dexterity, +2 natural armor, damage reduction 10/magic, and +4 resistance on saving throws; space, reach, AC/attack size modifiers, and natural-weapon damage adjust for the new size, but speed does not change. Worn and carried gear enlarges with the animal and returns to normal size if released. The spell cannot crush a creature if space is insufficient, does not grant control over affected animals, and does not stack with other magical size increases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animal-growth-2775",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animal-messenger-2524": {
+      "name": "Animal Messenger",
+      "sourceSha256": "be6596bc9c7e6dda36c459762965c1057acb83f75e5f077d618f54a91259999b",
+      "effectSummary": "Compels an untrained Tiny animal to travel to a simple destination the caster knows well or can identify by an obvious landmark. The caster can attach a small item or note; the animal travels there and waits until the spell ends, allowing others to approach and remove what it carries, then resumes normal activity. The spell grants the recipient no special ability to recognize, communicate with, or understand the messenger.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animal-messenger-2524",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
