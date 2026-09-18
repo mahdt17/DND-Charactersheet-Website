@@ -71,6 +71,8 @@ def feat_gaps(r):
         gaps.append("effect")
     if (r.get("mechanicsPresence") or {}).get("prerequisiteLabeled") and not presence(r,"prerequisites"):
         gaps.append("prerequisites")
+    if presence(r,"supplementConflicts"):
+        gaps.append("supplementConflict")
     return gaps
 
 

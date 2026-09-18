@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Structured factual supplements for D&D 3.5 feat pages whose primary DnD Tools record omits gameplay-critical metadata. Supplements fill missing fields only; conflicts fail validation. Effect summaries must stay short and factual rather than copying long source prose.",
+  "entries": {
+    "feats/psionic-feint-3817": {
+      "name": "Psionic Feint",
+      "featType": "Psionic feat",
+      "prerequisites": [
+        {
+          "kind": "feat",
+          "label": "Prerequisite",
+          "text": "Improved Feint"
+        }
+      ],
+      "effectSummary": "Expend psionic focus to feint as a swift action.",
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/feat/Psionic_Feint",
+          "role": "feat type, prerequisite and benefit cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/psionic-feint-3817",
+          "role": "primary catalog identity, source and benefit; type and prerequisite omitted"
+        }
+      ]
+    }
+  }
+}

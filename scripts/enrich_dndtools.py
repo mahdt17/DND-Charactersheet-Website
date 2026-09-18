@@ -685,6 +685,46 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     return apply_class_supplement(entry,enriched)
 
 
+_FEAT_SUPPLEMENT_CACHE=None
+
+def feat_supplements():
+    global _FEAT_SUPPLEMENT_CACHE
+    if _FEAT_SUPPLEMENT_CACHE is None:
+        path=ROOT/"scripts"/"feat_supplements_35.json"
+        payload=json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"entries":{}}
+        _FEAT_SUPPLEMENT_CACHE=payload.get("entries",{})
+    return _FEAT_SUPPLEMENT_CACHE
+
+
+def apply_feat_supplement(entry: dict, details: dict) -> dict:
+    supplement=feat_supplements().get(entry.get("id"))
+    if not supplement:
+        return details
+    if clean(supplement.get("name","")).casefold()!=clean(entry.get("name","")).casefold():
+        raise ValueError(f"Feat supplement identity mismatch for {entry.get('name')}")
+    result={**details}
+    conflicts=[]
+    for key in ("sourceEdition","notes","featType","prerequisites","effectSummary"):
+        supplied=supplement.get(key)
+        if supplied in (None,"",[],{}):
+            continue
+        existing=result.get(key)
+        if existing in (None,"",[],{}):
+            result[key]=supplied
+        elif normalized_compare(existing)!=normalized_compare(supplied):
+            conflicts.append(key)
+    result["supplementProvenance"]=supplement.get("provenance",[])
+    result["supplementVerified"]=True
+    if conflicts:
+        result["supplementConflicts"]=conflicts
+    presence=result.get("mechanicsPresence") or {}
+    if supplement.get("effectSummary"):
+        presence["benefit"]=True
+        presence["ruleProse"]=True
+    result["mechanicsPresence"]=presence
+    return result
+
+
 def parse_feat(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     meta = source_meta(lines)
@@ -722,7 +762,7 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         "prerequisiteLabeled": prereq_labeled,
         "ruleProse": has_rule_prose(lines, entry.get("name",""))
     }
-    return result
+    return apply_feat_supplement(entry,result)
 
 
 def split_class_levels(value: str) -> dict:
@@ -846,6 +886,8 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
         if missing:
             raise ValueError("Spell parse missing required fields: " + ", ".join(missing))
     elif category == "feats":
+        if details.get("supplementConflicts"):
+            raise ValueError("Feat supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
         if not details.get("sourceBook"):
             raise ValueError("Feat parse missing source book")
     elif category == "items":
