@@ -122,7 +122,7 @@ The repaired 3.5 spell source extractor has now passed its complete source gate:
 - Source success rate: **100.00%**
 - Source-extraction gate: **PASSED**
 
-The independent 3.5 spell candidate-output gate correctly remains **FAILED**. The latest full candidate audit reported:
+The independent 3.5 spell candidate-output gate correctly remains **FAILED**. An earlier baseline full candidate audit reported:
 
 - Candidate records: **5,035**
 - Output-complete records: **656**
@@ -136,13 +136,16 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **323**
+- Digest-locked reviewed spell effects: **483**
 - Primary catalog: `https://new.dndtools.org`
 - Outside sources are allowed only when the primary record is missing, truncated, corrupted, contradictory, or otherwise insufficient; such repairs must retain provenance and must not expand catalog membership.
-- Primary-page repairs pinned during this review cycle include `Analyze Portal`, `Anathema`, `Arboreal Transformation`, and the truncated Defenders of the Faith printing of `Aspect of the Deity, Greater`.
+- Primary-page repairs pinned during this review cycle include `Analyze Portal`, `Anathema`, `Arboreal Transformation`, the truncated Defenders of the Faith printing of `Aspect of the Deity, Greater`, and `Blessing of the Snake Mother`.
 - The spell parser retains structured spell tables, and spell review exports include those tables so table-driven mechanics are not silently lost.
-- Full audit at the 263-review checkpoint: **5,035 total / 900 output-complete / 4,135 incomplete**, **17.8749%** output-complete. All remaining critical gaps were the expected unresolved `effect/effectSummary` review backlog; no new failure class appeared.
-- Latest scoped audit to queue: **3.5/spells at 323 reviewed effects**.
+- Full audit at the 263-review checkpoint: **5,035 total / 900 output-complete / 4,135 incomplete**, **17.8749%** output-complete.
+- Full audit at the 423-review checkpoint: **5,035 total / 1,061 output-complete / 3,974 incomplete**, **21.0725%** output-complete.
+- The 423-review audit restored the source gate to **5,035 / 5,035, zero failures** after a prior 323-review audit was falsely interrupted by a transient `RemoteDisconnected` on `Shadow Double`. The fetcher now retries `RemoteDisconnected` and `ConnectionResetError` alongside HTTP 429/5xx and timeout failures.
+- The 423-review output audit's remaining critical gaps are the expected unresolved `effect/effectSummary` review backlog; no new critical failure class appeared.
+- Four table-driven `Bolt of Glory` records were deliberately deferred from the normal review count until exact table mechanics could be recovered rather than guessed. Their variants have now been independently verified, and a fresh table-aware primary review export is being generated before they are committed.
 - Live/catalog writes remain locked.
 
 ## Next work
