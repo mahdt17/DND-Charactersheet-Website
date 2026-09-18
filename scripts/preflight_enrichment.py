@@ -49,6 +49,8 @@ def summarize(name, passed, failed, samples):
         "passed": passed,
         "failed": failed,
         "successRate": round(rate, 4),
+        "failureNames": [sample.get("name") for sample in samples],
+        "failures": [{"name":sample.get("name"),"url":sample.get("url"),"error":sample.get("error")} for sample in samples],
         "examples": samples[:8],
     }
 
