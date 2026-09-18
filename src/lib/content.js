@@ -146,16 +146,42 @@ function hasMeaningfulStats(stats) {
   });
 }
 
+export function generatedDescription(type, edition, entry, stats, source) {
+  const label=edition==='3.5'?'3.5e':edition==='2024'?'5.5e / 2024':edition==='2014'?'5e / 2014':edition;
+  if(type==='class'||type==='subclass'){
+    const bits=[stats.prestige?'prestige class':type==='subclass'?'subclass':'class'];
+    if(stats.hitDie)bits.push(`d${stats.hitDie} hit die`);
+    if(stats.skillPoints)bits.push(`${stats.skillPoints} skill points`);
+    return `${entry.name} is a ${label} ${bits.join(' with ')}${source.book?` from ${source.book}`:''}. ${entry.referenceOnly?'Detailed source mechanics can be completed or overridden in the catalog editor.':'Its structured class information is available in this catalog.'}`;
+  }
+  if(type==='spell'||type==='psionic'){
+    const level=Number(stats.level)||0;
+    const bits=[level?(`level ${level}`):'cantrip',stats.school].filter(Boolean).join(' ');
+    const use=[stats.castingTime&&`cast in ${stats.castingTime}`,stats.range&&`range ${stats.range}`,stats.duration&&`duration ${stats.duration}`].filter(Boolean).join(', ');
+    return `${entry.name} is a ${label} ${bits||'spell'}${source.book?` from ${source.book}`:''}.${use?` ${use}.`:''} ${entry.referenceOnly?'Open the source or edit this entry to complete any missing rule details.':''}`.trim();
+  }
+  if(type==='item'){
+    const bits=[stats.rarity,stats.itemType].filter(Boolean).join(' ');
+    return `${entry.name} is a ${label} ${bits||'item'}${source.book?` from ${source.book}`:''}. ${entry.referenceOnly?'Known item statistics are shown when available; missing fields can be edited.':''}`.trim();
+  }
+  if(type==='feat'){
+    return `${entry.name} is a ${label} feat${source.book?` from ${source.book}`:''}. ${entry.referenceOnly?'Prerequisites and mechanical details are shown when available and can be completed in the editor.':''}`.trim();
+  }
+  if(type==='race')return `${entry.name} is a ${label} ancestry/species reference${stats.speed?` with ${stats.speed} ft. base speed`:''}. Missing traits or statistics can be completed in the editor.`;
+  return `${entry.name} is a ${label} ${type||'rules'} reference${source.book?` from ${source.book}`:''}. Known structured information is shown below and missing details can be edited.`;
+}
+
 export function normalizeContentEntry(entry, options={}) {
   const type=contentType(options.contentType || entry.contentType || entry.category);
   const edition=normalizeEdition(options.edition || entry.edition);
-  const description=textValue(entry.description || entry.desc || options.description || '');
+  const sourceDescription=textValue(entry.description || entry.desc || options.description || '');
   const source=sourceMeta(entry,options);
   const prerequisites=normalizePrerequisites(entry);
   const progression=Array.isArray(entry.progression)?entry.progression:Array.isArray(entry.tables)?entry.tables:[];
   const stats={...statsFor(type,entry),...(entry.stats && typeof entry.stats==='object'?entry.stats:{})};
+  const description=sourceDescription || generatedDescription(type,edition,entry,stats,source);
   const missing=[];
-  if(!description) missing.push('description');
+  if(!sourceDescription) missing.push('description');
   if(!source.name && !source.url) missing.push('source');
   if(['class','spell','item','race','feat','subclass'].includes(type)&&!hasMeaningfulStats(stats)) missing.push('stats');
   if((type==='class'||type==='subclass')&&entry.prestige&&prerequisites.length===0) missing.push('prerequisites');
@@ -170,6 +196,8 @@ export function normalizeContentEntry(entry, options={}) {
     edition,
     name:textValue(entry.name),
     description,
+    descriptionOrigin:sourceDescription?'source':'generated',
+    sourceDescription,
     source:typeof entry.source==='string'?entry.source:source.name,
     sourceUrl:source.url,
     sourceMeta:source,
@@ -181,6 +209,7 @@ export function normalizeContentEntry(entry, options={}) {
       complete:missing.length===0,
       missing,
       hasDescription:Boolean(description),
+      hasSourceDescription:Boolean(sourceDescription),
       hasStats:hasMeaningfulStats(stats),
       hasSource:Boolean(source.name||source.url),
       hasPrerequisites:prerequisites.length>0,
