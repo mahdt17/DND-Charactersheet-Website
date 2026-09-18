@@ -96,27 +96,40 @@
     },
     "feats/kuo-toan-monasticism-1730": {
       "name": "Kuo-Toan Monasticism",
-      "effectSummary": "As a swift action, prepare sticky hands; during flurry of blows, if the first attack hits, one extra flurry attack automatically hits.",
+      "effectSummary": "As a swift action, prepare sticky hands; during flurry of blows, if the first attack hits, one extra flurry attack automatically hits. Use Hit Dice instead of character level to determine the Stunning Fist save DC.",
       "ruleStats": {
         "action": "swift",
         "requires": "flurry of blows",
         "trigger": "first flurry attack hits",
-        "effect": "one extra flurry attack automatically hits"
+        "effect": "one extra flurry attack automatically hits",
+        "stunningFistDcBasis": "Hit Dice instead of character level"
       },
       "provenance": [
         {
           "url": "https://srd.dndtools.org/srd/feats/noncore-featsmm5.html",
-          "role": "Monster Manual V prerequisite and benefit cross-check"
+          "role": "Monster Manual V prerequisite and complete benefit cross-check"
         },
         {
           "url": "https://new.dndtools.org/feats/kuo-toan-monasticism-1730",
-          "role": "primary catalog identity, source and prerequisite; Benefit label omitted"
+          "role": "primary catalog identity/source; Prerequisite and Benefit markup is corrupted"
+        }
+      ],
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Prerequisite",
+          "text": "Kuo-toa"
+        },
+        {
+          "kind": "class_feature",
+          "label": "Prerequisite",
+          "text": "Flurry of blows"
         }
       ]
     },
     "feats/improved-familiar-1484": {
       "name": "Improved Familiar",
-      "inheritsFromFeat": "Improved Familiar",
+      "inheritsFromFeat": "feats/improved-familiar-1481",
       "effectSummary": "Uses the core Improved Familiar rules and adds Forgotten Realms familiar choices from Player's Guide to Faerûn.",
       "variantOptions": [
         {
@@ -163,7 +176,7 @@
     },
     "feats/improved-familiar-1485": {
       "name": "Improved Familiar",
-      "inheritsFromFeat": "Improved Familiar",
+      "inheritsFromFeat": "feats/improved-familiar-1481",
       "effectSummary": "Uses the core Improved Familiar rules and adds familiar choices from Races of Faerûn.",
       "variantOptions": [
         {
@@ -210,7 +223,7 @@
     },
     "feats/improved-familiar-1486": {
       "name": "Improved Familiar",
-      "inheritsFromFeat": "Improved Familiar",
+      "inheritsFromFeat": "feats/improved-familiar-1481",
       "effectSummary": "Uses the core Improved Familiar rules and adds familiar choices from Serpent Kingdoms.",
       "variantOptions": [
         {

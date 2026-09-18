@@ -1,14 +1,16 @@
 {
-  "purpose": "3.5 feat enrichment regression corpus. Every feat here previously failed a strict sample and must remain covered.",
-  "feats": [
-    "Awesome Blow",
-    "Backstab",
-    "Highborn Drow",
-    "Improved Familiar",
-    "Kuo-Toan Monasticism",
-    "Lolth's Blessing",
-    "Psionic Feint",
-    "Spirit Sense",
-    "Verminfriend"
+  "purpose": "3.5 feat enrichment regression corpus. Every exact record here previously failed a strict sample or full-catalog audit and must remain covered.",
+  "recordIds": [
+    "feats/psionic-feint-3817",
+    "feats/awesome-blow-154",
+    "feats/highborn-drow-3659",
+    "feats/verminfriend-3431",
+    "feats/kuo-toan-monasticism-1730",
+    "feats/backstab",
+    "feats/improved-familiar-1484",
+    "feats/lolths-blessing-3660",
+    "feats/improved-familiar-1485",
+    "feats/improved-familiar-1486",
+    "feats/spirit-sense-2731"
   ]
 }

@@ -740,9 +740,24 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         for line in lines
     ) or any(re.match(r"^Prerequisites?$", clean(h), re.I) for h in parser.headings)
     prereq = next_value(lines, "Prerequisite") or next_value(lines, "Prerequisites")
+    benefit_heading = any(clean(h).casefold()=="benefit" for h in parser.headings)
+    # A few damaged source pages collapse Benefit prose into the Prerequisite field.
+    # Do not preserve that corruption as a prerequisite. A fill-only supplement can
+    # then restore the verified prerequisite/effect without overriding parsed facts.
+    def malformed_prerequisite(value: str) -> bool:
+        return bool(
+            value
+            and not benefit_heading
+            and len(value) > 220
+            and re.search(r"\b(?:as a swift action|automatically hits?|save DC|when using)\b", value, re.I)
+        )
+    if malformed_prerequisite(prereq):
+        prereq = ""
     if not prereq:
         req = section(lines, parser.headings, "Prerequisite") or section(lines, parser.headings, "Prerequisites")
         prereq = " ".join(req[:4])
+        if malformed_prerequisite(prereq):
+            prereq = ""
 
     benefit = next_value(lines, "Benefit")
     description = next_value(lines, "Description")
@@ -1143,6 +1158,14 @@ def self_test():
     assert f["featType"] == "General feat" and f["prerequisites"][0]["text"] == "BAB +1."
     assert f["mechanicsPresence"]["benefit"] and f["mechanicsPresence"]["prerequisiteLabeled"]
     assert enrichment_gaps("feats",f) == []
+
+    malformed_feat = """
+    <h1>Kuo-Toan Monasticism</h1><p>General feat</p><p>Monster Manual V (MM5), p. 97</p>
+    <div>Prerequisite</div><div>a kuo-toa can smear a strange sticky substance on its hands. When using flurry of blows, Flurry of blows. As a swift action, Kuo-Toa, rather than its character level to determine its stunning fist save DC, the kuo-toa automatically hits with one of its extra attacks if its first attack hits. A kuo-toa that has this feat uses its Hit Dice.</div>
+    """
+    p=DetailParser();p.feed(malformed_feat);p.close()
+    f=parse_feat(p,{"name":"Kuo-Toan Monasticism","id":"self-test-malformed"})
+    assert not f.get("prerequisites"), "merged Benefit prose must not be retained as a prerequisite"
 
     flavor_only_feat = """
     <h1>Flavor Only</h1><p>General feat</p><p>Example Source (EX), p. 1</p>

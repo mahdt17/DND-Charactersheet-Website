@@ -1,4 +1,4 @@
-"""Strict live regression check for known-problematic 3.5 feats."""
+"""Strict live regression check for known-problematic 3.5 feat records."""
 from __future__ import annotations
 import json, sys
 from pathlib import Path
@@ -9,29 +9,26 @@ import enrich_dndtools as d35
 
 catalog=json.loads((ROOT/"public/catalogs/dndtools/feats.json").read_text(encoding="utf-8"))
 case_file=json.loads((ROOT/"scripts/feat_regression_cases.json").read_text(encoding="utf-8"))
-by_name={}
-for row in catalog:
-    by_name.setdefault(row.get("name"),[]).append(row)
+by_id={row.get("id"):row for row in catalog}
 
 failures=[]
 passed=[]
-for name in case_file["feats"]:
-    rows=by_name.get(name,[])
-    if not rows:
-        failures.append({"name":name,"error":"not present in feat catalog"})
+for record_id in case_file["recordIds"]:
+    row=by_id.get(record_id)
+    if not row:
+        failures.append({"id":record_id,"error":"not present in feat catalog"})
         continue
-    for row in rows:
-        try:
-            raw=d35.fetch(row["url"],0.05)
-            parser=d35.DetailParser(); parser.feed(raw); parser.close()
-            details=d35.parse_feat(parser,row)
-            d35.validate_details(row,"feats",parser,details)
-            gaps=d35.enrichment_gaps("feats",details)
-            if gaps:
-                raise ValueError("Critical gameplay fields missing: "+", ".join(gaps))
-            passed.append({"name":name,"id":row.get("id")})
-        except Exception as exc:
-            failures.append({"name":name,"id":row.get("id"),"url":row.get("url"),"error":str(exc)})
+    try:
+        raw=d35.fetch(row["url"],0.05)
+        parser=d35.DetailParser(); parser.feed(raw); parser.close()
+        details=d35.parse_feat(parser,row)
+        d35.validate_details(row,"feats",parser,details)
+        gaps=d35.enrichment_gaps("feats",details)
+        if gaps:
+            raise ValueError("Critical gameplay fields missing: "+", ".join(gaps))
+        passed.append({"name":row.get("name"),"id":record_id})
+    except Exception as exc:
+        failures.append({"name":row.get("name"),"id":record_id,"url":row.get("url"),"error":str(exc)})
 
 report={"sampledRecords":len(passed)+len(failures),"passedRecords":len(passed),"failedRecords":len(failures),"failures":failures}
 print(json.dumps(report,indent=2))
