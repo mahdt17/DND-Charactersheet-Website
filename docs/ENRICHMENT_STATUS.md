@@ -95,6 +95,36 @@ Structured, provenance-backed supplements currently cover specific missing field
 
 Supplements store short factual mechanics only, not copied long-form sourcebook prose.
 
+## Additional category audit progress
+
+The reusable sharded category audit has now also produced complete **source + dry-run output** passes for the currently supported Wikidot 5e reference categories:
+
+- 5e classes: **13 / 13** output records passed, zero critical gaps.
+- 5e spells: **574 / 574** output records passed, zero critical gaps.
+- 5e feats: **199 / 199** output records passed, zero critical gaps.
+- 5e items: **830 / 830** output records passed, zero critical gaps.
+
+These are scoped category passes only. They do not make the global report release-ready and do not unlock writes.
+
+The repaired 3.5 spell source extractor has now passed its complete source gate:
+
+- Source records: **5,035 / 5,035**
+- Failed source records: **0**
+- Source success rate: **100.00%**
+- Source-extraction gate: **PASSED**
+
+The independent 3.5 spell candidate-output gate correctly remains **FAILED**. The latest full candidate audit reported:
+
+- Candidate records: **5,035**
+- Output-complete records: **656**
+- Records still requiring reviewed effect summaries: **4,379**
+- Output success rate: **13.0288%**
+- Critical output gaps: **4,379**
+
+This is expected under the copyright-safe enrichment design: long third-party effect prose is captured for review but is not copied into bundled candidate data. A spell is not output-complete until it has either a sufficiently short factual effect, structured mechanics, or a reviewed concise effect summary whose SHA-256 digest is locked to the exact source effect text. Do not weaken this gate to make the category pass.
+
+The 3.5 item audit has been repaired through the latest known failures. The final remaining source failure was the `Varie` sentinel, which is a generic non-gameplay reference rather than a playable item. It is now modeled explicitly with `nonGameplayReference: true` and `referenceKind: "generic-varied-entry"` instead of fabricating item mechanics. The real catalog record is also pinned in the permanent live item regression corpus. A fresh full item audit is queued from the branch head containing that regression.
+
 ## Next work
 
 The 3.5 class category is now complete under both independent gates:
