@@ -29,13 +29,26 @@ The first complete class-catalog audit checked **all 1,054 class records** and i
 - Success rate: **100.00%**
 - Critical gaps: **0**
 - Source-extraction gate: **PASSED**
-- Final-output completeness gate: **NOT YET VERIFIED**
+- Final-output completeness gate: **PASSED FOR 3.5 CLASSES**
 - Release ready: **NO**
 - Live/catalog writes: **LOCKED**
 
 The permanent focused regression corpus also passes **67 / 67**, including all 30 records from the original full-catalog failure set.
 
-No enriched class data was written to the bundled catalog during these tests. The successful full audit was read-only and explicitly reported `sourceExtractionVerified: true`, `outputCompletenessVerified: false`, and `releaseReady: false`.
+A separate full dry-run candidate was then generated for all **1,054 / 1,054** class records and audited independently:
+
+- Candidate records attempted: **1,054**
+- Candidate records generated: **1,054**
+- Candidate audit passed: **1,054**
+- Candidate audit failed: **0**
+- Output success rate: **100.00%**
+- Output critical gaps: **0**
+- `sourceExtractionVerified: true`
+- `outputCompletenessVerified: true`
+- `releaseReady: false` because this was intentionally scoped to `3.5/classes`
+- Candidate generation reported `write: false`
+
+No enriched class data was written to the bundled catalog during these tests. Both class audits were read-only/non-live, and the global release/write gate remains locked because the other required categories have not passed their own complete source-and-output audits.
 
 ## Resolved original 30 class failures
 
@@ -84,17 +97,14 @@ Supplements store short factual mechanics only, not copied long-form sourcebook 
 
 ## Next work
 
-The 3.5 class **source-extraction** audit is complete at 1,054 / 1,054, but enrichment is still locked.
+The 3.5 class category is now complete under both independent gates:
 
-Next steps for this category:
+1. Source extraction: **1,054 / 1,054**, zero critical gaps.
+2. Dry-run final candidate output: **1,054 / 1,054**, zero critical gaps.
 
-1. Keep the 67-record focused regression corpus green.
-2. Generate or stage candidate enriched class output only through the existing dry-run/non-live path.
-3. Audit the complete staged 1,054-record output for the same gameplay-critical completeness contract.
-4. Require exactly 1,054 / 1,054 with zero output critical gaps.
-5. Keep provenance and supplement-conflict checks enabled.
-6. Do not use `--write` and do not unlock live/catalog writes unless the separate final-output audit reaches 100%.
-7. Only after both source extraction and final-output completeness are independently verified may release-readiness be reconsidered.
+The 67-record permanent regression corpus must remain green, provenance and supplement-conflict checks must remain enabled, and the class candidate/output audit should remain part of CI.
+
+Do **not** use `--write` and do **not** unlock live/catalog writes. Overall release-readiness remains false because the required non-class categories have not yet completed both independent 100% audits. Work should continue one category at a time rather than treating the completed class audit as permission to enrich the bundled catalog.
 
 ## Separate non-enrichment issue
 
