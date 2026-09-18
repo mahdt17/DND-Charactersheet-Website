@@ -4502,6 +4502,242 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/blindsight-greater-3970": {
+      "name": "Blindsight, Greater",
+      "sourceSha256": "7f09ed76f39f88cc474056a137222fe46d6685e0eaa8b5b4d4afa54a9c34ec3f",
+      "effectSummary": "Functions as blindsight, but extends the subject's blindsight range to 60 feet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blindsight-greater-3970",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/blindsight-1740",
+          "role": "primary-site rules dependency explicitly incorporated by Greater Blindsight"
+        }
+      ]
+    },
+    "spells/blink-2787": {
+      "name": "Blink",
+      "sourceSha256": "5f9dbba899f5237f2649b56f683effceb308f8b9fd5e79c18d04d69bc48f8e3d",
+      "effectSummary": "Rapidly shifts the caster between the Material and Ethereal Planes. Physical attacks against the caster have a 50% miss chance, reduced to 20% if the attacker can see invisible creatures or strike ethereal creatures and eliminated if it can do both. The caster's own attacks have a 20% miss chance, and targeted spells against the caster have a 50% failure chance unless they can affect invisible ethereal targets; spells the caster uses on Material targets also have a 20% failure chance. The caster takes only half damage from most area effects and falling, attacks as though invisible with +2 and denies opponents' Dexterity bonuses, moves at three-quarters speed, can see and attack ethereal creatures, and is affected normally by force and abjuration effects. Moving through solid matter risks materializing for each 5 feet traveled, with a failed check shunting the caster to open space and dealing 1d6 damage per 5 feet displaced.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blink-2787",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blink-greater-3971": {
+      "name": "Blink, Greater",
+      "sourceSha256": "0b9fd1805a42e2a3ecb2e4d1dc9cb31763fd276b189f34c5b89e7eb800a9620e",
+      "effectSummary": "Functions as blink but gives the caster control over the planar shifting. The caster's own attacks and spells never suffer blink failure and the caster can ready a blink to make an incoming attack automatically miss unless it can affect ethereal creatures. The caster can move through solid objects without the normal per-5-foot materialization risk, but ending movement inside a solid object causes shunting to open space and 1d6 damage per 5 feet moved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blink-greater-3971",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/blink-2787",
+          "role": "primary-site base spell rules explicitly incorporated by this controlled-blink variant"
+        }
+      ]
+    },
+    "spells/blink-greater-536": {
+      "name": "Blink, Greater",
+      "sourceSha256": "10b0456d7df83f13ed1c474592bae648830e6417534d3141bd4102a74eda9004",
+      "effectSummary": "Functions as blink but gives the caster control over the planar shifting. The caster's own attacks and spells never suffer blink failure and the caster can ready a blink to make an incoming attack automatically miss unless it can affect ethereal creatures. The caster can move through solid objects without the normal per-5-foot materialization risk, but ending movement inside a solid object causes shunting to open space and 1d6 damage per 5 feet moved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blink-greater-536",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/blink-2787",
+          "role": "primary-site base spell rules explicitly incorporated by this controlled-blink variant"
+        }
+      ]
+    },
+    "spells/blink-improved-730": {
+      "name": "Blink, Improved",
+      "sourceSha256": "0149a8ca9d99d8f4ff6f3f966f001cf5be831e76eb311640e46bb52fc5689dbc",
+      "effectSummary": "Grants controlled blinking between the Material and Ethereal Planes. Physical attacks against the caster have a 50% miss chance, reduced to 20% for attacks that can strike invisible or incorporeal targets and eliminated for attacks that can both see and affect ethereal creatures. The caster's own attacks and spells never suffer blink failure, while targeted spells against the caster still have a 50% failure chance unless they can affect invisible ethereal targets. The caster takes half damage from most area effects and falling, attacks as though invisible, can ready a blink to avoid an incoming attack, moves at three-quarters speed, and can see and attack ethereal creatures. Moving through solid matter is safe unless movement ends inside it, which shunts the caster to open space for 1d6 damage per 5 feet displaced.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blink-improved-730",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/blink-2787",
+          "role": "primary-site base spell rules explicitly incorporated by this controlled-blink variant"
+        }
+      ]
+    },
+    "spells/blistering-flourish-3567": {
+      "name": "Blistering Flourish",
+      "sourceSha256": "68ee84e8e687423a7dec847ee2d827788b0f10cd96ec09503a140e73088e1127",
+      "effectSummary": "Creates a dazzling supernatural display. Every creature in the area other than the initiator must make a Fortitude save against DC 11 + the initiator's Wisdom modifier or be dazzled for 1 minute.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blistering-flourish-3567",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blistering-radiance-3972": {
+      "name": "Blistering Radiance",
+      "sourceSha256": "203301efb75491f7b2bdaa3831c2c8c4f9d7e26a7a4cfa24dc602990248429f4",
+      "effectSummary": "Fills the area with intense light. Sighted creatures in it are dazzled with no save, and creatures and objects take 2d6 fire damage each round, Fortitude half. If the spell is cast through a narrow opening or its effect would strike a solid barrier before reaching the chosen point, it erupts early like fireball and may require a ranged touch attack to pass through the opening. As a light spell, it counters and dispels equal-or-lower-level darkness effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blistering-radiance-3972",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blistering-radiance-491": {
+      "name": "Blistering Radiance",
+      "sourceSha256": "d727abe92f3a53d54044b2143889f65fdaa6819c09eec5d4bdad6efc6d2cc062",
+      "effectSummary": "Fills the area with intense light. Sighted creatures in it are dazzled with no save, and creatures and objects take 2d6 fire damage each round, Fortitude half. If the spell is cast through a narrow opening or its effect would strike a solid barrier before reaching the chosen point, it erupts early like fireball and may require a ranged touch attack to pass through the opening. As a light spell, it counters and dispels equal-or-lower-level darkness effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blistering-radiance-491",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blizzard-1300": {
+      "name": "Blizzard",
+      "sourceSha256": "264c4706396a4a2c928c1904d9c4c1967cb3751aa35f9bdae246a58b7b9641f1",
+      "effectSummary": "Creates a severe snowstorm that drops the temperature below freezing, reduces visibility to zero, makes Spot, Search, Listen, and ranged attacks impossible, extinguishes unprotected flames, and has a 75% chance to extinguish protected flames. Unprotected creatures must make Fortitude saves or take 1d6 nonlethal cold damage. The storm deposits about 1 foot of snow per round, and accumulated snow impedes movement.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blizzard-1300",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blockade-897": {
+      "name": "Blockade",
+      "sourceSha256": "0b02e4f982b51beadc5ed54f604e07360f27802be6a3a0f6895f8be2def84549",
+      "effectSummary": "Creates a solid 5-foot cube of wood in an unoccupied space on a suitable solid surface. The cube weighs about 2,000 pounds, has hardness 5 and 600 hit points, fills its square, can be stacked with other cubes, and floats. The spell fails if no valid adjacent or supporting space exists.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blockade-897",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-creepers-2916": {
+      "name": "Blood Creepers",
+      "sourceSha256": "3643a69baa6f8fcea9b21f6109b14eb8e057ba912991899938e043f4f9e35ac3",
+      "effectSummary": "Thorny vines erupt through the target, immediately dealing 1 piercing damage per caster level, maximum 15, and leaving the creature immobilized and entangled. It takes the same damage each round until it escapes with a DC 20 Strength check or DC 25 Escape Artist check; allies can aid the escape. The vines can also be cut or broken as 3-inch-thick wooden objects. Living and nonliving targets are affected equally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-creepers-2916",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-frenzy-1741": {
+      "name": "Blood Frenzy",
+      "sourceSha256": "9249cd46e0b70aebd7c45e72254039bb83cb8ca3c3b8e954781447bbf089cc91",
+      "effectSummary": "Places the subject in a rage granting +2 Strength, +2 Constitution, +1 morale on Will saves, and -1 AC, with the usual rage restrictions on actions. The Constitution increase grants 1 extra hit point per level while it lasts. When the rage ends, the subject is fatigued for the rest of the encounter.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-frenzy-1741",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-water-3731": {
+      "name": "Blood in the Water",
+      "sourceSha256": "bb679e7fe5a531ec27ab4d2efa516ac62089408481cbedc24739eec5a3dff1f4",
+      "effectSummary": "While in this stance, each critical hit the initiator scores grants a cumulative +1 untyped bonus on attack and damage rolls. All accumulated bonuses are lost if the initiator goes more than 1 minute without scoring another critical hit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-water-3731",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-of-fire-2087": {
+      "name": "Blood of Fire",
+      "sourceSha256": "3ef8783a9a8149a076196d609bef9994cca628eecdb4f3334233ba4db2ce3715",
+      "effectSummary": "Creates one blood-fire missile per three caster levels, maximum five. Each missile requires a separate ranged touch attack and deals 2d8 fire damage on a hit. Creatures within 5 feet of a hit target must make a Reflex save or also take 2d8 fire damage; a missed missile produces no splash. The material component is the caster's own blood, and cutting the palm to cast the spell deals 2 damage to the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-of-fire-2087",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-of-the-martyr-87": {
+      "name": "Blood of the Martyr",
+      "sourceSha256": "c42ee4d37c23833cf8d3dc1d1ede092803ec230ed8df9aa946cc37da9fadbcdd",
+      "effectSummary": "Transfers at least 20 of the caster's actual hit points to the target as healing. The caster takes damage equal to the amount transferred; temporary hit points cannot be transferred, healing cannot raise the target above its normal maximum, and any excess transfer is lost. An unconscious target counts as willing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-of-the-martyr-87",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-sirocco-3974": {
+      "name": "Blood Sirocco",
+      "sourceSha256": "01635242160c57af97430847a52a41846f402b1e73b8244229548e182e31dc44",
+      "effectSummary": "Creates a persistent windstorm cone. Small or smaller creatures that fail their Fortitude saves are knocked prone and rolled 1d4×10 feet, taking 1d4 nonlethal damage per 10 feet; Medium creatures are knocked prone, and Large or Huge creatures cannot move toward the point of origin. A successful save each round allows normal movement and avoids these effects for that round. A living creature that fails also takes 2 damage from dehydration. The winds extinguish unprotected flames and have a 50% chance to extinguish protected flames.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-sirocco-3974",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-snow-1280": {
+      "name": "Blood Snow",
+      "sourceSha256": "69810f26cb9394af72d372eceb5968d7624fd43139352b3e737f48f5111b7696",
+      "effectSummary": "Corrupts an existing snow field. Each round a creature remains in contact with the affected snow, it must make a Fortitude save or take 1d2 Constitution drain and become nauseated for the spell's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-snow-1280",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-water-3976": {
+      "name": "Blood to Water",
+      "sourceSha256": "50154bc095f91da94055486f6138857d8681c4da7889d80909db15be8014c433",
+      "effectSummary": "Transforms a creature's blood, dealing 2d6 Constitution damage; a successful Fortitude save halves the damage. Living creatures with the fire or water subtype are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-water-3976",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-wind-3202": {
+      "name": "Blood Wind",
+      "sourceSha256": "d9f7b0bb82fe618bb336ec3eb02be8865b96273b7d71097ecf1cf29fffc84776",
+      "effectSummary": "Each round, the subject can use a full attack to treat one chosen natural weapon as a thrown weapon with a 20-foot range increment. Attacks use the subject's highest applicable melee attack bonus and normal natural-weapon damage, modified by normal ranged-attack rules. The effect originates from the subject, provides no flanking benefit, and the chosen natural weapon can change from round to round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-wind-3202",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blood-wind-3975": {
+      "name": "Blood Wind",
+      "sourceSha256": "51271ab6c9518d8caca83b879d7388d2e6813394a10491ccf70a2d4ae88871ad",
+      "effectSummary": "Allows the subject to make a full attack with its natural weapons and unarmed strikes as though they were thrown weapons with a 20-foot range increment. Attacks use the normal melee attack bonuses and damage for those attacks, while ranged cover and concealment rules apply. The spell does not extend actual reach, grant flanking, or create additional attacks of opportunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blood-wind-3975",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
