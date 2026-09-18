@@ -199,7 +199,8 @@ def next_value(lines, label):
 
 
 def source_line(lines):
-    for line in lines[:25]:
+    # Site navigation precedes page content, so source metadata may appear well after line 25.
+    for line in lines:
         m=re.match(r"^Source\s*:\s*(.+)$",clean(line),re.I)
         if m:
             return clean(m.group(1))
@@ -307,7 +308,7 @@ def parse_spell_detail(row,page):
     lines=page.lines
     source=source_line(lines)
     level_school=""
-    for line in lines[:20]:
+    for line in lines:
         if re.search(r"\b(cantrip|\d(?:st|nd|rd|th)-level)\b",line,re.I):
             level_school=line
             break
@@ -355,7 +356,7 @@ def parse_class_detail(row,page):
     lines=page.lines
     result={**row}
     # Multiclass requirement is a short factual rule useful to the prerequisite engine.
-    for line in lines[:20]:
+    for line in lines:
         m=re.search(r"You must have (.+?) in order to multiclass in or out of this class",line,re.I)
         if m:
             result["multiclassRequirement"]=clean(m.group(1))
@@ -378,12 +379,20 @@ def parse_class_detail(row,page):
     for table in page.tables:
         if not table:
             continue
-        header=[clean(x) for x in table[0]]
-        if "Level" in header and "Proficiency Bonus" in header and "Features" in header:
-            result["progression"]=table
+        header_index=None
+        header=None
+        for idx,candidate in enumerate(table[:5]):
+            normalized=[clean(x) for x in candidate]
+            if "Level" in normalized and "Proficiency Bonus" in normalized and "Features" in normalized:
+                header_index=idx
+                header=normalized
+                break
+        if header is not None:
+            data_rows=table[header_index+1:]
+            result["progression"]=[header]+data_rows
             result["advancement"]=[
                 {header[i]:clean((r+[""]*len(header))[i]) for i in range(len(header))}
-                for r in table[1:] if r
+                for r in data_rows if r
             ]
             break
     return result
