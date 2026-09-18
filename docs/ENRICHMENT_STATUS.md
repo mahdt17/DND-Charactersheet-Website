@@ -134,6 +134,16 @@ This is expected under the copyright-safe enrichment design: long third-party ef
 
 The 3.5 item audit has been repaired through the latest known failures. The final remaining source failure was the `Varie` sentinel, which is a generic non-gameplay reference rather than a playable item. It is now modeled explicitly with `nonGameplayReference: true` and `referenceKind: "generic-varied-entry"` instead of fabricating item mechanics. The real catalog record is also pinned in the permanent live item regression corpus. A fresh full item audit is queued from the branch head containing that regression.
 
+## Current 3.5 spell review checkpoint
+
+- Digest-locked reviewed spell effects: **263**
+- Primary catalog: `https://new.dndtools.org`
+- Outside sources are allowed only when the primary record is missing, truncated, corrupted, contradictory, or otherwise insufficient; such repairs must retain provenance and must not expand catalog membership.
+- Primary-page repairs pinned during this review cycle include `Analyze Portal`, `Anathema`, `Arboreal Transformation`, and the truncated Defenders of the Faith printing of `Aspect of the Deity, Greater`.
+- The spell parser now retains structured spell tables, and spell review exports include those tables so table-driven mechanics are not silently lost.
+- Latest queued scoped audit: **3.5/spells at 263 reviewed effects**.
+- Live/catalog writes remain locked.
+
 ## Next work
 
 The 3.5 class category is now complete under both independent gates:
