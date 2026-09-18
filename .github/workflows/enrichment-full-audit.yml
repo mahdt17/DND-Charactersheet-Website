@@ -61,3 +61,27 @@ jobs:
         with:
           name: enrichment-full-audit
           path: test-results/enrichment-full-audit.json
+
+  candidate-output:
+    runs-on: ubuntu-latest
+    needs: merge
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: enrichment-full-audit
+          path: test-results/source-audit
+      - name: Build complete 3.5 dry-run candidates
+        run: python scripts/enrich_dndtools.py --categories classes feats spells items equipment --delay 0.15 --candidate-dir test-results/candidates
+      - name: Build complete 5e dry-run candidates
+        run: python scripts/import_wikidot.py --categories spells classes feats items --delay 0.15 --candidate-dir test-results/candidates
+      - name: Audit candidate output
+        run: python scripts/audit_enrichment_output.py test-results/candidates --source-audit test-results/source-audit/enrichment-full-audit.json --output test-results/enrichment-release-audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-candidate-output
+          path: |
+            test-results/enrichment-release-audit.json
+            test-results/candidates/
