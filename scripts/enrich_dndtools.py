@@ -1034,9 +1034,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
     effect_source=spell_description_text(parser)
     if effect_source:
         source_corruption_patterns=(
-            (r"\\[missing content in source\\]|missing content in source","missing-content-in-source"),
+            (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
-            (r"liveoak spell \\(\\s*slowed","truncated-arboreal-source"),
+            (r"liveoak spell \(\s*slowed","truncated-arboreal-source"),
             (r"see Appendix 3 of the clerics undergo","truncated-greater-deity-aspect-source"),
         )
         for pattern,marker in source_corruption_patterns:
@@ -1405,9 +1405,10 @@ def extract_entry_details(entry: dict, category: str, delay: float):
         details=PARSERS[category](parser,entry)
         return parser,details
     except HTTPError as error:
-        if category=="items" and error.code==404:
+        if category=="items" and error.code in {404,410,429,500,502,503,504}:
             fallback=item_source_fallback_details(entry)
             if fallback:
+                fallback={**fallback,"sourceFallbackHttpStatus":error.code}
                 parser=DetailParser()
                 parser.feed(f"<h1>{html.escape(clean(entry.get('name','')))}</h1>")
                 parser.close()
