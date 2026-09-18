@@ -32,7 +32,8 @@ AGENT = "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/D
 
 INDEX_URLS = {
     "spells": BASE + "/spells",
-    "feats": BASE + "/feats",
+    # Wikidot lists published/racial/UA feats on the front page; /feats is not a real index.
+    "feats": BASE + "/",
     "items": BASE + "/wondrous-items",
 }
 
