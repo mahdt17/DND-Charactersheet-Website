@@ -330,6 +330,10 @@ def legacy_class_fallback(entry: dict) -> dict:
     url=legacy_class_url(entry)
     raw=fetch_allowed(url,{urlparse(LEGACY_CLASS_BASE).netloc},0.05)
     parser=DetailParser(); parser.feed(raw); parser.close()
+    expected=clean(entry.get("name","")).replace("’","'").casefold()
+    visible={clean(line).replace("’","'").casefold() for line in parser.lines[:60]}
+    if expected and expected not in visible:
+        raise ValueError(f"Historical mirror identity mismatch for {entry.get('name')}")
     result={"fallbackSourceUrl":url}
     req=parse_requirement_lines(section(parser.lines,parser.headings,"Requirements"))
     if req: result["prerequisites"]=req
@@ -457,8 +461,16 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         "spellResistance": next_value(lines, "Spell Resistance"),
     }
     school_value=result.get("school","")
-    if re.search(r"\((?:Strike|Boost|Counter|Stance)\)", school_value, re.I):
+    source_value=result.get("sourceBook","")
+    maneuver_disciplines=("Desert Wind","Devoted Spirit","Diamond Mind","Iron Heart","Setting Sun","Shadow Hand","Stone Dragon","Tiger Claw","White Raven")
+    psionic_disciplines=("Clairsentience","Metacreativity","Psychokinesis","Psychometabolism","Psychoportation","Telepathy")
+    if ("Tome of Battle" in source_value
+        or any(x.casefold() in school_value.casefold() for x in maneuver_disciplines)
+        or re.search(r"\((?:Strike|Boost|Counter|Stance)\)", school_value, re.I)):
         result["isManeuver"]=True
+    if ("Psionics" in source_value
+        or any(x.casefold() in school_value.casefold() for x in psionic_disciplines)):
+        result["isPsionicPower"]=True
     classes_raw = next_value(lines, "Classes")
     class_levels = split_class_levels(classes_raw)
     if class_levels:
@@ -491,6 +503,17 @@ def parse_item(parser: DetailParser, entry: dict) -> dict:
         value = next_value(lines, label)
         if value:
             result[key] = value
+    for line in lines:
+        compact=clean(line)
+        if "·" in compact and len(compact)<100:
+            left,right=[clean(x) for x in compact.split("·",1)]
+            if left.casefold() in ("wondrous item","psi","psionic item","weapon","armor","potion","ring","rod","staff","wand"):
+                result.setdefault("itemType",left)
+                if right:
+                    result.setdefault("bodySlot",right)
+                break
+    if parser.tables:
+        result["tables"]=parser.tables
     prereq = next_value(lines, "Prerequisites") or next_value(lines, "Prerequisite")
     if prereq:
         result["prerequisites"] = [{"kind":"text","label":"Prerequisite","text":prereq}]
@@ -541,7 +564,7 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
     elif category == "items":
         if not details.get("sourceBook"):
             raise ValueError("Item parse missing source book")
-        useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType")
+        useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType","tables")
         if not any(details.get(key) for key in useful):
             raise ValueError("Item parse produced no structured mechanics")
     elif category == "equipment":
@@ -582,7 +605,7 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
         if not (presence.get("benefit") or presence.get("description")):
             gaps.append("featEffect")
     elif category == "spells":
-        psionic=bool(re.search(r"\b(psychometabolism|psychokinesis|metacreativity|clairsentience|telepathy|psychoportation)\b",details.get("school",""),re.I))
+        psionic=bool(details.get("isPsionicPower") or re.search(r"\b(psychometabolism|psychokinesis|metacreativity|clairsentience|telepathy|psychoportation)\b",details.get("school",""),re.I))
         if psionic:
             details["isPsionicPower"]=True
         if not details.get("isManeuver") and not psionic and not details.get("components"):
@@ -590,7 +613,7 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
         if not presence.get("ruleProse"):
             gaps.append("spellEffect")
     elif category == "items":
-        useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType")
+        useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType","tables")
         if not any(details.get(key) for key in useful):
             gaps.append("itemStats")
         if not presence.get("ruleProse") and not details.get("ruleFamily"):
