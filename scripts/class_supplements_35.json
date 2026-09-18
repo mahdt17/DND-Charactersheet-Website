@@ -2122,6 +2122,22 @@
       ],
       "notes": "Original source is Lords of Darkness (3.0-era material).",
       "prestige": true
+    },
+    "classes/survivor-822": {
+      "name": "Survivor",
+      "classSkillRule": {
+        "mode": "inherit_from_previous_classes_or_race"
+      },
+      "provenance": [
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/Dungeons%20and%20dragons%20mega%20book%20pack/WIzards%20OF%20the%20coast%20Sourcebooks/Savage%20Species%20-%20Playing%20Monstrous%20Characters%20%28oef%2C%20act%2C%20bm%2C%20hq%29%20%28WTC881580000%29.pdf",
+          "role": "Savage Species p.89 class-skill rule cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/survivor-822",
+          "role": "primary parsed class statistics, requirements, progression and features; class-skill rule omitted"
+        }
+      ]
     }
   }
 }
