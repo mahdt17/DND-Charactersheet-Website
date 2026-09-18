@@ -704,7 +704,7 @@ def apply_feat_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Feat supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    for key in ("sourceBook","sourceAbbr","sourcePage","sourceEdition","notes","featType","prerequisites","effectSummary","inheritsFromFeat","ruleStats","variantOptions"):
+    for key in ("sourceBook","sourceAbbr","sourcePage","sourceEdition","notes","featType","prerequisites","effectSummary","normalSummary","specialSummary","inheritsFromFeat","ruleStats","variantOptions"):
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
             continue
@@ -737,6 +737,16 @@ def apply_feat_supplement(entry: dict, details: dict) -> dict:
     if supplement.get("effectSummary"):
         presence["benefit"]=True
         presence["ruleProse"]=True
+        result.pop("effectNeedsSummary",None)
+        result.pop("effectSourceLength",None)
+    if supplement.get("normalSummary"):
+        presence["normal"]=True
+        result.pop("normalNeedsSummary",None)
+        result.pop("normalSourceLength",None)
+    if supplement.get("specialSummary"):
+        presence["special"]=True
+        result.pop("specialNeedsSummary",None)
+        result.pop("specialSourceLength",None)
     result["mechanicsPresence"]=presence
     return result
 
@@ -819,6 +829,20 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         result["effectNeedsSummary"] = True
         result["effectSourceLength"] = len(concise_benefit)
 
+    concise_normal=clean(normal)
+    if concise_normal and len(concise_normal) <= 400:
+        result["normalRule"]=concise_normal
+    elif concise_normal:
+        result["normalNeedsSummary"]=True
+        result["normalSourceLength"]=len(concise_normal)
+
+    concise_special=clean(special)
+    if concise_special and len(concise_special) <= 400:
+        result["specialRule"]=concise_special
+    elif concise_special:
+        result["specialNeedsSummary"]=True
+        result["specialSourceLength"]=len(concise_special)
+
     if (not benefit and description
         and re.search(r"\b(?:refer to|see (?:the )?discussion of)\b.*\bImproved Familiar\b",description,re.I)):
         options=parse_inline_familiar_options(description)
@@ -831,6 +855,8 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         "description": bool(description),
         "normal": bool(normal),
         "special": bool(special),
+        "normalLabeled": any(re.match(r"^Normal\b",clean(line),re.I) for line in lines),
+        "specialLabeled": any(re.match(r"^Special\b",clean(line),re.I) for line in lines),
         "prerequisiteLabeled": prereq_labeled,
         "ruleProse": has_rule_prose(lines, entry.get("name",""))
     }
@@ -1012,6 +1038,10 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
             gaps.append("featEffect")
         if presence.get("prerequisiteLabeled") and not details.get("prerequisites"):
             gaps.append("prerequisites")
+        if presence.get("normalLabeled") and not (details.get("normalRule") or details.get("normalSummary")):
+            gaps.append("normalRule")
+        if presence.get("specialLabeled") and not (details.get("specialRule") or details.get("specialSummary")):
+            gaps.append("specialRule")
     elif category == "spells":
         psionic=bool(details.get("isPsionicPower") or re.search(r"\b(psychometabolism|psychokinesis|metacreativity|clairsentience|telepathy|psychoportation)\b",details.get("school",""),re.I))
         if psionic:
