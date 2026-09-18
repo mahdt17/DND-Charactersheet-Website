@@ -460,23 +460,58 @@ def parse_item_detail(row,page):
     source=source_line(page.lines)
     if source:
         result["sourceBook"]=source
-    # Individual item pages commonly lead with "Wondrous item, rare (requires attunement)".
-    item_header=re.compile(
-        r"^(?:wondrous item|weapon(?:\s*\([^)]*\))?|armor(?:\s*\([^)]*\))?|"
-        r"potion|ring|rod|staff|wand)(?:\s*,|\s*\(|\s+-|\s*$)",
-        re.I
-    )
-    for line in page.lines:
-        low=line.casefold()
-        if item_header.search(clean(line)) and len(line)<220:
-            result["itemHeader"]=line
-            rarity=re.search(r"\b(common|uncommon|rare|very rare|legendary|artifact|varies|unknown rarity)\b",line,re.I)
-            if rarity:
-                value=rarity.group(1)
-                result["rarity"]="Unknown" if value.casefold()=="unknown rarity" else value.title()
-            if "requires attunement" in low:
-                result["attunement"]=True
+
+    # The first short rules descriptor after the title/source is authoritative.
+    # It can contain a normal rarity, multiple rarities, "unique", "unknown",
+    # or a family rule such as "rarity by figurine".
+    title_key=identity_key(row.get("name",""))
+    start=0
+    for i,line in enumerate(page.lines):
+        if identity_key(line)==title_key or identity_key(line).startswith(title_key):
+            start=i+1
             break
+
+    descriptor=""
+    type_words=("wondrous item","weapon","armor","potion","ring","rod","staff","wand","scroll","ammunition")
+    for line in page.lines[start:]:
+        value=clean(line)
+        low=value.casefold()
+        if not value or re.match(r"^sou(?:r)?ce\s*:",value,re.I):
+            continue
+        if len(value)<=240 and any(low.startswith(word) for word in type_words):
+            descriptor=value
+            break
+
+    if descriptor:
+        result["itemHeader"]=descriptor
+        head=clean(descriptor.split(",",1)[0])
+        if head:
+            result["itemType"]=head
+
+        rarity_matches=[]
+        for match in re.finditer(r"\b(common|uncommon|rare|very rare|legendary|artifact)\b",descriptor,re.I):
+            value=match.group(1).title()
+            if value not in rarity_matches:
+                rarity_matches.append(value)
+
+        low=descriptor.casefold()
+        if "rarity by" in low or len(rarity_matches)>1:
+            result["rarity"]="Varies"
+            if rarity_matches:
+                result["rarityOptions"]=rarity_matches
+            m=re.search(r"rarity by\s+([^,(]+)",descriptor,re.I)
+            if m:
+                result["rarityRule"]=clean(m.group(1))
+        elif rarity_matches:
+            result["rarity"]=rarity_matches[0]
+        elif "unknown rarity" in low or re.search(r",\s*\?{2,}",descriptor):
+            result["rarity"]="Unknown"
+        elif re.search(r"\bunique\b",descriptor,re.I):
+            result["rarity"]="Unique"
+
+        if "requires attunement" in low:
+            result["attunement"]=True
+
     result.setdefault("attunement",False)
     result["mechanicsPresence"]={"ruleProse":has_rule_prose(page,row.get("name",""))}
     return result
