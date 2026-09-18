@@ -187,26 +187,21 @@ def parse(url: str, delay: float) -> Page:
 
 
 def next_value(lines, label):
-    target=clean(label).casefold()
+    target=clean(label)
+    pattern=re.compile(rf"^{re.escape(target)}\s*:?[ \t]*(.*)$",re.I)
     for i,line in enumerate(lines):
         normalized=clean(line)
-        folded=normalized.casefold()
-        inline=re.search(rf"(?:^|\s){re.escape(label)}\s*:\s*(.+)$",normalized,re.I)
-        if inline:
-            return clean(inline.group(1))
-        if folded.rstrip(":")==target:
-            remainder=normalized[len(label):].lstrip(" :\t")
-            if remainder:
-                return clean(remainder)
-            for candidate in lines[i+1:]:
-                if clean(candidate):
-                    return clean(candidate)
-        if folded.startswith(target):
-            remainder=normalized[len(label):].lstrip(" :\t")
-            if remainder:
-                return clean(remainder)
+        match=pattern.match(normalized)
+        if not match:
+            continue
+        remainder=clean(match.group(1))
+        if remainder:
+            return remainder
+        for candidate in lines[i+1:]:
+            candidate=clean(candidate)
+            if candidate:
+                return candidate
     return ""
-
 
 def source_line(lines):
     # Site navigation precedes page content, so source metadata may appear well after line 25.
@@ -475,9 +470,10 @@ def parse_item_detail(row,page):
         low=line.casefold()
         if item_header.search(clean(line)) and len(line)<220:
             result["itemHeader"]=line
-            rarity=re.search(r"\b(common|uncommon|rare|very rare|legendary|artifact|varies)\b",line,re.I)
+            rarity=re.search(r"\b(common|uncommon|rare|very rare|legendary|artifact|varies|unknown rarity)\b",line,re.I)
             if rarity:
-                result["rarity"]=rarity.group(1).title()
+                value=rarity.group(1)
+                result["rarity"]="Unknown" if value.casefold()=="unknown rarity" else value.title()
             if "requires attunement" in low:
                 result["attunement"]=True
             break
