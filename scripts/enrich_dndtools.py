@@ -193,6 +193,10 @@ def source_meta(lines: list[str]) -> dict:
     joined = " | ".join(lines[:30])
     match = re.search(r"(?:(?:Prestige|Base|NPC|Psionic) Class\s+)?([^|]{2,120}?)\s*\(([A-Za-z0-9 .&'-]{1,16})\)\s*(?:,\s*p\.\s*(\d+))?", joined)
     if not match:
+        for line in lines:
+            fallback = re.match(r"^Source\s*:\s*(.+)$", clean(line), re.I)
+            if fallback:
+                return {"sourceBook": clean(fallback.group(1))}
         return {}
     book = clean(match.group(1))
     book = re.sub(r"^(Save|General feat|Epic feat|Item Creation feat|Metamagic feat|Psionic feat|Fighter Bonus Feat feat)\s+", "", book, flags=re.I)
@@ -227,19 +231,30 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     if "prestige class" in lower:
         enriched["prestige"] = True
 
-    # Advancement is normally the first table containing BAB/Fort/Ref/Will.
+    # Advancement tables vary: normal classes use BAB/Fort/Ref/Will, while epic
+    # and unusual classes may use headers such as "Loremaster Level" + "Special".
     for table in parser.tables:
         if not table:
             continue
-        header = [clean(c) for c in table[0]]
-        folded = [h.casefold() for h in header]
-        if "bab" in folded and any(x in folded for x in ("fort","fortitude")):
+        header_index = None
+        header = None
+        for idx, candidate in enumerate(table[:4]):
+            normalized = [clean(c) for c in candidate]
+            folded = [h.casefold() for h in normalized]
+            has_level = any(h == "level" or h.endswith(" level") for h in folded)
+            has_progress = any(h in folded for h in ("bab","fort","fortitude","ref","reflex","will","special","spellcasting"))
+            if has_level and has_progress:
+                header_index = idx
+                header = normalized
+                break
+        if header is not None:
+            data_rows = table[header_index+1:]
             rows = []
-            for row in table[1:]:
+            for row in data_rows:
                 values = row + [""] * max(0, len(header)-len(row))
                 rows.append({header[i] or f"column_{i+1}": clean(values[i]) for i in range(len(header))})
             enriched["advancement"] = rows
-            enriched["progression"] = table
+            enriched["progression"] = [header] + data_rows
             break
 
     # Keep class skills as names only if the page renders them as separate tokens.
@@ -350,14 +365,14 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
         raise ValueError(f"Page identity check failed for {entry.get('name')}")
 
     if category == "classes":
-        required = ["sourceBook", "hit_die", "progression"]
-        missing = [key for key in required if not details.get(key)]
-        if missing:
-            raise ValueError("Class parse missing required fields: " + ", ".join(missing))
-        if details.get("prestige") and "prerequisites" not in details:
-            # Some prestige classes can have unusual requirements, but a page that
-            # says Prestige Class and yields no Requirements section is suspicious.
-            raise ValueError("Prestige class parse found no prerequisites")
+        if not details.get("sourceBook"):
+            raise ValueError("Class parse missing source book")
+        useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills")
+        if not any(details.get(key) for key in useful):
+            # Some catalog records are source pointers (for example variant base
+            # classes) with no mechanics on that exact page. They are safe to retain
+            # as partial references, but they must not be stamped as enriched.
+            raise ValueError("Class page contains no structured mechanics to enrich")
     elif category == "spells":
         required = ["sourceBook", "school", "casting_time", "range", "duration"]
         missing = [key for key in required if not details.get(key)]
@@ -379,6 +394,20 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
             raise ValueError("Equipment parse produced no structured mechanics")
 
 
+def enrichment_gaps(category: str, details: dict) -> list[str]:
+    expected = {
+        "classes": ("hit_die","progression"),
+        "spells": ("school","casting_time","range","duration"),
+        "feats": ("featType",),
+        "items": ("sourceBook",),
+        "equipment": ("kind","itemCategory"),
+    }.get(category, ())
+    gaps = [key for key in expected if not details.get(key)]
+    if category == "classes" and details.get("prestige") and not details.get("prerequisites"):
+        gaps.append("prerequisites")
+    return gaps
+
+
 def enrich_entry(entry: dict, category: str, delay: float) -> dict:
     html_text = fetch(entry["url"], delay)
     parser = DetailParser()
@@ -386,6 +415,7 @@ def enrich_entry(entry: dict, category: str, delay: float) -> dict:
     parser.close()
     details = PARSERS[category](parser, entry)
     validate_details(entry, category, parser, details)
+    gaps = enrichment_gaps(category, details)
     return {
         **entry,
         **details,
@@ -393,6 +423,8 @@ def enrich_entry(entry: dict, category: str, delay: float) -> dict:
         "enrichment": {
             "version": 1,
             "validated": True,
+            "partial": bool(gaps),
+            "missingExpected": gaps,
             "structuredOnly": True,
             "source": "DnD Tools",
             "fields": sorted(details),
