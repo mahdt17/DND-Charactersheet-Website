@@ -5178,6 +5178,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/bombardment-1606": {
+      "name": "Bombardment",
+      "sourceSha256": "c0ff62cfbc097bab6adae5c78ee006f4b5182b13a19b4b843efbd00806ddf43f",
+      "effectSummary": "Rains rocks over the area for 1d8 damage per caster level, maximum 10d8. A target that fails its save is buried, gains nine-tenths cover and concealment, and begins suffocating until it climbs free as a full-round action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bombardment-1606",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bombardment-2225": {
+      "name": "Bombardment",
+      "sourceSha256": "b952556c7709fda6d722a13eefaf49e2c313c3bba189b991f0ce648265948672",
+      "effectSummary": "Rains rocks over the chosen burst. A creature that fails its Reflex save takes 1d8 damage per caster level, maximum 20d8, and is buried under rubble; a successful save halves the damage and avoids burial. Buried creatures risk suffocation and can climb free as a full-round action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bombardment-2225",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bombardment-3986": {
+      "name": "Bombardment",
+      "sourceSha256": "b722e70305b524c7dfb3bbae23e811295b2eb095e9003dff08224e67a737359e",
+      "effectSummary": "Drops boulders in a cylinder. A failed Reflex save deals 1d8 damage per caster level, maximum 20d8, and buries the creature under 5 feet of rubble; a successful save halves the damage and avoids burial. A buried creature cannot move or cast spells with somatic components and must have material components already in hand. It can escape with a full-round DC 20 Strength check, or another creature can dig it free in 1 minute. The area remains covered by 5 feet of dense rubble.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bombardment-3986",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bone-chill-1281": {
+      "name": "Bone Chill",
+      "sourceSha256": "793d1d8abd49ce4df810816d2e866ba50f97866a212e2ee7c7bc93ab6eef2df0",
+      "effectSummary": "A ray of burning cold encases a corporeal undead target in ice, immobilizing it as though held. On each of its turns, the target can spend a full-round action to attempt a new saving throw to break free; this attempt does not provoke attacks of opportunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bone-chill-1281",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/boneblade-199": {
+      "name": "Boneblade",
+      "sourceSha256": "1d2245dd4844045932bc4955ffafe82311db901afd161cab42f8a815e7f1d4d3",
+      "effectSummary": "Transforms a bone at least 6 inches long into a longsword, short sword, or greatsword. The weapon gains +1 enhancement per five caster levels, minimum +1 and maximum +4, deals +1d6 damage to living creatures and an additional +1d6 against good-aligned creatures, and can be wielded by someone other than the caster. The spell does not grant proficiency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/boneblade-199",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/boneblast-200": {
+      "name": "Boneblast",
+      "sourceSha256": "8f2e6432e83f8b8e623ee4d809266ccb01eb89b8f4130fff1f24cff0b3bd6ca8",
+      "effectSummary": "Cracks a bone within the touched creature and deals 1d3 Constitution damage. A successful Fortitude save halves the Constitution damage, or negates it if the unhalved roll would have dealt only 1 point.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/boneblast-200",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bonecrusher-3710": {
+      "name": "Bonecrusher",
+      "sourceSha256": "21e059386096149b8899a51fb6e0befc59f902c026c3e1e24a5166396314ce67",
+      "effectSummary": "As part of the maneuver, make one melee attack. On a hit, it deals +4d6 damage and forces a Fortitude save against DC 13 + Strength modifier. On a failed save, the target's skeletal structure is weakened so rolls to confirm critical hits against it gain +10 until its hit points are restored to full. Creatures without discernible anatomy or immune to critical hits ignore the weakening effect but still take the bonus damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bonecrusher-3710",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bonefiddle-3987": {
+      "name": "Bonefiddle",
+      "sourceSha256": "0cc256e9c6dd1daeefd0f91c159518e914affaba69834985e2e0ca36b6dccc1d",
+      "effectSummary": "Conjures a ghostly bow that saws against the target's skeleton. At the start of each of its turns, the victim makes a Fortitude save; failure deals 3d6 sonic damage and imposes -20 on Move Silently checks, while success negates that round's damage and ends the spell. The effect continues even if the target later leaves the caster's line of sight or line of effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bonefiddle-3987",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bonerattle-1359": {
+      "name": "Bonerattle",
+      "sourceSha256": "7f828c80b903ad24620b70a83ac37d84af47a5823104d47f65ad8e0854dcadc0",
+      "effectSummary": "Creates a resonance that damages true bone or an exoskeleton for 1d4 damage per caster level, maximum 5d4. Creatures without true bones, including many elementals, incorporeal creatures, golems, oozes, plants, and purely ectoplasmic creatures, are unaffected, as are creatures whose bones are currently altered into a boneless form.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bonerattle-1359",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bones-of-the-earth-2917": {
+      "name": "Bones of the Earth",
+      "sourceSha256": "c190b56e83256fa0e5f2cb886b5e90136fa766d3ba16b96f328630cd6d67700d",
+      "effectSummary": "Each round as a standard action, creates a permanent 5-foot-square stone pillar up to 20 feet high from earth or stone. A Large-or-smaller creature in its square must save or be lifted upward. If the ceiling is 20 feet or lower, a carried creature takes 4d6 damage when crushed against it; with higher ceilings, the creature must make DC 20 Balance or fall for 2d6 damage. A pillar created from a vertical surface deals 2d6 damage and knocks prone on a failed Reflex save. Each pillar has AC 3, hardness 8, 900 hit points, and can be climbed with DC 20 Climb.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bones-of-the-earth-2917",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bonesplitting-strike-3709": {
+      "name": "Bonesplitting Strike",
+      "sourceSha256": "6716bdea5aa5657c9ae97303706238253332c9e08e9838f20aca5a553325433a",
+      "effectSummary": "As part of the maneuver, make one melee attack. On a hit, the target takes the attack's normal damage plus 2 Constitution damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bonesplitting-strike-3709",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/boreal-wind-1268": {
+      "name": "Boreal Wind",
+      "sourceSha256": "18e54b8bdceb2b30a2fa06b8a8e1e13d3ee70007376260c53f9976447e196d9d",
+      "effectSummary": "Creates a sustained blast of arctic wind. It extinguishes small flames automatically and has a 50% chance to extinguish larger ordinary fires. Creatures in the area take 1d4 cold damage per caster level, maximum 15d4; a successful Fortitude save negates the gust's effects, while failure also pushes the creature away from the caster by 3 feet per caster level. Creatures remaining in the area save again each round. The wind can scatter dust, damage light structures, move small boats, and disperse gases or vapors. The caster can redirect it with a move action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/boreal-wind-1268",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bothersome-babble-808": {
+      "name": "Bothersome Babble",
+      "sourceSha256": "136da761023222584a7d50cac44259f285163cd4df1c59518b1b58fc54d3eb25",
+      "effectSummary": "Prevents the subject from speaking intelligibly, though writing is unaffected. Casting a spell with a verbal component requires a Concentration check against DC equal to this spell's save DC + the spell level. If two castings overlap, speaking also deals 1d8 damage each round the creature speaks; this counts as continuous damage for Concentration. When the first casting ends, the overlap damage ends and the remaining casting continues with its normal effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bothersome-babble-808",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bottle-of-smoke-1879": {
+      "name": "Bottle of Smoke",
+      "sourceSha256": "25caafc5dabd55a77194f127bd2737cae2555f607fa02f7ad4b224d8827ede6f",
+      "effectSummary": "Captures magical smoke in a special bottle; opening it creates an insubstantial smoke horse. Mounting requires DC 10 Ride while holding the bottle, and letting go causes the rider to fall through the horse; breaking the bottle ends the spell. The horse moves 20 feet per caster level, maximum 240 feet, and can leave a 5-foot-wide, 20-foot-high smoke trail that lasts 10 minutes and provides 20% concealment. Severe or magical wind disperses the horse and trail. The mount is immune to damage and cannot attack. The rider can return it to the bottle to pause the spell and later release it with remaining duration, but all magic ends 24 hours after casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bottle-of-smoke-1879",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bottle-of-smoke-3988": {
+      "name": "Bottle of Smoke",
+      "sourceSha256": "ce1880656bfa3c88c38f1653937ffbbf96b7350c11241e59136105aa674eba1c",
+      "effectSummary": "Captures magical smoke in a special bottle; opening it creates an insubstantial smoke horse. Mounting requires DC 10 Ride while holding the bottle, and letting go causes the rider to fall through the horse; breaking the bottle ends the spell. The horse moves 20 feet per caster level, maximum 240 feet, and can leave a 5-foot-wide, 20-foot-high smoke trail that lasts 10 minutes and grants concealment. Severe or magical wind disperses the horse and trail. The mount is immune to physical and magical attacks and cannot attack. It can be returned to the bottle to pause the spell and later released with remaining duration, but all magic ends 24 hours after casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bottle-of-smoke-3988",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bottle-of-smoke-643": {
+      "name": "Bottle of Smoke",
+      "sourceSha256": "3ab48b77b626881a657244cb9347d7a596308c0987e871b0d172ee041a9ce31b",
+      "effectSummary": "Captures magical smoke in a special bottle; opening it creates an insubstantial smoke horse. Mounting requires DC 10 Ride while holding the bottle, and letting go causes the rider to fall through the horse; breaking the bottle ends the spell. The horse moves 20 feet per caster level, maximum 240 feet, and can leave a 5-foot-wide, 20-foot-high smoke trail that lasts 10 minutes and provides 20% concealment. Severe or magical wind disperses the horse and trail. The mount is immune to damage and cannot attack. It can be returned to the bottle to pause the spell and later released with remaining duration, but all magic ends 24 hours after casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bottle-of-smoke-643",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/boulder-roll-3711": {
+      "name": "Boulder Roll",
+      "sourceSha256": "3137e9279b5b6ebd32c48361dc9d6c98984c74b0fc117f2ebb774bbc2caa7656",
+      "effectSummary": "When making an overrun attack, the initiator can activate this boost to gain +4 on the Strength check. If the overrun check fails, the target cannot knock the initiator prone; movement simply stops in the last legal square. The movement and overrun attempts do not provoke attacks of opportunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/boulder-roll-3711",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bounding-assault-3621": {
+      "name": "Bounding Assault",
+      "sourceSha256": "e298e9e83b1f6e98ac1ff64a8f5a58938469e24296c84774519ef3372db0e4ac",
+      "effectSummary": "As part of the maneuver, make a double move and then one melee attack with +2 on the attack roll. The maneuver counts as a charge attack for determining whether feats and other abilities apply.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bounding-assault-3621",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/brain-spider-1137": {
+      "name": "Brain Spider",
+      "sourceSha256": "b153ebe3ed9a5f20ba6589cbf8be47644d68a062499364c4f5ab450509040a04",
+      "effectSummary": "Links the caster to the minds of up to eight chosen intelligent creatures in range that fail their saves. As a standard action, the caster can listen to individual thought streams in any order, gather one piece of information per caster level about a chosen topic from all linked minds, or study one creature's thoughts and memories in detail. On a round without a detailed study, the caster can instead spend a standard action to implant a suggestion in one linked creature; that creature receives another Will save against the brain spider DC to resist only the suggestion. Language is no barrier and targets can be selected by description rather than personal familiarity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brain-spider-1137",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/brain-spider-1528": {
+      "name": "Brain Spider",
+      "sourceSha256": "333d37304e38ac21312435082080ae1f89c2579e8afd144abeb01abd98a0f5b1",
+      "effectSummary": "Links the caster to the minds of up to eight chosen intelligent creatures in range that fail their saves. As a standard action, the caster can perceive their surface-thought chaos, follow individual thought streams, gather one piece of information per caster level about a chosen topic from all linked minds, or study one creature's thoughts and memories in detail. On a round without a detailed study, the caster can instead spend a standard action to implant a suggestion in one linked creature; that creature receives another Will save against the brain spider DC to resist only the suggestion. Language is no barrier and targets can be selected by description rather than personal familiarity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brain-spider-1528",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
