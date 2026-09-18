@@ -5398,6 +5398,54 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/bolt-of-glory-61": {
+      "name": "Bolt of Glory",
+      "sourceSha256": "aec6103d0d20a39bb14e950b4953f441a5785f6c6d448ca531b4e6a9f915a211",
+      "tablesSha256": "6ef74172707be4eee2cdf0b706e9faf7225081c5a29824399eb936612eab6c63",
+      "effectSummary": "Makes a ranged touch attack with a bolt of positive energy. A Material Plane creature takes 5d8 damage; an elemental or neutral outsider takes 5d6; a good outsider or creature native to the Positive Energy Plane takes no damage; an evil outsider or undead creature takes 10d8; and a creature native to the Negative Energy Plane takes 15d8.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolt-of-glory-61",
+          "role": "primary DnD Tools prose and structured damage table reviewed together; summary digest-locked to both"
+        }
+      ]
+    },
+    "spells/bolt-of-glory-694": {
+      "name": "Bolt of Glory",
+      "sourceSha256": "c806c1d83a00cc3fbf4a082a1081c9b62fe9570e39fbb03870ab702f4d2e4b09",
+      "tablesSha256": "68b2acc4845676c151e05fb235fe24a00eedf4735f0c9a5cfeee92671b346c48",
+      "effectSummary": "Makes a ranged touch attack with positive energy. A Material- or Elemental-Plane creature or neutral outsider takes 1d6 damage per two caster levels, maximum 7d6. A creature native to the Negative Energy Plane, an evil outsider, or an undead creature takes 1d6 per caster level, maximum 15d6. A creature native to the Positive Energy Plane or a good outsider takes no damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolt-of-glory-694",
+          "role": "primary DnD Tools prose and structured damage table reviewed together; summary digest-locked to both"
+        }
+      ]
+    },
+    "spells/bolt-of-glory-956": {
+      "name": "Bolt of Glory",
+      "sourceSha256": "18c9b5e52a0e9b1d22c2d0c407e50bf3d3fe31873817c764403e75ba80be13e3",
+      "tablesSha256": "9ae878799aff4164ef86361d58142d35f21c775e228b90354503fdad7b863936",
+      "effectSummary": "Makes a ranged touch attack with positive energy. A Material- or Elemental-Plane creature or neutral outsider takes 1d6 damage per two caster levels, maximum 7d6. A creature native to the Negative Energy Plane, an evil outsider, or an undead creature takes 1d6 per caster level, maximum 15d6. A creature native to the Positive Energy Plane or a good outsider takes no damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolt-of-glory-956",
+          "role": "primary DnD Tools prose and structured damage table reviewed together; summary digest-locked to both"
+        }
+      ]
+    },
+    "spells/bolt-of-glory-989": {
+      "name": "Bolt of Glory",
+      "sourceSha256": "b32371ae30c0d2dc32b90c080061028fef00a0c6138e200e7a951318a5780918",
+      "tablesSha256": "68b2acc4845676c151e05fb235fe24a00eedf4735f0c9a5cfeee92671b346c48",
+      "effectSummary": "Makes a ranged touch attack with positive energy. A Material- or Elemental-Plane creature or neutral outsider takes 1d6 damage per two caster levels, maximum 7d6. A creature native to the Negative Energy Plane, an evil outsider, or an undead creature takes 1d6 per caster level, maximum 15d6. A creature native to the Positive Energy Plane or a good outsider takes no damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolt-of-glory-989",
+          "role": "primary DnD Tools prose and structured damage table reviewed together; summary digest-locked to both"
+        }
+      ]
     }
   }
 }
