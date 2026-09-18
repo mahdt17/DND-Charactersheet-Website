@@ -3838,6 +3838,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/binding-winds-692": {
+      "name": "Binding Winds",
+      "sourceSha256": "671e98446094bb1b0b73e066ba1da5d63e5b7687c792cad2a82d21c6be125a17",
+      "effectSummary": "Creates stationary winds around the subject. The target can act normally but cannot leave its current location; flying creatures are held in midair. It can speak but cannot be heard and can hear only the roar of the winds. Sonic and language-dependent effects cannot pass into or out of the winds, though spells the caster casts on themself work normally. Ranged attacks into or out of the winds take -2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/binding-winds-692",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bite-of-the-king-1469": {
+      "name": "Bite of the King",
+      "sourceSha256": "f8016f4cbe6b39e694bead2d16ab9d5fe717a6369740ff9a7a0abe9ad445b42a",
+      "effectSummary": "On a successful melee touch attack and failed save, the target is swallowed into a temporary pocket stomach dimension. Each round there it takes 2d8+12 bludgeoning damage plus 12 acid damage. It can cut free with a light slashing or piercing weapon by dealing 35 damage to the stomach dimension, AC 21, reappearing in an adjacent space. Each casting creates its own separate stomach dimension.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bite-of-the-king-1469",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bite-of-the-king-3949": {
+      "name": "Bite of the King",
+      "sourceSha256": "777f27978da70eaa3ef9fabba1730ba204db2d3b5d8195820f386842e36a1d87",
+      "effectSummary": "On a successful melee touch attack and failed Fortitude save, the target is sent to a temporary pocket stomach dimension. Each round there it takes 2d8+12 bludgeoning damage plus 12 acid damage. It can cut free with a light slashing or piercing weapon by dealing 35 damage to the stomach dimension, AC 21, reappearing adjacent to the caster. Each casting creates its own separate stomach dimension.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bite-of-the-king-3949",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bite-werebear-3950": {
+      "name": "Bite of the Werebear",
+      "sourceSha256": "1a842601e0d9db050c55545049cbe599e5c55982a61a83c56f273a99355bc6c1",
+      "effectSummary": "Grants +16 enhancement Strength, +2 Dexterity, +8 Constitution, and +7 natural armor. The caster gains two claws and a bite: claws attack at full bonus for 1d8 damage each, or 1d6 if Small, plus Strength; the bite attacks at -2 and deals 2d8, or 2d6 if Small, plus half Strength. The caster also gains Blind-Fight and Power Attack. Base attack bonus of +6 or higher does not grant extra iterative attacks with these natural weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bite-werebear-3950",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bite-wereboar-3951": {
+      "name": "Bite of the Wereboar",
+      "sourceSha256": "ddafa01af8f0a3a601c2496d9f740fec5c0cdbb22b496aa1306b29f4ebb9719e",
+      "effectSummary": "Grants +4 enhancement Strength, +6 Constitution, and +8 natural armor, plus a bite attack dealing 1d8 damage, or 1d6 if Small, plus 1-1/2 times Strength. The caster also gains Blind-Fight. Base attack bonus of +6 or higher does not grant extra iterative bite attacks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bite-wereboar-3951",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bite-wererat-3952": {
+      "name": "Bite of the Wererat",
+      "sourceSha256": "14c26a57c27261ab9579dc2921cfebea3deb088c2653ab10ee767180df45337b",
+      "effectSummary": "Grants +6 enhancement Dexterity, +2 Constitution, and +3 natural armor, plus a bite attack dealing 1d4 damage, or 1d3 if Small, plus 1-1/2 times Strength. The caster also gains Weapon Finesse. Base attack bonus of +6 or higher does not grant extra iterative bite attacks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bite-wererat-3952",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bite-weretiger-3953": {
+      "name": "Bite of the Weretiger",
+      "sourceSha256": "2f436d9496b101df06d9564bc6bcd1a6ed30355719b1630de874ce4f11a4183c",
+      "effectSummary": "Grants +12 enhancement Strength, +4 Dexterity, +6 Constitution, and +5 natural armor. The caster gains two claws and a bite: claws attack at full bonus for 1d8 damage each, or 1d6 if Small, plus Strength; the bite attacks at -2 and deals 2d6 plus half Strength, with the source also listing 2d6 for Small creatures. The caster gains Blind-Fight and Power Attack. Base attack bonus of +6 or higher does not grant extra iterative attacks with these natural weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bite-weretiger-3953",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bite-werewolf-3954": {
+      "name": "Bite of the Werewolf",
+      "sourceSha256": "843f37b44a53886508c26cc26ee2b9b9296929fc60a1749bb32012b59ca65383",
+      "effectSummary": "Grants +2 enhancement Strength, +4 Dexterity, +4 Constitution, and +4 natural armor, plus a bite attack dealing 1d6 damage, or 1d4 if Small, plus 1-1/2 times Strength. The caster also gains Blind-Fight. Base attack bonus of +6 or higher does not grant extra iterative bite attacks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bite-werewolf-3954",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/black-bag-132": {
+      "name": "Black Bag",
+      "sourceSha256": "7634b215333294cdc892a0d00108ad1c32cb69ca50754914c7f111579955f6c3",
+      "effectSummary": "Creates a 1-pound bag containing knives, scalpels, and other small torture tools. Created implements disintegrate 1 round after anyone other than the caster removes them or after they otherwise leave the caster's possession. The bag can also store evil magic items, including unholy-damage items and items requiring evil spells, as though it had 10 cubic feet of space without increasing weight. Nonevil items fall through and cannot be stored.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/black-bag-132",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/black-blade-of-disaster-1605": {
+      "name": "Black Blade of Disaster",
+      "sourceSha256": "7b5a9a8366f8892c438864e8cf47c2f1f2e5fdf333382018db9d4bf4131c4618",
+      "effectSummary": "Creates a 3-foot planar-rift blade that makes one melee touch attack per round using the caster's base attack bonus plus Intelligence or Charisma modifier. A hit deals 2d12 damage and ignores object hardness. The blade threatens on 18-20, counts as +5 for overcoming damage reduction, and on a critical hit also subjects the target to disintegrate. It can pass through magical barriers of its spell level or lower, affect ethereal and incorporeal creatures as force, and can be retargeted as a standard action. The spell ends if the blade leaves range or line of sight. Gate can counter it, dimensional anchor automatically dispels it, and dispel magic, sphere of annihilation, or rod of cancellation can affect it; its touch AC is 13.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/black-blade-of-disaster-1605",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/black-blade-of-disaster-3532": {
+      "name": "Black Blade of Disaster",
+      "sourceSha256": "ffd1ad9915275d486b4a8683c75ad277e3e44e92bfb042f41accb224b624a849",
+      "effectSummary": "Creates a 3-foot planar-rift blade that makes one melee touch attack per round using the caster's base attack bonus plus Intelligence or Charisma modifier. A creature hit must make a Fortitude save: failure disintegrates it for 2d6 damage per caster level, maximum 40d6, while success deals 5d6. The blade can pass through magical barriers of its spell level or lower, affect ethereal and incorporeal creatures as force, and can be retargeted as a standard action. The spell ends if the blade leaves range or line of sight. Gate can counter it, dimensional anchor automatically dispels it, and dispel magic, sphere of annihilation, or rod of cancellation can affect it; its touch AC is 13.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/black-blade-of-disaster-3532",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/black-karma-curse-2950": {
+      "name": "Black Karma Curse",
+      "sourceSha256": "e6a15d2862c0e1934b61e4e37a559e10dcabb0f2da5d4097e2fe5f6039257945",
+      "effectSummary": "On a failed save, the target immediately damages itself as though it had hit itself with its currently wielded weapon or natural weapon. If several attack forms qualify, use the one that would deal the most damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/black-karma-curse-2950",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/black-lungs-1366": {
+      "name": "Black Lungs",
+      "sourceSha256": "5dcec537641323c575065eff1f5b29c44ff6dc2c6b0cc885fb1d4b0261ac991f",
+      "effectSummary": "Afflicts the target's lungs, reducing speed by half, removing any Dexterity bonus to AC, and imposing -2 on attack rolls. Remove disease can end the effect early.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/black-lungs-1366",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/black-sand-3162": {
+      "name": "Black Sand",
+      "sourceSha256": "568b66fba30c7ee118d52d273e4222e2e6a336e9edb8404809d49e9810406c10",
+      "effectSummary": "Creates black sand infused with shadow and negative energy. It produces magical darkness up to 20 feet above the surface. Creatures touching the sand take 1d4 negative-energy damage each round with no save, and a creature reduced to 0 hit points by it becomes black sand. Creatures in the area when cast can make a Reflex save to avoid being caught. Burrowers beneath the surface are unaffected until they break through. The effect can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/black-sand-3162",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/black-talon-2269": {
+      "name": "Black Talon",
+      "sourceSha256": "8e969cf51b30c1f63bd70ce739dc95beb2f160fa9a586e501d63f6bcc80417ac",
+      "effectSummary": "Transforms one arm into a retractable taloned appendage and increases natural reach by 5 feet. Attacks with it gain +1 profane, increasing by +1 per four caster levels. A claw hit deals 1d6 slashing plus 1 negative-energy damage per caster level, maximum +10; a Will save halves only the negative-energy portion. The talon can also make touch attacks, using the same profane attack bonus, that deal only the negative-energy damage. This negative energy heals undead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/black-talon-2269",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blackfire-3955": {
+      "name": "Blackfire",
+      "sourceSha256": "0be3fd13fe74089287f8af1add3b7c8d349222c0cc39a1ec74139ae9015a6d51",
+      "effectSummary": "A ranged touch attack engulfs a living target in blackfire. Each round it must make a Fortitude save; failure deals 1d4 Constitution damage and nauseates it, while success prevents the damage but leaves it sickened for that round. Each adjacent living creature must make a Reflex save each round or become engulfed as well. A creature reduced to 0 Constitution becomes black ash and can be restored only by true resurrection or wish followed by a DC 30 caster-level check. Three consecutive successful Fortitude saves extinguish the flames. Normal methods cannot put them out, but antimagic field, dispel magic, remove curse, or break enchantment can; death ward grants immunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blackfire-3955",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blackfire-521": {
+      "name": "Blackfire",
+      "sourceSha256": "a8685732cb560e3d3aa003587e3870455be4001f7a687442fb843bc39498f9e5",
+      "effectSummary": "A ranged touch attack engulfs a living target in blackfire. Each round it must make a Fortitude save; failure deals 1d4 Constitution damage and nauseates it, while success prevents the damage but leaves it sickened for that round. Each adjacent living creature must make a Reflex save each round or become engulfed as well. A creature reduced to 0 Constitution becomes black ash and can be restored only by true resurrection or wish followed by a DC 30 caster-level check. Three consecutive successful Fortitude saves extinguish the flames. Normal methods cannot put them out, but antimagic field, dispel magic, remove curse, or break enchantment can; death ward grants immunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blackfire-521",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blacklight-1199": {
+      "name": "Blacklight",
+      "sourceSha256": "3fdfbfc9a9e52b0a95be2f39f8093b527d08f8982b3ff7291cb5f3b443fe43a5",
+      "effectSummary": "Creates total magical darkness impenetrable to normal vision and darkvision, while the caster can see normally inside the area. Even the caster cannot see through it from outside. It can be fixed on a point, placed on a mobile object, or centered on a creature to move with that creature. Unattended objects and points receive no save or spell resistance. Blacklight counters or dispels equal-or-lower-level light spells such as daylight, and daylight can counter or dispel blacklight.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blacklight-1199",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blacklight-3956": {
+      "name": "Blacklight",
+      "sourceSha256": "878186fb90954293c391cafdb5ac7d877639f3c4f762a0d762183d4d3c754c5b",
+      "effectSummary": "Creates total magical darkness impenetrable to normal vision and darkvision, while the caster can see normally inside the area. Even the caster cannot see through it from outside. It can be fixed on a point, placed on a mobile object, or centered on a creature to move with that creature. Unattended objects and points receive no save or spell resistance. Blacklight counters or dispels equal-or-lower-level light spells such as daylight.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blacklight-3956",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blacklight-988": {
+      "name": "Blacklight",
+      "sourceSha256": "159098c5180545d0bc6f7eb517fe3944ce57bfaa5ec1d7b9320004c58992dc69",
+      "effectSummary": "Creates total magical darkness impenetrable to normal vision and darkvision, while the caster can see normally inside the area. Even the caster cannot see through it from outside. It can be fixed on a point, placed on a mobile object, or centered on a creature to move with that creature. Unattended objects and points receive no save or spell resistance. Blacklight counters or dispels equal-or-lower-level light spells such as daylight, and daylight can counter or dispel blacklight.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blacklight-988",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
