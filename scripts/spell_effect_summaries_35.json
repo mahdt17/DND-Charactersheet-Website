@@ -133,6 +133,127 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/absorption-3376": {
+      "name": "Absorption",
+      "sourceSha256": "1c2b379dc25730d920849d92bc0b10c72f671ce6ebadfa1d03226f1838d8d0ca",
+      "effectSummary": "Absorbs 1d4+6 levels of spells or spell-like effects that specifically target you; area, effect, and touch-range effects are excluded. Each absorbed spell consumes capacity, partially absorbed spells affect you only in proportion to the unabsorbed levels, and stored levels can power prepared or known spells without expending the preparation, provided enough stored levels and any required material components are supplied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/absorption-3376",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/absorption-3798": {
+      "name": "Absorption",
+      "sourceSha256": "743e58f547103499110c52ca132a44d97445ee14b2a9e84fb6af3e3debd57313",
+      "effectSummary": "Absorbs 1d4+6 levels of ranged spells or spell-like effects that target you; touch, area, and effect spells are excluded. Each absorbed spell consumes capacity, partial absorption proportionally reduces damage or the chance of a non-damaging effect, and stored levels can cast known or prepared spells without consuming normal preparation or daily uses, while still requiring material components.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/absorption-3798",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/absorption-433": {
+      "name": "Absorption",
+      "sourceSha256": "42aafe9c913fa6a6c8eb0718f4c72811944d2b3cb28172a8d45d8cc99d477e22",
+      "effectSummary": "Absorbs 1d4+6 levels of ranged spells or spell-like effects that target you; touch, area, and effect spells are excluded. Each absorbed spell consumes capacity, partial absorption proportionally reduces damage or the chance of a non-damaging effect, and stored levels can cast known or prepared spells without consuming normal preparation or daily uses, while still requiring material components.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/absorption-433",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/abyssal-army-2146": {
+      "name": "Abyssal Army",
+      "sourceSha256": "42f0c7ec9a01c958ad4b6108d83f54b5354a9fd6cafdbc4383c66938a05e62d4",
+      "effectSummary": "Summons 2d4 dretches when casting completes, 1d4 babau demons 10 minutes later, and one vrock 10 minutes after that. The demons have maximum hit points per Hit Die, serve for the spell's duration, obey you and never attack you, require no concentration to control, and can be dismissed individually or in groups.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/abyssal-army-2146",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/abyssal-army-3799": {
+      "name": "Abyssal Army",
+      "sourceSha256": "9cdfeca9d95ce0f1a77b9e171626d51c21c17a630d78d34b22d46aa11e58486d",
+      "effectSummary": "Summons 2d4 dretches when casting completes, 1d4 babau demons 10 minutes later, and one vrock 10 minutes after that. The demons have maximum hit points per Hit Die, serve for the spell's duration, obey you and never attack you, require no concentration to control, and can be dismissed individually or in groups.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/abyssal-army-3799",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/abyssal-might-129": {
+      "name": "Abyssal Might",
+      "sourceSha256": "a409f972e098110d7bcc2af662e32a5c1d3128df689327835d4f6d3b353a16ef",
+      "effectSummary": "Grants the caster a +2 enhancement bonus to Strength, Constitution, and Dexterity and increases any existing spell resistance by 2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/abyssal-might-129",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/abyssal-rift-1147": {
+      "name": "Abyssal Rift",
+      "sourceSha256": "f4ee3ac7a16bff15274676fea12c53c7366d2a45d2ea0eb360a5be2e4318fbf5",
+      "effectSummary": "Creates a straight rift on relatively level ground; evil conjuration spells cast within 60 feet function at +2 caster level. Creatures in the opening area must make a Reflex save or fall for 6d6 damage; anything inside then takes 6d6 fire plus 6d6 divine-energy damage each round (the divine damage ignores energy resistance/immunity). On rounds 2 and 3, creatures within 60 feet of the edge must save each round or take 3d6 fire plus 3d6 divine-energy damage, and anything still inside when the rift closes is plane shifted to a random layer of the Abyss.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/abyssal-rift-1147",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/accelerated-movement-3800": {
+      "name": "Accelerated Movement",
+      "sourceSha256": "80ef3fd23f5ac33c9938ebff721d3c3e1cb619ec46b9d6bc153bcf3f50b2dba5",
+      "effectSummary": "Lets you move at normal speed while using Balance, Climb, Hide, Move Silently, and Tumble without the usual movement-speed penalty. It does not remove penalties for using those skills while running or charging.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/accelerated-movement-3800",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/accelerated-movement-410": {
+      "name": "Accelerated Movement",
+      "sourceSha256": "0edd3815b67b9a808c25785df7b3f83632fcf268ab0dcbd37dd99e7de9c246a5",
+      "effectSummary": "Lets you move at normal speed while using Balance, Climb, or Move Silently without the usual movement-speed penalty. It does not remove penalties for using those skills while running or charging.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/accelerated-movement-410",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/accuracy-2098": {
+      "name": "Accuracy",
+      "sourceSha256": "358509b2f571ebc290f74f928322076a914ec23b2357a04affd55a0be95e7a6f",
+      "effectSummary": "Doubles the range increment of the affected thrown weapons or single projectile weapon for the spell's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/accuracy-2098",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/accuracy-532": {
+      "name": "Accuracy",
+      "sourceSha256": "abe7808362327deb46c1256d80a2048a17bfd4563a6c4c1a0514b554a738c123",
+      "effectSummary": "Doubles the range increment of the affected thrown weapon(s) or single projectile weapon for the spell's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/accuracy-532",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
