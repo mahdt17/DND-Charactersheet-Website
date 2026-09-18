@@ -25,6 +25,7 @@ jobs:
       - run: node tests/editions.mjs
       - run: npm run test:content
       - run: python scripts/enrich_dndtools.py --self-test
+      - run: python scripts/enrich_dndtools.py --categories classes feats spells items equipment --limit 2 --delay 0.1
       - run: node tests/setup-choices.mjs
       - run: npm run build
       - run: npx playwright install --with-deps chromium
