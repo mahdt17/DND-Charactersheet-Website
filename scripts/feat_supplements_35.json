@@ -47,11 +47,27 @@
       "provenance": [
         {
           "url": "https://www.realmshelps.net/charbuild/feat/Spirit_Sense",
-          "role": "feat type and source cross-check"
+          "role": "General feat classification cross-check"
+        },
+        {
+          "url": "https://dndtools.net/feats/heroes-of-horror--70/spirit-sense--2731/",
+          "role": "same source record with actual prerequisites"
         },
         {
           "url": "https://new.dndtools.org/feats/spirit-sense-2731",
-          "role": "primary source and benefit; feat type omitted"
+          "role": "primary source and benefit; feat type omitted and prerequisite field is a template placeholder"
+        }
+      ],
+      "prerequisites": [
+        {
+          "kind": "ability",
+          "label": "Prerequisite",
+          "text": "Wisdom 12"
+        },
+        {
+          "kind": "special",
+          "label": "Prerequisite",
+          "text": "Must have had a near-death experience (fallen below 0 hit points)."
         }
       ]
     },
@@ -113,18 +129,6 @@
           "url": "https://new.dndtools.org/feats/kuo-toan-monasticism-1730",
           "role": "primary catalog identity/source; Prerequisite and Benefit markup is corrupted"
         }
-      ],
-      "prerequisites": [
-        {
-          "kind": "race",
-          "label": "Prerequisite",
-          "text": "Kuo-toa"
-        },
-        {
-          "kind": "class_feature",
-          "label": "Prerequisite",
-          "text": "Flurry of blows"
-        }
       ]
     },
     "feats/improved-familiar-1484": {
@@ -181,7 +185,7 @@
       "variantOptions": [
         {
           "name": "Flying snake",
-          "alignment": "Unspecified",
+          "alignment": "Neutral",
           "minimumArcaneCasterLevel": 3,
           "special": "Master gains +2 on saves against acid"
         },
@@ -212,74 +216,41 @@
       ],
       "provenance": [
         {
-          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Forgotten%20Realms%20Setting/Races%20Of%20Faerun.pdf",
-          "role": "Races of Faerûn Table A-5 familiar choices and special rules cross-check"
-        },
-        {
           "url": "https://new.dndtools.org/feats/improved-familiar-1485",
-          "role": "primary source and prerequisite; referenced table/Benefit omitted from rebuilt page"
+          "role": "primary Races of Faerun pointer; referenced Table A-5 omitted from rebuilt page"
+        },
+        {
+          "url": "https://dndtools.net/feats/races-of-faerun--23/improved-familiar--1485/",
+          "role": "same source feat pointer"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/nhbo/basic/151-200",
+          "role": "Races of Faerun Table A-5 option levels and special rules"
+        },
+        {
+          "url": "https://www.realmshelps.net/monsters/block/Snake%2C_Flying",
+          "role": "flying snake alignment cross-check"
         }
-      ]
+      ],
+      "sourceEdition": "3.0"
     },
-    "feats/improved-familiar-1486": {
-      "name": "Improved Familiar",
-      "inheritsFromFeat": "feats/improved-familiar-1481",
-      "effectSummary": "Uses the core Improved Familiar rules and adds familiar choices from Serpent Kingdoms.",
-      "variantOptions": [
+    "feats/highborn-drow-3659": {
+      "name": "Highborn Drow",
+      "prerequisiteAdditions": [
         {
-          "name": "Jaculi",
-          "alignment": "Chaotic evil",
-          "minimumArcaneCasterLevel": 5
-        },
-        {
-          "name": "Lizard, spitting crawler",
-          "alignment": "Neutral",
-          "minimumArcaneCasterLevel": 3
-        },
-        {
-          "name": "Mlarraun",
-          "alignment": "Neutral",
-          "minimumArcaneCasterLevel": 5
-        },
-        {
-          "name": "Muckdweller",
-          "alignment": "Lawful evil",
-          "minimumArcaneCasterLevel": 5
-        },
-        {
-          "name": "Deathfang",
-          "alignment": "Neutral evil",
-          "minimumArcaneCasterLevel": 9
-        },
-        {
-          "name": "Flying snake",
-          "alignment": "Neutral",
-          "minimumArcaneCasterLevel": 3
-        },
-        {
-          "name": "Glacier snake",
-          "alignment": "Neutral",
-          "minimumArcaneCasterLevel": 3
-        },
-        {
-          "name": "Tree python",
-          "alignment": "Chaotic evil",
-          "minimumArcaneCasterLevel": 3
-        },
-        {
-          "name": "Whipsnake",
-          "alignment": "Neutral",
-          "minimumArcaneCasterLevel": 3
+          "kind": "race",
+          "label": "Prerequisite",
+          "text": "Drow"
         }
       ],
       "provenance": [
         {
-          "url": "https://dndtools.net/feats/serpent-kingdoms--24/improved-familiar--1486/",
-          "role": "legacy DnD Tools variant choices cross-check"
+          "url": "https://new.dndtools.org/feats/highborn-drow-3659",
+          "role": "primary Shadowdale record; rendered prerequisite omits Drow"
         },
         {
-          "url": "https://new.dndtools.org/feats/improved-familiar-1486",
-          "role": "primary source and prerequisite; Benefit/table omitted from rebuilt page"
+          "url": "https://dndtools.net/feats/shadowdale-scouring-land--114/highborn-drow--3659/",
+          "role": "same source record with Drow and base Will +2 prerequisites"
         }
       ]
     }

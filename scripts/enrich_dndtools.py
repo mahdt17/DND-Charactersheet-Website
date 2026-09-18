@@ -713,6 +713,18 @@ def apply_feat_supplement(entry: dict, details: dict) -> dict:
             result[key]=supplied
         elif normalized_compare(existing)!=normalized_compare(supplied):
             conflicts.append(key)
+
+    additions=supplement.get("prerequisiteAdditions") or []
+    if additions:
+        current=list(result.get("prerequisites") or [])
+        seen={json.dumps(normalized_compare(x),sort_keys=True) for x in current}
+        for addition in additions:
+            marker=json.dumps(normalized_compare(addition),sort_keys=True)
+            if marker not in seen:
+                current.append(addition)
+                seen.add(marker)
+        result["prerequisites"]=current
+
     result["supplementProvenance"]=supplement.get("provenance",[])
     result["supplementVerified"]=True
     if conflicts:
@@ -723,6 +735,27 @@ def apply_feat_supplement(entry: dict, details: dict) -> dict:
         presence["ruleProse"]=True
     result["mechanicsPresence"]=presence
     return result
+
+
+def parse_inline_familiar_options(text: str) -> list[dict]:
+    if not text:
+        return []
+    normalized=text.replace("—","-").replace("–","-")
+    alignment=r"(?:lawful|neutral|chaotic)\s+(?:good|evil)|neutral"
+    pattern=rf"([A-Za-z][A-Za-z,'’ .-]*?)(?:\([^)]*\))?\s*-\s*({alignment})\s*-\s*(\d+)(?:st|nd|rd|th)"
+    options=[]
+    for name,align,level in re.findall(pattern,normalized,re.I):
+        name=clean(name)
+        if "." in name:
+            name=clean(name.rsplit(".",1)[-1])
+        if not name or name.casefold() in {"familiar","alignment","level"}:
+            continue
+        options.append({
+            "name":name,
+            "alignment":clean(align).capitalize(),
+            "minimumArcaneCasterLevel":int(level),
+        })
+    return options
 
 
 def parse_feat(parser: DetailParser, entry: dict) -> dict:
@@ -758,6 +791,8 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         prereq = " ".join(req[:4])
         if malformed_prerequisite(prereq):
             prereq = ""
+    if re.search(r"do not touch this field|corresponding twig file",prereq,re.I):
+        prereq = ""
 
     benefit = next_value(lines, "Benefit")
     description = next_value(lines, "Description")
@@ -769,6 +804,13 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         result["featType"] = category
     if prereq:
         result["prerequisites"] = [{"kind":"text","label":"Prerequisite","text":prereq}]
+    if (not benefit and description
+        and re.search(r"\b(?:refer to|see (?:the )?discussion of)\b.*\bImproved Familiar\b",description,re.I)):
+        options=parse_inline_familiar_options(description)
+        if options:
+            result["inheritsFromFeat"]="feats/improved-familiar-1481"
+            result["variantOptions"]=options
+            result["ruleStats"]={"sourcePointer":True,"sourceAddsOptions":True}
     result["mechanicsPresence"] = {
         "benefit": bool(benefit),
         "description": bool(description),
@@ -950,7 +992,8 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
     elif category == "feats":
         # Description text is often flavor; a feat cannot pass the source gate
         # unless the source exposes an actual Benefit mechanic.
-        if not presence.get("benefit"):
+        pointer_complete=bool(details.get("inheritsFromFeat") and details.get("variantOptions"))
+        if not (presence.get("benefit") or details.get("effectSummary") or pointer_complete):
             gaps.append("featEffect")
         if presence.get("prerequisiteLabeled") and not details.get("prerequisites"):
             gaps.append("prerequisites")
@@ -1166,6 +1209,25 @@ def self_test():
     p=DetailParser();p.feed(malformed_feat);p.close()
     f=parse_feat(p,{"name":"Kuo-Toan Monasticism","id":"self-test-malformed"})
     assert not f.get("prerequisites"), "merged Benefit prose must not be retained as a prerequisite"
+
+    placeholder_feat = """
+    <h1>Spirit Sense</h1><p>General feat</p><p>Heroes of Horror (HH), p. 124</p>
+    <div>Prerequisite</div><div>Do not touch this field. Everything is handled from the corresponding twig file (the path is in the help text).</div>
+    <div>Benefit</div><div>Source mechanic.</div>
+    """
+    p=DetailParser();p.feed(placeholder_feat);p.close()
+    f=parse_feat(p,{"name":"Spirit Sense","id":"self-test-placeholder"})
+    assert not f.get("prerequisites"), "template placeholder must not count as a prerequisite"
+
+    familiar_pointer = """
+    <h1>Improved Familiar</h1><p>General feat</p><p>Serpent Kingdoms (SK), p. 146</p>
+    <div>Prerequisite</div><div>Ability to acquire a new familiar.</div>
+    <div>Description</div><div>Refer to the Improved Familiar feat on page 200 of the Dungeon Master's Guide. Familiar - Alignment - Level. Jaculi(SK) - Chaotic evil - 5th. Muckdweller(SK) - Lawful evil - 5th.</div>
+    """
+    p=DetailParser();p.feed(familiar_pointer);p.close()
+    f=parse_feat(p,{"name":"Improved Familiar","id":"self-test-familiar"})
+    assert f["inheritsFromFeat"] == "feats/improved-familiar-1481" and len(f["variantOptions"]) == 2
+    assert "featEffect" not in enrichment_gaps("feats",f)
 
     flavor_only_feat = """
     <h1>Flavor Only</h1><p>General feat</p><p>Example Source (EX), p. 1</p>
