@@ -5446,6 +5446,226 @@
           "role": "primary DnD Tools prose and structured damage table reviewed together; summary digest-locked to both"
         }
       ]
+    },
+    "spells/brain-spider-3989": {
+      "name": "Brain Spider",
+      "sourceSha256": "e5a22dd099a6d7080a773c388efe6e6eba0e367e424fe89267ba32510f58b62e",
+      "effectSummary": "For the duration, the caster can spend a standard action to eavesdrop on up to eight affected minds, choosing to read surface thoughts, follow individual trains of thought, gather one nugget of information per caster level about one topic from the group, or study one creature's thoughts and memories in detail. Once per round, if the caster does not perform a detailed study, the caster can instead spend a standard action to implant a suggestion in one affected creature. That creature receives a new Will save against the original spell DC to resist the suggestion; success against the suggestion does not end the other brain-spider effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brain-spider-3989",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brain-spider-673": {
+      "name": "Brain Spider",
+      "sourceSha256": "63784e190b6391ddc7d2617cbce444a9487d5b9482734367ada6ac8d29274c68",
+      "effectSummary": "Links the caster to up to eight chosen intelligent creatures in range that fail their saves. As a standard action, the caster can read their surface-thought chaos, follow individual thought streams, gather one nugget of information per caster level about a chosen topic from all linked minds, or study one creature's thoughts and memories in detail. Once per round, if the caster does not perform a detailed study, a standard action can instead implant a suggestion in one linked creature; that creature receives another Will save against the brain-spider DC to resist only the suggestion. Language is no barrier, and targets can be selected by name, knowledge, or description.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brain-spider-673",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brain-spider-942": {
+      "name": "Brain Spider",
+      "sourceSha256": "da3ac88c1c8162593f050cc1abb2b66e630d392243aefb086461245d457d1b52",
+      "effectSummary": "Links the caster to up to eight chosen intelligent creatures in range that fail their saves. As a standard action, the caster can read their surface thoughts, follow individual thought streams, gather one nugget of information per caster level about a chosen topic from all linked minds, or study one creature's thoughts and memories in detail. Once per round, if the caster does not perform a detailed study, a standard action can instead implant a suggestion in one linked creature; that creature receives another Will save against the brain-spider DC to resist only the suggestion. Language is no barrier, and targets can be selected by name, knowledge, or description.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brain-spider-942",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brambles-3990": {
+      "name": "Brambles",
+      "sourceSha256": "991ac51061d7cdeb28fb89d96d65892813c7652e364125e8613cf2b1d49b5d7e",
+      "effectSummary": "Causes thorns to grow from one melee weapon with a wooden striking surface. For the duration, the weapon deals both piercing and bludgeoning damage, gains +1 enhancement on attack rolls, and gains +1 enhancement on melee damage per caster level, maximum +10. It does not work on bows, arrows, or melee weapons without a wooden striking surface.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brambles-3990",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brambles-732": {
+      "name": "Brambles",
+      "sourceSha256": "949f7525b8670d805e922f3774713d720e8eaf626e1b6020639414a5f2ba07ab",
+      "effectSummary": "Causes magical thorns or spikes to grow from one melee weapon with a wooden striking surface. For the duration, the weapon deals both piercing and bludgeoning damage, gains +1 enhancement on attack rolls, and deals +1 additional damage per caster level, maximum +10. It does not work on bows, arrows, or melee weapons without a wooden striking surface.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brambles-732",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brambles-971": {
+      "name": "Brambles",
+      "sourceSha256": "949f7525b8670d805e922f3774713d720e8eaf626e1b6020639414a5f2ba07ab",
+      "effectSummary": "Causes magical thorns or spikes to grow from one melee weapon with a wooden striking surface. For the duration, the weapon deals both piercing and bludgeoning damage, gains +1 enhancement on attack rolls, and deals +1 additional damage per caster level, maximum +10. It does not work on bows, arrows, or melee weapons without a wooden striking surface.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brambles-971",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/branch-to-branch-3991": {
+      "name": "Branch to branch",
+      "sourceSha256": "61da2de93e9ee23e7b0cf2a5af2a651e28b64e4f1ebde7f85c83a4f5660dbbd4",
+      "effectSummary": "Grants +10 competence on Climb checks made in trees. While at least 10 feet above the ground in medium or dense forest, the subject can brachiate through branches and vines, gains +10-foot enhancement to land speed, and ignores movement penalties from undergrowth and similar terrain. The subject can charge while brachiating but cannot run; gaps in the canopy can still force a return to the ground.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/branch-to-branch-3991",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/branch-to-branch-414": {
+      "name": "Branch to Branch",
+      "sourceSha256": "16b1fe4865cc3b0e17ff6d43b09d0f658ebd65f4e48f366c7d7ce098da64c8f1",
+      "effectSummary": "Grants +10 competence on Climb checks made in trees. While at least 10 feet above the ground in medium or dense forest, the subject can brachiate through branches and vines, gains +10-foot enhancement to land speed, and ignores movement penalties from undergrowth and similar terrain. The subject can charge while brachiating but cannot run; gaps in the canopy can still force a return to the ground.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/branch-to-branch-414",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/break-enchantment-2306": {
+      "name": "Break Enchantment",
+      "sourceSha256": "772a9f90d0d6dd289574039005339f55a3d59a70f65345ec3f2470908f5402fd",
+      "effectSummary": "Attempts to free creatures from enchantments, transmutations, and curses, including some instantaneous effects. For each effect, make a caster-level check of 1d20 + caster level, maximum +15, against DC 11 + the effect's caster level; a cursed magic item uses DC 25. A spell that dispel magic cannot remove can be broken only if it is 5th level or lower. If the effect comes from a permanent cursed item, the victim is freed from the item's current effect but the item itself remains cursed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/break-enchantment-2306",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/breath-flare-1026": {
+      "name": "Breath Flare",
+      "sourceSha256": "20be8299edd6567696fb84266a05175a583e1435a4c19d34d4005dbdd3df9a69",
+      "effectSummary": "Modifies the fire- or electricity-based breath weapon produced as part of casting. Creatures that fail their normal saving throws against that breath weapon are also dazzled for 1 minute per caster level. Sightless creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/breath-flare-1026",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/breath-flare-3966": {
+      "name": "Breath Flare",
+      "sourceSha256": "5474400030d9c8343e32965c4e15c63b826fa1c47faa353f355246da077357c8",
+      "effectSummary": "Requires a fire- or electricity-based breath weapon, whether supernatural or created by another spell. The breath weapon retains its normal damage, and creatures that fail their normal saves against it are additionally dazzled for 1 minute per caster level. Sightless creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/breath-flare-3966",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/breath-weapon-admixture-1027": {
+      "name": "Breath Weapon Admixture",
+      "sourceSha256": "e31300e4b1d91ac79a6b9b6125b647be7287d1b0be8782bdc94c7c5f3cb2f86b",
+      "effectSummary": "Choose acid, cold, electricity, or fire other than the breath weapon's normal energy type. The breath weapon produced as part of casting deals its normal damage plus an equal amount of the chosen energy damage, even if the two energy types are normally opposed. The spell gains the descriptor of the added energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/breath-weapon-admixture-1027",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/breath-weapon-admixture-3993": {
+      "name": "Breath Weapon Admixture",
+      "sourceSha256": "3e9e93ccbd71ba25b2da87f2be4792afa35148ea82a28b8a47ced8e02644a476",
+      "effectSummary": "Requires a breath weapon. Choose acid, cold, electricity, fire, or sonic other than its normal energy type; the breath deals its normal damage plus an equal amount of the chosen energy damage, even for opposed energy types. Choosing sonic reduces the breath weapon's save DC by 2. Choosing acid, cold, electricity, or fire gives the spell that energy descriptor.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/breath-weapon-admixture-3993",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/breath-weapon-substitution-1028": {
+      "name": "Breath Weapon Substitution",
+      "sourceSha256": "77f6b6e6e3e02ea2eca2e5155b239f0883af2a440980340d4a5c80f186e5894c",
+      "effectSummary": "Choose acid, cold, electricity, or fire other than the breath weapon's normal energy type. The breath produced as part of casting deals the same amount of damage using the chosen energy type instead of its normal type. The spell gains the descriptor of the substituted energy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/breath-weapon-substitution-1028",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/breath-weapon-substitution-3994": {
+      "name": "Breath Weapon Substitution",
+      "sourceSha256": "69987440672eedcdfaa1c1403941db81a484c12f11f86319974209a991ece8d6",
+      "effectSummary": "Requires a breath weapon. Choose acid, cold, electricity, or fire other than its normal energy type; the breath deals its normal amount of damage using the chosen energy type instead. The spell gains the descriptor of the substituted energy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/breath-weapon-substitution-3994",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/briar-web-1917": {
+      "name": "Briar Web",
+      "sourceSha256": "631a885c8ce9c6964ef8e94287137e0996bbe787ebf8fb57bceef154514914cb",
+      "effectSummary": "Causes vegetation in the area to become thorny and entangling. A creature that remains still is entangled but takes no damage. A creature that attacks, moves, casts with somatic components, or performs a similar action takes 1d4 +1 per caster level thorn damage and must make a Reflex save or become entangled; spellcasting also requires Concentration against DC 15 + spell level + damage taken. An entangled creature can spend a full-round action on Strength or Escape Artist DC 20 to break free and move at half speed. Nonentangled creatures move at half speed and remain subject to damage and entanglement each round. The briars grant increasing cover with depth: one-quarter at 5 feet, one-half at 10 feet, three-quarters at 15 feet, and total cover at 20 feet or more.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/briar-web-1917",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/briar-web-3995": {
+      "name": "Briar Web",
+      "sourceSha256": "74b76dd185c43de87479039b1c2d16671ef0efd74a3ba1deb2a5cd18cf3905ed",
+      "effectSummary": "Turns vegetation in the area into a dense thorn patch. The area becomes difficult terrain, creatures move at half speed, and movement through it deals 1 point of nonmagical piercing damage per 5 feet traveled. Creatures with freedom of movement or woodland stride are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/briar-web-3995",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/briar-web-733": {
+      "name": "Briar Web",
+      "sourceSha256": "2dee0d43a538d5f2c345303efd2e52f93b3f8a0126d7890861b9b0d658ee0c18",
+      "effectSummary": "Causes vegetation to become thorny and entangling. A creature that succeeds on its initial save is affected only by half-speed movement. A creature that fails becomes entangled if it remains still without taking damage; it can spend a full-round action to attempt a new save to become free, with failure dealing 2d6 piercing damage. Attacking, moving, casting with somatic components, or similar actions while caught also deals 2d6 piercing damage, and spellcasting requires Concentration against DC 15 + spell level + damage taken. Creatures 5 feet apart through the briars have cover, and 20 feet or more provides total cover.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/briar-web-733",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/briar-web-972": {
+      "name": "Briar Web",
+      "sourceSha256": "ed7cda00b806bdf3a5eed7ae9e0c2c7df7768a1cc3e61c93579455361fd7dacf",
+      "effectSummary": "Causes vegetation in the area to become thorny and entangling. A creature that remains still is entangled but takes no damage. A creature that attacks, moves, casts with somatic components, or performs a similar action takes 1d4 +1 per caster level thorn damage and must save or become entangled; spellcasting also requires Concentration against DC 15 + spell level + damage taken. An entangled creature can spend a full-round action on Strength or Escape Artist DC 20 to break free and move at half speed. Nonentangled creatures move at half speed and remain subject to damage and entanglement each round. The briars grant increasing cover with depth: one-quarter at 5 feet, one-half at 10 feet, three-quarters at 15 feet, and total cover at 20 feet or more.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/briar-web-972",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/briartangle-2281": {
+      "name": "Briartangle",
+      "sourceSha256": "e02abaf68a31d0ff33d92b99c50fa4262e01bc60e519be39b2375af321851221",
+      "effectSummary": "Functions as entangle but the plants become 6-foot-high thorny briars. A creature takes 1d8 piercing damage +1 per two caster levels when it becomes entangled and takes the same damage in each later round that it attempts to move or break free. An entangled creature casting a spell must make Concentration against DC 20 + spell level or lose the spell. The briars are thick and tall enough to provide cover to creatures within or behind them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/briartangle-2281",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
     }
   }
 }
