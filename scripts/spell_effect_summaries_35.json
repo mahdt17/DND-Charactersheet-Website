@@ -2686,6 +2686,230 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/awaken-sin-3867": {
+      "name": "Awaken Sin",
+      "sourceSha256": "d692f4c71de77733c9f4d073d1e9b1f1f5434316d362816e83e7b2c8b55ed366",
+      "effectSummary": "Deals 1d6 nonlethal damage per caster level, maximum 10d6, and stuns the subject for 1 round. If this nonlethal damage renders the subject unconscious, the subject also takes 1d6 Wisdom damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-sin-3867",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-undead-1468": {
+      "name": "Awaken Undead",
+      "sourceSha256": "cba611529abb0de04f2f118c7150eb1ea437cad1d8f0351ebdfdbcfca36d2c2b",
+      "effectSummary": "Grants mindless undead Intelligence 4+1d6, capped at the normal Intelligence of the creature's original living kind; undead that already have Intelligence are unaffected. Awakened undead do not regain former skills or feats, but regain armor and weapon proficiencies and extraordinary abilities they had in life. They gain +2 profane on Will saves against control undead and +2 turn resistance unless they already have better turn resistance. Casting costs 200 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-undead-1468",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-undead-3212": {
+      "name": "Awaken Undead",
+      "sourceSha256": "2230f65d3ba28f9bad5dcba7146093fc73429747fe891260214f47aa3769b06f",
+      "effectSummary": "Grants mindless undead Intelligence 1d6+4, capped at the normal Intelligence of the creature's original living kind; undead that already have Intelligence are unaffected. They do not regain former skills, feats, or extraordinary abilities, but gain skill points and feats normally for their Hit Dice after awakening and regain former armor and weapon proficiencies. They gain +2 profane on Will saves against being controlled. Casting costs 200 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-undead-3212",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-undead-3868": {
+      "name": "Awaken Undead",
+      "sourceSha256": "dcaf496f1562b709af54f0163f892667ed9d1cc7b7b8e13cedbc30b82e39ad53",
+      "effectSummary": "Grants mindless undead Intelligence 1d6+4, capped at the normal Intelligence of the creature's original living kind; undead that already have Intelligence are unaffected. They gain skills and feats under the awakened-creature rules, regain former armor and weapon proficiencies and extraordinary racial abilities, gain +2 profane on Will saves against control undead, and gain +2 turn resistance unless already better. Casting costs 250 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-undead-3868",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-mass-1932": {
+      "name": "Awaken, Mass",
+      "sourceSha256": "5044bf5fb0e3eb8a306037c13cba7ec48d4ccbc7fdbf21db3b69842bc842b359",
+      "effectSummary": "Awakens multiple animals or trees of the same kind to humanlike sentience if the caster succeeds on a Will save against DC 10 + the highest relevant Hit Dice among the targets; failure causes the entire spell to fail. Awakened creatures are friendly but not controlled. Trees gain 3d6 Intelligence, Wisdom, and Charisma and animated-object-like mobility; animals gain 3d6 Intelligence, +1d3 Charisma, and +2 Hit Dice. Each can speak one known language plus one additional known language per point of Intelligence bonus. Casting costs 250 XP per awakened creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-mass-1932",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-mass-3865": {
+      "name": "Awaken, Mass",
+      "sourceSha256": "88083c6a6017dc637c6c789d04278059fa7093ba87cbfc09bc46e67c4dd0c042",
+      "effectSummary": "Awakens multiple animals or trees of the same kind to humanlike sentience if the caster succeeds on a Will save against DC 10 + the highest relevant Hit Dice among the targets; failure causes the entire spell to fail. Awakened creatures are friendly but not controlled. Trees gain 3d6 Intelligence, Wisdom, and Charisma and animated-object-like mobility; animals gain 3d6 Intelligence, +1d3 Charisma, and +2 Hit Dice. Each can speak one known language plus one additional known language per point of Intelligence bonus and gains skills and feats under the awakened-creature rules. Casting costs 250 XP per awakened creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-mass-3865",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-mass-727": {
+      "name": "Awaken, Mass",
+      "sourceSha256": "5207cf4cad346c5b24f9877b57077ddb37a2544077973f82fc92b83b7d3e5985",
+      "effectSummary": "Awakens multiple animals or trees of the same kind to humanlike sentience if the caster succeeds on a Will save against DC 10 + the highest relevant Hit Dice among the targets; failure causes the entire spell to fail. Awakened creatures are friendly but not controlled. Trees gain 3d6 Intelligence, Wisdom, and Charisma and animated-object-like mobility; animals gain 3d6 Intelligence, +1d3 Charisma, and +2 Hit Dice. Each can speak one known language plus one additional known language per point of Intelligence bonus. Casting costs 250 XP per awakened creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-mass-727",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/axiomatic-creature-99": {
+      "name": "Axiomatic Creature",
+      "sourceSha256": "3a67f982ca61bc05d73b910b7c529dbe14e94cce35743ae218d015405325cb26",
+      "effectSummary": "Permanently transforms one lawful or neutral Material-Plane creature into an axiomatic version. Animals become magical beasts; otherwise type is unchanged, and Intelligence becomes at least 3. The target gains one daily Smite Chaos for extra damage equal to Hit Dice, maximum +20; Linked Minds with same-type axiomatic creatures within 300 feet so awareness, flat-footed status, and flanking are shared; 60-foot darkvision; spell resistance equal to twice Hit Dice, maximum 25; and resistance to cold, electricity, fire, and sonic equal to 5 at 1-3 HD, 10 at 4-7 HD, 15 at 8-11 HD, and 20 at 12+ HD. Casting costs 1,000 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/axiomatic-creature-99",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "outside verification used only because the primary review export omitted the resistance-by-HD table"
+        }
+      ]
+    },
+    "spells/axiomatic-storm-2149": {
+      "name": "Axiomatic Storm",
+      "sourceSha256": "89bf601aec1114a72b9c6b575cf053f51b277b6d5bd499ba6edeebcce237cffe",
+      "effectSummary": "Creates a fixed driving rain that imposes -4 on Listen, Spot, and Search checks and -4 on ranged attacks made into, out of, or through the storm. It automatically extinguishes unprotected flames and has a 50% chance to extinguish protected flames. Chaotic creatures take 2d6 damage each round, doubled for chaotic outsiders, and each round one randomly selected chaotic outsider in the area is struck for 5d6 acid damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/axiomatic-storm-2149",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/axiomatic-storm-3869": {
+      "name": "Axiomatic Storm",
+      "sourceSha256": "2e9f08171f05e5b74a90299634af16e6df507a537f8b5e3881a923fec6722ce4",
+      "effectSummary": "Creates a fixed driving rain that imposes -4 on Listen, Spot, and Search checks and -4 on ranged attacks made into, out of, or through the storm. It automatically extinguishes unprotected flames and has a 50% chance to extinguish protected flames. Chaotic creatures take 2d6 damage each round, doubled for chaotic outsiders, and each round one randomly selected chaotic outsider in the area is struck for 5d6 acid damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/axiomatic-storm-3869",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/axiomatic-water-3870": {
+      "name": "Axiomatic Water",
+      "sourceSha256": "146a35deb3887e3ed997d472692c4aa125dd1cdc0d6c068d9ac56eddf5ae62ac",
+      "effectSummary": "Transforms 1 pint of water into axiomatic water. A flask can be thrown as a splash weapon with a 10-foot range increment; a direct hit deals 2d4 damage to a chaotic outsider and chaotic outsiders within 5 feet take 1 splash damage. Against an incorporeal creature, the flask must be opened and poured from an adjacent square with a ranged touch attack that does not provoke attacks of opportunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/axiomatic-water-3870",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ayaillas-radiant-burst-60": {
+      "name": "Ayailla's Radiant Burst",
+      "sourceSha256": "7eebef6cd33b56838f2acd29856c540211e37aa80b1685224349131199711f11",
+      "effectSummary": "Blinds evil creatures in the cone for 1 round unless they succeed on a Fortitude save. The burst also deals divine damage equal to 1d6 per two caster levels, maximum 5d6, to evil creatures, with a Reflex save for half. Casting inflicts a sacrifice cost of 1d2 Strength damage on the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ayaillas-radiant-burst-60",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/azuths-exalted-triad-1733": {
+      "name": "Azuth's Exalted Triad",
+      "sourceSha256": "6b5dc3ad5d1bf86ed7b9033f80d933d0c2e8fdc6e929c6446738b787ed65c3f1",
+      "effectSummary": "Alters one prepared spell of 3rd level or lower so it can be cast three times total before the preparation is expended. Each casting functions normally and separately consumes any required components or XP. Preparing a different spell in that slot discards remaining extra castings, and exalted triad cannot be applied more than once to the same prepared spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/azuths-exalted-triad-1733",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/azuths-spell-shield-1573": {
+      "name": "Azuth's Spell Shield",
+      "sourceSha256": "45a7f90c9cd77a12415a9a70e97fbcece61f1ef628700eaffa52699e3af5d77c",
+      "effectSummary": "Grants each targeted creature spell resistance equal to 12 + caster level. The spell's total duration is divided evenly among all targets. A protected creature can voluntarily lower its spell resistance to accept a spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/azuths-spell-shield-1573",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/babau-slime-2196": {
+      "name": "Babau Slime",
+      "sourceSha256": "aa3c9bf2d1b7c441b4c60a0091413a5fdc2241ba411b6dbed22f5c7e7fd2aeb6",
+      "effectSummary": "Coats the subject and equipment in corrosive slime without harming them. Any other weapon that contacts the slime takes 1d8 acid damage ignoring hardness, though a magic weapon can make a Reflex save to avoid the damage. A creature striking the subject with an unarmed attack, unarmed strike, touch spell, or natural weapon also takes 1d8 acid damage unless it succeeds on a Reflex save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/babau-slime-2196",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/babau-slime-3871": {
+      "name": "Babau Slime",
+      "sourceSha256": "3434b08eaaf18a0c591ebc516c52a49cb4717ac1c27b93d8faae1223001dd7e2",
+      "effectSummary": "Coats the subject and equipment in corrosive slime. A creature that hits the subject with an unarmed strike, touch attack or touch spell, or natural weapon takes 1d8 acid damage. Any creature grappling the subject takes 1d8 acid damage at the start of its turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/babau-slime-3871",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/backbiter-2012": {
+      "name": "Backbiter",
+      "sourceSha256": "d67cdd8955e0c1fe7351e011ab7b88ce4497aeded4d78ce7ae9b395a0f1c1968",
+      "effectSummary": "Enchants a Large-or-larger wooden-hafted weapon so the next melee attack made with it twists back against its wielder. The wielder makes a normal attack roll against themself and deals normal damage on a hit; the damage cannot be voluntarily reduced or converted to nonlethal, though damage reduction applies. The spell ends once the wielder damages themself. An unattended magic weapon receives a Will save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/backbiter-2012",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/backbiter-3872": {
+      "name": "Backbiter",
+      "sourceSha256": "947bb2d7aa38e86c52c24095dd49ea9ac296a55258ca216622b20ad506c88d85",
+      "effectSummary": "Enchants any melee weapon so its next melee attack automatically strikes its wielder instead, with no attack roll. The wielder receives no warning and cannot voluntarily reduce the damage or convert it to nonlethal, though damage reduction applies. The spell is discharged after the weapon attacks its wielder whether or not damage results. Magic weapons receive a Will save, using the better of the item's or wielder's save bonus if attended.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/backbiter-3872",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/backbiter-520": {
+      "name": "Backbiter",
+      "sourceSha256": "87f2e777bd789f5bc31971ca80bac6467a420c14ef6dc51db2991e3009ce10c6",
+      "effectSummary": "Enchants a wooden-hafted two-handed or reach weapon so its next melee attack twists back against its wielder, using the original attack roll against the wielder's own AC. The wielder receives no warning and cannot voluntarily reduce the damage or convert it to nonlethal, though damage reduction applies. The spell is discharged after the weapon attacks its wielder whether or not it hits. Magic weapons receive a Will save, using the better of the item's or wielder's save bonus if attended.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/backbiter-520",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/backblast-1549": {
+      "name": "Backblast",
+      "sourceSha256": "bdd4b402224c1c5b9e4d26e36ff9e7b7616abae5303d8e385c59bf300db34193",
+      "effectSummary": "Functions like spell turning only against fire-descriptor spells targeted directly on the caster; touch-range, area, and effect spells are not turned. The spell secretly turns 1d4+2 total spell levels using normal spell-turning rules and also grants fire resistance 10 until the end of the round in which the turning capacity is exhausted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/backblast-1549",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
