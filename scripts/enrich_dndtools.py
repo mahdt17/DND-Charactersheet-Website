@@ -18,6 +18,7 @@ import json
 import re
 import time
 from html.parser import HTMLParser
+from http.client import RemoteDisconnected
 from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
@@ -145,7 +146,7 @@ def fetch_allowed(url: str, allowed_hosts: set[str], delay: float = 0.35) -> str
             if error.code not in (429,500,502,503,504) or attempt == 3:
                 raise
             time.sleep(min(45, 3 * (attempt + 1)))
-        except (URLError, TimeoutError) as error:
+        except (URLError, TimeoutError, RemoteDisconnected, ConnectionResetError) as error:
             last = error
             if attempt == 3:
                 raise
