@@ -26,7 +26,6 @@ jobs:
       - run: npm run test:content
       - run: python scripts/enrich_dndtools.py --self-test
       - run: python scripts/import_wikidot.py --self-test
-      - run: python scripts/enrich_dndtools.py --categories classes feats spells items equipment --limit 2 --delay 0.1
       - run: node tests/setup-choices.mjs
       - run: npm run build
       - run: npx playwright install --with-deps chromium
@@ -38,3 +37,12 @@ jobs:
         with:
           name: modernization-browser-results
           path: test-results/
+
+  enrichment-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: python --version
+      - name: Broad live enrichment preflight
+        run: python scripts/preflight_enrichment.py --dnd-sample 20 --wikidot-sample 15 --min-rate 0.80 --delay 0.10
