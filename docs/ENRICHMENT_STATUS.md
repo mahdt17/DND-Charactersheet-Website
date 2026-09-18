@@ -136,12 +136,13 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **263**
+- Digest-locked reviewed spell effects: **323**
 - Primary catalog: `https://new.dndtools.org`
 - Outside sources are allowed only when the primary record is missing, truncated, corrupted, contradictory, or otherwise insufficient; such repairs must retain provenance and must not expand catalog membership.
 - Primary-page repairs pinned during this review cycle include `Analyze Portal`, `Anathema`, `Arboreal Transformation`, and the truncated Defenders of the Faith printing of `Aspect of the Deity, Greater`.
-- The spell parser now retains structured spell tables, and spell review exports include those tables so table-driven mechanics are not silently lost.
-- Latest queued scoped audit: **3.5/spells at 263 reviewed effects**.
+- The spell parser retains structured spell tables, and spell review exports include those tables so table-driven mechanics are not silently lost.
+- Full audit at the 263-review checkpoint: **5,035 total / 900 output-complete / 4,135 incomplete**, **17.8749%** output-complete. All remaining critical gaps were the expected unresolved `effect/effectSummary` review backlog; no new failure class appeared.
+- Latest scoped audit to queue: **3.5/spells at 323 reviewed effects**.
 - Live/catalog writes remain locked.
 
 ## Next work
