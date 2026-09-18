@@ -188,11 +188,12 @@ def parse(url: str, delay: float) -> Page:
 
 def next_value(lines, label):
     for i,line in enumerate(lines):
-        if clean(line).casefold()==label.casefold():
+        normalized=clean(line)
+        if normalized.casefold()==label.casefold():
             for candidate in lines[i+1:]:
                 if clean(candidate):
                     return clean(candidate)
-        m=re.match(rf"^{re.escape(label)}\s*:\s*(.+)$",clean(line),re.I)
+        m=re.match(rf"^{re.escape(label)}\s*:?[ \t]+(.+)$",normalized,re.I)
         if m:
             return clean(m.group(1))
     return ""
@@ -417,10 +418,18 @@ def parse_item_detail(row,page):
     return result
 
 
+def identity_key(value):
+    value=clean(value)
+    value=re.sub(r"\((?:revised\s+)?ua\)","",value,flags=re.I)
+    value=re.sub(r"\s+-\s+DND\s+5th\s+Edition.*$","",value,flags=re.I)
+    value=value.replace("’","'").casefold()
+    return re.sub(r"[^a-z0-9]+","",value)
+
+
 def validate_detail(row,page,result):
-    name=clean(row.get("name","")).casefold()
-    visible={clean(line).casefold() for line in page.lines[:80]}
-    if name and name not in visible:
+    expected=identity_key(row.get("name",""))
+    visible=[identity_key(line) for line in page.lines[:100]]
+    if expected and not any(v==expected or v.startswith(expected) for v in visible if v):
         raise ValueError(f"Page identity check failed for {row.get('name')}")
     category=row["category"]
     if category=="spell":
