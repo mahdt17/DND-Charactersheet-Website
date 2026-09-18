@@ -694,6 +694,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/alibi-4963": {
+      "name": "Alibi",
+      "sourceSha256": "607b2b8175d6fe08928f7a1f1f80cf8dbd9a6d7dee7adc2a029a29b4577e73f4",
+      "effectSummary": "Implants a believable false memory that the target spoke or otherwise interacted with the caster sometime during the previous 24 hours. The target's mind automatically fills logical gaps in the implanted memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alibi-4963",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/alicorn-lance-3293": {
+      "name": "Alicorn Lance",
+      "sourceSha256": "2b3e684e8053b30b254d7fd263d5710bcd539ca762584245163b142be450295a",
+      "effectSummary": "Creates a force horn that can be launched at one target as a free action before the spell expires. A successful touch attack deals 3d6 force damage and outlines the target in silver faerie fire for the spell's remaining duration. A miss causes the spell to dissipate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alicorn-lance-3293",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/align-fang-1982": {
+      "name": "Align Fang",
+      "sourceSha256": "18e925500b43b85e3e868c1d63c79dc87202297d4864dd46c2e3b48b5ee6bed1",
+      "effectSummary": "Makes the subject's natural weapons good-, evil-, lawful-, or chaotic-aligned, as chosen, allowing them to overcome damage reduction that the selected alignment bypasses. It does not affect natural weapons already treated as aligned and cannot be cast on manufactured weapons. The spell gains the descriptor matching the chosen alignment.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/align-fang-1982",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/align-fang-3804": {
+      "name": "Align Fang",
+      "sourceSha256": "714573b2651ade082a56a28330459a5c31b64a66f6f11f60ec806ffc8b40fb4e",
+      "effectSummary": "Makes the subject's natural weapons good-, evil-, lawful-, or chaotic-aligned, as chosen, allowing them to overcome damage reduction that the selected alignment bypasses. It does not affect natural weapons already treated as aligned and cannot be cast on manufactured weapons. The spell gains the descriptor matching the chosen alignment.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/align-fang-3804",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/align-weapon-2773": {
+      "name": "Align Weapon",
+      "sourceSha256": "09e9960d88033f73349d7035a2e697e80b3194c397b977a44289a37183b1ac9c",
+      "effectSummary": "Makes a weapon good-, evil-, lawful-, or chaotic-aligned, as chosen, allowing it to bypass damage reduction vulnerable to that alignment. It has no effect on a weapon that already has an alignment and cannot target natural weapons such as unarmed strikes. The spell gains the descriptor matching the chosen alignment.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/align-weapon-2773",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aligned-aura-581": {
+      "name": "Aligned Aura",
+      "sourceSha256": "468f751cb4cb1dc88ebaaaca6cfe8c3fc24a9e2e1bebbfabd26890eda14b4cbc",
+      "effectSummary": "Choose chaos, evil, good, or law, normally from the caster's own non-neutral alignment component. A 20-foot aura grants the spell's listed bonuses to creatures sharing that component, while creatures of the opposed alignment must make a Fortitude save or take the listed penalties; these modifiers end when a creature leaves the aura. Before the duration expires, the caster can discharge the aura in a 60-foot burst: opposed-alignment creatures take 1d4 damage per remaining round (maximum 15d4), Fortitude half, while same-alignment creatures heal 1 hit point per remaining round (maximum 15). Discharging ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aligned-aura-581",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/allegro-3322": {
+      "name": "Allegro",
+      "sourceSha256": "25c6c44bd8329784e91e9593dda2f332712e5e5b5136bbd4558198ace3bb4363",
+      "effectSummary": "Doubles each subject's speed and maximum jumping distance as enhancement bonuses. Affected creatures keep the bonuses for the full duration even after leaving the original area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/allegro-3322",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/allegro-3819": {
+      "name": "Allegro",
+      "sourceSha256": "8fe68626f7fdc070d840122fc37c246ebec9f67aa1d01614cddde766e065505c",
+      "effectSummary": "Grants each creature in the area a +30-foot enhancement bonus to land speed, capped at twice that creature's normal land speed. The bonus lasts for the spell's duration even after a creature leaves the original area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/allegro-3819",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/allegro-411": {
+      "name": "Allegro",
+      "sourceSha256": "560b48da501224fdd0d8e2d48564d24700ce753c35c6b0be32a5d9cfd26b2eaf",
+      "effectSummary": "Grants each creature in the area a +30-foot enhancement bonus to land speed, capped at twice that creature's normal land speed. The bonus lasts for the spell's duration even after a creature leaves the original area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/allegro-411",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/alliance-undone-4964": {
+      "name": "Alliance Undone",
+      "sourceSha256": "49fe4f72bd600dabb747e9aec9f2119c9f575dfe1f94e8d986c0000f3e41b9eb",
+      "effectSummary": "Suppresses benefits creatures gain from alliances for the spell's duration, including effects from ceremony feats, teamwork benefits, companion spirits, affiliations, and similar alliance-based mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alliance-undone-4964",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/allied-footsteps-795": {
+      "name": "Allied Footsteps",
+      "sourceSha256": "1822a3b76b4db0e52a0e5f93833341bbfd9aa246c7ffcd644a90606053f26821",
+      "effectSummary": "The subject always knows the direction and approximate distance (within 10%) needed to reach the caster, regardless of distance, though the spell does not reveal the best route around obstacles. It continues if the caster dies. The effect is temporarily suppressed if the caster changes planes or if either creature enters an antimagic field or similar area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/allied-footsteps-795",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/alter-fortune-2939": {
+      "name": "Alter Fortune",
+      "sourceSha256": "825b6e1691a7e4163aebffca811d32b934f62e302cedfe87aa02afb40932d607",
+      "effectSummary": "Forces the subject to immediately reroll a die roll it just made and use the second result. Casting the spell costs 200 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alter-fortune-2939",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/alter-self-2774": {
+      "name": "Alter Self",
+      "sourceSha256": "f620993caaf74b9a19f65dd8e95db58070efd321d7daf5294ab18249082a2da2",
+      "effectSummary": "Assumes the form of a creature of the caster's own type, within one size category and with Hit Dice no greater than caster level (maximum 5 HD). The caster keeps ability scores, class/level, hit points, alignment, base attack and save bonuses, creature type/subtype, spellcasting, supernatural and spell-like abilities that the new body can physically use, and class-derived extraordinary abilities. The new form supplies physical qualities such as size, mundane movement modes (capped at 120 feet flying or 60 feet otherwise), natural armor and weapons, racial skill bonuses, racial bonus feats, and body shape, but not its extraordinary, supernatural, or spell-like abilities. Templates are prohibited. Equipment remains worn or held if the new form can use it; otherwise it melds and becomes nonfunctional until reversion. Using the form as a disguise grants +10 on the Disguise check.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alter-self-2774",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/alustriels-banner-3294": {
+      "name": "Alustriel's Banner",
+      "sourceSha256": "781c3dc41ecd788a11ada3259942de3b0fcd7ecbcf968a63e5e9139f43d08190",
+      "effectSummary": "Creates an illusory banner up to 10 feet square with a chosen appearance and an accompanying fanfare or horn signal. The banner sheds light as the light spell and can be moved anywhere within range as a move-equivalent action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alustriels-banner-3294",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/amanuensis-1729": {
+      "name": "Amanuensis",
+      "sourceSha256": "d11ac2c37f885bdda4a359c1b56d9a938b237cff6fcebd41d933e8857fa720f5",
+      "effectSummary": "Copies text from a source onto supplied blank pages at 250 words per minute, reproducing ordinary text but not illustrations or magical writing and triggering any writing-based magical traps encountered. It automatically turns pages, stops when blank pages run out, and can be redirected to a different source or destination or resume an interrupted copy. If used to copy a spell from a spellbook, the normal costly copying materials are still required. The spell does not translate text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/amanuensis-1729",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/amanuensis-3785": {
+      "name": "Amanuensis",
+      "sourceSha256": "f83582aa88d62a7d4b2179e2926e0dbc3b17b7fc53768150526f8d88a021afb7",
+      "effectSummary": "Copies ordinary nonmagical text onto supplied blank pages at 250 words per minute. It does not copy illustrations, spellbook text, spell scrolls, or other magical writing, and it triggers writing-based magical traps in the source. It automatically turns pages, stops when blank pages run out, and can be redirected to another source or destination or resume an interrupted copy. The spell does not translate text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/amanuensis-3785",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/amber-sarcophagus-59": {
+      "name": "Amber Sarcophagus",
+      "sourceSha256": "39325c5f0d9469388dce79a1a5b95d8fbe09fa652a8019ad175d9a06d8ade746",
+      "effectSummary": "On a successful ranged touch attack, traps the target in an immobile amber shell and places it in stasis: the target is unharmed, cannot act, and is protected from all attacks, including mental attacks. The shell has hardness 5 and 10 hit points per caster level, maximum 200. Reducing it to 0 hit points releases the target, which is flat-footed until its next turn; otherwise the shell vanishes and releases the target when the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/amber-sarcophagus-59",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ambient-song-3316": {
+      "name": "Ambient Song",
+      "sourceSha256": "4d8c12c90f2bc657860c90114d6c2bac952d9bba262fe0525870811a38d94b7e",
+      "effectSummary": "Masks the sound of a bardic music effect as chosen background noise appropriate to the environment while leaving the music's normal game effects unchanged. A listener that succeeds on a Will save recognizes that the sound was altered and can hear its true nature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ambient-song-3316",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/amorphous-form-3502": {
+      "name": "Amorphous Form",
+      "sourceSha256": "f80086a5196845a600ca703c5bc020080b2d62fdc1557b93b6e6f78d6e5605ec",
+      "effectSummary": "Turns the subject and its gear into a boneless ooze-like form able to pass through openings as small as 2 inches. The subject becomes immune to poison, polymorphing, stunning, flanking, and critical hits; gains a swim speed equal to land speed if it lacked one; and can remain submerged without breathing. Armor and natural armor stop applying, but size, Dexterity, deflection, and force-effect armor bonuses still count. The subject cannot attack or cast spells requiring verbal, somatic, material, or focus components unless those requirements are removed, loses supernatural abilities, and its magic items cease functioning while amorphous.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/amorphous-form-3502",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/amorphous-form-3820": {
+      "name": "Amorphous Form",
+      "sourceSha256": "805edcd9abdee21ab6f07777c97a7edae9f0c94ac311d052ab2bc60e07fb514b",
+      "effectSummary": "Turns the subject and its gear into a boneless ooze-like form able to pass through openings as small as 2 inches. The subject becomes immune to poison, polymorphing, stunning, flanking, and extra damage from critical hits; gains a swim speed equal to land speed if it lacked one; and can remain submerged without breathing. Armor and natural armor stop applying, but size, Dexterity, deflection, and force-effect armor bonuses still count. The subject cannot attack or cast spells requiring verbal, somatic, material, or focus components unless those requirements are removed, loses supernatural abilities, and its magic items cease functioning except for the specifically retained defensive bonuses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/amorphous-form-3820",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
