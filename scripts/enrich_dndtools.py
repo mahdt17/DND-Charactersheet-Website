@@ -919,6 +919,11 @@ def spell_effect_digest(text: str) -> str:
     return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
 
 
+def spell_tables_digest(tables) -> str:
+    normalized=json.dumps(tables or [],ensure_ascii=False,separators=(",",":"),sort_keys=True)
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
 def apply_reviewed_spell_effect_summary(entry: dict, details: dict, effect_source: str) -> dict:
     review=spell_effect_summaries().get(entry.get("id"))
     if not review:
@@ -931,6 +936,13 @@ def apply_reviewed_spell_effect_summary(entry: dict, details: dict, effect_sourc
         result={**details}
         result["effectReviewMismatch"]=True
         return result
+    expected_tables=clean(review.get("tablesSha256",""))
+    if expected_tables:
+        actual_tables=spell_tables_digest(details.get("tables") or [])
+        if expected_tables!=actual_tables:
+            result={**details}
+            result["effectReviewTableMismatch"]=True
+            return result
     summary=clean(review.get("effectSummary",""))
     if not summary:
         return details
@@ -1267,6 +1279,8 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
             raise ValueError("Spell supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
         if details.get("effectReviewMismatch"):
             raise ValueError("Reviewed spell effect summary no longer matches the current source text")
+        if details.get("effectReviewTableMismatch"):
+            raise ValueError("Reviewed spell effect summary no longer matches the current source table")
         if details.get("sourceIncomplete") and not details.get("sourceIncompleteResolved"):
             raise ValueError("Spell source contains an explicit missing-content marker without a verified repair")
         required = ["sourceBook", "school", "casting_time", "range", "duration"]
