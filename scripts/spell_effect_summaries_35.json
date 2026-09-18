@@ -3350,6 +3350,230 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/battletide-2278": {
+      "name": "Battletide",
+      "sourceSha256": "cc286e4ac7fb1867ebce5df05d18337fa15f0583be478812e831b4742bc4564c",
+      "effectSummary": "Each target other than the caster takes -2 on saving throws, attack rolls, and weapon damage rolls. While at least one enemy remains affected, the caster gains +1 on attack rolls and Reflex saves, +1 dodge AC, and +30-foot enhancement to every movement mode up to twice normal speed. On a full attack the caster can make one extra attack at full base attack bonus; instead of that extra attack, the caster can cast a prepared spell as a free action as though quickened, beginning with 0th- or 1st-level spells and increasing by one spell level for every two caster levels beyond 9th, up to 5th-level spells at 17th. The extra attack does not stack with similar effects such as haste or speed weapons. The spell ends immediately when no affected enemies remain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battletide-2278",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bears-endurance-2783": {
+      "name": "Bear's Endurance",
+      "sourceSha256": "ecafde17bd6f74d73c90268338cc5f775d655c229486126f1de851dd99107b2e",
+      "effectSummary": "Grants +4 enhancement to Constitution, with the normal effects on hit points, Fortitude saves, Constitution checks, and related statistics. Hit points gained from the temporary Constitution increase are ordinary hit points rather than temporary hit points and disappear when Constitution returns to normal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bears-endurance-2783",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bears-heart-969": {
+      "name": "Bear's Heart",
+      "sourceSha256": "83060f88b26e84becaac137f16e2f01f0a435edcd283185c4cb48b08eb243fb2",
+      "effectSummary": "Up to one living ally per caster level gains +4 enhancement to Strength and 1d4 temporary hit points per caster level. When the spell ends, remaining temporary hit points from it disappear and each affected ally takes 1 point of subdual damage per caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bears-heart-969",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beast-claws-3934": {
+      "name": "Beast Claws",
+      "sourceSha256": "f1cf968a6170ca6581def5614b3d21b5a66d78bb712c9bc9a8a11d8a74e33dd7",
+      "effectSummary": "Transforms the caster's hands into two primary claw attacks dealing 1d4 slashing damage with a 19-20 threat range. The caster can attack with one claw or make a full attack with both at normal attack bonus without two-weapon penalties; neither is secondary, and base attack bonus does not grant extra iterative claw attacks. Using a manufactured weapon or another natural attack prevents claw attacks that round. The claws do not provoke attacks of opportunity and do not interfere with manual dexterity or spellcasting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beast-claws-3934",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beast-claws-728": {
+      "name": "Beast Claws",
+      "sourceSha256": "b4f0c1100ea8a06c89e951223b0ba68a57efb2e78a5cd6030c839aa682abde90",
+      "effectSummary": "Transforms the caster's hands into slashing claws that deal 1d6 damage plus normal and magical modifiers such as Strength and threaten on 19-20. Attacking with the transformed hands does not provoke attacks of opportunity, and the claws do not interfere with manual dexterity or spellcasting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beast-claws-728",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beast-claws-970": {
+      "name": "Beast Claws",
+      "sourceSha256": "32aadcd7be33260368c3b933af2d11dcce577f37a5a982493576ed384e130bc4",
+      "effectSummary": "Transforms the caster's hands into slashing claws that deal 1d6 damage plus normal and magical modifiers such as Strength and threaten on 19-20. Attacking with the transformed hands does not provoke attacks of opportunity, and the claws do not interfere with manual dexterity or spellcasting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beast-claws-970",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beastland-ferocity-2179": {
+      "name": "Beastland Ferocity",
+      "sourceSha256": "01fd0587e00f97848d265a9f46c8ea49463deebe6eebc7ba3203c5c5f4cc87e2",
+      "effectSummary": "The subject can continue fighting without penalty while disabled or dying. It still dies normally upon reaching -10 hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beastland-ferocity-2179",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beastland-ferocity-3935": {
+      "name": "Beastland Ferocity",
+      "sourceSha256": "b16bbf2f220b5982ec48fb304bc58daa9afc72cc8b5d87d11438a7cbd3abf34a",
+      "effectSummary": "The subject can continue fighting without penalty while disabled or dying. While at -1 through -9 hit points it also gains +4 enhancement to Strength. It still dies normally at -10 hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beastland-ferocity-3935",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beastmask-964": {
+      "name": "Beastmask",
+      "sourceSha256": "83b14861a1c5ba8487609938a8e8090874bd3d35c5c3517e92ac107f00205f48",
+      "effectSummary": "Creates a glamer that causes animals and beasts to perceive the subject as a chosen natural or dire animal. The chosen apparent form must be no more than one size category larger or two categories smaller than the subject. The illusion deceives sight, hearing, smell, and touch but grants no animal abilities and does not allow communication with animals or beasts.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beastmask-964",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bebilith-blessing-1125": {
+      "name": "Bebilith Blessing",
+      "sourceSha256": "7582d4379f2629f605687649a9e64d5adba63e001c268df8b6018fe2ad23a5a2",
+      "effectSummary": "Grants bebilith-like natural weapons: two primary claw attacks and a secondary bite replacing any normal bite. For a Medium subject, claws deal 1d6 and the bite 1d8. When wielding a weapon, the subject can add either one claw or the bite as a secondary attack. Claws can sunder as though the subject had Improved Sunder. The bite carries poison using the spell's save DC, dealing 1d6 Constitution initially and 2d6 Constitution secondarily. The subject is also treated as an evil outsider in addition to its normal type and subtypes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bebilith-blessing-1125",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beckon-5740": {
+      "name": "Beckon",
+      "sourceSha256": "ee2e5966a95f967a85fb61976f0f954b94146bf6bfd9017a1ba27f5d033f7ae4",
+      "effectSummary": "Functions as lesser beckon, giving a known target the unmistakable impression that the caster wants it to come, without actually forcing obedience. Beckon can reach a target anywhere on the same plane, lasts 1 hour per caster level, and gives the target a vague sense of the caster's direction that continues to point toward the caster if the caster moves. The spell ends when its duration expires or the target comes within 30 feet of the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beckon-5740",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/beckon-lesser-5739",
+          "role": "primary-site cross-reference explicitly incorporated by Beckon"
+        }
+      ]
+    },
+    "spells/beckon-person-3446": {
+      "name": "Beckon Person",
+      "sourceSha256": "4d032298f72149486e966535975b74da2109c686cdd7bc3bf40dce0e67503be3",
+      "effectSummary": "After a successful Truespeak check against DC 15 and a failed save by the target, the creature must end each turn at least 10 feet closer to the caster if able. It chooses its path, movement mode, and other actions freely so long as it satisfies that movement requirement; once adjacent it acts normally unless the caster moves away. The effect lasts at least 1 round and gains +2 rounds for every 5 points by which the Truespeak check exceeds DC 15.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beckon-person-3446",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beckon-lesser-5739": {
+      "name": "Beckon, Lesser",
+      "sourceSha256": "d1f45182245d0f84f63329a4e7f7d89974775ab5366f972f8db77ff0194891e9",
+      "effectSummary": "Sends a mental signal to a known individual, giving that target the unmistakable impression that the caster wants them to come immediately. It does not compel the target to obey and does not communicate the caster's reason.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beckon-lesser-5739",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beckoning-call-1151": {
+      "name": "Beckoning Call",
+      "sourceSha256": "7c935ab69c1edf3782c974ed8ed478d79be53902b172fd1110bed4613bdf54b8",
+      "effectSummary": "Compels the subject to reach a square adjacent to the caster, taking at least one move action each round and using spells or abilities only if they bring it physically closer. It chooses the least dangerous available route but becomes motionless if it cannot approach. At the end of each turn it receives a new save to end the effect. Once adjacent, it can take no actions and follows if the caster moves. It is flat-footed against the caster, but an obvious hostile action by the caster ends the spell at the start of the target's next turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beckoning-call-1151",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bedevil-267": {
+      "name": "Bedevil",
+      "sourceSha256": "8de3638a20cb291a036107629bbd31bb132377f7c75f4558b7d23a7ea291f7cb",
+      "effectSummary": "Sends a mischievous spirit to harass one victim anywhere on the same plane. The victim takes -1 on ability checks, skill checks, and Will saves and suffers 5% arcane spell failure, stacking with armor-based spell failure. Detect evil reveals the spirit, protection from evil suppresses its adverse effects, and dispel evil destroys it; remove curse and similar magic do not remove it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bedevil-267",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/befoul-1159": {
+      "name": "Befoul",
+      "sourceSha256": "da3f81df934874312505170aaf01194ca00cc2e7e9c9c71c6f89dbff7e4d2798",
+      "effectSummary": "Corrupts water or another liquid. Drinking it requires a Fortitude save or deals 1d4 Constitution damage. A creature with 2 or more Hit Dice that immerses at least halfway must save as though drinking it; a creature with fewer than 2 Hit Dice dies immediately from that degree of immersion. If only part of a larger body is affected, a body no more than four times the affected volume becomes fully befouled after 24 hours and then deals 1d2 Constitution damage; a body more than four but less than twenty times as large becomes foul-tasting but harmless after 24 hours; larger bodies dilute the effect completely after 24 hours.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/befoul-1159",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/befoul-1543": {
+      "name": "Befoul",
+      "sourceSha256": "f46d48bd86214bb9be6c1c3ca8920e013c66dbe6d3eb6a9b52c0172a45734ed7",
+      "effectSummary": "Corrupts water or another liquid. Creatures with 1 Hit Die or less already in the water die immediately. Drinking it requires a Fortitude save or deals 1d4 Constitution damage, and creatures with 2 or more Hit Dice immersed in it must save as though drinking it. If only part of a larger body is affected, a body no more than four times the affected volume becomes fully befouled after 24 hours and then deals 1d2 Constitution damage; a body more than four but less than twenty times as large becomes foul-tasting but harmless after 24 hours; larger bodies dilute the effect completely after 24 hours.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/befoul-1543",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/befoul-227": {
+      "name": "Befoul",
+      "sourceSha256": "ae2bab740cf3b85978e4e7300a080d627cce272544b7b1d6b9207de7647ecbd4",
+      "effectSummary": "Corrupts water or another liquid. Creatures with 1 Hit Die or less already in the water die immediately. Drinking it requires a Fortitude save or deals 1d4 Constitution damage, and any creature immersed in it must save as though drinking it. If only part of a larger body is affected, a body no more than four times the affected volume becomes fully befouled after 24 hours and then deals 1d2 Constitution damage; a body more than four but less than twenty times as large becomes foul-tasting after 24 hours; larger bodies dilute the effect completely after 24 hours.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/befoul-227",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beget-bogun-1878": {
+      "name": "Beget Bogun",
+      "sourceSha256": "fa16c94e99c011c96957ec1eac6b728abd705f9718674c90b22bf7f5021fea32",
+      "effectSummary": "Completes the creation of a bogun from a vegetable-matter mannequin and costs 25 XP. Creating one requires a 7th-level creator with Craft Wondrous Item, a DC 12 Craft (basketweaving or weaving) check for the body, part of the creator's body incorporated into it, and a week-long forest-grove ritual with at least 8 hours of uninterrupted work each day; on the final day the creator casts control plants, wood shape, and beget bogun. The resulting Tiny construct has 2d10 hit points, speed 20 feet and fly 50 feet (good), AC 15, a nettles attack for 1d4-2 plus DC 11 poison dealing 1d6 Dexterity initially and secondarily, and standard construct traits. It is telepathically linked to its creator within 500 yards, can carry out simple instructions but has a 5% chance to refuse a task unless persuaded with Diplomacy DC 11, and its destruction deals 2d10 damage to its creator; it dies if its creator dies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beget-bogun-1878",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beget-bogun-2005": {
+      "name": "Beget Bogun",
+      "sourceSha256": "150b74d863607d0ba0eb7e00ed211e68c5cf8eed2395f582bc6ce8837ca11359",
+      "effectSummary": "Infuses living magic into a prepared vegetable-matter mannequin as the final spell in creating a bogun. The mannequin is the material component and casting costs 25 XP; the remaining creation rules come from the bogun's creature description.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beget-bogun-2005",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
