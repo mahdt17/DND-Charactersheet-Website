@@ -71,7 +71,10 @@ function classStats(entry) {
     primaryAbility:textValue(entry.primaryAbility || entry.primary_ability?.desc || entry.primary_ability || ''),
     savingThrows:listNames(entry.saving_throws || entry.savingThrows),
     proficiencies:listNames(entry.proficiencies),
-    spellcastingAbility:textValue(entry.castingAbility || entry.spellcastingAbility || entry.spellcasting?.ability || '')
+    spellcastingAbility:textValue(entry.castingAbility || entry.spellcastingAbility || entry.spellcasting?.ability || ''),
+    minBab:textValue(entry.minBab || entry.minimumBab || ''),
+    classSkills:listNames(entry.classSkills),
+    advancement:Array.isArray(entry.advancement)?entry.advancement:[]
   };
 }
 
@@ -89,7 +92,13 @@ function spellStats(entry) {
     classLevels:entry.classLevels && typeof entry.classLevels==='object'?{...entry.classLevels}:{},
     higherLevel:textValue(entry.higher_level || entry.higherLevel || ''),
     damage:entry.damage || null,
-    healAtSlotLevel:entry.heal_at_slot_level || entry.healAtSlotLevel || null
+    healAtSlotLevel:entry.heal_at_slot_level || entry.healAtSlotLevel || null,
+    savingThrow:textValue(entry.savingThrow || entry.saving_throw || ''),
+    spellResistance:textValue(entry.spellResistance || entry.spell_resistance || ''),
+    target:textValue(entry.target || ''),
+    area:textValue(entry.area || ''),
+    domains:entry.domains || '',
+    descriptors:Array.isArray(entry.descriptors)?entry.descriptors:[]
   };
 }
 
