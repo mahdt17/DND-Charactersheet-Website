@@ -2910,6 +2910,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/backlash-1734": {
+      "name": "Backlash",
+      "sourceSha256": "9231a60e6c2739edf1e2b70ab3ea0ae8f865da39cb4e1ccc1aaeed4f8342ca2f",
+      "effectSummary": "The first qualifying attack spell the cursed target casts rebounds on that creature as though affected by spell turning. Backlash triggers if the target's attack spell is successfully saved against, is cast on a creature immune to it, or is interrupted or ruined, including a failed defensive-casting attempt; the triggering spell must be one spell turning could affect. When triggered, the spell rebounds with no saving throw for the cursed creature, though spell resistance still applies, and backlash then ends. Multiple backlash effects can coexist but only one triggers at a time. It does not affect magic-item, spell-like, or supernatural abilities and can be removed by effects that remove bestow curse.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/backlash-1734",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/backlash-3873": {
+      "name": "Backlash",
+      "sourceSha256": "36fa52b75a2dd027c4d4a93265439e381fe0ed18b537cc9657a37099a97652f8",
+      "effectSummary": "The first time the target attempts to cast a spell or use a spell-like ability, that magic backfires. The spell or ability is expended and the creature takes 1d6 damage per spell level, after which backlash ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/backlash-3873",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/baffling-defense-3662": {
+      "name": "Baffling Defense",
+      "sourceSha256": "78e1fa761736b1d4223370c9e241bbe02059157a9816fd97eb822ec64f753ce6",
+      "effectSummary": "When an opponent attacks, the initiator can use this maneuver as an immediate action before learning the attack result to replace AC against that one attack with the result of a Sense Motive check. The initiator must be aware of the attack and cannot use the maneuver while flat-footed against it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/baffling-defense-3662",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/balagarns-iron-horn-1735": {
+      "name": "Balagarn's Iron Horn",
+      "sourceSha256": "752ff659a525d49fb25a261304cd59f3f96657b00e2ff84546c22b7d1b0f9672",
+      "effectSummary": "Make one Strength check as though Strength were 20. Each creature in the area that is touching the ground makes an opposed Strength or Dexterity check; creatures that fail are tripped and fall prone, while those that succeed are unaffected and cannot make a retaliatory trip attempt. Size does not limit which grounded creatures can be tripped, and Improved Trip does not grant a follow-up attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/balagarns-iron-horn-1735",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/balance-sky-3683": {
+      "name": "Balance on the Sky",
+      "sourceSha256": "01364c012502dcab9b0f4298e174876a6cdbeff424afe184f5028208d4b5c4d8",
+      "effectSummary": "While maintaining this stance, the initiator gains air walk on themself only and must keep at least one hand empty. Ascending costs 10 feet of movement for each 5 feet gained. If the stance ends while the initiator is airborne, they fall. This stance is supernatural.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/balance-sky-3683",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/balancing-lorecall-368": {
+      "name": "Balancing Lorecall",
+      "sourceSha256": "6366c07b368e699ed837ff9ab330b7d201965eeee91f4302a5917b217edc75aa",
+      "effectSummary": "Grants +4 insight on Balance checks. With 5 or more Balance ranks, the subject can balance on vertical surfaces, ignoring the normal slope modifier, move up or down them under Balance rather than Climb rules, retain Dexterity to AC, and attack normally. With 10 or more Balance ranks, the subject can balance on liquids, mud, snow, and similarly unsupported surfaces with DC 20, increasing the DC by 5 for each consecutive round begun on that surface. Movement is normally at half speed unless the accelerated-movement option is used, which raises the DC by 5.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/balancing-lorecall-368",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/balancing-lorecall-3874": {
+      "name": "Balancing Lorecall",
+      "sourceSha256": "fecef0e8a72c15f101d4dc110c5b621dfa6c274027f6035fa6b8667a2ea76e01",
+      "effectSummary": "Grants +4 insight on Balance checks. With 5 or more Balance ranks, the subject can balance on vertical surfaces, ignoring the normal slope modifier, move up or down them under Balance rather than Climb rules, retain Dexterity to AC, and attack normally. With 10 or more Balance ranks, the subject can balance on liquids, mud, snow, and similarly unsupported surfaces with DC 20, increasing the DC by 5 for each consecutive round begun on that surface. Movement is normally at half speed unless the accelerated-movement option is used, which raises the DC by 5.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/balancing-lorecall-3874",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/baleful-blink-3000": {
+      "name": "Baleful Blink",
+      "sourceSha256": "5abb3320dc7bdc3419c4c016a489aef3e3581820920844aa72b3afb3c2fdd9ba",
+      "effectSummary": "Curses the subject to blink only when attacking or casting. Its melee and ranged attacks have a 50% miss chance, and each spell it casts has a 50% chance to fail to affect the intended plane. Attacks and spells directed at the subject are unaffected because it does not blink defensively. It cannot use the effect to move through walls or travel ethereally. Spells cast on itself work normally, force effects ignore the blinking, and attacks or spells directed at Ethereal targets still have a 50% failure chance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/baleful-blink-3000",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/baleful-polymorph-2781": {
+      "name": "Baleful Polymorph",
+      "sourceSha256": "93871e5bc02794b5a949a92317661e6758830495b92eadfc4ecd01395349c159",
+      "effectSummary": "Transforms the subject into a Small-or-smaller animal of 1 Hit Die or less. The target uses the new form's game statistics and abilities except it retains alignment, personality within the limits of its new mental scores, shapechanger subtype if any, original hit points, original Hit Dice for effects that depend on HD, and the ability to understand known languages. Class features and other normal-form special abilities are lost, and worn or carried items fall to the ground. A form that would be immediately fatal grants +4 on the save. After 24 consecutive hours, the target makes a Will save; failure causes it to lose memories and language comprehension and adopt the new form's normal Hit Dice and hit points until the spell ends. Incorporeal and gaseous creatures are immune, and a shapechanger can end the spell by returning to its natural form as a standard action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/baleful-polymorph-2781",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/baleful-transposition-1948": {
+      "name": "Baleful Transposition",
+      "sourceSha256": "12f9a22b36707ec9a3e9b4c85250a1744a5dd95279c9ec6479e818e56c329db8",
+      "effectSummary": "Instantly swaps the positions of two target creatures, one of which can be the caster. Both must be within range and connected by a solid continuous object such as ground, bridge, or rope. Each creature's carried objects up to maximum load move with it, but carried creatures do not. The movement does not provoke attacks of opportunity. If either target succeeds on its Will save, the entire spell is negated.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/baleful-transposition-1948",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/baleful-transposition-3875": {
+      "name": "Baleful Transposition",
+      "sourceSha256": "2bbd0a3a0a6e68a193daf7b36841d905f0cd622051150c73213959a6d62f377f",
+      "effectSummary": "Instantly swaps the positions of two target creatures, one of which can be the caster. Both must be within range and connected by a solid continuous object such as ground, bridge, or rope. Each creature's carried objects up to maximum load move with it, but carried creatures do not. The movement does not provoke attacks of opportunity. If either target succeeds on its Will save, the entire spell is negated.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/baleful-transposition-3875",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/baleful-utterance-5033": {
+      "name": "Baleful Utterance",
+      "sourceSha256": "cb02bf9c94e6bf44e6c437f001691e1013b757e8204141eaa25a1f8955932a4b",
+      "effectSummary": "Functions through the shatter effect invoked by the utterance. If the targeted object is worn or held and is destroyed, its wearer or holder must make a Fortitude save or be dazed for 1 round and deafened for 1 minute. This is a sonic effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/baleful-utterance-5033",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ball-lightning-1658": {
+      "name": "Ball Lightning",
+      "sourceSha256": "1cfec634bc65a964bec93fe49e1b4a71f807db6c653c0ef96cb43c6113d12c9d",
+      "effectSummary": "Creates multiple controllable lightning balls whose total assigned damage dice equal caster level, maximum 15d6, divided among the balls with at least 1d6 per ball. Each ball sheds candlelike light, moves up to 100 feet per round, can repeatedly strike targets without being destroyed, and allows a separate Reflex save each time it deals damage. Directing them is free on the casting round and a standard action on later rounds, requires line of sight and effect, and a ball dissipates if it moves beyond spell range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ball-lightning-1658",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ball-lightning-2247": {
+      "name": "Ball Lightning",
+      "sourceSha256": "c699a4a96cfa96b938f3fee80fdbdbaebdcdd5b26e5ad4dde94619d281c974c2",
+      "effectSummary": "Creates one 3-foot lightning ball per two caster levels, maximum eight. Each flies up to 100 feet per round with perfect maneuverability according to a mental program that can navigate around corners and can be reprogrammed as a free action on the casting round or a move-equivalent action later. A ball that strikes a creature stops in that square and deals 2d6 electricity damage, Reflex half; touching a ball with a natural or melee weapon also deals that damage. Multiple balls damage and test spell resistance separately. A ball dissipates if it exceeds spell range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ball-lightning-2247",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ball-lightning-3464": {
+      "name": "Ball Lightning",
+      "sourceSha256": "f0a069ee5b632dab68607919f1ab5525e99c2035bf246b4bed5a2e996196d894",
+      "effectSummary": "Creates one or more 3-foot lightning balls whose total damage dice equal half caster level, maximum 10d6, divided among the balls with at least 1d6 per ball. Each flies at 100 feet with perfect maneuverability. On the casting round their movement can be directed freely; later, directing all balls is a move-equivalent action, otherwise they remain where they are. A ball entering a creature's space stops for the round and deals its assigned electricity damage, Reflex half. A stationary ball damages a creature occupying its space, and a ball disappears if it exceeds spell range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ball-lightning-3464",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ball-lightning-3876": {
+      "name": "Ball Lightning",
+      "sourceSha256": "cea701cc57e8ac4197a38b5e276b97e3c4680fab9c204bb1ee01dc66432a80a3",
+      "effectSummary": "Creates one 5-foot lightning ball that moves 30 feet per round in the directed direction and can climb or jump up to 30 feet as part of that movement. Entering a creature's space stops it for the round and deals 1d6 electricity damage per caster level, maximum 15d6; a successful Reflex save negates the damage. Directing it takes a move action; otherwise it remains stationary and damages creatures in its space. It cannot shove unwilling creatures or batter down large obstacles and disappears if it exceeds spell range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ball-lightning-3876",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ballista-throw-3663": {
+      "name": "Ballista Throw",
+      "sourceSha256": "f55e67a87ab1c8d8466ce6efbf7b2f10af5a020ad0d65d48ef06d944e6bfb1cb",
+      "effectSummary": "Functions like mighty throw with these changes: make a melee touch attack, then a trip attempt with +4 on the ability check. On a successful trip, throw the target through a 60-foot line; the thrown creature and all creatures in that line take 6d6 damage. The thrown creature lands prone at the line's endpoint, or in the nearest open space if the endpoint is occupied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ballista-throw-3663",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/balor-nimbus-2197": {
+      "name": "Balor Nimbus",
+      "sourceSha256": "4d9c726ebff7fdd55ecb0721fcd25b46240e119987770b1b36dbea9705aafa3d",
+      "effectSummary": "Surrounds the caster in harmless flames. Each round, every creature grappling the caster or grappled by the caster takes 6d6 fire damage on the caster's turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/balor-nimbus-2197",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/balor-nimbus-3929": {
+      "name": "Balor Nimbus",
+      "sourceSha256": "579be4537e0e7aba7a36dddc777d915ddd52f8a9462672be99d37339bfc6fe0c",
+      "effectSummary": "Surrounds the caster in harmless flames. Each round, every creature grappling the caster or grappled by the caster takes 6d6 fire damage on the caster's turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/balor-nimbus-3929",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bands-of-steel-3930": {
+      "name": "Bands of Steel",
+      "sourceSha256": "7f1031d9fb0716b9adeec866f3eed2c556c4e1d0a28d18d3576ff982af945cd1",
+      "effectSummary": "Conjures metal bands around one target. On a failed Reflex save the target is immobilized; on a successful save it is entangled instead. An immobilized creature can spend a full-round action to escape with Strength DC 18 or Escape Artist DC 18. An entangled creature can spend a full-round action to escape with Strength DC 13 or Escape Artist DC 13.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bands-of-steel-3930",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
