@@ -23,6 +23,252 @@
           "role": "primary catalog identity, source and benefit; type and prerequisite omitted"
         }
       ]
+    },
+    "feats/awesome-blow-154": {
+      "name": "Awesome Blow",
+      "featType": "General feat",
+      "ruleStats": {
+        "fighterBonusFeat": true
+      },
+      "provenance": [
+        {
+          "url": "https://www.d20srd.org/srd/monsterFeats.htm",
+          "role": "SRD feat type and fighter-bonus classification cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/awesome-blow-154",
+          "role": "primary source, prerequisites, benefit and special; feat type omitted"
+        }
+      ]
+    },
+    "feats/spirit-sense-2731": {
+      "name": "Spirit Sense",
+      "featType": "General feat",
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/feat/Spirit_Sense",
+          "role": "feat type and source cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/spirit-sense-2731",
+          "role": "primary source and benefit; feat type omitted"
+        }
+      ]
+    },
+    "feats/backstab": {
+      "name": "Backstab",
+      "sourceBook": "Dragon #340",
+      "sourceAbbr": "DR340",
+      "sourcePage": 86,
+      "ruleStats": {
+        "fighterBonusFeat": true
+      },
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/feat/Backstab",
+          "role": "source, feat type, prerequisite and benefit cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/backstab",
+          "role": "primary feat type, prerequisite, benefit and special; source metadata omitted"
+        }
+      ]
+    },
+    "feats/verminfriend-3431": {
+      "name": "Verminfriend",
+      "effectSummary": "As an immediate action when a vermin would attack, a successful Charisma check prevents that vermin from attacking you for 24 hours; attacking an affected vermin temporarily ends the protection.",
+      "ruleStats": {
+        "action": "immediate",
+        "check": "Charisma",
+        "dc": "15 + one-quarter vermin Hit Dice",
+        "duration": "24 hours"
+      },
+      "provenance": [
+        {
+          "url": "https://srd.dndtools.org/srd/feats/noncore-featsdotu.html",
+          "role": "Drow of the Underdark prerequisite and benefit cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/verminfriend-3431",
+          "role": "primary catalog identity/source; benefit omitted from rebuilt page"
+        }
+      ]
+    },
+    "feats/kuo-toan-monasticism-1730": {
+      "name": "Kuo-Toan Monasticism",
+      "effectSummary": "As a swift action, prepare sticky hands; during flurry of blows, if the first attack hits, one extra flurry attack automatically hits.",
+      "ruleStats": {
+        "action": "swift",
+        "requires": "flurry of blows",
+        "trigger": "first flurry attack hits",
+        "effect": "one extra flurry attack automatically hits"
+      },
+      "provenance": [
+        {
+          "url": "https://srd.dndtools.org/srd/feats/noncore-featsmm5.html",
+          "role": "Monster Manual V prerequisite and benefit cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/kuo-toan-monasticism-1730",
+          "role": "primary catalog identity, source and prerequisite; Benefit label omitted"
+        }
+      ]
+    },
+    "feats/improved-familiar-1484": {
+      "name": "Improved Familiar",
+      "inheritsFromFeat": "Improved Familiar",
+      "effectSummary": "Uses the core Improved Familiar rules and adds Forgotten Realms familiar choices from Player's Guide to Faerûn.",
+      "variantOptions": [
+        {
+          "name": "Deathfang",
+          "alignment": "Neutral evil",
+          "minimumArcaneCasterLevel": 9
+        },
+        {
+          "name": "Flying snake",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Lizard, spitting crawler",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Lynx",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Osquip",
+          "alignment": "Neutral evil",
+          "minimumArcaneCasterLevel": 5
+        },
+        {
+          "name": "Tressym",
+          "alignment": "Neutral good",
+          "minimumArcaneCasterLevel": 5
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/feats/players-guide-to-faerun--22/improved-familiar--1484/index.html",
+          "role": "legacy DnD Tools benefit table and variant choices cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1484",
+          "role": "primary source and prerequisite; Benefit/table omitted from rebuilt page"
+        }
+      ]
+    },
+    "feats/improved-familiar-1485": {
+      "name": "Improved Familiar",
+      "inheritsFromFeat": "Improved Familiar",
+      "effectSummary": "Uses the core Improved Familiar rules and adds familiar choices from Races of Faerûn.",
+      "variantOptions": [
+        {
+          "name": "Flying snake",
+          "alignment": "Unspecified",
+          "minimumArcaneCasterLevel": 3,
+          "special": "Master gains +2 on saves against acid"
+        },
+        {
+          "name": "Deathfang",
+          "alignment": "Neutral evil",
+          "minimumArcaneCasterLevel": 9,
+          "special": "Master must be evil and have Spell Focus (Necromancy)"
+        },
+        {
+          "name": "Lizard, spitting crawler",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3,
+          "special": "Master gains +2 on saves against acid"
+        },
+        {
+          "name": "Lynx",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3,
+          "special": "Master gains +3 on Move Silently checks"
+        },
+        {
+          "name": "Osquip",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 5,
+          "special": "Master gains +2 on Hide and Listen checks"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Forgotten%20Realms%20Setting/Races%20Of%20Faerun.pdf",
+          "role": "Races of Faerûn Table A-5 familiar choices and special rules cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1485",
+          "role": "primary source and prerequisite; referenced table/Benefit omitted from rebuilt page"
+        }
+      ]
+    },
+    "feats/improved-familiar-1486": {
+      "name": "Improved Familiar",
+      "inheritsFromFeat": "Improved Familiar",
+      "effectSummary": "Uses the core Improved Familiar rules and adds familiar choices from Serpent Kingdoms.",
+      "variantOptions": [
+        {
+          "name": "Jaculi",
+          "alignment": "Chaotic evil",
+          "minimumArcaneCasterLevel": 5
+        },
+        {
+          "name": "Lizard, spitting crawler",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Mlarraun",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 5
+        },
+        {
+          "name": "Muckdweller",
+          "alignment": "Lawful evil",
+          "minimumArcaneCasterLevel": 5
+        },
+        {
+          "name": "Deathfang",
+          "alignment": "Neutral evil",
+          "minimumArcaneCasterLevel": 9
+        },
+        {
+          "name": "Flying snake",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Glacier snake",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Tree python",
+          "alignment": "Chaotic evil",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Whipsnake",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://dndtools.net/feats/serpent-kingdoms--24/improved-familiar--1486/",
+          "role": "legacy DnD Tools variant choices cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1486",
+          "role": "primary source and prerequisite; Benefit/table omitted from rebuilt page"
+        }
+      ]
     }
   }
 }

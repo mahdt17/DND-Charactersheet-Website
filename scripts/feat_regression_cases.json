@@ -1,6 +1,14 @@
 {
   "purpose": "3.5 feat enrichment regression corpus. Every feat here previously failed a strict sample and must remain covered.",
   "feats": [
-    "Psionic Feint"
+    "Awesome Blow",
+    "Backstab",
+    "Highborn Drow",
+    "Improved Familiar",
+    "Kuo-Toan Monasticism",
+    "Lolth's Blessing",
+    "Psionic Feint",
+    "Spirit Sense",
+    "Verminfriend"
   ]
 }

@@ -196,7 +196,7 @@ def source_meta(lines: list[str]) -> dict:
     # "Prestige Class Complete Warrior (CW), p. 79"
     # "Player's Handbook v.3.5 (PH), p. 251"
     joined = " | ".join(lines[:30])
-    match = re.search(r"(?:(?:Prestige|Base|NPC|Psionic) Class\s+)?([^|]{2,120}?)\s*\(([A-Za-z0-9 .&'-]{1,16})\)\s*(?:,\s*p\.\s*(\d+))?", joined)
+    match = re.search(r"(?:(?:Prestige|Base|NPC|Psionic) Class\s+)?([^|]{2,120}?)\s*\(([A-Za-z0-9 .&':-]{1,20})\)\s*(?:,\s*p\.\s*(\d+))?", joined)
     if not match:
         for line in lines:
             fallback = re.match(r"^Source\s*:\s*(.+)$", clean(line), re.I)
@@ -704,7 +704,7 @@ def apply_feat_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Feat supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    for key in ("sourceEdition","notes","featType","prerequisites","effectSummary"):
+    for key in ("sourceBook","sourceAbbr","sourcePage","sourceEdition","notes","featType","prerequisites","effectSummary","inheritsFromFeat","ruleStats","variantOptions"):
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
             continue
@@ -1117,6 +1117,10 @@ def self_test():
     p=DetailParser();p.feed(racial_html);p.close()
     racial=parse_class_core(p,{"name":"Pixie"})
     assert racial.get("racialClass") is True
+
+    colon_source=source_meta(["Racial feat","Shadowdale: The Scouring of the Land (S:TSotL), p. 150"])
+    assert colon_source["sourceBook"] == "Shadowdale: The Scouring of the Land"
+    assert colon_source["sourceAbbr"] == "S:TSotL" and colon_source["sourcePage"] == 150
 
     spell_html = """
     <h1>Magic Missile</h1><p>Player's Handbook v.3.5 (PH), p. 251</p>
