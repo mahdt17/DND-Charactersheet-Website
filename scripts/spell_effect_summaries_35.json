@@ -254,6 +254,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/abyssal-frenzy-1157": {
+      "name": "Abyssal Frenzy",
+      "sourceSha256": "df10a80fd4005336b9a758056d8ca21258a51691050f1102fb5bd32b392fa4a4",
+      "effectSummary": "Transforms the subject for the spell's duration: land speed increases by 30 feet, natural armor gains a +3 enhancement bonus, Strength and Constitution gain +2 profane bonuses, and Dexterity takes a -2 penalty. The subject gains two claw attacks (or increases existing claw damage by one size step), can rend after hitting the same target with both claws, and gains 60-foot darkvision or extends existing darkvision by 60 feet. While transformed, it cannot communicate, cast spells, use spell-like abilities, activate magic items, or wield weapons other than its natural weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/abyssal-frenzy-1157",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/acid-breath-3801": {
+      "name": "Acid Breath",
+      "sourceSha256": "dd2e64c28ecb5b56c11c499b536f189275fc900bbb4f4969fa3866eecd26f293",
+      "effectSummary": "Breathes a cone that deals 1d6 acid damage per caster level, to a maximum of 10d6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/acid-breath-3801",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/acid-fog-2372": {
+      "name": "Acid Fog",
+      "sourceSha256": "bbbb140c285375fea74de4378d3d8f805f17817bb19bf211ed2a2b46a115a253",
+      "effectSummary": "Functions like solid fog and also deals 2d6 acid damage each round to every creature and object within the fog, beginning on the caster's turn when the spell is cast.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/acid-fog-2372",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/acid-orb-3391": {
+      "name": "Acid Orb",
+      "sourceSha256": "eb4f3d0eb5ea5c71aae542f4567cf35a27715edb3b6b3db7c6866832804d5c1f",
+      "effectSummary": "Creates one or more acid orbs requiring ranged touch attacks. They deal a total of 1d6 acid damage per caster level (maximum 15d6), divided before attacks are rolled with at least 1d6 assigned to each orb. A directly hit creature is also nauseated for 1 round; a Fortitude save halves the direct damage and negates the nausea. A missed orb splashes in a 10-foot burst for 2 damage per die assigned to that orb, with a Reflex save for half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/acid-orb-3391",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/acid-orb-lesser-1946": {
+      "name": "Acid Orb, Lesser",
+      "sourceSha256": "4d06a2ca6e731e9ba6f55a44f8a6e260baf44ceb7f2a5f2180236a6e73b7fd12",
+      "effectSummary": "Makes a ranged touch attack with an acid orb for 1d8 damage, plus another 1d8 for every two caster levels beyond 1st, to a maximum of 5d8 at 9th level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/acid-orb-lesser-1946",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/acid-orb-lesser-3398": {
+      "name": "Acid Orb, Lesser",
+      "sourceSha256": "f4df38d34317736e7aa4d4203bd1ebdda00fef5aa6cdda7bc93fb569405b5a47",
+      "effectSummary": "Creates one 1d8 acid-damage orb at 1st level and one additional orb every two levels thereafter, to a maximum of five at 9th level. Each orb requires a ranged touch attack, has no splash damage on a miss, and can target the same or different creatures; all targets must be designated before spell resistance or damage is rolled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/acid-orb-lesser-3398",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/acid-rain-1399": {
+      "name": "Acid Rain",
+      "sourceSha256": "d0a25363766f70fe53362f57079b69bc3d82f88524864ac6c46579d3f557cb94",
+      "effectSummary": "Douses the area for 1 round and deals 7d6 acid damage to every creature in it. The affected ground remains muddy or slick for a number of rounds equal to the caster's class level, halving movement. A creature can attempt a DC 10 Balance check to move normally; failure prevents movement that round, and failure by 5 or more causes it to fall prone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/acid-rain-1399",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/acid-sheath-3802": {
+      "name": "Acid Sheath",
+      "sourceSha256": "b1e8fd77575fd45ac748d5b4f1f5d4dcb269ec3ee0627aecab72dc869562a6c7",
+      "effectSummary": "Surrounds the caster in harmless acid. A creature that strikes the caster without a reach weapon takes 2 acid damage per caster level (maximum 30); creatures grappling the caster take that damage once per round at the start of their turns. The sheath does not protect against other attacks, but acid-descriptor spells cast by the caster deal +1 damage per die. The caster can breathe and cast normally while protected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/acid-sheath-3802",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/acid-storm-3803": {
+      "name": "Acid Storm",
+      "sourceSha256": "f0b56deb6d6744795e65420f6472d1652cd275ff3eb5e181b95c3c366a88d8d6",
+      "effectSummary": "Deals 1d6 acid damage per caster level, to a maximum of 15d6, to each creature in the spell's area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/acid-storm-3803",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/action-thought-3619": {
+      "name": "Action Before Thought",
+      "sourceSha256": "0839fe8476674b80e09a46171cd31dc05469cbaa8aabfdabcda194eace548f6b",
+      "effectSummary": "When required to make a Reflex save, the initiator can use this maneuver before rolling to make a Concentration check instead and use that result to determine whether the save succeeds. A natural 1 on the Concentration check is not an automatic failure.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/action-thought-3619",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/adamantine-bones-3707": {
+      "name": "Adamantine Bones",
+      "sourceSha256": "fb739864eb15ae7808452b88ac89b29f9cc1aa0c02a8c58b2a731c24956a773a",
+      "effectSummary": "As part of the maneuver, make one melee attack. If it hits, gain damage reduction 20/adamantine for 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/adamantine-bones-3707",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/adamantine-hurricane-3642": {
+      "name": "Adamantine Hurricane",
+      "sourceSha256": "4786133eabdc9dd98b106dac18f184ab7a8df8679543a0f478847620ec7cbac4",
+      "effectSummary": "Makes two melee attacks against every adjacent opponent the initiator threatens. Each attack uses the initiator's highest attack bonus and gains a +4 bonus on the attack roll.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/adamantine-hurricane-3642",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/adamantine-weapon-4942": {
+      "name": "Adamantine Weapon",
+      "sourceSha256": "d7dcdfe3fc4f4351c3b56553cfa76a87bc8a3194a0fc28911ff2c6c1fd80dd13",
+      "effectSummary": "Temporarily transforms one metal weapon into adamantine. This replaces the properties of any other special material from which the weapon is made for the infusion's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/adamantine-weapon-4942",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/adamantine-wings-865": {
+      "name": "Adamantine Wings",
+      "sourceSha256": "bcd4f41b9a2cf3131ba7b41427785e0980b54e11194eb48be27512f5894ee9cf",
+      "effectSummary": "Grants adamantine wings and a 60-foot fly speed, reduced to 40 feet in medium or heavy armor or with a medium or heavy load, with good maneuverability. While not flying, the caster can make one wing attack as a standard action or two as a full attack; each deals 2d6 slashing damage plus Strength, threatens on 19-20, and counts as magic and adamantine. As a swift action, the caster can end the spell by firing the feathers in a 60-foot cone for 10d6 damage, Reflex half and spell resistance applicable; damage reduction does not reduce this spell-effect damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/adamantine-wings-865",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/addiction-158": {
+      "name": "Addiction",
+      "sourceSha256": "6415fbad0ad9d1553ff472d6447ea8cfafe7e3c94e99b8451e6873311e50cdc2",
+      "effectSummary": "Forces the subject to become addicted to the chosen drug. Casters below 5th level can impose only low-addiction drugs; levels 6-10 allow medium, 11-15 allow high, and 16th level or higher allow extreme addiction ratings.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/addiction-158",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/adept-spirit-1821": {
+      "name": "Adept Spirit",
+      "sourceSha256": "b65590635364802d54ceb16bc7f28d002d8dd27f7c99ad3fef3d0fa3a838e284",
+      "effectSummary": "The target can activate the spirit as an immediate action. For 1 minute after activation it gains +1 insight to caster level and +2 insight on Will saves, Concentration checks, Intelligence checks, and Intelligence-based skill checks. Each invested essentia increases all of those +2 bonuses by 1 but does not increase caster level. A creature cannot benefit from more than one adept spirit at once; a second casting before the first is discharged has no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/adept-spirit-1821",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/adoration-of-the-frightful-1062": {
+      "name": "Adoration of the Frightful",
+      "sourceSha256": "3210a8fc80ecf08a5a6b1eaadaf92d670007e0a05a0d13127729349defc018c2",
+      "effectSummary": "While the aura lasts, a creature in the area that is shaken, frightened, or panicked treats the caster as friendly. The effect ends for that creature if its fear is removed or if the caster or an ally acts hostile toward it. A character who learns this spell also gains a +1 competence bonus on Diplomacy checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/adoration-of-the-frightful-1062",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/advice-2054": {
+      "name": "Advice",
+      "sourceSha256": "1b441565b3b013733f390e609749ed0863d320fb85abb6b41bc8bfcf1f73c3ed",
+      "effectSummary": "On a failed save, the target does its best to follow the caster's reasonably worded advice. If following the advice would put the target in great peril or cause its death, it receives a second saving throw with a +4 circumstance bonus immediately before taking the dangerous action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/advice-2054",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aerial-alacrity-3113": {
+      "name": "Aerial Alacrity",
+      "sourceSha256": "a9346589b4770f535b7b5dc03ff09b7c57fb9c69fe89284aeb8dbbbc860d23aa",
+      "effectSummary": "Increases fly speed by 30 feet and improves flying maneuverability by one category, to a maximum of perfect. While airborne, the subject also gains a +1 dodge bonus to AC and Reflex saves.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aerial-alacrity-3113",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aerial-alarm-1398": {
+      "name": "Aerial Alarm",
+      "sourceSha256": "6e9b017b74cd5a8bf7e146ed8e7799451cf2f2886426ac5c1fdf3e69a3e69300",
+      "effectSummary": "Functions like alarm, but the warded area is a cylinder extending 500 feet upward and the alarm triggers only when a flying creature of Medium or larger size enters or touches the area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aerial-alarm-1398",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
