@@ -93,10 +93,21 @@ def wikidot_rows(category, delay):
 def wikidot_preflight(sample_size, delay):
     results = []
     for category in ["classes", "spells", "feats", "items"]:
-        rows = wikidot_rows(category, delay)
-        sample = rows if category == "classes" else even_sample(rows, sample_size)
         passed = failed = 0
         failures = []
+        try:
+            rows = wikidot_rows(category, delay)
+        except Exception as exc:
+            results.append({
+                "category":"5e/" + category,
+                "sampled":0,
+                "passed":0,
+                "failed":1,
+                "successRate":0.0,
+                "examples":[{"name":"INDEX DISCOVERY","url":w5.INDEX_URLS.get(category,""),"error":str(exc)[:240]}],
+            })
+            continue
+        sample = rows if category == "classes" else even_sample(rows, sample_size)
         for row in sample:
             try:
                 page = w5.parse(row["url"], delay)
