@@ -194,6 +194,9 @@ def main():
             "5e/classes","5e/spells","5e/feats","5e/items"
         ],
         "strictGameplayCompleteness": True,
+        "sourceExtractionVerified": True,
+        "outputCompletenessVerified": False,
+        "releaseReady": False,
         "dndSamplePerCategory": "ALL" if args.full else args.dnd_sample,
         "wikidotSamplePerCategory": "ALL" if args.full else args.wikidot_sample,
         "minimumRate": args.min_rate,
