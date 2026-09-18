@@ -1,0 +1,5 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Reviewed concise gameplay summaries for long D&D 3.5 spell effects. These are derived summaries, not source-omission supplements. Each entry is locked to the exact reviewed source effect by SHA-256; source drift fails validation.",
+  "entries": {}
+}

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import hashlib
 import json
 import re
 import time
@@ -901,6 +902,47 @@ def spell_description_text(parser: DetailParser) -> str:
     return clean(" ".join(kept))
 
 
+_SPELL_EFFECT_SUMMARY_CACHE=None
+
+def spell_effect_summaries():
+    global _SPELL_EFFECT_SUMMARY_CACHE
+    if _SPELL_EFFECT_SUMMARY_CACHE is None:
+        path=ROOT/"scripts"/"spell_effect_summaries_35.json"
+        payload=json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"entries":{}}
+        _SPELL_EFFECT_SUMMARY_CACHE=payload.get("entries",{})
+    return _SPELL_EFFECT_SUMMARY_CACHE
+
+
+def spell_effect_digest(text: str) -> str:
+    normalized=clean(text)
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def apply_reviewed_spell_effect_summary(entry: dict, details: dict, effect_source: str) -> dict:
+    review=spell_effect_summaries().get(entry.get("id"))
+    if not review:
+        return details
+    if clean(review.get("name","")).casefold()!=clean(entry.get("name","")).casefold():
+        raise ValueError(f"Spell effect review identity mismatch for {entry.get('name')}")
+    expected=clean(review.get("sourceSha256",""))
+    actual=spell_effect_digest(effect_source)
+    if not expected or expected!=actual:
+        result={**details}
+        result["effectReviewMismatch"]=True
+        return result
+    summary=clean(review.get("effectSummary",""))
+    if not summary:
+        return details
+    result={**details}
+    if not result.get("effectSummary") and result.get("effectNeedsSummary"):
+        result["effectSummary"]=summary
+        result["effectReviewVerified"]=True
+        result["effectReviewProvenance"]=review.get("provenance",[])
+        result.pop("effectNeedsSummary",None)
+        result.pop("effectSourceLength",None)
+    return result
+
+
 _SPELL_SUPPLEMENT_CACHE=None
 
 def spell_supplements():
@@ -1000,7 +1042,10 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         "descriptionCaptured": bool(effect_source),
     }
     result={k:v for k,v in result.items() if v not in (None,"",[],{})}
-    return apply_spell_supplement(entry,result)
+    result=apply_spell_supplement(entry,result)
+    if result.get("effectNeedsSummary"):
+        result=apply_reviewed_spell_effect_summary(entry,result,effect_source)
+    return result
 
 
 def parse_item(parser: DetailParser, entry: dict) -> dict:
@@ -1074,6 +1119,8 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
     elif category == "spells":
         if details.get("supplementConflicts"):
             raise ValueError("Spell supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
+        if details.get("effectReviewMismatch"):
+            raise ValueError("Reviewed spell effect summary no longer matches the current source text")
         required = ["sourceBook", "school", "casting_time", "range", "duration"]
         missing = [key for key in required if not details.get(key)]
         if missing:
