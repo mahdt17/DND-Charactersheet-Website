@@ -238,7 +238,7 @@ def has_rule_prose(lines: list[str], entry_name: str = "") -> bool:
             continue
         if re.search(r"\([A-Za-z0-9 .&'-]{1,16}\)\s*(?:,\s*p\.\s*\d+)?$", value):
             continue
-        if len(value) >= 55:
+        if len(value) >= 25:
             return True
     return False
 
@@ -356,6 +356,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         "savingThrow": next_value(lines, "Saving Throw"),
         "spellResistance": next_value(lines, "Spell Resistance"),
     }
+    school_value=result.get("school","")
+    if re.search(r"\((?:Strike|Boost|Counter|Stance)\)", school_value, re.I):
+        result["isManeuver"]=True
     classes_raw = next_value(lines, "Classes")
     class_levels = split_class_levels(classes_raw)
     if class_levels:
@@ -449,7 +452,7 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
     presence = details.get("mechanicsPresence") or {}
     expected = {
         "classes": ("sourceBook","hit_die","skillPoints","progression","classSkills"),
-        "spells": ("sourceBook","school","casting_time","components","range","duration"),
+        "spells": ("sourceBook","school","casting_time","range","duration"),
         "feats": ("sourceBook","featType"),
         "items": ("sourceBook",),
         "equipment": ("kind","itemCategory"),
@@ -466,9 +469,9 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
     elif category == "feats":
         if not (presence.get("benefit") or presence.get("description")):
             gaps.append("featEffect")
-        if not presence.get("ruleProse"):
-            gaps.append("featRuleText")
     elif category == "spells":
+        if not details.get("isManeuver") and not details.get("components"):
+            gaps.append("components")
         if not presence.get("ruleProse"):
             gaps.append("spellEffect")
     elif category == "items":
