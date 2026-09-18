@@ -606,6 +606,34 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
     return sorted(set(gaps))
 
 
+def candidate_summary(entry: dict, category: str, details: dict) -> str:
+    name=clean(entry.get("name",""))
+    source=clean(details.get("sourceBook","") or entry.get("source","DnD Tools"))
+    if category=="classes":
+        kind="prestige class" if details.get("prestige") else ("racial class" if details.get("racialClass") else "class")
+        bits=[]
+        if details.get("hit_die") is not None: bits.append(f"d{details['hit_die']} hit die")
+        if details.get("skillPoints"): bits.append(f"{details['skillPoints']} skill points per level")
+        if details.get("inheritsFrom"): bits.append(f"inherits baseline progression from {details['inheritsFrom']}")
+        tail=(" with "+", ".join(bits)) if bits else ""
+        return f"{name} is a D&D 3.5 {kind}{tail}. Source: {source}."
+    if category=="feats":
+        kind=clean(details.get("featType","feat"))
+        return f"{name} is a D&D 3.5 {kind}. Source: {source}."
+    if category=="spells":
+        school=clean(details.get("school",""))
+        level=details.get("level")
+        if details.get("isManeuver"): kind="martial maneuver"
+        elif details.get("isPsionicPower"): kind="psionic power"
+        else: kind="spell"
+        level_text=f" level {level}" if level is not None else ""
+        return f"{name} is a D&D 3.5 {kind}{level_text}{(' in '+school) if school else ''}. Source: {source}."
+    if category in ("items","equipment"):
+        kind=clean(details.get("itemType") or details.get("kind") or details.get("itemCategory") or ("equipment" if category=="equipment" else "item"))
+        return f"{name} is D&D 3.5 {kind}. Source: {source}."
+    return f"{name} is a D&D 3.5 reference entry. Source: {source}."
+
+
 def enrich_entry(entry: dict, category: str, delay: float) -> dict:
     html_text = fetch(entry["url"], delay)
     parser = DetailParser()
@@ -614,6 +642,7 @@ def enrich_entry(entry: dict, category: str, delay: float) -> dict:
     details = PARSERS[category](parser, entry)
     validate_details(entry, category, parser, details)
     gaps = enrichment_gaps(category, details)
+    details["generatedDescription"]=candidate_summary(entry,category,details)
     return {
         **entry,
         **details,
@@ -631,7 +660,7 @@ def enrich_entry(entry: dict, category: str, delay: float) -> dict:
     }
 
 
-def run_category(category: str, limit: int | None, delay: float, force: bool, write: bool):
+def run_category(category: str, limit: int | None, delay: float, force: bool, write: bool, candidate_dir: Path | None = None):
     path = CATALOG / f"{category}.json"
     rows = json.loads(path.read_text(encoding="utf-8"))
     changed = 0
@@ -653,7 +682,11 @@ def run_category(category: str, limit: int | None, delay: float, force: bool, wr
             path.write_text(json.dumps(rows, ensure_ascii=False) + "\n", encoding="utf-8")
     if write and changed:
         path.write_text(json.dumps(rows, ensure_ascii=False) + "\n", encoding="utf-8")
-    return {"category":category,"attempted":attempted,"changed":changed,"total":len(rows),"write":write}
+    if candidate_dir is not None:
+        target=candidate_dir/"dndtools"/f"{category}.json"
+        target.parent.mkdir(parents=True,exist_ok=True)
+        target.write_text(json.dumps(rows,ensure_ascii=False)+"\n",encoding="utf-8")
+    return {"category":category,"attempted":attempted,"changed":changed,"total":len(rows),"write":write,"candidate":str(candidate_dir) if candidate_dir else None}
 
 
 def self_test():
@@ -732,6 +765,7 @@ def main():
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--write", action="store_true", help="Persist changes. Blocked without a passing full-catalog audit.")
     ap.add_argument("--audit-report", help="Path to a strict full-catalog preflight report required for --write.")
+    ap.add_argument("--candidate-dir",type=Path,help="Write dry-run candidate JSON here; never modifies the bundled catalog.")
     ap.add_argument("--self-test", action="store_true")
     args=ap.parse_args()
     if args.self_test:
@@ -739,7 +773,7 @@ def main():
         return
     if args.write and not audit_report_allows_write(args.audit_report):
         raise SystemExit("--write is locked until a strict full-catalog audit report passes with zero critical gaps.")
-    results=[run_category(c,args.limit,args.delay,args.force,args.write) for c in args.categories]
+    results=[run_category(c,args.limit,args.delay,args.force,args.write,args.candidate_dir) for c in args.categories]
     print(json.dumps(results, indent=2))
 
 
