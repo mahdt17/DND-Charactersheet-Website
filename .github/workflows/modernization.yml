@@ -7,7 +7,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: modernization-${{ github.ref }}
+  group: modernization-v2-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   validate:
