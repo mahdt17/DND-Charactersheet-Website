@@ -474,6 +474,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/aerial-summoning-dance-3056": {
+      "name": "Aerial Summoning Dance",
+      "sourceSha256": "eefe6b4f9ea9af34e06409e888e3fbded5b6a5bdd5c035bd63ab78c1396310b4",
+      "effectSummary": "Functions as summon monster VI, but casting requires a flying dance by the caster and at least four aarakocra. All participants count as taking part in the casting for purposes of provoking attacks of opportunity and maintaining concentration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aerial-summoning-dance-3056",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/affliction-86": {
+      "name": "Affliction",
+      "sourceSha256": "b54d4e2de63581e0a1c18d65226cdbce154f35eec1a8236be72caaa032df9499",
+      "effectSummary": "Immediately inflicts a chosen affliction with no incubation period. The affliction damages only evil creatures, dealing its listed damage plus the victim's Charisma bonus; evil elementals and undead take 1 extra point, while evil outsiders and clerics of evil deities take 2 extra points. The affliction's normal save DC applies to the initial save, while the spell's listed DC applies to later saves.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/affliction-86",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aganazzars-scorcher-1198": {
+      "name": "Aganazzar's Scorcher",
+      "sourceSha256": "bd68a662a13ff43051937a0404c7258070b14de5722992dcc4bef98cb09283d8",
+      "effectSummary": "Creates a 5-foot-wide jet of flame extending to the spell's range and deals 1d8 fire damage per two caster levels, to a maximum of 5d8.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aganazzars-scorcher-1198",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aggravate-dracorage-1100": {
+      "name": "Aggravate Dracorage",
+      "sourceSha256": "d50ec90e6c764e330027ae8abbd780a439edfa5667ef9f4049e251f2427c8ef1",
+      "effectSummary": "During the Dracorage, forces the target dragon to fully succumb, becoming hostile toward nondragons and driven to attack and wreak havoc. Its Will save DC is 4 higher than normal (18 + the relevant ability modifier), and the spell ignores the dragon's spell resistance. It has no effect outside the Dracorage period and counters or dispels abate Dracorage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aggravate-dracorage-1100",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aid-legions-1962": {
+      "name": "Aid, Legion's",
+      "sourceSha256": "7d841f3636f1a0e73ef01b16473d49433c6025ef95733d9a1bab273307bb2aeb",
+      "effectSummary": "Functions like aid but affects multiple allies at range. Each affected ally gains 1d8 + caster level temporary hit points, with the caster-level bonus capped at +20.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aid-legions-1962",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aid-mass-3821": {
+      "name": "Aid, Mass",
+      "sourceSha256": "3d1d55981b68aefedc873552a767bd83b3642298d1bb8428f911396a5efbded6",
+      "effectSummary": "Functions like aid but affects multiple subjects at range. Each subject gains 1d8 + caster level temporary hit points, with the caster-level bonus capped at +15.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aid-mass-3821",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aiming-at-the-target-2011": {
+      "name": "Aiming At the Target",
+      "sourceSha256": "ef9191394aa4c15702115f09130bd31bfd731148bb03808545acb81c67f66d4a",
+      "effectSummary": "Can be cast while concentrating on another spell and grants a +10 circumstance bonus on Concentration checks made to maintain that spell. It lasts only as long as that concentration continues. Casting it is a free action and counts against the normal limit of one quickened spell per round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aiming-at-the-target-2011",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aiming-at-the-target-3822": {
+      "name": "Aiming at the Target",
+      "sourceSha256": "0719efcb3ccca81fad5809bab0ae1cf005cd2e187dbaeb8f372b8cb50fd3abf3",
+      "effectSummary": "Can be cast while concentrating on another spell and grants a +10 circumstance bonus on Concentration checks made to maintain that spell. The effect lasts while concentration continues, up to a maximum of 20 minutes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aiming-at-the-target-3822",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aiming-at-the-target-434": {
+      "name": "Aiming At the Target",
+      "sourceSha256": "3dd1af3e0953c5534edfd8d8f795aced348f6b7e02dac2ab70eb721360cd8c7c",
+      "effectSummary": "Cast as a swift action while concentrating on another spell, it grants a +10 circumstance bonus on Concentration checks made to maintain that spell. The effect lasts while concentration continues, up to a maximum of 20 minutes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aiming-at-the-target-434",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/air-breathing-287": {
+      "name": "Air Breathing",
+      "sourceSha256": "2c4696dddd1bafba5833ad7bca24aa9fc1fcd8e3ce60dcbb69846491b7568651",
+      "effectSummary": "Lets the touched creatures breathe air freely without removing their ability to breathe water. The spell's duration is divided evenly among all touched creatures. It counters and dispels water breathing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/air-breathing-287",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/air-breathing-3216": {
+      "name": "Air Breathing",
+      "sourceSha256": "f6440b4ae064a87743175219f93ac46f117f2b04a92526668ba6bc66d588a52d",
+      "effectSummary": "Lets the touched creatures breathe air freely without removing their ability to breathe water. The spell's duration is divided evenly among all touched creatures. It counters and dispels water breathing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/air-breathing-3216",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/air-breathing-3356": {
+      "name": "Air Breathing",
+      "sourceSha256": "45aef53213ce649ef1d0947a1a716010d1438e88a0fca487d9ec5a32096ab394",
+      "effectSummary": "Lets the touched creatures breathe air freely without removing their ability to breathe water. The spell's duration is divided evenly among all touched creatures. It counters and dispels water breathing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/air-breathing-3356",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/air-breathing-3823": {
+      "name": "Air Breathing",
+      "sourceSha256": "e9ab8401c3fbf22db9e46da054fa0e8d899f8372eade472aa4b3e83d49e89ea8",
+      "effectSummary": "Lets the touched creatures breathe air freely without removing their ability to breathe water. The spell's duration is divided evenly among all touched creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/air-breathing-3823",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/air-walk-2772": {
+      "name": "Air Walk",
+      "sourceSha256": "9d5dec82f92737c04c3f93206725399328faaa3153b667ddcce99f095bd26976",
+      "effectSummary": "Lets the subject walk on air as solid ground, with climbs or descents limited to a 45-degree angle at half normal speed. Winds of 21 mph or more can move or impede the subject, shifting it 5 feet per 5 mph of wind at the end of each turn. If the spell expires or is dispelled while aloft, the subject descends 60 feet per round for 1d6 rounds and lands safely if it reaches the ground; otherwise it falls the remaining distance. Negation by an antimagic field does not provide this slow descent. The spell can also be used on a specially trained mount.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/air-walk-2772",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/airy-water-3357": {
+      "name": "Airy Water",
+      "sourceSha256": "efcb480ac17d8c52c0d1feea43c3fbb3bdfe553bf24345ece98e900bf99d5d47",
+      "effectSummary": "Turns water into a breathable medium for both air- and water-breathing creatures. Swimmers make a DC 10 Swim check each round to move at normal speed, moving at half speed on failure; creatures with a swim speed use it normally, and creatures can walk along the bottom at land speed with reduced terrain penalties. Underwater melee-attack penalties are removed, but ranged-attack penalties remain. The spell does not filter suspended solids, so turbid liquid can still obscure or hinder creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/airy-water-3357",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/alamanthers-return-1728": {
+      "name": "Alamanther's Return",
+      "sourceSha256": "af063b4cb1ed0da297c0c1ebfd7f3666a223f9032fd910f96e3297fd58b473ed",
+      "effectSummary": "Duplicates one spell or spell-like ability of 8th level or lower that the caster has seen, functioning as though the caster had it prepared and cast it personally. Unlike wish's normal duplication limits, the copied effect can be arcane or divine and from any school. If its casting time exceeds 1 full round, add 1 full round to Alamanther's return; any XP cost must also be paid, and costly material components must either be supplied or replaced by an added XP cost equal to their gp value divided by 5.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alamanthers-return-1728",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/alarm-2299": {
+      "name": "Alarm",
+      "sourceSha256": "2c4c9834d187884118ebc0a079b14ae12f5c02624e88171ab8a65ccbc8b9549b",
+      "effectSummary": "Wards an area and triggers when a Tiny or larger creature enters or touches it unless the creature speaks the password chosen at casting; ethereal and astral creatures do not trigger it. A mental alarm gives only the caster a single mental ping while within 1 mile and can awaken normal sleep. An audible alarm rings for 1 round and is clearly heard within 60 feet, with doors and walls reducing that distance; silence blocks hearing it but not a mental alarm. The spell can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alarm-2299",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/alarm-greater-3824": {
+      "name": "Alarm, Greater",
+      "sourceSha256": "13b4c30c3635cd1c9feb146ad96d4b8376e6636451bfe6777681323b9306e801",
+      "effectSummary": "Functions like alarm, but also detects creatures traveling through the warded area on coterminous or coexistent planes such as the Ethereal Plane and Plane of Shadow.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alarm-greater-3824",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/alert-bebilith-130": {
+      "name": "Alert Bebilith",
+      "sourceSha256": "c338255c6ed6494cc21289b50b0c9005905b1b5009f61f7c3d8247cc7ab7a899",
+      "effectSummary": "Conjures a bebilith in the presence of a demon to attack, drive off, or otherwise deal with that demon according to the spell's result table. Resolve the outcome with a caster-level check modified by 12 minus the target demon's Hit Dice. One listed outcome has the bebilith attempt to grapple the demon and, on success, plane shift away with it. If no demon is present when cast, treat the caster-level check result as 10.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/alert-bebilith-130",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/algid-enhancement-1295": {
+      "name": "Algid Enhancement",
+      "sourceSha256": "f268fa4215af9d75579b7a317c7c16447da3969bff44702e4cfcca4c6f84f007",
+      "effectSummary": "Affects only creatures with the cold subtype. Each target gains a +1 deflection bonus to AC, 1d8 temporary hit points, a +1 enhancement bonus on attack rolls, and a +2 bonus on saves against fire effects. For every three caster levels, each benefit increases by 1; for example, a 12th-level caster grants +5 AC, 1d8+4 temporary hit points, +5 on attacks, and +6 on fire saves.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/algid-enhancement-1295",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
