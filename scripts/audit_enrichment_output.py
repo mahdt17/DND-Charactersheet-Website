@@ -67,8 +67,11 @@ def feat_gaps(r):
     if not presence(r,"sourceBook","source","sourceUrl"): gaps.append("source")
     if not presence(r,"featType"): gaps.append("featType")
     if not description_ok(r): gaps.append("description")
-    if not presence(r,"benefit","effect","effectSummary"):
+    pointer_complete=bool(r.get("inheritsFromFeat") and r.get("variantOptions"))
+    if not (presence(r,"benefit","effect","effectSummary") or pointer_complete):
         gaps.append("effect")
+    if r.get("effectNeedsSummary"):
+        gaps.append("effectSummary")
     if (r.get("mechanicsPresence") or {}).get("prerequisiteLabeled") and not presence(r,"prerequisites"):
         gaps.append("prerequisites")
     if presence(r,"supplementConflicts"):

@@ -808,6 +808,17 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         result["featType"] = category
     if prereq:
         result["prerequisites"] = [{"kind":"text","label":"Prerequisite","text":prereq}]
+
+    # Preserve concise gameplay mechanics, but never promote long sourcebook prose
+    # into the candidate catalog. Long benefits must be replaced by a short,
+    # provenance-backed effectSummary before the final-output gate can pass.
+    concise_benefit = clean(benefit)
+    if concise_benefit and len(concise_benefit) <= 700:
+        result["effect"] = concise_benefit
+    elif concise_benefit:
+        result["effectNeedsSummary"] = True
+        result["effectSourceLength"] = len(concise_benefit)
+
     if (not benefit and description
         and re.search(r"\b(?:refer to|see (?:the )?discussion of)\b.*\bImproved Familiar\b",description,re.I)):
         options=parse_inline_familiar_options(description)
@@ -1232,6 +1243,7 @@ def self_test():
     p=DetailParser();p.feed(feat_html);p.close()
     f=parse_feat(p,{"name":"Monkey Grip"})
     assert f["featType"] == "General feat" and f["prerequisites"][0]["text"] == "BAB +1."
+    assert f["effect"] == "You can use a larger melee weapon with an attack penalty."
     assert f["mechanicsPresence"]["benefit"] and f["mechanicsPresence"]["prerequisiteLabeled"]
     assert enrichment_gaps("feats",f) == []
 
