@@ -460,6 +460,21 @@
           "role": "independent same-spell cross-check for unusual-portal mechanics"
         }
       ]
+    },
+    "spells/anathema-274": {
+      "name": "Anathema",
+      "effectSummary": "Permanently severs the divine link between the caster's deity and a lower-level cleric, druid, ranger, paladin, or ordinary worshiper of the same faith, even across planes. Affected divine characters lose divine spellcasting and class-granted divine powers such as turning or commanding undead, healing, harming, smiting, shapechanging, and similar abilities. An ordinary worshiper is barred from the faith's services, and a subject who dies under the effect is denied entry to the deity's plane. Members of the faith must shun the subject, while clerics, paladins, druids, and rangers of that faith automatically recognize the anathema by sight. The effect lasts until lifted by the original caster, removed by a higher-level cleric of the same faith using atonement, or ended when the subject changes divine allegiance.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anathema-274",
+          "role": "primary catalog record; source prose is silently truncated in the middle of the effect"
+        },
+        {
+          "url": "https://housegriffon.com/RPG/Games/DnD/dd3.x/ForgottenRealms/Champions%20of%20Ruin.pdf",
+          "role": "Champions of Ruin p.28 complete spell text used to restore omitted mechanics"
+        }
+      ]
     }
   }
 }
