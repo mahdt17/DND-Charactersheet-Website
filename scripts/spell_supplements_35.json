@@ -475,6 +475,21 @@
           "role": "Champions of Ruin p.28 complete spell text used to restore omitted mechanics"
         }
       ]
+    },
+    "spells/arboreal-transformation-867": {
+      "name": "Arboreal Transformation",
+      "effectSummary": "Transforms the subject into a Huge oak tree. For a number of days equal to caster level, the tree is animated as a treant that cannot animate other trees and serves the caster's commands; it can follow the caster or be left with a triggering phrase as with liveoak. When that duration expires, the subject becomes a normal permanent tree rooted where it stands if possible. A creature that succeeds on its Fortitude save is instead slowed for the spell's duration and returns to normal when that duration ends.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arboreal-transformation-867",
+          "role": "primary catalog record; effect prose is truncated/corrupted at the liveoak reference"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-mage--58/arboreal-transformation--867/",
+          "role": "complete same-spell 3.5 text used only to restore the omitted mechanics"
+        }
+      ]
     }
   }
 }
