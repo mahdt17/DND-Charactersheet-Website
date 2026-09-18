@@ -1,5 +1,5 @@
 {
-  "purpose": "3.5 spell enrichment regression corpus. Every record here previously exposed a strict source-completeness failure or omitted gameplay-critical access metadata and must remain covered.",
+  "purpose": "3.5 spell enrichment regression corpus. Records here cover prior source-completeness failures, omitted gameplay-critical access metadata, known primary-source corruption, and table-driven review integrity; all must remain covered.",
   "recordIds": [
     "spells/divine-inspiration-37",
     "spells/luminous-armor-7",
@@ -31,6 +31,10 @@
     "spells/anathema-274",
     "spells/arboreal-transformation-867",
     "spells/greater-aspect-of-the-deity-975",
-    "spells/blessing-of-the-snake-mother-1380"
+    "spells/blessing-of-the-snake-mother-1380",
+    "spells/bolt-of-glory-61",
+    "spells/bolt-of-glory-694",
+    "spells/bolt-of-glory-956",
+    "spells/bolt-of-glory-989"
   ]
 }
