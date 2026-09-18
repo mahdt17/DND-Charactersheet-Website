@@ -1048,6 +1048,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
 
     effect_source=spell_description_text(parser)
     if effect_source:
+        if re.search(r"table below|following table|table above",effect_source,re.I) and not parser.tables:
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="missing-referenced-table"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
