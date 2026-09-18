@@ -1054,6 +1054,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         if entry.get("id")=="spells/citys-might-3051" and re.search(r"based on the size of the community",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="omitted-citys-might-scaling"
+        if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
