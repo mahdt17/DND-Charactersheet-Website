@@ -338,7 +338,7 @@ def parse_progression_table(parser: DetailParser):
 def explicit_variant_parent(lines: list[str], entry_name: str) -> str:
     joined=" ".join(lines)
     patterns=[
-        r"same hit dice, skills, starting gold, and advancement as (?:a |the )?standard ([A-Za-z ]+?)(?:\s*\(|\s+except|\s+as|\.)",
+        r"same hit dice,.*?advancement as (?:a |the )?standard ([A-Za-z ]+?)(?:\s*\(|\s+except|\s+as|\.)",
         r"retained from base class,?\s*(?:the\s+)?([A-Za-z]+)",
         r"has all the standard ([A-Za-z ]+?) class features",
         r"standard ([A-Za-z]+) class feature",
@@ -404,7 +404,7 @@ def apply_class_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    merge_keys=("inheritsFrom","hit_die","skillPoints","classSkills","prerequisites","progression","featureNames")
+    merge_keys=("inheritsFrom","sourceEdition","notes","hit_die","skillPoints","classSkills","prerequisites","progression","featureNames")
     for key in merge_keys:
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
