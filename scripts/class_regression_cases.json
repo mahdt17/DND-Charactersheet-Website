@@ -1,0 +1,29 @@
+{
+  "purpose": "3.5 class enrichment regression corpus. Every class here previously failed a strict sample and must remain covered.",
+  "classes": [
+    "Druid",
+    "Enchanter Variant",
+    "Fighter Variant",
+    "Great Sea Corsair",
+    "Metamagic Specialist",
+    "Warsling Sniper",
+    "Fiend of Blasphemy",
+    "Lightbringer Bard",
+    "Alchemist Savant",
+    "Cloistered Cleric",
+    "Exalted Arcanist",
+    "Peregrine Runner",
+    "Ranger Variant",
+    "Rogue Variant",
+    "Urban Ranger",
+    "Wizard Variant",
+    "Agent Retriever",
+    "Berserk",
+    "Domain Wizard",
+    "Epic Cleric",
+    "Fangshields Ranger",
+    "Hin Fist",
+    "Legendary Dreadnought",
+    "Lightbringer Rogue"
+  ]
+}
