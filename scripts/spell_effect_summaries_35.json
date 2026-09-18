@@ -2014,6 +2014,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/arrow-of-bone-519": {
+      "name": "Arrow of Bone",
+      "sourceSha256": "639d4c4a6ab48ec59bc02deb72c5a89acbdb8d306d3eef73b1b540bf4f7985ae",
+      "effectSummary": "Transforms one missile or thrown weapon into a bone weapon that gains +4 enhancement on attack and damage for its next ranged attack. A living creature hit must make a Fortitude save or die instantly; on a successful save it instead takes 3d6 damage +1 per caster level, maximum +15. The magic is discharged and the projectile destroyed after the attack whether it hits or misses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arrow-of-bone-519",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arrow-storm-3847": {
+      "name": "Arrow Storm",
+      "sourceSha256": "ab3ef614dbd3ee64256bb806a0d1b6962747afab49d9eb2cdca3ac3095e36320",
+      "effectSummary": "Can be cast only at the start of the caster's turn before any other actions. The caster can then spend a full-round action to make one ranged attack with a proficient bow against every foe within one range increment, up to a maximum number of targets equal to character level. If the caster does not use that full-round action after casting, the spell has no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arrow-storm-3847",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arrow-storm-412": {
+      "name": "Arrow Storm",
+      "sourceSha256": "ebb30b9f84087ef86900a5f08b0740f8097878e91c405c5244fead67ce0e1872",
+      "effectSummary": "Can be cast only at the start of the caster's turn before any other actions. The caster can then spend a full-round action to make one ranged attack with a proficient bow against every foe within one range increment, up to a maximum number of targets equal to character level. If the caster does not use that full-round action after casting, the spell has no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arrow-storm-412",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arrowsplit-266": {
+      "name": "Arrowsplit",
+      "sourceSha256": "433365c8a29676f8e3bc7c0a1bb2ba590a957d42eab561c821d17383cb31334f",
+      "effectSummary": "Causes one masterwork arrow or bolt fired during the casting round to split in flight into 1d4+1 identical masterwork projectiles. All copies attack the same target and require separate attack rolls. If the projectile is not fired that round the magic is lost, and the original projectile is destroyed even if every attack misses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arrowsplit-266",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/as-the-frost-2999": {
+      "name": "As the Frost",
+      "sourceSha256": "5713f16786bc5ed2dd5c987a8248c7e631b05a57ad77d7dd9b65cd9444fcc7a2",
+      "effectSummary": "Transforms the caster into an icy outsider while still allowing normal resurrection if slain. The caster gains immunity to cold and damage reduction 10/magic and piercing. At the start of each of the caster's turns, creatures within 15 feet take 2d6 cold damage; any creature damaged this way must make a Fortitude save against DC 17 + the caster's key ability modifier or be slowed for the spell's remaining duration. Spell resistance applies to this aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/as-the-frost-2999",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ashen-union-3161": {
+      "name": "Ashen Union",
+      "sourceSha256": "243ebafa10b8e1c2ea29ad82c90e5bc41d162bb6e89e6648224fa47f68983933",
+      "effectSummary": "Deals 1d6 dessication damage per two caster levels, maximum 10d6, to one living creature; a Fortitude save halves the damage. If the creature takes spell damage greater than half its current hit points, it must make another Fortitude save or die and collapse into a fragile ash-like husk. A survivor that takes damage becomes dehydrated. Equipment is unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ashen-union-3161",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ashstar-3129": {
+      "name": "Ashstar",
+      "sourceSha256": "a059dac8861e97712e91a1972c438ffe18ae470284030849ca5e09c8947d7bfc",
+      "effectSummary": "Creates a movable magical ashstar that provides shadowy illumination in a 20-foot radius and can be repositioned anywhere within range with a move action. When a designated creature within 10 feet of the ashstar takes damage from any source, it must make a Fortitude save; on failure that damage is treated as dessication damage and the creature becomes dehydrated. The ashstar can be attacked as an object and has hardness 10 and 20 hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ashstar-3129",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aspect-of-the-chromatic-dragon-1074": {
+      "name": "Aspect of the Chromatic Dragon",
+      "sourceSha256": "779cf48d55a1b843e351e2464d0701a274ca18de89e9958e5d9504db6c35cb71",
+      "effectSummary": "Transforms the caster into an aspect of Tiamat using the spell's referenced polymorph-subschool form and grants 100 temporary hit points that disappear when the spell ends. Only an evil-aligned character can cast the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aspect-of-the-chromatic-dragon-1074",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aspect-of-the-deity-96": {
+      "name": "Aspect of the Deity",
+      "sourceSha256": "db29a3886fc0847ddcad4a72bf99a168119ea04f416fa49c53fd997ad433ca1d",
+      "effectSummary": "Functions as lesser aspect of the deity and additionally grants celestial qualities: one daily smite evil using Charisma on the attack roll and character level on damage, 60-foot darkvision, resistance 20 to acid, cold, and electricity, damage reduction 10/magic, and spell resistance 25. The caster's creature type does not change to outsider.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aspect-of-the-deity-96",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aspect-of-the-deity-968": {
+      "name": "Aspect of the Deity",
+      "sourceSha256": "5d86d93bf4a688757b8a22e651612662560743e2fe7503d0d5f5531b76e1f36c",
+      "effectSummary": "Functions as lesser aspect of the deity and grants celestial qualities to a good cleric or fiendish qualities to an evil cleric. The caster gains one daily smite against the opposing alignment, adding Charisma to the attack roll and character level to damage, plus 60-foot darkvision and spell resistance 25. Good casters gain resistance 20 to acid, cold, and electricity; evil casters gain resistance 20 to cold and fire. Both gain damage reduction 10/+3, and creature type does not change to outsider.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aspect-of-the-deity-968",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/greater-aspect-of-the-deity-97": {
+      "name": "Aspect of the Deity, Greater",
+      "sourceSha256": "01b697d9a7b9692ca964bedd24575fa00b580e06bcc4ee8d8ca29cfa67ffc326",
+      "effectSummary": "Functions as lesser aspect of the deity but grants half-celestial qualities without spell-like abilities and changes the caster's type to outsider for the duration while still allowing resurrection if slain. The caster gains feathered wings with flight at twice normal speed and good maneuverability, +1 natural armor, low-light vision, immunity to acid, cold, disease, and electricity, +4 racial on saves against poison, and enhancement bonuses of +4 Strength, +2 Dexterity, +4 Constitution, +2 Intelligence, +4 Wisdom, and +4 Charisma.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/greater-aspect-of-the-deity-97",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/lesser-aspect-of-the-deity-976": {
+      "name": "Aspect of the Deity, Lesser",
+      "sourceSha256": "204ede488e01eebd4599c73eb4da285a996b0f0882a01331167d34175050c66c",
+      "effectSummary": "Makes the caster's form resemble the deity in a limited way and grants a 1d4+1 enhancement bonus to Charisma. A good caster also gains resistance 10 to acid, cold, and electricity; an evil caster gains resistance 10 to cold and fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lesser-aspect-of-the-deity-976",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aspect-earth-hunter-3848": {
+      "name": "Aspect of the Earth Hunter",
+      "sourceSha256": "8e4973be0057b8885224651787de259675a4bb13971b0bc75a64014f8472bc83",
+      "effectSummary": "Transforms the caster into a Huge bulette-like magical beast with Strength 27, Dexterity 15, Constitution 20, 40-foot land speed, 10-foot burrow speed, 60-foot darkvision, low-light vision, scent, 60-foot tremorsense, and +12 natural armor. The caster retains mental abilities, class/level, hit points, alignment, base attack, base saves, and class-derived extraordinary special attacks, but loses other extraordinary abilities plus spell-like and supernatural abilities. The form has two claw attacks dealing 2d8+8 and the bulette's leap attack, allowing four claws instead of two. The caster cannot speak or cast spells without Natural Spell, and equipment melds into the form and becomes nonfunctional.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aspect-earth-hunter-3848",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aspect-of-the-platinum-dragon-1075": {
+      "name": "Aspect of the Platinum Dragon",
+      "sourceSha256": "d23312571100e9485e43e7e290865c0e0f0988ac1aac1b76411789b909066709",
+      "effectSummary": "Transforms the caster into an aspect of Bahamut using the spell's referenced polymorph-subschool form and grants 110 temporary hit points that disappear when the spell ends. If Draconomicon is unavailable, the aspect's Tempest Breath feat is replaced by Great Cleave. Only a good-aligned character can cast the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aspect-of-the-platinum-dragon-1075",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aspect-of-the-werebeast-4804": {
+      "name": "Aspect of the Werebeast",
+      "sourceSha256": "bd8f02d5287b7284d41c114a94a266d6a2af5f62e5cde8d31c3e248b6ace3dfd",
+      "effectSummary": "Grants one chosen shifter hybrid aspect. Bear gives +4 enhancement to Strength and Constitution and, if the subject has claws, improved grab with them. Tiger gives +4 enhancement to Strength and Dexterity plus pounce. Wolf gives +4 enhancement to Dexterity and Constitution, +10-foot enhancement to land speed, and, if the subject has a bite, a free trip attempt on a successful bite without a touch attack or attack of opportunity and without retaliation on failure. Multiple castings do not stack. While the spell is prepared, the caster's shifting duration increases by 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aspect-of-the-werebeast-4804",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aspect-wolf-3849": {
+      "name": "Aspect of the Wolf",
+      "sourceSha256": "46bc28416976ecf5f33acee913b8d56f23f3c04b71c40d348a0c6e101a5fadc7",
+      "effectSummary": "Transforms the caster into a Medium animal with wolf-like physical statistics: Strength 13, Dexterity 15, Constitution 15, 50-foot land speed, low-light vision, scent, +2 natural armor, and a primary bite dealing 1d6+1. Mental abilities, class/level, hit points, alignment, base attack, base saves, and class-derived extraordinary special attacks are retained; other extraordinary abilities plus spell-like and supernatural abilities are lost. A successful bite grants the wolf's free trip attempt. The caster cannot speak or cast without Natural Spell, and equipment melds into the form and becomes nonfunctional.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aspect-wolf-3849",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/assassins-darkness-905": {
+      "name": "Assassin's Darkness",
+      "sourceSha256": "4c658b587e00fd0ee8bddb93f83c3996f5962ce7edd3ba90e7afc78529509f60",
+      "effectSummary": "Creates a globe of magical darkness that blinds creatures inside it, including creatures with ordinary darkvision, though creatures able to see through magical darkness are unaffected. From outside, even the caster cannot see into the globe and creatures inside have total concealment. Once the caster enters the area, the caster alone sees as though it were brightly lit and can interact normally with creatures that still cannot see the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/assassins-darkness-905",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/assassins-stance-3682": {
+      "name": "Assassin's Stance",
+      "sourceSha256": "02c714c30df4bfdc1d79d216417182d97de9bd62a6c4ead2d300bb630924d6ac",
+      "effectSummary": "While in this stance, the initiator gains sneak attack +2d6. If the initiator already has sneak attack, the stance increases existing sneak attack damage by 2d6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/assassins-stance-3682",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/assay-resistance-483": {
+      "name": "Assay Resistance",
+      "sourceSha256": "c99806cd9e751f381e63971f83e810af18404cef53dde4e13569127b7318b11d",
+      "effectSummary": "Grants a +10 bonus on caster-level checks to overcome the spell resistance of one specific creature. The caster must be able to see that creature when casting, and the bonus applies only against that creature for this casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/assay-resistance-483",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/assay-spell-resistance-3850": {
+      "name": "Assay Spell Resistance",
+      "sourceSha256": "51563d313122c9c8a47620a1bb63e59bf2a9fd60458336cb0ddd23acefafe778",
+      "effectSummary": "Grants a +10 bonus on caster-level checks to overcome the spell resistance of one specific creature. The caster must be able to see that creature when casting, and the bonus applies only against that creature for this casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/assay-spell-resistance-3850",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
