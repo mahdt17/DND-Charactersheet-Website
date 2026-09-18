@@ -58,6 +58,15 @@
         "sourceBook",
         "effectSummary"
       ]
+    },
+    {
+      "id": "items/varie-99999",
+      "mode": "nonGameplayReference",
+      "referenceKind": "generic-varied-entry",
+      "required": [
+        "nonGameplayReference",
+        "referenceKind"
+      ]
     }
   ]
 }
