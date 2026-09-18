@@ -605,6 +605,141 @@
           "role": "primary parsed class statistics, requirements and features"
         }
       ]
+    },
+    "classes/corrupt-avenger-530": {
+      "name": "Corrupt Avenger",
+      "skillPoints": "2 + Int",
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/general/corruptavenger.shtml",
+          "role": "skill-points cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/corrupt-avenger-530",
+          "role": "primary parsed class statistics, requirements, progression and features"
+        }
+      ]
+    },
+    "classes/dreadmaster-482": {
+      "name": "Dreadmaster",
+      "skillPoints": "2 + Int",
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/dreadmaster.shtml",
+          "role": "skill-points cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/dreadmaster-482",
+          "role": "primary parsed class statistics, requirements, progression and features"
+        }
+      ]
+    },
+    "classes/hida-defender-633": {
+      "name": "Hida Defender",
+      "sourceEdition": "3.0",
+      "classSkills": [
+        "Climb",
+        "Handle Animal",
+        "Iaijutsu Focus",
+        "Intimidate",
+        "Jump",
+        "Knowledge (Shadowlands)",
+        "Ride",
+        "Sense Motive",
+        "Swim"
+      ],
+      "provenance": [
+        {
+          "url": "https://anyflip.com/rrkxx/jskg/basic/201-250",
+          "role": "original Oriental Adventures class-skill list cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/hida-defender-633",
+          "role": "primary catalog identity, requirements, statistics, progression and features"
+        }
+      ],
+      "notes": "Original class source is Oriental Adventures (3.0-era material); the supplement preserves only the printed class-skill list."
+    },
+    "classes/outcast-champion-708": {
+      "name": "Outcast Champion",
+      "classSkills": [
+        "Climb",
+        "Craft",
+        "Diplomacy",
+        "Disguise",
+        "Hide",
+        "Intimidate",
+        "Jump",
+        "Knowledge (local)",
+        "Move Silently",
+        "Survival"
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/general/outcastchampion.shtml",
+          "role": "class-skill list cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/outcast-champion-708",
+          "role": "primary parsed class statistics, requirements, progression and features"
+        }
+      ]
+    },
+    "classes/shaper-form-989": {
+      "name": "Shaper of Form",
+      "classSkills": [
+        "Appraise",
+        "Concentration",
+        "Craft",
+        "Disable Device",
+        "Escape Artist",
+        "Heal",
+        "Knowledge (arcana)",
+        "Profession",
+        "Spellcraft"
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/general/shaperform.shtml",
+          "role": "class-skill list cross-check"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/classes/prestigeDc/shaperOfForm.html",
+          "role": "SRD class identity, requirements and hit-die cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/shaper-form-989",
+          "role": "primary parsed class statistics, requirements, progression and features"
+        }
+      ]
+    },
+    "classes/knight-of-the-iron-glacier-504": {
+      "name": "Knight of the Iron Glacier",
+      "hit_die": 10,
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/Knight_of_the_Iron_Glacier",
+          "role": "hit-die cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/knight-of-the-iron-glacier-504",
+          "role": "primary parsed requirements, skills, progression and features"
+        }
+      ]
+    },
+    "classes/netherese-arcanist-1033": {
+      "name": "Netherese Arcanist",
+      "hit_die": 4,
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/netherese.shtml",
+          "role": "hit-die and progression cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/netherese-arcanist-1033",
+          "role": "primary parsed requirements, skills, progression and features"
+        }
+      ]
     }
   }
 }
