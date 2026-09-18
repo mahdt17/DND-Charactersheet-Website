@@ -323,6 +323,11 @@ def parse_class_skill_rule(parser: DetailParser):
             body,re.I
         ):
             return {"mode":"inherit_from_other_classes"}
+        if re.search(
+            r"can spend (?:his|her|their) skill points to purchase any skills? that any of .+ previous classes .+ have made available as a class skill",
+            body,re.I
+        ):
+            return {"mode":"inherit_from_previous_classes_or_race"}
     return None
 
 
