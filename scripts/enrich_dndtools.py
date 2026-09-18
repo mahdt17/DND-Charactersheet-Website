@@ -594,6 +594,9 @@ def audit_report_allows_write(path: str | None) -> bool:
         and report.get("fullCatalog") is True
         and report.get("strictGameplayCompleteness") is True
         and report.get("passed") is True
+        and report.get("sourceExtractionVerified") is True
+        and report.get("outputCompletenessVerified") is True
+        and report.get("releaseReady") is True
         and report.get("criticalMissingCount") == 0
         and float(report.get("minimumRate", 0)) >= 1.0
         and {row.get("category") for row in report.get("categories",[])} == REQUIRED_AUDIT_CATEGORIES
