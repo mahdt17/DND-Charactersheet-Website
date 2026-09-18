@@ -191,6 +191,9 @@ def next_value(lines, label):
     for i,line in enumerate(lines):
         normalized=clean(line)
         folded=normalized.casefold()
+        inline=re.search(rf"(?:^|\s){re.escape(label)}\s*:\s*(.+)$",normalized,re.I)
+        if inline:
+            return clean(inline.group(1))
         if folded.rstrip(":")==target:
             remainder=normalized[len(label):].lstrip(" :\t")
             if remainder:
@@ -208,7 +211,7 @@ def next_value(lines, label):
 def source_line(lines):
     # Site navigation precedes page content, so source metadata may appear well after line 25.
     for line in lines:
-        m=re.match(r"^Sou?rce\s*:\s*(.+)$",clean(line),re.I)
+        m=re.match(r"^Sou(?:r)?ce\s*:\s*(.+)$",clean(line),re.I)
         if m:
             return clean(m.group(1))
     return ""
