@@ -441,6 +441,25 @@
           "role": "Bard 0 level cross-check"
         }
       ]
+    },
+    "spells/analyze-portal-4986": {
+      "name": "Analyze Portal",
+      "effectSummary": "Detects magical portals or gate effects after 1 round of studying an area and reveals their sizes and locations. Once a portal is found, each round of study can reveal, in order, its activation key, special activation circumstances, whether it is one-way or two-way, and then a 1-round glimpse of its destination; each property requires a caster-level check against DC 17 and can be retried on a later round. For unusual portals, a random portal reveals only that it is random and whether it can currently activate; a variable portal reveals only its current destination; a creature-only portal reveals where creatures go but not a separate equipment destination; and a malfunctioning portal reveals only that it malfunctions, not the malfunction type.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/analyze-portal-4986",
+          "role": "primary Expedition to Undermountain catalog record; effect text contains an explicit missing-content marker"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/spell-compendium--86/analyze-portal--3826/index.html",
+          "role": "complete 3.5 Analyze Portal printing used to restore the omitted unusual-portal mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/manual-of-the-planes--43/analyze-portal--1857/index.html",
+          "role": "independent same-spell cross-check for unusual-portal mechanics"
+        }
+      ]
     }
   }
 }
