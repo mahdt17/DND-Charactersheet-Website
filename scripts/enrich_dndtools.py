@@ -404,8 +404,12 @@ def parse_class_core(parser: DetailParser, entry: dict) -> dict:
     parent=explicit_variant_parent(lines,entry.get("name",""))
     if parent:
         result["inheritsFrom"]=parent
+    has_special_progression=any(
+        isinstance(row,dict) and any(str(key).casefold()=="special" for key in row)
+        for row in result.get("advancement",[])
+    )
     result["mechanicsPresence"]={
-        "classFeatures":bool(section(lines,parser.headings,"Class Features")),
+        "classFeatures":bool(section(lines,parser.headings,"Class Features")) or (has_special_progression and has_rule_prose(lines,entry.get("name",""))),
         "ruleProse":has_rule_prose(lines,entry.get("name",""))
     }
     return {k:v for k,v in result.items() if v not in (None,"",[],{})}
@@ -653,7 +657,7 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
     if category == "classes":
         if not details.get("sourceBook"):
             raise ValueError("Class parse missing source book")
-        useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills")
+        useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills","inheritsFrom")
         if not any(details.get(key) for key in useful):
             # Some catalog records are source pointers (for example variant base
             # classes) with no mechanics on that exact page. They are safe to retain
