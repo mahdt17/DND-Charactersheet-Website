@@ -95,6 +95,15 @@ Structured, provenance-backed supplements currently cover specific missing field
 
 Supplements store short factual mechanics only, not copied long-form sourcebook prose.
 
+## Enrichment source policy
+
+Catalog membership and normal enrichment are anchored to exactly two primary reference sites:
+
+- D&D 3.x / 3.5 content: `https://new.dndtools.org`
+- D&D 5e content: `https://dnd5e.wikidot.com`
+
+Do not expand the catalog from unrelated third-party sites. If a record already present in one of those two primary catalogs has missing, truncated, corrupted, contradictory, or otherwise insufficient gameplay data, outside sources may be used only to verify and repair that existing record. Such repairs must be provenance-tracked, fill missing/corrupt information without overriding valid primary-source facts, and be pinned in a permanent regression when the defect could recur.
+
 ## Additional category audit progress
 
 The reusable sharded category audit has now also produced complete **source + dry-run output** passes for the currently supported Wikidot 5e reference categories:
