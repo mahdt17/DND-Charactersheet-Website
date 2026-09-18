@@ -32,6 +32,12 @@ for case in cases:
             raise ValueError("Expected provenance-backed source-omission supplement was not applied")
         if mode=="sourceFallback" and not details.get("sourceFallbackVerified"):
             raise ValueError("Expected provenance-backed broken-route source fallback was not applied")
+        if mode=="nonGameplayReference":
+            if details.get("nonGameplayReference") is not True:
+                raise ValueError("Expected explicit non-gameplay reference classification")
+            expected_kind=case.get("referenceKind")
+            if expected_kind and details.get("referenceKind") != expected_kind:
+                raise ValueError(f"Expected referenceKind {expected_kind!r}, got {details.get('referenceKind')!r}")
         missing=[key for key in case.get("required",[]) if details.get(key) in (None,"",[],{})]
         if missing:
             raise ValueError("Required regression fields missing: "+", ".join(missing))
