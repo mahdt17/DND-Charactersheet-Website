@@ -1030,6 +1030,8 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
     descriptors_raw = next_value(lines, "Descriptors")
     if descriptors_raw:
         result["descriptors"] = [clean(x) for x in re.split(r"[,;]", descriptors_raw) if clean(x)]
+    if parser.tables:
+        result["tables"] = parser.tables
 
     effect_source=spell_description_text(parser)
     if effect_source:
