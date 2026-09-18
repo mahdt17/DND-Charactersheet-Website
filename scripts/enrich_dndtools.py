@@ -869,6 +869,41 @@ def split_class_levels(value: str) -> dict:
     return {clean(name): int(level) for name, level in pairs}
 
 
+_SPELL_SUPPLEMENT_CACHE=None
+
+def spell_supplements():
+    global _SPELL_SUPPLEMENT_CACHE
+    if _SPELL_SUPPLEMENT_CACHE is None:
+        path=ROOT/"scripts"/"spell_supplements_35.json"
+        payload=json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"entries":{}}
+        _SPELL_SUPPLEMENT_CACHE=payload.get("entries",{})
+    return _SPELL_SUPPLEMENT_CACHE
+
+
+def apply_spell_supplement(entry: dict, details: dict) -> dict:
+    supplement=spell_supplements().get(entry.get("id"))
+    if not supplement:
+        return details
+    if clean(supplement.get("name","")).casefold()!=clean(entry.get("name","")).casefold():
+        raise ValueError(f"Spell supplement identity mismatch for {entry.get('name')}")
+    result={**details}
+    conflicts=[]
+    for key in ("components","sourceEdition","effectSummary","notes"):
+        supplied=supplement.get(key)
+        if supplied in (None,"",[],{}):
+            continue
+        existing=result.get(key)
+        if existing in (None,"",[],{}):
+            result[key]=supplied
+        elif normalized_compare(existing)!=normalized_compare(supplied):
+            conflicts.append(key)
+    result["supplementProvenance"]=supplement.get("provenance",[])
+    result["supplementVerified"]=True
+    if conflicts:
+        result["supplementConflicts"]=conflicts
+    return result
+
+
 def parse_spell(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     result = {
@@ -907,7 +942,8 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
     if descriptors_raw:
         result["descriptors"] = [clean(x) for x in re.split(r"[,;]", descriptors_raw) if clean(x)]
     result["mechanicsPresence"] = {"ruleProse": has_rule_prose(lines, entry.get("name",""))}
-    return {k:v for k,v in result.items() if v not in (None,"",[],{})}
+    result={k:v for k,v in result.items() if v not in (None,"",[],{})}
+    return apply_spell_supplement(entry,result)
 
 
 def parse_item(parser: DetailParser, entry: dict) -> dict:
@@ -979,6 +1015,8 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
             # as partial references, but they must not be stamped as enriched.
             raise ValueError("Class page contains no structured mechanics to enrich")
     elif category == "spells":
+        if details.get("supplementConflicts"):
+            raise ValueError("Spell supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
         required = ["sourceBook", "school", "casting_time", "range", "duration"]
         missing = [key for key in required if not details.get(key)]
         if missing:

@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Structured factual supplements for D&D 3.5 spell pages whose primary DnD Tools record omits gameplay-critical fields. Fill missing fields only; conflicts fail validation.",
+  "entries": {
+    "spells/divine-inspiration-37": {
+      "name": "Divine Inspiration",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-inspiration-37",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "Book of Exalted Deeds spell block cross-check"
+        }
+      ]
+    },
+    "spells/luminous-armor-7": {
+      "name": "Luminous Armor",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-armor-7",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/book-of-exalted-deeds--52/luminous-armor--7/index.html",
+          "role": "components cross-check"
+        }
+      ]
+    },
+    "spells/luminous-armor-greater-8": {
+      "name": "Luminous Armor, Greater",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-armor-greater-8",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/book-of-exalted-deeds--52/luminous-armor-greater--8/index.html",
+          "role": "components cross-check"
+        }
+      ]
+    },
+    "spells/brilliant-emanation-62": {
+      "name": "Brilliant Emanation",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brilliant-emanation-62",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "Book of Exalted Deeds spell block cross-check"
+        }
+      ]
+    },
+    "spells/inquisition-49": {
+      "name": "Inquisition",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inquisition-49",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "Book of Exalted Deeds spell block cross-check"
+        }
+      ]
+    },
+    "spells/telepathy-tap-42": {
+      "name": "Telepathy Tap",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/telepathy-tap-42",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/book-of-exalted-deeds--52/telepathy-tap--42/",
+          "role": "components cross-check"
+        }
+      ]
+    },
+    "spells/restore-souls-treasure-112": {
+      "name": "Restore Soul's Treasure",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/restore-souls-treasure-112",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "Book of Exalted Deeds spell block cross-check"
+        }
+      ]
+    },
+    "spells/stalwart-pact-3043": {
+      "name": "Stalwart Pact",
+      "components": [
+        "V",
+        "S",
+        "DF",
+        "XP"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stalwart-pact-3043",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-divine--56/stalwart-pact--710/",
+          "role": "Complete Divine components cross-check"
+        }
+      ]
+    },
+    "spells/slaying-arrow-4953": {
+      "name": "Slaying Arrow",
+      "components": [
+        "S",
+        "M"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/slaying-arrow-4953",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://www.dndtools.one/slaying-arrow-4953",
+          "role": "Magic of Eberron material-component cross-check"
+        },
+        {
+          "url": "https://anyflip.com/ithax/epfu/basic/101-150",
+          "role": "Magic of Eberron p.102 components cross-check"
+        }
+      ]
+    }
+  }
+}

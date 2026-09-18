@@ -1,0 +1,14 @@
+{
+  "purpose": "3.5 spell enrichment regression corpus. Every record here previously failed a strict full-catalog source audit and must remain covered.",
+  "recordIds": [
+    "spells/divine-inspiration-37",
+    "spells/luminous-armor-7",
+    "spells/luminous-armor-greater-8",
+    "spells/brilliant-emanation-62",
+    "spells/inquisition-49",
+    "spells/telepathy-tap-42",
+    "spells/restore-souls-treasure-112",
+    "spells/stalwart-pact-3043",
+    "spells/slaying-arrow-4953"
+  ]
+}
