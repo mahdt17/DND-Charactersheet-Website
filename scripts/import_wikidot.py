@@ -41,6 +41,16 @@ CLASS_URLS = [
     "ranger","rogue","sorcerer","warlock","wizard"
 ]
 
+SOURCE_ABBR = {
+    "PHB":"Player's Handbook","DMG":"Dungeon Master's Guide","XGE":"Xanathar's Guide to Everything",
+    "TCE":"Tasha's Cauldron of Everything","SCAG":"Sword Coast Adventurer's Guide",
+    "VGM":"Volo's Guide to Monsters","MTF":"Mordenkainen's Tome of Foes",
+    "MPMM":"Mordenkainen Presents: Monsters of the Multiverse","FTD":"Fizban's Treasury of Dragons",
+    "BGG":"Bigby Presents: Glory of the Giants","EGW":"Explorer's Guide to Wildemount",
+    "ERLW":"Eberron: Rising from the Last War","VRGR":"Van Richten's Guide to Ravenloft",
+    "MOT":"Mythic Odysseys of Theros","AI":"Acquisitions Incorporated"
+}
+
 BLOCK = {"p","div","section","article","dt","dd","li","h1","h2","h3","h4","h5","h6","br"}
 SKIP = {"script","style","noscript","svg"}
 HEADINGS = {"h1","h2","h3","h4","h5","h6"}
@@ -286,7 +296,8 @@ def discover_items(page: Page):
             out[(url,name)]=source_record(name,url,"item",{
                 "itemType":data.get("Type",""),
                 "attunement":data.get("Attuned","") not in ("","-","No"),
-                "sourceBook":data.get("Source",""),
+                "sourceBook":SOURCE_ABBR.get(data.get("Source",""),data.get("Source","")),
+                "sourceAbbr":data.get("Source",""),
             })
     return list(out.values())
 
@@ -303,6 +314,9 @@ def parse_spell_detail(row,page):
     if source:
         result["sourceBook"]=source
     if level_school:
+        level_match=re.search(r"\b(cantrip|(\d)(?:st|nd|rd|th)-level)\b",level_school,re.I)
+        if level_match:
+            result["level"]=0 if level_match.group(1).casefold()=="cantrip" else int(level_match.group(2))
         school=re.sub(r"^.*?(?:cantrip|\d(?:st|nd|rd|th)-level)\s+","",level_school,flags=re.I)
         if school:
             result["school"]=clean(school)
@@ -319,7 +333,7 @@ def parse_spell_detail(row,page):
             result["classes"]=[clean(x) for x in m.group(1).split(",") if clean(x)]
             break
     result["concentration"]="concentration" in result.get("duration","").casefold()
-    result["ritual"]=any("^R" in line or "ritual" in line.casefold() for line in lines[:25])
+    result["ritual"]=any(re.search(r"\britual\b",line,re.I) for line in lines[:25])
     return result
 
 
@@ -392,6 +406,34 @@ def parse_item_detail(row,page):
     return result
 
 
+def validate_detail(row,page,result):
+    name=clean(row.get("name","")).casefold()
+    visible={clean(line).casefold() for line in page.lines[:80]}
+    if name and name not in visible:
+        raise ValueError(f"Page identity check failed for {row.get('name')}")
+    category=row["category"]
+    if category=="spell":
+        required=("level","school","casting_time","range","duration")
+        missing=[key for key in required if result.get(key) in (None,"")]
+        if missing:
+            raise ValueError("Spell parse missing required fields: "+", ".join(missing))
+    elif category=="class":
+        required=("hit_die","saving_throws","progression")
+        missing=[key for key in required if not result.get(key)]
+        if missing:
+            raise ValueError("Class parse missing required fields: "+", ".join(missing))
+        if not result.get("multiclassRequirement"):
+            raise ValueError("Class parse missing multiclass requirement")
+    elif category=="feat":
+        if not result.get("sourceBook"):
+            raise ValueError("Feat parse missing source book")
+    elif category=="item":
+        if not result.get("sourceBook"):
+            raise ValueError("Item parse missing source book")
+        if not any(result.get(key) not in (None,"",False,[]) for key in ("itemType","rarity","attunement","itemHeader")):
+            raise ValueError("Item parse produced no structured mechanics")
+
+
 DETAIL_PARSERS={"spell":parse_spell_detail,"feat":parse_feat_detail,"class":parse_class_detail,"item":parse_item_detail}
 
 
@@ -405,7 +447,14 @@ def enrich(rows,limit,delay):
         attempted+=1
         try:
             page=parse(row["url"],delay)
-            out.append(DETAIL_PARSERS[row["category"]](row,page))
+            result=DETAIL_PARSERS[row["category"]](row,page)
+            validate_detail(row,page,result)
+            result["enrichment"]={
+                "version":1,"validated":True,"structuredOnly":True,
+                "source":"D&D 5e Wikidot",
+                "fetchedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())
+            }
+            out.append(result)
             print(f"[{row['category']}] {attempted}: {row['name']}",flush=True)
         except Exception as error:
             print(f"[{row['category']}] FAILED {row['name']}: {error}",flush=True)
@@ -417,16 +466,22 @@ def classes(delay):
     rows=[]
     for name in CLASS_URLS:
         url=BASE+"/"+name
-        rows.append(parse_class_detail(source_record(name.title(),url,"class"),parse(url,delay)))
+        row=source_record(name.title(),url,"class")
+        page=parse(url,delay)
+        result=parse_class_detail(row,page)
+        validate_detail(row,page,result)
+        result["enrichment"]={"version":1,"validated":True,"structuredOnly":True,"source":"D&D 5e Wikidot","fetchedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())}
+        rows.append(result)
     return rows
 
 
-def save(category,rows):
-    OUTPUT.mkdir(parents=True,exist_ok=True)
-    path=OUTPUT/f"{category}.json"
+def save(category,rows,write):
     rows.sort(key=lambda r:(r["name"].casefold(),r["id"]))
-    path.write_text(json.dumps(rows,ensure_ascii=False)+"\n",encoding="utf-8")
-    return {"id":category,"count":len(rows)}
+    if write:
+        OUTPUT.mkdir(parents=True,exist_ok=True)
+        path=OUTPUT/f"{category}.json"
+        path.write_text(json.dumps(rows,ensure_ascii=False)+"\n",encoding="utf-8")
+    return {"id":category,"count":len(rows),"write":write}
 
 
 def self_test():
@@ -439,6 +494,8 @@ def self_test():
     s=parse_spell_detail(source_record("Fireball",BASE+"/spell:fireball","spell",{"level":3}),p)
     assert s["sourceBook"]=="Player's Handbook" and s["school"]=="evocation"
     assert s["casting_time"]=="1 action" and s["classes"]==["Sorcerer","Wizard"]
+    assert s["level"]==3
+    validate_detail(source_record("Fireball",BASE+"/spell:fireball","spell",{"level":3}),p,s)
 
     fighter="""
     <h1>Fighter</h1><p>You must have a Dexterity or Strength score of 13 or higher in order to multiclass in or out of this class.</p>
@@ -449,6 +506,7 @@ def self_test():
     c=parse_class_detail(source_record("Fighter",BASE+"/fighter","class"),p)
     assert c["hit_die"]==10 and c["saving_throws"]==["Strength","Constitution"]
     assert "13 or higher" in c["multiclassRequirement"] and c["advancement"][0]["Features"].startswith("Fighting Style")
+    validate_detail(source_record("Fighter",BASE+"/fighter","class"),p,c)
     print("PASS 5e Wikidot structured importer")
 
 
@@ -457,11 +515,12 @@ def main():
     ap.add_argument("--categories",nargs="+",choices=["spells","feats","items","classes"],default=["spells","classes","feats","items"])
     ap.add_argument("--limit",type=int)
     ap.add_argument("--delay",type=float,default=0.25)
+    ap.add_argument("--write",action="store_true",help="Persist catalog files. Default is dry-run.")
     ap.add_argument("--self-test",action="store_true")
     args=ap.parse_args()
     if args.self_test:
         self_test();return
-    manifest={"source":BASE,"kind":"structured-reference-index","complete":True,"categories":[],"generatedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())}
+    manifest={"source":BASE,"kind":"structured-reference-index","complete":args.limit is None,"categories":[],"generatedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime()),"write":args.write}
     for category in args.categories:
         if category=="classes":
             rows=classes(args.delay)
@@ -471,9 +530,10 @@ def main():
             index=parse(INDEX_URLS[category],args.delay)
             rows={"spells":discover_spells,"feats":discover_feats,"items":discover_items}[category](index)
             rows=enrich(rows,args.limit,args.delay)
-        manifest["categories"].append(save(category,rows))
-    OUTPUT.mkdir(parents=True,exist_ok=True)
-    (OUTPUT/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
+        manifest["categories"].append(save(category,rows,args.write))
+    if args.write:
+        OUTPUT.mkdir(parents=True,exist_ok=True)
+        (OUTPUT/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
     print(json.dumps(manifest,indent=2))
 
 
