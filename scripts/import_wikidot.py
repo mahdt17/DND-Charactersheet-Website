@@ -503,7 +503,8 @@ def parse_item_detail(row,page):
                 rarity_matches.append(value)
 
         low=descriptor.casefold()
-        if "rarity by" in low or len(rarity_matches)>1:
+        explicit_varies=bool(re.search(r"\b(?:rarity\s+)?varies\b",low))
+        if explicit_varies or "rarity by" in low or len(rarity_matches)>1:
             result["rarity"]="Varies"
             if rarity_matches:
                 result["rarityOptions"]=rarity_matches
@@ -519,6 +520,28 @@ def parse_item_detail(row,page):
 
         if "requires attunement" in low:
             result["attunement"]=True
+
+    # Wikidot also exposes canonical rarity tags near the page footer. Use them
+    # only as a fallback/consistency signal when the descriptor is ambiguous.
+    tag_map={
+        "very-rare":"Very Rare","uncommon":"Uncommon","rare":"Rare",
+        "legendary":"Legendary","artifact":"Artifact","common":"Common",
+    }
+    tag_rarities=[]
+    for line in page.lines[-45:]:
+        folded=clean(line).casefold()
+        for token in re.findall(r"\b(?:very-rare|uncommon|legendary|artifact|common|rare)\b",folded):
+            value=tag_map[token]
+            if value not in tag_rarities:
+                tag_rarities.append(value)
+    if not result.get("rarity"):
+        if len(tag_rarities)==1:
+            result["rarity"]=tag_rarities[0]
+        elif len(tag_rarities)>1:
+            result["rarity"]="Varies"
+            result["rarityOptions"]=tag_rarities
+    elif result.get("rarity")=="Varies" and tag_rarities:
+        result.setdefault("rarityOptions",tag_rarities)
 
     result.setdefault("attunement",False)
     result["mechanicsPresence"]={"ruleProse":has_rule_prose(page,row.get("name",""))}
@@ -707,6 +730,28 @@ def self_test():
     p=Page();p.feed(item_html);p.close()
     item=parse_item_detail(source_record("Armor Of Fungal Spores",BASE+"/wondrous-items:armor-of-fungal-spores","item"),p)
     assert item["itemType"]=="Armor (medium)" and item["rarity"]=="Uncommon"
+
+    family_html="""
+    <title>Instrument of the Bards - DND 5th Edition</title>
+    <p>Instrument of the Bards</p><p>Source: Dungeon Master's Guide</p>
+    <p>Wondrous item, rarity varies (requires attunement by a bard)</p>
+    <p>This family has several variants with different rarities.</p>
+    <p>legendary rare uncommon very-rare wondrous-item</p>
+    """
+    p=Page();p.feed(family_html);p.close()
+    item=parse_item_detail(source_record("Instrument of the Bards",BASE+"/wondrous-items:instrument-of-the-bards","item"),p)
+    assert item["itemType"]=="Wondrous item" and item["rarity"]=="Varies"
+    assert set(item["rarityOptions"])=={"Legendary","Rare","Uncommon","Very Rare"}
+
+    tag_fallback_html="""
+    <title>Deck Of Wild Cards - DND 5th Edition</title>
+    <p>Deck Of Wild Cards</p><p>Source: The Book of Many Things</p>
+    <p>Wondrous Item, mysterious</p><p>Game mechanics text.</p>
+    <p>bomt very-rare wondrous-item</p>
+    """
+    p=Page();p.feed(tag_fallback_html);p.close()
+    item=parse_item_detail(source_record("Deck Of Wild Cards",BASE+"/wondrous-items:deck-of-wild-cards","item"),p)
+    assert item["rarity"]=="Very Rare"
 
     fighter="""
     <h1>Fighter</h1><p>You must have a Dexterity or Strength score of 13 or higher in order to multiclass in or out of this class.</p>
