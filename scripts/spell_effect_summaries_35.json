@@ -1794,6 +1794,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/arcane-maul-4793": {
+      "name": "Arcane Maul",
+      "sourceSha256": "d64f09e09dc596b88914ff61a88b632eb9fa7f387a67ef5a1870d9e359a3f0ed",
+      "effectSummary": "Creates a force warhammer that must be chosen at casting either as a melee weapon or as a one-time hurled area attack. In melee it functions as a +4 warhammer for 1 round per caster level and can be used without proficiency; if formed around a weapon already held, that weapon's normal and magical properties are suppressed for the duration. If hurled, it forms a 50-foot line ending in a 20-foot-radius burst, dealing 1d6 force damage per two caster levels, maximum 10d6, and stunning creatures for 1 round; a successful Fortitude save halves damage and negates the stun. The hurled version also damages objects and automatically shatters nonmagical crystal, glass, ceramic, and porcelain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-maul-4793",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-seal-4790": {
+      "name": "Arcane Seal",
+      "sourceSha256": "8ed63ede6df25258e7115f5d007b81543ae911225abe8c94db6cd691b133a327",
+      "effectSummary": "Magically seals a door, chest, or portal and binds it to a platinum key. The key bearer can pass freely; others must break in, dispel the seal, or use knock, and the normal break DC increases by 10. Whenever the seal is opened by any method, the key bearer receives a preset one-word mental alert, even if dispel magic destroys the seal. Knock suppresses it for 10 minutes. A rogue or artificer can detect it with DC 28 Search and can temporarily disable the alarm with an arcane key.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-seal-4790",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-sight-2476": {
+      "name": "Arcane Sight",
+      "sourceSha256": "85ae7f9a67e21e4e566dbed558b5296f79c353d3ed6ce631ea61c489aaf817ac",
+      "effectSummary": "Continuously reveals the location and strength of magical auras within 120 feet without requiring concentration. If the aura's bearer is in line of sight, a Spellcraft check can identify its school. As a standard action, the caster can concentrate on one creature within 120 feet to determine whether it currently has spellcasting or spell-like abilities, whether they are arcane or divine, and the strength of its strongest available spell or spell-like ability. The spell can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-sight-2476",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-sight-3389": {
+      "name": "Arcane Sight",
+      "sourceSha256": "4f471bafac35fdae7476bb68724491e1a864113d61f6ef7a0ae9207f7e0d191e",
+      "effectSummary": "Reveals the number, strength, and location of magical auras within 120 feet. By spending a full-round action scrutinizing one creature in range, the caster can determine whether it currently has spellcasting or spell-like abilities, whether they are arcane or divine, and the strength of its strongest available ability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-sight-3389",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-sight-greater-2477": {
+      "name": "Arcane Sight, Greater",
+      "sourceSha256": "660c4c13609b96d14b53dcd32b1add34379d5a1f6eb524dbc485adcd5f456e9f",
+      "effectSummary": "Functions like arcane sight but automatically identifies which spells and magical effects are active on any creature or object the caster sees. It does not identify magic items and cannot be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-sight-greater-2477",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-spellsurge-1093": {
+      "name": "Arcane Spellsurge",
+      "sourceSha256": "54a965ffedd87241ee99180416bb1f959ce9fe76e46f9cfc16afdc508c6f8e07",
+      "effectSummary": "Reduces the casting times of the caster's arcane spells according to the spell's casting-time table, with no effect on spells taking more than 1 minute or unlisted casting times. The reduction is mandatory and does not stack with other casting-time reductions. Because standard-action spells become swift actions, the one-swift-action-per-round limit can prevent casting multiple such spells, while spontaneous casters can still combine a metamagic spell cast as a standard action with a normal swift-action spell. Dragonblood casters can cast arcane spellsurge itself as a swift action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-spellsurge-1093",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arcane-turmoil-761": {
+      "name": "Arcane Turmoil",
+      "sourceSha256": "9a0222a77c9116b3565acaf92f585a9c53099157236acb675c685908d6fcc570",
+      "effectSummary": "Affects the target as the targeted version of dispel magic. In addition, if the target is a spellcaster and fails a Will save, it loses one randomly determined prepared spell or spell slot from the highest spell level it still has available, as though that spell had been cast or that slot used for the day.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arcane-turmoil-761",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arctic-haze-1235": {
+      "name": "Arctic Haze",
+      "sourceSha256": "eb5ac2a602adfe0f2452cf8ff1110d61c00fa84bd3fce2c86a7801f2f6c3beba",
+      "effectSummary": "Creates an icy fog that blocks sight beyond 5 feet: adjacent creatures have concealment and more distant creatures have total concealment. Moving through the area deals 4 damage per round, half of it cold. A strong wind disperses the fog in 4 rounds and still deals 4 damage per round, half cold, to creatures in it; a severe wind disperses it in 1 round and deals 8 damage, half cold.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arctic-haze-1235",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/armageddon-20": {
+      "name": "Armageddon",
+      "sourceSha256": "f4810c740774a250c398943f4a9b33dc4a306953655af95c9fdc97242a9cf8d3",
+      "effectSummary": "Summons escalating celestial reinforcements: 2d4 avorals arrive first, a ghaele eladrin arrives 2 rounds later, and an astral deva 2 rounds after that. They serve for the spell's duration, obey the good-aligned caster explicitly, require no concentration to control, can be dismissed individually or in groups, and never attack the caster even if another creature gains control of them. The spell works only for a good caster when evil foes are present. The sacrifice cost is 1 character level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/armageddon-20",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/armor-enhancement-greater-4918": {
+      "name": "Armor Enhancement, Greater",
+      "sourceSha256": "b9d34a96e08da82ba857c9d968483ab3ca6f0db80d6200c02342dcf08fdd2539",
+      "effectSummary": "Functions like lesser armor enhancement but can grant an armor or shield special ability worth up to a +5-equivalent bonus or up to 100,000 gp market price for the duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/armor-enhancement-greater-4918",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/armor-enhancement-lesser-4916": {
+      "name": "Armor Enhancement, Lesser",
+      "sourceSha256": "f386257652ffc00b1257c23783025feed59c2597801238251a4e79002c789da5",
+      "effectSummary": "Temporarily grants one touched suit of armor or shield a magic special ability worth up to a +1-equivalent bonus or 5,000 gp. The item does not need an existing enhancement bonus and does not gain a numeric enhancement bonus from this infusion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/armor-enhancement-lesser-4916",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/armor-lock-910": {
+      "name": "Armor Lock",
+      "sourceSha256": "a009d6d87ac7e9762aee137ee9ba010dae6e7bd7210d025de4fc2c406b05ce7f",
+      "effectSummary": "Stiffens worn armor so the wearer's land speed, and any burrow, climb, or swim speed, becomes 10 feet. The target loses any Dexterity bonus to AC and cannot remove the armor for the duration. The spell has no effect on unarmored creatures, creatures relying only on natural armor or nonarmor AC bonuses, or creatures using only shields.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/armor-lock-910",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/armor-of-darkness-1189": {
+      "name": "Armor of Darkness",
+      "sourceSha256": "f731318f8f360eacf4701a08d7a9679471ce21b98540450ad12842d0556f1e43",
+      "effectSummary": "Wraps the subject in concealing shadows and grants a +3 deflection bonus to AC, plus +1 per four caster levels to a maximum of +8. It also grants 60-foot darkvision and +2 on saves against holy, good, or light spells and effects. An undead subject additionally gains +4 turn resistance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/armor-of-darkness-1189",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/armor-of-darkness-3844": {
+      "name": "Armor of Darkness",
+      "sourceSha256": "c80f533313849724c557dd6b11f724e69bb02a6c0f9f2dcaec58aef4a328c57a",
+      "effectSummary": "Wraps the subject in shadows and grants a +4 deflection bonus to AC, increasing by +1 for every three caster levels above 7th to a maximum of +8 at 19th level. It also grants 60-foot darkvision and +2 on saves against holy, good, or light spells and effects. An undead subject additionally gains +4 turn resistance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/armor-of-darkness-3844",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/armor-of-darkness-980": {
+      "name": "Armor of Darkness",
+      "sourceSha256": "43980ee76713d384f03f5a588515e4e9d3accf65a13bf14a90dd2a57f264b5a1",
+      "effectSummary": "Wraps the subject in concealing shadows and grants a +3 deflection bonus to AC, plus +1 per four caster levels to a maximum of +8. It also grants 60-foot darkvision and +2 on saves against holy, good, or light spells and effects. An undead subject additionally gains +4 turn resistance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/armor-of-darkness-980",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/armored-vermin-1124": {
+      "name": "Armored Vermin",
+      "sourceSha256": "60817391427ff1e519bb15167386d3e8825c88b709e9fa4e0b065d18b6df397e",
+      "effectSummary": "Hardens the exoskeletons of up to three vermin, granting a +2 enhancement bonus to natural armor. The bonus increases by +1 for every three caster levels above 7th, to a maximum of +6 at 19th level. It stacks with the target's normal natural armor but not with other enhancement bonuses to natural armor.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/armored-vermin-1124",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arms-of-plenty-1542": {
+      "name": "Arms of Plenty",
+      "sourceSha256": "02890d48d3f0b699779c74039615d79392e1b5c093662be2984aa9a126f2af24",
+      "effectSummary": "Grows two clawed arms that grant two primary claw attacks. Each claw deals 1d6 slashing damage, or 1d4 for a Small creature, plus Strength and counts as magic for overcoming damage reduction; the claws cannot wield weapons or manipulate objects. The subject can make the claw attacks in addition to weapon attacks without penalty. If both claws hit the same target, they rend for 2d6 plus 1-1/2 times Strength. Multiple castings do not stack and only reset the duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arms-of-plenty-1542",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arrow-mind-367": {
+      "name": "Arrow Mind",
+      "sourceSha256": "3219b491d935055f5f456dfed4f9ec37a69b3c51937ba22ab901687052b6edae",
+      "effectSummary": "While wielding a qualifying bow, the caster threatens all squares within normal melee reach with the bow and can make attacks of opportunity by shooting arrows. The caster also does not provoke attacks of opportunity for firing a bow while inside another creature's threatened area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arrow-mind-367",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arrow-mind-3845": {
+      "name": "Arrow Mind",
+      "sourceSha256": "36d7c90f501ca399ac13104effe032eedefd230153947c2297fd3b8b1dbc5de3",
+      "effectSummary": "While wielding an arrow-firing projectile weapon such as a longbow or shortbow, the caster threatens all squares within normal melee reach with it and can make attacks of opportunity by firing. The caster also does not provoke attacks of opportunity for shooting while inside another creature's threatened area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arrow-mind-3845",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/arrow-of-bone-3846": {
+      "name": "Arrow of Bone",
+      "sourceSha256": "fa5442107c70f9de692e8daa756f57844c3a1910cc18c9b2648514bd984f5d83",
+      "effectSummary": "Transforms one missile or thrown weapon into a bone weapon that gains +4 enhancement on attack and damage when used in its next ranged attack. A living creature hit must make a Fortitude save or die instantly; on a successful save it instead takes 3d6 damage +1 per caster level, maximum +20. The magic is discharged and the projectile destroyed after the attack whether it hits or misses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arrow-of-bone-3846",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
