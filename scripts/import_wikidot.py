@@ -191,7 +191,10 @@ def next_value(lines, label):
     for i,line in enumerate(lines):
         normalized=clean(line)
         folded=normalized.casefold()
-        if folded==target:
+        if folded.rstrip(":")==target:
+            remainder=normalized[len(label):].lstrip(" :\t")
+            if remainder:
+                return clean(remainder)
             for candidate in lines[i+1:]:
                 if clean(candidate):
                     return clean(candidate)
@@ -205,7 +208,7 @@ def next_value(lines, label):
 def source_line(lines):
     # Site navigation precedes page content, so source metadata may appear well after line 25.
     for line in lines:
-        m=re.match(r"^Source\s*:\s*(.+)$",clean(line),re.I)
+        m=re.match(r"^Sou?rce\s*:\s*(.+)$",clean(line),re.I)
         if m:
             return clean(m.group(1))
     return ""
@@ -373,7 +376,7 @@ def parse_spell_detail(row,page):
     if comps:
         result["components"]=[clean(x) for x in re.split(r",\s*(?=[VSM](?:\s|\(|$))",comps) if clean(x)]
     for line in lines:
-        m=re.match(r"^Spell Lists?\.\s*(.+)$",line,re.I)
+        m=re.match(r"^Spell Lists?\s*[:.]\s*(.+)$",line,re.I)
         if m:
             result["classes"]=[clean(x) for x in m.group(1).split(",") if clean(x)]
             break
@@ -460,7 +463,7 @@ def parse_item_detail(row,page):
     if source:
         result["sourceBook"]=source
     # Individual item pages commonly lead with "Wondrous item, rare (requires attunement)".
-    for line in page.lines[:20]:
+    for line in page.lines:
         low=line.casefold()
         if any(t in low for t in ("wondrous item","weapon","armor","potion","ring","rod","staff","wand")) and len(line)<180:
             result["itemHeader"]=line
@@ -477,7 +480,8 @@ def parse_item_detail(row,page):
 
 def identity_key(value):
     value=clean(value)
-    value=re.sub(r"\((?:revised\s+)?ua\)","",value,flags=re.I)
+    value=re.sub(r"\(revised\s+ua\)","(revised)",value,flags=re.I)
+    value=re.sub(r"\(ua\)","",value,flags=re.I)
     value=re.sub(r"\s+-\s+DND\s+5th\s+Edition.*$","",value,flags=re.I)
     value=value.replace("’","'").casefold()
     return re.sub(r"[^a-z0-9]+","",value)
