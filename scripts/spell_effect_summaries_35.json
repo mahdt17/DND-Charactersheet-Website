@@ -5886,6 +5886,227 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
         }
       ]
+    },
+    "spells/burning-blood-522": {
+      "name": "Burning Blood",
+      "sourceSha256": "dfba6578281ead2fdd52f09b0a3df2c64bd62e59325914b592be3335760be115",
+      "effectSummary": "Taints one living creature's blood. Each round the subject makes a Fortitude save; failure deals 1d8 acid damage plus 1d8 fire damage and limits it to a single move action that round, while success negates that round's damage but does not end the spell. Constructs, elementals, oozes, plants, and undead are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burning-blood-522",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/burning-brand-3569": {
+      "name": "Burning Brand",
+      "sourceSha256": "1a1b519c0d89d401e3c0601f856c9216eeeaaf10ef357d0cb969ba6108182144",
+      "effectSummary": "Transforms the initiator's weapon into flame for the rest of the turn. The weapon's reach increases by 5 feet, and its melee attacks deal fire damage equal to the normal melee damage they would have dealt, including Strength, feat, and other damage modifiers. The weapon otherwise attacks normally. This maneuver is supernatural.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burning-brand-3569",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/burning-hands-2590": {
+      "name": "Burning Hands",
+      "sourceSha256": "ab86553f70670f9b8b1e85a9a53f59773ef95e15c2cb6c5456f36855b492e7ab",
+      "effectSummary": "Deals 1d4 fire damage per caster level, maximum 5d4, in a cone. Flammable materials such as cloth, paper, parchment, and thin wood ignite if touched by the flames; a creature can extinguish burning items as a full-round action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burning-hands-2590",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/burning-rage-3001": {
+      "name": "Burning Rage",
+      "sourceSha256": "addbd28cb538c2ed52812582a82eeabe99ce3c6f19948a2b9e33d9a37459dc25",
+      "effectSummary": "Imbues the subject with painful magical power. It gains +1 on attack rolls, +2 on damage rolls, and damage reduction 2/magic. At the start of each of its turns while the spell lasts, the subject takes 4 fire damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burning-rage-3001",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/burning-sword-4001": {
+      "name": "Burning Sword",
+      "sourceSha256": "a5ec7a3f1b177cce699f5aeceb60a4226beed8d8fccd5a9a5435362974b87def",
+      "effectSummary": "Wreathes one weapon in harmless blue flame that sheds light to 30 feet. The weapon deals +1d6 fire damage on every successful hit. On a critical hit it deals additional fire damage based on its critical multiplier: +1d10 for x2, +2d10 for x3, or +3d10 for x4.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burning-sword-4001",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ],
+      "tablesSha256": "42281f0d883e0956c8f76b998e0367f403dfba28aef1dd8fb53d7678cbe8e2f8"
+    },
+    "spells/burrow-3066": {
+      "name": "Burrow",
+      "sourceSha256": "41dead3df7c854c6eaba1a10950a7ca79b803b200f4bd6a18b12a20a23632b17",
+      "effectSummary": "Grows stone-hard claws that grant a 10-foot burrow speed through earth, sand, clay, and gravel but not solid rock. The claws can also be used as weapons dealing 1d6 damage; if the caster's normal unarmed damage is already greater, it is not reduced. The caster counts as armed while the spell lasts.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burrow-3066",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/burrow-3504": {
+      "name": "Burrow",
+      "sourceSha256": "c8477c1a9447a362d970b15aad43142f070ac65e6eade6353586230449ec8721",
+      "effectSummary": "Grows stone-hard claws on the subject, granting a 10-foot burrow speed through earth, sand, clay, and gravel but not solid rock. The claws can be used as weapons dealing 1d6 damage; if the subject's normal unarmed damage is already greater, it is not reduced. The subject counts as armed while the spell lasts.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burrow-3504",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/burrow-4002": {
+      "name": "Burrow",
+      "sourceSha256": "d2724a2bbf1849dc0f0baae12a1aeb026e2a7e55cc13ee5fc1beaadaaa03071b",
+      "effectSummary": "Grants the subject a 30-foot burrow speed through earth and loose rock but not solid stone. The burrow speed is reduced to 20 feet while wearing medium or heavy armor or carrying a medium or heavy load.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burrow-4002",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/burst-of-glacial-wrath-1069": {
+      "name": "Burst of Glacial Wrath",
+      "sourceSha256": "de7e15a4c334c9e8a794f4768d5a6786cfdec2802b30c407c6d850633fe35a7c",
+      "effectSummary": "Deals 1d6 cold damage per caster level, maximum 25d6, with Fortitude half. A living creature reduced to -1 or fewer hit points is not killed but becomes solid ice, and the spell cannot reduce it below -9 hit points. A frozen creature has hardness 10, immunity to cold and electricity, and vulnerability to fire. If fire damage reduces it to -10 or fewer hit points, it melts and dies and can thereafter be restored only by miracle, true resurrection, or wish. Learning this spell also grants cold resistance 5 that stacks with other cold resistance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burst-of-glacial-wrath-1069",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/buzzing-bee-4004": {
+      "name": "Buzzing Bee",
+      "sourceSha256": "9fc5f4e7dd778bdef250a0c7aec94eebb71febf8513378713bc61d7d0b34f306",
+      "effectSummary": "Creates an untargetable buzzing bee that follows the subject despite darkness, invisibility, polymorph, cover, concealment, or attempts to hide. A creature that can hear is distracted, takes -10 on Move Silently checks, and must make Concentration checks to cast or maintain concentration against DC equal to this spell's save DC + the spell level. The bee flies at 180 feet with perfect maneuverability, can be dispelled, and disappears if the subject moves out of range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/buzzing-bee-4004",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/cacophonic-burst-4005": {
+      "name": "Cacophonic Burst",
+      "sourceSha256": "064124fc61e4752991a90b0b76c3fd9aff694ef711ebb8d2e7a141ef3cee804b",
+      "effectSummary": "Creates a burst of discordant sound dealing 1d6 sonic damage per caster level, maximum 15d6, to creatures in the area. The effect cannot penetrate a silence spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cacophonic-burst-4005",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/cacophonic-shield-1661": {
+      "name": "Cacophonic Shield",
+      "sourceSha256": "796badab9f31903af063a21533333364d41113705d018e13dafd191774d5cba0",
+      "effectSummary": "Creates an immobile sonic barrier 10 feet from the caster. Nonmagical sound cannot cross it. When a sonic effect strikes the barrier, the caster can make a caster-level check against that effect's DC to keep it from affecting creatures inside. A creature crossing the barrier takes 1d6 sonic damage +1 per caster level, maximum +20, and must save or be deafened for 1 minute. Ranged missiles crossing the barrier have a 20% miss chance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cacophonic-shield-1661",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/cacophonic-shield-397": {
+      "name": "Cacophonic Shield",
+      "sourceSha256": "d1bc684b69a8a67754538f68cff84e392bb61f0b9236d95244eb9cda197a0a9e",
+      "effectSummary": "Creates a mobile sonic barrier 10 feet from the caster. Nonmagical sound cannot cross it, and magical or supernatural sonic effects cross only if their originator succeeds on a caster-level check against DC 11 + the caster's level. A creature crossing takes 1d6 sonic damage +1 per caster level, maximum +20, and must save or be deafened for 1 minute. Missiles crossing have a 20% miss chance. The barrier moves with the caster, but deliberately forcing it across another creature gives that creature no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cacophonic-shield-397",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/cacophonic-shield-4006": {
+      "name": "Cacophonic Shield",
+      "sourceSha256": "0fe74738e89686f54a49ec5e8495629b8bd890d31086a850e47b63f39c5408b5",
+      "effectSummary": "Creates a mobile sonic barrier 10 feet from the caster. Nonmagical sound cannot cross it, and magical or supernatural sonic effects cross only if their originator succeeds on a caster-level check against DC 11 + the caster's level. A creature crossing takes 1d6 sonic damage +1 per caster level, maximum +20, and must save or be deafened for 1 minute. Missiles, including siege attacks, crossing have a 20% miss chance. The barrier moves with the caster, but deliberately forcing it across another creature gives that creature no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cacophonic-shield-4006",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/cacophonous-alarm-763": {
+      "name": "Cacophonous Alarm",
+      "sourceSha256": "5d53f9a518e22308bc0b6ade20951c20b41d750d25d38a67b64a5068f947b47f",
+      "effectSummary": "Functions like alarm but can produce only an audible alarm, not a mental one. The ward triggers under alarm's normal entry conditions, and the first creature to violate the ward is additionally affected as though by sound burst; only that creature receives the sound-burst effect rather than a 10-foot spread.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cacophonous-alarm-763",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/caligardes-claw-2248": {
+      "name": "Caligarde's Claw",
+      "sourceSha256": "a06b33ab3fd5c11410733fc360901bd04bf7251f0a1d20dbea148b8439471882",
+      "effectSummary": "Creates a Medium invisible force claw with Strength 22, Dexterity 18, AC 16, and hit points equal to half the caster's full normal total. It flies at 90 feet and can be redirected each round as a free action. In attack mode it uses the caster's base attack bonus plus its own +6 Strength and +2 invisibility modifiers, can make iterative attacks when the caster's base attack bonus allows, and deals 1d6+6 per hit; its target normally loses Dexterity to AC unless protected by uncanny dodge. In guard mode it occupies a chosen square and makes only attacks of opportunity within 5 feet, functioning as though it had Combat Reflexes for up to five such attacks per round. It is corporeal, can be destroyed, has a 50% miss chance from invisibility, and cannot make attacks of opportunity while assigned to pursue a specific target.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/caligardes-claw-2248",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/call-avalanche-1269": {
+      "name": "Call Avalanche",
+      "sourceSha256": "1b2af6ccb56b1d9cd989bb34b8d749d452e91e09e721ad5e55f0ac4e670876ae",
+      "effectSummary": "Can be cast only outdoors. An avalanche deals 8d6 crushing damage; a successful Reflex save halves the damage and avoids burial. A failed save buries qualifying creatures, which take 1d6 nonlethal damage per minute while buried. If a buried creature becomes unconscious, it must make DC 15 Constitution checks or begin taking 1d6 lethal damage each minute until freed or dead. The maximum size buried improves with caster level: Large at 9th, Huge at 12th, Gargantuan at 15th, and Colossal at 18th. The snow and ice remain until melted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-avalanche-1269",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/call-dretch-horde-133": {
+      "name": "Call Dretch Horde",
+      "sourceSha256": "c6b9bceec056338d99f63cc7edbb8345e5aafac030ddefbe55e309d10266f6e0",
+      "effectSummary": "Calls 2d4 dretches that serve the caster for one year in exchange for a prepared soul. Their limited intelligence restricts instructions to simple tasks describable in roughly ten words. Across all castings, the caster can control no more than 2 Hit Dice of these fiends per caster level; if a new casting exceeds the limit, all newly called dretches become controlled and the caster chooses which previously controlled excess creatures become uncontrolled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-dretch-horde-133",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/call-faithful-servants-22": {
+      "name": "Call Faithful Servants",
+      "sourceSha256": "08a17670dcb61facde3566af94a601bdffbcc882657a31ba9729680a3dd8a287",
+      "effectSummary": "Calls 1d4 lawful-good lantern archons, 1d4 chaotic-good coure eladrins, or 1d4 neutral-good musteval guardinals to serve for up to one year in a holy purpose. Across all castings, the caster can control no more than 2 Hit Dice of called celestials per caster level; exceeding the limit keeps the newly called servants and returns enough older servants to their home planes. Casting requires abstaining from Conjuration spells for 3 days beforehand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-faithful-servants-22",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
+    },
+    "spells/call-forth-the-beast-1431": {
+      "name": "Call Forth the Beast",
+      "sourceSha256": "9ac0b53192292d29447997427225c284d249ce10630f80781b1b10426cf8b6f4",
+      "effectSummary": "Places a delayed curse on the target. The next time the subject sleeps, it immediately awakens chaotic evil, bloodthirsty, temperamental, and prone to psychotic violence, with no goal beyond shedding blood and reacting violently even to minor provocation. When the spell ends, the subject briefly passes out and awakens with no memory of its actions, believing it merely slept; it gains no rest, cannot use that period to prepare arcane spells, and may be fatigued as appropriate. Casting inflicts 1d4 Constitution damage as a corruption cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-forth-the-beast-1431",
+          "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
+        }
+      ]
     }
   }
 }
