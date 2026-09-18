@@ -53,10 +53,13 @@ def summarize(name, passed, failed, samples):
     }
 
 
-def dndtools_preflight(sample_size, delay, strict=True):
+def dndtools_preflight(sample_size, delay, strict=True, only=None):
     results = []
     categories = ["classes", "feats", "spells", "items", "equipment"]
     for category in categories:
+        full_name = "3.5/" + category
+        if only and full_name not in only:
+            continue
         rows = json.loads((DND_CATALOG / f"{category}.json").read_text(encoding="utf-8"))
         sample = list(rows) if sample_size is None else even_sample(rows, sample_size)
         passed = failed = 0
@@ -105,9 +108,12 @@ def wikidot_rows(category, delay):
     return discover(page)
 
 
-def wikidot_preflight(sample_size, delay, strict=True):
+def wikidot_preflight(sample_size, delay, strict=True, only=None):
     results = []
     for category in ["classes", "spells", "feats", "items"]:
+        full_name = "5e/" + category
+        if only and full_name not in only:
+            continue
         passed = failed = 0
         failures = []
         try:
@@ -165,18 +171,28 @@ def main():
                     help="Audit every discovered record instead of sampling.")
     ap.add_argument("--report", type=Path,
                     help="Optional JSON report path. Writing a report does not alter catalog data.")
+    ap.add_argument("--only", nargs="+", choices=[
+        "3.5/classes","3.5/feats","3.5/spells","3.5/items","3.5/equipment",
+        "5e/classes","5e/spells","5e/feats","5e/items"
+    ], help="Audit only selected categories. Intended for sharded full-catalog CI.")
     args = ap.parse_args()
 
+    selected = set(args.only or [])
     dnd_sample = None if args.full else args.dnd_sample
     wikidot_sample = None if args.full else args.wikidot_sample
     started = time.time()
     results = []
-    results.extend(dndtools_preflight(dnd_sample, args.delay, strict=True))
-    results.extend(wikidot_preflight(wikidot_sample, args.delay, strict=True))
+    results.extend(dndtools_preflight(dnd_sample, args.delay, strict=True, only=selected))
+    results.extend(wikidot_preflight(wikidot_sample, args.delay, strict=True, only=selected))
 
     report = {
         "readOnly": True,
-        "fullCatalog": bool(args.full),
+        "fullCatalog": bool(args.full and not selected),
+        "fullScopeForSelectedCategories": bool(args.full),
+        "scopeCategories": sorted(selected) if selected else [
+            "3.5/classes","3.5/feats","3.5/spells","3.5/items","3.5/equipment",
+            "5e/classes","5e/spells","5e/feats","5e/items"
+        ],
         "strictGameplayCompleteness": True,
         "dndSamplePerCategory": "ALL" if args.full else args.dnd_sample,
         "wikidotSamplePerCategory": "ALL" if args.full else args.wikidot_sample,
