@@ -170,8 +170,14 @@
         {
           "url": "https://dnd.arkalseif.info/spells/spell-compendium--86/cloak-dark-power--4028/index.html",
           "role": "same spell Drow-domain level cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/cloak-dark-power-4028",
+          "role": "complete same-spell Spell Compendium record on the primary catalog used to restore the truncated effect text"
         }
-      ]
+      ],
+      "effectSummary": "Creates a dusky haze around the subject that does not impair vision but protects the subject and its worn or carried gear from the effects of full sunlight. A drow subject avoids blindness and bright-illumination combat penalties while protected. The subject also gains a +4 resistance bonus on saving throws against light or darkness spells and effects.",
+      "resolvesSourceIncomplete": true
     },
     "spells/darkseed-1922": {
       "name": "Darkseed",
