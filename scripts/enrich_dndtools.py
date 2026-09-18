@@ -1051,6 +1051,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         if re.search(r"table below|following table|table above",effect_source,re.I) and not parser.tables:
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="missing-referenced-table"
+        if entry.get("id")=="spells/citys-might-3051" and re.search(r"based on the size of the community",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-citys-might-scaling"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
