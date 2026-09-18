@@ -297,6 +297,35 @@ def tokenize_known_skills(value: str) -> list[str]:
     return [skill for _,skill in sorted(result)]
 
 
+CLASS_SKILL_RULE_NUMBER_WORDS = {
+    "one":1,"two":2,"three":3,"four":4,"five":5,"six":6,"seven":7,"eight":8,"nine":9,"ten":10,
+    "eleven":11,"twelve":12,"thirteen":13,"fourteen":14,"fifteen":15,"sixteen":16,"seventeen":17,
+    "eighteen":18,"nineteen":19,"twenty":20,
+}
+
+def parse_class_skill_rule(parser: DetailParser):
+    """Capture class-skill mechanics that cannot truthfully be flattened to a fixed list."""
+    for line in parser.lines:
+        value=clean(line)
+        body=re.sub(r"^Class Skills?\s*:?\s*","",value,flags=re.I)
+        choose=re.search(
+            r"\bchoose any\s+([A-Za-z0-9-]+)\s+skills?\s+as class skills?\s*,?\s*plus\s+(.+?)(?:\.|$)",
+            body,re.I
+        )
+        if choose:
+            raw_count=choose.group(1).casefold()
+            count=int(raw_count) if raw_count.isdigit() else CLASS_SKILL_RULE_NUMBER_WORDS.get(raw_count)
+            extras=tokenize_known_skills(choose.group(2))
+            if count and extras:
+                return {"mode":"choose_any","count":count,"additional":extras}
+        if re.search(
+            r"any skill that is a class skill for one of .+ other classes .+ is a class skill for .+ class as well",
+            body,re.I
+        ):
+            return {"mode":"inherit_from_other_classes"}
+    return None
+
+
 def parse_class_skills(parser: DetailParser) -> list[str]:
     skills = section(parser.lines, parser.headings, "Class Skills")
     names=[]
@@ -370,6 +399,15 @@ def parse_progression_table(parser: DetailParser):
     return None,None
 
 
+def class_source_kind(lines: list[str]) -> str:
+    """Read class type only from an actual source header, never incidental prose."""
+    for line in lines[:30]:
+        match=re.match(r"^(Prestige|Base|NPC|Psionic|Racial|Monster)\s+Class\b",clean(line),re.I)
+        if match:
+            return match.group(1).casefold()
+    return ""
+
+
 def explicit_variant_parent(lines: list[str], entry_name: str) -> str:
     joined=" ".join(lines)
     patterns=[
@@ -386,6 +424,17 @@ def explicit_variant_parent(lines: list[str], entry_name: str) -> str:
             parent=clean(match.group(1)).title()
             parent=re.sub(r"\s+From\s+.*$","",parent,flags=re.I)
             return parent
+
+    # Racial/organization substitution levels retain their named base class unless
+    # the page explicitly supplies a replacement mechanic. This fills only absent fields.
+    if re.search(r"\bsubstitution levels?\b",joined,re.I):
+        standard_classes=(
+            "Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin",
+            "Ranger","Rogue","Sorcerer","Wizard"
+        )
+        for base in standard_classes:
+            if re.search(rf"\b{re.escape(base)}\b",entry_name or "",re.I):
+                return base
 
     # Unearthed Arcana "[base class] Variant" records inherit the named base class.
     variant=re.fullmatch(r"(.+?)\s+Variant",clean(entry_name or ""),re.I)
@@ -439,7 +488,7 @@ def apply_class_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    merge_keys=("inheritsFrom","sourceEdition","notes","hit_die","skillPoints","classSkills","prerequisites","progression","featureNames")
+    merge_keys=("inheritsFrom","sourceEdition","notes","hit_die","skillPoints","classSkills","classSkillRule","prerequisites","progression","featureNames")
     for key in merge_keys:
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
@@ -485,9 +534,11 @@ def parse_class_core(parser: DetailParser, entry: dict) -> dict:
         "minBab": next_value(lines, "Min. BAB Req.") or next_value(lines, "Min BAB Req."),
         "prerequisites": parse_requirement_lines(section(lines, parser.headings, "Requirements")),
     }
-    lower=" ".join(lines[:20]).casefold()
-    if "prestige class" in lower:
+    source_kind=class_source_kind(lines)
+    if source_kind=="prestige":
         result["prestige"]=True
+    if source_kind in {"racial","monster"}:
+        result["racialClass"]=True
     progression,advancement=parse_progression_table(parser)
     if progression:
         result["progression"]=progression
@@ -495,6 +546,14 @@ def parse_class_core(parser: DetailParser, entry: dict) -> dict:
     skills=parse_class_skills(parser)
     if skills:
         result["classSkills"]=skills
+    else:
+        skill_rule=parse_class_skill_rule(parser)
+        if skill_rule:
+            result["classSkillRule"]=skill_rule
+    if progression:
+        progression_headers={clean(x).casefold() for x in progression[0]}
+        if "skill points" in progression_headers and progression_headers.intersection({"cr","challenge rating","hit dice"}):
+            result["racialClass"]=True
     parent=explicit_variant_parent(lines,entry.get("name",""))
     if parent:
         result["inheritsFrom"]=parent
@@ -521,7 +580,7 @@ def sibling_class_fallback(entry: dict) -> dict:
             raw=fetch(row["url"],0.05)
             parser=DetailParser(); parser.feed(raw); parser.close()
             parsed=parse_class_core(parser,row)
-            score=sum(bool(parsed.get(k)) for k in ("hit_die","skillPoints","progression","classSkills","prerequisites","inheritsFrom"))
+            score=sum(bool(parsed.get(k)) for k in ("hit_die","skillPoints","progression","classSkills","classSkillRule","prerequisites","inheritsFrom"))
             score+=2 if (parsed.get("mechanicsPresence") or {}).get("classFeatures") else 0
             if score>best_score:
                 best_score=score
@@ -547,7 +606,11 @@ def legacy_class_fallback(entry: dict) -> dict:
     skill_points=next_value(parser.lines,"Skill points") or next_value(parser.lines,"Skill Points")
     if skill_points: result["skillPoints"]=skill_points
     skills=parse_class_skills(parser)
-    if skills: result["classSkills"]=skills
+    if skills:
+        result["classSkills"]=skills
+    else:
+        skill_rule=parse_class_skill_rule(parser)
+        if skill_rule: result["classSkillRule"]=skill_rule
     progression,advancement=parse_progression_table(parser)
     if progression:
         result["progression"]=progression
@@ -569,7 +632,7 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     # class name may contain the canonical mechanics (for example PHB vs setting books).
     sibling=sibling_class_fallback(entry)
     if sibling:
-        for key in ("prerequisites","hit_die","skillPoints","minBab","classSkills","progression","advancement","inheritsFrom"):
+        for key in ("prerequisites","hit_die","skillPoints","minBab","classSkills","classSkillRule","progression","advancement","inheritsFrom"):
             if not enriched.get(key) and sibling.get(key):
                 enriched[key]=sibling[key]
         enriched["siblingSourceUrl"]=sibling.get("siblingSourceUrl")
@@ -593,7 +656,7 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     if needs_fallback:
         try:
             fallback=legacy_class_fallback(entry)
-            for key in ("prerequisites","hit_die","skillPoints","classSkills","progression","advancement","inheritsFrom"):
+            for key in ("prerequisites","hit_die","skillPoints","classSkills","classSkillRule","progression","advancement","inheritsFrom"):
                 if not enriched.get(key) and fallback.get(key):
                     enriched[key]=fallback[key]
             enriched["fallbackSourceUrl"]=fallback.get("fallbackSourceUrl")
@@ -754,7 +817,7 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
             raise ValueError("Supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
         if not details.get("sourceBook"):
             raise ValueError("Class parse missing source book")
-        useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills","inheritsFrom")
+        useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills","classSkillRule","inheritsFrom")
         if not any(details.get(key) for key in useful):
             # Some catalog records are source pointers (for example variant base
             # classes) with no mechanics on that exact page. They are safe to retain
@@ -796,6 +859,8 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
     if category == "classes":
         if details.get("prestige") and not details.get("prerequisites"):
             gaps.append("prerequisites")
+        if details.get("classSkillRule") and "classSkills" in gaps:
+            gaps.remove("classSkills")
         if details.get("racialClass"):
             for key in ("hit_die","skillPoints","classSkills"):
                 if key in gaps:
@@ -934,6 +999,47 @@ def self_test():
     assert c["hit_die"] == 8 and c["skillPoints"] == "2 + Int" and c["prestige"]
     assert c["sourceBook"].endswith("Complete Warrior") and c["sourcePage"] == 79
     assert c["prerequisites"][0]["kind"] == "spells" and c["advancement"][0]["BAB"] == "+1"
+
+    base_with_prestige_prose = """
+    <h1>Binder</h1><p>Base Class Tome of Magic (ToM), p. 9</p>
+    <div>Hit Die</div><div>d8</div><div>Skill Points</div><div>2 + Int</div>
+    <p>Binders may later qualify for prestige classes.</p>
+    <h2>Class Skills</h2><p>Bluff, Concentration, Diplomacy</p>
+    <h2>Advancement</h2><table><tr><th>Level</th><th>BAB</th><th>Special</th></tr>
+    <tr><td>1st</td><td>+0</td><td>Soul binding</td></tr></table>
+    <h2>Class Features</h2><p>Soul binding grants pact-related class features.</p>
+    """
+    p=DetailParser();p.feed(base_with_prestige_prose);p.close()
+    binder=parse_class_core(p,{"name":"Binder"})
+    assert not binder.get("prestige"), "incidental prose must not classify a base class as prestige"
+
+    expert_html = """
+    <h1>Expert</h1><p>NPC Class Unearthed Arcana (UA), p. 77</p>
+    <div>Hit Die</div><div>d6</div><div>Skill Points</div><div>6 + Int</div>
+    <p>Class Skills: Choose any twelve skills as class skills, plus Craft and Profession.</p>
+    <h2>Advancement</h2><table><tr><th>Level</th><th>BAB</th><th>Special</th></tr>
+    <tr><td>1st</td><td>+0</td><td>Flexible training</td></tr></table>
+    <h2>Class Features</h2><p>An expert has a configurable skill list.</p>
+    """
+    p=DetailParser();p.feed(expert_html);p.close()
+    expert=parse_class_core(p,{"name":"Expert"})
+    assert expert["classSkillRule"] == {"mode":"choose_any","count":12,"additional":["Craft","Profession"]}
+
+    substitution_html = """
+    <h1>Fangshields Druid</h1><p>Base Class Champions of Valor (CoV), p. 40</p>
+    <p>These druid substitution levels replace selected levels of the standard druid class.</p>
+    """
+    p=DetailParser();p.feed(substitution_html);p.close()
+    assert explicit_variant_parent(p.lines,"Fangshields Druid") == "Druid"
+
+    racial_html = """
+    <h1>Pixie</h1><p>Base Class Savage Species (SS), p. 190</p>
+    <h2>Advancement</h2><table><tr><th>Level</th><th>Hit Dice</th><th>CR</th><th>Skill Points</th></tr>
+    <tr><td>1st</td><td>1</td><td>1</td><td>(6 + Int mod) × 4</td></tr></table>
+    """
+    p=DetailParser();p.feed(racial_html);p.close()
+    racial=parse_class_core(p,{"name":"Pixie"})
+    assert racial.get("racialClass") is True
 
     spell_html = """
     <h1>Magic Missile</h1><p>Player's Handbook v.3.5 (PH), p. 251</p>
