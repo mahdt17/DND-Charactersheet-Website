@@ -191,12 +191,15 @@ def source_meta(lines: list[str]) -> dict:
     # "Prestige Class Complete Warrior (CW), p. 79"
     # "Player's Handbook v.3.5 (PH), p. 251"
     joined = " | ".join(lines[:30])
-    match = re.search(r"(?:(?:Prestige|Base|NPC|Psionic) Class\s+)?([^|]{2,120}?)\s*\(([A-Za-z0-9 .&'-]{1,16})\),\s*p\.\s*(\d+)", joined)
+    match = re.search(r"(?:(?:Prestige|Base|NPC|Psionic) Class\s+)?([^|]{2,120}?)\s*\(([A-Za-z0-9 .&'-]{1,16})\)\s*(?:,\s*p\.\s*(\d+))?", joined)
     if not match:
         return {}
     book = clean(match.group(1))
-    book = re.sub(r"^(Save|General feat|Epic feat|Item Creation feat|Metamagic feat|Psionic feat)\s+", "", book, flags=re.I)
-    return {"sourceBook": book, "sourceAbbr": clean(match.group(2)), "sourcePage": int(match.group(3))}
+    book = re.sub(r"^(Save|General feat|Epic feat|Item Creation feat|Metamagic feat|Psionic feat|Fighter Bonus Feat feat)\s+", "", book, flags=re.I)
+    result = {"sourceBook": book, "sourceAbbr": clean(match.group(2))}
+    if match.group(3):
+        result["sourcePage"] = int(match.group(3))
+    return result
 
 
 def parse_requirement_lines(lines: list[str]) -> list[dict]:
@@ -215,7 +218,7 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     enriched = {
         **source_meta(lines),
-        "hit_die": int(m.group(1)) if (m := re.search(r"d(\d+)", next_value(lines, "Hit Die"), re.I)) else None,
+        "hit_die": int(m.group(1)) if (m := re.search(r"d\s*(\d+)", next_value(lines, "Hit Die"), re.I)) else None,
         "skillPoints": next_value(lines, "Skill Points"),
         "minBab": next_value(lines, "Min. BAB Req.") or next_value(lines, "Min BAB Req."),
         "prerequisites": parse_requirement_lines(section(lines, parser.headings, "Requirements")),
@@ -253,15 +256,9 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     meta = source_meta(lines)
     category = ""
-    known_types = (
-        "general feat", "epic feat", "item creation feat", "metamagic feat",
-        "psionic feat", "fighter bonus feat", "reserve feat", "tactical feat",
-        "heritage feat", "incarnum feat", "exalted feat", "vile feat",
-        "wild feat", "weapon style feat", "domain feat"
-    )
-    for line in lines[:20]:
+    for line in lines[:24]:
         folded = clean(line).casefold()
-        if any(t in folded for t in known_types) and len(line) < 100:
+        if len(line) < 100 and re.search(r"\bfeat\b", folded) and not folded.startswith(("back to ","characters ")):
             category = clean(line)
             break
     prereq = next_value(lines, "Prerequisite") or next_value(lines, "Prerequisites")
@@ -317,7 +314,11 @@ def parse_item(parser: DetailParser, entry: dict) -> dict:
     labels = {
         "Price":"price", "Cost":"cost", "Weight":"weight", "Body Slot":"bodySlot",
         "Caster Level":"casterLevel", "Aura":"aura", "Activation":"activation",
-        "Rarity":"rarity", "Type":"itemType"
+        "Rarity":"rarity", "Type":"itemType", "Kind":"kind", "Category":"itemCategory",
+        "AC Bonus":"armorClassBonus", "Max Dex":"maxDex", "Armor Check Penalty":"armorCheckPenalty",
+        "Arcane Spell Failure":"arcaneSpellFailure", "Speed 30":"speed30", "Speed 20":"speed20",
+        "Damage (S)":"damageSmall", "Damage (M)":"damageMedium", "Critical":"critical",
+        "Range Increment":"rangeIncrement"
     }
     for label, key in labels.items():
         value = next_value(lines, label)
@@ -365,12 +366,17 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
     elif category == "feats":
         if not details.get("sourceBook") or not details.get("featType"):
             raise ValueError("Feat parse missing source book or feat type")
-    elif category in ("items", "equipment"):
+    elif category == "items":
         if not details.get("sourceBook"):
             raise ValueError("Item parse missing source book")
         useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType")
         if not any(details.get(key) for key in useful):
             raise ValueError("Item parse produced no structured mechanics")
+    elif category == "equipment":
+        useful = ("cost","weight","kind","itemCategory","armorClassBonus","maxDex","armorCheckPenalty",
+                  "arcaneSpellFailure","damageSmall","damageMedium","critical","rangeIncrement")
+        if not any(details.get(key) for key in useful):
+            raise ValueError("Equipment parse produced no structured mechanics")
 
 
 def enrich_entry(entry: dict, category: str, delay: float) -> dict:
