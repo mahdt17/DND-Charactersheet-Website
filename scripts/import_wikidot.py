@@ -466,11 +466,16 @@ def parse_item_detail(row,page):
     if source:
         result["sourceBook"]=source
     # Individual item pages commonly lead with "Wondrous item, rare (requires attunement)".
+    item_header=re.compile(
+        r"^(?:wondrous item|weapon(?:\s*\([^)]*\))?|armor(?:\s*\([^)]*\))?|"
+        r"potion|ring|rod|staff|wand)(?:\s*,|\s*\(|\s+-|\s*$)",
+        re.I
+    )
     for line in page.lines:
         low=line.casefold()
-        if any(t in low for t in ("wondrous item","weapon","armor","potion","ring","rod","staff","wand")) and len(line)<180:
+        if item_header.search(clean(line)) and len(line)<220:
             result["itemHeader"]=line
-            rarity=re.search(r"\b(common|uncommon|rare|very rare|legendary|artifact)\b",line,re.I)
+            rarity=re.search(r"\b(common|uncommon|rare|very rare|legendary|artifact|varies)\b",line,re.I)
             if rarity:
                 result["rarity"]=rarity.group(1).title()
             if "requires attunement" in low:
