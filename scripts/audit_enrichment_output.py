@@ -123,8 +123,12 @@ def spell_gaps(r):
 def item_gaps(r,equipment=False):
     gaps=[]
     if not has_text(r.get("name")): gaps.append("name")
-    if not presence(r,"sourceBook","source","sourceUrl") and not equipment: gaps.append("source")
+    nongame=bool(r.get("nonGameplayReference"))
+    if not presence(r,"sourceBook","source","sourceUrl") and not equipment and not nongame: gaps.append("source")
     if not description_ok(r): gaps.append("description")
+    if nongame:
+        if not presence(r,"referenceKind"): gaps.append("referenceKind")
+        return gaps
     if equipment:
         if not presence(r,"cost","weight","armorClassBonus","damageSmall","damageMedium","critical","rangeIncrement"):
             gaps.append("stats")

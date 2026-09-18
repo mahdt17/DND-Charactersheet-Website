@@ -1164,6 +1164,10 @@ def item_effect_text(parser: DetailParser, entry_name: str="") -> str:
 def parse_item(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     result = {**source_meta(lines)}
+    placeholder_text=" ".join(clean(x) for x in lines).casefold()
+    if "generic entry is for varied references" in placeholder_text:
+        result["nonGameplayReference"]=True
+        result["referenceKind"]="generic-varied-entry"
     labels = {
         "Price":"price", "Cost":"cost", "Weight":"weight", "Body Slot":"bodySlot",
         "Caster Level":"casterLevel", "Aura":"aura", "Activation":"activation",
@@ -1258,11 +1262,15 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
     elif category == "items":
         if details.get("supplementConflicts"):
             raise ValueError("Item supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
-        if not details.get("sourceBook"):
-            raise ValueError("Item parse missing source book")
-        useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType","tables")
-        if not any(details.get(key) for key in useful):
-            raise ValueError("Item parse produced no structured mechanics")
+        if details.get("nonGameplayReference"):
+            if details.get("referenceKind") != "generic-varied-entry":
+                raise ValueError("Unrecognized non-gameplay item reference kind")
+        else:
+            if not details.get("sourceBook"):
+                raise ValueError("Item parse missing source book")
+            useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType","tables")
+            if not any(details.get(key) for key in useful):
+                raise ValueError("Item parse produced no structured mechanics")
     elif category == "equipment":
         useful = ("cost","weight","kind","itemCategory","armorClassBonus","maxDex","armorCheckPenalty",
                   "arcaneSpellFailure","damageSmall","damageMedium","critical","rangeIncrement")
@@ -1277,7 +1285,7 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
         "classes": ("sourceBook","hit_die","skillPoints","progression","classSkills"),
         "spells": ("sourceBook","school","casting_time","range","duration"),
         "feats": ("sourceBook","featType"),
-        "items": ("sourceBook",),
+        "items": (() if details.get("nonGameplayReference") else ("sourceBook",)),
         "equipment": ("kind","itemCategory"),
     }.get(category, ())
     gaps = [key for key in expected if not details.get(key)]
@@ -1327,13 +1335,14 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
         if not (details.get("effect") or details.get("effectSummary") or details.get("effectNeedsSummary")):
             gaps.append("spellEffectCapture")
     elif category == "items":
-        useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType","tables")
-        if not any(details.get(key) for key in useful):
-            gaps.append("itemStats")
-        if not (presence.get("ruleProse") or details.get("effectSummary")) and not details.get("ruleFamily"):
-            gaps.append("itemEffect")
-        if details.get("ruleFamily")=="power-stone" and not details.get("genericRuleSource"):
-            gaps.append("itemEffect")
+        if not details.get("nonGameplayReference"):
+            useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType","tables")
+            if not any(details.get(key) for key in useful):
+                gaps.append("itemStats")
+            if not (presence.get("ruleProse") or details.get("effectSummary")) and not details.get("ruleFamily"):
+                gaps.append("itemEffect")
+            if details.get("ruleFamily")=="power-stone" and not details.get("genericRuleSource"):
+                gaps.append("itemEffect")
     elif category == "equipment":
         if not any(details.get(key) for key in (
             "cost","weight","armorClassBonus","maxDex","armorCheckPenalty",
@@ -1641,6 +1650,16 @@ def self_test():
     fallback=item_source_fallback_details({"id":"items/key-of-opening/closing-758","name":"Key of Opening/Closing"})
     assert fallback and fallback["sourceFallbackVerified"] and fallback["sourceBook"]=="The Mind's Eye [Web 3.0]"
     assert fallback["ruleStats"]["marketPriceGp"]==400 and fallback["effectSummary"]
+
+    placeholder_html = """
+    <h1>Varie</h1><p>OTH · None</p><div>Activation</div><div>—</div>
+    <p>This generic entry is for varied references. Do no touch it.</p>
+    """
+    p=DetailParser();p.feed(placeholder_html);p.close()
+    item=parse_item(p,{"id":"items/varie-99999","name":"Varie"})
+    assert item["nonGameplayReference"] is True and item["referenceKind"]=="generic-varied-entry"
+    validate_details({"id":"items/varie-99999","name":"Varie"},"items",p,item)
+    assert enrichment_gaps("items",item)==[]
 
     print("PASS DnD Tools structured enrichment parser")
 
