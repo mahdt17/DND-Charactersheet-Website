@@ -253,6 +253,30 @@
           "role": "same source record with Drow and base Will +2 prerequisites"
         }
       ]
+    },
+    "feats/advanced-construction-3792": {
+      "name": "Advanced Construction",
+      "prerequisites": [
+        {
+          "kind": "feat",
+          "label": "Prerequisite",
+          "text": "Augment Construction"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/advanced-construction-3792",
+          "role": "primary catalog identity, source and Benefit; Prerequisite field is corrupted by unrelated construct rules"
+        },
+        {
+          "url": "https://realmshelps.net/cgi-bin/feat-box.pl?feat=Advanced_Construction",
+          "role": "prerequisite and Benefit cross-check"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/feats/web-30--160/advanced-construction--3792/index.html",
+          "role": "same source feat cross-check"
+        }
+      ]
     }
   }
 }
