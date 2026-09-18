@@ -22,51 +22,26 @@ Strict samples completed successfully:
 - 100 / 100
 - 250 / 250
 
-The first complete class-catalog audit then checked **all 1,054 class records**:
+The first complete class-catalog audit checked **all 1,054 class records** and initially found 30 failures. After parser/inheritance repairs and provenance-backed fill-only supplements, the strict full-catalog source audit was rerun on 2026-09-18:
 
-- Passed: **1,024**
-- Failed: **30**
-- Success rate: **97.15%**
-- Critical-gap gate: **FAILED** — expected until all 30 are resolved
+- Passed: **1,054**
+- Failed: **0**
+- Success rate: **100.00%**
+- Critical gaps: **0**
+- Source-extraction gate: **PASSED**
+- Final-output completeness gate: **NOT YET VERIFIED**
+- Release ready: **NO**
+- Live/catalog writes: **LOCKED**
 
-No enriched class data was written to the bundled catalog during these tests.
+The permanent focused regression corpus also passes **67 / 67**, including all 30 records from the original full-catalog failure set.
 
-## Remaining 30 class failures
+No enriched class data was written to the bundled catalog during these tests. The successful full audit was read-only and explicitly reported `sourceExtractionVerified: true`, `outputCompletenessVerified: false`, and `releaseReady: false`.
 
-| Class | Remaining critical gap |
-| --- | --- |
-| Binder | prerequisites |
-| Bone Collector | classFeatures, classSkills, hit_die, progression, skillPoints |
-| Breachgnome | prerequisites |
-| Celebrant of Sharess | prerequisites |
-| Corrupt Avenger | skillPoints |
-| Dreadmaster | skillPoints |
-| Eidolon | progression |
-| Elf Paragon | hit_die |
-| Expert | classSkills |
-| Fangshields Barbarian | classSkills |
-| Fangshields Druid | classSkills |
-| Fiend of Corruption | no structured mechanics on primary page |
-| Giant-killer | no structured mechanics on primary page |
-| Great Rift Skyguard | prerequisites |
-| Heir of Siberys | classSkills |
-| Hida Defender | classSkills |
-| Hordebreaker | no structured mechanics on primary page |
-| Knight of the Iron Glacier | hit_die |
-| Knight-errant of Silverymoon | no structured mechanics on primary page |
-| Netherese Arcanist | hit_die |
-| Orc Scout | no structured mechanics on primary page |
-| Outcast Champion | classSkills |
-| Pixie | skillPoints |
-| Samurai | prerequisites |
-| Shaper of Form | classSkills |
-| Spellfire Channeler | prerequisites |
-| Spur Lord | no structured mechanics on primary page |
-| Survivor | classSkills |
-| Warrior Skald | prerequisites |
-| Wild Scout | no structured mechanics on primary page |
+## Resolved original 30 class failures
 
-All 30 have been added to `scripts/class_regression_cases.json`.
+All 30 original full-catalog failures are retained in `scripts/class_regression_cases.json` as permanent regressions. Repairs used general parser/inheritance rules where the source exposed the mechanics, and provenance-backed supplements only where the source page genuinely omitted required structured fields.
+
+The repaired set includes Binder, Bone Collector, Breachgnome, Celebrant of Sharess, Corrupt Avenger, Dreadmaster, Eidolon, Elf Paragon, Expert, Fangshields Barbarian, Fangshields Druid, Fiend of Corruption, Giant-killer, Great Rift Skyguard, Heir of Siberys, Hida Defender, Hordebreaker, Knight of the Iron Glacier, Knight-errant of Silverymoon, Netherese Arcanist, Orc Scout, Outcast Champion, Pixie, Samurai, Shaper of Form, Spellfire Channeler, Spur Lord, Survivor, Warrior Skald, and Wild Scout.
 
 ## Safeguards already implemented
 
@@ -109,20 +84,17 @@ Supplements store short factual mechanics only, not copied long-form sourcebook 
 
 ## Next work
 
-Work only on the remaining 30 3.5 class failures.
+The 3.5 class **source-extraction** audit is complete at 1,054 / 1,054, but enrichment is still locked.
 
-Recommended process:
+Next steps for this category:
 
-1. Group by failure type.
-2. Fix general parser/inheritance rules first.
-3. Use supplements only where the primary/legacy source genuinely omits a required fact.
-4. Require provenance for every supplemented field.
-5. Add every repaired class to the regression suite.
-6. Run the focused regression corpus.
-7. Run a 250-class audit if parser logic changes broadly.
-8. Re-run the full 1,054-class audit.
-9. Do not move to another content category until 3.5 classes are 1,054 / 1,054.
-10. Do not unlock enrichment writes after source audit alone; the final staged output still needs its own complete audit.
+1. Keep the 67-record focused regression corpus green.
+2. Generate or stage candidate enriched class output only through the existing dry-run/non-live path.
+3. Audit the complete staged 1,054-record output for the same gameplay-critical completeness contract.
+4. Require exactly 1,054 / 1,054 with zero output critical gaps.
+5. Keep provenance and supplement-conflict checks enabled.
+6. Do not use `--write` and do not unlock live/catalog writes unless the separate final-output audit reaches 100%.
+7. Only after both source extraction and final-output completeness are independently verified may release-readiness be reconsidered.
 
 ## Separate non-enrichment issue
 
