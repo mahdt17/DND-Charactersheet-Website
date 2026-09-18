@@ -266,6 +266,37 @@ def legacy_class_url(entry: dict) -> str:
     return f"{LEGACY_CLASS_BASE}/{slug}/"
 
 
+CLASS_SKILL_NAMES = [
+    "Appraise","Balance","Bluff","Climb","Concentration","Craft","Decipher Script",
+    "Diplomacy","Disable Device","Disguise","Escape Artist","Forgery","Gather Information",
+    "Handle Animal","Heal","Hide","Intimidate","Jump","Knowledge","Listen","Move Silently",
+    "Open Lock","Perform","Profession","Ride","Search","Sense Motive","Sleight of Hand",
+    "Speak Language","Spellcraft","Spot","Survival","Swim","Tumble","Use Magic Device",
+    "Use Rope","Animal Empathy","Innuendo","Intuit Direction","Pick Pocket","Read Lips",
+    "Scry","Wilderness Lore","Alchemy"
+]
+
+def tokenize_known_skills(value: str) -> list[str]:
+    compact=re.sub(r"[^a-z]","",clean(value).casefold())
+    hits=[]
+    for skill in CLASS_SKILL_NAMES:
+        needle=re.sub(r"[^a-z]","",skill.casefold())
+        start=0
+        while needle and (idx:=compact.find(needle,start))>=0:
+            hits.append((idx,-len(needle),skill))
+            start=idx+len(needle)
+    hits.sort()
+    result=[]
+    occupied=[]
+    for idx,neglen,skill in hits:
+        end=idx-neglen
+        if any(not (end<=a or idx>=b) for a,b in occupied):
+            continue
+        occupied.append((idx,end))
+        result.append((idx,skill))
+    return [skill for _,skill in sorted(result)]
+
+
 def parse_class_skills(parser: DetailParser) -> list[str]:
     skills = section(parser.lines, parser.headings, "Class Skills")
     names=[]
@@ -286,13 +317,17 @@ def parse_class_skills(parser: DetailParser) -> list[str]:
 
     for line in skills[:12]:
         add_from_sentence(line)
-        # Linked skill lists often render as one line of title-cased names.
-        if len(line) < 300 and not re.search(r"\b(class skills|skill points|key ability|trained only|armor check penalty)\b",line,re.I):
-            names += re.findall(r"[A-Z][A-Za-z'’ -]*(?:\s*\([A-Za-z ]+\))?", line)
+        if len(line) < 500 and not re.search(r"\b(class skills|skill points|key ability|trained only|armor check penalty)\b",line,re.I):
+            names += tokenize_known_skills(line)
 
     for line in parser.lines:
         if re.search(r"class skills",line,re.I):
             add_from_sentence(line)
+        # Some HTML renders all linked skill names without separators.
+        if len(line) < 500:
+            tokenized=tokenize_known_skills(line)
+            if len(tokenized)>=2 and ("Class Skills" in parser.headings or line in skills):
+                names += tokenized
 
     for table in parser.tables:
         if not table:
