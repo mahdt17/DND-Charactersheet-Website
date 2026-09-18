@@ -58,7 +58,7 @@
           "role": "primary source and benefit; feat type omitted and prerequisite field is a template placeholder"
         }
       ],
-      "prerequisites": [
+      "prerequisiteFallback": [
         {
           "kind": "ability",
           "label": "Prerequisite",
@@ -256,13 +256,6 @@
     },
     "feats/advanced-construction-3792": {
       "name": "Advanced Construction",
-      "prerequisites": [
-        {
-          "kind": "feat",
-          "label": "Prerequisite",
-          "text": "Augment Construction"
-        }
-      ],
       "provenance": [
         {
           "url": "https://new.dndtools.org/feats/advanced-construction-3792",
@@ -275,6 +268,13 @@
         {
           "url": "https://dnd.arkalseif.info/feats/web-30--160/advanced-construction--3792/index.html",
           "role": "same source feat cross-check"
+        }
+      ],
+      "prerequisiteFallback": [
+        {
+          "kind": "feat",
+          "label": "Prerequisite",
+          "text": "Augment Construction"
         }
       ]
     }

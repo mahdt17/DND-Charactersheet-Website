@@ -714,6 +714,10 @@ def apply_feat_supplement(entry: dict, details: dict) -> dict:
         elif normalized_compare(existing)!=normalized_compare(supplied):
             conflicts.append(key)
 
+    fallback_prerequisites=supplement.get("prerequisiteFallback") or []
+    if fallback_prerequisites and not result.get("prerequisites"):
+        result["prerequisites"]=fallback_prerequisites
+
     additions=supplement.get("prerequisiteAdditions") or []
     if additions:
         current=list(result.get("prerequisites") or [])
