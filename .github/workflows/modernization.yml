@@ -47,13 +47,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python --version
-      - name: Strict 100-record 3.5 feat preflight
-        run: python scripts/preflight_enrichment.py --dnd-sample 100 --min-rate 1.0 --delay 0.12 --only 3.5/feats --report test-results/enrichment-feats-100.json
+      - name: Strict 250-record 3.5 feat preflight
+        run: python scripts/preflight_enrichment.py --dnd-sample 250 --min-rate 1.0 --delay 0.12 --only 3.5/feats --report test-results/enrichment-feats-250.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: enrichment-feats-100-report
-          path: test-results/enrichment-feats-100.json
+          name: enrichment-feats-250-report
+          path: test-results/enrichment-feats-250.json
 
   enrichment-preflight:
     runs-on: ubuntu-latest
