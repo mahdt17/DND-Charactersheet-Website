@@ -3574,6 +3574,270 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/big-sky-1893": {
+      "name": "Big Sky",
+      "sourceSha256": "802274735fc7afcf11e3afe8045a0e8d028886701188090e20ae2b7b196e66d2",
+      "effectSummary": "The caster and allies in the area gain +2 morale on attack rolls and +4 morale on saves against fear. Each enemy in the area that fails a Will save is affected as by fear; an affected enemy receives a new Will save each round to end the effect, and once it succeeds it need not save again against this casting. Creatures immune to fear are immune to both the beneficial and harmful effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/big-sky-1893",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bigbys-clenched-fist-2583": {
+      "name": "Bigby's Clenched Fist",
+      "sourceSha256": "8966030bfdabec7ff9d1c466fa547938db06f4857c09b0b5f4df6c0c18f8465e",
+      "effectSummary": "Functions as Bigby's interposing hand and can also push or strike one selected opponent. It can move up to 60 feet and attack in the same round, attacking once per round with attack bonus equal to caster level + the caster's key spellcasting ability modifier +10 total from Strength 33 and Large size. A hit deals 1d8+11 damage and forces a Fortitude save or stuns for 1 round. It can instead bull rush as Bigby's forceful hand with +15 on the Strength check. Retargeting takes a move action, and its ability to notice invisible or concealed creatures is no better than the caster's.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-clenched-fist-2583",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-crushing-hand-2584": {
+      "name": "Bigby's Crushing Hand",
+      "sourceSha256": "d1d4d948707656e6cbd0fb3c2bbaa0bbb83adf0db818d2bcc5b6f133f4299dc2",
+      "effectSummary": "Functions as Bigby's interposing hand and can also push, grapple, or crush one selected opponent. Its grapple bonus equals caster level + the caster's key spellcasting ability modifier +16 from Strength 35 and Large size. Each successful grapple check deals 2d6+12 lethal damage. It can instead bull rush as Bigby's forceful hand with +18. Retargeting takes a move action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-crushing-hand-2584",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-disrupting-hand-2960": {
+      "name": "Bigby's Disrupting Hand",
+      "sourceSha256": "38611460b93945374c2aae9d63d0cacc02d96a667ad088c10e8aefe26d67cbaa",
+      "effectSummary": "Creates a 1-foot force hand targeting one opponent, which can be changed with a move action. Whenever that target attempts to cast a spell, the hand strikes without dealing damage and forces a Concentration check against this spell's save DC; failure ruins the casting attempt. The hand has hit points equal to half the caster's full normal hit points, AC 20, uses the caster's save bonuses, and takes damage from attacks and spells normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-disrupting-hand-2960",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-forceful-hand-2585": {
+      "name": "Bigby's Forceful Hand",
+      "sourceSha256": "e6f9418441f3ad95ad15d9d15df6512ffe783b42e8813f53eb366a83a30bf767",
+      "effectSummary": "Functions as Bigby's interposing hand but pursues and bull rushes one designated opponent. Its bull rush uses +14 on the Strength check and it always follows the target for the full distance allowed, with no speed limit. Retargeting takes a move action. A creature cannot simply push through the hand because it repositions between that creature and the caster, though a successful bull rush can push the hand back against the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-forceful-hand-2585",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-grasping-hand-2586": {
+      "name": "Bigby's Grasping Hand",
+      "sourceSha256": "300a9192289755662ac041c49827c71a3ce276e1e8afe935436330bc2ee9656c",
+      "effectSummary": "Functions as Bigby's interposing hand and can make one grapple attempt per round against a selected opponent. Its touch attack bonus equals caster level + the caster's key spellcasting ability modifier +9, and its grapple bonus uses the same base with +4 for Large size instead of -1, for caster level + ability modifier +14. It holds grappled creatures without damaging them. It can instead bull rush with +16 as Bigby's forceful hand, or interpose normally. Retargeting takes a move action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-grasping-hand-2586",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-helpful-hand-2961": {
+      "name": "Bigby's Helpful Hand",
+      "sourceSha256": "6758d9216816e0222068ec44645b9bb81bb21dd2da157678d4d9e145b83bf50f",
+      "effectSummary": "Creates a force hand that remains in the caster's square, grants +2 competence on Craft, Disable Device, and Open Lock checks, and can hold one object weighing up to 20 pounds. Placing an object in its grasp or taking one from it is a swift action. It matches the caster's movement and accompanies dimension door, teleport, and similar travel; if separated from the caster, the spell ends. The hand has hit points equal to half the caster's full normal hit points, AC 20, uses the caster's save bonuses, and takes damage normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-helpful-hand-2961",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-interposing-hand-2587": {
+      "name": "Bigby's Interposing Hand",
+      "sourceSha256": "e1fa1f8123e1ba2b6d6c38d673196e2c5e2552a7ffd64662a5b3c1f8877ce92b",
+      "effectSummary": "Creates a Large force hand that remains between the caster and one selected opponent, granting the caster cover and +4 AC against that opponent regardless of darkness, invisibility, polymorph, or disguise. It does not pursue the opponent. The hand has the caster's full normal hit points, AC 20, and the caster's save bonuses; most nondamaging magic does not affect it, it never provokes attacks of opportunity, disintegrate or a successful dispel magic destroys it, it cannot enter antimagic or pass wall of force, and prismatic effects affect it normally. Creatures weighing 2,000 pounds or less move at half speed when trying to push past it. Retargeting takes a move action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bigbys-slapping-hand-1967": {
+      "name": "Bigby's Slapping Hand",
+      "sourceSha256": "a3c231230c9b0a80b79025878e651075cb26240571cd5c6b644f63b2a86371d7",
+      "effectSummary": "Creates a hand that slaps one creature and disappears. The slap deals no damage but causes the subject to immediately provoke attacks of opportunity from creatures threatening its square. There is no saving throw, but a DC 20 Concentration check negates the effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-slapping-hand-1967",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-slapping-hand-817": {
+      "name": "Bigby's Slapping Hand",
+      "sourceSha256": "607457757c93f4f804cc73e9a3a0ec6df34add09860e0dd0fdb0730bb1009099",
+      "effectSummary": "Creates a hand that slaps one creature and disappears. The slap deals no damage but causes the subject to immediately provoke attacks of opportunity from creatures threatening its space. There is no saving throw, but a DC 20 Concentration check negates the effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-slapping-hand-817",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-striking-fist-2962": {
+      "name": "Bigby's Striking Fist",
+      "sourceSha256": "03f642afcc81706107a716f1310678f3ceff12dbd0db314953fe993b0159842d",
+      "effectSummary": "Creates a force fist that attacks with bonus equal to caster level + the caster's key ability modifier +2. It deals 1d6 nonlethal damage per two caster levels, maximum 5d6, and attempts a bull rush with +4 plus +1 per two caster levels. A successful Reflex save halves the damage and prevents the bull rush. Movement caused by the bull rush does not provoke attacks of opportunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-striking-fist-2962",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-tripping-hand-2963": {
+      "name": "Bigby's Tripping Hand",
+      "sourceSha256": "e28676ed091929204f9a6fb2f0c5aec5148ca093606399d34592cb0f3ba8e799",
+      "effectSummary": "Creates a force hand that attempts to trip one creature without provoking attacks of opportunity. Its attack bonus equals caster level + the caster's key ability modifier +2, and it gains +1 on the trip attempt per three caster levels, maximum +5 at 15th level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-tripping-hand-2963",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/bigbys-warding-hand-2964": {
+      "name": "Bigby's Warding Hand",
+      "sourceSha256": "bb9e193c44d132fbb7d54d5536399a6cad61778504c7f27387bb522b673d4d90",
+      "effectSummary": "Creates a force hand that hinders one designated creature, with retargeting as a move action. Huge or larger creatures are unaffected. Each round the target tries to move, it must make a Strength check against DC 12 + the caster's key ability modifier; failure reduces its movement to half speed for that round. The hand has hit points equal to half the caster's full normal hit points, AC 20, and the caster's save bonuses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-warding-hand-2964",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-interposing-hand-2587",
+          "role": "primary-site rules dependency for Bigby's hand variants where explicitly referenced"
+        }
+      ]
+    },
+    "spells/billims-bifrost-bridge-4998": {
+      "name": "Billim's Bifrost Bridge",
+      "sourceSha256": "939730938a13749c4f22398f23d8cee90c947fe34955b2730b8c8f58572ce992",
+      "effectSummary": "Creates an anchored solid-crystal bridge joining two points within range. The bridge must form through unoccupied space with a smooth, unbroken surface and cannot rise or descend more steeply than 45 degrees. It is 1 inch thick per four caster levels and supports 1,000 pounds per inch of thickness; exceeding that load causes it to crumble immediately and vanish within 1 round. Each 5-foot square has 15 hit points per inch of thickness and hardness 5. Reducing any part to 0 hit points collapses the entire bridge.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/billims-bifrost-bridge-4998",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bind-to-hell-1167": {
+      "name": "Bind to Hell",
+      "sourceSha256": "641c64528e475312726b2a567ba2a80950773b08229c949c072cc13c9f13efa5",
+      "effectSummary": "Enchants one weapon against a specific named or described creature. If that creature is reduced to -10 or fewer hit points by a blow from the weapon before the spell ends, its soul is transported to the Hall of the Vanquished in Stygia and cannot be restored by raise dead, reincarnation, resurrection, or similar effects while imprisoned there. One weapon can hold only one bind to Hell at a time. A chosen trigger word can animate or refreeze the trapped soul's manifestation. If a nonoutsider soul is removed from the Hall, it immediately passes to its proper afterlife and can again be restored to life. Only divine casters who worship Levistus can use the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bind-to-hell-1167",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/binding-2528": {
+      "name": "Binding",
+      "sourceSha256": "b4c52f5f75be0c134776fcdd206478e2be325f88efeb4663afaab9d48f9ed9c5",
+      "effectSummary": "Creates one of six magical restraints. A target receives an initial save only if its Hit Dice are at least half the caster's level. Up to six assistants can raise effective caster level: each suggestion adds +1, while an appropriate dominate animal, person, or monster adds one-third of that assistant's level. A release condition can be specified using observable actions or qualities, including name, identity, or alignment but not class, level, Hit Dice, or hit points; adding such a condition raises save DC by 2. Chaining confines the subject in place for 1 year/level behind antipathy-producing restraints. Slumber makes it comatose without aging or bodily needs for 1 year/level and reduces save DC by 1. Bound Slumber combines both for 1 month/level and reduces DC by 2. Hedged Prison permanently confines the subject within a bounded area and reduces DC by 3. Metamorphosis permanently holds a mostly gaseous but aware subject in a container, unable to attack or use abilities and without bodily needs or aging, reducing DC by 4. Minimus Containment permanently shrinks the subject to 1 inch or less inside a gem, jar, or similar object, also without bodily needs or aging, reducing DC by 4. Limited-duration bindings can overlap, with a save when the first expires that can break all. Dispel magic cannot end binding, though antimagic field and Mordenkainen's disjunction affect it; a bound extraplanar creature cannot be dismissed or banished. The spell requires 500 gp of form-specific props, opals worth at least 500 gp per target Hit Die, and a depiction of the subject.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/binding-2528",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/binding-chain-of-fate-342": {
+      "name": "Binding Chain of Fate",
+      "sourceSha256": "497ec94e520bf6b2b288bac185c4c1f2cbfe7bf92f17e0bf536a4f4487a7a2a1",
+      "effectSummary": "On a failed save, creates a force chain in a ring 5 feet from the target. The target cannot leave the ring, while other creatures can cross it with DC 15 Escape Artist or Tumble. It safely suspends a flying target, prevents form-changing, acts as dimensional anchor, deals 2d6 force damage to the target each round, and suppresses all magic inside as antimagic field, preventing the target from using magic and outside magic from affecting it. The chain cannot be dispelled but is destroyed by disintegrate, Mordenkainen's disjunction, or a rod of cancellation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/binding-chain-of-fate-342",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/binding-snow-1299": {
+      "name": "Binding Snow",
+      "sourceSha256": "fcc0c4ba874d5d2623ba06804cda04a21e943b310eabe2538df1bbbfd7d3fc6c",
+      "effectSummary": "Freezes an existing snow field and impedes movement. A creature caught in the area moves at half speed unless it succeeds on Strength DC 20 or Escape Artist DC 25 for that round. A creature that succeeds on the initial Reflex save is not impeded.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/binding-snow-1299",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/binding-winds-1660": {
+      "name": "Binding Winds",
+      "sourceSha256": "20c5948df2020c4900a1860afa3d091a7cdc00630b9fd02fdacae191857a1089",
+      "effectSummary": "Creates stationary winds around the subject. The target can act normally but cannot leave its current location; flying creatures are held in midair. The target can speak but cannot be heard and can hear only the roar of the winds. Sonic and language-dependent effects cannot pass into or out of the winds, though spells the caster casts on themself work normally. Ranged attacks into or out of the winds take -2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/binding-winds-1660",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/binding-winds-3947": {
+      "name": "Binding Winds",
+      "sourceSha256": "fdc8eee07631af298e8fe7d55413fcdd570a3f8ee92fca8172ec6441cbf3f491",
+      "effectSummary": "Creates stationary winds around the subject. The target can act normally but cannot leave its current location; flying creatures are held in midair. The target can speak but cannot be heard and can hear only the roar of the winds. Casting any spell while inside requires a Concentration check against DC equal to this spell's save DC + the level of the spell being cast. Sonic and language-dependent effects cannot pass into or out of the winds, while ranged attacks into or out of them take -2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/binding-winds-3947",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
