@@ -127,7 +127,7 @@ def wikidot_rows(category, delay):
     return discover(page)
 
 
-def wikidot_preflight(sample_size, delay, strict=True, only=None):
+def wikidot_preflight(sample_size, delay, strict=True, only=None, shard_count=1, shard_index=0):
     results = []
     for category in ["classes", "spells", "feats", "items"]:
         full_name = "5e/" + category
@@ -147,7 +147,10 @@ def wikidot_preflight(sample_size, delay, strict=True, only=None):
                 "examples":[{"name":"INDEX DISCOVERY","url":w5.INDEX_URLS.get(category,""),"error":str(exc)[:240]}],
             })
             continue
+        discovered_ids=[row.get("id") for row in rows]
         sample = rows if category == "classes" or sample_size is None else even_sample(rows, sample_size)
+        if sample_size is None and shard_count > 1:
+            sample = shard_rows(sample, shard_count, shard_index)
         for row in sample:
             page = None
             try:
@@ -168,12 +171,22 @@ def wikidot_preflight(sample_size, delay, strict=True, only=None):
                         "tableHeaders": [table[0] for table in page.tables[:4] if table],
                     }
                 failures.append({
+                    "id": row.get("id"),
                     "name": row.get("name"),
                     "url": row.get("url"),
                     "error": str(exc)[:240],
                     **snapshot,
                 })
-        results.append(summarize("5e/" + category, passed, failed, failures))
+        summary=summarize(
+            "5e/" + category,
+            passed,
+            failed,
+            failures,
+            record_ids=[row.get("id") for row in sample],
+        )
+        if sample_size is None:
+            summary["discoveredRecordIds"]=discovered_ids
+        results.append(summary)
     return results
 
 
@@ -189,7 +202,7 @@ def main():
     ap.add_argument("--full", action="store_true",
                     help="Audit every discovered record instead of sampling.")
     ap.add_argument("--shard-count", type=int, default=1,
-                    help="Split a full selected 3.5 catalog into deterministic read-only shards.")
+                    help="Split a full selected category into deterministic read-only shards.")
     ap.add_argument("--shard-index", type=int, default=0,
                     help="Zero-based shard index used with --shard-count.")
     ap.add_argument("--report", type=Path,
@@ -205,8 +218,8 @@ def main():
     if args.shard_count > 1 and not args.full:
         ap.error("Sharding is only valid with --full")
     selected = set(args.only or [])
-    if args.shard_count > 1 and (not selected or any(not x.startswith("3.5/") for x in selected)):
-        ap.error("Sharded preflight currently requires explicit 3.5 --only categories")
+    if args.shard_count > 1 and len(selected) != 1:
+        ap.error("Sharded preflight requires exactly one explicit --only category")
     dnd_sample = None if args.full else args.dnd_sample
     wikidot_sample = None if args.full else args.wikidot_sample
     started = time.time()
@@ -219,7 +232,14 @@ def main():
         shard_count=args.shard_count,
         shard_index=args.shard_index,
     ))
-    results.extend(wikidot_preflight(wikidot_sample, args.delay, strict=True, only=selected))
+    results.extend(wikidot_preflight(
+        wikidot_sample,
+        args.delay,
+        strict=True,
+        only=selected,
+        shard_count=args.shard_count,
+        shard_index=args.shard_index,
+    ))
 
     complete_scope = bool(args.full and args.shard_count == 1)
     report = {

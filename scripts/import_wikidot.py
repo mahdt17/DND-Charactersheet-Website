@@ -61,6 +61,10 @@ def clean(value: str) -> str:
     return " ".join(html.unescape(value or "").replace("\xa0"," ").split()).strip()
 
 
+def shard_rows(rows, shard_count, shard_index):
+    return [row for i,row in enumerate(rows) if i % shard_count == shard_index]
+
+
 class Page(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -647,11 +651,11 @@ def enrich(rows,limit,delay):
     return out
 
 
-def classes(delay):
+def classes(delay, source_rows=None):
     rows=[]
-    for name in CLASS_URLS:
-        url=BASE+"/"+name
-        row=source_record(name.title(),url,"class")
+    source_rows=source_rows or [source_record(name.title(),BASE+"/"+name,"class") for name in CLASS_URLS]
+    for row in source_rows:
+        url=row["url"]
         page=parse(url,delay)
         result=parse_class_detail(row,page)
         validate_detail(row,page,result)
@@ -662,15 +666,16 @@ def classes(delay):
     return rows
 
 
-def save(category,rows,write,candidate_dir=None):
+def save(category,rows,write,candidate_dir=None,shard_count=1,shard_index=0):
     rows.sort(key=lambda r:(r["name"].casefold(),r["id"]))
     if write:
         OUTPUT.mkdir(parents=True,exist_ok=True)
         path=OUTPUT/f"{category}.json"
         path.write_text(json.dumps(rows,ensure_ascii=False)+"\n",encoding="utf-8")
     if candidate_dir is not None:
-        target=candidate_dir/"wikidot5e"/f"{category}.json"
-        target.parent.mkdir(parents=True,exist_ok=True)
+        target_dir=candidate_dir/"wikidot5e"
+        target_dir.mkdir(parents=True,exist_ok=True)
+        target=target_dir/(f"{category}-shard-{shard_index}.json" if shard_count>1 else f"{category}.json")
         target.write_text(json.dumps(rows,ensure_ascii=False)+"\n",encoding="utf-8")
     return {"id":category,"count":len(rows),"write":write,"candidate":str(candidate_dir) if candidate_dir else None}
 
@@ -698,6 +703,9 @@ def self_test():
     assert c["hit_die"]==10 and c["saving_throws"]==["Strength","Constitution"]
     assert "13 or higher" in c["multiclassRequirement"] and c["advancement"][0]["Features"].startswith("Fighting Style")
     validate_detail(source_record("Fighter",BASE+"/fighter","class"),p,c)
+    assert [r["id"] for r in shard_rows([
+        {"id":"a"},{"id":"b"},{"id":"c"},{"id":"d"}
+    ],2,1)]==["b","d"]
     print("PASS 5e Wikidot structured importer")
 
 
@@ -740,23 +748,37 @@ def main():
     ap.add_argument("--write",action="store_true",help="Persist catalog files. Blocked without a passing full-catalog audit.")
     ap.add_argument("--audit-report",help="Path to a strict full-catalog preflight report required for --write.")
     ap.add_argument("--candidate-dir",type=Path,help="Write dry-run candidate JSON here; never modifies the bundled catalog.")
+    ap.add_argument("--shard-count",type=int,default=1)
+    ap.add_argument("--shard-index",type=int,default=0)
     ap.add_argument("--self-test",action="store_true")
     args=ap.parse_args()
     if args.self_test:
         self_test();return
+    if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
+        ap.error("--shard-index must be within 0..--shard-count-1")
+    if args.shard_count > 1 and args.write:
+        ap.error("Sharded imports are candidate-only and cannot use --write")
     if args.write and not audit_report_allows_write(args.audit_report):
         raise SystemExit("--write is locked until a strict full-catalog audit report passes with zero critical gaps.")
-    manifest={"source":BASE,"kind":"structured-reference-index","complete":args.limit is None,"categories":[],"generatedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime()),"write":args.write}
+    manifest={"source":BASE,"kind":"structured-reference-index","complete":args.limit is None and args.shard_count==1,"categories":[],"generatedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime()),"write":args.write}
     for category in args.categories:
         if category=="classes":
-            rows=classes(args.delay)
+            source_rows=[source_record(name.title(),BASE+"/"+name,"class") for name in CLASS_URLS]
+            if args.shard_count>1:
+                source_rows=shard_rows(source_rows,args.shard_count,args.shard_index)
+            rows=classes(args.delay,source_rows)
             if args.limit is not None:
                 rows=rows[:args.limit]
         else:
             index=parse(INDEX_URLS[category],args.delay)
-            rows={"spells":discover_spells,"feats":discover_feats,"items":discover_items}[category](index)
-            rows=enrich(rows,args.limit,args.delay)
-        manifest["categories"].append(save(category,rows,args.write,args.candidate_dir))
+            source_rows={"spells":discover_spells,"feats":discover_feats,"items":discover_items}[category](index)
+            if args.shard_count>1:
+                source_rows=shard_rows(source_rows,args.shard_count,args.shard_index)
+            rows=enrich(source_rows,args.limit,args.delay)
+        manifest["categories"].append(save(
+            category,rows,args.write,args.candidate_dir,
+            shard_count=args.shard_count,shard_index=args.shard_index
+        ))
     if args.write:
         OUTPUT.mkdir(parents=True,exist_ok=True)
         (OUTPUT/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")

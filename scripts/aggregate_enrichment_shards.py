@@ -1,4 +1,4 @@
-"""Aggregate deterministic 3.5 enrichment shard reports into one full-category source audit."""
+"""Aggregate deterministic enrichment shard reports into one full-category source audit."""
 from __future__ import annotations
 
 import argparse
@@ -6,20 +6,21 @@ import json
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-CATALOG=ROOT/"public"/"catalogs"/"dndtools"
-FILES={
+DND_CATALOG=ROOT/"public"/"catalogs"/"dndtools"
+DND_FILES={
     "3.5/classes":"classes.json",
     "3.5/feats":"feats.json",
     "3.5/spells":"spells.json",
     "3.5/items":"items.json",
     "3.5/equipment":"equipment.json",
 }
+SCOPES=set(DND_FILES)|{"5e/classes","5e/spells","5e/feats","5e/items"}
 
 
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--reports-dir",type=Path,required=True)
-    ap.add_argument("--category",choices=sorted(FILES),required=True)
+    ap.add_argument("--category",choices=sorted(SCOPES),required=True)
     ap.add_argument("--output",type=Path,required=True)
     args=ap.parse_args()
 
@@ -44,14 +45,7 @@ def main():
     elif sorted(shard_indexes)!=list(range(shard_count)):
         errors.append(f"incomplete shard indexes: {sorted(shard_indexes)}")
 
-    catalog_rows=json.loads((CATALOG/FILES[args.category]).read_text(encoding="utf-8"))
-    expected_ids=[row.get("id") for row in catalog_rows]
-    expected_set=set(expected_ids)
-    seen=[]
-    failures=[]
-    passed=0
-    failed=0
-
+    category_rows=[]
     for path,report in reports:
         if report.get("readOnly") is not True or report.get("strictGameplayCompleteness") is not True:
             errors.append(f"{path.name}: shard safeguards missing")
@@ -59,7 +53,32 @@ def main():
         if len(cats)!=1:
             errors.append(f"{path.name}: category result missing or duplicated")
             continue
-        cat=cats[0]
+        category_rows.append((path,cats[0]))
+
+    if args.category in DND_FILES:
+        catalog_rows=json.loads((DND_CATALOG/DND_FILES[args.category]).read_text(encoding="utf-8"))
+        expected_ids=[row.get("id") for row in catalog_rows]
+    else:
+        discoveries=[]
+        for path,cat in category_rows:
+            ids=cat.get("discoveredRecordIds")
+            if not isinstance(ids,list) or not ids:
+                errors.append(f"{path.name}: missing full discovery ID set")
+                continue
+            discoveries.append(ids)
+        expected_ids=discoveries[0] if discoveries else []
+        expected_set=set(expected_ids)
+        for ids in discoveries[1:]:
+            if set(ids)!=expected_set:
+                errors.append("Wikidot discovery set changed between shards")
+                break
+
+    expected_set=set(expected_ids)
+    seen=[]
+    failures=[]
+    passed=0
+    failed=0
+    for path,cat in category_rows:
         ids=cat.get("recordIds") or []
         if len(ids)!=cat.get("sampled"):
             errors.append(f"{path.name}: record ID count does not match sampled count")
@@ -79,7 +98,7 @@ def main():
     if unexpected:
         errors.append(f"unexpected audited record IDs: {len(unexpected)}")
     if passed+failed!=len(expected_ids):
-        errors.append(f"aggregate result count {passed+failed} != catalog count {len(expected_ids)}")
+        errors.append(f"aggregate result count {passed+failed} != discovered count {len(expected_ids)}")
 
     coverage_ok=not errors
     rate=0.0 if not expected_ids else passed/len(expected_ids)
@@ -92,6 +111,7 @@ def main():
         "failureNames":[f.get("name") for f in failures],
         "failures":failures,
         "examples":failures[:25],
+        "recordIds":expected_ids,
     }
     result={
         "readOnly":True,
