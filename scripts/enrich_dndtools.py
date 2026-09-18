@@ -573,6 +573,12 @@ def self_test():
     print("PASS DnD Tools structured enrichment parser")
 
 
+REQUIRED_AUDIT_CATEGORIES = {
+    "3.5/classes","3.5/feats","3.5/spells","3.5/items","3.5/equipment",
+    "5e/classes","5e/spells","5e/feats","5e/items"
+}
+
+
 def audit_report_allows_write(path: str | None) -> bool:
     if not path:
         return False
@@ -590,6 +596,7 @@ def audit_report_allows_write(path: str | None) -> bool:
         and report.get("passed") is True
         and report.get("criticalMissingCount") == 0
         and float(report.get("minimumRate", 0)) >= 1.0
+        and {row.get("category") for row in report.get("categories",[])} == REQUIRED_AUDIT_CATEGORIES
         and all(float(row.get("successRate",0)) >= 1.0 and row.get("failed",1) == 0 for row in report.get("categories",[]))
     )
 
