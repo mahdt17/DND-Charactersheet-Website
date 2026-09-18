@@ -187,15 +187,18 @@ def parse(url: str, delay: float) -> Page:
 
 
 def next_value(lines, label):
+    target=clean(label).casefold()
     for i,line in enumerate(lines):
         normalized=clean(line)
-        if normalized.casefold()==label.casefold():
+        folded=normalized.casefold()
+        if folded==target:
             for candidate in lines[i+1:]:
                 if clean(candidate):
                     return clean(candidate)
-        m=re.match(rf"^{re.escape(label)}\s*:?[ \t]+(.+)$",normalized,re.I)
-        if m:
-            return clean(m.group(1))
+        if folded.startswith(target):
+            remainder=normalized[len(label):].lstrip(" :\t")
+            if remainder:
+                return clean(remainder)
     return ""
 
 
@@ -305,6 +308,44 @@ def discover_items(page: Page):
     return list(out.values())
 
 
+def has_rule_prose(page, entry_name=""):
+    """Check that substantive gameplay text exists without persisting that text."""
+    start=0
+    expected=identity_key(entry_name)
+    for i,line in enumerate(page.lines):
+        candidate=identity_key(line)
+        if expected and (candidate==expected or candidate.startswith(expected)):
+            start=i+1
+            break
+    ignored_prefixes=(
+        "create account", "toggle navigation", "about", "membership", "help docs",
+        "user guide", "first time user", "quick reference", "creating pages",
+        "editing pages", "navigation bars", "using modules", "templates",
+        "css themes", "site manager", "edit top bar", "edit side bar",
+        "css manager", "recent changes", "list all pages", "click here",
+        "append content", "view and manage", "a few useful tools",
+        "general wikidot", "wikidot.com"
+    )
+    labels={
+        "casting time","range","components","duration","source","prerequisite","prerequisites",
+        "hit dice","hit points at 1st level","hit points at higher levels","armor","weapons",
+        "tools","saving throws","skills"
+    }
+    for line in page.lines[start:]:
+        value=clean(line)
+        folded=value.casefold()
+        if not value or folded in labels or folded.startswith(ignored_prefixes):
+            continue
+        if len(value)>=55:
+            return True
+    return False
+
+
+def heading_present(page, heading):
+    target=clean(heading).casefold()
+    return any(clean(h).casefold()==target for h in page.headings)
+
+
 def parse_spell_detail(row,page):
     lines=page.lines
     source=source_line(lines)
@@ -337,7 +378,8 @@ def parse_spell_detail(row,page):
             result["classes"]=[clean(x) for x in m.group(1).split(",") if clean(x)]
             break
     result["concentration"]="concentration" in result.get("duration","").casefold()
-    result["ritual"]=any(re.search(r"\britual\b",line,re.I) for line in lines[:25])
+    result["ritual"]=any(re.search(r"\britual\b",line,re.I) for line in lines)
+    result["mechanicsPresence"]={"ruleProse":has_rule_prose(page,row.get("name",""))}
     return result
 
 
@@ -350,6 +392,11 @@ def parse_feat_detail(row,page):
     prereq=next_value(page.lines,"Prerequisite") or next_value(page.lines,"Prerequisites")
     if prereq:
         result["prerequisites"]=[{"kind":"text","label":"Prerequisite","text":prereq}]
+    labeled=any(clean(line).casefold() in ("prerequisite","prerequisites") or clean(line).casefold().startswith(("prerequisite:","prerequisites:")) for line in page.lines)
+    result["mechanicsPresence"]={
+        "ruleProse":has_rule_prose(page,row.get("name","")),
+        "prerequisiteLabeled":labeled
+    }
     return result
 
 
@@ -373,7 +420,10 @@ def parse_class_detail(row,page):
     armor=next_value(lines,"Armor")
     weapons=next_value(lines,"Weapons")
     tools=next_value(lines,"Tools")
+    skills=next_value(lines,"Skills")
     result["proficiencies"]=[x for x in [armor,weapons,tools] if x and x.casefold()!="none"]
+    if skills:
+        result["skills"]=skills
     source=source_line(lines)
     if source:
         result["sourceBook"]=source
@@ -396,6 +446,11 @@ def parse_class_detail(row,page):
                 for r in data_rows if r
             ]
             break
+    result["mechanicsPresence"]={
+        "ruleProse":has_rule_prose(page,row.get("name","")),
+        "classFeatures":heading_present(page,"Class Features"),
+        "startingEquipment":heading_present(page,"Equipment")
+    }
     return result
 
 
@@ -415,6 +470,8 @@ def parse_item_detail(row,page):
             if "requires attunement" in low:
                 result["attunement"]=True
             break
+    result.setdefault("attunement",False)
+    result["mechanicsPresence"]={"ruleProse":has_rule_prose(page,row.get("name",""))}
     return result
 
 
@@ -424,6 +481,43 @@ def identity_key(value):
     value=re.sub(r"\s+-\s+DND\s+5th\s+Edition.*$","",value,flags=re.I)
     value=value.replace("’","'").casefold()
     return re.sub(r"[^a-z0-9]+","",value)
+
+
+def enrichment_gaps(row,result):
+    """Gameplay-critical completeness contract. Any gap blocks enrichment release."""
+    category=row["category"]
+    presence=result.get("mechanicsPresence") or {}
+    gaps=[]
+    if category=="spell":
+        for key in ("level","school","casting_time","components","range","duration","classes"):
+            if result.get(key) in (None,"",[]):
+                gaps.append(key)
+        if not presence.get("ruleProse"):
+            gaps.append("spellEffect")
+    elif category=="class":
+        for key in ("hit_die","saving_throws","progression","multiclassRequirement","proficiencies","skills"):
+            if result.get(key) in (None,"",[]):
+                gaps.append(key)
+        if not presence.get("classFeatures"):
+            gaps.append("classFeatures")
+        if not presence.get("startingEquipment"):
+            gaps.append("startingEquipment")
+        if not presence.get("ruleProse"):
+            gaps.append("classRuleText")
+    elif category=="feat":
+        if presence.get("prerequisiteLabeled") and not result.get("prerequisites"):
+            gaps.append("prerequisites")
+        if not presence.get("ruleProse"):
+            gaps.append("featEffect")
+    elif category=="item":
+        for key in ("itemType","rarity"):
+            if result.get(key) in (None,""):
+                gaps.append(key)
+        if "attunement" not in result:
+            gaps.append("attunement")
+        if not presence.get("ruleProse"):
+            gaps.append("itemEffect")
+    return sorted(set(gaps))
 
 
 def validate_detail(row,page,result):
@@ -471,10 +565,11 @@ def enrich(rows,limit,delay):
             page=parse(row["url"],delay)
             result=DETAIL_PARSERS[row["category"]](row,page)
             validate_detail(row,page,result)
+            gaps=enrichment_gaps(row,result)
             result.pop("_detailLevelParsed",None)
             result["enrichment"]={
-                "version":1,"validated":True,"structuredOnly":True,
-                "source":"D&D 5e Wikidot",
+                "version":1,"validated":True,"partial":bool(gaps),"missingExpected":gaps,
+                "structuredOnly":True,"source":"D&D 5e Wikidot",
                 "fetchedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())
             }
             out.append(result)
@@ -493,7 +588,8 @@ def classes(delay):
         page=parse(url,delay)
         result=parse_class_detail(row,page)
         validate_detail(row,page,result)
-        result["enrichment"]={"version":1,"validated":True,"structuredOnly":True,"source":"D&D 5e Wikidot","fetchedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())}
+        gaps=enrichment_gaps(row,result)
+        result["enrichment"]={"version":1,"validated":True,"partial":bool(gaps),"missingExpected":gaps,"structuredOnly":True,"source":"D&D 5e Wikidot","fetchedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())}
         rows.append(result)
     return rows
 
