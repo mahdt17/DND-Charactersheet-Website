@@ -1,0 +1,63 @@
+name: Full enrichment audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [codex/content-foundation]
+    paths:
+      - ".github/enrichment-full-audit.request"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: enrichment-full-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        shard:
+          - { key: d35-classes, category: "3.5/classes" }
+          - { key: d35-feats, category: "3.5/feats" }
+          - { key: d35-spells, category: "3.5/spells" }
+          - { key: d35-items, category: "3.5/items" }
+          - { key: d35-equipment, category: "3.5/equipment" }
+          - { key: e5-classes, category: "5e/classes" }
+          - { key: e5-spells, category: "5e/spells" }
+          - { key: e5-feats, category: "5e/feats" }
+          - { key: e5-items, category: "5e/items" }
+    steps:
+      - uses: actions/checkout@v4
+      - run: python --version
+      - name: Audit ${{ matrix.shard.category }}
+        run: python scripts/preflight_enrichment.py --full --min-rate 1.0 --delay 0.15 --only "${{ matrix.shard.category }}" --report "test-results/${{ matrix.shard.key }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-full-${{ matrix.shard.key }}
+          path: test-results/${{ matrix.shard.key }}.json
+
+  merge:
+    runs-on: ubuntu-latest
+    needs: audit
+    if: always()
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: enrichment-full-*
+          path: test-results/shards
+          merge-multiple: true
+      - name: Merge full audit
+        run: python scripts/merge_enrichment_audits.py test-results/shards/*.json --output test-results/enrichment-full-audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-full-audit
+          path: test-results/enrichment-full-audit.json
