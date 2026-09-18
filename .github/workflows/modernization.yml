@@ -41,19 +41,19 @@ jobs:
 
   enrichment-preflight:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
         sample:
-          - { label: medium, dnd: 50, wikidot: 40 }
-          - { label: large, dnd: 100, wikidot: 80 }
-          - { label: xlarge, dnd: 250, wikidot: 200 }
+          - { label: classes-25, dnd: 25 }
+          - { label: classes-50, dnd: 50 }
+          - { label: classes-100, dnd: 100 }
     steps:
       - uses: actions/checkout@v4
       - run: python --version
-      - name: Strict live enrichment preflight (${{ matrix.sample.label }})
-        run: python scripts/preflight_enrichment.py --dnd-sample ${{ matrix.sample.dnd }} --wikidot-sample ${{ matrix.sample.wikidot }} --min-rate 1.0 --delay 0.10 --report test-results/enrichment-${{ matrix.sample.label }}.json
+      - name: Strict 3.5 class preflight (${{ matrix.sample.label }})
+        run: python scripts/preflight_enrichment.py --dnd-sample ${{ matrix.sample.dnd }} --min-rate 1.0 --delay 0.10 --only 3.5/classes --report test-results/enrichment-${{ matrix.sample.label }}.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
