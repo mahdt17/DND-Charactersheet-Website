@@ -1,5 +1,138 @@
 {
   "schemaVersion": 1,
   "purpose": "Reviewed concise gameplay summaries for long D&D 3.5 spell effects. These are derived summaries, not source-omission supplements. Each entry is locked to the exact reviewed source effect by SHA-256; source drift fails validation.",
-  "entries": {}
+  "entries": {
+    "spells/abate-dracorage-1094": {
+      "name": "Abate Dracorage",
+      "sourceSha256": "ccc1608c70cf1d28bababb786efd75d82da61296fad4d6a4c9daab8d384702ce",
+      "effectSummary": "Restores 5 points of Wisdom damage caused by the Dracorage, improves the dragon's attitude toward nondragons by one step, and prevents further Dracorage saves for 1 day per caster level (maximum 20 days). It also counters or dispels aggravate Dracorage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/abate-dracorage-1094",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aberrate-226": {
+      "name": "Aberrate",
+      "sourceSha256": "9099d786d8c74861f7955cb3bbb63c0e10bb62c39cd7903606f0b4e835a9b5bc",
+      "effectSummary": "Changes the target's type to aberration and grants a +1 natural armor bonus to AC per four caster levels, to a maximum of +5.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aberrate-226",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ability-rip-3252": {
+      "name": "Ability Rip",
+      "sourceSha256": "90c8a4afbc732d8bb1f6579a05ed00802de1d1bf8f4bc414678586164433dae3",
+      "effectSummary": "Transfers one supernatural ability from one conscious creature to another within 30 feet. The recipient permanently gives up one of its own supernatural abilities, or loses 2 class levels (or 2 Hit Dice if it has no class levels); class features cannot be transferred, normal body/size/use requirements still apply, and either subject can negate the transfer with a Fortitude save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ability-rip-3252",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ablative-armor-4941": {
+      "name": "Ablative Armor",
+      "sourceSha256": "45a019f9a451d2cf9103a29ba28d093a8b2e7d6fc8aa3fb0ea62f627775f7b76",
+      "effectSummary": "The infused armor provides one-time damage reduction 5/- against the next damaging attack, then the infusion ends; damage that bypasses damage reduction also bypasses this protection. The reduction increases by 1 per caster level above 1st, up to 15/- at 10th level, and certain House Deneith affiliations grant +1 caster level for this infusion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ablative-armor-4941",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aboleth-curse-3352": {
+      "name": "Aboleth Curse",
+      "sourceSha256": "31d5e301d89c34ae26a45c895df6198a5667c3bc06c5f171fd58a041648c0c3a",
+      "effectSummary": "The touched creature's skin becomes a membrane that must be kept wet with cool fresh water or it takes 1d12 damage every 10 minutes. Its natural armor bonus decreases by 1 (minimum 0; magic-item armor is unaffected); the curse cannot be dispelled, can be removed by remove curse only within 24 hours, and afterward requires heal, mass heal, limited wish, miracle, or wish.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aboleth-curse-3352",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/abolish-shadows-3455": {
+      "name": "Abolish Shadows",
+      "sourceSha256": "df370827020b468ab973e19357795f9619ba94794c56b08ae1c7de7d4deb49d4",
+      "effectSummary": "Shadow creatures in the area take 1d6 damage per caster level (maximum 10d6), with a Fortitude save for half. Shadow-subschooled or darkness-descriptor spells in the area can also be dispelled with a check of 1d20 + caster level (maximum +10) against DC 11 + the target spell's caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/abolish-shadows-3455",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/absolute-steel-3641": {
+      "name": "Absolute Steel",
+      "sourceSha256": "0df1e017ce299610622a4e602685af7d9585f55b3be43c96ac48918a1b10fd59",
+      "effectSummary": "While in this stance, you gain a +10-foot enhancement bonus to speed. If you move at least 10 feet during your turn, you also gain a +2 dodge bonus to AC until the start of your next turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/absolute-steel-3641",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/absorb-mind-151": {
+      "name": "Absorb Mind",
+      "sourceSha256": "56adea7e0a12a7bae9c384c9306e8420cd9f93d423f7b8e8d5a0140cbed66a2a",
+      "effectSummary": "After consuming part of a corpse's brain, you have a 25% chance to recall any important fact the creature knew; skills, feats, spells, and similar learned abilities cannot be gained. Each fact can be checked only once, no new facts can be recalled after the duration ends, and the corruption cost is 2d6 Wisdom damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/absorb-mind-151",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/absorb-strength-197": {
+      "name": "Absorb Strength",
+      "sourceSha256": "c34ad822f38f7e410240e71dcd5c252e52d4469d75e67b745fcea98a4889adf2",
+      "effectSummary": "After consuming part of a corpse's flesh, you gain an enhancement bonus to Strength equal to one-quarter of the creature's Strength score and an enhancement bonus to Constitution equal to one-quarter of its Constitution score. The corruption cost is 2d6 Wisdom damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/absorb-strength-197",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/absorb-weapon-3321": {
+      "name": "Absorb Weapon",
+      "sourceSha256": "b6c223a0fb08d83b3202115bfec6598e91fed8eae2af247679e8b9aee39e0e14",
+      "effectSummary": "Absorbs a light weapon you touch into your arm if it is not possessed by another creature. The weapon is hidden and does not impede movement, detect magic can reveal its aura, and touching the marked spot (as drawing a weapon) or the spell ending returns it to your hand; an intelligent magic weapon receives a saving throw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/absorb-weapon-3321",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/absorb-weapon-3565": {
+      "name": "Absorb Weapon",
+      "sourceSha256": "07026e816eb7e7b8cf82bd7dfab85f26e995301c2e0f2aa28ac594836ab00272",
+      "effectSummary": "Absorbs a weapon that is light for you and not possessed by another creature into your arm. Touching the marked spot (as drawing a weapon) or the spell ending returns it; if you attack with it in the same round, you may feint as a free action with a +4 Bluff bonus, and an intelligent magic weapon receives a saving throw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/absorb-weapon-3565",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/absorb-weapon-409": {
+      "name": "Absorb Weapon",
+      "sourceSha256": "ec23e5d7fed43754324964f411758250a2ff9ea05c58132229d17485f2c768d2",
+      "effectSummary": "Absorbs a weapon that is light for you and not possessed by another creature into your arm. Touching the marked spot (as drawing a weapon) or the spell ending returns it; if you attack with it in the same round, you may feint as a free action with a +4 Bluff bonus, and an intelligent magic weapon receives a saving throw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/absorb-weapon-409",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    }
+  }
 }
