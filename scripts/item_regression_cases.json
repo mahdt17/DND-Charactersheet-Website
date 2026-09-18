@@ -1,6 +1,10 @@
 {
   "purpose": "Permanent strict live regressions for known-problematic D&D 3.x item enrichment records.",
   "recordIds": [
-    "items/saddle-of-speed-2-792"
+    "items/saddle-of-speed-2-792",
+    "items/saddle-of-speed-1-791",
+    "items/saddle-of-speed-3-793",
+    "items/saddle-of-speed-4-794",
+    "items/saddle-of-speed-5-795"
   ]
 }
