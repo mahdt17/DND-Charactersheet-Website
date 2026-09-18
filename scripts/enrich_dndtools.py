@@ -1048,6 +1048,38 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
     return result
 
 
+_ITEM_SOURCE_FALLBACK_CACHE=None
+
+def item_source_fallbacks():
+    """Verified structured fallback sources for catalog records whose source route is broken.
+
+    These are not omission supplements: they are used only when the catalog detail URL
+    itself returns 404, and they retain independent provenance to the archival source.
+    """
+    global _ITEM_SOURCE_FALLBACK_CACHE
+    if _ITEM_SOURCE_FALLBACK_CACHE is None:
+        path=ROOT/"scripts"/"item_source_fallbacks_35.json"
+        payload=json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"entries":{}}
+        _ITEM_SOURCE_FALLBACK_CACHE=payload.get("entries",{})
+    return _ITEM_SOURCE_FALLBACK_CACHE
+
+
+def item_source_fallback_details(entry: dict) -> dict | None:
+    fallback=item_source_fallbacks().get(entry.get("id"))
+    if not fallback:
+        return None
+    if clean(fallback.get("name","")).casefold()!=clean(entry.get("name","")).casefold():
+        raise ValueError(f"Item source fallback identity mismatch for {entry.get('name')}")
+    result={k:v for k,v in fallback.items() if k not in ("name","provenance")}
+    result["sourceFallbackProvenance"]=fallback.get("provenance",[])
+    result["sourceFallbackVerified"]=True
+    result["mechanicsPresence"]={
+        "ruleProse":bool(result.get("effectSummary") or result.get("ruleFamily")),
+        "descriptionCaptured":bool(result.get("effectSummary")),
+    }
+    return result
+
+
 _ITEM_SUPPLEMENT_CACHE=None
 
 def item_supplements():
@@ -1067,7 +1099,7 @@ def apply_item_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Item supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    for key in ("sourceEdition","itemType","bodySlot","effectSummary","ruleFamily","ruleStats","notes"):
+    for key in ("sourceBook","sourceAbbr","sourcePage","sourceEdition","itemType","bodySlot","effectSummary","ruleFamily","ruleStats","notes"):
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
             continue
@@ -1339,12 +1371,28 @@ def candidate_summary(entry: dict, category: str, details: dict) -> str:
     return f"{name} is a D&D 3.5 reference entry. Source: {source}."
 
 
+def extract_entry_details(entry: dict, category: str, delay: float):
+    """Fetch and parse one record, with explicit archival fallback for broken item routes."""
+    try:
+        html_text=fetch(entry["url"],delay)
+        parser=DetailParser()
+        parser.feed(html_text)
+        parser.close()
+        details=PARSERS[category](parser,entry)
+        return parser,details
+    except HTTPError as error:
+        if category=="items" and error.code==404:
+            fallback=item_source_fallback_details(entry)
+            if fallback:
+                parser=DetailParser()
+                parser.feed(f"<h1>{html.escape(clean(entry.get('name','')))}</h1>")
+                parser.close()
+                return parser,fallback
+        raise
+
+
 def enrich_entry(entry: dict, category: str, delay: float) -> dict:
-    html_text = fetch(entry["url"], delay)
-    parser = DetailParser()
-    parser.feed(html_text)
-    parser.close()
-    details = PARSERS[category](parser, entry)
+    parser,details = extract_entry_details(entry,category,delay)
     validate_details(entry, category, parser, details)
     gaps = enrichment_gaps(category, details)
     details["generatedDescription"]=candidate_summary(entry,category,details)
@@ -1589,6 +1637,10 @@ def self_test():
     assert item["effectSummary"].startswith("Enhances the wearer's speed")
     assert item["supplementVerified"] and item["mechanicsPresence"]["ruleProse"]
     assert enrichment_gaps("items",item)==[]
+
+    fallback=item_source_fallback_details({"id":"items/key-of-opening/closing-758","name":"Key of Opening/Closing"})
+    assert fallback and fallback["sourceFallbackVerified"] and fallback["sourceBook"]=="The Mind's Eye [Web 3.0]"
+    assert fallback["ruleStats"]["marketPriceGp"]==400 and fallback["effectSummary"]
 
     print("PASS DnD Tools structured enrichment parser")
 

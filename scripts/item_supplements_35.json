@@ -131,6 +131,23 @@
           "role": "3.0 Speed of Thought feat mechanics cross-check"
         }
       ]
+    },
+    "items/dragonblood-items": {
+      "name": "Dragonblood Items",
+      "sourceBook": "Races of the Dragon",
+      "sourceAbbr": "RDr",
+      "sourcePage": 123,
+      "sourceEdition": "3.5",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dragonblood-items",
+          "role": "primary catalog identity and gameplay rules; source metadata omitted"
+        },
+        {
+          "url": "https://thyamath.com/donjons/%5BDD%5DRaces_of_the_Dragon.pdf",
+          "role": "Races of the Dragon source identification and page-123 cross-check"
+        }
+      ]
     }
   }
 }

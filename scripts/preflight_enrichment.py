@@ -79,11 +79,7 @@ def dndtools_preflight(sample_size, delay, strict=True, only=None, shard_count=1
         for entry in sample:
             parser = None
             try:
-                raw = d35.fetch(entry["url"], delay)
-                parser = d35.DetailParser()
-                parser.feed(raw)
-                parser.close()
-                details = d35.PARSERS[category](parser, entry)
+                parser,details = d35.extract_entry_details(entry,category,delay)
                 d35.validate_details(entry, category, parser, details)
                 gaps = d35.enrichment_gaps(category, details)
                 if strict and gaps:
@@ -92,7 +88,7 @@ def dndtools_preflight(sample_size, delay, strict=True, only=None, shard_count=1
             except Exception as exc:
                 failed += 1
                 snapshot = {}
-                if parser is not None and len(failures) < 2:
+                if parser is not None and len(failures) < 8:
                     snapshot = {
                         "lines": parser.lines[:24],
                         "headings": parser.headings[:12],

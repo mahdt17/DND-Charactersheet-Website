@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified structured source fallbacks for D&D 3.x item records whose catalog detail route is broken. These are distinct from source-omission supplements and are used only after a 404.",
+  "entries": {
+    "items/key-of-opening/closing-758": {
+      "name": "Key of Opening/Closing",
+      "sourceBook": "The Mind's Eye [Web 3.0]",
+      "sourceEdition": "3.0",
+      "bodySlot": "Held",
+      "price": "400 gp",
+      "casterLevel": "3",
+      "effectSummary": "When activated, the key grants its holder the effect of the open/close psionic power.",
+      "ruleStats": {
+        "manifesterLevel": 3,
+        "marketPriceGp": 400,
+        "singleUse": false
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/key-of-opening/closing-758",
+          "role": "catalog identity; generated detail route returns 404 because the source slug contains a slash"
+        },
+        {
+          "url": "https://dndtools.one/items?page=23",
+          "role": "mirror listing confirms item identity, price, slot, source and 3.0 edition"
+        },
+        {
+          "url": "https://www.scribd.com/document/783417905/The-Mind-s-Eye-Archive",
+          "role": "archived Mind's Eye item mechanics and manifester-level cross-check"
+        }
+      ]
+    },
+    "items/oil-of-binding/loosening-760": {
+      "name": "Oil of Binding/Loosening",
+      "sourceBook": "The Mind's Eye [Web 3.0]",
+      "sourceEdition": "3.0",
+      "bodySlot": "Held",
+      "price": "25 gp",
+      "casterLevel": "3",
+      "effectSummary": "A single-use oil applied to two objects; on activation it produces either the bind or loosen effect, chosen when used.",
+      "ruleStats": {
+        "manifesterLevel": 3,
+        "marketPriceGp": 25,
+        "singleUse": true
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/oil-of-binding/loosening-760",
+          "role": "catalog identity; generated detail route returns 404 because the source slug contains a slash"
+        },
+        {
+          "url": "https://dndtools.one/items?items_per_page=20&name=&order=title&page=13&price_gp%5Bmax%5D=&price_gp%5Bmin%5D=&price_gp%5Bvalue%5D=&price_gp_op=%3C%3D&rulebook=&sort=desc",
+          "role": "mirror listing confirms item identity, price, slot, source and 3.0 edition"
+        },
+        {
+          "url": "https://www.scribd.com/document/783417905/The-Mind-s-Eye-Archive",
+          "role": "archived Mind's Eye item mechanics, single-use rule and manifester-level cross-check"
+        }
+      ]
+    }
+  }
+}
