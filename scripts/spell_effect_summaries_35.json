@@ -5666,6 +5666,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
         }
       ]
+    },
+    "spells/bridge-of-sound-3195": {
+      "name": "Bridge of Sound",
+      "sourceSha256": "92da795435d06d477fd32408b42ba0f39adc13654f4f7c2304ea8e5f25f061b4",
+      "effectSummary": "Creates an invisible, weightless, unbreakable bridge of sound anchored to solid objects at both ends. It can be placed at any angle, must be continuous when formed, supports up to 200 pounds per caster level, and is no more slippery than a normal floor. Weight beyond the limit falls through as if the bridge were absent. It blocks solid objects but not spells, line of sight, gaze attacks, ethereal creatures, or incorporeal creatures or objects. Silence temporarily negates any portion in its area, causing creatures or objects there to fall; the bridge returns if the silence ends before the spell does.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bridge-of-sound-3195",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/bright-worms-2918": {
+      "name": "Bright Worms",
+      "sourceSha256": "0e71c3d4984c3cc8797597b567d6f7b26f1adbce4be2b7a6eeb49ba9c1de1a43",
+      "effectSummary": "Creates suspended wormlike strands of living light that avoid the caster's allies and burn enemies in the area. On casting and at the start of each later turn, enemies in the area take 2d6 fire damage, increasing to 3d6 at caster level 11 and 4d6 at caster level 15. Any area spell that deals cold damage destroys the bright worms in the portion of its area that overlaps them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bright-worms-2918",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brilliant-aura-1744": {
+      "name": "Brilliant Aura",
+      "sourceSha256": "3439e56ee18c1e0d5e93f93e0d61a29222bbad232bd08ecceec3f03312257792",
+      "effectSummary": "Affected allies shed torchlike light and all their melee and ranged weapon attacks function as brilliant energy: they ignore nonliving matter and armor bonuses to AC, including armor enhancement bonuses, but cannot harm undead, constructs, or objects. Their attacks also gain an enhancement bonus on damage equal to half caster level, maximum +10.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brilliant-aura-1744",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brilliant-aura-3996": {
+      "name": "Brilliant Aura",
+      "sourceSha256": "475a2d54b1215b210dde489519b1622c3a61c6f7e25e4e83a2098fc0d213e91b",
+      "effectSummary": "Functions like brilliant blade for every weapon of each affected creature. Those weapons gain the brilliant energy special ability, allowing attacks to ignore nonliving matter and armor bonuses to AC while making them unable to harm undead, constructs, or objects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brilliant-aura-3996",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brilliant-aura-734": {
+      "name": "Brilliant Aura",
+      "sourceSha256": "9233f2a28e404e4359630163a691466f17976c4d4f7c6d93730418b08dd546d5",
+      "effectSummary": "Affected allies shed torchlike light and all their melee and ranged weapon attacks function as brilliant energy: they ignore nonliving matter and armor bonuses to AC, including armor enhancement bonuses, but cannot harm undead, constructs, or objects. Their attacks also gain an enhancement bonus on damage equal to half caster level, maximum +10.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brilliant-aura-734",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brilliant-blade-3997": {
+      "name": "Brilliant Blade",
+      "sourceSha256": "74d4d7bac48010ecf0c17e34360b128febf2b7e31a6deacaffc5a955686aa8f0",
+      "effectSummary": "Gives one melee weapon, natural weapon, thrown weapon, or group of projectiles the brilliant energy special ability. Brilliant energy ignores nonliving matter and armor bonuses to AC but cannot harm undead, constructs, or objects. An affected arrow or bolt loses the effect after one use whether it hits or misses; shuriken are treated as arrows for this spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brilliant-blade-3997",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brilliant-blade-537": {
+      "name": "Brilliant Blade",
+      "sourceSha256": "bd73a9acfe5706596414ea7c6e4de43f0cf9e9b21a9ce89ae304610156f7cb18",
+      "effectSummary": "Transforms one melee weapon, thrown weapon, or group of projectiles into brilliant energy. The weapon sheds torchlike light, ignores nonliving matter and armor bonuses to AC including armor enhancement bonuses, but cannot harm undead, constructs, or objects. Other AC bonuses still apply. An affected arrow or bolt loses the effect after one use whether it hits or misses; shuriken are treated as arrows.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brilliant-blade-537",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brilliant-emanation-62": {
+      "name": "Brilliant Emanation",
+      "sourceSha256": "0f4b49cf67c3d8f13423e07570cf5cec2b6931d11119dddc22eaf893f0510ec5",
+      "effectSummary": "Radiates brilliant divine light from reflective objects worn or carried by the caster. Evil creatures in the area that fail a Fortitude save are blinded; evil creatures that save are instead distracted and take -1 on attacks made within the area for the spell's duration. Nonevil creatures suffer no adverse effect. Creatures unable to see visible light are unaffected. Casting inflicts 1d3 Strength damage as a sacrifice cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brilliant-emanation-62",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brilliant-energy-arrow-290": {
+      "name": "Brilliant Energy Arrow",
+      "sourceSha256": "2ed4147db979350dde8abd7e75e8461b8bfec1bba2b676d4170ad39eac30ffd9",
+      "effectSummary": "Transforms one masterwork arrow or bolt into brilliant energy and makes it shed torchlike light. The projectile ignores nonliving matter and armor bonuses to AC, including armor enhancement bonuses, while dealing normal damage; it cannot harm constructs, undead, or objects. It must be fired during the casting round or the magic is lost, and the projectile is destroyed after the shot even if it misses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brilliant-energy-arrow-290",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/bristle-3998": {
+      "name": "Bristle",
+      "sourceSha256": "93ae01fb0cb71b5a2e7e43344779f11b9169bc7cb44c665600c53f08578bbbb6",
+      "effectSummary": "Causes one suit of armor to sprout flexible spikes without hindering its wearer; existing armor spikes do not prevent the spell. Each round, the first time the wearer makes a melee attack, the magical spikes also attack with an attack bonus equal to caster level and deal 2d6 damage on a hit. The wearer's Strength modifier does not add to this damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bristle-3998",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brittleskin-3286": {
+      "name": "Brittleskin",
+      "sourceSha256": "30f1126a64e98418fef4aff37ecca8b4a15c4d10419b6a8ceb73fc69159a076d",
+      "effectSummary": "Crystallizes the target's natural armor without changing its AC. Each time the creature is hit by a melee, ranged, or natural weapon, it takes additional lethal damage equal to its natural armor bonus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brittleskin-3286",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/brumal-stiffening-1301": {
+      "name": "Brumal Stiffening",
+      "sourceSha256": "178d7e5b363978df1cca08662b81401bf6701952262601f9e5634e5c548a7035",
+      "effectSummary": "Makes one weapon brittle, reducing its hardness by 5 for the duration. In addition, whenever an attack roll with that weapon is a natural 1, the weapon takes damage equal to the damage it would have dealt on a successful hit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brumal-stiffening-1301",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/bulls-strength-2788": {
+      "name": "Bull's Strength",
+      "sourceSha256": "8a641f246a9a6967cb96079745e06acccd3b865454504808bed3f478a2cf0ed7",
+      "effectSummary": "Grants the subject a +4 enhancement bonus to Strength, applying normally to melee attacks, melee damage, Strength checks, carrying capacity, and other uses of the Strength modifier.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bulls-strength-2788",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/bulwark-of-reality-3438": {
+      "name": "Bulwark of Reality",
+      "sourceSha256": "d5a5bf2ab9209dbc779c373d0a3db0caa993c70cae30893905eefb8ac44ecf1b",
+      "effectSummary": "Surrounds the caster in a force barrier that grants +6 armor bonus to AC without armor check penalty, arcane spell failure, or speed reduction. Because the armor is force, incorporeal creatures cannot bypass it as they can ordinary armor. Casting requires correctly speaking the caster's personal truename.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bulwark-of-reality-3438",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/buoyant-lifting-3203": {
+      "name": "Buoyant Lifting",
+      "sourceSha256": "ca7179f5a0c8be98659a4baa23fce64ece399e8cce4fa765d9dfb9cece6875ed",
+      "effectSummary": "Raises a willing swimming or floating creature, or an unattended or willingly possessed floating object, on a smooth wave 20 feet above the surrounding water. If an obstruction is lower, the wave raises the subject only until it reaches that obstruction. The subject rests safely atop the wave and can swim away or be moved by others. Removing the subject from the wave causes it to collapse gently and ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/buoyant-lifting-3203",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/buoyant-lifting-3999": {
+      "name": "Buoyant Lifting",
+      "sourceSha256": "756c4c65f8cc53b01cab5f9ec6c2629463b08a78f22cb2edcfc2723deb79ed62",
+      "effectSummary": "Pushes the subjects upward through liquid at 60 feet per round until they reach and float on the surface. A subject on the surface can then swim away or be moved by others. Removing a subject from the liquid ends the spell for that subject.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/buoyant-lifting-3999",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/burial-blessing-929": {
+      "name": "Burial Blessing",
+      "sourceSha256": "a9cb3bed14496ec09bda53bab4041023fa93800678578f7635ddeebb3c32a1e6",
+      "effectSummary": "Wards one corpse against evil influence. Unless the body is desecrated or the blessing is countered, it cannot be magically animated or rise as an undead creature. Anyone trying to disturb the body must make a Will save or flee the location for 1 minute per caster level. If the corpse is restored to life, the blessing ends. Casting costs 100 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burial-blessing-929",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/burning-blade-3568": {
+      "name": "Burning Blade",
+      "sourceSha256": "468d0cdb63d7dc51ca5ed499369a6783cd03e564cc94825be61673ebc5f0216a",
+      "effectSummary": "As a supernatural boost, causes fire to trail from the initiator's melee weapon. For the rest of that turn, the initiator's melee attacks deal +1d6 fire damage plus 1 additional fire damage per initiator level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burning-blade-3568",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/burning-blood-1029": {
+      "name": "Burning Blood",
+      "sourceSha256": "696e809b2712c0793125baf89bec8eee039c1fbee69756f5ab702eef200761e9",
+      "effectSummary": "Requires a breath weapon that deals acid, cold, electricity, or fire. The caster's blood becomes charged with that same energy. Whenever a natural or manufactured weapon damages the caster, blood erupts in a 5-foot-radius burst from the wound and deals energy damage equal to caster level to creatures in the burst. The spell gains the descriptor matching that energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burning-blood-1029",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
+    },
+    "spells/burning-blood-4000": {
+      "name": "Burning Blood",
+      "sourceSha256": "a650080909f2989762954111f4f4f8a4856579a216c97f84b298d81b5eff3527",
+      "effectSummary": "Taints one living creature's blood. Each round the target must make a Fortitude save; failure deals 1d8 acid damage plus 1d8 fire damage and limits the creature to a single move action that round, while success negates that round's damage but does not end the spell. Constructs, elementals, oozes, plants, and undead are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/burning-blood-4000",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics; fresh table-aware export confirmed no structured table dependency"
+        }
+      ]
     }
   }
 }
