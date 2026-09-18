@@ -27,10 +27,7 @@ export function useReferenceIndex() {
           category:type,
           source:'DnD Tools',
           sourceUrl:r.url,
-          referenceOnly:true,
-          description:'',
-          classes:[],
-          level:null
+          referenceOnly:true
         }));
       }));
       if(!controller.signal.aborted)setState({entries:groups.flat(),loading:false,error:''});
