@@ -28,6 +28,7 @@ jobs:
       - run: python scripts/preflight_35_class_regressions.py
       - run: python scripts/preflight_35_feat_regressions.py
       - run: python scripts/preflight_35_spell_regressions.py
+      - run: python scripts/preflight_35_item_regressions.py
       - run: python scripts/import_wikidot.py --self-test
       - run: python scripts/preflight_5e_item_regressions.py
       - run: python scripts/audit_srd2024.py
