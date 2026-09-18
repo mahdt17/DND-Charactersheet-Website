@@ -79,6 +79,53 @@ jobs:
           name: enrichment-feats-full-report
           path: test-results/enrichment-feats-full.json
 
+  feat-candidate-shard:
+    needs: feat-preflight
+    if: needs.feat-preflight.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build 3.5 feat dry-run candidate shard ${{ matrix.shard }}
+        run: python scripts/enrich_dndtools.py --categories feats --force --delay 0.12 --candidate-dir test-results/candidate-shards --shard-count 8 --shard-index ${{ matrix.shard }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-feats-candidate-shard-${{ matrix.shard }}
+          path: test-results/candidate-shards/dndtools/feats-shard-${{ matrix.shard }}.json
+
+  feat-output-audit:
+    needs: [feat-preflight, feat-candidate-shard]
+    if: always() && needs.feat-preflight.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: enrichment-feats-full-report
+          path: test-results/source-audit
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: enrichment-feats-candidate-shard-*
+          path: test-results/candidate-shards
+          merge-multiple: true
+      - name: Merge exact 3.5 feat candidate shards
+        run: python scripts/aggregate_candidate_shards.py --candidate-root test-results/candidate-shards --category feats --shard-count 8 --output-root test-results/candidates
+      - name: Audit complete 3.5 feat candidate output
+        run: python scripts/audit_enrichment_output.py test-results/candidates --source-audit test-results/source-audit/enrichment-feats-full.json --only 3.5/feats --output test-results/enrichment-feats-output-audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-feats-output-report
+          path: |
+            test-results/enrichment-feats-output-audit.json
+            test-results/candidates/dndtools/feats.json
+
   enrichment-preflight:
     runs-on: ubuntu-latest
     timeout-minutes: 120

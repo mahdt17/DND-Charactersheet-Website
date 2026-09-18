@@ -1080,12 +1080,25 @@ def enrich_entry(entry: dict, category: str, delay: float) -> dict:
     }
 
 
-def run_category(category: str, limit: int | None, delay: float, force: bool, write: bool, candidate_dir: Path | None = None):
+def run_category(
+    category: str,
+    limit: int | None,
+    delay: float,
+    force: bool,
+    write: bool,
+    candidate_dir: Path | None = None,
+    shard_count: int = 1,
+    shard_index: int = 0,
+):
     path = CATALOG / f"{category}.json"
     rows = json.loads(path.read_text(encoding="utf-8"))
     changed = 0
     attempted = 0
+    selected_indexes=[]
     for i, entry in enumerate(rows):
+        if shard_count > 1 and i % shard_count != shard_index:
+            continue
+        selected_indexes.append(i)
         if limit is not None and attempted >= limit:
             break
         if entry.get("enrichment", {}).get("version") == 1 and not force:
@@ -1097,16 +1110,32 @@ def run_category(category: str, limit: int | None, delay: float, force: bool, wr
             print(f"[{category}] {attempted}: {entry['name']}", flush=True)
         except Exception as error:
             print(f"[{category}] FAILED {entry.get('name')}: {error}", flush=True)
-        # Checkpoint after every 25 successful records.
+        # Checkpoint after every 25 successful records. Sharded runs are candidate-only.
         if write and changed and changed % 25 == 0:
             path.write_text(json.dumps(rows, ensure_ascii=False) + "\n", encoding="utf-8")
     if write and changed:
         path.write_text(json.dumps(rows, ensure_ascii=False) + "\n", encoding="utf-8")
     if candidate_dir is not None:
-        target=candidate_dir/"dndtools"/f"{category}.json"
-        target.parent.mkdir(parents=True,exist_ok=True)
-        target.write_text(json.dumps(rows,ensure_ascii=False)+"\n",encoding="utf-8")
-    return {"category":category,"attempted":attempted,"changed":changed,"total":len(rows),"write":write,"candidate":str(candidate_dir) if candidate_dir else None}
+        target_dir=candidate_dir/"dndtools"
+        target_dir.mkdir(parents=True,exist_ok=True)
+        if shard_count > 1:
+            target=target_dir/f"{category}-shard-{shard_index}.json"
+            candidate_rows=[rows[i] for i in selected_indexes]
+        else:
+            target=target_dir/f"{category}.json"
+            candidate_rows=rows
+        target.write_text(json.dumps(candidate_rows,ensure_ascii=False)+"\n",encoding="utf-8")
+    return {
+        "category":category,
+        "attempted":attempted,
+        "changed":changed,
+        "selected":len(selected_indexes),
+        "total":len(rows),
+        "write":write,
+        "candidate":str(candidate_dir) if candidate_dir else None,
+        "shardCount":shard_count,
+        "shardIndex":shard_index,
+    }
 
 
 def self_test():
@@ -1284,14 +1313,28 @@ def main():
     ap.add_argument("--write", action="store_true", help="Persist changes. Blocked without a passing full-catalog audit.")
     ap.add_argument("--audit-report", help="Path to a strict full-catalog preflight report required for --write.")
     ap.add_argument("--candidate-dir",type=Path,help="Write dry-run candidate JSON here; never modifies the bundled catalog.")
+    ap.add_argument("--shard-count",type=int,default=1,help="Split candidate generation into deterministic catalog-index shards.")
+    ap.add_argument("--shard-index",type=int,default=0,help="Zero-based shard index used with --shard-count.")
     ap.add_argument("--self-test", action="store_true")
     args=ap.parse_args()
     if args.self_test:
         self_test()
         return
+    if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
+        ap.error("--shard-index must be within 0..--shard-count-1")
+    if args.shard_count > 1 and args.candidate_dir is None:
+        ap.error("Sharded enrichment is candidate-only and requires --candidate-dir")
+    if args.shard_count > 1 and args.write:
+        raise SystemExit("--write is never allowed for sharded candidate generation.")
     if args.write and not audit_report_allows_write(args.audit_report):
         raise SystemExit("--write is locked until a strict full-catalog audit report passes with zero critical gaps.")
-    results=[run_category(c,args.limit,args.delay,args.force,args.write,args.candidate_dir) for c in args.categories]
+    results=[
+        run_category(
+            c,args.limit,args.delay,args.force,args.write,args.candidate_dir,
+            shard_count=args.shard_count,shard_index=args.shard_index
+        )
+        for c in args.categories
+    ]
     print(json.dumps(results, indent=2))
 
 
