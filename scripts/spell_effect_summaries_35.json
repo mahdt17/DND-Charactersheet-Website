@@ -6327,6 +6327,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/camouflage-mass-1391": {
+      "name": "Camouflage, Mass",
+      "sourceSha256": "1525c1957f23643d3ea29e303b87c6f4b0519a7b4cbfa4802ccd70aa58e4f9e1",
+      "effectSummary": "Functions as camouflage for a group, moving with the affected creatures. An individual's effect ends if that creature moves more than 60 feet from the nearest other affected member. With only two affected creatures, the one moving away loses the effect; if both move apart, both become visible once they exceed 60 feet separation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/camouflage-mass-1391",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/camouflage-mass-1773": {
+      "name": "Camouflage, Mass",
+      "sourceSha256": "181479c53b062ab80d63d0d0698d1bd8712a39da4118ec44428a0ead72041ec8",
+      "effectSummary": "Functions as camouflage for a group, moving with the affected creatures. An individual's effect ends if that creature moves more than 60 feet from the nearest other affected member. With only two affected creatures, the one moving away loses the effect; if both move apart, both become visible once they exceed 60 feet separation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/camouflage-mass-1773",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/camouflage-mass-4011": {
+      "name": "Camouflage, Mass",
+      "sourceSha256": "1eab538ec2b819df5e1d4f9eee6b703946b8a834566ac995f6f51f408386000f",
+      "effectSummary": "Functions as camouflage for a group, moving with the affected creatures. An individual's effect ends if that creature moves more than 60 feet from the nearest other affected member. With only two affected creatures, the one moving away loses the effect; if both move apart, both become visible once they exceed 60 feet separation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/camouflage-mass-4011",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/camouflage-mass-736": {
+      "name": "Camouflage, Mass",
+      "sourceSha256": "cf4bd43ca7b821d62fbe0d627addc1430e42ce7b934e9b3dc908c7f478bfda6a",
+      "effectSummary": "Functions as camouflage for a group, moving with the affected creatures. An individual's effect ends if that creature moves more than 60 feet from the nearest other affected member. With only two affected creatures, the one moving away loses the effect; if both move apart, both become visible once they exceed 60 feet separation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/camouflage-mass-736",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/candlelight-1360": {
+      "name": "Candlelight",
+      "sourceSha256": "b5c9b186500a90171bdfbad71263b1d2cf52a9de592d45fbe0cd53f0df1ff6a9",
+      "effectSummary": "Causes a touched object to shed candlelike light in a 5-foot radius. The light source is fixed to the touched object and moves with it if the object is moved. The light is too weak to counter or dispel magical darkness.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/candlelight-1360",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/capricious-zephyr-4012": {
+      "name": "Capricious Zephyr",
+      "sourceSha256": "f91264991a39042e06e5d51a5ec8fcb9fda11585b35923350f4b284e581aafd5",
+      "effectSummary": "Creates a wind sphere that moves 30 feet per round in a direction chosen by the caster while actively directed with a move action. On entering a creature's space, it stops for the round and makes a bull rush with +6; on success it pushes the creature as far as possible in a random direction, and the pushed creature must make a Reflex save or fall prone. If not actively directed, the sphere remains in place and attempts to bowl over creatures sharing its square. The spell ends if the sphere ever moves beyond the spell's range from the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/capricious-zephyr-4012",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cast-in-stone-1746": {
+      "name": "Cast In Stone",
+      "sourceSha256": "bea4aee14b6d830c320790fdb1b641b7a7fbe55237401bfa6f090f7d23ecd3ab",
+      "effectSummary": "Grants a gaze that permanently turns creatures meeting the caster's eyes into mindless stone statues as flesh to stone. Victims can be restored by the caster with a command word chosen at casting. Creatures can avert their eyes for a 50% chance to avoid the gaze while granting the caster concealment, or fully close/turn away their eyes to avoid the gaze while granting the caster total concealment.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cast-in-stone-1746",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cast-in-stone-3533": {
+      "name": "Cast in Stone",
+      "sourceSha256": "e4247e8a03d9dc51d434d1358ed93b7a32b733cc30b4355f470e7fc625f2720d",
+      "effectSummary": "Grants a 30-foot gaze attack that permanently turns a creature into a mindless stone statue as flesh to stone on a failed Fortitude save. Each creature in range checks against the gaze at the start of its turn, and the caster can also actively target one creature with the gaze as a standard action. Averting eyes gives a 50% chance to avoid the gaze and grants the caster concealment; fully closing or turning away the eyes prevents the gaze but grants total concealment. The caster can release a victim with a command word chosen at casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cast-in-stone-3533",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/castigate-2061": {
+      "name": "Castigate",
+      "sourceSha256": "34e0e87e0fedf2de4fd5daa2aaaf66a222584002f57786b2cd80dfaa8dd704a9",
+      "effectSummary": "Damages creatures according to alignment difference from the caster: creatures differing on one alignment axis take 2d6 damage, while creatures differing on both axes take 5d6. A Fortitude save halves the damage. Any differently aligned creature that fails its save is also deafened for 1d4 rounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/castigate-2061",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/castigate-4013": {
+      "name": "Castigate",
+      "sourceSha256": "b082cac49b6a2228f8b87de4d173ab4d0f5b7c776d5eedc784e9d13037425343",
+      "effectSummary": "Affects only creatures that can hear the caster. Creatures differing from the caster on both alignment axes take 1d4 damage per caster level, maximum 10d4; creatures differing on only one axis take half that amount; creatures sharing the caster's exact alignment take no damage. A Fortitude save halves the resulting damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/castigate-4013",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/castigate-695": {
+      "name": "Castigate",
+      "sourceSha256": "481c0117167e195f7fbf69bedeac8123abb282f6f45501a656a3315c0c924c18",
+      "effectSummary": "Affects only creatures that can hear the caster. Foes of the same alignment are deafened for 1d4 rounds. Foes within one alignment step take 1 damage per caster level, maximum 10, while foes more than one alignment step away take 1d4 damage per caster level, maximum 10d4. A Fortitude save halves the applicable effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/castigate-695",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/castigate-957": {
+      "name": "Castigate",
+      "sourceSha256": "d9862f54c2181bbab054aff66a2ebd5eec4e7b682e0a515e5c62c35951630d1e",
+      "effectSummary": "Affects only creatures that can hear the caster. Foes of the same alignment are deafened for 1d4 rounds. Foes within one alignment step take 1 damage per caster level, maximum 10, while foes more than one alignment step away take 1d4 damage per caster level, maximum 10d4. A saving throw halves the applicable effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/castigate-957",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/castigating-strike-3597": {
+      "name": "Castigating Strike",
+      "sourceSha256": "b06534b5b84bb1deb1e6c79262c5463cf99420eec53c4109c519b1df470113df",
+      "effectSummary": "As part of the maneuver, make one melee attack. If it hits a target whose alignment differs from the initiator's on at least one axis, the target takes +8d6 damage and must make a Fortitude save against DC 17 + Charisma modifier or suffer -2 on attack rolls for 1 minute. Other opponents within 30 feet of the target must also save; failure deals 5d6 damage and imposes the same -2 attack penalty, while success halves the damage and negates the penalty.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/castigating-strike-3597",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cats-grace-2790": {
+      "name": "Cat's Grace",
+      "sourceSha256": "5b65f882a9af71c493c10a5c49a1967f0f2d66c51ee14b4b534f7290397ad0d0",
+      "effectSummary": "Grants the subject a +4 enhancement bonus to Dexterity, applying normally to Armor Class, Reflex saves, Dexterity-based checks, and other uses of the Dexterity modifier.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cats-grace-2790",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/catapult-911": {
+      "name": "Catapult",
+      "sourceSha256": "effd45283fd6f5241804f729e43af2981dbd710695e8f6ca62a84ff58b7e093e",
+      "effectSummary": "Launches one nonliving object held by the caster as a ranged attack with a 30-foot range increment. Do not add an ability modifier to attack or damage; instead, damage gains a competence bonus equal to one-third caster level, maximum +5. A nonweapon object weighing at least 1 pound deals 1d6 base damage. Throwing an object not designed as a weapon incurs the normal -4 nonproficiency penalty. The spell fails if the caster is not holding an object, and it cannot launch living creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/catapult-911",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/caterwaul-809": {
+      "name": "Caterwaul",
+      "sourceSha256": "fa3a607d274b9d52392473f76e8bb118ff17bf51d2bcacfd652e2791a0d495e5",
+      "effectSummary": "Creatures in the area become nauseated for 1 round. A creature that succeeds on its Will save is sickened for 1 round instead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/caterwaul-809",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/catsfeet-870": {
+      "name": "Catsfeet",
+      "sourceSha256": "e118224b939a5e60696c3c868adbd4158dc00bec920865db4bc99f75608c79f5",
+      "effectSummary": "Immediately lets the caster reroll a just-made Balance, Climb, Jump, or Move Silently check with a +5 insight bonus. The second result must be used even if it is worse than the original roll.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/catsfeet-870",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/caustic-mire-773": {
+      "name": "Caustic Mire",
+      "sourceSha256": "ded465c8cddb84113a72d3add1852432a2fb04303527e8e4f274f590cb929954",
+      "effectSummary": "Creates sticky acidic sludge. Entering an affected square costs 2 squares of movement and deals 1d6 acid damage; a creature that remains in place takes 1d6 acid damage at the end of its turn. Fire damage dealt within the mire gains +1 damage per die, minimum +1, because the fumes are flammable.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/caustic-mire-773",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/caustic-smoke-774": {
+      "name": "Caustic Smoke",
+      "sourceSha256": "d04375071c88ea39e3a76ef5a2b22a31f797f558203d346b3ec1cd08bffeb1f8",
+      "effectSummary": "Creates a smoke cloud that obscures sight like fog cloud and deals 1d6 acid damage per round to creatures inside. Each round a creature remains within the cloud, it must make a Fortitude save or take -5 on attack rolls and Search and Spot checks; those penalties last until 2 rounds after it leaves. A creature in the cloud that takes acid damage from another source must make another Fortitude save against this spell's DC or be blinded for 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/caustic-smoke-774",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/celebration-4014": {
+      "name": "Celebration",
+      "sourceSha256": "4c624f3c9b20c284979f97b94461f8c6d833587ceabb5ce3767cb8e2039adbe0",
+      "effectSummary": "On the casting round, creatures that fail their initial save take -2 to Dexterity, Intelligence, and Wisdom. If the caster spends a standard action performing again on the second consecutive round, each affected creature makes another Will save; failure causes nausea, while success prevents the nausea and makes that creature immune to further effects of the spell. If the caster performs for a third consecutive round, remaining affected creatures make another Will save or become unconscious and helpless.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/celebration-4014",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
