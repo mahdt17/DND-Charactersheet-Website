@@ -1334,38 +1334,6 @@
         }
       ]
     },
-    "classes/heir-of-siberys-438": {
-      "name": "Heir of Siberys",
-      "classSkillRule": {
-        "mode": "inherit_from_other_classes"
-      },
-      "provenance": [
-        {
-          "url": "https://new.dndtools.org/classes/heir-of-siberys-438",
-          "role": "primary source explicitly states class skills inherit from the character's other classes"
-        },
-        {
-          "url": "https://www.realmshelps.net/charbuild/classes/prestige/other/heirofsiberys.shtml",
-          "role": "class-skill rule cross-check"
-        }
-      ]
-    },
-    "classes/survivor-822": {
-      "name": "Survivor",
-      "classSkillRule": {
-        "mode": "inherit_from_previous_classes_or_race"
-      },
-      "provenance": [
-        {
-          "url": "https://realmshelps.net/charbuild/classes/prestige/monster/survivor.shtml",
-          "role": "class-skill rule cross-check"
-        },
-        {
-          "url": "https://new.dndtools.org/classes/survivor-822",
-          "role": "primary parsed class statistics, requirements, progression and features"
-        }
-      ]
-    },
     "classes/giant-killer-808": {
       "name": "Giant-killer",
       "sourceEdition": "3.0",
@@ -1508,7 +1476,8 @@
           "role": "primary catalog identity/source pointer"
         }
       ],
-      "notes": "Original source is Silver Marches (3.0-era material)."
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
     },
     "classes/hordebreaker-809": {
       "name": "Hordebreaker",
@@ -1610,7 +1579,8 @@
           "role": "primary catalog identity/source pointer"
         }
       ],
-      "notes": "Original source is Silver Marches (3.0-era material)."
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
     },
     "classes/knight-errant-of-silverymoon-810": {
       "name": "Knight-errant of Silverymoon",
@@ -1772,7 +1742,8 @@
           "role": "primary catalog identity/source pointer"
         }
       ],
-      "notes": "Original source is Silver Marches (3.0-era material)."
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
     },
     "classes/orc-scout-811": {
       "name": "Orc Scout",
@@ -1883,7 +1854,8 @@
           "role": "primary catalog identity/source pointer"
         }
       ],
-      "notes": "Original source is Silver Marches (3.0-era material)."
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
     },
     "classes/wild-scout-813": {
       "name": "Wild Scout",
@@ -2029,7 +2001,8 @@
           "role": "primary catalog identity/source pointer"
         }
       ],
-      "notes": "Original source is Silver Marches (3.0-era material)."
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
     },
     "classes/spur-lord-537": {
       "name": "Spur Lord",
@@ -2147,7 +2120,8 @@
           "role": "primary catalog identity/source pointer"
         }
       ],
-      "notes": "Original source is Lords of Darkness (3.0-era material)."
+      "notes": "Original source is Lords of Darkness (3.0-era material).",
+      "prestige": true
     }
   }
 }

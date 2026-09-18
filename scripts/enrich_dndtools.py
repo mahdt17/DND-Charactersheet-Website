@@ -319,12 +319,12 @@ def parse_class_skill_rule(parser: DetailParser):
             if count and extras:
                 return {"mode":"choose_any","count":count,"additional":extras}
         if re.search(
-            r"any skill that is a class skill for one of .+ other classes .+ is a class skill for .+ class as well",
+            r"any skill that is a class skill for one of .+ other classes\s+is a class skill for .+ class as well",
             body,re.I
         ):
             return {"mode":"inherit_from_other_classes"}
         if re.search(
-            r"can spend (?:his|her|their) skill points to purchase any skills? that any of .+ previous classes .+ have made available as a class skill",
+            r"can spend (?:his|her|their) skill points to purchase any skills? that any of .+ previous classes(?:\s*\([^)]*\))?\s+have made available as a class skill",
             body,re.I
         ):
             return {"mode":"inherit_from_previous_classes_or_race"}
@@ -493,7 +493,7 @@ def apply_class_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    merge_keys=("inheritsFrom","sourceEdition","notes","hit_die","skillPoints","classSkills","classSkillRule","prerequisites","progression","featureNames")
+    merge_keys=("inheritsFrom","sourceEdition","notes","prestige","hit_die","skillPoints","classSkills","classSkillRule","prerequisites","progression","featureNames")
     for key in merge_keys:
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
@@ -1029,6 +1029,20 @@ def self_test():
     p=DetailParser();p.feed(expert_html);p.close()
     expert=parse_class_core(p,{"name":"Expert"})
     assert expert["classSkillRule"] == {"mode":"choose_any","count":12,"additional":["Craft","Profession"]}
+
+    heir_skills_html = """
+    <h1>Heir of Siberys</h1><h2>CLASS SKILLS</h2>
+    <p>Any skill that is a class skill for one of an heir of Siberys's other classes is a class skill for his heir of Siberys class as well.</p>
+    """
+    p=DetailParser();p.feed(heir_skills_html);p.close()
+    assert parse_class_skill_rule(p) == {"mode":"inherit_from_other_classes"}
+
+    survivor_skills_html = """
+    <h1>Survivor</h1><h2>CLASS SKILLS</h2>
+    <p>The survivor can spend his skill points to purchase any skills that any of his previous classes (or his base monster race) have made available as a class skill (though not exclusive skills).</p>
+    """
+    p=DetailParser();p.feed(survivor_skills_html);p.close()
+    assert parse_class_skill_rule(p) == {"mode":"inherit_from_previous_classes_or_race"}
 
     substitution_html = """
     <h1>Fangshields Druid</h1><p>Base Class Champions of Valor (CoV), p. 40</p>
