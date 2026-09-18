@@ -1037,6 +1037,7 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
             (r"\\[missing content in source\\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
             (r"liveoak spell \\(\\s*slowed","truncated-arboreal-source"),
+            (r"see Appendix 3 of the clerics undergo","truncated-greater-deity-aspect-source"),
         )
         for pattern,marker in source_corruption_patterns:
             if re.search(pattern,effect_source,re.I):
