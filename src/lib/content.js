@@ -183,7 +183,7 @@ export function generatedDescription(type, edition, entry, stats, source) {
 export function normalizeContentEntry(entry, options={}) {
   const type=contentType(options.contentType || entry.contentType || entry.category);
   const edition=normalizeEdition(options.edition || entry.edition);
-  const sourceDescription=textValue(entry.description || entry.desc || options.description || '');
+  const sourceDescription=textValue(entry.descriptionOrigin==='generated' ? (entry.sourceDescription || options.description || '') : (entry.sourceDescription || entry.description || entry.desc || options.description || ''));
   const source=sourceMeta(entry,options);
   const prerequisites=normalizePrerequisites(entry);
   const progression=Array.isArray(entry.progression)?entry.progression:Array.isArray(entry.tables)?entry.tables:[];
