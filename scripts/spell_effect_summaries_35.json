@@ -4958,6 +4958,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/body-harmonic-3981": {
+      "name": "Body Harmonic",
+      "sourceSha256": "49fd742736748161294af4165e5d2513da1abc5e32ba6b934ce3b77f80f6aea2",
+      "effectSummary": "While the caster concentrates, the target's body vibrates painfully. Each round, choose one ability score and the target takes 1d10 ability damage to that score unless it succeeds on a Will save for that round. The same ability score cannot be damaged more than once every 5 rounds. While affected, the target also takes -20 on Move Silently checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-harmonic-3981",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-of-the-sun-1916": {
+      "name": "Body of the Sun",
+      "sourceSha256": "bcef18bbb5c3f82b7236f14513babf2958ed76b3e1db847436a646d0161b304b",
+      "effectSummary": "The caster radiates fire 5 feet in every direction. Creatures touched by the flames take 1d4+1 fire damage, Reflex half. The caster is immune to the spell's own fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-of-the-sun-1916",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-of-the-sun-3982": {
+      "name": "Body of the Sun",
+      "sourceSha256": "f741523bc5314c643cdab474e5ccc44452a0a3f3061afe4f7c170a993f44a04f",
+      "effectSummary": "The caster radiates fire 5 feet in every direction. Adjacent creatures take 1d4 fire damage per two caster levels, maximum 5d4, each round on the caster's turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-of-the-sun-3982",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-of-the-sun-731": {
+      "name": "Body of the Sun",
+      "sourceSha256": "21177593f0973b9a508f0317815e3aabbd6d661e701ff985691d87ac3e2febb2",
+      "effectSummary": "The caster radiates fire 5 feet in every direction. Creatures touched by the flames take 1d4+1 fire damage, Reflex half. The caster is immune to the spell's own fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-of-the-sun-731",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-war-3983": {
+      "name": "Body of War",
+      "sourceSha256": "3007fe2dc9fd59b500843d23d9daf0f12079afb1475575a4452b9324451cfa86",
+      "effectSummary": "Transforms the caster into a Huge warforged-titan-like construct. Type becomes construct; space/reach become 15 feet/15 feet; Strength becomes 28, Dexterity 8, Constitution is lost, land speed becomes 50 feet, and the caster gains 60-foot darkvision, low-light vision, +18 natural armor, and damage reduction 10/adamantine. Class/level, hit points, alignment, base attack, base saves, mental ability scores, and class-derived extraordinary special attacks are retained, but normal-form extraordinary abilities, spell-like abilities, and supernatural abilities are lost. Construct immunities apply. The form gains the titan's axe and maul attacks and trample for 1d8+13 damage, Reflex DC 25 half. The caster cannot speak or cast spells, even from magic items, and equipment melds into the body and becomes nonfunctional.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-war-3983",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-outside-body-2030": {
+      "name": "Body Outside Body",
+      "sourceSha256": "3ecbbb62191a1fda2037044d7e6daafd41cbcb96deff57fcc44b2d7081dbc74f",
+      "effectSummary": "Creates one or more indistinguishable duplicates of the caster. Each duplicate shares the caster's ability scores, personality, class levels, skills, feats, and memories, has one-quarter of the caster's current hit point total, and carries mundane copies of the caster's equipment. Duplicates obey the caster and can perform actions the caster could perform except casting spells or using spell-completion or spell-trigger items. If a duplicate is slain, it disappears and the caster immediately takes 10 damage. Remaining duplicates and their copied equipment vanish harmlessly when the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-outside-body-2030",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-outside-body-454": {
+      "name": "Body Outside Body",
+      "sourceSha256": "c39ffb36cd7734e68d33d197310d13b5f98b90dd9c88d37ac61f9c280f47deb6",
+      "effectSummary": "Creates one or more indistinguishable duplicates of the caster. Each duplicate shares the caster's ability scores, personality, class levels, skills, feats, and memories, has one-quarter of the caster's current hit point total, and carries mundane copies of the caster's equipment. Duplicates obey the caster and can perform actions the caster could perform except casting spells or using spell-completion or spell-trigger items. If a duplicate is slain, it disappears and the caster immediately takes 10 damage. Remaining duplicates and copied equipment vanish harmlessly when the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-outside-body-454",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/body-ward-583": {
+      "name": "Body Ward",
+      "sourceSha256": "2da79b802afda17c1dc73b19dddac2e7c09b7bc120b974f65626eb6c00aaf9bc",
+      "effectSummary": "Choose Strength, Dexterity, or Constitution. The spell absorbs the next 5 points of ability damage dealt to that score. Multiple castings on subsequent rounds can protect different physical ability scores synergistically: protecting two scores raises each ward to 8 points, and protecting all three raises each to 10 points. Multiple castings protecting the same score do not stack. A ward ends when its duration expires or its protection is exhausted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/body-ward-583",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/boiling-blood-869": {
+      "name": "Boiling Blood",
+      "sourceSha256": "9e7a678c09ba303e5ba51e31d78fc57efca1545c7f6282afb53e0b060b671bb2",
+      "effectSummary": "Deals 2d6 fire damage to the subject each round. The spell lasts 1 round initially plus 1 additional round per three caster levels, to a maximum of 7 rounds at 18th level; a successful Fortitude save reduces the duration to 1 round. If a second boiling blood overlaps the first, the subject is also sickened during rounds when it takes spell damage while both castings remain active. Creatures immune to extra damage from critical hits and creatures without blood or similar internal fluids are immune.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/boiling-blood-869",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/boiling-oil-1400": {
+      "name": "Boiling Oil",
+      "sourceSha256": "ab42a7bfee6d4883205843f5ad786b948e7583eadb0eb5279fbdc9d6df3cd132",
+      "effectSummary": "Rains boiling oil over the area for 4d6 fire damage. A creature that fails its initial save takes an additional 2d6 fire damage in each subsequent round of the spell's duration, up to a maximum duration of 6 rounds at caster level 18. The created oil is not flammable.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/boiling-oil-1400",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolster-aura-584": {
+      "name": "Bolster Aura",
+      "sourceSha256": "60aea518d82b8ee2e2d8d53e9b982f442b61b697f7efcf9fc0d3ea8bd3389c74",
+      "effectSummary": "Makes the target's existing aura appear stronger than it really is. For every two caster levels, the target's aura appears to come from a creature with 1 additional Hit Die. A target with no aura is unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolster-aura-584",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolstering-voice-3755": {
+      "name": "Bolstering Voice",
+      "sourceSha256": "0c7443410b5fe4ff640ab94e2a79a433ff1cefec4dfc7869ae354ca6a7058709",
+      "effectSummary": "While the initiator maintains this stance, allies within range who can hear the initiator gain +2 morale on Will saves, increased to +4 morale on Will saves against fear effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolstering-voice-3755",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolt-of-glory-1016": {
+      "name": "Bolt of Glory",
+      "sourceSha256": "42de07034c1f57c6e2deafe33e27b05cb9f014aa795a4a4874f775a847b181c7",
+      "effectSummary": "Makes a ranged touch attack with a bolt of positive energy. A normal target takes 1d12 damage per two caster levels, maximum 7d12. Undead, evil outsiders, and creatures native to the Negative Energy Plane instead take 1d12 damage per caster level, maximum 15d12. Good outsiders and creatures native to the Positive Energy Plane take no damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolt-of-glory-1016",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolt-of-glory-3984": {
+      "name": "Bolt of Glory",
+      "sourceSha256": "e8c828872e51a2f9209f1b77b8f29ec58016398235dae2e5f0f176e89e3ca973",
+      "effectSummary": "Makes a ranged touch attack with positive energy. Undead, evil outsiders, and creatures native to the Negative Energy Plane take 1d12 damage per caster level, maximum 15d12. Material- or Elemental-Plane creatures and other neutral outsiders take 1d12 damage per two caster levels, maximum 7d12. Good outsiders and creatures native to the Positive Energy Plane are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolt-of-glory-3984",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolts-of-bedevilment-1531": {
+      "name": "Bolts of Bedevilment",
+      "sourceSha256": "ed4a71bf1807934191a94beecfa7775a1ae95e491da44855628ddb8d669c2011",
+      "effectSummary": "For the spell's duration, the caster can make one ray attack per round. A living creature struck by a ray is dazed for 1d3 rounds, taking no actions but receiving none of the special combat disadvantages of being stunned.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolts-of-bedevilment-1531",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolts-of-bedevilment-3985": {
+      "name": "Bolts of Bedevilment",
+      "sourceSha256": "5cf0048c8b559de141a3988d433743a936c945b90176e677f800685da83cae1d",
+      "effectSummary": "For the spell's duration, the caster can make one ranged touch ray attack per round. A living creature hit by the ray must save or be dazed for 1d3 rounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolts-of-bedevilment-3985",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolts-of-bedevilment-4883": {
+      "name": "Bolts of Bedevilment",
+      "sourceSha256": "bcc71262d89e92dc4e68e74679f09ee7beaed7d915719359cf937bff77b0adc8",
+      "effectSummary": "Grants exactly three ray attacks, usable one per round during the spell's 1-round-per-level duration. Firing a ray is a standard action. A living creature struck is dazed and takes no actions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolts-of-bedevilment-4883",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolts-of-bedevilment-683": {
+      "name": "Bolts of Bedevilment",
+      "sourceSha256": "ed4a71bf1807934191a94beecfa7775a1ae95e491da44855628ddb8d669c2011",
+      "effectSummary": "For the spell's duration, the caster can make one ray attack per round. A living creature struck by a ray is dazed for 1d3 rounds, taking no actions but receiving none of the special combat disadvantages of being stunned.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolts-of-bedevilment-683",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolts-of-bedevilment-948": {
+      "name": "Bolts of Bedevilment",
+      "sourceSha256": "ed4a71bf1807934191a94beecfa7775a1ae95e491da44855628ddb8d669c2011",
+      "effectSummary": "For the spell's duration, the caster can make one ray attack per round. A living creature struck by a ray is dazed for 1d3 rounds, taking no actions but receiving none of the special combat disadvantages of being stunned.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolts-of-bedevilment-948",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bolts-of-bedevilment-984": {
+      "name": "Bolts of Bedevilment",
+      "sourceSha256": "ed4a71bf1807934191a94beecfa7775a1ae95e491da44855628ddb8d669c2011",
+      "effectSummary": "For the spell's duration, the caster can make one ray attack per round. A living creature struck by a ray is dazed for 1d3 rounds, taking no actions but receiving none of the special combat disadvantages of being stunned.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bolts-of-bedevilment-984",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
