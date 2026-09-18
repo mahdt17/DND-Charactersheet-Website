@@ -43,19 +43,26 @@ def class_gaps(r):
     gaps=[]
     inherited=bool(r.get("inheritsFrom"))
     racial=bool(r.get("racialClass"))
+    is_5e=str(r.get("edition","")).casefold() in {"2014","5e","5e-2014"}
     if not has_text(r.get("name")): gaps.append("name")
     if not presence(r,"sourceBook","source","sourceUrl"): gaps.append("source")
     if not description_ok(r): gaps.append("description")
     if not presence(r,"hit_die","hitDie") and not racial and not inherited: gaps.append("hitDie")
-    if not presence(r,"skillPoints") and not racial and not inherited: gaps.append("skillPoints")
     if not presence(r,"progression","advancement") and not inherited: gaps.append("progression")
-    if not presence(r,"classSkills","skills","classSkillRule") and not racial and not inherited: gaps.append("classSkills")
-    if r.get("prestige") and not presence(r,"prerequisites"): gaps.append("prerequisites")
+    if is_5e:
+        for key in ("saving_throws","proficiencies","skills","multiclassRequirement"):
+            if not presence(r,key): gaps.append(key)
+    else:
+        if not presence(r,"skillPoints") and not racial and not inherited: gaps.append("skillPoints")
+        if not presence(r,"classSkills","skills","classSkillRule") and not racial and not inherited: gaps.append("classSkills")
+        if r.get("prestige") and not presence(r,"prerequisites"): gaps.append("prerequisites")
     mechanics=r.get("mechanicsPresence") or {}
     if not presence(r,"classFeatures","features","featureSummaries","featureNames") and not (
         mechanics.get("classFeatures") or mechanics.get("ruleProse")
     ):
         gaps.append("classFeatures")
+    if is_5e and not mechanics.get("startingEquipment"):
+        gaps.append("startingEquipment")
     if presence(r,"supplementConflicts"):
         gaps.append("supplementConflict")
     return gaps
@@ -98,7 +105,9 @@ def spell_gaps(r):
     psionic=bool(r.get("isPsionicPower"))
     maneuver=bool(r.get("isManeuver"))
     if not psionic and not maneuver and not presence(r,"components"): gaps.append("components")
-    if not (presence(r,"classLevels") or presence(r,"domainLevels")) and not psionic and not maneuver:
+    is_5e=str(r.get("edition","")).casefold() in {"2014","5e","5e-2014"}
+    has_access=presence(r,"classLevels") or presence(r,"domainLevels") or (is_5e and presence(r,"classes"))
+    if not has_access and not psionic and not maneuver:
         gaps.append("accessLevels")
     if r.get("level") is None and not psionic and not maneuver:
         gaps.append("level")
@@ -126,6 +135,8 @@ def item_gaps(r,equipment=False):
             r.get("ruleFamily") and presence(r,"ruleSummary","ruleStats")
         ):
             gaps.append("effect")
+        if r.get("effectNeedsSummary"):
+            gaps.append("effectSummary")
     return gaps
 
 

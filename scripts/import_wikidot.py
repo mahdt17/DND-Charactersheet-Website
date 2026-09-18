@@ -351,6 +351,48 @@ def heading_present(page, heading):
     return any(clean(h).casefold()==target for h in page.headings)
 
 
+def concise_rule_effect(page, entry_name="", skip_values=()):
+    """Retain only a short mechanics line; long rule prose stays source-only."""
+    expected=identity_key(entry_name)
+    start=0
+    for i,line in enumerate(page.lines):
+        candidate=identity_key(line)
+        if expected and (candidate==expected or candidate.startswith(expected)):
+            start=i+1
+            break
+    skip={clean(v).casefold() for v in skip_values if v}
+    ignored_prefixes=(
+        "source:", "souce:", "create account", "toggle navigation", "about",
+        "membership", "help docs", "user guide", "first time user",
+        "quick reference", "creating pages", "editing pages", "navigation bars",
+        "using modules", "templates", "css themes", "site manager",
+        "edit top bar", "edit side bar", "css manager", "recent changes",
+        "list all pages", "menu", "tags", "page revision", "edit this page",
+        "edit", "append content", "view and manage", "wikidot.com",
+    )
+    metadata_prefixes=(
+        "casting time", "range", "components", "duration", "spell lists",
+        "prerequisite", "prerequisites", "hit dice", "saving throws",
+        "armor", "weapons", "tools", "skills",
+    )
+    saw_long=False
+    for line in page.lines[start:]:
+        value=clean(line)
+        low=value.casefold()
+        if not value or low in skip or low==clean(entry_name).casefold():
+            continue
+        if low.startswith(ignored_prefixes) or low.startswith(metadata_prefixes):
+            continue
+        if re.fullmatch(r"[a-z0-9-]+(?:\s+[a-z0-9-]+){0,12}",low) and len(value)<70:
+            continue
+        if len(value) < 35:
+            continue
+        if len(value) <= 280:
+            return value,False
+        saw_long=True
+    return "",saw_long or has_rule_prose(page,entry_name)
+
+
 def parse_spell_detail(row,page):
     lines=page.lines
     source=source_line(lines)
@@ -384,12 +426,21 @@ def parse_spell_detail(row,page):
             break
     result["concentration"]="concentration" in result.get("duration","").casefold()
     result["ritual"]=any(re.search(r"\britual\b",line,re.I) for line in lines)
+    effect,needs_summary=concise_rule_effect(
+        page,row.get("name",""),
+        skip_values=(level_school,result.get("sourceBook",""),result.get("casting_time",""),result.get("range",""),result.get("duration","")),
+    )
+    if effect:
+        result["effect"]=effect
+    elif needs_summary:
+        result["effectNeedsSummary"]=True
     result["mechanicsPresence"]={"ruleProse":has_rule_prose(page,row.get("name",""))}
     return result
 
 
 def parse_feat_detail(row,page):
     result={**row}
+    result["featType"]="Feat"
     source=source_line(page.lines)
     if source:
         result["sourceBook"]=source
@@ -398,6 +449,11 @@ def parse_feat_detail(row,page):
     if prereq:
         result["prerequisites"]=[{"kind":"text","label":"Prerequisite","text":prereq}]
     labeled=any(clean(line).casefold() in ("prerequisite","prerequisites") or clean(line).casefold().startswith(("prerequisite:","prerequisites:")) for line in page.lines)
+    effect,needs_summary=concise_rule_effect(page,row.get("name",""),skip_values=(result.get("sourceBook",""),prereq))
+    if effect:
+        result["effect"]=effect
+    elif needs_summary:
+        result["effectNeedsSummary"]=True
     result["mechanicsPresence"]={
         "ruleProse":has_rule_prose(page,row.get("name","")),
         "prerequisiteLabeled":labeled
@@ -544,6 +600,14 @@ def parse_item_detail(row,page):
         result.setdefault("rarityOptions",tag_rarities)
 
     result.setdefault("attunement",False)
+    effect,needs_summary=concise_rule_effect(
+        page,row.get("name",""),
+        skip_values=(result.get("sourceBook",""),descriptor),
+    )
+    if effect:
+        result["effect"]=effect
+    elif needs_summary:
+        result["effectNeedsSummary"]=True
     result["mechanicsPresence"]={"ruleProse":has_rule_prose(page,row.get("name",""))}
     return result
 
@@ -730,6 +794,7 @@ def self_test():
     p=Page();p.feed(item_html);p.close()
     item=parse_item_detail(source_record("Armor Of Fungal Spores",BASE+"/wondrous-items:armor-of-fungal-spores","item"),p)
     assert item["itemType"]=="Armor (medium)" and item["rarity"]=="Uncommon"
+    assert item["effect"].startswith("While wearing this armor")
 
     family_html="""
     <title>Instrument of the Bards - DND 5th Edition</title>
