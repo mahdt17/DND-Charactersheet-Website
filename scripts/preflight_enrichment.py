@@ -62,17 +62,29 @@ def dndtools_preflight(sample_size, delay):
         passed = failed = 0
         failures = []
         for entry in sample:
+            parser = None
             try:
-                enriched = d35.enrich_entry(entry, category, delay)
-                if not enriched.get("enrichment", {}).get("validated"):
-                    raise AssertionError("validated enrichment flag missing")
+                raw = d35.fetch(entry["url"], delay)
+                parser = d35.DetailParser()
+                parser.feed(raw)
+                parser.close()
+                details = d35.PARSERS[category](parser, entry)
+                d35.validate_details(entry, category, parser, details)
                 passed += 1
             except Exception as exc:
                 failed += 1
+                snapshot = {}
+                if parser is not None and len(failures) < 2:
+                    snapshot = {
+                        "lines": parser.lines[:24],
+                        "headings": parser.headings[:12],
+                        "tableHeaders": [table[0] for table in parser.tables[:4] if table],
+                    }
                 failures.append({
                     "name": entry.get("name"),
                     "url": entry.get("url"),
                     "error": str(exc)[:240],
+                    **snapshot,
                 })
         results.append(summarize("3.5/" + category, passed, failed, failures))
     return results
@@ -109,6 +121,7 @@ def wikidot_preflight(sample_size, delay):
             continue
         sample = rows if category == "classes" else even_sample(rows, sample_size)
         for row in sample:
+            page = None
             try:
                 page = w5.parse(row["url"], delay)
                 result = w5.DETAIL_PARSERS[row["category"]](row, page)
@@ -116,10 +129,18 @@ def wikidot_preflight(sample_size, delay):
                 passed += 1
             except Exception as exc:
                 failed += 1
+                snapshot = {}
+                if page is not None and len(failures) < 2:
+                    snapshot = {
+                        "lines": page.lines[:24],
+                        "headings": page.headings[:12],
+                        "tableHeaders": [table[0] for table in page.tables[:4] if table],
+                    }
                 failures.append({
                     "name": row.get("name"),
                     "url": row.get("url"),
                     "error": str(exc)[:240],
+                    **snapshot,
                 })
         results.append(summarize("5e/" + category, passed, failed, failures))
     return results
