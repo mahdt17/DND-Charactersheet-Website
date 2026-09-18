@@ -2466,6 +2466,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/aura-perfect-order-3594": {
+      "name": "Aura of Perfect Order",
+      "sourceSha256": "3af1f095367729554adf6cc0b32f4cbd6ec7785ebce12c35588783a738d1d6f3",
+      "effectSummary": "While in this stance, once per round before making any d20 roll, the initiator can choose to treat the die result as an 11 instead of rolling. Activating this benefit takes no action and can be used for attacks, saves, checks, or other d20 rolls.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-perfect-order-3594",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-terror-1019": {
+      "name": "Aura of Terror",
+      "sourceSha256": "077acd18b056aad8a8fc2a9f68f6942f531452cd415eac24871929df5eea91c4",
+      "effectSummary": "Creates a 30-foot frightful-presence aura that triggers whenever the caster charges or attacks. Creatures with fewer Hit Dice than caster level must make a Will save or become shaken until they leave the area; a successful save grants 24-hour immunity. If the caster already has frightful presence or a fear aura, its radius increases by 10 feet, its save DC becomes the higher of the normal DC or this spell's DC, and its fear severity improves by one step from shaken to frightened or frightened to panicked.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-terror-1019",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-terror-3857": {
+      "name": "Aura of Terror",
+      "sourceSha256": "a4023314c016186f95bf21eed82611732d599ecb3dc1d3e76bdb18985511721f",
+      "effectSummary": "Creates a 30-foot frightful-presence aura that triggers whenever the caster charges or attacks. Creatures with fewer Hit Dice than caster level must make a Will save or become shaken until they leave the area; a successful save grants 24-hour immunity. If the caster already has frightful presence or a fear aura, its radius increases by 10 feet, its save DC increases by 2, and its fear severity improves by one step from shaken to frightened or frightened to panicked.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-terror-3857",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-of-the-sun-1548": {
+      "name": "Aura of the Sun",
+      "sourceSha256": "694cc8c4faf37f678536d74bf3f650ac3950b34366b41bea527b9fcc350dd2e3",
+      "effectSummary": "Creates a mobile bright aura around the caster that suppresses overlapping magical darkness from 3rd-level-or-lower effects. Casting a shadow-subschooled or darkness-descriptor spell inside the aura requires a caster-level check against DC 11 + the caster's level or the spell fails. Creatures penalized by bright light suffer those penalties inside the aura, undead take 1d6 positive-energy damage at the end of each turn spent within it, and Hide checks in the aura take -4.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-of-the-sun-1548",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-triumph-3595": {
+      "name": "Aura of Triumph",
+      "sourceSha256": "a51d858fa61bbcc1d59a89a5e2066ce0983a0c243b761a7c36e6ced1f748daba",
+      "effectSummary": "While in this stance, the initiator and allies within 10 feet are healed for 4 hit points whenever either the initiator or an affected ally makes a successful melee attack against an evil target.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-triumph-3595",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-tyranny-3596": {
+      "name": "Aura of Tyranny",
+      "sourceSha256": "e6e9642063717e7da3b57e435f87f575dbc969f38d08b7cb34726622c625d6ae",
+      "effectSummary": "While in this stance, at the end of each turn the initiator can deal 2 damage to each willing ally within 10 feet. The initiator heals 1 hit point for each ally that takes this damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-tyranny-3596",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/auspicious-odds-3523": {
+      "name": "Auspicious Odds",
+      "sourceSha256": "70003bd76e8ee58428aa019a6801c64871156eb8ed03baa3f129b18badcd524d",
+      "effectSummary": "Whenever the subject makes an attack roll, saving throw, ability check, or skill check under the source's 3d6 variant resolution, it rolls 4d6 and drops the lowest die instead of rolling 3d6. If all four dice show 1 on a single roll, the spell ends immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/auspicious-odds-3523",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/auspicious-odds-mass-3524": {
+      "name": "Auspicious Odds, Mass",
+      "sourceSha256": "62e5fe2df75941d8755d5c52c91b46e31179fa7c0962894cd62521d88af9e9bf",
+      "effectSummary": "Functions as auspicious odds for multiple subjects with a shorter duration. If one subject rolls four 1s, the spell ends only for that subject; if the caster does so, the spell ends for every subject.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/auspicious-odds-mass-3524",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/avalanche-blades-3620": {
+      "name": "Avalanche of Blades",
+      "sourceSha256": "b88b74ddffead44b0110403c59112fda7c40d51a383538e3c0d3217c6a91fc60",
+      "effectSummary": "As part of the maneuver, make one melee attack against a single foe. If it hits, the initiator can attack that same foe again at -4, then again at -8, continuing with an additional -4 penalty each time. The sequence ends on the first miss or when the target is reduced to -1 hit points or fewer.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/avalanche-blades-3620",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/avascular-mass-1466": {
+      "name": "Avascular Mass",
+      "sourceSha256": "cbe36e98f880fbb854aa1db6245a8ee6499049e3ed3d0db18709c7268f8ef35f",
+      "effectSummary": "Requires a ranged touch attack against a living creature. On a hit, the target loses half its current hit points, rounded down, and is stunned for 1 round unless it succeeds on a Fortitude save. A 20-foot-radius mass of animate blood vessels erupts from the target if it can anchor to two opposed surfaces; the target is automatically entangled and nearby creatures must make a Reflex save or become stuck. Entangled spellcasters need DC 30 Concentration to cast. Escaping requires a full round and DC 25 Strength or DC 30 Escape Artist; moving through the mass uses repeated checks and grants 5 feet of movement per full 5 points by which the result exceeds 10. Five feet of mass provides cover and 20 feet provides total cover.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/avascular-mass-1466",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/avascular-mass-3859": {
+      "name": "Avascular Mass",
+      "sourceSha256": "78cffd337858c00aef48984c1e13ec55f221d3bd5f2b3baabd1dbe2950943fe4",
+      "effectSummary": "Requires a ranged touch attack; oozes and plants are immune. On a hit, the target loses half its current hit points, rounded down, and is stunned for 1 round unless it succeeds on a Fortitude save. A 20-foot-radius mass of animate blood vessels erupts from the target if it can anchor to two opposed surfaces; the target is automatically entangled and nearby creatures must make a Reflex save or become stuck. Entangled spellcasters need DC 25 Concentration to cast. Escaping requires a full round and DC 20 Strength or DC 25 Escape Artist; moving through the mass uses repeated checks and grants 5 feet of movement per full 5 points by which the result exceeds 10. Five feet of mass provides cover and 20 feet provides total cover.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/avascular-mass-3859",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/avasculate-1467": {
+      "name": "Avasculate",
+      "sourceSha256": "9efe7ff413fdb025657e74fcda2d0424ca43691ea191f296b63a4dea666345db",
+      "effectSummary": "Requires a ranged touch attack against a living creature. On a hit, the target's current hit points are reduced by half, rounded down, and it is stunned for 1 round; a successful Fortitude save negates only the stun.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/avasculate-1467",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/avasculate-3860": {
+      "name": "Avasculate",
+      "sourceSha256": "65119c8529f64298176542c7a762848ab2fe9a2ec65e94d4e052a870b3c3127d",
+      "effectSummary": "Requires a ranged touch attack. On a hit, the target's current hit points are reduced by half, rounded down, and it is stunned for 1 round; a successful Fortitude save negates only the stun.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/avasculate-3860",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/avoid-planar-effects-1846": {
+      "name": "Avoid Planar Effects",
+      "sourceSha256": "2673d98f83505830c8d4bb05ff65f7aa410be6475678024f2e0c3412ab8141fb",
+      "effectSummary": "Protects the subject from harmful natural planar traits such as fire-dominant environmental damage, inability to breathe on water- or earth-dominant planes, blinding and excess temporary hit points on major positive-dominant planes, negative-dominant damage and negative levels, and specified plane-specific hazards such as Pandemonium's deafening and Cania's cold. It does not negate gravity, alignment, magic, or entrapping planar traits and does not protect against creatures, spells, special abilities, or extraordinary local hazards.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/avoid-planar-effects-1846",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/avoid-planar-effects-2135": {
+      "name": "Avoid Planar Effects",
+      "sourceSha256": "8706ae7a59fb77bfc190ec670961f556fa3ec6dd03d4659d61b6decf752aa787",
+      "effectSummary": "Protects the subject from harmful natural planar traits such as fire-dominant environmental damage, inability to breathe on water- or earth-dominant planes, blinding and excess temporary hit points on major positive-dominant planes, negative-dominant damage and negative levels, and specified plane-specific hazards such as Pandemonium's deafening and Cania's cold. It does not negate gravity, alignment, magic, or entrapping planar traits and does not protect against creatures, spells, special abilities, or extraordinary local hazards.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/avoid-planar-effects-2135",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/avoid-planar-effects-3864": {
+      "name": "Avoid Planar Effects",
+      "sourceSha256": "c7f012b94c694ee0c6690b99745cfb9fe3a29921598b21f2341551169f5f9bcf",
+      "effectSummary": "Protects the subject from harmful natural planar traits such as fire-dominant environmental damage, inability to breathe on water- or earth-dominant planes, blinding and excess temporary hit points on major positive-dominant planes, negative-dominant damage and negative levels, and specified plane-specific hazards such as Pandemonium's deafening and Cania's cold. It does not negate gravity, alignment, magic, or entrapping planar traits and does not protect against creatures, spells, special abilities, or extraordinary local hazards.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/avoid-planar-effects-3864",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-2780": {
+      "name": "Awaken",
+      "sourceSha256": "10281113311cd32cf28eb2a7be87b2e7253d5409774d89926414b19d6f47a1ef",
+      "effectSummary": "Awakens one animal or tree to humanlike sentience if the caster succeeds on a Will save against DC 10 + the creature's relevant Hit Dice. The awakened creature is friendly but not magically controlled. An awakened tree functions like an animated object with the plant type and 3d6 Intelligence, Wisdom, and Charisma, gains movement and senses, and an awakened animal can no longer serve as an animal companion, familiar, or special mount. The creature can speak one language the caster knows plus one additional known language per point of Intelligence bonus. Casting costs 250 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-2780",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-construct-3217": {
+      "name": "Awaken Construct",
+      "sourceSha256": "2ed43efd179b7725fe1b02ff8a7402fa1f3d484b6176a7da4735e7e19c63bf67",
+      "effectSummary": "Awakens a humanoid-shaped permanent construct to humanlike sentience. It does not affect creatures that are constructs only temporarily, such as animated objects. The awakened construct becomes independent of both the caster and its original creator, though it begins friendly toward both. Casting costs 5,000 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-construct-3217",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-construct-3866": {
+      "name": "Awaken Construct",
+      "sourceSha256": "07de37e48024dd60196246c32e13b1fb080333d6f200e9552f6a90296af7c474",
+      "effectSummary": "Awakens a humanoid-shaped permanent construct to humanlike sentience, giving it 3d6 Intelligence, Wisdom, and Charisma. It does not affect creatures that are constructs only temporarily, such as animated objects. The awakened construct becomes independent of both the caster and its original creator, though it begins friendly toward both, and gains skills and feats according to the awakened-creature rules. Casting costs 5,000 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-construct-3866",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/awaken-sand-3170": {
+      "name": "Awaken Sand",
+      "sourceSha256": "9f011fd4531e9e30c60e2f824a8f600ef1218ae0e59d2271c8ff74e9dfa64391",
+      "effectSummary": "Awakens a region of sand to sentience on a successful DC 18 Will save by the caster. The friendly creature uses Huge animated-object statistics with 40-foot land speed, 20-foot burrow speed, the earth subtype, immunity to polymorphing, and 3d6 Intelligence, Wisdom, and Charisma; it can speak languages based on its Intelligence bonus. It can engulf Large or smaller creatures as a standard action: targets that forgo attacks of opportunity must make a DC 19 Reflex save or become grappled inside, taking 1d6+3 damage each subsequent round and risking suffocation. The creature can reshape like sand and pass through very small openings. Casting costs 500 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/awaken-sand-3170",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
