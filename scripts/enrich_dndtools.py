@@ -23,6 +23,7 @@ from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 BASE = "https://new.dndtools.org"
+LEGACY_CLASS_BASE = "https://dndtools.net/classes"
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "public" / "catalogs" / "dndtools"
 AGENT = "AdventurersLedger-StructuredEnricher/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)"
@@ -124,9 +125,9 @@ class DetailParser(HTMLParser):
         self.flush()
 
 
-def fetch(url: str, delay: float = 0.35) -> str:
-    if urlparse(url).netloc != urlparse(BASE).netloc:
-        raise ValueError(f"Refusing non-DnDTools URL: {url}")
+def fetch_allowed(url: str, allowed_hosts: set[str], delay: float = 0.35) -> str:
+    if urlparse(url).netloc not in allowed_hosts:
+        raise ValueError(f"Refusing URL host: {url}")
     last = None
     for attempt in range(4):
         try:
@@ -135,7 +136,7 @@ def fetch(url: str, delay: float = 0.35) -> str:
             req = Request(url, headers={"User-Agent": AGENT, "Cache-Control": "no-cache"})
             with urlopen(req, timeout=45) as response:
                 final = response.geturl()
-                if urlparse(final).netloc != urlparse(BASE).netloc:
+                if urlparse(final).netloc not in allowed_hosts:
                     raise ValueError(f"Unexpected redirect: {final}")
                 return response.read().decode("utf-8", "replace")
         except HTTPError as error:
@@ -149,6 +150,10 @@ def fetch(url: str, delay: float = 0.35) -> str:
                 raise
             time.sleep(3 * (attempt + 1))
     raise last
+
+
+def fetch(url: str, delay: float = 0.35) -> str:
+    return fetch_allowed(url,{urlparse(BASE).netloc},delay)
 
 
 def next_value(lines: list[str], label: str) -> str:
@@ -255,6 +260,98 @@ def parse_requirement_lines(lines: list[str]) -> list[dict]:
     return out
 
 
+def legacy_class_url(entry: dict) -> str:
+    slug=urlparse(entry.get("url","")).path.rstrip("/").split("/")[-1]
+    slug=re.sub(r"-\d+$","",slug)
+    return f"{LEGACY_CLASS_BASE}/{slug}/"
+
+
+def parse_class_skills(parser: DetailParser) -> list[str]:
+    skills = section(parser.lines, parser.headings, "Class Skills")
+    names=[]
+    if skills:
+        for line in skills[:8]:
+            if ":" in line and len(line) > 120:
+                continue
+            names += re.findall(r"[A-Z][A-Za-z' -]+?(?=[A-Z]|$)", line)
+    for table in parser.tables:
+        if not table:
+            continue
+        header=[clean(x).casefold() for x in table[0]]
+        if "skill name" in header:
+            for row in table[1:]:
+                if row and clean(row[0]):
+                    names.append(clean(row[0]))
+    cleaned=[]
+    for name in names:
+        value=clean(name)
+        if value and value.casefold() not in {"skill name","key ability","trained only","armor check penalty"} and value not in cleaned:
+            cleaned.append(value)
+    return cleaned
+
+
+def parse_progression_table(parser: DetailParser):
+    for table in parser.tables:
+        if not table:
+            continue
+        for idx,candidate in enumerate(table[:5]):
+            header=[clean(c) for c in candidate]
+            folded=[h.casefold() for h in header]
+            has_level=any(h=="level" or h.endswith(" level") or h=="racial level" for h in folded)
+            has_progress=any(h in folded for h in ("bab","base attack bonus","fort","fortitude","ref","reflex","will","special","spellcasting","class level"))
+            if has_level and has_progress:
+                data_rows=table[idx+1:]
+                rows=[]
+                for row in data_rows:
+                    values=row+[""]*max(0,len(header)-len(row))
+                    rows.append({header[i] or f"column_{i+1}":clean(values[i]) for i in range(len(header))})
+                return [header]+data_rows,rows
+    return None,None
+
+
+def explicit_variant_parent(lines: list[str], entry_name: str) -> str:
+    joined=" ".join(lines)
+    patterns=[
+        r"same hit dice, skills, starting gold, and advancement as (?:a |the )?standard ([A-Za-z ]+?)(?:\s*\(|\s+except|\s+as|\.)",
+        r"has all the standard ([A-Za-z ]+?) class features",
+        r"standard ([A-Za-z]+) class feature",
+    ]
+    for pattern in patterns:
+        match=re.search(pattern,joined,re.I)
+        if match:
+            return clean(match.group(1)).title()
+    parenthetical=re.search(r"\(([^)]+)\)\s*$",entry_name or "")
+    if parenthetical and len(parenthetical.group(1).split())<=2:
+        return clean(parenthetical.group(1)).title()
+    return ""
+
+
+def legacy_class_fallback(entry: dict) -> dict:
+    url=legacy_class_url(entry)
+    raw=fetch_allowed(url,{urlparse(LEGACY_CLASS_BASE).netloc},0.05)
+    parser=DetailParser(); parser.feed(raw); parser.close()
+    result={"fallbackSourceUrl":url}
+    req=parse_requirement_lines(section(parser.lines,parser.headings,"Requirements"))
+    if req: result["prerequisites"]=req
+    hit=next_value(parser.lines,"Hit die") or next_value(parser.lines,"Hit Die")
+    if m:=re.search(r"d\s*(\d+)",hit,re.I): result["hit_die"]=int(m.group(1))
+    skill_points=next_value(parser.lines,"Skill points") or next_value(parser.lines,"Skill Points")
+    if skill_points: result["skillPoints"]=skill_points
+    skills=parse_class_skills(parser)
+    if skills: result["classSkills"]=skills
+    progression,advancement=parse_progression_table(parser)
+    if progression:
+        result["progression"]=progression
+        result["advancement"]=advancement
+    parent=explicit_variant_parent(parser.lines,entry.get("name",""))
+    if parent: result["inheritsFrom"]=parent
+    result["fallbackMechanicsPresence"]={
+        "classFeatures":bool(section(parser.lines,parser.headings,"Class Features")),
+        "ruleProse":has_rule_prose(parser.lines,entry.get("name",""))
+    }
+    return result
+
+
 def parse_class(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     enriched = {
@@ -268,42 +365,45 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     if "prestige class" in lower:
         enriched["prestige"] = True
 
-    # Advancement tables vary: normal classes use BAB/Fort/Ref/Will, while epic
-    # and unusual classes may use headers such as "Loremaster Level" + "Special".
-    for table in parser.tables:
-        if not table:
-            continue
-        header_index = None
-        header = None
-        for idx, candidate in enumerate(table[:4]):
-            normalized = [clean(c) for c in candidate]
-            folded = [h.casefold() for h in normalized]
-            has_level = any(h == "level" or h.endswith(" level") for h in folded)
-            has_progress = any(h in folded for h in ("bab","fort","fortitude","ref","reflex","will","special","spellcasting"))
-            if has_level and has_progress:
-                header_index = idx
-                header = normalized
-                break
-        if header is not None:
-            data_rows = table[header_index+1:]
-            rows = []
-            for row in data_rows:
-                values = row + [""] * max(0, len(header)-len(row))
-                rows.append({header[i] or f"column_{i+1}": clean(values[i]) for i in range(len(header))})
-            enriched["advancement"] = rows
-            enriched["progression"] = [header] + data_rows
-            break
+    progression,advancement=parse_progression_table(parser)
+    if progression:
+        enriched["progression"]=progression
+        enriched["advancement"]=advancement
 
-    # Keep class skills as names only if the page renders them as separate tokens.
-    skills = section(lines, parser.headings, "Class Skills")
+    skills=parse_class_skills(parser)
     if skills:
-        tokens = []
-        for line in skills[:5]:
-            tokens += re.findall(r"[A-Z][A-Za-z' -]+?(?=[A-Z]|$)", line)
-        enriched["classSkills"] = [clean(x) for x in tokens if clean(x)]
+        enriched["classSkills"]=skills
+
+    # The rebuilt site omits some requirements/variant inheritance that the older
+    # D&D Tools mirror still exposes. Use the mirror only to fill structured gaps.
+    needs_fallback=(
+        (enriched.get("prestige") and not enriched.get("prerequisites"))
+        or not enriched.get("progression")
+        or not enriched.get("classSkills")
+        or not enriched.get("hit_die")
+        or not enriched.get("skillPoints")
+    )
+    if needs_fallback:
+        try:
+            fallback=legacy_class_fallback(entry)
+            for key in ("prerequisites","hit_die","skillPoints","classSkills","progression","advancement","inheritsFrom"):
+                if not enriched.get(key) and fallback.get(key):
+                    enriched[key]=fallback[key]
+            enriched["fallbackSourceUrl"]=fallback.get("fallbackSourceUrl")
+            enriched["fallbackMechanicsPresence"]=fallback.get("fallbackMechanicsPresence")
+        except Exception as error:
+            enriched["fallbackError"]=str(error)
+
+    if "racial class" in (entry.get("name","").casefold()):
+        enriched["racialClass"]=True
+    if not enriched.get("inheritsFrom"):
+        parent=explicit_variant_parent(lines,entry.get("name",""))
+        if parent:
+            enriched["inheritsFrom"]=parent
+    fallback_presence=enriched.get("fallbackMechanicsPresence") or {}
     enriched["mechanicsPresence"] = {
-        "classFeatures": bool(section(lines, parser.headings, "Class Features")),
-        "ruleProse": has_rule_prose(lines, entry.get("name",""))
+        "classFeatures": bool(section(lines, parser.headings, "Class Features")) or bool(fallback_presence.get("classFeatures")),
+        "ruleProse": has_rule_prose(lines, entry.get("name","")) or bool(fallback_presence.get("ruleProse"))
     }
     return {k:v for k,v in enriched.items() if v not in (None,"",[],{})}
 
@@ -394,6 +494,10 @@ def parse_item(parser: DetailParser, entry: dict) -> dict:
     prereq = next_value(lines, "Prerequisites") or next_value(lines, "Prerequisite")
     if prereq:
         result["prerequisites"] = [{"kind":"text","label":"Prerequisite","text":prereq}]
+    name_fold=(entry.get("name","") or "").casefold()
+    if re.match(r"power stones?\s+\d+(?:st|nd|rd|th)?\s+level power",name_fold):
+        result["ruleFamily"]="power-stone"
+        result["genericRuleSource"]="SRD psionic power-stone rules"
     result["mechanicsPresence"] = {"ruleProse": has_rule_prose(lines, entry.get("name",""))}
     return result
 
@@ -432,8 +536,8 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
         if missing:
             raise ValueError("Spell parse missing required fields: " + ", ".join(missing))
     elif category == "feats":
-        if not details.get("sourceBook") or not details.get("featType"):
-            raise ValueError("Feat parse missing source book or feat type")
+        if not details.get("sourceBook"):
+            raise ValueError("Feat parse missing source book")
     elif category == "items":
         if not details.get("sourceBook"):
             raise ValueError("Item parse missing source book")
@@ -453,7 +557,7 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
     expected = {
         "classes": ("sourceBook","hit_die","skillPoints","progression","classSkills"),
         "spells": ("sourceBook","school","casting_time","range","duration"),
-        "feats": ("sourceBook","featType"),
+        "feats": ("sourceBook",),
         "items": ("sourceBook",),
         "equipment": ("kind","itemCategory"),
     }.get(category, ())
@@ -462,6 +566,14 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
     if category == "classes":
         if details.get("prestige") and not details.get("prerequisites"):
             gaps.append("prerequisites")
+        if details.get("racialClass"):
+            for key in ("hit_die","skillPoints","classSkills"):
+                if key in gaps:
+                    gaps.remove(key)
+        if details.get("inheritsFrom"):
+            for key in ("progression","classSkills","hit_die","skillPoints"):
+                if key in gaps:
+                    gaps.remove(key)
         if not presence.get("classFeatures"):
             gaps.append("classFeatures")
         if not presence.get("ruleProse"):
@@ -470,7 +582,10 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
         if not (presence.get("benefit") or presence.get("description")):
             gaps.append("featEffect")
     elif category == "spells":
-        if not details.get("isManeuver") and not details.get("components"):
+        psionic=bool(re.search(r"\b(psychometabolism|psychokinesis|metacreativity|clairsentience|telepathy|psychoportation)\b",details.get("school",""),re.I))
+        if psionic:
+            details["isPsionicPower"]=True
+        if not details.get("isManeuver") and not psionic and not details.get("components"):
             gaps.append("components")
         if not presence.get("ruleProse"):
             gaps.append("spellEffect")
@@ -478,7 +593,9 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
         useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType")
         if not any(details.get(key) for key in useful):
             gaps.append("itemStats")
-        if not presence.get("ruleProse"):
+        if not presence.get("ruleProse") and not details.get("ruleFamily"):
+            gaps.append("itemEffect")
+        if details.get("ruleFamily")=="power-stone" and not details.get("genericRuleSource"):
             gaps.append("itemEffect")
     elif category == "equipment":
         if not any(details.get(key) for key in (
