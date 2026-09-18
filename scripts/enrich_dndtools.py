@@ -253,8 +253,15 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     meta = source_meta(lines)
     category = ""
-    for line in lines[:15]:
-        if re.search(r"\bfeat\b", line, re.I) and len(line) < 80 and line.casefold() != entry.get("name","").casefold():
+    known_types = (
+        "general feat", "epic feat", "item creation feat", "metamagic feat",
+        "psionic feat", "fighter bonus feat", "reserve feat", "tactical feat",
+        "heritage feat", "incarnum feat", "exalted feat", "vile feat",
+        "wild feat", "weapon style feat", "domain feat"
+    )
+    for line in lines[:20]:
+        folded = clean(line).casefold()
+        if any(t in folded for t in known_types) and len(line) < 100:
             category = clean(line)
             break
     prereq = next_value(lines, "Prerequisite") or next_value(lines, "Prerequisites")
@@ -331,26 +338,64 @@ PARSERS = {
 }
 
 
+def validate_details(entry: dict, category: str, parser: DetailParser, details: dict):
+    """Reject wrong pages, block pages, and suspiciously empty parses.
+
+    A validation failure must never stamp enrichment.version on the record.
+    """
+    name = clean(entry.get("name", "")).casefold()
+    visible = {clean(line).casefold() for line in parser.lines[:80]}
+    if name and name not in visible:
+        raise ValueError(f"Page identity check failed for {entry.get('name')}")
+
+    if category == "classes":
+        required = ["sourceBook", "hit_die", "progression"]
+        missing = [key for key in required if not details.get(key)]
+        if missing:
+            raise ValueError("Class parse missing required fields: " + ", ".join(missing))
+        if details.get("prestige") and "prerequisites" not in details:
+            # Some prestige classes can have unusual requirements, but a page that
+            # says Prestige Class and yields no Requirements section is suspicious.
+            raise ValueError("Prestige class parse found no prerequisites")
+    elif category == "spells":
+        required = ["sourceBook", "school", "casting_time", "range", "duration"]
+        missing = [key for key in required if not details.get(key)]
+        if missing:
+            raise ValueError("Spell parse missing required fields: " + ", ".join(missing))
+    elif category == "feats":
+        if not details.get("sourceBook") or not details.get("featType"):
+            raise ValueError("Feat parse missing source book or feat type")
+    elif category in ("items", "equipment"):
+        if not details.get("sourceBook"):
+            raise ValueError("Item parse missing source book")
+        useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType")
+        if not any(details.get(key) for key in useful):
+            raise ValueError("Item parse produced no structured mechanics")
+
+
 def enrich_entry(entry: dict, category: str, delay: float) -> dict:
     html_text = fetch(entry["url"], delay)
     parser = DetailParser()
     parser.feed(html_text)
     parser.close()
     details = PARSERS[category](parser, entry)
+    validate_details(entry, category, parser, details)
     return {
         **entry,
         **details,
         "edition": "3.5-reference",
         "enrichment": {
             "version": 1,
+            "validated": True,
             "structuredOnly": True,
             "source": "DnD Tools",
+            "fields": sorted(details),
             "fetchedAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         },
     }
 
 
-def run_category(category: str, limit: int | None, delay: float, force: bool):
+def run_category(category: str, limit: int | None, delay: float, force: bool, write: bool):
     path = CATALOG / f"{category}.json"
     rows = json.loads(path.read_text(encoding="utf-8"))
     changed = 0
@@ -368,11 +413,11 @@ def run_category(category: str, limit: int | None, delay: float, force: bool):
         except Exception as error:
             print(f"[{category}] FAILED {entry.get('name')}: {error}", flush=True)
         # Checkpoint after every 25 successful records.
-        if changed and changed % 25 == 0:
+        if write and changed and changed % 25 == 0:
             path.write_text(json.dumps(rows, ensure_ascii=False) + "\n", encoding="utf-8")
-    if changed:
+    if write and changed:
         path.write_text(json.dumps(rows, ensure_ascii=False) + "\n", encoding="utf-8")
-    return {"category":category,"attempted":attempted,"changed":changed,"total":len(rows)}
+    return {"category":category,"attempted":attempted,"changed":changed,"total":len(rows),"write":write}
 
 
 def self_test():
@@ -408,6 +453,7 @@ def self_test():
     p=DetailParser();p.feed(feat_html);p.close()
     f=parse_feat(p,{"name":"Monkey Grip"})
     assert f["featType"] == "General feat" and f["prerequisites"][0]["text"] == "BAB +1."
+
     print("PASS DnD Tools structured enrichment parser")
 
 
@@ -417,12 +463,13 @@ def main():
     ap.add_argument("--limit", type=int)
     ap.add_argument("--delay", type=float, default=0.35)
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--write", action="store_true", help="Persist changes. Default is dry-run.")
     ap.add_argument("--self-test", action="store_true")
     args=ap.parse_args()
     if args.self_test:
         self_test()
         return
-    results=[run_category(c,args.limit,args.delay,args.force) for c in args.categories]
+    results=[run_category(c,args.limit,args.delay,args.force,args.write) for c in args.categories]
     print(json.dumps(results, indent=2))
 
 
