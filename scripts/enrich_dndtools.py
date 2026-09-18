@@ -206,6 +206,43 @@ def source_meta(lines: list[str]) -> dict:
     return result
 
 
+def has_rule_prose(lines: list[str], entry_name: str = "") -> bool:
+    """Confirm the page contains substantive gameplay prose without storing it."""
+    start = 0
+    target = clean(entry_name).casefold()
+    if target:
+        for i,line in enumerate(lines):
+            if clean(line).casefold() == target:
+                start = i + 1
+                break
+    ignored_prefixes = (
+        "dnd tools", "favorites ", "characters spells ", "open menu", "back to ",
+        "privacy ", "d&d 3.5 reference data", "source:"
+    )
+    metadata_labels = {
+        "save","hit die","skill points","min. bab req.","min bab req.","requirements",
+        "class features","advancement","class skills","school","casting time","components",
+        "range","target","targets","area","effect","duration","saving throw","spell resistance",
+        "classes","domains","descriptors","price","cost","weight","body slot","caster level",
+        "aura","activation","rarity","type","kind","category","ac bonus","max dex",
+        "armor check penalty","arcane spell failure","speed 30","speed 20","damage (s)",
+        "damage (m)","critical","range increment","prerequisite","prerequisites","benefit",
+        "normal","special","description"
+    }
+    for line in lines[start:]:
+        value = clean(line)
+        folded = value.casefold()
+        if not value or folded in metadata_labels or folded.startswith(ignored_prefixes):
+            continue
+        if re.match(r"^(?:prestige|base|npc|psionic) class\b", folded):
+            continue
+        if re.search(r"\([A-Za-z0-9 .&'-]{1,16}\)\s*(?:,\s*p\.\s*\d+)?$", value):
+            continue
+        if len(value) >= 55:
+            return True
+    return False
+
+
 def parse_requirement_lines(lines: list[str]) -> list[dict]:
     out = []
     for line in lines:
@@ -264,6 +301,10 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
         for line in skills[:5]:
             tokens += re.findall(r"[A-Z][A-Za-z' -]+?(?=[A-Z]|$)", line)
         enriched["classSkills"] = [clean(x) for x in tokens if clean(x)]
+    enriched["mechanicsPresence"] = {
+        "classFeatures": bool(section(lines, parser.headings, "Class Features")),
+        "ruleProse": has_rule_prose(lines, entry.get("name",""))
+    }
     return {k:v for k,v in enriched.items() if v not in (None,"",[],{})}
 
 
@@ -285,6 +326,13 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         result["featType"] = category
     if prereq:
         result["prerequisites"] = [{"kind":"text","label":"Prerequisite","text":prereq}]
+    result["mechanicsPresence"] = {
+        "benefit": bool(next_value(lines, "Benefit")),
+        "description": bool(next_value(lines, "Description")),
+        "normal": bool(next_value(lines, "Normal")),
+        "special": bool(next_value(lines, "Special")),
+        "ruleProse": has_rule_prose(lines, entry.get("name",""))
+    }
     return result
 
 
@@ -320,6 +368,7 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
     descriptors_raw = next_value(lines, "Descriptors")
     if descriptors_raw:
         result["descriptors"] = [clean(x) for x in re.split(r"[,;]", descriptors_raw) if clean(x)]
+    result["mechanicsPresence"] = {"ruleProse": has_rule_prose(lines, entry.get("name",""))}
     return {k:v for k,v in result.items() if v not in (None,"",[],{})}
 
 
@@ -342,6 +391,7 @@ def parse_item(parser: DetailParser, entry: dict) -> dict:
     prereq = next_value(lines, "Prerequisites") or next_value(lines, "Prerequisite")
     if prereq:
         result["prerequisites"] = [{"kind":"text","label":"Prerequisite","text":prereq}]
+    result["mechanicsPresence"] = {"ruleProse": has_rule_prose(lines, entry.get("name",""))}
     return result
 
 
@@ -395,17 +445,45 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
 
 
 def enrichment_gaps(category: str, details: dict) -> list[str]:
+    """Fields that must be present before a record can be considered game-complete."""
+    presence = details.get("mechanicsPresence") or {}
     expected = {
-        "classes": ("hit_die","progression"),
-        "spells": ("school","casting_time","range","duration"),
-        "feats": ("featType",),
+        "classes": ("sourceBook","hit_die","skillPoints","progression","classSkills"),
+        "spells": ("sourceBook","school","casting_time","components","range","duration"),
+        "feats": ("sourceBook","featType"),
         "items": ("sourceBook",),
         "equipment": ("kind","itemCategory"),
     }.get(category, ())
     gaps = [key for key in expected if not details.get(key)]
-    if category == "classes" and details.get("prestige") and not details.get("prerequisites"):
-        gaps.append("prerequisites")
-    return gaps
+
+    if category == "classes":
+        if details.get("prestige") and not details.get("prerequisites"):
+            gaps.append("prerequisites")
+        if not presence.get("classFeatures"):
+            gaps.append("classFeatures")
+        if not presence.get("ruleProse"):
+            gaps.append("classRuleText")
+    elif category == "feats":
+        if not (presence.get("benefit") or presence.get("description")):
+            gaps.append("featEffect")
+        if not presence.get("ruleProse"):
+            gaps.append("featRuleText")
+    elif category == "spells":
+        if not presence.get("ruleProse"):
+            gaps.append("spellEffect")
+    elif category == "items":
+        useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType")
+        if not any(details.get(key) for key in useful):
+            gaps.append("itemStats")
+        if not presence.get("ruleProse"):
+            gaps.append("itemEffect")
+    elif category == "equipment":
+        if not any(details.get(key) for key in (
+            "cost","weight","armorClassBonus","maxDex","armorCheckPenalty",
+            "arcaneSpellFailure","damageSmall","damageMedium","critical","rangeIncrement"
+        )):
+            gaps.append("equipmentStats")
+    return sorted(set(gaps))
 
 
 def enrich_entry(entry: dict, category: str, delay: float) -> dict:
