@@ -6987,6 +6987,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/chasing-perfection-3006": {
+      "name": "Chasing Perfection",
+      "sourceSha256": "cb83391eaa5dbb80b964df70080a1ef63d29b57c3584b997203f7dcee0f30076",
+      "effectSummary": "Grants the subject a +4 enhancement bonus to every ability score: Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chasing-perfection-3006",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cheat-1030": {
+      "name": "Cheat",
+      "sourceSha256": "c82fec915469bd589b34d5e98b9979355a88bfd7c4eff78c2d697b0ecdac8012",
+      "effectSummary": "Once during the spell's duration, when a roll determines the outcome of a nonmagical game of chance, the caster can demand a reroll and use the better result. The spell cannot affect magical games or magic items used in games of chance. The probability alteration itself is not detectable as cheating apart from observing the spell being cast.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cheat-1030",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cheat-231": {
+      "name": "Cheat",
+      "sourceSha256": "30879e1f630989cd2e43e61cd2f9d20c07a8efe90f90b8ab2e9ac5ec52752f52",
+      "effectSummary": "Once during the spell's duration, when a roll determines the outcome of a nonmagical game of chance, the caster can force a reroll and take the better result. The spell cannot affect magical games or magic items used in games of chance, and the altered probability appears merely as luck.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cheat-231",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cheat-3794": {
+      "name": "Cheat",
+      "sourceSha256": "b6f5ff5541319da04c435a9fd036218026b6e2cffb86420d4f655720c5596ddb",
+      "effectSummary": "Once during the spell's duration, when a dice roll determines the outcome of a nonmagical game of chance, the caster can demand a reroll and take the better result. The spell cannot affect magical games or magic items used in games of chance. Observers receive a Will save to realize that something suspicious or magical may be influencing the game.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cheat-3794",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/checkmates-light-4018": {
+      "name": "Checkmate's Light",
+      "sourceSha256": "30c47098c539ebad7885a109e53d7aca7cae956f3ea9559e9f220ed5f33c33fe",
+      "effectSummary": "Grants a touched weapon a +1 enhancement bonus per three caster levels, maximum +5 at 15th level, and treats it as lawful-aligned for overcoming damage reduction. The weapon can glow like a torch; creatures within its 20-foot bright-light radius gain +1 morale on saves against fear. If the weapon leaves the grasp of the caster or another worshiper of the caster's deity, the effect is suppressed until an eligible worshiper holds it again, though the spell duration continues to elapse.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/checkmates-light-4018",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/child-shadow-3685": {
+      "name": "Child of Shadow",
+      "sourceSha256": "77d45aabd8447f3021c1852e6382a90ee05573a559356573552f8e90e2554498",
+      "effectSummary": "While in this stance, moving at least 10 feet during the initiator's turn grants concealment against melee and ranged attacks until the start of the initiator's next turn. The concealment provides normal defensive benefits but does not allow hiding in plain sight; ordinary conditions permitting a Hide check are still required.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/child-shadow-3685",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chill-metal-2793": {
+      "name": "Chill Metal",
+      "sourceSha256": "5828f384c8395d2da048424800318e2b2a2ba019092a0fbaaf72adc6f76c611b",
+      "effectSummary": "Makes affected metal progressively colder over 7 rounds. Round 1 deals no damage; round 2 deals 1d4 cold; rounds 3–5 deal 2d4 cold each; round 6 deals 1d4; round 7 deals none. A creature takes full damage if chilled armor or metal weighing at least one-fifth of its body weight is worn, held, carried, or touched; otherwise it takes minimum damage. Heat damage negates chill-metal cold damage point for point and vice versa. Underwater the spell deals no damage but forms ice around the metal. Chill metal counters and dispels heat metal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chill-metal-2793",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chill-of-the-grave-1470": {
+      "name": "Chill of the Grave",
+      "sourceSha256": "3bd85887d54306ac176e7baabe119f8c210ca439c762b42017a7f88d35793bca",
+      "effectSummary": "Requires a ranged touch attack. On a hit, deals 1d10 cold damage, increasing to 2d10 at caster level 4, 3d10 at 7th, and 4d10 at 10th.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chill-of-the-grave-1470",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chill-of-the-grave-4019": {
+      "name": "Chill of the Grave",
+      "sourceSha256": "3e2cef12b875c4d07fbb9e0aab6b05ad5582863336a35d7ed0494ec9a9e7d341",
+      "effectSummary": "Requires a ranged touch attack. On a hit, deals 1d10 cold damage, increasing to 2d10 at caster level 4, 3d10 at 7th, and 4d10 at 10th.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chill-of-the-grave-4019",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chill-touch-2717": {
+      "name": "Chill Touch",
+      "sourceSha256": "2f22e9c88beef2b6098d8ac61b6d5b70e6c503be8dda587e2d3138f5588dd081",
+      "effectSummary": "Grants up to one melee touch attack per caster level. Each hit against a living creature deals 1d6 damage and also deals 1 Strength damage unless the target succeeds on a Fortitude save. An undead creature takes no damage, but must make a Will save or flee as though panicked for 1d4 rounds +1 round per caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chill-touch-2717",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/choir-3317": {
+      "name": "Choir",
+      "sourceSha256": "2f9e2490412886a778fd4d1e320245209fc31957481bdf5534c37df1ae652d38",
+      "effectSummary": "Creates visible spectral accompanists that perform alongside the caster and provide +2 circumstance on Perform checks. They can make limited social responses such as smiling, nodding, stock phrases, or dancing. Because the illusion is a pattern rather than a figment, creatures that recognize its spectral nature still see it; however, a successful Will save removes the +2 bonus with respect to that creature and instead imposes -2 circumstance on the caster's Perform checks against that creature for the rest of the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/choir-3317",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/choke-3386": {
+      "name": "Choke",
+      "sourceSha256": "fa219bdfc7329385feb54ddabf8479329a2e03d54a4f5037fb34ccf4d24541bb",
+      "effectSummary": "Invisible force hands strangle one eligible creature with a neck. The target takes 1d4 damage each round, Reflex half, and suffers -2 on attack rolls and checks, increased to -4 for checks involving speech. Spellcasting requires Concentration against DC 10 + spell level + half the most recent damage dealt; the same -2 penalty applies, or -4 if the spell has a verbal component. The force hands cannot be attacked or damaged.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/choke-3386",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/choking-cobwebs-775": {
+      "name": "Choking Cobwebs",
+      "sourceSha256": "651d80daefc9dc6137f6cea4bdcc23e15996ac34231dedd236895c75add8e641",
+      "effectSummary": "Creates dusty cobwebs that block sight beyond 5 feet, giving concealment within 5 feet and total concealment farther away. Entering an affected square costs 2 squares of movement. Living creatures in the area are sickened while present and for 1 round afterward unless they make a Fortitude save each round. Where two or more such spells overlap, creatures gain cover from adjacent foes and total cover from farther foes, entering a square costs 4 squares of movement, and living creatures are nauseated instead of sickened on a failed Fortitude save; while nauseated there, they also take 1d4 Constitution damage each round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/choking-cobwebs-775",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/choking-sands-3163": {
+      "name": "Choking Sands",
+      "sourceSha256": "d532cc1b3b56dec6c4e500511b981939ea925a2e53e1b2c87faa55f2527ad628",
+      "effectSummary": "Fills the target's lungs with dust and sand. The target can spend a full-round action to cough it out by succeeding on a Fortitude save. If it does not, it must make Constitution checks to avoid suffocation under the normal suffocation rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/choking-sands-3163",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chromatic-ray-1105": {
+      "name": "Chromatic Ray",
+      "sourceSha256": "4e3cae995095426eeb016951b80a85773bd21b014d07580b4c6f95427cb89714",
+      "effectSummary": "Requires a ranged touch attack against a good dragon or dragonblood creature. On a hit and failed Will save, the target cannot use racial supernatural or spell-like abilities; this does not suppress spells gained from a dragon's sorcerer spellcasting progression. Casters receiving divine spells from Mask or Tiamat gain +1 profane on the ranged touch attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chromatic-ray-1105",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/circle-dance-1633": {
+      "name": "Circle Dance",
+      "sourceSha256": "eaab31ad431d1dd9a806da2cf5548835ed0121ba015ed06f991b19bdd98a12ba",
+      "effectSummary": "Reveals the relative direction and general physical and emotional condition of a creature the caster knows firsthand. If the target is alive and on the same plane, the caster ends the spell facing toward it and learns an impression such as unharmed, wounded, unconscious, or dying. If the target is dead or on another plane, the caster learns nothing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/circle-dance-1633",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/circle-dance-4020": {
+      "name": "Circle Dance",
+      "sourceSha256": "bb48c19c0f4119763f01ce2a32bd67bf2735a7e3c3fd6b09db8cdce69747a608",
+      "effectSummary": "Reveals the relative direction and general physical and emotional condition of a creature the caster knows firsthand. If the target is alive and on the same plane, the caster ends the spell facing toward it and learns an impression such as unharmed, wounded, unconscious, or dying. If the target is dead or on another plane, the caster learns nothing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/circle-dance-4020",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/circle-of-death-2718": {
+      "name": "Circle of Death",
+      "sourceSha256": "565250753385a639b066716ba2e508e7132fe1a2437595cb07ca22d65509aed1",
+      "effectSummary": "Instantly kills 1d4 Hit Dice of living creatures per caster level, maximum 20d4 total Hit Dice. Creatures with the fewest Hit Dice are affected first, with nearer creatures chosen first among equal-Hit-Die targets. Creatures with 9 or more Hit Dice are immune, and unused Hit Dice that are insufficient to affect the next creature are wasted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/circle-of-death-2718",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/circle-of-doom-5743": {
+      "name": "Circle of Doom",
+      "sourceSha256": "58781cecf6a5b6e5a668431cc2440e002218dc8d523264acb2708ee18fbb1929",
+      "effectSummary": "Releases negative energy that deals 1d8 damage +1 per caster level, maximum +20, to living enemies in the area. Undead in the area are healed by the same amount instead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/circle-of-doom-5743",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/circle-of-nausea-175": {
+      "name": "Circle of Nausea",
+      "sourceSha256": "98a9c43ad9a5310f0d401a504a65edaa149a5c5426dfa8233f2832407ad576b5",
+      "effectSummary": "Creates a pre-inscribed circle of painful evil energy. Creatures in the area must make a Fortitude save or take -2 on attack rolls, saving throws, and skill checks; creatures that succeed must save again each round they remain. A creature attempting to cross the circle must make a Fortitude save or become nauseated until the spell ends and cannot cross while nauseated. If a creature crosses without becoming nauseated, the spell ends. Preparing the reusable circle takes 1 hour and requires a stone at each cardinal direction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/circle-of-nausea-175",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
