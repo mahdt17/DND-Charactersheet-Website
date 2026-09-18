@@ -3130,6 +3130,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/bands-of-steel-451": {
+      "name": "Bands of Steel",
+      "sourceSha256": "1688dc5aff938b0059c33f12a497a891a60f5391ec16c6ac57537a603306f39f",
+      "effectSummary": "Conjures metal bands around one Medium-or-smaller target. On a failed Reflex save the target is immobilized and helpless; on a successful save it is entangled instead. An immobilized creature can spend a full-round action to escape with Strength DC 18 or Escape Artist DC 18. An entangled creature can spend a full-round action to escape with Strength DC 13 or Escape Artist DC 13. Large or larger creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bands-of-steel-451",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bane-bow-691": {
+      "name": "Bane Bow",
+      "sourceSha256": "c439cd37a0770637266be2c106ee53c5e547dffa235cdf3c13e3753bc2f598d5",
+      "effectSummary": "Enhances one ranged weapon with +5 enhancement on attack and damage rolls and the bane quality against one of the caster's favored-enemy categories, giving +7 total enhancement on attack and damage plus +2d6 damage against that enemy type. The spell ends 1 round after the weapon leaves the caster's hand. It suppresses the weapon's normal magical enhancement and special abilities for the duration, does not stack with other weapon-modifying spells, and does not affect artifacts. Ammunition takes the spell's magical qualities but retains material properties for overcoming damage reduction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bane-bow-691",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bane-of-the-archrival-3432": {
+      "name": "Bane of the Archrival",
+      "sourceSha256": "ddb22f066d6e4d900371d9bce9c019223794cd436f5d1ebde413412940a09df4",
+      "effectSummary": "Protects an area against one creature whose personal truename is spoken. The named foe must make a Will save to enter by any means; a failed teleportation entry attempt shunts it to a random open space within 10 feet if possible. Creatures inside gain +4 deflection AC against that foe and +4 resistance on saves against its spells and special attacks. The area also suppresses that foe's possession and ongoing charm or compulsion control over protected creatures for as long as they remain inside.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bane-of-the-archrival-3432",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/banish-dragonmark-4861": {
+      "name": "Banish Dragonmark",
+      "sourceSha256": "9de0f79cf315612af9d10bbcaed32346e07ef34faeaef5923011554bbdf6b95b",
+      "effectSummary": "On a failed Will save, suppresses the target's dragonmark and all dragonmark-dependent spell-like or other abilities for the duration. A target whose dragonmark is one step stronger than the caster's gains +2 on the save; two steps stronger grants +4.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/banish-dragonmark-4861",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/banishment-2305": {
+      "name": "Banishment",
+      "sourceSha256": "9626cf60f6aac113fde2608172327bb585968a6aca89f673747d66343d543ce9",
+      "effectSummary": "Forces extraplanar creatures out of the caster's home plane, affecting up to 2 Hit Dice of creatures per caster level. Presenting objects or substances a target hates, fears, or opposes can improve the spell: each normal such item grants +1 on the caster-level check to overcome spell resistance and +2 to the save DC, while exceptionally potent items can count double at the DM's discretion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/banishment-2305",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/barghests-feast-2186": {
+      "name": "Barghest's Feast",
+      "sourceSha256": "186745832bd2c218c239ba2a2cfe260c55ec14dcd8243e2347a9a380f26f9035",
+      "effectSummary": "Completely consumes a corpse, preventing any return-to-life effect that requires part of the remains. There is also a 50% chance, rolled once for that destroyed creature, that wish, miracle, and true resurrection cannot restore it; on a failed percentile roll, mortal magic cannot bring the creature back. Casting consumes a 5,000 gp diamond.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/barghests-feast-2186",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/barghests-feast-3931": {
+      "name": "Barghest's Feast",
+      "sourceSha256": "7406819a0eda327531ad934027a53579008bb834cdc2e5509bffe3f10ddf9204",
+      "effectSummary": "Completely consumes a corpse, preventing any return-to-life effect that requires part of the remains. There is also a 50% chance, rolled once for that destroyed creature, that wish, miracle, and true resurrection cannot restore it; on a failed percentile roll, mortal magic cannot bring the creature back. Casting consumes a 5,000 gp diamond.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/barghests-feast-3931",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/barkskin-2782": {
+      "name": "Barkskin",
+      "sourceSha256": "0a2250631682e8821dc9e56ea9709cc7f505c928650bd4e841b6c9e862cf307f",
+      "effectSummary": "Grants +2 enhancement to the subject's natural armor, increasing by +1 for every three caster levels above 3rd to a maximum of +5 at caster level 12. The enhancement stacks with existing natural armor but not with other enhancement bonuses to natural armor.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/barkskin-2782",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bastion-of-good-1": {
+      "name": "Bastion of Good",
+      "sourceSha256": "abdc39f649a34898c107ec74ab6bd645ea846e8ad6100a38b9a3a620ed6dee43",
+      "effectSummary": "Creates a protective nimbus around the caster. It excludes spell effects of 3rd level or lower as lesser globe of invulnerability and also protects creatures inside as a double-strength magic circle against evil: +4 deflection AC and +4 resistance on saves against evil creatures, plus protection from possession, mental control, and bodily contact by summoned or conjured creatures. Casting requires 24 hours of fasting beforehand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bastion-of-good-1",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battering-ram-1659": {
+      "name": "Battering Ram",
+      "sourceSha256": "c91ddabe85b52e3d4e81593509dbff2096fa82b24fdc476dd1a53e8bad758d4e",
+      "effectSummary": "Creates a ramlike force that deals 1d6 damage to a creature or object. Against a creature, it also initiates a bull rush as a Large creature with Strength 25. Against a movable object such as a door, the caster can make a Strength check using that Strength score to force it open.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battering-ram-1659",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battering-ram-3932": {
+      "name": "Battering Ram",
+      "sourceSha256": "9f5ed883ec3fffe79997405e88494cc9dcd0c91132986dbc60f968fe380936af",
+      "effectSummary": "Creates a ramlike force that deals 1d6 damage to a creature or object. Against a creature, it initiates a bull rush as a Medium creature with Strength 30, giving +10 on the bull-rush attempt. Against a movable object such as a door, the caster can make a Strength check with +10 to force it open.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battering-ram-3932",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battle-hymn-3933": {
+      "name": "Battle Hymn",
+      "sourceSha256": "6f2bae7a6300a9fbe4ff30c95acb14f292e19fd26ec36352fa9510a5726dccad",
+      "effectSummary": "Friendly creatures in the area can reroll one Will save they have just made each round for the spell's duration. The reroll must be declared before success or failure is announced, and the second result must be used even if worse.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battle-hymn-3933",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battle-leaders-charge-3754": {
+      "name": "Battle Leader's Charge",
+      "sourceSha256": "14f584adbb6fe5d05350546198eeda083c56485ab2369a81d0901d899a71f2c8",
+      "effectSummary": "As part of the maneuver, charge one opponent without provoking attacks of opportunity for the movement. If the charge attack hits, it deals +10 damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battle-leaders-charge-3754",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battle-line-263": {
+      "name": "Battle Line",
+      "sourceSha256": "1ebf47d5196c093c77444c6e2f6f9793b6a8d64ed01c080635e747310e17db80",
+      "effectSummary": "Creates a visible line that fills creatures crossing it with dread. A creature entering the affected area must make a Will save or become shaken. A creature that succeeds becomes immune to that caster's battle line spells for 24 hours.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battle-line-263",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battlecry-816": {
+      "name": "Battlecry",
+      "sourceSha256": "51bc116068b6fcc5eb153f442f1a41c004f58bb390dee21e085841d5f0f82354",
+      "effectSummary": "The next single attack made by each affected creature before the end of the caster's next turn gains +5 morale on its damage roll. Allies currently under charm, compulsion, or fear can immediately attempt a new save with +2 morale. The spell also extends by 3 rounds any inspire courage, inspire greatness, or inspire heroics effects currently affecting allies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battlecry-816",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battlefield-fortification-1418": {
+      "name": "Battlefield Fortification",
+      "sourceSha256": "cf0fcfaffeff7425e144e11c2179e4928b003a093b6a3ec79d41e6621df01850",
+      "effectSummary": "Shapes earth into either a shallow trench or a berm in a straight line up to 5 feet long per two caster levels. A berm is 2 squares wide. The spell has no effect on stone surfaces such as cavern rock, flagstone, or cobblestone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battlefield-fortification-1418",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battlefield-illumination-1407": {
+      "name": "Battlefield Illumination",
+      "sourceSha256": "e2dac1bd60f64e3d1154a749929b78b767276ca25d1f45ea8c0dd7839350d4de",
+      "effectSummary": "Improves illumination throughout the area by one category: darkness becomes shadowy illumination, and shadowy illumination becomes bright light. It does not stack with other magical light effects. It counters and dispels early twilight but does not affect other darkness spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battlefield-illumination-1407",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battlemagic-perception-1403": {
+      "name": "Battlemagic Perception",
+      "sourceSha256": "f6dce45ebcc92da0c5690d77c6bfccb8924834b0f28d1bcd51450f37d3f0cf50",
+      "effectSummary": "Grants +5 competence on Spellcraft checks to identify spells as they are cast. With at least 5 Spellcraft ranks, the caster also senses any spell or spell-like ability used within 100 feet and line of effect; a Spellcraft check against DC 15 + spell level identifies it. This happens quickly enough to attempt a normal counterspell as a free action even without line of sight. Successfully countering a spell this way immediately ends battlemagic perception.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battlemagic-perception-1403",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battletide-1523": {
+      "name": "Battletide",
+      "sourceSha256": "fd6a612c7865f9049e05c20e75bd3527ea9b17f96f997c56769b81f4f06922a2",
+      "effectSummary": "Affected targets other than the caster take -2 circumstance on saving throws, attack rolls, and damage rolls. As long as at least one enemy remains affected, the caster gains one extra partial action each round. If no affected enemies remain, the spell ends immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battletide-1523",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/battletide-1736": {
+      "name": "Battletide",
+      "sourceSha256": "c94c1ed7682afa5eea7ec2c13a9ef96303f8e8d2cf021484e5b2ea6463ce0bf1",
+      "effectSummary": "Affected targets other than the caster take -2 circumstance on saving throws, attack rolls, and damage rolls. As long as at least one enemy remains affected, the caster gains one extra partial action each round. If no affected enemies remain, the spell ends immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/battletide-1736",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
