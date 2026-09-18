@@ -7207,6 +7207,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/circlet-of-enervation-3282": {
+      "name": "Circlet of Enervation",
+      "sourceSha256": "1da11c1c86e3c91e57088091eee75f004988c0de97d213fc45edcdf65183f721",
+      "effectSummary": "Creates a negative-energy circlet that can be launched once per turn with a ranged touch attack, with a new circlet appearing after each throw. A living target hit takes 2d6 damage and gains one negative level unless it succeeds on a Fortitude save. An undead target instead heals 2d6 and gains 5 temporary hit points. The spell has no effect on constructs or objects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/circlet-of-enervation-3282",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/city-lights-3042": {
+      "name": "City Lights",
+      "sourceSha256": "075f6f7cccef5f27d0277f839cc7969a1373b04a9a2e071a10628c67e3c3a6ea",
+      "effectSummary": "Requires at least four active artificial light sources within 60 feet. The spell briefly extinguishes nearby magical and mundane lights, then releases a flash that blinds creatures in the area for 1 round on a failed Fortitude save and dazzles all sighted creatures there for 1 minute regardless of the save. The lights then return to normal. Sightless creatures are unaffected. City lights counters or dispels darkness spells of equal or lower level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/city-lights-3042",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/city-stride-3030": {
+      "name": "City Stride",
+      "sourceSha256": "ec8177d4fc61038ec0884a757392c4b979a65b21f7ee0d9d0fdda81ce80553b6",
+      "effectSummary": "Teleports the caster from one community of at least small-city size to another such community previously visited, at a maximum distance of 100 miles per caster level; interplanar travel is impossible. The caster can bring carried objects up to maximum load and one willing Medium-or-smaller creature per three caster levels, with larger creatures counting as multiple Medium creatures. All travelers must be in contact, and arrival occurs at a random safe outdoor location within the destination city's borders.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/city-stride-3030",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/citygate-3805": {
+      "name": "Citygate",
+      "sourceSha256": "960605d936b8c2438a036effb8ec80b73569b78aa4259069e648f598ceaab1ab",
+      "effectSummary": "Links two open city gates in walls surrounding communities of at least small-town size. Any creature passing through the departure gate is transported to the designated destination gate as greater teleport. The destination cannot be changed after casting, cannot be on another plane or inside a solid object, and must be a familiar or clearly described place. If either gate is closed when cast the spell fails, and physically closing either gate later immediately ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/citygate-3805",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clairaudienceclairvoyance-2479": {
+      "name": "Clairaudience/Clairvoyance",
+      "sourceSha256": "9cd1ff16795809dfd490b0a06da581ebe77c2cedbdde3aa1388d89a9e291d771",
+      "effectSummary": "Creates an immobile invisible sensor at a known or obvious location and lets the caster either hear or see from that point as though present. Line of sight and line of effect are not required. The sensor can rotate to view the area but cannot move. Enhanced or supernatural senses do not function through it. Magical darkness blocks vision completely, while natural total darkness still allows vision within 10 feet of the sensor. The spell works only on the caster's current plane.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clairaudienceclairvoyance-2479",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clarion-call-3756": {
+      "name": "Clarion Call",
+      "sourceSha256": "1778f213a8d810d609516906aa215907b09344a9037caae71080c07aea922017",
+      "effectSummary": "Can be initiated after one of the initiator's melee attacks during the turn reduces an opponent below 0 hit points. Every ally within range that can see and hear the initiator can immediately either make one melee attack at its highest attack bonus or take one move action. These granted attacks are not attacks of opportunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clarion-call-3756",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clarity-of-mind-3478": {
+      "name": "Clarity of Mind",
+      "sourceSha256": "b9c7c488d1557ccfdbe03a145b63e348a0f7a37a81e6400b4780b8fce22bdb8f",
+      "effectSummary": "Grants +4 insight on saving throws against charm, compulsion, and glamer spells. It also reduces by 10 percentage points any miss chance caused by glamer-based concealment, such as blur or displacement.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clarity-of-mind-3478",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clarity-of-mind-4021": {
+      "name": "Clarity of Mind",
+      "sourceSha256": "803ab1e799ad489f9a7d66bf6654a6ebc8440a83ce2cdee57a38e7c33e3165a5",
+      "effectSummary": "Grants +4 insight on saving throws against all mind-affecting spells and effects. When the subject attacks a creature with concealment and fails the miss-chance roll, it can reroll that miss chance once.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clarity-of-mind-4021",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/claw-moon-3732": {
+      "name": "Claw at the Moon",
+      "sourceSha256": "1060a162226b0e2534a243b9f9e1fe57e36067f8506f1579af6ffeb808fac7b8",
+      "effectSummary": "As part of the maneuver, make a Jump check against the target's Armor Class and then make one melee attack. If the Jump check succeeds, the attack deals +2d6 damage and gains +4 on any roll to confirm a critical hit. If the Jump check fails, the attack still occurs normally but gains neither benefit, and the maneuver is still expended.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/claw-moon-3732",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/claws-darkness-1211": {
+      "name": "Claws of Darkness",
+      "sourceSha256": "a2dc59af495dbc985ddb5d5df5005f06e8fc7139cfc1000b88f21f11de07f55d",
+      "effectSummary": "Transforms the caster's hands into shadow claws usable as natural weapons and melee touch attacks, each dealing 1d4 cold damage. During a grapple, each successful grapple check deals claw damage and slows the opponent while the grapple is maintained unless it succeeds on a Fortitude save. The claws can extend to give 10-foot natural reach or retract as a free action. While active, the caster cannot hold items or cast spells with nonverbal components, and magic items worn on the hands are absorbed and suppressed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/claws-darkness-1211",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/claws-darkness-4023": {
+      "name": "Claws of Darkness",
+      "sourceSha256": "e6299cd8ed34c1746ad9783c98e9532fd76c2587e19367f09d54b573748cdc07",
+      "effectSummary": "Transforms the caster's hands into shadow claws usable as natural weapons and melee touch attacks, each dealing 1d8 cold damage. During a grapple, each successful grapple check deals claw damage and slows the opponent while the grapple is maintained; a successful Fortitude save negates the slow and makes that opponent immune to the slow from this casting. The claws can extend to give 10-foot natural reach or retract as a free action. While active, the caster cannot hold items or cast spells with nonverbal components, and magic items worn on the hands are absorbed and suppressed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/claws-darkness-4023",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/claws-darkness-4991": {
+      "name": "Claws of Darkness",
+      "sourceSha256": "10daffe834c3ae2032d079dbf43130d118c115d256c92bf3d737b6ef80b4a94f",
+      "effectSummary": "Transforms the caster's hands into shadow claws usable as natural weapons and melee touch attacks. Each successful grapple check deals 1d4 cold damage and can slow the grappled opponent while the grapple is maintained unless it succeeds on a Fortitude save. The claws can extend to give 10-foot natural reach or retract as a free action. While active, the caster cannot hold items or cast spells with nonverbal components, and magic items worn on the hands are absorbed and suppressed. If the caster fails to overcome a target's spell resistance, attacks from the spell have no effect on that target.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/claws-darkness-4991",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/claws-bear-4022": {
+      "name": "Claws of the Bear",
+      "sourceSha256": "81b1d5ace1735ebed4964980549f661bec7dcfc17f5ffc629e21dd801c515e6d",
+      "effectSummary": "Turns the subject's hands into two primary natural claw attacks dealing the greater of normal unarmed damage or 1d8 each for Medium creatures, 1d6 for Small, or 2d6 for Large. Strength applies normally to damage. The subject can attack once with one claw or make a full attack with both at the normal attack bonus without two-weapon penalties; no extra iterative claw attacks are gained from high base attack bonus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/claws-bear-4022",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/claws-beast-5085": {
+      "name": "Claws of the Beast",
+      "sourceSha256": "5aa3f6833e7ee47203a811c033d5d87480323de9100f1281e5276cd683e84e62",
+      "effectSummary": "Grants two primary natural claw attacks that replace the normal attack routine and count as armed attacks. Base claw damage is 1d3 Small, 1d4 Medium, or 1d6 Large, plus Strength; the claws can deal nonlethal damage at the normal -4 attack penalty and can be enhanced as natural weapons. Calling or dismissing the claws is a swift action, and attacking with another manufactured or natural weapon prevents claw attacks that round. Additional power points increase damage by table: at 3 PP 1d4/1d6/1d8, 5 PP 1d6/1d8/2d6, 7 PP 1d8/2d6/3d6, 11 PP 2d6/3d6/4d6, 15 PP 3d6/4d6/5d6, and 19 PP 4d6/5d6/6d6 for Small/Medium/Large respectively.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/claws-beast-5085",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/claws-of-the-bebilith-232": {
+      "name": "Claws of the Bebilith",
+      "sourceSha256": "1fb68a7ba39a94106aca7e4def128fb562906dcbf7503aa03c4d99b79d02bb2d",
+      "effectSummary": "Grants claws with damage by caster size: Diminutive 1, Tiny 1d2, Small 1d3, Medium 1d4, Large 1d6, Huge 1d8, Gargantuan 2d2, and Colossal 2d8; Fine creatures gain no damaging claw. On a claw hit against a creature with armor or shield, randomly determine which is targeted if both are present, then make a grapple check opposed by the foe's check plus the item's enhancement bonus. If the caster wins, the targeted armor or shield is torn away and ruined. Casting inflicts 1d6 Dexterity damage as a corruption cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/claws-of-the-bebilith-232",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/claws-of-the-savage-233": {
+      "name": "Claws of the Savage",
+      "sourceSha256": "622a37e626ad90994cab7a4a6a1946e942c4bf6d692a0f634bbfe9aca2fd721d",
+      "effectSummary": "Grants two natural claws that replace the subject's hands or equivalent appendages. The subject can attack with both claws without two-weapon penalties and is considered armed; the claws gain +2 enhancement on attack and damage. Damage by size is Fine 1, Diminutive 1d2, Tiny 1d3, Small 1d4, Medium 1d6, Large 1d8, Huge 2d6, Gargantuan 2d8, and Colossal 4d6. If the subject already has claws, those claws instead gain +2 enhancement on attack and damage and deal damage as though the creature were two size categories larger.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/claws-of-the-savage-233",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clear-mind-4024": {
+      "name": "Clear Mind",
+      "sourceSha256": "c108568b781ce648b8c4ed7b21b2de2913b481a63b4fb1fce28b50dfb973c8d6",
+      "effectSummary": "Grants the caster a +4 sacred bonus on saving throws against mind-affecting spells and effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clear-mind-4024",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clearstone-1567": {
+      "name": "Clearstone",
+      "sourceSha256": "dd8ee64c32ccd0517469a81c871bfb89a1907f1e2af4e2f5f02e3da4c10e0a90",
+      "effectSummary": "Makes a section of natural or worked stone transparent without changing its hardness or other physical qualities. It affects natural stone, ore, rough gemstones, statues, and tunnel walls, but not worked metal, cut gems, brick, concrete, or similar fabricated materials. Visibility is limited only by available light and objects embedded in the stone. The spell grants line of sight but not line of effect through the transparent stone and can be made permanent with permanency at caster level 11 or higher for 1,500 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clearstone-1567",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clever-positioning-3664": {
+      "name": "Clever Positioning",
+      "sourceSha256": "0dd0c940acd5fd9f16108c5d016f008dcc36655c0b16eddf4792c7c6640cdc69",
+      "effectSummary": "As part of the maneuver, make one melee attack. On a hit, the target takes normal damage and makes a Reflex save against DC 12 + Dexterity modifier. On failure, the initiator and target swap positions. If the target is Large or larger, the initiator can occupy any square of its former space and the target must occupy the initiator's former square or squares; the maneuver cannot place either creature in another creature's space or impassable terrain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clever-positioning-3664",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/climb-walls-4025": {
+      "name": "Climb Walls",
+      "sourceSha256": "0d68e4b1cdffb1ceedd454339fedb43aba4b7ccdcefb1100bba3c0b348fe74f3",
+      "effectSummary": "Grants +10 enhancement on Climb checks, increasing to +20 at caster level 5 and +30 at caster level 9. The spell does not allow ceiling movement and does not grant a climb speed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/climb-walls-4025",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
