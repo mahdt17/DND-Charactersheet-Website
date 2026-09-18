@@ -573,18 +573,42 @@ def self_test():
     print("PASS DnD Tools structured enrichment parser")
 
 
+def audit_report_allows_write(path: str | None) -> bool:
+    if not path:
+        return False
+    report_path=Path(path)
+    if not report_path.exists():
+        return False
+    try:
+        report=json.loads(report_path.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+    return (
+        report.get("readOnly") is True
+        and report.get("fullCatalog") is True
+        and report.get("strictGameplayCompleteness") is True
+        and report.get("passed") is True
+        and report.get("criticalMissingCount") == 0
+        and float(report.get("minimumRate", 0)) >= 1.0
+        and all(float(row.get("successRate",0)) >= 1.0 and row.get("failed",1) == 0 for row in report.get("categories",[]))
+    )
+
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--categories", nargs="+", choices=sorted(PARSERS), default=DEFAULT_CATEGORIES)
     ap.add_argument("--limit", type=int)
     ap.add_argument("--delay", type=float, default=0.35)
     ap.add_argument("--force", action="store_true")
-    ap.add_argument("--write", action="store_true", help="Persist changes. Default is dry-run.")
+    ap.add_argument("--write", action="store_true", help="Persist changes. Blocked without a passing full-catalog audit.")
+    ap.add_argument("--audit-report", help="Path to a strict full-catalog preflight report required for --write.")
     ap.add_argument("--self-test", action="store_true")
     args=ap.parse_args()
     if args.self_test:
         self_test()
         return
+    if args.write and not audit_report_allows_write(args.audit_report):
+        raise SystemExit("--write is locked until a strict full-catalog audit report passes with zero critical gaps.")
     results=[run_category(c,args.limit,args.delay,args.force,args.write) for c in args.categories]
     print(json.dumps(results, indent=2))
 
