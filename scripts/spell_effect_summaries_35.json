@@ -1134,6 +1134,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/animal-reduction-1914": {
+      "name": "Animal Reduction",
+      "sourceSha256": "89a27ad2c86fa1078d726c0e2b5d36b172c25059d4e99a934e1ba41baada37e7",
+      "effectSummary": "Reduces one animal by one size category. The spell applies the listed size-change adjustments: Huge to Large loses 8 Strength, 4 Constitution, and 3 natural armor while gaining 2 Dexterity; Large to Medium loses 8 Strength, 4 Constitution, and 2 natural armor while gaining 2 Dexterity; Medium to Small loses 4 Strength and 2 Constitution while gaining 2 Dexterity; Small to Tiny loses 4 Strength while gaining 2 Dexterity. Normal size modifiers to AC, attacks, damage, space, reach, and hit points also change accordingly. An ability score that would fall to 0 or lower becomes 1 instead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animal-reduction-1914",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animal-shapes-2776": {
+      "name": "Animal Shapes",
+      "sourceSha256": "f68edceaa0c725dfca0661119f7fbf3bbec7d81c504a5f9c8861bf79d02ab858",
+      "effectSummary": "Transforms up to one willing creature per caster level into the same chosen kind of animal. Each subject uses the alternate form rules; the chosen form cannot have more Hit Dice than the subject or caster level, whichever is lower, and is capped at 20 HD. The transformation lasts until the spell ends, is dismissed for all subjects, or an individual subject spends a full-round action to resume normal form.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animal-shapes-2776",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animal-spirit-1823": {
+      "name": "Animal Spirit",
+      "sourceSha256": "a9db8395106bb39eb28224801e3b5a31d190e16957f39b75cb3a4f05615539ee",
+      "effectSummary": "The target can activate the spirit as an immediate action. For 1 minute it gains low-light vision, scent, and a +2 insight bonus on Wisdom checks and Wisdom-based skill checks. Each point of invested essentia increases that bonus by 2. A creature cannot benefit from more than one animal spirit at a time; a second casting before the first is discharged has no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animal-spirit-1823",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animal-trance-2525": {
+      "name": "Animal Trance",
+      "sourceSha256": "b93f060cf9934cead70db484311d196bfc37df7b6110677781c0884dbf267f65",
+      "effectSummary": "Fascinates animals and magical beasts with Intelligence 1 or 2. Roll 2d6 for the total Hit Dice that can be affected, selecting the closest eligible creatures first. Magical beasts, dire animals, and animals trained to attack or guard receive a saving throw; ordinary animals not trained for attack or guard do not.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animal-trance-2525",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animal-trick-1915": {
+      "name": "Animal Trick",
+      "sourceSha256": "7274d45754036a0bf8c25ee9dcdf7f5f79882e9429c28d5a276b1a9251fb2b1b",
+      "effectSummary": "Causes the caster's animal companion to perform one chosen trick it does not already know. The trick can be any normal animal-companion trick, and the animal retains no knowledge of it after performing it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animal-trick-1915",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animalistic-power-2997": {
+      "name": "Animalistic Power",
+      "sourceSha256": "4e00093af0682ff74db79ab7b4466ec39e8916d00e430ff518a89c5a0194cc62",
+      "effectSummary": "Grants the subject a +2 enhancement bonus to Strength, Dexterity, and Constitution.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animalistic-power-2997",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-breath-1024": {
+      "name": "Animate Breath",
+      "sourceSha256": "a7d2ecba45d808aed72ad10869a25e80cff9fa0b0ede2e62575e7e54a4238d1f",
+      "effectSummary": "Converts an acid, cold, electricity, fire, or sonic breath weapon into an animated construct instead of producing its normal cone or line. The construct is one size category smaller than the caster, has d10 Hit Dice equal to the number of damage dice the breath weapon normally deals, receives construct bonus hit points by size, and has movement based on energy type. Its slam attacks deal size-based bludgeoning damage plus one die of the breath weapon's energy damage, and creatures striking it with natural weapons or unarmed attacks take the same energy damage. It has normal construct immunities, no Constitution or Intelligence, Wisdom and Charisma 1, and Strength/Dexterity based on size. Casting includes using the breath weapon, which deals no immediate breath-area damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-breath-1024",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-breath-3831": {
+      "name": "Animate Breath",
+      "sourceSha256": "757dcbbe29fab3f1d8b2ef9f05bf5b0b288b968e06a4c23849c11171a90fc797",
+      "effectSummary": "Requires a supernatural or spell-granted energy breath weapon. Instead of producing its normal breath attack, the energy becomes a creature under the caster's direction using the statistics of a Huge fire elemental, except its subtype changes to the breath weapon's energy type, each slam deals 2d8 damage of that energy type instead of fire, it is immune to its own energy type, has no corresponding energy vulnerability, and does not have the burn ability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-breath-3831",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-city-3049": {
+      "name": "Animate City",
+      "sourceSha256": "2dde045673309f2e54a524405aa4de703b9cb07f37bccdb2b8ca718a300ec2c3",
+      "effectSummary": "Animates the structures of a community at least as large as a small city. Each enemy in the area is attacked once on the caster's turn each round as if by a Gargantuan animated object, using +15 melee and dealing 2d8+10 damage. These attacks ignore cover, concealment, and invisibility. Enemies in the area move at half speed regardless of movement mode, and damage to the animated city structures has no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-city-3049",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-dead-2711": {
+      "name": "Animate Dead",
+      "sourceSha256": "cd90f9159c346c5412b35790787d61db09c9155a1bd85bf9546a034c203f90de",
+      "effectSummary": "Creates skeletons or zombies from suitable corpses and places them under the caster's spoken command. A single casting can create no more than 2 Hit Dice of undead per caster level, while the caster can control at most 4 Hit Dice of animate-dead undead per caster level across all castings; exceeding that control cap releases chosen undead from earlier castings after the new creatures come under control. Skeletons require mostly intact remains with bones, and zombies require mostly intact creatures with true anatomy. Each corpse requires black onyx worth 25 gp per Hit Die, which is consumed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-dead-2711",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-dread-warrior-3468": {
+      "name": "Animate Dread Warrior",
+      "sourceSha256": "8391069ebe3c3807b364494b421b84870e76f097b6b2bb28dd26c73a6c0578ec",
+      "effectSummary": "Transforms a substantially whole humanoid corpse into a dread warrior under the caster's command. The corpse must have at least 3 levels or Hit Dice, no more Hit Dice than the caster, and have died within the last tenday. The dread warrior serves loyally, but a cleric capable of commanding undead can usurp control with a sufficiently high rebuke check; if the caster dies, it becomes free-willed. The spell costs 250 XP per Hit Die of the created dread warrior.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-dread-warrior-3468",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-fire-2099": {
+      "name": "Animate Fire",
+      "sourceSha256": "52c80e118f312aa0e792a58989f6fda675a8e52c879b7587fb367168126e9d59",
+      "effectSummary": "Functions as animate wood but can animate only a Small or smaller quantity of fire. The animated fire has the fire subtype, deals fire damage equal to its slam damage without a Strength penalty, and gains a fire elemental's burn special attack with save DC 11.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-fire-2099",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-fire-3832": {
+      "name": "Animate Fire",
+      "sourceSha256": "2f36f610c65473c6628c227e8d2c78d7c2847675240de27b95e31d7956966fad",
+      "effectSummary": "Animates a fire roughly the size of a campfire as a Small fire elemental that attacks as the caster directs. The elemental cannot move farther from its source fire than the spell's range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-fire-3832",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-fire-533": {
+      "name": "Animate Fire",
+      "sourceSha256": "1bb517cea2f557b8b3979283fe7534af4a83840b1ae036f065d6cd1dd440f156",
+      "effectSummary": "Functions as animate wood but animates fire instead. The animated fire has the fire subtype, hardness 0, and a fire elemental's burn special attack with save DC 12; its slam attacks deal normal bludgeoning damage plus fire damage and can set opponents on fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-fire-533",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-instrument-908": {
+      "name": "Animate Instrument",
+      "sourceSha256": "92b0bf7b0859e6059cb9ed6d88d01e72015cbc9ec45c15566e44b18475816b39",
+      "effectSummary": "Animates one nonmagical musical instrument so it can continue a performance for the caster. The caster can start it playing as a swift action; it uses the caster's Perform modifier for bardic music checks and maintains the performance without concentration, allowing the caster to take other actions or begin another bardic music effect. A handheld instrument floats in its square but cannot move, and the effect ends if the spell expires or the instrument is damaged.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-instrument-908",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-legion-1416": {
+      "name": "Animate Legion",
+      "sourceSha256": "6c61067a44e6d1ae02ad42f777b82c88739bb7c5398e920634c99b24be9aa06e",
+      "effectSummary": "Temporarily animates corpses as skeletons or zombies, up to a total of 2 Hit Dice per caster level. The created undead are mindless and are not automatically under the caster's control; unless controlled by another effect such as rebuking or control undead, they attack the nearest living creatures. The material component is black onyx worth at least 100 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-legion-1416",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-objects-2777": {
+      "name": "Animate Objects",
+      "sourceSha256": "9e20d39ca964f8b55d66feb340710355fed10c7d097f1461a743b0eadfff3f88",
+      "effectSummary": "Animates nonmagical unattended objects to attack designated targets. Per caster level, the caster can animate one Small or smaller object or an equivalent amount of larger objects: Medium counts as 2, Large 4, Huge 8, Gargantuan 16, and Colossal 32. Targets can be changed as a move action. Carried or worn objects cannot be animated, and the spell can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-objects-2777",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-plants-2778": {
+      "name": "Animate Plants",
+      "sourceSha256": "af5a19e9e4ac33f659dc935adfa411212686a77af0fff7969bb2ea159a55a1ef",
+      "effectSummary": "Animates plants to attack as animated objects. For every three caster levels, the caster can animate one Large or smaller plant or an equivalent amount of larger plants: Huge counts as 2, Gargantuan 4, and Colossal 8. Targets can be changed as a move action. Plant creatures and nonliving processed plant material are unaffected. Alternatively, the spell can make all plants in range function as entangle for 1 hour per caster level, and spell resistance does not prevent that entangling effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-plants-2778",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-rope-2779": {
+      "name": "Animate Rope",
+      "sourceSha256": "eb234dad2dde4ebe9882efc4a2f1d402b2c8f9e6dd0dee9f56f8b2e794ec6354",
+      "effectSummary": "Animates a nonliving ropelike object and allows one command per round as a move action, including coiling, looping, tying, knotting, and their reversals. The rope cannot move outward on its own, so it must be thrown within 1 foot of a target with a ranged touch attack using a 10-foot range increment. It can entangle one creature on a failed Reflex save; escape requires DC 20 Escape Artist, and a bound spellcaster must make DC 15 Concentration to cast. It deals no damage, grants the caster +2 on Use Rope checks made with it, and cannot affect a carried or worn object.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-rope-2779",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-siege-weapon-1417": {
+      "name": "Animate Siege Weapon",
+      "sourceSha256": "32585d0b4b668909206a70cad31c7343f88c5cd3f9b60caabdeaf9a2055bba0f",
+      "effectSummary": "Animates a siege weapon so it can operate itself as though crewed by a normal complement of operators. It automatically succeeds on checks needed to operate the weapon and uses the caster's caster level as its attack bonus when making siege attacks. It continues attacking the designated target while the spell lasts, can receive a new command as a free action while within range, and can be ordered to allow normal manual operation instead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-siege-weapon-1417",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
