@@ -983,6 +983,8 @@ def apply_spell_supplement(entry: dict, details: dict) -> dict:
     if supplement.get("effectSummary"):
         result.pop("effectNeedsSummary",None)
         result.pop("effectSourceLength",None)
+    if supplement.get("resolvesSourceIncomplete") and result.get("sourceIncomplete"):
+        result["sourceIncompleteResolved"]=True
     return result
 
 
@@ -1031,6 +1033,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
 
     effect_source=spell_description_text(parser)
     if effect_source:
+        if re.search(r"\\[missing content in source\\]|missing content in source",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="missing-content-in-source"
         if len(effect_source) <= 240:
             result["effect"]=effect_source
         else:
@@ -1250,6 +1255,8 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
             raise ValueError("Spell supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
         if details.get("effectReviewMismatch"):
             raise ValueError("Reviewed spell effect summary no longer matches the current source text")
+        if details.get("sourceIncomplete") and not details.get("sourceIncompleteResolved"):
+            raise ValueError("Spell source contains an explicit missing-content marker without a verified repair")
         required = ["sourceBook", "school", "casting_time", "range", "duration"]
         missing = [key for key in required if not details.get(key)]
         if missing:
