@@ -28,6 +28,7 @@ jobs:
       - run: python scripts/preflight_35_class_regressions.py
       - run: python scripts/preflight_35_feat_regressions.py
       - run: python scripts/import_wikidot.py --self-test
+      - run: python scripts/audit_srd2024.py
       - run: python tests/enrichment_gate.py
       - run: node tests/setup-choices.mjs
       - run: npm run build
