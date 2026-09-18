@@ -317,6 +317,7 @@ def parse_spell_detail(row,page):
         level_match=re.search(r"\b(cantrip|(\d)(?:st|nd|rd|th)-level)\b",level_school,re.I)
         if level_match:
             result["level"]=0 if level_match.group(1).casefold()=="cantrip" else int(level_match.group(2))
+            result["_detailLevelParsed"]=True
         school=re.sub(r"^.*?(?:cantrip|\d(?:st|nd|rd|th)-level)\s+","",level_school,flags=re.I)
         if school:
             result["school"]=clean(school)
@@ -417,6 +418,8 @@ def validate_detail(row,page,result):
         missing=[key for key in required if result.get(key) in (None,"")]
         if missing:
             raise ValueError("Spell parse missing required fields: "+", ".join(missing))
+        if not result.get("_detailLevelParsed"):
+            raise ValueError("Spell level was not verified from the detail page")
     elif category=="class":
         required=("hit_die","saving_throws","progression")
         missing=[key for key in required if not result.get(key)]
@@ -449,6 +452,7 @@ def enrich(rows,limit,delay):
             page=parse(row["url"],delay)
             result=DETAIL_PARSERS[row["category"]](row,page)
             validate_detail(row,page,result)
+            result.pop("_detailLevelParsed",None)
             result["enrichment"]={
                 "version":1,"validated":True,"structuredOnly":True,
                 "source":"D&D 5e Wikidot",
