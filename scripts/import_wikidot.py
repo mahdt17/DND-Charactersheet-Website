@@ -629,16 +629,40 @@ def self_test():
     print("PASS 5e Wikidot structured importer")
 
 
+def audit_report_allows_write(path):
+    if not path:
+        return False
+    report_path=Path(path)
+    if not report_path.exists():
+        return False
+    try:
+        report=json.loads(report_path.read_text(encoding="utf-8"))
+    except Exception:
+        return False
+    return (
+        report.get("readOnly") is True
+        and report.get("fullCatalog") is True
+        and report.get("strictGameplayCompleteness") is True
+        and report.get("passed") is True
+        and report.get("criticalMissingCount") == 0
+        and float(report.get("minimumRate",0)) >= 1.0
+        and all(float(row.get("successRate",0)) >= 1.0 and row.get("failed",1) == 0 for row in report.get("categories",[]))
+    )
+
+
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--categories",nargs="+",choices=["spells","feats","items","classes"],default=["spells","classes","feats","items"])
     ap.add_argument("--limit",type=int)
     ap.add_argument("--delay",type=float,default=0.25)
-    ap.add_argument("--write",action="store_true",help="Persist catalog files. Default is dry-run.")
+    ap.add_argument("--write",action="store_true",help="Persist catalog files. Blocked without a passing full-catalog audit.")
+    ap.add_argument("--audit-report",help="Path to a strict full-catalog preflight report required for --write.")
     ap.add_argument("--self-test",action="store_true")
     args=ap.parse_args()
     if args.self_test:
         self_test();return
+    if args.write and not audit_report_allows_write(args.audit_report):
+        raise SystemExit("--write is locked until a strict full-catalog audit report passes with zero critical gaps.")
     manifest={"source":BASE,"kind":"structured-reference-index","complete":args.limit is None,"categories":[],"generatedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime()),"write":args.write}
     for category in args.categories:
         if category=="classes":
