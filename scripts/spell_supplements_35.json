@@ -490,6 +490,25 @@
           "role": "complete same-spell 3.5 text used only to restore the omitted mechanics"
         }
       ]
+    },
+    "spells/greater-aspect-of-the-deity-975": {
+      "name": "Aspect of the Deity, Greater",
+      "effectSummary": "Functions as lesser aspect of the deity but grants half-celestial or half-fiend qualities without their spell-like abilities, changes the caster's type to outsider for the duration, and still allows resurrection if slain. A good cleric gains feathered wings with flight at twice normal speed and good maneuverability, +1 natural armor, low-light vision, immunity to acid, cold, disease, and electricity, +4 racial on saves against poison, and ability bonuses of +4 Strength, +2 Dexterity, +4 Constitution, +2 Intelligence, +4 Wisdom, and +4 Charisma. An evil cleric gains batlike wings with flight at normal speed and average maneuverability, +1 natural armor, bite and claw attacks based on size, 60-foot darkvision, immunity to poison, resistance 20 to acid, cold, electricity, and fire, and ability bonuses of +4 Strength, +4 Dexterity, +2 Constitution, +4 Intelligence, +4 Wisdom, and +2 Charisma.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/greater-aspect-of-the-deity-975",
+          "role": "primary catalog record; description is truncated mid-sentence before the good-cleric transformations"
+        },
+        {
+          "url": "https://dndtools.net/spells/defenders-of-the-faith-a-guidebook-to-clerics-and-paladins--38/greater-aspect-of-the-deity--975/",
+          "role": "complete same-spell D&D Tools mirror used to restore omitted mechanics"
+        },
+        {
+          "url": "https://anyflip.com/myubd/wlqn/basic/51-100",
+          "role": "Defenders of the Faith p.86 cross-check of the complete spell text"
+        }
+      ]
     }
   }
 }
