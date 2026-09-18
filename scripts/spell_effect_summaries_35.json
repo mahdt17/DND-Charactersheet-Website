@@ -6107,6 +6107,226 @@
           "role": "primary DnD Tools effect text reviewed against fresh table-aware export"
         }
       ]
+    },
+    "spells/call-kolyarut-2150": {
+      "name": "Call Kolyarut",
+      "sourceSha256": "0b02929a707aa7557a4fe63c5ff5d3d5d5e4194b58ce1a3e17a0e79630055fd8",
+      "effectSummary": "Calls a kolyarut inevitable to perform one lawful duty aligned with its purpose of punishing broken bargains and oaths. The task can take up to seven days; the kolyarut serves without payment but departs after seven days or if asked to perform a nonlawful, frivolous, or unrelated task. If the caster knows a specific kolyarut's name, that individual can be requested, though another may answer instead. Casting costs 250 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-kolyarut-2150",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-kolyarut-4007": {
+      "name": "Call Kolyarut",
+      "sourceSha256": "e279c3ba4d57102a5613f18820af00c9d2cd2dccb1cffdb65899eca00781d45f",
+      "effectSummary": "Calls a kolyarut inevitable to perform one duty taking no more than 1 hour. If the caster knows a specific kolyarut's name, that individual can be requested, though another may answer instead. The inevitable serves without payment. Casting costs 250 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-kolyarut-4007",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-lemure-horde-134": {
+      "name": "Call Lemure Horde",
+      "sourceSha256": "73416789a7fbcd774128e5993e8ae2a6c063d30869bc779437401707e6943714",
+      "effectSummary": "Calls 3d4 lemures from the Nine Hells in exchange for a prepared soul. They serve the caster for one year as guards, slaves, or similar servants, but their lack of intelligence limits commands to tasks describable in roughly five words. Across all castings, the caster can control no more than 2 Hit Dice of fiends per caster level; exceeding that cap places the newly called lemures under control and releases chosen excess creatures from earlier castings.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-lemure-horde-134",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-lightning-2592": {
+      "name": "Call Lightning",
+      "sourceSha256": "6df3603244ec9fcddd644040536e839c01c0d15eb77d4ac8ed13bd92a6651f33",
+      "effectSummary": "Lets the caster call one 5-foot-wide, 30-foot-long vertical lightning bolt immediately and then one additional bolt per round as a standard action, up to one bolt per caster level with a maximum of 10. Each bolt deals 3d6 electricity damage, or 3d10 if cast outdoors in stormy conditions. Bolts can target any point within range from the caster's current position and affect creatures in the target square or bolt path. The spell works indoors and underground but not underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-lightning-2592",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/greater-call-lightning-1899": {
+      "name": "Call Lightning, Greater",
+      "sourceSha256": "1b58dff00a74570923dee54437f50df51b4811ad36fe32ff4f49a9cb448e5ee4",
+      "effectSummary": "Can be cast only outdoors in stormy conditions. While the caster remains in such an area, one lightning bolt can be called every 5 minutes as a standard action. Each bolt targets a point within range, follows the shortest unobstructed path from a nearby cloud, affects creatures within 10 feet of its path or impact point, and deals 1d10 electricity damage per caster level, maximum 15d10. The spell ends if the caster leaves the stormy area and does not function indoors, underground, or underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/greater-call-lightning-1899",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-marut-2151": {
+      "name": "Call Marut",
+      "sourceSha256": "80cbb2b6002c1e4d018fc8a6cdfbc0fc3c41308f394024780c832cea12c3d19b",
+      "effectSummary": "Calls a marut inevitable to perform one lawful duty aligned with its purpose of confronting those who defy death. The task can take up to nine days; the marut serves without payment but departs after nine days or if asked to perform a nonlawful, frivolous, or unrelated task. A specifically named marut can be requested, though another may answer instead. Casting costs 500 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-marut-2151",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-marut-4008": {
+      "name": "Call Marut",
+      "sourceSha256": "88bc2bcfbcf9a918442aaf8530878b78ade0ba34d6c34930ba32157064f2b632",
+      "effectSummary": "Calls a marut inevitable to perform one duty taking no more than 1 hour. A specifically named marut can be requested, though another may answer instead. The inevitable serves without payment. Casting costs 500 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-marut-4008",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-mount-23": {
+      "name": "Call Mount",
+      "sourceSha256": "5f9c6be3eeb4abd4de396ba20d88ac240ff94485d52811bfd1aaf9cec2074b15",
+      "effectSummary": "Summons the caster's special mount from the celestial planes as with the normal class ability, but for the spell's shorter duration and without counting against the normal daily limit on calling the mount. The spell can be used even if the mount has already been summoned through the class ability that day.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-mount-23",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-nightmare-135": {
+      "name": "Call Nightmare",
+      "sourceSha256": "66c5142ce6e862352ef97479f97d76933c9880c3c172c24e9577f16167eef604",
+      "effectSummary": "Calls a nightmare from the Lower Planes in exchange for a prepared soul. The nightmare serves the caster for one week as a mount or guard, but immediately returns to its home plane if it moves more than 150 feet from the caster. Casting the spell again replaces the previously called nightmare with the new one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-nightmare-135",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-of-stone-3002": {
+      "name": "Call of Stone",
+      "sourceSha256": "45e33a64339c86ce7ddc942d32c8380375d3f8cb87a6e28266cd595895fb00e9",
+      "effectSummary": "The target makes a Fortitude save at the start of each of its turns for the spell's duration. Each failed save imposes a cumulative -10-foot penalty to speed and -2 Dexterity; if speed reaches 0, the target cannot move. After four or more failed saves, the target permanently becomes a stone statue as though affected by flesh to stone. Any effect that reverses flesh to stone also removes this condition.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-of-stone-3002",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-of-the-twilight-defender-1054": {
+      "name": "Call of the Twilight Defender",
+      "sourceSha256": "008bb9e7e73decc4d668f70b3874ec26590452c142d54f3e55f2d876a054dd9c",
+      "effectSummary": "Summons one twilight guardian to fight for the caster as a summon nature's ally effect. At any time, the guardian can spend a standard action touching the caster to sacrifice itself; it is destroyed and the caster heals hit points equal to half the guardian's remaining hit points. Learning the spell also grants a +1 competence bonus on Knowledge (nature) checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-of-the-twilight-defender-1054",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-zelekhut-2152": {
+      "name": "Call Zelekhut",
+      "sourceSha256": "6523cb197a6ec60e28a3c4b4e37df8ce2b5d9e7175f78f44c67229d231e5dbc5",
+      "effectSummary": "Calls a zelekhut inevitable to perform one lawful duty aligned with its purpose of hunting those who evade justice or punishment. The task can take up to five days; the zelekhut serves without payment but departs after five days or if asked to perform a nonlawful, frivolous, or unrelated task. A specifically named zelekhut can be requested, though another may answer instead. Casting costs 100 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-zelekhut-2152",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/call-zelekhut-4009": {
+      "name": "Call Zelekhut",
+      "sourceSha256": "157676a5a24f77ddc4a20071614c6dc8ad914f77c195cfdee281e497772e407a",
+      "effectSummary": "Calls a zelekhut inevitable to perform one duty taking no more than 1 hour. A specifically named zelekhut can be requested, though another may answer instead. The inevitable serves without payment. Casting costs 100 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/call-zelekhut-4009",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/calm-animals-2530": {
+      "name": "Calm Animals",
+      "sourceSha256": "68219756bae3cc15e11508257d1a69c49b1d9fc68eed272b50dd1634bb03f93c",
+      "effectSummary": "Calms ordinary animals with Intelligence 1 or 2, affecting animals of only one kind with no two more than 30 feet apart and up to 2d4 + caster level total Hit Dice. Dire animals and animals trained to attack or guard receive a saving throw; other eligible animals do not. Affected creatures remain in place, do not attack or flee, and defend themselves normally if attacked. A direct threat breaks the spell for the threatened creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/calm-animals-2530",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/calm-emotions-2531": {
+      "name": "Calm Emotions",
+      "sourceSha256": "3b8ed1d2f1261828bd4dce07424d30a71fb74d65e46483d053aa9cef8d0083bd",
+      "effectSummary": "Calms affected creatures so they cannot take violent or destructive actions, though they can defend themselves. Any aggressive action against or damage to a calmed creature immediately breaks the spell for all affected creatures. The spell suppresses morale bonuses from effects such as bless, good hope, and rage; suppresses bardic inspire courage and barbarian rage; suppresses fear effects; and removes confusion while active. Suppressed effects resume afterward if their durations have not expired.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/calm-emotions-2531",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/mass-calm-1897": {
+      "name": "Calm, Mass",
+      "sourceSha256": "a9ec742f67f211aff36138d7e92aa688ffbaa1db5044c5cb126b08a89579cfb0",
+      "effectSummary": "Calms multiple animals, beasts, or magical beasts, rendering them docile and harmless. Animals trained to attack or guard, dire animals, legendary animals, beasts, and magical beasts receive saving throws; normal animals do not. Affected creatures remain where they are, do not attack or flee, and defend themselves normally if attacked. A direct threat breaks the spell for the threatened creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mass-calm-1897",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/caltrops-3774": {
+      "name": "Caltrops",
+      "sourceSha256": "2e592cfb96f6d905e20e61e0c459d49a25cd5d43b6f37ec02aed119650b66dbf",
+      "effectSummary": "Creates magical caltrops covering one 5-foot square, plus one additional square for every two caster levels beyond 1st, to a maximum of five squares at 9th level. The caltrops make a melee attack when a creature enters or spends a round fighting in a covered square, starting at +0 and increasing by +1 per extra affected square to +4 maximum; shields, deflection, and worn armor do not apply, though footwear grants +2 AC. A hit deals 1 damage and halves the land speed of a Small, Medium, or Large target for 24 hours, until DC 15 Heal treatment, or until at least 1 point of magical healing. Charging or running creatures stop immediately on a hit. Moving at half speed or slower avoids the caltrops, and overlapping caltrop effects provide no additional benefit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/caltrops-3774",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/camouflage-3506": {
+      "name": "Camouflage",
+      "sourceSha256": "8cebd5884522687a6a6bcb56ad709c33efb4e9904a8fdf1c3866241b50d171b9",
+      "effectSummary": "Continuously changes the caster's skin and clothing coloration to match the current surroundings, automatically adapting when entering a new environment. Grants a +10 circumstance bonus on Hide checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/camouflage-3506",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/camouflage-4010": {
+      "name": "Camouflage",
+      "sourceSha256": "b638c430c114aa855b416170aa8b936d6118a9092a8d41f76647bcf126df0c40",
+      "effectSummary": "Continuously changes the caster's skin and clothing coloration to match the current surroundings, automatically adapting when entering a new environment. Grants a +10 circumstance bonus on Hide checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/camouflage-4010",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/camouflage-735": {
+      "name": "Camouflage",
+      "sourceSha256": "8cebd5884522687a6a6bcb56ad709c33efb4e9904a8fdf1c3866241b50d171b9",
+      "effectSummary": "Continuously changes the caster's skin and clothing coloration to match the current surroundings, automatically adapting when entering a new environment. Grants a +10 circumstance bonus on Hide checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/camouflage-735",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
