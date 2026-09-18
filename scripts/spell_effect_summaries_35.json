@@ -6547,6 +6547,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/celerity-3003": {
+      "name": "Celerity",
+      "sourceSha256": "7767c702e7a37b9cfaa651e462e906dd18b9e0c68d3b6f866296e4a55d503a4c",
+      "effectSummary": "Immediately grants the caster one standard action, functioning like a readied action and allowing interruption of another creature's turn. After taking that action, the caster is dazed until the end of the caster's next turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/celerity-3003",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/celerity-greater-3004": {
+      "name": "Celerity, Greater",
+      "sourceSha256": "2902c50aae8f15198448d2bf91b1aa12fa12b5205862bc396466a044e2e1a06a",
+      "effectSummary": "Immediately grants the caster one full-round action, or a standard action plus a move action, or two move actions. After taking the granted actions, the caster is dazed until the end of the caster's next turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/celerity-greater-3004",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/celestial-aspect-101": {
+      "name": "Celestial Aspect",
+      "sourceSha256": "8c21c50bbc5082b3bf68bfb8d22ed7b2b22c1c478c48befb94e94bc780840229",
+      "effectSummary": "Lets the subject assume one celestial trait at a time and switch traits as a free action no more than once per round. Armblade of the Sword Archon creates an undroppable, unsunderable +1 flaming or +1 holy longsword, optionally short-sword sized, from one empty arm. Eyes of the Firre lets the subject deal 2d6 fire damage once per round as a standard action to one creature or object within 60 feet without an attack roll. Horns of the Cervidal enables a charge gore for 1d8 + 1-1/2 Strength and instantly dismisses summoned or called creatures hit. Wings of the Astral Deva grants 100-foot flight with good maneuverability. Casting inflicts 1d3 Strength damage on the caster as a sacrifice cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/celestial-aspect-101",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/celestial-blood-2": {
+      "name": "Celestial Blood",
+      "sourceSha256": "102a6e1e66bac910327364ad3b37124eb8fcdbaa005b9e6f7c20a1cfc79d7543",
+      "effectSummary": "Grants resistance 10 to acid, cold, and electricity, a +4 bonus on saving throws against poison, and damage reduction 10/evil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/celestial-blood-2",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/celestial-brilliance-63": {
+      "name": "Celestial Brilliance",
+      "sourceSha256": "1d3f475b6b50db6fd0cabbdbdecf289e641b92eac295ebdfb0659cbf634584c7",
+      "effectSummary": "Makes a touched object shed bright light to 60 feet and dim light for another 60 feet. Creatures with light sensitivity take twice their normal penalty within the bright area. Undead take 1d6 damage each round in the bright light; evil outsiders and undead specifically harmed by sunlight take 2d6 instead. Overlap with magical darkness temporarily negates both effects in the shared area, and celestial brilliance counters or dispels darkness spells of equal or lower level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/celestial-brilliance-63",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/celestial-fortress-306": {
+      "name": "Celestial Fortress",
+      "sourceSha256": "3a658160739f8b317d373f3e4b564a029d9b223f78e3d4f18b6248d0a77a247b",
+      "effectSummary": "Creates a secure-shelter-like flat-roofed fort with a sturdy door, fireplace, no windows, and roof access by ladder and hatch. The structure is additionally protected by consecrate and magic circle against evil and visually reflects the caster's deity and divine realm. Casting inflicts 1d2 Constitution damage as a sacrifice cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/celestial-fortress-306",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/censure-elementals-4944": {
+      "name": "Censure Elementals",
+      "sourceSha256": "0ee3a869f05e36e9379731c58e6a6970e0556a644447c7b2aded97ec6ceb96e4",
+      "effectSummary": "Infuses an item so that holding it aloft as a standard action damages elementals within 20 feet for 2d4 +1 per caster level, maximum +15, repeating at the start of each caster turn while held aloft. A Will save halves the damage and spell resistance applies. The caster can designate up to one elemental per caster level as immune. A Mark of Making dragonmark or Favored in House (Cannith) increases caster level by 1 for this infusion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/censure-elementals-4944",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chaavs-laugh-43": {
+      "name": "Chaav's Laugh",
+      "sourceSha256": "5223b995afdd6686ac65b3fd96940e5fb9113f0cfbc718fe3db84b8a35bf887e",
+      "effectSummary": "Affects only creatures that can hear the laugh. Good creatures gain +2 morale on attack rolls and saves against fear plus 1d8 + caster level temporary hit points, capped at +20. Evil creatures that fail a Will save take -2 morale on attack rolls and saves against fear. Neutral creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chaavs-laugh-43",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chain-contingency-3392": {
+      "name": "Chain Contingency",
+      "sourceSha256": "7402641a7e10dfb4fe0e2b0e6110982f7080d8ef09ddf44caee11cf9b1ca1f26",
+      "effectSummary": "Functions like contingency but stores up to three spells on the caster. The stored spells trigger under a condition defined when chain contingency is cast and can take effect simultaneously or one per round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chain-contingency-3392",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chain-dispel-2904": {
+      "name": "Chain Dispel",
+      "sourceSha256": "8049a8bfbb576dd95ed54cd819e2b082da789ca86de05ee19d3d467a8fce872c",
+      "effectSummary": "Each targeted creature is affected as though by a targeted dispel magic. The caster adds caster level to each dispel check, capped at +25.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chain-dispel-2904",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chain-lightning-2593": {
+      "name": "Chain Lightning",
+      "sourceSha256": "650f3adeec863f60dbb955b2ddf6f8af6814eb692ed82102934ac5fe7260930f",
+      "effectSummary": "Deals 1d6 electricity damage per caster level, maximum 20d6, to one primary target. The lightning then arcs to up to one secondary target per caster level, maximum 20, with each secondary target within 30 feet of the primary and taking half the primary damage, rounded down. No target can be struck more than once, and each target receives a Reflex save for half damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chain-lightning-2593",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chain-missile-4015": {
+      "name": "Chain Missile",
+      "sourceSha256": "7f3fdd84abb73dd22a2a34d02c64743a8a934088caffa1df79992e685a49e7a9",
+      "effectSummary": "Creates one force missile per two caster levels, maximum 10, all striking the primary target for 1d4+1 damage each. The missiles then ricochet to up to the same number of secondary targets within 30 feet of the primary, each secondary taking 1d4+1 and no secondary target being hit more than once. Magic-missile defenses protect normally; if such a defense blocks the primary, secondary missiles can still ricochet, but if spell resistance prevents the primary from being affected, the entire spell fails. The missiles strike unerringly unless a target has total cover or concealment and cannot damage objects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chain-missile-4015",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chain-of-chaos-949": {
+      "name": "Chain of Chaos",
+      "sourceSha256": "761066a6f61ac6abcf6238e92fef10172b005c3b576b778ea9760e6b9aa7c9b2",
+      "effectSummary": "A melee touch infects the first victim with permanent insanity on a failed Will save. For the spell's duration, each infected creature can pass the same insanity to creatures it touches, including through melee attacks; later victims remain infectious for one day per five caster levels after infection. A creature that succeeds on its save, or is cured, cannot be affected again by the same casting. The spell can infect at most five creatures per caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chain-of-chaos-949",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chain-of-eyes-4016": {
+      "name": "Chain of Eyes",
+      "sourceSha256": "0b010deb581daad20750d993849cdda1502612b742c628fc4d07fd92bcc2b64e",
+      "effectSummary": "Lets the caster see through the subject's eyes instead of their own and freely switch between normal vision and the borrowed vision on the caster's turn. Each time the current subject physically contacts another living creature, the caster can attempt to transfer the sensor to that creature. Each new target receives a saving throw and spell resistance; if the transfer is resisted, the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chain-of-eyes-4016",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chain-of-eyes-674": {
+      "name": "Chain of Eyes",
+      "sourceSha256": "d3a732fda44ca2860673dd25a23e982ce25bc4d834d8051bb629074bb9571aeb",
+      "effectSummary": "Lets the caster see through the subject's eyes instead of their own and freely switch between normal vision and the borrowed vision on the caster's turn. Each time the current subject physically contacts another living creature, the caster can choose to transfer the sensor to that creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chain-of-eyes-674",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chain-of-eyes-943": {
+      "name": "Chain of Eyes",
+      "sourceSha256": "d3a732fda44ca2860673dd25a23e982ce25bc4d834d8051bb629074bb9571aeb",
+      "effectSummary": "Lets the caster see through the subject's eyes instead of their own and freely switch between normal vision and the borrowed vision on the caster's turn. Each time the current subject physically contacts another living creature, the caster can choose to transfer the sensor to that creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chain-of-eyes-943",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chain-of-sorrow-1438": {
+      "name": "Chain of Sorrow",
+      "sourceSha256": "f7be1ca2f598325fe560b8aab07ab46efc38b30d7172f3c7154d9ba08853a735",
+      "effectSummary": "Deals 2d10 Charisma drain to the initial target, Will half. If that target succeeds, the chain ends. If it fails, the next friend, loved one, or ally it touches suffers the same 2d10 Charisma drain, again halved by a successful save; a failed save makes the new victim the host. The effect continues until a victim succeeds on the save or the chain has affected a number of creatures equal to caster level. Casting inflicts 2d4 Charisma damage on the caster as a corruption cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chain-of-sorrow-1438",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chamber-1859": {
+      "name": "Chamber",
+      "sourceSha256": "75aaf0e878b4653879d1a4eb54b8a89e7be0d1ab11c9194691b679f95c3b60f8",
+      "effectSummary": "Creates a translucent crystalline-force prison around one creature on the Ethereal Plane. The target cannot move on the Ethereal Plane or coterminous planes, shift planes, physically attack, or be physically attacked, and is unaffected by most spells and supernatural abilities. Gaze attacks and sonic spells can pass through, but the imprisoned creature gains +2 on saves against them. The target can break free with a Strength check against DC 10 + caster level, and disintegrate destroys the chamber. The spell has no effect on creatures on the Material Plane or on planes not coexistent with the Ethereal Plane.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chamber-1859",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chameleon-2085": {
+      "name": "Chameleon",
+      "sourceSha256": "9e7d6fdf72cd30b2fc63fecb404cc29cbb71fa066d9f0a4e4592a9de25e80228",
+      "effectSummary": "Changes the subject's coloration to match the surroundings and grants +10 circumstance on Hide checks. Gradual environmental changes are matched immediately; an abrupt background change takes 1 round before the coloration adapts.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chameleon-2085",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/chameleon-513": {
+      "name": "Chameleon",
+      "sourceSha256": "3abd048db6a58c502769de9b0be1d7f557b8cbb65e985d1ce71c5120f33cb217",
+      "effectSummary": "Changes the subject's body and clothing coloration to match the surroundings and grants +10 circumstance on Hide checks. Gradual environmental changes remain matched while moving at up to half speed. An abrupt background change removes the bonus for 1 round while the coloration adapts.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/chameleon-513",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
