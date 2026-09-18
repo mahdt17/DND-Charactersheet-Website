@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Structured factual supplements for D&D 3.x item pages whose primary DnD Tools record omits gameplay-critical mechanics. Supplements fill missing fields only; conflicts fail validation.",
+  "entries": {
+    "items/saddle-of-speed-2-792": {
+      "name": "Saddle of Speed 2",
+      "sourceEdition": "3.0",
+      "effectSummary": "Enhances the wearer's speed as the second tier of the Saddle of Speed family, equivalent to two applications of Speed of Thought; it can provide up to a +20-foot speed increase, limited by the wearer's available psionic reserve as specified by the family rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/saddle-of-speed-2-792",
+          "role": "primary catalog identity, price, manifester/caster level, aura and activation; effect omitted"
+        },
+        {
+          "url": "https://www.scribd.com/document/783417905/The-Mind-s-Eye-Archive",
+          "role": "archived Mind's Eye Saddle of Speed family mechanics and tier-2 statistics cross-check"
+        }
+      ]
+    }
+  }
+}

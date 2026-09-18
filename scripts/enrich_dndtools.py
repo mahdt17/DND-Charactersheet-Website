@@ -1048,6 +1048,87 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
     return result
 
 
+_ITEM_SUPPLEMENT_CACHE=None
+
+def item_supplements():
+    global _ITEM_SUPPLEMENT_CACHE
+    if _ITEM_SUPPLEMENT_CACHE is None:
+        path=ROOT/"scripts"/"item_supplements_35.json"
+        payload=json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"entries":{}}
+        _ITEM_SUPPLEMENT_CACHE=payload.get("entries",{})
+    return _ITEM_SUPPLEMENT_CACHE
+
+
+def apply_item_supplement(entry: dict, details: dict) -> dict:
+    supplement=item_supplements().get(entry.get("id"))
+    if not supplement:
+        return details
+    if clean(supplement.get("name","")).casefold()!=clean(entry.get("name","")).casefold():
+        raise ValueError(f"Item supplement identity mismatch for {entry.get('name')}")
+    result={**details}
+    conflicts=[]
+    for key in ("sourceEdition","itemType","bodySlot","effectSummary","ruleFamily","ruleStats","notes"):
+        supplied=supplement.get(key)
+        if supplied in (None,"",[],{}):
+            continue
+        existing=result.get(key)
+        if existing in (None,"",[],{}):
+            result[key]=supplied
+        elif normalized_compare(existing)!=normalized_compare(supplied):
+            conflicts.append(key)
+    result["supplementProvenance"]=supplement.get("provenance",[])
+    result["supplementVerified"]=True
+    if conflicts:
+        result["supplementConflicts"]=conflicts
+    presence=result.get("mechanicsPresence") or {}
+    if supplement.get("effectSummary"):
+        presence["ruleProse"]=True
+        result.pop("effectNeedsSummary",None)
+        result.pop("effectSourceLength",None)
+    result["mechanicsPresence"]=presence
+    return result
+
+
+def item_effect_text(parser: DetailParser, entry_name: str="") -> str:
+    """Capture item rules without metadata/chrome; long prose stays review-only."""
+    metadata={
+        "save","price","cost","weight","body slot","caster level","aura","activation",
+        "rarity","type","kind","category","ac bonus","max dex","armor check penalty",
+        "arcane spell failure","speed 30","speed 20","damage (s)","damage (m)",
+        "critical","range increment","prerequisite","prerequisites"
+    }
+    start=0
+    target=clean(entry_name).casefold()
+    if target:
+        for i,line in enumerate(parser.lines):
+            if clean(line).casefold()==target:
+                start=i+1
+                break
+    kept=[]
+    skip_next=False
+    for line in parser.lines[start:]:
+        value=clean(line)
+        folded=value.casefold()
+        if folded.startswith(("d&d 3.5 reference data","privacy ","terms ")):
+            break
+        if not value:
+            continue
+        if skip_next:
+            skip_next=False
+            continue
+        if folded in metadata:
+            skip_next=True
+            continue
+        if folded.startswith(("back to ","source:","origin:")):
+            continue
+        if re.search(r"\([A-Za-z0-9 .&'-]{1,16}\)\s*(?:,\s*p\.\s*\d+)?$",value):
+            continue
+        if "·" in value and len(value)<100:
+            continue
+        kept.append(value)
+    return clean(" ".join(kept))
+
+
 def parse_item(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     result = {**source_meta(lines)}
@@ -1082,8 +1163,20 @@ def parse_item(parser: DetailParser, entry: dict) -> dict:
     if re.match(r"power stones?\s+\d+(?:st|nd|rd|th)?\s+level power",name_fold):
         result["ruleFamily"]="power-stone"
         result["genericRuleSource"]="SRD psionic power-stone rules"
-    result["mechanicsPresence"] = {"ruleProse": has_rule_prose(lines, entry.get("name",""))}
-    return result
+
+    effect_source=item_effect_text(parser,entry.get("name",""))
+    if effect_source:
+        if len(effect_source)<=240:
+            result["effect"]=effect_source
+        else:
+            result["effectNeedsSummary"]=True
+            result["effectSourceLength"]=len(effect_source)
+    result["mechanicsPresence"] = {
+        "ruleProse": has_rule_prose(lines, entry.get("name","")),
+        "descriptionCaptured": bool(effect_source),
+    }
+    result={k:v for k,v in result.items() if v not in (None,"",[],{})}
+    return apply_item_supplement(entry,result)
 
 
 PARSERS = {
@@ -1131,6 +1224,8 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
         if not details.get("sourceBook"):
             raise ValueError("Feat parse missing source book")
     elif category == "items":
+        if details.get("supplementConflicts"):
+            raise ValueError("Item supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
         if not details.get("sourceBook"):
             raise ValueError("Item parse missing source book")
         useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType","tables")
@@ -1203,7 +1298,7 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
         useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType","tables")
         if not any(details.get(key) for key in useful):
             gaps.append("itemStats")
-        if not presence.get("ruleProse") and not details.get("ruleFamily"):
+        if not (presence.get("ruleProse") or details.get("effectSummary")) and not details.get("ruleFamily"):
             gaps.append("itemEffect")
         if details.get("ruleFamily")=="power-stone" and not details.get("genericRuleSource"):
             gaps.append("itemEffect")
@@ -1483,6 +1578,17 @@ def self_test():
     p=DetailParser();p.feed(flavor_only_feat);p.close()
     f=parse_feat(p,{"name":"Flavor Only"})
     assert "featEffect" in enrichment_gaps("feats",f), "flavor text alone must not satisfy the feat-effect contract"
+
+    item_missing_effect_html = """
+    <h1>Saddle of Speed 2</h1><p>PSI · Body</p><p>The Mind's Eye [Web 3.0] (TME30)</p>
+    <div>Price</div><div>8,500 gp</div><div>Caster Level</div><div>6</div>
+    <div>Aura</div><div>Moderate Psychoportation</div><div>Activation</div><div>— (see text)</div>
+    """
+    p=DetailParser();p.feed(item_missing_effect_html);p.close()
+    item=parse_item(p,{"id":"items/saddle-of-speed-2-792","name":"Saddle of Speed 2"})
+    assert item["effectSummary"].startswith("Enhances the wearer's speed")
+    assert item["supplementVerified"] and item["mechanicsPresence"]["ruleProse"]
+    assert enrichment_gaps("items",item)==[]
 
     print("PASS DnD Tools structured enrichment parser")
 
