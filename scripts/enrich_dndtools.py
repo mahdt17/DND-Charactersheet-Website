@@ -373,6 +373,65 @@ def explicit_variant_parent(lines: list[str], entry_name: str) -> str:
     return ""
 
 
+_CLASS_SUPPLEMENT_CACHE=None
+
+def class_supplements():
+    global _CLASS_SUPPLEMENT_CACHE
+    if _CLASS_SUPPLEMENT_CACHE is None:
+        path=ROOT/"scripts"/"class_supplements_35.json"
+        payload=json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"entries":{}}
+        _CLASS_SUPPLEMENT_CACHE=payload.get("entries",{})
+    return _CLASS_SUPPLEMENT_CACHE
+
+
+def normalized_compare(value):
+    if isinstance(value,str):
+        return re.sub(r"\s+"," ",value.replace("’","'").strip()).casefold()
+    if isinstance(value,list):
+        if all(isinstance(x,str) for x in value):
+            return sorted(normalized_compare(x) for x in value)
+        return [normalized_compare(x) for x in value]
+    if isinstance(value,dict):
+        return {k:normalized_compare(v) for k,v in sorted(value.items()) if k not in {"provenance"}}
+    return value
+
+
+def apply_class_supplement(entry: dict, details: dict) -> dict:
+    supplement=class_supplements().get(entry.get("id"))
+    if not supplement:
+        return details
+    if clean(supplement.get("name","")).casefold()!=clean(entry.get("name","")).casefold():
+        raise ValueError(f"Supplement identity mismatch for {entry.get('name')}")
+    result={**details}
+    conflicts=[]
+    merge_keys=("inheritsFrom","hit_die","skillPoints","classSkills","prerequisites","progression","featureNames")
+    for key in merge_keys:
+        supplied=supplement.get(key)
+        if supplied in (None,"",[],{}):
+            continue
+        existing=result.get(key)
+        if existing in (None,"",[],{}):
+            result[key]=supplied
+        elif normalized_compare(existing)!=normalized_compare(supplied):
+            conflicts.append(key)
+    if result.get("progression") and not result.get("advancement"):
+        header=result["progression"][0] if result["progression"] else []
+        result["advancement"]=[
+            {header[i] or f"column_{i+1}":clean((row+[""]*len(header))[i]) for i in range(len(header))}
+            for row in result["progression"][1:] if row
+        ]
+    result["supplementProvenance"]=supplement.get("provenance",[])
+    result["supplementVerified"]=True
+    if conflicts:
+        result["supplementConflicts"]=conflicts
+    presence=result.get("mechanicsPresence") or {}
+    if supplement.get("featureNames"):
+        presence["classFeatures"]=True
+        presence["ruleProse"]=True
+    result["mechanicsPresence"]=presence
+    return result
+
+
 _CLASS_CATALOG_CACHE=None
 
 def class_catalog_rows():
@@ -519,7 +578,8 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
         "classFeatures": bool(current_presence.get("classFeatures")) or bool(section(lines, parser.headings, "Class Features")) or bool(fallback_presence.get("classFeatures")),
         "ruleProse": bool(current_presence.get("ruleProse")) or has_rule_prose(lines, entry.get("name","")) or bool(fallback_presence.get("ruleProse"))
     }
-    return {k:v for k,v in enriched.items() if v not in (None,"",[],{})}
+    enriched={k:v for k,v in enriched.items() if v not in (None,"",[],{})}
+    return apply_class_supplement(entry,enriched)
 
 
 def parse_feat(parser: DetailParser, entry: dict) -> dict:
@@ -655,6 +715,8 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
         raise ValueError(f"Page identity check failed for {entry.get('name')}")
 
     if category == "classes":
+        if details.get("supplementConflicts"):
+            raise ValueError("Supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
         if not details.get("sourceBook"):
             raise ValueError("Class parse missing source book")
         useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills","inheritsFrom")
