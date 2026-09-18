@@ -269,11 +269,31 @@ def legacy_class_url(entry: dict) -> str:
 def parse_class_skills(parser: DetailParser) -> list[str]:
     skills = section(parser.lines, parser.headings, "Class Skills")
     names=[]
-    if skills:
-        for line in skills[:8]:
-            if ":" in line and len(line) > 120:
-                continue
-            names += re.findall(r"[A-Z][A-Za-z' -]+?(?=[A-Z]|$)", line)
+
+    def add_from_sentence(line: str):
+        value=clean(line)
+        # Common source shape: "The X's class skills ... are Balance (Dex), Craft (Int), ..."
+        match=re.search(r"class skills(?:\s*\([^)]*\))?\s+(?:are|include)\s+(.+?)(?:\.\s*(?:Skill Points|See |$)|$)",value,re.I)
+        if not match:
+            return
+        body=match.group(1)
+        body=re.sub(r"\([^)]*\)","",body)
+        body=body.replace(" and ",", ")
+        for part in body.split(","):
+            skill=clean(part)
+            if skill:
+                names.append(skill)
+
+    for line in skills[:12]:
+        add_from_sentence(line)
+        # Linked skill lists often render as one line of title-cased names.
+        if len(line) < 300 and not re.search(r"\b(class skills|skill points|key ability|trained only|armor check penalty)\b",line,re.I):
+            names += re.findall(r"[A-Z][A-Za-z'’ -]*(?:\s*\([A-Za-z ]+\))?", line)
+
+    for line in parser.lines:
+        if re.search(r"class skills",line,re.I):
+            add_from_sentence(line)
+
     for table in parser.tables:
         if not table:
             continue
@@ -282,10 +302,16 @@ def parse_class_skills(parser: DetailParser) -> list[str]:
             for row in table[1:]:
                 if row and clean(row[0]):
                     names.append(clean(row[0]))
+
     cleaned=[]
+    blocked={"skill name","key ability","trained only","armor check penalty","class skills","spells"}
     for name in names:
-        value=clean(name)
-        if value and value.casefold() not in {"skill name","key ability","trained only","armor check penalty"} and value not in cleaned:
+        value=clean(name).strip(" .;:")
+        if not value or value.casefold() in blocked:
+            continue
+        if re.fullmatch(r"(?:Int|Wis|Dex|Str|Con|Cha)",value,re.I):
+            continue
+        if value not in cleaned:
             cleaned.append(value)
     return cleaned
 
@@ -313,17 +339,98 @@ def explicit_variant_parent(lines: list[str], entry_name: str) -> str:
     joined=" ".join(lines)
     patterns=[
         r"same hit dice, skills, starting gold, and advancement as (?:a |the )?standard ([A-Za-z ]+?)(?:\s*\(|\s+except|\s+as|\.)",
+        r"retained from base class,?\s*(?:the\s+)?([A-Za-z]+)",
         r"has all the standard ([A-Za-z ]+?) class features",
         r"standard ([A-Za-z]+) class feature",
+        r"adapt(?:ing)? (?:the )?([A-Za-z' -]+?) prestige class",
+        r"adapt(?:ing)? (?:the )?([A-Za-z' -]+?) class",
     ]
     for pattern in patterns:
         match=re.search(pattern,joined,re.I)
         if match:
-            return clean(match.group(1)).title()
+            parent=clean(match.group(1)).title()
+            parent=re.sub(r"\s+From\s+.*$","",parent,flags=re.I)
+            return parent
+
+    # Unearthed Arcana "[base class] Variant" records inherit the named base class.
+    variant=re.fullmatch(r"(.+?)\s+Variant",clean(entry_name or ""),re.I)
+    if variant:
+        base=clean(variant.group(1))
+        wizard_schools={"Abjurer","Conjurer","Diviner","Enchanter","Evoker","Illusionist","Necromancer","Transmuter"}
+        if base.title() in wizard_schools:
+            return "Wizard"
+        if base in {"Fighter","Ranger","Rogue","Wizard","Barbarian","Bard","Cleric","Druid","Monk","Paladin"}:
+            return base.title()
+
+    if clean(entry_name).casefold().startswith("epic "):
+        base=clean(entry_name)[5:]
+        if base:
+            return base.title()
+
     parenthetical=re.search(r"\(([^)]+)\)\s*$",entry_name or "")
     if parenthetical and len(parenthetical.group(1).split())<=2:
         return clean(parenthetical.group(1)).title()
     return ""
+
+
+_CLASS_CATALOG_CACHE=None
+
+def class_catalog_rows():
+    global _CLASS_CATALOG_CACHE
+    if _CLASS_CATALOG_CACHE is None:
+        _CLASS_CATALOG_CACHE=json.loads((CATALOG/"classes.json").read_text(encoding="utf-8"))
+    return _CLASS_CATALOG_CACHE
+
+
+def parse_class_core(parser: DetailParser, entry: dict) -> dict:
+    lines=parser.lines
+    result={
+        **source_meta(lines),
+        "hit_die": int(m.group(1)) if (m := re.search(r"d\s*(\d+)", next_value(lines, "Hit Die"), re.I)) else None,
+        "skillPoints": next_value(lines, "Skill Points"),
+        "minBab": next_value(lines, "Min. BAB Req.") or next_value(lines, "Min BAB Req."),
+        "prerequisites": parse_requirement_lines(section(lines, parser.headings, "Requirements")),
+    }
+    lower=" ".join(lines[:20]).casefold()
+    if "prestige class" in lower:
+        result["prestige"]=True
+    progression,advancement=parse_progression_table(parser)
+    if progression:
+        result["progression"]=progression
+        result["advancement"]=advancement
+    skills=parse_class_skills(parser)
+    if skills:
+        result["classSkills"]=skills
+    parent=explicit_variant_parent(lines,entry.get("name",""))
+    if parent:
+        result["inheritsFrom"]=parent
+    result["mechanicsPresence"]={
+        "classFeatures":bool(section(lines,parser.headings,"Class Features")),
+        "ruleProse":has_rule_prose(lines,entry.get("name",""))
+    }
+    return {k:v for k,v in result.items() if v not in (None,"",[],{})}
+
+
+def sibling_class_fallback(entry: dict) -> dict:
+    candidates=[
+        row for row in class_catalog_rows()
+        if row.get("name")==entry.get("name") and row.get("id")!=entry.get("id")
+    ]
+    best={}
+    best_score=-1
+    for row in candidates:
+        try:
+            raw=fetch(row["url"],0.05)
+            parser=DetailParser(); parser.feed(raw); parser.close()
+            parsed=parse_class_core(parser,row)
+            score=sum(bool(parsed.get(k)) for k in ("hit_die","skillPoints","progression","classSkills","prerequisites","inheritsFrom"))
+            score+=2 if (parsed.get("mechanicsPresence") or {}).get("classFeatures") else 0
+            if score>best_score:
+                best_score=score
+                best={**parsed,"siblingSourceUrl":row["url"],"siblingSourceId":row.get("id")}
+        except Exception:
+            continue
+    return best
 
 
 def legacy_class_fallback(entry: dict) -> dict:
@@ -358,25 +465,23 @@ def legacy_class_fallback(entry: dict) -> dict:
 
 def parse_class(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
-    enriched = {
-        **source_meta(lines),
-        "hit_die": int(m.group(1)) if (m := re.search(r"d\s*(\d+)", next_value(lines, "Hit Die"), re.I)) else None,
-        "skillPoints": next_value(lines, "Skill Points"),
-        "minBab": next_value(lines, "Min. BAB Req.") or next_value(lines, "Min BAB Req."),
-        "prerequisites": parse_requirement_lines(section(lines, parser.headings, "Requirements")),
-    }
-    lower = " ".join(lines[:20]).casefold()
-    if "prestige class" in lower:
-        enriched["prestige"] = True
+    enriched=parse_class_core(parser,entry)
 
-    progression,advancement=parse_progression_table(parser)
-    if progression:
-        enriched["progression"]=progression
-        enriched["advancement"]=advancement
-
-    skills=parse_class_skills(parser)
-    if skills:
-        enriched["classSkills"]=skills
+    # If this source-book record is only a pointer, another record with the same
+    # class name may contain the canonical mechanics (for example PHB vs setting books).
+    sibling=sibling_class_fallback(entry)
+    if sibling:
+        for key in ("prerequisites","hit_die","skillPoints","minBab","classSkills","progression","advancement","inheritsFrom"):
+            if not enriched.get(key) and sibling.get(key):
+                enriched[key]=sibling[key]
+        enriched["siblingSourceUrl"]=sibling.get("siblingSourceUrl")
+        enriched["siblingSourceId"]=sibling.get("siblingSourceId")
+        sib_presence=sibling.get("mechanicsPresence") or {}
+        own_presence=enriched.get("mechanicsPresence") or {}
+        enriched["mechanicsPresence"]={
+            "classFeatures":bool(own_presence.get("classFeatures") or sib_presence.get("classFeatures")),
+            "ruleProse":bool(own_presence.get("ruleProse") or sib_presence.get("ruleProse")),
+        }
 
     # The rebuilt site omits some requirements/variant inheritance that the older
     # D&D Tools mirror still exposes. Use the mirror only to fill structured gaps.
@@ -405,9 +510,10 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
         if parent:
             enriched["inheritsFrom"]=parent
     fallback_presence=enriched.get("fallbackMechanicsPresence") or {}
+    current_presence=enriched.get("mechanicsPresence") or {}
     enriched["mechanicsPresence"] = {
-        "classFeatures": bool(section(lines, parser.headings, "Class Features")) or bool(fallback_presence.get("classFeatures")),
-        "ruleProse": has_rule_prose(lines, entry.get("name","")) or bool(fallback_presence.get("ruleProse"))
+        "classFeatures": bool(current_presence.get("classFeatures")) or bool(section(lines, parser.headings, "Class Features")) or bool(fallback_presence.get("classFeatures")),
+        "ruleProse": bool(current_presence.get("ruleProse")) or has_rule_prose(lines, entry.get("name","")) or bool(fallback_presence.get("ruleProse"))
     }
     return {k:v for k,v in enriched.items() if v not in (None,"",[],{})}
 
