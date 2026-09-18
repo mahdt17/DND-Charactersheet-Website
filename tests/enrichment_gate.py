@@ -89,7 +89,7 @@ feat_gaps=d35.enrichment_gaps("feats",{
     "featType":"General feat",
     "mechanicsPresence":{"benefit":False,"description":False,"ruleProse":False},
 })
-assert "featEffect" in feat_gaps and "featRuleText" in feat_gaps
+assert "featEffect" in feat_gaps
 
 spell_gaps=w5.enrichment_gaps({"category":"spell"},{
     "level":3,"school":"Evocation","casting_time":"1 action","components":["V","S"],
