@@ -10,6 +10,7 @@ sys.path.insert(0,str(ROOT/"scripts"))
 
 import enrich_dndtools as d35
 import import_wikidot as w5
+import audit_enrichment_output as output_audit
 
 REQUIRED=sorted(d35.REQUIRED_AUDIT_CATEGORIES)
 assert set(REQUIRED)==w5.REQUIRED_AUDIT_CATEGORIES
@@ -97,5 +98,30 @@ spell_gaps=w5.enrichment_gaps({"category":"spell"},{
     "mechanicsPresence":{"ruleProse":False},
 })
 assert spell_gaps==["spellEffect"]
+
+# Final-output class audit must match the source completeness contract closely enough
+# to catch staging/generation losses, including dynamic class-skill rules.
+complete_class={
+    "name":"Example Prestige Class",
+    "sourceBook":"Example",
+    "generatedDescription":"Structured generated summary.",
+    "hit_die":8,
+    "skillPoints":"4 + Int",
+    "progression":[["Level","BAB","Special"],["1st","+0","Example feature"]],
+    "classSkillRule":{"mode":"inherit_from_other_classes"},
+    "prestige":True,
+    "prerequisites":[{"kind":"skills","label":"Skills","text":"Spot 5 ranks"}],
+    "featureNames":["Example feature"],
+    "mechanicsPresence":{"classFeatures":True,"ruleProse":True},
+}
+assert output_audit.class_gaps(complete_class)==[]
+
+missing_skill_points=dict(complete_class)
+missing_skill_points.pop("skillPoints")
+assert "skillPoints" in output_audit.class_gaps(missing_skill_points)
+
+conflicted=dict(complete_class)
+conflicted["supplementConflicts"]=["hit_die"]
+assert "supplementConflict" in output_audit.class_gaps(conflicted)
 
 print("PASS enrichment release gate rejects incomplete audits and critical gameplay gaps")
