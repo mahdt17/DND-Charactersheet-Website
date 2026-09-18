@@ -1,0 +1,8 @@
+{
+  "purpose": "5e Wikidot item parser regressions. These pages previously failed rarity extraction because repeated page titles were mistaken for the item descriptor.",
+  "recordIds": [
+    "wikidot5e:wondrous-items:armor-of-fungal-spores",
+    "wikidot5e:wondrous-items:rings-of-shared-suffering",
+    "wikidot5e:wondrous-items:wand-of-magic-missiles"
+  ]
+}
