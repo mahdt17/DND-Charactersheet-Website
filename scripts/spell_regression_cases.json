@@ -1,5 +1,5 @@
 {
-  "purpose": "3.5 spell enrichment regression corpus. Every record here previously failed a strict full-catalog source audit and must remain covered.",
+  "purpose": "3.5 spell enrichment regression corpus. Every record here previously exposed a strict source-completeness failure or omitted gameplay-critical access metadata and must remain covered.",
   "recordIds": [
     "spells/divine-inspiration-37",
     "spells/luminous-armor-7",
@@ -9,6 +9,23 @@
     "spells/telepathy-tap-42",
     "spells/restore-souls-treasure-112",
     "spells/stalwart-pact-3043",
-    "spells/slaying-arrow-4953"
+    "spells/slaying-arrow-4953",
+    "spells/cloak-dark-power-4987",
+    "spells/darkseed-1922",
+    "spells/daze-animal-1894",
+    "spells/detect-disease-2046",
+    "spells/easy-math-3324",
+    "spells/fine-tuning-3325",
+    "spells/fire-eyes-1926",
+    "spells/ghostharp-1636",
+    "spells/ghostharp-3902",
+    "spells/minor-disguise-1777",
+    "spells/minor-disguise-4571",
+    "spells/percussion-3318",
+    "spells/repair-minor-damage-3425",
+    "spells/scarecrow-1912",
+    "spells/songbird-1793",
+    "spells/songbird-4191",
+    "spells/summon-instrument-2440"
   ]
 }

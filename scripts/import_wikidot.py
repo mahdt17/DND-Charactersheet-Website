@@ -469,11 +469,15 @@ def parse_item_detail(row,page):
     # It can contain a normal rarity, multiple rarities, "unique", "unknown",
     # or a family rule such as "rarity by figurine".
     title_key=identity_key(row.get("name",""))
+    title_text=clean(row.get("name","")).casefold()
     start=0
-    for i,line in enumerate(page.lines):
-        if identity_key(line)==title_key or identity_key(line).startswith(title_key):
-            start=i+1
-            break
+    exact=[i for i,line in enumerate(page.lines) if clean(line).casefold()==title_text]
+    if exact:
+        start=exact[-1]+1
+    else:
+        matches=[i for i,line in enumerate(page.lines) if identity_key(line)==title_key]
+        if matches:
+            start=matches[-1]+1
 
     descriptor=""
     type_words=("wondrous item","weapon","armor","potion","ring","rod","staff","wand","scroll","ammunition")
@@ -692,6 +696,17 @@ def self_test():
     assert s["casting_time"]=="1 action" and s["classes"]==["Sorcerer","Wizard"]
     assert s["level"]==3
     validate_detail(source_record("Fireball",BASE+"/spell:fireball","spell",{"level":3}),p,s)
+
+    item_html="""
+    <title>Armor Of Fungal Spores - DND 5th Edition</title>
+    <h1>DND 5th Edition</h1><h2>community wiki</h2>
+    <p>Armor Of Fungal Spores</p><p>Source: The Book of Many Things</p>
+    <p>Armor (medium), uncommon</p>
+    <p>While wearing this armor, its property has a gameplay effect described here.</p>
+    """
+    p=Page();p.feed(item_html);p.close()
+    item=parse_item_detail(source_record("Armor Of Fungal Spores",BASE+"/wondrous-items:armor-of-fungal-spores","item"),p)
+    assert item["itemType"]=="Armor (medium)" and item["rarity"]=="Uncommon"
 
     fighter="""
     <h1>Fighter</h1><p>You must have a Dexterity or Strength score of 13 or higher in order to multiclass in or out of this class.</p>
