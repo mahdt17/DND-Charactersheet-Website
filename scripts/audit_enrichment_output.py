@@ -115,6 +115,8 @@ def spell_gaps(r):
         gaps.append("effect")
     if r.get("effectNeedsSummary"):
         gaps.append("effectSummary")
+    if r.get("sourceIncomplete") and not r.get("sourceIncompleteResolved"):
+        gaps.append("sourceIncomplete")
     if presence(r,"supplementConflicts"):
         gaps.append("supplementConflict")
     return gaps
