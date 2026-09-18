@@ -48,8 +48,15 @@ jobs:
       - run: python --version
       - name: Strict full 3.5 class preflight
         run: python scripts/preflight_enrichment.py --full --min-rate 1.0 --delay 0.12 --only 3.5/classes --report test-results/enrichment-classes-full.json
+      - name: Build complete 3.5 class dry-run candidate
+        run: python scripts/enrich_dndtools.py --categories classes --force --delay 0.12 --candidate-dir test-results/candidates
+      - name: Audit complete 3.5 class candidate output
+        run: python scripts/audit_enrichment_output.py test-results/candidates --source-audit test-results/enrichment-classes-full.json --only 3.5/classes --output test-results/enrichment-classes-output-audit.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: enrichment-classes-full-report
-          path: test-results/enrichment-classes-full.json
+          path: |
+            test-results/enrichment-classes-full.json
+            test-results/enrichment-classes-output-audit.json
+            test-results/candidates/dndtools/classes.json
