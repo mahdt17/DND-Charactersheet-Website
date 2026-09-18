@@ -15,12 +15,15 @@ REQUIRED=sorted(d35.REQUIRED_AUDIT_CATEGORIES)
 assert set(REQUIRED)==w5.REQUIRED_AUDIT_CATEGORIES
 
 
-def report(categories=None, *, full=True, passed=True, missing=0, rate=1.0):
+def report(categories=None, *, full=True, passed=True, missing=0, rate=1.0, output=True):
     cats=categories if categories is not None else REQUIRED
     return {
         "readOnly":True,
         "fullCatalog":full,
         "strictGameplayCompleteness":True,
+        "sourceExtractionVerified":True,
+        "outputCompletenessVerified":output,
+        "releaseReady":output,
         "minimumRate":rate,
         "criticalMissingCount":missing,
         "passed":passed,
@@ -38,6 +41,11 @@ with tempfile.TemporaryDirectory() as tmp:
     assert not w5.audit_report_allows_write(None)
 
     path.write_text(json.dumps(report(full=False)),encoding="utf-8")
+    assert not d35.audit_report_allows_write(str(path))
+    assert not w5.audit_report_allows_write(str(path))
+
+    source_only=report(output=False)
+    path.write_text(json.dumps(source_only),encoding="utf-8")
     assert not d35.audit_report_allows_write(str(path))
     assert not w5.audit_report_allows_write(str(path))
 
