@@ -1354,6 +1354,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/animate-snow-1296": {
+      "name": "Animate Snow",
+      "sourceSha256": "3e83257e476f823da9e2bc32a1a112382ce7fea82aaaf696859321d79cf397de",
+      "effectSummary": "Animates natural or magical fallen snow as animated objects under the caster's vocal command. The caster can create four Large objects, two Huge objects, or one Gargantuan object, choosing their basic shapes. They gain the blind and trample special attacks, the cold subtype, and +1d6 cold damage on successful hits. Each animated snow object takes 1d6 damage per round while in temperatures above freezing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-snow-1296",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-snow-3833": {
+      "name": "Animate Snow",
+      "sourceSha256": "551f6dd9cef740786dc7f9b9db3ea96a0c2bf587f24a47744ef33d87c3cd0c10",
+      "effectSummary": "Animates nearby snow as 1d3+2 Large animated objects, 1d3 Huge animated objects, or one Gargantuan animated object under vocal command. The snow has no hardness, moves at 30 feet as though legged, has the blind special ability, gains the cold subtype, and deals +1d6 cold damage on successful hits. Each object takes 1d6 damage per round in temperatures above freezing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-snow-3833",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-water-3834": {
+      "name": "Animate Water",
+      "sourceSha256": "c65420adbbbd93f91b91820bde7c4dd80d79b59f1f189406ada2a7b1d7a70924",
+      "effectSummary": "Functions like animate fire but instead animates at least 4 cubic feet of water as a Small water elemental.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-water-3834",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-water-534": {
+      "name": "Animate Water",
+      "sourceSha256": "8385dd6b68612bc711a2bf80844b42a927bfa59c8889022ff492e6acb7fcbc45",
+      "effectSummary": "Functions like animate wood but animates water up to the spell's maximum volume. The animated water has hardness 0 and twice the normal hit points of an animated object of the same size.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-water-534",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-weapon-866": {
+      "name": "Animate Weapon",
+      "sourceSha256": "52a1c6219856b6d9c5b05f157342381469f5136529e821c1c8697113e0a15a98",
+      "effectSummary": "Animates the caster's weapon so it fights on its own as an animated object of the appropriate size, but deals the weapon's normal damage and gains an attack-roll bonus equal to the caster's spellcasting ability modifier. Light weapons count as two size categories smaller than the wielder, one-handed weapons one size smaller, and two-handed weapons the wielder's size; Diminutive or smaller objects are unaffected. The weapon attacks the nearest enemy unless redirected with a move action, and the spell ends if it is more than 30 feet from the caster at the end of the caster's turn. Existing enhancement bonuses and weapon properties still function, but the weapon gains none of the caster's feats or class features.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-weapon-866",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-with-the-spirit-305": {
+      "name": "Animate With the Spirit",
+      "sourceSha256": "cb8d7f98df16d57009858ce943347ce3db5248434225cc3a8bb92bd97a9520f9",
+      "effectSummary": "Calls a good-aligned outsider spirit of 6 Hit Dice or fewer to inhabit a corpse whose racial Hit Dice do not exceed the caster's level. The possessed body attacks the caster's enemies and can be directed if communication with the spirit is possible. It uses the spirit's Intelligence, Wisdom, Charisma, base attack bonus, base saves, alignment, mental abilities, and class levels, while regaining the corpse creature's physical ability scores, hit points, and innate physical abilities from life. The spirit cannot activate the body's extraordinary or supernatural abilities, and the body's former spells and spell-like abilities do not return. It departs harmlessly when the spell ends, is dismissed, or the host body is slain. Casting costs 1d3 Strength drain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-with-the-spirit-305",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-wood-2101": {
+      "name": "Animate Wood",
+      "sourceSha256": "716b3a3e4fb7dc489458098d66a9187dd30ef0493d7504e11e1f8acc6b691ecb",
+      "effectSummary": "Animates one Small or smaller wooden object as an animated object and causes it to attack the initially designated target. Objects carried or worn by a creature cannot be affected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-wood-2101",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-wood-3835": {
+      "name": "Animate Wood",
+      "sourceSha256": "c3ea72f7d1ea99420c20cbc5cf03383b067928c94dca967df7f3c1d85a5f5ca5",
+      "effectSummary": "Animates one Small or smaller wooden object as a Small animated object and causes it to attack the initially designated target. The animated wood has hardness 5. Objects carried or worn by a creature cannot be affected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-wood-3835",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/animate-wood-535": {
+      "name": "Animate Wood",
+      "sourceSha256": "8eac43cef65f9642979962fc901e8ba628ce81c92693795624bb5d0458840821",
+      "effectSummary": "Animates one Small or smaller wooden object as a Small animated object and causes it to attack the initially designated target. The animated wood has hardness 5. Objects carried or worn by a creature cannot be affected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/animate-wood-535",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anticipate-teleportation-3963": {
+      "name": "Anticipate Teleportation",
+      "sourceSha256": "0afd89dac9753d42d3309722256429eb5bf564ebb89358074fa1c60b9f479dbc",
+      "effectSummary": "Creates an aura that detects and delays teleportation into its area. When a creature would arrive by teleportation, the spell's recipient immediately learns the intended arrival location, the arriving creature's size, and the number and sizes of accompanying creatures; arrival is delayed by 1 round until immediately before that creature's next turn, without the creature perceiving the delay. If a creature intended to arrive inside the area but mishaps outside it, the recipient learns that an arrival was attempted and the delay still applies, but not the actual arrival location. Teleportation out of the area is unaffected unless the destination is also inside it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anticipate-teleportation-3963",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anticipate-teleportation-435": {
+      "name": "Anticipate Teleportation",
+      "sourceSha256": "668f13dec126616ca507e9aebafaf4cd202589c95e73d8360f86d4e78d4595f8",
+      "effectSummary": "Creates an aura that detects and delays teleportation into its area. When a creature would arrive by teleportation, the spell's recipient immediately learns the intended arrival location, the arriving creature's size, and the number and sizes of accompanying creatures; arrival is delayed by 1 round until immediately before that creature's next turn, without the creature perceiving the delay. If a creature intended to arrive inside the area but mishaps outside it, the recipient learns that an arrival was attempted and the delay still applies, but not the actual arrival location. Teleportation out of the area is unaffected unless the destination is also inside it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anticipate-teleportation-435",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anticipate-teleportation-greater-3928": {
+      "name": "Anticipate Teleportation, Greater",
+      "sourceSha256": "bc02d8132f50597c1a11a3cf40af7d0f7d8ca1c7671d9c4d0a9f650209ef413b",
+      "effectSummary": "Functions like anticipate teleportation, but also identifies the type of each arriving creature and delays their arrival by 3 rounds instead of 1.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anticipate-teleportation-greater-3928",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anticipate-teleportation-greater-436": {
+      "name": "Anticipate Teleportation, Greater",
+      "sourceSha256": "cabacd72f080c74ee0d3786d86023bf3971579c63d6c6e45208a3b32417355b7",
+      "effectSummary": "Functions like anticipate teleportation, but also identifies the type of each arriving creature and delays their arrival by 3 rounds instead of 1.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anticipate-teleportation-greater-436",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anticold-sphere-1227": {
+      "name": "Anticold Sphere",
+      "sourceSha256": "e48a9ef44f6a1d4c37c6cc8a1e2a6372a518e1e1743b538a83f20c23875dac07",
+      "effectSummary": "Creates a mobile spherical field that grants creatures inside immunity to cold and prevents creatures with the cold subtype from entering, hedging out such creatures already in the area when cast. The barrier is defensive only; deliberately forcing it against a creature it keeps at bay collapses the effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anticold-sphere-1227",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/anticold-sphere-3837": {
+      "name": "Anticold Sphere",
+      "sourceSha256": "c385f7aa9273b749648115cdd98f2f6995c2725d10f9cc75c58b88303984e1a2",
+      "effectSummary": "Creates an emanation that grants creatures inside immunity to cold damage and prevents creatures with the cold subtype from entering, hedging out such creatures already in the area when cast. Forcing the barrier against a creature it keeps at bay collapses the effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anticold-sphere-3837",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antidragon-aura-3838": {
+      "name": "Antidragon Aura",
+      "sourceSha256": "d96a1f70cb41486c630a37dde02e956daac5b69eb0c39819b498d19089cfb490",
+      "effectSummary": "Grants all subjects a +2 luck bonus to AC and saving throws against dragon attacks, spells, and extraordinary, supernatural, or spell-like abilities. The bonus increases by +1 for every four caster levels above 5th, reaching +3 at 9th, +4 at 13th, and a maximum of +5 at 17th.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antidragon-aura-3838",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antidragon-aura-993": {
+      "name": "Antidragon Aura",
+      "sourceSha256": "1c064e675780e5905d7b8c63613089942ccd81fbd7f1ac1fea41e3eafdea466d",
+      "effectSummary": "Grants all subjects a +2 luck bonus to AC and saving throws against dragon attacks, spells, and extraordinary, supernatural, or spell-like abilities. The bonus increases by +1 for every four caster levels above 7th, reaching +3 at 11th, +4 at 15th, and a maximum of +5 at 19th.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antidragon-aura-993",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antidragon-aura-greater-1095": {
+      "name": "Antidragon Aura, Greater",
+      "sourceSha256": "018a38a8a7e76145318f850e0c50e292b5770f46b320ba68ce7f4f8eb872f076",
+      "effectSummary": "Grants each warded creature +4 deflection AC and +4 resistance on all saving throws, spell resistance 25 against spells cast by dragons or dragonblood creatures, and protection against possession and mental influence as protection from evil. A dragon or dragonblood creature that hits a warded creature in melee takes 1d6 Strength damage unless it succeeds on a Fortitude save. Dragonslayer prestige-class members cast the spell at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antidragon-aura-greater-1095",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antifire-sphere-3119": {
+      "name": "Antifire Sphere",
+      "sourceSha256": "a6b964b0835737b2a1d1ce5f7df3e35b94e9c0f93ca8effe1539106883a08c17",
+      "effectSummary": "Creates a mobile spherical field that grants creatures inside immunity to fire damage and prevents creatures with the fire subtype from entering, hedging out such creatures already in the area when cast. The caster must overcome a creature's spell resistance for the barrier to keep that creature at bay.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antifire-sphere-3119",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/antilife-shell-2300": {
+      "name": "Antilife Shell",
+      "sourceSha256": "bfdeaf45bb40739c35bb807d99d561b226043c370935103ca5fe41b09b189d8e",
+      "effectSummary": "Creates a mobile hemispherical field that prevents entry by animals, aberrations, dragons, fey, giants, humanoids, magical beasts, monstrous humanoids, oozes, plants, and vermin, but not constructs, elementals, outsiders, or undead. The barrier is defensive only; deliberately forcing it against a creature it keeps at bay collapses the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/antilife-shell-2300",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
