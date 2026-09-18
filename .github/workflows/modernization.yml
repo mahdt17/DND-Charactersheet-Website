@@ -42,14 +42,14 @@ jobs:
 
   enrichment-preflight:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - run: python --version
-      - name: Strict 3.5 class preflight (250)
-        run: python scripts/preflight_enrichment.py --dnd-sample 250 --min-rate 1.0 --delay 0.10 --only 3.5/classes --report test-results/enrichment-classes-250.json
+      - name: Strict full 3.5 class preflight
+        run: python scripts/preflight_enrichment.py --full --min-rate 1.0 --delay 0.12 --only 3.5/classes --report test-results/enrichment-classes-full.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: enrichment-classes-250-report
-          path: test-results/enrichment-classes-250.json
+          name: enrichment-classes-full-report
+          path: test-results/enrichment-classes-full.json
