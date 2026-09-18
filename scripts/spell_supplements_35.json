@@ -528,6 +528,25 @@
           "role": "Ghostwalk sourcebook text cross-check of the restored mechanics"
         }
       ]
+    },
+    "spells/celebration-1646": {
+      "name": "Celebration",
+      "effectSummary": "Affected creatures receive one Will save when the spell begins. The caster must perform a drinking song for at least 1 full round; intoxication then escalates by performance round: round 1 has no effect, round 2 imposes a -2 enhancement penalty to Dexterity, Intelligence, and Wisdom, round 3 makes the subject nauseated, and round 4 makes the subject helpless. Creatures entering the area after casting are not affected, and affected creatures need not remain in the area. The effects persist while the caster keeps performing; if performance stops, they no longer worsen and fade after 1 round per caster level.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/celebration-1646",
+          "role": "primary catalog record; prose references a required intoxication table that is absent from the rebuilt page/export"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/51-100",
+          "role": "Magic of Faerûn p.84 used to recover the omitted round-by-round intoxication table"
+        },
+        {
+          "url": "https://housegriffon.com/RPG/Games/DnD/dd3.x/ForgottenRealms/Magic%20of%20Faerun.pdf",
+          "role": "independent sourcebook cross-check of the omitted table"
+        }
+      ]
     }
   }
 }
