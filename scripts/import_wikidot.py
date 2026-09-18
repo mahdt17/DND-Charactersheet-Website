@@ -561,6 +561,29 @@ def validate_detail(row,page,result):
 DETAIL_PARSERS={"spell":parse_spell_detail,"feat":parse_feat_detail,"class":parse_class_detail,"item":parse_item_detail}
 
 
+def candidate_summary(row,result):
+    name=clean(row.get("name",""))
+    source=clean(result.get("sourceBook","") or row.get("source","D&D 5e Wikidot"))
+    category=row.get("category")
+    if category=="class":
+        bits=[]
+        if result.get("hit_die"): bits.append(f"d{result['hit_die']} hit die")
+        if result.get("multiclassRequirement"): bits.append("multiclass requirement recorded")
+        return f"{name} is a D&D 5e class{(' with '+', '.join(bits)) if bits else ''}. Source: {source}."
+    if category=="spell":
+        level=result.get("level")
+        school=clean(result.get("school",""))
+        label="cantrip" if level==0 else (f"level {level} spell" if level is not None else "spell")
+        return f"{name} is a D&D 5e {label}{(' in '+school) if school else ''}. Source: {source}."
+    if category=="feat":
+        return f"{name} is a D&D 5e feat. Source: {source}."
+    if category=="item":
+        item_type=clean(result.get("itemType") or "magic item")
+        rarity=clean(result.get("rarity") or "")
+        return f"{name} is a D&D 5e {rarity+' ' if rarity else ''}{item_type}. Source: {source}."
+    return f"{name} is a D&D 5e reference entry. Source: {source}."
+
+
 def enrich(rows,limit,delay):
     out=[]
     attempted=0
@@ -574,6 +597,7 @@ def enrich(rows,limit,delay):
             result=DETAIL_PARSERS[row["category"]](row,page)
             validate_detail(row,page,result)
             gaps=enrichment_gaps(row,result)
+            result["generatedDescription"]=candidate_summary(row,result)
             result.pop("_detailLevelParsed",None)
             result["enrichment"]={
                 "version":1,"validated":True,"partial":bool(gaps),"missingExpected":gaps,
@@ -597,18 +621,23 @@ def classes(delay):
         result=parse_class_detail(row,page)
         validate_detail(row,page,result)
         gaps=enrichment_gaps(row,result)
+        result["generatedDescription"]=candidate_summary(row,result)
         result["enrichment"]={"version":1,"validated":True,"partial":bool(gaps),"missingExpected":gaps,"structuredOnly":True,"source":"D&D 5e Wikidot","fetchedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime())}
         rows.append(result)
     return rows
 
 
-def save(category,rows,write):
+def save(category,rows,write,candidate_dir=None):
     rows.sort(key=lambda r:(r["name"].casefold(),r["id"]))
     if write:
         OUTPUT.mkdir(parents=True,exist_ok=True)
         path=OUTPUT/f"{category}.json"
         path.write_text(json.dumps(rows,ensure_ascii=False)+"\n",encoding="utf-8")
-    return {"id":category,"count":len(rows),"write":write}
+    if candidate_dir is not None:
+        target=candidate_dir/"wikidot5e"/f"{category}.json"
+        target.parent.mkdir(parents=True,exist_ok=True)
+        target.write_text(json.dumps(rows,ensure_ascii=False)+"\n",encoding="utf-8")
+    return {"id":category,"count":len(rows),"write":write,"candidate":str(candidate_dir) if candidate_dir else None}
 
 
 def self_test():
@@ -675,6 +704,7 @@ def main():
     ap.add_argument("--delay",type=float,default=0.25)
     ap.add_argument("--write",action="store_true",help="Persist catalog files. Blocked without a passing full-catalog audit.")
     ap.add_argument("--audit-report",help="Path to a strict full-catalog preflight report required for --write.")
+    ap.add_argument("--candidate-dir",type=Path,help="Write dry-run candidate JSON here; never modifies the bundled catalog.")
     ap.add_argument("--self-test",action="store_true")
     args=ap.parse_args()
     if args.self_test:
@@ -691,7 +721,7 @@ def main():
             index=parse(INDEX_URLS[category],args.delay)
             rows={"spells":discover_spells,"feats":discover_feats,"items":discover_items}[category](index)
             rows=enrich(rows,args.limit,args.delay)
-        manifest["categories"].append(save(category,rows,args.write))
+        manifest["categories"].append(save(category,rows,args.write,args.candidate_dir))
     if args.write:
         OUTPUT.mkdir(parents=True,exist_ok=True)
         (OUTPUT/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
