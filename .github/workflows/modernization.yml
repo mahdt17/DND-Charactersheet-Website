@@ -23,6 +23,7 @@ jobs:
       - run: npm test
       - run: node tests/casting.mjs
       - run: node tests/editions.mjs
+      - run: npm run test:content
       - run: node tests/setup-choices.mjs
       - run: npm run build
       - run: npx playwright install --with-deps chromium
