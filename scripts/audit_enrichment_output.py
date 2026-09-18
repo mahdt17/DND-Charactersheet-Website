@@ -41,15 +41,23 @@ def description_ok(record):
 
 def class_gaps(r):
     gaps=[]
+    inherited=bool(r.get("inheritsFrom"))
+    racial=bool(r.get("racialClass"))
     if not has_text(r.get("name")): gaps.append("name")
     if not presence(r,"sourceBook","source","sourceUrl"): gaps.append("source")
     if not description_ok(r): gaps.append("description")
-    if not presence(r,"hit_die","hitDie") and not r.get("racialClass") and not r.get("inheritsFrom"): gaps.append("hitDie")
-    if not presence(r,"progression","advancement") and not r.get("inheritsFrom"): gaps.append("progression")
-    if not presence(r,"classSkills","skills") and not r.get("racialClass") and not r.get("inheritsFrom"): gaps.append("classSkills")
+    if not presence(r,"hit_die","hitDie") and not racial and not inherited: gaps.append("hitDie")
+    if not presence(r,"skillPoints") and not racial and not inherited: gaps.append("skillPoints")
+    if not presence(r,"progression","advancement") and not inherited: gaps.append("progression")
+    if not presence(r,"classSkills","skills","classSkillRule") and not racial and not inherited: gaps.append("classSkills")
     if r.get("prestige") and not presence(r,"prerequisites"): gaps.append("prerequisites")
-    if not presence(r,"classFeatures","features","featureSummaries"):
+    mechanics=r.get("mechanicsPresence") or {}
+    if not presence(r,"classFeatures","features","featureSummaries","featureNames") and not (
+        mechanics.get("classFeatures") or mechanics.get("ruleProse")
+    ):
         gaps.append("classFeatures")
+    if presence(r,"supplementConflicts"):
+        gaps.append("supplementConflict")
     return gaps
 
 
@@ -134,12 +142,23 @@ def main():
     ap.add_argument("candidate_root",type=Path)
     ap.add_argument("--source-audit",type=Path,required=True)
     ap.add_argument("--output",type=Path,required=True)
+    ap.add_argument(
+        "--only",
+        nargs="+",
+        choices=sorted(REQUIRED_FILES),
+        help="Audit only these complete category outputs. Scoped reports can pass but can never unlock writes."
+    )
     args=ap.parse_args()
 
     source=json.loads(args.source_audit.read_text(encoding="utf-8"))
+    selected=list(dict.fromkeys(args.only or REQUIRED_FILES.keys()))
+    selected_set=set(selected)
+    all_set=set(REQUIRED_FILES)
+    full_catalog=selected_set==all_set
     categories=[]
     errors=[]
-    for name,(rel,kind) in REQUIRED_FILES.items():
+    for name in selected:
+        rel,kind=REQUIRED_FILES[name]
         path=args.candidate_root/rel
         if not path.exists():
             categories.append({"category":name,"total":0,"passed":0,"failed":1,"successRate":0.0,"examples":[{"missing":["candidateFile"]}]})
@@ -150,24 +169,34 @@ def main():
         categories.append(result)
 
     missing=sum(r["failed"] for r in categories)
-    source_ok=(
+    source_scope=set(source.get("scopeCategories") or [])
+    source_scope_ok=(
         source.get("readOnly") is True
-        and source.get("fullCatalog") is True
         and source.get("sourceExtractionVerified") is True
         and source.get("passed") is True
         and source.get("criticalMissingCount")==0
+        and (
+            source.get("fullCatalog") is True
+            or (
+                source.get("fullScopeForSelectedCategories") is True
+                and selected_set.issubset(source_scope)
+            )
+        )
     )
     complete=all(r["failed"]==0 and r["successRate"]==1.0 for r in categories)
+    scoped_pass=source_scope_ok and complete and not errors
     report={
         "readOnly":True,
-        "fullCatalog":True,
+        "fullCatalog":full_catalog,
+        "fullScopeForSelectedCategories":True,
+        "scopeCategories":selected,
         "strictGameplayCompleteness":True,
-        "sourceExtractionVerified":source_ok,
+        "sourceExtractionVerified":source_scope_ok,
         "outputCompletenessVerified":complete,
-        "releaseReady":source_ok and complete and not errors,
+        "releaseReady":full_catalog and scoped_pass,
         "minimumRate":1.0,
         "criticalMissingCount":missing,
-        "passed":source_ok and complete and not errors,
+        "passed":scoped_pass,
         "categories":categories,
         "errors":errors,
     }
