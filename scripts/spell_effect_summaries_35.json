@@ -4058,6 +4058,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/blackrot-848": {
+      "name": "Blackrot",
+      "sourceSha256": "20c96d4559634a45aea8afbcf474b618afcba681b0e36cb2d4a54d0727813d5b",
+      "effectSummary": "Can be used in one of two ways. Against a plant creature, a touch attack deals 1d8 damage per round; a successful Fortitude save reduces the effect to only 1 round. Alternatively, touching a weapon with a wooden striking surface makes it toxic: any creature damaged by that weapon is sickened for 1 round unless it succeeds on a Fortitude save. The weapon effect counts as poison for immunity and resistance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blackrot-848",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blackstaff-1737": {
+      "name": "Blackstaff",
+      "sourceSha256": "7b896e4cee66c93b9fd1c9fad65877942666851731b65b4c4e084d1f6cb5a800",
+      "effectSummary": "Enhances a staff or quarterstaff in three ways. It gains +4 enhancement on attack and damage rolls. Each successful melee or melee-touch hit subjects the struck creature or object to a targeted dispel magic using the blackstaff caster's caster level. A spellcaster hit must also make a Will save or lose one prepared spell, or one unused slot for spontaneous casters, of the highest level still available. If cast on a magic staff, its wielder chooses each round whether to use the staff's normal abilities or the blackstaff effects. The enchanted staff can be handed to another wielder.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blackstaff-1737",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blackwater-taint-3353": {
+      "name": "Blackwater Taint",
+      "sourceSha256": "ab0334d7cc0006576149c7ba2942e6dc434d984abf89e8c4286a61c741207b32",
+      "effectSummary": "Infuses water with negative energy. A living creature in or entering the area must make a Fortitude save; failure deals 1d6 damage per two caster levels, maximum 10d6, and gives one negative level, while success halves the damage and avoids the negative level. Undead in the area heal the same amount instead. The area also functions as though desecrate were active. A creature can be affected by the damaging/healing portion only once per casting, though the desecrate effect persists.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blackwater-taint-3353",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blackwater-tentacle-3331": {
+      "name": "Blackwater Tentacle",
+      "sourceSha256": "5c43f0427c5301575202164cbc0348118ff37466d178058fbb25394d4dc24c4d",
+      "effectSummary": "Creates a stationary tentacle with 20-foot reach that attacks one designated foe once per round, starting immediately. Its attack bonus equals caster level + the caster's spellcasting ability modifier. A hit deals 2d8 + caster level damage, maximum +20; a Large-or-smaller creature hit must also make a Fortitude save or gain a negative level. Multiple hits can add negative levels, which last only for the spell's duration. Retargeting takes a move action. The tentacle has 5 hit points per caster level, AC 10 + caster level, automatically fails saves, cannot flank or benefit from flanking, and is destroyed at 0 hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blackwater-tentacle-3331",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blade-barrier-2588": {
+      "name": "Blade Barrier",
+      "sourceSha256": "8e884db3f9ce789b3c9f065d2fe278736c62b3f4b910a1017f69a717e26a3145",
+      "effectSummary": "Creates an immobile vertical wall of force blades. A creature passing through it takes 1d6 damage per caster level, maximum 15d6, with Reflex half. If the wall appears through occupied spaces, creatures there take the same damage but can make a Reflex save to move to either side and avoid damage entirely. The wall provides cover against attacks made through it, granting +4 AC and +2 on Reflex saves.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blade-barrier-2588",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blade-brothers-2903": {
+      "name": "Blade Brothers",
+      "sourceSha256": "0f3246d9c73536cd9008aa9cc3d8ae7deaa27185f325777060c48c94b5a5135e",
+      "effectSummary": "Links two creatures. Once during the spell, when either subject makes a saving throw, both can roll using their own save bonuses and apply the better result to the triggering save. If both rolls fail, both creatures suffer the consequences of failure even if the original effect targeted only one of them. The spell ends if the subjects move more than 120 feet apart.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blade-brothers-2903",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blade-of-blood-2991": {
+      "name": "Blade of Blood",
+      "sourceSha256": "a8d82abe894ef3591219204cfc70a29906ab35d17ed5ff4c62f4f95fb244dae7",
+      "effectSummary": "Enchants one weapon until its next hit on a living creature, when the spell discharges for +1d6 damage. The caster can voluntarily take 5 hit points of damage when casting to increase the bonus damage by another 2d6, for +3d6 total. The weapon loses the enchantment if its wielder drops it or otherwise loses contact with it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blade-of-blood-2991",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blade-of-pain-and-fear-1465": {
+      "name": "Blade of Pain and Fear",
+      "sourceSha256": "394fc858ba65d52eea77f0b94d0c0eca6ecacf82887486a38c2bf7c8e054855f",
+      "effectSummary": "Creates a 3-foot blade of gnashing teeth used for melee touch attacks. A hit deals 1d6 damage +1 per two caster levels, maximum +10, without adding Strength. A creature damaged by the blade must also save or become frightened.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blade-of-pain-and-fear-1465",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blade-of-pain-and-fear-3959": {
+      "name": "Blade of Pain and Fear",
+      "sourceSha256": "3142745eb3b1200df8c13b9b53eb72a613baf6fd0b35311726eba62c956accc7",
+      "effectSummary": "Creates a 3-foot blade of gnashing teeth used for melee touch attacks. A hit deals 1d6 damage +1 per two caster levels, maximum +10, without adding Strength. A creature damaged by the blade must make a Will save or become frightened for 1d4 rounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blade-of-pain-and-fear-3959",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blade-storm-3960": {
+      "name": "Blade Storm",
+      "sourceSha256": "536e6bd1f45b62e893ce49cd25e6e42a292506cbc419cbb5d155211a8e50b3b0",
+      "effectSummary": "Can be cast only at the beginning of the caster's turn before any other actions. The caster can then spend a full-round action to make one attack with each currently wielded melee weapon against every foe within reach. Multiple weapons or both ends of a double weapon can each attack every foe using normal two-weapon rules. If the caster does not take that full-round action after casting, the spell has no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blade-storm-3960",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blade-storm-413": {
+      "name": "Blade Storm",
+      "sourceSha256": "c3b0ff3ac7700e439cfa4623d1ca7b1894b140da7637c319864f7844a2e19a83",
+      "effectSummary": "Can be cast only at the beginning of the caster's turn before any other actions. The caster can then spend a full-round action to make one attack with each currently wielded melee weapon against every foe within reach, using normal two-weapon rules where applicable. The maximum number of individual targets equals character level. If the caster does not take that full-round action after casting, the spell has no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blade-storm-413",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blade-thirst-3961": {
+      "name": "Blade Thirst",
+      "sourceSha256": "748d4d037fed9bc5283843421a4bd6b182eab70f79374d0d6c80e7200eeec03f",
+      "effectSummary": "Grants one slashing weapon a +3 enhancement bonus and causes it to shed light like a torch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blade-thirst-3961",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bladebane-3472": {
+      "name": "Bladebane",
+      "sourceSha256": "81b4559479a9c4740d57b318f2fa769f768cb6776383aeae6a69cc72e83dc202",
+      "effectSummary": "Temporarily gives one slashing weapon the bane property against a chosen creature type, including subtype if needed. Against that type, the weapon's enhancement bonus increases by +2 and it deals +2d6 bonus damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bladebane-3472",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blades-of-fire-452": {
+      "name": "Blades of Fire",
+      "sourceSha256": "5bd09a1afd48319b533be89c8527d377dac55c53effb23a4880f83805e3eb473",
+      "effectSummary": "Sheathes the caster's melee weapons in harmless flame so each deals +1d6 fire damage. This bonus stacks with other energy damage the weapons already deal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blades-of-fire-452",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bladeweave-3962": {
+      "name": "Bladeweave",
+      "sourceSha256": "7a35f490fd6f5f3202dc4305bcacd15e6c43a06a072bc30f672e471b34e690d7",
+      "effectSummary": "Once per round after the caster successfully attacks a creature with a melee weapon, the caster can choose that creature to make a Will save. Failure dazes it for 1 round. Spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bladeweave-3962",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bladeweave-403": {
+      "name": "Bladeweave",
+      "sourceSha256": "b4dc4c4b11709ec409a5ef578ab3e93766ae86a3207456d68ab1347424c76be1",
+      "effectSummary": "On any round the caster attacks with a melee weapon, the caster can make one additional touch attack with that weapon at normal attack bonus as a free action. The touch attack deals no damage; on a hit, the target must make a Will save or be dazed for 1 round. Spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bladeweave-403",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blasphemy-2589": {
+      "name": "Blasphemy",
+      "sourceSha256": "82191f8976af941f5bef583123576e26f1a7ecc161a6f85800fa2941d09d2eba",
+      "effectSummary": "Affects nonevil creatures in the area according to Hit Dice relative to caster level, with cumulative effects and no save against the core effects: dazed for 1 round, Strength reduced by 2d6 for 2d4 rounds, paralyzed and helpless for 1d10 minutes, and at the strongest tier killed or destroyed if undead. Creatures with Hit Dice above caster level are unaffected. If cast on the caster's home plane, nonevil extraplanar creatures in the area are also banished for at least 24 hours; this banishment allows a Will save at -4.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blasphemy-2589",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blast-of-flame-3964": {
+      "name": "Blast of Flame",
+      "sourceSha256": "1b4462c632e3a69d00eb4c0f1ecef5b938184925cd5e7d8b9aacee993ff86983",
+      "effectSummary": "Releases a cone of flame dealing 1d6 fire damage per caster level, maximum 10d6, to creatures that fail their saving throw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blast-of-flame-3964",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blast-of-force-1535": {
+      "name": "Blast of Force",
+      "sourceSha256": "d13177fa5a4225d3e7ba9a2e60789f81a120e35727d504272ce63b2546c8057b",
+      "effectSummary": "Makes a ranged touch attack that deals 1d6 force damage per two caster levels, maximum 5d6. A creature hit must also make a Fortitude save or be knocked down, applying size and stability modifiers as though resisting a bull rush.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blast-of-force-1535",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/blast-of-force-3936": {
+      "name": "Blast of Force",
+      "sourceSha256": "6a91774ffdf2c3ce8281384ebe7606655f7c7c3bb7e47488d20a10b2679c0005",
+      "effectSummary": "Makes a ranged touch attack that deals 1d6 force damage per two caster levels, maximum 5d6. A creature hit must also make a Fortitude save or be knocked prone, applying size and stability modifiers as though resisting a bull rush.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blast-of-force-3936",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
