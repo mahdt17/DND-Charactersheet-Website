@@ -1034,8 +1034,8 @@ def self_test():
 
     racial_html = """
     <h1>Pixie</h1><p>Base Class Savage Species (SS), p. 190</p>
-    <h2>Advancement</h2><table><tr><th>Level</th><th>Hit Dice</th><th>CR</th><th>Skill Points</th></tr>
-    <tr><td>1st</td><td>1</td><td>1</td><td>(6 + Int mod) × 4</td></tr></table>
+    <h2>Advancement</h2><table><tr><th>Level</th><th>BAB</th><th>Hit Dice</th><th>CR</th><th>Skill Points</th></tr>
+    <tr><td>1st</td><td>+0</td><td>1</td><td>1</td><td>(6 + Int mod) × 4</td></tr></table>
     """
     p=DetailParser();p.feed(racial_html);p.close()
     racial=parse_class_core(p,{"name":"Pixie"})
