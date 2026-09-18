@@ -411,6 +411,106 @@
         }
       ],
       "notes": "Original source is 3.0-era material. Secondary adaptations may change skill names or add campaign-specific patron requirements; prerequisite data here preserves the printed Deities & Demigods source."
+    },
+    "classes/moto-avenger-640": {
+      "name": "Moto Avenger",
+      "sourceEdition": "3.0",
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Human (Unicorn)"
+        },
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any good"
+        },
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Ride 8 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Mounted Combat; Spirited Charge; Trample"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "original Oriental Adventures requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/moto-avenger-640",
+          "role": "primary statistics, skills, progression and features"
+        }
+      ]
+    },
+    "classes/righteous-zealot-351": {
+      "name": "Righteous Zealot",
+      "prerequisites": [
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Bluff 3 ranks; Concentration 8 ranks; Diplomacy 8 ranks; Perform (any, including storytelling) 3 ranks; Sense Motive 4 ranks"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/classes/righteous-zealot/index.html",
+          "role": "requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/righteous-zealot-351",
+          "role": "primary statistics, progression and features"
+        }
+      ]
+    },
+    "classes/spellfire-hierophant-1038": {
+      "name": "Spellfire Hierophant",
+      "prerequisites": [
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Concentration 24 ranks; Knowledge (arcana) 12 ranks; Spellcraft 12 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Endurance; Epic Spellfire Wielder; Spellfire Wielder; Weapon Focus (spellfire)"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/Spellfire_Hierophant",
+          "role": "requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/spellfire-hierophant-1038",
+          "role": "primary statistics, progression and features"
+        }
+      ]
+    },
+    "classes/stormcaster-831": {
+      "name": "Stormcaster",
+      "skillPoints": "2 + Int",
+      "provenance": [
+        {
+          "url": "https://anyflip.com/ogyal/wqig/basic/51-100",
+          "role": "Stormwrack printed skill-points cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/stormcaster-831",
+          "role": "primary requirements, skills, progression and features"
+        }
+      ]
     }
   }
 }
