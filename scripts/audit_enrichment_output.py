@@ -65,6 +65,7 @@ def feat_gaps(r):
     gaps=[]
     if not has_text(r.get("name")): gaps.append("name")
     if not presence(r,"sourceBook","source","sourceUrl"): gaps.append("source")
+    if not presence(r,"featType"): gaps.append("featType")
     if not description_ok(r): gaps.append("description")
     if not presence(r,"benefit","effect","effectSummary"):
         gaps.append("effect")

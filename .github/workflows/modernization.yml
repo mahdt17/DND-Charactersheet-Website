@@ -40,6 +40,20 @@ jobs:
           name: modernization-browser-results
           path: test-results/
 
+  feat-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - run: python --version
+      - name: Strict 25-record 3.5 feat preflight
+        run: python scripts/preflight_enrichment.py --dnd-sample 25 --min-rate 1.0 --delay 0.12 --only 3.5/feats --report test-results/enrichment-feats-25.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-feats-25-report
+          path: test-results/enrichment-feats-25.json
+
   enrichment-preflight:
     runs-on: ubuntu-latest
     timeout-minutes: 120

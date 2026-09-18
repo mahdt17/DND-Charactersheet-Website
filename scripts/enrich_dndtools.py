@@ -694,20 +694,32 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         if len(line) < 100 and re.search(r"\bfeat\b", folded) and not folded.startswith(("back to ","characters ")):
             category = clean(line)
             break
+
+    prereq_labeled = any(
+        re.match(r"^Prerequisites?\b", clean(line), re.I)
+        for line in lines
+    ) or any(re.match(r"^Prerequisites?$", clean(h), re.I) for h in parser.headings)
     prereq = next_value(lines, "Prerequisite") or next_value(lines, "Prerequisites")
     if not prereq:
         req = section(lines, parser.headings, "Prerequisite") or section(lines, parser.headings, "Prerequisites")
         prereq = " ".join(req[:4])
+
+    benefit = next_value(lines, "Benefit")
+    description = next_value(lines, "Description")
+    normal = next_value(lines, "Normal")
+    special = next_value(lines, "Special")
+
     result = {**meta}
     if category:
         result["featType"] = category
     if prereq:
         result["prerequisites"] = [{"kind":"text","label":"Prerequisite","text":prereq}]
     result["mechanicsPresence"] = {
-        "benefit": bool(next_value(lines, "Benefit")),
-        "description": bool(next_value(lines, "Description")),
-        "normal": bool(next_value(lines, "Normal")),
-        "special": bool(next_value(lines, "Special")),
+        "benefit": bool(benefit),
+        "description": bool(description),
+        "normal": bool(normal),
+        "special": bool(special),
+        "prerequisiteLabeled": prereq_labeled,
         "ruleProse": has_rule_prose(lines, entry.get("name",""))
     }
     return result
@@ -855,7 +867,7 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
     expected = {
         "classes": ("sourceBook","hit_die","skillPoints","progression","classSkills"),
         "spells": ("sourceBook","school","casting_time","range","duration"),
-        "feats": ("sourceBook",),
+        "feats": ("sourceBook","featType"),
         "items": ("sourceBook",),
         "equipment": ("kind","itemCategory"),
     }.get(category, ())
@@ -879,8 +891,12 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
         if not presence.get("ruleProse"):
             gaps.append("classRuleText")
     elif category == "feats":
-        if not (presence.get("benefit") or presence.get("description")):
+        # Description text is often flavor; a feat cannot pass the source gate
+        # unless the source exposes an actual Benefit mechanic.
+        if not presence.get("benefit"):
             gaps.append("featEffect")
+        if presence.get("prerequisiteLabeled") and not details.get("prerequisites"):
+            gaps.append("prerequisites")
     elif category == "spells":
         psionic=bool(details.get("isPsionicPower") or re.search(r"\b(psychometabolism|psychokinesis|metacreativity|clairsentience|telepathy|psychoportation)\b",details.get("school",""),re.I))
         if psionic:
@@ -1073,10 +1089,22 @@ def self_test():
     feat_html = """
     <h1>Monkey Grip</h1><p>General feat</p><p>Complete Warrior (CW), p. 103</p>
     <div>Prerequisite</div><div>BAB +1.</div>
+    <div>Benefit</div><div>You can use a larger melee weapon with an attack penalty.</div>
+    <div>Description</div><div>You are trained to wield oversized weapons.</div>
     """
     p=DetailParser();p.feed(feat_html);p.close()
     f=parse_feat(p,{"name":"Monkey Grip"})
     assert f["featType"] == "General feat" and f["prerequisites"][0]["text"] == "BAB +1."
+    assert f["mechanicsPresence"]["benefit"] and f["mechanicsPresence"]["prerequisiteLabeled"]
+    assert enrichment_gaps("feats",f) == []
+
+    flavor_only_feat = """
+    <h1>Flavor Only</h1><p>General feat</p><p>Example Source (EX), p. 1</p>
+    <div>Description</div><div>You are known for an unusual talent.</div>
+    """
+    p=DetailParser();p.feed(flavor_only_feat);p.close()
+    f=parse_feat(p,{"name":"Flavor Only"})
+    assert "featEffect" in enrichment_gaps("feats",f), "flavor text alone must not satisfy the feat-effect contract"
 
     print("PASS DnD Tools structured enrichment parser")
 
