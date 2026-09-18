@@ -41,14 +41,38 @@ jobs:
           name: modernization-browser-results
           path: test-results/
 
-  feat-preflight:
+  feat-preflight-shard:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
     steps:
       - uses: actions/checkout@v4
       - run: python --version
-      - name: Strict full 3.5 feat source preflight
-        run: python scripts/preflight_enrichment.py --full --min-rate 1.0 --delay 0.12 --only 3.5/feats --report test-results/enrichment-feats-full.json
+      - name: Strict 3.5 feat source shard ${{ matrix.shard }}
+        run: python scripts/preflight_enrichment.py --full --min-rate 1.0 --delay 0.12 --only 3.5/feats --shard-count 8 --shard-index ${{ matrix.shard }} --report test-results/feat-shards/shard-${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-feats-shard-${{ matrix.shard }}
+          path: test-results/feat-shards/shard-${{ matrix.shard }}.json
+
+  feat-preflight:
+    needs: feat-preflight-shard
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: enrichment-feats-shard-*
+          path: test-results/feat-shards
+          merge-multiple: true
+      - name: Aggregate complete 3.5 feat source audit
+        run: python scripts/aggregate_enrichment_shards.py --reports-dir test-results/feat-shards --category 3.5/feats --output test-results/enrichment-feats-full.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
