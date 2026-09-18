@@ -865,8 +865,40 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
 
 def split_class_levels(value: str) -> dict:
     # Rendered source often collapses "Sorcerer 1Wizard 1Warmage 1".
-    pairs = re.findall(r"([A-Z][A-Za-z'’ -]*?)\s+(\d)(?=[A-Z]|$)", value)
+    pairs = re.findall(r"([A-Z][A-Za-z'’ /-]*?)\s+(\d)(?=[A-Z]|$)", value)
     return {clean(name): int(level) for name, level in pairs}
+
+
+def split_domain_levels(value: str) -> list[dict]:
+    # Domain/access lists can be collapsed, e.g. "Spell 3 Initiate of Mystra (Feat) 3".
+    pairs=re.findall(r"(.+?)\s+(\d)(?=\s*[A-Z]|$)",clean(value))
+    out=[]
+    for raw_name,raw_level in pairs:
+        raw_name=clean(raw_name)
+        source=""
+        match=re.match(r"^(.*?)\s*\(([^()]*)\)\s*$",raw_name)
+        if match:
+            raw_name=clean(match.group(1))
+            source=clean(match.group(2))
+        if raw_name:
+            row={"name":raw_name,"level":int(raw_level)}
+            if source:
+                row["source"]=source
+            out.append(row)
+    return out
+
+
+def spell_description_text(parser: DetailParser) -> str:
+    lines=section(parser.lines,parser.headings,"Description")
+    if not lines:
+        return ""
+    kept=[]
+    for line in lines:
+        folded=clean(line).casefold()
+        if folded.startswith(("origin:","d&d 3.5 reference data","privacy ","terms ")):
+            break
+        kept.append(clean(line))
+    return clean(" ".join(kept))
 
 
 _SPELL_SUPPLEMENT_CACHE=None
@@ -888,7 +920,7 @@ def apply_spell_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Spell supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    for key in ("components","sourceEdition","effectSummary","notes"):
+    for key in ("components","classLevels","domainLevels","sourceEdition","effectSummary","notes"):
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
             continue
@@ -901,6 +933,14 @@ def apply_spell_supplement(entry: dict, details: dict) -> dict:
     result["supplementVerified"]=True
     if conflicts:
         result["supplementConflicts"]=conflicts
+    if result.get("classLevels"):
+        result["classes"]=list(result["classLevels"])
+        result["level"]=min(result["classLevels"].values())
+    elif result.get("domainLevels") and result.get("level") is None:
+        result["level"]=min(row["level"] for row in result["domainLevels"])
+    if supplement.get("effectSummary"):
+        result.pop("effectNeedsSummary",None)
+        result.pop("effectSourceLength",None)
     return result
 
 
@@ -938,10 +978,27 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
     domains_raw = next_value(lines, "Domains")
     if domains_raw:
         result["domains"] = domains_raw
+        domain_levels=split_domain_levels(domains_raw)
+        if domain_levels:
+            result["domainLevels"]=domain_levels
+            if result.get("level") is None:
+                result["level"]=min(row["level"] for row in domain_levels)
     descriptors_raw = next_value(lines, "Descriptors")
     if descriptors_raw:
         result["descriptors"] = [clean(x) for x in re.split(r"[,;]", descriptors_raw) if clean(x)]
-    result["mechanicsPresence"] = {"ruleProse": has_rule_prose(lines, entry.get("name",""))}
+
+    effect_source=spell_description_text(parser)
+    if effect_source:
+        if len(effect_source) <= 240:
+            result["effect"]=effect_source
+        else:
+            result["effectNeedsSummary"]=True
+            result["effectSourceLength"]=len(effect_source)
+
+    result["mechanicsPresence"] = {
+        "ruleProse": has_rule_prose(lines, entry.get("name","")),
+        "descriptionCaptured": bool(effect_source),
+    }
     result={k:v for k,v in result.items() if v not in (None,"",[],{})}
     return apply_spell_supplement(entry,result)
 
@@ -1084,10 +1141,17 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
         psionic=bool(details.get("isPsionicPower") or re.search(r"\b(psychometabolism|psychokinesis|metacreativity|clairsentience|telepathy|psychoportation)\b",details.get("school",""),re.I))
         if psionic:
             details["isPsionicPower"]=True
-        if not details.get("isManeuver") and not psionic and not details.get("components"):
+        maneuver=bool(details.get("isManeuver"))
+        if not maneuver and not psionic and not details.get("components"):
             gaps.append("components")
+        if not (details.get("classLevels") or details.get("domainLevels")) and not maneuver and not psionic:
+            gaps.append("spellAccessLevels")
+        if details.get("level") is None and not maneuver and not psionic:
+            gaps.append("level")
         if not presence.get("ruleProse"):
             gaps.append("spellEffect")
+        if not (details.get("effect") or details.get("effectSummary") or details.get("effectNeedsSummary")):
+            gaps.append("spellEffectCapture")
     elif category == "items":
         useful = ("price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType","tables")
         if not any(details.get(key) for key in useful):
@@ -1301,6 +1365,29 @@ def self_test():
     p=DetailParser();p.feed(spell_html);p.close()
     s=parse_spell(p,{"name":"Magic Missile"})
     assert s["school"] == "Evocation" and s["classLevels"]["Wizard"] == 1 and s["level"] == 1
+
+    domain_html = """
+    <h1>Domain Test</h1><p>Example Book (EX), p. 1</p>
+    <div>School</div><div>Abjuration</div><div>Casting Time</div><div>1 action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Touch</div>
+    <div>Duration</div><div>1 minute</div><div>Domains</div><div>Spell 3 Initiate of Mystra (Feat) 3</div>
+    <h2>Description</h2><p>Grants a brief +1 bonus.</p>
+    """
+    p=DetailParser();p.feed(domain_html);p.close()
+    s=parse_spell(p,{"name":"Domain Test"})
+    assert s["domainLevels"][0]["name"]=="Spell" and s["domainLevels"][0]["level"]==3
+    assert s["level"]==3 and s["effect"]=="Grants a brief +1 bonus."
+
+    long_effect_html = """
+    <h1>Long Effect</h1><p>Example Book (EX), p. 2</p>
+    <div>School</div><div>Evocation</div><div>Casting Time</div><div>1 action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Close</div>
+    <div>Duration</div><div>Instantaneous</div><div>Classes</div><div>Wizard 1</div>
+    <h2>Description</h2><p>""" + ("mechanical rule text " * 20) + """</p>
+    """
+    p=DetailParser();p.feed(long_effect_html);p.close()
+    s=parse_spell(p,{"name":"Long Effect"})
+    assert s.get("effectNeedsSummary") and not s.get("effect")
 
     feat_html = """
     <h1>Monkey Grip</h1><p>General feat</p><p>Complete Warrior (CW), p. 103</p>

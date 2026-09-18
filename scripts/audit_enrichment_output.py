@@ -98,9 +98,16 @@ def spell_gaps(r):
     psionic=bool(r.get("isPsionicPower"))
     maneuver=bool(r.get("isManeuver"))
     if not psionic and not maneuver and not presence(r,"components"): gaps.append("components")
-    if not presence(r,"classes","classLevels") and not psionic and not maneuver: gaps.append("classes")
+    if not (presence(r,"classLevels") or presence(r,"domainLevels")) and not psionic and not maneuver:
+        gaps.append("accessLevels")
+    if r.get("level") is None and not psionic and not maneuver:
+        gaps.append("level")
     if not presence(r,"effect","effectSummary","damage","healAtSlotLevel"):
         gaps.append("effect")
+    if r.get("effectNeedsSummary"):
+        gaps.append("effectSummary")
+    if presence(r,"supplementConflicts"):
+        gaps.append("supplementConflict")
     return gaps
 
 

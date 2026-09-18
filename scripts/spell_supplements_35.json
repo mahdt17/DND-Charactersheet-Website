@@ -153,6 +153,294 @@
           "role": "Magic of Eberron p.102 components cross-check"
         }
       ]
+    },
+    "spells/cloak-dark-power-4987": {
+      "name": "Cloak of Dark Power",
+      "domainLevels": [
+        {
+          "name": "Drow",
+          "level": 1
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-dark-power-4987",
+          "role": "primary catalog identity; access level omitted"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/spell-compendium--86/cloak-dark-power--4028/index.html",
+          "role": "same spell Drow-domain level cross-check"
+        }
+      ]
+    },
+    "spells/darkseed-1922": {
+      "name": "Darkseed",
+      "classLevels": {
+        "Druid": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkseed-1922",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/darkseed--1922/",
+          "role": "Druid 0 level cross-check"
+        }
+      ]
+    },
+    "spells/daze-animal-1894": {
+      "name": "Daze Animal",
+      "classLevels": {
+        "Druid": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/daze-animal-1894",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/daze-animal--1894/",
+          "role": "Druid 0 level cross-check"
+        }
+      ]
+    },
+    "spells/detect-disease-2046": {
+      "name": "Detect Disease",
+      "classLevels": {
+        "Shaman": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-disease-2046",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures shaman 0-level spell list cross-check"
+        }
+      ]
+    },
+    "spells/easy-math-3324": {
+      "name": "Easy Math",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/easy-math-3324",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/song-and-silence-a-guidebook-to-bards-and-rogues--48/easy-math--3324/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/fine-tuning-3325": {
+      "name": "Fine-tuning",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fine-tuning-3325",
+          "role": "primary page lists Bard but omits level"
+        },
+        {
+          "url": "https://dndtools.net/spells/song-and-silence-a-guidebook-to-bards-and-rogues--48/fine-tuning--3325/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/fire-eyes-1926": {
+      "name": "Fire Eyes",
+      "classLevels": {
+        "Druid": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-eyes-1926",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/fire-eyes--1926/",
+          "role": "Druid 0 level cross-check"
+        }
+      ]
+    },
+    "spells/ghostharp-1636": {
+      "name": "Ghostharp",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostharp-1636",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/magic-of-faerun--20/ghostharp--1636/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/ghostharp-3902": {
+      "name": "Ghostharp",
+      "classLevels": {
+        "Bard": 0
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostharp-3902",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/ghostharp--3902/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/minor-disguise-1777": {
+      "name": "Minor Disguise",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/minor-disguise-1777",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/magic-of-faerun--20/minor-disguise--1777/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/minor-disguise-4571": {
+      "name": "Minor Disguise",
+      "classLevels": {
+        "Bard": 0
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/minor-disguise-4571",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.org/m/spells/spell-compendium--86/minor-disguise--4571/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/percussion-3318": {
+      "name": "Percussion",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/percussion-3318",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/song-and-silence-a-guidebook-to-bards-and-rogues--48/percussion--3318/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/repair-minor-damage-3425": {
+      "name": "Repair Minor Damage",
+      "classLevels": {
+        "Sorcerer": 0,
+        "Wizard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-minor-damage-3425",
+          "role": "primary catalog identity; class levels omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/tome-and-blood-a-guidebook-to-wizards-and-sorcerers--51/repair-minor-damage--3425/",
+          "role": "Sorcerer 0 and Wizard 0 cross-check"
+        }
+      ]
+    },
+    "spells/scarecrow-1912": {
+      "name": "Scarecrow",
+      "classLevels": {
+        "Druid": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scarecrow-1912",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.org/spells/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/scarecrow--1912/",
+          "role": "Druid 0 level cross-check"
+        }
+      ]
+    },
+    "spells/songbird-1793": {
+      "name": "Songbird",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/songbird-1793",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/magic-of-faerun--20/songbird--1793/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/songbird-4191": {
+      "name": "Songbird",
+      "classLevels": {
+        "Bard": 0
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/songbird-4191",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/songbird--4191/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/summon-instrument-2440": {
+      "name": "Summon Instrument",
+      "classLevels": {
+        "Bard": 0
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-instrument-2440",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/players-handbook-v35--6/summon-instrument--2440/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
     }
   }
 }
