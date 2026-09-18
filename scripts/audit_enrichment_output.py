@@ -48,7 +48,7 @@ def class_gaps(r):
     if not presence(r,"progression","advancement") and not r.get("inheritsFrom"): gaps.append("progression")
     if not presence(r,"classSkills","skills") and not r.get("racialClass") and not r.get("inheritsFrom"): gaps.append("classSkills")
     if r.get("prestige") and not presence(r,"prerequisites"): gaps.append("prerequisites")
-    if not presence(r,"classFeatures","features","featureSummaries") and not (r.get("mechanicsPresence") or {}).get("classFeatures"):
+    if not presence(r,"classFeatures","features","featureSummaries"):
         gaps.append("classFeatures")
     return gaps
 
@@ -58,7 +58,7 @@ def feat_gaps(r):
     if not has_text(r.get("name")): gaps.append("name")
     if not presence(r,"sourceBook","source","sourceUrl"): gaps.append("source")
     if not description_ok(r): gaps.append("description")
-    if not presence(r,"benefit","effect","effectSummary") and not (r.get("mechanicsPresence") or {}).get("benefit"):
+    if not presence(r,"benefit","effect","effectSummary"):
         gaps.append("effect")
     if (r.get("mechanicsPresence") or {}).get("prerequisiteLabeled") and not presence(r,"prerequisites"):
         gaps.append("prerequisites")
@@ -76,7 +76,7 @@ def spell_gaps(r):
     maneuver=bool(r.get("isManeuver"))
     if not psionic and not maneuver and not presence(r,"components"): gaps.append("components")
     if not presence(r,"classes","classLevels") and not psionic and not maneuver: gaps.append("classes")
-    if not presence(r,"effect","effectSummary","damage","healAtSlotLevel") and not (r.get("mechanicsPresence") or {}).get("ruleProse"):
+    if not presence(r,"effect","effectSummary","damage","healAtSlotLevel"):
         gaps.append("effect")
     return gaps
 
@@ -92,7 +92,9 @@ def item_gaps(r,equipment=False):
     else:
         if not presence(r,"price","cost","weight","bodySlot","casterLevel","aura","activation","rarity","itemType"):
             gaps.append("stats")
-        if not presence(r,"effect","effectSummary") and not r.get("ruleFamily") and not (r.get("mechanicsPresence") or {}).get("ruleProse"):
+        if not presence(r,"effect","effectSummary") and not (
+            r.get("ruleFamily") and presence(r,"ruleSummary","ruleStats")
+        ):
             gaps.append("effect")
     return gaps
 
