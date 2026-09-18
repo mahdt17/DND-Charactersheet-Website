@@ -476,8 +476,16 @@ def parse_class_detail(row,page):
     if m:
         result["hit_die"]=int(m.group(1))
     saves=next_value(lines,"Saving Throws")
+    if not saves:
+        # Some Wikidot renders flatten the proficiency label/value differently.
+        # Recover an explicitly visible saving-throw line without inventing data.
+        for line in lines:
+            m=re.search(r"\bSaving Throws?\b\s*[:\-]?\s*(.+)$",clean(line),re.I)
+            if m and clean(m.group(1)):
+                saves=clean(m.group(1))
+                break
     if saves:
-        result["saving_throws"]=[clean(x) for x in saves.split(",") if clean(x)]
+        result["saving_throws"]=[clean(x).lstrip(":;- ").strip() for x in saves.split(",") if clean(x).lstrip(":;- ").strip()]
     armor=next_value(lines,"Armor")
     weapons=next_value(lines,"Weapons")
     tools=next_value(lines,"Tools")
@@ -826,6 +834,17 @@ def self_test():
     p=Page();p.feed(fighter);p.close()
     c=parse_class_detail(source_record("Fighter",BASE+"/fighter","class"),p)
     assert c["hit_die"]==10 and c["saving_throws"]==["Strength","Constitution"]
+
+    sorcerer_inline="""
+    <p>Sorcerer</p><p>You must have a Charisma score of 13 or higher in order to multiclass in or out of this class.</p>
+    <p>Hit Dice: 1d6 per sorcerer level</p><p>Saving Throws : Constitution, Charisma</p>
+    <p>Armor: None</p><p>Weapons: Daggers</p><p>Skills: Choose two</p>
+    <h2>Class Features</h2><h3>Equipment</h3>
+    <table><tr><th>Level</th><th>Proficiency Bonus</th><th>Features</th></tr><tr><td>1st</td><td>+2</td><td>Spellcasting</td></tr></table>
+    """
+    p2=Page();p2.feed(sorcerer_inline);p2.close()
+    sc=parse_class_detail(source_record("Sorcerer",BASE+"/sorcerer","class"),p2)
+    assert sc["saving_throws"]==["Constitution","Charisma"]
     assert "13 or higher" in c["multiclassRequirement"] and c["advancement"][0]["Features"].startswith("Fighting Style")
     validate_detail(source_record("Fighter",BASE+"/fighter","class"),p,c)
     assert [r["id"] for r in shard_rows([
