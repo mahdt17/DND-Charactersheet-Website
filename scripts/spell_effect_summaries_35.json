@@ -2234,6 +2234,238 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/astral-hospice-2148": {
+      "name": "Astral Hospice",
+      "sourceSha256": "6db0f6f2ce15a5111e3e972e72abcaef16ebf818f8fa76029811a1ecd8c75e1a",
+      "effectSummary": "Opens a portal from the Astral Plane to a self-contained demiplane roughly 50 feet square and 50 feet high whose time, gravity, magic, and natural healing function like the Material Plane. Only creatures named or described by the caster at casting can enter. The portal is the only entrance or exit and lasts only while the caster remains inside; when the caster leaves, it closes and any remaining occupants reappear on the Astral Plane at the portal's former location.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/astral-hospice-2148",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/astral-hospice-3851": {
+      "name": "Astral Hospice",
+      "sourceSha256": "1ebc74dd52192a3041816f293b00a3854f19f519b0593157816b7d34ebd905c3",
+      "effectSummary": "Can be cast only on the Astral Plane and opens a portal to a self-contained demiplane roughly 50 feet square and 50 feet high whose time, gravity, magic, and natural healing function like the Material Plane. Only creatures named or described by the caster at casting can enter. The portal is the only entrance or exit and lasts only while the caster remains inside; when the caster leaves, it closes and any remaining occupants reappear on the Astral Plane at the portal's former location.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/astral-hospice-3851",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/astral-projection-2712": {
+      "name": "Astral Projection",
+      "sourceSha256": "e52400639be52e23bced35dcdd5513ec3c7e67fe6b05cc5428c2c391e2a584de",
+      "effectSummary": "Projects the caster's astral body, equipment, and the astral forms of linked willing companions onto the Astral Plane while their physical bodies remain in suspended animation. The group can travel through the Astral Plane and enter other planes, forming new physical bodies and equipment there. Each projection remains connected to its original body by a silver cord; destruction of an astral or secondary body normally returns the spirit to the original body, but breaking the cord or destroying the original body kills the creature. Companions depend on the caster and can be stranded if something happens to the caster. The journey can continue indefinitely until voluntarily ended or externally terminated.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/astral-projection-2712",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/atonement-2304": {
+      "name": "Atonement",
+      "sourceSha256": "8e6b479fc29f3e1861c2d311b1aa59f1ccf983ee85ad48c3599589528486954b",
+      "effectSummary": "Restores a genuinely repentant creature from alignment violations or divine consequences. It can reverse a magical alignment change, restore lost paladin class features, restore cleric or druid spellcasting lost through divine displeasure, or offer a willing creature the choice to change alignment to match the caster. Deliberate transgressions require the caster to spend 500 XP, while unwitting or compelled acts do not. The alignment-change option is voluntary, cannot be forced, and does not work on outsiders or creatures unable to change alignment naturally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/atonement-2304",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/attentive-alarm-762": {
+      "name": "Attentive Alarm",
+      "sourceSha256": "42140530755f698fdedf6a19cf9aad654ac979d9c928c652eb965a65c1db4b49",
+      "effectSummary": "Functions like alarm but, when triggered, also immediately tells the caster the type and number of creatures that crossed the ward's boundary during the triggering round. Creatures entering on later rounds are not automatically identified by that trigger.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/attentive-alarm-762",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/attraction-2102": {
+      "name": "Attraction",
+      "sourceSha256": "4e49d8ff32be992732b243f2d60fd66332244bbe76c32a031685b91e859bc52f",
+      "effectSummary": "Surrounds one creature with an aura that makes weapon attacks against it more damaging. Every melee or ranged attack that deals damage to the subject deals an additional +1 damage per caster level, maximum +5. The spell does not increase damage from spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/attraction-2102",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/attune-form-1865": {
+      "name": "Attune Form",
+      "sourceSha256": "ba30352d7b0a2458e8c7dba5a01f9b04da5e4fa840a7f1117bf880b82dd0ac81",
+      "effectSummary": "Attunes the affected creatures to the current plane and grants the protections of avoid planar effects against harmful natural planar traits, including environmental fire, lack of breathable air, positive- or negative-energy dominance, and certain plane-specific environmental effects. It does not negate gravity, alignment, magic, or entrapping planar traits and does not protect against creatures, spells, special abilities, or exceptional local hazards.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/attune-form-1865",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/avoid-planar-effects-3864",
+          "role": "primary-site spell cross-reference used to resolve the protections explicitly incorporated by Attune Form"
+        }
+      ]
+    },
+    "spells/attune-form-2194": {
+      "name": "Attune Form",
+      "sourceSha256": "616aaa669ce4549eb305f4df831f6585322bf0d2f4fc495cd9acf1c891efb36c",
+      "effectSummary": "Attunes the affected creatures to the current plane and grants the protections of avoid planar effects against harmful natural planar traits, including environmental fire, lack of breathable air, positive- or negative-energy dominance, and certain plane-specific environmental effects. It does not negate gravity, alignment, magic, or entrapping planar traits and does not protect against creatures, spells, special abilities, or exceptional local hazards.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/attune-form-2194",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/avoid-planar-effects-3864",
+          "role": "primary-site spell cross-reference used to resolve the protections explicitly incorporated by Attune Form"
+        }
+      ]
+    },
+    "spells/attune-form-3852": {
+      "name": "Attune Form",
+      "sourceSha256": "c6431299bb45690875e1e52cfd17ac8b767f13f0a7c9f98a7bb5e78a8cf8b2f8",
+      "effectSummary": "Attunes the affected creatures to the current plane and grants the protections of avoid planar effects against harmful natural planar traits, including environmental fire, lack of breathable air, positive- or negative-energy dominance, and certain plane-specific environmental effects. It does not negate gravity, alignment, magic, or entrapping planar traits and does not protect against creatures, spells, special abilities, or exceptional local hazards.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/attune-form-3852",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/avoid-planar-effects-3864",
+          "role": "primary-site spell cross-reference used to resolve the protections explicitly incorporated by Attune Form"
+        }
+      ]
+    },
+    "spells/augment-familiar-3853": {
+      "name": "Augment Familiar",
+      "sourceSha256": "62ca8e82720288e2e6e2c7da9270ed31c836daa70baea26fb365273dffca3952",
+      "effectSummary": "Grants the caster's familiar +4 enhancement to Strength, Dexterity, and Constitution, damage reduction 5/magic, and +2 resistance on saving throws.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/augment-familiar-3853",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/augment-object-3375": {
+      "name": "Augment Object",
+      "sourceSha256": "5d67c3e23fe36cf847f9153125a220287cd04092f4e85ffe24b965aac9db5727",
+      "effectSummary": "Strengthens one object by adding +20 to its break DC and doubling both hardness and hit points. While unattended, the object also receives saving throws against spells as though it were a magic item, with a save bonus equal to 2 + half the caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/augment-object-3375",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/augment-truefriend-3450": {
+      "name": "Augment Truefriend",
+      "sourceSha256": "48b40a9254813ebbd249a32c88e4e56b3c5298dc7a9229345377a4976b8526c1",
+      "effectSummary": "Grants a named creature a +2 enhancement bonus to Strength, Dexterity, and Constitution, with the normal derived benefits to attacks, damage, hit points, and related checks. Casting requires correctly speaking that creature's personal truename.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/augment-truefriend-3450",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/augury-2478": {
+      "name": "Augury",
+      "sourceSha256": "ef85bb1b45f2cae1bd9d39e570dfaae82e1ebdc1848b26afb6e3b163e900d020",
+      "effectSummary": "Predicts whether one contemplated action is likely to bring good or bad results within roughly the next 30 minutes. The base chance for a meaningful answer is 70% +1% per caster level, maximum 90%, rolled secretly; successful results are weal, woe, both, or nothing, while a failed divination also returns nothing. Repeated auguries by the same caster about the same topic use the same original roll, and long-term consequences beyond the spell's foresight are not considered.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/augury-2478",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-against-flame-1572": {
+      "name": "Aura Against Flame",
+      "sourceSha256": "110e7c1863d6989438ca501fed80b0aed9e882ebc21bac1ec15376658e9d5852",
+      "effectSummary": "Creates a protective aura that absorbs the first 12 points of fire damage and automatically extinguishes nonmagical flames whose maximum damage is 12 or less per round. As a standard action, the caster can touch an existing magical fire and attempt to dispel it; success ends both the fire and the aura, while failure leaves both. With a readied action, the aura can similarly attempt to counterspell a magical fire attack; success counters the effect and expends the aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-against-flame-1572",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-against-flame-3854": {
+      "name": "Aura Against Flame",
+      "sourceSha256": "84838ccfee90a55b2d459bc18faa85c4a3d56cdd2337647123e01855f1482a99",
+      "effectSummary": "Creates a protective aura that absorbs the first 10 points of fire damage as resist energy and automatically extinguishes nonmagical flames whose maximum damage is 10 or less per round. As a standard action, the caster can touch an existing magical fire and attempt to dispel it; success ends both effects, while failure leaves both and the caster takes the fire's normal damage reduced by the aura. With a readied action, the aura can attempt to counterspell a magical fire attack; success counters the effect and expends the aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-against-flame-3854",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-chaos-3593": {
+      "name": "Aura of Chaos",
+      "sourceSha256": "53d55ba03a2f6235c9bbd77b8343f987e778d11b47719fde0e671f14ded94dbe",
+      "effectSummary": "While in this stance, any melee-attack damage die that rolls its maximum value is rolled again and the new result is added to the damage. A rerolled die that also shows its maximum is rolled again, continuing until it produces less than its maximum value.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-chaos-3593",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-evasion-3855": {
+      "name": "Aura of Evasion",
+      "sourceSha256": "4cb8ce600aaf0a6743c064183a4f1601b8566c6f9efbc66a5ea3e6dcd3e828a8",
+      "effectSummary": "Grants the caster and creatures within 10 feet evasion specifically against breath weapons, so a successful Reflex save against a breath weapon that normally deals half damage instead deals no damage. Creatures that already have evasion or improved evasion instead gain +4 on Reflex saves against breath weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-evasion-3855",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-evasion-995": {
+      "name": "Aura of Evasion",
+      "sourceSha256": "540a38b283fd7a18c2f8167a1059c446a5d46dc95d909b8289f9d2bd278fcea9",
+      "effectSummary": "Grants the caster and creatures within 10 feet evasion specifically against breath weapons, so a successful Reflex save against a breath weapon that normally deals half damage instead deals no damage. This benefit does not stack with existing evasion or improved evasion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-evasion-995",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-glory-1731": {
+      "name": "Aura of Glory",
+      "sourceSha256": "a55755e897340d77ad32b4c21138cf7568f8e183c00b39dbbd5fbdb7c8be62bd",
+      "effectSummary": "Grants the caster +2 sacred on Bluff, Diplomacy, Handle Animal, Intimidate, and Charisma checks used to change an NPC's attitude or to turn undead. Allies gain +2 sacred on saves against fear. When cast, up to a number of allies equal to the caster's paladin level within 10 feet, including the caster's mount, each heal 1 hit point.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-glory-1731",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/aura-glory-3856": {
+      "name": "Aura of Glory",
+      "sourceSha256": "2b5c0bcb2f70808b160cabdd49abd9eb181321f837ff0c99bd6cf207569bed86",
+      "effectSummary": "Removes any fear effect currently affecting allies within the caster's aura of courage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/aura-glory-3856",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
