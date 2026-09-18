@@ -509,6 +509,25 @@
           "role": "Defenders of the Faith p.86 cross-check of the complete spell text"
         }
       ]
+    },
+    "spells/blessing-of-the-snake-mother-1380": {
+      "name": "Blessing of the Snake Mother",
+      "effectSummary": "Temporarily grants several yuan-ti tainted-one traits. The target gains the Alertness feat, +2 Constitution, and complete immunity to snake venom and yuan-ti poison. Its appearance becomes more feral and snakelike, and it counts as a yuan-ti for spells and other effects, including favored-enemy interactions and Ghostwalk rules that prevent yuan-ti from forming ghosts. The spell grants the caster no control over the target and is normally used on willing subjects.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blessing-of-the-snake-mother-1380",
+          "role": "primary catalog record; description is truncated immediately after introducing the granted benefits"
+        },
+        {
+          "url": "https://dndtools.net/spells/ghostwalk--94/blessing-of-the-snake-mother--1380/",
+          "role": "complete same-spell D&D Tools mirror used to restore the omitted mechanics"
+        },
+        {
+          "url": "https://anyflip.com/cmjgl/uwip/basic/",
+          "role": "Ghostwalk sourcebook text cross-check of the restored mechanics"
+        }
+      ]
     }
   }
 }
