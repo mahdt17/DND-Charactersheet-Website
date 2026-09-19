@@ -891,6 +891,21 @@
         }
       ],
       "resolvesSourceIncomplete": true
+    },
+    "spells/detect-ship-3339": {
+      "name": "Detect Ship",
+      "effectSummary": "For 24 hours, you automatically sense other ships within 1 mile per caster level even when they are not visible or you are asleep. For a ship not yet visible, a DC 15 Profession (sailor) check reveals its number, direction, and range; once known, its direction and range remain known while it stays within the spell's range. For a ship within sight, studying it for 1 round allows Profession (sailor) checks that reveal progressively more information: DC 10 type of ship; DC 12 course, speed, and time to intercept if possible; DC 15 weaponry; DC 18 ship name; DC 20 signs of allegiance such as flags or national symbols; DC 25 port of call. The spell cannot penetrate illusions. The arcane focus is a small ground-glass disk on a gold chain worth 50 gp.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-ship-3339",
+          "role": "primary Stormwrack catalog record; rebuilt prose ends at the introduction to the visible-ship Profession (sailor) results table and omits the table rows"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/awhr/basic/101-150",
+          "role": "Stormwrack sourcebook rendering used only to restore the omitted Profession (sailor) DC/result table"
+        }
+      ]
     }
   }
 }
