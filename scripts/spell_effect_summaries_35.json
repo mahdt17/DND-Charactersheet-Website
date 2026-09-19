@@ -17096,6 +17096,138 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/feathers-1925": {
+      "name": "Feathers",
+      "sourceSha256": "db81fce5203f2085137701f307bc035d60bcd453cc51fea789d30ffbfd08c321",
+      "effectSummary": "Transforms every subject into the same feathered animal of your choice, no larger than Small, using this 3.0 printing’s polymorph-other transformation rules. Each subject takes the animal form’s physical and natural traits—such as size, Strength, Dexterity, Constitution, natural armor and attacks, mundane movement, and nonmagical senses—while retaining its own mind, Intelligence, Wisdom, Charisma, class and level, hit points, alignment, base attack bonus, base saves, type, extraordinary abilities, spells, and spell-like abilities; it does not gain the new form’s supernatural or extraordinary special abilities beyond the listed physical/natural traits, and its own supernatural abilities are not retained. Equipment melds into an animal form and becomes nonfunctional. Each subject can return to normal as a full-round action, ending the spell only for that creature; otherwise all subjects remain transformed until the spell expires or you dismiss it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/feathers-1925",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; spell-specific multi-target animal transformation retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-other-5025",
+          "role": "primary 3.0 catalog base spell used to resolve inherited polymorph-other transformation mechanics"
+        }
+      ]
+    },
+    "spells/ferocity-of-sanguine-rage-1070": {
+      "name": "Ferocity of Sanguine Rage",
+      "sourceSha256": "fc40756d44ea050c8e6834b4dbf87270946873f9d327203a17a26e63e9246f69",
+      "effectSummary": "Grants you a morale bonus on melee damage rolls with weapons or natural attacks equal to half your caster level, without restricting spellcasting or other actions. While the spell remains active, you can spend a standard action to invoke true strike on yourself: your next single attack roll before the end of the next round gains a +20 insight bonus and ignores the miss chance from concealment. After that true-strike attack is resolved, ferocity of sanguine rage ends. A creature with the dragonblood subtype casts this spell at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ferocity-of-sanguine-rage-1070",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; sanguine-rage mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/true-strike-2521",
+          "role": "primary 3.5 catalog spell used to resolve the inherited true-strike effect"
+        }
+      ]
+    },
+    "spells/fetid-breath-1340": {
+      "name": "Fetid Breath",
+      "sourceSha256": "524c3cdde44ad4626fe5d8190468466040d063610f5ba141ee762af31b5390eb",
+      "effectSummary": "Exhales a 10-foot cone of nauseating gas using stinking cloud’s poison-like nausea rules. A living creature that succumbs is nauseated, and although the cone itself lasts only 1 round, the nausea continues for 1d4+1 rounds after the creature leaves the gas. A creature with a special saving-throw bonus against poison applies that bonus to this spell, and creatures immune to poison are unaffected. The material component is a clove of garlic or an onion that you eat.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fetid-breath-1340",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; cone-specific mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/stinking-cloud-2438",
+          "role": "primary 3.5 catalog base spell used to resolve inherited nausea mechanics"
+        }
+      ]
+    },
+    "spells/fiendform-1757": {
+      "name": "Fiendform",
+      "sourceSha256": "12c357940725f3e37ca7fa270b31ad1797e1ff57e248bbd6d8cb5c84296169fa",
+      "effectSummary": "Transforms you into one fiendish creature, demon, or devil that could be summoned by summon monster I–VI. This 3.0 printing uses polymorph-self/polymorph-other physical transformation rules: you assume the form’s physical statistics and natural traits while retaining your own mind and core character identity, with equipment changing or melding as appropriate. Unlike ordinary polymorph, you also gain all extraordinary, spell-like, and supernatural abilities of the chosen form. You can assume only one form during the casting. Your type becomes outsider, so effects that harm or ward evil outsiders affect you. An effect that would banish you to your home plane instead ends fiendform and leaves you staggered for 1 round per caster level without transporting you. The material component is a bone from a fiendish or half-fiendish creature, demon, or devil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiendform-1757",
+          "role": "primary Magic of Faerûn DnD Tools effect text reviewed and paraphrased; fiend-specific overrides retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-self-5024",
+          "role": "primary 3.0 catalog spell used to resolve inherited polymorph-self mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-other-5025",
+          "role": "primary 3.0 catalog base spell used to resolve underlying transformation mechanics"
+        }
+      ]
+    },
+    "spells/fiendform-2283": {
+      "name": "Fiendform",
+      "sourceSha256": "086fbfbdf5f3ec72139cf913a123b01f325800e2681df5814823d29dc674a0b1",
+      "effectSummary": "Transforms you into one fiendish creature, demon, or devil that could be summoned by summon monster I–IV, using 3.5 polymorph rules except for fiendform’s stated overrides. You gain the form’s physical qualities and Strength, Dexterity, and Constitution while retaining your own Intelligence, Wisdom, Charisma, class and level, hit points, alignment, base attack bonus, and base saves; equipment follows the normal polymorph/alter-self transformation rules. You also gain all extraordinary, spell-like, and supernatural abilities of the chosen form, and can assume only one form per casting. Your type becomes outsider, so effects that harm or ward evil outsiders affect you. A banishment effect instead ends fiendform and leaves you staggered for 1 round per caster level without transporting you. The material component is a bone from a fiendish or half-fiendish creature, demon, or devil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiendform-2283",
+          "role": "primary Player's Guide to Faerûn DnD Tools effect text reviewed and paraphrased; fiend-specific overrides retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-2854",
+          "role": "primary 3.5 catalog spell used to resolve inherited polymorph mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/alter-self-2774",
+          "role": "primary 3.5 catalog base spell used to resolve underlying physical/equipment transformation rules"
+        }
+      ]
+    },
+    "spells/fiendform-3473": {
+      "name": "Fiendform",
+      "sourceSha256": "c529a4ea0d7aa34737675d3ccd0cbba02ec481eba813d1f99b2d4ab250af3de3",
+      "effectSummary": "Transforms you into one fiendish creature, demon, or devil that could be summoned by summon monster I–V. This 3.0 printing uses polymorph-self/polymorph-other physical transformation rules: you assume the form’s physical statistics and natural traits while retaining your own mind and core character identity, with equipment changing or melding as appropriate. Unlike ordinary polymorph, you gain all extraordinary, spell-like, and supernatural abilities of the chosen form. You can assume only one form per casting. Your type becomes outsider, so effects that harm or ward evil outsiders affect you. A spell that would banish you to your home plane instead ends fiendform and leaves you staggered for 1 round per caster level without transporting you. The material component is a bone from a fiendish or half-fiendish creature, demon, or devil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiendform-3473",
+          "role": "primary Unapproachable East DnD Tools effect text reviewed and paraphrased; fiend-specific overrides retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-self-5024",
+          "role": "primary 3.0 catalog spell used to resolve inherited polymorph-self mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-other-5025",
+          "role": "primary 3.0 catalog base spell used to resolve underlying transformation mechanics"
+        }
+      ]
+    },
+    "spells/fiendform-4485": {
+      "name": "Fiendform",
+      "sourceSha256": "4188e35dd1158b50dce8b35468dd57d384425477731946cec2dae3d0517e2d15",
+      "effectSummary": "Transforms you into one fiendish creature, demon, or devil that could be summoned by summon monster I–IV, regardless of size. It otherwise follows alter self: you retain your own ability scores, mind, class and level, hit points, alignment, base attack bonus, and base saves while taking the form’s physical qualities and appropriate equipment transformation. Fiendform overrides alter self’s normal restrictions by allowing these fiend forms, changing your type to outsider, and granting all extraordinary, spell-like, and supernatural abilities of the chosen form. You can assume only one form per casting. Effects that harm or ward evil outsiders affect you. An effect that would banish an outsider instead ends the spell and leaves you dazed for 1 round per caster level. The material component is a bone from a fiendish creature, half-fiend, demon, or devil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiendform-4485",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased; printing-specific fiendform overrides retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/alter-self-2774",
+          "role": "primary 3.5 catalog base spell used to resolve inherited alter-self mechanics"
+        }
+      ]
+    },
+    "spells/fiendform-544": {
+      "name": "Fiendform",
+      "sourceSha256": "bd23dc94e8c2b1359f2398c8900c4819e5ba2a3c9b6b0d3b98fb7df3bdf487f4",
+      "effectSummary": "Transforms you into one fiendish creature, demon, or devil that could be summoned by summon monster I–IV, regardless of size. It otherwise follows alter self: you retain your own ability scores, mind, class and level, hit points, alignment, base attack bonus, and base saves while taking the form’s physical qualities and appropriate equipment transformation. Fiendform overrides alter self’s normal restrictions by allowing these fiend forms, changing your type to outsider, and granting all extraordinary, spell-like, and supernatural abilities of the chosen form. You can assume only one form per casting. Effects that harm or ward evil outsiders affect you. An effect that would banish an outsider instead ends the spell and leaves you staggered for 1 round per caster level. The material component is a bone from a fiendish or half-fiendish creature, demon, or devil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiendform-544",
+          "role": "primary Complete Arcane DnD Tools effect text reviewed and paraphrased; printing-specific fiendform overrides retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/alter-self-2774",
+          "role": "primary 3.5 catalog base spell used to resolve inherited alter-self mechanics"
+        }
+      ]
     }
   }
 }
