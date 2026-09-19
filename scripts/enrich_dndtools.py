@@ -1175,6 +1175,18 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="delegated-fires-of-purity-catching-fire-rules"
+        if (
+            entry.get("id")=="spells/flame-dagger-4508"
+            and re.search(r"deals ad4 points of fire damage",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-flame-dagger-damage-die"
+        if (
+            entry.get("id")=="spells/flaying-tendrils-874"
+            and re.search(r"treated as though you have the undead",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-flaying-tendrils-grapple-rules"
         if entry.get("id")=="spells/drown-5004" and re.search(
             r"or begin to drown \(see The Concentration check to cast a spell",
             effect_source,
