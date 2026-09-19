@@ -11096,6 +11096,238 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/deathsight-798": {
+      "name": "Deathsight",
+      "sourceSha256": "8b7b7ae7545c877348aceba471bd2d7596767365ce68327c7cc81d1f2467be25",
+      "effectSummary": "Your next attack made before the end of your next turn is treated as your existing death attack without requiring the usual 3 rounds of study. All other mechanics of your death-attack feature—including what qualifies as the attack, its saving throw, and whether it kills or paralyzes—remain unchanged. If you do not already have a death-attack ability, the spell has no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deathsight-798",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; inherited death-attack mechanics remain tied to the caster's existing feature"
+        }
+      ]
+    },
+    "spells/deathwatch-2728": {
+      "name": "Deathwatch",
+      "sourceSha256": "96be4566665fc825c2b610b374dc7002c6c6a1f5ca3c2e66611e104ee2250efd",
+      "effectSummary": "For 10 minutes per caster level, you know the condition of every creature in a 30-foot cone: dead; fragile (alive at 3 hit points or fewer); fighting off death (alive at 4 hit points or more); undead; or neither alive nor dead, such as a construct. The spell also sees through spells and abilities that let creatures feign death.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deathwatch-2728",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/decapitating-scarf-2107": {
+      "name": "Decapitating Scarf",
+      "sourceSha256": "a47a2e9b6ecd6dd67dffa73e3ba2151480c2dc5b41354d5a832d5997b4ceafb4",
+      "effectSummary": "As with iron scarf, you need line of sight and make a normal ranged attack with the scarf. On a hit it wraps around the target's neck; the target then makes a Fortitude save. Failure decapitates it. A living creature that succeeds instead takes 1d4 damage per caster level, maximum 20d4. The spell only works on creatures with heads; oozes and many aberrations are immune, while constructs and most undead are not harmed by losing their heads. Vampires are an exception and can be killed by the decapitation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/decapitating-scarf-2107",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Oriental Adventures printing"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/iron-scarf-2113",
+          "role": "same primary catalog referenced spell used to retain inherited line-of-sight and ranged-attack requirements"
+        }
+      ]
+    },
+    "spells/decapitating-scarf-541": {
+      "name": "Decapitating Scarf",
+      "sourceSha256": "cb0c11d8307f2576d51be2ce413e884a9f9ba24185581632b22b55ecd983952b",
+      "effectSummary": "You must have line of sight and hit the target with a normal ranged attack using the silk scarf. On a hit, the scarf hardens and wraps around the target's neck; a failed Fortitude save decapitates the victim, while a successful save deals 1d4 damage per caster level, maximum 20d4. Constructs and most undead other than vampires are not instantly killed and instead take only 6d4 damage whether they save or not. Oozes, aberrations, and other creatures without heads are immune. The silk scarf is the focus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/decapitating-scarf-541",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Complete Arcane printing"
+        }
+      ]
+    },
+    "spells/decastave-3458": {
+      "name": "Decastave",
+      "sourceSha256": "1f6982cb0b3beeec66f199f5796db5396f49097fbc3eb63b546f206901414f30",
+      "effectSummary": "Conjures an 8-foot force quarterstaff that lasts for 1 round per caster level only while you keep it in hand; dropping or giving it away makes it vanish. You can hold it one-handed while casting spells with somatic components. Each melee touch attack with the staff deals 1d6 damage and affects incorporeal and ethereal creatures normally if you can see them. On a critical hit it also deals 1d8 sonic damage, and the victim must make a DC 14 Fortitude save or be permanently deafened.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/decastave-3458",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/deceptive-facade-835": {
+      "name": "Deceptive Facade",
+      "sourceSha256": "dce00bbd2c344ef54aa5e5505d29f81d7835d85a0ca20b7323f137c1573d7df5",
+      "effectSummary": "For 10 minutes per caster level, you alter the visible appearance of one touched creature or object. On a creature it functions like disguise self applied to another target: apparent height can vary by up to 1 foot, build and minor or complete facial details can change without changing body type, no abilities or mannerisms are gained, and a disguise grants +10 on the Disguise check. On an object or structure, you can change visible color, apparent material, cosmetic details, or apparent size by up to 10%. The glamer does not change nonvisual sensory properties, and a creature that interacts with it can make a Will save to recognize the illusion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deceptive-facade-835",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for spell-specific creature and object behavior"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/disguise-self-2666",
+          "role": "same primary catalog referenced spell used to retain inherited disguise limits, Disguise bonus, and disbelief mechanics"
+        }
+      ]
+    },
+    "spells/decomposition-1908": {
+      "name": "Decomposition",
+      "sourceSha256": "9e1bc9b1e0caa5e3854022783204af36c609754329b16c7226d6823bd7b07ec4",
+      "effectSummary": "For 1 round per caster level, whenever an enemy in the 50-foot emanation takes normal damage, that wound begins festering for 1 additional damage each subsequent round. Only one wound festers at a time. A DC 15 Heal check or any cure or other healing magic stops the festering; once stopped, a later wound taken while the creature remains in the area can begin festering again. Spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/decomposition-1908",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Masters of the Wild printing; its 1-point festering damage is preserved"
+        }
+      ]
+    },
+    "spells/decomposition-4350": {
+      "name": "Decomposition",
+      "sourceSha256": "0d2aec5373e3c54f038c95ab9527006109c032c47a5de71b457720d6508ebdd9",
+      "effectSummary": "For 1 round per caster level, whenever a living enemy in the 50-foot emanation takes normal damage, that wound festers for 3 additional damage at the beginning of each of its turns. Only one wound festers at a time. A DC 15 Heal check or any cure or other healing magic stops the festering; once stopped, a later wound taken while the creature remains in the area can begin festering again. Spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/decomposition-4350",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its revised 3-point festering damage is preserved"
+        }
+      ]
+    },
+    "spells/decomposition-721": {
+      "name": "Decomposition",
+      "sourceSha256": "1ee978aec7ad3c2f3bcb48958aa072518719eab71a757d95c22137511f02793e",
+      "effectSummary": "For 1 round per caster level, whenever an enemy in the 50-foot emanation takes normal damage, that wound begins festering for 1 additional damage each subsequent round. Only one wound festers at a time. A DC 15 Heal check or any cure or other healing magic stops the festering; once stopped, a later wound taken while the creature remains in the area can begin festering again. Spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/decomposition-721",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Complete Divine printing; its 1-point festering damage is preserved"
+        }
+      ]
+    },
+    "spells/decoy-image-1697": {
+      "name": "Decoy Image",
+      "sourceSha256": "66ec08d843ed4d7a120eaf601f9304ce2efa838e00aaba233a42f408662425e7",
+      "effectSummary": "For 10 minutes per caster level, you project duplicates of yourself and allies within 50 feet. The illusion reproduces visual appearance, sound, smell, texture, and temperature and exactly mimics the actions of the originals. If the terrain differs enough that the duplicates cannot plausibly match the originals, or an original takes an action the illusion cannot duplicate, observers automatically receive a Will save to disbelieve. Any creature that moves outside the spell's area disappears from the illusion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/decoy-image-1697",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Magic of Faerûn printing; its 10-minutes/level duration is preserved"
+        }
+      ]
+    },
+    "spells/decoy-image-4351": {
+      "name": "Decoy Image",
+      "sourceSha256": "04a185dc66670fc1872544c2080b057985822cb498225a3e711e6a25587f053c",
+      "effectSummary": "For 8 hours, you project duplicates of yourself and allies within 50 feet. The illusion reproduces visual appearance, speech and other sounds, smell, texture, and temperature and exactly mimics the actions of the originals. If the terrain differs enough that the duplicates cannot plausibly match the originals, or an original takes an action the illusion cannot duplicate, observers automatically receive a Will save to disbelieve. Any creature that moves outside the spell's area disappears from the illusion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/decoy-image-4351",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its revised 8-hour duration is preserved"
+        }
+      ]
+    },
+    "spells/deep-breath-4352": {
+      "name": "Deep Breath",
+      "sourceSha256": "5869834fdcb3890bf29af35065cad5104c1409a0f5e95e2e02972d7f8781e1e0",
+      "effectSummary": "Your lungs instantly fill with air and continually refill for 1 round per caster level, so you do not need to exhale during the spell. When it ends, you can continue holding your breath as though you had just taken a full breath. Because it can be cast with an instant utterance, it can save you after sudden immersion or when you would otherwise begin drowning.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deep-breath-4352",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/deep-freeze-5001": {
+      "name": "Deep Freeze",
+      "sourceSha256": "a8478544df9436aa9823bb15e823ffc0f176c56cbf3ad7efaae79ff0f4214a02",
+      "effectSummary": "After a successful melee touch attack, the target can negate the spell with a Fortitude save and spell resistance. On a failure it takes 6d6 nonlethal damage, suffers -4 on all attacks, saves, and checks, and takes another 6d6 nonlethal damage on your action each round while the spell continues. If it becomes unconscious during the effect, it and all carried or worn items freeze solid as a living-ice statue in suspended animation. That state can be ended only by break enchantment, limited wish, wish, or miracle; otherwise it lasts 1 year per caster level. Before solidification the spell can be dispelled normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deep-freeze-5001",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; source terminology 'subdual damage' is normalized to the 3.5 nonlethal-damage term without changing mechanics"
+        }
+      ]
+    },
+    "spells/deeper-darkness-2602": {
+      "name": "Deeper Darkness",
+      "sourceSha256": "d49e2dc60cfd268c8e1d610598d05ba9d0029fe91dbb0b2e635460c94669ed37",
+      "effectSummary": "For 1 day per caster level, the touched object radiates magical shadowy illumination in a 60-foot radius. As with darkness, creatures in the area have concealment and a 20% miss chance even if they normally see in darkness; normal light and lower-level light spells cannot brighten it, and covering the object with an opaque covering blocks the effect. Where deeper darkness overlaps daylight, both are temporarily negated so the area's otherwise prevailing light conditions apply. It counters or dispels equal- or lower-level light spells, including daylight and light.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deeper-darkness-2602",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the expanded radius, duration, and daylight interaction"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/darkness-2600",
+          "role": "same primary catalog referenced spell used to retain inherited concealment, miss-chance, light-blocking, and covering mechanics"
+        }
+      ]
+    },
+    "spells/deeper-darkvision-3509": {
+      "name": "Deeper Darkvision",
+      "sourceSha256": "37055b3643d4632c92ec5065a3e27ff356beba5c4ed35a2a94f68d669c8e9286",
+      "effectSummary": "For 1 hour per caster level, the touched creature can see 60 feet in total darkness and in magical darkness such as blacklight or deeper darkness. The vision is black-and-white only but otherwise functions like normal sight. A pinch of dried carrot or an agate is the material component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deeper-darkvision-3509",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Underdark printing; its 60-foot range and magical-darkness capability are preserved"
+        }
+      ]
+    },
+    "spells/deeper-darkvision-4353": {
+      "name": "Deeper Darkvision",
+      "sourceSha256": "b1dff7029ad623592e6bef5cb9cc047befaed237e2d6cbc9a5631b20c0276159",
+      "effectSummary": "For 1 hour per caster level, the touched creature can see 90 feet in total darkness and ignores the 20% miss chance normally caused by shadowy illumination such as that from darkness. The vision is black-and-white only but otherwise functions like normal sight. A pinch of dried carrot or an agate is the material component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deeper-darkvision-4353",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its 90-foot range and shadowy-illumination benefit are preserved separately"
+        }
+      ]
+    },
+    "spells/defenestrating-sphere-4354": {
+      "name": "Defenestrating Sphere",
+      "sourceSha256": "b4eada6c8359bd791d3c1e5b7d36ac5ec7370451243471b755975153b6da0718",
+      "effectSummary": "Creates a mobile sphere of violent air for 1 round per caster level. As a move action each round, you can move it up to 30 feet and make a ranged touch attack against one creature or object; a hit deals 3d6 damage. A Medium or smaller creature must then make a Fortitude save or fall prone, and if prone must make a second Fortitude save or be hurled 1d8×10 feet upward, displaced 1d6 squares in a random direction, and take normal falling damage. If a window is within range, the victim is thrown toward it. An overhead obstacle deals 1d6 impact damage for each 10 feet of ascent prevented, followed by normal falling damage. The sphere affects at most one target per round and disappears if it leaves the spell's range. The focus is a gray pearl worth at least 100 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/defenestrating-sphere-4354",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its window-direction clause is preserved"
+        }
+      ]
+    },
+    "spells/defenestrating-sphere-493": {
+      "name": "Defenestrating Sphere",
+      "sourceSha256": "6c9e5deabed4e7fd20c9b92a9b6b36f2c943ba5d187e41ab091196c5d387100f",
+      "effectSummary": "Creates a mobile sphere of violent air for 1 round per caster level. As a move action each round, you can move it up to 30 feet and make a ranged touch attack against one creature or object; a hit deals 3d6 damage. A Medium or smaller creature must then make a Fortitude save or fall prone, and if prone must make a second Fortitude save or be hurled 1d8×10 feet upward, displaced 1d6 squares in a random direction, and take normal falling damage. An overhead obstacle deals 1d6 impact damage for each 10 feet of ascent prevented, followed by normal falling damage. The sphere affects at most one target per round and disappears if it leaves the spell's range. The focus is a gray pearl worth at least 100 gp. This Complete Arcane printing does not include the later printing's automatic window-direction clause.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/defenestrating-sphere-493",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Complete Arcane printing; the absence of the later window-direction clause is preserved"
+        }
+      ]
+    },
+    "spells/defensive-rebuke-3600": {
+      "name": "Defensive Rebuke",
+      "sourceSha256": "f79ddafe32397f7d3b101eecbfa0bac07d448378296693fed48e124aa1dda24c",
+      "effectSummary": "For 1 round, every enemy you hit after initiating the maneuver becomes subject to your rebuke. If one of those enemies makes a melee attack against anyone other than you, each separate attack it makes provokes an attack of opportunity from you. Normal limits on attacks of opportunity still matter, so Combat Reflexes can make the maneuver substantially more effective. Affected enemies are aware of the consequence.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/defensive-rebuke-3600",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise battlefield-control mechanics"
+        }
+      ]
+    },
+    "spells/deflect-lesser-2908": {
+      "name": "Deflect, Lesser",
+      "sourceSha256": "967f17068fff4ed16ad2079081ae8995c5ea1eaf5e3718d622575b54cdf2a86b",
+      "effectSummary": "Creates a short-lived force barrier that grants a deflection bonus to AC against one attack equal to +1 per three caster levels, maximum +5. You can cast it even when it is not your turn, but you must do so before the attacker makes the attack roll. The spell lasts for 1 round or until the bonus is used against an attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deflect-lesser-2908",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise reaction and AC mechanics"
+        }
+      ]
     }
   }
 }
