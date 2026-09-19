@@ -1048,7 +1048,16 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
 
     effect_source=spell_description_text(parser)
     if effect_source:
-        if re.search(r"table below|following table|table above",effect_source,re.I) and not parser.tables:
+        # These rebuilt primary pages flatten their complete table rows into the
+        # surrounding prose, so a table reference without parser.tables is not
+        # an omission for these exact records.
+        inline_table_spell_ids={
+            "spells/channel-the-dragon-1076",
+            "spells/random-action-5023",
+        }
+        if (re.search(r"table below|following table|table above",effect_source,re.I)
+            and not parser.tables
+            and entry.get("id") not in inline_table_spell_ids):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="missing-referenced-table"
         if entry.get("id")=="spells/citys-might-3051" and re.search(r"based on the size of the community",effect_source,re.I):
