@@ -19306,6 +19306,32 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/flesh-to-ice-1308": {
+      "name": "Flesh to Ice",
+      "sourceSha256": "e28c14e50f4c6afa917ca482a1aa5658689ad46fc8420b7bd18e7e64eb2a9faf",
+      "effectSummary": "Transforms a flesh-and-blood creature and all its carried gear into a mindless, inert ice sculpture. The subject is not dead but does not register as normally alive to effects such as deathwatch. If the sculpture is broken, melted, or otherwise damaged, those injuries or deformities carry over if the creature is later restored to its original form. The spell affects only creatures made of flesh. The material component is water and a drop of blood.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flesh-to-ice-1308",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/frostfell-1313": {
+      "name": "Frostfell",
+      "sourceSha256": "cc96431a8453cf2745ed1456afc4ead5141fd454e2ac97d75d28786748812430",
+      "effectSummary": "Drops the designated area's temperature by three temperature bands and creates a heavy snowstorm for the duration. If the new temperature is below the cold band, water freezes and earth and stone become everfrost to a depth of 10 feet per caster level; snow accumulates only where ground temperature is below moderate. Living creatures in the area when the spell is cast must save: on a failed save they and their carried gear become mindless, inert ice sculptures as with flesh to ice, with damage to the sculpture carrying over if they are later restored; on a successful save they instead take 1d6 frostburn damage per caster level, maximum 20d6. Creatures entering later do not take this initial damage but suffer the area's normal cold, snow, and ice effects. Objects become slick with frost; using a frosted item requires a DC 10 Dexterity check or the creature drops it before use. Cold spells cast in the area gain +1 caster level. Multiple frostfell castings can lower the temperature by another three bands each, but never below unearthly cold. The arcane material component is a pinch of dust and a few drops of water.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/frostfell-1313",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; area and save mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/flesh-to-ice-1308",
+          "role": "primary catalog referenced spell used to resolve the failed-save transformation into a self-contained summary"
+        }
+      ]
     }
   }
 }
