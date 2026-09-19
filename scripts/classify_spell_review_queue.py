@@ -341,9 +341,9 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("summoned-creature-stat-dependency", re.compile(
-        r"(?:^|[.!?]\s+)(?:This\s+spell\s+summons|You\s+summon)\s+"
+        r"(?:^|[.!?]\s+)(?:This\s+spell\s+(?:summons|creates)|You\s+(?:summon|create))\s+"
         r"(?:(?:a|an|one|two|three|a\s+pair\s+of|a\s+number\s+of|number\s+of)\s+)?"
-        r"(?P<name>[^.;]{0,100}?\b(?:golems?|devils?|demons?|archons?|eladrins?|rocs?|"
+        r"(?P<name>[^.;]{0,100}?\b(?:golems?|devils?|demons?|archons?|eladrins?|rocs?|wyverns?|"
         r"elementals?|homuncul(?:us|i)|titans?|swarms?|dragons?|undead(?:\s+creatures?)?|"
         r"extraplanar\s+creatures?|natural\s+creatures?|fiends?|creatures?))\b",
         re.I,
@@ -474,6 +474,45 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bbears?\s+(?:a|an|the)?\s*(?P<name>glyph of warding)\b",
         re.I,
     )),
+    ("creature-information-page-reference", re.compile(
+        r"\b(?:more\s+)?information\s+on\s+(?:the\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ -]{2,80}?)\s+can\s+be\s+found\s+"
+        r"on\s+page\s+\d+\b",
+        re.I,
+    )),
+    ("granted-weapon-special-abilities", re.compile(
+        r"\b(?:gains?|gain)\s+(?:the\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ ,/+:-]{2,100}?)\s+special\s+abilities\b",
+        re.I,
+    )),
+    ("granted-named-feat-benefit", re.compile(
+        r"\b(?:gains?|gain|receives?|the\s+benefit\s+of)\s+(?:the\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ -]{1,80}?)\s+feat\b",
+        re.I,
+    )),
+    ("treated-as-magic-equipment", re.compile(
+        r"\btreated\s+as\s+(?P<name>\+\d+\s+(?:mithral|adamantine)?\s*"
+        r"[A-Za-z][A-Za-z'’ -]{1,60})\s+for\s+all\s+purposes\b",
+        re.I,
+    )),
+    ("prismatic-spray-beam-inheritance", re.compile(
+        r"\b(?:suffers?|takes?)\s+the\s+effect\s+of\s+one\s+of\s+the\s+"
+        r"beams\s+of\s+(?:a|an|the)\s+(?P<name>prismatic spray)\s+spell\b",
+        re.I,
+    )),
+    ("lookingglass-spell-inheritance", re.compile(
+        r"\bas\s+if\s+(?:you\s+were\s+using|affected\s+by)\s+"
+        r"(?P<name>clairvoyance|teleport without error)\b",
+        re.I,
+    )),
+    ("named-spell-as-spell-like-ability", re.compile(
+        r"\b(?P<name>darkvision)\s+as\s+a\s+spell-like\s+ability\b",
+        re.I,
+    )),
+    ("missing-section-below-reference", re.compile(
+        r"\bsee\s+The\s+Unnamed\s+section\s+below\b",
+        re.I,
+    )),
 )
 
 
@@ -519,6 +558,10 @@ SUSPICIOUS_PATTERNS = (
     )),
     ("garbled-nightstalker-transformation", re.compile(
         r"\bcat[’']s grace\s*,\s*which you drink\b",
+        re.I,
+    )),
+    ("garbled-phantasmal-thief-source", re.compile(
+        r"\bEven\s+objects\s+in\s+a\s+Improved\s+Disarm\s+feat\b",
         re.I,
     )),
     ("truncated-nether-trail-source", re.compile(
@@ -1199,6 +1242,17 @@ def run_self_test() -> None:
     assert "prismatic-spray-inheritance" in external_mechanics_reasons("A prismatic bow functions as a +1 prismatic spray.")
     assert "prismatic-spray-inheritance" not in external_mechanics_reasons("The weapon functions as a +1 longsword.")
     assert "glyph-of-warding-inheritance" in external_mechanics_reasons("The marker bears a glyph of warding (blast glyph only).")
+    assert "creature-information-page-reference" in external_mechanics_reasons("More information on the aspect of Bahamut can be found on page 152 of this book.")
+    assert "creature-information-page-reference" not in external_mechanics_reasons("More information can be found in the spell description itself.")
+    assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell creates a wyvern that springs forth from your body.")
+    assert "granted-weapon-special-abilities" in external_mechanics_reasons("The weapon gains the keen and flaming burst special abilities.")
+    assert "granted-named-feat-benefit" in external_mechanics_reasons("The mount gains the benefit of the Run feat.")
+    assert "treated-as-magic-equipment" in external_mechanics_reasons("It is treated as +1 mithral breastplate for all purposes.")
+    assert "prismatic-spray-beam-inheritance" in external_mechanics_reasons("The target suffers the effect of one of the beams of a prismatic spray spell.")
+    assert "lookingglass-spell-inheritance" in external_mechanics_reasons("You can look through it as if you were using clairvoyance.")
+    assert "lookingglass-spell-inheritance" in external_mechanics_reasons("You may step through as if affected by teleport without error.")
+    assert "named-spell-as-spell-like-ability" in external_mechanics_reasons("You gain Darkvision as a spell-like ability.")
+    assert "missing-section-below-reference" in external_mechanics_reasons("Creatures killed are difficult to restore to life (see The Unnamed section below.)")
     assert "glyph-of-warding-inheritance" not in external_mechanics_reasons("The marker bears a warning glyph.")
     assert "functions-as-if-named-spell-cast" in external_mechanics_reasons("She functions as if a raise dead spell had been cast upon her, except she loses no level.")
     assert "functions-as-if-named-spell-cast" not in external_mechanics_reasons("The device functions as if underwater.")
@@ -1272,6 +1326,7 @@ def run_self_test() -> None:
     assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell summons a bearded devil from the Nine Hells.")
     assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})
     assert "malformed-dice-notation" not in suspicious_reasons({"effectSource":"Creatures in the burst take 1d8 points of damage."})
+    assert "garbled-phantasmal-thief-source" in suspicious_reasons({"effectSource":"Even objects in a Improved Disarm feat and a +20 Strength modifier."})
     assert "malformed-talons-source" in suspicious_reasons({"effectSource":"You can attack with yout other hand. You are considered arms."})
     assert "garbled-last-judgment-source" in suspicious_reasons({"effectSource":"This spell affects only humanoids, monstrous humanoids, and resurrection is cast."})
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
