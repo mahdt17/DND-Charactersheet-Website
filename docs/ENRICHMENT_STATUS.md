@@ -136,7 +136,7 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **767**
+- Digest-locked reviewed spell effects: **827**
 - Primary catalog: `https://new.dndtools.org`
 - Outside sources are allowed only when the primary record is missing, truncated, corrupted, contradictory, or otherwise insufficient; such repairs must retain provenance and must not expand catalog membership.
 - Primary-page repairs pinned during this review cycle include `Analyze Portal`, `Anathema`, `Arboreal Transformation`, the truncated Defenders of the Faith printing of `Aspect of the Deity, Greater`, and `Blessing of the Snake Mother`.
@@ -151,7 +151,8 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 - The 423-review output audit's remaining critical gaps are the expected unresolved `effect/effectSummary` review backlog; no new critical failure class appeared.
 - Four table-driven `Bolt of Glory` records were deliberately deferred from the normal review count until exact table mechanics could be recovered rather than guessed. Their variants have now been independently verified, and a fresh table-aware primary review export is being generated before they are committed.
 - The 707-review full source audit exposed **14 table-reference cases** after the stronger missing-table guard was introduced: **12 genuine missing-table omissions** and **2 false positives** whose complete tables were already flattened into primary-page prose (`Channel the Dragon` and `Random Action`). The 12 genuine omissions now have provenance-backed fill-only supplements; all 14 cases are pinned in the permanent spell regression corpus.
-- Latest required scoped audit: **3.5/spells at 767 reviewed effects from the repaired table-integrity head**. This audit must restore the strict source gate to 5,035 / 5,035 before normal review batching resumes.
+- Latest required scoped audit: **3.5/spells at 827 reviewed effects**. Source and output gates remain independent; live/catalog writes stay locked until overall release criteria are met.
+- After the missing-table and digest repairs, the strict full 3.5 spell source audit is restored to **5,035 / 5,035 passed, 0 failed, 100.00%, zero critical gaps**. The permanent spell regression corpus now contains **52** focused records.
 - Live/catalog writes remain locked.
 
 ## Next work
