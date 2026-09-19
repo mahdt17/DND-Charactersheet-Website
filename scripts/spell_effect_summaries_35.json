@@ -18587,6 +18587,32 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/tensers-floating-disk-2655": {
+      "name": "Tenser's Floating Disk",
+      "sourceSha256": "e14272dabeb46841411463305d65d3459ed7edc2da512eded73735e2506391ae",
+      "effectSummary": "Creates a 3-foot-diameter, 1-inch-deep concave disk of force that follows you and carries up to 100 pounds per caster level, or 2 gallons per caster level if carrying liquid. It floats about 3 feet above the surface beneath it, stays level, moves horizontally no faster than your normal speed, and if not directed stays about 5 feet from you. It disappears when the duration ends, if you move beyond its range, or if you try to take it more than 3 feet from the supporting surface; anything on it then falls. The material component is a drop of mercury.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tensers-floating-disk-2655",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete base mechanics"
+        }
+      ]
+    },
+    "spells/floating-disk-greater-4520": {
+      "name": "Floating Disk, Greater",
+      "sourceSha256": "b1827a3b375c9e4f5dff73211e228079b130fdd7b0d8bbabe7ae8cce306b2e58",
+      "effectSummary": "Creates a 3-foot-diameter concave disk of force that carries up to 100 pounds per caster level, but unlike Tenser’s floating disk it is not limited to staying within 3 feet of a surface. It must remain within 15 feet of you. Normally it follows you and carries loads; by concentrating on it as a standard action, you can make it fly at 20 feet with perfect maneuverability, allowing it to carry you as well. It disappears when the spell ends or when it can no longer satisfy its distance restriction, dropping what it supports. The material component is a drop of mercury.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/floating-disk-greater-4520",
+          "role": "primary Spell Compendium greater variant reviewed; free-flight and 15-foot restriction retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/tensers-floating-disk-2655",
+          "role": "primary catalog base spell used to resolve inherited disk size, carrying capacity, following, and disappearance mechanics"
+        }
+      ]
     }
   }
 }
