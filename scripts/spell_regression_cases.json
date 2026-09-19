@@ -55,6 +55,13 @@
     "spells/consumptive-field-4042",
     "spells/crumble-1748",
     "spells/crystalline-memories-871",
-    "spells/deific-bastion-619"
+    "spells/deific-bastion-619",
+    "spells/detect-aberration-1529",
+    "spells/detect-dragonblood-1056",
+    "spells/detect-taint-1429",
+    "spells/detect-taint-2047",
+    "spells/detect-incarnum-1825",
+    "spells/freeze-armor-1311",
+    "spells/prismatic-wall-2344"
   ]
 }
