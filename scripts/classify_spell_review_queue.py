@@ -75,6 +75,42 @@ REFERENCE_PATTERNS = (
     ),
 )
 
+EXTERNAL_MECHANICS_PATTERNS = (
+    ("polymorph-subschool-reference", re.compile(r"\bpolymorph\s+subschool\b", re.I)),
+    ("referenced-creature-stat-block", re.compile(
+        r"\b(?:equivalent\s+to|use(?:s)?\s+(?:the\s+)?)\s*(?:a|an|the)?\s*"
+        r"(?P<name>[A-Za-z][A-Za-z'’ -]{2,80})\s*\(\s*(?:MM|Monster Manual)\b",
+        re.I,
+    )),
+    ("take-form-with-source-reference", re.compile(
+        r"\btake(?:s)?\s+the\s+form\s+of\s+(?P<name>[A-Za-z][A-Za-z'’ -]{2,80})\s*\(",
+        re.I,
+    )),
+    ("embedded-spell-mechanics", re.compile(
+        r"\bidentical\s+(?:with|to)\s+(?:those|the\s+effects?)\s+created\s+by\s+(?:the\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{2,80}?)(?:\s+spell)?(?=[,.;])",
+        re.I,
+    )),
+    ("see-spell-text", re.compile(
+        r"\bsee\s+(?:the\s+)?text\s+for\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{2,80})",
+        re.I,
+    )),
+    ("fixed-spell-effect", re.compile(r"\b(?:fix|attach)\s+a\s+single\s+spell\s+effect\b", re.I)),
+    ("referenced-force-bypass-rules", re.compile(
+        r"\bmethods?\s+that\s+can\s+bypass\s+or\s+destroy\s+(?:a|the)\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{2,80})",
+        re.I,
+    )),
+)
+
+
+def external_mechanics_reasons(effect_source: str) -> list[str]:
+    reasons = []
+    for label, pattern in EXTERNAL_MECHANICS_PATTERNS:
+        if pattern.search(effect_source or ""):
+            reasons.append(label)
+    return sorted(set(reasons))
+
+
 SUSPICIOUS_PATTERNS = (
     ("missing-content-marker", re.compile(r"\[?missing content in source\]?", re.I)),
     ("missing-table-reference", re.compile(
@@ -181,6 +217,10 @@ def suspicious_reasons(entry: dict) -> list[str]:
         match = re.search(r"\bsee below\b", text, re.I)
         if match and len(text[match.end():].strip()) < 100:
             reasons.append("see-below-without-content")
+    if text.count("(") != text.count(")"):
+        reasons.append("unbalanced-parentheses")
+    if text.count("[") != text.count("]"):
+        reasons.append("unbalanced-brackets")
     tail = text.rstrip()
     if len(tail) > 240 and not re.search(r"[.!?)}\]]$", tail):
         if re.search(
@@ -479,6 +519,7 @@ def classify_queue(
         source = entry.get("effectSource") or ""
         tags = set()
         reasons = suspicious_reasons(entry)
+        external_reasons = external_mechanics_reasons(source)
         reference_names = extract_reference_names(source)
         if record_id in reviews:
             tags.add("already-reviewed")
@@ -496,8 +537,11 @@ def classify_queue(
             source,
             re.I,
         )
-        if reference_names or parser_reference:
+        if reference_names or parser_reference or external_reasons:
             tags.add("reference-dependent")
+        if external_reasons:
+            tags.add("external-mechanics-reference")
+            tags.add("manual-verification-required")
         if entry.get("tables"):
             tags.add("table-driven")
         if len(source_groups[entry["sourceSha256"]]) > 1:
@@ -573,6 +617,7 @@ def classify_queue(
             "primaryBucket": primary,
             "tags": sorted(tags),
             "suspiciousReasons": reasons,
+            "externalMechanicsReasons": external_reasons,
             "referenceNames": reference_names,
             "exactDuplicateIds": sorted(review_unit_groups[review_unit_key]),
             "sameSourceShaIds": sorted(source_groups[entry["sourceSha256"]]),
@@ -660,6 +705,10 @@ def run_self_test() -> None:
     ) == ["reincarnate"]
     assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
     assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
+    assert external_mechanics_reasons("For details, see The Polymorph Subschool on page 60.") == ["polymorph-subschool-reference"]
+    assert external_mechanics_reasons("The tentacle is equivalent to a giant constrictor snake (MM 280) except that it obeys you.") == ["referenced-creature-stat-block"]
+    assert external_mechanics_reasons("These strands are identical with those created by the web spell, except they regrow.") == ["embedded-spell-mechanics"]
+    assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
     assert "teleport greater" in name_aliases("Teleport, Greater")
     assert near_family_key(
         "A " + "word " * 40 + "10 feet"
