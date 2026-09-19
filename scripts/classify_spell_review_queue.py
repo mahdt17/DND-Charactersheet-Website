@@ -195,6 +195,7 @@ def fetch_spell_packet(row: dict, delay: float) -> dict:
         "sourceIncomplete": bool(details.get("sourceIncomplete")),
         "sourceIncompleteResolved": bool(details.get("sourceIncompleteResolved")),
         "sourceIncompleteMarker": details.get("sourceIncompleteMarker"),
+        "supplementVerified": bool(details.get("supplementVerified")),
         "effectReviewMismatch": bool(details.get("effectReviewMismatch")),
         "effectReviewTableMismatch": bool(details.get("effectReviewTableMismatch")),
     }
@@ -357,11 +358,12 @@ def validate_live_fixtures(by_id: dict[str, dict], delay: float) -> dict:
             errors.append(f"reference fixture fetch failed for {record_id}: {exc}")
             continue
         names = extract_reference_names(packet.get("effectSource") or "")
-        recognized = bool(packet.get("effectReferenceDependent") and names)
+        recognized = bool(names)
         reference_results.append({
             "id": record_id,
             "name": packet.get("name"),
             "recognizedReferenceDependent": recognized,
+            "parserReferenceDependent": bool(packet.get("effectReferenceDependent")),
             "referenceNames": names,
         })
         if not recognized:
@@ -376,19 +378,28 @@ def validate_live_fixtures(by_id: dict[str, dict], delay: float) -> dict:
         except Exception as exc:
             errors.append(f"repair fixture fetch failed for {record_id}: {exc}")
             continue
-        recognized = bool(packet.get("sourceIncomplete"))
+        supplement = (d35.spell_supplements().get(record_id) or {})
+        historical_repair = bool(supplement.get("resolvesSourceIncomplete"))
+        currently_incomplete = bool(packet.get("sourceIncomplete"))
+        supplement_applied = bool(packet.get("supplementVerified"))
         resolved = bool(packet.get("sourceIncompleteResolved"))
+        recognized = currently_incomplete or historical_repair
         repair_results.append({
             "id": record_id,
             "name": packet.get("name"),
-            "recognizedSourceIncomplete": recognized,
+            "recognizedRepairFixture": recognized,
+            "primaryCurrentlySourceIncomplete": currently_incomplete,
+            "historicalProvenanceBackedRepair": historical_repair,
+            "supplementVerified": supplement_applied,
             "sourceIncompleteResolved": resolved,
             "sourceIncompleteMarker": packet.get("sourceIncompleteMarker"),
         })
         if not recognized:
             errors.append(f"known damaged-source fixture not recognized: {record_id}")
-        if not resolved:
-            errors.append(f"known damaged-source fixture did not apply supplement: {record_id}")
+        if historical_repair and not supplement_applied:
+            errors.append(f"known repair supplement did not apply: {record_id}")
+        if currently_incomplete and historical_repair and not resolved:
+            errors.append(f"current source defect was not marked resolved: {record_id}")
     return {
         "referenceFixtures": reference_results,
         "repairFixtures": repair_results,
@@ -454,8 +465,11 @@ def classify_queue(
         reference_names = extract_reference_names(source)
         if record_id in reviews:
             tags.add("already-reviewed")
-        if record_id in supplements_by_id:
+        supplement = supplements_by_id.get(record_id) or {}
+        if supplement:
             tags.add("existing-supplement")
+            if supplement.get("resolvesSourceIncomplete"):
+                tags.add("historical-source-repair")
         if record_id in regression_ids:
             tags.add("existing-regression")
         if reasons:
@@ -512,7 +526,7 @@ def classify_queue(
         elif "reference-dependent" in tags:
             tags.add("manual-verification-required")
 
-        if "suspected-damaged-source" in tags:
+        if "suspected-damaged-source" in tags or "historical-source-repair" in tags:
             primary = "repair-queue"
             tags.add("manual-verification-required")
         elif "reference-dependent" in tags:
