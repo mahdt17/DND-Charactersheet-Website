@@ -16338,6 +16338,222 @@
           "role": "primary Tome of Magic printing reviewed and paraphrased; reviewed opportunistically because Expunge the Supernatural inherits its targeting mechanics"
         }
       ]
+    },
+    "spells/extract-gift-1154": {
+      "name": "Extract Gift",
+      "sourceSha256": "a7776dee5fe3f1f10d6dfa797489b8c19a17206e6eca02f2d30ab22689f5d725",
+      "effectSummary": "Transfers part of a demon’s essence to a willing creature after an hour-long ritual in two specially prepared circles, granting either an enhancement bonus to one ability score or a competence bonus to one skill. The demon must be willing or constrained as by planar binding; an unwilling donor can negate the spell with a Will save. The chosen benefit is fixed once granted and can be dispelled only by a caster whose caster level exceeds yours at casting. The maximum ability bonus is one-fourth your caster level and requires the donor’s corresponding ability modifier to be at least twice the bonus; the maximum skill bonus is one-half your caster level and requires the donor to have at least twice the bonus in ranks in that skill. You can grant the donor progressively greater influence over the recipient—status-like tracking, sensory access, telepathic communication, or a daily demand effect—to raise the spell’s save DC by +1, +3, +5, or +7 respectively; these benefits are cumulative but the DC increases do not stack, and choosing them makes the casting evil. The two circles consume materials costing bonus² × 1,000 gp for an ability bonus or bonus² × 100 gp for a skill bonus, and the spell costs XP equal to 1/25 of that material cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/extract-gift-1154",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/extract-water-elemental-4469": {
+      "name": "Extract Water Elemental",
+      "sourceSha256": "bfbc80d3373e71ad8a4afc539570593e11884299356414f39ccea3de3110c294",
+      "effectSummary": "Violently extracts moisture from one living creature, dealing 1d6 damage per caster level, maximum 20d6; a successful Fortitude save halves the damage. If the spell kills the target, the extracted water becomes a water elemental whose size matches the slain creature, up to Huge. The elemental is under your control as though summoned and disappears after 1 minute. Living creatures with the fire subtype are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/extract-water-elemental-4469",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/eye-of-power-2250": {
+      "name": "Eye of Power",
+      "sourceSha256": "3cbad281ac512a57e15a54cc2bd6428e06445245a40a732cafd9647c0453d1c0",
+      "effectSummary": "Creates a movable magical sensor based on arcane eye: it sees as you would from its location, moves 30 feet per round while mainly looking ahead or 10 feet per round while examining all surfaces, can travel beyond your line of sight and through openings at least 1 inch wide, cannot pass solid barriers or planar boundaries, and transmits vision only while you concentrate. Unlike arcane eye, this eye is visible and corporeal, a Fine object with AC 18 and 77 hit points that uses your saving throw bonuses. You can cast any non-personal spell of 7th level or lower through it, treating the eye’s location as the spell’s point of origin. Attempting to cast a spell above 7th level through it expends that spell with no effect and destroys the eye, ending eye of power.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eye-of-power-2250",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; spell-specific mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/arcane-eye-2475",
+          "role": "primary catalog base spell used to resolve the inherited arcane eye mechanics into a self-contained summary"
+        }
+      ]
+    },
+    "spells/eye-of-power-4471": {
+      "name": "Eye of Power",
+      "sourceSha256": "be0b596f934373c7fd324c3b031ff1466fe6e408942b2e7092917f9e9768a280",
+      "effectSummary": "Creates a movable magical sensor based on arcane eye: it sees as you would from its location, moves 30 feet per round while mainly looking ahead or 10 feet per round while examining all surfaces, can travel beyond your line of sight and through openings at least 1 inch wide, cannot pass solid barriers or planar boundaries, and transmits vision only while you concentrate. Unlike arcane eye, this eye is visible and corporeal, a Fine object with AC 18 and 77 hit points that uses your saving throw bonuses. You can cast any non-personal spell of 3rd level or lower through it, treating the eye’s location as the spell’s point of origin. Attempting to cast a spell above 3rd level through it expends that spell with no effect and destroys the eye, ending eye of power. The material component is a bit of bat fur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eye-of-power-4471",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; spell-specific mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/arcane-eye-2475",
+          "role": "primary catalog base spell used to resolve the inherited arcane eye mechanics into a self-contained summary"
+        }
+      ]
+    },
+    "spells/eye-of-stone-3068": {
+      "name": "Eye of Stone",
+      "sourceSha256": "67b4f4f5939861ac62a227c6fc59b94b0019267b7c87372da2223cd2da55db44",
+      "effectSummary": "Creates an invisible movable magical sensor with arcane eye’s normal operation: it sees as you would from its location, moves 30 feet per round while mainly looking ahead or 10 feet per round while examining all surfaces, can travel beyond your line of sight and through openings at least 1 inch wide, cannot cross planar boundaries, and transmits vision only while you concentrate. Eye of stone additionally allows the sensor to move through solid stone, overriding arcane eye’s normal inability to pass through solid barriers.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eye-of-stone-3068",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; spell-specific mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/arcane-eye-2475",
+          "role": "primary catalog base spell used to resolve the inherited arcane eye mechanics into a self-contained summary"
+        }
+      ]
+    },
+    "spells/eye-of-the-beholder-243": {
+      "name": "Eye of the Beholder",
+      "sourceSha256": "1160f438933d71698c082317f89b06721ceb6db4376c8d5a3a48739c054469c0",
+      "tablesSha256": "1ac65147b3730852051a12e0ca844873f97a4e299b62f6630edc3b5fdd500b85",
+      "effectSummary": "Transforms one of your eyes into a beholder-like eyestalk, giving you a +2 circumstance bonus on Spot checks and one randomly determined eye-ray power for the spell’s duration. Using the ray is a standard action; it has a 150-foot range, save DC 18, follows ray-attack rules, and reproduces its listed spell effect at caster level 13. Roll 1d10 for the power: charm person, charm monster, sleep against one creature regardless of Hit Dice, flesh to stone, disintegrate, fear against one creature, slow against one creature, inflict moderate wounds for 2d8+10 damage with Will half, finger of death with 3d6+13 damage on a successful save, or telekinesis affecting up to 325 pounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eye-of-the-beholder-243",
+          "role": "primary DnD Tools effect text and effect table reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/eye-hurricane-4470": {
+      "name": "Eye of the Hurricane",
+      "sourceSha256": "81e426cbce007d0dfb4b0305038abfc62bf971c56536bf634e6e9848c87df58d",
+      "effectSummary": "Creates a mobile spherical shell of hurricane-force wind centered on you while leaving you and the calm interior unaffected. Normal ranged attacks cannot pass through the windy area, while heavier projectiles such as siege missiles and giant-thrown boulders take a -8 attack penalty. Creatures entering the wind or beginning a turn there must repeatedly make Fortitude saves. Medium or smaller creatures that fail are blown 1d4×10 feet away, take 1d4 nonlethal damage per 10 feet, and fall prone; flying creatures instead are blown 2d6×10 feet and take 2d6 nonlethal damage. Large creatures that fail are knocked prone, or if flying are blown 1d6×10 feet. Huge creatures that fail are checked, or if flying are blown 1d6×5 feet. Gargantuan and Colossal creatures are unaffected. The wind sphere follows you, and creatures first contacted by the moving windy area save at the beginning of their next turn if still within it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eye-hurricane-4470",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/eyebite-2734": {
+      "name": "Eyebite",
+      "sourceSha256": "ede09f0d5db5e63f5248d2bdafad1e58630d23f06f0f46b6f4bacb3df9da7185",
+      "tablesSha256": "62344d79f9011848ffc177b9347900dde41a76b6345d7db70e263e355bda576d",
+      "effectSummary": "For 1 round per three caster levels, you can affect one living creature each round, spending a move action on rounds after the first to select a target. The target suffers cumulative effects based on Hit Dice: 10 or more HD becomes sickened; 5–9 HD becomes panicked and sickened; 4 or fewer HD becomes comatose, panicked, and sickened. Sickened lasts 10 minutes per caster level and imposes the normal -2 penalties; remove curse can end it, but remove disease and heal cannot. Panic lasts 1d4 rounds, followed by shaken for 10 minutes per caster level, and the creature becomes panicked again if it sees you during that period. Coma lasts 10 minutes per caster level, cannot be ended short of dispelling the effect, and is not a sleep effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eyebite-2734",
+          "role": "primary DnD Tools effect text and HD table reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/eyes-of-the-king-1458": {
+      "name": "Eyes of the King",
+      "sourceSha256": "ed1b77ff237cc400c1ad0e36c39883cb08c38df807ce92b1f34ddb956c7e5d4a",
+      "effectSummary": "Summons four fiendish dire bats that remain within 40 feet of one another and relay their visual information and blindsense to you while you concentrate. You can place them initially at any point you can see, then mentally direct them beyond your line of sight in any direction. They move 40 feet per round while mainly viewing the way ahead or 10 feet per round while thoroughly examining walls, ceiling, and floor. If you stop concentrating, they attack the nearest active creature and the spell ends 5 rounds later. The material component is a bit of bat fur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eyes-of-the-king-1458",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/eyes-of-the-king-4472": {
+      "name": "Eyes of the King",
+      "sourceSha256": "0b26697cb011a45a06df3d2cb2b39935b0ed45614083821dac554bd3a110171e",
+      "effectSummary": "Summons four glowing fiendish dire bats that remain within 40 feet of one another and let you see from their perspective while you concentrate. Your own visual abilities and active visual-enhancement spells continue to function through them, and you also gain the benefit of their blindsense. Each bat has DR 5/magic, acid resistance 5, fire resistance 5, SR 9, and a smite good attack granting +4 on one damage roll. You can place them initially at any point you can see, then mentally direct them beyond your line of sight in any direction. They move at normal speed while mainly viewing ahead or at half speed, 20 feet, while thoroughly examining walls, ceiling, and floor. If you stop concentrating, they attack the nearest active creature and the spell ends 5 rounds later. The material component is a bit of bat fur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eyes-of-the-king-4472",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/eyes-of-the-oracle-1057": {
+      "name": "Eyes of the Oracle",
+      "sourceSha256": "47b3f564b8fa02d5db882cb348eebd090119dbcca4662b675443bf81996c5288",
+      "effectSummary": "Grants a +2 insight bonus to Armor Class and Reflex saves and lets you, at the end of each of your turns, ready one standard action regardless of how many actions you already took that turn. The readied action otherwise follows the normal rules, including changing your initiative; if you take that readied action, the spell ends immediately. A creature with the dragonblood subtype instead gains a +3 insight bonus to Armor Class and Reflex saves.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eyes-of-the-oracle-1057",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/eyes-of-the-zombie-154": {
+      "name": "Eyes of the Zombie",
+      "sourceSha256": "e7405eb6b9d7952317e1fe3e10ee1bb34ef030b55f87be0848f73321d198d881",
+      "effectSummary": "Lets you remove your own eyes, taking 1d6 damage but no permanent eye injury, and replace them with specially prepared eyes from a zombie you animated. For the duration you perceive through the zombie’s eye sockets and directly control its actions, while your own body remains motionless and can be harmed normally. Your original eyes are magically preserved and automatically return when the spell ends. The focus is the zombie’s eyes and a pint of brackish water.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eyes-of-the-zombie-154",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fabricate-2812": {
+      "name": "Fabricate",
+      "sourceSha256": "e50fa0ebb894cce2bbb7d84e74ae414726a670c650d4d4419533d07b5154071a",
+      "effectSummary": "Converts raw material into a finished product made from the same material. It cannot create or transmute creatures or magic items, and the finished object’s quality is limited by the quality of the source material. The normal volume is 10 cubic feet per caster level, reduced to 1 cubic foot per caster level for minerals. Items requiring fine craftsmanship require an appropriate Craft check. Casting takes 1 round per 10 cubic feet of ordinary material, or per 1 cubic foot of mineral material, affected. The original material is the material component and must equal the raw-material cost of the item being made.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fabricate-2812",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/faerie-fire-2609": {
+      "name": "Faerie Fire",
+      "sourceSha256": "fd529c0aefd7d240f389846f9981ac6efe0233b8ea1eedca7e8324e71048d2fa",
+      "effectSummary": "Outlines the subjects in a harmless blue, green, or violet glow that sheds candlelike light. Outlined creatures lose concealment from ordinary darkness, blur, displacement, invisibility, and similar effects, although magical darkness of 2nd level or higher still functions normally. The glow is too dim to have a special effect on undead or other light-vulnerable creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/faerie-fire-2609",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/faith-healing-1612": {
+      "name": "Faith Healing",
+      "sourceSha256": "0b36032b30ef894990c649436b3bfbee4dfd3980c67da18b96511275dc125c43",
+      "effectSummary": "Channels positive energy by touch to heal a living creature for 8 hit points +1 per caster level, maximum +5. It works only if the target has the same patron as you; a creature with no patron or a different patron is unaffected, even if positive energy would normally harm that creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/faith-healing-1612",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/faith-healing-4473": {
+      "name": "Faith healing",
+      "sourceSha256": "bc1abd4d2236fdb68b08131c12fdbc8a34163c3bbf9e8c2c82a48ca61ef2662d",
+      "effectSummary": "Channels positive energy by touch to heal a living creature for 8 hit points +1 per caster level, maximum +5. It works only if the target worships the same deity as you; a creature with no deity or a different deity is unaffected, even if positive energy would normally harm that creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/faith-healing-4473",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/faith-healing-wand-325": {
+      "name": "Faith Healing Wand",
+      "sourceSha256": "f1d9d97d43f395eefaee9952894ad46c3a0fc18a7404171e95eca4db4c29f9db",
+      "effectSummary": "Temporarily converts any magic wand into a wand of faith healing regardless of the spell it normally contains, while preserving its current number of charges. Charges spent while converted remain spent, and when the spell ends the wand returns to its original magical properties with the remaining charges.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/faith-healing-wand-325",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; spell-specific conversion retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/convert-wand-324",
+          "role": "primary catalog base spell used to resolve the inherited convert wand mechanics into a self-contained summary"
+        }
+      ]
+    },
+    "spells/false-bravado-1895": {
+      "name": "False Bravado",
+      "sourceSha256": "4369f14e0501c5ceff953e989f0f677b9b92ce550f0fd47b769fe3415efd607b",
+      "effectSummary": "Makes the subject believe it has gained a barbarian’s rage benefits, but it actually gains none of the Strength, Constitution, or Will-save bonuses and suffers only the rage drawbacks: -2 Armor Class and inability to use skills or abilities requiring patience or concentration, including spellcasting. When the spell ends, the creature is fatigued for the rest of the encounter, taking -2 Strength and Dexterity and being unable to run or charge. The focus is a small mirror bearing a bravery sigil worth at least 25 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/false-bravado-1895",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
