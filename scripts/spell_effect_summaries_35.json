@@ -10336,6 +10336,234 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/dancing-lights-2599": {
+      "name": "Dancing Lights",
+      "sourceSha256": "4b0a1c6c4327d70983d3ecaeccbc6309a9d3a1abbbe50d27867d272315a13f39",
+      "effectSummary": "Creates up to four torch- or lantern-like lights, up to four glowing spheres, or one faintly glowing humanoid shape. The lights must remain within a 10-foot-radius area of one another, require no concentration, and can move as directed up to 100 feet per round in any direction. A light vanishes if it moves beyond the spell's range from the caster. Dancing lights can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dancing-lights-2599",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dancing-mongoose-3733": {
+      "name": "Dancing Mongoose",
+      "sourceSha256": "cb05d9e61db1faa08efb277f111766ec124d5cf4409ec7c6d2fc13baf3ba8d07",
+      "effectSummary": "After initiating this boost, make one additional attack with each weapon wielded, to a maximum of two extra attacks when wielding two or more weapons. Each extra attack uses that weapon's highest attack bonus, and all extra attacks must target the same opponent.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dancing-mongoose-3733",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dancing-web-69": {
+      "name": "Dancing Web",
+      "sourceSha256": "a23c75e49aaf8ef580ec5e1e2a44f81ae61bb5ae77fe6d06ff0837c69c9f4691",
+      "effectSummary": "Deals 1d6 nonlethal damage per caster level, maximum 10d6, to creatures in the burst; objects are unaffected. An evil creature that fails its save is also entangled for 1d6 rounds, taking -2 on attacks and -4 effective Dexterity, moving at half speed, unable to run or charge, and needing a DC 15 Concentration check to cast a spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dancing-web-69",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dark-tide-3354": {
+      "name": "Dark Tide",
+      "sourceSha256": "18c7cc7e20c53294a8167a0db785fd96a4500978e6fe8d53058645f36a3cfdc8",
+      "effectSummary": "Creates blackwater that spreads from the origin at 100 feet per round until the area is filled. A creature makes a Fortitude save when it first enters or is surrounded; failure deals 1 Strength damage. Every creature in the area also takes 1d6 negative-energy damage for each hour it remains, with no save, and a creature that takes damage from the dark tide is shaken while it remains there. Protection against negative-energy damage also prevents the Strength damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dark-tide-3354",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dark-way-1696": {
+      "name": "Dark Way",
+      "sourceSha256": "7ff0c3144d6d0dab7ef1eee6f186407d220089a397cb2f028be08f91a2ad788d",
+      "effectSummary": "Creates a weightless, unbreakable ribbon bridge anchored to solid objects at both ends; it can form at any angle but must be continuous and unbroken. Creatures move across it without penalty, and the caster gains +5 competence on Balance checks made on it. It supports up to 200 pounds per caster level; creatures that push the total load over that limit sink through it. The caster does not sink unless the caster's own weight exceeds the maximum capacity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dark-way-1696",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Magic of Faerûn printing"
+        }
+      ]
+    },
+    "spells/dark-way-4326": {
+      "name": "Dark Way",
+      "sourceSha256": "9eed87a0c391adb2234be007f9052d1169a7eb3f89e405acc13e2e601dac98f5",
+      "effectSummary": "Creates a weightless, unbreakable ribbon bridge anchored to solid objects at both ends. It can form at any angle but must be continuous and unbroken, and creatures move across it without penalty. The bridge supports up to 200 pounds per caster level; creatures that make the total load exceed that limit fall through it. The caster does not fall through unless the caster's own weight exceeds the maximum capacity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dark-way-4326",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing; the earlier printing's caster-only Balance bonus is not imported"
+        }
+      ]
+    },
+    "spells/darkbolt-1200": {
+      "name": "Darkbolt",
+      "sourceSha256": "a6e4f1b6325e397adea4a72e8a5b7f47ea3c6109be34808ff93e1345db47b2e4",
+      "effectSummary": "Creates one ranged-touch darkbolt per two caster levels, maximum seven. The caster can fire all bolts at once or one per round as a free action beginning in the casting round; an unused bolt for a round is lost. If all are fired at once, all targets must be within 60 feet of one another. Each bolt deals 2d8 damage to a living creature and dazes it for 1 round on a failed Will save; multiple hits in one round cannot extend the daze beyond 1 round. Undead take no damage but are dazed on a failed save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkbolt-1200",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Forgotten Realms Campaign Setting printing"
+        }
+      ]
+    },
+    "spells/darkbolt-1537": {
+      "name": "Darkbolt",
+      "sourceSha256": "b52f59a854a3f6ef39868a1f81fd8d0503fa8c82449958dacc2698b4bf2fc3e0",
+      "effectSummary": "Make a ranged touch attack with a bolt of cold darkness. A hit deals 1d8 damage per two caster levels, maximum 5d8; half is cold damage and half is untyped. The target must also make a Fortitude save or be stunned for 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkbolt-1537",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Lords of Madness printing"
+        }
+      ]
+    },
+    "spells/darkbolt-178": {
+      "name": "Darkbolt",
+      "sourceSha256": "619f8cac25e8b11cc694cd9ec30ada30f5700036226af2c46a26a82435a8da9f",
+      "effectSummary": "Make a ranged touch attack with a bolt of cold darkness. A hit deals 1d8 damage per two caster levels, maximum 5d8; half is cold damage and half is untyped. The target must also make a Fortitude save or be stunned for 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkbolt-178",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Book of Vile Darkness printing"
+        }
+      ]
+    },
+    "spells/darkbolt-4328": {
+      "name": "Darkbolt",
+      "sourceSha256": "686985aa733d02f987323b915955b9d90c15bd6a529ece4ec0577c3f884bc74d",
+      "effectSummary": "Creates one ranged-touch darkbolt per two caster levels, maximum seven. The caster can fire all bolts at once or one per round as a free action beginning in the casting round; a bolt not used in its available round is lost. If all are fired at once, the targets must be within 60 feet of one another. Each bolt deals 2d8 damage to a living creature and dazes it for 1 round on a failed Will save; multiple hits in one round cannot extend the daze. Undead take no damage but are dazed on a failed save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkbolt-4328",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing; obvious source typos do not alter the mechanics"
+        }
+      ]
+    },
+    "spells/darkfire-1512": {
+      "name": "Darkfire",
+      "sourceSha256": "769965056b55090455967012bdea8146bfafeb046729560aaa5a9907bca7f366",
+      "effectSummary": "Creates invisible dark flames in the caster's hand that do not harm the caster or equipment and emit heat but no light. A melee touch or ranged touch attack out to 120 feet deals 1d4 +1 damage per two caster levels, maximum +10; ranged attacks take no range penalty, and a new flame appears immediately after one is thrown. Darkvision can see the flame normally. The spell does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkfire-1512",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Lords of Darkness printing"
+        }
+      ]
+    },
+    "spells/darkfire-1665": {
+      "name": "Darkfire",
+      "sourceSha256": "ceb71b9efde020f54a3b09b26e932fa04c2f210a88f0c868f5e2163ea5321dcb",
+      "effectSummary": "Creates invisible dark flames in the caster's hand that do not harm the caster or equipment and emit heat but no light. A melee touch or ranged touch attack out to 120 feet deals 1d4 +1 damage per two caster levels, maximum +10; ranged attacks take no range penalty, and a new flame appears immediately after one is thrown. Darkvision can see the flame normally. The spell does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkfire-1665",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Magic of Faerûn printing"
+        }
+      ]
+    },
+    "spells/darkfire-4330": {
+      "name": "Darkfire",
+      "sourceSha256": "e5128041e61c1e6d6e91156b98b6eb972c8dd555ca2e4996820cf189f052838f",
+      "effectSummary": "Creates invisible dark flames in the caster's hand. Beginning on the following round, the caster can make melee touch or ranged touch attacks out to 120 feet, with no range penalty, dealing 1d6 damage per two caster levels, maximum 5d6. A new flame appears immediately after one is thrown. Darkvision can see the flame normally, and the spell does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkfire-4330",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing; its changed damage progression is preserved"
+        }
+      ]
+    },
+    "spells/darkflame-arrow-279": {
+      "name": "Darkflame Arrow",
+      "sourceSha256": "53d1a189696da1f8e4e1cab8ccf55cf425a164e5dba36e8553a50942ed9b85b1",
+      "effectSummary": "Cast on a masterwork arrow or bolt that must be fired in the same round or the magic is lost. On a hit, the projectile deals normal damage plus 2d6 black-flame damage, then the flames deal another 2d6 at the start of the caster's turn for each of the next 2 rounds. The flames cannot be extinguished but can be dispelled, and fire immunity or resistance does not reduce their damage. The projectile is destroyed even if the attack misses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkflame-arrow-279",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/darklight-179": {
+      "name": "Darklight",
+      "sourceSha256": "cfadd9abba7c541825b2a73b4cc9748ec95937088d30dcbbcd6e9b6f84279638",
+      "effectSummary": "Causes one creature or object to radiate a 5-foot-radius sphere of special darkness. Inside the sphere, creatures that normally require light can see creatures and objects within it despite there being no light. Creatures outside without darkvision cannot see into the sphere, and creatures inside cannot see such outsiders; an outside observer with darkvision can see those inside. The sphere is invisible in normal light and does not function in magical darkness.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darklight-179",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/darkness-2600": {
+      "name": "Darkness",
+      "sourceSha256": "25e2949ded7ab10abb07217c9a62b9c0be2e8c14a0e3bd2a1a9840304ca1ba96",
+      "effectSummary": "The touched object radiates shadowy illumination in a 20-foot radius. Every creature in the area has concealment and a 20% miss chance, even with darkvision or low-light vision. Normal lights and lower-level light spells cannot brighten the area; higher-level light spells are unaffected. A lightproof covering blocks the effect while the object is covered. Darkness counters or dispels equal- or lower-level light spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkness-2600",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/darkseed-1922": {
+      "name": "Darkseed",
+      "sourceSha256": "d1d05c266be0ba66fb3e6295463676603cd65c4259e37e932d1af01ef49b0941",
+      "effectSummary": "On a failed Reflex save, the target plant takes 1 damage immediately and another 1 damage each hour for the spell's duration, ignoring hardness. The spell does not affect plant creatures that have Wisdom and Charisma scores.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkseed-1922",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/darkvision-2799": {
+      "name": "Darkvision",
+      "sourceSha256": "6d50e133a0d6bb33711a2de726f524d8010ba1c9f0e4a14bf9877be5d12d8134",
+      "effectSummary": "Grants the subject black-and-white vision out to 60 feet in total darkness, otherwise functioning like normal sight. It does not allow vision through magical darkness. Darkvision can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkvision-2799",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/darkvision-mass-4340": {
+      "name": "Darkvision, Mass",
+      "sourceSha256": "3056645a10eba77d7246a2cc6474f6a803f56619439096d45c4e5a8464160231",
+      "effectSummary": "Functions as darkvision for every target, granting black-and-white sight out to 60 feet in total darkness but not through magical darkness. Unlike ordinary darkvision, the recipients cannot make this mass version permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkvision-mass-4340",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/darkvision-2799",
+          "role": "same primary catalog referenced spell used to retain inherited darkvision mechanics"
+        }
+      ]
+    },
+    "spells/darkvision-mass-540": {
+      "name": "Darkvision, Mass",
+      "sourceSha256": "2a38ad3adb2d2722ac7390a77aeb6f5ae448a0d47166d6b0b456de8e3733d6d3",
+      "effectSummary": "Functions as darkvision for every target, granting black-and-white sight out to 60 feet in total darkness but not through magical darkness. Unlike ordinary darkvision, the recipients cannot make this mass version permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkvision-mass-540",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Complete Arcane printing"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/darkvision-2799",
+          "role": "same primary catalog referenced spell used to retain inherited darkvision mechanics"
+        }
+      ]
     }
   }
 }
