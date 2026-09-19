@@ -19512,6 +19512,177 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/locate-object-2506": {
+      "name": "Locate Object",
+      "sourceSha256": "d57fdcf78b7361b3224e69ee7d8a7de6282472de3e4af3bde2f3d69b5124ab61",
+      "effectSummary": "Senses the direction of a well-known or clearly visualized object within range. For a general kind of object, it points to the nearest matching example; locating one specific item requires an accurate mental image and, for a unique item, firsthand observation. A thin sheet of lead blocks the spell, creatures cannot be located, and polymorph any object can fool it. The arcane focus is a forked twig.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/locate-object-2506",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/planar-ally-lesser-2419": {
+      "name": "Planar Ally, Lesser",
+      "sourceSha256": "dbbe65e75038183f113c77c2f47c33cae30bf86f1c2a8b3a0857558b63b76dea",
+      "effectSummary": "Requests an elemental or outsider of 6 HD or fewer from your deity, or from a creature sharing your philosophical alignment if you serve no deity; you can request a known individual by name, though another creature might answer. You must communicate and bargain for one task, paying before it agrees. A task lasting up to 1 minute per caster level costs 100 gp per HD, up to 1 hour per caster level costs 500 gp per HD, and up to 1 day per caster level costs 1,000 gp per HD. A nonhazardous task costs half, especially hazardous work can cost more, and a task strongly aligned with the creature's ethos can have its payment halved or waived; suicidal work is generally refused. Bargaining takes at least 1 round, and the creature returns home when the task or agreed duration ends. The spell costs 100 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-ally-lesser-2419",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/plane-shift-2423": {
+      "name": "Plane Shift",
+      "sourceSha256": "9b47d37e5cf52d155398048a69a5973f287ea703211655b23749f7594877c954",
+      "effectSummary": "Instantly moves you or another creature to another plane or alternate dimension; up to eight willing creatures can travel together by linking hands. Arrival is imprecise, typically 5–500 miles from the intended destination when leaving the Material Plane. The spell ends after transport and provides no return trip. The focus is a small forked metal rod keyed by material and shape to the destination plane.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plane-shift-2423",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/scrying-2512": {
+      "name": "Scrying",
+      "sourceSha256": "1e6e14aead60fc6ecf7f1f727ab88186a6163b8ade802ff5935059c8a2b9c619",
+      "tablesSha256": "ffffd70a6a94ee3296aa1e080c728ffed10aaf9fe4ce154b9ab9efcb1682494a",
+      "effectSummary": "Lets you see and hear a creature at any distance if it fails a Will save. The save modifier is +10 if you know nothing of the subject, +5 for secondhand knowledge, +0 for firsthand acquaintance, or -5 if familiar; a likeness adds -2, a possession or garment -4, and a body part or lock of hair -10, while a subject on another plane gains +5. On a failed save, a sensor shows and hears roughly 10 feet around the subject and follows it at up to 150 feet with your full visual acuity. Detect chaos/evil/good/law/magic and message each have a 5% chance per caster level to function through the sensor. A successful save prevents another attempt on that subject for 24 hours. The page also lists counter-scrying tasks of DC 30 to learn the scryer, DC 50 to return scrying, and an opposed caster-level check to break scrying. Arcane casting uses the listed material components and a polished silver mirror worth at least 1,000 gp; clerics use a holy-water font worth at least 100 gp and druids a natural pool.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scrying-2512",
+          "role": "primary DnD Tools effect text and scrying modifier/task tables reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/teleport-2461": {
+      "name": "Teleport",
+      "sourceSha256": "d754284a201e8b20bf062c4ea339ec02c092017c0d2e28062195626b21b791a4",
+      "tablesSha256": "906a7d79d1a2bd23153126b6fbbaf70f8f673f50c75af43178226cfdbf9867f4",
+      "effectSummary": "Instantly transports you up to 100 miles per caster level to a same-plane destination. You can bring objects up to your maximum load and one willing Medium-or-smaller creature per three caster levels, with larger creatures counting as multiple Medium creatures; all travelers must be in contact. Accuracy depends on familiarity: very familiar 97% on target, studied carefully 94%, seen casually 88%, viewed once 76%; remaining results are off target, a similar area, or a mishap according to the printed table. A false destination uses 1d20+80 and can only yield a similar area or mishap. Off-target distance is 1d10×1d10 percent of the intended travel distance in a random direction; a mishap deals 1d10 damage to each traveler and rerolls on 1d20+80, repeating on further mishaps. Strong physical or magical energy can make teleportation hazardous or impossible, and interplanar travel is not possible.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/teleport-2461",
+          "role": "primary DnD Tools effect text and accuracy table reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/teleport-5026": {
+      "name": "Teleport",
+      "sourceSha256": "bd4823213a81441f676461d0b55753a71f1cffdb040b7d879eb2e8922fd6e939",
+      "tablesSha256": "dcaaf5031e5f04c52328d40219511af360c6f4edc43c5f96068591f8b996c209",
+      "effectSummary": "Instantly transports you to a same-plane destination with no distance limit in this printing, carrying willing creatures and objects totaling up to 50 pounds per caster level. Accuracy depends on familiarity: very familiar 97% on target, studied carefully 94%, seen casually 88%, viewed once 76%, or a described destination 52%; remaining results can be off target, a similar area, or a mishap according to the printed table. A false destination uses 1d20+80. Off-target distance is 1d10×1d10 percent of the intended distance in a random direction; a mishap deals 1d10 damage to each traveler and rerolls on 1d20+80. Strong physical or magical energy can impede teleportation, effects blocking Astral travel also block it, and interplanar travel is not possible.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/teleport-5026",
+          "role": "primary DnD Tools 3.0 effect text and accuracy table reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/teleport-greater-2462": {
+      "name": "Teleport, Greater",
+      "sourceSha256": "c3a66b19dde99ca6930820bc9c9c41e12a87c780e61e1285174dcaab99f4512e",
+      "effectSummary": "Uses teleport's same-plane transport rules and carrying capacity—objects up to your maximum load plus one willing Medium-or-smaller creature per three caster levels, with larger creatures counting as multiple Medium creatures—but removes the range limit and all off-target risk. You need not have seen the destination if you have a reliable description or precise map. With insufficient or misleading information, you disappear and immediately reappear at your starting point. Interplanar travel is not possible.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/teleport-greater-2462",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; greater-teleport exceptions retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-2461",
+          "role": "primary catalog base spell used to resolve inherited passenger and carrying mechanics"
+        }
+      ]
+    },
+    "spells/teleport-without-error-5027": {
+      "name": "Teleport without Error",
+      "sourceSha256": "89e4b9a98ef708c67b73c29c9fc33118a0f2b0635101b0e5ef86a961a8df1cdc",
+      "effectSummary": "Uses this printing's teleport rules to transport you and willing creatures or objects totaling up to 50 pounds per caster level to a same-plane destination, but removes the chance of arriving off target. You must have at least a reliable description of the destination; with insufficient or misleading information, you disappear and immediately reappear at your starting point. Interplanar travel is not possible. This spell was renamed greater teleport in the 3.5 revision.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/teleport-without-error-5027",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; no-error exceptions retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-5026",
+          "role": "primary catalog same-edition base spell used to resolve inherited carrying and same-plane teleport mechanics"
+        }
+      ]
+    },
+    "spells/gate-2394": {
+      "name": "Gate",
+      "sourceSha256": "05d1bf3fc455651ad1184a5a6cc55e9e3c4becef6e64d246d5790da412402d7b",
+      "effectSummary": "Can either create a two-way interplanar connection or call extraplanar creatures. For travel, it opens a 5–20-foot-diameter oriented portal between your plane and a specified different plane, precisely at the desired destination; creatures and effects entering the front pass through, while entering the back does nothing. You must concentrate to keep it open, for at most 1 round per caster level, and planar rulers can prevent gates in their presence or realms. For calling, naming an individual or kind of creature pulls it through; deities and unique beings need not come and cannot be controlled. You can control multiple called creatures whose total HD do not exceed your caster level, or one creature of up to twice your caster level; stronger creatures are uncontrolled. A controlled creature can perform an immediate task lasting no more than 1 round per caster level without payment. Longer service requires a fair bargain; the referenced planar-ally rates are 100 gp per HD for up to 1 minute per caster level, 500 gp per HD for up to 1 hour per caster level, or 1,000 gp per HD for up to 1 day per caster level, modified for danger and alignment. Calling costs 1,000 XP; travel does not.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gate-2394",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; gate travel and control rules retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/planar-ally-lesser-2419",
+          "role": "primary catalog referenced spell used to resolve contractual-service payment guidance"
+        }
+      ]
+    },
+    "spells/gem-tracer-1098": {
+      "name": "Gem Tracer",
+      "sourceSha256": "5417c4933998a518be4ed52c5e23eded2ea51bad785687e0efd5c20baf0a796b",
+      "effectSummary": "Creates a permanent link between the focus gem and one object. As a standard action, anyone holding the gem can sense the object's direction with unlimited distance using locate object's rules: lead blocks the sensing, polymorph any object can fool it, and the link tracks the specific object rather than a creature. The holder can also scry the creature carrying the linked object as a standard action. That bearer receives a Will save but is treated as familiar and as though the scryer possessed a lock of hair, for a combined -15 save modifier before other adjustments; a subject on another plane gains +5. On a failed save the sensor sees and hears roughly 10 feet around the bearer and can follow at up to 150 feet; a successful save prevents another scrying attempt for 24 hours. The focus is a gem worth at least 100 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gem-tracer-1098",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; permanent-link modifications retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/locate-object-2506",
+          "role": "primary catalog referenced spell used to resolve object-sensing mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/scrying-2512",
+          "role": "primary catalog referenced spell used to resolve bearer-scrying mechanics and save modifiers"
+        }
+      ]
+    },
+    "spells/gemjump-1759": {
+      "name": "Gemjump",
+      "sourceSha256": "0cab37442b7620637d128a3f066fb8ecd2f5df6ebb3217a10182f73c609e3819",
+      "effectSummary": "Links you to a touched rogue stone. At any later time, speaking the command word instantly teleports you to that stone if you are on the same plane, always arriving on target; if its space is too small, you appear in the nearest space large enough. You can bring creatures and objects totaling up to 50 pounds per caster level in addition to yourself; exceeding the limit makes the spell fail. Unwilling creatures cannot be transported, and attended items can resist with their holder's Will save or spell resistance; unattended nonmagical objects receive no save. Only one gemjump from you can be active on a particular rogue stone, though other casters can use the same stone. The focus is a rogue stone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gemjump-1759",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; gem-specific transport rules retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-without-error-5027",
+          "role": "primary catalog same-era referenced spell used to confirm reliable same-plane arrival mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-5026",
+          "role": "primary catalog same-era teleport base used to resolve inherited no-error transport behavior"
+        }
+      ]
+    },
+    "spells/gemjump-3896": {
+      "name": "Gemjump",
+      "sourceSha256": "a48c0dd6b598e2e2c8b09f20dd4f2b4eab2fc7fe552af2e9db80e8edd914d62a",
+      "effectSummary": "Links you to a touched focus gem. As a standard action later, speaking the command word teleports you to the gem if you are on the same plane, with greater teleport's reliable arrival; if the destination space is too small, you appear in the nearest sufficiently large space. You can bring one willing Medium-or-smaller creature per three caster levels and objects up to your maximum load. Unwilling creatures cannot be transported, and attended items can resist with their holder's Will save or spell resistance; unattended nonmagical objects receive no save. The focus is a gem worth 500 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gemjump-3896",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; gem-specific transport rules retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-greater-2462",
+          "role": "primary catalog referenced spell used to resolve reliable same-plane teleport behavior"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-2461",
+          "role": "primary catalog teleport base used to resolve inherited passenger/carrying mechanics"
+        }
+      ]
     }
   }
 }
