@@ -1,4 +1,5 @@
 {
-  "purpose": "review long 3.5 spell mechanics with structured tables for concise factual summaries",
-  "nonce": "2026-09-18-spell-effect-review-tables-2"
+  "scope": "3.5/spells",
+  "shards": 8,
+  "nonce": "2026-09-18-refresh-consumptive-field-digest"
 }
