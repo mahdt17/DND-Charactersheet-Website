@@ -15416,6 +15416,468 @@
           "role": "primary Spell Compendium printing reviewed and paraphrased"
         }
       ]
+    },
+    "spells/enhance-wild-shape-4446": {
+      "name": "Enhance Wild Shape",
+      "sourceSha256": "59fba4734362c3a0e82742333c8fa3997e7c55c6a94a4aff4cb5364ad1ac560c",
+      "effectSummary": "Choose one enhancement when casting. The next wild shape you activate during the spell's duration gains that enhancement for as long as you remain in that form or until the spell expires; it does not carry over to a later wild shape, and the spell is wasted if you do not wild shape in time. The choices are: allow the next wild shape to assume a plant form; gain the extraordinary abilities of the assumed form; or give the assumed form a +2 bonus to Strength, Dexterity, or Constitution. Multiple enhance wild shape spells can affect you at once only if each uses a different enhancement.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enhance-wild-shape-4446",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enhanced-shifting-4810": {
+      "name": "Enhanced Shifting",
+      "sourceSha256": "a0921f730210589a001dd7ea4866e67671fbd89b87c0ddb5acbd8722c95ed230",
+      "effectSummary": "Can be cast only while you are shifting and lasts until that shifting ends. The ability-score bonus from your shifter trait improves from +2 to +4. If shifting grants a natural weapon, that weapon gains +1 damage per four caster levels, maximum +5. If shifting grants or improves a movement mode, that mode gains a +10-foot enhancement bonus. The current shifting duration is also extended by 1 round per four caster levels, maximum +5 rounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enhanced-shifting-4810",
+          "role": "primary Races of Eberron printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enhancement-alteration-4923": {
+      "name": "Enhancement Alteration",
+      "sourceSha256": "99dbe101f79916930c2070db5f754974b2e32a9a92414f23ae1acbc622cb918a",
+      "effectSummary": "Has two versions. On a shield, you choose any portion of its enhancement bonus and shift that amount from the shield's Armor Class bonus to shield-bash attacks. On a weapon, you choose any portion of its enhancement bonus and shift that amount from attack and damage rolls to the wielder's Armor Class while the wielder fights defensively, uses total defense, uses Combat Expertise, or wields the weapon off hand with Two-Weapon Defense. An attended weapon or shield allows its wielder a Will save to negate the infusion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enhancement-alteration-4923",
+          "role": "primary Eberron Campaign Setting printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enlarge-person-greater-4447": {
+      "name": "Enlarge Person, Greater",
+      "sourceSha256": "32af8ed76c6dbcfe60499ea674d2e528b76acb48ef9f7d99d76b0ad8eb803687",
+      "effectSummary": "Functions as enlarge person, using this spell's listed duration and other stat-block differences. The humanoid increases one size category, doubles height, and multiplies weight by 8; it gains +2 size Strength, -2 size Dexterity to a minimum of 1, and -1 on attack rolls and Armor Class from increased size. A creature enlarged to Large has 10-foot space and 10-foot natural reach, with unchanged speed. If space is insufficient it grows as much as possible and can use its increased Strength to try to burst the enclosure; failure constrains it without damage. Worn and carried equipment enlarges too, with enlarged weapon damage as appropriate but no increase to magical properties; items leaving the creature's possession return to normal size. Multiple magical size increases do not stack. The effect counters and dispels reduce person.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enlarge-person-greater-4447",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/enlarge-person-2805",
+          "role": "base enlarge person mechanics resolved from the supplement-backed Player's Handbook record"
+        }
+      ]
+    },
+    "spells/enlarge-person-mass-2806": {
+      "name": "Enlarge Person, Mass",
+      "sourceSha256": "fee38a49c0ccff4763c173e76453f70407850e4f51c4fbe07a6171bf3b2cfd39",
+      "effectSummary": "Functions as enlarge person but affects multiple humanoids. Each subject increases one size category, doubles height, and multiplies weight by 8; each gains +2 size Strength, -2 size Dexterity to a minimum of 1, and -1 on attack rolls and Armor Class from increased size. A subject enlarged to Large has 10-foot space and 10-foot natural reach, with unchanged speed. If space is insufficient, a subject grows as much as possible and can use its increased Strength to try to burst the enclosure; failure constrains it without damage. Worn and carried equipment enlarges as well, with larger weapon damage as appropriate but unchanged magical properties; items leaving a subject's possession return to normal size. Multiple magical size increases do not stack. The effect counters and dispels reduce person.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enlarge-person-mass-2806",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/enlarge-person-2805",
+          "role": "base enlarge person mechanics resolved from the supplement-backed Player's Handbook record"
+        }
+      ]
+    },
+    "spells/enlarge-weapon-912": {
+      "name": "Enlarge Weapon",
+      "sourceSha256": "848f2c223a2cb44382e7bed02effd98eaf6060a765fce3c190c4dd50dbe14306",
+      "effectSummary": "Increases one melee weapon you hold by one size category, increasing its damage accordingly while still letting you wield it as though it were its original size. The spell ends if you drop the weapon, are disarmed, or hand it to another creature. It does not let you wield other inappropriately sized weapons without penalty and has no effect on a weapon already enlarged by another effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enlarge-weapon-912",
+          "role": "primary Complete Scoundrel printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enrage-animal-4448": {
+      "name": "Enrage Animal",
+      "sourceSha256": "7d3164e03433899d5c2d2de52feb163da48afe95a8a4c59bb33f5e46ed8a0e14",
+      "effectSummary": "Affects only an animal and places it in a rage for the spell's duration. The animal gains +4 morale Strength and Constitution, +2 morale on Will saves, and -2 Armor Class. The Constitution increase grants 2 additional hit points per Hit Die while the effect lasts; those hit points disappear when the Constitution bonus ends and are not temporary hit points. The animal otherwise follows the normal rage restrictions on concentration-dependent actions and restricted skills or abilities, but it is not fatigued when the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enrage-animal-4448",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/classes/barbarian.htm",
+          "role": "3.5 SRD barbarian rage rules used to resolve the spell's explicit 'otherwise identical to a barbarian's rage' reference"
+        }
+      ]
+    },
+    "spells/enrage-animals-275": {
+      "name": "Enrage Animals",
+      "sourceSha256": "6756017151a25129386afc97b3e1e9742571c3c31049b0574bd704326928d523",
+      "effectSummary": "Enrages ordinary animals with Intelligence 1 or 2, making them hostile and vicious. You can affect a total number of animal Hit Dice equal to 2d4 + caster level. Dire animals and animals trained to attack only on command receive a saving throw; other eligible animals do not. Affected animals attack the nearest creature, including other animals affected by the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enrage-animals-275",
+          "role": "primary Champions of Ruin printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ensuls-soultheft-349": {
+      "name": "Ensul's Soultheft",
+      "sourceSha256": "e5c7c5c85853d22458dbf6ea58186b78bfe431d9348f01942867312c9668d75f",
+      "effectSummary": "For the spell's duration, you can make one melee touch attack per round. A successful touch permanently drains 1d4 Intelligence from the victim and heals you 5 hit points per point drained; healing beyond your normal maximum becomes temporary hit points that last 1 hour. Each successful drain also gives you an immediate Fortitude save, at the original DC and with no penalty for failure, against each disease or poison currently affecting you that originally allowed a Fortitude save. A creature reduced to Intelligence 0 by this spell dies and cannot be restored by raise dead, resurrection, or similar magic unless miracle or wish is also used. Killing a victim this way stops your aging for days equal to the Intelligence drained, plus additional days equal to the sum of the victim's currently prepared or available spell levels if it was a spellcaster, or its current power-point reserve if it was a psion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ensuls-soultheft-349",
+          "role": "primary City of Splendors: Waterdeep printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entangle-2807": {
+      "name": "Entangle",
+      "sourceSha256": "f31a07d1493b87c38f6c7436d80dbb5a5dd0e9261e7cc501d542d94ab02aa633",
+      "effectSummary": "Plants in the area entangle creatures already present and creatures that later enter. An entangled creature can use a full-round action to make a DC 20 Strength or Escape Artist check to break free and thereafter moves at half speed through the area. A creature that succeeds on its Reflex save avoids being entangled but still moves at half speed. On each of your turns, the plants attempt to entangle again every creature that has avoided or escaped the effect. The DM can adjust the effect based on the available vegetation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entangle-2807",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entangling-blade-3604": {
+      "name": "Entangling Blade",
+      "sourceSha256": "67a5939676f36c392b069a79f9f9e8462e419f6a2be32b3853f24473d70edd07",
+      "effectSummary": "As part of the maneuver, make one melee attack. On a hit, the attack deals an extra 2d6 damage and reduces the target's speed by 20 feet until the end of its next turn, affecting every movement mode and potentially reducing a speed to 0. A flying creature whose fly speed becomes 0 falls and takes normal falling damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entangling-blade-3604",
+          "role": "primary Tome of Battle printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entangling-dragonmark-4874": {
+      "name": "Entangling Dragonmark",
+      "sourceSha256": "42220cf360f9b75d266202ab6f71bb83e893b0a5a3a1ccd5ee9e3d79be952f2c",
+      "effectSummary": "Energy erupts from the target's own true or aberrant dragonmark. On a failed saving throw, the target is entangled for the spell's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entangling-dragonmark-4874",
+          "role": "primary Dragonmarked printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entangling-scarf-2108": {
+      "name": "Entangling Scarf",
+      "sourceSha256": "4777154526a37baf62bde83787f339a9e1f958b7aebd6c0364b7a5eedc5b7447",
+      "effectSummary": "Launches a silk scarf at one creature you can see within range. Make the specified ranged attack roll; on a hit, the target must save or become entangled. The entangled target takes -2 on attack rolls and -4 effective Dexterity, cannot move, and must make a DC 15 Concentration check to cast a spell. It can escape with a DC 20 Escape Artist check or burst the scarf with a DC 26 Strength check.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entangling-scarf-2108",
+          "role": "primary Oriental Adventures printing reviewed and paraphrased; its full entangling and escape mechanics are preserved independently"
+        }
+      ]
+    },
+    "spells/entangling-scarf-543": {
+      "name": "Entangling Scarf",
+      "sourceSha256": "80394ccf4e1be899b3771aa4d180fa689b082ec39d4ae7017cae98d32e66086d",
+      "effectSummary": "Magically propels a silk scarf at one creature you can see within range. Make a ranged touch attack; on a hit, the target must succeed on a Reflex save or become entangled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entangling-scarf-543",
+          "role": "primary Complete Arcane printing reviewed and paraphrased; its simpler revised mechanics are preserved independently"
+        }
+      ]
+    },
+    "spells/entangling-staff-419": {
+      "name": "Entangling Staff",
+      "sourceSha256": "882f680a5da8a646683ded8781b47acc4c874a567484295ba2959867669d2770",
+      "effectSummary": "Your quarterstaff sprouts vines. Each successful normal melee hit deals normal weapon damage and lets you immediately attempt to start a grapple as a free action without provoking and without a separate touch attack. You gain +8 on these grapple checks and can use them against creatures up to one size category larger than you. A successful grapple deals 2d6 constriction damage, which you can make nonlethal. You can then release the foe, leaving it entangled for the spell's duration, or maintain the grapple; on later rounds, each successful grapple check deals the constriction damage again, after which you may release or continue the hold.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entangling-staff-419",
+          "role": "primary Complete Adventurer printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entangling-staff-4449": {
+      "name": "Entangling Staff",
+      "sourceSha256": "fbcf0403101dadf1c57c01b9dd8b01043d45c4073a97f9568d5a6c51144544c0",
+      "effectSummary": "Your quarterstaff sprouts vines. Each successful normal melee hit deals normal weapon damage and lets you immediately attempt to start a grapple as a free action without provoking and without a separate touch attack. You gain +8 on these grapple checks and can use them against creatures up to one size category larger than you. A successful grapple deals 2d6 constriction damage, which you can make nonlethal. You can then release the foe, leaving it entangled for the spell's duration, or maintain the grapple; on later rounds, each successful grapple check deals the constriction damage again, after which you may release or continue the hold.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entangling-staff-4449",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enthrall-2548": {
+      "name": "Enthrall",
+      "sourceSha256": "179b94898beee06dd5235825c4eef9af59eb91bbcc49c0e5546fbe87b72e32de",
+      "effectSummary": "After you speak or sing without interruption for 1 full round, creatures that fail their saves give you their undivided attention and are friendly while enthralled. Creatures of a race or religion unfriendly to yours gain +4 on the save. A creature with at least 4 Hit Dice or Wisdom 16+ remains aware of its surroundings, is only indifferent, and receives a new save when it witnesses something it opposes. The effect lasts while you continue speaking or singing, up to 1 hour; enthralled creatures take no action during the performance and for 1d3 rounds afterward. New arrivals must save as well. Losing concentration or doing anything other than speaking or singing ends the speech, though the 1d3-round aftermath remains. Unfriendly or hostile unaffected listeners can make a group Charisma challenge against you to heckle the spell to an end. If any audience member is attacked or subjected to another overtly hostile act, the spell ends; formerly enthralled listeners become unfriendly, and those with 4+ Hit Dice or Wisdom 16+ become hostile.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enthrall-2548",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entice-gift-1008": {
+      "name": "Entice Gift",
+      "sourceSha256": "868f04770cf891e7842dd10a88eda560b77486b06bed1c2f5bd9f475a7cddcd3",
+      "effectSummary": "Compels the target to give you the object it is holding when the spell is cast. On its next action, it moves as close to you as it can in one round and offers the object as a standard action; you can act out of turn to accept it if you have a free hand. The subject otherwise defends itself normally and acts freely on later rounds, including trying to recover the object. If it cannot perform the compelled action, the spell is wasted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entice-gift-1008",
+          "role": "primary Draconomicon printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entice-gift-160": {
+      "name": "Entice Gift",
+      "sourceSha256": "44621aadd33a270a17af84be531bd34b9148bede3e7238191becdae8bc3c1ba1",
+      "effectSummary": "Compels the target to give you the object it is holding when the spell is cast. On its next action, it moves as close to you as it can in one round and offers the object as a standard action; you can act out of turn to accept it if you have a free hand and can carry it. The subject otherwise defends itself normally and acts freely on later rounds, including trying to recover the object. If it cannot perform the compelled action, the spell is wasted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entice-gift-160",
+          "role": "primary Book of Vile Darkness printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entice-gift-4450": {
+      "name": "Entice Gift",
+      "sourceSha256": "ba4d45a795dc269c1151282cc27ff3c9dc38651e917e43c3a37d964855ad52cf",
+      "effectSummary": "Compels the target to give you the object it is holding when the spell is cast. On its next action, it moves as close to you as it can in one round and offers the object as a standard action; you can act out of turn to accept it if you have a free hand. The subject otherwise defends itself normally and acts freely on later rounds, including trying to recover the object. If it cannot perform the compelled action, the spell has no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entice-gift-4450",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entomb-1272": {
+      "name": "Entomb",
+      "sourceSha256": "1f115b652bbd23fcb66256d4b389a5425cd4048b9869c553cce71e89465b890f",
+      "effectSummary": "Encases living targets completely in ice. A successful Fortitude save lets a target shake off the ice immediately but still take 6d6 cold damage. On a failed save, the target is trapped, immediately begins suffocating under the normal drowning rules, takes 2d12 cold damage and 1 Constitution damage each round from contact with the ice, and can take only actions requiring mental or verbal activity other than attempts to escape. Escaping requires a DC 20 Strength check or dealing 20 points of fire damage to the ice.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entomb-1272",
+          "role": "primary Frostburn printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entropic-shield-2318": {
+      "name": "Entropic Shield",
+      "sourceSha256": "3ee206754c4751decb458421658c0eb7e0b1667d3325785c27c58e80ba32f83b",
+      "effectSummary": "Surrounds you with a chaotic field that gives every ranged attack requiring an attack roll against you a 20% miss chance, including arrows, magic arrows, rays, and similar attacks. Ranged effects that do not require an attack roll, such as a dragon's breath weapon, are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entropic-shield-2318",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/entropic-shield-mass-3262": {
+      "name": "Entropic Shield, Mass",
+      "sourceSha256": "e83f8545cb889b5cac4723b6c4754f45d15d98f4de399bad62114a149f2a8b9f",
+      "effectSummary": "Functions as entropic shield but protects multiple creatures. Each affected creature gains a 20% miss chance against ranged attacks that require attack rolls, including arrows and rays. Ranged effects that do not require attack rolls, such as breath weapons, are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/entropic-shield-mass-3262",
+          "role": "primary Shining South printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/entropic-shield-2318",
+          "role": "same primary catalog record used to resolve the incorporated entropic shield mechanics"
+        }
+      ]
+    },
+    "spells/enveloping-cocoon-4453": {
+      "name": "Enveloping Cocoon",
+      "sourceSha256": "6ef47e8509626c3125d434b09e29227d5175a79f9bc6802101592ebb7504e07f",
+      "effectSummary": "Encloses one Large-or-smaller creature in a force cocoon with hardness 10 and 10 hit points per caster level. The trapped creature cannot move or cast spells with somatic components, can effectively use only natural or light weapons, and can attack only the cocoon. You can cast one permitted secondary spell into the cocoon. When the cocoon ends or is dismissed, that attached spell automatically affects the trapped creature with no saving throw, though spell resistance still applies; if the cocoon is destroyed first, the attached spell is wasted. Permitted attached spells are infestation of maggots, languor, miasma, phantasmal disorientation, baleful polymorph, blight, contagion, dominate animal, flame strike, and poison; poison automatically defeats its initial save but still allows its second save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enveloping-cocoon-4453",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enveloping-cocoon-701": {
+      "name": "Enveloping Cocoon",
+      "sourceSha256": "161f23e580e11737a5486adb40ddaa4db2c1815d4119024caee7d67df91e1bd5",
+      "effectSummary": "Encloses one Large-or-smaller creature in a force cocoon with hardness 10 and 10 hit points per caster level. The trapped creature cannot move or cast spells with somatic components, can effectively use only natural or light weapons, and can attack only the cocoon. You can cast one permitted secondary spell into the cocoon. When the cocoon ends or is dismissed, that attached spell automatically affects the trapped creature with no saving throw, though spell resistance still applies; if the cocoon is destroyed first, the attached spell is wasted. Permitted attached spells are baleful polymorph, blight, contagion, dominate animal, flame strike, infestation of maggots, languor, miasma, phantasmal disorientation, and poison; poison automatically defeats its initial save but still allows its second save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enveloping-cocoon-701",
+          "role": "primary Complete Divine printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/epidemic-1909": {
+      "name": "Epidemic",
+      "sourceSha256": "44be57ed1178b30f96166b8bb105a0330bd4337407b847efd24619c0e6efc753",
+      "effectSummary": "Choose blinding sickness, cackle fever, filth fever, mindfire, red ache, the shakes, or slimy doom. The touched creature contracts the disease immediately with no incubation period unless it succeeds on a Fortitude save. While infected, it becomes a vector: every living creature other than you within 30 feet must save or immediately contract the same disease, ignoring its normal incubation and transmission method, and every newly infected creature becomes a vector in turn. The spell's save DC drops by 1 each day after casting. A creature that succeeds on a save against this epidemic cannot contract that disease by any means for 1 day, after which entering a vector's 30-foot area requires another save. You are immune to infections originating from your own casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/epidemic-1909",
+          "role": "primary Masters of the Wild printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/eradicate-earth-3479": {
+      "name": "Eradicate Earth",
+      "sourceSha256": "6bfb38f015cab8c0a762c04e9587a277649accebf07c6b5533f059c23b397155",
+      "effectSummary": "A seismic burst damages every creature with the earth subtype in the area for 1d8 damage per caster level, maximum 10d8. Creatures without the earth subtype are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eradicate-earth-3479",
+          "role": "primary Underdark printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/eradicate-earth-4454": {
+      "name": "Eradicate Earth",
+      "sourceSha256": "a4539fd5cae7bc1a2ab7b322dda57599b9a5f80b2184fb3d1625245cb0c8d83c",
+      "effectSummary": "A seismic shock wave damages every nearby creature with the earth subtype for 1d8 damage per caster level, maximum 10d8. Other creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eradicate-earth-4454",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/erase-2808": {
+      "name": "Erase",
+      "sourceSha256": "372c4df77452d4b5c14fa0eae1383f1feb046043d7e80fb1456e099029585646",
+      "effectSummary": "Removes mundane or magical writing from a scroll or from one or two pages of a similar surface. It can erase explosive runes, glyph of warding, sepia snake sigil, or arcane mark, but not illusory script or a symbol spell. Mundane writing is erased automatically when you touch it and no one else holds it; otherwise the chance is 90%. Magical writing must be touched and requires a caster level check against DC 15, with a natural 1 or 2 always failing. Failing the attempt against explosive runes, glyph of warding, or sepia snake sigil activates that writing instead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/erase-2808",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased; the obvious missing verb in the final sentence does not obscure the activation rule"
+        }
+      ]
+    },
+    "spells/erupt-3253": {
+      "name": "Erupt",
+      "sourceSha256": "c337b8844be52d77f2f629b9c89fd0e2b342506bca8c4af0d111ad2a977a9db7",
+      "effectSummary": "Draws molten lava through the area. A creature that fails its Fortitude save takes 10 fire damage per caster level and catches fire; a successful save halves this damage and avoids the failed-save riders. A creature wearing metal armor that fails the save is also affected as heat metal: the armor deals no heat damage on rounds 1 and 7, 1d4 fire damage on rounds 2 and 6, and 2d4 fire damage on rounds 3 through 5; damaging cold offsets this heat damage point for point, and underwater heat damage is halved. Structures and unattended objects take the full erupt damage with no save. The entire area becomes blackened ruin unable to support plant or animal life for 1 year.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/erupt-3253",
+          "role": "primary Serpent Kingdoms printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heat-metal-2824",
+          "role": "same primary catalog record used to resolve the explicitly incorporated heat metal mechanics"
+        }
+      ]
+    },
+    "spells/escalating-enfeeblement-853": {
+      "name": "Escalating Enfeeblement",
+      "sourceSha256": "77f8085b5ec7ab72d2c4822940f7f8add8f368a24275baa428ed00e7e2d2ebbf",
+      "effectSummary": "Functions as ray of enfeeblement: make a ranged touch attack; on a hit the target takes a Strength penalty and its Strength cannot fall below 1. Normally the penalty is 1d6 +1 per two caster levels, maximum 1d6+5. If the target is already fatigued or exhausted, or is already suffering a penalty, damage, or drain to Strength, Dexterity, or Constitution, the penalty instead becomes 1d10 +1 per two caster levels, maximum 1d10+5. This penalty does not stack with ray of enfeeblement.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/escalating-enfeeblement-853",
+          "role": "primary Complete Mage printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/ray-of-enfeeblement-2755",
+          "role": "same primary catalog record used to resolve the incorporated ray of enfeeblement mechanics"
+        }
+      ]
+    },
+    "spells/essence-of-the-dragon-3104": {
+      "name": "Essence of the Dragon",
+      "sourceSha256": "e0484239b9d418e39e6aed39e38932eedd2c961d331590f7d2766a2bbf1f85b5",
+      "effectSummary": "Temporarily gives the touched creature the dragon type. For the duration it counts as a dragon for spell effects, magic-item requirements, favored enemy bonuses, and other type-dependent rules. It becomes immune to magical sleep and paralysis, ignores dragons' frightful presence, gains 60-foot darkvision and low-light vision, and also becomes subject to harmful effects that specifically target dragons, such as dragon-bane weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/essence-of-the-dragon-3104",
+          "role": "primary Races of the Dragon printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/essence-raptor-4455": {
+      "name": "Essence of the Raptor",
+      "sourceSha256": "e569cefb7392e544f21c86d666140c418fb54458de57659652832f701f1c2ba3",
+      "effectSummary": "Your physical form does not change, but your speed becomes 60 feet unless it is already at least 60 feet. You gain +8 on Hide, Jump, Listen, Spot, and Survival checks and gain the scent ability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/essence-raptor-4455",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/essentia-lock-1809": {
+      "name": "Essentia Lock",
+      "sourceSha256": "74cad37b8b0d9c3700cef6f6c95af28429a4e83988d4a64a8aa611bf15848f53",
+      "effectSummary": "Freezes the subject's current essentia allocation. For the duration, the target cannot move essentia into or out of soulmelds, feats, or any other essentia receptacle and must keep the current allocation unchanged. A creature with no essentia is unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/essentia-lock-1809",
+          "role": "primary Magic of Incarnum printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/estannas-stew-28": {
+      "name": "Estanna's Stew",
+      "sourceSha256": "31c057af927ea378e0ca032cbc93dcb91b3227cd20a77e72dfdb2cc3dd2177e3",
+      "effectSummary": "Fills the required special stewpot with one serving of healing stew per two caster levels, maximum five; the spell fails if you are not holding the pot when casting. Consuming one serving is a standard action and heals 1d6+1 hit points. Unused stew disappears after 1 hour. You can instead splash one or more servings onto a single undead creature within 10 feet; a successful ranged touch attack deals 1d6+1 damage per serving, subject to spell resistance and a Will save for half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/estannas-stew-28",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/eternity-of-torture-207": {
+      "name": "Eternity of Torture",
+      "sourceSha256": "b30f4a486068fe68f19504e15402bfc11a52efd5b3253b6faa165bd33b82c218",
+      "effectSummary": "On a failed Fortitude save, the subject becomes permanently helpless and insensate to everything except pain, needs no food, drink, or air, does not age, cannot heal or regenerate, and suffers 1 point of drain to every ability score each day until all reach 0 except Constitution, which remains at 1. On a successful save, the permanent effect is avoided but the target still immediately takes 5d6 damage and suffers a -4 circumstance penalty on attack rolls, saving throws, skill checks, and ability checks for 1 round per caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eternity-of-torture-207",
+          "role": "primary Book of Vile Darkness printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ether-blast-1847": {
+      "name": "Ether Blast",
+      "sourceSha256": "a7abcfa2d16a059696fede366039b9780f02e10b727ff9db2210b472babd9535",
+      "effectSummary": "Creates an ether cyclone on the Ethereal Plane centered on you; creatures on the Material Plane are unaffected, including you if you cast from there. Ethereal creatures in the area, including you if you cast while ethereal, suffer the normal ether-cyclone hazard: roll d% for the affected traveler or group as appropriate—01–30 deals 1d10 damage (Fortitude DC 20 negates) and repeats after 1 minute if still in the cyclone; 31–60 moves the target 1d10 miles in a random direction and out of the storm; 61–80 moves it 2d20 miles; 81–90 does the same and deals 3d10 damage (Fortitude DC 20 negates); 91–95 deals 3d10 damage (Fortitude DC 20 negates) and returns the target to the Material Plane, with shunting damage if it appears inside solid matter; 96–100 sends it through a random ethereal curtain to another plane or demiplane. Undead are unaffected. Unattended objects of 50 pounds or less in the spell's area are swept away.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ether-blast-1847",
+          "role": "primary Manual of the Planes spell printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://dokumen.pub/manual-of-the-planes.html",
+          "role": "same-source Manual of the Planes ether-cyclone rules used to resolve the spell's explicit planar-hazard reference"
+        }
+      ]
+    },
+    "spells/ethereal-alarm-1331": {
+      "name": "Ethereal Alarm",
+      "sourceSha256": "276f7c405588b3e8a0c01c7ca745b2e673c2fe42df98eb6a200dc4f5cca47524",
+      "effectSummary": "Functions as alarm, but only ethereal creatures entering or touching the warded area trigger it; the spell does not reveal or let you see the ethereal intruder. Creatures that speak the password chosen at casting do not trigger the ward. A mental version gives only you a single mental ping while you are within 1 mile and can awaken you from normal sleep. An audible version rings for 1 round and can normally be heard within 60 feet, with barriers reducing that distance; silence prevents the sound but not a mental alarm.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ethereal-alarm-1331",
+          "role": "primary Ghostwalk printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/alarm-2299",
+          "role": "same primary catalog record used to resolve the incorporated alarm mechanics"
+        }
+      ]
+    },
+    "spells/heat-metal-2824": {
+      "name": "Heat Metal",
+      "sourceSha256": "8662f02d6c32c423acde7211aba2d7ed18b6b995fb81827e48635b1db6b15770",
+      "tablesSha256": "cb8c73acd0333396bbcdd8e6664234fd466ecc0b8b16f7277732c4b768bdf33e",
+      "effectSummary": "Heats the affected metal over 7 rounds. Unattended nonmagical metal gets no save; magical metal can save, and attended items use the holder's save unless their own is better. A creature takes full fire damage when affected armor or sufficiently heavy carried metal is heated, and only the listed minimum damage when carrying less than one-fifth its weight in metal without metal armor. The damage progression is: round 1 none, round 2 1d4, rounds 3–5 2d4 each, round 6 1d4, round 7 none. Damaging cold offsets this fire damage point for point and vice versa. Underwater, the spell deals half damage and boils the surrounding water. Heat metal counters and dispels chill metal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heat-metal-2824",
+          "role": "primary Player's Handbook v.3.5 printing and captured damage table reviewed and paraphrased"
+        }
+      ]
     }
   }
 }
