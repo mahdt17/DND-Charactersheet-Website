@@ -1,7 +1,26 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/poison-2754"
+    "spells/ghoul-light-1480",
+    "spells/ghoul-light-4551",
+    "spells/ghoul-touch-2739",
+    "spells/giant-killing-style-3671",
+    "spells/giant-size-2111",
+    "spells/giant-size-550",
+    "spells/giant-vermin-2820",
+    "spells/giants-stance-3718",
+    "spells/giants-wrath-4552",
+    "spells/girallon-windmill-flesh-rip-3738",
+    "spells/girallons-blessing-1987",
+    "spells/girallons-blessing-4553",
+    "spells/give-life-4420",
+    "spells/glacial-globe-of-invulnerability-1251",
+    "spells/glass-strike-1314",
+    "spells/glassee-2508",
+    "spells/glaurauths-dagger-1761",
+    "spells/glaurauths-dagger-2274",
+    "spells/glibness-2480",
+    "spells/glide-1079"
   ],
-  "nonce": "2026-09-19-ghost-venom-poison-base"
+  "nonce": "2026-09-19-ghoul-light-through-glide"
 }
