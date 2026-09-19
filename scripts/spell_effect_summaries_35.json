@@ -16554,6 +16554,171 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/false-gravity-2202": {
+      "name": "False Gravity",
+      "sourceSha256": "8ba7b4713c0602356bc97d521b07105241f22a30909961fd9b973cb384df20ec",
+      "effectSummary": "Lets the subject treat any solid surface as its personal direction of gravity, allowing normal movement along walls or other surfaces. Once per round as a free action the subject can redefine which direction is “down”; unattended objects remain affected by normal gravity. The subject can also move through the air by falling toward a chosen solid surface at 30 feet per round, making one turn per round by changing personal gravity; changing gravity cancels existing downward momentum. The material component is a pair of magnets.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/false-gravity-2202",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/false-gravity-4474": {
+      "name": "False Gravity",
+      "sourceSha256": "4ae6f934efa939adfbe7da92c9550b802223c0092854059ebb31d445e81bb0e6",
+      "effectSummary": "Lets the subject treat any solid surface as its personal direction of gravity, allowing normal movement along walls or other surfaces. Once per round as a free action the subject can redefine which direction is “down”; unattended objects remain affected by normal gravity. The subject can also move through the air by falling toward a chosen solid surface at 30 feet per round, making one turn per round by changing personal gravity; changing gravity cancels existing downward momentum. The material component is a pair of magnets.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/false-gravity-4474",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/false-lie-837": {
+      "name": "False Lie",
+      "sourceSha256": "f2a978f9768426d3388182fbb25e21b16223906ab174d6793fa9b0cb138f8d7e",
+      "effectSummary": "Makes the subject appear dishonest. Sense Motive checks against the subject take a -10 penalty, and any failed check convinces the observer the subject is lying even when truthful. A spell that detects lies must succeed on a caster-level check against DC 11 + your caster level or falsely reports the subject as lying. The material component is a serpent’s tongue.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/false-lie-837",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/false-life-2735": {
+      "name": "False Life",
+      "sourceSha256": "ba558c99fdd2d5345a48ebeae4d4283208c62918fd0092286116a31ddf650625",
+      "effectSummary": "Grants you temporary hit points equal to 1d10 +1 per caster level, to a maximum caster-level bonus of +10, for the spell’s duration. The material component is a small amount of alcohol or distilled spirits used to trace sigils on your body; the sigils disappear from view as the liquid evaporates.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/false-life-2735",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/false-life-3406": {
+      "name": "False Life",
+      "sourceSha256": "827eb0326d9895ca9f4c260f8ced38288f25a0d320892601d8c5f8fab1970aaa",
+      "effectSummary": "Grants you 1d10 temporary hit points +1 per caster level, to a maximum total of 1d10+10, for the spell’s duration. The material component is a small amount of alcohol or distilled spirits used to trace sigils on your body; the sigils disappear from view as the liquid evaporates.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/false-life-3406",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/false-sending-194": {
+      "name": "False Sending",
+      "sourceSha256": "185964ba01a87811db00e193ac5ff23920eb993835879c3853b604dae58c8a9f",
+      "effectSummary": "Sends a message of 25 words or fewer to a creature you know, but makes the subject believe the message came from another person you also know and designate as the false sender. The subject can immediately reply in the same manner, understands the message with Intelligence as low as 1 subject to normal limits on its response, and is not compelled to act. If the subject is on another plane, the message has a 5% chance to fail, potentially worsened by local planar conditions. The arcane material component is a short piece of corroded copper wire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/false-sending-194",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/familiar-pocket-3429": {
+      "name": "Familiar Pocket",
+      "sourceSha256": "9ff57769c7736900ea86ae496e8ca2f75a5121746aa390383b089dbed342cfb9",
+      "effectSummary": "Turns a pocket in a garment or container into an extradimensional refuge of about 1 cubic foot for your familiar or another Tiny-or-smaller creature. While touching you, the familiar can be moved inside by command as a free action; it can also enter itself if able to speak, and either you or it can bring it out as a free action. Inside it has total cover and concealment. You or the familiar can seal the pocket airtight and waterproof for up to 1 hour of air; unsealed, it can remain indefinitely. If the spell ends while occupied, the familiar appears unharmed in your space unless that space itself is hazardous. Combining this extradimensional space with another extradimensional space is hazardous. The material components are a tiny golden needle and a half-twisted strip of fine cloth fastened into a loop.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/familiar-pocket-3429",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/familiar-pocket-4475": {
+      "name": "Familiar Pocket",
+      "sourceSha256": "7e15bf42d5b414a115d44c09638ebb8aa30bf33e0d767913584a1f77d1adea26",
+      "effectSummary": "Turns a pocket in a garment or container into a roughly 1-cubic-foot extradimensional refuge for a Tiny-or-smaller familiar. While touching you, the familiar can enter by your command as a free action, or enter itself if it can speak; either you or it can bring it out as a free action. Inside it has total cover and total concealment and can be sealed airtight and waterproof for 1 hour of air, or remain indefinitely while unsealed. It cannot attack or cast spells from inside, but can use supernatural or spell-like abilities that do not require line of sight; you retain its granted special ability and it still benefits from share spells as though adjacent. Putting the pocket into another extradimensional space ends the spell. If the spell expires or ends abnormally while occupied, the familiar appears unharmed in your space. The material components are a tiny golden needle and a half-twisted strip of fine cloth fastened into a loop.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/familiar-pocket-4475",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/familiar-pocket-578": {
+      "name": "Familiar Pocket",
+      "sourceSha256": "81e39c45923cfdafe10c81a41761ca75dab6cae398c271f029f54355c36f3521",
+      "effectSummary": "Turns a garment or container into a roughly 1-cubic-foot extradimensional refuge for a Tiny-or-smaller familiar. While touching you, the familiar can enter by your command as a free action, or enter itself if it can speak; either you or it can bring it out as a free action. Inside it has the printing’s listed total cover (+4 AC) and concealment (20% miss chance), and can be sealed airtight and waterproof for 1 hour of air or remain indefinitely while unsealed. It cannot attack or cast spells from inside, but can use supernatural or spell-like abilities that do not require line of sight. Putting the pocket into another extradimensional space ends the spell; an occupant then appears unharmed in your space, as it also does when the duration expires. The material components are a tiny golden needle and a half-twisted strip of fine cloth fastened into a loop.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/familiar-pocket-578",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fan-flames-3574": {
+      "name": "Fan the Flames",
+      "sourceSha256": "29a2147673c3a01e778d7b1b4a0c80acd46c734dbd3d46d60edc8c9cf2726721",
+      "effectSummary": "As this supernatural Desert Wind maneuver, launch a fist-sized ball of flame at one opponent. Make a ranged touch attack; on a hit, the target takes 6d6 fire damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fan-flames-3574",
+          "role": "primary DnD Tools maneuver effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fanfare-3308": {
+      "name": "Fanfare",
+      "sourceSha256": "f8cc21aa9dc61c74817232865ac3250ac4a7834f5a69cd006530a645aa3f6923",
+      "effectSummary": "Creates an overwhelming trumpet blast. Every creature in the area makes a Fortitude save: on a successful save it is stunned for 1d4 rounds and deafened for twice that many rounds; on a failed save it also takes 4d6 damage. Glass, wood, stone, and metal objects in the cone take 2d6 damage that ignores hardness. The material component is a small tin horn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fanfare-3308",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fangs-of-the-vampire-king-1503": {
+      "name": "Fangs of the Vampire King",
+      "sourceSha256": "faedb74c60427efa5f5d7dbb3247b978e727c7d8545434db32d4c61f522280c2",
+      "effectSummary": "Grows vampirelike fangs that let you make bite attacks at an attack bonus of +10 + your Strength modifier. The bite deals 1d6 damage plus 1 Constitution damage. When making a full attack with other weapons, you can also make one bite as a secondary attack at -5 to hit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fangs-of-the-vampire-king-1503",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fangs-of-the-vampire-king-244": {
+      "name": "Fangs of the Vampire King",
+      "sourceSha256": "e9dacfbf37f365ae3dd1dec8e218e7c28f50b92d4652ffdef3f685908c6840c9",
+      "effectSummary": "Grows vampirelike fangs that let you make bite attacks at an attack bonus of +10 + your Strength modifier. The bite deals 1d6 damage plus 1 Constitution damage. Casting carries a corruption cost of 1d6 Strength damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fangs-of-the-vampire-king-244",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fangs-of-the-vampire-king-4476": {
+      "name": "Fangs of the Vampire King",
+      "sourceSha256": "079874637fbdd11ddd950a87735dc9eb32e2ad386183ae0ac37b431148c9e4de",
+      "effectSummary": "Grows vampirelike fangs usable as a natural bite attack. The bite deals 1d6 damage + your Strength modifier and 1 point of Constitution damage. If you make a full attack with other weapons, you can also make the bite as a natural secondary attack at a -5 attack penalty.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fangs-of-the-vampire-king-4476",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fantastic-machine-1212": {
+      "name": "Fantastic Machine",
+      "sourceSha256": "3bc6b5b066893bffa62f21e68bc23f554cd608c0b68f52c213ce45df958ae74b",
+      "effectSummary": "Creates a noisy, many-armed illusory machine that follows one simple physical task of 25 words or fewer chosen at casting; the task can repeat but cannot later be changed. It acts on your initiative, including the casting turn, as a Large tall animated object with speed 40 ft., swim 10 ft., fly 10 ft. (clumsy), 22 hp, AC 14, hardness 10, and Fort +1, Ref +1, Will -4. Its listed carrying bands are up to 230 lb. light, 231–460 lb. medium, and 461–700 lb. heavy; it can swim or fly only while lightly loaded, lift up to 1,400 lb. to 15 feet, push or drag 3,500 lb., excavate 7,000 lb. of loose rock per minute or twice that amount of sand/loose soil, and clear a 5-foot cube of loose rock in 3 rounds. It makes one slam per round at +5 for 1d8+4 damage, tripled to 3d8+12 against stone or metal, and can hurl Small rocks at +3 with a 150-foot range increment out to 10 increments for 2d6+4 damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fantastic-machine-1212",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
