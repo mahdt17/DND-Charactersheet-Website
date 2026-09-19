@@ -474,7 +474,12 @@ def classify_queue(
             tags.add("existing-regression")
         if reasons:
             tags.add("suspected-damaged-source")
-        if reference_names or entry.get("effectReferenceDependent"):
+        parser_reference = bool(entry.get("effectReferenceDependent")) and not re.search(
+            r"\\b(?:functions?|works?|operates?)\\s+as\\s+though\\b",
+            source,
+            re.I,
+        )
+        if reference_names or parser_reference:
             tags.add("reference-dependent")
         if entry.get("tables"):
             tags.add("table-driven")
@@ -623,6 +628,11 @@ def run_self_test() -> None:
         "As geas/quest, except the casting time is 1 round."
     ) == ["geas/quest"]
     assert extract_reference_names("The weapon functions as if cast by you.") == []
+    assert extract_reference_names("The spell functions as though cast from the eye.") == []
+    assert extract_reference_names("Any scrying sees an image (as the major image spell).") == ["major image"]
+    assert extract_reference_names("You transport the target as greater teleport.") == ["greater teleport"]
+    assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
+    assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
     assert "teleport greater" in name_aliases("Teleport, Greater")
     assert near_family_key(
         "A " + "word " * 40 + "10 feet"
