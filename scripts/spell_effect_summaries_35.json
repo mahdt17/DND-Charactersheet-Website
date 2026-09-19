@@ -18745,6 +18745,352 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for complete prison mechanics"
         }
       ]
+    },
+    "spells/forceward-1578": {
+      "name": "Forceward",
+      "sourceSha256": "c8b365fed4bc67f7447573adeb609b95ca6e4c75b3667269e5907bf142470828",
+      "effectSummary": "Creates an immobile transparent sphere of force centered on you. You and your designated allies can initially enter freely; any other creature attempting to enter must make a Will save or be unable to cross the boundary. Any creature that leaves the sphere must save to enter again, including you or an ally. Creatures already inside when cast remain there. Spells and objects pass through normally. A creature attacking across the boundary with a natural weapon or unarmed strike must save each round or be unable to make such attacks across it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forceward-1578",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/forceward-2211": {
+      "name": "Forceward",
+      "sourceSha256": "28a43ee01434714fb11f0b4a9dfedbcf528ce531097d2b5108e5ddef39743f50",
+      "effectSummary": "Creates an immobile transparent sphere of force centered on you. You and your designated allies can initially enter freely; any other creature attempting to enter must make a Will save or be unable to cross the boundary. Any creature that leaves must save to enter again, even you or an ally. Creatures already inside when cast remain there, and spells and objects pass through normally. Natural-weapon or unarmed attacks across the boundary require a Will save each round. You and your allies inside also gain a +2 sacred bonus on saving throws against effects created by evil creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forceward-2211",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/forceward-3795": {
+      "name": "Forceward",
+      "sourceSha256": "c3778fffcd384a42514dcfd1ab90d0cb632b816136d2de23758165c7000794f0",
+      "effectSummary": "Creates an immobile transparent sphere that suppresses force effects within it and blocks incorporeal creatures. Spells with the force descriptor cannot affect creatures or objects inside; if the sphere is cast so that it overlaps an existing force effect, that effect is automatically countered in the overlap. Incorporeal creatures and creatures with the force descriptor must make a Will save to enter. Moving the sphere into such a creature does not push it; the creature automatically receives its saving throw to resist entry.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forceward-3795",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/forcewave-1672": {
+      "name": "Forcewave",
+      "sourceSha256": "751a8036bdd1bed9d452e2dbf0030f31e68a2d07610c6347d4aa4002911af934",
+      "effectSummary": "A concussive wave strikes creatures in the area. On a failed Fortitude save, a creature takes 1d4+1 damage and is subject to a bull rush by a Medium force effect with Strength 18 that counts as charging; resolve the opposed Strength check normally and move the target only as far as that result allows. On a successful save, the creature takes 1 damage and is not bull rushed. The focus is a small piece of string and a drop of water.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forcewave-1672",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/forcewave-4530": {
+      "name": "Forcewave",
+      "sourceSha256": "4140353d59297daf9d501f159525fc85d4e9b5b7b201baf9abaf485b6b230794",
+      "effectSummary": "A wave of force bull rushes every creature within 10 feet of you. Resolve each attempt using a +10 bull-rush modifier; creatures are pushed as far as the opposed check result allows, even beyond the spell’s normal 10-foot area. The focus is a small piece of string and a drop of water.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forcewave-4530",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/foresight-2500": {
+      "name": "Foresight",
+      "sourceSha256": "5894666de3edf3d688da44edfeae46b0f0f2089327950e73fca4ae25361f3415",
+      "effectSummary": "Grants instantaneous warnings of danger to the spell’s subject. If you are the subject, you are never surprised or flat-footed and gain a +2 insight bonus to AC and Reflex saves; this bonus is lost whenever you would lose your Dexterity bonus to AC. The warnings also give a general indication of useful defensive actions. If another creature is the subject, you receive the warnings instead and must communicate them for the subject to benefit; that creature does not gain the +2 AC/Reflex bonus automatically. The focus is a hummingbird feather.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/foresight-2500",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/forest-child-622": {
+      "name": "Forest Child",
+      "sourceSha256": "b89d1dc5274bcc3a0f4140114b1748c064ea57fd5aac685560a8d373aa351aa7",
+      "effectSummary": "Creates a wooden duplicate of you from a living tree at least one size category larger than you, emerging either from the touched tree or another tree of the same type within range. The duplicate resembles you, mimics your actions unless directed differently as a move action, and vanishes if it exceeds the spell’s range or loses line of effect to you. You can switch as a free action between your own senses and seeing/hearing through it; while using its senses you are blind and deaf to your own surroundings. Touch-or-longer-range spells can originate from the duplicate, though it cannot target itself. It has hit points equal to your character level and makes physical attacks at -4 using your unarmed damage. As a standard action you can swap places with it by teleportation, reducing the remaining duration by 5 rounds; this cannot be done with fewer than 5 rounds remaining. If forest eyes and forest voice are both active, this spell’s duration doubles and its range quadruples. The material focus is a 10 gp hardwood figurine of you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forest-child-622",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete duplicate mechanics"
+        }
+      ]
+    },
+    "spells/forest-eyes-603": {
+      "name": "Forest Eyes",
+      "sourceSha256": "0ef76e5c1c1b7b82d315004542d47cacba9aaaffaa8f714f30f4c96e16cd13b6",
+      "effectSummary": "Touch a living Medium-or-larger plant or tree and designate another living plant of the same kind. You see the destination plant’s surroundings regardless of distance as if standing at its location, with a fixed viewpoint that can rotate in all directions. Magical or supernatural sensory enhancements do not function through the spell. Magical darkness blocks the view; in ordinary darkness you can see only within 10 feet of the destination plant. You can specify a familiar destination plant or give a direction and distance and let the spell select the nearest matching plant.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forest-eyes-603",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/forest-voice-623": {
+      "name": "Forest Voice",
+      "sourceSha256": "258ef7b20c5b6275cc36c7292754c71e9df223d4c444f292aca00d1f619f6624",
+      "effectSummary": "Touch a living Medium-or-larger plant or tree and designate another living plant of the same kind. You can converse clearly with anyone within 10 feet of the destination plant as though you were within 10 feet of one another, but the plants cannot transmit magical sonic effects. You can specify a familiar destination plant or provide a direction and distance and let the spell select the nearest matching plant.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forest-voice-623",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/forestfold-423": {
+      "name": "Forestfold",
+      "sourceSha256": "3079da71ca1c1e830486dea631477e0009baa6d607a0e57f0512dfb5c48f9ae5",
+      "effectSummary": "Choose one terrain type when casting: aquatic, desert, plains, forest, hills, mountains, marsh, or underground. Your coloring and footfalls adapt to that terrain, granting a +20 competence bonus on Hide and Move Silently checks while you are in the chosen terrain. Leaving and later returning to that terrain during the spell does not end the benefit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forestfold-423",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/forestfold-4531": {
+      "name": "Forestfold",
+      "sourceSha256": "2dd1256e03be5ae16b8009a181c9ef324db6419af310d86218b9b089e5868135",
+      "effectSummary": "Choose one terrain type when casting: aquatic, desert, plains, forest, hills, mountains, marsh, or underground. Your coloring and movement adapt to that terrain, granting a +10 competence bonus on Hide and Move Silently checks while you are in the chosen terrain. Leaving and later returning to the chosen terrain during the spell does not end the benefit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forestfold-4531",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fortify-dragonmark-4875": {
+      "name": "Fortify Dragonmark",
+      "sourceSha256": "daacc60e4dfee867d3f5880bca98b906802a85cb01b180c90955db2e47bbd158",
+      "tablesSha256": "66345c691053aa60cf5cd15affe223f0e0cc6768ad63124abe1e0a18ae4d8a1c",
+      "effectSummary": "Your true dragonmark gains a chance to turn a critical hit or sneak attack against you into normal damage instead. A least mark gives a 25% chance, a lesser mark 75%, and a greater or Siberys mark 100%. This protection does not stack with any other percentage chance to negate extra critical-hit or sneak-attack damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fortify-dragonmark-4875",
+          "role": "primary DnD Tools effect text and dragonmark-strength table reviewed and paraphrased for complete mechanics"
+        }
+      ]
+    },
+    "spells/fortify-familiar-3430": {
+      "name": "Fortify Familiar",
+      "sourceSha256": "b68c8badfc7bd98e942ce68f365eb506f51f68bd4df37a51a3f6a378f150df3f",
+      "effectSummary": "Your familiar gains a +2 enhancement bonus to natural armor, a 25% chance to negate the extra damage from a critical hit or sneak attack while still taking the attack’s normal damage, and 2d8 temporary hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fortify-familiar-3430",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fortify-familiar-4533": {
+      "name": "Fortify Familiar",
+      "sourceSha256": "b969a990a5bffba3216928f72102b55e84181243503f5ae2775cd1cb69009b07",
+      "effectSummary": "Your familiar gains 2d8 temporary hit points, a +2 enhancement bonus to natural armor, and a 25% chance to negate the extra damage from a critical hit or sneak attack while still taking the attack’s normal damage. The temporary hit points last up to 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fortify-familiar-4533",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fortify-familiar-579": {
+      "name": "Fortify Familiar",
+      "sourceSha256": "1dcf73886f5eb08bd0784a1c78d22069ef0b19caf1ad5d6492cece0e21ffb00c",
+      "effectSummary": "Your familiar gains 2d8 temporary hit points, a +2 enhancement bonus to natural armor, and a 25% chance to negate the extra damage from a critical hit or sneak attack while still taking the attack’s normal damage. The temporary hit points last up to 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fortify-familiar-579",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fortify-metal-or-stone-4799": {
+      "name": "Fortify Metal or Stone",
+      "sourceSha256": "29eb021c9c50683e4ca5abaa0996467919c5ab4f9e7370828291f558127d8924",
+      "effectSummary": "Strengthens one metal or stone object no more than 10 feet on a side. Its hardness and hit points double and its break DC increases by 10. A weapon gains +1 enhancement bonus on damage rolls; armor or a shield grants its wearer DR 1/magic, with armor and shield requiring separate castings. Masterwork items are valid. Magic items effectively have spell resistance 20 + their caster level against the spell; artifacts are immune. Multiple castings do not stack. The material component is coal dust and lime.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fortify-metal-or-stone-4799",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fortissimo-3309": {
+      "name": "Fortissimo",
+      "sourceSha256": "8fd8a1fd2885d093e6d61d947ff2215f3a03919dbe805fc88f2777bde1963a10",
+      "effectSummary": "Doubles the volume of one sound source. If cast on a creature, you can include worn or carried sound-producing items. A sonic or language-dependent attack generated by the affected source gains +2 to its saving throw DC, and a sonic attack that deals damage gains +1d6 damage. Fortissimo counters and dispels silence and is countered and dispelled by silence; when cast on a target already affected by silence, it negates silence for that creature or item only.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fortissimo-3309",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fortunate-fate-1614": {
+      "name": "Fortunate Fate",
+      "sourceSha256": "bbf6341f1cad3f0e2e651f1862cf3fa54d483bd4642c638ba5ba963f9771bd1a",
+      "effectSummary": "Places a contingent heal on the subject. If an effect would reduce the subject to -10 hit points or lower, the spell immediately triggers heal before death occurs. It can prevent death only from harm heal can repair, such as disease, hit point damage, temporary ability damage, or poison; it cannot prevent death from ability drain, old age, negative levels, disintegration, or death effects. If cast on an undead creature, the contingency triggers harm instead of heal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fortunate-fate-1614",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fortunate-fate-4534": {
+      "name": "Fortunate Fate",
+      "sourceSha256": "8127487beaed0d9500dd05febf0b4e5976437f0f52f6c862b53df8d09cc01779",
+      "effectSummary": "Places a contingent heal on the subject. If an effect would reduce the creature to -10 hit points or lower, the spell immediately triggers heal before death occurs. It can prevent death only from harm heal can repair, such as disease, hit point damage, ability damage, or poison; it cannot prevent death from ability drain, old age, negative levels, disintegration, or death effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fortunate-fate-4534",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/foundation-stone-4535": {
+      "name": "Foundation of Stone",
+      "sourceSha256": "382ab090a671a3289769b60202f4b7420273411b7d955e7931367b8f1dbb925b",
+      "effectSummary": "As long as the affected creatures do not move and remain standing on solid ground, they gain +2 Armor Class and +4 on Strength checks to resist bull rushes and trips. In mountainous terrain, the Strength-check bonus increases to +6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/foundation-stone-4535",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fountain-blood-3737": {
+      "name": "Fountain of Blood",
+      "sourceSha256": "0a7526e6c94b174e408f8f164786b121809061db1ca372ec6d0d141ed2f531df",
+      "effectSummary": "Initiate this maneuver during your turn after reducing a living opponent within your threatened area to -1 hit points or lower. Your finishing strike deals +1d6 damage, and every enemy within 30 feet must make a Will save at DC 14 + your Strength modifier or become shaken for 1 minute. The save DC increases by 1 for each foe you dropped earlier during the same turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fountain-blood-3737",
+          "role": "primary DnD Tools maneuver text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/foxs-cunning-2817": {
+      "name": "Fox's Cunning",
+      "sourceSha256": "7d282b83d1fdd2039e5039189df93ad7674d61b5fbfac54d8aff3855a47f46b4",
+      "effectSummary": "Grants +4 enhancement bonus to Intelligence, improving Intelligence-based checks and other uses of the Intelligence modifier. Intelligence-based spellcasters do not gain extra bonus spells from the increase, but their spell save DCs improve as normal. The spell does not grant retroactive skill points. The material component is fox hair or dung.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/foxs-cunning-2817",
+          "role": "primary Player's Handbook v.3.5 DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/foxs-cunning-3227": {
+      "name": "Fox's Cunning",
+      "sourceSha256": "2fe8a0602b918cde0f6d3952499b33598159418f74fe7eb64947de240e0d489d",
+      "effectSummary": "This earlier printing grants an enhancement bonus of 1d4+1 to Intelligence, improving Intelligence-related skills. Wizards do not gain additional spells from the increase, but their spell save DCs rise as appropriate. The material component is fox hair or dung.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/foxs-cunning-3227",
+          "role": "primary DnD Tools 3.0-era effect text reviewed and paraphrased for printing-specific mechanics"
+        }
+      ]
+    },
+    "spells/foxs-cunning-3415": {
+      "name": "Fox's Cunning",
+      "sourceSha256": "2fe8a0602b918cde0f6d3952499b33598159418f74fe7eb64947de240e0d489d",
+      "effectSummary": "This earlier printing grants an enhancement bonus of 1d4+1 to Intelligence, improving Intelligence-related skills. Wizards do not gain additional spells from the increase, but their spell save DCs rise as appropriate. The material component is fox hair or dung.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/foxs-cunning-3415",
+          "role": "primary DnD Tools 3.0-era effect text reviewed and paraphrased for printing-specific mechanics"
+        }
+      ]
+    },
+    "spells/foxs-cunning-mass-2818": {
+      "name": "Fox's Cunning, Mass",
+      "sourceSha256": "d4f524956b88a5397f7f1509c6787602863ee8c00ac11de2c508565d0736daf4",
+      "effectSummary": "Grants each target the normal 3.5 fox’s cunning effect: +4 enhancement bonus to Intelligence, improving Intelligence-based checks and spell save DCs as appropriate. Intelligence-based spellcasters do not gain extra bonus spells, and the increase does not grant extra skill points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/foxs-cunning-mass-2818",
+          "role": "primary mass variant reviewed; multi-target inheritance retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/foxs-cunning-2817",
+          "role": "primary Player's Handbook v.3.5 base spell used to resolve inherited Fox's Cunning mechanics"
+        }
+      ]
+    },
+    "spells/fracturing-weapon-3548": {
+      "name": "Fracturing Weapon",
+      "sourceSha256": "32830cc3bb5e48b999ea92c177168ab104eac6900aa91abf6c66d8115d3d1c68",
+      "effectSummary": "Once per round, the wielder can declare one melee attack with the affected weapon to be a fracturing blow. If it deals damage, after resolving that damage the target takes -5 Armor Class and -5 damage reduction, to a minimum DR of 0, for 1 round. The wielder can renew the penalty on a later turn by landing another declared fracturing blow.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fracturing-weapon-3548",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/freedom-2323": {
+      "name": "Freedom",
+      "sourceSha256": "a316aff541fc00b60871b729481a76ad425c538d484ccd081e25266d1c4e269f",
+      "effectSummary": "Frees the subject from movement-restricting spells and effects including binding, entangle, grappling, imprisonment, maze, paralysis, petrification, pinning, sleep, slow, stunning, temporal stasis, and web. To release a creature from imprisonment or maze, you must know its name and background and cast freedom at the place where it was imprisoned or banished into the maze.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/freedom-2323",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/freedom-of-breath-3122": {
+      "name": "Freedom of Breath",
+      "sourceSha256": "462a32b9b2d9c60d87bb5cae0e83faf3feb5299fcb7ef7ff590c1a83da389309",
+      "effectSummary": "Lets the subject breathe normally in conditions such as sandstorms and removes suffocation checks as long as some breathable substance is available; it does not let a creature breathe water or survive where no breathable medium exists. It also makes the subject immune to nausea and similar effects caused by stenches or strong odors, and grants +2 on Fortitude saves and Constitution checks against poisonous vapors such as volcanic fumes or cloudkill. The material component is a sliver of mica.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/freedom-of-breath-3122",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/freedom-of-movement-2322": {
+      "name": "Freedom of Movement",
+      "sourceSha256": "5a12658a55c7c02caffdfb65e9a3fd64868675467c4214f7281afc47f4dc809c",
+      "effectSummary": "Lets the subject move and attack normally despite magic that impedes movement, including paralysis, solid fog, slow, and web. The subject automatically succeeds on checks to resist a grapple and on grapple or Escape Artist checks to escape a grapple or pin. Underwater it can move and attack normally with handheld slashing or bludgeoning weapons, but the spell does not provide water breathing. The material component is a leather thong bound around an arm or similar appendage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/freedom-of-movement-2322",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/freeze-4537": {
+      "name": "Freeze",
+      "sourceSha256": "a0adcc86e85faa2acfbd8932b83cc31df82ed88c7da67a3a1dedde77ec0717c9",
+      "effectSummary": "Fire a ray requiring a ranged touch attack. A hit deals 2d6 cold damage, then the target must make a Reflex save or become encased in a 5-inch shell of ice, immobilized and helpless. An encased creature takes another 2d6 cold damage each round. It remains conscious and can breathe but cannot speak or move except to attempt a DC 22 Strength check to break free; purely mental actions remain possible, and spells can be cast only if they require neither verbal nor somatic components and any required focus/material/divine focus is already accessible in hand. The ice blocks line of effect and has hardness 0 and 15 hit points; damage must destroy it before excess damage can affect the creature. A winged creature falls when frozen, while a swimming creature rises toward the surface. The ice melts when the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/freeze-4537",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete encasement mechanics"
+        }
+      ]
+    },
+    "spells/freezing-fog-4539": {
+      "name": "Freezing Fog",
+      "sourceSha256": "4435ae1809e713a2bfba255b490fff38956466827a583c8dab23a01deb94004d",
+      "effectSummary": "Creates freezing fog that blocks sight beyond 5 feet: creatures within 5 feet have concealment and farther creatures have total concealment. Each round it deals 1d6 cold damage to creatures and objects. Movement through it is limited to 5 feet regardless of speed, with -2 on melee attack and damage rolls and -6 on ranged weapon attacks, but not ranged spell attacks. Falling through the fog reduces falling damage by 1d6 per 10 feet traversed. Surfaces become slick: creatures must make Reflex saves each round or fall prone, and standing/moving requires Balance checks; no 5-foot steps are possible. Severe wind disperses it in 1 round. It does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/freezing-fog-4539",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for complete fog and ice mechanics"
+        }
+      ]
     }
   }
 }
