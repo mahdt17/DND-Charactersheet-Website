@@ -15199,6 +15199,223 @@
           "role": "same primary catalog cross-reference used to resolve the enervation mechanics explicitly incorporated by this printing"
         }
       ]
+    },
+    "spells/energy-immunity-3379": {
+      "name": "Energy Immunity",
+      "sourceSha256": "58b6472f9f8ea3d66f7ee3c0a273f1d65a2a455cb4fd0218caa04e5ff07e86a3",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic. The creature and its equipment are completely protected from damage of that energy type, but non-damage side effects can still occur, such as drowning in acid, deafness from sonic effects, or being encased in ice. This protection overlaps rather than stacks with endure elements, resist elements, and protection from elements against the same energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-immunity-3379",
+          "role": "primary Tome and Blood printing reviewed and paraphrased; its 3.0 overlapping ward spell names are preserved"
+        }
+      ]
+    },
+    "spells/energy-immunity-439": {
+      "name": "Energy Immunity",
+      "sourceSha256": "cee1a061a1208d345be54311b381dfa78078c3dd25de0dc586cf6735be8292dc",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic. The creature and its equipment take no damage from the chosen energy type, though non-damage side effects such as drowning in acid, deafness from sonic effects, or immobilization in ice can still occur. It overlaps rather than stacks with protection from energy and resist energy; while this spell is active, those wards absorb no damage of the same type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-immunity-439",
+          "role": "primary Complete Arcane printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-immunity-4441": {
+      "name": "Energy Immunity",
+      "sourceSha256": "9cf7ca7ffdd494d2faefee197015396a8d854495b83dfe0a50931b6e2a4508af",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic. The creature and its equipment are immune to hit point damage from that energy type, but related non-damage consequences can still occur, including drowning in acid, deafness from sonic effects, or immobilization in ice. It overlaps rather than stacks with protection from energy and resist energy against the same type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-immunity-4441",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-immunity-999": {
+      "name": "Energy Immunity",
+      "sourceSha256": "618dfa3f891e528c9cbb09df2097ad04011878d25c84431f3eb9fab8b1109b2c",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic. The creature and its equipment are completely protected from damage of that type, while non-damage side effects can still occur. Protection against the same energy type does not stack with resist energy, protection from energy, or similar effects, but separate wards against different energy types can operate at the same time.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-immunity-999",
+          "role": "primary Draconomicon printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-spheres-4442": {
+      "name": "Energy Spheres",
+      "sourceSha256": "6c09bce1312de083fd84eb25821422ad340db36248b198640c0e53aa348a01f0",
+      "effectSummary": "Creates five orbiting spheres, one each for acid, cold, electricity, fire, and sonic; together they shed torchlike light. As a standard action, you can send one or more remaining spheres to strike creatures in range, with no two targets more than 30 feet apart. Each sphere deals 5 damage per five caster levels, maximum 20, of its energy type, with a separate Reflex save for half. Defensively, each corresponding sphere grants energy resistance 5 per five caster levels; using a sphere to absorb damage destroys that sphere. Against one spell-resistant target in a round, make a single spell-resistance check for all spheres attacking it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-spheres-4442",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-surge-3012": {
+      "name": "Energy Surge",
+      "sourceSha256": "baf48defda331d74429a33fad3c106001a78cdffdaafc2a842de21a62f3269c2",
+      "effectSummary": "Functions as lesser energy surge with a stronger damage bonus. Choose acid, cold, electricity, fire, or sonic when casting; the targeted weapon is sheathed in that energy, the spell gains that energy descriptor, and a successful attack with the weapon deals an extra 2d6 damage of the chosen type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-surge-3012",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/energy-surge-lesser-3014",
+          "role": "same primary catalog cross-reference used to resolve the lesser energy surge mechanics explicitly incorporated by this spell"
+        }
+      ]
+    },
+    "spells/energy-surge-greater-3013": {
+      "name": "Energy Surge, Greater",
+      "sourceSha256": "456ad7e0698989ea9a748c7baa4a769d73226435fad9a059616d78525fd9a7ab",
+      "effectSummary": "Functions as lesser energy surge with a stronger damage bonus. Choose acid, cold, electricity, fire, or sonic when casting; the targeted weapon is sheathed in that energy, the spell gains that energy descriptor, and a successful attack with the weapon deals an extra 3d6 damage of the chosen type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-surge-greater-3013",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/energy-surge-lesser-3014",
+          "role": "same primary catalog cross-reference used to resolve the lesser energy surge mechanics explicitly incorporated by this spell"
+        }
+      ]
+    },
+    "spells/energy-surge-lesser-3014": {
+      "name": "Energy Surge, Lesser",
+      "sourceSha256": "e7dba969ae4d5455ce580328d6b0be971601d9502edf3d7a5874fc27078fb7b2",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic when casting. The targeted weapon is temporarily sheathed in that energy, the spell gains the corresponding energy descriptor, and a successful attack with the weapon deals an extra 1d6 damage of the chosen type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-surge-lesser-3014",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-transformation-field-1756": {
+      "name": "Energy Transformation Field",
+      "sourceSha256": "960532da247f8e2086629418e597b264134ff021fe1f1db583e563be835d81d8",
+      "effectSummary": "Creates a persistent field that absorbs magic actually used within its area—including cast spells, activated spell-like or supernatural abilities, and used magic items—and stores energy measured in spell levels. Spell-like or spell-emulating effects contribute their spell level; supernatural abilities without a spell equivalent contribute the user's Hit Dice; effects without a defined spell level use the item's prerequisite caster level. Absorbed effects simply vanish. Ongoing magic entering from outside, or continuously functioning items, can appear diminished but are not suppressed. One spell is linked when the field is created. Whenever stored energy reaches that spell's level, the field automatically casts it at the point chosen when the field was created, expending only the required stored levels; unused levels remain but fade at one level per day. The linked spell uses your level-based effects and duration, and the field can trigger it again after the prior casting ends. Concentration spells cost one stored spell level per hour and remain concentrated on unless the field is destroyed. Targeted linked spells choose the nearest living creature. Linked spells cannot have an XP cost or costly material component; a costly focus is allowed only if the focus is present in the field. Only Mordenkainen's disjunction, limited wish, wish, or similarly powerful magic can destroy the field; lower-level dispels are absorbed. Antimagic prevents absorption inside its area but otherwise does not end the field. Overlapping transformation fields have an equal chance to absorb any effect used in the overlap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-transformation-field-1756",
+          "role": "primary Magic of Faerûn printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-transformation-field-4443": {
+      "name": "Energy Transformation Field",
+      "sourceSha256": "2c07df293766032dc6cca9f8c6d6d4b21f4297acca563cc69dcdbd247f020306",
+      "effectSummary": "Creates a persistent field that absorbs magic actually used within its area—including cast spells, activated spell-like or supernatural abilities, and used magic items—and stores energy measured in spell levels. Spell-like or spell-emulating effects contribute their spell level; supernatural abilities without a spell equivalent contribute the user's Hit Dice; effects without a defined spell level use the item's prerequisite caster level. Absorbed effects vanish without taking effect. Ongoing magic entering from outside, or continuously functioning items, can appear diminished but are not suppressed. One spell is linked when the field is created. Whenever stored energy reaches that spell's level, the field automatically casts it at the point chosen when the field was created, expending only the required stored levels; unused levels remain but fade at one level per day. The linked spell uses your level-based effects and duration, and can trigger again after its prior casting ends. Concentration spells cost one stored spell level per hour, and the field's concentration is interrupted only by its destruction. Targeted linked spells choose the nearest living creature. Linked spells cannot have an XP cost or costly material component; costly focuses are allowed only if present in the field. Only Mordenkainen's disjunction, limited wish, wish, or similarly powerful magic can destroy the field; lower-level dispels are absorbed. Antimagic prevents absorption inside its area but otherwise does not end the field. Overlapping transformation fields have an equal chance to absorb an effect used in their overlap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-transformation-field-4443",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-vortex-3541": {
+      "name": "Energy Vortex",
+      "sourceSha256": "e714825bf1600b0f0cd1a2ae3ce89624b7a9972b3434972d99804caa48344834",
+      "effectSummary": "Choose acid, cold, electricity, or fire. Energy bursts outward from you, dealing 1d8 damage +1 per caster level, maximum +20, of that type to nearby creatures other than you. You can choose to take the same energy damage yourself to double the damage dealt to the other creatures; you receive no Reflex save against your self-inflicted damage, but spell resistance, resistance, and immunity still apply to you. The spell gains the descriptor of the chosen energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-vortex-3541",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its four allowed energy types are preserved"
+        }
+      ]
+    },
+    "spells/energy-vortex-700": {
+      "name": "Energy Vortex",
+      "sourceSha256": "9a1960a059b745e37d76c446b9ac81b5b644ff055fdf19e071fac0769d686b86",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic. Energy bursts outward from you, dealing 1d8 damage +1 per caster level, maximum +20, of that type to nearby creatures other than you. You can choose to take the same energy damage yourself to double the damage dealt to the other creatures; you receive no Reflex save against your self-inflicted damage, but spell resistance, resistance, and immunity still apply to you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-vortex-700",
+          "role": "primary Complete Divine printing reviewed and paraphrased; its five allowed energy types including sonic are preserved"
+        }
+      ]
+    },
+    "spells/energy-vulnerability-2911": {
+      "name": "Energy Vulnerability",
+      "sourceSha256": "1ea2de9a97b74c22a8630b6c2339a7a4b5a73afef168fc7dac7dfd87797ed287",
+      "effectSummary": "Choose creatures whose combined Hit Dice do not exceed twice your caster level, and choose acid, cold, electricity, fire, or sonic. Affected creatures become vulnerable to that energy type, taking 50% extra damage from it even when they succeed on a saving throw against the damaging effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-vulnerability-2911",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enervating-breath-1021": {
+      "name": "Enervating Breath",
+      "sourceSha256": "c03aaa3a8dee9f4d867a8c7cae4d7f7a383a4485c9da030dff3a51fb7f1da6d9",
+      "effectSummary": "Modifies the breath weapon produced as part of casting. In addition to its normal energy damage, each creature that fails the breath weapon's save gains 2d4 negative levels. Each negative level imposes -1 on attacks, saves, skill checks, ability checks, and effective level for spells and special abilities; a spellcaster also loses one highest-level available spell or slot. Negative levels stack, and a creature dies if its negative levels reach its Hit Dice. Survivors recover these negative levels after a number of hours equal to your caster level, so they do not last long enough to cause permanent level loss. An undead creature caught in the breath instead gains 2d4×5 temporary hit points before taking the breath weapon's normal damage; unused temporary hit points last 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enervating-breath-1021",
+          "role": "primary Draconomicon printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enervating-breath-4444": {
+      "name": "Enervating Breath",
+      "sourceSha256": "f8ea23d43025e9c318223e872a1e9419dc7c8d1482e59a9cb6d8eaa291c61992",
+      "effectSummary": "Requires a breath weapon, whether supernatural or supplied by a spell such as dragon breath. The breath is laced with negative energy: in addition to its normal damage, each creature that fails the breath weapon's save gains 2d4 negative levels. Each negative level imposes -1 on attacks, saves, skill checks, ability checks, and effective level for spells and special abilities; a spellcaster also loses one highest-level available spell or slot. A creature dies if its negative levels reach its Hit Dice. Survivors recover these negative levels after a number of hours equal to your caster level, so they do not last long enough to cause permanent level loss. An undead creature caught in the breath instead gains 2d4×5 temporary hit points before taking the breath weapon's normal damage; unused temporary hit points last up to 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enervating-breath-4444",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enervating-shadow-strike-3691": {
+      "name": "Enervating Shadow Strike",
+      "sourceSha256": "ff19bfaa287d3762fcfb4660bb2d255f064ef446c262a05767197bd138411b3f",
+      "effectSummary": "As part of the maneuver, make one melee attack. On a hit, the attack deals normal damage and the target must make a Fortitude save at DC 18 + your Wisdom modifier or gain 1d4 negative levels. You gain 5 temporary hit points per negative level actually inflicted, lasting until the end of the encounter. The bestowed negative levels disappear after 24 hours. Each negative level imposes -1 on attacks, saves, skill checks, ability checks, and effective level for spells and special abilities; spellcasters also lose one highest-level available spell or slot. Negative levels stack, and a creature dies if its negative levels reach its Hit Dice. This maneuver is supernatural.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enervating-shadow-strike-3691",
+          "role": "primary Tome of Battle printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enervation-2733": {
+      "name": "Enervation",
+      "sourceSha256": "596c0d53339af270939b983f7c8f1a6968cd45bdb4ef7c53b5bf318cc3c90738",
+      "effectSummary": "Make a ranged touch attack with a ray of negative energy. On a hit, a living target gains 1d4 negative levels. Each negative level imposes -1 on attacks, saves, skill checks, ability checks, and effective level for spells and special abilities; a spellcaster also loses one highest-level available spell or slot. Negative levels stack, and a creature dies if its negative levels reach its Hit Dice. A surviving target automatically regains these negative levels after a number of hours equal to your caster level, maximum 15, so they do not last long enough to cause permanent level loss. An undead creature hit by the ray instead gains 1d4×5 temporary hit points for 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enervation-2733",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/engulfing-terror-1120": {
+      "name": "Engulfing Terror",
+      "sourceSha256": "928dfbb01d9e699ad05313fc7f52630148a943076193ee9a0b855199cb08ebc4",
+      "effectSummary": "Creates a gelatinous cube in a designated space large enough to hold it; otherwise the spell fails. The cube acts on your turn and attacks the nearest living creature each round. You cannot control or direct it. It remains until destroyed or until no targets remain, at which point it moves away in a random direction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/engulfing-terror-1120",
+          "role": "primary Drow of the Underdark printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enhance-familiar-4445": {
+      "name": "Enhance Familiar",
+      "sourceSha256": "fd1416bf03af2e9e3265a6d295ca2784b680e51c619782e09a7517e5d3d2fa09",
+      "effectSummary": "The touched familiar gains a +2 competence bonus on saving throws, attack rolls, and melee damage rolls, plus a +2 dodge bonus to Armor Class for the spell's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enhance-familiar-4445",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
     }
   }
 }
