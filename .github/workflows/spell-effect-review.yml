@@ -63,6 +63,10 @@ jobs:
         with:
           name: spell-effect-review
           path: test-results/review
+      - name: Validate spell review tooling
+        run: |
+          python scripts/classify_spell_review_queue.py --self-test
+          python scripts/select_spell_review_batch.py --self-test
       - name: Classify remaining review queue
         run: >
           python scripts/classify_spell_review_queue.py
