@@ -1169,7 +1169,8 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
                 result["sourceIncompleteMarker"]=marker
                 break
         reference_dependent=bool(
-            re.search(r"\b(?:functions?|works?|operates?)\s+like\b",effect_source,re.I)\n            or re.search(r"\b(?:functions?|works?|operates?)\s+as\s+(?!if\b)",effect_source,re.I)
+            re.search(r"\b(?:functions?|works?|operates?)\s+like\b",effect_source,re.I)
+            or re.search(r"\b(?:functions?|works?|operates?)\s+as\s+(?!if\b)",effect_source,re.I)
             or re.search(r"^As\s+[^.!?]{1,120}?,\s*(?:except|but)\b",effect_source,re.I)
         )
         if reference_dependent:
