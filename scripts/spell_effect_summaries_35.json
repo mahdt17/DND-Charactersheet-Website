@@ -19859,6 +19859,241 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/poison-2754": {
+      "name": "Poison",
+      "sourceSha256": "70081531c710790a5ffaa258483b5f08c462a33c135a763f23a2afafe010d13b",
+      "effectSummary": "A successful melee touch attack poisons the subject, dealing 1d10 Constitution damage immediately and another 1d10 Constitution damage 1 minute later. Each damage instance is negated separately by a Fortitude save with DC 10 + one-half your caster level + your Wisdom modifier.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/poison-2754",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-touch-weapon-3899": {
+      "name": "Ghost Touch Weapon",
+      "sourceSha256": "fa3fc591848bbbdd0fceb92211949fb320cdce6b47be41d909a6158dc61241ca",
+      "effectSummary": "Makes one weapon fully effective against incorporeal creatures regardless of enhancement bonus, removing their normal 50% chance to ignore damage from corporeal attacks. A ranged weapon does not pass the property to ammunition. Incorporeal creatures can pick up and move the weapon, and a manifesting ghost can wield it against corporeal targets; the weapon counts as corporeal or incorporeal at any moment, whichever is more favorable to its wielder.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-touch-weapon-3899",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-trap-1453": {
+      "name": "Ghost Trap",
+      "sourceSha256": "2448139acba760611d15bf260374e20b73819bd0d38b9bf6b75aaf73b0f911d5",
+      "effectSummary": "Creates a field extending 5 feet per caster level in which incorporeal creatures become corporeal and cannot turn ethereal. Ethereal creatures within the field cannot become nonethereal while they remain inside it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-trap-1453",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-trap-3900": {
+      "name": "Ghost Trap",
+      "sourceSha256": "afccad95b91288a878883c7cca4815cee1fbcd52981a05a6cef5cb89d2aee785",
+      "effectSummary": "Creates a field extending 5 feet per caster level in which incorporeal creatures become corporeal and cannot turn ethereal. Ethereal creatures within the field cannot enter or affect the plane on which the spell was cast.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-trap-3900",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-venom-1373": {
+      "name": "Ghost Venom",
+      "sourceSha256": "2d881de2b9e0e71d1eae34eea3c80eba965d775758974a9023ee1c008b529546",
+      "effectSummary": "Functions like poison but affects only ghosts and other ectoplasmic creatures. A successful melee touch attack deals 1d10 Constitution damage immediately and another 1d10 Constitution damage 1 minute later; each damage instance is negated separately by a Fortitude save with DC 10 + one-half your caster level + your Wisdom modifier.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-venom-1373",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; ectoplasmic-only exception retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/poison-2754",
+          "role": "primary catalog base spell used to resolve inherited poison damage and saving throw mechanics"
+        }
+      ]
+    },
+    "spells/ghostform-1506": {
+      "name": "Ghostform",
+      "sourceSha256": "19ba66c9eac20e5848af553d43f5f501e23c2d398861cc54c92845d85796f9d0",
+      "effectSummary": "Makes you incorporeal. Nonmagical attacks cannot harm you; corporeal magical attacks and spells have the normal 50% chance to fail against incorporeal targets except positive or negative energy, force effects, and ghost touch. You gain a deflection bonus to AC equal to Charisma modifier, minimum +1, can pass through solid objects while remaining adjacent to their exterior, cannot pass through force effects, and ignore natural armor, ordinary armor, and shields with your attacks while deflection and force bonuses still apply. Your nonmagical attacks cannot affect corporeal targets and magical weapons have a 50% miss chance unless ghost touch; your spells affect corporeal creatures normally. You have no Strength score and use Dexterity for melee and ranged attacks, cannot grapple, trip, manipulate objects normally, or trigger weight-based traps, can move through water as air, do not fall, can move silently if desired, and have an innate sense of direction even when unable to see.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostform-1506",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghostform-3416": {
+      "name": "Ghostform",
+      "sourceSha256": "c1118b28d756bbceeb670726c57db22d0435f4a0e19d349926a39d8790767ee3",
+      "effectSummary": "Shifts your body to the Ethereal Plane while leaving you visible from the Material Plane. You can be harmed only by incorporeal creatures, +1 or better magic weapons, or spells, with the normal 50% chance to ignore corporeal damage except force and ghost touch. Against material creatures you ignore natural armor, armor, and shields while deflection and force bonuses still apply, and your deflection bonus equals your Charisma modifier, minimum +1. You cannot physically attack material creatures except with ghost touch weapons and use Dexterity instead of Strength for attacks; spells still affect material targets normally except touch spells. Against ethereal opponents combat is normal. You fly at your normal speed with perfect maneuverability, cannot run, and can pass through solid objects. If the spell ends while you are inside a solid object, you are shunted to the nearest open space and take 1d6 damage per 5 feet moved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostform-3416",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing's ethereal mechanics"
+        }
+      ]
+    },
+    "spells/ghostform-3901": {
+      "name": "Ghostform",
+      "sourceSha256": "2263a99a91dd2764e1f635046adf7c13d3f23f2bc8e4834e8e56d5cbb2259fd6",
+      "effectSummary": "Makes you and held equipment incorporeal. You gain the normal incorporeal immunities and 50% protection against corporeal magical attacks, except positive or negative energy, force, and ghost touch; your deflection AC bonus equals Charisma modifier, minimum +1. You can pass through solid objects while remaining adjacent to their exterior, cannot pass force effects, ignore ordinary armor and natural armor with attacks, have no Strength score and use Dexterity for attacks, cannot grapple or manipulate objects normally, do not fall, and move through water as air. Magic items you carry continue functioning. An object you relinquish becomes corporeal, and a thrown or fired projectile becomes corporeal when released and then attacks normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostform-3901",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing's incorporeal equipment rules"
+        }
+      ]
+    },
+    "spells/ghostform-549": {
+      "name": "Ghostform",
+      "sourceSha256": "46fc728c541ead9f0ed9906cb539cfb731df3c7ee7f23b1217b02c67dc420f35",
+      "effectSummary": "Makes you incorporeal. Nonmagical attacks cannot harm you; corporeal magical attacks and spells have the normal 50% chance to fail except positive or negative energy, force effects, and ghost touch. You gain a deflection bonus to AC equal to Charisma modifier, minimum +1, can pass through solid objects while remaining adjacent to their exterior, cannot pass through force effects, and ignore natural armor, ordinary armor, and shields with your attacks while deflection and force bonuses still apply. You have no Strength score and use Dexterity for attacks, cannot grapple, trip, manipulate objects normally, or trigger weight-based traps, can move through water as air, do not fall, can move silently if desired, and retain an innate sense of direction even when blind.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostform-549",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghostharp-1636": {
+      "name": "Ghostharp",
+      "sourceSha256": "03e8c04723c8693f0217a13ea61074bb918ccb255ddc09ddd2c590ad60be7e2f",
+      "effectSummary": "Prepares an object to reproduce a song or musical performance heard near it. When commanded to play, it repeats the nearest or most recent qualifying performance heard within 50 feet during the previous day and continues until stopped or the spell ends. It does not reproduce ordinary conversation, bardic magic, or spell effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostharp-1636",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghostharp-3902": {
+      "name": "Ghostharp",
+      "sourceSha256": "e51502456ed10ffe9bddbe971f40a49b4a31ae9896a4ad0e34f6037eef73f0f1",
+      "effectSummary": "Prepares an object to reproduce a song or musical performance heard near it. When commanded to play, it repeats the nearest or most recent qualifying performance heard within 50 feet during the previous day and continues until stopped or the spell ends. It does not reproduce ordinary conversation, bardic music effects, or spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostharp-3902",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghostly-defense-3670": {
+      "name": "Ghostly Defense",
+      "sourceSha256": "63eba837dc91c68cbc19117a0c76af685c039a56e800103f47813d546886892a",
+      "effectSummary": "While in this stance, when a melee or ranged attack against you misses specifically because of a miss chance, you can redirect the same attack roll against another eligible target. For a melee attack, the new target must be within the attacker's reach and adjacent to you; for a ranged attack, it must be adjacent to you and within line of effect. The redirected attack uses the original roll and does not make another miss-chance check. You must be aware of the attack and not flat-footed, and an attack cannot be redirected repeatedly.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostly-defense-3670",
+          "role": "primary DnD Tools stance effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghostly-reload-3105": {
+      "name": "Ghostly Reload",
+      "sourceSha256": "5393b90c3e7ef9f41a046bf6b0d122aad19783d27141b5830489163b41d04162",
+      "effectSummary": "Magically recocks the focused crossbow after it is fired. A hand or light crossbow can be reloaded this way once per caster level, maximum 10 times; a heavy crossbow can be reloaded once per two caster levels, maximum 5 times. The effect does not stack with another ghostly reload. It allows a light or heavy crossbow to be fired as a standard action and still leaves a move action, and supports multiple shots during a full attack so long as reload uses remain. The focus is the crossbow.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostly-reload-3105",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghostly-tail-3095": {
+      "name": "Ghostly Tail",
+      "sourceSha256": "ffd10fd4cbd63a31b4f534d8179a6d2bb134c9e1a05b13ac1a70b49537e22f96",
+      "effectSummary": "Evokes a ghostly tail that lets you make an attack of opportunity against a creature that provokes from you even if you do not otherwise threaten it with a melee weapon. The tail makes a melee touch attack dealing 2d6 damage and can be used only while you still have an attack of opportunity available. If you have the dragonblood subtype or are a dragon, it deals an additional 1 damage per caster level, maximum +20.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostly-tail-3095",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghoul-gauntlet-1477": {
+      "name": "Ghoul Gauntlet",
+      "sourceSha256": "ea3446bf9da0ebcec9444b934268c062d0840ff12a1aa760b5cd3d2bc33d9740",
+      "effectSummary": "Afflicts the touched creature so it takes 3d6 damage each round until reduced to 0 hit points, at which point it transforms into a ghoul under your control. After the initial failed save, cure disease, dispel magic, heal, limited wish, Mordenkainen's disjunction, remove curse, wish, or greater restoration can end the effect; healing damage delays but does not stop the progression. Created ghouls remain under your control indefinitely, but the total undead you control through this spell cannot exceed 2 HD per caster level; newly created ghouls take priority and you choose which older ones are released if necessary. Undead controlled through clerical rebuke or command do not count against this limit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghoul-gauntlet-1477",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghoul-gauntlet-3903": {
+      "name": "Ghoul Gauntlet",
+      "sourceSha256": "b3ea48d7169bcae17ac61ba3facb49fe041a0cec0718abb05bf9af1aa72251b0",
+      "effectSummary": "Afflicts the touched creature so it takes 3d6 damage each round until reduced to 0 hit points, at which point it transforms into a ghoul under your control. After the initial failed save, dispel magic, heal, limited wish, Mordenkainen's disjunction, remove curse, remove disease, wish, or greater restoration can end the effect; healing delays but does not stop the progression. Created ghouls remain under your control indefinitely, but the total undead controlled through this spell cannot exceed 4 HD per caster level; newly created ghouls take priority and you choose which older ones are released if necessary. Undead controlled through clerical rebuke or command do not count against this limit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghoul-gauntlet-3903",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing's 4-HD-per-level control limit"
+        }
+      ]
+    },
+    "spells/ghoul-gesture-1478": {
+      "name": "Ghoul Gesture",
+      "sourceSha256": "ef8a1e1506fea8ba45420007317a918a67bf8ca01d8021a5e7ceaade063351e8",
+      "effectSummary": "Fires a ray requiring a ranged touch attack. A target that fails its Fortitude save is paralyzed for the spell's duration; a target that succeeds is sickened instead for that duration. Neutralize poison removes the sickened condition. Creatures immune to poison are unaffected by the ghoul-like stench associated with the effect. The material component is cloth or earth taken from a ghoul's lair.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghoul-gesture-1478",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghoul-gesture-3904": {
+      "name": "Ghoul Gesture",
+      "sourceSha256": "99374479965a1284fd5868a4fff90e8676647a7ed61628cb8fed42d895f46067",
+      "effectSummary": "Fires a ray requiring a ranged touch attack. A target that fails its Fortitude save is paralyzed for the spell's duration; a target that succeeds is sickened instead for that duration. Neutralize poison removes the sickened condition.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghoul-gesture-3904",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghoul-glyph-1479": {
+      "name": "Ghoul Glyph",
+      "sourceSha256": "0cdf444f72f4dc4ce9c420aecd13f9ad790555ebeb77a79ad530e5cf83320d91",
+      "effectSummary": "Places an invisible glyph that triggers when a living creature of Large size or smaller comes within 2 feet; anyone except you can trigger it. It does not trigger from ethereal creatures, and a portable glyph fades if moved more than 5 feet. Only one can occupy a 5-foot square. When triggered, the victim must make a Fortitude save or be paralyzed for 1d6+2 rounds and emit a carrion stench in a 10-foot radius; other creatures in the stench must save or take -2 on attack rolls, weapon damage, saving throws, skill checks, and ability checks until the spell ends. The glyph can be dispelled, mislead and nondetection can fool it, read magic permits a DC 13 Spellcraft check to identify it, and a rogue can find and disable it with DC 27 checks. The material component is earth from a ghoul's lair.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghoul-glyph-1479",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghoul-glyph-4550": {
+      "name": "Ghoul Glyph",
+      "sourceSha256": "57137f8900e3f158d4e46fb9f1dea3e8f036e37dd2f3ec10ba17f526fe46f3af",
+      "effectSummary": "Places an invisible glyph that triggers when a living creature of Large size or smaller comes within 5 feet; anyone except you can trigger it. It does not trigger from ethereal creatures, and a portable glyph fades if moved more than 5 feet. Only one can occupy a 5-foot square. On a failed Fortitude save the victim is paralyzed for 1d6+2 rounds and emits a carrion stench in a 10-foot radius; the victim and other creatures in the stench must save or take -2 on attack rolls, weapon damage, saving throws, skill checks, and ability checks until the paralysis ends. The glyph can be dispelled, mislead and nondetection can fool it, read magic permits a DC 13 Spellcraft check to identify it, and a rogue can find and disable it with DC 27 checks. The material component is earth from a ghoul's lair.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghoul-glyph-4550",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing's 5-foot trigger and stench duration"
+        }
+      ]
+    },
+    "spells/ghoul-glyph-4985": {
+      "name": "Ghoul Glyph",
+      "sourceSha256": "8fa993c7f3e373f06c239a100f8c929a15488852b8f7788cea1c7bcca70842ad",
+      "effectSummary": "Places an invisible glyph that triggers when a living creature of Large size or smaller comes within 2 feet; anyone except you can trigger it. It does not trigger from ethereal creatures, and a portable glyph fades if moved more than 5 feet. Only one can occupy a 5-foot square. When triggered, the victim must make a Fortitude save or be paralyzed for 1d6+2 rounds and emit a carrion stench in a 10-foot radius; other creatures in the stench must save or take -2 on attack rolls, weapon damage, saving throws, skill checks, and ability checks until the spell ends. The glyph can be dispelled, mislead and nondetection can fool it, read magic permits a DC 13 Spellcraft check to identify it, and a rogue can find and disable it with DC 27 checks. The material component is earth from a ghoul's lair.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghoul-glyph-4985",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
