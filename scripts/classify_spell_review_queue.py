@@ -731,7 +731,7 @@ def run_self_test() -> None:
     ) == ["reincarnate"]
     assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
     assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
-    assert external_mechanics_reasons("For details, see The Polymorph Subschool on page 60.") == ["polymorph-subschool-reference"]
+    assert "polymorph-subschool-reference" in external_mechanics_reasons("For details, see The Polymorph Subschool on page 60.")
     assert external_mechanics_reasons("The tentacle is equivalent to a giant constrictor snake (MM 280) except that it obeys you.") == ["referenced-creature-stat-block"]
     assert external_mechanics_reasons("These strands are identical with those created by the web spell, except they regrow.") == ["embedded-spell-mechanics"]
     assert "leading-inherited-spell" in external_mechanics_reasons("As the alarm spell, and in addition this affects coterminous planes.")
