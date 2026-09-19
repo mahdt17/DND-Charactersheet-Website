@@ -9671,6 +9671,230 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/crown-of-glory-1017": {
+      "name": "Crown of Glory",
+      "sourceSha256": "c0d3bb34869158de11b6bbe2c258d8e53e2f8a5241049178f61d497d69f0f8e2",
+      "effectSummary": "Grants the caster +4 enhancement to Charisma. Creatures in the area with fewer than 8 Hit Dice or levels must stop and pay attention; attempting hostile action against the caster requires a Will save, and a creature that fails its first such save becomes enthralled while it remains in the area and will not leave voluntarily. Listeners understand the caster telepathically regardless of language. During the spell the caster can make up to three suggestions, as mass suggestion, to creatures of fewer than 8 HD in range; each allows a Will save. Creatures of 8 HD or more are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-glory-1017",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-glory-4263": {
+      "name": "Crown of Glory",
+      "sourceSha256": "08dc51c4d0e3eac44bb58919fc1a8edcba7615ac99815215d444ddadfe6ac648",
+      "effectSummary": "Grants the caster +4 enhancement to Charisma. The spell's subject creatures also gain +4 morale on attack rolls, saving throws, and skill checks, immunity to fear effects, and temporary hit points equal to caster level, maximum 20.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-glory-4263",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-glory-67": {
+      "name": "Crown of Glory",
+      "sourceSha256": "f9f9dafaafdc49609d6cb158d181d71c809f7c7947a63c5e7a6af6453787f91a",
+      "effectSummary": "Creatures with fewer than 8 levels or Hit Dice cease what they are doing and turn to face the caster unless they succeed on the spell's saving throw. When the caster speaks, the words function as suggestion and are understood telepathically regardless of language. Creatures that save can act normally, and creatures with more than 8 HD are immune. The required 200 gp opal must remain intact or the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-glory-67",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-glory-697": {
+      "name": "Crown of Glory",
+      "sourceSha256": "c6f97ebc939e5d12103a033f0c63f09fbd37133c2dc20e36df0f0a817a3c1a47",
+      "effectSummary": "Grants +4 enhancement to Charisma. Creatures with fewer than 8 HD or levels must stop and pay attention; hostile action against the caster requires a Will save, and a creature that fails its first such save becomes enthralled while in the area and will not leave voluntarily. Listeners understand the caster telepathically. The caster can make up to three suggestions, as mass suggestion, to creatures of fewer than 8 HD currently in range. Creatures of 8 HD or more are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-glory-697",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-glory-958": {
+      "name": "Crown of Glory",
+      "sourceSha256": "c6f97ebc939e5d12103a033f0c63f09fbd37133c2dc20e36df0f0a817a3c1a47",
+      "effectSummary": "Grants +4 enhancement to Charisma. Creatures with fewer than 8 HD or levels must stop and pay attention; hostile action against the caster requires a Will save, and a creature that fails its first such save becomes enthralled while in the area and will not leave voluntarily. Listeners understand the caster telepathically. The caster can make up to three suggestions, as mass suggestion, to creatures of fewer than 8 HD currently in range. Creatures of 8 HD or more are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-glory-958",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-glory-990": {
+      "name": "Crown of Glory",
+      "sourceSha256": "8da841098e09d4e7411067eb1bf12673bda78b6043761f343c86d4f3467919f9",
+      "effectSummary": "Grants +4 enhancement to Charisma. Creatures with fewer than 8 HD or levels must stop and pay attention; hostile action against the caster requires a Will save, and a creature that fails its first such save becomes enthralled while in the area and will not leave voluntarily. Listeners understand the caster telepathically. The caster can make up to three suggestions, as mass suggestion, to creatures of fewer than 8 HD currently in range. Creatures of 8 HD or more are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-glory-990",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-might-3007": {
+      "name": "Crown of Might",
+      "sourceSha256": "46e486021ec9cea132183fabb118d097856c97aaadff17634a83af0a9938ff30",
+      "effectSummary": "Creates a crown granting +2 enhancement to Strength. As an immediate action, the wearer can discharge it to gain +8 enhancement to Strength for 1 round, ending the spell. The crown occupies the head slot and the spell ends if it is removed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-might-3007",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-protection-3008": {
+      "name": "Crown of Protection",
+      "sourceSha256": "93e0d710df7a6e54f627cc09a899a30e8804226fa555f5388c7e14c6fa3dbd65",
+      "effectSummary": "Creates a crown granting +1 deflection to AC and +1 resistance on all saving throws. As an immediate action, the wearer can discharge it to gain either +4 deflection to AC or +4 resistance on saves for 1 round, ending the spell. It occupies the head slot and removal ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-protection-3008",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-smiting-2968": {
+      "name": "Crown of Smiting",
+      "sourceSha256": "65d2f27a1b9923ee212ee664026ee78698ff7e8916459543597a90a75968a853",
+      "effectSummary": "Choose chaotic, evil, good, or lawful when casting. Once per minute, the wearer can declare before an attack that the next melee or ranged attack against a creature of that alignment gains +2 divine damage; a miss wastes that use. As an immediate action, the wearer can discharge the crown for +8 divine damage on one attack, ending the spell. It occupies the head slot.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-smiting-2968",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-the-grave-2992": {
+      "name": "Crown of the Grave",
+      "sourceSha256": "5588576ac0ae3fe4cfef3f6011369acdd0880964bcb1e372231c25179b650e5d",
+      "effectSummary": "Once per minute, the wearer can issue a one-word command to an undead creature; the undead receives a Will save even though the effect is powered by holy or unholy energy rather than ordinary mind-affecting magic. A cleric wearer can expend one turn/rebuke-undead use to increase this command's save DC by 4. As an immediate action, the wearer can discharge the crown for +4 on one turn or rebuke undead attempt, ending the spell. It occupies the head slot.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-the-grave-2992",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-veils-2984": {
+      "name": "Crown of Veils",
+      "sourceSha256": "ff33982ea7fc9cd59afef65ad227a2caa6d17b07bd1b0aa083c1d365c93cb786",
+      "effectSummary": "Creates a crown granting +2 competence on Disguise and Hide checks. As an immediate action, the wearer can discharge it for +8 competence on one Disguise or Hide check, ending the spell. It occupies the head slot and removal ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-veils-2984",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cruel-disappointment-192": {
+      "name": "Cruel Disappointment",
+      "sourceSha256": "8b3a7e6be8a7da920c7bbb9d249e443f0509a24a3f4f2ec6c655359549f44b11",
+      "effectSummary": "The next action the subject attempts that requires a success roll automatically fails, but the subject perceives a phantasmal success and behaves accordingly for 1 round. On the following round the illusion fades; if the subject then fails a second Will save, it takes -4 morale on attack rolls, saving throws, and checks for 1d6+1 rounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cruel-disappointment-192",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crumble-4267": {
+      "name": "Crumble",
+      "sourceSha256": "51cd10994f41ec786155197652f1b580ee2c932e772ce17eb3ef3b2424e13c3f",
+      "effectSummary": "Erodes one fabricated non-natural object, structure, or construct for 1d8 damage per caster level, maximum 10d8, ignoring hardness. Maximum target size is Large through caster level 9, Huge at 10th–15th, Gargantuan at 16th–18th, and Colossal at 19th–20th. The spell fails against an object larger than the allowed size.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crumble-4267",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crumble-740": {
+      "name": "Crumble",
+      "sourceSha256": "1604e096ce8c243a231bd7035ef25037195a6df56422c5332b9d164813ce7bd5",
+      "effectSummary": "Erodes one fabricated nonliving object or structure, including a construct, for 1d6 damage per caster level, maximum 15d6, ignoring hardness. Living creatures are unaffected. Maximum target size is Huge through caster level 15, Gargantuan at 16th–18th, and Colossal at 19th–20th. The spell fails against an object larger than the allowed size.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crumble-740",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crusaders-strike-3598": {
+      "name": "Crusader's Strike",
+      "sourceSha256": "f5a2dcda67958e0985b69eae9a320c4ab5ca5110d04292ce1182a974402ccb2f",
+      "effectSummary": "As part of the maneuver, make a melee attack against a foe whose alignment differs from the initiator's on at least one axis and that poses a direct immediate threat. On a hit, the initiator or one ally within 10 feet heals 1d6 + initiator level hit points, with the level bonus capped at +5.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crusaders-strike-3598",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crushing-despair-2540": {
+      "name": "Crushing Despair",
+      "sourceSha256": "4e1554f6b4e367ed41c24288c4ea3a8df5ccffc04ceb18e2433b7323637e2a56",
+      "effectSummary": "Creatures in the cone take -2 on attack rolls, saving throws, ability checks, skill checks, and weapon damage rolls. Crushing despair counters and dispels good hope.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crushing-despair-2540",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crushing-fist-of-spite-176": {
+      "name": "Crushing Fist of Spite",
+      "sourceSha256": "df5963002b03372e743b1072300edc74e6196134e1e586d9d4fe5baf9b5e8d29",
+      "effectSummary": "Creates a smashing fist affecting an area each round. Creatures and objects in the area take 1d6 damage per caster level, maximum 20d6, Reflex half. Each round the caster can redirect the fist to another area within range as a free action; otherwise it keeps striking the same area. It can hit airborne targets, which take no damage on a successful Reflex save and are forcibly ejected from the spell's area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crushing-fist-of-spite-176",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crushing-grip-2969": {
+      "name": "Crushing Grip",
+      "sourceSha256": "8910c5a32390f5727b4f9e05b2df378d07c85e85f3e81af2a10d08d6fff0c043",
+      "effectSummary": "When casting begins, the target immediately takes -2 on attacks, checks, saving throws, and AC and loses 20 feet of speed; this initial effect allows no save, though spell resistance applies. At the start of the caster's next turn when casting completes, the target makes a Fortitude save or becomes paralyzed. A successful save negates only the paralysis; the initial penalties continue for the spell's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crushing-grip-2969",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crushing-sphere-1561": {
+      "name": "Crushing Sphere",
+      "sourceSha256": "2fa6e69f4aff2c22257a119770498987923be0f6a7ee3696db9679564875f1b6",
+      "effectSummary": "Functions as Otiluke's resilient sphere, enclosing the target in an immobile force globe that blocks passage and is vulnerable only to the sphere's normal specific counters. In addition, the trapped target is entangled and takes 3d6 nonlethal damage each round as the sphere constricts. Once the target is unconscious, remaining crushing-sphere damage becomes lethal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crushing-sphere-1561",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/otilukes-resilient-sphere-2637",
+          "role": "same-primary-catalog cross-reference used to retain inherited resilient-sphere mechanics"
+        }
+      ]
+    },
+    "spells/crushing-vise-3714": {
+      "name": "Crushing Vise",
+      "sourceSha256": "6c297b40de19877ff884caaa74c042feaa7faa5eec070856edae0636411c0696",
+      "effectSummary": "As part of the maneuver, make one melee attack for +4d6 damage. If the target is standing on the ground, its speed for all movement modes becomes 0 for 1 round, though it can act normally otherwise. Flying or levitating targets still take the extra damage but are immune to the speed reduction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crushing-vise-3714",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
