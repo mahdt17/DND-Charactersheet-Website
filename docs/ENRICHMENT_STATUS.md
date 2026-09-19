@@ -136,7 +136,7 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **966**
+- Digest-locked reviewed spell effects: **1,046**
 - Primary catalog: `https://new.dndtools.org`
 - Outside sources are allowed only when the primary record is missing, truncated, corrupted, contradictory, or otherwise insufficient; such repairs must retain provenance and must not expand catalog membership.
 - Primary-page repairs pinned during this review cycle include `Analyze Portal`, `Anathema`, `Arboreal Transformation`, the truncated Defenders of the Faith printing of `Aspect of the Deity, Greater`, and `Blessing of the Snake Mother`.
@@ -153,8 +153,12 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 - The 423-review output audit's remaining critical gaps are the expected unresolved `effect/effectSummary` review backlog; no new critical failure class appeared.
 - Four table-driven `Bolt of Glory` records were deliberately deferred from the normal review count until exact table mechanics could be recovered rather than guessed. Their variants have now been independently verified, and a fresh table-aware primary review export is being generated before they are committed.
 - The 707-review full source audit exposed **14 table-reference cases** after the stronger missing-table guard was introduced: **12 genuine missing-table omissions** and **2 false positives** whose complete tables were already flattened into primary-page prose (`Channel the Dragon` and `Random Action`). The 12 genuine omissions now have provenance-backed fill-only supplements; all 14 cases are pinned in the permanent spell regression corpus.
-- Latest required scoped audit: **3.5/spells at 966 reviewed effects**. Source gate: **5,035 / 5,035**, zero failures and zero critical source gaps. Candidate output gate: **1,620 / 5,035 output-complete / 3,415 incomplete**, **32.1748%** output-complete. The only remaining failure class was the expected unresolved `effect/effectSummary` backlog; audit `errors` remained empty. Source and output gates remain independent; live/catalog writes stay locked until overall release criteria are met.
-- After the missing-table and digest repairs, the strict full 3.5 spell source audit is restored to **5,035 / 5,035 passed, 0 failed, 100.00%, zero critical gaps**. The permanent spell regression corpus now contains **54** focused records.
+- Previous 966-review scoped audit: source **5,035 / 5,035**; candidate output **1,620 / 5,035 complete / 3,415 incomplete**, **32.1748%** output-complete.
+- While advancing beyond that checkpoint, review of `Detect Aberration` exposed a source-audit blind spot: some rebuilt primary pages referred to required tables as an **"accompanying table"**, **"see the table"**, **"as shown on the table"**, or by a **"Length Aura Lingers"** heading rather than the phrases already guarded by the parser. A full scan of the table-aware long-effect review corpus isolated seven genuine omissions: `Detect Aberration`, `Detect Dragonblood`, `Detect Incarnum`, both `Detect Taint` printings, `Freeze Armor`, and `Prismatic Wall`. The detector now covers those reference forms; the seven existing primary-catalog records have provenance-backed fill-only supplements, and all seven are permanently regression-pinned. `Prismatic Wall` also has an explicit corruption marker for its truncated raw table markup.
+- `Deific Bastion` is also regression-pinned because both the primary page and the printed source omit a separate enhancement value for 17th caster level. The reviewed summary preserves the literal +4 at 15th–16th and +5 at 18th+ brackets and explicitly leaves 17th unspecified instead of inferring a value.
+- **Authoritative 1,026-review audit after those repairs:** Category Enrichment Audit run **35415467603**, audited commit `636a74c56b60f135360c1a9e1ca59d1a81f1b474`. All 8 source shards and `source-aggregate` passed: **5,035 / 5,035**, **0 failed**, **100.00%**, **0 critical source gaps**. All 8 candidate shards passed generation; the independent output audit reported **1,687 / 5,035 output-complete / 3,348 incomplete**, **33.5055%** output-complete. `errors` was empty and sampled incomplete records still contained only the expected `effect` / `effectSummary` backlog. The top-level audit therefore correctly remains failed because output completeness is below 100%; the gate was not weakened.
+- The exact repaired 1,026 audit head also passed **Validate modernization** run **35415470538** end-to-end. The permanent spell regression corpus now contains **62** focused records.
+- Review work has since advanced to **1,046** digest-locked summaries. The seven source-repair records above remain supplement-backed rather than digest-locking their incomplete/corrupted primary prose.
 - Live/catalog writes remain locked.
 
 ## Next work
@@ -168,6 +172,6 @@ The 67-record permanent regression corpus must remain green, provenance and supp
 
 Do **not** use `--write` and do **not** unlock live/catalog writes. Overall release-readiness remains false because the required non-class categories have not yet completed both independent 100% audits. Work should continue one category at a time rather than treating the completed class audit as permission to enrich the bundled catalog.
 
-## Separate non-enrichment issue
+## Validation status
 
-The normal website validation job currently has a browser-editions regression involving an older expectation around a reference spell field. This is separate from the 3.5 class enrichment gate and should be fixed independently.
+The repaired 1,026-review audit head (`636a74c56b60f135360c1a9e1ca59d1a81f1b474`) passed Validate modernization run `35415470538` end-to-end, including the browser suites. The previously noted browser-editions regression is therefore no longer a current blocker.
