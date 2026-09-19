@@ -280,6 +280,26 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?=\s*,\s*(?:except|but)\b|[.;])",
         re.I,
     )),
+    ("functions-as-if-named-spell-cast", re.compile(
+        r"\bfunctions?\s+as\s+if\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\s+"
+        r"had\s+been\s+cast\b",
+        re.I,
+    )),
+    ("same-way-as-named-spell", re.compile(
+        r"\b(?:in\s+)?the\s+same\s+way\s+as\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("size-change-spell-inheritance", re.compile(
+        r"\b(?:shrinks?|grows?|grow)\b[^.;]{0,140}?\bas\s+the\s+"
+        r"(?P<name>reduce person|enlarge person)\s+spell\b",
+        re.I,
+    )),
+    ("monster-manual-described-stat-dependency", re.compile(
+        r"\bas\s+described\s+in\s+the\s+Monster\s+Manual\b",
+        re.I,
+    )),
     ("dispel-magic-effect-inheritance", re.compile(
         r"\b(?:target\s+of|as|like)\s+(?:a|an|the)?\s*(?P<name>dispel magic)\s+effect\b",
         re.I,
@@ -1119,6 +1139,13 @@ def run_self_test() -> None:
     assert "dispel-magic-effect-inheritance" in external_mechanics_reasons("Anyone passing through becomes the target of a dispel magic effect.")
     assert "equivalent-of-named-spell" not in external_mechanics_reasons("The object has the equivalent of a +2 enhancement bonus.")
     assert "works-just-like-named-spell" not in external_mechanics_reasons("The device works just like normal machinery.")
+    assert "functions-as-if-named-spell-cast" in external_mechanics_reasons("She functions as if a raise dead spell had been cast upon her, except she loses no level.")
+    assert "functions-as-if-named-spell-cast" not in external_mechanics_reasons("The device functions as if underwater.")
+    assert "same-way-as-named-spell" in external_mechanics_reasons("The burst reveals objects in the same way as a true seeing spell.")
+    assert "same-way-as-named-spell" not in external_mechanics_reasons("The mirror works in the same way as a polished shield.")
+    assert "size-change-spell-inheritance" in external_mechanics_reasons("The target shrinks by one size category, as the reduce person spell.")
+    assert "size-change-spell-inheritance" in external_mechanics_reasons("You grow by one size category, as the enlarge person spell.")
+    assert "monster-manual-described-stat-dependency" in external_mechanics_reasons("The statuette becomes a Medium-size animated object, as described in the Monster Manual.")
     assert "functions-in-all-respects-like-named-spell" in external_mechanics_reasons("This effect functions in all respects like major image, except that it is a pattern.")
     assert "functions-in-all-respects-like-named-spell" not in external_mechanics_reasons("The device functions in all respects like a normal mirror, except that it is silver.")
     assert "modified-named-spell-reference" in external_mechanics_reasons("The weapon acts as a +5 bless weapon.")
