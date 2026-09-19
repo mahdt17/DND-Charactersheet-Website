@@ -1,7 +1,13 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/tensers-floating-disk-2655"
+    "spells/camouflage-1381",
+    "spells/camouflage-1745",
+    "spells/camouflage-1918",
+    "spells/camouflage-3219",
+    "spells/camouflage-3506",
+    "spells/camouflage-4010",
+    "spells/camouflage-735"
   ],
-  "nonce": "2026-09-19-floating-disk-base"
+  "nonce": "2026-09-19-camouflage-base-for-forestfold"
 }
