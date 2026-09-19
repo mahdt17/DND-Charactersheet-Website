@@ -1099,6 +1099,13 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="corrupt-dragonblood-beast-bite-progression"
+        if entry.get("id")=="spells/dragon-ally-lesser-4417" and re.search(
+            r"payment of 250 fp per HD",
+            effect_source,
+            re.I,
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-lesser-dragon-ally-payment-unit"
         if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
