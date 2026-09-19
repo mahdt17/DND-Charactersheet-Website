@@ -1,14 +1,14 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/polymorph-other-3421",
-    "spells/polymorph-other-5025",
-    "spells/true-strike-2521",
-    "spells/stinking-cloud-2438",
-    "spells/polymorph-self-3422",
-    "spells/polymorph-self-5024",
-    "spells/polymorph-2854",
-    "spells/alter-self-2774"
+    "spells/see-invisibility-2514",
+    "spells/detect-good-2487",
+    "spells/aiming-at-the-target-2011",
+    "spells/aiming-at-the-target-3822",
+    "spells/aiming-at-the-target-434",
+    "spells/acid-orb-3391",
+    "spells/acid-orb-lesser-1946",
+    "spells/acid-orb-lesser-3398"
   ],
-  "nonce": "2026-09-19-f-section-inherited-bases"
+  "nonce": "2026-09-19-f-section-held-crossrefs"
 }
