@@ -17789,6 +17789,52 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/fiendish-clarity-1150": {
+      "name": "Fiendish Clarity",
+      "sourceSha256": "31b273020b23da38472991b9f800aa710409c19737d16410ae04b35cf7b4a37c",
+      "effectSummary": "Grants fiendlike senses: darkvision 60 feet and the ability to see through magical darkness as though it were normal darkness. You also see invisible and ethereal creatures and objects within your normal vision as translucent but otherwise visible forms; this does not reveal illusions, see through opaque objects, reveal how invisibility was produced, or expose creatures that are merely hidden or concealed. You can use detect good at will, gaining its normal staged cone scan for good auras, including aura strength/location, lingering auras, barrier limits, and overwhelming-good backlash if you are evil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiendish-clarity-1150",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; fiendish sensory package retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/see-invisibility-2514",
+          "role": "primary catalog spell used to resolve inherited see-invisibility mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/detect-good-2487",
+          "role": "primary catalog spell used to resolve inherited detect-good mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/detect-evil-2486",
+          "role": "primary catalog base spell underlying detect-good's staged aura scan"
+        }
+      ]
+    },
+    "spells/fiendish-clarity-155": {
+      "name": "Fiendish Clarity",
+      "sourceSha256": "c0fe900d85f2efc8fc2249b0f72c44628b0fc489da185ce7f34c778ba1082606",
+      "effectSummary": "Grants fiendlike senses: darkvision 60 feet and the ability to see through magical darkness as though it were normal darkness. You also see invisible and ethereal creatures and objects within your normal vision as translucent but otherwise visible forms; this does not reveal illusions, see through opaque objects, reveal how invisibility was produced, or expose creatures that are merely hidden or concealed. You can use detect good at will, gaining its normal staged cone scan for good auras, including aura strength/location, lingering auras, barrier limits, and overwhelming-good backlash if you are evil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiendish-clarity-155",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; fiendish sensory package retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/see-invisibility-2514",
+          "role": "primary catalog spell used to resolve inherited see-invisibility mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/detect-good-2487",
+          "role": "primary catalog spell used to resolve inherited detect-good mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/detect-evil-2486",
+          "role": "primary catalog base spell underlying detect-good's staged aura scan"
+        }
+      ]
     }
   }
 }
