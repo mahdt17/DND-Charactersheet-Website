@@ -1168,7 +1168,13 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
                 result["sourceIncomplete"]=True
                 result["sourceIncompleteMarker"]=marker
                 break
-        if len(effect_source) <= 240:
+        reference_dependent=bool(
+            re.search(r"\\b(?:functions?|works?|operates?)\\s+(?:like|as)\\b",effect_source,re.I)
+            or re.search(r"^As\\s+[^.!?]{1,120}?,\\s*(?:except|but)\\b",effect_source,re.I)
+        )
+        if reference_dependent:
+            result["effectReferenceDependent"]=True
+        if len(effect_source) <= 240 and not reference_dependent:
             result["effect"]=effect_source
         else:
             result["effectNeedsSummary"]=True
@@ -1749,6 +1755,18 @@ def self_test():
     """
     p=DetailParser();p.feed(long_effect_html);p.close()
     s=parse_spell(p,{"name":"Long Effect"})
+    assert s.get("effectNeedsSummary") and not s.get("effect")
+
+    reference_effect_html = """
+    <h1>Reference Effect</h1><p>Example Book (EX), p. 3</p>
+    <div>School</div><div>Abjuration</div><div>Casting Time</div><div>1 action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Touch</div>
+    <div>Duration</div><div>1 minute</div><div>Classes</div><div>Wizard 2</div>
+    <h2>Description</h2><p>This spell functions like lesser example ward, except that the resistance is 10.</p>
+    """
+    p=DetailParser();p.feed(reference_effect_html);p.close()
+    s=parse_spell(p,{"name":"Reference Effect"})
+    assert s.get("effectReferenceDependent")
     assert s.get("effectNeedsSummary") and not s.get("effect")
 
     feat_html = """
