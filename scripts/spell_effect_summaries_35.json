@@ -19683,6 +19683,182 @@
           "role": "primary catalog teleport base used to resolve inherited passenger/carrying mechanics"
         }
       ]
+    },
+    "spells/genesis-934": {
+      "name": "Genesis",
+      "sourceSha256": "ad8779996c4d515804829567bcfb6fc7c09f926839b9cfec604b993f81ceadf1",
+      "effectSummary": "Creates an immobile demiplane while you are on the Ethereal Plane. It grows by 1 foot of radius per day to an initial radius of 180 feet. At creation you choose atmosphere, water, temperature, and general terrain, but the spell cannot create life, vegetation, buildings, roads, wells, dungeons, or other construction. Additional castings can enlarge the demiplane by another 360-foot-diameter bubble each. The spell costs 5,000 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/genesis-934",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/genesis-982": {
+      "name": "Genesis",
+      "sourceSha256": "5e2a525a97292b2a81d75505bf8d0ad5a2f7b6308d0a1a93a5257d5269d36527",
+      "effectSummary": "Creates an immobile demiplane while you are on the Ethereal Plane. It grows by 1 foot of radius per day to an initial radius of 180 feet. At creation you choose atmosphere, water, temperature, and general terrain, but cannot create life, vegetation, or construction. Once mature, casting genesis while inside its boundaries increases the demiplane's radius by 60 feet; casting again while outside creates a separate nonoverlapping demiplane instead. The spell costs 5,000 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/genesis-982",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gentle-repose-2738": {
+      "name": "Gentle Repose",
+      "sourceSha256": "1abde1c071b468247301fd1dd9be4f65bef01ff2c17953b2fe1c4ba8152fd878",
+      "effectSummary": "Preserves a dead creature's remains against decay. Time spent under the spell does not count against time limits for magic that raises the creature from the dead. It also works on severed body parts. The arcane material components are a pinch of salt and one copper piece for each eye the corpse has or had.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gentle-repose-2738",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/getaway-3302": {
+      "name": "Getaway",
+      "sourceSha256": "9add68201726ae74037c80db4d2ca57da2ad081dee739879d9242ebca6586d1a",
+      "effectSummary": "Misdirects pursuers during a chase. Any pursuer that loses sight of you and fails a Will save has a 50% chance to take a wrong turn or head in the wrong direction, even when physical clues such as an open door or dangling rope point to your actual route. The material component is a fox's tail.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/getaway-3302",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghorus-toths-magnetism-3474": {
+      "name": "Ghorus Toth's Magnetism",
+      "sourceSha256": "b905bbe15bd6b799b0309e9b40f819dd988df5bbd73ed0bfa18da4b51a6f4e40",
+      "effectSummary": "A successful ranged touch attack magnetizes one metal object or a creature wearing or carrying metal, creating a 30-foot attraction zone with effective Strength 10 + caster level, maximum 25. Each round, metal creatures and creatures holding metal must make an opposed Strength check; failure entangles them and pulls them 10 feet plus 1 foot per point of failure toward the center. Held metal can be released instead. Unattended metal of 50 pounds or less flies into the target and deals 1d6 damage per 5 pounds, maximum 10d6; heavier objects move 10 feet closer each round. Metal reaching the center sticks fast; stuck creatures are grappled and must beat the attraction in a Strength check to escape, while stuck objects require a Strength check to remove. If another affected creature or object weighs more than twice the target, the target is dragged toward it instead, moving the attraction zone. The material component is a small lodestone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghorus-toths-magnetism-3474",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghorus-toths-metal-melt-1760": {
+      "name": "Ghorus Toth's Metal Melt",
+      "sourceSha256": "4765f2ffdb952a5f886b06143391e6b36e2f1162b58ea325c0a01e2e476a12bb",
+      "effectSummary": "Makes a metal object flow like liquid for 1 round without changing its temperature, after which it resolidifies, usually as a puddle-shaped mass. A magic item affected this way becomes broken and nonfunctional but can be repaired by someone with the appropriate item creation feat. The material component is a drop of mercury in a vial.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghorus-toths-metal-melt-1760",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-bane-weapon-1387": {
+      "name": "Ghost Bane Weapon",
+      "sourceSha256": "3e969ec5471d88b20625a2623245a7c126d232364f5064b79e9a4b79abc0c8b1",
+      "effectSummary": "Gives a weapon the ghost bane property in addition to its existing properties. Against ghosts, its enhancement bonus is treated as 2 higher and it deals +2d6 damage. The spell does nothing to a weapon already possessing ghost bane. At caster level 9 or higher, a nonmagical affected weapon also gains a +1 enhancement bonus. You can instead affect up to 50 arrows, bolts, or bullets of the same type kept together; projectiles lose ghost bane after being fired. Affected weapons glow with witchlight.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-bane-weapon-1387",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-blade-3693": {
+      "name": "Ghost Blade",
+      "sourceSha256": "54572d62e4aa204b857827139584f700ee5a2487607442a6f99fe944c2f7b2da",
+      "effectSummary": "As part of this supernatural maneuver, make one melee attack while an illusory duplicate of your weapon conceals the true angle of the strike. The target is treated as flat-footed against that attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-blade-3693",
+          "role": "primary DnD Tools maneuver effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-companion-1372": {
+      "name": "Ghost Companion",
+      "sourceSha256": "ff373b1bbc5870dddf0e7f4a893701a3c08328fa4f0ebe08200f492dd089d764",
+      "effectSummary": "Painlessly kills the touched creature but keeps its soul from immediately passing beyond the Veil of Souls, allowing it to attempt to enter the Material Plane as a ghost. It is intended especially for nonhumanoid companions such as familiars, animal companions, or special mounts accompanying ghost characters. When the spell ends, the ghost creature dies the true death and its soul passes on; it can be raised or resurrected before the duration expires.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-companion-1372",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-lantern-823": {
+      "name": "Ghost Lantern",
+      "sourceSha256": "ad3baf131c56df7ceb5421b544881764c1e7b11c1482f484dd83fce3f250f81a",
+      "effectSummary": "Makes a touched object shed torchlike light—bright illumination for 20 feet and shadowy illumination for another 20 feet—but only you and specifically designated creatures can see it. You can designate one creature per three caster levels, maximum five, and each must be within 10 feet when cast. The chosen creatures can later move any distance apart; everyone else sees no light and remains subject to normal ambient lighting. The material component is phosphorescent fungus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-lantern-823",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-light-2088": {
+      "name": "Ghost Light",
+      "sourceSha256": "75e17115473c347826f400045e3ec4224e54387b91d91bd520c9b01fa63a98d4",
+      "effectSummary": "Creates a movable green radiance as bright as a torch, which can illuminate an object or take any Medium-or-smaller shape. While concentrating, you can move it and change its shape. Creatures within 30 feet must make a Will save or become shaken, taking -2 morale on attack rolls, weapon damage rolls, and saving throws. The material component is phosphorus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-light-2088",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-light-523": {
+      "name": "Ghost Light",
+      "sourceSha256": "c034635b09379b2c54be9d6a8a59baadfe8ddeb0447385b70297cda5e45a2314",
+      "effectSummary": "Creates torch-bright green radiance in any Medium-or-smaller shape. While concentrating you can move it up to 30 feet and change its shape as a free action. Creatures within 30 feet must make a Will save or become shaken. The material component is phosphorus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-light-523",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-lock-1332": {
+      "name": "Ghost Lock",
+      "sourceSha256": "235e08ddb764134cce8f0081534399ab33be2fbcbac8181546849d36e6560c8e",
+      "effectSummary": "If the nonhumanoid subject dies while the spell lasts, its soul is held from the afterlife and can attempt to enter the Material Plane as a ghost as though it were a creature type normally capable of doing so. Once manifested as a ghost, it can remain until the spell expires, when it immediately passes through the Veil of Souls to the true afterlife; it may choose to pass on earlier.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-lock-1332",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-pipes-1568": {
+      "name": "Ghost Pipes",
+      "sourceSha256": "5a7c8e0066e67ffde71cdce1cca6b9e3b014bbca6262993a3956e0c37cfe9707",
+      "effectSummary": "Causes one intact playable instrument you touch to float a few feet above the ground and play any tune you choose as though performed by a skilled musician, regardless of your own ability. If used with your bardic music, it grants +2 competence on the associated Perform check. The instrument is the focus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-pipes-1568",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-sound-2670": {
+      "name": "Ghost Sound",
+      "sourceSha256": "2a07e6faef1bd10e696c396f58387b563a637e43ef4a3ec14a7ddc74f37fdc0e",
+      "effectSummary": "Creates a chosen kind of sound that can rise, recede, approach, or remain fixed; its basic character cannot be changed after casting. Maximum volume equals four normal humans per caster level, up to twenty humans, allowing effects such as voices, footsteps, marching, animals, or other sounds within that volume. It can complement silent image and can be made permanent with permanency. The material component is wool or wax.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-sound-2670",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ghost-touch-weapon-1505": {
+      "name": "Ghost Touch Weapon",
+      "sourceSha256": "ea42cbc63522628f409cd65b43e8e53fd59c2aadc02ee374b3354e6f4d543970",
+      "effectSummary": "Makes one weapon fully effective against incorporeal creatures regardless of enhancement bonus, removing their normal 50% chance to ignore damage from corporeal attacks. A ranged weapon does not pass the effect to its ammunition. Incorporeal creatures can pick up and move the weapon, and a manifesting ghost can wield it against corporeal targets; the weapon counts as corporeal or incorporeal at any moment, whichever is more favorable to its wielder.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghost-touch-weapon-1505",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
