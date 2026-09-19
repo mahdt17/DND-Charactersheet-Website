@@ -255,6 +255,21 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?:a|an|the)\s+(?P<name>unseen servant)\s+spell\b",
         re.I,
     )),
+    ("equivalent-of-named-spell", re.compile(
+        r"\bequivalent\s+of\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("works-just-like-named-spell", re.compile(
+        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+just\s+like\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
+        re.I,
+    )),
+    ("dispel-magic-effect-inheritance", re.compile(
+        r"\b(?:target\s+of|as|like)\s+(?:a|an|the)?\s*(?P<name>dispel magic)\s+effect\b",
+        re.I,
+    )),
     ("modified-named-spell-reference", re.compile(
         r"\bacts?\s+as\s+(?:a|an|the)\s+\+\d+\s+(?P<name>bless\s+weapon)\b",
         re.I,
@@ -934,6 +949,11 @@ def run_self_test() -> None:
     assert "servant-conjured-by-named-spell" in external_mechanics_reasons("The shadows act similar to the servant conjured by an unseen servant spell.")
     assert "similar-to-named-spell-comparison" not in external_mechanics_reasons("The structure is similar to a stone archway.")
     assert "equivalent-to-named-spell" not in external_mechanics_reasons("The object is equivalent to a masterwork sword.")
+    assert "equivalent-of-named-spell" in external_mechanics_reasons("The illumination is the equivalent of a daylight spell.")
+    assert "works-just-like-named-spell" in external_mechanics_reasons("This spell works just like insignia of alarm except the wearers are healed.")
+    assert "dispel-magic-effect-inheritance" in external_mechanics_reasons("Anyone passing through becomes the target of a dispel magic effect.")
+    assert "equivalent-of-named-spell" not in external_mechanics_reasons("The object has the equivalent of a +2 enhancement bonus.")
+    assert "works-just-like-named-spell" not in external_mechanics_reasons("The device works just like normal machinery.")
     assert "modified-named-spell-reference" in external_mechanics_reasons("The weapon acts as a +5 bless weapon.")
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
