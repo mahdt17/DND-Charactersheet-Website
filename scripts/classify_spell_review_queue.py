@@ -300,6 +300,28 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bsee\s+[^.;]{1,120}\b(?:Dungeon[^.;]{0,40}Guide|Player[^.;]{0,40}Handbook)\b",
         re.I,
     )),
+    ("parenthetical-see-named-spell", re.compile(
+        r"\(\s*see\s+(?:the\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,60}?)\s+spell\s*[),.;]",
+        re.I,
+    )),
+    ("affected-as-if-by-named-spell", re.compile(
+        r"\baffected\s+as\s+if\s+by\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("as-if-from-named-spell", re.compile(
+        r"\bas\s+if\s+from\s+(?:a|an|the)?\s*"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("summoned-creature-stat-dependency", re.compile(
+        r"(?:^|[.!?]\s+)(?:This\s+spell\s+summons|You\s+summon)\s+"
+        r"(?:(?:a|an|one|two|three|a\s+pair\s+of|a\s+number\s+of|number\s+of)\s+)?"
+        r"(?P<name>[^.;]{0,100}?\b(?:golems?|devils?|demons?|archons?|eladrins?|rocs?|"
+        r"elementals?|homuncul(?:us|i)|titans?|swarms?|dragons?|undead(?:\s+creatures?)?|"
+        r"extraplanar\s+creatures?|natural\s+creatures?|fiends?|creatures?))\b",
+        re.I,
+    )),
     ("condition-as-the-spell", re.compile(
         r"\b(?:slowed|hasted|confused|frightened|paralyzed|petrified|stunned|dazed|blinded|deafened|charmed)\s+as\s+the\s+spell\b",
         re.I,
@@ -1015,6 +1037,15 @@ def run_self_test() -> None:
     assert "slow-condition-shorthand" not in external_mechanics_reasons("Movement is slowed by deep mud.")
     assert "slow-condition-shorthand" in external_mechanics_reasons("A subject that fails a Will save is slowed.")
     assert "external-see-rulebook-reference" in external_mechanics_reasons("The target catches fire; see Catching on Fire in the Dungeon's Master Guide.")
+    assert "parenthetical-see-named-spell" in external_mechanics_reasons("The target is suspended (see the temporal stasis spell) until freed.")
+    assert "parenthetical-see-named-spell" not in external_mechanics_reasons("The target can see and hear itself as if unaffected by the spell.")
+    assert "affected-as-if-by-named-spell" in external_mechanics_reasons("The creature is affected as if by a calm emotions spell.")
+    assert "affected-as-if-by-named-spell" not in external_mechanics_reasons("The creature is affected as if underwater.")
+    assert "as-if-from-named-spell" in external_mechanics_reasons("The undead takes damage as if from a cure minor wounds spell.")
+    assert "as-if-from-named-spell" not in external_mechanics_reasons("The target recoils as if from pain.")
+    assert "summoned-creature-stat-dependency" in external_mechanics_reasons("You summon a flesh, clay, stone, or iron golem.")
+    assert "summoned-creature-stat-dependency" not in external_mechanics_reasons("You summon a handheld musical instrument.")
+    assert "summoned-creature-stat-dependency" not in external_mechanics_reasons("You summon an avalanche of snow.")
     assert "planar-environment-dependency" in external_mechanics_reasons("The area emulates its native planar environment.")
     assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell summons a bearded devil from the Nine Hells.")
     assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})
