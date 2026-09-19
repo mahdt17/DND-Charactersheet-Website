@@ -7,7 +7,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: spell-effect-review
+  group: spell-effect-review-bulk-v2
   cancel-in-progress: true
 jobs:
   review-shard:
