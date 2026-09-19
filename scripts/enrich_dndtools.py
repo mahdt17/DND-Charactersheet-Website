@@ -1563,9 +1563,17 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
             gaps.append("featEffect")
         if presence.get("prerequisiteLabeled") and not details.get("prerequisites"):
             gaps.append("prerequisites")
-        if presence.get("normalLabeled") and not (details.get("normalRule") or details.get("normalSummary")):
+        if presence.get("normalLabeled") and not (
+            details.get("normalRule")
+            or details.get("normalSummary")
+            or details.get("normalNeedsSummary")
+        ):
             gaps.append("normalRule")
-        if presence.get("specialLabeled") and not (details.get("specialRule") or details.get("specialSummary")):
+        if presence.get("specialLabeled") and not (
+            details.get("specialRule")
+            or details.get("specialSummary")
+            or details.get("specialNeedsSummary")
+        ):
             gaps.append("specialRule")
     elif category == "spells":
         psionic=bool(details.get("isPsionicPower") or re.search(r"\b(psychometabolism|psychokinesis|metacreativity|clairsentience|telepathy|psychoportation)\b",details.get("school",""),re.I))
