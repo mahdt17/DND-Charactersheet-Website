@@ -1,4 +1,7 @@
 {
   "scope": "3.5/spells",
-  "nonce": "2026-09-19-malformed-dice-guard-fix-ac50f906"
+  "nonce": "2026-09-19-verify-batch4-10ef0842",
+  "expectedSelectionSha256": "10ef08429a3789511264dc69ececbe5214e227a5f38ef697f7d0eadbfd83afa6",
+  "expectedReviewCount": 2154,
+  "expectedRegressionCount": 489
 }
