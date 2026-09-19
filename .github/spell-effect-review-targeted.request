@@ -1,10 +1,14 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/geas-lesser-2550",
-    "spells/silent-image-2705",
-    "spells/teleport-2461",
-    "spells/teleport-5026"
+    "spells/polymorph-other-3421",
+    "spells/polymorph-other-5025",
+    "spells/true-strike-2521",
+    "spells/stinking-cloud-2438",
+    "spells/polymorph-self-3422",
+    "spells/polymorph-self-5024",
+    "spells/polymorph-2854",
+    "spells/alter-self-2774"
   ],
-  "nonce": "2026-09-19-crossrefs-geas-silent-image-teleport"
+  "nonce": "2026-09-19-f-section-inherited-bases"
 }
