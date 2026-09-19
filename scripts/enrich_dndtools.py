@@ -1177,7 +1177,7 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
                 break
         reference_dependent=bool(
             re.search(r"\b(?:functions?|works?|operates?)\s+like\b",effect_source,re.I)
-            or re.search(r"\b(?:functions?|works?|operates?)\s+as\s+(?!if\b)",effect_source,re.I)
+            or re.search(r"\b(?:functions?|works?|operates?)\s+as\s+(?!if\b|a\b|an\b)",effect_source,re.I)
             or re.search(r"^As\s+[^.!?]{1,120}?,\s*(?:except|but)\b",effect_source,re.I)
         )
         if reference_dependent:
@@ -1786,6 +1786,18 @@ def self_test():
     """
     p=DetailParser();p.feed(as_if_html);p.close()
     s=parse_spell(p,{"name":"As If Test"})
+    assert not s.get("effectReferenceDependent")
+    assert s.get("effect") and not s.get("effectNeedsSummary")
+
+    generic_as_html = """
+    <h1>Generic As Test</h1><p>Example Book (EX), p. 5</p>
+    <div>School</div><div>Transmutation</div><div>Casting Time</div><div>1 action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Touch</div>
+    <div>Duration</div><div>1 minute</div><div>Classes</div><div>Wizard 2</div>
+    <h2>Description</h2><p>It functions as a splash weapon that can be hurled normally.</p>
+    """
+    p=DetailParser();p.feed(generic_as_html);p.close()
+    s=parse_spell(p,{"name":"Generic As Test"})
     assert not s.get("effectReferenceDependent")
     assert s.get("effect") and not s.get("effectNeedsSummary")
 
