@@ -10564,6 +10564,250 @@
           "role": "same primary catalog referenced spell used to retain inherited darkvision mechanics"
         }
       ]
+    },
+    "spells/darssons-chilling-chamber-3272": {
+      "name": "Darsson's Chilling Chamber",
+      "sourceSha256": "d624aea2c0ebfe39ee074305d5dae20fef44e375236af81940a9504bfec46f2c",
+      "effectSummary": "Lowers the area to extreme cold. Each minute, a cold-vulnerable creature takes 1d6 lethal damage with no save and must make a Fortitude save at DC 15, increasing by 1 for each previous check, or take 1d4 nonlethal damage. Metal armor, and metal touched after it has remained in the area for at least 1 hour, behaves as under chill metal: over a 7-round sequence it deals no damage on rounds 1 and 7, 1d4 cold on rounds 2 and 6, and 2d4 cold on rounds 3–5 to a creature sufficiently exposed to the metal. The chamber can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darssons-chilling-chamber-3272",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the area and extreme-cold mechanics"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/chillMetal.htm",
+          "role": "independent 3.5 SRD verification used only because the primary record inherits chill metal without reproducing its damage sequence and a primary sibling route was not located"
+        }
+      ]
+    },
+    "spells/darssons-cooling-breeze-3273": {
+      "name": "Darsson's Cooling Breeze",
+      "sourceSha256": "186ec8ee058902ee7bad08d25805f2734dc19656b2a437be9e970d3c5e433b4f",
+      "effectSummary": "Creates an approximately 9 mph breeze from a designated point. Airborne vapors, fumes, clouds, smoke, and gases are driven away from that point at 80 feet per round and dissipate in one-quarter their normal time. The breeze can also perform ordinary light-wind effects such as moving chimes or papers and making flames flicker. It can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darssons-cooling-breeze-3273",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/darssons-fiery-furnace-3274": {
+      "name": "Darsson's Fiery Furnace",
+      "sourceSha256": "60036f2d8418e99a6a450063405fd6c920304c6d4519e4e564116d6e05fd4981",
+      "effectSummary": "Raises the area to extreme heat. Each minute spent breathing the air deals 1d6 lethal damage to a heat-vulnerable creature with no save; every 5 minutes it must make a Fortitude save at DC 15, increasing by 1 for each previous check, or take 1d4 nonlethal damage. Heavy clothing or any armor imposes -4 on these saves. Metal armor, and metal touched after at least 1 hour in the area, behaves as under heat metal: over a 7-round sequence it deals no damage on rounds 1 and 7, 1d4 fire on rounds 2 and 6, and 2d4 fire on rounds 3–5 to a creature sufficiently exposed to the metal. The furnace can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darssons-fiery-furnace-3274",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the area and extreme-heat mechanics"
+        },
+        {
+          "url": "https://www.35srd.com/magic/spells/h/heatmetal/",
+          "role": "independent 3.5 SRD verification used only because the primary record inherits heat metal without reproducing its damage sequence and a primary sibling route was not located"
+        }
+      ]
+    },
+    "spells/darssons-potion-1750": {
+      "name": "Darsson's Potion",
+      "sourceSha256": "6d9394fc88048aae66fb57bd941e2de2dbac6357455933db71bb62c07c38b963",
+      "effectSummary": "Transforms water in a flask into a receptacle for a potion spell. On the next turn, the caster or another spellcaster can cast into the water any spell that is eligible for potion creation, turning the water into that potion. The spellcaster supplying the stored spell pays XP as though creating the potion with Brew Potion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darssons-potion-1750",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/darts-of-life-595": {
+      "name": "Darts of Life",
+      "sourceSha256": "10ca1c87213759bb25b0fb997be3d966631b91996e22315bcdf706cac23119ed",
+      "effectSummary": "Creates ten healing darts. As a free action, launch one dart per round; as a standard action, launch up to three; or as a full-round action, launch all remaining darts, distributing them among allies in range. Each dart heals 1d8 damage as a cure effect. Against undead, each dart instead deals damage, spell resistance applies, and each dart requires a successful ranged touch attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darts-of-life-595",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/daunting-strike-3599": {
+      "name": "Daunting Strike",
+      "sourceSha256": "a046ed389662aabddcc82661784f1361dd2d3483e0dd9d3bcdea6f285e6b4efd",
+      "effectSummary": "As part of the maneuver, make one melee attack against a threatened opponent. If it hits, the target must make a Will save with a DC equal to the damage dealt or become shaken for 1 minute.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/daunting-strike-3599",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dawn-4341": {
+      "name": "Dawn",
+      "sourceSha256": "b69ea3dad0f3b1a5cdf8259999dcb76cf5d40daf8d85352721c35112cfb2e150",
+      "effectSummary": "Immediately awakens all sleeping creatures in the area. Creatures unconscious from nonlethal damage wake and are staggered. Dying creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dawn-4341",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dawn-burst-820": {
+      "name": "Dawn Burst",
+      "sourceSha256": "2312bf016512b41958a49a7ffa15e00314524d97d978a86dbd14bbfbb5aad4b3",
+      "effectSummary": "All creatures in the area glow as brightly as torches for the duration, making hiding difficult and revealing the locations of invisible creatures, though invisibility still grants concealment. Undead and creatures with light sensitivity or light blindness in the area take 1d6 damage +1 per caster level, maximum +5; a Reflex save halves this damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dawn-burst-820",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dawn-shroud-312": {
+      "name": "Dawn Shroud",
+      "sourceSha256": "f0d88ece939cb0d208d67bd23d4458b8263c6a4be4f0918d87e95d47d4b57d15",
+      "effectSummary": "The target radiates daylight: bright light in a 60-foot radius and dim light for another 60 feet, imposing bright-light penalties on susceptible creatures and countering or dispelling equal- or lower-level darkness effects. Oozes and undead take 1d6 damage when the spell is cast and at the start of each caster turn while within the bright light, or 1 damage per round in the outer shadowy illumination. If such a creature touches or hits the subject with a natural weapon or unarmed strike, it takes 1d6 +1 per caster level, maximum +15, with a Will save for half. A caster using the spell on themself can suppress or restore the light once per round as a free action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dawn-shroud-312",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Dawn Shroud's additional damage mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/daylight-2601",
+          "role": "same primary catalog referenced spell used to retain inherited daylight radius and light/darkness interactions"
+        }
+      ]
+    },
+    "spells/daylight-2601": {
+      "name": "Daylight",
+      "sourceSha256": "b2567a348b780dbc7ec6f7fe6c79c3abbc09b8bc34459e9b3d29615f591d16c2",
+      "effectSummary": "The touched object sheds bright light in a 60-foot radius and dim light for another 60 feet. Creatures penalized by bright light take those penalties in the bright radius, but this is not true sunlight for creatures specifically damaged or destroyed by daylight. A lightproof covering blocks the effect. Where daylight overlaps magical darkness, both are temporarily negated in the overlap. Daylight counters or dispels equal- or lower-level darkness spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/daylight-2601",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/daze-2542": {
+      "name": "Daze",
+      "sourceSha256": "0562479ecbe472a4a91344517884934df7f0b9aa95f779baadd2d964948856a0",
+      "effectSummary": "A humanoid with 4 or fewer Hit Dice becomes dazed and can take no actions. Humanoids with 5 or more Hit Dice are unaffected. The condition is dazed, not stunned, so attackers gain no special advantage from the effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/daze-2542",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dazing-strike-3644": {
+      "name": "Dazing Strike",
+      "sourceSha256": "8c919f8849015b693b307a0804190c7b42265d626f8868edea22578ed858f215",
+      "effectSummary": "Make one melee attack as part of the strike. On a hit, deal normal melee damage and force the target to make a Fortitude save at DC 15 + the initiator's Strength modifier; failure dazes the target for 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dazing-strike-3644",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dead-end-4342": {
+      "name": "Dead End",
+      "sourceSha256": "c94bc33ac14f5b6b97056f70668f4017c0296c2a1128da2f895d1af797861612",
+      "effectSummary": "Illusorily conceals each subject's tracks, scent, and other signs of passage, including against taste and touch. A creature that actively Searches, uses scent, or uses Survival to track a subject interacts with the illusion and may make a Will save to disbelieve; success allows normal detection. Merely passing through a traveled area does not count as interaction. A target can make a Will save to negate the spell, and spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dead-end-4342",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/deadfall-4343": {
+      "name": "Deadfall",
+      "sourceSha256": "abeba65f92bcce2bb1b390036afbf53ae7ebab344c5ebd4f4179a7652190dd6f",
+      "effectSummary": "Creates and collapses a mass of logs and branches centered on a chosen ground point. Creatures and objects in the area take 1d6 damage per caster level, maximum 20d6, and creatures must make a Reflex save or fall prone. Afterward a 5-foot-high, 20-foot-radius pile of dead wood remains and counts as dense rubble.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deadfall-4343",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/deadly-lahar-777": {
+      "name": "Deadly Lahar",
+      "sourceSha256": "4150663695bd225ee4ee9fb10078df1de572519b37a444ef525f7790ca6a191f",
+      "effectSummary": "A molten landslide deals 10d6 fire damage to creatures in the area. A creature that fails its Reflex save is also coated for 3 rounds, taking an additional 5d6 fire damage each round and being slowed: it can take only one move or one standard action each turn, cannot take full-round actions, takes -1 on attacks, AC, and Reflex saves, and moves at half speed. A successful Reflex save halves the initial 10d6 and prevents both the slow effect and all additional fire damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deadly-lahar-777",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Deadly Lahar's damage and duration"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/slow.htm",
+          "role": "independent 3.5 SRD verification used only to expand the referenced slow condition after a primary sibling route was not located"
+        }
+      ]
+    },
+    "spells/deadly-sunstroke-821": {
+      "name": "Deadly Sunstroke",
+      "sourceSha256": "60fb2668898890484afad9c2064a6a278b53ae34ca8b82e7bb7ea742b93ed49b",
+      "effectSummary": "Deals 1d6 fire damage per caster level, maximum 25d6; undead and plants take 50% more damage. A living creature damaged by the spell becomes fatigued. A Fortitude save halves the damage and negates fatigue. In a locale above 90°F, damage becomes 1d8 per caster level, maximum 25d8, and damaged living creatures become exhausted instead; a successful Fortitude save halves damage and negates exhaustion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deadly-sunstroke-821",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/deafening-blast-822": {
+      "name": "Deafening Blast",
+      "sourceSha256": "2bfc7c31319bc307a4a04266a13cfc616d785c51c43f0a171b44d620635d747d",
+      "effectSummary": "Creatures in the area are permanently deafened; a successful Fortitude save reduces the deafness to 1 round. A subject already affected by painful echoes that fails this save is also stunned for 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deafening-blast-822",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/deafening-breath-1031": {
+      "name": "Deafening Breath",
+      "sourceSha256": "547e9e8f10538ddb7f736d7fe45ef306af3bc1284845d71c92e6ba277d4a71c1",
+      "effectSummary": "Modifies the caster's next breath weapon as breath weapon admixture, adding an amount of sonic damage equal to the breath weapon's normal damage. Creatures that fail their saving throw against the breath are also permanently deafened. The spell has no effect within magical silence.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deafening-breath-1031",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the deafening and silence mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/breath-weapon-admixture-1027",
+          "role": "same primary catalog Draconomicon printing used to retain the inherited equal-extra-damage admixture mechanic without importing later Spell Compendium changes"
+        }
+      ]
+    },
+    "spells/deafening-clang-1751": {
+      "name": "Deafening Clang",
+      "sourceSha256": "b8d62835190394ad2b098af941e6f545bcdcd0fd8ed82884034e08a52cb4177e",
+      "effectSummary": "The touched weapon can produce a thunderstone-like sonic clang once per round when it strikes a hard surface or creature. Creatures in a 10-foot-radius spread must make a DC 15 Fortitude save or be deafened for 1 minute; the caster and weapon user are unaffected. If a weapon attack misses its target but would have hit as a touch attack, the contact is still sufficient to trigger the clang.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deafening-clang-1751",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the spell-specific trigger, immunity, and duration"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/equipment/goodsAndServices.htm",
+          "role": "independent 3.5 SRD verification used only to expand the referenced thunderstone's 10-foot radius and DC 15 Fortitude mechanic after a primary equipment route was not located"
+        }
+      ]
+    },
+    "spells/deafening-clang-4344": {
+      "name": "Deafening Clang",
+      "sourceSha256": "905d45dc1a4e5bc882e3c0c3687114f414f40808b02c74a0a965d4a74c3c9be8",
+      "effectSummary": "The touched weapon deals an extra 1d6 sonic damage on every successful hit. Any creature struck must also make a Fortitude save or be deafened for 1 minute.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deafening-clang-4344",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing; its revised mechanics are preserved separately from the earlier printing"
+        }
+      ]
     }
   }
 }
