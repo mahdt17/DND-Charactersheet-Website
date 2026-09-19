@@ -335,9 +335,32 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bemulates?\s+(?:its|the|a)\s+native\s+planar\s+environment\b",
         re.I,
     )),
-    ("summoned-creature-stat-dependency", re.compile(
-        r"\bthis\s+spell\s+summons\s+(?:a|an|one)\s+"
-        r"(?P<name>[A-Za-z][A-Za-z'’ -]{2,80}?)(?=\s+from\b)",
+    ("weapon-special-ability-dependency", re.compile(
+        r"\bhas\s+(?:the\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ ,/-]{2,100}?)\s+special\s+abilities\b",
+        re.I,
+    )),
+    ("fog-cloud-concealment-inheritance", re.compile(
+        r"\bconcealment\s+similar\s+to\s+(?P<name>fog cloud)\b",
+        re.I,
+    )),
+    ("freedom-of-movement-inheritance", re.compile(
+        r"\bprotected\s+by\s+(?P<name>freedom of movement)\b",
+        re.I,
+    )),
+    ("negative-energy-protection-inheritance", re.compile(
+        r"\b(?:receives?|gains?|functions?\s+as\s+if\s+affected\s+by)\s+"
+        r"(?P<name>negative energy protection)\b",
+        re.I,
+    )),
+    ("under-influence-of-named-spell", re.compile(
+        r"\bas\s+if\s+(?:it|he|she|they|the\s+[A-Za-z][A-Za-z'’ -]{0,40})\s+"
+        r"(?:were|was)\s+under\s+the\s+influence\s+of\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("mobility-feat-inheritance", re.compile(
+        r"\bact(?:s)?\s+as\s+if\s+(?:you|it|he|she|they)\s+had\s+the\s+"
+        r"(?P<name>Mobility)\s+feat\b",
         re.I,
     )),
 )
@@ -373,6 +396,10 @@ SUSPICIOUS_PATTERNS = (
     )),
     ("missing-skull-eyes-effects", re.compile(
         r"\bgaze attack may have either of two effects,\s*as follows\b",
+        re.I,
+    )),
+    ("garbled-nightstalker-transformation", re.compile(
+        r"\bcat[’']s grace\s*,\s*which you drink\b",
         re.I,
     )),
     ("truncated-nether-trail-source", re.compile(
@@ -1068,6 +1095,14 @@ def run_self_test() -> None:
     assert "contradictory-vulnerability-scaling" in suspicious_reasons({"effectSource": "For every four caster levels beyond 9th, the reduction increases; a reduction of 10 at caster level 15th and a reduction of 15 at caster level 19th."})
     assert "contradictory-vulnerability-scaling" not in suspicious_reasons({"effectSource": "For every four caster levels beyond 9th, the reduction increases at 13th and 17th levels."})
     assert "missing-skull-eyes-effects" in suspicious_reasons({"effectSource": "Depending on Hit Dice, the gaze attack may have either of two effects, as follows. While the spell lasts, your eyes are black."})
+    assert "weapon-special-ability-dependency" in external_mechanics_reasons("The scepter has the axiomatic, disruption, and flaming burst special abilities.")
+    assert "weapon-special-ability-dependency" not in external_mechanics_reasons("The weapon has a +2 enhancement bonus.")
+    assert "fog-cloud-concealment-inheritance" in external_mechanics_reasons("The cylinder provides concealment similar to fog cloud.")
+    assert "freedom-of-movement-inheritance" in external_mechanics_reasons("You are protected by freedom of movement.")
+    assert "negative-energy-protection-inheritance" in external_mechanics_reasons("All subjects receive negative energy protection, except their resistance roll gains +10.")
+    assert "under-influence-of-named-spell" in external_mechanics_reasons("The animal serves you as if it were under the influence of a dominate animal spell.")
+    assert "mobility-feat-inheritance" in external_mechanics_reasons("When moving in combat, you act as if you had the Mobility feat.")
+    assert "garbled-nightstalker-transformation" in suspicious_reasons({"effectSource":"You also gain the cat’s grace , which you drink (and whose effects are subsumed)."})
     assert "planar-environment-dependency" in external_mechanics_reasons("The area emulates its native planar environment.")
     assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell summons a bearded devil from the Nine Hells.")
     assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})
