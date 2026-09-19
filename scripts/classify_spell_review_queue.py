@@ -296,7 +296,8 @@ SUSPICIOUS_PATTERNS = (
         re.I,
     )),
     ("suspicious-fp-unit", re.compile(r"\b\d[\d,]*\s+fp\b", re.I)),
-    ("malformed-dice-notation", re.compile(r"\\b(?:l|I)d\\d+\\b")),\n    ("truncated-nether-trail-source", re.compile(
+    ("malformed-dice-notation", re.compile(r"\b(?:l|I)d\d+\b")),
+    ("truncated-nether-trail-source", re.compile(
         r"\bEvil outsider must make its saving throw first\b",
         re.I,
     )),
@@ -955,7 +956,9 @@ def run_self_test() -> None:
     assert "equivalent-of-named-spell" not in external_mechanics_reasons("The object has the equivalent of a +2 enhancement bonus.")
     assert "works-just-like-named-spell" not in external_mechanics_reasons("The device works just like normal machinery.")
     assert "modified-named-spell-reference" in external_mechanics_reasons("The weapon acts as a +5 bless weapon.")
-    assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})\n    assert "malformed-dice-notation" not in suspicious_reasons({"effectSource":"Creatures in the burst take 1d8 points of damage."})\n    assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
+    assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})
+    assert "malformed-dice-notation" not in suspicious_reasons({"effectSource":"Creatures in the burst take 1d8 points of damage."})
+    assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
     assert "teleport greater" in name_aliases("Teleport, Greater")
     assert near_family_key(
