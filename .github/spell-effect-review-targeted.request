@@ -1,14 +1,7 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/see-invisibility-2514",
-    "spells/detect-good-2487",
-    "spells/aiming-at-the-target-2011",
-    "spells/aiming-at-the-target-3822",
-    "spells/aiming-at-the-target-434",
-    "spells/acid-orb-3391",
-    "spells/acid-orb-lesser-1946",
-    "spells/acid-orb-lesser-3398"
+    "spells/detect-evil-2486"
   ],
-  "nonce": "2026-09-19-f-section-held-crossrefs"
+  "nonce": "2026-09-19-detect-evil-base"
 }
