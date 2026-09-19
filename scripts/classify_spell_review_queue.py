@@ -263,7 +263,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
     ("works-just-like-named-spell", re.compile(
         r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+just\s+like\s+"
         r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
-        r"(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
+        r"(?=\s*,?\s*(?:except|but)\b|\s+spell\b)",
         re.I,
     )),
     ("dispel-magic-effect-inheritance", re.compile(
