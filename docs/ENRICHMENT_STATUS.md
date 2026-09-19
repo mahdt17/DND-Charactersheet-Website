@@ -136,10 +136,10 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,438**
+- Digest-locked reviewed spell effects: **1,489**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
-- Permanent focused spell regression corpus: **81 / 81 green**
+- Permanent focused spell regression corpus: **82 / 82 green**
 - Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, delegated outside the spell page, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings and official errata are preferred when they can supply the missing mechanic.
 - Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
 - **Reference-dependent spell effects remain strict:** short prose such as “functions like/as …” or “as …, except/but …” does not count as standalone-complete until inherited mechanics are resolved into a self-contained reviewed effect summary. Generic rules language such as “functions as a splash weapon” and ordinary “functions as if …” phrasing is excluded from this detector so those clauses are not falsely treated as spell references.
@@ -158,20 +158,21 @@ The current permanent regression corpus includes the damaged-primary/parser case
 - `Enlarge Person` (`spells/enlarge-person-2805`): the rebuilt Player's Handbook effect corrupts/truncates the equipment paragraph; the supplement restores the missing equipment, size-stacking, reduce person, and permanency mechanics.
 - `Evil Weather` (`spells/evil-weather-139`): the spell page delegates its actual weather mechanics to Chapter 2 instead of including them. The supplement restores the five weather modes from the same *Book of Vile Darkness* source and preserves the spell-specific radius, duration, corruption cost, and violet-rain costs.
 - `Extract Drug` (`spells/extract-drug-140`): the rebuilt spell table corrupts the air/wood rows. A source-incomplete-only table replacement restores **Mordayn vapor** for air and **Mushroom powder** for wood plus the correct focus effects. Spell supplements may replace parsed tables only when the exact record is already flagged source-incomplete and the supplement explicitly resolves that defect.
+- Miniatures Handbook `Favorable Sacrifice` (`spells/favorable-sacrifice-1942`): the rebuilt primary record mixes the later *Spell Compendium* 250/1,000/10,000 gp benefit tiers into the earlier printing while retaining the original 1,000/5,000/25,000 gp material-cost line. The record is now flagged source-incomplete and repaired from the printed *Miniatures Handbook* table: the three sacrifice tiers grant DR / five-energy resistance / spell resistance of **10 / 10 / 10**, **15 / 15 / 15**, and **20 / 20 / 20** respectively.
 
 These records remain supplement-backed where the primary spell page is damaged, contradictory, or not self-contained; corrupt source text is **not** accepted as an ordinary digest-locked review.
 
 ### Latest authoritative full spell audit
 
-Category Enrichment Audit **#75**, run **35428021129**, audited commit `4dc063f94e05fd46ddcbce948ab90145d6f9a3b8` with **1,438** digest-locked reviewed summaries and **81** permanent focused spell regressions:
+Category Enrichment Audit **#77**, run **35429119970**, audited commit `6f50ffaa75e59884fdd5a29fe9cf7a4373c3e667` with **1,489** digest-locked reviewed summaries and **82** permanent focused spell regressions:
 
 - Samples: **25 / 25**, **50 / 50**, **100 / 100**, **250 / 250** passed.
 - Source shards: **8 / 8 passed**.
-- Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**, `coverageErrors: []`.
+- Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**.
 - Candidate shards: **8 / 8 generated successfully**.
 - Candidate merge: **5,035 / 5,035 exact candidate records**, no duplicates, missing IDs, unexpected IDs, or merge errors.
-- Candidate/output audit: **1,768 / 5,035 output-complete**, **3,267 incomplete**, **35.1142%** output-complete.
-- `criticalMissingCount`: **3,267**.
+- Candidate/output audit: **1,820 / 5,035 output-complete**, **3,215 incomplete**, **36.1470%** output-complete.
+- `criticalMissingCount`: **3,215**.
 - `errors`: **empty**.
 - `sourceExtractionVerified: true`
 - `outputCompletenessVerified: false`
@@ -185,8 +186,10 @@ For comparison, recent strict-reference checkpoints include:
 - 1,359 reviews / 79 regressions: **1,686 / 5,035** output-complete, **3,349** incomplete, **33.4856%**.
 - 1,398 reviews / 79 regressions: **1,726 / 5,035** output-complete, **3,309** incomplete, **34.2800%**.
 - 1,438 reviews / 81 regressions: **1,768 / 5,035** output-complete, **3,267** incomplete, **35.1142%**.
+- 1,456 reviews / 81 regressions: **1,786 / 5,035** output-complete, **3,249** incomplete, **35.4717%**.
+- 1,489 reviews / 82 regressions: **1,820 / 5,035** output-complete, **3,215** incomplete, **36.1470%**.
 
-The next ordinary review queue begins immediately after `spells/extract-drug-140`. `Phantom Steed` and `Spurn the Supernatural` were also reviewed opportunistically because current records inherited their mechanics. Same-name and same-family printing differences must remain independent, cross-referenced base mechanics must be resolved into standalone summaries from the same primary catalog when available, and damaged-primary records must be diverted to supplements instead of digest-locking bad source text.
+The resumed ordinary queue after the 1,438 checkpoint advanced through the first post-`Extract Drug` records and then into the F-section. Cross-referenced mechanics were resolved through targeted primary-catalog exports rather than leaving pointer-only summaries. The earliest held long-effect record in catalog order is now `spells/fantastic-machine-4478` (`Fantastic Machine, Greater`), whose inherited `Fantastic Machine` mechanics must be folded into a standalone summary before proceeding. Same-name and same-family printing differences remain independent, and damaged-primary records continue to be diverted to provenance-backed supplements instead of digest-locking bad source text.
 
 No catalog enrichment and no `--write` operation has been performed. Supabase remains unchanged.
 
@@ -203,4 +206,4 @@ Do **not** use `--write` and do **not** unlock live/catalog writes. Overall rele
 
 ## Validation status
 
-The current 1,438-review / 81-regression audit head (`4dc063f94e05fd46ddcbce948ab90145d6f9a3b8`) passed Validate modernization run `35428022567` end-to-end. The checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
+The current 1,489-review / 82-regression audit head (`6f50ffaa75e59884fdd5a29fe9cf7a4373c3e667`) passed Validate modernization run `35429122461` (#399) end-to-end. Category Enrichment Audit #77 (run `35429119970`) independently confirmed 5,035 / 5,035 source and candidate integrity with `errors: []`; only the intentionally strict final spell output-completeness gate remains failed at 1,820 / 5,035.
