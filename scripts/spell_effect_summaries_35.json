@@ -14062,6 +14062,230 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/drown-4422": {
+      "name": "Drown",
+      "sourceSha256": "75be8545811bd2ba243ede007b8175b6f72b5ddbb9d83b750295ad1c75d94411",
+      "effectSummary": "Creates water in one living subject's lungs. The target immediately falls unconscious at 0 hit points; in the next round it drops to -1 hit point and is dying, and in the following round it dies. Coughing cannot expel the water, but another creature can stabilize it with a DC 15 Heal check before death. Undead, constructs, creatures that do not need to breathe, and creatures that can breathe water are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drown-4422",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/drown-mass-4423": {
+      "name": "Drown, Mass",
+      "sourceSha256": "425f1f7398417494512a7b9633357b59624d1a7c4bad98323597c65f1e6045f2",
+      "effectSummary": "Functions as drown but affects multiple creatures. Each affected living creature has its lungs filled with water, immediately falls unconscious at 0 hit points, drops to -1 and begins dying in the next round, and dies in the following round unless another creature stabilizes it with a DC 15 Heal check. Undead, constructs, creatures that do not need to breathe, and creatures that can breathe water are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drown-mass-4423",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the multiple-target modification"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/drown-4422",
+          "role": "same primary catalog referenced spell used to retain the inherited drowning sequence, Heal stabilization, and immunity mechanics"
+        }
+      ]
+    },
+    "spells/drug-resistance-159": {
+      "name": "Drug Resistance",
+      "sourceSha256": "3b61171c423a5738e49e8a87c13f537459e346cf4ebf008e42e9b7f259c04590",
+      "effectSummary": "Makes the touched creature immune to becoming addicted to drugs for the duration, while leaving both beneficial and harmful drug effects unchanged. It does not cure an existing addiction. If the spell expires before a drug's effects end, the normal addiction chance applies at that point. The material component is three drops of pure water.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drug-resistance-159",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/druid-grove-1923": {
+      "name": "Druid Grove",
+      "sourceSha256": "3c7b2af800601d267268bd3c423411a7e55872e47c03951a462172d63f604fca",
+      "effectSummary": "Reshapes living trees into stationary spell stores. During one uninterrupted ritual you may cast druid companion spells totaling no more than one-third of your caster level, rounded down, with a maximum spell level of 6th; instead of taking effect, each spell is stored in a separate tree in the area. The ritual takes at least 10 minutes, or the total actual casting time if any companion spell requires longer. Touching a tree is a standard action that activates its stored spell immediately, with targeting and other choices made then. You can have only one druid grove active; casting another dispels the first. The affected trees detect as magical.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/druid-grove-1923",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for spell-capacity, ritual, activation, and one-grove limit mechanics"
+        }
+      ]
+    },
+    "spells/drums-of-war-1406": {
+      "name": "Drums of War",
+      "sourceSha256": "2860e6648cb2703dbab4426ba1ca26fe8963fb436162680d4ec3abc0b921f1de",
+      "effectSummary": "While you play the focus instrument, enemies within range take -2 on attack rolls and saving throws; the penalty continues for 1 round per caster level after the music stops. Deaf enemies and creatures under silence are unaffected. The focus is a masterwork musical instrument that must be played.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drums-of-war-1406",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/duelward-437": {
+      "name": "Duelward",
+      "sourceSha256": "6a6702aa458e575f2c012908e46cb1e5c8b33ca414cbb659f045ba807d274c00",
+      "effectSummary": "While active, lets you counterspell as an immediate action without readying an action, even outside your turn, and grants +4 competence on Spellcraft checks to identify spells being cast. The first successful counterspell you make while duelward is active discharges the spell, whether or not you used the immediate-action option. The material component is a miniature silk glove.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/duelward-437",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/duelward-4424": {
+      "name": "Duelward",
+      "sourceSha256": "43ebf6ac90a26ce19c889a269c2cdc74718fc938ad62b28314a9997d6b845938",
+      "effectSummary": "While active, lets you counterspell as an immediate action without readying an action, even outside your turn, and grants +4 competence on Spellcraft checks to identify spells being cast. The first successful counterspell you make while duelward is active discharges the spell, whether or not you used the immediate-action option. The material component is a miniature silk glove.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/duelward-4424",
+          "role": "primary Spell Compendium record reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dust-to-dust-3114": {
+      "name": "Dust to Dust",
+      "sourceSha256": "670add9c2b38ad1afc42e3203197e179bad5b193e7bdb2cbd5995a2eb31608c5",
+      "effectSummary": "Fires a ray requiring a ranged touch attack. A corpse or undead creature hit takes 1d8 damage per two caster levels, maximum 10d8, with a successful Fortitude save for half. A Large-or-smaller creature reduced to 0 or fewer hit points by the spell is disintegrated into fine dust. Non-corpse objects are unaffected, so the target's equipment is not destroyed by the ray.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dust-to-dust-3114",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dweomer-vortex-4982": {
+      "name": "Dweomer Vortex",
+      "sourceSha256": "edb4bdf034f0b16e6e874d451427becec58335a0e8d2c7ac1d55878b4fda9747",
+      "effectSummary": "Creates a mobile cone of arcane energy attached to you. Any 3rd-level-or-lower spell or spell-like ability that targets you or includes you in its area is automatically countered. As a swift action, you can instead project the cone at one creature or 5-foot square within 60 feet and line of sight; without an attack roll or dispel check it dispels active spells or spell-like abilities there, starting with the lowest level and choosing randomly among ties. The vortex disappears after negating a total of six spell levels; 0-level effects count as 1st level for this limit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dweomer-vortex-4982",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for automatic countering, swift dispel, ordering, and six-level discharge mechanics"
+        }
+      ]
+    },
+    "spells/eagles-splendor-1218": {
+      "name": "Eagle's Splendor",
+      "sourceSha256": "38343245f1a32504e867c9b1259c7b9c8e1e627d133872dcbc931364a98f7d7b",
+      "effectSummary": "Grants 1d4+1 enhancement to Charisma, improving Charisma-based skills and other uses of the modifier. Sorcerers and bards do not gain extra spells from the increased Charisma, but their spell save DCs increase. The arcane material component is a few eagle feathers or a pinch of eagle dung.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eagles-splendor-1218",
+          "role": "primary Forgotten Realms Campaign Setting printing reviewed and paraphrased; its 1d4+1 Charisma bonus is preserved"
+        }
+      ]
+    },
+    "spells/eagles-splendor-2803": {
+      "name": "Eagle's Splendor",
+      "sourceSha256": "0fc8f425bffceec52b1ad7f6d68a2dc9f988d57500b2123876e784223ae743df",
+      "effectSummary": "Grants a +4 enhancement bonus to Charisma, improving Charisma-based skill checks and other uses of the Charisma modifier. Charisma-based spellcasters do not gain additional bonus spells from the temporary increase, but spell save DCs do increase while the spell is active. The arcane material component is a few eagle feathers or a pinch of eagle droppings.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eagles-splendor-2803",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased; its fixed +4 Charisma bonus is preserved"
+        }
+      ]
+    },
+    "spells/eagles-splendor-3414": {
+      "name": "Eagle's Splendor",
+      "sourceSha256": "d0fc4d595a5684fba920645f52d5f261ee0699ab5221e7109f8b0fa75621d7f1",
+      "effectSummary": "Grants 1d4+1 enhancement to Charisma, improving Charisma-based skills and other uses of the modifier. Sorcerers and bards do not gain extra spells from the increased Charisma, but their spell save DCs increase. The arcane material component is a few eagle feathers or a pinch of eagle droppings. This printing notes that the spell first appeared in the Forgotten Realms Campaign Setting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eagles-splendor-3414",
+          "role": "primary Tome and Blood printing reviewed and paraphrased; its 1d4+1 Charisma bonus is preserved"
+        }
+      ]
+    },
+    "spells/early-twilight-1411": {
+      "name": "Early Twilight",
+      "sourceSha256": "5032d87bebfee8de44cbc4941ca496cf5873cdfa58d724e4a9560c64ee612b7f",
+      "effectSummary": "Reduces illumination in the area by one category: bright light becomes shadowy illumination and shadowy illumination becomes darkness. It does not stack with other magical darkness effects. Unlike most darkness-descriptor spells, it counters and dispels battlefield illumination but not other light spells. The arcane material component is a black veil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/early-twilight-1411",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/earth-glide-3069": {
+      "name": "Earth Glide",
+      "sourceSha256": "e31eac4cd2d33792779fd0a2b2c82f6c3786855088ccd835b87e5efb2fa1810a",
+      "effectSummary": "Lets the subject move through stone, dirt, and most other earth except metal as easily as an earth elemental, leaving no tunnel, hole, ripple, or other trace. If move earth is cast on an area containing the subject, it is thrown back 30 feet and stunned for 1 round unless it succeeds on a DC 15 Fortitude save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earth-glide-3069",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/earth-hammer-3070": {
+      "name": "Earth Hammer",
+      "sourceSha256": "5f1d4d25f5a0b7ed98fa4447ad2a11b061b9a92ddff3c0e79bd06e869adbe409",
+      "effectSummary": "Empowers one melee weapon so its base damage increases by one size step. For the duration it deals bludgeoning damage regardless of its normal damage type and overcomes damage reduction as adamantine. If the weapon is made from another special material, such as alchemical silver, that material's properties are replaced by adamantine's for the duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earth-hammer-3070",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/earth-lock-4425": {
+      "name": "Earth Lock",
+      "sourceSha256": "731fc61ce7a8240df7bd8693b12a9781cd4060d9eb5488d493a7cc6f6d89be27",
+      "effectSummary": "Constricts a 1-foot length of a subterranean tunnel whose diameter is no more than 10 feet and whose sides are surrounded by natural earth, taking 1 round to close. Large-or-smaller creatures or objects partly blocking the point are pushed harmlessly to one side; Huge-or-larger obstructions prevent closure until moved. You can command your own lock to open or close in 1 round. Others can bypass it with DC 20 Escape Artist while leaving it intact, break it with DC 25 Strength, end it with dispel magic, suppress it for 10 minutes with knock, burrow through it to end the spell, or dig it out normally. Recognizing the magical constriction rather than a natural dead end requires DC 20 Search. The material component is a diamond chip worth at least 50 gp embedded in charcoal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earth-lock-4425",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for tunnel limits, obstruction, passage, bypass, and component mechanics"
+        }
+      ]
+    },
+    "spells/earth-reaver-3221": {
+      "name": "Earth Reaver",
+      "sourceSha256": "728be77881d277360a02622c8fc980950ae394847415b05ab62c214a7d9815eb",
+      "effectSummary": "Erupts earth, rock, dirt, and fire at the chosen point. Creatures and objects in the area take 7d6 damage total: 4d6 impact plus 3d6 fire. Creatures that fail the spell's saving throw are also knocked prone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earth-reaver-3221",
+          "role": "primary Savage Species printing reviewed and paraphrased; its combined 7d6 damage and save-linked prone effect are preserved"
+        }
+      ]
+    },
+    "spells/earth-reaver-3778": {
+      "name": "Earth Reaver",
+      "sourceSha256": "25411339c981b4011d2375d8e9f259f34bc64535366fa685b2fe74f7eeb488c0",
+      "effectSummary": "Erupts earth, rock, dirt, and fire at the chosen point. Creatures and objects in the area take 4d6 impact damage plus 3d6 fire damage with no saving throw against the damage. Creatures must separately succeed on a Reflex save or be knocked prone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earth-reaver-3778",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its no-save damage and separate Reflex-vs-prone rule are preserved"
+        }
+      ]
+    },
+    "spells/earthbind-1037": {
+      "name": "Earthbind",
+      "sourceSha256": "74bc47a22d38ca6cf991d837e0c7d257a402f604b232df6d8ba78c13ee213494",
+      "effectSummary": "Suppresses natural or magical flight. On a failed Fortitude save, the target's fly speed becomes 0 and an airborne target descends as though under feather fall; new effects that would grant flight are also suppressed for the duration. On a successful save, its fly speed, including flight gained later during the spell, is instead reduced by 10 feet per caster level, maximum 100 feet, but not below 10 feet. Other movement modes and airborne movement that does not grant a fly speed, such as jumping, levitate, or air walk, are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthbind-1037",
+          "role": "primary Draconomicon printing reviewed and paraphrased; its successful-save partial fly-speed reduction is preserved"
+        }
+      ]
+    },
+    "spells/earthbind-2007": {
+      "name": "Earthbind",
+      "sourceSha256": "35fc1e36f186b3d58dbf2dc6ac9d8619e1b13e4e0c31750264ab009578fe33a6",
+      "effectSummary": "Suppresses natural or magical flight. On a failed Fortitude save, the target's fly speed becomes 0 and an airborne target descends as though under feather fall; new effects that would grant flight are also suppressed for the duration. Other movement modes and airborne movement that does not grant a fly speed, such as jumping, levitate, or air walk, are unaffected. Unlike the Draconomicon printing, this version does not state a reduced-flight effect on a successful save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthbind-2007",
+          "role": "primary Monster Manual V printing reviewed and paraphrased; its lack of a successful-save partial fly-speed reduction is preserved"
+        }
+      ]
     }
   }
 }
