@@ -7647,6 +7647,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/cloud-of-bewilderment-4031": {
+      "name": "Cloud of Bewilderment",
+      "sourceSha256": "7d7541f4c03c17c72de62b895d2225eb194cadbd8d4af777d2d3542303bfd8cd",
+      "effectSummary": "Creates a nauseating cloud. Living creatures in the area become nauseated; a successful save avoids the condition for that round, but creatures that remain must save again each round on the caster's turn. Nausea lasts while inside and for 1d4+1 rounds after leaving. The cloud also obscures sight, including darkvision, providing concealment within or through the area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloud-of-bewilderment-4031",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloud-of-knives-2920": {
+      "name": "Cloud of Knives",
+      "sourceSha256": "6f973e923a262cac6dc884b5e747bcef1877af0dd74616e8e40782647f4922fb",
+      "effectSummary": "Creates hovering knives around the caster. At the start of each turn, one knife can be fired as a free action at a visible target within 30 feet using an attack bonus equal to caster level + key ability modifier. A hit deals 1d6 +1 per three caster levels, maximum +5, and threatens a critical on 19–20. The knives count as magic for damage reduction. Using a silvered dagger as the material component also lets them count as silver, but each knife deals 1 less damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloud-of-knives-2920",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloud-of-taint-2063": {
+      "name": "Cloud of Taint",
+      "sourceSha256": "95953f0655ae20969c3a1854937b71ba60c0b07a14b8b6d08d2812cc21676c46",
+      "effectSummary": "Deals 1d8 damage per two caster levels, maximum 5d8, to untainted creatures and sickens them for 1d4 rounds; a Fortitude save halves damage and negates sickness. A sickened victim must save again or gain 1d3 Taint. Creatures that already have Taint take half damage, can halve that again with a Fortitude save, are not sickened, and automatically increase their Taint by 1. Nezumi, Shinomen nagas, and Shadowlands-subtype creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloud-of-taint-2063",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloud-of-the-achaierai-136": {
+      "name": "Cloud of the Achaierai",
+      "sourceSha256": "9838a7e4d405b0bbc764af336f9e58da3fed8ca2191855b7d661ad24c6aeeeb7",
+      "effectSummary": "Creates a toxic black cloud. Creatures other than the caster inside take 2d6 damage and must make a Fortitude save or be confused for the spell's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloud-of-the-achaierai-136",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloudburst-1663": {
+      "name": "Cloudburst",
+      "sourceSha256": "16d9c90f848d52ca90c25ce0248faf4a381573aa97ae5d5c75f08707d077f986",
+      "effectSummary": "Creates heavy rain that halves visibility range, imposes -4 on Spot, Search, ranged attacks, and Listen checks, automatically extinguishes unprotected flames, and has a 50% chance to extinguish protected flames. It does not function indoors, underground, underwater, or in desert climates. The created water evaporates within 10 minutes after the spell ends and cannot provide nourishment or quench thirst.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloudburst-1663",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloudburst-4033": {
+      "name": "Cloudburst",
+      "sourceSha256": "672617df3593ff28fc2025fd49d731072a2b7557641c8c84fcc408d257828238",
+      "effectSummary": "Creates heavy rain that halves visibility range, imposes -4 on Spot, Search, ranged attacks, and Listen checks, automatically extinguishes unprotected flames, and has a 50% chance to extinguish protected flames. Fire damage in the area is reduced by 1 point per damage die. The spell does not function indoors, underground, underwater, or in desert climates, and its water evaporates within 10 minutes after the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloudburst-4033",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloudburst-696": {
+      "name": "Cloudburst",
+      "sourceSha256": "7fb30703d97966c3f9f5575a5449cb5a79f10f8be16912b32f8992fb9d5f2532",
+      "effectSummary": "Creates heavy rain that halves visibility range, imposes -4 on Spot, Search, ranged attacks, and Listen checks, automatically extinguishes unprotected flames, and has a 50% chance to extinguish protected flames. It does not function indoors, underground, underwater, or in desert climates. The created water evaporates within 10 minutes after the spell ends and cannot provide nourishment or quench thirst.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloudburst-696",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloudkill-2374": {
+      "name": "Cloudkill",
+      "sourceSha256": "0025945b4a65da8aa2fab6ae3d188780e0ce6bb364adf0abddeb073180ed8e96",
+      "effectSummary": "Creates poisonous fog that automatically kills living creatures of 3 HD or fewer. Creatures of 4–6 HD die unless they make a Fortitude save; on success they instead take 1d4 Constitution damage each round in the cloud. Creatures of 6 HD or more take 1d4 Constitution damage per round, Fortitude half. Poison immunity protects normally. The cloud moves away from the caster at 10 feet per round, sinks to low ground, cannot penetrate liquids, and cannot be cast underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloudkill-2374",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloudwalkers-1920": {
+      "name": "Cloudwalkers",
+      "sourceSha256": "d19e9d4df3ed1d30bc10fed93036cfbed093623a43ffa6989171ed256b258a14",
+      "effectSummary": "Creates cloud pads that let each subject move vertically at up to 30 feet or fly laterally at 60 feet with perfect maneuverability, though lateral flight requires being at least 90 feet above the ground. A subject can end the spell for itself as a standard action by shaking off the cloudstuff. The caster can dismiss the spell only for all subjects at once.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloudwalkers-1920",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloudwalkers-4034": {
+      "name": "Cloudwalkers",
+      "sourceSha256": "35a5808f7c25401445aa86aa6bcb818a237979c6ac1fc8d80a8b8d2c0e90a323",
+      "effectSummary": "Creates cloud pads that grant each subject an outdoor fly speed of 60 feet with perfect maneuverability. A subject can end the spell for itself as a standard action by shaking off the cloudstuff. The caster can dismiss the spell only for all subjects at once.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloudwalkers-4034",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloudwalkers-737": {
+      "name": "Cloudwalkers",
+      "sourceSha256": "70f3b226eff6d5414203740bf83aa680174eb4cbd4ec6c02a2585bffeb1149cf",
+      "effectSummary": "Creates cloud pads that let each subject move vertically at up to 30 feet or fly laterally at 60 feet with perfect maneuverability, though lateral flight requires being at least 90 feet above the ground. A subject can end the spell for itself as a standard action by shaking off the cloudstuff. The caster can dismiss the spell only for all subjects at once.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloudwalkers-737",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clutch-orcus-1471": {
+      "name": "Clutch of Orcus",
+      "sourceSha256": "43a755d166e44dcf4eb9983087c3894d20d593cc2ed193dbbf10f35e63c8758d",
+      "effectSummary": "Magical force crushes the target's heart or equivalent vital organ, paralyzing it and dealing 1d3 damage per round while the caster concentrates. A conscious victim receives a new saving throw each round to end the spell. If the spell kills the victim, its smoking heart appears in the caster's hand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clutch-orcus-1471",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clutch-orcus-202": {
+      "name": "Clutch of Orcus",
+      "sourceSha256": "8660d094ea3c54d552f4ac835fc989c256e044e97a4952d81a72b19ec9f8e173",
+      "effectSummary": "Magical force crushes the target's heart or equivalent vital organ, paralyzing it and dealing 1d3 damage per round while the caster concentrates. A conscious victim receives a new saving throw each round to end the spell. If the spell kills the victim, its chest bursts and its smoking heart appears in the caster's hand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clutch-orcus-202",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clutch-orcus-4035": {
+      "name": "Clutch of Orcus",
+      "sourceSha256": "cd08c65c3cd6b14d17e00b8204acb3ed2d49b00cee3c9b50e2f1b2b864bb51dd",
+      "effectSummary": "Magical force crushes the target's heart or equivalent vital organ, paralyzing it and dealing 1d12 damage per round while the caster concentrates. A conscious victim can attempt a new Fortitude save each round to end the spell. If the spell kills the victim, its smoking heart appears in the caster's hand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clutch-orcus-4035",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clutch-orcus-4988": {
+      "name": "Clutch of Orcus",
+      "sourceSha256": "9743dc01d2461197d7fd8122efc892e34bab39e0ec058d14de65626c7e184bae",
+      "effectSummary": "Magical force crushes the target's heart or equivalent vital organ, paralyzing it and dealing 1d3 damage per round. A conscious victim receives a new saving throw each round to end the spell. If the spell kills the victim, its smoking heart appears in the caster's hand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clutch-orcus-4988",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/coat-of-arms-819": {
+      "name": "Coat of Arms",
+      "sourceSha256": "3573e148c13d48d531c77e99c4c4f6bfeb150174009b49d48ab334775a794a99",
+      "effectSummary": "Creates one force blade per three caster levels, maximum six, circling the caster. The caster gains a shield bonus to AC equal to the number of remaining blades, including against incorporeal touch attacks. As a move action, one blade can strike a target within 30 feet automatically for 2d6 force damage and then vanish. A creature grappling the caster is automatically struck by all remaining blades, which then disappear.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/coat-of-arms-819",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cobras-breath-2104": {
+      "name": "Cobra's Breath",
+      "sourceSha256": "932c2f19072dd11a6882c164f3d11617dd2f9851a27bd3e9482bb3a2d2aa95e8",
+      "effectSummary": "Sprays poison in a 10-foot cone. Creatures in the cone must make a Fortitude save or take 1d3 Constitution damage. There is no secondary damage, and the poison does not affect the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cobras-breath-2104",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cobras-breath-538": {
+      "name": "Cobra's Breath",
+      "sourceSha256": "119f4c01b63e7738a9bd867f8ad16daa6e0dc286ba67bd41224488f80381ad5c",
+      "effectSummary": "Sprays poison in a 10-foot cone. Creatures in the cone must make a Fortitude save or take 1d3 Constitution damage. The poison has no secondary effect, does not affect the caster, and loses potency immediately after being sprayed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cobras-breath-538",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cocoon-1607": {
+      "name": "Cocoon",
+      "sourceSha256": "738b7e976b5f674cfb51180b3a53716606f388f8f5891efc882b2e27315778fd",
+      "effectSummary": "Encases the subject in a paralytic cocoon with hardness 10 and 100 hit points. Once per day the victim gains a negative level; permanent lost levels are stored by the cocoon, up to 10. If the victim reaches 0 levels, it dies and the cocoon shrinks into a carried item that for one day per stored level grants +4 enhancement to the victim's highest ability score, an enhancement bonus on one of the victim's Knowledge skills equal to its ranks there, and one free spell slot of the highest level the victim could cast. Freeing the victim before death prevents these benefits, and restoring the victim to life immediately ends them. Casting costs 1,000 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cocoon-1607",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cocoon-4036": {
+      "name": "Cocoon",
+      "sourceSha256": "971e4b4fba6174ea73cd0412b196f585c95fc1bab498f71119ac6cd29eafb81d",
+      "effectSummary": "Cast on a creature that died no more than 1 round per caster level ago, the cocoon preserves the corpse for one week. If the creature is raised, resurrected, or reincarnated during that week, it suffers no normal level or Constitution loss from returning to life. If not restored by the week's end, it is automatically reincarnated with no level or Constitution loss. Casting costs 250 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cocoon-4036",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
