@@ -12494,6 +12494,242 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for the Complete Arcane printing"
         }
       ]
+    },
+    "spells/discolor-pool-2185": {
+      "name": "Discolor Pool",
+      "sourceSha256": "9871b8c7f79ce7343e29cf7b06c88515aee1ed908df80d967dd0fa84e80e80a5",
+      "effectSummary": "Changes the apparent color of an Astral Plane color pool so it seems to lead to a different plane than it actually does. True seeing or analyze portal reveals the pool's real nature. The material component is four drops of colored ink.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discolor-pool-2185",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Planar Handbook printing"
+        }
+      ]
+    },
+    "spells/discolor-pool-4389": {
+      "name": "Discolor Pool",
+      "sourceSha256": "8ae2b40169a408fae6a2a143feb5310f4ef4aa322c1520f9facd55a6c5b21399",
+      "effectSummary": "Changes the apparent color of an Astral Plane color pool so it seems to lead to a different plane than it actually does. True seeing or analyze portal reveals the pool's real nature. The material component is four drops of colored ink.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discolor-pool-4389",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing"
+        }
+      ]
+    },
+    "spells/discordant-malediction-872": {
+      "name": "Discordant Malediction",
+      "sourceSha256": "f61f776058be59cbb89e0ba7b935b5e9ae4add9d596e2ecc735e9b5ef58d8429",
+      "effectSummary": "Each time the subject casts a spell with a verbal component, the subject and every creature within 10 feet take 2d6 sonic damage. The subject must then make a Concentration check at DC 15 + the damage dealt + the level of the spell being cast; failure causes that spell to be lost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discordant-malediction-872",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for trigger, area damage, and Concentration-loss mechanics"
+        }
+      ]
+    },
+    "spells/disguise-self-2666": {
+      "name": "Disguise Self",
+      "sourceSha256": "6747f37a9d7f32058d0c1f8b9d3081229dcd3a0b8f69c68a524a41a858c857cb",
+      "effectSummary": "Change the visible appearance of yourself and your clothing, armor, weapons, and equipment. You can appear up to 1 foot shorter or taller and alter build and features, but cannot change body type. The glamer grants no abilities or mannerisms and does not alter tactile or audible properties; equipment still functions as its real form. Using it as a disguise grants +10 on the Disguise check. A creature that interacts with the illusion can make a Will save to recognize the glamer.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disguise-self-2666",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for appearance limits, sensory limitations, Disguise bonus, and interaction save"
+        }
+      ]
+    },
+    "spells/disguise-ship-3350": {
+      "name": "Disguise Ship",
+      "sourceSha256": "bfc27cc01b182805caecb7fd99f11be8bebe553753138334bfd1add00daa0583",
+      "effectSummary": "Makes one ship appear to be a different water-going vessel, including chosen details such as weapons and flags. Its apparent size can be no more than 50% smaller or larger than the real ship. Creatures aboard the ship and their possessions are not hidden or visually altered. The material component is a tiny ship replica.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disguise-ship-3350",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for vessel appearance, size limits, and unaffected occupants"
+        }
+      ]
+    },
+    "spells/disguise-undead-1364": {
+      "name": "Disguise Undead",
+      "sourceSha256": "98b122732944399036f14d657f2d944da81cedca26a0d7f0e88f6528f85d5a1b",
+      "effectSummary": "Changes the visible appearance of one undead and its clothing, armor, weapons, and equipment. It can appear up to 1 foot shorter or taller and have different build or features, but its body type cannot change. The glamer grants no abilities or mannerisms and does not alter touch or sound; disguised equipment still functions normally. A creature that interacts with the subject can make a Will save to recognize the illusion. The focus is a death's-head moth cocoon.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disguise-undead-1364",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Ghostwalk printing"
+        }
+      ]
+    },
+    "spells/disguise-undead-1698": {
+      "name": "Disguise Undead",
+      "sourceSha256": "33252da15ca084e7f83691419cf4301c5d12d716253b52c7d8b5d76c943ee48b",
+      "effectSummary": "Changes the visible appearance of one undead and its clothing, armor, weapons, and equipment. It can appear up to 1 foot shorter or taller and have different build or features, but its body type cannot change. The glamer grants no abilities or mannerisms and does not alter touch or sound; disguised equipment still functions normally. A creature that interacts with the subject can make a Will save to recognize the illusion. The focus is a death's-head moth cocoon.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disguise-undead-1698",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Magic of Faerûn printing"
+        }
+      ]
+    },
+    "spells/disguise-undead-4391": {
+      "name": "Disguise Undead",
+      "sourceSha256": "8a0d5b80d238fd4e7d3ffb82ca356da2739ae1d0a0bc0c1e134cf01c8262bad4",
+      "effectSummary": "Changes the visible appearance of one undead and its clothing, armor, weapons, and equipment. It can appear up to 1 foot shorter or taller and have different build or features, but its body type cannot change. The glamer grants no abilities or mannerisms and does not alter touch or sound. This Spell Compendium printing also defeats magical undead detection: the subject detects as the creature type it is imitating. A creature that interacts with the subject can make a Will save to recognize the illusion. The focus is a death's-head moth cocoon.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disguise-undead-4391",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its added magical-detection spoofing is preserved"
+        }
+      ]
+    },
+    "spells/disintegrate-2801": {
+      "name": "Disintegrate",
+      "sourceSha256": "dc48b5fbe060a7b32121ed30a56e0523db81a6a843abc507759d39ff5ec2c094",
+      "effectSummary": "Make a ranged touch attack with the ray. A hit deals 2d6 damage per caster level, maximum 40d6; a successful Fortitude save reduces this to 5d6. A creature reduced to 0 or fewer hit points is completely disintegrated into fine dust while its equipment remains. Against an object, the ray can disintegrate up to one 10-foot cube of nonliving matter, including force objects such as wall of force, but not magical effects such as globe of invulnerability or antimagic field. An object that saves takes 5d6 and is disintegrated if reduced to 0 hit points. Only the first creature or object struck is affected. The arcane material components are a lodestone and a pinch of dust.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disintegrate-2801",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for ray attack, damage/save, disintegration, object, force, and single-target mechanics"
+        }
+      ]
+    },
+    "spells/disjoin-5002": {
+      "name": "Disjoin",
+      "sourceSha256": "377780a33eff1310a69c2524b57432a850aeb953eafab58c7a9a13957edaed15",
+      "effectSummary": "Choose one magical effect or magic item to disjoin. A spell or spell-like effect is ended using dispel magic's targeted dispel mechanic: make a dispel check of 1d20 + caster level, maximum +10, against DC 11 + the effect's caster level. A permanent magic item is suppressed for 1 round per caster level and must make a Will save or become a normal nonmagical item; an attended item uses its own Will bonus or its possessor's, whichever is better. When cast on a creature, you may name a specific effect or item on it; otherwise a spell effect or magic item affecting or carried by it is chosen randomly. The XP cost is 200 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disjoin-5002",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for item suppression/destruction, targeting, and XP cost"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-2315",
+          "role": "same primary catalog referenced spell used to retain the inherited targeted dispel check and DC"
+        }
+      ]
+    },
+    "spells/disk-of-solar-vengeance-313": {
+      "name": "Disk of Solar Vengeance",
+      "sourceSha256": "271061c84f4d6ec2e0f219d2d7de4deb475f2eb9956bfa083a11ae3f4e06067e",
+      "effectSummary": "While active, the disk grants cold resistance 5. If a creature hits you with a natural attack, unarmed strike, or non-reach melee weapon, it takes 1d6 fire damage +1 per caster level, maximum +5, after its normal damage; the attacker's spell resistance applies and the spell then discharges. A reach-weapon attack still discharges the spell but leaves the distant wielder outside the retaliatory damage. You can instead make a touch attack to discharge the spell offensively.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disk-of-solar-vengeance-313",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for resistance, reactive damage, reach exception, spell resistance, and touch discharge"
+        }
+      ]
+    },
+    "spells/dismissal-2310": {
+      "name": "Dismissal",
+      "sourceSha256": "c6b7bb10e1e3fa0dc4bba4aab6636cd97aa23a3ce25e771696ead5dff859adc6",
+      "effectSummary": "An extraplanar target is forced away if it fails a special Will save whose DC equals this spell's normal save DC minus the creature's Hit Dice plus your caster level. On success, the creature is instantly transported away, but there is a 20% chance it is sent to a plane other than its proper home plane.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dismissal-2310",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for special save formula and misdirection chance"
+        }
+      ]
+    },
+    "spells/disobedience-893": {
+      "name": "Disobedience",
+      "sourceSha256": "c9a759c24eee78ac09154d65e95843d17288f40ae09b9177b9b61d1d102ebec5",
+      "effectSummary": "Suppresses ongoing mental control over the subject, including charm and compulsion effects that grant continuing control such as dominate person or a vampire's dominate ability. It does not stop such effects from targeting the subject; it suppresses their control only while Disobedience lasts, and control resumes if the original effect outlasts this spell. The would-be controller must make a Will save or falsely believe its control succeeded. The protected subject perceives commands from that controller and can ignore them or pretend to obey. The material component is a scrap of tin.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disobedience-893",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for suppression, resumption, false-feedback, and subject-choice mechanics"
+        }
+      ]
+    },
+    "spells/dispel-evil-2312": {
+      "name": "Dispel Evil",
+      "sourceSha256": "e544c8eedb45444c6883940bd970394cfc77daf374da9f1f32084341252fa6de",
+      "effectSummary": "While active, you gain +4 deflection AC against attacks by evil creatures. You can discharge the spell with a successful melee touch attack against an evil extraplanar creature to send it to its home plane; a Will save negates and spell resistance applies. Alternatively, a touch can discharge the spell to automatically dispel one enchantment cast by an evil creature or one evil spell, with no saving throw or spell resistance; effects that dispel magic cannot dispel are also immune to this use.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispel-evil-2312",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for all three defensive, dismissal, and automatic-dispel uses"
+        }
+      ]
+    },
+    "spells/dispel-fog-3260": {
+      "name": "Dispel Fog",
+      "sourceSha256": "2c13f29eb62cfb62ff17094f258a3b5d25b9604a18f46bd04bb39d4094cb489f",
+      "effectSummary": "Instantly clears normal or magical fog or mist in the affected area, including obscuring mist and cloudkill, but not water, precipitation, or smoke. The area remains clear for 1 minute per caster level; natural fog then reforms within 1 minute if surrounding conditions support it. Natural fog clears automatically. Magical fog requires a dispel check of 1d20 + caster level, maximum +10, against DC 11 + the fog spell's caster level; a large magical fog can remain outside the cleared area. A creature in fog or mist form must make a Fortitude save or take 2d10 damage, and whether it saves or not it must immediately assume another form.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispel-fog-3260",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for clearing duration, magical-fog dispel check, and fog-form creature effects"
+        }
+      ]
+    },
+    "spells/dispel-magic-2315": {
+      "name": "Dispel Magic",
+      "sourceSha256": "537b76540521c78ad1525ba09f536f535654febf99037eeeee31d3923b94f7b2",
+      "effectSummary": "Ends ongoing spells as though their durations expired, can suppress magic items, dispel spell-like effects, or counter spells; instantaneous effects cannot be dispelled, and some spells explicitly resist dispelling. A dispel check is 1d20 + caster level, maximum +10, against DC 11 + the opposing spell or item's caster level, and spell resistance does not protect a creature from spells being dispelled. Targeted dispel checks each ongoing spell on one creature or object, can end a spell that created a targeted summoned/conjured creature or object, and can suppress a magic item's properties for 1d4 rounds; artifacts and deities are unaffected, and you automatically succeed against your own spells. Area dispel covers a 20-foot radius: for each creature or object it checks spells from highest caster level downward until one is dispelled or all checks fail, does not affect magic items, can end area/effect spells whose origins are inside the area, suppress only the overlapping portion of other area spells, and can end conjurations whose created creature/object is inside. Counterspell mode targets a caster and requires a dispel check to counter the spell being cast.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-2315",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for targeted, area, counterspell, item-suppression, self-spell, and limitation mechanics"
+        }
+      ]
+    },
+    "spells/dispel-magic-greater-2316": {
+      "name": "Dispel Magic, Greater",
+      "sourceSha256": "a5d6f77524117504cdc8a495d5546e59a6cf29af16e2c3b2c16057a98fbb4928",
+      "effectSummary": "Functions as dispel magic, including targeted dispel, 20-foot-radius area dispel, counterspell use, magic-item suppression, and the same dispel DC of 11 + the opposing effect's caster level. Its dispel check is 1d20 + caster level with a maximum caster-level bonus of +20 instead of +10. It also has a chance to dispel any effect that remove curse could remove, even when ordinary dispel magic cannot affect that effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-greater-2316",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the revised dispel cap and remove-curse capability"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-2315",
+          "role": "same primary catalog referenced spell used to retain inherited targeted, area, counterspell, item, and DC mechanics"
+        }
+      ]
+    },
+    "spells/dispel-possession-1330": {
+      "name": "Dispel Possession",
+      "sourceSha256": "5e6d9eab1bd73abc089abec380678fb2afac623d53914485e1a0428b748a7e6f",
+      "effectSummary": "Forces a possessing being out of its host as though it left voluntarily: for example, a ghost appears next to the host, while a magic jar user returns to its receptacle if that receptacle is in range or dies if it is not. Alternatively, use the spell as a targeted dispel against a charm, dominate, or similar control effect, using dispel magic's check of 1d20 + caster level, maximum +10, against DC 11 + the effect's caster level. The material component is 1 gp of powdered silver.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispel-possession-1330",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for possession removal and alternate dispel use"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-2315",
+          "role": "same primary catalog referenced spell used to retain the inherited targeted dispel check and DC"
+        }
+      ]
+    },
+    "spells/dispel-silence-299": {
+      "name": "Dispel Silence",
+      "sourceSha256": "d6aef38dcb6370da71aa68b0d42934d7aecb9cc423b72794546aa18e2a13d78d",
+      "effectSummary": "Functions as dispel magic but can affect only effects that create an area of silence, such as silence or Khelben's suspended silence. It therefore uses dispel magic's applicable targeted, area, or counterspell checks of 1d20 + caster level, maximum +10, against DC 11 + the opposing effect's caster level. While this spell is prepared, you also gain a +2 competence bonus on Listen checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispel-silence-299",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the silence-only restriction and passive Listen bonus"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-2315",
+          "role": "same primary catalog referenced spell used to retain inherited dispel modes, check, and DC"
+        }
+      ]
+    },
+    "spells/dispel-taint-2014": {
+      "name": "Dispel Taint",
+      "sourceSha256": "6670a1222752257bcb9eb4095fbca963ef572483625e23f5f96470912f27aac2",
+      "effectSummary": "While active, you gain +4 deflection AC against attacks by Shadowlands creatures and creatures with a Taint score. You can discharge the spell with a successful melee touch attack against an oni or another outsider or elemental with the Shadowlands subtype to send it to its home plane; a Will save negates and spell resistance applies. Alternatively, a touch can discharge the spell to automatically dispel one spell cast by a Tainted creature or one maho spell, with no saving throw or spell resistance; effects that dispel magic cannot dispel are also immune to this use.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispel-taint-2014",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for all three Shadowlands defense, dismissal, and automatic-dispel uses"
+        }
+      ]
     }
   }
 }
