@@ -392,7 +392,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
     )),
     ("magic-weapon-stat-inheritance", re.compile(
         r"\bas\s+if\s+(?:you|it|the\s+subject|the\s+target)\s+(?:were|was)\s+wearing\s+"
-        r"(?P<name>\+\d+\s+[A-Za-z][A-Za-z'’ -]{1,60})(?=[.,;:]|\s|$)",
+        r"(?:(?:a|an|the)\s+)?(?P<name>\+\d+\s+[A-Za-z][A-Za-z'’ -]{1,60})(?=[.,;:]|\s|$)",
         re.I,
     )),
     ("fired-from-light-crossbow-stat-dependency", re.compile(
