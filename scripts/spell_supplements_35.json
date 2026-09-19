@@ -1102,6 +1102,25 @@
           "role": "Complete Mage sourcebook rendering independently confirms the omitted spell-specific mechanics"
         }
       ]
+    },
+    "spells/drown-5004": {
+      "name": "Drown",
+      "effectSummary": "Fills one creature's breathing passages with water for as long as you maintain concentration. On a successful Fortitude save, the target is staggered for 1 round, clears the water, and the spell ends. On a failed save, the target remains staggered and must make a Constitution check each round at DC 10 + 1 for each round after the first; failure causes it to begin drowning under the normal drowning rules. The target remains staggered until the spell ends or it drowns. Creatures that do not breathe, including constructs, some elementals and plants, and undead, and creatures that can breathe water are unaffected. While affected, a creature must make a DC 25 Concentration check to cast any spell and cannot cast spells with verbal components or use abilities that require speech. The material component is a sea shell.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drown-5004",
+          "role": "primary Dragonlance Campaign Setting catalog record; rebuilt effect text is truncated after the failed-save Constitution-check clause and resumes mid-sentence at the Concentration rule"
+        },
+        {
+          "url": "https://www.housegriffon.com/RPG/Games/DnD/dd3.x/Dragonlance/Dragonlance%20Campaign%20Setting.pdf",
+          "role": "Dragonlance Campaign Setting p.107 sourcebook copy used only to restore the omitted staggered-duration, creature-immunity, and DC 25 Concentration/speech restrictions"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/dragonlance-campaign-setting--98/drown--5004/index.html",
+          "role": "independent same-printing D&D Tools mirror cross-check for the repaired text"
+        }
+      ]
     }
   }
 }
