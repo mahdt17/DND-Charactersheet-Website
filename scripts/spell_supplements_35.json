@@ -1034,6 +1034,21 @@
           "role": "Dragonmarked p.149 sourcebook copy used only to restore the missing bite-damage die values and punctuation in the printed progression"
         }
       ]
+    },
+    "spells/dragon-ally-lesser-4417": {
+      "name": "Dragon Ally, Lesser",
+      "effectSummary": "Calls a dragon of up to 15 HD and lets you bargain for one task. You must be able to communicate with it, payment must be made before it agrees, and bargaining takes at least 1 round, so it begins acting in the following round. Payment is 50 gp per HD for a task lasting up to 1 minute per caster level, 250 gp per HD for up to 1 hour per caster level, or 500 gp per HD for up to 1 day per caster level; especially hazardous tasks can cost up to twice these amounts, and the dragon never accepts less than the listed price. When the task or bargained duration ends, the dragon returns to where it was called from after reporting back if appropriate and possible. The spell costs 100 XP, and sorcerers cast it at +1 caster level.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-ally-lesser-4417",
+          "role": "primary Spell Compendium catalog record; rebuilt effect text corrupts the one-hour payment unit as '250 fp per HD' while preserving the rest of the spell"
+        },
+        {
+          "url": "https://anyflip.com/myubd/qfne/basic/51-100",
+          "role": "Spell Compendium p.73 sourcebook rendering used only to restore the printed one-hour payment as 250 gp per HD"
+        }
+      ]
     }
   }
 }
