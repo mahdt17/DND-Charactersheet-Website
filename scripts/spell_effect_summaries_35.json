@@ -18265,6 +18265,328 @@
           "role": "3.5 SRD used to resolve the inherited area-mode Quench mechanics"
         }
       ]
+    },
+    "spells/fleshshiver-3537": {
+      "name": "Fleshshiver",
+      "sourceSha256": "455a2f9968eef5b3c61763338da9ba0f2ac9237bb2654e7e9f96492ec94dfab0",
+      "effectSummary": "If the target has Hit Dice less than or equal to your caster level, it is automatically stunned for 1 round with no save; a target with more Hit Dice than your caster level can make a save to negate that stun. In the following round, the target must make a Fortitude save or take 1d6 damage per caster level, maximum 15d6, and become nauseated for 1d4+2 rounds. The material component is a bone snapped during casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fleshshiver-3537",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flexform-4798": {
+      "name": "Flexform",
+      "sourceSha256": "425275d3cd6076867cd077ed89c09dd05177249351c470e23c2087987fd5ddd8",
+      "effectSummary": "Makes the subject and its worn or carried gear elastically deform to fit its surroundings. The subject gains +10 on Escape Artist and Tumble checks, can make Tumble checks untrained, can squeeze through a space half its normal width without movement, attack-roll, or AC penalties, and can move freely through squares occupied by creatures only one size category larger rather than needing them to be three size categories larger. The material component is a small glob of gum resin.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flexform-4798",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flight-of-the-dragon-1040": {
+      "name": "Flight of the Dragon",
+      "sourceSha256": "509724f8d2c2583e1572a36ad2ef64bc9637cc786791bd381653821b4664ebe8",
+      "effectSummary": "Grows powerful draconic wings, granting fly speed 100 feet with average maneuverability while carrying no more than a light load. For overland travel, you fly 15 miles per hour normally or 24 miles per hour while hustling and can cover 120 miles in a normal day of flight. The material component is a dragon wing-claw. Sorcerers cast the spell at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flight-of-the-dragon-1040",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flight-of-the-dragon-4517": {
+      "name": "Flight of the Dragon",
+      "sourceSha256": "33d34da126488b52fe530b898bb8cd4e0da7226adf5c5cf4ebec71bf3078c295",
+      "effectSummary": "Grows powerful draconic wings, granting fly speed 100 feet with average maneuverability while carrying no more than a light load. For overland travel, you fly 15 miles per hour normally or 24 miles per hour while hustling. The material component is a dragon wing-claw. Sorcerers cast the spell at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flight-of-the-dragon-4517",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/float-1309": {
+      "name": "Float",
+      "sourceSha256": "722ddf63e8c3c968ccec36b3c4743d56c2019b3bd4db5cdc8e8ab2ff164e826d",
+      "effectSummary": "Makes the target buoyant so it floats at the water’s surface and cannot swim below it. A creature that breathes water can still breathe but remains unable to dive. If cast on a submerged target, it rises toward the surface at 30 feet per round. The material component is an ice cube dropped into water.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/float-1309",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flowsight-3340": {
+      "name": "Flowsight",
+      "sourceSha256": "1cca752fb752c6c5f1702eab65f3fbb09b516221ecfe52c77cd75cd4db71ba46",
+      "effectSummary": "By touching a nearby pool, stream, or other body of water, you can perceive creatures and objects that are in contact with that connected water. You can concentrate on one creature at a time using your full normal visual acuity, visual magic, and auditory enhancements. The creature can become aware of the scrying and make a Will save; success prevents you from learning more about it and bars another attempt on that subject for 24 hours. You can switch to a different subject in contact with the water and attempt a new scrying each round. The arcane material component is limestone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flowsight-3340",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fly-2816": {
+      "name": "Fly",
+      "sourceSha256": "21ae3b3f9d579b1ab672f1f5ceb567ed3b233c5cd3cb5c7388967d2428060f4d",
+      "effectSummary": "Grants fly speed 60 feet with good maneuverability, reduced to 40 feet in medium/heavy armor or with a medium/heavy load. The subject ascends at half speed and descends at double speed, can attack or cast normally, can charge but not run, and cannot carry more than its maximum load plus armor. If the spell expires or is dispelled while aloft, the subject descends 60 feet per round for 1d6 rounds and lands safely if it reaches the ground; otherwise it falls normally afterward. Antimagic suppression does not provide this slow descent. The arcane focus is a bird wing feather.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fly-2816",
+          "role": "primary Player's Handbook v.3.5 DnD Tools effect text reviewed and paraphrased for complete flight mechanics"
+        }
+      ]
+    },
+    "spells/fly-mass-3418": {
+      "name": "Fly, Mass",
+      "sourceSha256": "1fe8b2cbc67459139f358fce9150930acc0e820d4b257a4813a518ebc85f3a79",
+      "effectSummary": "Each target gains the normal fly spell: fly speed 60 feet with good maneuverability, reduced to 40 feet in medium/heavy armor or with a medium/heavy load; half-speed ascent, double-speed descent, normal attacks/spellcasting, charging but not running, and fly’s safe-descent behavior when the magic expires or is dispelled. Each recipient must remain within 30 feet of another recipient or loses the spell. If only two creatures are affected, the one moving away loses flight when separation exceeds 30 feet; if both move apart, both lose it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fly-mass-3418",
+          "role": "primary DnD Tools mass variant reviewed; proximity restriction retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fly-2816",
+          "role": "primary catalog base spell used to resolve inherited Fly mechanics"
+        }
+      ]
+    },
+    "spells/fly-mass-4521": {
+      "name": "Fly, Mass",
+      "sourceSha256": "c0736a4fa17856bf6cfd8cb0a938bc237bb288c541dd38637ebd5aa6b8d54809",
+      "effectSummary": "Each target gains the normal fly spell: fly speed 60 feet with good maneuverability, reduced to 40 feet in medium/heavy armor or with a medium/heavy load; half-speed ascent, double-speed descent, normal attacks/spellcasting, charging but not running, and fly’s safe-descent behavior when the magic expires or is dispelled. Each recipient must remain within 30 feet of another recipient or the spell ends for that creature; if only two are affected, it ends for both when their separation exceeds 30 feet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fly-mass-4521",
+          "role": "primary Spell Compendium mass variant reviewed; proximity restriction retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fly-2816",
+          "role": "primary catalog base spell used to resolve inherited Fly mechanics"
+        }
+      ]
+    },
+    "spells/fly-mass-548": {
+      "name": "Fly, Mass",
+      "sourceSha256": "95b78cfa6fca9633bddeb0fc738f64152237591600c7b72717def8169ca92efc",
+      "effectSummary": "Each target gains the normal fly spell: fly speed 60 feet with good maneuverability, reduced to 40 feet in medium/heavy armor or with a medium/heavy load; half-speed ascent, double-speed descent, normal attacks/spellcasting, charging but not running, and fly’s safe-descent behavior when the magic expires or is dispelled. Each recipient must remain within 30 feet of another recipient or the spell ends for that creature; if only two are affected, it ends for both when their separation exceeds 30 feet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fly-mass-548",
+          "role": "primary Complete Arcane mass variant reviewed; proximity restriction retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fly-2816",
+          "role": "primary catalog base spell used to resolve inherited Fly mechanics"
+        }
+      ]
+    },
+    "spells/fly-swift-1987": {
+      "name": "Fly, Swift",
+      "sourceSha256": "236241552a800f7c6b2b43bd4c2a07b95f5a796b1487a7bf736febbbbf3df75a",
+      "effectSummary": "For 1 round, you gain the normal fly spell’s movement: fly speed 60 feet with good maneuverability, reduced to 40 feet in medium/heavy armor or with a medium/heavy load; ascend at half speed and descend at double speed, attack or cast normally, and charge but not run. This version is personal and cast as a swift action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fly-swift-1987",
+          "role": "primary Miniatures Handbook swift variant reviewed; one-round/personal changes retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fly-2816",
+          "role": "primary catalog base spell used to resolve inherited Fly mechanics"
+        }
+      ]
+    },
+    "spells/fly-swift-422": {
+      "name": "Fly, Swift",
+      "sourceSha256": "1dcfe64d683f85fc279b3fa81dbd8fe40172450165c7a93595be20516f76a5a8",
+      "effectSummary": "For 1 round, you gain the normal fly spell’s movement: fly speed 60 feet with good maneuverability, reduced to 40 feet in medium/heavy armor or with a medium/heavy load; ascend at half speed and descend at double speed, attack or cast normally, and charge but not run. This version is personal and cast as a swift action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fly-swift-422",
+          "role": "primary Complete Adventurer swift variant reviewed; one-round/personal changes retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fly-2816",
+          "role": "primary catalog base spell used to resolve inherited Fly mechanics"
+        }
+      ]
+    },
+    "spells/fly-swift-4523": {
+      "name": "Fly, Swift",
+      "sourceSha256": "b090a130cb0264a12da65ccbb47c6b89c0adb4c0f76b0ccf1cced042932a78c5",
+      "effectSummary": "For 1 round, you gain the normal fly spell’s movement: fly speed 60 feet with good maneuverability, reduced to 40 feet in medium/heavy armor or with a medium/heavy load; ascend at half speed and descend at double speed, attack or cast normally, and charge but not run. This version is personal and cast as a swift action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fly-swift-4523",
+          "role": "primary Spell Compendium swift variant reviewed; one-round/personal changes retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fly-2816",
+          "role": "primary catalog base spell used to resolve inherited Fly mechanics"
+        }
+      ]
+    },
+    "spells/focus-touchstone-energy-2203": {
+      "name": "Focus Touchstone Energy",
+      "sourceSha256": "f5575bccc9aedc8cd5dc527e2deab418bfd221ed4ec6a33b46a4413ca616d02c",
+      "effectSummary": "By touching a living creature and expending one unused use of your higher-order planar touchstone ability, you grant that creature 3d6 temporary hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/focus-touchstone-energy-2203",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/focusing-chant-3296": {
+      "name": "Focusing Chant",
+      "sourceSha256": "b457b0fbef54ed4de04ae4c5f60e891122c6da8c8dbc23ccfd103698ba975acb",
+      "effectSummary": "Choose attack rolls or one type of skill or ability check when casting. You gain +1 circumstance bonus on that task while you repeat the same activity every round. You need not concentrate, but must continuously mutter the chant and therefore cannot speak. Doing anything else for a round ends the spell. In combat, the attack bonus persists while you keep attacking the same opponent with the same weapon; you can still move or vary tactics such as charging or disarming.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/focusing-chant-3296",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/focusing-chant-389": {
+      "name": "Focusing Chant",
+      "sourceSha256": "118f9e0228550c54e166d45f26e78d052d8ceba44a6ea036d5d54b1c97d9d40c",
+      "effectSummary": "Grants +1 circumstance bonus on attack rolls, skill checks, and ability checks. You need not concentrate, but must keep muttering the chant, so you cannot speak, use bardic music, or cast spells with verbal components while it lasts. You can dismiss the spell as an immediate action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/focusing-chant-389",
+          "role": "primary Complete Adventurer DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/focusing-chant-4526": {
+      "name": "Focusing Chant",
+      "sourceSha256": "65dd8dbfce714c7f987c130bf71999fb6e6c14533896715ebe4e3a1faf52ded9",
+      "effectSummary": "For the spell’s duration, you gain +1 circumstance bonus on attack rolls, skill checks, and ability checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/focusing-chant-4526",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/foebane-399": {
+      "name": "Foebane",
+      "sourceSha256": "1d50d14f0f3fba0362481d981c45b39f3260f9d81345cd583578b06c270a3e18",
+      "effectSummary": "Choose one of your favored-enemy creature types. Against that type, the touched weapon functions as a +5 magic weapon and deals +2d6 damage; while wielding it, you gain +4 resistance bonus on saves against effects created by that enemy type. The spell ends 1 round after the weapon leaves your hand. You can maintain only one foebane weapon at a time. On a magic weapon, this spell suppresses its normal enhancement bonus and powers for the duration; it does not stack with other weapon-modifying spells and cannot affect artifacts.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/foebane-399",
+          "role": "primary Complete Adventurer DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/foebane-4525": {
+      "name": "Foebane",
+      "sourceSha256": "58e387759a687ef12161de940d3cbdf65472b78c4865253c5209d9866edd4aed",
+      "effectSummary": "Choose one of your favored-enemy creature types. Against that type, the touched weapon functions as a +5 magic weapon and deals +2d6 damage; while wielding it, you gain +4 resistance bonus on saves against effects created by that enemy type. The spell ends 1 round after the weapon leaves your hand. You can maintain only one foebane weapon at a time. On a magic weapon, this spell suppresses its normal enhancement bonus and powers for the duration; it does not stack with other weapon-modifying spells and cannot affect artifacts.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/foebane-4525",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/foehammer-3605": {
+      "name": "Foehammer",
+      "sourceSha256": "aaab055b05c36d83026fff83b53b334512b52cafb2291b52ec1c59850ba818f8",
+      "effectSummary": "As part of this maneuver, make one melee attack against one foe. The attack automatically bypasses the opponent’s damage reduction and deals +2d6 damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/foehammer-3605",
+          "role": "primary DnD Tools maneuver text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fog-cloud-2393": {
+      "name": "Fog Cloud",
+      "sourceSha256": "d9c2e3b32d70f9ea57fde40ece8b42c03bbff8bed9c08d26b605c06866923214",
+      "effectSummary": "Creates fog that blocks all sight, including darkvision, beyond 5 feet. Creatures within 5 feet of one another have concealment (20% miss chance); creatures farther apart have total concealment (50% miss chance, and sight cannot locate the target). Moderate wind of at least 11 mph disperses the fog in 4 rounds; strong wind of at least 21 mph disperses it in 1 round. The spell does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fog-cloud-2393",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/follow-the-leader-3301": {
+      "name": "Follow the Leader",
+      "sourceSha256": "5988f304486422b253a6814456141aeea4be972a380862807a0942209ad220b1",
+      "effectSummary": "Your music compels eligible listeners to follow you, affecting up to 1 Hit Die of creatures per bard level, maximum 10 HD, beginning with the lowest-HD creatures. Once the HD limit is filled, later listeners are unaffected. Captivated creatures follow and dance; they can defend themselves but do not initiate attacks. If you lead them directly into obvious danger, each gets another Will save to avoid entering it. Your instrument is the focus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/follow-the-leader-3301",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fools-gold-3026": {
+      "name": "Fool's Gold",
+      "sourceSha256": "ee1445ef495dc3c6baa12781b5f9590c5cb54231311f2b10c749f578d96ae3e3",
+      "effectSummary": "Makes ordinary metal objects appear to be made of gold. You can affect 10 cubic inches of metal per caster level, roughly 150 coins or 3 pounds per level. Multiple touching objects can all be affected by touching only one of them. The material component is powdered gem worth at least 5 gp, sprinkled over the objects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fools-gold-3026",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fools-strike-3669": {
+      "name": "Fool's Strike",
+      "sourceSha256": "58feb2600b314645e652c9d01e4058ad49f5df962c3ec232b05f95d4f0f35f67",
+      "effectSummary": "When an enemy attacks you on its turn, use this maneuver as an immediate action and make an opposed attack roll. If the enemy’s result is higher, its attack resolves normally against you. If your result is higher, the enemy rolls its attack damage normally but takes that damage itself instead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fools-strike-3669",
+          "role": "primary DnD Tools maneuver text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/footsteps-of-the-divine-621": {
+      "name": "Footsteps of the Divine",
+      "sourceSha256": "2f4f9504197318b7ebb63ba5d5e52c316e5c3d18f041c4c8fbd56db1d673c27a",
+      "tablesSha256": "cc2b75829292e7281bbbe833c8c11f02c0333e5048c12c67ee96445e7038a4bc",
+      "effectSummary": "Choose one movement gift per casting; choosing a deity other than your own halves the spell duration. Options are: Bahamut or Tiamat fly 60 ft. (poor); Boccob or Vecna fly 40 ft. (perfect); Ehlonna, Kord, Lolth, Olidammara, or Yondalla climb 30 ft.; Garl Glittergold, Gruumsh, Kurtulmak, Moradin, or Wee Jas burrow 20 ft.; Nerull or Pelor fly 50 ft. (average); Corellon Larethian, Erythnul, Heironeous, Hextor, Obad-Hai, or St. Cuthbert add 40 ft. to base speed; Fharlanghn adds 50 ft. The new mode physically reshapes you as appropriate. Before the spell expires, you can discharge it to add +10 feet to your speed for each remaining round, lasting until the end of your turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/footsteps-of-the-divine-621",
+          "role": "primary DnD Tools effect text and deity/movement table reviewed and paraphrased for complete mechanics"
+        }
+      ]
+    },
+    "spells/forbiddance-2321": {
+      "name": "Forbiddance",
+      "sourceSha256": "ba2c5c889463c180a978c17d114b7f66429f871cebdd763a853b16ae6c667685",
+      "effectSummary": "Seals the area against planar travel into or within it, automatically blocking teleportation, plane shifting, astral and ethereal travel, and summoning. A creature entering normally takes no damage if its alignment matches yours; differing on one alignment axis deals 6d6 damage, and differing on both deals 12d6, with Will half and spell resistance applying. Creatures already inside when cast are unharmed unless they leave and reenter. You may set a password at casting so differently aligned creatures speaking it avoid the damage. Dispel magic works only if the dispeller’s level is at least your caster level. Multiple forbiddance effects cannot overlap; a newer one stops at an older boundary. Base materials cost 1,500 gp +1,500 gp per 60-foot cube, with an optional password costing another 1,000 gp +1,000 gp per cube.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forbiddance-2321",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete warding mechanics"
+        }
+      ]
+    },
+    "spells/forbidden-speech-162": {
+      "name": "Forbidden Speech",
+      "sourceSha256": "f8343a30cceb7d887e27365c9d59512748865cc9425ffeea9f919e6fa822f59d",
+      "effectSummary": "Prevents one creature from communicating about one narrowly defined topic by any means. Speech becomes gibberish, writing becomes indecipherable, gestures fail, and even telepathy or detect thoughts cannot convey the forbidden information, although the subject still remembers it. Appropriate topics are discrete secrets such as a location, password, command word, captors’ identities, or a specific event; spell verbal components, an entire life history, or similarly broad subjects are invalid. The DM decides if the topic is too broad and can double the corruption cost and make the spell fail if the caster insists. Corruption cost: 1d6 Strength damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forbidden-speech-162",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
