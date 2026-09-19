@@ -19332,6 +19332,186 @@
           "role": "primary catalog referenced spell used to resolve the failed-save transformation into a self-contained summary"
         }
       ]
+    },
+    "spells/gaseous-form-2819": {
+      "name": "Gaseous Form",
+      "sourceSha256": "a25ba7696a5ed80c53f9846732a8737ac158f032a81995fac684e217c0c84927",
+      "effectSummary": "Transforms the subject and its gear into mist. Material and natural armor stop applying, but size, Dexterity, deflection, and force-based armor bonuses remain. The subject gains DR 10/magic, immunity to poison and critical hits, loses supernatural abilities, and any held touch spell is discharged harmlessly. It cannot attack, manipulate or activate objects, or cast spells requiring verbal, somatic, material, or focus components unless those requirements have been removed. It can fly 10 feet with perfect maneuverability, pass through cracks and tiny openings with carried gear, cannot run or enter liquids, and is affected normally by wind. Continuously active carried items remain active. The arcane material component is gauze and a wisp of smoke.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gaseous-form-2819",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gate-seal-1191": {
+      "name": "Gate Seal",
+      "sourceSha256": "b2a7d1dd1d67a0b3bb0c981a720ee65d41851b228abfdecba73b480d2f07ca1a",
+      "effectSummary": "Permanently prevents a gate or portal from activating. Dispel magic can negate the seal, knock does not affect it, and a chime of opening dispels it. The material component is a silver bar worth 50 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gate-seal-1191",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gaze-screen-1096": {
+      "name": "Gaze Screen",
+      "sourceSha256": "bdf529b176a8359d89ede7725aa23dd52e8e1e585c26f893d57a783d80bcfba3",
+      "effectSummary": "Creates a mirrorlike screen around the recipient's eyes without impairing vision. When subjected to a gaze attack, the recipient has a 50% chance to avoid needing a saving throw as though averting its eyes, but the gazing creature does not gain concealment. Averting the eyes provides no additional benefit while the spell lasts, though closing the eyes can still avoid the gaze entirely.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gaze-screen-1096",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gaze-screen-3381": {
+      "name": "Gaze Screen",
+      "sourceSha256": "13c45fc27d74447e6b602625bca4b146329cb8c8ebd99cbedd3daadbab3e1c63",
+      "effectSummary": "Creates a mirrorlike screen around the recipient's eyes without impairing vision. Against a gaze attack, there is a 50% chance the recipient need not attempt the saving throw, as if averting its eyes, while the gazing creature remains fully visible. Averting the eyes provides no extra protection during the spell, though closing the eyes can still avoid the gaze.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gaze-screen-3381",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/geas-lesser-2550": {
+      "name": "Geas, Lesser",
+      "sourceSha256": "85dc062f430629227fa5118a7f8443682324a513b2c0ed483e0d9ea22359c923",
+      "effectSummary": "Places a magical command on a creature of 7 HD or fewer that can understand you, requiring a service or forbidding a course of action. It cannot compel suicide or certain death but can impose almost any other instruction. A completable command lasts until completed; an open-ended task the subject cannot complete by its own actions lasts at most 1 day per caster level. If the subject is prevented from obeying for 24 hours, it takes -2 to every ability score, with another -2 each day to a maximum -8; no score falls below 1, and the penalties vanish 24 hours after obedience resumes. Break enchantment, limited wish, remove curse, miracle, or wish ends the spell; dispel magic does not.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/geas-lesser-2550",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/geasquest-2551": {
+      "name": "Geas/Quest",
+      "sourceSha256": "eaefdc2adedc3fe27dc33c56032504c01ced4a1e0fc1ab90537a356e1cfa9a8a",
+      "effectSummary": "Places the same broad magical command as lesser geas but can affect a creature of any Hit Dice and allows no saving throw. The command cannot compel suicide or certain death and otherwise lasts until completed, subject to lesser geas's open-ended-task limit. Instead of ability penalties, a subject that does not attempt to obey takes 3d6 damage each day and must make a Fortitude save each day or become sickened; both consequences end 24 hours after it resumes attempting the command. Remove curse works only if cast by someone whose caster level is at least two higher than yours. Limited wish, miracle, and wish also end the spell; break enchantment and dispel magic do not.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/geasquest-2551",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; geas/quest-specific mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/geas-lesser-2550",
+          "role": "primary catalog base spell used to resolve inherited command scope and duration mechanics"
+        }
+      ]
+    },
+    "spells/gedlees-electric-loop-1673": {
+      "name": "Gedlee's Electric Loop",
+      "sourceSha256": "6176bf81a656c8d78f165a34c27df58298deecb6b10a7da305077740ab5a3627",
+      "effectSummary": "Sends a small stroke of lightning through all creatures in the area, dealing 1d6 electricity damage per two caster levels, maximum 5d6. A creature that fails its Reflex save must also make a Will save or be stunned for 1 round. The material components are a loop of copper wire and a magnet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gedlees-electric-loop-1673",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gedlees-electric-loop-2251": {
+      "name": "Gedlee's Electric Loop",
+      "sourceSha256": "01d614f65b40b4e725002a1d896bec652bb7a04a5b9c8e3048fb372fb4894b7c",
+      "effectSummary": "Creates a stroke of lightning targeting one creature per three caster levels, maximum four, with each target adjacent to another target. Each takes 1d6 electricity damage per two caster levels, maximum 5d6. A target that fails its Reflex save must also make a Will save or be stunned for 1 round. The material components are a loop of copper wire and a magnet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gedlees-electric-loop-2251",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gelid-blood-1286": {
+      "name": "Gelid Blood",
+      "sourceSha256": "2a58ce66e2a8fd2dc4427f9752772fe0e34b52add4d45433492a44433e524f45",
+      "effectSummary": "Congeals the target's blood, imposing -4 on attack rolls, Armor Class, and all Strength- and Dexterity-related checks, plus a 50% spell-failure chance for spells with somatic components. On a successful Fortitude save, these penalties are reduced to -2 and the somatic spell-failure chance to 25%. The material component is a pinch of flour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gelid-blood-1286",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gembomb-1194": {
+      "name": "Gembomb",
+      "sourceSha256": "6ab6a7543ef3434d053f95b7915e67be08c613ec95068400a5db2e100ae7212a",
+      "effectSummary": "Turns up to five gems you hold into bombs usable only by you. The bombs share a pool of 1d8 force damage per two caster levels, maximum 5d8, which you distribute among the gems as desired. Each bomb can be thrown up to 100 feet with a 20-foot range increment and requires a ranged touch attack; the struck creature gets a Reflex save for half damage. Throwing a bomb counts as an attack, and you can throw only one bomb per individual attack, though multiple attacks can throw multiple bombs. The material components are up to five gems worth at least 1 gp each.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gembomb-1194",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gembomb-3878": {
+      "name": "Gembomb",
+      "sourceSha256": "e2d394d194cf52ee352679043f309837512de54089b66a952168b7cf15b05da3",
+      "effectSummary": "Turns one gem you hold into a bomb usable only by you. As a standard action you can throw it with perfect accuracy anywhere within 60 feet; it explodes in a 5-foot-radius burst dealing 1d8 force damage per two caster levels, maximum 5d8. The material component is a gem worth at least 1 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gembomb-3878",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/general-undeath-1371": {
+      "name": "General of Undeath",
+      "sourceSha256": "a16544a8cc2f3647eda5302215c7ec40885ef8426708ef73d65520f28bd5887c",
+      "effectSummary": "Increases your Hit Dice limit for controlled undead by 10 times your caster level. When the spell ends, you lose control of the excess undead as though you had voluntarily relinquished control.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/general-undeath-1371",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/general-undeath-1711": {
+      "name": "General of Undeath",
+      "sourceSha256": "9796624212db768afd9739dfbd2269e9f5749659b613bd01103794302ea89777",
+      "effectSummary": "Increases your Hit Dice limit for controlled undead by 10 times your caster level. When the spell ends, you lose control of the excess undead as though you had voluntarily relinquished control.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/general-undeath-1711",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/general-undeath-2273": {
+      "name": "General of Undeath",
+      "sourceSha256": "09c1c79309887dc5d876cb447f8fb5d32f1a85ba811e68d0da6ac40a8fa789bd",
+      "effectSummary": "Increases your Hit Dice limit for controlled undead by five times your caster level. When the spell ends, you lose control of the excess undead as though you had voluntarily relinquished control.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/general-undeath-2273",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/general-undeath-3897": {
+      "name": "General of Undeath",
+      "sourceSha256": "6c756cbe90c42ad274c09a9a35fc73532a05a075b400299d2bac1e342d7f1335",
+      "effectSummary": "Increases your Hit Dice limit for controlled undead by your caster level. When the spell ends, you lose control of the excess undead as though you had voluntarily relinquished control.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/general-undeath-3897",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/genesis-1134": {
+      "name": "Genesis",
+      "sourceSha256": "bcf60afb20f072129f18e4ecd1001160aca9c43d68a3795aa02f90964f584771",
+      "effectSummary": "Creates a small demiplane while you are on the Ethereal Plane. The new plane initially grows by 1 foot of radius per day until it reaches 180 feet. At casting you choose its atmosphere, water, temperature, and general terrain, but the spell cannot create life, vegetation, buildings, roads, wells, dungeons, or other construction. Additional castings can enlarge the same demiplane by another 180 feet of radius each. The material component is a crystalline sphere and the spell costs 5,000 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/genesis-1134",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
