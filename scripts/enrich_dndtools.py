@@ -1071,6 +1071,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         if entry.get("id")=="spells/detect-ship-3339" and not parser.tables and re.search(r"check gives you information about the ship or ships:",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="omitted-detect-ship-check-table"
+        if entry.get("id")=="spells/sandform-3176" and not parser.tables and re.search(r"deals bludgeoning damage according to your size",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-sandform-slam-table"
         if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
