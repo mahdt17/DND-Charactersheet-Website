@@ -9895,6 +9895,215 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/crushing-weight-mountain-3715": {
+      "name": "Crushing Weight of the Mountain",
+      "sourceSha256": "af534584efddff18b86bc68c58153f35603fa4878eac9b0ddeba3b2df88f777a",
+      "effectSummary": "While in this stance, the initiator gains constrict for 2d6 damage plus 1-1/2 times Strength bonus. The constrict damage is dealt by succeeding on a grapple check against an opponent already being grappled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crushing-weight-mountain-3715",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cry-of-ysgard-24": {
+      "name": "Cry of Ysgard",
+      "sourceSha256": "5562e899d36662ff2aa66fd5dec02d666a5b43f269dff3785110eabd3ad2d9b0",
+      "effectSummary": "Summons 2d4 bariaur defenders of Ysgard that serve for up to 1 year and can be dismissed at any time. They can be assigned different tasks but may refuse quests or complex burdens without supervision. The caster can control no more than four bariaur rangers at once; excess summoned defenders are released and return to Ysgard. Casting requires a sacrifice of 1d3 Strength drain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cry-of-ysgard-24",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cryptwardens-grasp-851": {
+      "name": "Cryptwarden's Grasp",
+      "sourceSha256": "8f11dba87739fe5971c5007c445c98449013fee95b505c007e9f45738c71284c",
+      "effectSummary": "Inflicts mummy rot with an immediate incubation period. The initial save uses the spell's normal DC; later daily saves are DC 20. The disease deals 1d6 Constitution and 1d6 Charisma damage immediately and again each day, and a victim reduced to 0 Constitution turns to dust. Healing spells require a DC 20 caster level check while the curse remains. Mummy rot cannot end through natural recovery or successful disease saves; the curse must first be removed with break enchantment, remove curse, or a similar effect requiring a DC 20 caster level check, after which the disease can be cured normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cryptwardens-grasp-851",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cubehop-4976": {
+      "name": "Cubehop",
+      "sourceSha256": "a730c5beebeec2e2f78ed39d6bad9f652902b1329f53b8afc61e5a13a0b15c4b",
+      "effectSummary": "Transports the caster and nearby creatures from one cube of Acheron to another cube on the same layer. The destination cube must be known by name or description. The spell never sends travelers to the wrong cube, but the arrival point on the destination cube is random. It has no effect outside Acheron.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cubehop-4976",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cure-light-wounds-2380": {
+      "name": "Cure Light Wounds",
+      "sourceSha256": "d81b2e159ba4145f2518f3254ae90f69567e4dce568d4cbec0a50b80e9eabcab",
+      "effectSummary": "A touch channels positive energy to heal a living creature for 1d8 +1 per caster level, maximum +5. Against undead it deals that amount as damage instead; undead can apply spell resistance and make a Will save for half damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cure-light-wounds-2380",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cure-light-wounds-mass-2381": {
+      "name": "Cure Light Wounds, Mass",
+      "sourceSha256": "37aff23c92ee12edcd42c0f5f14704955ec2d2a6a3e82bbd575e22052f09e484",
+      "effectSummary": "Each selected living creature heals 1d8 +1 per caster level, maximum +25. Affected undead instead take that amount as positive-energy damage and can make a Will save for half damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cure-light-wounds-mass-2381",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-arrow-attraction-3009": {
+      "name": "Curse of Arrow Attraction",
+      "sourceSha256": "4607ed5dd6b8e4b1dc3f1a2cf3a56981a36dd6f53b1829fa1c72b338a43ff2b4",
+      "effectSummary": "Curses the subject with -5 Armor Class against all ranged attacks, including projectile, thrown, and ranged touch attacks. Any critical threat from such a ranged attack against the subject is automatically confirmed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-arrow-attraction-3009",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-ill-fortune-4269": {
+      "name": "Curse of Ill Fortune",
+      "sourceSha256": "b31fbb5b6fc515d464768b7a8f6a26fd8b27ac54e499138bbafcd3cd896516d4",
+      "effectSummary": "Places a temporary curse on the subject, imposing -3 on attack rolls, ability checks, and skill checks. Any spell or effect that removes bestow curse also removes this curse.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-ill-fortune-4269",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-impending-blades-1976": {
+      "name": "Curse of Impending Blades",
+      "sourceSha256": "800c81096ae75b99077a4aa51c3012ec843dc080fff0e09eaf875292b9246b0e",
+      "effectSummary": "The subject takes -2 Armor Class. The curse cannot be dispelled, but break enchantment, limited wish, miracle, remove curse, or wish can remove it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-impending-blades-1976",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-impending-blades-4274": {
+      "name": "Curse of Impending Blades",
+      "sourceSha256": "c30752d51abda547d680d14e29df93597229d3c01b18bc3eaa95c4be4094b21f",
+      "effectSummary": "The subject takes -2 Armor Class. The curse cannot be dispelled, but break enchantment, limited wish, miracle, remove curse, or wish can remove it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-impending-blades-4274",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-lycanthropy-4276": {
+      "name": "Curse of Lycanthropy",
+      "sourceSha256": "578d67b77beba23d39fa0273a22230480622a7d0ba0d124c6147028d61fb4743",
+      "effectSummary": "A failed saving throw kills the target, after which 1d6 wererats emerge from its body. The wererats do not attack the caster or allies, but may attack nearby living creatures; if no target is available, they leave to spread lycanthropy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-lycanthropy-4276",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-lycanthropy-719": {
+      "name": "Curse of Lycanthropy",
+      "sourceSha256": "ef6a206eeb1a4beca9bf459c4f408624896ace2c7354819ec9099867e3eeafff",
+      "effectSummary": "A humanoid that fails its save contracts temporary lycanthropy, manifesting at the next full moon. Remove curse or break enchantment can end this magically induced lycanthropy. The caster can induce a common lycanthrope form, generally a predatory animal from roughly small-dog to large-bear size, with the material component determining the animal form.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-lycanthropy-719",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-lycanthropy-966": {
+      "name": "Curse of Lycanthropy",
+      "sourceSha256": "09b8c5732706ba70a918216d1a5557d2c4fbc78324852bbe0abe4656ade19c20",
+      "effectSummary": "A humanoid that fails its save contracts temporary lycanthropy, manifesting at the next full moon. Remove curse or break enchantment can end this magically induced lycanthropy. The caster can induce a common lycanthrope form, generally a predatory animal from roughly small-dog to large-bear size, with the material component determining the animal form.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-lycanthropy-966",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-the-brute-973": {
+      "name": "Curse of the Brute",
+      "sourceSha256": "f246fd60cb6aa3a5221dcfff6ac923a4273f7cdef2b5938d0b1a920161d42243",
+      "effectSummary": "Grants an enhancement bonus of up to +1 per caster level to one physical ability: Strength, Constitution, or Dexterity. Intelligence and Charisma are each reduced by the same amount for the duration. If either would fall below 3, the spell fails with no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-the-brute-973",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-the-elemental-lords-1073": {
+      "name": "Curse of the Elemental Lords",
+      "sourceSha256": "1281d1db545570382900d8ea532631540e4565a91cdcbcbab65756e3d0ce1ce7",
+      "effectSummary": "Choose acid, cold, electricity, or fire. Affected creatures take an extra 1d6 damage whenever one of the caster's spells deals the chosen energy type to them; the bonus does not apply to weapon properties or other characters' damage. During casting, the caster may sacrifice one additional sorcerer spell slot of up to 9th level to add +1 damage per level of that slot. The curse cannot be dispelled but can be removed by effects that remove curses. For a caster with the dragonblood subtype, the extra damage also applies to the caster's breath weapon if it deals the chosen energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-the-elemental-lords-1073",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-of-the-putrid-husk-193": {
+      "name": "Curse of the Putrid Husk",
+      "sourceSha256": "af0ab4a3a85101f6263e5cf0776b7171a45192645baf9d4734746e2509de5646",
+      "effectSummary": "On a failed saving throw, the subject is dazed for 1 round by the illusion of its body rotting away. On the following round it falls unconscious for 1d10 minutes and cannot be roused normally during that time.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-of-the-putrid-husk-193",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/curse-water-2725": {
+      "name": "Curse Water",
+      "sourceSha256": "d2a68ff1e838bfe55ccd22ab0d4e51d5b19d46ba9b3ed23859e01831423de87d",
+      "effectSummary": "Imbues 1 pint of water with negative energy, creating unholy water. Unholy water damages good outsiders in the same manner that holy water damages undead and evil outsiders. The material component is 5 pounds of powdered silver worth 25 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curse-water-2725",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cursed-blade-4277": {
+      "name": "Cursed Blade",
+      "sourceSha256": "e8c398ded9c5a5f248b22e116b59e88e7364025dcae39a802645d1616aefce7f",
+      "effectSummary": "Damage dealt by the affected weapon itself cannot be healed by any means until the injured creature receives remove curse or another effect that neutralizes a curse; damage from weapon special properties is excluded. A creature slain by the weapon cannot be raised from the dead until the body receives remove curse or a similar effect, unless true resurrection is used.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cursed-blade-4277",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cursed-dragonmark-4862": {
+      "name": "Cursed Dragonmark",
+      "sourceSha256": "6f681cf73c1a081113dcd687eda0b3e410fb7387ca37b131ada9c62e1ebcd437",
+      "effectSummary": "Whenever the target attempts to use or expend one of its dragonmark powers, there is a 50% chance the attempt fails and that use of the mark is wasted. Break enchantment, limited wish, miracle, remove curse, or wish restores the dragonmark to normal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cursed-dragonmark-4862",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
