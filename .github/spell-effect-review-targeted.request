@@ -1,26 +1,7 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/ghost-touch-weapon-3899",
-    "spells/ghost-trap-1453",
-    "spells/ghost-trap-3900",
-    "spells/ghost-venom-1373",
-    "spells/ghostform-1506",
-    "spells/ghostform-3416",
-    "spells/ghostform-3901",
-    "spells/ghostform-549",
-    "spells/ghostharp-1636",
-    "spells/ghostharp-3902",
-    "spells/ghostly-defense-3670",
-    "spells/ghostly-reload-3105",
-    "spells/ghostly-tail-3095",
-    "spells/ghoul-gauntlet-1477",
-    "spells/ghoul-gauntlet-3903",
-    "spells/ghoul-gesture-1478",
-    "spells/ghoul-gesture-3904",
-    "spells/ghoul-glyph-1479",
-    "spells/ghoul-glyph-4550",
-    "spells/ghoul-glyph-4985"
+    "spells/poison-2754"
   ],
-  "nonce": "2026-09-19-ghost-touch-through-ghoul-glyph"
+  "nonce": "2026-09-19-ghost-venom-poison-base"
 }
