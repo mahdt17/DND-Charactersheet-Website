@@ -470,6 +470,10 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?P<name>prismatic spray)\b",
         re.I,
     )),
+    ("glyph-of-warding-inheritance", re.compile(
+        r"\bbears?\s+(?:a|an|the)?\s*(?P<name>glyph of warding)\b",
+        re.I,
+    )),
 )
 
 
@@ -1194,6 +1198,8 @@ def run_self_test() -> None:
     assert "monster-manual-statistics-dependency" not in external_mechanics_reasons("The creature resembles a skeleton illustrated in the Monster Manual.")
     assert "prismatic-spray-inheritance" in external_mechanics_reasons("A prismatic bow functions as a +1 prismatic spray.")
     assert "prismatic-spray-inheritance" not in external_mechanics_reasons("The weapon functions as a +1 longsword.")
+    assert "glyph-of-warding-inheritance" in external_mechanics_reasons("The marker bears a glyph of warding (blast glyph only).")
+    assert "glyph-of-warding-inheritance" not in external_mechanics_reasons("The marker bears a warning glyph.")
     assert "functions-as-if-named-spell-cast" in external_mechanics_reasons("She functions as if a raise dead spell had been cast upon her, except she loses no level.")
     assert "functions-as-if-named-spell-cast" not in external_mechanics_reasons("The device functions as if underwater.")
     assert "same-way-as-named-spell" in external_mechanics_reasons("The burst reveals objects in the same way as a true seeing spell.")
