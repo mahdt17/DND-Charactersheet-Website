@@ -28,6 +28,11 @@ jobs:
       - run: python scripts/preflight_35_class_regressions.py
       - run: python scripts/preflight_35_feat_regressions.py
       - run: python scripts/preflight_35_spell_regressions.py
+      - name: Export current spell review batch
+        run: >
+          python scripts/export_spell_effect_review.py --shard-count 1 --shard-index 0 --delay 0.08
+          --record-id spells/door-to-great-evil-1384 --record-id spells/doppelganger-transformation-4809 --record-id spells/doublespeak-836 --record-id spells/doublestrike-arrow-292 --record-id spells/douse-flames-3758 --record-id spells/downdraft-4413 --record-id spells/draconic-might-1032 --record-id spells/draconic-might-4414 --record-id spells/draconic-polymorph-1033 --record-id spells/dragon-ally-lesser-1005 --record-id spells/dragon-ally-lesser-4417 --record-id spells/dragon-blight-1106 --record-id spells/dragon-breath-1034 --record-id spells/dragon-breath-3967 --record-id spells/dragon-breath-699 --record-id spells/dragon-cloud-25 --record-id spells/dragons-flame-3573 --record-id spells/dragonblood-affinity-1116 --record-id spells/dragonblood-beast-4864 --record-id spells/dragonblood-spell-pact-1117
+          --output test-results/spell-effect-review-next.json
       - run: python scripts/preflight_35_item_regressions.py
       - run: python scripts/import_wikidot.py --self-test
       - run: python scripts/preflight_5e_item_regressions.py
