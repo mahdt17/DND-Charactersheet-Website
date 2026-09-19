@@ -13599,6 +13599,221 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/dragoncall-1103": {
+      "name": "Dragoncall",
+      "sourceSha256": "a7eebd9bb36c5b562152c1bcbe550141bf49df4a2842ef417987636e487a3ec7",
+      "effectSummary": "Calls the nearest intelligent creature and compels it to travel toward you by the most expedient available route. It receives a saving throw each day: on a failure it must continue toward you, ignoring minor hazards but not unnecessary serious danger; on a success it can act normally for that day but must save again on later days while the spell lasts. Once it reaches you, its attitude improves by one step, but it is otherwise not controlled or obligated to serve you. Only dragons can cast this spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragoncall-1103",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragoneye-rune-1065": {
+      "name": "Dragoneye Rune",
+      "sourceSha256": "1f72fb69386a94639e047dffba5e0c807e26b9e88fa33934336fc1fad24a9fb2",
+      "effectSummary": "Brands an object or creature with a unique arcane mark that can be visible or invisible and otherwise follows arcane mark's normal detection and removal rules. You treat the marked subject as familiar for divination (scrying) spells, and three times per day you can use a swift action to learn its direction and distance; this locator gives no information if the marked creature is dead or the subject is on another plane. If you have the dragonblood subtype, a subject bearing your rune gains +2 on saves against divination (scrying) spells or effects cast by other dragonblood creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragoneye-rune-1065",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/arcane-mark-2898",
+          "role": "same primary catalog referenced spell used to retain inherited arcane-mark visibility, detection, removal, and persistence mechanics"
+        }
+      ]
+    },
+    "spells/dragonmark-demesne-4865": {
+      "name": "Dragonmark Demesne",
+      "sourceSha256": "a616712f8a1a9fc9319f7a8455c3830954a8e651b586be0db4391294a495ead1",
+      "effectSummary": "Creates an immobile opaque 20-foot-radius force sphere centered at ground level, with its lower hemisphere extending through the ground and room in the upper hemisphere for up to twenty-five Medium creatures. Creatures outside cannot enter without your permission, while creatures inside can leave freely. You can leave without ending the spell, but while outside you cannot use dragonmark powers. The interior stays at 70°F, is brightly lit, and protects against ordinary weather and winds below hurricane force; hurricane-strength or stronger wind or disintegrate destroys it. The sphere is transparent from inside but opaque from outside, giving occupants total concealment from observers outside; missiles, weapons, and most spell effects can pass through it without harming the sphere. Requires any true or aberrant dragonmark.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonmark-demesne-4865",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragonmark-shield-4866": {
+      "name": "Dragonmark Shield",
+      "sourceSha256": "416bc3c2a5810c782c4781c46ac1347f0aa043d98925fedadc2e55e3c726e091",
+      "effectSummary": "Creates a hovering force shield that moves with you, negates magic missile attacks, and grants both a shield bonus to AC and a bonus on Reflex saves based on your true dragonmark: +2 for least, +3 for lesser, +4 for greater, or +5 for Siberys. Its AC bonus applies against incorporeal touch attacks. It has no armor check penalty or arcane spell failure chance. If invoked as an immediate action, it ends at the end of your next turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonmark-shield-4866",
+          "role": "primary DnD Tools effect text and captured dragonmark-strength table reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ],
+      "tablesSha256": "9565577dd5f43a3cb84ab5e54bee6247a75356382a44511bbc1c27947e779b72"
+    },
+    "spells/dragonmark-symbol-4867": {
+      "name": "Dragonmark Symbol",
+      "sourceSha256": "d2f657d114896b96a27b71b4daac6fe9cfd39b0409c8f26725158429fc4ce258",
+      "effectSummary": "Creates a surface rune using symbol of death's normal symbol framework for visibility, chosen observable triggers, passwords, attunement, the 60-foot trigger limit, and the rule that the symbol cannot be used offensively. Once triggered, it remains active for 10 minutes per caster level with no hit-point limit; at the beginning of each creature's turn within 60 feet, that creature makes a Fortitude save or becomes nauseated until it moves beyond 60 feet. Creatures bearing your dragonmarked house's mark neither trigger nor suffer your symbol and sense it within 60 feet; an aberrant-mark caster's symbol instead affects everyone except the caster. It can be made permanent at caster level 14 for 3,000 XP, is a magic trap with Search and Disable Device DC 31, and uses a Siberys dragonshard for a true mark or Khyber dragonshard for an aberrant mark worth at least 1,000 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonmark-symbol-4867",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Dragonmark Symbol's altered save, condition, duration, exemptions, permanency, trap DC, and component"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "same primary catalog referenced spell used to retain inherited symbol trigger, password, attunement, visibility, dispelling, and trap mechanics"
+        }
+      ]
+    },
+    "spells/dragonmark-whip-4868": {
+      "name": "Dragonmark Whip",
+      "sourceSha256": "457497c380d60589178d5e9dae06a406dfc9df5762a6bb8f836ebf6fdc669c9c",
+      "effectSummary": "Uncoils your dragonmark into a 10-foot-reach magic energy whip. You are proficient with it; it counts as magic for overcoming damage reduction, cannot be sundered or disarmed, and does not make you threaten its reach. A hit deals 1d8 +1 per caster level damage, maximum +10. Instead of dealing damage, you can make a normal touch attack through the whip to deliver a touch spell of 4th level or lower using the whip's reach and your attack bonus; a miss loses the held charge. If the whip fails to overcome a target's spell resistance, it cannot damage that target for the rest of the spell. Your physical mark appears absent while the whip is uncoiled, but your dragonmark spell-like abilities remain usable.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonmark-whip-4868",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragonmark-whip-greater-4869": {
+      "name": "Dragonmark Whip, Greater",
+      "sourceSha256": "5e102caff937f63eabbacf52ddcfe9105300cc90796da4f46bbb5d1c7ce7e04a",
+      "effectSummary": "Functions as dragonmark whip, retaining its magic-weapon treatment, proficiency, inability to threaten its reach or be sundered/disarmed, touch-spell delivery, spell-resistance lockout, and continued use of your dragonmark abilities. This version has 20-foot reach, deals 1d8 +1 per caster level damage up to +20, and can deliver touch spells of 7th level or lower. Requires a greater true or aberrant dragonmark or a Siberys dragonmark.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonmark-whip-greater-4869",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the greater version's reach, damage cap, touch-spell level, and mark requirement"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dragonmark-whip-4868",
+          "role": "same primary catalog base spell used to retain inherited whip weapon, reach/threat, touch-delivery, and spell-resistance mechanics"
+        }
+      ]
+    },
+    "spells/dragonmarked-weapon-4872": {
+      "name": "Dragonmarked Weapon",
+      "sourceSha256": "8e804b20f64cbbedba658be564fb6eddb30f5c078c672b9b759ecbf7fca04ffc",
+      "effectSummary": "Imbues a touched weapon with your dragonmark. It deals +1d6 damage to a dragonmarked creature whose mark does not correspond to your dragonmarked house; if you have an aberrant dragonmark, it instead deals the extra damage to every dragonmarked creature except you. The weapon's hardness increases by 50% for the duration, and a mundane weapon counts as magic for overcoming damage reduction. A bow, crossbow, or sling passes the extra-damage benefit to its ammunition. Requires any true or aberrant dragonmark.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonmarked-weapon-4872",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragonmarked-weapon-greater-4873": {
+      "name": "Dragonmarked Weapon, Greater",
+      "sourceSha256": "96be0afade53812e6e7c1e6a94d0fe9abfa69cb68524132a8c79de3fcb036ac1",
+      "effectSummary": "Functions as dragonmarked weapon, retaining its house-based extra-damage targeting, aberrant-mark exception, magic treatment for a mundane weapon, and application to ammunition from bows, crossbows, and slings. The extra damage increases to +2d6 and the weapon's hardness is doubled for the duration. Requires a greater true or aberrant dragonmark or a Siberys dragonmark.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonmarked-weapon-greater-4873",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the greater version's damage, hardness, and mark requirement"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dragonmarked-weapon-4872",
+          "role": "same primary catalog base spell used to retain inherited targeting, hardness, ammunition, and magic-weapon mechanics"
+        }
+      ]
+    },
+    "spells/dragonsight-1035": {
+      "name": "Dragonsight",
+      "sourceSha256": "621231160e08b3b635a3bc6cd1637e91c5dcbafefde3105bb42fbd9bb10ed4d6",
+      "effectSummary": "Grants dragonlike vision: low-light vision four times human distance in low light and twice human distance in normal light, darkvision out to 10 feet per caster level, and blindsense out to 5 feet per caster level. You do not need Spot or Listen checks to notice creatures within blindsense range. These benefits do not stack with low-light vision, darkvision, or blindsense you already possess. The focus is a dragon's eye.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonsight-1035",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Draconomicon printing"
+        }
+      ]
+    },
+    "spells/dragonsight-4418": {
+      "name": "Dragonsight",
+      "sourceSha256": "cc2fb56e7bb61031efdf65067fd6873d25cd8c3df3da0cea714d5f321178342b",
+      "effectSummary": "Grants dragonlike vision: low-light vision four times human distance in low light and twice human distance in normal light, darkvision out to 10 feet per caster level, half the normal distance penalties on Spot checks, and blindsense out to 5 feet per caster level. These benefits do not stack with low-light vision, darkvision, or blindsense you already possess. The focus is a dragon's eye.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonsight-4418",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing"
+        }
+      ]
+    },
+    "spells/dragonskin-1036": {
+      "name": "Dragonskin",
+      "sourceSha256": "64d80b24a0cfbafd58c5cdf882dc577ffdb9698c59dc151fea5dbfcf12993291",
+      "effectSummary": "Your skin takes on the color and scales of a chosen chromatic dragon. You gain +3 enhancement natural armor, increasing by +1 for every two caster levels above 5th to a maximum +5 at 9th, plus energy resistance equal to twice caster level, maximum 20 at 10th, matching the color: acid for black or green, cold for white, electricity for blue, or fire for red. The material component is a dragon scale. Sorcerers cast this printing at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonskin-1036",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Draconomicon printing's distinct scaling"
+        }
+      ]
+    },
+    "spells/dragonskin-4419": {
+      "name": "Dragonskin",
+      "sourceSha256": "655aa4c4a71efa6248c7112dfe9738c9dcc6fb5b54c99008cd89b502041c7eb7",
+      "effectSummary": "Your skin takes on the color and scales of a chosen chromatic dragon. You gain an enhancement bonus to natural armor of +1 per two caster levels, maximum +5 at 10th, and energy resistance 10 matching the chosen color—acid for black or green, cold for white, electricity for blue, or fire for red. The resistance increases to 20 at caster level 10. The material component is a dragon scale. Sorcerers cast this Spell Compendium printing at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonskin-4419",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing's distinct scaling"
+        }
+      ]
+    },
+    "spells/drain-vitality-3690": {
+      "name": "Drain Vitality",
+      "sourceSha256": "aa0bde2a0b0ac8fe4ace678e3ec805ea6ba68b5f1f43e3f11220fee03b1afdcd",
+      "effectSummary": "As part of this Shadow Hand strike, make one melee attack. On a hit, deal normal melee damage and force the target to make a Fortitude save at DC 12 + your Wisdom modifier; failure deals 2 Constitution damage. A successful save prevents the Constitution damage but not the weapon damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drain-vitality-3690",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/drawmijs-instant-summons-2389": {
+      "name": "Drawmij's Instant Summons",
+      "sourceSha256": "0e659d73693750cd9a191d7803502cb2df5a845ebe7f667a7ebe1390f76a89e2",
+      "effectSummary": "After first placing your arcane mark on a nonliving item, this spell invisibly records the item's name on a sapphire worth at least 1,000 gp. Later, only you can speak the command word chosen at casting and crush the gem to call the item instantly to your hand from virtually any location, including another plane. If another creature possesses the item, the summons fails but tells you who has it and roughly where that creature is; extraplanar summoning also fails if another creature has claimed ownership. The gem's inscription is invisible and unreadable to others except with read magic. The sapphire is the material component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drawmijs-instant-summons-2389",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dread-blast-1519": {
+      "name": "Dread Blast",
+      "sourceSha256": "702997b9e006626bbe14e8adb4a39d5ba5632b6af4e26ee25980c22479f803a4",
+      "effectSummary": "Make a ranged touch attack with a ray of negative energy. On a hit, a living target takes 3d8 damage +1 per caster level, maximum +20. Constructs and inanimate objects are unaffected. Undead are healed by the same amount instead of taking damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dread-blast-1519",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Lords of Darkness printing"
+        }
+      ]
+    },
+    "spells/dread-blast-2270": {
+      "name": "Dread Blast",
+      "sourceSha256": "e7272f616c9b89b0c8a57e3886f51a240f55760cc635eb18317a8d7520cfb5e0",
+      "effectSummary": "Make a ranged touch attack with a ray of negative energy. On a hit, a living target takes 4d8 damage +1 per caster level, maximum +20, and is dazed for 1 round. A successful Will save halves the damage and negates the daze. Constructs and inanimate objects are unaffected. Undead are healed by the amount the spell would otherwise deal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dread-blast-2270",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Player's Guide to Faerûn printing"
+        }
+      ]
+    },
+    "spells/dread-word-180": {
+      "name": "Dread Word",
+      "sourceSha256": "18e661ef757c1bece320733583374f6d332e9ed298a92c0ddc63cf03fca4823d",
+      "effectSummary": "Utters a unique word of the Dark Speech that causes one creature within range that hears it to take 1d3 Charisma drain. The spell protects the caster from the normally lethal consequences of hearing and knowing the word. Attempting to pronounce this unique word without using the spell kills the speaker before the word can be completed, so no effect occurs.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dread-word-180",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
