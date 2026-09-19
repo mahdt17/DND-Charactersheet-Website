@@ -14506,6 +14506,242 @@
           "role": "primary Magic of Faerûn printing reviewed and paraphrased; its remote spell-origin and 10-XP-per-spell-level mechanics are preserved"
         }
       ]
+    },
+    "spells/echo-skull-4430": {
+      "name": "Echo Skull",
+      "sourceSha256": "db938f81f791e5d791377e112c4c8ccbbd30366d83ac5cbee30297af983879a7",
+      "effectSummary": "Lets you see, hear, and speak through a tiny dried animal skull at any distance while you and the skull remain on the same plane. During your turn you can switch your perception between the skull's location and your own as a free action. Unlike the Magic of Faerûn printing, this version does not state that spells can originate from the skull or impose an XP cost for doing so.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/echo-skull-4430",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its lack of the earlier remote spell-origin/XP mechanics is preserved"
+        }
+      ]
+    },
+    "spells/ectoplasmic-armor-1451": {
+      "name": "Ectoplasmic Armor",
+      "sourceSha256": "39068585e80d89506239c9ca24d7d19177bebc6b2aa65dba5b930b837dc00c4b",
+      "effectSummary": "Grants a +5 armor bonus to AC against incorporeal touch attacks, plus another +1 for every four caster levels, to a maximum +9 at 16th level. All other attacks ignore this armor bonus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ectoplasmic-armor-1451",
+          "role": "primary Libris Mortis printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ectoplasmic-armor-4431": {
+      "name": "Ectoplasmic Armor",
+      "sourceSha256": "acb764f27156f5e6c27fc60d106c75e292662fcc5c1dcaa7d2cec7f48aafbba5",
+      "effectSummary": "Grants the subject a +5 armor bonus to AC against incorporeal touch attacks, plus another +1 for every four caster levels, to a maximum +9 at 16th level. All other attacks ignore this armor bonus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ectoplasmic-armor-4431",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ectoplasmic-decay-1370": {
+      "name": "Ectoplasmic Decay",
+      "sourceSha256": "22b0de89378b8bf1838ca287c805d4ca2fa3fe83e096811923d8f70d6d427a93",
+      "effectSummary": "Creates a spread of energy that deals 1d6 damage per caster level to ectoplasmic creatures and objects in the area while leaving everything else unharmed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ectoplasmic-decay-1370",
+          "role": "primary Ghostwalk printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ectoplasmic-enhancement-206": {
+      "name": "Ectoplasmic Enhancement",
+      "sourceSha256": "1875640fa60d2ef85fb0f6337714d29ae64ea4faa5a954be9823098342860c6e",
+      "effectSummary": "Affected undead gain a +1 deflection bonus to AC, 1d8 temporary hit points, a +1 enhancement bonus on attack rolls, and +2 turn resistance. Each benefit gains an additional +1 for every three caster levels; for example, at 12th level the bonuses are +5 AC, 1d8+4 temporary hit points, +5 on attacks, and +6 turn resistance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ectoplasmic-enhancement-206",
+          "role": "primary Book of Vile Darkness printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ectoplasmic-feedback-1452": {
+      "name": "Ectoplasmic Feedback",
+      "sourceSha256": "c382365e61797562e77bfa7f0ef9b1c10115f174be442909897d73a59da0479e",
+      "effectSummary": "Any creature that hits you with an incorporeal touch attack takes 1d6 force damage +1 per caster level, maximum +10. The attacker's spell resistance, if any, applies to this retaliatory effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ectoplasmic-feedback-1452",
+          "role": "primary Libris Mortis printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ectoplasmic-feedback-4432": {
+      "name": "Ectoplasmic Feedback",
+      "sourceSha256": "b35c8473ccaeae03c44303ce28fe214a733c15113cf282d43d1ed76da4f6de2e",
+      "effectSummary": "Any creature that hits you with an incorporeal touch attack takes 1d6 force damage +1 per caster level, maximum +10. The attacker's spell resistance, if any, applies to this retaliatory effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ectoplasmic-feedback-4432",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/effulgent-epuration-4433": {
+      "name": "Effulgent Epuration",
+      "sourceSha256": "dca4acca16d2fecf752d85255a134646a45de27b757c8ce229bde6ef40ed4241",
+      "effectSummary": "Creates one protective silvery sphere per caster level around the subject. As a standard action, you can shift all remaining spheres to another creature within range, at most once per round. Each sphere can absorb and completely negate one directly targeted spell or spell-like ability of any level, after which that sphere vanishes; the subject chooses whether to absorb each effect, allowing helpful magic through. Area spells and effects without an actual target are not absorbed. Only spells and spell-like abilities of deific power can overcome this protection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/effulgent-epuration-4433",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/eilistraees-moonfire-314": {
+      "name": "Eilistraee's Moonfire",
+      "sourceSha256": "dc03d257f4298862c94a5ad5266ca36162c7492c115513536b36aea20169d3fa",
+      "effectSummary": "Surrounds part of your body with moonlike light whose color and brightness can vary from candle-equivalent to torch-equivalent. You can discharge it with a melee touch attack for 2d6 cold damage +1 per caster level, maximum +5; the spell is discharged whether the attack hits or misses. Instead, you can send the light away from your body as a single dancing-lights-like light; once released this way, it lasts 1 minute per level and can no longer be used to attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eilistraees-moonfire-314",
+          "role": "primary Champions of Valor printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/eladrin-form-106": {
+      "name": "Eladrin Form",
+      "sourceSha256": "9089aed695ed9af9b9e52bd20c43231266059ad08ced853622c90dcf25d1d7b3",
+      "effectSummary": "Transforms you into a 5-foot-diameter incorporeal globe. You fly at 150 feet with perfect maneuverability and can pass through walls and other solid objects. You can use spell-like and psionic abilities, but cannot cast spells or make physical attacks, and you have no Strength score. You are immune to nonmagical attacks and can otherwise be harmed only by incorporeal creatures, +1 or better magic weapons, psionics, spells, spell-like abilities, or supernatural abilities. Against damage from corporeal sources you have a 50% chance to ignore the damage, except for positive energy, negative energy, force effects, and ghost touch weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/eladrin-form-106",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/elation-45": {
+      "name": "Elation",
+      "sourceSha256": "b3c5582fd8a1b423c880b555b664f33ac38f0b2a31244f149a6795a1508c8a8c",
+      "effectSummary": "Affected allies gain a +2 morale bonus to effective Strength and Dexterity and a +5-foot increase to speed. It does not remove fatigue, but offsets most fatigue penalties while active.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elation-45",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/elder-glyph-of-warding-1526": {
+      "name": "Elder Glyph of Warding",
+      "sourceSha256": "4c6c974690242cd20339c5ab20a7048cf11e02674ca77054fcf09ad95c763258",
+      "effectSummary": "Functions as glyph of warding: you inscribe a nearly invisible permanent ward on an object or area, define permitted creatures or triggering conditions, and choose either a blast or harmful stored spell. It retains glyph of warding's normal trigger, detection/disabling, targeting, saving-throw, and spell-resistance rules. The elder blast version instead deals 1d8 damage per caster level, maximum 30d8, and the elder spell version can store a harmful spell of 9th level or lower. Its material component uses powdered diamond worth at least 1,000 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elder-glyph-of-warding-1526",
+          "role": "primary Lords of Madness printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/glyph-of-warding-2326",
+          "role": "same primary catalog cross-reference used to resolve the base glyph of warding mechanics explicitly incorporated by this spell"
+        }
+      ]
+    },
+    "spells/elder-mountain-hammer-3717": {
+      "name": "Elder Mountain Hammer",
+      "sourceSha256": "90185050d6bf870d4b36a1d7b4ec0d5aa153e8d267252119140064b9d1cf3f41",
+      "effectSummary": "Make a single melee attack. On a hit, the attack deals an extra 6d6 damage and automatically overcomes damage reduction and hardness.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elder-mountain-hammer-3717",
+          "role": "primary Tome of Battle printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/electric-jolt-3535": {
+      "name": "Electric Jolt",
+      "sourceSha256": "cf4ec8f1f34c9261cb864ccd3d56512489808598daede92d719b18b5a5c6ebf0",
+      "effectSummary": "Fires a small ray of electrical energy. A successful ranged touch attack deals 1d3 electricity damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/electric-jolt-3535",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/electric-loop-4434": {
+      "name": "Electric Loop",
+      "sourceSha256": "b24b2aad258677cef436812198dc70faa7439bb21faf02d437b83dde5d4df241",
+      "effectSummary": "Targets one creature per three caster levels, maximum four, with each target in a square adjacent to another target. Each target takes 1d6 electricity damage per two caster levels, maximum 5d6. A target that fails its Reflex save must also succeed on a Will save or be stunned for 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/electric-loop-4434",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/electric-orb-3394": {
+      "name": "Electric Orb",
+      "sourceSha256": "833eef366e4c81795f3b614951bcb98dc8d5321e7ff9a507de96cb79e7b6e6cd",
+      "effectSummary": "Functions as acid orb except it deals electricity damage. Create one or more orbs requiring ranged touch attacks and divide a total of 1d6 damage per caster level, maximum 15d6, among them before rolling, assigning at least 1d6 to each. A missed orb splashes in a 10-foot burst for 2 electricity damage per die assigned to that orb, Reflex half. A directly hit creature also has its metal gear magnetized for 1 round: metal armor leaves it effectively entangled with -2 on attacks and -4 effective Dexterity; it cannot move if surrounding surfaces are metallic, otherwise it moves at half speed and cannot run or charge, and spellcasting requires a DC 15 Concentration check or the spell is lost. A successful Fortitude save halves direct damage and negates the magnetism.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/electric-orb-3394",
+          "role": "primary Tome and Blood printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/acid-orb-3391",
+          "role": "same primary catalog cross-reference used to resolve the Acid Orb mechanics explicitly incorporated by this spell"
+        }
+      ]
+    },
+    "spells/electric-vengeance-2973": {
+      "name": "Electric Vengeance",
+      "sourceSha256": "d16e1dca95bc175619321957a154fdc20768afb36cf32800a0af0870c82cdac5",
+      "effectSummary": "Can be cast only immediately after another creature deals hit point damage to you with a melee attack. Lightning arcs back into that creature for 2d8 electricity damage +1 per caster level, maximum +10.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/electric-vengeance-2973",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/electric-vengeance-greater-2974": {
+      "name": "Electric Vengeance, Greater",
+      "sourceSha256": "d03f0b19053788295ec9a0064ba8e1ea1eb4855993e6b1eed70561e22294712e",
+      "effectSummary": "Functions as electric vengeance and can therefore be cast only immediately after another creature deals hit point damage to you with a melee attack. It retaliates for 5d8 electricity damage +1 per caster level, maximum +15, and the target must succeed on a Fortitude save or be dazed until the end of your next turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/electric-vengeance-greater-2974",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/electric-vengeance-2973",
+          "role": "same primary catalog cross-reference used to resolve the base trigger explicitly incorporated by the greater spell"
+        }
+      ]
+    },
+    "spells/electrical-storm-5006": {
+      "name": "Electrical Storm",
+      "sourceSha256": "a99f059446c6cda37710da1cdc0bdf2ff142ff031eaccc7354abdd4abff20b4e",
+      "effectSummary": "Creatures in the area take 4d6 electricity damage, Fortitude half; a creature that fails the save is also dazed for 1 round. A creature entering the area is affected immediately, and on each of your following turns every creature still in the storm takes damage and saves again.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/electrical-storm-5006",
+          "role": "primary Dragonlance Campaign Setting printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/elemental-body-1867": {
+      "name": "Elemental Body",
+      "sourceSha256": "c05e401c83478d5f29a717723f6d2de34749e1f027ad0cd8047b4779ac76cb56",
+      "effectSummary": "Transforms you and your possessions into air, earth, fire, or water substance without changing your creature type. You gain the chosen element's relevant attune form protection against harmful natural planar conditions, plus immunity to poison, sleep, paralysis, and stunning, immunity to critical hits and flanking, and 60-foot darkvision. Air grants flight at your normal speed with perfect maneuverability and air mastery (-1 on airborne foes' attacks and damage against you). Earth grants earth mastery (+1 attack and damage when both combatants touch the ground), the ability to start bull rushes without provoking, and +3 natural armor. Fire grants fire immunity and burn, causing creatures you hit in melee or that hit you with natural weapons to save or catch fire using the save DC of a same-size fire elemental. Water grants swim speed equal to your normal speed, water mastery (+1 attack and damage when both combatants touch water), and drench, which extinguishes nonmagical open flames and can dispel magical fire you touch as dispel magic at your caster level. The spell gains the descriptor of the chosen element.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-body-1867",
+          "role": "primary Manual of the Planes printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/attune-form-1865",
+          "role": "same primary catalog cross-reference used to resolve the planar adaptation explicitly incorporated by this printing"
+        }
+      ]
     }
   }
 }
