@@ -1113,6 +1113,13 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="corrupt-lesser-dragon-ally-payment-unit"
+        if entry.get("id")=="spells/drown-5004" and re.search(
+            r"or begin to drown \(see The Concentration check to cast a spell",
+            effect_source,
+            re.I,
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-dragonlance-drown-source"
         if (
             entry.get("id")=="spells/dragonshape-3011"
             and re.search(r"see below for your new statistics",effect_source,re.I)
