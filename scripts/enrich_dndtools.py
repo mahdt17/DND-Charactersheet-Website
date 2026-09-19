@@ -696,8 +696,13 @@ def feat_rule_summaries():
         entries={}
         batch_dir=ROOT/"scripts"/"feat_rule_summaries_35_batches"
         if batch_dir.exists():
-            for batch_path in sorted(batch_dir.glob("*.json")):
-                batch_payload=json.loads(batch_path.read_text(encoding="utf-8"))
+            batch_paths=sorted(list(batch_dir.glob("*.json"))+list(batch_dir.glob("*.json.gz")))
+            for batch_path in batch_paths:
+                if batch_path.name.endswith(".json.gz"):
+                    with gzip.open(batch_path,"rt",encoding="utf-8") as fh:
+                        batch_payload=json.load(fh)
+                else:
+                    batch_payload=json.loads(batch_path.read_text(encoding="utf-8"))
                 batch_entries=batch_payload.get("entries",{})
                 if not isinstance(batch_entries,dict):
                     raise ValueError(f"Feat rule review batch must contain an entries object: {batch_path.name}")
