@@ -25,6 +25,7 @@ jobs:
       - run: node tests/editions.mjs
       - run: npm run test:content
       - run: python scripts/enrich_dndtools.py --self-test
+      - run: python scripts/classify_spell_review_queue.py --self-test
       - run: python scripts/preflight_35_class_regressions.py
       - run: python scripts/preflight_35_feat_regressions.py
       - run: python scripts/preflight_35_spell_regressions.py
@@ -44,4 +45,3 @@ jobs:
         with:
           name: modernization-browser-results
           path: test-results/
-
