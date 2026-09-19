@@ -300,6 +300,19 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\b(?:slowed|hasted|confused|frightened|paralyzed|petrified|stunned|dazed|blinded|deafened|charmed)\s+as\s+the\s+spell\b",
         re.I,
     )),
+    ("slow-condition-shorthand", re.compile(
+        r"\b(?:subject|target|creatures?|foe|enemy)\s+(?:is|are|becomes?|become)\s+slowed\b",
+        re.I,
+    )),
+    ("planar-environment-dependency", re.compile(
+        r"\bemulates?\s+(?:its|the|a)\s+native\s+planar\s+environment\b",
+        re.I,
+    )),
+    ("summoned-creature-stat-dependency", re.compile(
+        r"\bthis\s+spell\s+summons\s+(?:a|an|one)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z'’ -]{2,80}?)(?=\s+from\b)",
+        re.I,
+    )),
 )
 
 
@@ -323,6 +336,8 @@ SUSPICIOUS_PATTERNS = (
     )),
     ("suspicious-fp-unit", re.compile(r"\b\d[\d,]*\s+fp\b", re.I)),
     ("malformed-dice-notation", re.compile(r"\b(?:l|I)d\d+\b")),
+    ("malformed-talons-source", re.compile(r"\byout\s+other\b|\bconsidered\s+arms\b", re.I)),
+    ("garbled-last-judgment-source", re.compile(r"\band\s+resurrection\s+is\s+cast\.\s*$", re.I)),
     ("truncated-nether-trail-source", re.compile(
         r"\bEvil outsider must make its saving throw first\b",
         re.I,
@@ -991,8 +1006,14 @@ def run_self_test() -> None:
     assert "external-see-for-details" in external_mechanics_reasons("Failure by 5 or more means it falls; see the Balance skill for details.")
     assert "condition-as-the-spell" in external_mechanics_reasons("A subject who fails a Will save is slowed as the spell.")
     assert "condition-as-the-spell" not in external_mechanics_reasons("The effect lasts as long as the spell remains active.")
+    assert "slow-condition-shorthand" in external_mechanics_reasons("The subject is slowed for the spell's duration.")
+    assert "slow-condition-shorthand" not in external_mechanics_reasons("Movement is slowed by deep mud.")
+    assert "planar-environment-dependency" in external_mechanics_reasons("The area emulates its native planar environment.")
+    assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell summons a bearded devil from the Nine Hells.")
     assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})
     assert "malformed-dice-notation" not in suspicious_reasons({"effectSource":"Creatures in the burst take 1d8 points of damage."})
+    assert "malformed-talons-source" in suspicious_reasons({"effectSource":"You can attack with yout other hand. You are considered arms."})
+    assert "garbled-last-judgment-source" in suspicious_reasons({"effectSource":"This spell affects only humanoids, monstrous humanoids, and resurrection is cast."})
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
     assert "teleport greater" in name_aliases("Teleport, Greater")
