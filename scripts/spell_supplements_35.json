@@ -1253,6 +1253,44 @@
           "role": "SRD catching-on-fire rule used to resolve the delegated continuing damage and extinguishing mechanics"
         }
       ]
+    },
+    "spells/fist-of-stone-546": {
+      "name": "Fist of Stone",
+      "effectSummary": "Transforms one hand into living stone, granting a +6 enhancement bonus to Strength for attack rolls, grapple checks, and breaking or crushing objects. You gain one natural slam attack dealing 1d6 damage + your new Strength bonus, or 1d6 + 1½ times your Strength bonus if you make no other attacks that round. The slam can be used as a secondary natural attack at -5, or -2 with the Multiattack feat, as part of a full attack. A high base attack bonus never grants more than one slam per round from this spell. The hand remains its normal size and flexibility. The material component is a pebble inscribed with a fist.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fist-of-stone-546",
+          "role": "primary Complete Arcane catalog record; rebuilt prose corrupts the Multiattack feat reference into 'if you have the Monster Manual'"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-arcane--55/fist-of-stone--546/index.html",
+          "role": "same Complete Arcane printing cross-check preserving the printed Multiattack feat reference"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fist-of-stone-4507",
+          "role": "later primary-catalog printing independently confirms the -2 secondary-attack penalty with Multiattack"
+        }
+      ]
+    },
+    "spells/fires-of-purity-2070": {
+      "name": "Fires of Purity",
+      "effectSummary": "Wreathes the touched creature in harmless magical flame. Each successful melee attack by the subject deals +1d6 fire damage. A creature that hits the subject with a natural weapon or unarmed attack takes 1d6 fire damage and must make a Reflex save at this spell's DC or catch fire. A creature that catches fire takes 1d6 fire damage immediately; on each subsequent round, failure on the normal catch-fire Reflex save deals another 1d6 and success extinguishes the flames, though this spell limits the burning to 1d4 rounds. The burning creature can also spend a move-equivalent action to put itself out, and enough water extinguishes it automatically. The subject is immune to fire for the spell's duration but takes double cold damage unless it succeeds on the cold effect's saving throw.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fires-of-purity-2070",
+          "role": "primary Oriental Adventures catalog record; delegates the continuing catching-on-fire mechanics outside the spell page"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures sourcebook rendering confirms the 1d4-round burn and move-equivalent extinguishing rule"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/environment.htm#catchingOnFire",
+          "role": "SRD catch-fire rule used to resolve the delegated immediate/subsequent 1d6 fire damage and Reflex-save extinguishing mechanics"
+        }
+      ]
     }
   }
 }
