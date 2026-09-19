@@ -136,7 +136,7 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,261**
+- Digest-locked reviewed spell effects: **1,301**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
 - Permanent focused spell regression corpus: **77 / 77 green**
@@ -158,15 +158,15 @@ These records remain supplement-backed where the primary source is damaged; corr
 
 ### Latest authoritative full spell audit
 
-Category Enrichment Audit **#68**, run **35422270678**, audited commit `610ed4a24dc93414ec1de738da63202e1a79678f` with **1,261** digest-locked reviewed summaries and **77** permanent focused spell regressions:
+Category Enrichment Audit **#70**, run **35423957590**, audited commit `f9a7f23087ca1e25c34aeb83f4bce39202f6408a` with **1,301** digest-locked reviewed summaries and **77** permanent focused spell regressions:
 
 - Samples: **25 / 25**, **50 / 50**, **100 / 100**, **250 / 250** passed.
 - Source shards: **8 / 8 passed**.
 - Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**.
 - Candidate shards: **8 / 8 generated successfully**.
 - Candidate merge: **5,035 / 5,035 exact candidate records**, no duplicates, missing IDs, unexpected IDs, or merge errors.
-- Candidate/output audit: **1,936 / 5,035 output-complete**, **3,099 incomplete**, **38.4508%** output-complete.
-- `criticalMissingCount`: **3,099**.
+- Candidate/output audit: **1,976 / 5,035 output-complete**, **3,059 incomplete**, **39.2453%** output-complete.
+- `criticalMissingCount`: **3,059**.
 - `errors`: **empty**.
 - Sampled incomplete records contain only the expected missing `effect` / `effectSummary` backlog.
 - `sourceExtractionVerified: true`
@@ -180,8 +180,10 @@ For comparison, recent authoritative checkpoints include:
 - 1,221 reviews / 76 regressions: **1,895 / 5,035** output-complete, **3,140** incomplete, **37.6365%**.
 - 1,241 reviews / 77 regressions: **1,916 / 5,035** output-complete, **3,119** incomplete, **38.0536%**.
 - 1,261 reviews / 77 regressions: **1,936 / 5,035** output-complete, **3,099** incomplete, **38.4508%**.
+- 1,281 reviews / 77 regressions: **1,956 / 5,035** output-complete, **3,079** incomplete, **38.8481%**.
+- 1,301 reviews / 77 regressions: **1,976 / 5,035** output-complete, **3,059** incomplete, **39.2453%**.
 
-The next ordinary review queue begins immediately after `spells/earthbind-2007`. The next slice starts with Spell Compendium `Earthbind`, then `Earthbolt`, `Earthen Grace`, `Earthen Grasp`, `Earthen Shield`, `Earthfast`, `Earthquake`, and continues through the Earth-family records toward `Echo Skull`. Same-name printing differences must remain independent.
+The next ordinary review queue begins immediately after `spells/elemental-body-1867`. Same-name and same-family printing differences must remain independent, and cross-referenced base mechanics should continue to be resolved from the same primary catalog when available.
 
 No catalog enrichment and no `--write` operation has been performed. Supabase remains unchanged.
 
@@ -198,4 +200,4 @@ Do **not** use `--write` and do **not** unlock live/catalog writes. Overall rele
 
 ## Validation status
 
-The current 1,261-review audit head (`610ed4a24dc93414ec1de738da63202e1a79678f`) passed Validate modernization run `35422272303` end-to-end. The 1,261 checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
+The current 1,301-review audit head (`f9a7f23087ca1e25c34aeb83f4bce39202f6408a`) passed Validate modernization run `35423960170` end-to-end. The 1,301 checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
