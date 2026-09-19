@@ -10808,6 +10808,294 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing; its revised mechanics are preserved separately from the earlier printing"
         }
       ]
+    },
+    "spells/death-armor-1367": {
+      "name": "Death Armor",
+      "sourceSha256": "becaa28bbd133e22286786ed3536408a7fbb15fc0e471ed7263315fb18ab0138",
+      "effectSummary": "For 1 round per caster level, a crackling black aura damages any creature that hits you with its body or a handheld weapon for 1d4 +1 per two caster levels (maximum +10); the attacker's spell resistance applies to this reactive damage. Exceptional-reach weapons such as longspears do not expose their wielders to the aura. The material component is a paste of exotic herbs, ground bones, and onyx worth 50 gp, applied to your body when cast.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-armor-1367",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its distinct scaling and component/focus treatment are preserved"
+        }
+      ]
+    },
+    "spells/death-armor-1707": {
+      "name": "Death Armor",
+      "sourceSha256": "efdf767b40510131fd497cbe9682287eb8aa40ed6adf537b4017dd112fed5c60",
+      "effectSummary": "For 1 round per caster level, a crackling black aura damages any creature that hits you with its body or a handheld weapon for 1d4 +1 per two caster levels (maximum +5); the attacker's spell resistance applies to this reactive damage. Exceptional-reach weapons such as longspears do not expose their wielders to the aura. The material component is a paste of exotic herbs, ground bones, and onyx worth 50 gp, applied to your body when cast.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-armor-1707",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its distinct scaling and component/focus treatment are preserved"
+        }
+      ]
+    },
+    "spells/death-armor-4345": {
+      "name": "Death Armor",
+      "sourceSha256": "792cb1e107fb63733a1d0c20ac132179dddbb3e78ed3aabf18f6692dcea75602",
+      "effectSummary": "For 1 round per caster level, black flames damage any creature that hits you with its body or a handheld weapon for 1d4 +1 per two caster levels (maximum +10). Reach weapons such as longspears do not expose their wielders to the flames. This Spell Compendium printing uses ground-bone paste as its material component and a 50 gp onyx as a focus, rather than the earlier printings' 50 gp onyx-containing paste.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-armor-4345",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its distinct scaling and component/focus treatment are preserved"
+        }
+      ]
+    },
+    "spells/death-by-thorns-137": {
+      "name": "Death by Thorns",
+      "sourceSha256": "31fd083373c69e6b07c7d40a6b2a608b803eb3daac02ae06f52b4351fcee98f8",
+      "effectSummary": "Up to three touched creatures within 15 feet of one another sprout internal thorns. On a failed Fortitude save, a subject is incapacitated in agony for 1d4 rounds and then dies; a wish or miracle cast during that interval can remove the thorns and save it. On a successful save, the subject is still incapacitated for 1d4 rounds and takes 1d6 damage each round, but the thorns then disappear and it survives. Spell resistance applies. The corruption cost is 1d3 points of Wisdom drain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-by-thorns-137",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/death-dragon-1020": {
+      "name": "Death Dragon",
+      "sourceSha256": "938d6994aebf3105468d1798153bd877eade20dca760882e5dc8e95dd7de43d9",
+      "effectSummary": "For 1 round per caster level, a bone-and-negative-energy cocoon grants +4 enhancement natural armor, +4 deflection AC, and 1 temporary hit point per caster level (maximum 20). You count as armed for unarmed attacks and deal damage as size-appropriate short swords, including an off-hand attack with normal two-weapon fighting penalties. You cannot cast spells with somatic, material, or focus components, though divine-focus components remain usable, and your other movement and actions are unhindered. As a standard action you can either project fear as a 30-foot cone—living creatures are panicked on a failed Will save or shaken for 1 round on a success, with a cornered panicked creature cowering—or make a melee touch attack as inflict critical wounds, dealing 4d8 +1 per caster level (maximum +20) negative-energy damage, Will half, while healing undead by the same amount. Spell resistance applies to those inherited offensive spell effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-dragon-1020",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its distinct cocoon bonuses are preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fear-2736",
+          "role": "same primary catalog referenced spell used to retain inherited fear cone, saving-throw, and condition mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-critical-wounds-2743",
+          "role": "same primary catalog referenced spell used to retain inherited inflict critical wounds damage and save mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-2745",
+          "role": "same primary catalog base spell used to retain inherited negative-energy and undead-healing behavior"
+        }
+      ]
+    },
+    "spells/death-dragon-1708": {
+      "name": "Death Dragon",
+      "sourceSha256": "aea21f00ec2e1c94f5190c6d81798e4961b8b0025e7cfb2428c9ccf47b863043",
+      "effectSummary": "For 1 round per caster level, a bone-and-negative-energy cocoon grants +4 natural armor, +4 deflection AC, and 1 temporary hit point per caster level (maximum 20). You count as armed for unarmed attacks and deal damage as short swords, including an off-hand attack with normal two-weapon fighting penalties. You cannot cast spells with somatic, material, or focus components, though divine-focus components remain usable, and your other movement and actions are unhindered. As a standard action you can either project fear as a 30-foot cone—living creatures are panicked on a failed Will save or shaken for 1 round on a success, with a cornered panicked creature cowering—or make a melee touch attack as inflict critical wounds, dealing 4d8 +1 per caster level (maximum +20) negative-energy damage, Will half, while healing undead by the same amount. Spell resistance applies to those inherited offensive spell effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-dragon-1708",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its distinct cocoon bonuses are preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fear-2736",
+          "role": "same primary catalog referenced spell used to retain inherited fear cone, saving-throw, and condition mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-critical-wounds-2743",
+          "role": "same primary catalog referenced spell used to retain inherited inflict critical wounds damage and save mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-2745",
+          "role": "same primary catalog base spell used to retain inherited negative-energy and undead-healing behavior"
+        }
+      ]
+    },
+    "spells/death-dragon-4346": {
+      "name": "Death Dragon",
+      "sourceSha256": "9eb6eabdeaa4ca1de3a396bb2e731a074929c27deb943656786c21c0f0403ef7",
+      "effectSummary": "For 1 round per caster level, the cocoon grants a +4 deflection bonus to AC; unlike the earlier printings, this version does not grant natural armor or temporary hit points. You count as armed for unarmed attacks and deal damage as size-appropriate short swords, including an off-hand attack with normal two-weapon fighting penalties. You cannot cast spells with somatic, material, or focus components, though divine-focus components remain usable. As a standard action you can either project fear as a 30-foot cone—living creatures are panicked on a failed Will save or shaken for 1 round on a success, with a cornered panicked creature cowering—or make a melee touch attack as inflict critical wounds, dealing 4d8 +1 per caster level (maximum +20) negative-energy damage, Will half, while healing undead by the same amount. These effects use your caster level, their saving throw DC equals Death Dragon's spell DC, and spell resistance applies as for the referenced spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-dragon-4346",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its distinct cocoon bonuses are preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fear-2736",
+          "role": "same primary catalog referenced spell used to retain inherited fear cone, saving-throw, and condition mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-critical-wounds-2743",
+          "role": "same primary catalog referenced spell used to retain inherited inflict critical wounds damage and save mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-2745",
+          "role": "same primary catalog base spell used to retain inherited negative-energy and undead-healing behavior"
+        }
+      ]
+    },
+    "spells/death-above-3734": {
+      "name": "Death from Above",
+      "sourceSha256": "0028353c93c7735b300205f8a70c7fba73a2248ae166837701c1ae2f983c54c9",
+      "effectSummary": "You must begin adjacent to a foe and make a DC 20 Jump check as part of the maneuver. On a success, you make one melee attack against that foe while airborne; the target is flat-footed against it and the hit deals an extra 4d6 damage, after which you land in any square adjacent to the target no more than 20 feet from where you started. On a failed Jump check, you remain in the last square you occupied before the check and may make one normal melee attack. The maneuver is expended either way.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-above-3734",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/death-grimace-205": {
+      "name": "Death Grimace",
+      "sourceSha256": "71c766192b16971b4315695a6147d79c1bddba32467f2a7d74f50ec07fe90b08",
+      "effectSummary": "Permanently marks a touched corpse with a chosen magical signature that identifies the caster, truthfully or falsely, as the murderer. The signature can be a particular facial expression, rune, word on the flesh, eye discoloration, or another distinctive mark, allowing it to function as a calling card or proof of the killing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-grimace-205",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/death-dark-3689": {
+      "name": "Death in the Dark",
+      "sourceSha256": "7f0dd1063d75a936d8f54323d2cd2548f451b88acb1a43879d1ac183c3a8393c",
+      "effectSummary": "This strike works only against a flat-footed opponent that is vulnerable to critical hits. As part of the maneuver, make one melee attack; on a hit it deals normal damage and the target makes a Fortitude save at DC 17 + your Wisdom modifier. A failed save adds 15d6 damage, while a successful save still adds 5d6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-dark-3689",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/death-knell-2726": {
+      "name": "Death Knell",
+      "sourceSha256": "bf69d4febd503a79344ad085bb554aa7090d68dc2fd9ca1b5f617db62b09ae79",
+      "effectSummary": "Touch one living creature at -1 hit points or lower. If it fails its Will save and spell resistance, it dies; you then gain 1d8 temporary hit points, a +2 Strength bonus, and +1 effective caster level for 10 minutes per Hit Die of the slain creature. The caster-level increase improves effects that depend on caster level but does not grant access to additional spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-knell-2726",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/death-lock-1368": {
+      "name": "Death Lock",
+      "sourceSha256": "2ba7667a48fec02cf79a4dc38275e8f08e6916751e567de642995feb6d0c7038",
+      "effectSummary": "For 10 minutes per caster level, if the subject dies after failing its Will save and spell resistance, its soul immediately passes to the True Afterlife and it cannot spontaneously form a ghost. The effect does not prevent ordinary resurrection magic, nor does it prevent magic such as raise ghost from later bringing the subject back as a ghost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-lock-1368",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/death-mark-3570": {
+      "name": "Death Mark",
+      "sourceSha256": "18ca068fb90defe82c954b9c5422549bc362c0b26a706e7d909fea07794ae913",
+      "effectSummary": "On a successful melee attack, you deal normal weapon damage and make the target erupt in a fiery spread centered on it. The spread radius depends on target size: 5 feet for Small or smaller, 10 feet for Medium, 20 feet for Large, 30 feet for Huge, 40 feet for Gargantuan, and 50 feet for Colossal. Every creature in the spread, including the target, takes 6d6 fire damage, Reflex DC 13 + your Wisdom modifier for half; you are immune to the fire from your own Death Mark. This maneuver is a supernatural ability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-mark-3570",
+          "role": "primary DnD Tools effect text and captured size/radius table reviewed and paraphrased for complete strike mechanics"
+        }
+      ]
+    },
+    "spells/death-pact-1709": {
+      "name": "Death Pact",
+      "sourceSha256": "70a8bc0cf4cc8ce7558cdc815de94f89b7d5247f4bd14faf747662aa7bd0babc",
+      "effectSummary": "The willing living target permanently loses 2 Constitution when the pact is cast. If it later dies, it is transported as by word of recall to the safe sanctuary chosen at casting (the inherited teleport cannot cross planes), then restored by raise dead. Raise dead requires a free and willing soul and a whole body; it cannot restore a creature killed by a death effect, a creature that has been turned undead, a construct, elemental, outsider, or a creature that died of old age, and it imposes the normal permanent loss of one level/Hit Die or 2 Constitution at 1st level. The raised creature returns with hit points equal to its current Hit Dice, then heal restores 10 hit points per caster level (maximum 150) and removes ability damage, blindness, confusion, daze, dazzle, deafness, disease, exhaustion, fatigue, feeblemind, insanity, nausea, sickness, stun, and poison; heal does not remove negative levels or permanent drains. If raise dead cannot restore the target, such as after disintegration or old age, the pact fails. Dispelling the pact before death does not return its lost Constitution. The material component is a diamond worth at least 500 gp and the XP cost is 250 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-pact-1709",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its trigger, Constitution loss, cost, and referenced revival sequence are preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/word-of-recall-2473",
+          "role": "same primary catalog referenced spell used to retain the inherited sanctuary-teleport behavior"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "same primary catalog referenced spell used to retain inherited revival restrictions and level/Hit Die loss"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "same primary catalog referenced spell used to retain inherited healing amount and affliction removal"
+        }
+      ]
+    },
+    "spells/death-pact-4347": {
+      "name": "Death Pact",
+      "sourceSha256": "4419be717d0061fa4f44b2dbf476bf02153587b6a7bcf7f28e05239f1a8eb89b",
+      "effectSummary": "The willing living target permanently loses 2 Constitution when the pact is cast. If it later dies, true resurrection is immediately applied. A free and willing soul can return even if the body was destroyed, and is restored to full hit points, vigor, and health with no resurrection loss of level, Constitution, or prepared spells; the effect can restore a victim of a death effect or a creature that had been turned undead and then destroyed, and can restore elementals or outsiders. It cannot restore a construct, a creature that remains undead, or a creature that died of old age. The pact's own 2-point Constitution loss is not restored by the resurrection. If the pact is dispelled before death, that Constitution is still not regained; wish or miracle can restore it only after the pact has triggered or been dispelled. The material component is a diamond worth at least 1,000 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-pact-4347",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its revised true-resurrection trigger and cost are preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/true-resurrection-2467",
+          "role": "same primary catalog referenced spell used to retain inherited full-restoration, destroyed-body, death-effect, and creature-limit mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "same primary catalog base revival spell used to retain the inherited free-and-willing-soul requirement"
+        }
+      ]
+    },
+    "spells/death-pact-720": {
+      "name": "Death Pact",
+      "sourceSha256": "adc5681e77b188ab55362809ac416babb4242783ac040a525f48a3d0f93c6055",
+      "effectSummary": "The willing living target permanently loses 2 Constitution when the pact is cast. If it later dies, it is transported as by word of recall to the safe sanctuary chosen at casting (the inherited teleport cannot cross planes), then restored by raise dead. Raise dead requires a free and willing soul and a whole body; it cannot restore a creature killed by a death effect, a creature that has been turned undead, a construct, elemental, outsider, or a creature that died of old age, and it imposes the normal permanent loss of one level/Hit Die or 2 Constitution at 1st level. The raised creature returns with hit points equal to its current Hit Dice, then heal restores 10 hit points per caster level (maximum 150) and removes ability damage, blindness, confusion, daze, dazzle, deafness, disease, exhaustion, fatigue, feeblemind, insanity, nausea, sickness, stun, and poison; heal does not remove negative levels or permanent drains. If raise dead cannot restore the target, such as after disintegration or old age, the pact fails. Dispelling the pact before death does not return its lost Constitution. The material component is a diamond worth at least 500 gp and the XP cost is 250 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-pact-720",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its trigger, Constitution loss, cost, and referenced revival sequence are preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/word-of-recall-2473",
+          "role": "same primary catalog referenced spell used to retain the inherited sanctuary-teleport behavior"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "same primary catalog referenced spell used to retain inherited revival restrictions and level/Hit Die loss"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "same primary catalog referenced spell used to retain inherited healing amount and affliction removal"
+        }
+      ]
+    },
+    "spells/death-throes-2188": {
+      "name": "Death Throes",
+      "sourceSha256": "49ebd8454045c18660cc5efab5ed7293c644bcebb553f989cd313800734872a0",
+      "effectSummary": "For up to 1 hour per caster level, if you are killed your body is instantly destroyed in a 30-foot-radius explosion that deals 1d8 force damage per caster level to everyone in the burst, with no saving throw or spell resistance. Because the body is destroyed, resurrection methods that require part of the corpse cannot work; wish, miracle, or true resurrection can still restore you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-throes-2188",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Planar Handbook printing; its force damage and 1-hour/level duration are preserved"
+        }
+      ]
+    },
+    "spells/death-throes-4348": {
+      "name": "Death Throes",
+      "sourceSha256": "d71c8858b65cb70b4fe9e23ed869aceeaac05665d5e7e7bea52bd799e4043460",
+      "effectSummary": "For up to 1 round per caster level, if you are killed your body is instantly destroyed in a 30-foot-radius explosion that deals 1d8 damage per caster level to everyone in the burst, with no saving throw or spell resistance. This Spell Compendium printing does not specify a damage type, unlike the earlier Planar Handbook printing's force damage. Because the body is destroyed, resurrection methods that require part of the corpse cannot work; wish, miracle, or true resurrection can still restore you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-throes-4348",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its unspecified damage type and 1-round/level duration are preserved rather than normalized to the earlier printing"
+        }
+      ]
+    },
+    "spells/death-ward-2727": {
+      "name": "Death Ward",
+      "sourceSha256": "76cc718a928cbe8f914495901febc5242302f0c278fb6ddf5b466c23cb3e858d",
+      "effectSummary": "For 1 minute per caster level, the living subject is immune to death spells, magical death effects, energy drain, and negative-energy effects such as inflict spells or chill touch. It does not remove negative levels already gained or alter the saving throw required 24 hours after gaining one, and it does not protect against otherwise lethal effects such as ordinary hit point loss, poison, or petrification.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/death-ward-2727",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/deaths-call-852": {
+      "name": "Death's Call",
+      "sourceSha256": "2c348103a16c827bad9f3a0064eb2272d8c8d4554b4331e2b3d6829ea8291d60",
+      "effectSummary": "Every other living creature in the 10-foot-radius burst takes 1 damage per caster level (maximum 5) and becomes fatigued; a successful Fortitude save negates only the fatigue, and spell resistance applies. A swarm instead takes 1d4 damage per caster level (maximum 5d4) and is likewise fatigued unless it succeeds on the Fortitude save. This swarm damage replaces the normal +50% damage an area spell would deal to a swarm.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deaths-call-852",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
