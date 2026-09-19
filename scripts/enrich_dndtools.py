@@ -857,8 +857,8 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         "description": bool(description),
         "normal": bool(normal),
         "special": bool(special),
-        "normalLabeled": any(re.match(r"^Normal\b",clean(line),re.I) for line in lines),
-        "specialLabeled": any(re.match(r"^Special\b",clean(line),re.I) for line in lines),
+        "normalLabeled": any(re.match(r"^Normal(?:\s*:|$)",clean(line),re.I) for line in lines),
+        "specialLabeled": any(re.match(r"^Special(?:\s*:|$)",clean(line),re.I) for line in lines),
         "prerequisiteLabeled": prereq_labeled,
         "ruleProse": has_rule_prose(lines, entry.get("name",""))
     }
@@ -1921,6 +1921,19 @@ def self_test():
     f=parse_feat(p,{"name":"Long Rule Feat","id":"self-test-long-feat-rules"})
     assert f.get("normalNeedsSummary") and f.get("specialNeedsSummary")
     assert "normalRule" not in enrichment_gaps("feats",f)
+    assert "specialRule" not in enrichment_gaps("feats",f)
+
+    special_type_only_html = """
+    <h1>Spell Mastery</h1><p>Special feat</p><p>Player's Handbook v.3.5 (PH), p. 100</p>
+    <div>Prerequisite</div><div>Wizard level 1.</div>
+    <div>Benefit</div><div>You can prepare selected known spells without referring to a spellbook.</div>
+    <div>Normal</div><div>Without this feat, you normally use a spellbook to prepare your spells.</div>
+    <div>Description</div><div>You are intimately familiar with certain spells.</div>
+    """
+    p=DetailParser();p.feed(special_type_only_html);p.close()
+    f=parse_feat(p,{"name":"Spell Mastery","id":"self-test-special-feat-type"})
+    assert f.get("featType") == "Special feat"
+    assert not f["mechanicsPresence"]["specialLabeled"]
     assert "specialRule" not in enrichment_gaps("feats",f)
 
     malformed_feat = """
