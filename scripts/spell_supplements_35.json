@@ -1019,6 +1019,21 @@
           "role": "independent Stormwrack-matched creature rendering used only to restore the omitted Doom of the Seas statistics and combat abilities; the printed half-fiend-traits block is preserved rather than normalized to a generic fiendish template"
         }
       ]
+    },
+    "spells/dragonblood-beast-4864": {
+      "name": "Dragonblood Beast",
+      "effectSummary": "The animal gains the dragonblood subtype and one or more traits chosen when the spell is cast. Dragon's Scales grants +1 natural armor per two caster levels, maximum +10. Dragon's Teeth increases an existing bite attack by one damage step using the printed progressions: 1d2 → 1d3 → 1d4 → 1d6 → 1d8 → 2d6 → 3d6 → 4d6 → 6d6 → 8d6 → 12d6, or 1d10 → 2d8 → 3d8 → 4d8 → 6d8 → 8d8 → 12d8; it does not grant a bite to a creature that lacks one. Dragon's Wings grants fly 90 feet (poor), but a creature with existing wings keeps its original speed and maneuverability and only changes appearance. A caster with the Mark of Handling gains +1 caster level with a least mark, +2 with a lesser mark, or +3 with a greater or Siberys mark. The material component is Siberys dragonshard dust for a true dragonmark or Khyber dragonshard dust for an aberrant dragonmark; any true or aberrant dragonmark qualifies.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonblood-beast-4864",
+          "role": "primary Dragonmarked catalog record; rebuilt effect text corrupts the bite-damage progression by dropping die values while preserving the rest of the spell and the Dragonmark caster-level table"
+        },
+        {
+          "url": "https://net-clan.com/PDFS/DnD3.5e/D%26D3.5-Eberron-Dragonmarked.pdf",
+          "role": "Dragonmarked p.149 sourcebook copy used only to restore the missing bite-damage die values and punctuation in the printed progression"
+        }
+      ]
     }
   }
 }
