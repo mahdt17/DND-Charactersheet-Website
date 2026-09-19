@@ -1,4 +1,4 @@
-"""Export long 3.5 spell effects for temporary summarization review only."""
+"""Export 3.5 spell effects for temporary summarization review only."""
 from __future__ import annotations
 import argparse, json, sys
 from pathlib import Path
@@ -12,6 +12,7 @@ def main():
     ap.add_argument("--shard-count",type=int,default=8)
     ap.add_argument("--shard-index",type=int,default=0)
     ap.add_argument("--record-id",action="append",default=[],help="limit export to one or more exact catalog record IDs")
+    ap.add_argument("--include-complete",action="store_true",help="include requested records even when their captured effect is already short/self-contained")
     ap.add_argument("--delay",type=float,default=0.08)
     ap.add_argument("--output",type=Path,required=True)
     args=ap.parse_args()
@@ -35,18 +36,29 @@ def main():
             raw=d35.fetch(row["url"],args.delay)
             parser=d35.DetailParser(); parser.feed(raw); parser.close()
             details=d35.parse_spell(parser,row)
-            if details.get("effectNeedsSummary") and not details.get("effectSummary"):
+            needs_summary=bool(details.get("effectNeedsSummary") and not details.get("effectSummary"))
+            if needs_summary or (args.include_complete and requested):
                 entries.append({
                     "id":row.get("id"),"name":row.get("name"),"url":row.get("url"),
                     "sourceBook":details.get("sourceBook"),"school":details.get("school"),
                     "level":details.get("level"),"classLevels":details.get("classLevels"),
                     "domainLevels":details.get("domainLevels"),
+                    "needsSummary":needs_summary,
+                    "effectReferenceDependent":bool(details.get("effectReferenceDependent")),
                     "tables":parser.tables,
                     "effectSource":d35.spell_description_text(parser),
                 })
         except Exception as exc:
             failures.append({"id":row.get("id"),"name":row.get("name"),"error":str(exc)})
-    payload={"reviewOnly":True,"shardCount":args.shard_count,"shardIndex":args.shard_index,"recordIds":sorted(requested),"entries":entries,"fetchFailures":failures}
+    payload={
+        "reviewOnly":True,
+        "includeComplete":bool(args.include_complete),
+        "shardCount":args.shard_count,
+        "shardIndex":args.shard_index,
+        "recordIds":sorted(requested),
+        "entries":entries,
+        "fetchFailures":failures,
+    }
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"reviewEntries":len(entries),"fetchFailures":len(failures)},indent=2))
