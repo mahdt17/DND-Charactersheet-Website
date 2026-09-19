@@ -136,40 +136,35 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,185**
+- Digest-locked reviewed spell effects: **1,221**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
-- Permanent focused spell regression corpus: **70 / 70 green** on the 1,185-review validation head.
+- Permanent focused spell regression corpus: **76 / 76 green** on the current repaired head before the latest full audit.
 - Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings are preferred when they can supply the missing mechanic.
 - Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
 
 ### Recent source-completeness repairs
 
-Review beyond the earlier 966 checkpoint exposed several source-page omissions that were not detectable by the original narrow “table below” guard. The parser and permanent regressions now cover the following additional cases:
+In addition to the earlier table/truncation repairs, review after the 1,185 checkpoint exposed several more source defects and parser edge cases:
 
-- `Detect Aberration`, `Detect Dragonblood`, `Detect Incarnum`, both `Detect Taint` printings, `Freeze Armor`, and `Prismatic Wall`: missing tables referenced with wording such as “accompanying table,” “see the table,” “as shown on the table,” or lingering-aura headings.
-- `Deific Bastion`: the primary page and printed source both omit a separate 17th-caster-level enhancement bracket. The review preserves the literal +4 at 15th–16th and +5 at 18th+ and explicitly leaves 17th unspecified instead of inferring a value.
-- `Detect Ship`: rebuilt primary prose ends after introducing the visible-ship Profession (sailor) information table. The verified DC/result rows are restored by supplement.
-- `Sandform`: rebuilt primary prose omits the caster-size slam-damage table.
-- `Standing Wave`: the Masters of the Wild printing omits its caster-level/maximum-size table; matching thresholds were restored from a same-primary printing.
-- `Word of Balance`: the Underdark printing omits its Hit-Dice/effect threshold table; matching thresholds were restored from a same-primary Spell Compendium printing.
-- `Know Greatest Enemy`: the Magic of Faerûn printing omits its CR/strength table; matching thresholds were restored from a same-primary printing.
-- Libris Mortis `Summon Undead I`: its 1st-level summon list is omitted by the rebuilt page. The exact older-printing list—Medium skeleton or Small zombie—was restored without importing later revision mechanics.
-- Ghostwalk `Weapon of the Deity`: its deity-specific favored-weapon property list is omitted by the rebuilt page. The exact Ghostwalk table was restored rather than normalizing to later printings.
-- `Doom of the Seas` (`spells/doom-of-the-seas-3332`): the rebuilt primary page says a creature statistics block follows but omits that block. The omitted *Stormwrack* Doom of the Seas / half-fiend kraken statistics are restored by a provenance-backed supplement while retaining the primary spell's own summoning, obedience, duration, and 500 XP-cost rules. This record remains **supplement-backed only** and is not digest-locked to the corrupt primary effect text.
+- `Dragonblood Beast` (`spells/dragonblood-beast-4864`): the rebuilt primary text drops die values from the bite-damage progression. The intact printed *Dragonmarked* progression is restored by supplement; this record is not digest-locked to the corrupt prose.
+- Spell Compendium `Dragon Ally, Lesser` (`spells/dragon-ally-lesser-4417`): the rebuilt primary text corrupts the one-hour payment unit as “250 fp per HD.” The printed 250 gp/HD value is restored by supplement.
+- `Dragonshape` and `Dragonshape, Lesser`: their rebuilt pages omit referenced form/stat-block mechanics required to use the spell. The missing mechanics are restored with provenance-backed supplements and pinned regressions.
+- Spaced class-level parsing was hardened so all listed spell class levels are preserved rather than silently collapsing valid access entries.
+- `Dreaded Form of the Eye Tyrant` (`spells/dreaded-form-of-the-eye-tyrant-873`): the rebuilt primary effect is truncated. The missing gameplay mechanics are repaired through a provenance-backed supplement and pinned regression.
 
-These records are supplement-backed and regression-pinned as appropriate; corrupt/incomplete source prose is **not** treated as a trustworthy ordinary digest-locked effect.
+These records remain supplement-backed where the primary source is damaged; corrupt source text is **not** accepted as an ordinary digest-locked review.
 
 ### Latest authoritative full spell audit
 
-Category Enrichment Audit run **35417846309** audited commit `0ad5b31e7d642892be09e7e9ccad12845f10d1b8` with **1,185** digest-locked reviewed summaries and all **70** focused source regressions active:
+Category Enrichment Audit **#64**, run **35421149859**, audited commit `ee5ef2c88c8b3151e232a617bf0b363f31aabe66` with **1,221** digest-locked reviewed summaries and **76** permanent focused spell regressions:
 
 - Samples: **25 / 25**, **50 / 50**, **100 / 100**, **250 / 250** passed.
 - Source shards: **8 / 8 passed**.
 - Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**.
 - Candidate shards: **8 / 8 generated successfully**.
-- Candidate/output audit: **1,854 / 5,035 output-complete**, **3,181 incomplete**, **36.8222%** output-complete.
-- `criticalMissingCount`: **3,181**.
+- Candidate/output audit: **1,895 / 5,035 output-complete**, **3,140 incomplete**, **37.6365%** output-complete.
+- `criticalMissingCount`: **3,140**.
 - `errors`: **empty**.
 - Sampled incomplete records contain only the expected missing `effect` / `effectSummary` backlog.
 - `sourceExtractionVerified: true`
@@ -185,8 +180,10 @@ For comparison, earlier authoritative checkpoints included:
 - 1,046 reviews: **1,714 / 5,035** output-complete, **3,321** incomplete, **34.0417%**.
 - 1,106 reviews: **1,774 / 5,035** output-complete, **3,261** incomplete, **35.2334%**.
 - 1,185 reviews: **1,854 / 5,035** output-complete, **3,181** incomplete, **36.8222%**.
+- 1,203 reviews plus the post-1,185 source repairs: **1,876 / 5,035** output-complete, **3,159** incomplete, **37.2592%**.
+- 1,221 reviews with 76 regressions: **1,895 / 5,035** output-complete, **3,140** incomplete, **37.6365%**.
 
-Validate modernization run **35417848494** passed end-to-end on the 1,185-review/Doom-repair audit head, including all spell regressions, enrichment self-tests, the mechanical write gate, build, and browser suites.
+The next review queue begins with the Dream/Drown-family records immediately after the supplement-backed `Dreaded Form of the Eye Tyrant`. A refreshed read-only review export completed successfully with **3,140 review entries and 0 fetch failures**.
 
 No catalog enrichment and no `--write` operation has been performed. Supabase remains unchanged.
 
