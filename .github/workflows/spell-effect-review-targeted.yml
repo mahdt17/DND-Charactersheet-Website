@@ -1,0 +1,48 @@
+name: Targeted spell effect review
+
+on:
+  push:
+    branches: [codex/content-foundation]
+    paths:
+      - ".github/spell-effect-review-targeted.request"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: spell-effect-review-targeted
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export requested spell effects
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          req = json.loads(Path(".github/spell-effect-review-targeted.request").read_text(encoding="utf-8"))
+          record_ids = req.get("recordIds") or []
+          if not record_ids:
+              raise SystemExit("recordIds must not be empty")
+          cmd = [
+              "python", "scripts/export_spell_effect_review.py",
+              "--shard-count", "1", "--shard-index", "0",
+              "--delay", "0.08",
+              "--output", "test-results/spell-effect-review-targeted.json",
+          ]
+          for record_id in record_ids:
+              cmd.extend(["--record-id", record_id])
+          subprocess.run(cmd, check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spell-effect-review-targeted
+          path: test-results/spell-effect-review-targeted.json
+          retention-days: 1

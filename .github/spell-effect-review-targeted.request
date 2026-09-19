@@ -1,0 +1,26 @@
+{
+  "scope": "3.5/spells",
+  "recordIds": [
+    "spells/emerald-flame-fist-496",
+    "spells/emerald-razor-3625",
+    "spells/emotion-5031",
+    "spells/empyreal-ecstasy-3",
+    "spells/end-to-strife-46",
+    "spells/endless-slumber-810",
+    "spells/endure-elements-2317",
+    "spells/enduring-flight-3115",
+    "spells/enduring-scrutiny-800",
+    "spells/energetic-healing-27",
+    "spells/energize-potion-107",
+    "spells/energized-shield-4438",
+    "spells/energized-shield-lesser-4439",
+    "spells/energy-absorption-764",
+    "spells/energy-aegis-2910",
+    "spells/energy-alteration-4922",
+    "spells/energy-buffer-3378",
+    "spells/energy-drain-2732",
+    "spells/energy-ebb-1475",
+    "spells/energy-ebb-4440"
+  ],
+  "nonce": "2026-09-19-targeted-review-after-1320"
+}
