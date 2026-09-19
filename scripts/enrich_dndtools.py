@@ -1113,6 +1113,13 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="corrupt-lesser-dragon-ally-payment-unit"
+        if entry.get("id")=="spells/elemental-burst-2066" and re.search(
+            r"five elements \\(wood, fire, water, stone, or air\\)",
+            effect_source,
+            re.I,
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="contradictory-oriental-adventures-elemental-burst-target"
         if entry.get("id")=="spells/drown-5004" and re.search(
             r"or begin to drown \(see The Concentration check to cast a spell",
             effect_source,

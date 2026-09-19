@@ -1121,6 +1121,25 @@
           "role": "independent same-printing D&D Tools mirror cross-check for the repaired text"
         }
       ]
+    },
+    "spells/elemental-burst-2066": {
+      "name": "Elemental Burst",
+      "effectSummary": "Targets an item composed of wood, fire, water, stone, or metal; the official Oriental Adventures errata corrects the primary page's contradictory final element from air to metal. A wood, metal, or stone target throws sharp slivers that deal 1d8 damage in the burst, Reflex half. A fire target deals 1d4 fire damage, Reflex negates. A water target knocks creatures prone, Reflex negates; creatures gain +4 on the save for each size category above Medium or -4 for each category below Medium, and creatures with more than two legs or similar stability gain another +4. The spell does not noticeably damage the target item's structure.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-burst-2066",
+          "role": "primary Oriental Adventures catalog record; its target list says air while the same effect gives mechanics for metal and none for air"
+        },
+        {
+          "url": "http://archive.wizards.com/default.asp?x=dnd/er/20040125a",
+          "role": "official Wizards of the Coast Oriental Adventures errata archive; p. 102 corrects the target list from 'stone, or air' to 'stone, or metal'"
+        },
+        {
+          "url": "https://www.scribd.com/document/363322880/OAWeberrata-02062006-pdf",
+          "role": "preserved rendering of the official Oriental Adventures errata used to verify the exact Elemental Burst correction"
+        }
+      ]
     }
   }
 }
