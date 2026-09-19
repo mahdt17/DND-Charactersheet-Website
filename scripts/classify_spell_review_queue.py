@@ -126,6 +126,14 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bsee\s+[^.;]{1,100}\b(?:Player[’']s Handbook|Dungeon Master[’']s Guide|Book of Vile Darkness|Campaign Setting)\b",
         re.I,
     )),
+    ("external-described-page-reference", re.compile(
+        r"\bas\s+(?:described|outlined|detailed)\s+(?:on|in)\s+page\s+\d+\b",
+        re.I,
+    )),
+    ("external-rules-sidebar-reference", re.compile(
+        r"\bas\s+(?:described|outlined|detailed)\s+in\s+(?:the\s+)?[^.;]{1,80}\bsidebar\b",
+        re.I,
+    )),
     ("numbered-table-reference", re.compile(r"\bTable\s+\d+(?:-\d+)?\b", re.I)),
     ("similar-spell-effect", re.compile(
         r"\bsimilar\s+to\s+(?:the\s+)?effects?\s+of\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?:\s+spell)?(?=[,.;)]|$)",
@@ -917,6 +925,10 @@ def run_self_test() -> None:
     assert "granted-spell-effect" in external_mechanics_reasons("The animal gains a bonus plus the effect of a haste spell.")
     assert "external-page-reference" in external_mechanics_reasons("See page 297 for the inherited servant rules.")
     assert "external-rulebook-section" in external_mechanics_reasons("See Sacrifices in Chapter 2 for the required DCs.")
+    assert "external-described-page-reference" in external_mechanics_reasons("As described on page 76 of the Dungeon Master's Guide, the mold deals damage.")
+    assert "external-rules-sidebar-reference" in external_mechanics_reasons("You gain the drawbacks, as outlined in the Incorporeal Subtype sidebar.")
+    assert "external-described-page-reference" not in external_mechanics_reasons("The page turns as you read it.")
+    assert "external-rules-sidebar-reference" not in external_mechanics_reasons("The sidebar contains decorative artwork.")
     assert "numbered-table-reference" in external_mechanics_reasons("Add +30% to the roll on Table 2-2: Portal Malfunction.")
     assert "similar-spell-effect" in external_mechanics_reasons("The creatures are paralyzed, similar to the effect of hold person.")
     assert "external-monster-manual-reference" in external_mechanics_reasons("Use the creature statistics in MM 52.")
