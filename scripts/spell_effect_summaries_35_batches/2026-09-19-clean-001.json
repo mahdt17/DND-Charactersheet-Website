@@ -1,0 +1,556 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked reviewed D&D 3.5 spell effects; clean standalone bulk review batch 001 (records 1-50).",
+  "entries": {
+    "spells/shield-of-prudence-5744": {
+      "name": "Shield of Prudence",
+      "sourceSha256": "264e76ea3ea51dc70b689514e8994cac97ed4f8065373c0fce1584715824c86c",
+      "effectSummary": "Grants a +6 insight bonus to AC; if you are flat-footed, the spell still provides a +4 insight bonus to AC.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shield-of-prudence-5744",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/shifter-prowess-4828": {
+      "name": "Shifter Prowess",
+      "sourceSha256": "28629542567dfc6ba4f4ddd4e986e13e84871ae39d76e8a9a087163a2edeb7c6",
+      "effectSummary": "While you are shifting, increases your racial bonuses on Balance, Climb, and Jump checks by +8. It can be cast only while shifting and ends when your shifting ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shifter-prowess-4828",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/wind-at-back-1692": {
+      "name": "Wind At Back",
+      "sourceSha256": "0e7d0292029e0143ec4b2b0946ecf05ca4dfaee9b3b09306eeb08eeb3494844b",
+      "effectSummary": "Doubles the overland speed of all targets traveling together in the same direction, including mounts and pack animals. It does not affect nonliving material or tactical speed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wind-at-back-1692",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/scorch-4131": {
+      "name": "Scorch",
+      "sourceSha256": "6d81f11fc34ef00b6498daf493eae51cf0bef38a6e8418ea8c853a9918d95428",
+      "effectSummary": "Deals 1d8 damage per two caster levels, maximum 5d8, to each target struck by the jet of flame. The focus is a red dragon's scale.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scorch-4131",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/mountain-hammer-3722": {
+      "name": "Mountain Hammer",
+      "sourceSha256": "3cc4fa933d541c3a50cd6bc05405420a891765c9c35c5b4aedf4480f8df726c4",
+      "effectSummary": "As part of the maneuver, make one melee attack that deals an extra 2d6 damage and automatically overcomes damage reduction and hardness.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mountain-hammer-3722",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/scintillating-scales-1001": {
+      "name": "Scintillating Scales",
+      "sourceSha256": "7ee71593f183867fb24c359ab6723e41eab44ee21adb85ea651b14a175bca7ec",
+      "effectSummary": "Grants a deflection bonus to AC equal to your Constitution modifier, while reducing your natural armor bonus by one-half your Constitution modifier.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scintillating-scales-1001",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/sword-stream-963": {
+      "name": "Sword Stream",
+      "sourceSha256": "bf04af6ceac396bd8f1eebfe51af6ee9187db7719210393d5c7c5f9b0ac2f907",
+      "effectSummary": "Deals 1d8 damage plus 1 point per caster level, maximum +10, to each creature in the effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-stream-963",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/seek-eternal-rest-4136": {
+      "name": "Seek Eternal Rest",
+      "sourceSha256": "8be06c1ac074e879e0901023888f95f40bc01101a55c7a0efca3c66af1deaaab",
+      "effectSummary": "For turning or destroying undead, treats you as a cleric whose cleric level equals your paladin level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/seek-eternal-rest-4136",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/harmonic-chorus-390": {
+      "name": "Harmonic Chorus",
+      "sourceSha256": "8ea6de924ce171b8581633639c0a0847afacb4ae06f6b163e6d3848a61cd9893",
+      "effectSummary": "The subject gains a +2 morale bonus to caster level and a +2 morale bonus to the save DCs of all spells she casts for the duration. The focus is a tuning fork.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/harmonic-chorus-390",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/heralds-call-391": {
+      "name": "Herald's Call",
+      "sourceSha256": "9878b174bb97039fe8c8010e7565f47b11921544f89ef176e21c1e5dfcc1916c",
+      "effectSummary": "Creatures in the burst with 5 Hit Dice or fewer are slowed for 1 round. Creatures outside the burst may hear the shout but are not slowed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heralds-call-391",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/instant-search-3917": {
+      "name": "Instant Search",
+      "sourceSha256": "9ba885d1e2617c3e5ca7a3d400b0cfc3eb4aeffe8ac58db6e264d62cd24d6611",
+      "effectSummary": "Lets you make one Search check during the current round as a free action and grants a +2 insight bonus on that check.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/instant-search-3917",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/lower-spell-resistance-1041": {
+      "name": "Lower Spell Resistance",
+      "sourceSha256": "8c1a8e5f8d9ca4d44a3ef429984bd49291c184db365d88517403c54af7344064",
+      "effectSummary": "Reduces the subject's spell resistance by 1 per caster level, maximum 15, but never below 0. The target takes a penalty on its saving throw against this spell equal to your caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lower-spell-resistance-1041",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/rapid-burrowing-3239": {
+      "name": "Rapid Burrowing",
+      "sourceSha256": "a726aab979a0c667d84f2442838dd337f88cad60b7e133fc9e3d2459711f7485",
+      "effectSummary": "Increases the touched creature's burrow speed by 20 feet. It does not affect other movement modes, grant a burrow speed to a creature that lacks one, or grant the ability to burrow through stone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rapid-burrowing-3239",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ray-of-enfeeblement-2755": {
+      "name": "Ray of Enfeeblement",
+      "sourceSha256": "26c0a655423e28cdf498748b43eb3fdc7a298e1c2be24cae2c7ba59a30ec375d",
+      "effectSummary": "On a successful ranged touch attack, imposes a Strength penalty of 1d6 +1 per two caster levels, maximum 1d6+5. The target's Strength cannot be reduced below 1.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ray-of-enfeeblement-2755",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/wave-of-grief-4761": {
+      "name": "Wave of Grief",
+      "sourceSha256": "f26b49908eb8b00bf5468379440c2c21a632bb00925bc4b62be1101b3182bec0",
+      "effectSummary": "Creatures in the cone take a -3 penalty on attack rolls, saving throws, ability checks, and skill checks. The material component is three tears.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wave-of-grief-4761",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/jump-2827": {
+      "name": "Jump",
+      "sourceSha256": "3248be2337ab31262724cc1e2497f9d7a8c869305b07931550afae609465e7c3",
+      "effectSummary": "Grants the subject a +10 enhancement bonus on Jump checks, increasing to +20 at caster level 5 and +30 at caster level 9. The material component is a grasshopper's hind leg broken during casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/jump-2827",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/sandblast-4124": {
+      "name": "Sandblast",
+      "sourceSha256": "82b326bda5255177e810da3bf2c10816954bb8ff8d96565cb7de475de1cebe59",
+      "effectSummary": "Deals 1d6 nonlethal damage to creatures in the area; a creature that fails its Reflex save is also stunned for 1 round. You are not harmed by the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sandblast-4124",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/sign-4166": {
+      "name": "Sign",
+      "sourceSha256": "b83a3b7538edcf860795bad0db714cf09559df83322daf1c7c6aee846da02ad1",
+      "effectSummary": "Grants a +4 bonus on your next initiative check. The material component is a small piece of dried goat intestine or tea leaves.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sign-4166",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/spell-vulnerability-2208": {
+      "name": "Spell Vulnerability",
+      "sourceSha256": "bc761ea677dde6060cec3740eddca5e7746986e6034de90d5b88ea8ffe424cb4",
+      "effectSummary": "Reduces the subject's spell resistance by 1 per caster level, maximum 15, but never below 0. The target takes a penalty on its saving throw against this spell equal to your caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-vulnerability-2208",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/true-casting-805": {
+      "name": "True Casting",
+      "sourceSha256": "dc910102c67464a6fecb6e3bb82cb5431b8d4920cade643132bbc5b1bfa6fded",
+      "effectSummary": "Your next single spell, if cast before the end of the next round, gains a +10 insight bonus on caster level checks made to overcome spell resistance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/true-casting-805",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/vision-glory-1644": {
+      "name": "Vision of Glory",
+      "sourceSha256": "f91cdcc2c5f5896c14aa11c2b123982461b80c3d0b7804a95a57d3a224607010",
+      "effectSummary": "Grants the subject a +1 morale bonus on one saving throw. The subject must choose to use the bonus before making that saving throw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vision-glory-1644",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/guiding-light-1971": {
+      "name": "Guiding Light",
+      "sourceSha256": "dd0814bdf4bc14dce1694b22be426a165aee8e5c41677dc95bec61d3cee2f76e",
+      "effectSummary": "Illuminates the affected area and grants a +1 circumstance bonus on ranged attack rolls against targets within it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/guiding-light-1971",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/hellfire-183": {
+      "name": "Hellfire",
+      "sourceSha256": "c21c28f8e5941b4e30f48a5c371d5ca8e2560359f0381e2defcbbc90112a01ec",
+      "effectSummary": "Creates an explosion that deals 3d6 points of diabolic fire damage. This damage is not reduced by protection from elements (fire), fire shield (chill shield), or similar magic.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hellfire-183",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/increase-virulence-3018": {
+      "name": "Increase Virulence",
+      "sourceSha256": "997f49a0538d47b3da5895989eabbcc5f3e99cd19e320c408c85075d8fddf2b5",
+      "effectSummary": "Increases by 2 the DCs of all saving throws against the poison in the touched vial or creature. The material component is licorice root.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/increase-virulence-3018",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/thunderstroke-321": {
+      "name": "Thunderstroke",
+      "sourceSha256": "ceb0a5626f95c500e568fbae0d347a703f725d3dce21f972b7d976a8fb1bcd41",
+      "effectSummary": "An unerring lightning bolt strikes the target for 1d6 electricity damage per caster level, maximum 5d6. The accompanying thunder is as loud as a battle and has Listen DC -10 to hear.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/thunderstroke-321",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/light-of-faith-588": {
+      "name": "Light of Faith",
+      "sourceSha256": "e917469c671df0773d76583442702b36065af74cd4125e199dc145e5891e65f3",
+      "effectSummary": "Grants a sacred bonus on your next turning check equal to one-half your divine caster level, maximum +5.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/light-of-faith-588",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/silent-image-2705": {
+      "name": "Silent Image",
+      "sourceSha256": "5f8586b1e879dc3d452b85cb937db2f5c230ddda0ef4a9831ce3f2166f850a36",
+      "effectSummary": "Creates a movable visual illusion of an object, creature, or force within the effect's size limits. The illusion produces no sound, smell, texture, or temperature. The focus is a bit of fleece.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/silent-image-2705",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/mystic-aegis-2914": {
+      "name": "Mystic Aegis",
+      "sourceSha256": "7520d47773fa0956aec946fcc255e79b0b5a97be25f9b551ace04001c1a7bab4",
+      "effectSummary": "Cast immediately when a hostile spell targets you; against that spell, you gain spell resistance equal to 12 + your caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mystic-aegis-2914",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/skunk-scent-3557": {
+      "name": "Skunk Scent",
+      "sourceSha256": "915cea241891195861b5aed82b048d22420f99515bd43ab7c8eb4943f4cd7337",
+      "effectSummary": "On a successful ranged touch attack, the target is sickened for the duration and cannot use the scent ability. A successful Fortitude save reduces the duration to 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/skunk-scent-3557",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/metal-skin-554": {
+      "name": "Metal Skin",
+      "sourceSha256": "a77b2b967104d77bc9e10a3189b8446104a364f66c1fc31b13e37ba687ff4ee5",
+      "effectSummary": "Grants the subject +8 natural armor and imposes a -2 Dexterity penalty. The material component is a small piece of rhinoceros hide.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/metal-skin-554",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/serene-visage-4139": {
+      "name": "Serene Visage",
+      "sourceSha256": "fe84279943b7ec86987f4e7d3738c71361503f9cfcddaf659889537b232f0412",
+      "effectSummary": "Grants an insight bonus on Bluff checks equal to one-half your caster level, maximum +10.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/serene-visage-4139",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/smell-of-fear-1791": {
+      "name": "Smell of Fear",
+      "sourceSha256": "30fb3c327b8089f89c938f5e594f20578b089144de009affe394a93997152930",
+      "effectSummary": "Makes the target emit an odor that triples the chance of wandering-monster encounters in the area. Creatures drawn by the scent are attracted to the area but are not compelled to attack the target over anyone else.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/smell-of-fear-1791",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/power-word-disable-3085": {
+      "name": "Power Word Disable",
+      "sourceSha256": "0bff35c2c970295765f38dc6adbe27b6a225fdfece90a42666da43da6fffd7c9",
+      "effectSummary": "Instantly reduces one chosen creature to 0 hit points. A creature with 51 or more current hit points is unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-word-disable-3085",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/zone-natural-purity-3786": {
+      "name": "Zone of Natural Purity",
+      "sourceSha256": "6abca27681a1ac435e593621bf2f4a75768237c5404bc93b2d60ffe54ded7df8",
+      "effectSummary": "Within the area, fey and plant creatures gain a +1 sacred bonus on attack rolls, damage rolls, and saving throws, while aberrations take a -1 penalty on those rolls.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/zone-natural-purity-3786",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/hunters-mercy-1764": {
+      "name": "Hunter's Mercy",
+      "sourceSha256": "86005500d5816959c2b43b6cc7b073b99527be0633de60c436e526e5ec0db7f1",
+      "effectSummary": "Your next bow attack, if made before the end of the next round, automatically hits and threatens a critical hit. If you do not hit during the round following casting, the effect is wasted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hunters-mercy-1764",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/warcry-57": {
+      "name": "Warcry",
+      "sourceSha256": "e2a2cc09117b6b7b11fcbfc7333006db282953838f82e0eded224430cf49dad9",
+      "effectSummary": "Creatures in a 30-foot cone that fail a Fortitude save cower for 1d4 rounds, losing their Dexterity bonus to AC and taking no actions; attackers gain +2 on attacks against them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/warcry-57",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/healing-sting-1712": {
+      "name": "Healing Sting",
+      "sourceSha256": "7f89731a556f37049084ca724d7a548c48dcdd99532a854385c1612b76fef1bc",
+      "effectSummary": "Deals 1d6 damage +1 per caster level to a living creature and heals you for the same amount, up to your normal maximum hit points; excess healing is lost. The material component is five dried wasp bodies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/healing-sting-1712",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ironthunder-horn-4675": {
+      "name": "Ironthunder Horn",
+      "sourceSha256": "fe1e414a091bd252b5de06b38cdd91932a46075d971f3547ae50f1214cdac172",
+      "effectSummary": "Creatures in the area must succeed on a Reflex save or fall prone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ironthunder-horn-4675",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/low-light-vision-3781": {
+      "name": "Low-light Vision",
+      "sourceSha256": "917da272fa9df77013ef5567c224f0e7fe8d4c9c280f16f1c6ba779b8050d9b5",
+      "effectSummary": "Grants the subject low-light vision. The arcane material component is a small candle.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/low-light-vision-3781",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/lucky-streak-913": {
+      "name": "Lucky Streak",
+      "sourceSha256": "dd16b67e6c81249f9ec5ebede6d94c14b731da3e8f25d2eb5387d45c7bc291d5",
+      "effectSummary": "For the duration, any reroll the subject makes using a luck feat gains a +2 luck bonus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lucky-streak-913",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ray-weakness-4070": {
+      "name": "Ray of Weakness",
+      "sourceSha256": "2de03a4e7eb71a8259c8fff97bfd129e45c8b9d3c0fbe72f422e2913af284735",
+      "effectSummary": "On a successful ranged touch attack, the target takes a -2 penalty on attack rolls and its speed is reduced by 10 feet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ray-weakness-4070",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/shield-warding-1002": {
+      "name": "Shield of Warding",
+      "sourceSha256": "3d81a3a8a2aaf78e3deb6f701c942234d90588ab42dadb49af08700048b9b00f",
+      "effectSummary": "A touched shield or buckler grants its wielder a +1 sacred bonus on Reflex saves, plus +1 per five caster levels to a maximum +5 at 20th level. The bonus applies only while the shield is worn or carried normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shield-warding-1002",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/tongue-of-baalzebul-259": {
+      "name": "Tongue of Baalzebul",
+      "sourceSha256": "89fe0b2202a4c3163667b2836ce98e658255356be1b7a4d4a56d810f418ad068",
+      "effectSummary": "Grants a +2 competence bonus on Bluff, Diplomacy, and Gather Information checks. The material component is a tongue from a creature capable of speech, and the drug component is mushroom powder.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tongue-of-baalzebul-259",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/pain-2091": {
+      "name": "Pain",
+      "sourceSha256": "197bfc24b10754c66be4f5bfbdbf4b52afd80486385f5b6540d6e52ade69f427",
+      "effectSummary": "Affected creatures take a -4 penalty on attack rolls, skill checks, and ability checks; a successful Fortitude save reduces the penalty to -2. The material component is a live leech.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/pain-2091",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/mage-hand-2833": {
+      "name": "Mage Hand",
+      "sourceSha256": "d7ce193ac5c6ecb730dcf8b550dcafc676106487989663bde37804bc6c997bff",
+      "effectSummary": "Lets you lift and move the affected object at a distance; as a move action you can propel it up to 15 feet in any direction. The spell ends if the object ever moves beyond the spell's range from you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mage-hand-2833",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/rebuke-2038": {
+      "name": "Rebuke",
+      "sourceSha256": "697c34e4cbf806f6c4e564bbc546ba2dfb707bcd8b02107d49463159661fec68",
+      "effectSummary": "A target that fails its Will save is stunned for 1d4+1 rounds. While stunned it cannot act, loses its Dexterity bonus to AC, and attackers gain +2 on attack rolls against it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rebuke-2038",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/inhibit-3911": {
+      "name": "Inhibit",
+      "sourceSha256": "c55ae4708f69ec99ac7b3bdd66ab99dab43724415462e50f9824b509b71b22f7",
+      "effectSummary": "Forces the subject to delay until the following round, when it acts immediately before you on your initiative count.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inhibit-3911",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/polar-ray-2639": {
+      "name": "Polar Ray",
+      "sourceSha256": "b73b07b36df6e4c1715a0860681a910355d1d19c796677fb9766566efefd71a9",
+      "effectSummary": "On a successful ranged touch attack, deals 1d6 cold damage per caster level, maximum 25d6. The focus is a small white ceramic cone or prism.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/polar-ray-2639",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/rage-952": {
+      "name": "Rage",
+      "sourceSha256": "7c5175323482a737e8f8722aaa49f615d9f22970ed4e266cd9307ce41e860203",
+      "effectSummary": "Grants the creature +4 Strength, +4 Constitution, and a +2 morale bonus on Will saves, without the AC penalty or post-rage fatigue of a barbarian's rage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rage-952",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/shrieking-blast-1413": {
+      "name": "Shrieking Blast",
+      "sourceSha256": "005fd98e6d84303d447b05649a783384aa54eed9dfd7450d4b5a6e7b7e4a63f2",
+      "effectSummary": "Creatures in the area take 8d6 sonic damage and are permanently deafened. A successful save halves the damage and reduces the deafness to 1 round. The material component is a small steel ball.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shrieking-blast-1413",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    }
+  }
+}
