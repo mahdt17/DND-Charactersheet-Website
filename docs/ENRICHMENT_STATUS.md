@@ -136,33 +136,54 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,046**
+- Digest-locked reviewed spell effects: **1,066**
 - Primary catalog: `https://new.dndtools.org`
-- Outside sources are allowed only when the primary record is missing, truncated, corrupted, contradictory, or otherwise insufficient; such repairs must retain provenance and must not expand catalog membership.
-- Primary-page repairs pinned during this review cycle include `Analyze Portal`, `Anathema`, `Arboreal Transformation`, the truncated Defenders of the Faith printing of `Aspect of the Deity, Greater`, and `Blessing of the Snake Mother`.
-- The spell parser retains structured spell tables, and spell review exports include those tables so table-driven mechanics are not silently lost.
-- The parser now also flags spells that explicitly reference a missing table when no structured table was captured. The Magic of Faerûn `Celebration` record was repaired from its sourcebook table and pinned as a regression.
-- `City's Might` from Races of Destiny was also treated as an incomplete-primary record because the primary page omits its settlement-size scaling values; the verified scaling was added as a provenance-backed supplement and pinned as a regression.
-- The Expedition to Undermountain `Cloak of Dark Power` record was found truncated mid-effect; it is repaired using the complete Spell Compendium printing already present on the same primary `new.dndtools.org` catalog, with the truncation explicitly detected.
-- `Crumble` (`spells/crumble-1748`) was found to omit its caster-level target-size table. The matching 1d6/level printing on the same primary catalog (`spells/crumble-740`) supplies the missing Huge/Gargantuan/Colossal thresholds; the repair is provenance-backed and regression-pinned.
-- Full audit at the 263-review checkpoint: **5,035 total / 900 output-complete / 4,135 incomplete**, **17.8749%** output-complete.
-- Full audit at the 423-review checkpoint: **5,035 total / 1,061 output-complete / 3,974 incomplete**, **21.0725%** output-complete.
-- Full audit at the 547-review checkpoint: **5,035 total / 1,185 output-complete / 3,850 incomplete**, **23.5353%** output-complete. The remaining critical gaps are the expected unresolved `effect/effectSummary` backlog; no new failure class appeared.
-- Full audit at the 827-review checkpoint: **5,035 total / 1,479 output-complete / 3,556 incomplete**, **29.3744%** output-complete. All source shards passed; the only remaining audit failure class was the expected unresolved `effect/effectSummary` backlog.
-- The 423-review audit restored the source gate to **5,035 / 5,035, zero failures** after a prior 323-review audit was falsely interrupted by a transient `RemoteDisconnected` on `Shadow Double`. The fetcher now retries `RemoteDisconnected` and `ConnectionResetError` alongside HTTP 429/5xx and timeout failures.
-- The 423-review output audit's remaining critical gaps are the expected unresolved `effect/effectSummary` review backlog; no new critical failure class appeared.
-- Four table-driven `Bolt of Glory` records were deliberately deferred from the normal review count until exact table mechanics could be recovered rather than guessed. Their variants have now been independently verified, and a fresh table-aware primary review export is being generated before they are committed.
-- The 707-review full source audit exposed **14 table-reference cases** after the stronger missing-table guard was introduced: **12 genuine missing-table omissions** and **2 false positives** whose complete tables were already flattened into primary-page prose (`Channel the Dragon` and `Random Action`). The 12 genuine omissions now have provenance-backed fill-only supplements; all 14 cases are pinned in the permanent spell regression corpus.
-- Previous 966-review scoped audit: source **5,035 / 5,035**; candidate output **1,620 / 5,035 complete / 3,415 incomplete**, **32.1748%** output-complete.
-- While advancing beyond that checkpoint, review of `Detect Aberration` exposed a source-audit blind spot: some rebuilt primary pages referred to required tables as an **"accompanying table"**, **"see the table"**, **"as shown on the table"**, or by a **"Length Aura Lingers"** heading rather than the phrases already guarded by the parser. A full scan of the table-aware long-effect review corpus isolated seven genuine omissions: `Detect Aberration`, `Detect Dragonblood`, `Detect Incarnum`, both `Detect Taint` printings, `Freeze Armor`, and `Prismatic Wall`. The detector now covers those reference forms; the seven existing primary-catalog records have provenance-backed fill-only supplements, and all seven are permanently regression-pinned. `Prismatic Wall` also has an explicit corruption marker for its truncated raw table markup.
-- `Deific Bastion` is also regression-pinned because both the primary page and the printed source omit a separate enhancement value for 17th caster level. The reviewed summary preserves the literal +4 at 15th–16th and +5 at 18th+ brackets and explicitly leaves 17th unspecified instead of inferring a value.
-- **Authoritative 1,026-review audit after those repairs:** Category Enrichment Audit run **35415467603**, audited commit `636a74c56b60f135360c1a9e1ca59d1a81f1b474`. All 8 source shards and `source-aggregate` passed: **5,035 / 5,035**, **0 failed**, **100.00%**, **0 critical source gaps**. All 8 candidate shards passed generation; the independent output audit reported **1,687 / 5,035 output-complete / 3,348 incomplete**, **33.5055%** output-complete. `errors` was empty and sampled incomplete records still contained only the expected `effect` / `effectSummary` backlog. The top-level audit therefore correctly remains failed because output completeness is below 100%; the gate was not weakened.
-- The exact repaired 1,026 audit head also passed **Validate modernization** run **35415470538** end-to-end.
-- Review of the next queue then exposed one additional genuine primary-page table omission: `Detect Ship` (`spells/detect-ship-3339`) ends immediately after introducing its visible-ship Profession (sailor) information table. The exact DC/result rows were restored from *Stormwrack* as a provenance-backed fill-only supplement, an explicit parser marker was added, and the record is permanently regression-pinned rather than digest-locking incomplete prose.
-- **Authoritative 1,046-review audit after the Detect Ship repair:** Category Enrichment Audit run **35416189035**, audited commit `c0799944c0ff7d86cf1329a27c693501542956aa`. Samples 25/50/100/250 all passed; all 8 source shards and `source-aggregate` passed: **5,035 / 5,035**, **0 failed**, **100.00%**, **0 critical source gaps**. All 8 candidate shards passed generation; the independent output audit reported **1,708 / 5,035 output-complete / 3,327 incomplete**, **33.9225%** output-complete. `errors` was empty and sampled incomplete records still contained only `effect` / `effectSummary`. The top-level audit correctly remains failed because output completeness is below 100%; the final gate was not weakened.
-- The exact 1,046 audit head passed **Validate modernization** run **35416191208** end-to-end. The permanent spell regression corpus now contains **63** focused records.
-- The seven earlier table/corruption repairs plus `Detect Ship` remain supplement-backed rather than digest-locking incomplete/corrupted primary prose.
-- Live/catalog writes remain locked.
+- Live/catalog writes: **LOCKED**
+- Permanent focused spell regression corpus: **69 / 69 green** on the 1,066-review validation head.
+- Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings are preferred when they can supply the missing mechanic.
+- Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
+
+### Recent source-completeness repairs
+
+Review beyond the earlier 966 checkpoint exposed several source-page omissions that were not detectable by the original narrow “table below” guard. The parser and permanent regressions now cover the following additional cases:
+
+- `Detect Aberration`, `Detect Dragonblood`, `Detect Incarnum`, both `Detect Taint` printings, `Freeze Armor`, and `Prismatic Wall`: missing tables referenced with wording such as “accompanying table,” “see the table,” “as shown on the table,” or lingering-aura headings.
+- `Deific Bastion`: the primary page and printed source both omit a separate 17th-caster-level enhancement bracket. The review preserves the literal +4 at 15th–16th and +5 at 18th+ and explicitly leaves 17th unspecified instead of inferring a value.
+- `Detect Ship`: rebuilt primary prose ends after introducing the visible-ship Profession (sailor) information table. The verified DC/result rows are restored by supplement.
+- `Sandform`: rebuilt primary prose omits the caster-size slam-damage table.
+- `Standing Wave`: the Masters of the Wild printing omits its caster-level/maximum-size table; matching thresholds were restored from a same-primary printing.
+- `Word of Balance`: the Underdark printing omits its Hit-Dice/effect threshold table; matching thresholds were restored from a same-primary Spell Compendium printing.
+- `Know Greatest Enemy`: the Magic of Faerûn printing omits its CR/strength table; matching thresholds were restored from a same-primary printing.
+- Libris Mortis `Summon Undead I`: its 1st-level summon list is omitted by the rebuilt page. The exact older-printing list—Medium skeleton or Small zombie—was restored without importing later revision mechanics.
+- Ghostwalk `Weapon of the Deity`: its deity-specific favored-weapon property list is omitted by the rebuilt page. The exact Ghostwalk table was restored rather than normalizing to later printings.
+
+These records are supplement-backed and regression-pinned; they are **not** treated as ordinary digest-locked source prose.
+
+### Latest authoritative full spell audit
+
+Category Enrichment Audit **#55**, run **35416735536**, audited commit `7347936ad02ff6be28e3d27fedc831b17823fd15`, with **1,046** digest-locked reviewed summaries and all **69** focused source regressions active:
+
+- Samples: **25 / 25**, **50 / 50**, **100 / 100**, **250 / 250** passed.
+- Source shards: **8 / 8 passed**.
+- Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**.
+- Candidate shards: **8 / 8 generated successfully**.
+- Candidate/output audit: **1,714 / 5,035 output-complete**, **3,321 incomplete**, **34.0417%** output-complete.
+- `errors`: **empty**.
+- Sampled incomplete records still contain only the expected `effect` / `effectSummary` backlog.
+- `sourceExtractionVerified: true`
+- `outputCompletenessVerified: false`
+- `releaseReady: false`
+
+The workflow's overall failure is therefore **expected and correct**: the final output gate remains below 100%, and no completeness gate was weakened.
+
+For comparison, the earlier authoritative checkpoints included:
+
+- 966 reviews: **1,620 / 5,035** output-complete, **3,415** incomplete, **32.1748%**.
+- 1,026 reviews after the first expanded table-repair set: **1,687 / 5,035** output-complete, **3,348** incomplete, **33.5055%**.
+
+Review work has since advanced from the audited 1,046 checkpoint to **1,066** digest-locked summaries. The exact 1,066-review commit `70f23ba61a240946fa469686b52636a1ec1058a8` passed Validate modernization run **35416990096** end-to-end, including all **69 / 69** spell regressions, enrichment self-tests, the mechanical write gate, build, and browser suites.
+
+No catalog enrichment and no `--write` operation has been performed. Supabase remains unchanged.
 
 ## Next work
 
