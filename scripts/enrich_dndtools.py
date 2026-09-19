@@ -1127,6 +1127,13 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="omitted-lesser-dragonshape-stat-block"
+        if (
+            entry.get("id")=="spells/dreaded-form-of-the-eye-tyrant-873"
+            and re.search(r"take the form of a beholder",effect_source,re.I)
+            and not re.search(r"30 temporary hit points",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-dreaded-eye-tyrant-effect"
         if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
