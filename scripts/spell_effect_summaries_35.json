@@ -16949,6 +16949,153 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/fantastic-machine-4478": {
+      "name": "Fantastic Machine, Greater",
+      "sourceSha256": "78ad05372b024f2416473c226298065fa6da43cc1c06fac25219c9828f079980",
+      "effectSummary": "Creates a greater version of fantastic machine. You can either direct its actions by concentrating or give it a simple physical program of the kind allowed by fantastic machine; directing it or changing the program is a standard action. It acts on your initiative, including the turn you cast the spell. The construct is Large and adamantine, with speed 60 ft., swim 20 ft., fly 20 ft. (poor), 16 HD, 88 hp, AC 20, hardness 20, Fort +5, Ref +5, Will +0, and Str 22. Its loads are 346 lb. light, 347–692 lb. medium, and 693–1,040 lb. heavy; it can swim or fly only while lightly loaded, lift 2,080 lb. to 15 feet, push or drag 5,200 lb., excavate 20,000 lb. of loose rock per minute or twice that amount of sand/loose soil, and clear a 5-foot cube of loose rock in 1 round. It makes slam attacks at +17/+12 for 1d8+9 damage, tripled to 3d8+27 against stone or metal, and can throw Small rocks at +12/+7 with a 150-foot range increment out to 10 increments for 2d6+9 damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fantastic-machine-4478",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; greater-machine mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fantastic-machine-4477",
+          "role": "primary catalog base spell used to resolve inherited fantastic-machine task/program mechanics"
+        }
+      ]
+    },
+    "spells/feather-fall-2813": {
+      "name": "Feather Fall",
+      "sourceSha256": "de0be78bf1cf38c7f46145c97dcab9d8737ab40ab49257c906d4c3b7b2f0f8a3",
+      "effectSummary": "Immediately slows the fall of the affected creatures or objects to 60 feet per round, and they take no falling damage if they land while the spell lasts; normal falling resumes when the spell ends. Each Medium-or-smaller creature or object counts as one target, with larger targets counting as multiple Medium targets by size. You can cast it as a free action even when it is not your turn, and it counts against the normal one-quickened-spell-per-round limit. A falling object affected by the spell deals half its normal weight-based damage with no height bonus. The spell works only on free-falling targets and does not slow attacks, charges, or normal flight.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/feather-fall-2813",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/feeblemind-2549": {
+      "name": "Feeblemind",
+      "sourceSha256": "fd82463ca5a58752c8d90e9fd0e8a2fdfac357aa262f550d74516c1c350c117f",
+      "effectSummary": "On a failed Will save, reduces the target’s Intelligence and Charisma to 1. The creature cannot use Intelligence- or Charisma-based skills, cast spells, understand language, or communicate coherently, though it still recognizes and can follow or protect allies. The condition lasts until removed by heal, limited wish, miracle, or wish. A creature capable of casting arcane spells takes a -4 penalty on its saving throw. The material component is a handful of clay, crystal, glass, or mineral spheres.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/feeblemind-2549",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/feign-death-3407": {
+      "name": "Feign Death",
+      "sourceSha256": "cb74cc5435cbf692dd68adda1aafee957f99930fb77562ef296b1c26dc4e375f",
+      "effectSummary": "Places the willing recipient in a deathlike, coma-like, or deep-sleep state. The subject can smell, hear, and understand its surroundings but is blind and cannot feel touch or pain, and it need not eat, drink, or breathe. While affected it is immune to subdual damage, mind-affecting attacks, paralysis, poison, disease, and energy drain, and any normal or ability damage it takes is halved. Existing poison and disease effects are suspended until the spell ends, and any saving throw to remove existing negative levels is delayed until then.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/feign-death-3407",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/feigned-opening-3668": {
+      "name": "Feigned Opening",
+      "sourceSha256": "df7545ffa3d20da22031b45c747ea2445827cdf7c320a7270cfe2bb98ca5b5c0",
+      "effectSummary": "Use this counter when an opponent makes an attack of opportunity against you, before the attack result is known. If that attack misses, the opponent provokes an attack of opportunity from you. If the attack hits, the opponent instead provokes an attack of opportunity from each of your allies that threatens it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/feigned-opening-3668",
+          "role": "primary DnD Tools maneuver effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fell-the-greatest-foe-1039": {
+      "name": "Fell the Greatest Foe",
+      "sourceSha256": "e860bcfe332b4a724dd174d8d1d98f97f9030bdc11a09b48646729ebf23c4808",
+      "effectSummary": "Lets the subject deal extra melee damage against creatures larger than Medium: +1d6 against Large, +2d6 against Huge, +3d6 against Gargantuan, and +4d6 against Colossal creatures. The material component is a dragon’s claw or a giant’s fingernail.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fell-the-greatest-foe-1039",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fell-the-greatest-foe-3863": {
+      "name": "Fell the Greatest Foe",
+      "sourceSha256": "2930b0a692e328b5501a434dba46046184e5d89060dfc5ee0c6005f8d13ca0d3",
+      "effectSummary": "Lets the subject deal +1d6 melee damage for each size category by which an opponent is larger than the subject. For a Medium subject this is +1d6 against Large, +2d6 against Huge, +3d6 against Gargantuan, and +4d6 against Colossal creatures. The material component is a dragon’s claw or a giant’s fingernail.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fell-the-greatest-foe-3863",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/feral-death-blow-3735": {
+      "name": "Feral Death Blow",
+      "sourceSha256": "26917e78872f2df05edc77581d49049dd4d4c4fc873ded49e34c3e9ad5c6707a",
+      "effectSummary": "Requires you to begin adjacent to the target and make a Jump check against its AC. On success, make one melee attack as part of the maneuver against the flat-footed target. If the attack deals damage, the target makes a Fortitude save at DC 19 + your Strength modifier; failure kills it immediately, while success causes the attack to deal an additional 20d6 damage. Creatures immune to critical hits are immune to the death effect. If the Jump check fails, you can still make one normal melee attack, and the maneuver is expended either way.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/feral-death-blow-3735",
+          "role": "primary DnD Tools maneuver effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fever-dream-838": {
+      "name": "Fever Dream",
+      "sourceSha256": "72646e5d94c80324d01b48c7734caf9dfceced68ed7e23b6b086ba3c578a97f1",
+      "effectSummary": "The target first makes a Will save to recognize the phantasm as unreal. On failure it becomes exhausted for the spell’s duration, reduced to fatigued instead if it then succeeds on a Fortitude save. Regardless of the Fortitude result, each attempt to cast, concentrate on, or direct a spell requires a Concentration check against this spell’s save DC + the level of the spell being used. When fever dream ends for any reason, the target is confused for 1 round. If the target is already affected by luminous swarm, this spell’s Will-save and Concentration DCs increase by 2; if it is already affected by prickling torment, this spell’s Fortitude-save DC increases by 2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fever-dream-838",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/field-of-ghouls-1476": {
+      "name": "Field of Ghouls",
+      "sourceSha256": "36cf6011e755e110380a2674805493b4c916cebb117912f901dbf2b1f2684100",
+      "effectSummary": "Creates a mobile necromantic field. Any creature in the area with fewer than 0 hit points that fails its save dies and immediately rises as a ghoul under your control; creatures that later fall below 0 hit points in the area are affected the same way. Created ghouls remain indefinitely and can follow you or remain to attack creatures you specify. Your total controlled undead from all sources is limited to 2 HD per caster level; newly created ghouls are retained first and you choose which older undead become uncontrolled if the limit is exceeded. Undead controlled through a cleric’s command/rebuke ability do not count against this limit. A creature can be affected at most once per round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/field-of-ghouls-1476",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/field-of-ghouls-4483": {
+      "name": "Field of Ghouls",
+      "sourceSha256": "6153ddc359fc3bd0efad025f19f005ef8b1417f293615dce2d6927446a985831",
+      "effectSummary": "Humanoids in the area at -1 to -9 hit points that fail their saves die and immediately rise as ghouls under your control. Humanoids that fall to -1 hit points or fewer in the area after casting are likewise affected and rise on your next turn. Created ghouls remain indefinitely and can follow you or stay to attack creatures you specify. Your controlled undead from all sources are limited to 4 HD per caster level; newly created ghouls remain controlled first and you choose which older undead are released if the limit is exceeded, while undead controlled through a cleric’s command/rebuke ability do not count toward this limit. A creature can be affected at most once per round. The spell does not affect creatures already dead or creatures killed outright at -10 hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/field-of-ghouls-4483",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/field-icy-razors-4484": {
+      "name": "Field of Icy Razors",
+      "sourceSha256": "f490e6975890114fb6fda837675174d701ea434e4948595b83e0c6992c2623ca",
+      "effectSummary": "Surrounds each target with razor-sharp ice crystals, dealing 1d6 damage per caster level, maximum 20d6; half is cold damage and half is slashing damage. A failed save also reduces the target’s speed by 20 feet for 1 round per caster level. A successful Reflex save halves the damage and prevents the speed reduction. The focus is a silver shuriken shaped like a snowflake worth 50 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/field-icy-razors-4484",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/field-of-resistance-2912": {
+      "name": "Field of Resistance",
+      "sourceSha256": "1b54fae1ace52cac2171506b03f8458686ee2dbb041c635cc9d4592f2bb1fb87",
+      "effectSummary": "Creates a zone that grants every creature inside spell resistance equal to 11 + your caster level. A creature whose existing spell resistance is higher is unaffected by the field. This granted spell resistance cannot be voluntarily lowered. A creature loses the field’s spell resistance when it leaves the area and regains it if it reenters.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/field-of-resistance-2912",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
