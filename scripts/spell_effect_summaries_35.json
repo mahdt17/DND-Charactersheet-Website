@@ -8987,6 +8987,230 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/conviction-1939": {
+      "name": "Conviction",
+      "sourceSha256": "0e1758c9271a62ee9100ce1063d9f63306a8e6dd3b5d45eb8b290dce2ef4ceca",
+      "effectSummary": "Grants the touched creature +2 morale on all saving throws, increasing by +1 for every six caster levels to a maximum of +5 at 18th level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conviction-1939",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/conviction-4048": {
+      "name": "Conviction",
+      "sourceSha256": "38a18ed83071d427b83dac4819acf9165e0932de42993a28fde2cab6d9c9ed92",
+      "effectSummary": "Grants the touched creature +2 morale on all saving throws, increasing by +1 for every six caster levels to a maximum of +5 at 18th level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conviction-4048",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/coral-growth-3287": {
+      "name": "Coral Growth",
+      "sourceSha256": "075158cb3587f19598cc85a77792e4ad9fec78924148602ed04cdb2f29868840",
+      "effectSummary": "Accelerates the growth of living submerged coral into a shape chosen by the caster, such as a wall, mass, building element, or statue. Only a tiny living piece of coral is needed as the seed; the final growth is limited by the spell's normal size/area limits rather than by the amount of starting material.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/coral-growth-3287",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/corona-cold-4050": {
+      "name": "Corona of Cold",
+      "sourceSha256": "0d231f1d3d75fea68efef7d1650d7057388efd8615b9869cb3ac78b8d0e2710b",
+      "effectSummary": "Surrounds the caster with a cold aura and grants fire resistance 10. Beginning on the casting round, at the start of each caster turn every other creature in the area takes 1d12 cold damage unless it succeeds on that round's saving throw. A creature damaged by the aura takes -2 Strength, -2 Dexterity, and moves at half speed while it remains in the area. These penalties do not stack across rounds or multiple corona of cold spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/corona-cold-4050",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/corporeal-instability-2199": {
+      "name": "Corporeal Instability",
+      "sourceSha256": "4273fc1ccd9111949b8dc9c5df92183e0f75ad523a1b8507f7865a7c43564218",
+      "effectSummary": "Transforms a living creature into a spongy amorphous mass. It cannot hold or use items; worn equipment becomes useless, and large worn or carried items impose -4 Dexterity. Speed falls to 10 feet or one-quarter normal, whichever is less. The victim is blinded, cannot cast spells or use magic items, and cannot attack, but becomes immune to extra damage from critical hits and sneak attacks. It takes 1 Wisdom drain each round; at Wisdom 0 it falls unconscious. A conscious victim can spend a standard action each round to attempt a new Fortitude save, ending the spell on success.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/corporeal-instability-2199",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/corporeal-instability-4051": {
+      "name": "Corporeal Instability",
+      "sourceSha256": "b2fcd94430d2b21b84f32b24a54d9745b3e56c355f4a08f1f58bf6a585120979",
+      "effectSummary": "Transforms a living creature into a spongy amorphous mass. It cannot hold or use items; speed becomes 10 feet or one-quarter normal, whichever is less, minimum 5 feet. The victim is blinded, cannot cast spells or use magic items, and cannot attack, but becomes immune to extra damage from critical hits and sneak attacks. It takes 1 Wisdom drain each round; at Wisdom 0 it falls unconscious. A conscious victim can spend a standard action in a later round to attempt another save, ending the spell on success.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/corporeal-instability-4051",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/corpse-candle-3387": {
+      "name": "Corpse Candle",
+      "sourceSha256": "8999cf8e434b08e28c07fb791eacd8b85ccded3774e0cb9affcf2c90c4bd10de",
+      "effectSummary": "Creates a Diminutive incorporeal hand carrying a candle that sheds light 5 feet and can move up to 50 feet per round as directed without concentration, including through objects; it vanishes if it exceeds spell range. Within 5 feet, hidden, ethereal, and invisible creatures and items become visible as outlines; invisible creatures have only three-quarters concealment, and incorporeal creatures have only a 30% chance to avoid attacks from corporeal creatures. The hand has 1 hp per caster level, AC 14 + the caster's Charisma deflection bonus, uses the caster's saves, and is immune to nondamaging spells except disintegrate. Destroying the hand ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/corpse-candle-3387",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/corpse-candle-4052": {
+      "name": "Corpse Candle",
+      "sourceSha256": "aef898c03b0c4fceac1e5b0f6254cb8435bb10171598b6a716a0cc86f51e6f92",
+      "effectSummary": "Creates an incorporeal severed hand carrying a candle that sheds light 5 feet and can be moved up to 50 feet per round as a free action, including through objects; it vanishes if it exceeds spell range. Hidden, ethereal, invisible, and incorporeal creatures and items illuminated by it become visible as outlines, and illuminated incorporeal or invisible creatures receive no concealment miss chance. The hand cannot be attacked or damaged but can be dispelled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/corpse-candle-4052",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/corpse-candle-456": {
+      "name": "Corpse Candle",
+      "sourceSha256": "6962fe606c8a122ade5947f71cc9f8dfef2201dc726d6e396a1bdc9f36c6b724",
+      "effectSummary": "Creates a Diminutive incorporeal hand carrying a candle that sheds light 5 feet and moves up to 50 feet per round without concentration, including through objects; it vanishes beyond spell range. Hidden, ethereal, and invisible creatures and items within its light become visible as outlines. Invisible creatures within 5 feet have only 20% concealment and lose invisibility's attack-roll bonus; incorporeal creatures there have only a 30% chance to avoid damage from corporeal creatures. The hand has 1 hp per caster level, AC 14 + the caster's Charisma deflection bonus, uses the caster's saves, and is immune to nondamaging spells. Destroying it ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/corpse-candle-456",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/corrosive-grasp-1608": {
+      "name": "Corrosive Grasp",
+      "sourceSha256": "0fffa9c6020a45afe9d2bc10feccc7e24a6fb0326eb1f41e846c0b796c80ebd3",
+      "effectSummary": "Coats one hand in harmless-to-the-caster acid. A melee touch deals 1d6+1 acid damage, and the caster can make up to one such touch per caster level. During a grapple, this acid damage can be dealt in addition to the caster's normal grapple damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/corrosive-grasp-1608",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/corrosive-grasp-4053": {
+      "name": "Corrosive Grasp",
+      "sourceSha256": "4725b701f74db84c3df98dba48137b286825a24bb2d0cff6e0328afe0344873b",
+      "effectSummary": "Coats one hand in acid. A melee touch deals 1d8 acid damage, and the caster can make up to one such touch per caster level. The acid can instead add 1d8 damage to an unarmed strike or natural-weapon attack, and a successful grapple check can deal the acid damage in addition to normal grapple damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/corrosive-grasp-4053",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/corrupt-weapon-3775": {
+      "name": "Corrupt Weapon",
+      "sourceSha256": "20dd06b8166187b3720dd479b74b7b6c6acbf8c23bd9f3fce192916de8a2e3bd",
+      "effectSummary": "Makes one weapon especially effective against good creatures. It counts as +1 enhanced only for bypassing a good creature's damage reduction or striking good incorporeal creatures, without granting an actual enhancement bonus, and becomes evil-aligned for overcoming damage reduction, suppressing any other alignment the weapon has. Individual arrows or bolts can be affected, but an enchanted bow does not transfer the benefit to ammunition. Against good foes, every critical threat automatically confirms unless the weapon already has a magical critical-hit effect such as keen or vorpal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/corrupt-weapon-3775",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/counter-charge-3666": {
+      "name": "Counter Charge",
+      "sourceSha256": "7a62694aa09943a5c001b3d2330f51d6cc2dfb8e4f98acf8a83cd24c276d5f9d",
+      "effectSummary": "Used immediately before a creature charging the initiator makes its attack. Choose Strength or Dexterity and make an opposed check using that same ability against the charger. If the initiator is larger, a Strength check gains +4; if smaller, a Dexterity check gains +4. Success prevents the charge attack and lets the initiator move the charger up to 2 squares away. Failure gives the charger an additional +2 on its charge attack, on top of the normal charge bonus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/counter-charge-3666",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/countermoon-1874": {
+      "name": "Countermoon",
+      "sourceSha256": "dc307749a6e6453e1871754d62028f0bdac4396f87545fd6d686ba8830802f0b",
+      "effectSummary": "Prevents a lycanthrope from changing form either voluntarily or involuntarily. The target remains in whatever form it had when the spell was cast for the full duration, and even death does not cause reversion until the spell ends. Natural lycanthropes gain +4 competence on the saving throw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/countermoon-1874",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/countermoon-3187": {
+      "name": "Countermoon",
+      "sourceSha256": "67ed354f1c948b15d4feea8dc384fa51b9df1b8a3dcbe272954eb4c3adf6aad7",
+      "effectSummary": "Prevents a lycanthrope from changing form either voluntarily or involuntarily. The target remains in whatever form it had when the spell was cast for the full duration, and even death does not cause reversion until the spell ends. Natural lycanthropes gain +4 on the saving throw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/countermoon-3187",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/countermoon-4240": {
+      "name": "Countermoon",
+      "sourceSha256": "f2c02087f2bc628c564923120ff1538127a43c0f3aecd45228073a9c332d6758",
+      "effectSummary": "Forces a lycanthrope back into its natural form and prevents both voluntary and involuntary shapechanging for the spell's duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/countermoon-4240",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/covering-strike-3757": {
+      "name": "Covering Strike",
+      "sourceSha256": "ed1795e4e7833d3dfb8cbeaf8dc23ab0259758fb1b57552616363b56f49333f6",
+      "effectSummary": "After initiating this boost, the initiator attacks normally. Any foe hit by one of those melee attacks takes normal damage and cannot make attacks of opportunity for 3 rounds, although it still threatens its normal area. A creature can be affected by covering strike only once per encounter.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/covering-strike-3757",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crabwalk-4241": {
+      "name": "Crabwalk",
+      "sourceSha256": "163e0783f072c8507b90f39369e2598076de4967636a2d762b8213aedc0bc54d",
+      "effectSummary": "When the subject charges, it gains +4 on the charge attack and takes no Armor Class penalty, replacing the normal +2 attack and -2 AC charge modifiers. If the subject can make multiple attacks after charging, the +4 applies only to the first attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crabwalk-4241",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crack-ice-1270": {
+      "name": "Crack Ice",
+      "sourceSha256": "129d8ecb50b2b7a71e3dbe809828a52ea5768778a1ccf0a26d689fac4b302425",
+      "effectSummary": "Shatters ice in a 10-foot radius per caster level to a depth of 1 foot per caster level. Thicker ice is cracked and treated as one thickness category thinner: up to 1 inch is at risk for Small creatures and breaks under Medium or larger; 2–3 inches is safe for Small, at risk for Medium, and breaks under Large or larger; 4–6 inches is safe for Small/Medium, at risk for Large, and breaks under Huge; 7–23 inches is safe through Large and at risk for Huge; 24+ inches is safe through Huge. 'At risk' ice has a 50% break chance per round of charging, running, jumping, or falling. On glaciers the spell opens a crevasse to its depth. Against an ice creature, it instead deals 1d6 damage per caster level, maximum 10d6, Fortitude half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crack-ice-1270",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/Frostburn.pdf",
+          "role": "Frostburn Table 1-2 used to resolve the primary spell's referenced ice-thickness categories"
+        }
+      ]
+    },
+    "spells/crackling-sphere-4999": {
+      "name": "Crackling Sphere",
+      "sourceSha256": "414d2907f44402ee17cfbd60d064998b4e3ce096ab8fe6b66429f85e9886986c",
+      "effectSummary": "Creates a yielding electrical sphere that moves 30 feet per round when actively directed with a move action. If it enters a creature's space, it stops for that round and deals 1d4 electricity damage per two caster levels, maximum 5d4; a successful Reflex save negates the damage. Without direction it remains in place. It cannot push unwilling creatures or batter down large obstacles, and disappears if it moves beyond spell range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crackling-sphere-4999",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
