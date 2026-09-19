@@ -457,6 +457,14 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bsee\s+Manual\s+of\s+the\s+Planes\b",
         re.I,
     )),
+    ("dmg-page-reference", re.compile(
+        r"\bDMG\s+\d+\b",
+        re.I,
+    )),
+    ("monster-manual-statistics-dependency", re.compile(
+        r"\b(?:normal\s+)?Monster\s+Manual\s+statistics\b",
+        re.I,
+    )),
 )
 
 
@@ -1175,6 +1183,10 @@ def run_self_test() -> None:
     assert "bard-feature-inheritance" in external_mechanics_reasons("The subject can function as a bard of one-half your level with respect to bardic music and bardic knowledge.")
     assert "listed-spell-suite-inheritance" in external_mechanics_reasons("You may choose a spell from those listed below once per round and use it as a spell-like ability.")
     assert "manual-of-the-planes-reference" in external_mechanics_reasons("See Manual of the Planes for the gatecrasher ability.")
+    assert "dmg-page-reference" in external_mechanics_reasons("The ground becomes dense rubble (DMG 90).")
+    assert "dmg-page-reference" not in external_mechanics_reasons("The spell deals 90 points of damage.")
+    assert "monster-manual-statistics-dependency" in external_mechanics_reasons("The skeletons have the normal Monster Manual statistics for their kind.")
+    assert "monster-manual-statistics-dependency" not in external_mechanics_reasons("The creature resembles a skeleton illustrated in the Monster Manual.")
     assert "functions-as-if-named-spell-cast" in external_mechanics_reasons("She functions as if a raise dead spell had been cast upon her, except she loses no level.")
     assert "functions-as-if-named-spell-cast" not in external_mechanics_reasons("The device functions as if underwater.")
     assert "same-way-as-named-spell" in external_mechanics_reasons("The burst reveals objects in the same way as a true seeing spell.")
