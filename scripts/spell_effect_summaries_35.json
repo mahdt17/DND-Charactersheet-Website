@@ -13388,6 +13388,217 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for conduit, endpoint, willingness/control, distance, deity bonus, carried load, passenger restriction, and dread-necromancer exception"
         }
       ]
+    },
+    "spells/door-to-great-evil-1384": {
+      "name": "Door to Great Evil",
+      "sourceSha256": "e25e7fc0d0c1d3703b847ee1552b4f564338dc1912ad73f82189423b65fb5428",
+      "effectSummary": "Functions as teleport except that no destination is chosen. In Send Yourself mode, you, your gear, and your special mount are transported safely to the nearest place on the same plane where an appropriate evil foe or evil act needs a holy warrior's intervention; the encounter level is at most your character level minus 2, using effective character level for a race with level adjustment. Arrival is guaranteed safe, there is no return trip, and you retain only a vague sense of distance traveled plus the direction back to the casting point. In Send Another mode, a willing paladin, her gear, and special mount are sent instead, and the challenge is based on her character level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/door-to-great-evil-1384",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-2437",
+          "role": "same primary catalog referenced spell retained as the inherited teleport framework; Door to Great Evil replaces destination selection and mishap behavior with its two special modes"
+        }
+      ]
+    },
+    "spells/doppelganger-transformation-4809": {
+      "name": "Doppelganger Transformation",
+      "sourceSha256": "c34868a2322c71d316168ae356e4cbb730e0e65895c0f4c714cc144bc902bd01",
+      "effectSummary": "Grants +4 enhancement Wisdom, +2 enhancement Strength, Dexterity, Constitution, and Charisma, +4 natural armor that does not stack with existing natural armor, darkvision 60 feet, and immunity to sleep and charm effects for the duration. Changeling spellcasters cast it at +1 caster level. While the spell is merely prepared, its mindset grants +2 on Bluff and Disguise checks and +2 on saves against sleep and charm effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doppelganger-transformation-4809",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/doublespeak-836": {
+      "name": "Doublespeak",
+      "sourceSha256": "449ebf144c6429ece013849b1ebbab89c193d22c195eed36be7693dd723ebe14",
+      "effectSummary": "Subjects hear one another's real conversation, but everyone else hears an illusory mundane conversation and sees matching facial expressions and mouth movements. An observer who studies the exchange for at least 1 full round can attempt a Will save to disbelieve. The subjects know the general topics the false conversation appeared to cover but not its exact wording. The material component is a snake tongue.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doublespeak-836",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/doublestrike-arrow-292": {
+      "name": "Doublestrike Arrow",
+      "sourceSha256": "b4346d46dbb6fdd788867703a69d9eb709caa96aaa7fa45cdeed9a947bdb0b1d",
+      "effectSummary": "Enchants one arrow or crossbow bolt so it can attack two different targets within 30 feet of each other. The shooter chooses both targets and makes a separate attack roll against each with the same attack bonus; after the first hit or miss, the missile swerves toward the second target. It cannot strike the same target twice and is destroyed after the attempt even if both attacks miss. The material component is the arrow or bolt.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doublestrike-arrow-292",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/douse-flames-3758": {
+      "name": "Douse the Flames",
+      "sourceSha256": "d99ae69f2e374738e41ea45aaffea5e3db3d560e74330fc62ca5c0401aa04f65",
+      "effectSummary": "As part of this White Raven strike, make a melee attack against one creature you threaten. On a hit, deal normal melee damage and prevent that creature from making attacks of opportunity for 1 round; it still threatens its normal area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/douse-flames-3758",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/downdraft-4413": {
+      "name": "Downdraft",
+      "sourceSha256": "3ac512e28cee42f30c7d77ab7face5f720e67f8c4c9efe39d77eb5f43fcfd823",
+      "effectSummary": "Creates a downward blast of turbulent air. An airborne creature in the area that fails its Reflex save drops up to 100 feet straight down and takes normal falling damage if it strikes the ground or another object; on a successful save it drops 50 feet instead. A creature already on the ground must succeed on a Reflex save or fall prone. The material component is a balsa-wood bird carving crushed underfoot.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/downdraft-4413",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/draconic-might-1032": {
+      "name": "Draconic Might",
+      "sourceSha256": "9841c283763426d065207161ddc7510c0ff204a6480e69c635bb3d8d14aa5589",
+      "effectSummary": "Grants the subject +5 enhancement bonuses to Strength, Constitution, and Charisma, a +4 enhancement bonus to natural armor, and immunity to magical sleep and paralysis effects. Sorcerers cast this printing at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/draconic-might-1032",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/draconic-might-4414": {
+      "name": "Draconic Might",
+      "sourceSha256": "330ac654f77accf366752506292762bc8b3f92eb2b45547560845dd3fec4e019",
+      "effectSummary": "Grants the subject +4 enhancement bonuses to Strength, Constitution, and Charisma, a +4 enhancement bonus to natural armor, and immunity to magical sleep and paralysis effects. Sorcerers cast this Spell Compendium printing at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/draconic-might-4414",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/draconic-polymorph-1033": {
+      "name": "Draconic Polymorph",
+      "sourceSha256": "67ada188e5b0390270ea9c7b2cbd6a661cbc22a935f43a1d7c403bed2c72098f",
+      "effectSummary": "Functions as polymorph, including changing into a permitted living creature form, changing type and subtype to match that form, gaining the form's physical ability scores and extraordinary special attacks but not its extraordinary special qualities, supernatural abilities, or spell-like abilities, while retaining mental ability scores and the other inherited polymorph rules. Draconic polymorph raises the assumed-form cap to your own Hit Dice, maximum 20 HD, and sets the transformed Strength to the form's average Strength +8 and Constitution to the form's average Constitution +2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/draconic-polymorph-1033",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-2854",
+          "role": "same primary catalog referenced spell used to retain inherited polymorph transformation mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/alter-self-2774",
+          "role": "same primary catalog base spell used to retain physical-form and equipment behavior inherited through polymorph"
+        }
+      ]
+    },
+    "spells/dragon-ally-lesser-1005": {
+      "name": "Dragon Ally, Lesser",
+      "sourceSha256": "1eafb924f73e2d3785caa2409215a4e1ce2643f28b47f344653221ef73f66827",
+      "effectSummary": "Summons a dragon and lets you bargain for one task. You must be able to communicate with it, payment must be made before it agrees, and bargaining takes at least 1 round, so it begins acting in the following round. Payment is 100 gp per HD for a task lasting up to 1 minute per caster level, 500 gp per HD for up to 1 hour per caster level, or 1,000 gp per HD for up to 1 day per caster level; especially hazardous tasks can cost up to twice these amounts, and the dragon never accepts less than the listed price. When the task or bargained duration ends, the dragon returns to where it was summoned from after reporting back if appropriate and possible. The spell costs 100 XP, and sorcerers cast it at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-ally-lesser-1005",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragon-blight-1106": {
+      "name": "Dragon Blight",
+      "sourceSha256": "23fd1cb93a37d65bf3464fe980e9cc76718d57d09f291a7425930db7db90bc48",
+      "effectSummary": "Creates a phosphorescent cloud that harms dragons and dragonblood creatures. A dragonblood creature takes 1d8 damage per two caster levels, maximum 5d8; a creature of the dragon type takes 1d6 damage per caster level, maximum 10d6. Either target is also stunned for 1d4 rounds. A successful Fortitude save halves the damage and negates the stun. Including the claw of a Large-or-larger deep dragon worth 50–75 gp increases the spell's save DC by 2 and consumes the claw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-blight-1106",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragon-breath-1034": {
+      "name": "Dragon Breath",
+      "sourceSha256": "b8ad74ce9b5388970b541a0f5cf3e993efdb9642b735f293d8541bf37ace8797",
+      "effectSummary": "Grants a breath weapon whose shape and energy are fixed when cast: a 60-foot line of acid, electricity, or fire, or a 30-foot cone of acid, cold, or fire. Using it is a standard action and deals 3d6 damage plus 1d6 per two caster levels above 5th, maximum 10d6 at 19th level, with Reflex half. You can use it three times plus one additional use per two levels above 5th, waiting 1d4+1 rounds between uses. It does not interfere with other breath weapons, grants no matching energy resistance or immunity, and only one dragon breath spell can be active at once. Sorcerers cast this printing at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-breath-1034",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragon-breath-3967": {
+      "name": "Dragon Breath",
+      "sourceSha256": "d8d5114eab21854f6943266622b305d5f8d38f34ddaeef7586658af73b0c009d",
+      "effectSummary": "Grants a repeatable dragon breath attack usable as a standard action, with a 1d4-round recharge. Choose one true dragon when the spell is cast; choosing chromatic adds the evil descriptor and choosing metallic adds the good descriptor. Black: 30-foot acid line, 1d8 per two caster levels, maximum 10d8, Reflex half. Blue: 30-foot electricity line, same damage/save. Green: 15-foot acid cone, same damage/save. Red: 15-foot fire cone, same damage/save. White: 15-foot cold cone, same damage/save. Brass: 15-foot sleep cone for 1d6 rounds, Will negates. Bronze: 30-foot electricity line, same damage/save. Copper: 15-foot slow cone for 1d6 rounds, Will negates. Gold: 15-foot fire cone, same damage/save. Silver: 15-foot paralysis cone for 1d6 rounds, Fortitude negates. The arcane material component is a scale of the chosen dragon's color.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-breath-3967",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragon-breath-699": {
+      "name": "Dragon Breath",
+      "sourceSha256": "b68245919b9e06754599298dc5f270dc7defd6f34c77ece7a2fd23ec24895ea7",
+      "effectSummary": "Grants a repeatable dragon breath attack usable as a standard action, with a 1d4-round recharge. Choose one true dragon when the spell is cast; choosing chromatic adds the evil descriptor and choosing metallic adds the good descriptor. Black: 30-foot acid line, 1d8 per two caster levels, maximum 10d8, Reflex half. Blue: 30-foot electricity line, same damage/save. Green: 15-foot acid cone, same damage/save. Red: 15-foot fire cone, same damage/save. White: 15-foot cold cone, same damage/save. Brass: 15-foot sleep cone for 1d6 rounds, Will negates. Bronze: 30-foot electricity line, same damage/save. Copper: 15-foot slow cone for 1d6 rounds, Will negates. Gold: 15-foot fire cone, same damage/save. Silver: 15-foot paralysis cone for 1d6 rounds, Fortitude negates.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-breath-699",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ],
+      "tablesSha256": "42a0a0bda44253547eb7e5aa79bf8a458f86dae31cc746fd9ae4a5513e70ce22"
+    },
+    "spells/dragon-cloud-25": {
+      "name": "Dragon Cloud",
+      "sourceSha256": "dcc80cec3aa2e415b67e67d260e3e44374a73aac4506e70184251b2e495cb750",
+      "effectSummary": "Must be cast outdoors where clouds are visible. It binds an air spirit into a nearby cloud, creating a Huge good air elemental in dragon form that reaches you in 1 minute, with that travel time counting against the duration. You command it as a summoned creature; it speaks Auran, cannot pass through liquids or solid objects, and evaporates when the spell ends. Its printed statistics are 21d8+84 HD, 178 hp, fly 150 feet (average), AC 26, DR 10/magic, darkvision 60 feet, Str 25, Dex 23, Con 18, and a 100-foot lightning-line breath weapon usable every 1d4 rounds for 10d6 electricity damage, Reflex DC 24 half. The printed full-attack line is preserved as written, including its unusual claw notation. Casting requires a sacrifice of 1d3 Constitution damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-cloud-25",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragons-flame-3573": {
+      "name": "Dragon's Flame",
+      "sourceSha256": "7507cc4d91e4b764e0c45aa42ce6b561f14ca71060b6a829212293a12144f7cc",
+      "effectSummary": "Unleashes a cone of fire that deals 6d6 fire damage to everything in the area. Creatures can make a Reflex save at DC 15 + your Wisdom modifier for half damage. This Desert Wind maneuver is a supernatural ability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragons-flame-3573",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragonblood-affinity-1116": {
+      "name": "Dragonblood Affinity",
+      "sourceSha256": "162ea535856e0e0e43f8444b04aee7b78da82bded1ce0a29d6b0adee3022b3b2",
+      "effectSummary": "Each affected dragon or dragonblood creature gains +2 on saving throws, caster level checks, attack rolls, ability checks, skill checks, and weapon damage rolls. Only dragons and dragonblood creatures can cast this spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonblood-affinity-1116",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dragonblood-spell-pact-1117": {
+      "name": "Dragonblood Spell-pact",
+      "sourceSha256": "acd3cfe75801521e5405ad06dab18288c6df3f47ca5274a78248c978243e31cf",
+      "effectSummary": "Allows two willing dragonblood creatures to exchange one known spell each. The traded spells must be the same spell level but need not share a school; each old spell leaves its caster's repertoire and is replaced by the received spell, and the exchange does not increase either creature's number of spells known. Each participant pays XP equal to 100 times the minimum caster level needed to cast the traded spell. The material component is blood, and each participant takes 1d4 damage while cutting themselves to seal the pact. Only dragons and dragonblood creatures can cast this spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonblood-spell-pact-1117",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
