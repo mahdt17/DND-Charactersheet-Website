@@ -1163,6 +1163,18 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="delegated-fiery-eyes-catching-fire-rules"
+        if (
+            entry.get("id")=="spells/fist-of-stone-546"
+            and re.search(r"if you have the Monster Manual",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-fist-of-stone-multiattack-reference"
+        if (
+            entry.get("id")=="spells/fires-of-purity-2070"
+            and re.search(r"see Catching on Fire",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="delegated-fires-of-purity-catching-fire-rules"
         if entry.get("id")=="spells/drown-5004" and re.search(
             r"or begin to drown \(see The Concentration check to cast a spell",
             effect_source,
