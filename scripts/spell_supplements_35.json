@@ -572,6 +572,186 @@
           "role": "independent 3.5 spell reference confirming City's Might as the Races of Destiny Str/Con enhancement plus adamantine-DR spell"
         }
       ]
+    },
+    "spells/dweomer-of-transference-1140": {
+      "name": "Dweomer of Transference",
+      "effectSummary": "Surrounds one willing psionic creature with a field that converts spells cast at it into temporary power points instead of their normal effects. Power gained by spell level is: 0→0, 1st→1, 2nd→2, 3rd→4, 4th→6, 5th→8, 6th→10, 7th→12, 8th→14, 9th→16. The spells must still be cast normally with their usual components and range requirements. Unspent temporary power points disappear after 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dweomer-of-transference-1140",
+          "role": "primary catalog record; effect references a required spell-level-to-power-point table omitted from the rebuilt page"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/psionic/spells/dweomerOfTransference.htm",
+          "role": "3.5 SRD copy used to restore the omitted power-point conversion table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/summon-undead-i-1343": {
+      "name": "Summon Undead I",
+      "effectSummary": "Functions as summon monster I but summons an undead creature. This Ghostwalk printing's 1st-level Summon Undead list contains a Medium skeleton or a Small zombie. The chosen creature can change each casting, summoned undead do not count against undead-control Hit Dice limits, and summoning undead is always evil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1343",
+          "role": "primary Ghostwalk catalog record; required 1st-level summon table omitted"
+        },
+        {
+          "url": "https://anyflip.com/cmjgl/uwip/basic/51-100",
+          "role": "Ghostwalk sourcebook copy used to restore the omitted 1st-level Summon Undead list"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/abyssal-frenzy-1157": {
+      "name": "Abyssal Frenzy",
+      "effectSummary": "Transforms the subject for the duration: land speed +30 feet, +3 enhancement natural armor, +2 profane Strength and Constitution, -2 Dexterity, 60-foot darkvision or +60 feet to existing darkvision, and two claw attacks if it lacked them. New claw base damage by target size is Fine 1d2, Diminutive 1d3, Tiny 1d4, Small 1d6, Medium 1d8, Large 2d6, Huge 2d8, Gargantuan 4d6, Colossal 2d8; existing claws instead increase one damage die type. Hitting one target with both claws rends for twice claw damage plus twice Strength modifier. The subject cannot communicate, cast spells, use spell-like abilities, activate magic items, or wield weapons other than natural weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/abyssal-frenzy-1157",
+          "role": "primary catalog record; required claw-damage-by-size table omitted"
+        },
+        {
+          "url": "https://anyflip.com/myubd/dsnx/basic/51-100",
+          "role": "Fiendish Codex I sourcebook copy used to restore the omitted claw-damage table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/summon-giants-1262": {
+      "name": "Summon Giants",
+      "effectSummary": "Summons one selected giant group to act immediately and fight for the caster: three fiendish hill giants (CE), two celestial or fiendish stone giants (N), one fiendish frost giant (CE), or one fiendish fire giant (LE). If the caster speaks Giant, the summoned giants can be directed to withhold attacks, attack specific enemies, or perform other actions. They act normally on the last round and disappear at the end of their turns.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-giants-1262",
+          "role": "primary Frostburn catalog record; required giant selection table omitted"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/Frostburn.pdf",
+          "role": "Frostburn sourcebook copy used to restore the omitted giant type/number/alignment table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/weighed-in-the-balance-3501": {
+      "name": "Weighed In the Balance",
+      "effectSummary": "Affects creatures in the area according to the original Underdark alignment/life-status table. Living LG, CG, LE, or CE creatures are affected as inflict critical wounds; living NG, LN, CN, or NE creatures as inflict light wounds; living true-neutral creatures as cure critical wounds; and all undead as heal, which damages them as normal for that spell. A Will save negates the effect and spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weighed-in-the-balance-3501",
+          "role": "primary Underdark catalog record; required alignment/effect table omitted"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Forgotten%20Realms%20Setting/Underdark.pdf",
+          "role": "Underdark sourcebook copy used to restore the original alignment/effect table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/giant-size-2111": {
+      "name": "Giant Size",
+      "effectSummary": "Changes the caster's body size according to caster level in this Oriental Adventures printing: levels 15–16 become Huge (20 ft.) with +16 Strength, -2 Dexterity, +4 Constitution, +3 natural armor, and -2 size modifier to AC/attacks; levels 17–18 become Gargantuan (40 ft.) with +24 Strength, -2 Dexterity, +8 Constitution, +7 natural armor, and -4 AC/attack modifier; levels 19–20 become Colossal (72 ft.) with +32 Strength, -2 Dexterity, +12 Constitution, +12 natural armor, and -8 AC/attack modifier. Only ordinary mundane clothing changes size with the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/giant-size-2111",
+          "role": "primary Oriental Adventures catalog record; required caster-level/size adjustment table omitted"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures sourcebook copy used to restore the omitted size-adjustment table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/minute-form-2116": {
+      "name": "Minute Form",
+      "effectSummary": "Shrinks the caster according to caster level in this Oriental Adventures printing: levels 15–16 become Tiny (18 in.) with -8 Strength, +4 Dexterity, -2 Constitution, and +2 size modifier to AC/attacks; levels 17–18 become Diminutive (9 in.) with -10 Strength, +6 Dexterity, -2 Constitution, and +4 AC/attack modifier; levels 19–20 become Fine (3 in.) with -10 Strength, +8 Dexterity, -2 Constitution, and +8 AC/attack modifier. No ability score can be reduced below 1. Only ordinary mundane clothing changes size with the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/minute-form-2116",
+          "role": "primary Oriental Adventures catalog record; required caster-level/size adjustment table omitted"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures sourcebook copy used to restore the omitted size-adjustment table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/summon-undead-i-1625": {
+      "name": "Summon Undead I",
+      "effectSummary": "Functions as summon monster I but summons an undead creature. This Magic of Faerûn printing's 1st-level list contains a Medium-size skeleton or a Small zombie. The chosen creature can change each casting, and summoned undead do not count against the caster's controlled-undead Hit Dice limit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1625",
+          "role": "primary Magic of Faerûn catalog record; required 1st-level summon table omitted"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/101-150",
+          "role": "Magic of Faerûn sourcebook copy used to restore the omitted 1st-level Summon Undead list"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/summon-undead-i-2231": {
+      "name": "Summon Undead I",
+      "effectSummary": "Functions as summon monster I but summons an undead creature. This Player's Guide to Faerûn printing's 1st-level list contains a Medium skeleton or a Small zombie. The chosen creature can change each casting, and summoned undead do not count against the total Hit Dice controlled through animate dead or the cleric command-undead ability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-2231",
+          "role": "primary Player's Guide to Faerûn catalog record; required 1st-level summon table omitted"
+        },
+        {
+          "url": "https://manuals.plus/m/07a05aac9d81c638e21996c8efb6e3747477e6bbf343803d74a41d24ab40e380",
+          "role": "Player's Guide to Faerûn sourcebook copy used to restore the omitted Summon Undead table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-vestige-3444": {
+      "name": "Detect Vestige",
+      "effectSummary": "Detects auras of creatures currently bound to vestiges. Round 1 reveals presence or absence; round 2 reveals the number of vestige auras and the strongest aura; round 3 reveals each aura's strength and location, or direction if outside line of sight. Aura strength depends on the minimum effective binder level needed for the vestige: 1st–4th faint, 5th–9th moderate, 10th–14th strong, 15th+ overwhelming. Each round the cone can be redirected; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood/dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-vestige-3444",
+          "role": "primary Tome of Magic catalog record; required binder-level/aura-strength table omitted"
+        },
+        {
+          "url": "https://ace-dog.com/Alair/srd.dndtools.org/srd/magic/spells/spells/spellstom.html",
+          "role": "Tome of Magic SRD copy used to restore the omitted aura-strength table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/mighty-wallop-3106": {
+      "name": "Mighty Wallop",
+      "effectSummary": "Increases one bludgeoning melee weapon's damage by one effective size category without changing its dimensions or weight. For a Small weapon the conversion is 1→1d2, 1d2→1d3, 1d3→1d4, 1d4→1d6, 1d6→1d8, 1d8→1d10, and 1d10→1d12. Medium or larger weapons use the normal increasing-weapon-damage-by-size table.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mighty-wallop-3106",
+          "role": "primary Races of the Dragon catalog record; required Small-weapon damage table omitted"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Races%20of%20the%20Dragon.pdf",
+          "role": "Races of the Dragon sourcebook copy used to restore the omitted Small-weapon damage table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/plague-2995": {
+      "name": "Plague",
+      "effectSummary": "Immediately infects each failed-save target with one chosen disease, then forces additional saves every round instead of every day, always using plague's save DC. Disease damage is: blinding sickness 1d4 Strength, with another plague-DC Fortitude save against permanent blindness whenever 2+ Strength damage is taken; cackle fever 1d6 Wisdom; filth fever 1d3 Dexterity + 1d3 Constitution; mindfire 1d4 Intelligence; red ache 1d6 Strength; shakes 1d8 Dexterity; slimy doom 1d4 Constitution.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-2995",
+          "role": "primary Player's Handbook II catalog record; required disease/damage table omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsphb2.html",
+          "role": "Player's Handbook II SRD copy used to restore the omitted disease/damage table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
     }
   }
 }
