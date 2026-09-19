@@ -1000,6 +1000,25 @@
           "role": "Ghostwalk sourcebook rendering used only to restore that printing's 14 deity weapon/special-ability rows"
         }
       ]
+    },
+    "spells/doom-of-the-seas-3332": {
+      "name": "Doom of the Seas",
+      "effectSummary": "Summons the specific Doom of the Seas creature for 1 round per caster level; it obeys the caster and the spell costs 500 XP. The summoned creature is the printed Stormwrack stat block labeled a fiendish kraken: CR 16, NE Gargantuan outsider (aquatic), 20d8 HD and 310 hp, AC 23 (touch 8, flat-footed 21), DR 10/magic, SR 30, Fort +21, Ref +14, Will +13, swim 30 feet, space 20 feet, base reach 15 feet with tentacles reaching 60 feet and arms 30 feet, BAB +20, grapple +46, Str 38, Dex 14, Con 30, Int 25, Wis 20, Cha 22. Its full attack is two tentacles +30 for 2d8+14/19–20, six arms +25 for 1d6+7, and bite +25 for 4d6+7. It has smite good 1/day (+6 attack, +20 damage), constrict 2d8+14 with tentacles or 1d6+7 with arms, improved grab with arm or tentacle hits against creatures of any size, poison immunity, resistance 10 to acid/cold/electricity/fire, an 80-foot ink cloud once per minute as a free action that provides total concealment and darkness, and a once-per-round 280-foot straight-line jet as a full-round action that does not provoke attacks of opportunity. Tentacles have 20 hp and arms 10 hp for sundering. Its printed block uses half-fiend traits rather than the generic fiendish template, has no wings, treats all its attacks as magic for overcoming damage reduction, and includes spell-like abilities: 1/day at CL 20th blasphemy, contagion, desecrate, destruction, horrid wilting, summon monster IX (fiends only), unhallow, unholy blight; 1/day at CL 9th control weather, control winds, dominate animal, resist energy; and 3/day at CL 20th darkness, poison, unholy aura.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doom-of-the-seas-3332",
+          "role": "primary Stormwrack catalog record; preserves the summoning, obedience, duration, and XP cost but references a creature statistics block that is absent from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsstorm.html",
+          "role": "older D&D Tools Stormwrack spell mirror used to confirm the same spell mechanics and that the promised creature block is also absent there"
+        },
+        {
+          "url": "https://www.realmshelps.net/monsters/block/Kraken,_Fiendish",
+          "role": "independent Stormwrack-matched creature rendering used only to restore the omitted Doom of the Seas statistics and combat abilities; the printed half-fiend-traits block is preserved rather than normalized to a generic fiendish template"
+        }
+      ]
     }
   }
 }
