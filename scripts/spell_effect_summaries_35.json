@@ -14286,6 +14286,226 @@
           "role": "primary Monster Manual V printing reviewed and paraphrased; its lack of a successful-save partial fly-speed reduction is preserved"
         }
       ]
+    },
+    "spells/earthbind-4426": {
+      "name": "Earthbind",
+      "sourceSha256": "2ff8e1a23f537cefc1c691ef00dedce18f67aaa4c95631c8eff6ad7df2ffaae7",
+      "effectSummary": "Suppresses natural or magical flight for the duration. On a failed save, the target's fly speed becomes 0 and an airborne target descends as though under feather fall; new effects that would grant flight are also suppressed. Other movement modes and airborne movement that does not grant a fly speed, such as jumping, levitate, or air walk, are unaffected. Unlike the Draconomicon printing, this version does not state a reduced-flight effect on a successful save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthbind-4426",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its lack of a successful-save partial fly-speed reduction is preserved"
+        }
+      ]
+    },
+    "spells/earthbolt-2065": {
+      "name": "Earthbolt",
+      "sourceSha256": "c1111c1fcd0fa2cf5fb5efe89a06c7b0237d4c6539ec6494338a3b0be64bcbdf",
+      "effectSummary": "Sends a bolt of geomantic force through the ground, dealing 1d6 damage per caster level, maximum 10d6, to creatures in its area. The spell functions only while the caster stands on dirt, clay, stone, or sand, and fails from a wooden floor or other unsuitable surface.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthbolt-2065",
+          "role": "primary Oriental Adventures printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/earthbolt-494": {
+      "name": "Earthbolt",
+      "sourceSha256": "72bd4dead7dd4419e3639d0f90060d8c9ae221587bface643a53dabf3c1b4650",
+      "effectSummary": "Sends a bolt of seismic force through the ground, dealing 1d6 damage per caster level, maximum 10d6, to creatures in its area. The spell functions only while the caster stands on dirt, clay, sand, or stone, explicitly including stone floors, and not on wooden floors or other unsuitable surfaces.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthbolt-494",
+          "role": "primary Complete Arcane printing reviewed and paraphrased; its explicit allowance for stone floors is preserved"
+        }
+      ]
+    },
+    "spells/earthen-grace-4427": {
+      "name": "Earthen Grace",
+      "sourceSha256": "bb348ada302827710e3824ac77f88919354c4ad723688a6b5f6ba2f97528ce9b",
+      "effectSummary": "Converts damage the subject takes from stone or earthen sources into nonlethal damage, including natural attacks by earth- or stone-based creatures, earth-subtype creatures, stone weapons, and falling onto rock or earth. Once the subject's total nonlethal damage from any source equals its current hit points, the spell ends and later stone or earth damage is normal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthen-grace-4427",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; obvious transcription typos do not obscure the stated mechanics"
+        }
+      ]
+    },
+    "spells/earthen-grasp-4245": {
+      "name": "Earthen Grasp",
+      "sourceSha256": "a434f508e819f54e89858b6312d3f6535cd02280c602c0d7e29fa8115f159bc5",
+      "effectSummary": "Creates a stationary Medium arm from earth, mud, grass, or sand; casting fails on unsuitable material such as stone. Its base attack bonus equals caster level and its Strength is 14 +2 per three caster levels. It makes one grapple attempt per round against a creature in or adjacent to its square without provoking attacks of opportunity. The caster chooses among valid targets when possible; otherwise it attacks a random creature in reach, potentially an ally. Each round it pins a target it deals 1d6 + Strength modifier lethal damage. The arm has AC 15, hardness 4, and 3 hit points per caster level, crumbling at 0 hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthen-grasp-4245",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its no-attack-of-opportunity grapple rule is preserved"
+        }
+      ]
+    },
+    "spells/earthen-grasp-542": {
+      "name": "Earthen Grasp",
+      "sourceSha256": "23bc11625539d56b76c6430b864199da6944407ba43ec9dca3f78acd11daa757",
+      "effectSummary": "Creates a stationary Medium arm from earth, mud, grass, or sand; casting fails on unsuitable material such as stone. Its base attack bonus equals caster level and its Strength is 14 +2 per three caster levels. It makes one grapple attempt per round against a creature in or adjacent to its square, provoking attacks of opportunity as normal. The caster chooses among valid targets when possible; otherwise it attacks a random creature in reach, potentially an ally. Each round it pins a target it deals 1d6 + Strength modifier lethal damage. The arm has AC 15, hardness 4, and 3 hit points per caster level, crumbling at 0 hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthen-grasp-542",
+          "role": "primary Complete Arcane printing reviewed and paraphrased; its grapple attack-of-opportunity rule is preserved"
+        }
+      ]
+    },
+    "spells/earthen-shield-5005": {
+      "name": "Earthen Shield",
+      "sourceSha256": "89b40ce09293795d87d12073a82676c32df7ff3e7914d2843dfc675247c2d9b4",
+      "effectSummary": "Creates one 5-foot-long, 5-foot-tall, 1-foot-thick earthen wall section per caster level. The vertical wall must rest on a firm foundation and merge with existing earth, and cannot occupy a creature or object's space. Sections can stack to a maximum height of 10 feet or be layered for extra thickness. Each 5-foot length has 100 hit points per foot of thickness, hardness 0, and can be hit automatically; a section is breached at 0 hit points. A single Strength check at DC 15 +5 per foot of thickness destroys a 5-foot section. Climbing the wall is DC 15.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthen-shield-5005",
+          "role": "primary Dragonlance Campaign Setting printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/earthfast-4428": {
+      "name": "Earthfast",
+      "sourceSha256": "3d10a38509187d34737cc459a6733efea8961e38d1afb6136a8454731980fa0f",
+      "effectSummary": "Reinforces a rock formation or stone structure by doubling its hit points and increasing its hardness to 10. It does not function on constructs.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthfast-4428",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/earthquake-2608": {
+      "name": "Earthquake",
+      "sourceSha256": "0db387ba94ad06a28ac1ac210d8cd8f9217dfdeb8dda8deaf86b1ca94810a275",
+      "effectSummary": "Creates a 1-round localized quake; creatures on the ground cannot move or attack, and ground-based spellcasters must make a Concentration check at DC 20 + spell level or lose the spell they try to cast. In caves, caverns, or tunnels, roof collapse deals 8d6 bludgeoning damage (Reflex DC 15 half) and pins victims. At cliffs, a landslide travels outward as far as it falls, dealing the same damage and pinning creatures in its path. On open ground, creatures make Reflex DC 15 or fall; each ground creature also has a 25% chance to fall into a fissure unless it makes Reflex DC 20, and fissures close at the end, killing creatures still trapped. Structures on open ground take 100 damage ignoring hardness and normal object-damage halving; collapse deals 8d6 (Reflex DC 15 half) and pins occupants. In rivers, lakes, or marshes, fissures drain water and create mud or quicksand; creatures make Reflex DC 15 or sink, and returning water can drown them. Pinned creatures take 1d6 nonlethal damage per minute; once unconscious, they make Constitution DC 15 each minute or also take 1d6 lethal damage until freed or dead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthquake-2608",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased with all terrain-specific effects retained"
+        }
+      ]
+    },
+    "spells/earthstrike-quake-3716": {
+      "name": "Earthstrike Quake",
+      "sourceSha256": "ff56a15341214ebd6c2e26965af2e00ba93c44e64dab3c2e1f4b2e95221a9881",
+      "effectSummary": "Grounded creatures in the maneuver's area must make Reflex DC 18 + the initiator's Strength modifier or fall prone. A grounded creature casting a spell must also make a Concentration check at DC 20 + spell level or lose the spell. The initiator is immune, allies are affected normally, and walls or similar barriers do not block the maneuver's line of effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/earthstrike-quake-3716",
+          "role": "primary Tome of Battle printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ease-pain-26": {
+      "name": "Ease Pain",
+      "sourceSha256": "ad468bff78ca9b0c7ff359cc2ad3274287094adf9cfd251aaff1e87cae2cd907",
+      "effectSummary": "Immediately removes lingering effects and penalties caused by pain, but does not heal damage or remove unrelated effects. If an effect is causing continuing damage, the pain is eased only momentarily; the spell does not remove required Concentration checks or other restrictions that arise from the ongoing damaging effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ease-pain-26",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/easy-climb-4492": {
+      "name": "Easy Climb",
+      "sourceSha256": "56b5a1cf492187fd0259fc5648e1185b25ce26abfe046f234e52ffe7e9a10fce",
+      "effectSummary": "Creates handholds and footholds on a vertical obstacle such as a cliff, tree, or wall, making the affected surface equivalent to a very rough wall with Climb DC 10.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/easy-climb-4492",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/easy-math-3324": {
+      "name": "Easy Math",
+      "sourceSha256": "7349c46de94d2fa99dc8aa81778f4ea8f36b01eaa25075ae9cefbbbd85866f0a",
+      "effectSummary": "Lets the caster rapidly estimate quantities, distances, creature counts, and similar figures with a Perform check at DC 15. On success the estimate is within 10% of the true value; on failure it is off by 20% or more, with the exact error determined by the DM.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/easy-math-3324",
+          "role": "primary Song and Silence printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/easy-trail-1576": {
+      "name": "Easy Trail",
+      "sourceSha256": "cecdc15603d1b377976906c6ad99cb0409ae4d207a43a2d5009330fac4e33c08",
+      "effectSummary": "Gently pushes plants aside for creatures moving within the spell, effectively providing a trail through the terrain; plants return to normal after the effect passes. Tracking a creature that traveled within the effect is DC +5. Plant creatures are not pushed or held aside.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/easy-trail-1576",
+          "role": "primary Magic of Faerûn printing reviewed and paraphrased; its broad 'trail through any terrain' wording is preserved"
+        }
+      ]
+    },
+    "spells/easy-trail-3261": {
+      "name": "Easy Trail",
+      "sourceSha256": "6df29e7ec544c4a789c025add723a6a96d67b73c17fed8abeadeedef0ea2f60d",
+      "effectSummary": "Gently pushes plants aside for creatures moving within the effect, effectively providing a trail through the terrain; plants return to normal after passage. Tracking a creature that traveled within the effect is DC +5. Plant creatures cannot be pushed or held aside.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/easy-trail-3261",
+          "role": "primary Shining South printing reviewed and paraphrased; its broad 'trail through any terrain' wording is preserved"
+        }
+      ]
+    },
+    "spells/easy-trail-364": {
+      "name": "Easy Trail",
+      "sourceSha256": "86b46c14d5acc2af99add7f60e426cc757797b97df720cd10aba263235b880cd",
+      "effectSummary": "Pushes undergrowth aside for creatures moving within the spell, effectively creating a trail through dense vegetation and removing terrain movement penalties caused by that vegetation. Plants return to normal after the effect passes. Tracking a creature that traveled within the effect is DC +5. Plant creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/easy-trail-364",
+          "role": "primary Complete Adventurer printing reviewed and paraphrased; its dense-vegetation movement rule is preserved"
+        }
+      ]
+    },
+    "spells/easy-trail-4429": {
+      "name": "Easy Trail",
+      "sourceSha256": "66b7c5857d160a51b8043d9977a54a46bcaabecf0a839906eaf7bf229870ea1d",
+      "effectSummary": "Pushes undergrowth aside for creatures moving within the spell and treats trackless terrain as though it has a trail. Plants return to normal after the effect passes. Tracking a creature that traveled within the effect is DC +5. Plant creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/easy-trail-4429",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its trackless-terrain-as-trail rule is preserved"
+        }
+      ]
+    },
+    "spells/ebon-eyes-3544": {
+      "name": "Ebon Eyes",
+      "sourceSha256": "27ee3fc23c60e31b1399afe22b033ba08b8abea05ca58511dbc4b96e7ef81bf9",
+      "effectSummary": "States that the subject can see normally in natural and magical darkness, while also stating that it otherwise does not improve sight in natural dark or shadowy conditions. The subject ignores miss chance caused by insufficient illumination other than total darkness. The summary preserves the primary printing's literal wording rather than resolving its known internal ambiguity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ebon-eyes-3544",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its internally ambiguous darkness wording is preserved rather than silently reinterpreted"
+        }
+      ]
+    },
+    "spells/ebon-ray-of-doom-1566": {
+      "name": "Ebon Ray of Doom",
+      "sourceSha256": "80f2255dbde6729b1371755ec18a4670e1b66770ff28da9a6c300f215e48c68d",
+      "effectSummary": "Hampers recovery of hit points. Any creature using healing magic on the subject must make a caster level check at DC 15 + the caster level of ebon ray of doom or the healing effect fails. A subject with fast healing or regeneration must make a Fortitude save at the start of each turn; on a failure that ability does not function for that round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ebon-ray-of-doom-1566",
+          "role": "primary Lost Empires of Faerûn printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/echo-skull-1635": {
+      "name": "Echo Skull",
+      "sourceSha256": "8365fdad4c7ef46fcc63e4626f7af53858e958d2e8840310c5550c667e951de0",
+      "effectSummary": "Allows the caster to see, hear, and speak through a specific dried animal skull at any distance on the same plane, switching perception between self and skull as a free action during the caster's turn. A spell with range greater than touch and no material component or focus can originate from the skull instead of the caster, at a cost of 10 XP per spell level. Destroying the skull ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/echo-skull-1635",
+          "role": "primary Magic of Faerûn printing reviewed and paraphrased; its remote spell-origin and 10-XP-per-spell-level mechanics are preserved"
+        }
+      ]
     }
   }
 }
