@@ -1,0 +1,2143 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Structured factual supplements for D&D 3.5 class pages whose primary DnD Tools record omits gameplay-critical metadata. Supplements fill missing fields only; conflicts must fail validation.",
+  "entries": {
+    "classes/great-sea-corsair-793": {
+      "name": "Great Sea Corsair",
+      "inheritsFrom": "Dread Pirate",
+      "skillPoints": "6 + Int",
+      "classSkills": [
+        "Appraise",
+        "Balance",
+        "Bluff",
+        "Climb",
+        "Craft",
+        "Gather Information",
+        "Intimidate",
+        "Jump",
+        "Listen",
+        "Profession",
+        "Search",
+        "Sense Motive",
+        "Sleight of Hand",
+        "Spot",
+        "Survival",
+        "Swim",
+        "Tumble",
+        "Use Rope"
+      ],
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any nonlawful"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Appraise 8 ranks; Profession (sailor) 8 ranks; Swim 5 ranks; Use Rope 5 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Quick Draw; Weapon Finesse (any)"
+        },
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+4"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Must own a ship worth at least 10,000 gp and be able to operate it freely on the high seas"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Patron"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/classes/great-sea-corsair-793",
+          "role": "primary adaptation/inheritance"
+        },
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/greatsecorsair.shtml",
+          "role": "requirements and class skills"
+        }
+      ]
+    },
+    "classes/warsling-sniper-702": {
+      "name": "Warsling Sniper",
+      "classSkills": [
+        "Climb",
+        "Craft",
+        "Hide",
+        "Listen",
+        "Move Silently",
+        "Profession",
+        "Sense Motive",
+        "Spot"
+      ],
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Halfling"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Craft (weaponsmith) 3 ranks; Hide 4 ranks; Spot 6 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Exotic Weapon Proficiency (halfling warsling); Exotic Weapon Proficiency (skiprock); Point Blank Shot; Precise Shot"
+        },
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/classes/warsling-sniper-702",
+          "role": "primary class statistics and progression"
+        },
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/warsling.shtml",
+          "role": "requirements and class skills"
+        }
+      ]
+    },
+    "classes/fiend-of-blasphemy-471": {
+      "name": "Fiend of Blasphemy",
+      "hit_die": 8,
+      "skillPoints": "2 + Int",
+      "classSkills": [
+        "Bluff",
+        "Concentration",
+        "Diplomacy",
+        "Disguise",
+        "Knowledge (religion)",
+        "Listen",
+        "Search",
+        "Sense Motive",
+        "Spellcraft",
+        "Spot"
+      ],
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Outsider with the evil subtype"
+        },
+        {
+          "kind": "base_save_bonus",
+          "label": "Base Save Bonus",
+          "text": "Will +7"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Bluff 10 ranks; Knowledge (religion) 10 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Leadership"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Must have at least one spell-like ability that duplicates a spell effect of 4th level or higher"
+        }
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+0",
+          "+2",
+          "+2",
+          "+2",
+          "Blood oath; locate cultist; undetectable alignment"
+        ],
+        [
+          "2nd",
+          "+1",
+          "+3",
+          "+3",
+          "+3",
+          "Transfer spell-like ability"
+        ],
+        [
+          "3rd",
+          "+2",
+          "+3",
+          "+3",
+          "+3",
+          "Sponsor worshiper"
+        ],
+        [
+          "4th",
+          "+3",
+          "+4",
+          "+4",
+          "+4",
+          "Scry on cultist; torture cultist"
+        ],
+        [
+          "5th",
+          "+3",
+          "+4",
+          "+4",
+          "+4",
+          "Mind shielding"
+        ],
+        [
+          "6th",
+          "+4",
+          "+5",
+          "+5",
+          "+5",
+          "Kill cultist"
+        ]
+      ],
+      "featureNames": [
+        "Blood oath",
+        "Locate cultist",
+        "Undetectable alignment",
+        "Transfer spell-like ability",
+        "Sponsor worshiper",
+        "Scry on cultist",
+        "Torture cultist",
+        "Mind shielding",
+        "Kill cultist"
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/evil/blasphemy.shtml",
+          "role": "requirements, class skills, progression, feature names"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/fiend-of-blasphemy-471",
+          "role": "primary catalog identity/source book"
+        }
+      ]
+    },
+    "classes/alchemist-savant-582": {
+      "name": "Alchemist Savant",
+      "classSkills": [
+        "Appraise",
+        "Concentration",
+        "Craft",
+        "Decipher Script",
+        "Heal",
+        "Knowledge (arcana)",
+        "Profession",
+        "Spellcraft"
+      ],
+      "provenance": [
+        {
+          "url": "https://anyflip.com/kpthp/vxud/basic/51-100",
+          "role": "class-skill list as printed in Magic of Eberron"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/alchemist-savant-582",
+          "role": "primary requirements, statistics, progression"
+        }
+      ]
+    },
+    "classes/exalted-arcanist-144": {
+      "name": "Exalted Arcanist",
+      "classSkills": [
+        "Concentration",
+        "Craft",
+        "Decipher Script",
+        "Diplomacy",
+        "Knowledge (arcana)",
+        "Knowledge (religion)",
+        "Perform",
+        "Profession",
+        "Sense Motive",
+        "Spellcraft",
+        "Use Magic Device"
+      ],
+      "provenance": [
+        {
+          "url": "https://srd.dndtools.org/srd/classes/prestigeBoED/exaltedArcanist.html",
+          "role": "requirements, class skills, progression"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/exalted-arcanist-144",
+          "role": "primary catalog identity"
+        }
+      ]
+    },
+    "classes/peregrine-runner-734": {
+      "name": "Peregrine Runner",
+      "classSkills": [
+        "Balance",
+        "Bluff",
+        "Climb",
+        "Craft",
+        "Diplomacy",
+        "Gather Information",
+        "Hide",
+        "Jump",
+        "Knowledge (nature)",
+        "Listen",
+        "Move Silently",
+        "Profession",
+        "Search",
+        "Sense Motive",
+        "Speak Language",
+        "Spot",
+        "Swim",
+        "Tumble",
+        "Use Rope"
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/general/peregrinerunner.shtml",
+          "role": "requirements and class skills"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/peregrine-runner-734",
+          "role": "primary class statistics and progression"
+        }
+      ]
+    },
+    "classes/agent-retriever-447": {
+      "name": "Agent Retriever",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any lawful"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Gather Information 24 ranks; Knowledge (the planes) 15 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Track"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://www.d20srd.org/srd/epic/prestigeClasses/agentRetriever.htm",
+          "role": "SRD prerequisites cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/agent-retriever-447",
+          "role": "primary class statistics, skills, progression and features"
+        }
+      ]
+    },
+    "classes/legendary-dreadnought-459": {
+      "name": "Legendary Dreadnought",
+      "prerequisites": [
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+23"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Intimidate 15 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Combat Reflexes; Great Cleave; Improved Bull Rush; Improved Critical"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://www.d20srd.org/srd/epic/prestigeClasses/legendaryDreadnought.htm",
+          "role": "SRD prerequisites cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/legendary-dreadnought-459",
+          "role": "primary class statistics, skills, progression and features"
+        }
+      ]
+    },
+    "classes/berserk-354": {
+      "name": "Berserk",
+      "sourceEdition": "3.0",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any nonlawful"
+        },
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Armor Proficiency (medium); Martial Weapon Proficiency (battleaxe, longsword, or warhammer); Shield Proficiency"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://anyflip.com/lphgc/cdzm/basic/201-236",
+          "role": "original Deities & Demigods printed requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/berserk-354",
+          "role": "primary class statistics, skills, progression and features"
+        }
+      ],
+      "notes": "Original source is 3.0-era material. Secondary adaptations may change skill names or add campaign-specific patron requirements; prerequisite data here preserves the printed Deities & Demigods source."
+    },
+    "classes/moto-avenger-640": {
+      "name": "Moto Avenger",
+      "sourceEdition": "3.0",
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Human (Unicorn)"
+        },
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any good"
+        },
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Ride 8 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Mounted Combat; Spirited Charge; Trample"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "original Oriental Adventures requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/moto-avenger-640",
+          "role": "primary parsed class statistics, skills, progression and features"
+        }
+      ],
+      "notes": "Original class source is Oriental Adventures (3.0-era material); prerequisite supplement preserves the printed source requirements."
+    },
+    "classes/righteous-zealot-351": {
+      "name": "Righteous Zealot",
+      "prerequisites": [
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Bluff 3 ranks; Concentration 8 ranks; Diplomacy 8 ranks; Perform (any, including storytelling) 3 ranks; Sense Motive 4 ranks"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/classes/righteous-zealot/index.html",
+          "role": "requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/righteous-zealot-351",
+          "role": "primary parsed class statistics, progression and features"
+        }
+      ]
+    },
+    "classes/spellfire-hierophant-1038": {
+      "name": "Spellfire Hierophant",
+      "prerequisites": [
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Concentration 24 ranks; Knowledge (arcana) 12 ranks; Spellcraft 12 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Endurance; Epic Spellfire Wielder; Spellfire Wielder; Weapon Focus (spellfire)"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Forgotten%20Realms%20Setting/Players%20Guide%20To%20Faerun.pdf",
+          "role": "Player's Guide to Faerûn requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/spellfire-hierophant-1038",
+          "role": "primary parsed class statistics, progression and features"
+        }
+      ]
+    },
+    "classes/stormcaster-831": {
+      "name": "Stormcaster",
+      "skillPoints": "2 + Int",
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/general/stormcaster.shtml",
+          "role": "skill-points cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/stormcaster-831",
+          "role": "primary parsed requirements, class skills, progression and features"
+        }
+      ]
+    },
+    "classes/nentyar-hunter-888": {
+      "name": "Nentyar Hunter",
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special",
+          "1st",
+          "2nd",
+          "3rd",
+          "4th",
+          "5th"
+        ],
+        [
+          "1st",
+          "+0",
+          "+2",
+          "+2",
+          "+0",
+          "Woodland stride",
+          "2",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        [
+          "2nd",
+          "+1",
+          "+3",
+          "+3",
+          "+0",
+          "Swift tracker",
+          "2",
+          "1",
+          "—",
+          "—",
+          "—"
+        ],
+        [
+          "3rd",
+          "+2",
+          "+3",
+          "+3",
+          "+1",
+          "Swiftness of the stag",
+          "3",
+          "2",
+          "1",
+          "—",
+          "—"
+        ],
+        [
+          "4th",
+          "+3",
+          "+4",
+          "+4",
+          "+1",
+          "Eyes of the hawk",
+          "3",
+          "2",
+          "2",
+          "1",
+          "—"
+        ],
+        [
+          "5th",
+          "+3",
+          "+4",
+          "+4",
+          "+1",
+          "Heart of the lion",
+          "3",
+          "3",
+          "2",
+          "2",
+          "1"
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://dndtools.org/classes/nentyar-hunter/",
+          "role": "requirements, progression and class-skill cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/nentyar-hunter-888",
+          "role": "primary parsed class statistics, requirements and features"
+        }
+      ]
+    },
+    "classes/corrupt-avenger-530": {
+      "name": "Corrupt Avenger",
+      "skillPoints": "2 + Int",
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/general/corruptavenger.shtml",
+          "role": "skill-points cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/corrupt-avenger-530",
+          "role": "primary parsed class statistics, requirements, progression and features"
+        }
+      ]
+    },
+    "classes/dreadmaster-482": {
+      "name": "Dreadmaster",
+      "skillPoints": "2 + Int",
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/dreadmaster.shtml",
+          "role": "skill-points cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/dreadmaster-482",
+          "role": "primary parsed class statistics, requirements, progression and features"
+        }
+      ]
+    },
+    "classes/hida-defender-633": {
+      "name": "Hida Defender",
+      "sourceEdition": "3.0",
+      "classSkills": [
+        "Climb",
+        "Handle Animal",
+        "Iaijutsu Focus",
+        "Intimidate",
+        "Jump",
+        "Knowledge (Shadowlands)",
+        "Ride",
+        "Sense Motive",
+        "Swim"
+      ],
+      "provenance": [
+        {
+          "url": "https://anyflip.com/rrkxx/jskg/basic/201-250",
+          "role": "original Oriental Adventures class-skill list cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/hida-defender-633",
+          "role": "primary catalog identity, requirements, statistics, progression and features"
+        }
+      ],
+      "notes": "Original class source is Oriental Adventures (3.0-era material); the supplement preserves only the printed class-skill list."
+    },
+    "classes/outcast-champion-708": {
+      "name": "Outcast Champion",
+      "classSkills": [
+        "Climb",
+        "Craft",
+        "Diplomacy",
+        "Disguise",
+        "Hide",
+        "Intimidate",
+        "Jump",
+        "Knowledge (local)",
+        "Move Silently",
+        "Survival"
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/general/outcastchampion.shtml",
+          "role": "class-skill list cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/outcast-champion-708",
+          "role": "primary parsed class statistics, requirements, progression and features"
+        }
+      ]
+    },
+    "classes/shaper-form-989": {
+      "name": "Shaper of Form",
+      "classSkills": [
+        "Appraise",
+        "Concentration",
+        "Craft",
+        "Disable Device",
+        "Escape Artist",
+        "Heal",
+        "Knowledge (arcana)",
+        "Profession",
+        "Spellcraft"
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/general/shaperform.shtml",
+          "role": "class-skill list cross-check"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/classes/prestigeDc/shaperOfForm.html",
+          "role": "SRD class identity, requirements and hit-die cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/shaper-form-989",
+          "role": "primary parsed class statistics, requirements, progression and features"
+        }
+      ]
+    },
+    "classes/knight-of-the-iron-glacier-504": {
+      "name": "Knight of the Iron Glacier",
+      "hit_die": 10,
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/Knight_of_the_Iron_Glacier",
+          "role": "hit-die cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/knight-of-the-iron-glacier-504",
+          "role": "primary parsed requirements, skills, progression and features"
+        }
+      ]
+    },
+    "classes/netherese-arcanist-1033": {
+      "name": "Netherese Arcanist",
+      "hit_die": 4,
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/netherese.shtml",
+          "role": "hit-die and progression cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/netherese-arcanist-1033",
+          "role": "primary parsed requirements, skills, progression and features"
+        }
+      ]
+    },
+    "classes/breachgnome-696": {
+      "name": "Breachgnome",
+      "sourceEdition": "3.0",
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Gnome"
+        },
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any nonchaotic"
+        },
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Listen 5 ranks; Spot 5 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Combat Reflexes; Dodge; Improved Initiative"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Forgotten%20Realms%20Setting/Races%20Of%20Faerun.pdf",
+          "role": "original Races of Faerûn requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/breachgnome-696",
+          "role": "primary parsed statistics, skills, progression and features"
+        }
+      ],
+      "notes": "Original source is 3.0-era Races of Faerûn material."
+    },
+    "classes/great-rift-skyguard-698": {
+      "name": "Great Rift Skyguard",
+      "sourceEdition": "3.0",
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Gold dwarf"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Handle Animal 4 ranks; Jump 4 ranks; Ride 8 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Mounted Combat; Toughness"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/skyguard.shtml",
+          "role": "requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/great-rift-skyguard-698",
+          "role": "primary parsed statistics, skills, progression and features"
+        }
+      ],
+      "notes": "Original source is 3.0-era Races of Faerûn material."
+    },
+    "classes/spellfire-channeler-573": {
+      "name": "Spellfire Channeler",
+      "prerequisites": [
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Concentration 8 ranks; Knowledge (arcana) 2 ranks; Spellcraft 2 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Endurance; Spellfire Wielder"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/sfirechanneler.shtml",
+          "role": "requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/spellfire-channeler-573",
+          "role": "primary parsed statistics, skills, progression and features"
+        }
+      ]
+    },
+    "classes/warrior-skald-701": {
+      "name": "Warrior Skald",
+      "sourceEdition": "3.0",
+      "prerequisites": [
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Concentration 6 ranks; Perform (poetry or other) 9 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Power Attack; Cleave"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/skald.shtml",
+          "role": "requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/warrior-skald-701",
+          "role": "primary parsed statistics, skills, progression and features"
+        }
+      ],
+      "notes": "Original source is 3.0-era Races of Faerûn material."
+    },
+    "classes/bone-collector-523": {
+      "name": "Bone Collector",
+      "hit_die": 8,
+      "skillPoints": "4 + Int",
+      "classSkills": [
+        "Concentration",
+        "Craft",
+        "Heal",
+        "Hide",
+        "Intimidate",
+        "Knowledge (arcana)",
+        "Knowledge (the planes)",
+        "Profession",
+        "Sense Motive"
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special",
+          "1st",
+          "2nd",
+          "3rd"
+        ],
+        [
+          "1st",
+          "+0",
+          "+0",
+          "+0",
+          "+2",
+          "Lesser bone armor; recognize undead",
+          "1",
+          "—",
+          "—"
+        ],
+        [
+          "2nd",
+          "+1",
+          "+0",
+          "+0",
+          "+3",
+          "Lesser bone weapon",
+          "2",
+          "0",
+          "—"
+        ],
+        [
+          "3rd",
+          "+2",
+          "+1",
+          "+1",
+          "+3",
+          "Negative energy shroud",
+          "2",
+          "1",
+          "—"
+        ],
+        [
+          "4th",
+          "+3",
+          "+1",
+          "+1",
+          "+4",
+          "Greater bone armor",
+          "2",
+          "2",
+          "0"
+        ],
+        [
+          "5th",
+          "+3",
+          "+1",
+          "+1",
+          "+4",
+          "Greater bone weapon",
+          "2",
+          "2",
+          "1"
+        ],
+        [
+          "6th",
+          "+4",
+          "+2",
+          "+2",
+          "+5",
+          "Undead channel",
+          "2",
+          "2",
+          "2"
+        ]
+      ],
+      "featureNames": [
+        "Lesser bone armor",
+        "Recognize undead",
+        "Lesser bone weapon",
+        "Negative energy shroud",
+        "Greater bone armor",
+        "Greater bone weapon",
+        "Undead channel"
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/other/bonecollector.shtml",
+          "role": "requirements, class skills, progression and feature-name cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/bone-collector-523",
+          "role": "primary catalog identity/source book"
+        }
+      ]
+    },
+    "classes/fiend-of-corruption-472": {
+      "name": "Fiend of Corruption",
+      "hit_die": 6,
+      "skillPoints": "2 + Int",
+      "classSkills": [
+        "Bluff",
+        "Diplomacy",
+        "Disguise",
+        "Knowledge (religion)",
+        "Listen",
+        "Search",
+        "Sense Motive",
+        "Spot"
+      ],
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Outsider with the evil subtype"
+        },
+        {
+          "kind": "base_save_bonus",
+          "label": "Base Save Bonus",
+          "text": "Will +7"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Bluff 10 ranks; Disguise 10 ranks; Sense Motive 10 ranks"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Must be able to use charm person or charm monster as a spell or spell-like ability"
+        }
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+0",
+          "+2",
+          "+2",
+          "+2",
+          "Alternate form; fiend's favor"
+        ],
+        [
+          "2nd",
+          "+1",
+          "+3",
+          "+3",
+          "+3",
+          "Suggestion; mind shielding"
+        ],
+        [
+          "3rd",
+          "+2",
+          "+3",
+          "+3",
+          "+3",
+          "Mark of justice"
+        ],
+        [
+          "4th",
+          "+3",
+          "+4",
+          "+4",
+          "+4",
+          "Fiendish graft; major creation"
+        ],
+        [
+          "5th",
+          "+3",
+          "+4",
+          "+4",
+          "+4",
+          "Geas; temptation"
+        ],
+        [
+          "6th",
+          "+4",
+          "+5",
+          "+5",
+          "+5",
+          "Grant wish; soul bargain"
+        ]
+      ],
+      "featureNames": [
+        "Alternate form",
+        "Fiend's favor",
+        "Suggestion",
+        "Mind shielding",
+        "Mark of justice",
+        "Fiendish graft",
+        "Major creation",
+        "Geas",
+        "Temptation",
+        "Grant wish",
+        "Soul bargain"
+      ],
+      "provenance": [
+        {
+          "url": "https://anyflip.com/myubd/ovic/basic/201-226",
+          "role": "Fiend Folio printed requirements, skills, hit die and class-feature cross-check"
+        },
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/evil/corruption.shtml",
+          "role": "progression and feature-name cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/fiend-of-corruption-472",
+          "role": "primary catalog identity/source book"
+        }
+      ]
+    },
+    "classes/celebrant-of-sharess-659": {
+      "name": "Celebrant of Sharess",
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Chaotic good"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Diplomacy 7 ranks; Perform (any) 7 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Sacred Vow; Vow of Purity"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/prestige/realms/celebrantsharess.shtml",
+          "role": "requirements cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/celebrant-of-sharess-659",
+          "role": "primary parsed class statistics, skills, progression and features"
+        }
+      ]
+    },
+    "classes/eidolon-72": {
+      "name": "Eidolon",
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+1",
+          "+0",
+          "+0",
+          "+2",
+          "Ghost feat, free multiclassing"
+        ],
+        [
+          "2nd",
+          "+2",
+          "+0",
+          "+0",
+          "+3",
+          "Ghost feat"
+        ],
+        [
+          "3rd",
+          "+3",
+          "+1",
+          "+1",
+          "+3",
+          ""
+        ],
+        [
+          "4th",
+          "+4",
+          "+1",
+          "+1",
+          "+4",
+          "Ghost feat"
+        ],
+        [
+          "5th",
+          "+5",
+          "+1",
+          "+1",
+          "+4",
+          ""
+        ],
+        [
+          "6th",
+          "+6/+1",
+          "+2",
+          "+2",
+          "+5",
+          "Ghost feat"
+        ],
+        [
+          "7th",
+          "+7/+2",
+          "+2",
+          "+2",
+          "+5",
+          ""
+        ],
+        [
+          "8th",
+          "+8/+3",
+          "+2",
+          "+2",
+          "+6",
+          "Ghost feat"
+        ],
+        [
+          "9th",
+          "+9/+4",
+          "+3",
+          "+3",
+          "+6",
+          ""
+        ],
+        [
+          "10th",
+          "+10/+5",
+          "+3",
+          "+3",
+          "+7",
+          "Ghost feat"
+        ],
+        [
+          "11th",
+          "+11/+6/+1",
+          "+3",
+          "+3",
+          "+7",
+          ""
+        ],
+        [
+          "12th",
+          "+12/+7/+2",
+          "+4",
+          "+4",
+          "+8",
+          "Ghost feat"
+        ],
+        [
+          "13th",
+          "+13/+8/+3",
+          "+4",
+          "+4",
+          "+8",
+          ""
+        ],
+        [
+          "14th",
+          "+14/+9/+4",
+          "+4",
+          "+4",
+          "+9",
+          "Ghost feat"
+        ],
+        [
+          "15th",
+          "+15/+10/+5",
+          "+5",
+          "+5",
+          "+9",
+          ""
+        ],
+        [
+          "16th",
+          "+16/+11/+6/+1",
+          "+5",
+          "+5",
+          "+10",
+          "Ghost feat"
+        ],
+        [
+          "17th",
+          "+17/+12/+7/+2",
+          "+5",
+          "+5",
+          "+10",
+          ""
+        ],
+        [
+          "18th",
+          "+18/+13/+8/+3",
+          "+6",
+          "+6",
+          "+11",
+          "Ghost feat"
+        ],
+        [
+          "19th",
+          "+19/+14/+9/+4",
+          "+6",
+          "+6",
+          "+11",
+          ""
+        ],
+        [
+          "20th",
+          "+20/+15/+10/+5",
+          "+6",
+          "+6",
+          "+12",
+          "Ghost feat"
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://anyflip.com/cmjgl/uwip/basic/",
+          "role": "Ghostwalk Table 1-1 full progression cross-check"
+        },
+        {
+          "url": "https://www.realmshelps.net/charbuild/classes/alternate/eidolon.shtml",
+          "role": "class statistics, skills and feature cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/eidolon-72",
+          "role": "primary parsed class identity and remaining mechanics"
+        }
+      ]
+    },
+    "classes/elf-paragon-1002": {
+      "name": "Elf Paragon",
+      "hit_die": 8,
+      "provenance": [
+        {
+          "url": "https://leinz.io/dnd35/unearthedParagon.html",
+          "role": "Unearthed Arcana SRD hit-die cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/elf-paragon-1002",
+          "role": "primary parsed class skills, progression and features"
+        }
+      ]
+    },
+    "classes/giant-killer-808": {
+      "name": "Giant-killer",
+      "sourceEdition": "3.0",
+      "hit_die": 10,
+      "skillPoints": "2 + Int",
+      "classSkills": [
+        "Climb",
+        "Hide",
+        "Jump",
+        "Move Silently",
+        "Tumble",
+        "Wilderness Lore"
+      ],
+      "prerequisites": [
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Dodge; Mobility; Toughness"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Hide 2 ranks; Wilderness Lore 4 ranks"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Must have already slain at least one giant of any type and damaged that giant with at least one melee attack"
+        }
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+1",
+          "+2",
+          "+0",
+          "+0",
+          "Giant lore +1, improved mobility, smite big folk 1/day"
+        ],
+        [
+          "2nd",
+          "+2",
+          "+3",
+          "+0",
+          "+0",
+          "Damage reduction 1/—"
+        ],
+        [
+          "3rd",
+          "+3",
+          "+3",
+          "+1",
+          "+1",
+          "Giant lore +2, smite big folk 2/day"
+        ],
+        [
+          "4th",
+          "+4",
+          "+4",
+          "+1",
+          "+1",
+          "Diehard"
+        ],
+        [
+          "5th",
+          "+5",
+          "+4",
+          "+1",
+          "+1",
+          "Giant lore +3, smite big folk 3/day"
+        ],
+        [
+          "6th",
+          "+6",
+          "+5",
+          "+2",
+          "+2",
+          "Damage reduction 2/—"
+        ],
+        [
+          "7th",
+          "+7",
+          "+5",
+          "+2",
+          "+2",
+          "Giant lore +4, smite big folk 4/day"
+        ],
+        [
+          "8th",
+          "+8",
+          "+6",
+          "+2",
+          "+2",
+          "Diehard 2"
+        ],
+        [
+          "9th",
+          "+9",
+          "+6",
+          "+3",
+          "+3",
+          "Giant lore +5, smite big folk 5/day"
+        ],
+        [
+          "10th",
+          "+10",
+          "+7",
+          "+3",
+          "+3",
+          "Damage reduction 3/—, diehard 3"
+        ]
+      ],
+      "featureNames": [
+        "Giant Lore",
+        "Improved Mobility",
+        "Smite Big Folk",
+        "Damage Reduction",
+        "Diehard"
+      ],
+      "provenance": [
+        {
+          "url": "https://pdfcoffee.com/silver-marches-pdf-free.html",
+          "role": "Silver Marches pp.109-110 requirements, skills, statistics, progression and feature-name cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/giant-killer-808",
+          "role": "primary catalog identity/source pointer"
+        }
+      ],
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
+    },
+    "classes/hordebreaker-809": {
+      "name": "Hordebreaker",
+      "sourceEdition": "3.0",
+      "hit_die": 12,
+      "skillPoints": "2 + Int",
+      "classSkills": [
+        "Climb",
+        "Intimidate",
+        "Jump",
+        "Knowledge (local)",
+        "Move Silently",
+        "Search",
+        "Spot",
+        "Swim",
+        "Wilderness Lore"
+      ],
+      "prerequisites": [
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Power Attack; Cleave; Great Cleave"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Knowledge (local) 5 ranks; Spot 4 ranks"
+        }
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+1",
+          "+2",
+          "+0",
+          "+0",
+          "First horde enemy, horde knowledge"
+        ],
+        [
+          "2nd",
+          "+2",
+          "+3",
+          "+0",
+          "+0",
+          "Hold the line"
+        ],
+        [
+          "3rd",
+          "+3",
+          "+3",
+          "+1",
+          "+1",
+          "Second horde enemy"
+        ],
+        [
+          "4th",
+          "+4",
+          "+4",
+          "+1",
+          "+1",
+          "Tough to kill"
+        ],
+        [
+          "5th",
+          "+5",
+          "+4",
+          "+1",
+          "+1",
+          "Third horde enemy, anvil of doom"
+        ]
+      ],
+      "featureNames": [
+        "Horde Enemy",
+        "Horde Knowledge",
+        "Hold the Line",
+        "Tough to Kill",
+        "Anvil of Doom"
+      ],
+      "provenance": [
+        {
+          "url": "https://pdfcoffee.com/silver-marches-pdf-free.html",
+          "role": "Silver Marches pp.110-112 requirements, skills, statistics, progression and feature-name cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/hordebreaker-809",
+          "role": "primary catalog identity/source pointer"
+        }
+      ],
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
+    },
+    "classes/knight-errant-of-silverymoon-810": {
+      "name": "Knight-errant of Silverymoon",
+      "sourceEdition": "3.0",
+      "hit_die": 8,
+      "skillPoints": "4 + Int",
+      "classSkills": [
+        "Bluff",
+        "Climb",
+        "Handle Animal",
+        "Hide",
+        "Diplomacy",
+        "Intimidate",
+        "Intuit Direction",
+        "Jump",
+        "Knowledge",
+        "Listen",
+        "Move Silently",
+        "Ride",
+        "Sense Motive",
+        "Spot",
+        "Wilderness Lore"
+      ],
+      "prerequisites": [
+        {
+          "kind": "alignment",
+          "label": "Alignment",
+          "text": "Any good"
+        },
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Mounted Combat; Ride-By Attack; Survivor; Weapon Focus (light lance or heavy lance)"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Intuit Direction 2 ranks; Knowledge (Silverymoon local) or Knowledge (the North local) 4 ranks; Ride 4 ranks; Spot 4 ranks"
+        },
+        {
+          "kind": "special",
+          "label": "Other",
+          "text": "Serve among the Knights in Silver for at least one year and petition for detachment as a knight-errant, or receive a direct knight-errant commission from the High Mage of Silverymoon"
+        }
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+1",
+          "+2",
+          "+0",
+          "+0",
+          "Badge of office, first sworn enemy"
+        ],
+        [
+          "2nd",
+          "+2",
+          "+3",
+          "+0",
+          "+0",
+          "Fighter feat, Marches knowledge"
+        ],
+        [
+          "3rd",
+          "+3",
+          "+3",
+          "+1",
+          "+1",
+          "Homeland"
+        ],
+        [
+          "4th",
+          "+4",
+          "+4",
+          "+1",
+          "+1",
+          "Fast march"
+        ],
+        [
+          "5th",
+          "+5",
+          "+4",
+          "+1",
+          "+1",
+          "Fighter feat"
+        ],
+        [
+          "6th",
+          "+6",
+          "+5",
+          "+2",
+          "+2",
+          "Faultless navigation"
+        ],
+        [
+          "7th",
+          "+7",
+          "+5",
+          "+2",
+          "+2",
+          "Second sworn enemy"
+        ],
+        [
+          "8th",
+          "+8",
+          "+6",
+          "+2",
+          "+2",
+          "Expert rider"
+        ],
+        [
+          "9th",
+          "+9",
+          "+6",
+          "+3",
+          "+3",
+          "Fighter feat"
+        ],
+        [
+          "10th",
+          "+10",
+          "+7",
+          "+3",
+          "+3",
+          "Loyal heart"
+        ]
+      ],
+      "featureNames": [
+        "Badge of Office",
+        "Sworn Enemy",
+        "Fighter Feat",
+        "Marches Knowledge",
+        "Homeland",
+        "Fast March",
+        "Faultless Navigation",
+        "Expert Rider",
+        "Loyal Heart"
+      ],
+      "provenance": [
+        {
+          "url": "https://pdfcoffee.com/silver-marches-pdf-free.html",
+          "role": "Silver Marches pp.112-114 requirements, skills, statistics, progression and feature-name cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/knight-errant-of-silverymoon-810",
+          "role": "primary catalog identity/source pointer"
+        }
+      ],
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
+    },
+    "classes/orc-scout-811": {
+      "name": "Orc Scout",
+      "sourceEdition": "3.0",
+      "hit_die": 8,
+      "skillPoints": "4 + Int",
+      "classSkills": [
+        "Climb",
+        "Craft",
+        "Heal",
+        "Hide",
+        "Intuit Direction",
+        "Jump",
+        "Listen",
+        "Move Silently",
+        "Search",
+        "Spot",
+        "Swim",
+        "Use Rope",
+        "Wilderness Lore"
+      ],
+      "prerequisites": [
+        {
+          "kind": "race",
+          "label": "Race",
+          "text": "Orc, half-orc, or tanarukk"
+        },
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Move Silently 6 ranks; Wilderness Lore 4 ranks"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Alertness; Endurance; Stealthy"
+        }
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+0",
+          "+0",
+          "+2",
+          "+0",
+          "Fieldcraft +1, blend into wilds"
+        ],
+        [
+          "2nd",
+          "+1",
+          "+0",
+          "+3",
+          "+0",
+          "Bonus feat, fast movement (40 ft.)"
+        ],
+        [
+          "3rd",
+          "+2",
+          "+1",
+          "+3",
+          "+1",
+          "Fieldcraft +2, sneak attack +1d6"
+        ],
+        [
+          "4th",
+          "+3",
+          "+1",
+          "+4",
+          "+1",
+          "Bonus feat"
+        ],
+        [
+          "5th",
+          "+3",
+          "+1",
+          "+4",
+          "+1",
+          "Fieldcraft +3, fast movement (50 ft.)"
+        ]
+      ],
+      "featureNames": [
+        "Fieldcraft",
+        "Blend into Wilds",
+        "Bonus Feat",
+        "Fast Movement",
+        "Sneak Attack"
+      ],
+      "provenance": [
+        {
+          "url": "https://pdfcoffee.com/silver-marches-pdf-free.html",
+          "role": "Silver Marches pp.114-115 requirements, skills, statistics, progression and feature-name cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/orc-scout-811",
+          "role": "primary catalog identity/source pointer"
+        }
+      ],
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
+    },
+    "classes/wild-scout-813": {
+      "name": "Wild Scout",
+      "sourceEdition": "3.0",
+      "hit_die": 8,
+      "skillPoints": "4 + Int",
+      "classSkills": [
+        "Animal Empathy",
+        "Climb",
+        "Handle Animal",
+        "Hide",
+        "Intuit Direction",
+        "Jump",
+        "Knowledge (nature)",
+        "Listen",
+        "Move Silently",
+        "Spot",
+        "Wilderness Lore"
+      ],
+      "prerequisites": [
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+5"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Endurance; Track"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Hide 8 ranks; Intuit Direction 4 ranks; Knowledge (nature) 4 ranks; Move Silently 4 ranks"
+        }
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+0",
+          "+2",
+          "+0",
+          "+0",
+          "Improved track, home turf, wild feat"
+        ],
+        [
+          "2nd",
+          "+1",
+          "+3",
+          "+0",
+          "+0",
+          "Fast march, nondetection"
+        ],
+        [
+          "3rd",
+          "+2",
+          "+3",
+          "+1",
+          "+1",
+          "Camouflage 1"
+        ],
+        [
+          "4th",
+          "+3",
+          "+4",
+          "+1",
+          "+1",
+          "Home turf 2"
+        ],
+        [
+          "5th",
+          "+3",
+          "+4",
+          "+1",
+          "+1",
+          "Commune with nature 1/day"
+        ],
+        [
+          "6th",
+          "+4",
+          "+5",
+          "+2",
+          "+2",
+          "Camouflage 2"
+        ],
+        [
+          "7th",
+          "+5",
+          "+5",
+          "+2",
+          "+2",
+          "Commune with nature 2/day"
+        ],
+        [
+          "8th",
+          "+6",
+          "+6",
+          "+2",
+          "+2",
+          "Home turf 3"
+        ],
+        [
+          "9th",
+          "+6",
+          "+6",
+          "+3",
+          "+3",
+          "Camouflage 3"
+        ],
+        [
+          "10th",
+          "+7",
+          "+7",
+          "+3",
+          "+3",
+          "Commune with nature 3/day, wild feat"
+        ]
+      ],
+      "featureNames": [
+        "Improved Track",
+        "Home Turf",
+        "Wild Feat",
+        "Fast March",
+        "Nondetection",
+        "Camouflage",
+        "Commune with Nature"
+      ],
+      "provenance": [
+        {
+          "url": "https://pdfcoffee.com/silver-marches-pdf-free.html",
+          "role": "Silver Marches pp.117-118 requirements, skills, statistics, progression and feature-name cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/wild-scout-813",
+          "role": "primary catalog identity/source pointer"
+        }
+      ],
+      "notes": "Original source is Silver Marches (3.0-era material).",
+      "prestige": true
+    },
+    "classes/spur-lord-537": {
+      "name": "Spur Lord",
+      "sourceEdition": "3.0",
+      "hit_die": 10,
+      "skillPoints": "4 + Int",
+      "classSkills": [
+        "Bluff",
+        "Climb",
+        "Concentration",
+        "Craft",
+        "Diplomacy",
+        "Disguise",
+        "Intimidate",
+        "Jump",
+        "Knowledge (religion)",
+        "Move Silently",
+        "Profession",
+        "Ride",
+        "Sense Motive",
+        "Swim",
+        "Tumble"
+      ],
+      "prerequisites": [
+        {
+          "kind": "base_attack_bonus",
+          "label": "Base Attack Bonus",
+          "text": "+4"
+        },
+        {
+          "kind": "skills",
+          "label": "Skills",
+          "text": "Bluff 3 ranks; Concentration 3 ranks; Knowledge (religion) 3 ranks; Sense Motive 3 ranks; Tumble 5 ranks"
+        },
+        {
+          "kind": "patron",
+          "label": "Patron",
+          "text": "Cyric"
+        },
+        {
+          "kind": "feats",
+          "label": "Feats",
+          "text": "Iron Will; Leadership; Lightning Reflexes; Quick Draw"
+        },
+        {
+          "kind": "special",
+          "label": "Special",
+          "text": "Must have made peaceful contact with an evil outsider serving Cyric or received a prophetic dream from Cyric"
+        }
+      ],
+      "progression": [
+        [
+          "Level",
+          "BAB",
+          "Fort",
+          "Ref",
+          "Will",
+          "Special"
+        ],
+        [
+          "1st",
+          "+1",
+          "+2",
+          "+0",
+          "+0",
+          "Dark bond"
+        ],
+        [
+          "2nd",
+          "+2",
+          "+3",
+          "+0",
+          "+0",
+          "Secret blade"
+        ],
+        [
+          "3rd",
+          "+3",
+          "+3",
+          "+1",
+          "+1",
+          "Dark flames"
+        ],
+        [
+          "4th",
+          "+4",
+          "+4",
+          "+1",
+          "+1",
+          "Cyric's glory"
+        ],
+        [
+          "5th",
+          "+5",
+          "+4",
+          "+1",
+          "+1",
+          "Flesh of the prince"
+        ]
+      ],
+      "featureNames": [
+        "Dark Bond",
+        "Secret Blade",
+        "Dark Flames",
+        "Cyric's Glory",
+        "Flesh of the Prince"
+      ],
+      "provenance": [
+        {
+          "url": "https://manuals.plus/m/c2bc6a67cbbbe0100a816b7b91ec68cde73b49e23b730c892941b92c9bb13c48",
+          "role": "Lords of Darkness extracted source text for requirements, skills, statistics, progression and feature names"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/spur-lord-537",
+          "role": "primary catalog identity/source pointer"
+        }
+      ],
+      "notes": "Original source is Lords of Darkness (3.0-era material).",
+      "prestige": true
+    },
+    "classes/survivor-822": {
+      "name": "Survivor",
+      "classSkillRule": {
+        "mode": "inherit_from_previous_classes_or_race"
+      },
+      "provenance": [
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/Dungeons%20and%20dragons%20mega%20book%20pack/WIzards%20OF%20the%20coast%20Sourcebooks/Savage%20Species%20-%20Playing%20Monstrous%20Characters%20%28oef%2C%20act%2C%20bm%2C%20hq%29%20%28WTC881580000%29.pdf",
+          "role": "Savage Species p.89 class-skill rule cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/classes/survivor-822",
+          "role": "primary parsed class statistics, requirements, progression and features; class-skill rule omitted"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "purpose": "Permanent strict live regressions for known-problematic D&D 3.x item enrichment records.",
+  "records": [
+    {
+      "id": "items/saddle-of-speed-1-791",
+      "mode": "supplement",
+      "required": [
+        "effectSummary"
+      ]
+    },
+    {
+      "id": "items/saddle-of-speed-2-792",
+      "mode": "supplement",
+      "required": [
+        "effectSummary"
+      ]
+    },
+    {
+      "id": "items/saddle-of-speed-3-793",
+      "mode": "supplement",
+      "required": [
+        "effectSummary"
+      ]
+    },
+    {
+      "id": "items/saddle-of-speed-4-794",
+      "mode": "supplement",
+      "required": [
+        "effectSummary"
+      ]
+    },
+    {
+      "id": "items/saddle-of-speed-5-795",
+      "mode": "supplement",
+      "required": [
+        "effectSummary"
+      ]
+    },
+    {
+      "id": "items/dragonblood-items",
+      "mode": "supplement",
+      "required": [
+        "sourceBook"
+      ]
+    },
+    {
+      "id": "items/key-of-opening/closing-758",
+      "mode": "sourceFallback",
+      "required": [
+        "sourceBook",
+        "effectSummary"
+      ]
+    },
+    {
+      "id": "items/oil-of-binding/loosening-760",
+      "mode": "sourceFallback",
+      "required": [
+        "sourceBook",
+        "effectSummary"
+      ]
+    },
+    {
+      "id": "items/varie-99999",
+      "mode": "nonGameplayReference",
+      "referenceKind": "generic-varied-entry",
+      "required": [
+        "nonGameplayReference",
+        "referenceKind"
+      ]
+    }
+  ]
+}

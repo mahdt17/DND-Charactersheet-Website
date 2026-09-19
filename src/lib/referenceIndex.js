@@ -1,4 +1,5 @@
 import {useEffect,useState} from 'react';
+import {normalizeContentEntry} from './content';
 
 // Preserve source IDs: same-name entries from different books remain distinct.
 export function useReferenceIndex() {
@@ -16,7 +17,18 @@ export function useReferenceIndex() {
       const groups=await Promise.all(['classes','races','spells','feats'].map(async category=>{
         const rows=await read(category);
         if(rows.length!==manifest.categories.find(c=>c.id===category)?.count)throw Error('Reference count mismatch: '+category);
-        return rows.map(r=>({...r,index:r.id,id:`dndtools:${r.id}`,catalogId:`dndtools:${r.id}`,edition:'3.5',category:({classes:'class',races:'race',spells:'spell',feats:'feat'})[category],source:'DnD Tools',sourceUrl:r.url,referenceOnly:true,description:'Read the source reference and enter any mechanical choices on your sheet.',classes:[],level:null}));
+        const type=({classes:'class',races:'race',spells:'spell',feats:'feat'})[category];
+        return rows.map(r=>normalizeContentEntry({
+          ...r,
+          index:r.id,
+          id:`dndtools:${r.id}`,
+          catalogId:`dndtools:${r.id}`,
+          edition:'3.5',
+          category:type,
+          source:'DnD Tools',
+          sourceUrl:r.url,
+          referenceOnly:true
+        }));
       }));
       if(!controller.signal.aborted)setState({entries:groups.flat(),loading:false,error:''});
     })().catch(e=>{if(e.name!=='AbortError')setState({entries:[],loading:false,error:e.message});});

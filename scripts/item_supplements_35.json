@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Structured factual supplements for D&D 3.x item pages whose primary DnD Tools record omits gameplay-critical mechanics. Supplements fill missing fields only; conflicts fail validation.",
+  "entries": {
+    "items/saddle-of-speed-2-792": {
+      "name": "Saddle of Speed 2",
+      "sourceEdition": "3.0",
+      "effectSummary": "Enhances the wearer's speed as tier 2 of the Saddle of Speed family, equivalent to 2 applications of the 3.0 Speed of Thought feat; it can provide up to a +20-foot speed increase. The actual increase is limited by both the saddle's tier and the wearer's qualifying psionic reserve; a wearer with psionic powers but no psionic class instead uses the highest-level power held in reserve to determine the available family tier.",
+      "ruleStats": {
+        "saddleLevel": 2,
+        "equivalentSpeedOfThoughtApplications": 2,
+        "maximumSpeedBonusFeet": 20,
+        "manifesterLevel": 6,
+        "priceGp": 8500
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/saddle-of-speed-2-792",
+          "role": "primary catalog identity and tier metadata; gameplay effect omitted"
+        },
+        {
+          "url": "https://www.scribd.com/document/783417905/The-Mind-s-Eye-Archive",
+          "role": "archived Mind's Eye Saddle of Speed family mechanics and tier-2 statistics cross-check"
+        },
+        {
+          "url": "https://dndtools.net/feats/psionics-handbook-30--46/speed-of-thought--2690/",
+          "role": "3.0 Speed of Thought feat mechanics cross-check"
+        }
+      ]
+    },
+    "items/saddle-of-speed-1-791": {
+      "name": "Saddle of Speed 1",
+      "sourceEdition": "3.0",
+      "effectSummary": "Enhances the wearer's speed as tier 1 of the Saddle of Speed family, equivalent to 1 application of the 3.0 Speed of Thought feat; it can provide up to a +10-foot speed increase. The actual increase is limited by both the saddle's tier and the wearer's qualifying psionic reserve; a wearer with psionic powers but no psionic class instead uses the highest-level power held in reserve to determine the available family tier.",
+      "ruleStats": {
+        "saddleLevel": 1,
+        "equivalentSpeedOfThoughtApplications": 1,
+        "maximumSpeedBonusFeet": 10,
+        "manifesterLevel": 3,
+        "priceGp": 2000
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/saddle-of-speed-1-791",
+          "role": "primary catalog identity and tier metadata; gameplay effect omitted"
+        },
+        {
+          "url": "https://www.scribd.com/document/783417905/The-Mind-s-Eye-Archive",
+          "role": "archived Mind's Eye Saddle of Speed family mechanics and tier-1 statistics cross-check"
+        },
+        {
+          "url": "https://dndtools.net/feats/psionics-handbook-30--46/speed-of-thought--2690/",
+          "role": "3.0 Speed of Thought feat mechanics cross-check"
+        }
+      ]
+    },
+    "items/saddle-of-speed-3-793": {
+      "name": "Saddle of Speed 3",
+      "sourceEdition": "3.0",
+      "effectSummary": "Enhances the wearer's speed as tier 3 of the Saddle of Speed family, equivalent to 3 applications of the 3.0 Speed of Thought feat; it can provide up to a +30-foot speed increase. The actual increase is limited by both the saddle's tier and the wearer's qualifying psionic reserve; a wearer with psionic powers but no psionic class instead uses the highest-level power held in reserve to determine the available family tier.",
+      "ruleStats": {
+        "saddleLevel": 3,
+        "equivalentSpeedOfThoughtApplications": 3,
+        "maximumSpeedBonusFeet": 30,
+        "manifesterLevel": 9,
+        "priceGp": 18000
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/saddle-of-speed-3-793",
+          "role": "primary catalog identity and tier metadata; gameplay effect omitted"
+        },
+        {
+          "url": "https://www.scribd.com/document/783417905/The-Mind-s-Eye-Archive",
+          "role": "archived Mind's Eye Saddle of Speed family mechanics and tier-3 statistics cross-check"
+        },
+        {
+          "url": "https://dndtools.net/feats/psionics-handbook-30--46/speed-of-thought--2690/",
+          "role": "3.0 Speed of Thought feat mechanics cross-check"
+        }
+      ]
+    },
+    "items/saddle-of-speed-4-794": {
+      "name": "Saddle of Speed 4",
+      "sourceEdition": "3.0",
+      "effectSummary": "Enhances the wearer's speed as tier 4 of the Saddle of Speed family, equivalent to 4 applications of the 3.0 Speed of Thought feat; it can provide up to a +40-foot speed increase. The actual increase is limited by both the saddle's tier and the wearer's qualifying psionic reserve; a wearer with psionic powers but no psionic class instead uses the highest-level power held in reserve to determine the available family tier.",
+      "ruleStats": {
+        "saddleLevel": 4,
+        "equivalentSpeedOfThoughtApplications": 4,
+        "maximumSpeedBonusFeet": 40,
+        "manifesterLevel": 12,
+        "priceGp": 32000
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/saddle-of-speed-4-794",
+          "role": "primary catalog identity and tier metadata; gameplay effect omitted"
+        },
+        {
+          "url": "https://www.scribd.com/document/783417905/The-Mind-s-Eye-Archive",
+          "role": "archived Mind's Eye Saddle of Speed family mechanics and tier-4 statistics cross-check"
+        },
+        {
+          "url": "https://dndtools.net/feats/psionics-handbook-30--46/speed-of-thought--2690/",
+          "role": "3.0 Speed of Thought feat mechanics cross-check"
+        }
+      ]
+    },
+    "items/saddle-of-speed-5-795": {
+      "name": "Saddle of Speed 5",
+      "sourceEdition": "3.0",
+      "effectSummary": "Enhances the wearer's speed as tier 5 of the Saddle of Speed family, equivalent to 5 applications of the 3.0 Speed of Thought feat; it can provide up to a +50-foot speed increase. The actual increase is limited by both the saddle's tier and the wearer's qualifying psionic reserve; a wearer with psionic powers but no psionic class instead uses the highest-level power held in reserve to determine the available family tier.",
+      "ruleStats": {
+        "saddleLevel": 5,
+        "equivalentSpeedOfThoughtApplications": 5,
+        "maximumSpeedBonusFeet": 50,
+        "manifesterLevel": 15,
+        "priceGp": 50000
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/saddle-of-speed-5-795",
+          "role": "primary catalog identity and tier metadata; gameplay effect omitted"
+        },
+        {
+          "url": "https://www.scribd.com/document/783417905/The-Mind-s-Eye-Archive",
+          "role": "archived Mind's Eye Saddle of Speed family mechanics and tier-5 statistics cross-check"
+        },
+        {
+          "url": "https://dndtools.net/feats/psionics-handbook-30--46/speed-of-thought--2690/",
+          "role": "3.0 Speed of Thought feat mechanics cross-check"
+        }
+      ]
+    },
+    "items/dragonblood-items": {
+      "name": "Dragonblood Items",
+      "sourceBook": "Races of the Dragon",
+      "sourceAbbr": "RDr",
+      "sourcePage": 123,
+      "sourceEdition": "3.5",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dragonblood-items",
+          "role": "primary catalog identity and gameplay rules; source metadata omitted"
+        },
+        {
+          "url": "https://thyamath.com/donjons/%5BDD%5DRaces_of_the_Dragon.pdf",
+          "role": "Races of the Dragon source identification and page-123 cross-check"
+        }
+      ]
+    }
+  }
+}

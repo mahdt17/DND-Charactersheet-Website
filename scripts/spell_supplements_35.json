@@ -1,0 +1,1372 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Structured factual supplements for D&D 3.5 spell pages whose primary DnD Tools record omits gameplay-critical fields. Fill missing fields only; conflicts fail validation.",
+  "entries": {
+    "spells/divine-inspiration-37": {
+      "name": "Divine Inspiration",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-inspiration-37",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "Book of Exalted Deeds spell block cross-check"
+        }
+      ]
+    },
+    "spells/luminous-armor-7": {
+      "name": "Luminous Armor",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-armor-7",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/book-of-exalted-deeds--52/luminous-armor--7/index.html",
+          "role": "components cross-check"
+        }
+      ]
+    },
+    "spells/luminous-armor-greater-8": {
+      "name": "Luminous Armor, Greater",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-armor-greater-8",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/book-of-exalted-deeds--52/luminous-armor-greater--8/index.html",
+          "role": "components cross-check"
+        }
+      ]
+    },
+    "spells/brilliant-emanation-62": {
+      "name": "Brilliant Emanation",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/brilliant-emanation-62",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "Book of Exalted Deeds spell block cross-check"
+        }
+      ]
+    },
+    "spells/inquisition-49": {
+      "name": "Inquisition",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inquisition-49",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "Book of Exalted Deeds spell block cross-check"
+        }
+      ]
+    },
+    "spells/telepathy-tap-42": {
+      "name": "Telepathy Tap",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/telepathy-tap-42",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/book-of-exalted-deeds--52/telepathy-tap--42/",
+          "role": "components cross-check"
+        }
+      ]
+    },
+    "spells/restore-souls-treasure-112": {
+      "name": "Restore Soul's Treasure",
+      "components": [
+        "Sacrifice"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/restore-souls-treasure-112",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "Book of Exalted Deeds spell block cross-check"
+        }
+      ]
+    },
+    "spells/stalwart-pact-3043": {
+      "name": "Stalwart Pact",
+      "components": [
+        "V",
+        "S",
+        "DF",
+        "XP"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stalwart-pact-3043",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-divine--56/stalwart-pact--710/",
+          "role": "Complete Divine components cross-check"
+        }
+      ]
+    },
+    "spells/slaying-arrow-4953": {
+      "name": "Slaying Arrow",
+      "components": [
+        "S",
+        "M"
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/slaying-arrow-4953",
+          "role": "primary catalog identity and source; components omitted"
+        },
+        {
+          "url": "https://www.dndtools.one/slaying-arrow-4953",
+          "role": "Magic of Eberron material-component cross-check"
+        },
+        {
+          "url": "https://anyflip.com/ithax/epfu/basic/101-150",
+          "role": "Magic of Eberron p.102 components cross-check"
+        }
+      ]
+    },
+    "spells/cloak-dark-power-4987": {
+      "name": "Cloak of Dark Power",
+      "domainLevels": [
+        {
+          "name": "Drow",
+          "level": 1
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-dark-power-4987",
+          "role": "primary catalog identity; access level omitted"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/spell-compendium--86/cloak-dark-power--4028/index.html",
+          "role": "same spell Drow-domain level cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/cloak-dark-power-4028",
+          "role": "complete same-spell Spell Compendium record on the primary catalog used to restore the truncated effect text"
+        }
+      ],
+      "effectSummary": "Creates a dusky haze around the subject that does not impair vision but protects the subject and its worn or carried gear from the effects of full sunlight. A drow subject avoids blindness and bright-illumination combat penalties while protected. The subject also gains a +4 resistance bonus on saving throws against light or darkness spells and effects.",
+      "resolvesSourceIncomplete": true
+    },
+    "spells/darkseed-1922": {
+      "name": "Darkseed",
+      "classLevels": {
+        "Druid": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkseed-1922",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/darkseed--1922/",
+          "role": "Druid 0 level cross-check"
+        }
+      ]
+    },
+    "spells/daze-animal-1894": {
+      "name": "Daze Animal",
+      "classLevels": {
+        "Druid": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/daze-animal-1894",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/daze-animal--1894/",
+          "role": "Druid 0 level cross-check"
+        }
+      ]
+    },
+    "spells/detect-disease-2046": {
+      "name": "Detect Disease",
+      "classLevels": {
+        "Shaman": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-disease-2046",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures shaman 0-level spell list cross-check"
+        }
+      ]
+    },
+    "spells/easy-math-3324": {
+      "name": "Easy Math",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/easy-math-3324",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/song-and-silence-a-guidebook-to-bards-and-rogues--48/easy-math--3324/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/fine-tuning-3325": {
+      "name": "Fine-tuning",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fine-tuning-3325",
+          "role": "primary page lists Bard but omits level"
+        },
+        {
+          "url": "https://dndtools.net/spells/song-and-silence-a-guidebook-to-bards-and-rogues--48/fine-tuning--3325/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/fire-eyes-1926": {
+      "name": "Fire Eyes",
+      "classLevels": {
+        "Druid": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-eyes-1926",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/fire-eyes--1926/",
+          "role": "Druid 0 level cross-check"
+        }
+      ]
+    },
+    "spells/ghostharp-1636": {
+      "name": "Ghostharp",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostharp-1636",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/magic-of-faerun--20/ghostharp--1636/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/ghostharp-3902": {
+      "name": "Ghostharp",
+      "classLevels": {
+        "Bard": 0
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ghostharp-3902",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/ghostharp--3902/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/minor-disguise-1777": {
+      "name": "Minor Disguise",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/minor-disguise-1777",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/magic-of-faerun--20/minor-disguise--1777/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/minor-disguise-4571": {
+      "name": "Minor Disguise",
+      "classLevels": {
+        "Bard": 0
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/minor-disguise-4571",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.org/m/spells/spell-compendium--86/minor-disguise--4571/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/percussion-3318": {
+      "name": "Percussion",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/percussion-3318",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/song-and-silence-a-guidebook-to-bards-and-rogues--48/percussion--3318/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/repair-minor-damage-3425": {
+      "name": "Repair Minor Damage",
+      "classLevels": {
+        "Sorcerer": 0,
+        "Wizard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-minor-damage-3425",
+          "role": "primary catalog identity; class levels omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/tome-and-blood-a-guidebook-to-wizards-and-sorcerers--51/repair-minor-damage--3425/",
+          "role": "Sorcerer 0 and Wizard 0 cross-check"
+        }
+      ]
+    },
+    "spells/scarecrow-1912": {
+      "name": "Scarecrow",
+      "classLevels": {
+        "Druid": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scarecrow-1912",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.org/spells/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/scarecrow--1912/",
+          "role": "Druid 0 level cross-check"
+        }
+      ]
+    },
+    "spells/songbird-1793": {
+      "name": "Songbird",
+      "classLevels": {
+        "Bard": 0
+      },
+      "sourceEdition": "3.0",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/songbird-1793",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/magic-of-faerun--20/songbird--1793/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/songbird-4191": {
+      "name": "Songbird",
+      "classLevels": {
+        "Bard": 0
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/songbird-4191",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/songbird--4191/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/summon-instrument-2440": {
+      "name": "Summon Instrument",
+      "classLevels": {
+        "Bard": 0
+      },
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-instrument-2440",
+          "role": "primary catalog identity; class level omitted"
+        },
+        {
+          "url": "https://dndtools.net/spells/players-handbook-v35--6/summon-instrument--2440/",
+          "role": "Bard 0 level cross-check"
+        }
+      ]
+    },
+    "spells/analyze-portal-4986": {
+      "name": "Analyze Portal",
+      "effectSummary": "Detects magical portals or gate effects after 1 round of studying an area and reveals their sizes and locations. Once a portal is found, each round of study can reveal, in order, its activation key, special activation circumstances, whether it is one-way or two-way, and then a 1-round glimpse of its destination; each property requires a caster-level check against DC 17 and can be retried on a later round. For unusual portals, a random portal reveals only that it is random and whether it can currently activate; a variable portal reveals only its current destination; a creature-only portal reveals where creatures go but not a separate equipment destination; and a malfunctioning portal reveals only that it malfunctions, not the malfunction type.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/analyze-portal-4986",
+          "role": "primary Expedition to Undermountain catalog record; effect text contains an explicit missing-content marker"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/spell-compendium--86/analyze-portal--3826/index.html",
+          "role": "complete 3.5 Analyze Portal printing used to restore the omitted unusual-portal mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/manual-of-the-planes--43/analyze-portal--1857/index.html",
+          "role": "independent same-spell cross-check for unusual-portal mechanics"
+        }
+      ]
+    },
+    "spells/anathema-274": {
+      "name": "Anathema",
+      "effectSummary": "Permanently severs the divine link between the caster's deity and a lower-level cleric, druid, ranger, paladin, or ordinary worshiper of the same faith, even across planes. Affected divine characters lose divine spellcasting and class-granted divine powers such as turning or commanding undead, healing, harming, smiting, shapechanging, and similar abilities. An ordinary worshiper is barred from the faith's services, and a subject who dies under the effect is denied entry to the deity's plane. Members of the faith must shun the subject, while clerics, paladins, druids, and rangers of that faith automatically recognize the anathema by sight. The effect lasts until lifted by the original caster, removed by a higher-level cleric of the same faith using atonement, or ended when the subject changes divine allegiance.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anathema-274",
+          "role": "primary catalog record; source prose is silently truncated in the middle of the effect"
+        },
+        {
+          "url": "https://housegriffon.com/RPG/Games/DnD/dd3.x/ForgottenRealms/Champions%20of%20Ruin.pdf",
+          "role": "Champions of Ruin p.28 complete spell text used to restore omitted mechanics"
+        }
+      ]
+    },
+    "spells/arboreal-transformation-867": {
+      "name": "Arboreal Transformation",
+      "effectSummary": "Transforms the subject into a Huge oak tree. For a number of days equal to caster level, the tree is animated as a treant that cannot animate other trees and serves the caster's commands; it can follow the caster or be left with a triggering phrase as with liveoak. When that duration expires, the subject becomes a normal permanent tree rooted where it stands if possible. A creature that succeeds on its Fortitude save is instead slowed for the spell's duration and returns to normal when that duration ends.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/arboreal-transformation-867",
+          "role": "primary catalog record; effect prose is truncated/corrupted at the liveoak reference"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-mage--58/arboreal-transformation--867/",
+          "role": "complete same-spell 3.5 text used only to restore the omitted mechanics"
+        }
+      ]
+    },
+    "spells/greater-aspect-of-the-deity-975": {
+      "name": "Aspect of the Deity, Greater",
+      "effectSummary": "Functions as lesser aspect of the deity but grants half-celestial or half-fiend qualities without their spell-like abilities, changes the caster's type to outsider for the duration, and still allows resurrection if slain. A good cleric gains feathered wings with flight at twice normal speed and good maneuverability, +1 natural armor, low-light vision, immunity to acid, cold, disease, and electricity, +4 racial on saves against poison, and ability bonuses of +4 Strength, +2 Dexterity, +4 Constitution, +2 Intelligence, +4 Wisdom, and +4 Charisma. An evil cleric gains batlike wings with flight at normal speed and average maneuverability, +1 natural armor, bite and claw attacks based on size, 60-foot darkvision, immunity to poison, resistance 20 to acid, cold, electricity, and fire, and ability bonuses of +4 Strength, +4 Dexterity, +2 Constitution, +4 Intelligence, +4 Wisdom, and +2 Charisma.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/greater-aspect-of-the-deity-975",
+          "role": "primary catalog record; description is truncated mid-sentence before the good-cleric transformations"
+        },
+        {
+          "url": "https://dndtools.net/spells/defenders-of-the-faith-a-guidebook-to-clerics-and-paladins--38/greater-aspect-of-the-deity--975/",
+          "role": "complete same-spell D&D Tools mirror used to restore omitted mechanics"
+        },
+        {
+          "url": "https://anyflip.com/myubd/wlqn/basic/51-100",
+          "role": "Defenders of the Faith p.86 cross-check of the complete spell text"
+        }
+      ]
+    },
+    "spells/blessing-of-the-snake-mother-1380": {
+      "name": "Blessing of the Snake Mother",
+      "effectSummary": "Temporarily grants several yuan-ti tainted-one traits. The target gains the Alertness feat, +2 Constitution, and complete immunity to snake venom and yuan-ti poison. Its appearance becomes more feral and snakelike, and it counts as a yuan-ti for spells and other effects, including favored-enemy interactions and Ghostwalk rules that prevent yuan-ti from forming ghosts. The spell grants the caster no control over the target and is normally used on willing subjects.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/blessing-of-the-snake-mother-1380",
+          "role": "primary catalog record; description is truncated immediately after introducing the granted benefits"
+        },
+        {
+          "url": "https://dndtools.net/spells/ghostwalk--94/blessing-of-the-snake-mother--1380/",
+          "role": "complete same-spell D&D Tools mirror used to restore the omitted mechanics"
+        },
+        {
+          "url": "https://anyflip.com/cmjgl/uwip/basic/",
+          "role": "Ghostwalk sourcebook text cross-check of the restored mechanics"
+        }
+      ]
+    },
+    "spells/celebration-1646": {
+      "name": "Celebration",
+      "effectSummary": "Affected creatures receive one Will save when the spell begins. The caster must perform a drinking song for at least 1 full round; intoxication then escalates by performance round: round 1 has no effect, round 2 imposes a -2 enhancement penalty to Dexterity, Intelligence, and Wisdom, round 3 makes the subject nauseated, and round 4 makes the subject helpless. Creatures entering the area after casting are not affected, and affected creatures need not remain in the area. The effects persist while the caster keeps performing; if performance stops, they no longer worsen and fade after 1 round per caster level.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/celebration-1646",
+          "role": "primary catalog record; prose references a required intoxication table that is absent from the rebuilt page/export"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/51-100",
+          "role": "Magic of Faerûn p.84 used to recover the omitted round-by-round intoxication table"
+        },
+        {
+          "url": "https://housegriffon.com/RPG/Games/DnD/dd3.x/ForgottenRealms/Magic%20of%20Faerun.pdf",
+          "role": "independent sourcebook cross-check of the omitted table"
+        }
+      ]
+    },
+    "spells/citys-might-3051": {
+      "name": "City's Might",
+      "effectSummary": "While within 100 feet of a qualifying community, grants enhancement bonuses to Strength and Constitution plus damage reduction based on settlement size: large town or smaller +2 Strength/Constitution and DR 2/adamantine; small city +4 and DR 4/adamantine; large city +6 and DR 6/adamantine; metropolis +10 and DR 10/adamantine. If cast more than 100 feet from a community it has no effect, and moving more than 100 feet from the community ends the spell immediately.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/citys-might-3051",
+          "role": "primary catalog identity, source, duration, range, community-distance rule, and statement that bonuses scale with community size; numeric scaling omitted"
+        },
+        {
+          "url": "https://dnd-wiki.org/wiki/Urbanmeld_(3.5e_Soulmeld)",
+          "role": "independent 3.5 rules implementation explicitly reproducing the City's Might settlement-size bonus table"
+        },
+        {
+          "url": "https://www.scribd.com/document/541789819/SpellForge-3-5-4-5-1",
+          "role": "independent 3.5 spell reference confirming City's Might as the Races of Destiny Str/Con enhancement plus adamantine-DR spell"
+        }
+      ]
+    },
+    "spells/dweomer-of-transference-1140": {
+      "name": "Dweomer of Transference",
+      "effectSummary": "Surrounds one willing psionic creature with a field that converts spells cast at it into temporary power points instead of their normal effects. Power gained by spell level is: 0→0, 1st→1, 2nd→2, 3rd→4, 4th→6, 5th→8, 6th→10, 7th→12, 8th→14, 9th→16. The spells must still be cast normally with their usual components and range requirements. Unspent temporary power points disappear after 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dweomer-of-transference-1140",
+          "role": "primary catalog record; effect references a required spell-level-to-power-point table omitted from the rebuilt page"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/psionic/spells/dweomerOfTransference.htm",
+          "role": "3.5 SRD copy used to restore the omitted power-point conversion table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/summon-undead-i-1343": {
+      "name": "Summon Undead I",
+      "effectSummary": "Functions as summon monster I but summons an undead creature. This Ghostwalk printing's 1st-level Summon Undead list contains a Medium skeleton or a Small zombie. The chosen creature can change each casting, summoned undead do not count against undead-control Hit Dice limits, and summoning undead is always evil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1343",
+          "role": "primary Ghostwalk catalog record; required 1st-level summon table omitted"
+        },
+        {
+          "url": "https://anyflip.com/cmjgl/uwip/basic/51-100",
+          "role": "Ghostwalk sourcebook copy used to restore the omitted 1st-level Summon Undead list"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/abyssal-frenzy-1157": {
+      "name": "Abyssal Frenzy",
+      "effectSummary": "Transforms the subject for the duration: land speed +30 feet, +3 enhancement natural armor, +2 profane Strength and Constitution, -2 Dexterity, 60-foot darkvision or +60 feet to existing darkvision, and two claw attacks if it lacked them. New claw base damage by target size is Fine 1d2, Diminutive 1d3, Tiny 1d4, Small 1d6, Medium 1d8, Large 2d6, Huge 2d8, Gargantuan 4d6, Colossal 2d8; existing claws instead increase one damage die type. Hitting one target with both claws rends for twice claw damage plus twice Strength modifier. The subject cannot communicate, cast spells, use spell-like abilities, activate magic items, or wield weapons other than natural weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/abyssal-frenzy-1157",
+          "role": "primary catalog record; required claw-damage-by-size table omitted"
+        },
+        {
+          "url": "https://anyflip.com/myubd/dsnx/basic/51-100",
+          "role": "Fiendish Codex I sourcebook copy used to restore the omitted claw-damage table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/summon-giants-1262": {
+      "name": "Summon Giants",
+      "effectSummary": "Summons one selected giant group to act immediately and fight for the caster: three fiendish hill giants (CE), two celestial or fiendish stone giants (N), one fiendish frost giant (CE), or one fiendish fire giant (LE). If the caster speaks Giant, the summoned giants can be directed to withhold attacks, attack specific enemies, or perform other actions. They act normally on the last round and disappear at the end of their turns.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-giants-1262",
+          "role": "primary Frostburn catalog record; required giant selection table omitted"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/Frostburn.pdf",
+          "role": "Frostburn sourcebook copy used to restore the omitted giant type/number/alignment table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/weighed-in-the-balance-3501": {
+      "name": "Weighed In the Balance",
+      "effectSummary": "Affects creatures in the area according to the original Underdark alignment/life-status table. Living LG, CG, LE, or CE creatures are affected as inflict critical wounds; living NG, LN, CN, or NE creatures as inflict light wounds; living true-neutral creatures as cure critical wounds; and all undead as heal, which damages them as normal for that spell. A Will save negates the effect and spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weighed-in-the-balance-3501",
+          "role": "primary Underdark catalog record; required alignment/effect table omitted"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Forgotten%20Realms%20Setting/Underdark.pdf",
+          "role": "Underdark sourcebook copy used to restore the original alignment/effect table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/giant-size-2111": {
+      "name": "Giant Size",
+      "effectSummary": "Changes the caster's body size according to caster level in this Oriental Adventures printing: levels 15–16 become Huge (20 ft.) with +16 Strength, -2 Dexterity, +4 Constitution, +3 natural armor, and -2 size modifier to AC/attacks; levels 17–18 become Gargantuan (40 ft.) with +24 Strength, -2 Dexterity, +8 Constitution, +7 natural armor, and -4 AC/attack modifier; levels 19–20 become Colossal (72 ft.) with +32 Strength, -2 Dexterity, +12 Constitution, +12 natural armor, and -8 AC/attack modifier. Only ordinary mundane clothing changes size with the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/giant-size-2111",
+          "role": "primary Oriental Adventures catalog record; required caster-level/size adjustment table omitted"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures sourcebook copy used to restore the omitted size-adjustment table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/minute-form-2116": {
+      "name": "Minute Form",
+      "effectSummary": "Shrinks the caster according to caster level in this Oriental Adventures printing: levels 15–16 become Tiny (18 in.) with -8 Strength, +4 Dexterity, -2 Constitution, and +2 size modifier to AC/attacks; levels 17–18 become Diminutive (9 in.) with -10 Strength, +6 Dexterity, -2 Constitution, and +4 AC/attack modifier; levels 19–20 become Fine (3 in.) with -10 Strength, +8 Dexterity, -2 Constitution, and +8 AC/attack modifier. No ability score can be reduced below 1. Only ordinary mundane clothing changes size with the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/minute-form-2116",
+          "role": "primary Oriental Adventures catalog record; required caster-level/size adjustment table omitted"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures sourcebook copy used to restore the omitted size-adjustment table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/summon-undead-i-1625": {
+      "name": "Summon Undead I",
+      "effectSummary": "Functions as summon monster I but summons an undead creature. This Magic of Faerûn printing's 1st-level list contains a Medium-size skeleton or a Small zombie. The chosen creature can change each casting, and summoned undead do not count against the caster's controlled-undead Hit Dice limit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1625",
+          "role": "primary Magic of Faerûn catalog record; required 1st-level summon table omitted"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/101-150",
+          "role": "Magic of Faerûn sourcebook copy used to restore the omitted 1st-level Summon Undead list"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/summon-undead-i-2231": {
+      "name": "Summon Undead I",
+      "effectSummary": "Functions as summon monster I but summons an undead creature. This Player's Guide to Faerûn printing's 1st-level list contains a Medium skeleton or a Small zombie. The chosen creature can change each casting, and summoned undead do not count against the total Hit Dice controlled through animate dead or the cleric command-undead ability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-2231",
+          "role": "primary Player's Guide to Faerûn catalog record; required 1st-level summon table omitted"
+        },
+        {
+          "url": "https://manuals.plus/m/07a05aac9d81c638e21996c8efb6e3747477e6bbf343803d74a41d24ab40e380",
+          "role": "Player's Guide to Faerûn sourcebook copy used to restore the omitted Summon Undead table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-vestige-3444": {
+      "name": "Detect Vestige",
+      "effectSummary": "Detects auras of creatures currently bound to vestiges. Round 1 reveals presence or absence; round 2 reveals the number of vestige auras and the strongest aura; round 3 reveals each aura's strength and location, or direction if outside line of sight. Aura strength depends on the minimum effective binder level needed for the vestige: 1st–4th faint, 5th–9th moderate, 10th–14th strong, 15th+ overwhelming. Each round the cone can be redirected; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood/dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-vestige-3444",
+          "role": "primary Tome of Magic catalog record; required binder-level/aura-strength table omitted"
+        },
+        {
+          "url": "https://ace-dog.com/Alair/srd.dndtools.org/srd/magic/spells/spells/spellstom.html",
+          "role": "Tome of Magic SRD copy used to restore the omitted aura-strength table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/mighty-wallop-3106": {
+      "name": "Mighty Wallop",
+      "effectSummary": "Increases one bludgeoning melee weapon's damage by one effective size category without changing its dimensions or weight. For a Small weapon the conversion is 1→1d2, 1d2→1d3, 1d3→1d4, 1d4→1d6, 1d6→1d8, 1d8→1d10, and 1d10→1d12. Medium or larger weapons use the normal increasing-weapon-damage-by-size table.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mighty-wallop-3106",
+          "role": "primary Races of the Dragon catalog record; required Small-weapon damage table omitted"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Races%20of%20the%20Dragon.pdf",
+          "role": "Races of the Dragon sourcebook copy used to restore the omitted Small-weapon damage table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/plague-2995": {
+      "name": "Plague",
+      "effectSummary": "Immediately infects each failed-save target with one chosen disease, then forces additional saves every round instead of every day, always using plague's save DC. Disease damage is: blinding sickness 1d4 Strength, with another plague-DC Fortitude save against permanent blindness whenever 2+ Strength damage is taken; cackle fever 1d6 Wisdom; filth fever 1d3 Dexterity + 1d3 Constitution; mindfire 1d4 Intelligence; red ache 1d6 Strength; shakes 1d8 Dexterity; slimy doom 1d4 Constitution.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-2995",
+          "role": "primary Player's Handbook II catalog record; required disease/damage table omitted"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsphb2.html",
+          "role": "Player's Handbook II SRD copy used to restore the omitted disease/damage table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/crumble-1748": {
+      "name": "Crumble",
+      "effectSummary": "Erodes one fabricated nonliving object or structure, including a construct, for 1d6 damage per caster level to a maximum of 15d6, ignoring hardness. Living creatures are unaffected. Maximum target size depends on caster level: up to 15th level Huge, 16th–18th Gargantuan, and 19th–20th Colossal. Casting on an object larger than the allowed size fails.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crumble-1748",
+          "role": "primary catalog record; effect text contains the damage and size-dependent rule but omits the actual caster-level size table"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/crumble-740",
+          "role": "same-primary-catalog printing with matching 1d6/level, maximum 15d6 mechanics used to restore the omitted size table"
+        }
+      ]
+    },
+    "spells/crystalline-memories-871": {
+      "name": "Crystalline Memories",
+      "effectSummary": "Will negates and spell resistance applies. After casting, the caster must study the target for 3 consecutive rounds, concentrating each round; interruption causes the spell to be lost. When the study completes, the target's current surface thoughts, as detect thoughts, crystallize and erupt from its head, dealing 2d8 damage and 2 Intelligence damage before flying to the caster. Only the caster can spend a full-round action to view the stored thoughts. The crystal lasts 24 hours or until viewed once.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crystalline-memories-871",
+          "role": "primary catalog record; effect prose is truncated between the concentration rule and the crystallization of the target's surface thoughts"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCMage.html",
+          "role": "complete D&D Tools Complete Mage spell text used only to restore the omitted concentration/interruption and surface-thought crystallization mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-mage--58/crystalline-memories--871/",
+          "role": "independent archived D&D Tools rendering confirming the same omitted Complete Mage mechanics"
+        }
+      ]
+    },
+    "spells/detect-aberration-1529": {
+      "name": "Detect Aberration",
+      "effectSummary": "For up to 1 minute per caster level of concentration, the spell scans a 60-foot quarter-circle for aberrant life. Round 1 reveals presence or absence; round 2 reveals the number of aberrant auras and the strongest aura, and an overwhelming aura from a source with Hit Dice or level at least twice your character level stuns you for 1 round and ends the spell; round 3 reveals each aura's strength and location. Aura strength by Hit Dice is 1–3 faint, 4–7 moderate, 8–13 strong, and 14+ overwhelming; a humanoid with Aberration Blood is faint regardless of having more than 3 HD. After a source leaves or is destroyed, its aura lingers for 1d6 minutes if faint, 1d6×10 minutes if moderate, 1d6 hours if strong, or 1d6 days if overwhelming. Each round you can turn to a new area; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-aberration-1529",
+          "role": "primary Lords of Madness catalog record; prose references aura-strength and lingering-aura tables that are omitted from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellslom.html",
+          "role": "D&D Tools Lords of Madness SRD copy used only to restore the two omitted tables"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-dragonblood-1056": {
+      "name": "Detect Dragonblood",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the spell detects creatures of the dragon type or dragonblood subtype in a 60-foot cone. Round 1 reveals presence or absence; round 2 reveals their number and the strongest aura; round 3 reveals each aura's power and location, or only its direction if outside line of sight. If a detected aura is in line of sight, a Knowledge (arcana) check at DC 10 + the creature's Hit Dice identifies whether it comes from the dragon type or dragonblood subtype. Aura power is: dragonblood subtype—10 HD or lower faint, 11–25 moderate, 26–50 strong, 51+ overwhelming; dragon type—2 HD or lower faint, 3–8 moderate, 9–20 strong, 21+ overwhelming. If more than one category applies, use the stronger aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-dragonblood-1056",
+          "role": "primary Dragon Magic catalog record; prose references an accompanying aura-power table that is omitted from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsdragonmagic.html",
+          "role": "D&D Tools Dragon Magic SRD copy used only to restore the omitted aura-power table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-taint-1429": {
+      "name": "Detect Taint",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects taint in nearby objects and creatures. Round 1 reveals presence or absence; round 2 reveals the number of tainted creatures and the strongest aura, and if you are free of taint an overwhelming aura at least twice your character level nauseates you for 1 round and ends the spell; round 3 reveals each aura's strength and location, or only its direction if outside line of sight. Aura strength uses the higher of a creature's corruption or depravity score, or the amount of taint bestowed by a source without a taint score: score 1 or 0 taint bestowed is faint; score 2–6 or 1 taint bestowed is moderate; score 7–14 or 1d2/1d3 taint bestowed is strong; score 15+ or 1d4+ taint bestowed is overwhelming. A tainted object or location that bestows no taint is generally faint. Lingering duration is 1d6 minutes for faint, 1d6×10 minutes for moderate, 1d6 hours for strong, and 1d6 days for overwhelming. Each round you can turn to a new area; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-taint-1429",
+          "role": "primary Heroes of Horror catalog record; prose references aura-strength and lingering-aura tables that are omitted from the rebuilt page"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/sgqz/basic/101-150",
+          "role": "Heroes of Horror sourcebook rendering used only to restore the two omitted tables"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-taint-2047": {
+      "name": "Detect Taint",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot quarter-circle detects the Shadowlands Taint. Round 1 reveals presence or absence; round 2 reveals the number of Tainted creatures and the strongest aura, and if you are free of Taint an overwhelming aura at least twice your character level stuns you for 1 round and ends the effect; round 3 reveals each aura's strength and location, or only its direction if outside line of sight. A Shadowlands creature's Taint score is half its Charisma score, +1 if undead and +2 if an outsider. Aura strength is: a lingering aura dim; Taint score 1 faint; 2–4 moderate; 5–10 strong; 11+ overwhelming. If multiple categories apply, use the stronger aura. Lingering duration is 1d6 minutes for faint, 1d6×10 minutes for moderate, 1d6 hours for strong, and 1d6 days for overwhelming. Each round you can turn to a new area; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-taint-2047",
+          "role": "primary Oriental Adventures catalog record; prose references aura-strength and lingering-aura tables that are omitted from the rebuilt page"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures sourcebook copy used only to restore the two omitted tables"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-incarnum-1825": {
+      "name": "Detect Incarnum",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects incarnum, including creatures with the incarnum subtype, soulmelds, creatures with essentia, and essentia-invested magic items. Round 1 reveals presence or absence; round 2 reveals the number of incarnum auras and the strongest aura; round 3 reveals each aura's power and location, or only its direction if outside line of sight. Aura power is: incarnum-subtype creature by HD—10 or lower faint, 11–25 moderate, 26–50 strong, 51+ overwhelming; creature by essentia pool—2 or less faint, 3–10 moderate, 11–30 strong, 31+ overwhelming; shaped soulmeld by meldshaper level—5th or lower faint, 6th–11th moderate, 12th–20th strong, 21st+ overwhelming; essentia-invested object by caster level—5th or lower faint, 6th–11th moderate, 12th–20th strong, 21st+ overwhelming. If multiple categories apply, use the stronger aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-incarnum-1825",
+          "role": "primary Magic of Incarnum catalog record; prose references an aura-power table that is omitted from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsmoi.html",
+          "role": "D&D Tools Magic of Incarnum SRD copy used only to restore the omitted aura-power table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/freeze-armor-1311": {
+      "name": "Freeze Armor",
+      "effectSummary": "For 1 round per caster level, metal armor and equipment freeze. Unattended nonmagical metal gets no save; enchanted metal can save, and an item in a creature's possession uses the creature's save if higher. A creature in metal armor that fails its Fortitude save is immobilized, takes -6 on attack rolls and -8 effective Dexterity, cannot move, and must make a Concentration check at DC 15 + spell level to cast; it takes 1d6 cold damage on round 1, 2d6 on round 2, 3d6 on rounds 3–5, and 4d6 on round 6 and later. A metal-armored creature that saves takes half this damage. A creature not wearing metal armor that fails its save takes the listed damage if affected metal it holds, touches, wears, or carries weighs at least one-fifth of its weight; with less metal it instead takes the minimum 1, 2, 3, or 4 points respectively by those same round bands. A creature carrying less than one-fifth its weight in metal that saves is unaffected. Heat damage offsets this cold damage point for point, and vice versa.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/freeze-armor-1311",
+          "role": "primary Frostburn catalog record; prose references a required round/temperature/damage table that is omitted from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsfrost.html",
+          "role": "D&D Tools Frostburn SRD copy used only to restore the omitted damage progression table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/prismatic-wall-2344": {
+      "name": "Prismatic Wall",
+      "effectSummary": "Creates an immobile vertical opaque wall up to 4 feet wide per caster level and 2 feet high per caster level for 10 minutes per caster level; placing it through an occupied space wastes the spell. The caster can pass or remain nearby safely, but another creature with fewer than 8 HD within 20 feet that looks at it is blinded for 2d4 rounds. Its seven ordered colors are: red—stops nonmagical ranged weapons, deals 20 fire damage (Reflex half), negated by cone of cold; orange—stops magical ranged weapons, deals 40 acid damage (Reflex half), negated by gust of wind; yellow—stops poisons, gases, and petrification, deals 80 electricity damage (Reflex half), negated by disintegrate; green—stops breath weapons, poison kills with Fortitude partial for 1d6 Constitution damage instead, negated by passwall; blue—stops divination and mental attacks, petrifies with Fortitude negates, negated by magic missile; indigo—stops all spells, Will save or become insane as insanity, negated by daylight; violet—destroys all objects and effects and sends creatures to another plane unless they succeed on a Will save, negated by dispel magic. Colors must be removed in order. Rod of cancellation or mage's disjunction destroys the wall; antimagic field does not penetrate it; dispel magic and greater dispel magic cannot dispel the wall or anything beyond it except for the violet layer's listed negation. Spell resistance is checked separately against each color. The wall can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-wall-2344",
+          "role": "primary Player's Handbook v.3.5 catalog record; the rebuilt prose loses the seven-color table and contains truncated raw table markup"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/prismaticWall.htm",
+          "role": "3.5 SRD reference used only to restore the corrupted seven-color effects and negation table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-ship-3339": {
+      "name": "Detect Ship",
+      "effectSummary": "For 24 hours, you automatically sense other ships within 1 mile per caster level even when they are not visible or you are asleep. For a ship not yet visible, a DC 15 Profession (sailor) check reveals its number, direction, and range; once known, its direction and range remain known while it stays within the spell's range. For a ship within sight, studying it for 1 round allows Profession (sailor) checks that reveal progressively more information: DC 10 type of ship; DC 12 course, speed, and time to intercept if possible; DC 15 weaponry; DC 18 ship name; DC 20 signs of allegiance such as flags or national symbols; DC 25 port of call. The spell cannot penetrate illusions. The arcane focus is a small ground-glass disk on a gold chain worth 50 gp.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-ship-3339",
+          "role": "primary Stormwrack catalog record; rebuilt prose ends at the introduction to the visible-ship Profession (sailor) results table and omits the table rows"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/awhr/basic/101-150",
+          "role": "Stormwrack sourcebook rendering used only to restore the omitted Profession (sailor) DC/result table"
+        }
+      ]
+    },
+    "spells/sandform-3176": {
+      "name": "Sandform",
+      "effectSummary": "For 1 minute per caster level, you and all worn or carried equipment become living sand. You take an oozelike form and gain immunity to poison, sleep, paralysis, polymorphing, and stunning; you are not subject to extra damage from critical hits or flanking, but you retain Intelligence, Wisdom, and Charisma and remain vulnerable to mind-affecting effects. You ignore environmental heat and dehydration but can still take fire and dessication damage. You become blind but gain blindsight 60 feet. Your base attack bonus, base saves, alignment, level, class, hit points, type/subtype, extraordinary abilities, spells, and spell-like abilities remain unchanged; supernatural abilities are suppressed. In demanding situations such as combat, you must make a DC 19 Will save or take -2 on attacks, saves, skill checks, and ability checks until the situation passes. Your land speed becomes 20 feet; you can pass through openings as small as 1/4 inch, though moving through a space at least two size categories smaller takes a full-round action. You gain a pseudopod slam with 5 feet of extra reach; damage by caster size is Fine —, Diminutive 1, Tiny 1d4, Small 1d6, Medium 1d8, Large 2d6, Huge 3d6, Gargantuan 4d6, Colossal 5d6. The number of pseudopod attacks follows your base attack bonus and each adds 1-1/2 times Strength damage; you cannot wield weapons in this form. In sandy terrain you gain a burrow speed equal to your land speed, +10 circumstance on Hide checks, and concealment. On death you revert to your normal form. The material component is sand taken from an earth-subtype elemental.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sandform-3176",
+          "role": "primary Sandstorm catalog record; rebuilt prose omits the caster-size/slam-damage table immediately after introducing it"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/Dungeons%20and%20dragons%20mega%20book%20pack/WIzards%20OF%20the%20coast%20Sourcebooks/Sandstorm%20%28OEF%2C%20BM%2C%20WE%29.pdf",
+          "role": "Sandstorm sourcebook copy used only to restore the omitted slam-damage table"
+        }
+      ]
+    },
+    "spells/standing-wave-1936": {
+      "name": "Standing Wave",
+      "effectSummary": "For 10 minutes per caster level, you command water beneath one creature or object to lift and carry it in a straight line at 60 feet per round across water. The maximum size depends on caster level: 5th up to Medium, 7th Large, 9th Huge, 11th Gargantuan, and 13th Colossal. An affected object can carry creatures or other objects. When the wave reaches land, the spell ends and lowers its burden harmlessly to shore.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/standing-wave-1936",
+          "role": "primary Masters of the Wild catalog record; rebuilt prose states that lift capacity depends on caster level but omits the caster-level/size table"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/standing-wave-750",
+          "role": "same primary catalog Complete Divine printing used only to restore the matching 5th/7th/9th/11th/13th caster-level size thresholds"
+        }
+      ]
+    },
+    "spells/word-of-balance-3496": {
+      "name": "Word of Balance",
+      "effectSummary": "Any lawful good, chaotic good, lawful evil, or chaotic evil creature that hears the word suffers cumulative effects by Hit Dice with no saving throw: HD equal to caster level is nauseated for 1 round; up to caster level -1 is weakened for 2d4 rounds and nauseated; up to caster level -5 is paralyzed for 1d10 minutes, weakened, and nauseated; up to caster level -10 is killed if living or destroyed if undead in addition to the lesser effects. Weakened means -2d6 Strength. Creatures with more Hit Dice than your caster level are unaffected. If you cast on your home plane, aligned elementals and outsiders in the area are also banished to their home plane unless they make a Will save at -4; this banishment does not require them to hear the word, and a banished creature cannot return for at least 24 hours.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/word-of-balance-3496",
+          "role": "primary Underdark catalog record; rebuilt prose names the four cumulative effects but omits the Hit-Dice threshold table that assigns them"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/word-of-balance-4784",
+          "role": "same primary catalog Spell Compendium printing used only to restore the matching HD/effect thresholds"
+        }
+      ]
+    },
+    "spells/know-greatest-enemy-1637": {
+      "name": "Know Greatest Enemy",
+      "effectSummary": "For as long as you concentrate, the spell evaluates creatures in the area by Challenge Rating: CR 4 or lower is weak, CR 5–10 moderate, CR 11–15 strong, and CR 16 or higher overwhelming. Among creatures in the same category, you learn which is the most powerful but not why it is stronger. A 3rd-level or higher effect that prevents scrying on a creature or area, such as nondetection or false vision, also prevents this spell from evaluating the protected creature or creatures.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/know-greatest-enemy-1637",
+          "role": "primary Magic of Faerûn catalog record; rebuilt prose says creatures are evaluated 'as follows' but omits the CR/strength table"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/know-greatest-enemy-4331",
+          "role": "same primary catalog Spell Compendium printing used only to restore the matching CR/strength thresholds"
+        }
+      ]
+    },
+    "spells/summon-undead-i-1460": {
+      "name": "Summon Undead I",
+      "effectSummary": "Functions as summon monster I except that it summons undead. The creature appears where you designate within range, acts immediately on your turn, attacks your opponents to the best of its ability, and can be directed to other actions if you can communicate with it; as with summon monster I it cannot summon or conjure another creature or use teleportation or planar-travel abilities. This Libris Mortis printing's 1st-level summon list is Medium skeleton or Small zombie. You choose which one each time you cast the spell. Summoned undead do not count toward the total Hit Dice of undead you can control with animate dead or other command-undead abilities. Unlike the later Heroes of Horror and Spell Compendium revisions, this printing does not state the caster-level-plus-1 Hit Die cap. The focus is a tiny bag, a small unlit candle, and a carved bone from any humanoid.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1460",
+          "role": "primary Libris Mortis catalog record; rebuilt prose references the 1st-level Summon Undead table but omits its entries"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/dm/Libris%20Mortis.pdf",
+          "role": "Libris Mortis sourcebook copy used only to restore that printing's 1st-level list: Medium skeleton and Small zombie"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "same primary catalog referenced spell used to retain inherited summon placement, action, control, and travel restrictions"
+        }
+      ]
+    },
+    "spells/weapon-of-the-deity-1397": {
+      "name": "Weapon of the Deity",
+      "effectSummary": "You must be using your deity's favored weapon. You can wield it as though proficient, and it gains a +1 enhancement bonus on attack and damage rolls plus a deity-specific special ability; a double weapon applies the bonus and ability to only one head, chosen by you. If both heads of your weapon already have enhancement bonuses and special abilities, this effect does not function unless the weapon's normal enhancement bonus is lower than the bonus granted by the spell. The enhancement bonus becomes +2 at caster level 9, +3 at 12, +4 at 15, and +5 at 18. Ghostwalk deity abilities are: Aluvan—defending short sword; Chaniud—screaming longsword; Dracanish—mighty cleaving scimitar; Durann—flaming warhammer; Eanius—merciful quarterstaff; Galaedros—frost quarterstaff; Khostren—venomous spiked gauntlet; Nessek—flaming dagger; Orcus—torturous heavy mace; Phaant—venomous greataxe; Soggelos—frost trident; Tephaneron—keen battleaxe; Uhanam—mighty cleaving light flail; Wyst—defending shortspear.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-of-the-deity-1397",
+          "role": "primary Ghostwalk catalog record; rebuilt prose references a deity-specific list that is omitted"
+        },
+        {
+          "url": "https://anyflip.com/cmjgl/uwip/basic/51-100",
+          "role": "Ghostwalk sourcebook rendering used only to restore that printing's 14 deity weapon/special-ability rows"
+        }
+      ]
+    },
+    "spells/doom-of-the-seas-3332": {
+      "name": "Doom of the Seas",
+      "effectSummary": "Summons the specific Doom of the Seas creature for 1 round per caster level; it obeys the caster and the spell costs 500 XP. The summoned creature is the printed Stormwrack stat block labeled a fiendish kraken: CR 16, NE Gargantuan outsider (aquatic), 20d8 HD and 310 hp, AC 23 (touch 8, flat-footed 21), DR 10/magic, SR 30, Fort +21, Ref +14, Will +13, swim 30 feet, space 20 feet, base reach 15 feet with tentacles reaching 60 feet and arms 30 feet, BAB +20, grapple +46, Str 38, Dex 14, Con 30, Int 25, Wis 20, Cha 22. Its full attack is two tentacles +30 for 2d8+14/19–20, six arms +25 for 1d6+7, and bite +25 for 4d6+7. It has smite good 1/day (+6 attack, +20 damage), constrict 2d8+14 with tentacles or 1d6+7 with arms, improved grab with arm or tentacle hits against creatures of any size, poison immunity, resistance 10 to acid/cold/electricity/fire, an 80-foot ink cloud once per minute as a free action that provides total concealment and darkness, and a once-per-round 280-foot straight-line jet as a full-round action that does not provoke attacks of opportunity. Tentacles have 20 hp and arms 10 hp for sundering. Its printed block uses half-fiend traits rather than the generic fiendish template, has no wings, treats all its attacks as magic for overcoming damage reduction, and includes spell-like abilities: 1/day at CL 20th blasphemy, contagion, desecrate, destruction, horrid wilting, summon monster IX (fiends only), unhallow, unholy blight; 1/day at CL 9th control weather, control winds, dominate animal, resist energy; and 3/day at CL 20th darkness, poison, unholy aura.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doom-of-the-seas-3332",
+          "role": "primary Stormwrack catalog record; preserves the summoning, obedience, duration, and XP cost but references a creature statistics block that is absent from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsstorm.html",
+          "role": "older D&D Tools Stormwrack spell mirror used to confirm the same spell mechanics and that the promised creature block is also absent there"
+        },
+        {
+          "url": "https://www.realmshelps.net/monsters/block/Kraken,_Fiendish",
+          "role": "independent Stormwrack-matched creature rendering used only to restore the omitted Doom of the Seas statistics and combat abilities; the printed half-fiend-traits block is preserved rather than normalized to a generic fiendish template"
+        }
+      ]
+    },
+    "spells/dragonblood-beast-4864": {
+      "name": "Dragonblood Beast",
+      "effectSummary": "The animal gains the dragonblood subtype and one or more traits chosen when the spell is cast. Dragon's Scales grants +1 natural armor per two caster levels, maximum +10. Dragon's Teeth increases an existing bite attack by one damage step using the printed progressions: 1d2 → 1d3 → 1d4 → 1d6 → 1d8 → 2d6 → 3d6 → 4d6 → 6d6 → 8d6 → 12d6, or 1d10 → 2d8 → 3d8 → 4d8 → 6d8 → 8d8 → 12d8; it does not grant a bite to a creature that lacks one. Dragon's Wings grants fly 90 feet (poor), but a creature with existing wings keeps its original speed and maneuverability and only changes appearance. A caster with the Mark of Handling gains +1 caster level with a least mark, +2 with a lesser mark, or +3 with a greater or Siberys mark. The material component is Siberys dragonshard dust for a true dragonmark or Khyber dragonshard dust for an aberrant dragonmark; any true or aberrant dragonmark qualifies.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonblood-beast-4864",
+          "role": "primary Dragonmarked catalog record; rebuilt effect text corrupts the bite-damage progression by dropping die values while preserving the rest of the spell and the Dragonmark caster-level table"
+        },
+        {
+          "url": "https://net-clan.com/PDFS/DnD3.5e/D%26D3.5-Eberron-Dragonmarked.pdf",
+          "role": "Dragonmarked p.149 sourcebook copy used only to restore the missing bite-damage die values and punctuation in the printed progression"
+        }
+      ]
+    },
+    "spells/dragon-ally-lesser-4417": {
+      "name": "Dragon Ally, Lesser",
+      "effectSummary": "Calls a dragon of up to 15 HD and lets you bargain for one task. You must be able to communicate with it, payment must be made before it agrees, and bargaining takes at least 1 round, so it begins acting in the following round. Payment is 50 gp per HD for a task lasting up to 1 minute per caster level, 250 gp per HD for up to 1 hour per caster level, or 500 gp per HD for up to 1 day per caster level; especially hazardous tasks can cost up to twice these amounts, and the dragon never accepts less than the listed price. When the task or bargained duration ends, the dragon returns to where it was called from after reporting back if appropriate and possible. The spell costs 100 XP, and sorcerers cast it at +1 caster level.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-ally-lesser-4417",
+          "role": "primary Spell Compendium catalog record; rebuilt effect text corrupts the one-hour payment unit as '250 fp per HD' while preserving the rest of the spell"
+        },
+        {
+          "url": "https://anyflip.com/myubd/qfne/basic/51-100",
+          "role": "Spell Compendium p.73 sourcebook rendering used only to restore the printed one-hour payment as 250 gp per HD"
+        }
+      ]
+    },
+    "spells/dragonshape-3011": {
+      "name": "Dragonshape",
+      "effectSummary": "Transforms you into the spell's fixed mature adult red dragon form for 1 round per level and grants 150 temporary hit points that vanish when the spell ends; you do not gain the dragon form's normal spellcasting. The printed form has Init +0; blindsense 60 ft., darkvision 120 ft., quadruple-strength low-light vision, Listen +32 and Spot +32; languages as your normal form; AC 32 (touch 8, flat-footed 32); your normal hit points plus the 150 temporary hit points; DR 10/magic; SR 23; immunity to fire and vulnerability to cold; Fort +20, Ref +14, Will +18; speed 40 ft. and fly 150 ft. (poor). Its melee routine is bite +34 (2d8+11/19–20), 2 claws +32 (2d6+5/19–20), 2 wings +32 (1d8+5/19–20), and tail slap +32 (2d6+16/19–20); space 15 ft.; reach 10 ft. or 15 ft. with bite; BAB +25; grapple +44. Ability scores are Str 33, Dex 10, Con 23, Int 18, Wis 19, Cha 18. It has Cleave, Combat Reflexes, Flyby Attack, Improved Critical with bite/claw/tail slap/wing, Multiattack, and Power Attack; Appraise +32, Bluff +32, Concentration +34, Diplomacy +34, Intimidate +34, Jump +39, Knowledge (arcana) +32, Listen +32, Search +32, Spot +32. It can use locate object 7/day at CL 9th, has a 50-foot cone breath weapon dealing 14d10 fire (Reflex DC 30 half), and can crush a 15-by-15-foot area: Small or smaller opponents take 2d8+16 bludgeoning damage and must make Reflex DC 28 or be pinned.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonshape-3011",
+          "role": "primary Player's Handbook II catalog record; rebuilt page says the mature adult red dragon statistics appear below but omits the promised stat block"
+        },
+        {
+          "url": "https://anyflip.com/myubd/nenj/basic/101-150",
+          "role": "Player's Handbook II pp.111-112 rendering used only to restore the omitted fixed mature-adult-red-dragon statistics"
+        }
+      ]
+    },
+    "spells/dragonshape-lesser-1078": {
+      "name": "Dragonshape, Lesser",
+      "effectSummary": "Transforms you into the spell's fixed Large young red dragon form for 1 round per level and grants 60 temporary hit points that disappear when the spell ends. The printed form is CR 7 with Init +0; blindsense 60 feet, darkvision 120 feet, four-times-human low-light vision, Listen +17, Spot +17, and Draconic; AC 21 (touch 9, flat-footed 21); your normal hit points plus the 60 temporary hit points; immunity to fire, magical sleep, and paralysis; vulnerability to cold; Fort +11, Ref +8, Will +9; speed 40 feet and fly 150 feet (poor). Its melee routine is bite +20 for 2d8+7, two claws +14 for 1d8+3, two wings +14 for 1d6+3, and tail slap +14 for 1d8+10; space 10 feet; reach 5 feet or 10 feet with bite; BAB +13; grapple +24. Ability scores are Str 25, Dex 10, Con 17, Int 12, Wis 13, Cha 12. Feats are Flyby Attack, Hover, Improved Natural Attack (bite), Power Attack, and Weapon Focus (bite). Skills are Appraise +17, Bluff +17, Diplomacy +5, Intimidate +19, Listen +17, Search +17, Sense Motive +17, Spot +17, and Survival +1 (+3 following tracks). Its breath weapon is usable once every 1d4 rounds as a 40-foot cone dealing 6d10 fire damage, Reflex DC 19 half.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonshape-lesser-1078",
+          "role": "primary Dragon Magic catalog record; rebuilt page says the young red dragon statistics appear below but omits the promised stat block"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsdragonmagic.html",
+          "role": "older D&D Tools Dragon Magic SRD copy confirms the same spell text and the same omitted promised stat block"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/Dragon%20Magic.pdf",
+          "role": "Dragon Magic sourcebook copy used only to restore the omitted fixed young-red-dragon statistics"
+        }
+      ]
+    },
+    "spells/dreaded-form-of-the-eye-tyrant-873": {
+      "name": "Dreaded Form of the Eye Tyrant",
+      "effectSummary": "Transforms you into a beholder under the spell's referenced polymorph-subschool rules. You gain 30 temporary hit points that disappear when the spell ends. You can use only one eye ray per round, and each of the beholder's ten eye rays can be used only once during this casting; after a particular ray is used, that ray is unavailable for the rest of the spell.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dreaded-form-of-the-eye-tyrant-873",
+          "role": "primary Complete Mage catalog record; rebuilt description is truncated immediately after the beholder/polymorph reference and omits the remaining spell-specific mechanics"
+        },
+        {
+          "url": "https://dndtools.org/spells/complete-mage--58/dreaded-form-of-the-eye-tyrant--873/",
+          "role": "older same-spell D&D Tools rendering used only to restore the omitted 30 temporary hit points and eye-ray usage restrictions"
+        },
+        {
+          "url": "https://fliphtml5.com/zorhx/vbbe/Complete_Mage/",
+          "role": "Complete Mage sourcebook rendering independently confirms the omitted spell-specific mechanics"
+        }
+      ]
+    },
+    "spells/drown-5004": {
+      "name": "Drown",
+      "effectSummary": "Fills one creature's breathing passages with water for as long as you maintain concentration. On a successful Fortitude save, the target is staggered for 1 round, clears the water, and the spell ends. On a failed save, the target remains staggered and must make a Constitution check each round at DC 10 + 1 for each round after the first; failure causes it to begin drowning under the normal drowning rules. The target remains staggered until the spell ends or it drowns. Creatures that do not breathe, including constructs, some elementals and plants, and undead, and creatures that can breathe water are unaffected. While affected, a creature must make a DC 25 Concentration check to cast any spell and cannot cast spells with verbal components or use abilities that require speech. The material component is a sea shell.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drown-5004",
+          "role": "primary Dragonlance Campaign Setting catalog record; rebuilt effect text is truncated after the failed-save Constitution-check clause and resumes mid-sentence at the Concentration rule"
+        },
+        {
+          "url": "https://www.housegriffon.com/RPG/Games/DnD/dd3.x/Dragonlance/Dragonlance%20Campaign%20Setting.pdf",
+          "role": "Dragonlance Campaign Setting p.107 sourcebook copy used only to restore the omitted staggered-duration, creature-immunity, and DC 25 Concentration/speech restrictions"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/dragonlance-campaign-setting--98/drown--5004/index.html",
+          "role": "independent same-printing D&D Tools mirror cross-check for the repaired text"
+        }
+      ]
+    },
+    "spells/elemental-burst-2066": {
+      "name": "Elemental Burst",
+      "effectSummary": "Targets an item composed of wood, fire, water, stone, or metal; the official Oriental Adventures errata corrects the primary page's contradictory final element from air to metal. A wood, metal, or stone target throws sharp slivers that deal 1d8 damage in the burst, Reflex half. A fire target deals 1d4 fire damage, Reflex negates. A water target knocks creatures prone, Reflex negates; creatures gain +4 on the save for each size category above Medium or -4 for each category below Medium, and creatures with more than two legs or similar stability gain another +4. The spell does not noticeably damage the target item's structure.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-burst-2066",
+          "role": "primary Oriental Adventures catalog record; its target list says air while the same effect gives mechanics for metal and none for air"
+        },
+        {
+          "url": "http://archive.wizards.com/default.asp?x=dnd/er/20040125a",
+          "role": "official Wizards of the Coast Oriental Adventures errata archive; p. 102 corrects the target list from 'stone, or air' to 'stone, or metal'"
+        },
+        {
+          "url": "https://www.scribd.com/document/363322880/OAWeberrata-02062006-pdf",
+          "role": "preserved rendering of the official Oriental Adventures errata used to verify the exact Elemental Burst correction"
+        }
+      ]
+    },
+    "spells/enlarge-person-2805": {
+      "name": "Enlarge Person",
+      "effectSummary": "Instantly increases one humanoid by one size category, doubling height and multiplying weight by 8. The target gains +2 size Strength, -2 size Dexterity to a minimum of 1, and -1 on attack rolls and Armor Class from increased size; a creature enlarged to Large has 10-foot space and 10-foot natural reach, and speed does not change. If space is insufficient, the creature grows as much as possible and can make a Strength check using its increased Strength to burst the enclosure; failure leaves it constrained without damage, so the spell cannot crush a creature. Worn and carried equipment enlarges too. Enlarged melee and projectile weapons use the larger weapon's damage as applicable, while their other magical properties do not improve. An enlarged item that leaves the creature's possession returns to normal size; thrown weapons therefore deal normal damage, while projectiles deal damage based on the size of the weapon that fired them. Multiple magical size-increase effects do not stack. Enlarge person counters and dispels reduce person and can be made permanent with permanency.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enlarge-person-2805",
+          "role": "primary Player's Handbook v.3.5 catalog record; rebuilt effect text is truncated/corrupted in the equipment paragraph"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/enlargePerson.htm",
+          "role": "3.5 SRD rendering used to restore the omitted equipment, size-stacking, reduce person, and permanency mechanics"
+        }
+      ]
+    },
+    "spells/evil-weather-139": {
+      "name": "Evil Weather",
+      "effectSummary": "Conjures one of five evil-weather manifestations over the spell's 1-mile-per-caster-level radius for 3d6 minutes, replacing the normal area and duration of the Chapter 2 weather. Violet rain severs connection with divine agencies for 24 hours: divine spellcasters cannot access spells, existing divine spell effects are suppressed, and divinely infused magic items cease functioning; this version additionally costs 10,000 gp in amethysts and 200 XP. Green fog forces living creatures it touches to make Fortitude DC 17 or be polymorphed into a random creature, using reincarnate or an appropriate wilderness list to determine the form. Plague of nettles deals 1d2 damage each round to unsheltered creatures, rapidly destroys crops and forests, and leaves the area infested a week later with dangerous animate plants such as assassin vines, tendriculoses, and shambling mounds. Rain of blood forces living nonevil creatures to make Will DC 20 or take a -1 morale penalty on attack and damage rolls, checks, and saves for 24 hours, while corporeal undead in the rain gain a +1 morale bonus on those rolls for 24 hours. Rain of frogs or fish deals 1d3 damage each round to anyone without shelter, and about one falling animal in twenty survives briefly. Other weather forms have no material component or XP cost. Casting always inflicts the spell's 3d6 Constitution-damage corruption cost.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/evil-weather-139",
+          "role": "primary Book of Vile Darkness spell record; it delegates the actual weather mechanics to Chapter 2"
+        },
+        {
+          "url": "https://housegriffon.com/RPG/Games/DnD/dd3.x/3.0eCore/BookVileDarkness.pdf",
+          "role": "same-source Book of Vile Darkness Chapter 2 evil-weather rules used to restore the delegated violet rain, green fog, plague of nettles, rain of blood, and rain of frogs/fish mechanics"
+        }
+      ]
+    },
+    "spells/extract-drug-140": {
+      "name": "Extract Drug",
+      "effectSummary": "Infuses a qualifying focus to create one magical drug dose as greenish fumes, which must be inhaled as a standard action within 1 round. Metal produces Baccaran and lowers the metal's hardness by 1. Stone produces Vodare and lowers the stone's hardness by 1. Water produces Sannish and becomes brackish and foul. Air produces Mordayn vapor and leaves a foul odor in an area up to a 50-foot radius for 1 hour. Wood produces Mushroom powder and takes on a permanent foul odor. Rarer substances can produce other drugs at the DM's discretion. The required focus is 15 pounds or 1 cubic foot of the chosen material.",
+      "tables": [
+        [
+          [
+            "Material",
+            "Drug Extracted",
+            "Effect on Focus"
+          ],
+          [
+            "Metal",
+            "Baccaran",
+            "Metal's hardness drops by 1."
+          ],
+          [
+            "Stone",
+            "Vodare",
+            "Stone's hardness drops by 1."
+          ],
+          [
+            "Water",
+            "Sannish",
+            "Water becomes brackish and foul."
+          ],
+          [
+            "Air",
+            "Mordayn vapor",
+            "Foul odor fills the area (up to 50-ft. radius) for 1 hour."
+          ],
+          [
+            "Wood",
+            "Mushroom powder",
+            "Wood takes on a permanent foul odor."
+          ]
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/extract-drug-140",
+          "role": "primary Book of Vile Darkness spell record; rebuilt table corrupts the air/wood drug names and wood focus-effect text"
+        },
+        {
+          "url": "https://www.tjlee.com/DnD/BoVileDarkness.pdf",
+          "role": "clean rendering of the same Book of Vile Darkness spell table used to restore Mordayn vapor, Mushroom powder, and the wood focus effect"
+        }
+      ]
+    },
+    "spells/favorable-sacrifice-1942": {
+      "name": "Favorable Sacrifice",
+      "effectSummary": "Grants one protection tier chosen by the value of gems consumed, with only one tier applying per casting. Sacrificing 1,000 gp grants DR 10/magic, resistance 10 to acid, cold, electricity, fire, and sonic, and spell resistance 10. Sacrificing 5,000 gp grants DR 15/magic, resistance 15 to each of those five energy types, and spell resistance 15. Sacrificing 25,000 gp grants DR 20/magic, resistance 20 to each of those five energy types, and spell resistance 20. The material component is gems worth exactly the selected 1,000 gp, 5,000 gp, or 25,000 gp tier.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/favorable-sacrifice-1942",
+          "role": "primary Miniatures Handbook catalog record; rebuilt effect text mixes later Spell Compendium benefit tiers with the original printing's material-cost line"
+        },
+        {
+          "url": "https://anyflip.com/myubd/clzq/basic",
+          "role": "Miniatures Handbook pp.35-36 sourcebook rendering used to restore the original 1,000/5,000/25,000 gp sacrifice table and matching DR, energy-resistance, and spell-resistance values"
+        }
+      ]
+    },
+    "spells/fiery-eyes-2067": {
+      "name": "Fiery Eyes",
+      "effectSummary": "Makes your eyes glow in a color you choose and brightly illuminate out to 3 feet. By fixing your gaze on one spot within 3 feet for 3 rounds, you ignite combustible material there; living creatures cannot be targeted directly. A creature carrying or wearing an item you ignite takes 1d6 fire damage immediately and must make a DC 15 Reflex save or catch fire. A creature that catches fire takes 1d6 fire damage immediately and, on each subsequent round, another 1d6 unless it succeeds on a Reflex save to extinguish the flames. Jumping into enough water extinguishes the fire automatically; rolling on the ground or smothering the flames allows another save with a +4 bonus.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiery-eyes-2067",
+          "role": "primary Oriental Adventures catalog record; delegates continuing fire mechanics to the Dungeon Master's Guide"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fiery-eyes-497",
+          "role": "later primary-catalog printing confirming the DC 15 Reflex save to avoid catching fire after an ignited carried or worn item deals its initial 1d6 damage"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/environment.htm#catchingOnFire",
+          "role": "SRD catching-on-fire rule used to resolve the delegated continuing damage and extinguishing mechanics"
+        }
+      ]
+    },
+    "spells/fist-of-stone-546": {
+      "name": "Fist of Stone",
+      "effectSummary": "Transforms one hand into living stone, granting a +6 enhancement bonus to Strength for attack rolls, grapple checks, and breaking or crushing objects. You gain one natural slam attack dealing 1d6 damage + your new Strength bonus, or 1d6 + 1½ times your Strength bonus if you make no other attacks that round. The slam can be used as a secondary natural attack at -5, or -2 with the Multiattack feat, as part of a full attack. A high base attack bonus never grants more than one slam per round from this spell. The hand remains its normal size and flexibility. The material component is a pebble inscribed with a fist.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fist-of-stone-546",
+          "role": "primary Complete Arcane catalog record; rebuilt prose corrupts the Multiattack feat reference into 'if you have the Monster Manual'"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-arcane--55/fist-of-stone--546/index.html",
+          "role": "same Complete Arcane printing cross-check preserving the printed Multiattack feat reference"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fist-of-stone-4507",
+          "role": "later primary-catalog printing independently confirms the -2 secondary-attack penalty with Multiattack"
+        }
+      ]
+    },
+    "spells/fires-of-purity-2070": {
+      "name": "Fires of Purity",
+      "effectSummary": "Wreathes the touched creature in harmless magical flame. Each successful melee attack by the subject deals +1d6 fire damage. A creature that hits the subject with a natural weapon or unarmed attack takes 1d6 fire damage and must make a Reflex save at this spell's DC or catch fire. A creature that catches fire takes 1d6 fire damage immediately; on each subsequent round, failure on the normal catch-fire Reflex save deals another 1d6 and success extinguishes the flames, though this spell limits the burning to 1d4 rounds. The burning creature can also spend a move-equivalent action to put itself out, and enough water extinguishes it automatically. The subject is immune to fire for the spell's duration but takes double cold damage unless it succeeds on the cold effect's saving throw.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fires-of-purity-2070",
+          "role": "primary Oriental Adventures catalog record; delegates the continuing catching-on-fire mechanics outside the spell page"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures sourcebook rendering confirms the 1d4-round burn and move-equivalent extinguishing rule"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/environment.htm#catchingOnFire",
+          "role": "SRD catch-fire rule used to resolve the delegated immediate/subsequent 1d6 fire damage and Reflex-save extinguishing mechanics"
+        }
+      ]
+    },
+    "spells/flame-dagger-4508": {
+      "name": "Flame Dagger",
+      "effectSummary": "Creates a daggerlike beam of fire that you wield as a dagger. Its attacks are melee touch attacks and deal 1d4 fire damage +1 per caster level, maximum +10; your Strength modifier does not add to this damage. The blade can ignite combustible materials but does not function underwater. The material component is a candle.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-dagger-4508",
+          "role": "primary Spell Compendium catalog record; rebuilt prose corrupts the printed 1d4 damage die as 'ad4'"
+        },
+        {
+          "url": "https://anyflip.com/myubd/qfne/basic/51-100",
+          "role": "Spell Compendium sourcebook rendering confirming the printed 1d4 fire damage"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/flame-dagger-1670",
+          "role": "earlier primary-catalog printing independently confirms the same 1d4 base damage"
+        }
+      ]
+    },
+    "spells/flaying-tendrils-874": {
+      "name": "Flaying Tendrils",
+      "effectSummary": "Grows four mind-flayer-like facial tentacles. You can attack with one tentacle as a standard action or all four as a full-round action; each deals 1d4 damage + your Strength modifier. While using them you are treated as having Improved Grapple. A successful grapple check can attach one tentacle to a foe's head; if you begin your turn with one attached, a single grapple check can attach the other three as a full-round action. The foe can escape with one grapple or Escape Artist check, but you gain +2 on the opposed check for each tentacle attached at the start of its turn. If all four are attached at the start of your turn, you can attempt brain extraction; a failed Fortitude save kills the victim, while success prevents extraction but leaves it grappled. The tentacles cannot grapple creatures more than one size category larger or smaller than you. Brain extraction does nothing to constructs, elementals, oozes, plants, or undead and is not instantly fatal to creatures with multiple heads.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flaying-tendrils-874",
+          "role": "primary Complete Mage catalog record; rebuilt effect loses most of the grapple and extraction rules after the tentacle-damage clause"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-mage--58/flaying-tendrils--874/",
+          "role": "complete same-spell rendering used to restore the omitted grapple and brain-extraction mechanics"
+        },
+        {
+          "url": "https://fliphtml5.com/zorhx/vbbe/Complete_Mage/",
+          "role": "Complete Mage sourcebook rendering independently confirms the restored mechanics"
+        }
+      ]
+    },
+    "spells/quench-2857": {
+      "name": "Quench",
+      "effectSummary": "Extinguishes all nonmagical fires in its area. It also attempts to dispel each fire spell in the area with a dispel check of 1d20 +1 per caster level, maximum +15, against DC 11 + that fire spell's caster level. Every elemental (fire) creature in the area takes 1d6 damage per caster level, maximum 15d6, with no saving throw. Instead of using the area effect, you can target one magic item that creates or controls flame; unless the item succeeds on a Will save, it loses all fire-based magical abilities for 1d4 hours. Artifacts are immune to the item-targeting effect.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/quench-2857",
+          "role": "primary Player's Handbook v.3.5 catalog record; rebuilt effect truncates the fire-elemental damage clause and mangles the magic-item example"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/quench.htm",
+          "role": "3.5 SRD used to restore the omitted fire-elemental and complete magic-item mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/players-handbook-v35--6/quench--2857/index.html",
+          "role": "independent same-printing D&D Tools rendering confirming the restored text"
+        }
+      ]
+    },
+    "spells/genius-loci-782": {
+      "name": "Genius Loci",
+      "effectSummary": "Permanently gives one building, location, or geographic area a guardian spirit with a simple protective task stated in one or two sentences. The task can be broad or conditional but cannot name specific individuals or rely on unseen facts such as alignment or allegiance. When its trigger occurs, the spirit manifests at the casting point as an elder air, earth, fire, or water elemental chosen when the spell is cast and immediately pursues the task. You have no special control over it and can trigger its hostility yourself. If its manifested form is slain, the spell remains and the spirit can manifest again after 24 hours. The spell ends permanently only through miracle, Mordenkainen's disjunction, wish, or by permanently making its assigned purpose impossible or moot. When dormant it is normally imperceptible; detect magic shows an overwhelming conjuration aura and true seeing reveals a vague elemental silhouette roaming the territory. The spell gains the elemental descriptor matching the chosen manifestation. The material component is a paste of silver, mithral, and holy water worth 3,000 gp.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/genius-loci-782",
+          "role": "primary Complete Mage catalog record; rebuilt effect text is truncated/corrupted at the elder-elemental manifestation clause"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCMage.html",
+          "role": "older D&D Tools Complete Mage spell mirror used to restore the omitted elemental choices, guardian behavior, remanifestation, termination, detection, and descriptor mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-mage--58/genius-loci--782/index.html",
+          "role": "independent same-spell mirror cross-check for the repaired Complete Mage mechanics"
+        }
+      ]
+    }
+  }
+}

@@ -7,7 +7,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: modernization-${{ github.ref }}
+  group: modernization-v2-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   validate:
@@ -17,12 +17,23 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - run: npm ci
       - run: npm test
       - run: node tests/casting.mjs
       - run: node tests/editions.mjs
+      - run: npm run test:content
+      - run: python scripts/enrich_dndtools.py --self-test
+      - run: python scripts/classify_spell_review_queue.py --self-test
+      - run: python scripts/preflight_35_class_regressions.py
+      - run: python scripts/preflight_35_feat_regressions.py
+      - run: python scripts/preflight_35_spell_regressions.py
+      - run: python scripts/preflight_35_item_regressions.py
+      - run: python scripts/import_wikidot.py --self-test
+      - run: python scripts/preflight_5e_item_regressions.py
+      - run: python scripts/audit_srd2024.py
+      - run: python tests/enrichment_gate.py
       - run: node tests/setup-choices.mjs
       - run: npm run build
       - run: npx playwright install --with-deps chromium

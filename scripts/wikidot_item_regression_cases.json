@@ -1,0 +1,13 @@
+{
+  "purpose": "5e Wikidot item parser regressions. These pages previously exposed repeated-title or variable-rarity extraction failures and must remain covered.",
+  "recordIds": [
+    "wikidot5e:wondrous-items:armor-of-fungal-spores",
+    "wikidot5e:wondrous-items:rings-of-shared-suffering",
+    "wikidot5e:wondrous-items:wand-of-magic-missiles",
+    "wikidot5e:wondrous-items:instrument-of-the-bards",
+    "wikidot5e:wondrous-items:ioun-stone",
+    "wikidot5e:wondrous-items:potion-of-giant-strength",
+    "wikidot5e:wondrous-items:sages-signet",
+    "wikidot5e:wondrous-items:deck-of-wild-cards"
+  ]
+}
