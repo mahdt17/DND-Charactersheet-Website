@@ -1075,6 +1075,7 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
             (r"liveoak spell \(\s*slowed","truncated-arboreal-source"),
             (r"see Appendix 3 of the clerics undergo","truncated-greater-deity-aspect-source"),
             (r"target gains the clerics would never consider casting this spell","truncated-snake-mother-source"),
+            (r"concentrating on a spell\\s*\\(\\s*detect thoughts\\s*\\)\\s*congeal into a solid shard of crystal","truncated-crystalline-memories-source"),
         )
         for pattern,marker in source_corruption_patterns:
             if re.search(pattern,effect_source,re.I):
