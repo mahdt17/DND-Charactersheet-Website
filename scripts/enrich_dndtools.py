@@ -1080,6 +1080,15 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         if entry.get("id")=="spells/word-of-balance-3496" and not parser.tables and re.search(r"suffers ill effects according to its Hit Dice, as given below",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="omitted-word-of-balance-hd-table"
+        if entry.get("id")=="spells/know-greatest-enemy-1637" and not parser.tables and re.search(r"creatures are evaluated as follows",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-know-greatest-enemy-cr-table"
+        if entry.get("id")=="spells/summon-undead-i-1460" and not parser.tables and re.search(r"1st-level list on the Summon Undead table",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-libris-mortis-summon-undead-table"
+        if entry.get("id")=="spells/weapon-of-the-deity-1397" and not parser.tables and re.search(r"additional special ability \(see the list below\)",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-ghostwalk-weapon-deity-table"
         if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
