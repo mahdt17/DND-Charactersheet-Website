@@ -160,6 +160,68 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?:the\s+)?Monster Manual\s+(?:has|gives|provides|contains)\s+(?:the\s+)?statistics\b)",
         re.I,
     )),
+    ("as-with-named-spell", re.compile(
+        r"\bas\s+with\s+(?!any\b|all\b|every\b|other\b)(?:a|an|the)?\s*"
+        r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("as-per-named-spell", re.compile(
+        r"\bas\s+per\s+(?:a|an|the)\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("leading-like-named-spell", re.compile(
+        r"(?:^|[.!?:]\s+)Like\s+(?!a\b|an\b)(?P<name>[^,.;:!?]{2,100}?)\s*,\s*"
+        r"(?:this\s+spell\b|you\b)",
+        re.I,
+    )),
+    ("functions-much-like-spell", re.compile(
+        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+much\s+like\s+"
+        r"(?:a|an|the)?\s*(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("named-spell-benefit", re.compile(
+        r"\b(?:gains?|grants?|receives?|has)\s+(?:the\s+)?benefits?\s+of\s+"
+        r"(?:a|an|the)\s+(?!spell\b|this\b|that\b)"
+        r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("exactly-like-named-spell", re.compile(
+        r"\b(?:works?|functions?|operates?|acts?|behaves?)\s+exactly\s+like\s+"
+        r"(?:the\s+)?(?:\d+(?:st|nd|rd|th)-level\s+)?(?:arcane\s+|divine\s+)?"
+        r"(?:spell\s+)?(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?=,|\s+except\b|[.;]|$)",
+        re.I,
+    )),
+    ("received-named-spells", re.compile(
+        r"\bas\s+though\s+(?:they|it|he|she|the\s+[A-Za-z][A-Za-z'’ -]{0,40})\s+"
+        r"(?:have|has|had)\s+received\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spells?\b",
+        re.I,
+    )),
+    ("affected-as-though-by-spell", re.compile(
+        r"\baffected\s+as\s+though\s+by\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("as-though-affected-by-spell", re.compile(
+        r"\bas\s+though\s+(?:it|they|he|she|the\s+[A-Za-z][A-Za-z'’ -]{0,40})\s+"
+        r"(?:were|was)\s+affected\s+by\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("similar-to-created-by-spell", re.compile(
+        r"\bsimilar\s+to\s+(?:that|those)\s+created\s+by\s+(?:a|an|the)?\s*"
+        r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("targeted-dispel-magic-inheritance", re.compile(
+        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+as\s+"
+        r"(?:a|an|the)\s+(?:targeted|area)\s+(?P<name>dispel magic)\b",
+        re.I,
+    )),
+    ("weapon-stat-inheritance", re.compile(
+        r"\btreated\s+in\s+all\s+ways\s+like\s+(?:a|an|the)?\s*[+-]?\d*\s*"
+        r"(?P<name>[A-Za-z][A-Za-z'’ -]{2,80})(?=[,.;]|$)",
+        re.I,
+    )),
     ("modified-named-spell-reference", re.compile(
         r"\bacts?\s+as\s+(?:a|an|the)\s+\+\d+\s+(?P<name>bless\s+weapon)\b",
         re.I,
@@ -811,6 +873,21 @@ def run_self_test() -> None:
     assert "external-monster-manual-reference" in external_mechanics_reasons("Use the creature statistics in MM 52.")
     assert "external-monster-manual-reference" in external_mechanics_reasons("See the Monster Manual for the swarm statistics.")
     assert "external-monster-manual-reference" in external_mechanics_reasons("The Monster Manual has statistics for the rat swarm.")
+    assert "as-with-named-spell" in external_mechanics_reasons("You restore life to a dead outsider as with the raise dead spell.")
+    assert "as-with-named-spell" not in external_mechanics_reasons("As with any darkness spell, the effect can be suppressed.")
+    assert "as-per-named-spell" in external_mechanics_reasons("The glow provides light as per the light spell.")
+    assert "leading-like-named-spell" in external_mechanics_reasons("Like shield other, this spell transfers some wounds.")
+    assert "functions-much-like-spell" in external_mechanics_reasons("This spell functions much like the sanctuary spell.")
+    assert "named-spell-benefit" in external_mechanics_reasons("The subjects gain the benefits of a bless spell.")
+    assert "named-spell-benefit" not in external_mechanics_reasons("Creatures receive the benefits of this spell.")
+    assert "exactly-like-named-spell" in external_mechanics_reasons("This works exactly like the 1st-level spell sanctuary except for the save DC.")
+    assert "received-named-spells" in external_mechanics_reasons("They stick to the path as though they have received spider climb spells.")
+    assert "affected-as-though-by-spell" in external_mechanics_reasons("The creature is affected as though by a fear spell.")
+    assert "as-though-affected-by-spell" in external_mechanics_reasons("The weapon doubles its threat range as though it were affected by a keen edge spell.")
+    assert "similar-to-created-by-spell" in external_mechanics_reasons("The darkness is similar to that created by the deeper darkness spell.")
+    assert "targeted-dispel-magic-inheritance" in external_mechanics_reasons("This spell functions as a targeted dispel magic.")
+    assert "targeted-dispel-magic-inheritance" not in external_mechanics_reasons("This functions as a splash weapon.")
+    assert "weapon-stat-inheritance" in external_mechanics_reasons("The lance is treated in all ways like a +2 shortspear.")
     assert "modified-named-spell-reference" in external_mechanics_reasons("The weapon acts as a +5 bless weapon.")
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
