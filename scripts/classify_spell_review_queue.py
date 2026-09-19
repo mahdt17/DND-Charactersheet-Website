@@ -282,6 +282,20 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bacts?\s+as\s+(?:a|an|the)\s+\+\d+\s+(?P<name>bless\s+weapon)\b",
         re.I,
     )),
+    ("named-effect-shorthand", re.compile(
+        r"\b(?:gains?|receives?)\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+effect\b",
+        re.I,
+    )),
+    ("affected-by-shorthand", re.compile(
+        r"\b(?:acts?|behaves?)\s+as\s+though\s+affected\s+by\s+"
+        r"(?:a|an|the)?\s*(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)(?=[,.;]|$)",
+        re.I,
+    )),
+    ("external-see-for-details", re.compile(
+        r"\bsee\s+(?:the\s+)?[^.;]{1,100}?\s+for\s+(?:more\s+)?details\b",
+        re.I,
+    )),
 )
 
 
@@ -968,6 +982,9 @@ def run_self_test() -> None:
     assert "equivalent-of-named-spell" not in external_mechanics_reasons("The object has the equivalent of a +2 enhancement bonus.")
     assert "works-just-like-named-spell" not in external_mechanics_reasons("The device works just like normal machinery.")
     assert "modified-named-spell-reference" in external_mechanics_reasons("The weapon acts as a +5 bless weapon.")
+    assert "named-effect-shorthand" in external_mechanics_reasons("Those who succeed gain a true seeing effect.")
+    assert "affected-by-shorthand" in external_mechanics_reasons("Those who fail behave as though affected by confusion.")
+    assert "external-see-for-details" in external_mechanics_reasons("Failure by 5 or more means it falls; see the Balance skill for details.")
     assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})
     assert "malformed-dice-notation" not in suspicious_reasons({"effectSource":"Creatures in the burst take 1d8 points of damage."})
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
