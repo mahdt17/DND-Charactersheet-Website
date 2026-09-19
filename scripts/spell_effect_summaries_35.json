@@ -8087,6 +8087,234 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/commune-with-city-3034": {
+      "name": "Commune With City",
+      "sourceSha256": "587784afbefbab14427a8e84e0e497d0d1a15529e66f11210670d01f262cd5d8",
+      "effectSummary": "Instantly reveals up to three facts about the community the caster is currently in, chosen from population, dominant race and its percentage, any specified race's population percentage, highest-level character of a specified class, one power center's type and alignment, a significant economic factor, or a major current news item.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/commune-with-city-3034",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/commune-with-earth-3058": {
+      "name": "Commune With Earth",
+      "sourceSha256": "bfe8e8eb8eccdb87c45625a10232b4a19bd16ec75c446a4c1045ed17172defd1",
+      "effectSummary": "Functions like commune with nature but reveals information about ground, minerals, water, people, animals, burrowing or subterranean creatures, fungi, and similar features. It works only in hills, mountains, or underground, with a radius of one-half mile per caster level and depth of one-quarter mile per caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/commune-with-earth-3058",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/commune-with-greater-spirit-2043": {
+      "name": "Commune With Greater Spirit",
+      "sourceSha256": "ad8ab9a81a586ef8e9baae080cdcb3d9f20b328e98f829a5eac35808296bcfb8",
+      "effectSummary": "Contacts a spirit creature of any Hit Dice and allows one question per caster level, normally answered yes, no, or unclear; a short phrase of up to five words can be used when a one-word answer would mislead or conflict with the spirit's interests. Answers are correct within the spirit's knowledge. Casting costs 100 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/commune-with-greater-spirit-2043",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/commune-with-lesser-spirit-2044": {
+      "name": "Commune With Lesser Spirit",
+      "sourceSha256": "ef5337c975560b644e7eff2c9dde42f7b2d0e046added2b41d4285b6831f3bee",
+      "effectSummary": "Contacts a known local spirit of 4 HD or fewer within 10 feet and allows up to one question per two caster levels. Its knowledge is limited to its immediate area and it normally answers literally without volunteering information. A differently aligned spirit can resist with a Will save, and a spirit contacted by this spell within the previous week cannot be contacted again. Good spirits tend to help, while evil spirits may distort answers while remaining literally truthful.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/commune-with-lesser-spirit-2044",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/commune-with-lesser-spirit-485": {
+      "name": "Commune With Lesser Spirit",
+      "sourceSha256": "4cbd7fcd87d51f3806b6ae47d7b5f722b853eca89fa2a0aa980685bb42bb691d",
+      "effectSummary": "Contacts a known local spirit creature of 4 HD or fewer within 10 feet and allows up to one question per two caster levels. The spirit's knowledge is limited to its immediate area and questions should normally allow one-word answers, though short phrases can clarify misleading answers. A differently aligned spirit can resist with a Will save, and a spirit contacted by either lesser or greater commune with spirit within the previous week cannot be contacted again.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/commune-with-lesser-spirit-485",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/commune-with-nature-2480": {
+      "name": "Commune With Nature",
+      "sourceSha256": "d306964e9fbc60c37eaee8d0109f1461d6e04409f9c423e704c6cbe344364e37",
+      "effectSummary": "Instantly reveals up to three facts about surrounding natural terrain, plants, minerals, water, people, animals, woodland creatures, powerful unnatural creatures, or the overall state of nature. Range is 1 mile per caster level outdoors or 100 feet per caster level in natural underground environments. It does not function where construction or settlement has replaced nature, such as towns or dungeons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/commune-with-nature-2480",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/compel-2055": {
+      "name": "Compel",
+      "sourceSha256": "6d6ee1820090e632753499ebeb610582967e92fd3a5aa1c8b03183075844cb07",
+      "effectSummary": "Permanently changes the subject to an alignment chosen by the caster. Creatures with an 'always' alignment and characters who would lose class abilities from the change gain +4 on the save; outsiders with alignment subtypes are immune. The subject genuinely embraces the new alignment and does not seek reversal. Another compel, wish, or miracle can reverse the change.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/compel-2055",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/compel-breath-1101": {
+      "name": "Compel Breath",
+      "sourceSha256": "4699fd6159c0459d6c8c1170423375c0e3e36ad39a941ff74eb927c4a7d88cf6",
+      "effectSummary": "Forces the target to use its breath weapon as soon as the breath weapon becomes available. While waiting for any normal recharge delay, the creature can act normally but cannot use feats or spells to postpone the forced breath. Sorcerers cast this spell at +1 caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/compel-breath-1101",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/comprehend-languages-2482": {
+      "name": "Comprehend Languages",
+      "sourceSha256": "3ef39798e40398369c7df458309179db21f13ba4e9c50f2f967d8dbc26ebd031",
+      "effectSummary": "Lets the caster understand touched spoken language or read touched unknown writing at about 250 words per minute. It conveys literal meaning only and does not grant speaking or writing ability, decode ciphers, or reveal concealed messages. Magical writing cannot be read, though its magical nature is detected. Certain wards can foil the spell, and permanency can make it permanent.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/comprehend-languages-2482",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/concurrent-infusions-4945": {
+      "name": "Concurrent Infusions",
+      "sourceSha256": "d0c44b1b89e20d0c5b43aea6f359acd628d6ecc0255b96786faed6b9cb16e44a",
+      "effectSummary": "Applies three different 1st-level infusions chosen at casting to one object simultaneously. Each functions exactly as though separately cast on the object and does not consume the caster's normal daily infusion allotment.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/concurrent-infusions-4945",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/conduit-of-life-594": {
+      "name": "Conduit of Life",
+      "sourceSha256": "364aed76f2c5e86ed25ae67209afcf9e5b3e4c19bd7d1b54877001ad6cceabad",
+      "effectSummary": "The next time the caster channels positive energy through a class or racial ability such as turn undead or lay on hands, the spell heals the caster for 2d10 +1 per caster level, maximum +10. If the caster is already under ongoing healing or receives a cure spell while conduit of life is active, it instead heals 3d8 +1 per caster level, maximum +10, and is discharged.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conduit-of-life-594",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cone-of-cold-2595": {
+      "name": "Cone of Cold",
+      "sourceSha256": "1c879f4f3abbb4805ecb790b3bad332b6851f3bb770b662730a49b8f6ae0479a",
+      "effectSummary": "Deals 1d6 cold damage per caster level, maximum 15d6, in a cone originating from the caster's hand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cone-of-cold-2595",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cone-dimness-4041": {
+      "name": "Cone of Dimness",
+      "sourceSha256": "c9cba97ff1c69a1f1e5e55338de238eca71dfb80e9fbbc52ce4e3d2024ccfd29",
+      "effectSummary": "Creatures in the cone that fail an initial Will save believe they are engulfed in darkness and become blinded. A failed creature can save again each round; success on a later save removes blindness but leaves dim, hazy vision causing a 20% miss chance for attacks for the rest of the spell. A creature succeeding on the initial save is unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cone-dimness-4041",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cone-of-euphoria-1102": {
+      "name": "Cone of Euphoria",
+      "sourceSha256": "d5ca3d7103843b3594d36ab2ba8ee3721b4fb6e8b1966935b41a042a8c148a04",
+      "effectSummary": "As a standard action, the caster breathes a cone of sparkling motes. Creatures in the cone must make a Will save or be dazed for 1d6 rounds. The breath can be used repeatedly but requires a 1d4-round wait between uses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cone-of-euphoria-1102",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/confound-607": {
+      "name": "Confound",
+      "sourceSha256": "55be701ac6f3c3b93cf5e4ae48f06a2cdd0e4f701811c7488753b260b23ff8fa",
+      "effectSummary": "The target takes -2 on attack rolls against the caster, while the caster gains +2 circumstance on attacks against the target; worshipers with access to the Trickery domain use -3/+3 instead. The target also cannot make attacks of opportunity against the caster. If successfully cast on the same subject in two consecutive rounds, these benefits extend to the caster's allies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/confound-607",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/confusion-2538": {
+      "name": "Confusion",
+      "sourceSha256": "963ba36da557d4fad5dfe60fe6662640dbaf25fa5c345c31cb2f5002cd5bd3e8",
+      "effectSummary": "Confused creatures roll d% at the start of each turn: 01–10 attack the caster, 11–20 act normally, 21–50 babble and do nothing, 51–70 flee from the caster at top speed, and 71–100 attack the nearest creature. A confused creature that is attacked automatically attacks its attacker on its next turn if still confused, and it does not make attacks of opportunity except against a creature it is already attacking.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/confusion-2538",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/conjure-greater-midnight-construct-1815": {
+      "name": "Conjure Greater Midnight Construct",
+      "sourceSha256": "27d965fa7626f96f46f871f3bca043c6660706a601dc1816085f186fdbc1a2e3",
+      "effectSummary": "Creates a greater midnight construct that acts immediately under the caster's mental direction and dissipates when the spell ends. Essentia can enhance attack and damage by +1 per point, increase damage reduction by 2 per point, or increase land speed by 10 feet per point; inherited options also grant fly speed 20 feet per point or a damaging aura for 1d6 per point, Fortitude half. Greater-only options grant teleportation as a move action with 20-foot range per point or an adjacent soulburning aura dealing 1 Strength damage per point, Will negates.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-greater-midnight-construct-1815",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-midnight-construct-1817",
+          "role": "same-primary-catalog cross-reference used to retain inherited essentia options"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-lesser-midnight-construct-1816",
+          "role": "same-primary-catalog cross-reference used to retain inherited base construct options"
+        }
+      ]
+    },
+    "spells/conjure-ice-beast-i-1238": {
+      "name": "Conjure Ice Beast I",
+      "sourceSha256": "5602d0d1cd9dee1656d28d531a0d1eafb26040026a75d676a125ec26d3f53622",
+      "effectSummary": "Creates one creature from the 1st-level summon monster or summon nature's ally list, excluding creatures with the fire subtype, as a magical-ice construct with the ice beast template. It appears where designated, acts immediately, attacks enemies by default, and can follow other directions if the caster can communicate with it. Otherwise the spell functions like summon monster I.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-i-1238",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/conjure-ice-object-1247": {
+      "name": "Conjure Ice Object",
+      "sourceSha256": "d439cd0d627de151fc6ecf601f63d9a3697fd0a4d5ed02bf964b7a394db525f5",
+      "effectSummary": "Creates a transparent ice copy of an object the caster has seen, subject to the spell's weight limit and capped at 50 pounds at caster level 10. Objects with moving parts do not function, and complex items require an appropriate Craft check.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-object-1247",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/conjure-lesser-midnight-construct-1816": {
+      "name": "Conjure Lesser Midnight Construct",
+      "sourceSha256": "351bb5876d13db06fbf70e7c971e29483518ba6780e5d04bcec3cb3b92a6947b",
+      "effectSummary": "Creates one lesser midnight construct on the caster's plane. It acts immediately, attacks enemies by default, and can be mentally redirected as a free action; it acts through its final turn and then dissipates. It is created rather than summoned, so effects that block summoned outsiders do not affect it. At creation, each invested essentia point can grant +1 enhancement on attack and damage, +2 damage reduction, or +10 feet land speed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-lesser-midnight-construct-1816",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
