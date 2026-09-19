@@ -41,10 +41,13 @@ def main():
             review={}
             if details.get("effectNeedsSummary") and not details.get("effectSummary"):
                 review["benefit"]=benefit
+                review["benefitSha256"]=d35.feat_rule_digest(benefit)
             if details.get("normalNeedsSummary") and not details.get("normalSummary"):
                 review["normal"]=normal
+                review["normalSha256"]=d35.feat_rule_digest(normal)
             if details.get("specialNeedsSummary") and not details.get("specialSummary"):
                 review["special"]=special
+                review["specialSha256"]=d35.feat_rule_digest(special)
             if review:
                 out.append({
                     "id":row.get("id"),"name":row.get("name"),"url":row.get("url"),
