@@ -74,7 +74,12 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+(?:as|like)\s+"
+        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+as\s+"
+        r"(?:a|an|the)\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+like\s+"
         r"(?:a|an|the)?\s*(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
         re.I,
     ),
@@ -776,6 +781,12 @@ def run_self_test() -> None:
     assert "cloudkill" in extract_reference_names(
         "As with a cloudkill spell, the smoke moves away from you."
     )
+    assert extract_reference_names(
+        "If the subject is delaying, it acts as soon as the spell is cast."
+    ) == []
+    assert extract_reference_names(
+        "If you do not wield it, the weapon behaves as if unaffected by this spell."
+    ) == []
     assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
     assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
     assert "polymorph-subschool-reference" in external_mechanics_reasons("For details, see The Polymorph Subschool on page 60.")
