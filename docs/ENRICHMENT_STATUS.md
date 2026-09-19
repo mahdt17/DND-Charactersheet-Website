@@ -136,7 +136,7 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **707**
+- Digest-locked reviewed spell effects: **767**
 - Primary catalog: `https://new.dndtools.org`
 - Outside sources are allowed only when the primary record is missing, truncated, corrupted, contradictory, or otherwise insufficient; such repairs must retain provenance and must not expand catalog membership.
 - Primary-page repairs pinned during this review cycle include `Analyze Portal`, `Anathema`, `Arboreal Transformation`, the truncated Defenders of the Faith printing of `Aspect of the Deity, Greater`, and `Blessing of the Snake Mother`.
