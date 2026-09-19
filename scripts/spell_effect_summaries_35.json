@@ -14742,6 +14742,223 @@
           "role": "same primary catalog cross-reference used to resolve the planar adaptation explicitly incorporated by this printing"
         }
       ]
+    },
+    "spells/elemental-body-4435": {
+      "name": "Elemental Body",
+      "sourceSha256": "f27039e140563d89fffda970f08ef79a5748819f1aaefbf5f39cf765044ae006",
+      "effectSummary": "Transforms you and your possessions into air, earth, fire, or water substance while leaving your creature type unchanged and granting the chosen elemental subtype. You gain the chosen element's relevant attune form protection, immunity to poison, sleep, paralysis, and stunning, protection from extra damage from critical hits or flanking, and 60-foot darkvision. Air grants flight at your normal speed with perfect maneuverability and air mastery (-1 on airborne foes' attacks and damage against you). Earth grants earth mastery (+1 attack and damage when both combatants touch the ground), bull rushes without provoking, and +3 natural armor. Fire grants fire immunity and burn, causing creatures you hit in melee or that hit you with natural weapons to save or catch fire using the save DC of a same-size fire elemental. Water grants swim speed equal to your normal speed, water mastery (+1 attack and damage when both combatants touch water), and drench, which extinguishes nonmagical open flames and can dispel magical fire you touch as dispel magic at your caster level. The spell gains the descriptor of the chosen element.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-body-4435",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its granted elemental subtype is preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/attune-form-1865",
+          "role": "same primary catalog cross-reference used to resolve the planar adaptation explicitly incorporated by this printing"
+        }
+      ]
+    },
+    "spells/elemental-burst-495": {
+      "name": "Elemental Burst",
+      "sourceSha256": "9d0464c481534976dfb10ef8e7c9b5f37a36e9badb29725d213e308e69230be2",
+      "effectSummary": "Targets an object made of one of the five wu jen elements: earth, fire, metal, water, or wood. Wood, metal, or earth throws sharp fragments that deal 1d8 damage in the burst, Reflex half. Fire deals 1d8 fire damage, Reflex half. Water knocks creatures prone unless they succeed on a Reflex save; the save gains +4 per size category above Medium or -4 per category below Medium, and exceptionally stable creatures such as dwarves or four-legged creatures gain another +4. The target object's structure or form is not noticeably affected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-burst-495",
+          "role": "primary Complete Arcane printing reviewed and paraphrased; its 1d8 fire damage and five-element list are preserved"
+        }
+      ]
+    },
+    "spells/elemental-dart-5007": {
+      "name": "Elemental Dart",
+      "sourceSha256": "7a2317061e45db372beb479177ae8e6f7f1ddfdea6a87f5757b3d4edc1d26e12",
+      "effectSummary": "Creates acid, cold, electricity, or fire darts that require ranged touch attacks. Each dart deals 1d6 +1 per caster level, maximum +10, with a Fortitude save for half, and can damage objects. You have one dart initially, gain another at each odd caster level after 3rd, and reach five darts at 11th level. Multiple darts are fired as part of the same casting and can be split among targets, but targets must be chosen before attack rolls, spell resistance checks, or damage rolls. Normal vulnerabilities and protections against the chosen energy type apply.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-dart-5007",
+          "role": "primary Dragonlance Campaign Setting printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/elemental-eye-799": {
+      "name": "Elemental Eye",
+      "sourceSha256": "ab15ebd11d3a6093ba591f7416cb86a12d019a118db04f014c765ef5bd215500",
+      "effectSummary": "Enspells a 1/2- to 1-pound elemental focus as a movable clairvoyance sensor. After casting, you have up to 1 hour per level to activate it; once activated, sight through it lasts 1 minute per level or until dismissed. The sensor moves with the object but the spell ends if the object leaves range. It otherwise uses clairvoyance's visual sensor rules: no line of sight or effect is required, enhanced or supernatural senses do not function through it, magical darkness blocks sight, natural total darkness allows sight within 10 feet, and it functions only on your current plane.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-eye-799",
+          "role": "primary Complete Mage printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/clairaudienceclairvoyance-2479",
+          "role": "same primary catalog cross-reference used to resolve the clairvoyance mechanics explicitly incorporated by this spell"
+        }
+      ]
+    },
+    "spells/elemental-prod-4946": {
+      "name": "Elemental Prod",
+      "sourceSha256": "6c5814fe529718874cfca41fd7564e3b6adba952847c5bbf314252be8eeb07ad",
+      "effectSummary": "Imbues a staff or pole so its wielder can direct an elemental's movement as a standard action. The indicated movement can cover up to 10 feet +5 feet per two caster levels. The elemental understands the command and can allow the movement without resisting. An elemental that resists instead takes 1d6 damage and is moved only 5 feet in the chosen direction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-prod-4946",
+          "role": "primary Magic of Eberron printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/elemental-swarm-2390": {
+      "name": "Elemental Swarm",
+      "sourceSha256": "3fa6eb13cd877b443767ce8677c5f87d7ef1806de4936f4af52a0d08e1fa40d2",
+      "effectSummary": "Opens a portal to an Elemental Plane and summons 2d4 Large elementals when casting finishes, 1d4 Huge elementals 10 minutes later, and one greater elemental 10 minutes after that. Every summoned elemental has maximum hit points per Hit Die, obeys you for the spell's duration without concentration, never attacks you even if another creature gains control of it, and can be dismissed individually or in groups. Druids choose air, earth, fire, or water; clerics use the plane matching their domain. The spell gains the descriptor of the summoned element.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-swarm-2390",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/elemental-ward-2015": {
+      "name": "Elemental Ward",
+      "sourceSha256": "f055ab213449d088def71aabb925f19925da3c3ef35d2a4c370fbc689c355a51",
+      "effectSummary": "Drives elementals of one chosen type out of the spell's area unless they succeed on a Will save. If you try to force the barrier against an elemental that failed its save, the spell ends. The material component is a small quantity of the opposed element: fire against water, earth against air, air against earth, or water against fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-ward-2015",
+          "role": "primary Oriental Adventures printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/elemental-ward-438": {
+      "name": "Elemental Ward",
+      "sourceSha256": "7deb34e59db56e708a5c2e6eb2afc0a7f1cc4376013d7336c487776227629f54",
+      "effectSummary": "Drives elementals of one chosen type out of the spell's area unless they succeed on a Will save. If you try to force the barrier against an elemental that failed its save, the spell fails. The material component is a small quantity of the opposed element: fire against water, earth against air, air against earth, or water against fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elemental-ward-438",
+          "role": "primary Complete Arcane printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/elminsters-effulgent-epuration-1577": {
+      "name": "Elminster's Effulgent Epuration",
+      "sourceSha256": "f68a9d5dad5fdb39d2a7deabc315a0fd5f5fbdb7ea8362fc60ffc44fe32af657",
+      "effectSummary": "Creates multiple 6-inch silvery spheres that follow you up to 60 feet per round and intercept hostile spells or spell-like abilities that would affect you or extend into your space. Negating an effect expends one sphere per spell level; area effects are negated entirely, but an effect works normally if too few spheres remain. As a standard action you can move one or more spheres up to 60 feet; spheres left outside their follow range remain where placed and continue functioning. They have no physical substance or cover, can fit through spaces at least 6 inches wide, cannot pass through solid objects or force effects, and cannot be harmed except by effects that dispel or negate magic entirely.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elminsters-effulgent-epuration-1577",
+          "role": "primary Magic of Faerûn printing reviewed and paraphrased; its per-spell-level sphere cost and area-effect interception are preserved"
+        }
+      ]
+    },
+    "spells/elminsters-effulgent-epuration-2210": {
+      "name": "Elminster's Effulgent Epuration",
+      "sourceSha256": "c35a4e8768c3070694a9e9065fe23f5bd7d88d554f649ac9606972f7060d01d3",
+      "effectSummary": "Creates one silvery sphere per caster level around the subject. As a standard action, you can shift the entire effect and all remaining spheres to another creature within range. Each sphere can completely absorb one directly targeted spell or spell-like ability of any level, then disappears; the subject chooses whether each effect is absorbed so helpful magic can pass. Area effects and spells without an actual target are not absorbed. Only spells and spell-like abilities of deific power can overcome the protection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elminsters-effulgent-epuration-2210",
+          "role": "primary Player's Guide to Faerûn printing reviewed and paraphrased; its one-sphere-per-targeted-effect rule is preserved"
+        }
+      ]
+    },
+    "spells/elminsters-evasion-1201": {
+      "name": "Elminster's Evasion",
+      "sourceSha256": "7ae3ddbd492703b0c67e2682a043f18d9e8ac08f6a562e48e4da02aecf2dc389",
+      "effectSummary": "Creates a contingency-like escape keyed to up to six clear conditions. When any trigger occurs, you and everything you carry or touch except other creatures or individual objects over 50 pounds are transferred to a named place you have visited, even on another plane. During casting you also cast teleport without error plus one or two personal spells that take effect on arrival; companion spells can be no higher than one-third your caster level, maximum 6th. The minimum casting time is 10 minutes or the combined companion-spell casting times if longer. Travel uses the Astral Plane, so effects that block astral travel also block the evasion. The spell reunites separated body, mind, and soul; if body or soul is magically trapped, a caster level check against DC 11 + the trapping caster's level breaks the trap and permits escape, while failure makes the evasion fail. If you arrive dead, your soul departs normally. Casting costs 5,000 XP, requires the companion spell components plus its own materials, deals 1d4 temporary Constitution damage for the blood component, and requires carrying a gem-decorated ivory statuette of yourself worth at least 1,500 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/elminsters-evasion-1201",
+          "role": "primary Forgotten Realms Campaign Setting printing reviewed and paraphrased; its teleport without error wording is preserved as printed"
+        }
+      ]
+    },
+    "spells/embrace-of-endless-day-4903": {
+      "name": "Embrace of Endless Day",
+      "sourceSha256": "f4b24e01b442eb6c7f18bfd6107a338ae4b4354dda5dc73c1a89e0dea96e95db",
+      "effectSummary": "Bestows 3 points of positive energy per caster level, maximum 30. The target can expend those points by touch like a paladin's lay on hands, either healing 1 hit point per point or dealing 1 damage per point to creatures vulnerable to positive energy. Until all bestowed energy has been spent, the target also gains a +1 sacred bonus on saves against necromantic and death effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/embrace-of-endless-day-4903",
+          "role": "primary Faiths of Eberron printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/embrace-the-dark-chaos-1163": {
+      "name": "Embrace the Dark Chaos",
+      "sourceSha256": "4d3e30b22f912ab0ba3451a1da9993a44df23a2c0dec5a43354caeda1efae08e",
+      "effectSummary": "Replaces one feat chosen by the subject with an Abyssal heritor feat chosen by the caster for which the subject qualifies; if the subject does not qualify, the spell fails. The replaced feat need not itself be an Abyssal heritor feat. If losing it removes a prerequisite for other feats or prestige classes, the subject loses access to those feats or prestige-class abilities until the prerequisites are met again. The change can be reversed only by miracle, shun the dark chaos, or wish. Casting costs 250 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/embrace-the-dark-chaos-1163",
+          "role": "primary Fiendish Codex I printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/embrace-the-wild-1924": {
+      "name": "Embrace the Wild",
+      "sourceSha256": "77489db8d31d032e9c809db1330ca6789bc45b609a2cb02057ccc0e1bd91058f",
+      "effectSummary": "Lets you retain your own form while gaining the chosen wild animal's natural and extraordinary senses and its skill ranks for the duration; gained ranks do not stack with your existing ranks in the same skills. This can grant senses such as blindsight or scent and ranks in Listen, Spot, or other skills. It does not grant the animal's natural attacks, movement modes, feats, or nonsensory extraordinary abilities such as trample or improved grab. The required focus must come from the selected animal or its lair and must have been obtained by you personally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/embrace-the-wild-1924",
+          "role": "primary Masters of the Wild printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/embrace-the-wild-3222": {
+      "name": "Embrace the Wild",
+      "sourceSha256": "77489db8d31d032e9c809db1330ca6789bc45b609a2cb02057ccc0e1bd91058f",
+      "effectSummary": "Lets you retain your own form while gaining the chosen wild animal's natural and extraordinary senses and its skill ranks for the duration; gained ranks do not stack with your existing ranks in the same skills. This can grant senses such as blindsight or scent and ranks in Listen, Spot, or other skills. It does not grant the animal's natural attacks, movement modes, feats, or nonsensory extraordinary abilities such as trample or improved grab. The required focus must come from the selected animal or its lair and must have been obtained by you personally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/embrace-the-wild-3222",
+          "role": "primary Savage Species printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/embrace-the-wild-418": {
+      "name": "Embrace the Wild",
+      "sourceSha256": "bd9096cc90473909ed22734c6d8a6d64a897697a6dd0b2c003314896a3a49542",
+      "effectSummary": "Choose an animal whose Hit Dice do not exceed your caster level. You keep your own form but gain that animal's natural and extraordinary senses, including blindsense, blindsight, darkvision, low-light vision, and scent as applicable. You can also replace either or both of your own Listen and Spot modifiers with the selected animal's modifiers, choosing separately so a better personal modifier can be retained.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/embrace-the-wild-418",
+          "role": "primary Complete Adventurer printing reviewed and paraphrased; its Hit Dice limit and optional Listen/Spot replacement are preserved"
+        }
+      ]
+    },
+    "spells/embrace-the-wild-4436": {
+      "name": "Embrace the Wild",
+      "sourceSha256": "55adbff22a869cca4bde23a36001c8cf583146baa5f39438177a3c685bcf0cb6",
+      "effectSummary": "Grants low-light vision and your choice of either blindsense out to 30 feet or scent. You also gain a +2 bonus on Listen and Spot checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/embrace-the-wild-4436",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its simplified fixed sensory benefits are preserved"
+        }
+      ]
+    },
+    "spells/emerald-burst-71": {
+      "name": "Emerald Burst",
+      "sourceSha256": "f44d0cc166253ac84aff2c8618c0925f0c9a525d9b0dc6aae2e62be3d8afb9f3",
+      "effectSummary": "Launches an empowered emerald that bursts in green light. Neutral creatures in the burst are dazed for 1 round, evil creatures are stunned for 1d4 rounds, and good creatures are unaffected. The material component is an emerald worth at least 1,000 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/emerald-burst-71",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/emerald-flame-fist-4437": {
+      "name": "Emerald Flame Fist",
+      "sourceSha256": "2a350d178cdaf80a52306d801e3cf1aa45e4f83e6661813ac054d1ae72748b21",
+      "effectSummary": "Wreathes one hand in torch-bright emerald fire. As a standard action, a melee touch attack deals 3d6 fire damage +1 per caster level, maximum +20, and engulfs the target. At the start of each of its turns, the target makes a Fortitude save; success prevents further damage, while failure leaves it engulfed and deals the same damage again. After failing that save, it can spend a full-round action to attempt a DC 15 Reflex save to extinguish the flames and end the spell. The spell can target objects; unattended nonmagical objects are automatically engulfed and take the same damage each round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/emerald-flame-fist-4437",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
     }
   }
 }
