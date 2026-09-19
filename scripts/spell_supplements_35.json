@@ -752,6 +752,21 @@
         }
       ],
       "resolvesSourceIncomplete": true
+    },
+    "spells/crumble-1748": {
+      "name": "Crumble",
+      "effectSummary": "Erodes one fabricated nonliving object or structure, including a construct, for 1d6 damage per caster level to a maximum of 15d6, ignoring hardness. Living creatures are unaffected. Maximum target size depends on caster level: up to 15th level Huge, 16th–18th Gargantuan, and 19th–20th Colossal. Casting on an object larger than the allowed size fails.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crumble-1748",
+          "role": "primary catalog record; effect text contains the damage and size-dependent rule but omits the actual caster-level size table"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/crumble-740",
+          "role": "same-primary-catalog printing with matching 1d6/level, maximum 15d6 mechanics used to restore the omitted size table"
+        }
+      ]
     }
   }
 }
