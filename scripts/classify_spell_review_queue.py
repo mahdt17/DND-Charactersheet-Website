@@ -1374,7 +1374,7 @@ def run_self_test() -> None:
     assert "receives-named-spell-inheritance" in external_mechanics_reasons("The subject receives a panacea spell (page 152) one round later.")
     assert "receives-named-spell-inheritance" not in external_mechanics_reasons("The subject receives a +2 healing bonus.")
     assert "normal-restrictions-for-named-effect" in external_mechanics_reasons("The caster commands it with the normal restrictions for control undead.")
-    assert "normal-restrictions-for-named-effect" not in external_mechanics_reasons("The caster commands it with the normal restrictions for telepathy.")
+    assert "normal-restrictions-for-named-effect" not in external_mechanics_reasons("The caster commands it telepathically; it can obey one command at a time.")
     assert "parenthetical-as-the-spell" in external_mechanics_reasons("It emits a magic circle against chaos (as the spell).")
     assert "parenthetical-as-the-spell" not in external_mechanics_reasons("It emits a fully described protective circle.")
     assert "glows-as-named-spell" in external_mechanics_reasons("The point glows as a light spell for the remaining duration.")
