@@ -17228,6 +17228,139 @@
           "role": "primary 3.5 catalog base spell used to resolve inherited alter-self mechanics"
         }
       ]
+    },
+    "spells/fiendish-quickening-245": {
+      "name": "Fiendish Quickening",
+      "sourceSha256": "b862972606b3c36a28d21069570eb5d4b5ea9b68c6740d7129ee97b861281d98",
+      "effectSummary": "Quickens the caster’s existing teleport or teleport without error spell-like ability for the spell’s duration. The fiend can use that spell-like ability as a free action once per round and still attack or move normally that round. It affects only a fiend’s teleportation spell-like ability and does not quicken teleport spells cast normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiendish-quickening-245",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fierce-pride-of-the-beastlands-2153": {
+      "name": "Fierce Pride of the Beastlands",
+      "sourceSha256": "1e5acd0d0b0b67d6724ece4222cb934fcea44aa9c22117285b76926035767b4b",
+      "effectSummary": "Summons 2d4 celestial lions immediately, followed 10 minutes later by 1d4 celestial dire lions. Every summoned creature has maximum hit points per Hit Die and serves you for the spell’s duration without requiring concentration. They obey your commands explicitly and never attack you even if another creature gains control over them. You can dismiss individual creatures or groups at any time.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fierce-pride-of-the-beastlands-2153",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fierce-pride-of-the-beastlands-4486": {
+      "name": "Fierce Pride of the Beastlands",
+      "sourceSha256": "d82d8b34c7a4a006c7821928bc0d7d16f053c3a8befe6d08284f9323782b4be8",
+      "effectSummary": "Summons 2d4 celestial lions immediately, followed 10 minutes later by 1d4 celestial dire lions. Every creature has maximum hit points per Hit Die and serves you without concentration for the spell’s duration, obeying you explicitly and never attacking you even if someone else gains control over it; you may dismiss creatures singly or in groups. Each celestial lion has DR 5/magic, acid/cold/electricity resistance 5, SR 9, and smite evil adding +5 to one damage roll. Each celestial dire lion has DR 5/magic, acid/cold/electricity resistance 10, SR 13, and smite evil adding +8 to one damage roll.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fierce-pride-of-the-beastlands-4486",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fiery-eyes-497": {
+      "name": "Fiery Eyes",
+      "sourceSha256": "39cb5160c7e5c8e7db1c85ac14c879431f29a97bcd3c2fa0694a6716e429a4f1",
+      "effectSummary": "Makes your eyes glow in a color you choose and brightly illuminate one 5-foot square out to 5 feet. As a full-round action, you can stare at a combustible object within 60 feet and ignite it. You cannot directly target a living creature, but a creature carrying or wearing an item you ignite takes 1d6 fire damage and must make a DC 15 Reflex save or catch on fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiery-eyes-497",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fiery-vision-3275": {
+      "name": "Fiery Vision",
+      "sourceSha256": "eb6ed7131037fb44723d7797b55c02f7ac49b6ba6478e7fb000fd13e6a7c17fd",
+      "effectSummary": "Immediately when cast, and once per round thereafter, you can fire two eye rays at one or two creatures within range. Each ray requires a ranged touch attack and deals 4d6 fire damage on a hit. The initial pair of rays is produced on completion of the spell; on later rounds, using the rays requires a standard action to concentrate. You can otherwise act normally, including casting spells, and need not fire the rays every round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiery-vision-3275",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/filter-3380": {
+      "name": "Filter",
+      "sourceSha256": "02e8b10d326a17388e5996696c2bf53c619d257fb180de84281361833e3d8c67",
+      "effectSummary": "Creates an invisible protective bubble that completely blocks damage and penalties from inhaled natural or alchemical poisons. It also fully protects against magical airborne poisons produced by spells of 4th level or lower when cast by a creature of 8 Hit Dice or fewer. Against stronger inhaled toxic effects, the subject instead gains a +2 circumstance bonus on any allowed saving throw. The arcane material components are a strand of spider web and a scrap of cotton cloth.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/filter-3380",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fimbulwinter-1306": {
+      "name": "Fimbulwinter",
+      "sourceSha256": "1c52dab89f2c166653052ee13cfb7107fa6acba66f6687356f876b1a827544d7",
+      "tablesSha256": "c22ca28dadc5f1051e891dd972ecac11d7183fe22373dcfbdb526810238a102a",
+      "effectSummary": "Turns the region toward permanent winter or intensifies existing winter weather. Casting takes 10 minutes and conditions begin changing 10 minutes later. Each day, roll separately for snowfall and wind on the spell’s weather table, modifying the roll by +8 in winter, +4 in spring or autumn, -2 in summer, +2 in a cold climate, -2 in a temperate climate, and -6 in a hot climate. Results range from melting 1d12 inches of snow with weak wind at 0 or less through no snow, light/moderate snowfall or hail, strong snowfall, and at 26+ a fall of 1d6+1 feet with very strong wind; seasonal conditions range from summer light snow/hail/cold rain to winter blizzards and constant snowfall. The rolled amounts are maximums—you may choose less snow or wind and control general wind direction and intensity. You can use a standard action to choose a new allowed weather condition, which develops gradually over 10 minutes. The spell costs 100 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fimbulwinter-1306",
+          "role": "primary DnD Tools effect text and weather tables reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/find-temple-4495": {
+      "name": "Find Temple",
+      "sourceSha256": "cb980bd63e78f4697b1b8e3e6d2438b1bd6f41b2a8b86f1d5b503e2738691a1a",
+      "effectSummary": "Reveals the direction of the nearest temple dedicated to your deity. If no such temple exists within the spell’s area, it instead points toward the nearest temple of a deity whose alignment matches yours. You may search for one particular temple instead, but only if you have personally visited it before; seeing it through divination does not qualify.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/find-temple-4495",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/find-the-gap-1007": {
+      "name": "Find the Gap",
+      "sourceSha256": "0ede62b8a44986cb115aba5d0baceb843b45ca78a590cdd714ac9789ca839475",
+      "effectSummary": "Once per round, one of your melee or ranged attacks can ignore the target’s armor, shield, and natural armor bonuses to AC, including enhancement bonuses to those defenses. Other AC bonuses, including dodge, deflection, and luck bonuses, still apply.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/find-the-gap-1007",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/find-the-gap-4494": {
+      "name": "Find the Gap",
+      "sourceSha256": "0957cfebb3a5d8ed53ea7e64a9509825515a0f7f2e7d8adceb3d7b1cd3012f99",
+      "effectSummary": "Your first melee or ranged attack each round is resolved as a touch attack, ignoring the target’s armor, shield, and natural armor bonuses to AC, including enhancement bonuses to those defenses. Other AC bonuses, including dodge, deflection, and luck bonuses, still apply.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/find-the-gap-4494",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/find-the-path-2498": {
+      "name": "Find the Path",
+      "sourceSha256": "feb1113928090a812d27f438824576d3a1c0d917e35466202a622d03b89e3ae1",
+      "effectSummary": "Guides the recipient along the shortest, most direct physical route to a specified location on the same plane, including a route into or out of a place. It works for locations rather than objects or creatures and can guide the subject through a maze or labyrinth. The subject senses the correct direction and, when necessary, the exact path or physical action needed to proceed, such as noticing a trip wire or knowing a word that bypasses a ward. The spell ends when the destination is reached or its duration expires. It can free the subject and companions from a maze spell in 1 round, but the divination is keyed only to the subject and does not predict the actions of creatures or guardians. The focus is a set of divination counters.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/find-the-path-2498",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/find-traps-2499": {
+      "name": "Find Traps",
+      "sourceSha256": "88c4d82f26b5432d618b4b45ec3cd221031c020e4ce80af94e87a4dfef7ea285",
+      "effectSummary": "Lets you use Search to detect traps as a rogue can and grants an insight bonus on Search checks to find traps equal to half your caster level, maximum +10. It does not grant any ability to disable the traps you locate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/find-traps-2499",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
