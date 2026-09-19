@@ -1169,7 +1169,7 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
                 result["sourceIncompleteMarker"]=marker
                 break
         reference_dependent=bool(
-            re.search(r"\b(?:functions?|works?|operates?)\s+(?:like|as)\b",effect_source,re.I)
+            re.search(r"\b(?:functions?|works?|operates?)\s+like\b",effect_source,re.I)\n            or re.search(r"\b(?:functions?|works?|operates?)\s+as\s+(?!if\b)",effect_source,re.I)
             or re.search(r"^As\s+[^.!?]{1,120}?,\s*(?:except|but)\b",effect_source,re.I)
         )
         if reference_dependent:
@@ -1768,6 +1768,18 @@ def self_test():
     s=parse_spell(p,{"name":"Reference Effect"})
     assert s.get("effectReferenceDependent")
     assert s.get("effectNeedsSummary") and not s.get("effect")
+
+    as_if_html = """
+    <h1>As If Test</h1><p>Example Book (EX), p. 4</p>
+    <div>School</div><div>Abjuration</div><div>Casting Time</div><div>1 action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Touch</div>
+    <div>Duration</div><div>1 minute</div><div>Classes</div><div>Wizard 2</div>
+    <h2>Description</h2><p>The linked effect functions as if cast by you, using your caster level.</p>
+    """
+    p=DetailParser();p.feed(as_if_html);p.close()
+    s=parse_spell(p,{"name":"As If Test"})
+    assert not s.get("effectReferenceDependent")
+    assert s.get("effect") and not s.get("effectNeedsSummary")
 
     feat_html = """
     <h1>Monkey Grip</h1><p>General feat</p><p>Complete Warrior (CW), p. 103</p>
