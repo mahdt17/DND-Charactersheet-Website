@@ -296,12 +296,17 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bsee\s+(?:the\s+)?[^.;]{1,100}?\s+for\s+(?:more\s+)?details\b",
         re.I,
     )),
+    ("external-see-rulebook-reference", re.compile(
+        r"\bsee\s+[^.;]{1,120}\b(?:Dungeon[^.;]{0,40}Guide|Player[^.;]{0,40}Handbook)\b",
+        re.I,
+    )),
     ("condition-as-the-spell", re.compile(
         r"\b(?:slowed|hasted|confused|frightened|paralyzed|petrified|stunned|dazed|blinded|deafened|charmed)\s+as\s+the\s+spell\b",
         re.I,
     )),
     ("slow-condition-shorthand", re.compile(
-        r"\b(?:subject|target|creatures?|foe|enemy)\s+(?:is|are|becomes?|become)\s+slowed\b",
+        r"\b(?:subject|target|creatures?|foe|enemy)\b[^.;]{0,100}\b"
+        r"(?:is|are|becomes?|become)\s+slowed\b",
         re.I,
     )),
     ("planar-environment-dependency", re.compile(
@@ -1008,6 +1013,8 @@ def run_self_test() -> None:
     assert "condition-as-the-spell" not in external_mechanics_reasons("The effect lasts as long as the spell remains active.")
     assert "slow-condition-shorthand" in external_mechanics_reasons("The subject is slowed for the spell's duration.")
     assert "slow-condition-shorthand" not in external_mechanics_reasons("Movement is slowed by deep mud.")
+    assert "slow-condition-shorthand" in external_mechanics_reasons("A subject that fails a Will save is slowed.")
+    assert "external-see-rulebook-reference" in external_mechanics_reasons("The target catches fire; see Catching on Fire in the Dungeon's Master Guide.")
     assert "planar-environment-dependency" in external_mechanics_reasons("The area emulates its native planar environment.")
     assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell summons a bearded devil from the Nine Hells.")
     assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})
