@@ -16719,6 +16719,93 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/false-peacebond-359": {
+      "name": "False Peacebond",
+      "sourceSha256": "db8479eb593bb59f6f9b33b7ebc9e9dda6e18eef77565412417816d39f8f38d3",
+      "effectSummary": "Locks one manufactured weapon into whatever sheath, quiver, belt, or other holder currently contains it; physical effort cannot draw the weapon until the effect ends or is dispelled, and the spell has no effect on a weapon already held or otherwise outside a holder. If the weapon’s bearer is attacked, the bearer receives another save to overcome the effect and can repeat that save each round the assault continues. Unlike peacebond, you designate one individual present at casting who can draw the weapon freely. As soon as that designated individual draws it, false peacebond ends and resheathing the weapon does not reactivate the effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/false-peacebond-359",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; variant mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/peacebond-361",
+          "role": "primary catalog base spell used to resolve inherited peacebond mechanics into a self-contained summary"
+        }
+      ]
+    },
+    "spells/false-vision-2669": {
+      "name": "False Vision",
+      "sourceSha256": "318c4079a73fdf49cacbf35452cc0ac387a5ad053beac8d73a4af1776fe87b30",
+      "effectSummary": "Causes any divination (scrying) spell used to view anything in the warded area to receive a false scene you define instead. The false scene can include the visual, sound, smell, and thermal qualities available to a major image, whose underlying image can depict an object, creature, or force. You define the false image when casting; while the spell lasts you can concentrate to change it, and when you are not concentrating it remains static. The arcane material component is powdered jade worth at least 250 gp, scattered into the air during casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/false-vision-2669",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; scrying-specific mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/major-image-2681",
+          "role": "primary catalog referenced spell used to resolve the false image’s sensory capabilities"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/silent-image-2705",
+          "role": "primary catalog base spell used to resolve major image’s inherited visual-image mechanics"
+        }
+      ]
+    },
+    "spells/familial-geas-1434": {
+      "name": "Familial Geas",
+      "sourceSha256": "62b3c2f35b54b49e5ed4dbd7cee4d18ce02e88690907d7d5cfd8812be4f7f286",
+      "effectSummary": "Places an unlimited-duration magical obligation on the initial subject with no saving throw, using geas/quest’s command rules: the command can require almost any service or prohibition but cannot compel suicide or certain death, and it can affect a creature of any Hit Dice. Each day the subject fails to attempt compliance, it takes 3d6 damage and must make a Fortitude save or become sickened; those consequences end 24 hours after it resumes trying to obey. If a subject dies before fulfilling the obligation, the geas passes to that subject’s closest adult relative, who instinctively understands the obligation and receives a saving throw; success breaks the chain, while failure makes that relative the new subject and the process can repeat on death. The effect ends when the obligation is completed, a successor successfully saves, or it is removed by remove curse cast by someone at least two caster levels higher than the familial geas, miracle, or wish.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/familial-geas-1434",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; hereditary mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/geasquest-2551",
+          "role": "primary catalog geas/quest spell used to resolve inherited no-save, noncompliance, and removal mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/geas-lesser-2550",
+          "role": "primary catalog base geas spell used to resolve the command’s scope and prohibition on suicidal or certainly fatal orders"
+        }
+      ]
+    },
+    "spells/familiar-refuge-780": {
+      "name": "Familiar Refuge",
+      "sourceSha256": "92c6bb7bba28398daeb82b295ed3264bd12a287c5d317939f79321017a3de006",
+      "effectSummary": "Instantly transports either you to your familiar or your familiar to you with greater teleport’s reliable same-plane transportation: distance is not limited and there is no off-target arrival chance. The effect cannot cross planes. No other living creature can travel with the transported creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/familiar-refuge-780",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; familiar-only restriction retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-greater-2462",
+          "role": "primary catalog referenced spell used to resolve inherited greater-teleport mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-2461",
+          "role": "primary 3.5 catalog base teleport spell used to resolve same-plane transport mechanics"
+        }
+      ]
+    },
+    "spells/fang-trap-3246": {
+      "name": "Fang Trap",
+      "sourceSha256": "8ac071b8fc4d46260dca5eea826c7c9eaed3ccccf583fbfe093d3ab569b9155a",
+      "effectSummary": "Wards a traced area or handled object with a nearly invisible magical trap that triggers when its chosen qualifying creature enters, passes, or opens the ward. Its trigger can distinguish humans from Scaled Ones or test for specific carried or worn items, including exact item patterns, but cannot be based on faith or alignment and cannot use a symbol as the trigger; you cannot trigger your own fang trap. As with glyph of warding, the ward can be dispelled, magical disguising or nondetection effects can fool it, and a rogue can find and disable it using the normal magic-trap rules. When triggered, unseen jaws hold the subject immobile for 1 round. A successful Fortitude save then frees the subject with no further effect; on a failed save, the subject takes 1d4 piercing and bludgeoning damage per caster level. The material component is a fang from any snake.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fang-trap-3246",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; fang-trap trigger and discharge mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/glyph-of-warding-2326",
+          "role": "primary catalog base spell used to resolve inherited ward placement, concealment, dispelling, deception, and trap-handling mechanics"
+        }
+      ]
     }
   }
 }
