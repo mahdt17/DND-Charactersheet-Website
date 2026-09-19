@@ -7867,6 +7867,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/cold-fire-4037": {
+      "name": "Cold Fire",
+      "sourceSha256": "fc6681c1c7bf3449a0618556b50393948740fc1927c0efbd9ee05e9fdcebf700",
+      "effectSummary": "Transforms an ongoing mundane or magical fire into blue-white cold fire, causing it to deal cold damage instead of fire damage for the spell's duration. If cast directly on a creature with the fire subtype or vulnerability to cold, it instead deals 1d6 cold damage per two caster levels, maximum 5d6, and produces no further effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cold-fire-4037",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cold-snap-4038": {
+      "name": "Cold Snap",
+      "sourceSha256": "e634141748b5542c2cbf08a85ac31983d6a616f6060d1bad36893f922f9fbebf",
+      "effectSummary": "Lowers the area's temperature by 5°F per caster level, maximum 50°F, to a minimum of -20°F. Cold-descriptor spells cast in the area deal +1 damage per die.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cold-snap-4038",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/color-spray-2665": {
+      "name": "Color Spray",
+      "sourceSha256": "5a49a4cc9c89248568b6a9a8ebb9351562ebc19a168eb303bec054f6427fa8e1",
+      "effectSummary": "Affects creatures by Hit Dice. Creatures of 2 HD or fewer are unconscious, blinded, and stunned for 2d4 rounds, then blinded and stunned for 1d4 rounds, then stunned for 1 round; only living creatures become unconscious. Creatures of 3–4 HD are blinded and stunned for 1d4 rounds, then stunned for 1 round. Creatures of 5 HD or more are stunned for 1 round. Sightless creatures are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/color-spray-2665",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/colossus-strike-3713": {
+      "name": "Colossus Strike",
+      "sourceSha256": "14c2173042b3aa2df08e751452797d7d64dcbc3f7bb7957ba848998f9d0d0374",
+      "effectSummary": "As part of the maneuver, make one melee attack for +6d6 damage. A creature hit must make a Fortitude save against DC 17 + Strength modifier or be hurled 1d4 squares away and knocked prone. Smaller creatures take -2 on the save and larger creatures gain +2. Forced movement does not provoke attacks of opportunity and stops at the first open square if blocked.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/colossus-strike-3713",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/column-of-ice-1236": {
+      "name": "Column of Ice",
+      "sourceSha256": "9b71f08d54e3cfa2724815c36b769d13a3c14648d2a21e366f420b01ac9d3a70",
+      "effectSummary": "Raises a 10-foot-thick ice column beneath creatures or objects in the area. A successful Reflex save lets a creature avoid being lifted. Moving or fighting atop it requires DC 10 Balance; failure causes prone status and a DC 12 Reflex save to avoid sliding off and taking falling damage. Creatures smashed into overhead obstructions take 4d6 damage. The column has hardness 16, 160 hit points, break DC 90, and Climb DC 30.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/column-of-ice-1236",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/combat-readiness-1121": {
+      "name": "Combat Readiness",
+      "sourceSha256": "48c24bd7112bc9b1a6f21114a19902635ed9b25dff3ba261d85d1c29c65d865a",
+      "effectSummary": "Grants +1 insight on initiative checks per three caster levels, minimum +1 and maximum +6. If the subject is flanked, enemies gain no flanking bonus on attack rolls, though they still gain other flanking benefits such as sneak attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/combat-readiness-1121",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/combined-talent-796": {
+      "name": "Combined Talent",
+      "sourceSha256": "9e4005dfe7981f3bb52d52edaaf6c0b6fb7f38fb45ba32951d0800ae981f80b2",
+      "effectSummary": "Lets one subject use the other subject's ranks in one chosen skill, replacing its own ranks up to a maximum equal to caster level, capped at 10 ranks. The beneficiary still uses its own ability, racial, and other modifiers. The spell lasts long enough for one use of the skill, up to 10 minutes, and the lending subject retains normal use of its own skill ranks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/combined-talent-796",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/combust-1511": {
+      "name": "Combust",
+      "sourceSha256": "1e5c5719e6ce1b68b42a7c5ce572f9b58cf0e80a36940cfe318386ab7861e4ad",
+      "effectSummary": "Ignites a creature's combustible equipment or an unattended combustible object, even if damp. A creature target takes 2d6 fire damage +1 per caster level, maximum +10, with no save, then must make DC 15 Reflex or catch fire. An unattended object takes the same initial damage, then burns for 1d6 fire damage per round until extinguished or consumed. A creature touching the object during ignition takes the object's initial damage, Reflex half, and on a failed save must also make DC 15 Reflex to avoid catching fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/combust-1511",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/combust-1664": {
+      "name": "Combust",
+      "sourceSha256": "5510efd675f2174a9ca15f3e62e8a547a782138a9633528789b15fe612a2b662",
+      "effectSummary": "Ignites a creature's combustible equipment or an unattended combustible object, even if damp. A creature target takes 2d6 fire damage +1 per caster level, maximum +10, with no save, then must make DC 15 Reflex or catch fire. An unattended object takes the same initial damage, then burns for 1d6 fire damage per round until extinguished or consumed. A creature touching the object during ignition takes the object's initial damage, Reflex half, and on a failed save must also make DC 15 Reflex to avoid catching fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/combust-1664",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/combust-4039": {
+      "name": "Combust",
+      "sourceSha256": "bd27c72bca33be931e1d390d6d0f9afec1d16d50fa9ee1597e21067b6cb2fe4a",
+      "effectSummary": "Ignites a creature's combustible equipment or an unattended combustible object. A creature target takes 1d8 fire damage per caster level, maximum 10d8, with no save, then must make DC 15 Reflex or catch fire. An unattended object takes the same initial damage and then burns for 1d6 fire damage per round until extinguished or consumed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/combust-4039",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/comet-throw-3665": {
+      "name": "Comet Throw",
+      "sourceSha256": "efad21ba2c6446fe0766d1ac24e671131239295a1482e062431dafc3bb3bc473",
+      "effectSummary": "Requires a melee touch attack followed by a trip attempt with +4 on the opposed check. On success, throw the target up to 10 feet plus another 5 feet for every 5 points by which the trip check wins; the target lands prone and takes 4d6 damage. The target can be thrown into another creature, which also takes 4d6 and falls prone; a Reflex save against DC 14 + Strength modifier halves that damage and lets the second creature remain standing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/comet-throw-3665",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cometfall-4040": {
+      "name": "Cometfall",
+      "sourceSha256": "d7ee8860fc0934e46e47e1cecb69bc0f1b1f1c9e70eef769e0ceb5b4ac53ef8c",
+      "effectSummary": "Drops a comet onto a 10-foot-square area for 1d6 damage per caster level, maximum 15d6. A successful Reflex save halves the damage and prevents being knocked prone; failure deals full damage and knocks the creature prone. The impact fills the square with dense rubble. At least 40 feet of vertical space above the impact point is required or the spell fails.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cometfall-4040",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cometfall-644": {
+      "name": "Cometfall",
+      "sourceSha256": "fff7e21e5a594719ea67493d33c92368d93933247dd56b6141b49dea14f77986",
+      "effectSummary": "Creates a comet 5 feet per caster level above the ground or at the ceiling, whichever is lower, which falls immediately. Everything in the 10-foot-square impact area takes 2d6 damage per 10 feet fallen, maximum 20d6. Creatures that fail their Reflex save are also subject to a trip attempt at +11. The impact fills the area with dense rubble.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cometfall-644",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cometstrike-1237": {
+      "name": "Cometstrike",
+      "sourceSha256": "9a22177793dec5251850a0e1deec53c08d9e3250ba197536e1bb6f04904090f7",
+      "effectSummary": "Can be cast only outdoors. Each round, three frozen comets strike three different chosen creatures or objects, each requiring a ranged touch attack. A hit deals 3d6 bludgeoning damage plus 1d4 cold damage per caster level, maximum 10d4, and stuns for 1 round. A successful Reflex save negates the bludgeoning damage and stun but not the cold damage. Each round the caster can spend a standard action to retarget any or all of the three comets.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cometstrike-1237",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/command-2536": {
+      "name": "Command",
+      "sourceSha256": "5a41404b6b61015a601b25c4074f04a66163d80236eb881efcac4090efad4421",
+      "effectSummary": "For 1 round, forces the subject to obey one selected order: approach the caster as quickly as possible while doing nothing else, drop held items, fall prone, flee as quickly as possible while doing nothing else, or halt and take no actions. Movement caused by approach or flee provokes normally. If the command cannot be carried out on the subject's next turn, the spell fails.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/command-2536",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/command-plants-2794": {
+      "name": "Command Plants",
+      "sourceSha256": "9ff3dfc9af32644c2e8ee8300895ef55ca5125aebbdbc9a4c941375e97951463",
+      "effectSummary": "Makes plant creatures whose combined Hit Dice do not exceed twice caster level friendly toward the caster and able to understand commands. They do not attack the caster, but unusual orders require an opposed Charisma check with no retry and they never obey suicidal or obviously harmful orders.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/command-plants-2794",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/command-undead-2720": {
+      "name": "Command Undead",
+      "sourceSha256": "16bf514c1df4b8f1ff78eb53436e68e572b8049e6cff539b32a99680d84ebf71",
+      "effectSummary": "Controls one undead creature. Mindless undead receive no save and obey basic audible commands, including dangerous or suicidal ones. Intelligent undead become friendly and do not attack the caster; unusual orders require an opposed Charisma check and they never obey suicidal or obviously harmful orders. Threatening the undead by the caster or apparent allies ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/command-undead-2720",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/command-undead-3405": {
+      "name": "Command Undead",
+      "sourceSha256": "1bec639295645006a3d727e9a3c06ab7f3a31ae02baa080ae2fc2b72bc3ae4fe",
+      "effectSummary": "Controls one undead creature. Mindless undead receive no save and obey basic audible commands. Intelligent undead receive a save, become friendly, and do not attack the caster; unusual orders require an opposed Charisma check with no retry and they never obey suicidal or obviously harmful orders. Threatening the undead by the caster or apparent allies ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/command-undead-3405",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/command-greater-2537": {
+      "name": "Command, Greater",
+      "sourceSha256": "6a505ce8204b7a7f5deeabd6e601ce558974ed7ce2971a298fe38ba09e85c5dc",
+      "effectSummary": "Functions as command but affects up to one creature per caster level and lasts beyond 1 round. All affected creatures receive the same command. At the start of each creature's action after the first, it can make another Will save to break free.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/command-greater-2537",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/commune-2481": {
+      "name": "Commune",
+      "sourceSha256": "43d45e4fc98e5560c9fd17680c66272328a31d3207d561af3a4702a6b14f149a",
+      "effectSummary": "Contacts the caster's deity or aligned divine agents and allows one question per caster level, normally answered yes, no, or unclear; a short phrase of up to five words can be used when a one-word answer would mislead or conflict with the deity's interests. Answers are correct within the contacted entity's knowledge and may be framed to advance its purposes. Pausing to discuss answers or do something else ends the spell. Casting costs 100 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/commune-2481",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
