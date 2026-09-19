@@ -10104,6 +10104,238 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/curtain-of-light-68": {
+      "name": "Curtain of Light",
+      "sourceSha256": "f11e459c4c6162bcaf3e0fc5d24448f9e2454689a5b92a560cd8b29459082b22",
+      "effectSummary": "Creates an immobile vertical curtain of light. Choose one side when casting; evil creatures on that side take 2d4 damage within 10 feet or 1d4 damage from 10 to 20 feet when the curtain appears and at the start of each caster turn. A creature passing through takes 2d6 +1 per caster level, maximum +20; undead take double this contact damage. The spell can be made permanent. A permanent curtain that is destroyed reforms after 10 minutes. It counters or dispels equal- or lower-level darkness effects and is otherwise unaffected by physical attacks or most spells, though antimagic, dispel magic, greater dispel magic, and disjunction can affect it. Casting requires a sacrifice of 1d4 Strength damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/curtain-of-light-68",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cutting-hand-4278": {
+      "name": "Cutting Hand",
+      "sourceSha256": "2ed38d8f3cb10ece3c54909ef53764b0f74c88d1d5ed9a332c856d9ca88c0e27",
+      "effectSummary": "Transforms one hand into a deadly cutting weapon that deals 1d6 damage for a Medium caster, 1d4 if Small, or 1d8 if Large. Attacks with the hand gain +2 enhancement on attack and damage rolls, and the caster is treated as armed. The enhancement bonus does not apply to other touch attacks made with that hand.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cutting-hand-4278",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cyclonic-blast-4301": {
+      "name": "Cyclonic Blast",
+      "sourceSha256": "818ae612068d05dd1236402f1f3ed446bfa0f9a95e68e8ef59b6e627d6ed9308",
+      "effectSummary": "A violent blast deals 1d6 damage per caster level, maximum 15d6, to creatures and objects in its path; objects larger than Large take half damage. A creature that fails its Reflex save is also bull rushed by the blast using a +12 Strength check, and is carried along without the normal bull-rush movement limit. An airborne target is treated as one size category smaller for resisting the bull rush. If the blast destroys a barrier, it continues beyond it while range remains.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cyclonic-blast-4301",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/daggerspell-stance-363": {
+      "name": "Daggerspell Stance",
+      "sourceSha256": "e42a1231d9d24a22aa442082177ad3ca7daf0472cfa4f514ef6278edee3867fb",
+      "effectSummary": "The spell's benefits apply while wielding two daggers, but the spell does not end if a dagger is lost. When making a full attack with two daggers, gain +2 insight on attack and damage rolls with them for that round. Fighting defensively with two daggers grants spell resistance 5 + caster level, while total defense grants that spell resistance plus damage reduction 5/magic.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/daggerspell-stance-363",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/daggerspell-stance-4324": {
+      "name": "Daggerspell Stance",
+      "sourceSha256": "f2621fe00be39cb8731b5c1fad206f8c3a07a8babf3f83aeb2ca0ff69780a52c",
+      "effectSummary": "The spell's benefits apply while wielding two daggers, but losing a dagger does not end the spell. A full attack with two daggers grants +2 insight on their attack and damage rolls for that round. Fighting defensively with two daggers grants spell resistance 5 + caster level; using total defense grants the same spell resistance and damage reduction 5/magic.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/daggerspell-stance-4324",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing"
+        }
+      ]
+    },
+    "spells/dalamars-lightning-lance-5000": {
+      "name": "Dalamar's Lightning Lance",
+      "sourceSha256": "e7974811bf42e57251e9b1198c9c29822bbf142d9d379b2e11c136397ed5c2b9",
+      "effectSummary": "Make a ranged touch attack with each lightning lance. A hit deals 3d6 impact damage plus 1d6 electricity damage per caster level, maximum 10d6 electricity; electricity resistance or immunity affects only the electricity portion, and a Fortitude save halves only that portion. The caster creates a second lance at 10th level and a third at 15th level, and the lances can strike the same or different targets within 30 feet of one another.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dalamars-lightning-lance-5000",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/daltims-fiery-tentacles-3267": {
+      "name": "Daltim's Fiery Tentacles",
+      "sourceSha256": "f5e1eb5388acb25c4eeb1513ee50c744c24848a31d5b32ad26635d3b3a947693",
+      "effectSummary": "Functions as Evard's black tentacles: creatures in the area are grappled using a tentacle grapple modifier of caster level +8; grappled creatures take 1d6+4 bludgeoning damage on successful tentacle grapple checks each round, entrants are attacked immediately, the tentacles are immune to damage, and nongrappled creatures move through the area at half speed. In addition, every creature in the area takes fire damage equal to caster level, maximum 15, each round; a Reflex save halves the fire damage, but a grappled creature cannot make that save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/daltims-fiery-tentacles-3267",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the spell-specific fire mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/evards-black-tentacles-2391",
+          "role": "same primary catalog referenced spell used to retain inherited black-tentacles grapple, damage, movement, and immunity mechanics"
+        }
+      ]
+    },
+    "spells/damning-darkness-1536": {
+      "name": "Damning Darkness",
+      "sourceSha256": "d1f1a180aab9d9a43a25343e823c9de37b233d93ba6c1821ebbadbd0ac5ef1f2",
+      "effectSummary": "Functions as darkness, causing the touched object to radiate shadowy illumination in a 20-foot radius and granting concealment within it; covering the object with something opaque blocks the effect. In addition, good creatures in the darkness take 2d6 damage each round and neutral creatures take 1d6. The spell counters or dispels equal- or lower-level light effects. Spell resistance applies to the damage but not to the darkness.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/damning-darkness-1536",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Damning Darkness mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells?classLevel=2&className=Wizard&page=2",
+          "role": "same primary catalog Darkness entry used to retain the referenced base darkness behavior"
+        }
+      ]
+    },
+    "spells/damning-darkness-177": {
+      "name": "Damning Darkness",
+      "sourceSha256": "6b49fabbc311261381b846bd5d0cc2ac605a7295f59ffd88b84a39edc4855dc6",
+      "effectSummary": "Functions as darkness, causing the touched object to radiate shadowy illumination in a 20-foot radius and granting concealment within it; covering the object with something opaque blocks the effect. Good creatures in the darkness take 2d6 damage each round and creatures that are neither good nor evil take 1d6. The spell counters or dispels equal- or lower-level light effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/damning-darkness-177",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Book of Vile Darkness printing"
+        },
+        {
+          "url": "https://new.dndtools.org/spells?classLevel=2&className=Wizard&page=2",
+          "role": "same primary catalog Darkness entry used to retain the referenced base darkness behavior"
+        }
+      ]
+    },
+    "spells/dampen-magic-585": {
+      "name": "Dampen Magic",
+      "sourceSha256": "06d5d02e6a51cca17f2a7c52caf5206630c330a548b7ffb21a3f4d537871c0c4",
+      "effectSummary": "Creates a field around the subject that reduces a magic weapon's enhancement bonus by 1 when used against the subject and reduces caster level and save DC by 1 for spells, spell-like abilities, and supernatural abilities that affect the subject. The subject can lower or restore the field with a move action to receive beneficial magic normally. Existing magical effects are unchanged, but effects or items gained after casting are dampened. The reduction becomes 2 at caster levels 13–18 and 3 at 19th or higher. If at least 5 rounds remain, the subject can convert the field into a 5-foot-radius antimagic field lasting 1 round per 5 remaining rounds, after which dampen magic ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dampen-magic-585",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dance-spider-3688": {
+      "name": "Dance of the Spider",
+      "sourceSha256": "fbac17428380fa48aad62d2f9a1fc3f045dca9270f33363fea03f5dfba3aff79",
+      "effectSummary": "While in this stance, gain a 20-foot climb speed and move across vertical, horizontal, or inverted surfaces without Climb checks. The initiator retains Dexterity to AC while climbing, needs only one free hand, and neither takes the usual attack penalties nor grants opponents bonuses for climbing. Running while climbing is not allowed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dance-spider-3688",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dance-of-the-unicorn-2013": {
+      "name": "Dance of the Unicorn",
+      "sourceSha256": "8fc8c6f62b253f46d91a1fb7ef8bbd58bf54c3ca55df02c71c5676c7c3b2a08d",
+      "effectSummary": "Creates a purifying mist in a radius of 5 feet per caster level. Nonmagical smoke, dust, and inhaled poisons are negated. Magical contaminants such as acid fog, cloudkill, or a green dragon's breath are negated if the caster level exceeds the offending spell's caster level or the creature's Hit Dice; otherwise creatures in the mist gain +4 on saving throws against them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dance-of-the-unicorn-2013",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Oriental Adventures printing"
+        }
+      ]
+    },
+    "spells/dance-of-the-unicorn-4325": {
+      "name": "Dance of the Unicorn",
+      "sourceSha256": "c5e1b9c5c342c2b27beb06d933ec5bb9d77545c68c5fed39887eda03f9683d42",
+      "effectSummary": "Creates a purifying mist that negates nonmagical smoke, dust, and inhaled poisons. Creatures within the mist gain +4 on saving throws against magical or supernatural gases, including effects such as acid fog, cloudkill, or a green dragon's breath.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dance-of-the-unicorn-4325",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing; its mechanics are preserved separately from earlier printings"
+        }
+      ]
+    },
+    "spells/dance-of-the-unicorn-634": {
+      "name": "Dance of the Unicorn",
+      "sourceSha256": "0b5cb3cec5c013a586179895f6f3fbda230c9b047b0a5e575c527703954cdf14",
+      "effectSummary": "Creates a purifying mist in a radius of 5 feet per caster level. Nonmagical smoke, dust, and inhaled poisons are negated. Magical contaminants such as acid fog, cloudkill, or a green dragon's breath are negated if the caster level exceeds the offending spell's caster level or the creature's Hit Dice; otherwise creatures in the mist gain +4 on saving throws against them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dance-of-the-unicorn-634",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Complete Divine printing"
+        }
+      ]
+    },
+    "spells/dancing-blade-2106": {
+      "name": "Dancing Blade",
+      "sourceSha256": "cb9fa99ac1c49be6058dcb917905f871de30029e14481a4016e8217a26bb85ca",
+      "effectSummary": "Animates a sword that defends a designated creature. It attacks using that creature's base attack bonus and the sword's base damage, without Strength or other normal attack or damage modifiers; apply -4 if the defended creature is not proficient with the sword. The blade stays within 5 feet, drops if the defended creature is dying or dead, requires no concentration, and does not prevent that creature from using another weapon. Two opponents do not gain a flanking bonus against the defended creature, though additional opponents can still flank.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dancing-blade-2106",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Oriental Adventures printing"
+        }
+      ]
+    },
+    "spells/dancing-blade-3010": {
+      "name": "Dancing Blade",
+      "sourceSha256": "3769bff51ffde22876b648850d497738459e85554bc5e04acedb34e8d13d734e",
+      "effectSummary": "Animates one melee weapon in the caster's possession. Once each round as a free action, direct it to attack an adjacent creature, or one 10 feet away if it is a reach weapon. Its attack bonus equals caster level + the caster's spellcasting ability modifier + the weapon's enhancement bonus, and its damage is the weapon's normal damage plus that ability modifier and applicable enhancement or inherent weapon bonuses. It makes only one attack per round, does not make attacks of opportunity or count as arming the caster, remains in the caster's space as the caster moves, and cannot be disarmed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dancing-blade-3010",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Player's Handbook II printing"
+        }
+      ]
+    },
+    "spells/dancing-blade-539": {
+      "name": "Dancing Blade",
+      "sourceSha256": "a53a56fba7307b319aa2801f375101aa73bc5a22b7a3918fded49fe98eed2566",
+      "effectSummary": "Animates a sword to fight for a designated creature. The sword acts on that creature's initiative and uses the creature's base attack bonus, without Strength or other attack or damage modifiers; apply -4 if the creature is not proficient. If the creature makes a full attack, the blade can make a full attack as well. It remains within 5 feet, drops if the creature falls to 0 or fewer hit points, requires no concentration, and does not prevent use of another weapon. Two opponents do not gain a flanking bonus against the protected creature, though additional opponents can still flank.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dancing-blade-539",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Complete Arcane printing"
+        }
+      ]
+    },
+    "spells/dancing-blade-form-3643": {
+      "name": "Dancing Blade Form",
+      "sourceSha256": "85f0ede66d5a4c8291569864668cbf4c92e7fd0671618821f01a759200d13ba7",
+      "effectSummary": "While in this stance, melee reach increases by 5 feet only during the initiator's own turn and only while making a melee attack. It does not increase reach outside that turn or for attacks of opportunity, and this stance combined with other maneuvers cannot increase reach by more than 5 feet through this ability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dancing-blade-form-3643",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dancing-chains-234": {
+      "name": "Dancing Chains",
+      "sourceSha256": "8e6954bd9e8fc985dda132a6e5e4cdfb0ba52f2f56757cd98ebeb0a83a134fb7",
+      "effectSummary": "As a standard action, the caster can control one chain per caster level, lengthening each to as much as 15 feet and causing barbs to grow. Controlled chains attack as spiked chains using the caster's normal ranged attack bonus for attack rolls or grapple checks; each counts as Medium for grappling. The caster can climb a controlled chain at normal speed without making a Climb check.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dancing-chains-234",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dancing-dragonmark-4863": {
+      "name": "Dancing Dragonmark",
+      "sourceSha256": "d6bc82c2a6723d248550d6ab4803dd694a10bc68bb0477f976b1cc845706e9e0",
+      "effectSummary": "The subject becomes nauseated. If the target's dragonmark is one step stronger than the caster's, it gains +2 on its Will save; if it is two steps stronger, it gains +4. The spell applies to true or aberrant dragonmarks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dancing-dragonmark-4863",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
