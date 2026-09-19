@@ -370,6 +370,35 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?:to\s+(?:your|the\s+caster[’']s)\s+location|to\s+serve\s+you))",
         re.I,
     )),
+    ("spell-of-that-name-inheritance", re.compile(
+        r"\b(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,60}?)\s+effect[^.;]{0,100}\b"
+        r"functions?\s+identically\s+to\s+the\s+spell\s+of\s+that\s+name\b",
+        re.I,
+    )),
+    ("caught-in-named-spell", re.compile(
+        r"\bact(?:s)?\s+as\s+if\s+caught\s+in\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("same-as-named-feat", re.compile(
+        r"\b(?:overall\s+)?effect\s+is\s+the\s+same\s+as\s+(?:that\s+of\s+)?(?:the\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+feat\b",
+        re.I,
+    )),
+    ("fog-created-by-fog-cloud", re.compile(
+        r"\b(?:bank|cloud|fog|mist)\b[^.;]{0,80}\blike\s+that\s+created\s+by\s+"
+        r"(?P<name>fog cloud)\b",
+        re.I,
+    )),
+    ("magic-weapon-stat-inheritance", re.compile(
+        r"\bas\s+if\s+(?:you|it|the\s+subject|the\s+target)\s+(?:were|was)\s+wearing\s+"
+        r"(?P<name>\+\d+\s+[A-Za-z][A-Za-z'’ -]{1,60})\b",
+        re.I,
+    )),
+    ("clairaudience-effect-inheritance", re.compile(
+        r"\bmuch\s+like\s+(?:a|an|the)\s+(?P<name>clairaudience)\s+effect\b",
+        re.I,
+    )),
 )
 
 
@@ -1111,6 +1140,18 @@ def run_self_test() -> None:
     assert "mobility-feat-inheritance" in external_mechanics_reasons("When moving in combat, you act as if you had the Mobility feat.")
     assert "called-creature-stat-dependency" in external_mechanics_reasons("The caster calls a special servant of Valarian—either a pegasus or unicorn—to her location.")
     assert "called-creature-stat-dependency" not in external_mechanics_reasons("The caster calls down a peal of thunder.")
+    assert "spell-of-that-name-inheritance" in external_mechanics_reasons("You can create a suggestion effect, which functions identically to the spell of that name.")
+    assert "spell-of-that-name-inheritance" not in external_mechanics_reasons("The visual effect is identical in color to the original.")
+    assert "caught-in-named-spell" in external_mechanics_reasons("Creatures trapped act as if caught in an entomb spell.")
+    assert "caught-in-named-spell" not in external_mechanics_reasons("Creatures act as if caught in deep snow.")
+    assert "same-as-named-feat" in external_mechanics_reasons("The overall effect is the same as that of the Quick Draw feat.")
+    assert "same-as-named-feat" not in external_mechanics_reasons("The overall effect is the same as a free action.")
+    assert "fog-created-by-fog-cloud" in external_mechanics_reasons("The spell creates a bank of fog like that created by fog cloud, except the vapors are nauseating.")
+    assert "fog-created-by-fog-cloud" not in external_mechanics_reasons("The spell creates a bank of fog like that created by a forest fire.")
+    assert "magic-weapon-stat-inheritance" in external_mechanics_reasons("You can attack with your fist in all respects as if you were wearing a +1 spiked gauntlet.")
+    assert "magic-weapon-stat-inheritance" not in external_mechanics_reasons("You fight as if you were wearing heavy armor.")
+    assert "clairaudience-effect-inheritance" in external_mechanics_reasons("You hear whatever occurs near the sensor, much like a clairaudience effect.")
+    assert "clairaudience-effect-inheritance" not in external_mechanics_reasons("The sound is much like a thunder effect.")
     assert "garbled-nightstalker-transformation" in suspicious_reasons({"effectSource":"You also gain the cat’s grace , which you drink (and whose effects are subsumed)."})
     assert "planar-environment-dependency" in external_mechanics_reasons("The area emulates its native planar environment.")
     assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell summons a bearded devil from the Nine Hells.")
