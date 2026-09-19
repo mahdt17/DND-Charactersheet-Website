@@ -951,6 +951,55 @@
           "role": "same primary catalog Spell Compendium printing used only to restore the matching HD/effect thresholds"
         }
       ]
+    },
+    "spells/know-greatest-enemy-1637": {
+      "name": "Know Greatest Enemy",
+      "effectSummary": "For as long as you concentrate, the spell evaluates creatures in the area by Challenge Rating: CR 4 or lower is weak, CR 5–10 moderate, CR 11–15 strong, and CR 16 or higher overwhelming. Among creatures in the same category, you learn which is the most powerful but not why it is stronger. A 3rd-level or higher effect that prevents scrying on a creature or area, such as nondetection or false vision, also prevents this spell from evaluating the protected creature or creatures.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/know-greatest-enemy-1637",
+          "role": "primary Magic of Faerûn catalog record; rebuilt prose says creatures are evaluated 'as follows' but omits the CR/strength table"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/know-greatest-enemy-4331",
+          "role": "same primary catalog Spell Compendium printing used only to restore the matching CR/strength thresholds"
+        }
+      ]
+    },
+    "spells/summon-undead-i-1460": {
+      "name": "Summon Undead I",
+      "effectSummary": "Functions as summon monster I except that it summons undead. The creature appears where you designate within range, acts immediately on your turn, attacks your opponents to the best of its ability, and can be directed to other actions if you can communicate with it; as with summon monster I it cannot summon or conjure another creature or use teleportation or planar-travel abilities. This Libris Mortis printing's 1st-level summon list is Medium skeleton or Small zombie. You choose which one each time you cast the spell. Summoned undead do not count toward the total Hit Dice of undead you can control with animate dead or other command-undead abilities. Unlike the later Heroes of Horror and Spell Compendium revisions, this printing does not state the caster-level-plus-1 Hit Die cap. The focus is a tiny bag, a small unlit candle, and a carved bone from any humanoid.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1460",
+          "role": "primary Libris Mortis catalog record; rebuilt prose references the 1st-level Summon Undead table but omits its entries"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/dm/Libris%20Mortis.pdf",
+          "role": "Libris Mortis sourcebook copy used only to restore that printing's 1st-level list: Medium skeleton and Small zombie"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "same primary catalog referenced spell used to retain inherited summon placement, action, control, and travel restrictions"
+        }
+      ]
+    },
+    "spells/weapon-of-the-deity-1397": {
+      "name": "Weapon of the Deity",
+      "effectSummary": "You must be using your deity's favored weapon. You can wield it as though proficient, and it gains a +1 enhancement bonus on attack and damage rolls plus a deity-specific special ability; a double weapon applies the bonus and ability to only one head, chosen by you. If both heads of your weapon already have enhancement bonuses and special abilities, this effect does not function unless the weapon's normal enhancement bonus is lower than the bonus granted by the spell. The enhancement bonus becomes +2 at caster level 9, +3 at 12, +4 at 15, and +5 at 18. Ghostwalk deity abilities are: Aluvan—defending short sword; Chaniud—screaming longsword; Dracanish—mighty cleaving scimitar; Durann—flaming warhammer; Eanius—merciful quarterstaff; Galaedros—frost quarterstaff; Khostren—venomous spiked gauntlet; Nessek—flaming dagger; Orcus—torturous heavy mace; Phaant—venomous greataxe; Soggelos—frost trident; Tephaneron—keen battleaxe; Uhanam—mighty cleaving light flail; Wyst—defending shortspear.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-of-the-deity-1397",
+          "role": "primary Ghostwalk catalog record; rebuilt prose references a deity-specific list that is omitted"
+        },
+        {
+          "url": "https://anyflip.com/cmjgl/uwip/basic/51-100",
+          "role": "Ghostwalk sourcebook rendering used only to restore that printing's 14 deity weapon/special-ability rows"
+        }
+      ]
     }
   }
 }
