@@ -193,6 +193,10 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
         re.I,
     )),
+    ("receives-heal-spell-inheritance", re.compile(
+        r"\breceives?\s+(?:a|an|the)\s+(?P<name>heal)\s+spell\b",
+        re.I,
+    )),
     ("exactly-like-named-spell", re.compile(
         r"\b(?:works?|functions?|operates?|acts?|behaves?)\s+exactly\s+like\s+"
         r"(?:the\s+)?(?:\d+(?:st|nd|rd|th)-level\s+)?(?:arcane\s+|divine\s+)?"
@@ -1207,6 +1211,8 @@ def run_self_test() -> None:
     assert "functions-much-like-spell" in external_mechanics_reasons("This spell functions much like the sanctuary spell.")
     assert "named-spell-benefit" in external_mechanics_reasons("The subjects gain the benefits of a bless spell.")
     assert "named-spell-benefit" not in external_mechanics_reasons("Creatures receive the benefits of this spell.")
+    assert "receives-heal-spell-inheritance" in external_mechanics_reasons("One round later, the target receives a heal spell.")
+    assert "receives-heal-spell-inheritance" not in external_mechanics_reasons("The target receives a healing bonus.")
     assert "exactly-like-named-spell" in external_mechanics_reasons("This works exactly like the 1st-level spell sanctuary except for the save DC.")
     assert "received-named-spells" in external_mechanics_reasons("They stick to the path as though they have received spider climb spells.")
     assert "affected-as-though-by-spell" in external_mechanics_reasons("The creature is affected as though by a fear spell.")
