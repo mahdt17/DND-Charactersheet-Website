@@ -12036,6 +12036,243 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise smite mechanics"
         }
       ]
+    },
+    "spells/devastating-throw-3667": {
+      "name": "Devastating Throw",
+      "sourceSha256": "3b506038e510d41b02cea3fe1722597088db9177993c45913c4c4eac2414e49e",
+      "effectSummary": "You must move at least 15 feet before initiating this strike. As part of the maneuver, make a melee touch attack and then resolve a trip attempt without provoking an attack of opportunity; the opponent cannot counter-trip you if you lose, and you may use Strength or Dexterity, whichever is higher, with a +4 bonus on the opposed check. On a successful trip, throw the target 10 feet plus another 5 feet for every 5 points by which you won the check, choose its destination, knock it prone, and deal 2d6 damage. The thrown creature can pass through occupied squares without provoking attacks of opportunity, but must land in an empty space; if no clear destination is within the available distance, it falls prone in its current space.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/devastating-throw-3667",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Devastating Throw's movement, damage, and scaling throw distance"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/mighty-throw-3673",
+          "role": "same primary catalog referenced maneuver used to retain inherited trip, ability-modifier, counter-trip, and threatened-square mechanics"
+        }
+      ]
+    },
+    "spells/devil-blight-2201": {
+      "name": "Devil Blight",
+      "sourceSha256": "ae3fc39e99fe8f78ebf25d435a3a41fafe8169345aee6e220de3ba7011981625",
+      "effectSummary": "A creature with both lawful and evil subtypes takes 2d6 damage with no saving throw. If the target also has the baatezu subtype, it is instead confused for 1d6 rounds and takes 2d6 damage in each of those rounds; a successful Will save prevents the confusion and reduces the damage duration to 1 round. A baatezu's spell resistance does not apply to this enhanced effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/devil-blight-2201",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Planar Handbook printing; its confusion and baatezu spell-resistance exception are preserved"
+        }
+      ]
+    },
+    "spells/devil-blight-4362": {
+      "name": "Devil Blight",
+      "sourceSha256": "6f0ae31ae675201f338774bce321b60cdeaae47fb2a6d71df23312b02304cca2",
+      "effectSummary": "For the spell's duration, a creature with both lawful and evil subtypes takes 2d6 damage each round with no saving throw against that damage. If the target also has the baatezu subtype, it must make a Fortitude save or be stunned for the duration. This Spell Compendium printing does not include the earlier printing's special rule that bypasses baatezu spell resistance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/devil-blight-4362",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its recurring damage, Fortitude stun, and lack of the earlier SR exception are preserved"
+        }
+      ]
+    },
+    "spells/devils-ego-1172": {
+      "name": "Devil's Ego",
+      "sourceSha256": "d90b923f6c3217c380d916c72c54b18bed3971cc27b5bb1f6a171922793f63c8",
+      "effectSummary": "For the duration, you gain a +4 profane bonus to Charisma, with the normal benefits to Charisma-based checks and other Charisma-modifier uses. For noncleric spellcasting classes that use Charisma, the increase can raise spell save DCs but does not grant bonus spells. Your type also changes to outsider, making you immune to effects that specifically target humanoids, such as charm person and hold person.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/devils-ego-1172",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete Charisma and creature-type mechanics"
+        }
+      ]
+    },
+    "spells/devils-tail-239": {
+      "name": "Devil's Tail",
+      "sourceSha256": "1d2d55a0206469fa424b08ed7f90dc7b36f230ad0b9efe1da9e0617253091ffc",
+      "effectSummary": "You grow a 3-foot spiked tail that can make melee attacks using your normal attack bonus. It deals 1d4 base damage plus one-half your Strength bonus. During a full attack, you can attack with both the tail and your normal melee attacks, but every attack in that full attack takes a -2 penalty.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/devils-tail-239",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise attack mechanics"
+        }
+      ]
+    },
+    "spells/devils-tongue-240": {
+      "name": "Devil's Tongue",
+      "sourceSha256": "66857d353a24835c2f72d1089e037720e1254f436215f1b378c3430af87f7753",
+      "effectSummary": "Your tongue gains 15-foot reach for grapple and disarm attempts. Those tongue-based grapple or disarm attempts do not provoke attacks of opportunity and otherwise use the normal rules for those maneuvers. The corruption cost is 1d6 Wisdom damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/devils-tongue-240",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for reach, combat-maneuver, and corruption-cost mechanics"
+        }
+      ]
+    },
+    "spells/dhularks-glasstrike-1752": {
+      "name": "Dhulark's Glasstrike",
+      "sourceSha256": "0a95c73230319bfe39c36d48974cde01ac8664f2bb3bcc7024b13ccae19423ef",
+      "effectSummary": "Choose one of two versions. Glass Creature functions as flesh to stone except the affected flesh creature and its carried gear become a mindless, inert glass statue rather than stone; carried magic items remain intact. Glass Object transforms up to 4 cubic feet of a nonmagical object, including part of a larger floor or wall, into glass. Neither version affects magic items. When the duration ends, the target returns to its original material, but breaking or damaging it while glass leaves corresponding damage or deformity after restoration. The focus is a piece of glass from a mirror.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dhularks-glasstrike-1752",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the creature/object variants, magic-item exception, duration, and damage carryover"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/flesh-to-stone-2815",
+          "role": "same primary catalog referenced spell used to retain the inherited inert-statue and flesh-creature mechanics"
+        }
+      ]
+    },
+    "spells/diamond-defense-3622": {
+      "name": "Diamond Defense",
+      "sourceSha256": "0934d8bd923f8b478616b7d4c00180ce950091b2905c16793e39c03660463f42",
+      "effectSummary": "When you are required to make a saving throw, you can initiate this maneuver before rolling to gain a bonus on that save equal to your initiator level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/diamond-defense-3622",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise counter timing and save mechanics"
+        }
+      ]
+    },
+    "spells/diamond-nightmare-blade-3623": {
+      "name": "Diamond Nightmare Blade",
+      "sourceSha256": "f4b05c6acbb40080d9fe9d7b31b386a153de54a389bcf4440a1fdb50f56734f1",
+      "effectSummary": "As part of the maneuver, make a Concentration check against a DC equal to the target's AC, then make one melee attack. If the check succeeds, the attack deals four times normal melee damage. If the check fails, the attack instead takes a -2 penalty and gains no extra damage. If the attack is also a critical hit, combine the damage multipliers using the normal multiplier-stacking rule.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/diamond-nightmare-blade-3623",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete strike and multiplier mechanics"
+        }
+      ]
+    },
+    "spells/diamond-spray-70": {
+      "name": "Diamond Spray",
+      "sourceSha256": "ed5b30d823946dcd515b4e5ca1bce34c9fc8ac0e307064283dd670ce63a7aff2",
+      "effectSummary": "Evil creatures in the cone are dazzled for 2d6 rounds and take 1d6 damage per caster level, maximum 10d6. A successful Reflex save halves the damage but does not prevent the dazzling. Non-evil creatures are unaffected. The material component is at least 100 gp of diamond dust.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/diamond-spray-70",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for damage, save, condition, target-alignment, and component mechanics"
+        }
+      ]
+    },
+    "spells/diamondsteel-4375": {
+      "name": "Diamondsteel",
+      "sourceSha256": "5b4347ed304c1290cec45be7d47503c9e1023443d2d2ab4dd4e43d526b2fe002",
+      "effectSummary": "One suit of metal armor grants damage reduction equal to half its AC bonus, overcome only by adamantine weapons. The source examples give full plate DR 4/adamantine and a +1 breastplate with a +6 AC bonus DR 3/adamantine, so the armor's enhancement bonus contributes to the AC value used by the spell. The material component is at least 50 gp of diamond dust.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/diamondsteel-4375",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for damage-reduction scaling and material cost"
+        }
+      ]
+    },
+    "spells/dictum-2605": {
+      "name": "Dictum",
+      "sourceSha256": "cc38a1897719a3fe449c7274bcafa8d1645bd6b9edebb780784e0300fb231dd8",
+      "tablesSha256": "a127f2255d82c01b75a0f896eb67669e716d25676e9891bebf4a1be90facf754",
+      "effectSummary": "Nonlawful creatures with Hit Dice no greater than your caster level suffer cumulative effects with no save: at HD equal to caster level, deafened for 1d4 rounds; at up to caster level -1, also slowed for 2d4 rounds; at up to caster level -5, also paralyzed and helpless for 1d10 minutes; and at up to caster level -10, living creatures die and undead are destroyed. A slowed creature can take only one move or one standard action per turn, cannot take full-round actions, takes -1 on attacks, AC, and Reflex saves, and moves at half speed. If you cast on your home plane, nonlawful extraplanar creatures in the area are also banished to their home planes regardless of whether they hear the dictum and cannot return for at least 24 hours; a Will save at -4 negates only this banishment. Creatures whose Hit Dice exceed your caster level are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dictum-2605",
+          "role": "primary DnD Tools effect text and HD/effect table reviewed and paraphrased for cumulative dictum and banishment mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/slow-2873",
+          "role": "same primary catalog referenced spell used to retain the inherited slowed action, penalty, and movement mechanics"
+        }
+      ]
+    },
+    "spells/dimension-door-2388": {
+      "name": "Dimension Door",
+      "sourceSha256": "7cc58248314e7bebb6643109f74fe311218893839d250e66e021211786b3286a",
+      "effectSummary": "Instantly teleport yourself to an exact destination within range that you visualize or specify by direction. After teleporting, you cannot take any other actions until your next turn. You can bring objects up to your maximum load plus one additional willing Medium-or-smaller creature, or equivalent size, per three caster levels; all travelers must be mutually touching and at least one must touch you. A Large creature counts as two Medium creatures, a Huge creature as two Large, and so on. If the destination is occupied by solid matter, every traveler takes 1d6 damage and is shunted to a random suitable open space within 100 feet; if none exists, each takes another 2d6 and is shunted within 1,000 feet; if no such space exists, each takes another 4d6 and the spell fails.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimension-door-2388",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete passenger, action-lock, and occupied-destination mechanics"
+        }
+      ]
+    },
+    "spells/dimension-door-greater-4378": {
+      "name": "Dimension Door, Greater",
+      "sourceSha256": "f92ab5873fa3566b235b04f811433b3ece150aa96589e7b7d5a53dcbc49dd18d",
+      "effectSummary": "Functions as dimension door, but while the spell lasts you can transfer its targets once per round as a move action that does not provoke attacks of opportunity, each time up to 25 feet + 5 feet per two caster levels. Each transfer otherwise retains dimension door's exact-destination, load/passenger/contact, occupied-destination shunting, and post-teleport action restrictions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimension-door-greater-4378",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the repeated move-action teleport and revised distance"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dimension-door-2388",
+          "role": "same primary catalog referenced spell used to retain inherited destination, passenger/load, shunting, and action-lock mechanics"
+        }
+      ]
+    },
+    "spells/dimension-hop-2921": {
+      "name": "Dimension Hop",
+      "sourceSha256": "a3b65440f3d03cd6808c803566d6597989036ac07a5c90bb558199f004f8eeaf",
+      "effectSummary": "Instantly teleport the touched subject 5 feet per two caster levels. The destination must be an unoccupied space within your line of sight.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimension-hop-2921",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise teleport-distance and destination mechanics"
+        }
+      ]
+    },
+    "spells/dimension-jumper-778": {
+      "name": "Dimension Jumper",
+      "sourceSha256": "8b569a60c6453ee2a58f5e8b3fb4fdaefbaa828064d81cb8edcda099d8dc3e44",
+      "effectSummary": "For the spell's duration, once per round you can teleport yourself up to 30 feet as a move action. You can bring held or carried objects up to your maximum load and may bring your familiar, but no other creatures. You must see the destination. Attempting to teleport into a solid object wastes that move action but does not end the spell, and ending the teleport without a solid surface causes you to fall immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimension-jumper-778",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for repeated teleport, load, companion, visibility, and failed-destination mechanics"
+        }
+      ]
+    },
+    "spells/dimension-leap-4835": {
+      "name": "Dimension Leap",
+      "sourceSha256": "ed2fe051bd904f3a7bc047f98581ce20f40e90ed3cf0488508554cf9eb03a705",
+      "effectSummary": "Instantly teleport yourself to an exact spot within range, but the distance traveled must be a multiple of 10 feet. You can bring objects you are touching up to your maximum load but cannot bring other creatures. If the destination is occupied by solid matter, the spell fails. A character with any Mark of Passage dragonmark or the Favored in House (Orien) feat uses character level instead of caster level to determine teleport distance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimension-leap-4835",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for distance increments, carried objects, occupied destinations, and Eberron-specific scaling"
+        }
+      ]
+    },
+    "spells/dimension-shuffle-2922": {
+      "name": "Dimension Shuffle",
+      "sourceSha256": "1f222265b6039bb1ac0d77389120c3bd9a1ce3cab5ec14164ea32533a350e569",
+      "effectSummary": "Instantly teleport each subject from its current location to another spot within 30 feet that you can see. An unwilling creature can make a Will save to negate its teleport. Each destination must be solid ground capable of supporting the creature; attempting to place it inside solid matter or a space too small for it causes that teleport to fail.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimension-shuffle-2922",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for target movement, unwilling saves, and destination restrictions"
+        }
+      ]
+    },
+    "spells/dimension-step-2923": {
+      "name": "Dimension Step",
+      "sourceSha256": "4b1afb397f63fe57ac77633f3fe1bcaace903c1f3245722da9a56e198de47150",
+      "effectSummary": "Each targeted ally can immediately teleport a distance up to its base land speed to any square within its line of sight. This teleportation does not provoke attacks of opportunity and can move to visible locations at different elevations, such as a ledge or the base of stairs, as long as the destination stays within the spell's distance and visibility limits.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimension-step-2923",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for teleport distance, line-of-sight, elevation, and opportunity-attack mechanics"
+        }
+      ]
+    },
+    "spells/dimensional-anchor-2308": {
+      "name": "Dimensional Anchor",
+      "sourceSha256": "d709532e9e8654f4eab92d5547c308072844146f7daf466ff0ce926efcf44284",
+      "effectSummary": "A successful ranged touch attack surrounds the creature or object with a field that blocks extradimensional travel, including astral projection, blink, dimension door, ethereal jaunt, etherealness, gate, maze, plane shift, shadow walk, teleport, similar spell-like or psionic travel, and use of a gate or teleportation circle. It does not eject or restrain creatures already in ethereal or astral form when cast, does not block extradimensional perception or attacks such as a basilisk's gaze, and does not stop summoned creatures from disappearing normally when their summoning ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimensional-anchor-2308",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete blocked-travel and exception mechanics"
+        }
+      ]
     }
   }
 }
