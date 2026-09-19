@@ -322,28 +322,6 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"extraplanar\s+creatures?|natural\s+creatures?|fiends?|creatures?))\b",
         re.I,
     )),
-    ("parenthetical-see-named-spell", re.compile(
-        r"\(\s*see\s+(?:the\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,60}?)\s+spell\s*[),.;]",
-        re.I,
-    )),
-    ("affected-as-if-by-named-spell", re.compile(
-        r"\baffected\s+as\s+if\s+by\s+(?:a|an|the)\s+"
-        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
-        re.I,
-    )),
-    ("as-if-from-named-spell", re.compile(
-        r"\bas\s+if\s+from\s+(?:a|an|the)?\s*"
-        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
-        re.I,
-    )),
-    ("summoned-creature-stat-dependency", re.compile(
-        r"(?:^|[.!?]\s+)(?:This\s+spell\s+summons|You\s+summon)\s+"
-        r"(?:(?:a|an|one|two|three|a\s+pair\s+of|a\s+number\s+of|number\s+of)\s+)?"
-        r"(?P<name>[^.;]{0,100}?\b(?:golems?|devils?|demons?|archons?|eladrins?|rocs?|"
-        r"elementals?|homuncul(?:us|i)|titans?|swarms?|dragons?|undead(?:\s+creatures?)?|"
-        r"extraplanar\s+creatures?|natural\s+creatures?|fiends?|creatures?))\b",
-        re.I,
-    )),
     ("condition-as-the-spell", re.compile(
         r"\b(?:slowed|hasted|confused|frightened|paralyzed|petrified|stunned|dazed|blinded|deafened|charmed)\s+as\s+the\s+spell\b",
         re.I,
@@ -387,6 +365,16 @@ SUSPICIOUS_PATTERNS = (
     ("malformed-dice-notation", re.compile(r"\b(?:l|I)d\d+\b")),
     ("malformed-talons-source", re.compile(r"\byout\s+other\b|\bconsidered\s+arms\b", re.I)),
     ("garbled-last-judgment-source", re.compile(r"\band\s+resurrection\s+is\s+cast\.\s*$", re.I)),
+    ("contradictory-vulnerability-scaling", re.compile(
+        r"\bevery four caster levels beyond 9th\b.*"
+        r"\breduction of 10 at caster level 15th\b.*"
+        r"\breduction of 15 at caster level 19th\b",
+        re.I | re.S,
+    )),
+    ("missing-skull-eyes-effects", re.compile(
+        r"\bgaze attack may have either of two effects,\s*as follows\b",
+        re.I,
+    )),
     ("truncated-nether-trail-source", re.compile(
         r"\bEvil outsider must make its saving throw first\b",
         re.I,
@@ -1077,6 +1065,9 @@ def run_self_test() -> None:
     assert "summoned-creature-stat-dependency" in external_mechanics_reasons("You summon a flesh, clay, stone, or iron golem.")
     assert "summoned-creature-stat-dependency" not in external_mechanics_reasons("You summon a handheld musical instrument.")
     assert "summoned-creature-stat-dependency" not in external_mechanics_reasons("You summon an avalanche of snow.")
+    assert "contradictory-vulnerability-scaling" in suspicious_reasons({"effectSource": "For every four caster levels beyond 9th, the reduction increases; a reduction of 10 at caster level 15th and a reduction of 15 at caster level 19th."})
+    assert "contradictory-vulnerability-scaling" not in suspicious_reasons({"effectSource": "For every four caster levels beyond 9th, the reduction increases at 13th and 17th levels."})
+    assert "missing-skull-eyes-effects" in suspicious_reasons({"effectSource": "Depending on Hit Dice, the gaze attack may have either of two effects, as follows. While the spell lasts, your eyes are black."})
     assert "planar-environment-dependency" in external_mechanics_reasons("The area emulates its native planar environment.")
     assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell summons a bearded devil from the Nine Hells.")
     assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})
