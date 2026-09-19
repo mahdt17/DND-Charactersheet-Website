@@ -11,16 +11,16 @@
     "spells/giants-stance-3718",
     "spells/giants-wrath-4552",
     "spells/girallon-windmill-flesh-rip-3738",
-    "spells/girallons-blessing-1987",
-    "spells/girallons-blessing-4553",
-    "spells/give-life-4420",
-    "spells/glacial-globe-of-invulnerability-1251",
-    "spells/glass-strike-1314",
-    "spells/glassee-2508",
-    "spells/glaurauths-dagger-1761",
-    "spells/glaurauths-dagger-2274",
-    "spells/glibness-2480",
-    "spells/glide-1079"
+    "spells/girallons-blessing-3229",
+    "spells/girallons-blessing-3792",
+    "spells/glacial-globe-of-invulnerability-1230",
+    "spells/glacial-ward-1231",
+    "spells/glacial-ward-greater-1232",
+    "spells/glacier-1251",
+    "spells/glass-strike-4553",
+    "spells/glaze-lock-1252",
+    "spells/glibness-2821",
+    "spells/glimpse-eternity-4838"
   ],
-  "nonce": "2026-09-19-ghoul-light-through-glide"
+  "nonce": "2026-09-19-ghoul-light-through-glimpse-corrected"
 }
