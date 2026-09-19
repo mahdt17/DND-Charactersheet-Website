@@ -1329,6 +1329,25 @@
           "role": "Complete Mage sourcebook rendering independently confirms the restored mechanics"
         }
       ]
+    },
+    "spells/quench-2857": {
+      "name": "Quench",
+      "effectSummary": "Extinguishes all nonmagical fires in its area. It also attempts to dispel each fire spell in the area with a dispel check of 1d20 +1 per caster level, maximum +15, against DC 11 + that fire spell's caster level. Every elemental (fire) creature in the area takes 1d6 damage per caster level, maximum 15d6, with no saving throw. Instead of using the area effect, you can target one magic item that creates or controls flame; unless the item succeeds on a Will save, it loses all fire-based magical abilities for 1d4 hours. Artifacts are immune to the item-targeting effect.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/quench-2857",
+          "role": "primary Player's Handbook v.3.5 catalog record; rebuilt effect truncates the fire-elemental damage clause and mangles the magic-item example"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/quench.htm",
+          "role": "3.5 SRD used to restore the omitted fire-elemental and complete magic-item mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/players-handbook-v35--6/quench--2857/index.html",
+          "role": "independent same-printing D&D Tools rendering confirming the restored text"
+        }
+      ]
     }
   }
 }
