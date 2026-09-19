@@ -1089,6 +1089,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         if entry.get("id")=="spells/weapon-of-the-deity-1397" and not parser.tables and re.search(r"additional special ability \(see the list below\)",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="omitted-ghostwalk-weapon-deity-table"
+        if entry.get("id")=="spells/doom-of-the-seas-3332" and re.search(r"statistics block for this creature appears below",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-doom-of-the-seas-stat-block"
         if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
