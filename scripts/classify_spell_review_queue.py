@@ -73,6 +73,30 @@ REFERENCE_PATTERNS = (
         r"\b(?:identical\s+to|same\s+as)\s+(?!if\b|the\s+original\b|that\b|those\b)(?P<name>[^.;:!?]{2,100}?)(?=,\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
     ),
+    re.compile(
+        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+(?:as|like)\s+"
+        r"(?:a|an|the)?\s*(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:acts?|behaves?)\s+like\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?=[.;,]|$)",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:the\s+)?effects?\s+of\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bas\s+if\s+(?:it\s+were\s+)?affected\s+by\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"(?:^|[.!?:]\s+)As\s+with\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
 )
 
 EXTERNAL_MECHANICS_PATTERNS = (
@@ -124,6 +148,10 @@ EXTERNAL_MECHANICS_PATTERNS = (
     ("fixed-spell-effect", re.compile(r"\b(?:fix|attach)\s+a\s+single\s+spell\s+effect\b", re.I)),
     ("referenced-force-bypass-rules", re.compile(
         r"\bmethods?\s+that\s+can\s+bypass\s+or\s+destroy\s+(?:a|the)\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{2,80})",
+        re.I,
+    )),
+    ("external-monster-manual-reference", re.compile(
+        r"\b(?:MM\s*(?:p\.?\s*)?\d+|see\s+[^.;]{0,120}\bMonster Manual\b)",
         re.I,
     )),
 )
@@ -547,6 +575,12 @@ def classify_queue(
         reasons = suspicious_reasons(entry)
         external_reasons = external_mechanics_reasons(source)
         reference_names = extract_reference_names(source)
+        self_aliases = name_aliases(entry.get("name") or "")
+        reference_names = [
+            name
+            for name in reference_names
+            if not (name_aliases(clean_reference_name(name)) & self_aliases)
+        ]
         if record_id in reviews:
             tags.add("already-reviewed")
         supplement = supplements_by_id.get(record_id) or {}
@@ -729,6 +763,19 @@ def run_self_test() -> None:
     assert extract_reference_names(
         "This spell is the same as reincarnate, except it works longer."
     ) == ["reincarnate"]
+    assert extract_reference_names("If used on undead, harm acts like heal.") == ["heal"]
+    assert "cure critical wounds" in extract_reference_names(
+        "The first charge functions as a cure critical wounds spell."
+    )
+    assert "hallow" in extract_reference_names(
+        "The chorus grants the effect of a hallow spell."
+    )
+    assert "hold monster" in extract_reference_names(
+        "The gaze immobilizes the target as if affected by a hold monster spell."
+    )
+    assert "cloudkill" in extract_reference_names(
+        "As with a cloudkill spell, the smoke moves away from you."
+    )
     assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
     assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
     assert "polymorph-subschool-reference" in external_mechanics_reasons("For details, see The Polymorph Subschool on page 60.")
@@ -741,6 +788,8 @@ def run_self_test() -> None:
     assert "external-rulebook-section" in external_mechanics_reasons("See Sacrifices in Chapter 2 for the required DCs.")
     assert "numbered-table-reference" in external_mechanics_reasons("Add +30% to the roll on Table 2-2: Portal Malfunction.")
     assert "similar-spell-effect" in external_mechanics_reasons("The creatures are paralyzed, similar to the effect of hold person.")
+    assert "external-monster-manual-reference" in external_mechanics_reasons("Use the creature statistics in MM 52.")
+    assert "external-monster-manual-reference" in external_mechanics_reasons("See the Monster Manual for the swarm statistics.")
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
     assert "teleport greater" in name_aliases("Teleport, Greater")
     assert near_family_key(
