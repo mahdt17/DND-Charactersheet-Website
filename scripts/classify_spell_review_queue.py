@@ -568,6 +568,17 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bbehaves?\s+as\s+(?:a|an|the)\s+normal\s+weapon\s+of\s+its\s+type\b",
         re.I,
     )),
+    ("weapon-transformation-stat-inheritance", re.compile(
+        r"\b(?:allows?\s+you\s+to\s+)?(?:temporarily\s+)?transform\s+"
+        r"(?:any\s+)?(?:one\s+)?melee\s+weapon\s+into\s+(?:a|an)\s+different\s+melee\s+weapon\b",
+        re.I,
+    )),
+    ("rulebook-modifier-page-reference", re.compile(
+        r"\b(?:modifiers?|rules?|bonuses?|penalties?)\b[^.;]{0,120}\b"
+        r"(?:given|found|listed|described)\s+on\s+page\s+\d+\s+of\s+the\s+"
+        r"(?P<name>Player[’']s Handbook|Dungeon Master[’']s Guide)\b",
+        re.I,
+    )),
 
 )
 
@@ -632,6 +643,11 @@ SUSPICIOUS_PATTERNS = (
     ("undead-torch-unspecified-residual-damage", re.compile(
         r"\bcontinues to burn at the location of its destruction\b[^.]*"
         r"\bcreatures that pass through that area take damage\.",
+        re.I,
+    )),
+    ("missing-following-modifier-block", re.compile(
+        r"\bThe following modifiers are used in place of those given on page\s+\d+\s+"
+        r"of the Player[’']s Handbook\.\s*(?:The caster|If|Material Component:)",
         re.I,
     )),
 
@@ -1383,6 +1399,12 @@ def run_self_test() -> None:
     assert "normal-weapon-use-inheritance" not in external_mechanics_reasons("You can use the whip in combat with the statistics described here.")
     assert "normal-weapon-type-inheritance" in external_mechanics_reasons("The spectral blade behaves as a normal weapon of its type, with two exceptions.")
     assert "normal-weapon-type-inheritance" not in external_mechanics_reasons("The spectral blade behaves as described below.")
+    assert "weapon-transformation-stat-inheritance" in external_mechanics_reasons("A weapon shift spell allows you to temporarily transform any one melee weapon into a different melee weapon.")
+    assert "weapon-transformation-stat-inheritance" not in external_mechanics_reasons("The spell transforms a melee weapon into a harmless beam of light.")
+    assert "rulebook-modifier-page-reference" in external_mechanics_reasons("The following modifiers are used in place of those given on page 101 of the Player’s Handbook.")
+    assert "rulebook-modifier-page-reference" not in external_mechanics_reasons("The following modifiers are +2 during rain and -2 during fog.")
+    assert "missing-following-modifier-block" in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. The caster must have the Track feat to use this spell."})
+    assert "missing-following-modifier-block" not in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. Light rain: +2. Heavy fog: -4."})
     assert "garbled-spell-matrix-lesser-source" in suspicious_reasons({"effectSource":"Only a spell that can be altered by the antimagic field , the duration of the matrix is interrupted, but the spell does not activate."})
     assert "garbled-spell-matrix-lesser-source" not in suspicious_reasons({"effectSource":"If you enter an antimagic field, the duration of the matrix is interrupted, but the spell does not activate."})
     assert "undead-torch-unspecified-residual-damage" in suspicious_reasons({"effectSource":"The undead torch continues to burn at the location of its destruction until the duration expires, and creatures that pass through that area take damage."})
