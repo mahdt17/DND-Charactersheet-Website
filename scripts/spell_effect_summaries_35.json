@@ -17835,6 +17835,184 @@
           "role": "primary catalog base spell underlying detect-good's staged aura scan"
         }
       ]
+    },
+    "spells/fireball-2612": {
+      "name": "Fireball",
+      "sourceSha256": "4c7c9597b70be41d1532c7e55aa0285d2ac015ca1b8f2c01027c9c34034eb630",
+      "effectSummary": "Launches a small glowing bead to a point you choose, where it explodes in a 20-foot-radius burst for 1d6 fire damage per caster level, maximum 10d6, to creatures and unattended objects. If the bead hits a solid body or barrier before reaching the chosen point, it detonates there instead; sending it through a narrow opening requires a ranged touch attack against the opening. The explosion has little pressure but ignites combustibles and can melt low-melting-point metals. If it destroys an intervening barrier, the burst can continue beyond that barrier where space permits.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fireball-2612",
+          "role": "primary Player's Handbook v.3.5 DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/firebrand-1669": {
+      "name": "Firebrand",
+      "sourceSha256": "e44da85fb299722d82e727096602e77158078d2d043961483b9e88f70c012de9",
+      "effectSummary": "Creates up to one separate 5-foot-radius fire burst per caster level anywhere within range. Each burst deals 1d6 fire damage per caster level, maximum 15d6, to creatures in its area. Bursts do not need to be contiguous and overlapping bursts do not deal extra damage. The material component is a flask of alchemist’s fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/firebrand-1669",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/firebrand-4502": {
+      "name": "Firebrand",
+      "sourceSha256": "64cf093a587e1311817ac427a8e372f12ca0186d8ff837025cb161a82c4f14f5",
+      "effectSummary": "Creates multiple fiery bursts in the spell’s area. Each burst deals 1d6 fire damage per caster level, maximum 10d6, on the casting round. A creature struck then, or still within an affected burst area during the following round, also takes 1d6 fire damage per two caster levels, maximum 5d6. A creature hit on the casting round can spend a full-round action and make a DC 15 Reflex save to extinguish the flames on itself. Overlapping bursts do not deal additional damage; a creature can be affected by only one burst. The material component is a 20 gp flask of alchemist’s fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/firebrand-4502",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fireburst-1969": {
+      "name": "Fireburst",
+      "sourceSha256": "69c18eef7aca5b4e4f7a873f6d328409002532c97baddb806a4760c83098f42e",
+      "effectSummary": "Creates an explosion of flame centered on you. Every creature within 5 feet except you takes 1d8 fire damage per caster level, maximum 5d8; creatures and objects sharing your space are unaffected. The material component is a bit of sulfur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fireburst-1969",
+          "role": "primary Miniatures Handbook DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fireburst-4503": {
+      "name": "Fireburst",
+      "sourceSha256": "9a029e7950192e6d23b0d0ddeb3e07fa92fed9c8ce4f5a14f6022035da7f0449",
+      "effectSummary": "Creates an explosion of flame centered on you. Every creature and object within 10 feet except you and anything sharing your space takes 1d8 fire damage per caster level, maximum 5d8. The material component is a bit of sulfur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fireburst-4503",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fireburst-501": {
+      "name": "Fireburst",
+      "sourceSha256": "87ec6a4086c5948ce58fd5d917f68caef3fd59bdc0aa4e784dc4c2a2d47d2cd1",
+      "effectSummary": "Creates an explosion of flame centered on you. Every creature and object within 5 feet except you and anything sharing your space takes 1d8 fire damage per caster level, maximum 5d8. The material component is a bit of sulfur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fireburst-501",
+          "role": "primary Complete Arcane DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fireburst-greater-1970": {
+      "name": "Fireburst, Greater",
+      "sourceSha256": "66f0ca1889b79be17b76a9b347898f4d532dda82bddab46e0d59271e963ad4e8",
+      "effectSummary": "Functions as this printing’s fireburst but reaches 10 feet from you and deals 1d8 fire damage per caster level, maximum 15d8, to affected creatures. You are unaffected, as are creatures or objects sharing your space.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fireburst-greater-1970",
+          "role": "primary Miniatures Handbook greater variant reviewed; range and cap overrides retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fireburst-1969",
+          "role": "matching primary-catalog base spell used to resolve inherited fireburst mechanics"
+        }
+      ]
+    },
+    "spells/fireburst-greater-4504": {
+      "name": "Fireburst, Greater",
+      "sourceSha256": "0f9aebb4655934ba094de1629a6c3c0013be836ee4366fe90b822dc278e37425",
+      "effectSummary": "Functions as the Spell Compendium fireburst but reaches 15 feet from you and deals 1d10 fire damage per caster level, maximum 15d10, to affected creatures and objects. You are unaffected, as is anything sharing your space.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fireburst-greater-4504",
+          "role": "primary Spell Compendium greater variant reviewed; radius and damage overrides retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fireburst-4503",
+          "role": "matching primary-catalog base spell used to resolve inherited fireburst mechanics"
+        }
+      ]
+    },
+    "spells/fireburst-greater-502": {
+      "name": "Fireburst, Greater",
+      "sourceSha256": "ae40305bcb514c622b41041e67df9dbee4e15ded7993f01319c219aa2ae92778",
+      "effectSummary": "Functions as the Complete Arcane fireburst but reaches 10 feet from you and deals 1d8 fire damage per caster level, maximum 15d8, to affected creatures and objects. You are unaffected, as is anything sharing your space. The material component is a bit of sulfur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fireburst-greater-502",
+          "role": "primary Complete Arcane greater variant reviewed; radius and cap overrides retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fireburst-501",
+          "role": "matching primary-catalog base spell used to resolve inherited fireburst mechanics"
+        }
+      ]
+    },
+    "spells/fires-of-purity-4505": {
+      "name": "Fires of Purity",
+      "sourceSha256": "dac2a9a6793d3942928b3d63097f884ad3431efaf53fafde7f78ae531652fa08",
+      "effectSummary": "Wreathes the subject in harmless magical flame. Each successful melee attack by the subject deals an extra 1 fire damage per caster level, maximum +15, with the defender’s spell resistance applying. A creature that successfully hits the subject in melee takes the same fire damage unless it attacked with a reach weapon. The subject takes only half damage from fire attacks, and if a fire attack allows Reflex half, a successful save reduces that damage to zero.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fires-of-purity-4505",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fires-of-purity-702": {
+      "name": "Fires of Purity",
+      "sourceSha256": "4781afc3ae8540ad5d4643a7ad8125592713a1386986305ba15cec1f8e4b00ed",
+      "effectSummary": "Wreathes the subject in magical flame that does not harm it. Each successful melee attack by the subject deals an extra 1d6 fire damage +1 per caster level, maximum +15, with the defender’s spell resistance applying. A creature that hits the subject in melee takes the same damage unless it used an exceptional-reach weapon. Any creature damaged by these flames must save or catch fire for 1d4 rounds, taking 1d6 fire damage each round; subsequent successful Reflex saves at the spell’s DC or dousing in water extinguish the flames. The subject takes only half damage from fire attacks, and a successful Reflex save against a half-damage fire attack reduces that damage to zero.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fires-of-purity-702",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/firesnake-3576": {
+      "name": "Firesnake",
+      "sourceSha256": "17419bea9aa4cdec90ba1fdb4bd34e4444b5e9551133617bf4e297562ccc255e",
+      "effectSummary": "Creates a twisting 60-foot line of fire beginning in an adjacent square. Unlike a normal line, you can bend its path and move it up to 60 feet while it travels along the ground; it can leave your line of sight or effect, but you gain no information about unseen areas. The line cannot fly and pays normal movement costs for difficult terrain. The first time it enters a creature’s space in a round, that creature takes 6d6 fire damage, Reflex DC 14 + your Wisdom modifier for half; a creature can be damaged only once per round. This maneuver is supernatural.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/firesnake-3576",
+          "role": "primary DnD Tools maneuver effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/firestride-exhalation-1058": {
+      "name": "Firestride Exhalation",
+      "sourceSha256": "5ea03cd846861a9cdb576c1bfb3844955177aed0df0c50194b760ffa0bd7b8cb",
+      "effectSummary": "Breathes a cone of fire dealing 8d6 fire damage, Reflex half, with spell resistance applying. When casting, before resolving saves or spell resistance, you may choose to become part of the breath and teleport instantly to any unoccupied space that shares at least one square with the cone’s area. You bring worn or carried gear up to your maximum load and may bring your familiar, but no other creatures. You are not damaged by your own breath when you re-form in its area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/firestride-exhalation-1058",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fist-of-stone-4507": {
+      "name": "Fist of Stone",
+      "sourceSha256": "26865fbcd0c43faa07c9e76927c895450ac240a166f030579a298e5765ae271c",
+      "effectSummary": "Turns one hand to living stone, granting a +6 enhancement bonus to Strength for attack rolls, grapple checks, and breaking or crushing objects. You also gain one natural slam attack dealing 1d6 + your new Strength bonus, or 1d6 + 1½ times your Strength bonus if you make no other attacks that round. The slam can be used as a secondary natural attack at -5, or -2 with Multiattack, during a full attack. You cannot gain more than one slam per round from high base attack bonus. The hand remains its normal size and flexibility. The material component is a pebble inscribed with a fist.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fist-of-stone-4507",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fistandantilus-portal-5008": {
+      "name": "Fistandantilus's Portal",
+      "sourceSha256": "50c5cd1dabbb7a8d042a7851dccc298aba813ad944e41c2f87b596df04f99a79",
+      "tablesSha256": "58522b5b2e68e2d90e3e84d3f441437877b250b33dd9aea5c365fc7714f37926",
+      "effectSummary": "Opens a two-way interdimensional connection between two places on the same plane, displayed as a 5- to 20-foot-diameter disk oriented as you choose. Passing through the front instantly transports a creature or object to the other location; passing through the back does nothing. The connection travels through the Astral Plane, so effects that block astral travel block the portal. You must know the destination well enough to form a clear mental image. Roll percentile by familiarity to see whether the portal forms: very familiar succeeds on 01–97, studied carefully 01–94, seen casually 01–88, viewed once 01–76, and description only 01–60; other results are failed portal attempts. Strong physical or magical energies can make travel more hazardous or impossible. The material component is 1,000 gp of ruby dust used to outline the portal, and the spell costs 500 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fistandantilus-portal-5008",
+          "role": "primary DnD Tools effect text and destination-familiarity table reviewed and paraphrased for complete portal mechanics"
+        }
+      ]
     }
   }
 }
