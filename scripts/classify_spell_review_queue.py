@@ -326,6 +326,10 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bsee\s+(?:the\s+)?[^.;]{1,100}?\s+for\s+(?:more\s+)?details\b",
         re.I,
     )),
+    ("external-rules-detailed-page-reference", re.compile(
+        r"\brules?\s+(?:are\s+)?(?:detailed|described|explained|found)\s+(?:on|at)\s+page\s+\d+\b",
+        re.I,
+    )),
     ("external-see-rulebook-reference", re.compile(
         r"\bsee\s+[^.;]{1,120}\b(?:Dungeon[^.;]{0,40}Guide|Player[^.;]{0,40}Handbook)\b",
         re.I,
@@ -1194,6 +1198,8 @@ def run_self_test() -> None:
     assert "generic-identical-with" in external_mechanics_reasons("This is identical with deathwatch, but only functions on animals and plants.")
     assert "granted-spell-effect" in external_mechanics_reasons("The animal gains a bonus plus the effect of a haste spell.")
     assert "external-page-reference" in external_mechanics_reasons("See page 297 for the inherited servant rules.")
+    assert "external-rules-detailed-page-reference" in external_mechanics_reasons("Truename research rules are detailed on page 196.")
+    assert "external-rules-detailed-page-reference" not in external_mechanics_reasons("The rules are detailed in the spell text below.")
     assert "external-rulebook-section" in external_mechanics_reasons("See Sacrifices in Chapter 2 for the required DCs.")
     assert "external-described-page-reference" in external_mechanics_reasons("As described on page 76 of the Dungeon Master's Guide, the mold deals damage.")
     assert "external-rules-sidebar-reference" in external_mechanics_reasons("You gain the drawbacks, as outlined in the Incorporeal Subtype sidebar.")
