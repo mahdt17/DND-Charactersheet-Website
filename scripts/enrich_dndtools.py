@@ -866,8 +866,10 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
 
 
 def split_class_levels(value: str) -> dict:
-    # Rendered source often collapses "Sorcerer 1Wizard 1Warmage 1".
-    pairs = re.findall(r"([A-Z][A-Za-z'’ /-]*?)\s+(\d)(?=[A-Z]|$)", value)
+    # Adjacent class links can render either collapsed ("Sorcerer 1Wizard 1")
+    # or space-separated ("Sorcerer 1 Wizard 1"). Accept both forms.
+    normalized=clean(value)
+    pairs = re.findall(r"([A-Z][A-Za-z'’ /-]*?)\s+(\d)(?=\s*[A-Z]|$)", normalized)
     return {clean(name): int(level) for name, level in pairs}
 
 
@@ -1028,6 +1030,11 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         result["isPsionicPower"]=True
     classes_raw = next_value(lines, "Classes")
     class_levels = split_class_levels(classes_raw)
+    class_level_tokens=re.findall(r"(?<!\d)\d(?!\d)",clean(classes_raw))
+    if classes_raw and class_level_tokens and len(class_levels) != len(class_level_tokens):
+        result["classLevelParseIncomplete"]=True
+        result["classLevelParseExpectedCount"]=len(class_level_tokens)
+        result["classLevelParseActualCount"]=len(class_levels)
     if class_levels:
         result["classLevels"] = class_levels
         result["classes"] = list(class_levels)
@@ -1361,6 +1368,12 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
             raise ValueError("Reviewed spell effect summary no longer matches the current source text")
         if details.get("effectReviewTableMismatch"):
             raise ValueError("Reviewed spell effect summary no longer matches the current source table")
+        if details.get("classLevelParseIncomplete"):
+            raise ValueError(
+                "Spell class-level parsing is incomplete: "
+                f"{details.get('classLevelParseActualCount',0)} parsed of "
+                f"{details.get('classLevelParseExpectedCount',0)} source class levels"
+            )
         if details.get("sourceIncomplete") and not details.get("sourceIncompleteResolved"):
             raise ValueError("Spell source contains an explicit missing-content marker without a verified repair")
         required = ["sourceBook", "school", "casting_time", "range", "duration"]
@@ -1677,7 +1690,22 @@ def self_test():
     """
     p=DetailParser();p.feed(spell_html);p.close()
     s=parse_spell(p,{"name":"Magic Missile"})
-    assert s["school"] == "Evocation" and s["classLevels"]["Wizard"] == 1 and s["level"] == 1
+    assert s["school"] == "Evocation" and s["classLevels"] == {"Sorcerer":1,"Wizard":1,"Warmage":1} and s["level"] == 1
+    assert not s.get("classLevelParseIncomplete")
+
+    spaced_spell_html = """
+    <h1>Spaced Classes</h1><p>Example Book (EX), p. 1</p>
+    <div>School</div><div>Abjuration</div><div>Casting Time</div><div>1 standard action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Close</div>
+    <div>Duration</div><div>1 round/level</div>
+    <div>Classes</div><div><a>Sorcerer</a> 2 <a>Wizard</a> 2 <a>Wu Jen</a> 2</div>
+    """
+    p=DetailParser();p.feed(spaced_spell_html);p.close()
+    spaced=parse_spell(p,{"name":"Spaced Classes"})
+    assert spaced["classLevels"] == {"Sorcerer":2,"Wizard":2,"Wu Jen":2}
+    assert not spaced.get("classLevelParseIncomplete")
+    assert split_class_levels("Sorcerer 2 Wizard 2 Wu Jen 2") == {"Sorcerer":2,"Wizard":2,"Wu Jen":2}
+    assert split_class_levels("Sorcerer 2Wizard 2Wu Jen 2") == {"Sorcerer":2,"Wizard":2,"Wu Jen":2}
 
     domain_html = """
     <h1>Domain Test</h1><p>Example Book (EX), p. 1</p>
