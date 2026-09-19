@@ -1,11 +1,10 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/peacebond-361",
-    "spells/glyph-of-warding-2326",
-    "spells/geasquest-2551",
-    "spells/teleport-greater-2462",
-    "spells/major-image-2681"
+    "spells/geas-lesser-2550",
+    "spells/silent-image-2705",
+    "spells/teleport-2461",
+    "spells/teleport-5026"
   ],
-  "nonce": "2026-09-19-crossrefs-false-peacebond-fang-familial-refuge-vision"
+  "nonce": "2026-09-19-crossrefs-geas-silent-image-teleport"
 }
