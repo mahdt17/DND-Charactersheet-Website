@@ -14959,6 +14959,246 @@
           "role": "primary Spell Compendium printing reviewed and paraphrased"
         }
       ]
+    },
+    "spells/emerald-flame-fist-496": {
+      "name": "Emerald Flame Fist",
+      "sourceSha256": "d1d12d7c5b0952d139dbf70e6ce384a7f9f561b6b257157f375b9c45fb25bd3d",
+      "effectSummary": "One hand burns with torch-bright emerald fire. Each melee touch attack deals 3d6 fire damage +1 per caster level, maximum +20. A creature hit must also make a Fortitude save; on a failure it becomes engulfed. On each of your turns thereafter, an engulfed creature takes the same damage again, with a Fortitude save each round for half, until the spell ends. You can keep making flaming touch attacks until one target becomes engulfed, at which point the flame leaves your hand. An unattended nonmagical object you hit is automatically engulfed and takes the same damage each round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/emerald-flame-fist-496",
+          "role": "primary Complete Arcane printing reviewed and paraphrased; its repeat-touch-until-engulfed and recurring Fortitude-half mechanics are preserved"
+        }
+      ]
+    },
+    "spells/emerald-razor-3625": {
+      "name": "Emerald Razor",
+      "sourceSha256": "0160fde883636435e3911e7a702b4bfa1491458bd40a6e5020c1924e69db8842",
+      "effectSummary": "As part of the maneuver, make one melee attack against an opponent. Resolve that attack as a touch attack rather than a normal melee attack; on a hit, it deals normal melee damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/emerald-razor-3625",
+          "role": "primary Tome of Battle printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/emotion-5031": {
+      "name": "Emotion",
+      "sourceSha256": "14da589121d923946340c54d9a7522c98c0b6f5b6cffb938fe26a02261d689e7",
+      "effectSummary": "Choose one emotion for all subjects. Despair gives -2 morale on saves, attacks, ability checks, skill checks, and weapon damage and dispels hope. Fear makes subjects flee from you whenever they can see you and dispels rage. Friendship improves each subject's attitude by one step without preventing normal self-defense in combat and dispels hate. Hate worsens attitude by one step and dispels friendship. Hope gives +2 morale on saves, attacks, ability checks, skill checks, and weapon damage and dispels despair. Rage gives +2 morale to Strength and Constitution, +1 morale on Will saves, and -1 AC, compels heedless fighting, does not stack with barbarian rage or itself, and dispels fear.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/emotion-5031",
+          "role": "primary Player's Handbook 3.0 printing reviewed and paraphrased; all six emotion modes and mutual dispels are preserved"
+        }
+      ]
+    },
+    "spells/empyreal-ecstasy-3": {
+      "name": "Empyreal Ecstasy",
+      "sourceSha256": "0da77061110f1bba867b9f018f6e2b989799d61f568dbf154742b4435715dd40",
+      "effectSummary": "Immediately removes lingering effects and penalties caused by pain, without preventing damage or removing unrelated effects. For the duration, targets are immune to new mind-affecting spells and effects, though existing mind influence is not removed; they take only half damage from all melee and ranged attacks; they take a -4 penalty on all skill checks; and casting a spell requires a DC 15 Concentration check.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/empyreal-ecstasy-3",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/ease-pain-26",
+          "role": "same primary catalog cross-reference used to resolve the ease pain mechanics explicitly incorporated by this spell"
+        }
+      ]
+    },
+    "spells/end-to-strife-46": {
+      "name": "End to Strife",
+      "sourceSha256": "e3cea06b6a0c5c416f7d78b2a0746bb6372bbf41f81848ebab5964f836573947",
+      "effectSummary": "Creates an invisible aura around you. Intelligent creatures in the area know that hostile actions carry severe consequences. Any creature in the area that makes an attack takes 20d6 damage after that attack; a creature making multiple attacks takes the damage after every attack. When casting, you choose whether this damage is lethal or nonlethal and cannot later change that choice. A creature outside the area can attack creatures inside it without taking this spell's damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/end-to-strife-46",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/endless-slumber-810": {
+      "name": "Endless Slumber",
+      "sourceSha256": "8448a61335465fb11a603def67b8257267a33573db581e8b24f38012b1e7e73e",
+      "effectSummary": "Places one living creature into magical sleep indefinitely. Ordinary stimuli such as shouting or prodding do not wake it, but any damage does. The subject can attempt a new save every 24 hours to wake early and does not need food or drink while asleep.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/endless-slumber-810",
+          "role": "primary Complete Mage printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/endure-elements-2317": {
+      "name": "Endure Elements",
+      "sourceSha256": "9d7724a1477289b1290ba5866817f1fcd9a6c2367f862fd2e6dbc865406993ad",
+      "effectSummary": "Lets the subject and its equipment remain comfortable in environmental temperatures from -50°F to 140°F without the Fortitude saves normally required for heat or cold. It does not protect against fire or cold damage or against other environmental hazards such as smoke or lack of air.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/endure-elements-2317",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enduring-flight-3115": {
+      "name": "Enduring Flight",
+      "sourceSha256": "e9a61a44ffbdb20388f7f7a32eff9b3242b00153889897b51a5569a47bcfe720",
+      "effectSummary": "While flying, you can fly at normal speed in medium armor or while carrying up to a medium load. If the ability that lets you fly has a limited duration, that duration is doubled. The spell remains active only while you stay airborne and ends immediately when you land.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enduring-flight-3115",
+          "role": "primary Races of the Wild printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/enduring-scrutiny-800": {
+      "name": "Enduring Scrutiny",
+      "sourceSha256": "10df960e88584636d335b4ec655aea6af58c5a1b4896f2f7d9096f2286849ae9",
+      "effectSummary": "When casting, designate one particular action. If the subject performs that action during the spell, you are alerted instantly regardless of the distance between you, even if the subject is on another plane. The alert tells you only that the designated action occurred, not necessarily when, how, or other details.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enduring-scrutiny-800",
+          "role": "primary Complete Mage printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energetic-healing-27": {
+      "name": "Energetic Healing",
+      "sourceSha256": "9f5329a5463a4c78d7ed6a75c706b33ae45fc30020e703e6799a1af9e23f44e0",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic. The subject becomes immune to the chosen energy type. Whenever a magical attack of that type would deal damage, the subject instead heals hit points equal to 10% of the damage that would have been dealt, rounded down. The spell ends after it has healed 2 hit points per caster level, maximum 30. Nonmagical energy attacks, such as alchemist's fire, are prevented by the immunity but are not converted into healing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energetic-healing-27",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energize-potion-107": {
+      "name": "Energize Potion",
+      "sourceSha256": "55a9b4cf2bdb15782d65d5dbccf22f6fd11132b78d1f487cd3aee0807f52970e",
+      "effectSummary": "Destroys one magic potion and turns it into a volatile projectile that can be hurled within the spell's range. Choose acid, cold, electricity, fire, or sonic when casting. On impact it releases a 10-foot-radius burst dealing 1d6 damage of the chosen type per spell level of the consumed potion, maximum 3d6. A fire version also ignites combustibles in the burst.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energize-potion-107",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energized-shield-4438": {
+      "name": "Energized Shield",
+      "sourceSha256": "65738b66f8647ec2925a4057fe86a9b8c9aa1959530c6afe9552e9f3ad56f32e",
+      "effectSummary": "Functions as lesser energized shield with stronger values. Choose fire, cold, electricity, acid, or sonic when casting; the shield appears made from that energy. Its bearer gains resistance 10 to the chosen type, and a successful shield bash deals an extra 2d6 damage of that type. The energy choice cannot change during the spell. The resistance overlaps rather than stacks with other resistance to that energy, and a shield cannot be under more than one lesser energized shield or energized shield at once. The spell gains the descriptor of the chosen energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energized-shield-4438",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/energized-shield-lesser-4439",
+          "role": "same primary catalog cross-reference used to resolve the lesser energized shield mechanics explicitly incorporated by this spell"
+        }
+      ]
+    },
+    "spells/energized-shield-lesser-4439": {
+      "name": "Energized Shield, Lesser",
+      "sourceSha256": "a18e2437fb329f65726d73c3986a32e00f6757780c4b9098dadb36171bd61873",
+      "effectSummary": "Choose fire, cold, electricity, acid, or sonic when casting; the touched shield appears made from that energy. Its bearer gains resistance 5 to the chosen type, and a successful shield bash deals an extra 1d6 damage of that type. The choice cannot change during the spell. The resistance overlaps rather than stacks with resist elements, and a shield cannot be under more than one lesser energized shield or energized shield at once. The spell gains the descriptor of the chosen energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energized-shield-lesser-4439",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-absorption-764": {
+      "name": "Energy Absorption",
+      "sourceSha256": "8cd27f83893c7764cda7b677bfc2f467996a750b039b497a0b930ecbe4a8a2d1",
+      "effectSummary": "Grants resistance 10 against acid, cold, electricity, fire, and sonic. As an immediate action, the subject can expend the spell against one energy-based attack: for that attack only, the subject becomes immune to every energy type used by the attack and heals hit points equal to half the damage the effect would normally have caused. Healing above the subject's normal maximum is lost. Using this absorption ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-absorption-764",
+          "role": "primary Complete Mage printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-aegis-2910": {
+      "name": "Energy Aegis",
+      "sourceSha256": "5fa3d3c64d3b55212f20bc71cd435e7eb01a1d76cab850ce16a485016f3aa7f0",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic when casting. Against the next attack of that energy type that targets the subject during the spell's 1-round duration, the subject gains resistance 20.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-aegis-2910",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-alteration-4922": {
+      "name": "Energy Alteration",
+      "sourceSha256": "fc54d524bae199bf5a0857eb7e6f10b294491778c4383180f44dfbb47b2f5f7d",
+      "effectSummary": "Changes the energy type used by, or protected against by, one magic item to a different energy type. Only the energy type changes; damage, protection amount, and all other effects remain the same. The material component is a 50 gp alchemical ointment representing all five energy types.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-alteration-4922",
+          "role": "primary Eberron Campaign Setting printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/energy-buffer-3378": {
+      "name": "Energy Buffer",
+      "sourceSha256": "5d6c7ca19d28073c4945121098e98ee8e4f8245317b75100acf8461cd5c36a8a",
+      "effectSummary": "Protects you and your equipment from acid, cold, electricity, fire, or sonic damage. The first exposure to energy damage activates a multihued aura keyed to that energy type; for 1 round, or until exhausted sooner, it absorbs up to 1d6 damage per caster level, maximum 15d6, from that type. Once activated, it cannot switch energy types. It overlaps rather than stacks with endure elements, resist elements, and protection from elements: energy buffer absorbs its keyed damage first, while other wards can still protect against a different energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-buffer-3378",
+          "role": "primary Tome and Blood printing reviewed and paraphrased; its 3.0 ward spell names are preserved"
+        }
+      ]
+    },
+    "spells/energy-drain-2732": {
+      "name": "Energy Drain",
+      "sourceSha256": "bd44bb5b91d115e6daf9f4e3958ab4db833b8df8070b3772f7ac958941056e0a",
+      "effectSummary": "Functions as enervation, using a ranged touch ray, but inflicts 2d4 negative levels and makes them capable of becoming permanent. Each negative level imposes -1 on attacks, saves, skill checks, ability checks, and effective level for spells and special abilities; spellcasters also lose one highest-level available spell or slot, negative levels stack, and a creature dies if its negative levels reach its Hit Dice. There is no saving throw to avoid the initial 2d4 negative levels. After 24 hours, the subject makes a Fortitude save against this spell's save DC for each negative level: success removes that negative level; failure also removes the negative level but permanently drains one character level. An undead creature hit by the ray gains 2d4×5 temporary hit points for 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-drain-2732",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/enervation-2733",
+          "role": "same primary catalog cross-reference used to resolve the enervation mechanics explicitly incorporated by this spell"
+        }
+      ]
+    },
+    "spells/energy-ebb-1475": {
+      "name": "Energy Ebb",
+      "sourceSha256": "35fabf5d550562f1c75078117b7201a4073c2846d6581b25958c5ce6821b608e",
+      "effectSummary": "Functions as enervation except that its negative levels accumulate over time. A successful ranged touch attack gives the living target one negative level immediately and another negative level each round thereafter. Those negative levels carry enervation's normal penalties and can kill a creature whose negative levels reach its Hit Dice. The drain stops only after a successful DC 23 Heal check or application of heal, restoration, or greater restoration. An undead creature struck by the ray instead gains 4d4×5 temporary hit points for up to 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-ebb-1475",
+          "role": "primary Libris Mortis printing reviewed and paraphrased; its body does not add the later Spell Compendium recurring Fortitude-save rule"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/enervation-2733",
+          "role": "same primary catalog cross-reference used to resolve the enervation mechanics explicitly incorporated by this printing"
+        }
+      ]
+    },
+    "spells/energy-ebb-4440": {
+      "name": "Energy Ebb",
+      "sourceSha256": "53f0db6e53b26c33b4e9f0696bc734307eb1b32d426d7692b6a4784c6f56ed68",
+      "effectSummary": "Functions as enervation except that its negative levels accumulate over time. A successful ranged touch attack gives the living target one negative level immediately and another negative level each round thereafter; those levels carry enervation's normal penalties and can kill a creature whose negative levels reach its Hit Dice. The drain stops after a successful DC 23 Heal check or application of heal, restoration, or greater restoration. In addition, on each of its turns after the first, the affected creature can make a Fortitude save to end the effect. An undead creature struck by the ray instead gains 4d4×5 temporary hit points for up to 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/energy-ebb-4440",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its recurring Fortitude-save rule is preserved independently from the Libris Mortis printing"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/enervation-2733",
+          "role": "same primary catalog cross-reference used to resolve the enervation mechanics explicitly incorporated by this printing"
+        }
+      ]
     }
   }
 }
