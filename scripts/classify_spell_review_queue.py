@@ -76,6 +76,22 @@ REFERENCE_PATTERNS = (
 )
 
 EXTERNAL_MECHANICS_PATTERNS = (
+    ("leading-inherited-spell", re.compile(
+        r"^\s*As\s+(?:the\s+)?(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?:\s+spell)?\s*,\s*(?:and|except|but)\b",
+        re.I,
+    )),
+    ("generic-identical-with", re.compile(
+        r"\bidentical\s+(?:with|to)\s+(?!the\s+original\b|that\b|those\b)(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?=[,.;(]|$)",
+        re.I,
+    )),
+    ("granted-spell-effect", re.compile(
+        r"\b(?:plus|gains?|grants?|receives?)\s+(?:the\s+)?effects?\s+of\s+(?:a|an|the)?\s*(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?:\s+spell)?(?=[,.;(]|$)",
+        re.I,
+    )),
+    ("external-page-reference", re.compile(
+        r"\b(?:see\s+(?:page\s+\d+|chapter\s+\d+|the\s+[^.;]{1,70}\s+spell\s+description)|PH\s+\d+)\b",
+        re.I,
+    )),
     ("polymorph-subschool-reference", re.compile(r"\bpolymorph\s+subschool\b", re.I)),
     ("referenced-creature-stat-block", re.compile(
         r"\b(?:equivalent\s+to|use(?:s)?\s+(?:the\s+)?)\s*(?:a|an|the)?\s*"
@@ -708,6 +724,10 @@ def run_self_test() -> None:
     assert external_mechanics_reasons("For details, see The Polymorph Subschool on page 60.") == ["polymorph-subschool-reference"]
     assert external_mechanics_reasons("The tentacle is equivalent to a giant constrictor snake (MM 280) except that it obeys you.") == ["referenced-creature-stat-block"]
     assert external_mechanics_reasons("These strands are identical with those created by the web spell, except they regrow.") == ["embedded-spell-mechanics"]
+    assert "leading-inherited-spell" in external_mechanics_reasons("As the alarm spell, and in addition this affects coterminous planes.")
+    assert "generic-identical-with" in external_mechanics_reasons("This is identical with deathwatch, but only functions on animals and plants.")
+    assert "granted-spell-effect" in external_mechanics_reasons("The animal gains a bonus plus the effect of a haste spell.")
+    assert "external-page-reference" in external_mechanics_reasons("See page 297 for the inherited servant rules.")
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
     assert "teleport greater" in name_aliases("Teleport, Greater")
     assert near_family_key(
