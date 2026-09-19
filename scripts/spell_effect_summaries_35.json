@@ -18613,6 +18613,138 @@
           "role": "primary catalog base spell used to resolve inherited disk size, carrying capacity, following, and disappearance mechanics"
         }
       ]
+    },
+    "spells/force-chest-3939": {
+      "name": "Force Chest",
+      "sourceSha256": "d3c224c9471683d402453f35d4340ed134bfb8fc30642b36755f4ec35d03e8f6",
+      "effectSummary": "Creates a nearly weightless lidded chest of force in your hands, either invisible or translucent. You set a password at casting; the lid cannot be opened without speaking it, and Open Lock or Use Magic Device cannot bypass the chest. It can hold objects or Tiny-and-smaller creatures, with enough air for one Tiny, two Diminutive, or four Fine creatures for 1 hour. The chest is immune to ordinary damage and resists dispel magic like a wall of force, but disintegrate, Mordenkainen’s disjunction, a sphere of annihilation, or a rod of cancellation can destroy it. The material component is a 2-inch-square glass cube.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-chest-3939",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete mechanics"
+        }
+      ]
+    },
+    "spells/force-claw-4527": {
+      "name": "Force Claw",
+      "sourceSha256": "1d6f66e295390e71aac1541358d2394b6394c84132aa01bba8f7074f664eadfd",
+      "effectSummary": "Creates a Medium invisible claw of force guarding a 20-foot cube you designate. As a move action each round you can relocate the claw up to 60 feet to another point within range. It makes attacks of opportunity against enemies that provoke within the guarded cube at +10 to hit for 1d8+6 damage. It can make unlimited attacks of opportunity each round, though never more than one for the same provoking opportunity. The material component is a small dried animal claw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-claw-4527",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/force-hammer-4791": {
+      "name": "Force Hammer",
+      "sourceSha256": "4f604d3ed07cc935236f6c23fda3ba8e8f956fb58a715130d41cc94faefc98b2",
+      "effectSummary": "Fires a ray of force at one living target. On a successful ranged touch attack it deals 1d4 nonlethal damage per caster level, maximum 10d4. A failed Fortitude save also dazes the target for 1 round; a successful save prevents only the daze, not the damage. It has no effect on nonliving creatures or objects, and creatures immune to nonlethal damage cannot be dazed by it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-hammer-4791",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/force-ladder-1671": {
+      "name": "Force Ladder",
+      "sourceSha256": "355297189692cb7209d51f854d6a1d6089419c083102be91e1bda98440ef2b4e",
+      "effectSummary": "Creates a transparent force ladder 2 feet wide and 10–60 feet long with rungs 1 foot apart. It functions as a normal ladder, weighs 1 pound, and supports 100 pounds per caster level. Because it is force, it can block or be wielded against incorporeal or ethereal creatures, though such creatures can often move around it through walls or floors and only a creature capable of wielding a 10-foot-or-longer weapon could use it offensively. Anything that destroys a wall of force can destroy the ladder. The focus is a miniature silver ladder.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-ladder-1671",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/force-ladder-3938": {
+      "name": "Force Ladder",
+      "sourceSha256": "eab5a75bc67f819cfc85f6a2756ca52a1d71682a8534dd3e022f35cda0aa0281",
+      "effectSummary": "Creates an immobile transparent force ladder 2 feet wide and 10–60 feet long with rungs 1 foot apart. It functions as a normal ladder, can support any weight, and can be destroyed by anything that destroys a wall of force. The focus is a miniature silver ladder worth 50 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-ladder-3938",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/force-missile-4528": {
+      "name": "Force Missile",
+      "sourceSha256": "8c225c5cb95de2c17466667da5d7074477af445f2e7711a94ea17cb42f50c816",
+      "effectSummary": "Creates one unerring force missile per four caster levels. Each missile deals 2d6 force damage to its primary target, then bursts for half that rolled damage against every creature adjacent to that target. Missiles ignore melee interference and anything short of total cover or concealment and can damage unattended objects. Multiple missiles can strike the same target, but all targets must be declared before resolving spell resistance or damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-missile-4528",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/force-missiles-4564": {
+      "name": "Force Missiles",
+      "sourceSha256": "4b06308bdcb3623b42c8de83389543e02048e7f6c988c78c9a6e33078d2f7363",
+      "effectSummary": "Creates one unerring force missile per four caster levels. Each missile deals 2d6 force damage to its primary target, then bursts for half that rolled damage against every creature adjacent to that target. Missiles ignore melee interference and anything short of total cover or concealment and can damage unattended objects. Multiple missiles can strike the same target, but all targets must be declared before resolving spell resistance or damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-missiles-4564",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/force-orb-3465": {
+      "name": "Force Orb",
+      "sourceSha256": "7009afd5129ca624ad4ecd79a55324b97b04feb9f1787571442baa867f2e58ee",
+      "effectSummary": "Creates one or more force orbs whose total damage equals 1d6 per caster level, maximum 10d6. Divide the dice among the orbs before attacking, assigning at least 1d6 to each, then make a ranged touch attack for each target. A direct hit deals the assigned damage, Fortitude half. A missed orb bursts in a 10-foot radius for 2 damage per assigned die, Reflex half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-orb-3465",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/force-shapechange-2017": {
+      "name": "Force Shapechange",
+      "sourceSha256": "5a220b76170f1c52fc61e33f8efba61e2d30350b1164278f77076d1e71e8c87b",
+      "effectSummary": "Choose targets you know or believe to be shapechangers. A failed Will save forces a true shapechanger back to its true form, deals 3d10 damage, and locks it in that form for 1 round per caster level. A successful save lets it keep its current form but still deals half damage. The damage occurs only when the forced change first happens. For this spell, a shapechanger is a creature with the shapechanger type or a supernatural/extraordinary alternate-form ability; ordinary spell-based transformations such as alter self or polymorph do not qualify and are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-shapechange-2017",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/force-shapechange-4812": {
+      "name": "Force Shapechange",
+      "sourceSha256": "a2d2727e9971c93270b35254697485dd641b7b6316774f64a442d6c054d5285f",
+      "effectSummary": "Choose targets you know or believe to be shapechangers. Each qualifying creature takes 3d10 damage and reverts to its true form for the spell’s duration; a successful save negates the reversion and halves the damage. A qualifying shapechanger has the shapechanger type or a supernatural/extraordinary ability to assume another form. Merely knowing a spell such as alter self does not make a creature a shapechanger.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-shapechange-4812",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/force-whip-503": {
+      "name": "Force Whip",
+      "sourceSha256": "525d4025e817897a0007ccffed1b77b8ccba511246fdb4cfff62375152b6c486",
+      "effectSummary": "Creates a whip of magical force that you wield proficiently. Cracking it forces normal animals—but not magical beasts or vermin—to make a Will save or remain at least 30 feet from you while space permits. A normal animal struck by the whip must make a Will save or become frightened. Against other creature types it functions in combat as a normal whip. The material component is a small silk whip.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/force-whip-503",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/forcecage-2617": {
+      "name": "Forcecage",
+      "sourceSha256": "9f9c32d92627dae63f1527d31d44e47a53f09f515f47e9901be5c5e128d97f71",
+      "effectSummary": "Creates an immobile invisible force prison; if a creature is too large to fit, the spell fails. Teleportation and astral travel can escape, but the prison extends into the Ethereal Plane and blocks ethereal movement. It resists dispel magic but is vulnerable to disintegrate, a sphere of annihilation, or a rod of cancellation. The barred version is a 20-foot cube with half-inch bars and half-inch gaps: sufficiently small creatures can slip out, fitting weapons can attack through with the prisoner gaining cover, and spells/breath weapons pass through. The windowless version is a sealed 10-foot cube of solid force. The material component is 1,500 gp of ruby dust.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forcecage-2617",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete prison mechanics"
+        }
+      ]
     }
   }
 }
