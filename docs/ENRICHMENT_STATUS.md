@@ -136,10 +136,16 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,489**
+- Digest-locked reviewed spell effects: **2,254**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
-- Permanent focused spell regression corpus: **82 / 82 green**
+- Permanent focused spell regression corpus: **589 / 589 green**
+- Latest review-only classifier checkpoint: Spell effect review **#35**, run **35466607847**, on commit `591a9f7a2028f4526073695870ac44f239a9530f`.
+- Remaining review queue: **2,443**; clean standalone long effects: **1,316**; reference-dependent primary bucket: **1,010**; manual-verification tag count: **857**.
+- Known corpus at that checkpoint: **2,254 reviews / 589 regressions / 80 supplements**, with **0 digest drift**, **0 errors**, and **0 warnings**.
+- The next strict-clean selector produced **100 / 1,304 eligible** candidates with selection SHA-256 `7054e4ef889cde12b9292fdde6628d133ddb4671ab5723b155886434fda4c35a`.
+- Validate modernization **#527**, run **35466471853**, passed end-to-end on batch-five commit `777e066b01688ce9cc5d0c2a0e819e08f88f8208`, including all **589** spell regressions and browser tests.
+- Expensive all-category audits remain periodic milestone checks rather than running after every 100-record review batch; this does not relax the final 100% release/write gate.
 - Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, delegated outside the spell page, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings and official errata are preferred when they can supply the missing mechanic.
 - Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
 - **Reference-dependent spell effects remain strict:** short prose such as “functions like/as …” or “as …, except/but …” does not count as standalone-complete until inherited mechanics are resolved into a self-contained reviewed effect summary. Generic rules language such as “functions as a splash weapon” and ordinary “functions as if …” phrasing is excluded from this detector so those clauses are not falsely treated as spell references.
