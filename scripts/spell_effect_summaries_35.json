@@ -13179,6 +13179,226 @@
           "role": "primary DnD Tools effect text and deity/energy/ability table reviewed and paraphrased for the Complete Champion printing; its trigger, damage split, save, and deity mapping are preserved separately"
         }
       ]
+    },
+    "spells/divine-sacrifice-4410": {
+      "name": "Divine Sacrifice",
+      "sourceSha256": "0fcd37049355e06d37bd65f7ad366a5e11eb0bd500c56632af51cf7706f6725d",
+      "effectSummary": "For the duration, your first attack each round deals +5d6 damage if it hits, and you take 10 damage each time you make that first attack whether it hits or misses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-sacrifice-4410",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing's automatic first-attack trigger, +5d6 damage, and 10-point self-damage"
+        }
+      ]
+    },
+    "spells/divine-sacrifice-698": {
+      "name": "Divine Sacrifice",
+      "sourceSha256": "b78733b474eb4970d0401bbc721117ba7d25aa966e49cf3e2953745801719fb3",
+      "effectSummary": "Once each round as a free action that does not provoke, sacrifice up to 10 hit points. For every 2 hit points sacrificed, your next successful attack deals +1d6 damage, maximum +5d6. The stored bonus ends when you successfully attack or when the spell ends, and you can make a new sacrifice in later rounds while the duration continues. Sacrificed hit points are ordinary damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-sacrifice-698",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Complete Divine printing's repeatable per-round sacrifice mechanic"
+        }
+      ]
+    },
+    "spells/divine-sacrifice-88": {
+      "name": "Divine Sacrifice",
+      "sourceSha256": "8f9f60982c775ff77dd37a9f2d05edad20965d94a3cea1f28f7c1fc7c305762c",
+      "effectSummary": "When you cast the spell, sacrifice up to 10 hit points. For every 2 hit points sacrificed, your next successful attack deals +1d6 damage, maximum +5d6. The bonus ends when you successfully attack or when the spell ends. The sacrificed hit points are normal lethal damage even if you have regeneration. Unlike later printings, this version does not allow a new sacrifice each round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-sacrifice-88",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this earlier one-time-on-casting sacrifice mechanic and lethal-damage clause"
+        }
+      ]
+    },
+    "spells/divine-sacrifice-959": {
+      "name": "Divine Sacrifice",
+      "sourceSha256": "103c969cbb32a3a7f44478da19e0a91fd511194f91fd58f568054799810c9fc9",
+      "effectSummary": "Once each round as a free action that does not provoke, sacrifice up to 10 hit points. For every 2 hit points sacrificed, your next successful attack deals +1d6 damage, maximum +5d6. The stored bonus ends when you successfully attack or when the spell ends, and you can repeat the sacrifice in later rounds while the spell lasts. Sacrificed hit points are ordinary damage; the source example explicitly allows repeated +5d6 bonuses across multiple rounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-sacrifice-959",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this repeatable per-round printing"
+        }
+      ]
+    },
+    "spells/divine-storm-960": {
+      "name": "Divine Storm",
+      "sourceSha256": "a3fbaa388d7b39405b9bbfee1eb359565c4e2ef4ac32e0a6742b93ffb59ab580",
+      "effectSummary": "Creates an immobile circular barrier of your deity's favored weapons. Choose a horizontal, vertical, or slanted plane. A creature in the area when the spell appears avoids damage with a successful Reflex save; afterward, any creature entering or passing through automatically takes 1d6 +2 per caster level damage, maximum +20. The storm grants one-half cover (+4 AC) to creatures beyond it. The divine focus is a tiny silver-chain replica of the deity's weapon.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-storm-960",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for placement, initial save, automatic later damage, cover, and focus"
+        }
+      ]
+    },
+    "spells/divine-surge-3601": {
+      "name": "Divine Surge",
+      "sourceSha256": "0cd3d1164153c8672e6dc2e7552354847a7336c97f25930cd8ea54ae00de05e6",
+      "effectSummary": "As part of the maneuver, make one melee attack that deals an extra 8d8 damage on a hit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-surge-3601",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the single attack and bonus damage"
+        }
+      ]
+    },
+    "spells/divine-surge-greater-3602": {
+      "name": "Divine Surge, Greater",
+      "sourceSha256": "4d7b1e59f38b4c44f32fc011008609dd9b34556a1f58784ec922b7d180f745d4",
+      "effectSummary": "As part of the maneuver, make one melee attack that deals +6d8 damage. Before the attack, you may take Constitution damage up to your initiator level; each point taken grants +1 on the attack roll and adds another +2d8 damage. After using the maneuver, you are flat-footed until the beginning of your next turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-surge-greater-3602",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for optional Constitution sacrifice, attack bonus, damage scaling, and flat-footed aftermath"
+        }
+      ]
+    },
+    "spells/divine-zephyr-931": {
+      "name": "Divine Zephyr",
+      "sourceSha256": "dc125ea38fb68afaa59e7dbe3bb70d0de08c51ff82ca4603b6207fd8992af68e",
+      "effectSummary": "Creates an immobile ward against fire creatures. A fire creature that enters or remains in the area takes 1d4 damage per caster level, maximum 5d4, each round; it receives a Fortitude save for half damage every round it is affected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-zephyr-931",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for ward, recurring damage, scaling, and repeated saves"
+        }
+      ]
+    },
+    "spells/dolorous-blow-4411": {
+      "name": "Dolorous Blow",
+      "sourceSha256": "a60e5144bc8cfc17e6a0325516ff50d1b8f043d15c791e0f629bdab94aa2b671",
+      "effectSummary": "The touched weapon's threat range doubles and every critical threat automatically confirms. The automatic-confirmation benefit does not apply to a weapon that already has a magical critical-hit effect, and threat-range increases such as Improved Critical do not stack with this spell. Natural weapons cannot be targeted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dolorous-blow-4411",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for threat-range, automatic confirmation, stacking, and target restrictions"
+        }
+      ]
+    },
+    "spells/dolorous-motes-44": {
+      "name": "Dolorous Motes",
+      "sourceSha256": "ff578ce6a41f8794c7f0fa789b468bbf4437f4c5f4c4e6d36502a234ea18e142",
+      "effectSummary": "Creates one or more stationary 10-foot-cube clouds within range, which may be separate or grouped into larger clouds or barriers. A creature inside or passing through a cloud must make a Will save or be dazed for 1 round; a new save is allowed each round, and leaving then re-entering forces another save. The sacrifice cost is 1d3 Wisdom damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dolorous-motes-44",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for cube allocation, stationary placement, recurring saves, re-entry, daze, and sacrifice"
+        }
+      ]
+    },
+    "spells/dominate-animal-2545": {
+      "name": "Dominate Animal",
+      "sourceSha256": "b1ee8a075f845e856fcf1634b6ab55ce0a6c97f607580fc729f94474787514ef",
+      "effectSummary": "Establishes a mental link that lets you direct an animal with simple silent mental commands while it remains in range, even without line of sight. Suicidal or self-destructive orders—including attacking a creature at least two size categories larger—are ignored. You do not receive its senses, but know what it is experiencing, and your intelligence can direct actions beyond the animal's normal comprehension. Directing an unusual task requires concentration; changing instructions or issuing a new command is a move action.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dominate-animal-2545",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for command scope, self-destructive limit, mental link, range, concentration, and redirect action"
+        }
+      ]
+    },
+    "spells/dominate-person-2547": {
+      "name": "Dominate Person",
+      "sourceSha256": "ceac0f5f54f390e263fa9e419fb2ef89c6a9ec44ae93d00dd17308a9c8f33283",
+      "effectSummary": "Controls a humanoid through a telepathic link. With a shared language you can issue detailed commands; otherwise only basic commands are possible. The subject pursues its current command except for ordinary survival needs, and a DC 15 Sense Motive check can notice the enchantment influence. Changing instructions is a move action. As a standard action you can concentrate to receive the subject's interpreted sensory impressions, but it cannot telepathically communicate back. A command against the subject's nature grants a new save at +2; obviously self-destructive orders are ignored. Once established, control has unlimited range on the same plane and does not require sight. If you fail to concentrate on the spell for at least 1 round each day, the subject gains a new save to escape. Protection from evil or similar magic suppresses control and telepathic use while present but does not prevent or dispel the domination itself.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dominate-person-2547",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for language, commands, Sense Motive, redirecting, sensory concentration, opposed-nature saves, planar range, daily concentration, and protection suppression"
+        }
+      ]
+    },
+    "spells/dominate-vermin-1126": {
+      "name": "Dominate Vermin",
+      "sourceSha256": "2fca596f793a303032b6aff429fa1b4c16a17cb4d88227940f5ba6655c8c1122",
+      "effectSummary": "Invests your psyche into one vermin, granting it your Intelligence and allowing simple commands such as attack, run, or fetch while it remains within range. Because control is absolute, even suicidal commands are obeyed. You need not see the vermin to control it, and changing instructions is a move action. If the vermin dies, the violent feedback deals you 1d4 Wisdom damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dominate-vermin-1126",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Intelligence grant, absolute commands, range, redirect action, and death feedback"
+        }
+      ]
+    },
+    "spells/doom-charge-3603": {
+      "name": "Doom Charge",
+      "sourceSha256": "fbd90324c9e97abccb4ad08228c9f4d715c4f955a0b3c515d9c533769c9d41a4",
+      "effectSummary": "Requires evil alignment and a charge attack. If the charge target is good, a hit deals +6d6 damage and grants you damage reduction 10/- until the beginning of your next turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doom-charge-3603",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for alignment prerequisite, charge requirement, bonus damage, and temporary damage reduction"
+        }
+      ]
+    },
+    "spells/doom-of-the-seas-3332": {
+      "name": "Doom of the Seas",
+      "sourceSha256": "197a3ef3133ffa5480a68750befd2dac598bc2c85f8362eab00bcc7b1006afbf",
+      "effectSummary": "Summons a fiendish kraken that obeys you for the spell's duration. The XP cost is 500 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doom-of-the-seas-3332",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for summoned creature, obedience, duration, and XP cost"
+        }
+      ]
+    },
+    "spells/doom-scarabs-2947": {
+      "name": "Doom Scarabs",
+      "sourceSha256": "33ab5e715321eb94309208f9ccf5f6c1a96e482c81248ac2724269752ae3a6cc",
+      "effectSummary": "Living creatures in the area take 1d6 damage per two caster levels, maximum 10d6; spell resistance does not apply to this damage. For each affected creature that actually has spell resistance and whose spell resistance you overcome for the spell's secondary effect, you gain 1d4 temporary hit points. Creatures without spell resistance cannot grant temporary hit points. Temporary hit points from the spell last up to 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doom-scarabs-2947",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for damage scaling, spell-resistance split, per-creature temporary hit points, and duration"
+        }
+      ]
+    },
+    "spells/doomtide-1699": {
+      "name": "Doomtide",
+      "sourceSha256": "6755b310897bf7494412e996c67daac4aa1b613f265a534115dfb7ff61ecf40b",
+      "effectSummary": "Creates illusory black mist; you and one creature you touch are immune and can see through it. At casting, choose whether it remains stationary or moves straight away from you at 10 feet per round. Sight, including darkvision, is obscured beyond 5 feet: creatures within 5 feet have 20% concealment and farther creatures have total concealment with 50% miss chance and cannot be located by sight. Moderate wind disperses it in 4 rounds and strong wind in 1 round. A creature in the mist must make a Will save or remain dazed for as long as it stays there. This printing does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doomtide-1699",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing's immunity pair, concealment percentages, continuous daze, wind dispersal, movement, and underwater restriction"
+        }
+      ]
+    },
+    "spells/doomtide-4412": {
+      "name": "Doomtide",
+      "sourceSha256": "edfa8db9d591eb429cc3a7ac3961cc10e3b501067b76a3f4bb110ac91e4dc7e0",
+      "effectSummary": "Creates illusory black mist. Every creature in the area at casting, every creature entering it, and every creature beginning its turn there must make a Will save or be dazed for 1 round. Sight, including darkvision, is obscured beyond 5 feet; creatures within 5 feet have concealment and farther creatures have total concealment. At casting, choose whether the point of origin remains stationary or moves straight away from you at 10 feet per round. Moderate wind disperses the mist in 4 rounds and strong wind in 1 round. Unlike earlier printings, this version does not grant immunity to the caster plus one touched creature and uses repeated 1-round daze rather than continuous daze.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doomtide-4412",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its repeated one-round daze and lack of explicit caster/touched-creature immunity are preserved"
+        }
+      ]
+    },
+    "spells/doomtide-714": {
+      "name": "Doomtide",
+      "sourceSha256": "c33aa6c01519990211866a9263b490e1401da96e536f8b50f2f79f01ea7ac438",
+      "effectSummary": "Creates illusory black mist; you and one creature you touch are immune and can see through it. At casting, choose whether it remains stationary or moves straight away from you at 10 feet per round. Sight, including darkvision, is obscured beyond 5 feet: creatures within 5 feet have 20% concealment and farther creatures have total concealment with 50% miss chance and cannot be located by sight. Moderate wind disperses it in 4 rounds and strong wind in 1 round. A creature in the mist must make a Will save or remain dazed for as long as it stays there. This printing does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/doomtide-714",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing's immunity pair, concealment percentages, continuous daze, wind dispersal, movement, and underwater restriction"
+        }
+      ]
+    },
+    "spells/door-of-decay-596": {
+      "name": "Door of Decay",
+      "sourceSha256": "68a57a3c4e875a1da791cadb454f77040a275562160513f4565735b19fad252e",
+      "effectSummary": "Teleport through the Negative Energy Plane by stepping into one undead creature and emerging from another up to 100 miles per caster level away. If you do not know the exact destination undead, you may use the controlled undead nearest your desired exit. Both undead must be at least your size and either willing or under your control; mindless undead count as willing only if you control them. Worshipers of Wee Jas, Vecna, or another deity associated with both death and magic gain +4 caster level solely for maximum distance. You may carry objects up to your maximum load but cannot bring other creatures. A dread necromancer may select this spell through advanced learning despite its non-necromancy school.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/door-of-decay-596",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for conduit, endpoint, willingness/control, distance, deity bonus, carried load, passenger restriction, and dread-necromancer exception"
+        }
+      ]
     }
   }
 }
