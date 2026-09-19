@@ -12730,6 +12730,234 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for all three Shadowlands defense, dismissal, and automatic-dispel uses"
         }
       ]
+    },
+    "spells/dispel-ward-4393": {
+      "name": "Dispel Ward",
+      "sourceSha256": "287f77c769dd144da338a19800d6caad1364453dc5d97822f3e47d4b7abab32a",
+      "effectSummary": "Functions as dispel magic but only in targeted or area mode and only against abjuration magic placed on objects or areas, such as arcane lock, explosive runes, fire trap, glyph of warding, and guards and wards. Use dispel magic's checks of 1d20 + caster level, maximum +10, against DC 11 + the opposing effect's caster level; counterspell mode is not available.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispel-ward-4393",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for ward restrictions and allowed dispel modes"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-2315",
+          "role": "same primary catalog referenced spell used to retain inherited targeted/area dispel checks and DC"
+        }
+      ]
+    },
+    "spells/dispel-water-3121": {
+      "name": "Dispel Water",
+      "sourceSha256": "7a2ca5223809046285ab5359ead3c6a1dace040f895b13a6f902ee7a99979cf6",
+      "effectSummary": "Choose one of three effects; instantaneous water effects cannot be countered. Dry Up Water destroys 200 cubic feet of water per caster level. If at least 1,000 cubic feet vanish from a large body, the resulting current requires a DC 20 Swim check or pulls a creature down 10 feet per caster level, forcing it to hold its breath or begin drowning; vessels capsize 95% of the time if under 20 feet long, 50% at 20–60 feet, and 20% if over 60 feet. Counterspell mode works only against water-descriptor spells, Water-domain spells, or effects clearly involving water and requires a dispel check of 1d20 + caster level, maximum +20, against DC 11 + the spell's caster level. Dismiss Water Creature targets one extraplanar water-subtype creature; Will negates and spell resistance applies, otherwise it is sent to its home plane.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispel-water-3121",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for all three modes, current/capsize rules, dispel check, and dismissal save"
+        }
+      ]
+    },
+    "spells/dispelling-breath-4394": {
+      "name": "Dispelling Breath",
+      "sourceSha256": "6074c0f71eb927b4249a14f732798860833bb08ca3a9f2292621fa4a2938b655",
+      "effectSummary": "Requires a breath weapon. Creatures or objects that fail their save against that breath are subject to a dispel sequence before the breath's normal effect resolves: make 1d20 + caster level, maximum +15, against DC 11 + the highest-caster-level spell affecting the target, then try progressively weaker spells until one is dispelled or all checks fail. Magic items are unaffected. A failed-save creature created by an ongoing conjuration can also have that creating spell dispelled, and each ongoing area or effect spell centered in the breath area receives a dispel check. You may automatically succeed against your own spells. Targets that save against the breath are not dispelled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispelling-breath-4394",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its one-spell-per-target progression and pre-breath resolution order are preserved"
+        }
+      ]
+    },
+    "spells/dispelling-breath-998": {
+      "name": "Dispelling Breath",
+      "sourceSha256": "bbb9ac7c87c8df7ab502692c7cd994e1178a9a593ca27d6555e15f021cfb01b1",
+      "effectSummary": "The breath weapon produced with this casting also dispels magic from creatures and objects that fail their save against the breath. For each such target, make a separate dispel check against every ongoing spell affecting it: 1d20 + caster level, maximum +15, against DC 11 + that spell's caster level. Magic items and targets that save against the breath are unaffected by the dispelling. You can also dispel the ongoing spell that created a failed-save summoned or conjured creature, and make checks against each ongoing area or effect spell centered inside the breath area. You may automatically succeed against your own spells. Unlike the later Spell Compendium printing, this version checks every ongoing spell on each failed-save target rather than stopping after one successful dispel.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispelling-breath-998",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Draconomicon printing; its check-against-every-spell behavior is preserved"
+        }
+      ]
+    },
+    "spells/dispelling-screen-4395": {
+      "name": "Dispelling Screen",
+      "sourceSha256": "0b6b036d7dca206dde050bdc3ab720969d0ac6565692bd83e268d402f123723c",
+      "effectSummary": "Creates an immobile screen that applies a targeted dispel to spell effects operating on any creature or unattended object that passes through it. Attended magic items are not affected. For spell effects, make 1d20 + caster level, maximum +10, against DC 11 + the effect's caster level. For an unattended magic object, the same check suppresses its magical properties for 1d4 rounds against a DC equal to the item's caster level. Spell effects not operating on creatures or objects cannot pass through the screen. Disintegrate or a successful dispel magic destroys the screen, while antimagic field suppresses it. The material component is a sheet of fine lead crystal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispelling-screen-4395",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for crossing behavior, item exception, check/DC distinctions, and screen removal"
+        }
+      ]
+    },
+    "spells/dispelling-touch-2909": {
+      "name": "Dispelling Touch",
+      "sourceSha256": "1b4bb24d2a49696cdc87c857edae9cab0d5b30d8294fae00b0d8d5f24cdd23dc",
+      "effectSummary": "End one ongoing spell on the touched creature, object, or noticeable ongoing spell effect. Make a dispel check of 1d20 + caster level, maximum +10, against the highest-caster-level applicable spell; if it fails, try progressively weaker spells until one is dispelled or all checks fail. Magic items carried by a creature are not affected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dispelling-touch-2909",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for progressive targeted dispel mechanics"
+        }
+      ]
+    },
+    "spells/displacement-2667": {
+      "name": "Displacement",
+      "sourceSha256": "35973a22dd9ce4bfb6d7e72d12aa9844c21613eea1852e5ce47cd04861dc72a0",
+      "effectSummary": "The subject appears about 2 feet from its true position and gains a 50% miss chance as though it had total concealment. Unlike true total concealment, enemies can still target the subject normally. True seeing reveals the subject's actual location. The material component is a looped strip of displacer-beast hide.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/displacement-2667",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for miss chance, targeting exception, true seeing, and component"
+        }
+      ]
+    },
+    "spells/displacer-form-4397": {
+      "name": "Displacer Form",
+      "sourceSha256": "8b7f8dd518f4542505cd985801e0b89de091e82f8ffc7483680180090b6e1eeb",
+      "effectSummary": "You become a Large magical beast resembling a displacer beast. Your space/reach becomes 15 feet/5 feet, with 10-foot tentacle reach; you gain two tentacle attacks for 1d6 + Strength each, Str 18, Dex 15, Con 16, land speed 40 feet, darkvision 60 feet, low-light vision, and +5 natural armor, while retaining your mental scores, class and level, hit points, alignment, base attack bonus, and base saves. You lose your form's spell-like abilities and non-class-derived extraordinary abilities, retain supernatural abilities and class-derived extraordinary special attacks, and can still speak and cast spells if you can physically touch required material components. You gain the displacer beast's displacement—50% miss chance against melee and ranged attacks unless located without sight, defeated by true seeing but not see invisibility—and +2 resistance on saves against targeted ranged spells or magical attacks except ranged touch attacks. Equipment melds into the form and becomes nonfunctional. The material component is a displacer-beast claw.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/displacer-form-4397",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the transformation's statistics, retained/lost abilities, casting, armor, equipment, and inherited named monster qualities"
+        },
+        {
+          "url": "https://www.realmshelps.net/monsters/detail/Displacer_Beast",
+          "role": "independent 3.5 Monster Manual rendering used only to expand the two named displacer-beast qualities after a usable same-primary monster route could not be located"
+        }
+      ]
+    },
+    "spells/disquietude-4398": {
+      "name": "Disquietude",
+      "sourceSha256": "53e53003ecb0d284e1ea09ba4c7771876feb4b3f4490e4a9acfec96103f3334b",
+      "effectSummary": "The subject avoids physical contact and must stay at least 15 feet from every other creature. An ally that tries to touch it must succeed on a melee touch attack. If the subject begins its turn within 15 feet of any creature, it must move beyond 15 feet from all creatures before taking any other action. If it cannot safely move far enough, it must remain in place and take total defense instead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disquietude-4398",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for separation, ally-touch, forced-movement, and total-defense mechanics"
+        }
+      ]
+    },
+    "spells/disrupt-ectoplasm-1369": {
+      "name": "Disrupt Ectoplasm",
+      "sourceSha256": "cd68698d8371564df4a784c9b3575d3865934b5acb700f128eba7e064437426c",
+      "effectSummary": "Make a ranged touch attack with the ray against a ghost or ectoplasmic object. On a hit it deals 1d6 damage, ignoring the hardness of ectoplasmic objects and the damage reduction of ectoplasmic creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disrupt-ectoplasm-1369",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for attack, damage, hardness, and damage-reduction mechanics"
+        }
+      ]
+    },
+    "spells/disrupt-undead-greater-4399": {
+      "name": "Disrupt Undead, Greater",
+      "sourceSha256": "5295fa5a3fc60254d974206e54ee0fc68fa96a448edc2ae051b4d12bdda85766",
+      "effectSummary": "Make a ranged touch attack with the ray against an undead target. On a hit it deals 1d8 damage per caster level, maximum 10d8. If that damage destroys the first target, you may redirect the ray to another undead within 15 feet; a successful ranged touch attack against the second target deals half the damage rolled for the first target.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disrupt-undead-greater-4399",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for damage scaling and conditional second target"
+        }
+      ]
+    },
+    "spells/disrupting-blow-3624": {
+      "name": "Disrupting Blow",
+      "sourceSha256": "b6fd7594fafc594bb84c908701cbf21460c95a5c279cdde5bac0fe31c8fc5c75",
+      "effectSummary": "As part of the maneuver, make one melee attack. On a hit, deal normal melee damage and force the target to make a Will save at DC 15 + your Strength modifier. On a failure it cannot take actions for 1 round, though it can still make attacks of opportunity; it cannot take immediate actions until its next turn. No other penalty is imposed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disrupting-blow-3624",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for attack, save DC, action denial, and opportunity-attack exception"
+        }
+      ]
+    },
+    "spells/disrupting-weapon-2802": {
+      "name": "Disrupting Weapon",
+      "sourceSha256": "0bcbcf033f358646c83a546f1eb01ea718d6d0ad39266ac3ae66c78d4de8a2f7",
+      "effectSummary": "The affected melee weapon can utterly destroy undead. Whenever it hits an undead creature whose Hit Dice are no greater than your caster level, that creature must make a Will save or be destroyed. Spell resistance does not apply to this destruction effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disrupting-weapon-2802",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for hit trigger, Hit Die limit, save, and spell-resistance exception"
+        }
+      ]
+    },
+    "spells/dissonant-chant-3189": {
+      "name": "Dissonant Chant",
+      "sourceSha256": "5c025d33eeea878a60bba41302e029aee0bcdaa99a422980f2d9b88d4317da72",
+      "effectSummary": "Affected creatures attempting spellcasting or another activity that requires concentration must make a Concentration check; this Savage Species printing defines the basic check as DC 18 + the relevant Intelligence or Charisma modifier for wizard or sorcerer casting. An activity that already requires a Concentration check increases its existing DC by this spell's save DC -10. Creatures in the area also gain a bonus on saves against language-dependent effects equal to this spell's save DC -10. Although Dissonant Chant itself allows no save, calculate its save DC normally—10 + spell level + the caster's relevant Intelligence or Charisma modifier—to determine those modifiers.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dissonant-chant-3189",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Savage Species printing; its formula-based Concentration and language-save modifiers are preserved"
+        }
+      ]
+    },
+    "spells/dissonant-chant-4400": {
+      "name": "Dissonant Chant",
+      "sourceSha256": "e30d11acff043d84b97576ccb6f783e2553076191508476f14c6dc0839a692c5",
+      "effectSummary": "Affected creatures attempting to cast a spell or perform another activity requiring concentration must make a Concentration check. For spellcasting, the DC equals Dissonant Chant's save DC + the level of the spell being cast. Activities that already require Concentration checks, such as casting defensively, have their DC increased by 4. Creatures in the area gain +4 on saving throws against language-dependent effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dissonant-chant-4400",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its fixed +4 modifiers and revised casting DC are preserved"
+        }
+      ]
+    },
+    "spells/dissonant-chord-4401": {
+      "name": "Dissonant Chord",
+      "sourceSha256": "9755531a7a034e461477a8adc11157fc94ab1a9c7206031a83c39d5e60ff0520",
+      "effectSummary": "Every other creature in the affected area takes 1d8 sonic damage per two caster levels, maximum 5d8. The caster is excluded from the damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dissonant-chord-4401",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for damage scaling and caster exclusion"
+        }
+      ]
+    },
+    "spells/distilled-joy-105": {
+      "name": "Distilled Joy",
+      "sourceSha256": "cf5e7c4ab10de7be4d9d76c93c16b55a8b5b7169b45e15dd9c8a58b303721199",
+      "effectSummary": "Draws one dose of ambrosia from a creature currently experiencing great bliss and stores it in a small container. A good spellcaster can spend the dose in magic-item creation as the equivalent of 2 XP, and ambrosia can also serve as the optional spell component described by its source rules. A living creature that drinks a dose cures 1 point of damage and experiences soothing positive sensations and emotions for 1d4+1 hours; ambrosia has no addictive qualities. The focus is a vial or similar container.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distilled-joy-105",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for production requirements, magic-item XP value, consumption effect, duration, and focus"
+        }
+      ]
+    },
+    "spells/distort-speech-416": {
+      "name": "Distort Speech",
+      "sourceSha256": "a8715c004b03b5ac9d854cf395a014c6ee3b704b02d013bea1c1383d13aefb26",
+      "effectSummary": "For the duration, the subject has a 50% chance to miscast any spell with a verbal component. Every time it speaks—including use of a command-word magic item—there is also a 50% chance the utterance becomes completely incomprehensible and therefore ineffective.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distort-speech-416",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Complete Adventurer printing"
+        }
+      ]
+    },
+    "spells/distort-speech-4402": {
+      "name": "Distort Speech",
+      "sourceSha256": "005b1bb6881a20f72c421273f0f565ecd8aaf817a29999f7c576526b6f01c2f2",
+      "effectSummary": "For the duration, the subject has a 50% chance to miscast any spell with a verbal component. Every time it speaks—including use of a command-word magic item—there is also a 50% chance the utterance becomes completely incomprehensible and therefore ineffective.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distort-speech-4402",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing"
+        }
+      ]
+    },
+    "spells/distort-summons-241": {
+      "name": "Distort Summons",
+      "sourceSha256": "b0d327d642ceda1873ccdd884ff61b6fb59a8bd34041d5c6ac2f9dc4cdd01a46",
+      "effectSummary": "Within the affected area, later summoning magic can produce only evil creatures. Any attempted summon instead brings an evil version or evil equivalent. If the summoner intended a good or neutral creature, the resulting evil creature does not obey the summoner or attack the summoner's enemies; it attacks the summoner instead, and the summoning spell cannot be dismissed. Distort Summons itself can be dispelled normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distort-summons-241",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for alignment substitution, obedience, hostility, and dismissal mechanics"
+        }
+      ]
     }
   }
 }
