@@ -17526,6 +17526,81 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/finding-the-center-2016": {
+      "name": "Finding the Center",
+      "sourceSha256": "b072ce473704e4bf2f58f6fa24eb75403c72922e5109e1ff3f408a09121cd8df",
+      "effectSummary": "Can be cast while you are already maintaining concentration on another spell. Afterward, your unconscious mind maintains that earlier spell for you, so you can move, attack, cast spells, and take other actions normally without consciously concentrating on it. While finding the center remains active, that maintained concentration can be disrupted only by your death or by an effect that impairs or controls your mind, such as feeblemind, confusion, insanity, or dominate person.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/finding-the-center-2016",
+          "role": "primary Oriental Adventures DnD Tools effect text reviewed and paraphrased; unconscious-concentration override retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/aiming-at-the-target-2011",
+          "role": "matching primary-catalog base spell used to resolve the inherited ability to cast while maintaining concentration on another spell"
+        }
+      ]
+    },
+    "spells/finding-the-center-440": {
+      "name": "Finding the Center",
+      "sourceSha256": "63e4de991f66668154532a539550fa71e7b9dc26a014ffa9a5642c047273e9d6",
+      "effectSummary": "Can be cast while you are already maintaining concentration on another spell. Your unconscious mind then maintains that spell, allowing you to move, attack, cast additional spells, and act normally without consciously concentrating on it. Short of death, only mind-affecting spells or conditions can interfere with that concentration; charm or suggestion can instead persuade you to dismiss finding the center voluntarily, which also ends the previously maintained spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/finding-the-center-440",
+          "role": "primary Complete Arcane DnD Tools effect text reviewed and paraphrased; unconscious-concentration override retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/aiming-at-the-target-434",
+          "role": "matching primary-catalog base spell used to resolve the inherited ability to cast while maintaining concentration on another spell"
+        }
+      ]
+    },
+    "spells/fire-orb-3395": {
+      "name": "Fire Orb",
+      "sourceSha256": "97580ce250ffc9983d7a68685c6dc6025ecc2c6a7bad0d9d8d325f3d87df3ad1",
+      "effectSummary": "Creates one or more fire orbs that together deal 1d6 fire damage per caster level, maximum 15d6. Divide the total damage among the orbs before rolling attacks, with at least 1d6 assigned to each, and make a ranged touch attack for each orb. A direct hit deals its assigned damage and dazes the target for 1 round; a successful Fortitude save halves that damage and negates the daze. A missed orb bursts in a 10-foot splash, dealing 2 fire damage per damage die assigned to that orb, Reflex half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-orb-3395",
+          "role": "primary Tome and Blood DnD Tools effect text reviewed and paraphrased; fire/daze changes retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/acid-orb-3391",
+          "role": "matching primary-catalog base spell used to resolve inherited orb count, damage division, attack, and splash mechanics"
+        }
+      ]
+    },
+    "spells/fire-orb-lesser-1955": {
+      "name": "Fire Orb, Lesser",
+      "sourceSha256": "570ef04a98a2ab61aa3be1bf64590dcf2345b060a24ce507a301c1ded21bb56e",
+      "effectSummary": "Launches one small orb of fire at a target. Make a ranged touch attack; on a hit the orb deals 1d8 fire damage at 1st level, plus another 1d8 for every two caster levels beyond 1st, to a maximum of 5d8 at 9th level or higher.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-orb-lesser-1955",
+          "role": "primary Miniatures Handbook DnD Tools effect text reviewed and paraphrased; fire substitution retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/acid-orb-lesser-1946",
+          "role": "matching primary-catalog base spell used to resolve inherited lesser-orb scaling and ranged-touch mechanics"
+        }
+      ]
+    },
+    "spells/fire-orb-lesser-3401": {
+      "name": "Fire Orb, Lesser",
+      "sourceSha256": "876ee308272cad6d89769d7b8067df415a49eb19fc1233672c328579e9d68da8",
+      "effectSummary": "Launches one or more 1d8 fire-damage orbs simultaneously. You create one orb at 1st level and one additional orb for every two levels beyond 1st, to a maximum of five orbs at 9th level. Each orb requires a ranged touch attack and has no splash damage on a miss. Multiple orbs can strike one target or different targets, but you must designate all targets before resolving spell resistance or damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-orb-lesser-3401",
+          "role": "primary Tome and Blood DnD Tools effect text reviewed and paraphrased; fire substitution retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/acid-orb-lesser-3398",
+          "role": "matching primary-catalog base spell used to resolve inherited lesser-orb count, targeting, and attack mechanics"
+        }
+      ]
     }
   }
 }
