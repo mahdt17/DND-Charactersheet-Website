@@ -136,7 +136,7 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **827**
+- Digest-locked reviewed spell effects: **887**
 - Primary catalog: `https://new.dndtools.org`
 - Outside sources are allowed only when the primary record is missing, truncated, corrupted, contradictory, or otherwise insufficient; such repairs must retain provenance and must not expand catalog membership.
 - Primary-page repairs pinned during this review cycle include `Analyze Portal`, `Anathema`, `Arboreal Transformation`, the truncated Defenders of the Faith printing of `Aspect of the Deity, Greater`, and `Blessing of the Snake Mother`.
@@ -144,9 +144,11 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 - The parser now also flags spells that explicitly reference a missing table when no structured table was captured. The Magic of Faerûn `Celebration` record was repaired from its sourcebook table and pinned as a regression.
 - `City's Might` from Races of Destiny was also treated as an incomplete-primary record because the primary page omits its settlement-size scaling values; the verified scaling was added as a provenance-backed supplement and pinned as a regression.
 - The Expedition to Undermountain `Cloak of Dark Power` record was found truncated mid-effect; it is repaired using the complete Spell Compendium printing already present on the same primary `new.dndtools.org` catalog, with the truncation explicitly detected.
+- `Crumble` (`spells/crumble-1748`) was found to omit its caster-level target-size table. The matching 1d6/level printing on the same primary catalog (`spells/crumble-740`) supplies the missing Huge/Gargantuan/Colossal thresholds; the repair is provenance-backed and regression-pinned.
 - Full audit at the 263-review checkpoint: **5,035 total / 900 output-complete / 4,135 incomplete**, **17.8749%** output-complete.
 - Full audit at the 423-review checkpoint: **5,035 total / 1,061 output-complete / 3,974 incomplete**, **21.0725%** output-complete.
 - Full audit at the 547-review checkpoint: **5,035 total / 1,185 output-complete / 3,850 incomplete**, **23.5353%** output-complete. The remaining critical gaps are the expected unresolved `effect/effectSummary` backlog; no new failure class appeared.
+- Full audit at the 827-review checkpoint: **5,035 total / 1,479 output-complete / 3,556 incomplete**, **29.3744%** output-complete. All source shards passed; the only remaining audit failure class was the expected unresolved `effect/effectSummary` backlog.
 - The 423-review audit restored the source gate to **5,035 / 5,035, zero failures** after a prior 323-review audit was falsely interrupted by a transient `RemoteDisconnected` on `Shadow Double`. The fetcher now retries `RemoteDisconnected` and `ConnectionResetError` alongside HTTP 429/5xx and timeout failures.
 - The 423-review output audit's remaining critical gaps are the expected unresolved `effect/effectSummary` review backlog; no new critical failure class appeared.
 - Four table-driven `Bolt of Glory` records were deliberately deferred from the normal review count until exact table mechanics could be recovered rather than guessed. Their variants have now been independently verified, and a fresh table-aware primary review export is being generated before they are committed.
