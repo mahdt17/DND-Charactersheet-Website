@@ -1074,6 +1074,12 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         if entry.get("id")=="spells/sandform-3176" and not parser.tables and re.search(r"deals bludgeoning damage according to your size",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="omitted-sandform-slam-table"
+        if entry.get("id")=="spells/standing-wave-1936" and not parser.tables and re.search(r"what the wave can lift depends on your caster level",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-standing-wave-size-table"
+        if entry.get("id")=="spells/word-of-balance-3496" and not parser.tables and re.search(r"suffers ill effects according to its Hit Dice, as given below",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-word-of-balance-hd-table"
         if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
