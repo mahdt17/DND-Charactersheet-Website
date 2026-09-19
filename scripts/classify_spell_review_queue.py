@@ -274,6 +274,12 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?=\s*,?\s*(?:except|but)\b|\s+spell\b)",
         re.I,
     )),
+    ("functions-in-all-respects-like-named-spell", re.compile(
+        r"\bfunctions?\s+in\s+all\s+respects\s+like\s+"
+        r"(?!a\b|an\b|the\b)(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?=\s*,\s*(?:except|but)\b|[.;])",
+        re.I,
+    )),
     ("dispel-magic-effect-inheritance", re.compile(
         r"\b(?:target\s+of|as|like)\s+(?:a|an|the)?\s*(?P<name>dispel magic)\s+effect\b",
         re.I,
@@ -1113,6 +1119,8 @@ def run_self_test() -> None:
     assert "dispel-magic-effect-inheritance" in external_mechanics_reasons("Anyone passing through becomes the target of a dispel magic effect.")
     assert "equivalent-of-named-spell" not in external_mechanics_reasons("The object has the equivalent of a +2 enhancement bonus.")
     assert "works-just-like-named-spell" not in external_mechanics_reasons("The device works just like normal machinery.")
+    assert "functions-in-all-respects-like-named-spell" in external_mechanics_reasons("This effect functions in all respects like major image, except that it is a pattern.")
+    assert "functions-in-all-respects-like-named-spell" not in external_mechanics_reasons("The device functions in all respects like a normal mirror, except that it is silver.")
     assert "modified-named-spell-reference" in external_mechanics_reasons("The weapon acts as a +5 bless weapon.")
     assert "named-effect-shorthand" in external_mechanics_reasons("Those who succeed gain a true seeing effect.")
     assert "affected-by-shorthand" in external_mechanics_reasons("Those who fail behave as though affected by confusion.")
