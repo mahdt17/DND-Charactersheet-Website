@@ -341,11 +341,18 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("summoned-creature-stat-dependency", re.compile(
-        r"(?:^|[.!?]\s+)(?:This\s+spell\s+(?:summons|creates)|You\s+(?:summon|create))\s+"
+        r"(?:^|[.!?]\s+)(?:This\s+spell\s+summons|You\s+summon)\s+"
         r"(?:(?:a|an|one|two|three|a\s+pair\s+of|a\s+number\s+of|number\s+of)\s+)?"
         r"(?P<name>[^.;]{0,100}?\b(?:golems?|devils?|demons?|archons?|eladrins?|rocs?|wyverns?|"
         r"elementals?|homuncul(?:us|i)|titans?|swarms?|dragons?|undead(?:\s+creatures?)?|"
         r"extraplanar\s+creatures?|natural\s+creatures?|fiends?|creatures?))\b",
+        re.I,
+    )),
+    ("created-creature-stat-dependency", re.compile(
+        r"(?:^|[.!?]\s+)(?:This\s+spell\s+creates|You\s+create)\s+"
+        r"(?:a|an|one|two|three)\s+"
+        r"(?P<name>wyverns?|golems?|devils?|demons?|archons?|eladrins?|rocs?|"
+        r"elementals?|homuncul(?:us|i)|titans?|swarms?|dragons?|fiends?)\b",
         re.I,
     )),
     ("condition-as-the-spell", re.compile(
@@ -481,7 +488,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("granted-weapon-special-abilities", re.compile(
-        r"\b(?:gains?|gain)\s+(?:the\s+)?"
+        r"\b(?:gains?|gain|gaining)\s+(?:the\s+)?"
         r"(?P<name>[A-Za-z][A-Za-z0-9'’ ,/+:-]{2,100}?)\s+special\s+abilities\b",
         re.I,
     )),
@@ -1244,8 +1251,12 @@ def run_self_test() -> None:
     assert "glyph-of-warding-inheritance" in external_mechanics_reasons("The marker bears a glyph of warding (blast glyph only).")
     assert "creature-information-page-reference" in external_mechanics_reasons("More information on the aspect of Bahamut can be found on page 152 of this book.")
     assert "creature-information-page-reference" not in external_mechanics_reasons("More information can be found in the spell description itself.")
-    assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell creates a wyvern that springs forth from your body.")
+    assert "created-creature-stat-dependency" in external_mechanics_reasons("This spell creates a wyvern that springs forth from your body.")
+    assert "created-creature-stat-dependency" not in external_mechanics_reasons("This spell creates an area in which only good creatures can be magically summoned.")
+    assert "created-creature-stat-dependency" not in external_mechanics_reasons("You create the illusion of a pit, and each creature entering it must save.")
+    assert "created-creature-stat-dependency" not in external_mechanics_reasons("You create a phantasmal image of the most fearsome creature imaginable.")
     assert "granted-weapon-special-abilities" in external_mechanics_reasons("The weapon gains the keen and flaming burst special abilities.")
+    assert "granted-weapon-special-abilities" in external_mechanics_reasons("The weapon bursts into flame, gaining the keen and flaming burst special abilities.")
     assert "granted-named-feat-benefit" in external_mechanics_reasons("The mount gains the benefit of the Run feat.")
     assert "treated-as-magic-equipment" in external_mechanics_reasons("It is treated as +1 mithral breastplate for all purposes.")
     assert "prismatic-spray-beam-inheritance" in external_mechanics_reasons("The target suffers the effect of one of the beams of a prismatic spray spell.")
