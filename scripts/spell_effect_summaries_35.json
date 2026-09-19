@@ -11804,6 +11804,238 @@
           "role": "Eberron Campaign Setting p.47 used only to restore the Spellcraft DCs explicitly referenced by the primary spell record"
         }
       ]
+    },
+    "spells/detect-evil-2486": {
+      "name": "Detect Evil",
+      "sourceSha256": "95cb095bbdcd5872fb288bf9f01678be548f35ff064d9c1bdb575fba518e0066",
+      "tablesSha256": "64bee2afc6995dd261bdfdcb06c4d674820dc4f5cfac3dc11840e857546b05ba",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects evil auras. Round 1 reveals presence or absence; round 2 reveals their number and the strongest aura, and a good caster is stunned for 1 round and loses the spell if that aura is overwhelming and comes from a source whose Hit Dice or class level is at least twice the caster's character level; round 3 reveals each aura's strength and location, or only its direction if outside line of sight. Aura power is: evil creature—10 HD or lower faint, 11–25 moderate, 26–50 strong, 51+ overwhelming; undead—2 HD or lower faint, 3–8 moderate, 9–20 strong, 21+ overwhelming; evil outsider—1 HD or lower faint, 2–4 moderate, 5–10 strong, 11+ overwhelming; cleric of an evil deity—class level 1 faint, 2–4 moderate, 5–10 strong, 11+ overwhelming; evil spell or magic item—caster level 2 or lower faint, 3–8 moderate, 9–20 strong, 21+ overwhelming. Use the stronger category if more than one applies. A destroyed or dissipated source leaves a dim aura for 1d6 rounds if originally faint, 1d6 minutes if moderate, 1d6×10 minutes if strong, or 1d6 days if overwhelming. Animals, traps, poisons, and other merely dangerous things are not inherently evil. You can turn the cone each round; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-evil-2486",
+          "role": "primary DnD Tools effect text and captured aura-strength/lingering-aura tables reviewed and paraphrased for complete detection mechanics"
+        }
+      ]
+    },
+    "spells/detect-favored-enemy-1890": {
+      "name": "Detect Favored Enemy",
+      "sourceSha256": "0ccf93367c5e9c6d440a1152c698632bb90f6d6d582402994fc530ce77c258e4",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects your favored enemies. Round 1 reveals whether any are present; round 2 reveals the favored-enemy types present and the number of each; round 3 reveals the location and Hit Dice of each individual, as though by power sight. You can turn to a new area each round. Detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-favored-enemy-1890",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Masters of the Wild printing"
+        }
+      ]
+    },
+    "spells/detect-favored-enemy-4361": {
+      "name": "Detect Favored Enemy",
+      "sourceSha256": "abec16cee4b5d4f226a0bcc356db8e1828cc1bdcc43536af94695e105d54ff58",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects your favored enemies. Round 1 reveals whether any are present; round 2 reveals the favored-enemy types present and the number of each; round 3 reveals the location and Hit Dice of each individual. You can turn to a new area each round. Detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-favored-enemy-4361",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Spell Compendium printing"
+        }
+      ]
+    },
+    "spells/detect-favored-enemy-675": {
+      "name": "Detect Favored Enemy",
+      "sourceSha256": "657f605f6050f6bcce7d8f91a4c292b8924597608e7624fb91344b35625a1ca0",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects your favored enemies. Round 1 reveals whether any are present; round 2 reveals the favored-enemy types present and the number of each; round 3 reveals the location and Hit Dice of each individual. You can turn to a new area each round. Detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-favored-enemy-675",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this Complete Divine printing"
+        }
+      ]
+    },
+    "spells/detect-fire-1265": {
+      "name": "Detect Fire",
+      "sourceSha256": "d2a88365f5f2609657c79150d1c0bd959085d3e3696c412a55a6b089466e6e16",
+      "effectSummary": "Functions as detect evil's three-round 60-foot-cone scan, including aura strength, lingering auras, turning the cone each round, overwhelming-aura backlash, and the same barrier limits, but detects heat from normal fire, fire spells, fire magic items, clerics of fire deities, and every living creature except one with the cold subtype. A caster with the cold subtype is vulnerable to the overwhelming-aura backlash. A living creature without the fire subtype always registers only a faint heat aura regardless of level or Hit Dice.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-fire-1265",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Detect Fire's altered targets and cold-subtype vulnerability"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/detect-evil-2486",
+          "role": "same primary catalog referenced spell used to retain inherited scan, aura-strength, lingering-aura, backlash, turning, and barrier mechanics"
+        }
+      ]
+    },
+    "spells/detect-good-2487": {
+      "name": "Detect Good",
+      "sourceSha256": "602f72cdb7c5a3a7c2a4cd010a0bcdeac6309bcf6e0d6c8b64aafbfa32ce500e",
+      "effectSummary": "Functions as detect evil's three-round 60-foot-cone scan, including aura-strength and lingering-aura rules, turning the cone each round, overwhelming-aura backlash, and the same barrier limits, but detects good creatures, clerics or paladins of good deities, good spells, and good magic items. An evil caster is vulnerable to the overwhelming-aura backlash. Healing potions, antidotes, and other merely beneficial items are not inherently good.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-good-2487",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Detect Good's altered targets and evil-caster vulnerability"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/detect-evil-2486",
+          "role": "same primary catalog referenced spell used to retain inherited scan, aura-strength, lingering-aura, backlash, turning, and barrier mechanics"
+        }
+      ]
+    },
+    "spells/detect-magic-2489": {
+      "name": "Detect Magic",
+      "sourceSha256": "be3a88ce694998dee24f88c3d5ff323603910ed408d544edcf586ec8f5ea1949",
+      "tablesSha256": "6e68d4b3abd70698b2fcd96969cc3534c4fe8fa8a1aef238c0c2c6b6a4f34b9d",
+      "effectSummary": "For up to 1 minute per caster level of concentration, the 60-foot cone detects magical auras. Round 1 reveals presence or absence; round 2 reveals the number and strongest aura; round 3 reveals each aura's strength and location. For a visible source, a Spellcraft check identifies its school at DC 15 + spell level, or DC 15 + half caster level for a nonspell effect. Functioning spells are faint at 3rd level or lower, moderate at 4th–6th, strong at 7th–9th, and overwhelming at 10th+; magic items are faint at caster level 5 or lower, moderate at 6th–11th, strong at 12th–20th, and overwhelming at 21st+ or artifact level. Lingering auras are dim for 1d6 rounds if originally faint, 1d6 minutes if moderate, 1d6×10 minutes if strong, or 1d6 days if overwhelming. Strong magical background effects can distort weaker auras. Outsiders and elementals are not inherently magical, but a summoned one registers the conjuration effect. You can turn the cone each round; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks it. Detect magic can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-magic-2489",
+          "role": "primary DnD Tools effect text and captured aura-power/lingering-aura tables reviewed and paraphrased for complete detection mechanics"
+        }
+      ]
+    },
+    "spells/detect-manifest-zone-4902": {
+      "name": "Detect Manifest Zone",
+      "sourceSha256": "52c2e1b47ea2f9d4e84481be98746e5af992d1c0628fbea6efcc72bf417dc315",
+      "tablesSha256": "f78fc4738c095cd06b5c58ec33c9dad09f19785ba0d0f2f9185a58eddb4ca499",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects manifest zones. Round 1 reveals presence or absence and direction if the zone is in range but outside line of sight. Round 2 reveals the zone's age category—nascent under 1 day, new 1–30 days, young 31 days–1 year, mature 1–10 years, old 11–100 years, or ancient over 100 years—and also reveals whether it will fade within the next 24 hours. Round 3 reveals the connected plane and, if the entire zone fits in the spell's area, its exact borders and dimensions; otherwise the spell cannot map the portion outside its area. Thin lead, 1 inch of common metal, 1 foot of stone, or 3 feet of wood or dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-manifest-zone-4902",
+          "role": "primary DnD Tools effect text and captured age-category table reviewed and paraphrased for complete manifest-zone mechanics"
+        }
+      ]
+    },
+    "spells/detect-metal-and-minerals-3059": {
+      "name": "Detect Metal and Minerals",
+      "sourceSha256": "2a1f748147ca0c35fc45925891a44c0f5ebac23b784cf6ff4589360ab01f4811",
+      "effectSummary": "While concentrating for up to 10 minutes per caster level, you detect accumulations of at least 10 pounds of a chosen metal or mineral by holding at least a 10-pound sample. Round 1 reveals presence; round 2 approximate weight; round 3 straight-line distance and direction. As a standard action while the spell remains active, you can switch to a different 10-pound sample and search for that substance instead; if you stop concentrating on a sample, the spell ends. An unworked sample detects only unworked deposits, while a refined sample detects only worked material. The spell penetrates any nonmagical solid barrier. The sample is the material component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-metal-and-minerals-3059",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete sample, scan, switching, and worked/unworked mechanics"
+        }
+      ]
+    },
+    "spells/detect-poison-2490": {
+      "name": "Detect Poison",
+      "sourceSha256": "1f92a02361175a3e72e92596b85d066e2ac950e41a513bf48fb4ac30984066bd",
+      "effectSummary": "Instantly determines whether the targeted creature, object, or 5-foot cube is poisoned or poisonous. A DC 20 Wisdom check identifies the exact poison; a character with Craft (alchemy) can instead attempt a DC 20 Craft (alchemy) check before the Wisdom check or after it fails. Detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-poison-2490",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise poison-detection mechanics"
+        }
+      ]
+    },
+    "spells/detect-scrying-2491": {
+      "name": "Detect Scrying",
+      "sourceSha256": "25f2d3d59e3790473e02856d96590c8ed12a289685a8d117fc0225af260e9572",
+      "effectSummary": "For 24 hours, you are immediately aware of any attempt to observe you with a divination (scrying) spell or effect. The 40-foot-radius area moves with you, and you know the location of every magical sensor inside it. If the scrying originates within the area, you also know the source's location. Otherwise you and the scrier make opposed caster-level checks; if you equal or exceed the scrier's result, you receive a visual image of the scrier plus accurate direction and distance. The material components are a small mirror piece and a miniature brass hearing trumpet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-scrying-2491",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete sensor and opposed-caster-level mechanics"
+        }
+      ]
+    },
+    "spells/detect-secret-doors-2492": {
+      "name": "Detect Secret Doors",
+      "sourceSha256": "d6c4ee6753632edd0debd51e51b3f590426ef01bb18bb7f8e57ba8f37bef7de5",
+      "effectSummary": "For up to 1 minute per caster level of concentration, the 60-foot cone detects deliberately concealed doors, passages, compartments, caches, and similar openings; an ordinary opening merely hidden by clutter is not detected. Round 1 reveals presence or absence; round 2 reveals the number and each location, or only direction when outside line of sight; each additional round reveals the mechanism or trigger of one closely examined secret portal. You can turn the cone each round. Detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-secret-doors-2492",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete concealed-opening detection mechanics"
+        }
+      ]
+    },
+    "spells/detect-snares-and-pits-2493": {
+      "name": "Detect Snares and Pits",
+      "sourceSha256": "62dd30361a9203871a2616203b434734fe75930b206bc7cd10da75901df7d0cc",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects simple pits, deadfalls, snares, natural-material mechanical traps, and natural hazards such as quicksand, sinkholes, or unsafe natural-rock walls. It does not detect complex traps such as trapdoors, general dangerous conditions, naturally poisonous plants, most magical traps, mechanically complex traps, or traps made safe or inactive. Round 1 reveals presence; round 2 the number and locations or directions; each later round reveals the general type and trigger of one closely examined hazard. You can turn the cone each round. Detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-snares-and-pits-2493",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete hazard-scope and scan mechanics"
+        }
+      ]
+    },
+    "spells/detect-thoughts-2494": {
+      "name": "Detect Thoughts",
+      "sourceSha256": "b4e44c20a13e5d78fd35aca3e5323323b99eef1bff49df3758a54a2c1323c2d8",
+      "effectSummary": "For up to 1 minute per caster level of concentration, the 60-foot cone detects surface thoughts. Round 1 reveals conscious minds with Intelligence 1 or higher; round 2 reveals the number of minds and each Intelligence score, but if the highest Intelligence is at least 26 and at least 10 points above yours, you are stunned for 1 round and the spell ends; this round does not locate unseen minds. Round 3 reads surface thoughts, with a Will save blocking a target until you cast the spell again. Intelligence 1–2 creatures yield only simple instinctive thoughts. You can turn the cone each round. Detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt. The arcane focus is a copper piece.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-thoughts-2494",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete three-round thought-reading mechanics"
+        }
+      ]
+    },
+    "spells/detect-undead-2495": {
+      "name": "Detect Undead",
+      "sourceSha256": "a73c9b4cef02ff79c07d6496f9f46a43791fab4c2c342d6749302d3cc07b6477",
+      "tablesSha256": "20a132d501ab62434f79908ead8f0bb9dfc65c39f4fa4604d3c7b9e787248383",
+      "effectSummary": "For up to 1 minute per caster level of concentration, the 60-foot cone detects undead auras. Round 1 reveals presence; round 2 reveals their number and the strongest aura, and a good caster is stunned for 1 round and loses the spell if the strongest aura is overwhelming and comes from an undead creature with at least twice the caster's character level in Hit Dice; round 3 reveals each aura's strength and location, or only direction outside line of sight. Aura strength by undead Hit Dice is 1 or lower faint, 2–4 moderate, 5–10 strong, and 11+ overwhelming. A destroyed undead leaves a dim aura for 1d6 rounds if originally faint, 1d6 minutes if moderate, 1d6×10 minutes if strong, or 1d6 days if overwhelming. You can turn the cone each round; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection. The arcane material component is grave earth.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-undead-2495",
+          "role": "primary DnD Tools effect text and captured aura-strength/lingering-aura tables reviewed and paraphrased for complete undead-detection mechanics"
+        }
+      ]
+    },
+    "spells/detect-weaponry-357": {
+      "name": "Detect Weaponry",
+      "sourceSha256": "4e7d1d04634885b89792f66f4ec215fb29c807193c95a048b565ec3a2515fd3f",
+      "effectSummary": "For up to 1 minute per caster level of concentration, the 60-foot cone detects manufactured weapons; an improvised item such as a bottle or pitchfork registers only when its wielder actively intends to use it as a weapon. Round 1 reveals presence; round 2 the number; round 3 exact locations and whether each deals bludgeoning, piercing, or slashing damage. The spell does not reveal magical properties or other details. Weapons hidden by secret weapon and weapons carried by a creature under nondetection do not register. You can turn the cone each round. Detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-weaponry-357",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete weapon-scope and three-round scan mechanics"
+        }
+      ]
+    },
+    "spells/detonate-2970": {
+      "name": "Detonate",
+      "sourceSha256": "5b090ebfcbf5b84d2e1d0e1af9adfc233558d28377f50fa18b4ab088f4ff3a2a",
+      "effectSummary": "The target must overcome spell resistance and make a Fortitude save. On a failure it dies and is vaporized to dry ash, producing a 20-foot-radius burst that deals 1d6 fire damage per caster level, maximum 20d6, to other creatures, Reflex half. On a successful save the target instead takes 7d6 fire damage; if that damage kills it, the same explosion occurs. Fire-immune creatures are unaffected. The material components are a tindertwig and a piece of string.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detonate-2970",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete kill/save/burst mechanics"
+        }
+      ]
+    },
+    "spells/detoxify-4899": {
+      "name": "Detoxify",
+      "sourceSha256": "15b9f840586cb60ee6634f3bed0cee4f34abd0f1b558f96c4404e2217461aaae",
+      "effectSummary": "Instantly neutralizes venom throughout the 30-foot-radius burst. A poisoned creature suffers no further effects and any temporary poison effects end, but irreversible instantaneous results such as hit point or ability damage remain; the spell grants no immunity to later poisoning. The venom of affected creatures loses potency for 10 minutes per caster level. Poison in the air, food, weapons, traps, or elsewhere in the area is immediately neutralized.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detoxify-4899",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete creature, venom, and environmental-poison mechanics"
+        }
+      ]
+    },
+    "spells/devastate-undead-1518": {
+      "name": "Devastate Undead",
+      "sourceSha256": "a342b5c22ba2d35127896af635d7276dd07a1795f129a16fa11618374432d5fd",
+      "effectSummary": "Each targeted undead creature with Hit Dice no greater than your caster level must make a Fortitude save or be destroyed as though struck by a disruption weapon; other creatures and undead with more Hit Dice than your caster level are unaffected. For every undead destroyed, its negative energy flows into you for 5 hit points per Hit Die: it damages you if you are living and heals you if you are undead. The focus is any disruption weapon.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/devastate-undead-1518",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete HD gate, destruction, and feedback mechanics"
+        }
+      ]
+    },
+    "spells/devastating-smite-3546": {
+      "name": "Devastating Smite",
+      "sourceSha256": "6fac71834314044b3f2baf8a5b1dd87894fa32abf719f50ecc10fcd895a83675",
+      "effectSummary": "The subject's next smite attack deals twice the smite's normal bonus damage. The spell applies to only one smite; if that attack misses, the spell is expended with no effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/devastating-smite-3546",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise smite mechanics"
+        }
+      ]
     }
   }
 }
