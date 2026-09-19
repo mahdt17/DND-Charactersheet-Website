@@ -912,7 +912,22 @@ def spell_effect_summaries():
     if _SPELL_EFFECT_SUMMARY_CACHE is None:
         path=ROOT/"scripts"/"spell_effect_summaries_35.json"
         payload=json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"entries":{}}
-        _SPELL_EFFECT_SUMMARY_CACHE=payload.get("entries",{})
+        entries=dict(payload.get("entries",{}))
+        batch_dir=ROOT/"scripts"/"spell_effect_summaries_35_batches"
+        if batch_dir.exists():
+            for batch_path in sorted(batch_dir.glob("*.json")):
+                batch_payload=json.loads(batch_path.read_text(encoding="utf-8"))
+                batch_entries=batch_payload.get("entries",{})
+                if not isinstance(batch_entries,dict):
+                    raise ValueError(f"Spell effect review batch must contain an entries object: {batch_path.name}")
+                overlap=sorted(set(entries)&set(batch_entries))
+                if overlap:
+                    raise ValueError(
+                        f"Duplicate spell effect review IDs in {batch_path.name}: "
+                        +", ".join(overlap[:10])
+                    )
+                entries.update(batch_entries)
+        _SPELL_EFFECT_SUMMARY_CACHE=entries
     return _SPELL_EFFECT_SUMMARY_CACHE
 
 
