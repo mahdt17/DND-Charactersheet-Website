@@ -1083,6 +1083,25 @@
           "role": "Dragon Magic sourcebook copy used only to restore the omitted fixed young-red-dragon statistics"
         }
       ]
+    },
+    "spells/dreaded-form-of-the-eye-tyrant-873": {
+      "name": "Dreaded Form of the Eye Tyrant",
+      "effectSummary": "Transforms you into a beholder under the spell's referenced polymorph-subschool rules. You gain 30 temporary hit points that disappear when the spell ends. You can use only one eye ray per round, and each of the beholder's ten eye rays can be used only once during this casting; after a particular ray is used, that ray is unavailable for the rest of the spell.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dreaded-form-of-the-eye-tyrant-873",
+          "role": "primary Complete Mage catalog record; rebuilt description is truncated immediately after the beholder/polymorph reference and omits the remaining spell-specific mechanics"
+        },
+        {
+          "url": "https://dndtools.org/spells/complete-mage--58/dreaded-form-of-the-eye-tyrant--873/",
+          "role": "older same-spell D&D Tools rendering used only to restore the omitted 30 temporary hit points and eye-ray usage restrictions"
+        },
+        {
+          "url": "https://fliphtml5.com/zorhx/vbbe/Complete_Mage/",
+          "role": "Complete Mage sourcebook rendering independently confirms the omitted spell-specific mechanics"
+        }
+      ]
     }
   }
 }
