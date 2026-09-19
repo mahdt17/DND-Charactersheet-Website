@@ -136,17 +136,17 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,340**
+- Digest-locked reviewed spell effects: **1,398**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
-- Permanent focused spell regression corpus: **78 / 78 green**
+- Permanent focused spell regression corpus: **79 / 79 green**
 - Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings and official errata are preferred when they can supply the missing mechanic.
 - Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
-- **Reference-dependent spell effects are now strict:** short prose such as “functions like/as …” or “as …, except/but …” no longer counts as standalone-complete merely because it is short. Those records enter the reviewed-summary backlog until the inherited mechanics are resolved into a self-contained effect summary.
+- **Reference-dependent spell effects remain strict:** short prose such as “functions like/as …” or “as …, except/but …” does not count as standalone-complete until inherited mechanics are resolved into a self-contained reviewed effect summary. The detector excludes ordinary “functions as if …” phrasing so those clauses are not falsely classified as spell references.
 
 ### Recent source-completeness repairs
 
-The current permanent regression corpus includes the recent damaged-primary/parser cases that must remain green:
+The current permanent regression corpus includes the damaged-primary/parser cases that must remain green:
 
 - `Dragonblood Beast` (`spells/dragonblood-beast-4864`): rebuilt primary text drops die values from the bite-damage progression; repaired from the printed *Dragonmarked* progression.
 - Spell Compendium `Dragon Ally, Lesser` (`spells/dragon-ally-lesser-4417`): rebuilt primary corrupts the payment unit as “250 fp per HD”; repaired to the printed 250 gp/HD value.
@@ -154,37 +154,36 @@ The current permanent regression corpus includes the recent damaged-primary/pars
 - Spaced class-level parsing was hardened so all listed spell class levels are preserved.
 - `Dreaded Form of the Eye Tyrant` (`spells/dreaded-form-of-the-eye-tyrant-873`): rebuilt primary effect is truncated; repaired by supplement.
 - `Drown` (`spells/drown-5004`, Dragonlance Campaign Setting): rebuilt primary text truncates after “or begin to drown (see The...” and later resumes near the Concentration rule. The supplement restores the omitted staggered state, immunity for creatures that do not breathe or can breathe water, DC 25 Concentration requirement, and speech/verbal-component restrictions.
-- Oriental Adventures `Elemental Burst` (`spells/elemental-burst-2066`): the rebuilt primary page lists “wood, fire, water, stone, or air” even though the same effect supplies metal mechanics and no air mechanics. Official *Oriental Adventures* errata changes the final target element from **air** to **metal**. The record is therefore supplement-backed and permanently regression-tested rather than digest-locking contradictory source prose.
+- Oriental Adventures `Elemental Burst` (`spells/elemental-burst-2066`): the rebuilt primary page lists “wood, fire, water, stone, or air” even though the same effect supplies metal mechanics and no air mechanics. Official *Oriental Adventures* errata changes the final target element from **air** to **metal**.
+- `Enlarge Person` (`spells/enlarge-person-2805`): the rebuilt Player's Handbook effect corrupts/truncates the equipment paragraph at “see Table 2-2 in the permanency spell.” The supplement restores the omitted equipment resizing, item-leaving-possession, projectile/thrown-weapon, nonstacking size-increase, reduce person, and permanency mechanics from the 3.5 SRD rendering.
 
 These records remain supplement-backed where the primary source is damaged or contradictory; corrupt source text is **not** accepted as an ordinary digest-locked review.
 
 ### Latest authoritative full spell audit
 
-Category Enrichment Audit **#72**, run **35425577685**, audited commit `144e2c2f4f1a77fb64f3386e2e1b38f31c3977b5` with **1,340** digest-locked reviewed summaries, **78** permanent focused spell regressions, and strict reference-dependent effect resolution enabled:
+Category Enrichment Audit **#74**, run **35426962308**, audited commit `7c6f0f42373bd5ff9efd16a70e5cc8b4fd3743f9` with **1,398** digest-locked reviewed summaries and **79** permanent focused spell regressions:
 
 - Samples: **25 / 25**, **50 / 50**, **100 / 100**, **250 / 250** passed.
 - Source shards: **8 / 8 passed**.
 - Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**, `coverageErrors: []`.
 - Candidate shards: **8 / 8 generated successfully**.
 - Candidate merge: **5,035 / 5,035 exact candidate records**, no duplicates, missing IDs, unexpected IDs, or merge errors.
-- Candidate/output audit: **1,667 / 5,035 output-complete**, **3,368 incomplete**, **33.1082%** output-complete.
-- `criticalMissingCount`: **3,368**.
+- Candidate/output audit: **1,726 / 5,035 output-complete**, **3,309 incomplete**, **34.2800%** output-complete.
+- `criticalMissingCount`: **3,309**.
 - `errors`: **empty**.
 - `sourceExtractionVerified: true`
 - `outputCompletenessVerified: false`
 - `releaseReady: false`
 
-The stricter reference-resolution gate intentionally reduced the complete count from the prior non-strict **1,996** to **1,667**. That **329-record decrease is a correction of false-positive completeness**, not lost enrichment data: those short effects depended on another spell/power/maneuver and are now required to have inherited mechanics resolved before they can pass.
+The workflow's final `output-audit` job therefore reports **failure by design** because the independent final-output gate remains below 100%. The source and candidate-integrity gates passed cleanly and were not weakened.
 
-The workflow's final `output-audit` job therefore reports **failure by design** because the independent final-output gate remains below 100%. The source gate passed cleanly and was not weakened.
+For comparison, recent strict-reference checkpoints include:
 
-For comparison, recent checkpoints include:
+- 1,340 reviews / 78 regressions: **1,667 / 5,035** output-complete, **3,368** incomplete, **33.1082%**.
+- 1,359 reviews / 79 regressions: **1,686 / 5,035** output-complete, **3,349** incomplete, **33.4856%**.
+- 1,398 reviews / 79 regressions: **1,726 / 5,035** output-complete, **3,309** incomplete, **34.2800%**.
 
-- 1,301 reviews / 77 regressions, pre-strict-reference: **1,976 / 5,035** output-complete, **3,059** incomplete, **39.2453%**.
-- 1,320 reviews / 78 regressions, pre-strict-reference: **1,996 / 5,035** output-complete, **3,039** incomplete, **39.6425%**.
-- 1,340 reviews / 78 regressions, **strict reference resolution**: **1,667 / 5,035** output-complete, **3,368** incomplete, **33.1082%**.
-
-The next ordinary review queue begins immediately after `spells/energy-ebb-4440`. Same-name and same-family printing differences must remain independent, and cross-referenced base mechanics must be resolved into standalone summaries from the same primary catalog when available.
+The next ordinary review queue begins immediately after `spells/ethereal-alarm-1331`. Same-name and same-family printing differences must remain independent, cross-referenced base mechanics must be resolved into standalone summaries from the same primary catalog when available, and damaged-primary records must be diverted to supplements instead of digest-locking bad source text.
 
 No catalog enrichment and no `--write` operation has been performed. Supabase remains unchanged.
 
@@ -201,4 +200,4 @@ Do **not** use `--write` and do **not** unlock live/catalog writes. Overall rele
 
 ## Validation status
 
-The current 1,340-review / 78-regression strict-reference audit head (`144e2c2f4f1a77fb64f3386e2e1b38f31c3977b5`) passed Validate modernization run `35425579375` end-to-end. The checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
+The current 1,398-review / 79-regression audit head (`7c6f0f42373bd5ff9efd16a70e5cc8b4fd3743f9`) passed Validate modernization run `35426965297` end-to-end. The checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
