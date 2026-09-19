@@ -392,7 +392,12 @@ EXTERNAL_MECHANICS_PATTERNS = (
     )),
     ("magic-weapon-stat-inheritance", re.compile(
         r"\bas\s+if\s+(?:you|it|the\s+subject|the\s+target)\s+(?:were|was)\s+wearing\s+"
-        r"(?P<name>\+\d+\s+[A-Za-z][A-Za-z'’ -]{1,60})\b",
+        r"(?P<name>\+\d+\s+[A-Za-z][A-Za-z'’ -]{1,60})(?=[.,;:]|\s|$)",
+        re.I,
+    )),
+    ("fired-from-light-crossbow-stat-dependency", re.compile(
+        r"\bas\s+if\s+you\s+had\s+fired\s+it\s+from\s+(?:a|an|the)\s+"
+        r"(?P<name>light crossbow)\b",
         re.I,
     )),
     ("clairaudience-effect-inheritance", re.compile(
@@ -432,6 +437,14 @@ SUSPICIOUS_PATTERNS = (
     )),
     ("missing-skull-eyes-effects", re.compile(
         r"\bgaze attack may have either of two effects,\s*as follows\b",
+        re.I,
+    )),
+    ("embedded-html-markup", re.compile(
+        r"<\/?(?:em|strong|i|b|span)\b[^>]*>",
+        re.I,
+    )),
+    ("missing-plus-before-bonus", re.compile(
+        r"\(\s+\d+\s+(?:armor|natural\s+armor|deflection|enhancement|morale|sacred|profane|resistance|luck|insight|competence)\s+bonus\b",
         re.I,
     )),
     ("garbled-nightstalker-transformation", re.compile(
@@ -1150,6 +1163,12 @@ def run_self_test() -> None:
     assert "fog-created-by-fog-cloud" not in external_mechanics_reasons("The spell creates a bank of fog like that created by a forest fire.")
     assert "magic-weapon-stat-inheritance" in external_mechanics_reasons("You can attack with your fist in all respects as if you were wearing a +1 spiked gauntlet.")
     assert "magic-weapon-stat-inheritance" not in external_mechanics_reasons("You fight as if you were wearing heavy armor.")
+    assert "fired-from-light-crossbow-stat-dependency" in external_mechanics_reasons("The bolt flies at the target as if you had fired it from a light crossbow, using a ranged attack roll.")
+    assert "fired-from-light-crossbow-stat-dependency" not in external_mechanics_reasons("The bolt flies as if you had fired it into the air.")
+    assert "embedded-html-markup" in suspicious_reasons({"effectSource":"At <em>10th :</em> level, the barding grants +8 armor."})
+    assert "embedded-html-markup" not in suspicious_reasons({"effectSource":"At 10th level, the barding grants +8 armor."})
+    assert "missing-plus-before-bonus" in suspicious_reasons({"effectSource":"Scale mail barding ( 4 armor bonus)."})
+    assert "missing-plus-before-bonus" not in suspicious_reasons({"effectSource":"Scale mail barding (+4 armor bonus)."})
     assert "clairaudience-effect-inheritance" in external_mechanics_reasons("You hear whatever occurs near the sensor, much like a clairaudience effect.")
     assert "clairaudience-effect-inheritance" not in external_mechanics_reasons("The sound is much like a thunder effect.")
     assert "garbled-nightstalker-transformation" in suspicious_reasons({"effectSource":"You also gain the cat’s grace , which you drink (and whose effects are subsumed)."})
