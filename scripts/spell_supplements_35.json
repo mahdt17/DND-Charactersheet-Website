@@ -1219,6 +1219,21 @@
           "role": "clean rendering of the same Book of Vile Darkness spell table used to restore Mordayn vapor, Mushroom powder, and the wood focus effect"
         }
       ]
+    },
+    "spells/favorable-sacrifice-1942": {
+      "name": "Favorable Sacrifice",
+      "effectSummary": "Grants one protection tier chosen by the value of gems consumed, with only one tier applying per casting. Sacrificing 1,000 gp grants DR 10/magic, resistance 10 to acid, cold, electricity, fire, and sonic, and spell resistance 10. Sacrificing 5,000 gp grants DR 15/magic, resistance 15 to each of those five energy types, and spell resistance 15. Sacrificing 25,000 gp grants DR 20/magic, resistance 20 to each of those five energy types, and spell resistance 20. The material component is gems worth exactly the selected 1,000 gp, 5,000 gp, or 25,000 gp tier.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/favorable-sacrifice-1942",
+          "role": "primary Miniatures Handbook catalog record; rebuilt effect text mixes later Spell Compendium benefit tiers with the original printing's material-cost line"
+        },
+        {
+          "url": "https://anyflip.com/myubd/clzq/basic",
+          "role": "Miniatures Handbook pp.35-36 sourcebook rendering used to restore the original 1,000/5,000/25,000 gp sacrifice table and matching DR, energy-resistance, and spell-resistance values"
+        }
+      ]
     }
   }
 }
