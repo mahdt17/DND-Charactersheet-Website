@@ -363,6 +363,13 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?P<name>Mobility)\s+feat\b",
         re.I,
     )),
+    ("called-creature-stat-dependency", re.compile(
+        r"\b(?:the\s+caster|you|this\s+spell)\s+calls?\s+"
+        r"(?:a\s+special\s+servant[^.;]{0,80}?\b(?:pegasus|unicorn)\b|"
+        r"(?:a|an|one|two|three)\s+(?P<name>[A-Za-z][A-Za-z'’ -]{2,80}?)\s+"
+        r"(?:to\s+(?:your|the\s+caster[’']s)\s+location|to\s+serve\s+you))",
+        re.I,
+    )),
 )
 
 
@@ -1102,6 +1109,8 @@ def run_self_test() -> None:
     assert "negative-energy-protection-inheritance" in external_mechanics_reasons("All subjects receive negative energy protection, except their resistance roll gains +10.")
     assert "under-influence-of-named-spell" in external_mechanics_reasons("The animal serves you as if it were under the influence of a dominate animal spell.")
     assert "mobility-feat-inheritance" in external_mechanics_reasons("When moving in combat, you act as if you had the Mobility feat.")
+    assert "called-creature-stat-dependency" in external_mechanics_reasons("The caster calls a special servant of Valarian—either a pegasus or unicorn—to her location.")
+    assert "called-creature-stat-dependency" not in external_mechanics_reasons("The caster calls down a peal of thunder.")
     assert "garbled-nightstalker-transformation" in suspicious_reasons({"effectSource":"You also gain the cat’s grace , which you drink (and whose effects are subsumed)."})
     assert "planar-environment-dependency" in external_mechanics_reasons("The area emulates its native planar environment.")
     assert "summoned-creature-stat-dependency" in external_mechanics_reasons("This spell summons a bearded devil from the Nine Hells.")
