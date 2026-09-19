@@ -687,6 +687,78 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     return apply_class_supplement(entry,enriched)
 
 
+_FEAT_RULE_SUMMARY_CACHE=None
+
+def feat_rule_summaries():
+    global _FEAT_RULE_SUMMARY_CACHE
+    if _FEAT_RULE_SUMMARY_CACHE is None:
+        entries={}
+        batch_dir=ROOT/"scripts"/"feat_rule_summaries_35_batches"
+        if batch_dir.exists():
+            for batch_path in sorted(batch_dir.glob("*.json")):
+                batch_payload=json.loads(batch_path.read_text(encoding="utf-8"))
+                batch_entries=batch_payload.get("entries",{})
+                if not isinstance(batch_entries,dict):
+                    raise ValueError(f"Feat rule review batch must contain an entries object: {batch_path.name}")
+                overlap=sorted(set(entries)&set(batch_entries))
+                if overlap:
+                    raise ValueError(
+                        f"Duplicate feat rule review IDs in {batch_path.name}: "
+                        +", ".join(overlap[:10])
+                    )
+                entries.update(batch_entries)
+        _FEAT_RULE_SUMMARY_CACHE=entries
+    return _FEAT_RULE_SUMMARY_CACHE
+
+
+def feat_rule_digest(text: str) -> str:
+    normalized=clean(text)
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+
+
+def apply_reviewed_feat_rules(
+    entry: dict,
+    details: dict,
+    benefit_source: str,
+    normal_source: str,
+    special_source: str,
+) -> dict:
+    review=feat_rule_summaries().get(entry.get("id"))
+    if not review:
+        return details
+    if clean(review.get("name","")).casefold()!=clean(entry.get("name","")).casefold():
+        raise ValueError(f"Feat rule review identity mismatch for {entry.get('name')}")
+    result={**details}
+    mismatches=[]
+    mapping=(
+        ("benefit",benefit_source,"benefitSha256","effectSummary","effectNeedsSummary","effectSourceLength"),
+        ("normal",normal_source,"normalSha256","normalSummary","normalNeedsSummary","normalSourceLength"),
+        ("special",special_source,"specialSha256","specialSummary","specialNeedsSummary","specialSourceLength"),
+    )
+    applied=[]
+    for label,source,digest_key,summary_key,needs_key,length_key in mapping:
+        summary=clean(review.get(summary_key,""))
+        if not summary:
+            continue
+        expected=clean(review.get(digest_key,""))
+        actual=feat_rule_digest(source)
+        if not expected or expected!=actual:
+            mismatches.append(label)
+            continue
+        if result.get(needs_key) and not result.get(summary_key):
+            result[summary_key]=summary
+            result.pop(needs_key,None)
+            result.pop(length_key,None)
+            applied.append(label)
+    if mismatches:
+        result["featRuleReviewMismatchFields"]=mismatches
+    if applied:
+        result["featRuleReviewVerified"]=True
+        result["featRuleReviewFields"]=applied
+        result["featRuleReviewProvenance"]=review.get("provenance",[])
+    return result
+
+
 _FEAT_SUPPLEMENT_CACHE=None
 
 def feat_supplements():
@@ -862,6 +934,7 @@ def parse_feat(parser: DetailParser, entry: dict) -> dict:
         "prerequisiteLabeled": prereq_labeled,
         "ruleProse": has_rule_prose(lines, entry.get("name",""))
     }
+    result=apply_reviewed_feat_rules(entry,result,benefit,normal,special)
     return apply_feat_supplement(entry,result)
 
 
@@ -1935,6 +2008,36 @@ def self_test():
     assert f.get("featType") == "Special feat"
     assert not f["mechanicsPresence"]["specialLabeled"]
     assert "specialRule" not in enrichment_gaps("feats",f)
+
+    reviewed_fixture={
+        "name":"Long Reviewed Feat",
+        "benefitSha256":feat_rule_digest(long_special),
+        "effectSummary":"Concise reviewed benefit.",
+        "normalSha256":feat_rule_digest(long_normal),
+        "normalSummary":"Concise reviewed normal rule.",
+        "provenance":[{"url":"https://example.invalid","role":"self-test"}],
+    }
+    saved_cache=_FEAT_RULE_SUMMARY_CACHE
+    try:
+        globals()["_FEAT_RULE_SUMMARY_CACHE"]={"self-test-reviewed-feat":reviewed_fixture}
+        reviewed_details={
+            "effectNeedsSummary":True,"effectSourceLength":len(long_special),
+            "normalNeedsSummary":True,"normalSourceLength":len(long_normal),
+        }
+        applied=apply_reviewed_feat_rules(
+            {"id":"self-test-reviewed-feat","name":"Long Reviewed Feat"},
+            reviewed_details,long_special,long_normal,""
+        )
+        assert applied["effectSummary"]=="Concise reviewed benefit."
+        assert applied["normalSummary"]=="Concise reviewed normal rule."
+        assert applied["featRuleReviewVerified"] and set(applied["featRuleReviewFields"])=={"benefit","normal"}
+        drift=apply_reviewed_feat_rules(
+            {"id":"self-test-reviewed-feat","name":"Long Reviewed Feat"},
+            reviewed_details,long_special+" drift",long_normal,""
+        )
+        assert drift.get("effectNeedsSummary") and "benefit" in drift["featRuleReviewMismatchFields"]
+    finally:
+        globals()["_FEAT_RULE_SUMMARY_CACHE"]=saved_cache
 
     malformed_feat = """
     <h1>Kuo-Toan Monasticism</h1><p>General feat</p><p>Monster Manual V (MM5), p. 97</p>
