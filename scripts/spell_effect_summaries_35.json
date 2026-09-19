@@ -13818,7 +13818,7 @@
     "spells/dragonshape-least-1077": {
       "name": "Dragonshape, Least",
       "sourceSha256": "af9c2bfb4fb9829d813350e6ee6854a53b4f9c720442d1e3830a70562240e856",
-      "effectSummary": "Transforms you into a Tiny pseudodragon under the polymorph subschool rules for the spell's duration, replacing your normal form with the pseudodragon form and abilities subject to the standard polymorph-subschoool exceptions.",
+      "effectSummary": "Transforms you into a Tiny pseudodragon under the polymorph subschool rules for the spell's duration, replacing your normal form with the pseudodragon form and abilities subject to the standard polymorph-subschool exceptions.",
       "provenance": [
         {
           "url": "https://new.dndtools.org/spells/dragonshape-least-1077",
