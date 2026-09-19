@@ -156,7 +156,12 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("external-monster-manual-reference", re.compile(
-        r"\b(?:MM\s*(?:p\.?\s*)?\d+|see\s+[^.;]{0,120}\bMonster Manual\b)",
+        r"\b(?:MM\s*(?:p\.?\s*)?\d+|see\s+[^.;]{0,120}\bMonster Manual\b|"
+        r"(?:the\s+)?Monster Manual\s+(?:has|gives|provides|contains)\s+(?:the\s+)?statistics\b)",
+        re.I,
+    )),
+    ("modified-named-spell-reference", re.compile(
+        r"\bacts?\s+as\s+(?:a|an|the)\s+\+\d+\s+(?P<name>bless\s+weapon)\b",
         re.I,
     )),
 )
@@ -181,6 +186,10 @@ SUSPICIOUS_PATTERNS = (
         re.I,
     )),
     ("suspicious-fp-unit", re.compile(r"\b\d[\d,]*\s+fp\b", re.I)),
+    ("truncated-nether-trail-source", re.compile(
+        r"\bEvil outsider must make its saving throw first\b",
+        re.I,
+    )),
 )
 
 
@@ -801,6 +810,9 @@ def run_self_test() -> None:
     assert "similar-spell-effect" in external_mechanics_reasons("The creatures are paralyzed, similar to the effect of hold person.")
     assert "external-monster-manual-reference" in external_mechanics_reasons("Use the creature statistics in MM 52.")
     assert "external-monster-manual-reference" in external_mechanics_reasons("See the Monster Manual for the swarm statistics.")
+    assert "external-monster-manual-reference" in external_mechanics_reasons("The Monster Manual has statistics for the rat swarm.")
+    assert "modified-named-spell-reference" in external_mechanics_reasons("The weapon acts as a +5 bless weapon.")
+    assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
     assert "teleport greater" in name_aliases("Teleport, Greater")
     assert near_family_key(
