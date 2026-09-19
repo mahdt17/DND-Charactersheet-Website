@@ -1,13 +1,26 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/camouflage-1381",
-    "spells/camouflage-1745",
-    "spells/camouflage-1918",
-    "spells/camouflage-3219",
-    "spells/camouflage-3506",
-    "spells/camouflage-4010",
-    "spells/camouflage-735"
+    "spells/freezing-fog-457",
+    "spells/freezing-glance-1266",
+    "spells/friend-to-foe-2985",
+    "spells/friendly-face-3044",
+    "spells/friendly-fire-4965",
+    "spells/frost-breath-4540",
+    "spells/frost-weapon-1312",
+    "spells/frostbite-1249",
+    "spells/frostburn-1283",
+    "spells/frostburn-lesser-1284",
+    "spells/frostburn-mass-1285",
+    "spells/frostfell-1313",
+    "spells/frostfell-slide-1250",
+    "spells/fugue-4541",
+    "spells/furnace-within-4813",
+    "spells/fuse-arms-3228",
+    "spells/fuse-arms-4542",
+    "spells/fuse-sand-3174",
+    "spells/gelsewhere-chant-1758",
+    "spells/gelsewhere-chant-3877"
   ],
-  "nonce": "2026-09-19-camouflage-base-for-forestfold"
+  "nonce": "2026-09-19-review-after-freezing-fog-4539"
 }
