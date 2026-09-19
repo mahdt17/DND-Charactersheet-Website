@@ -17361,6 +17361,171 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/fine-tuning-3325": {
+      "name": "Fine-tuning",
+      "sourceSha256": "0e19899568e2e086472cbc1fc41b2265288736361c205045c939a93f25d5b088",
+      "effectSummary": "Temporarily makes an ordinary musical instrument perform as though it were masterwork quality. For the duration, the instrument grants its user a +2 circumstance bonus on Perform checks, or the alternate masterwork benefit specified for that instrument type. It has no effect on an instrument that is already masterwork. The instrument itself is the spell’s focus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fine-tuning-3325",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/finger-of-agony-854": {
+      "name": "Finger of Agony",
+      "sourceSha256": "e47d41c9a8306c174a7c214053cb675c4bb6524bf402ff9f41d8fad448e11cc2",
+      "effectSummary": "Disrupts the target’s internal organs. On each of your turns, the subject takes 3d6 damage and becomes nauseated for 1 round. A successful Fortitude save halves that round’s damage and reduces the condition from nauseated to sickened.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/finger-of-agony-854",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/finger-of-death-2737": {
+      "name": "Finger of Death",
+      "sourceSha256": "85f725dab71d98f695d63d7209794012a055f301d3714c78f282f51dd0cd11ca",
+      "effectSummary": "Attempts to slay one living creature. On a failed Fortitude save the target dies; on a successful save it instead takes 3d6 damage +1 per caster level, maximum +25, which can still reduce it to death normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/finger-of-death-2737",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/finishing-move-3647": {
+      "name": "Finishing Move",
+      "sourceSha256": "e1f0104b1ce18b2278ac400b5d5f4d92f507ee45a8b18ad831916fa893d4e4e5",
+      "effectSummary": "As part of the maneuver, make one melee attack. It deals +4d6 damage if the target is at full hit points, +6d6 if the target has less than its full normal hit points, or +14d6 if the target is at one-half or less of its full normal hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/finishing-move-3647",
+          "role": "primary DnD Tools maneuver effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fins-feet-4496": {
+      "name": "Fins to feet",
+      "sourceSha256": "2def0a52db4d2fa0c29aa54eb932d19563626e86da4615b7049d76cbeb653151",
+      "effectSummary": "Transforms tails, tentacles, or finned lower extremities into humanoid legs and feet. The subject loses any natural swim speed and any natural attacks based on its tail or tentacles, and gains a base land speed instead: 20 feet if Small or smaller, 30 feet if Medium, or 40 feet if Large or larger.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fins-feet-4496",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fins-to-feet-3224": {
+      "name": "Fins to Feet",
+      "sourceSha256": "b8345fccd78bd1caf223149e7219ae9def69aedef82f238cdfd62edf6249ed7a",
+      "effectSummary": "Transforms tails or finned extremities into humanoid legs and feet. The transformed creature gains a land speed based on size: 20 feet if Small or smaller, 30 feet if Medium, or 40 feet if Large or larger.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fins-to-feet-3224",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fins-to-feet-3359": {
+      "name": "Fins to Feet",
+      "sourceSha256": "02582bf85fb184c8c143b065ffc822106d539bf035c995090727066a1c3b43c7",
+      "effectSummary": "Transforms tails, tentacles, or finned extremities into humanoid legs and feet. The subject loses any natural swim speed and any natural attacks based on its tail or tentacles, and gains a base land speed instead: 20 feet if Small or smaller, 30 feet if Medium, or 40 feet if Large or larger.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fins-to-feet-3359",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-and-brimstone-781": {
+      "name": "Fire and Brimstone",
+      "sourceSha256": "05ebd76caf6e5b085da03c4a002653205c80ada9184da65fc703b8882a99f611",
+      "effectSummary": "Causes the subject to erupt in sulfurous flame, dealing 1d6 damage per caster level, maximum 15d6, and sickening it for 5 rounds. A successful Fortitude save halves the damage and negates the sickened condition. The material component is a pinch of brimstone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-and-brimstone-781",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-breath-2068": {
+      "name": "Fire Breath",
+      "sourceSha256": "2ac40141b67ed10197b2730599d5618f1144f52ade5e5ab8f1e2262eb4936fee",
+      "effectSummary": "Once per round as a standard action, you can breathe flame at one creature within 15 feet. Make a ranged touch attack; on a hit the target takes 1d8 fire damage per two caster levels, maximum 10d8. The flame can ignite combustible objects, and attended or magical objects receive their normal saving throws to avoid catching fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-breath-2068",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-breath-498": {
+      "name": "Fire Breath",
+      "sourceSha256": "fe12cfdfdd610d1b38fdf5b5e8cb70c6618d7118393b1313ce841d1833723dac",
+      "effectSummary": "Once per round as a standard action, you can breathe flame at a target within 15 feet. Make a ranged touch attack; on a hit the target takes 1d8 fire damage per two caster levels, maximum 10d8. The flame ignites combustibles, damages objects, and can melt low-melting-point metals such as lead, gold, copper, silver, and bronze. The spell does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-breath-498",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-eyes-1926": {
+      "name": "Fire Eyes",
+      "sourceSha256": "66ba7b59f12f166280aa2597ae4d326e21044205c08b51f1a18435dccba129a8",
+      "effectSummary": "Lets the subject see through ordinary smoke, normal fire, and nonmagical fog as though those effects were not present, so creatures do not gain concealment from them against the subject. It does not allow sight through magical fog effects such as obscuring mist or fog cloud.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-eyes-1926",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-in-the-blood-1449": {
+      "name": "Fire In the Blood",
+      "sourceSha256": "dea6e63bff528a34e8f54903f6539db61985e960ae3c4cafa6799e2a1930aaf6",
+      "effectSummary": "Makes your blood magically corrosive to creatures that wound you with slashing or piercing melee attacks. Each such hit sprays only that attacker, dealing cumulative damage with no save or spell resistance: 1d6 after its first qualifying hit, 2d6 after its second, and so on up to 5d6. As soon as any one foe takes a 5d6 spray, the spell ends. Bludgeoning attacks and magical attacks that do not physically slash or pierce you do not trigger the effect, and the spray never harms adjacent creatures. The material component is a drop of your own blood.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-in-the-blood-1449",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-riposte-3575": {
+      "name": "Fire Riposte",
+      "sourceSha256": "36d443658a89e4e31b73adb00531f9269e0b99c127a64d2ff363fbea98d67275",
+      "effectSummary": "Use this supernatural counter after a creature successfully hits you with a melee or natural weapon. You immediately gain the ability to make one melee touch attack against that creature; on a hit it takes 4d6 fire damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-riposte-3575",
+          "role": "primary DnD Tools maneuver effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-seeds-2392": {
+      "name": "Fire Seeds",
+      "sourceSha256": "b51d988846992a51977a0bf4c2583d0ac0da2a148e3e585c68b1f49b7002848f",
+      "effectSummary": "Creates either acorn grenades or holly-berry bombs. Acorn grenades: transform up to four acorns into splash weapons throwable to 100 feet; together they deal a total of 1d6 fire damage per caster level, maximum 20d6, divided among the acorns as you choose. A direct hit requires a ranged touch attack and allows no save; the explosion also deals 1 splash damage per damage die and ignites combustibles within 10 feet, with creatures in that area allowed Reflex half. Holly-berry bombs: transform up to eight berries, normally placeable or tossable only 5 feet; while within 200 feet you can speak a command word to detonate them, each dealing 1d8 fire damage +1 per caster level in a 5-foot-radius burst and igniting combustibles, Reflex half. The material components are the acorns or holly berries.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-seeds-2392",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-shield-2610": {
+      "name": "Fire Shield",
+      "sourceSha256": "1710318fed729d0d0ee71b11ca18bf2f667381c4dbba0dd90947e7bc189bd953",
+      "effectSummary": "Wreathes you in a warm or chill shield. A creature that hits you with its body or a normal-reach handheld melee weapon takes 1d6 damage +1 per caster level, maximum +15; spell resistance applies to this retaliation. The retaliation is fire damage if you chose protection from cold, or cold damage if you chose protection from fire. The chosen shield also halves damage from the opposite energy type, and if that attack allows Reflex half, a successful save reduces the protected damage to zero. Reach weapons that keep the attacker away from you do not trigger the retaliation. The flames provide dim illumination to 10 feet. The warm-shield material component is phosphorus; the chill-shield component is a live firefly/glowworm or the tail portions of four dead ones.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-shield-2610",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
