@@ -11568,6 +11568,242 @@
           "role": "same primary site referenced template used to retain inherited fiendish darkvision, resistances, damage reduction, spell resistance, smite, type, Intelligence, and subtype mechanics"
         }
       ]
+    },
+    "spells/denounce-1168": {
+      "name": "Denounce",
+      "sourceSha256": "d7614d1d3a5c5c1173212ac28efaa5786c4dc093f1f531b95beb93c12e336189",
+      "effectSummary": "For 1 minute per caster level, one outsider that fails its Will save and spell resistance takes a -4 insight penalty on attack rolls, saving throws, and checks. On each of its turns it can spend a full-round action that does not provoke attacks of opportunity to attempt another save and end the effect. Outsiders with the good subtype are immune. The spell is dismissible.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/denounce-1168",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/depthsurge-3346": {
+      "name": "Depthsurge",
+      "sourceSha256": "fb476a8587ddb566ff1f531aa73118aa0d90336bca1d5238ee3270f01dd6e7ed",
+      "effectSummary": "The 20-foot-radius blast must be centered at or below the water's surface, and at least half its area must contain water at least 10 feet deep or the spell fails. Every creature and object in the area takes 2d6 + caster level damage. A struck creature that fails its Fortitude save is also driven 10 feet away from the blast's center; spell resistance applies. If a ship is in the area, its captain immediately makes a sinking check with a DC equal to the spell's save DC. The material component is a sphere of volcanic rock.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/depthsurge-3346",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/desecrate-2604": {
+      "name": "Desecrate",
+      "sourceSha256": "e012d68c361bd4843717c084f727edbad11258b1405d277f059085d48a3afdd4",
+      "effectSummary": "For 2 hours per caster level, the 20-foot-radius emanation is infused with negative energy. Turning-undead Charisma checks take a -3 profane penalty; undead in the area gain +1 profane on attacks, damage, and saves; undead created or summoned there gain +1 hit point per Hit Die; and animate dead can create up to 4 HD of undead per caster level instead of 2 HD. If the area contains an altar, shrine, or other permanent fixture dedicated to your deity or aligned power, the turning penalty and undead bonuses double to -6/+2 and created or summoned undead gain +2 hit points per Hit Die. If the fixture instead belongs to another deity or power, the spell severs that location's connection to it rather than applying the undead-related modifiers. Desecrate counters and dispels consecrate. The material components are a vial of unholy water and 25 gp of silver dust, all sprinkled through the area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/desecrate-2604",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/desecrate-battlefield-1410": {
+      "name": "Desecrate Battlefield",
+      "sourceSha256": "43a4f0e6278cf04381b43c030c1696c86f9b84d30476b7452e6b8f8f53813631",
+      "effectSummary": "For 1 day per caster level, a 100-foot-radius emanation functions as desecrate: turning-undead Charisma checks take -3 profane; undead gain +1 profane on attacks, damage, and saves; undead created or summoned there gain +1 hit point per Hit Die; and animate dead can create up to 4 HD per caster level. A permanent fixture dedicated to your deity or aligned power doubles those turning/undead modifiers and created/summoned hit points, while a fixture dedicated to another power is instead cut off from that power without granting the undead bonuses. Desecrate battlefield counters and dispels consecrate and consecrate battlefield. Its material components are a vial of unholy water and 1 pound of platinum dust worth 500 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/desecrate-battlefield-1410",
+          "role": "primary Heroes of Battle record reviewed and paraphrased for spell-specific area, duration, counters, and components"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/desecrate-2604",
+          "role": "same primary catalog referenced spell used to retain inherited desecrate turning, undead, altar, and animate-dead mechanics"
+        }
+      ]
+    },
+    "spells/desert-binding-3151": {
+      "name": "Desert Binding",
+      "sourceSha256": "e86de97a2e3d96b60de4c41995e911163164c113e39e2219a5193a0d243a39d8",
+      "effectSummary": "Functions as binding for its general ritual: the target receives the initial Will save only if its Hit Dice are at least half your caster level; up to six assistants can increase effective caster level through suggestion or appropriate dominate effects; you can specify an observable release condition, which raises the save DC by 2; dispel magic cannot end the binding, though antimagic field and Mordenkainen's disjunction can affect it; a bound extraplanar creature cannot be dismissed or banished; and the material setup uses binding's 500 gp form-specific props, opals worth at least 500 gp per target Hit Die, and a depiction of the subject. Desert binding offers two special forms, each reducing its save DC by 4. Sand in the Hourglass turns the subject into sentient grains of sand held in a clear container for 1 year per caster level; it can perceive and speak but cannot leave, attack, or use other abilities, needs no food, water, or air, does not age, reforms when the duration ends, and is slain with its body effectively destroyed if the container is shattered early. Wind in the Waste transforms the subject into an almost impossible-to-locate howling wind with awareness but no other abilities for 1 year per caster level, after which it reforms where the transformation occurred; exceptionally powerful means such as limited wish might locate it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/desert-binding-3151",
+          "role": "primary Sandstorm record reviewed and paraphrased for the two desert binding forms"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/binding-2528",
+          "role": "same primary catalog referenced spell used to retain inherited binding save, assistant, release-condition, dispelling, extraplanar, and material-component mechanics"
+        }
+      ]
+    },
+    "spells/desert-diversion-3131": {
+      "name": "Desert Diversion",
+      "sourceSha256": "537d400414d561cdf2ecd90e8114b81067ea4a48575d40acffcaaa62a0eb3c1f",
+      "effectSummary": "For 1 minute per caster level, a successful ranged touch attack covers the subject in a field that diverts dimension door, ethereal jaunt, etherealness, gate, greater teleport, plane shift, shadow walk, teleport, teleport object, teleportation circle, and similar travel effects. The caster chooses the wasteland destination or lets it be random. If the affected subject invokes such travel, everyone traveling with it is diverted; the spell can instead be placed on a gate or teleportation circle so every user is diverted. Until the effect ends or is dispelled, affected travelers cannot use those forms of travel to escape the wasteland—attempts return them to the same spot. When the duration ends, diverted subjects return to their point of origin. There is no saving throw; spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/desert-diversion-3131",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/desert-tempest-3571": {
+      "name": "Desert Tempest",
+      "sourceSha256": "d5d525d9eeac888ea3cfb999dcc7542fdf0e9cbe306d8bee1e9dd315a5ea6725",
+      "effectSummary": "As part of this 1-round maneuver, move up to your speed. Each time you are about to leave a square adjacent to an enemy, you can first make one melee attack against that enemy. You cannot attack the same enemy more than once through this maneuver, and the movement provokes attacks of opportunity normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/desert-tempest-3571",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/desiccate-3164": {
+      "name": "Desiccate",
+      "sourceSha256": "49ab51b6f31237b6205344a08ad179d8ec7bc653fad6c99f4660760e67cb936c",
+      "effectSummary": "One living creature takes 1d6 dessication damage per two caster levels, maximum 5d6, and becomes dehydrated; a successful Fortitude save halves the damage and prevents dehydration, and spell resistance applies. Dehydrated creatures are fatigued, and nonlethal damage they would take from hot conditions becomes lethal. A plant or water-subtype elemental instead takes 1d8 damage per caster level, maximum 10d8; an earth-subtype elemental instead takes 1d4 per two caster levels, maximum 5d4. The material component is a pinch of dust.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/desiccate-3164",
+          "role": "primary Sandstorm spell record reviewed and paraphrased for damage scaling and dehydrated condition application"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/meta/books/3.5/Sandstorm.html",
+          "role": "D&D Tools Sandstorm rules reference used to retain the spell-referenced dehydrated condition mechanics"
+        }
+      ]
+    },
+    "spells/desiccating-bubble-3213": {
+      "name": "Desiccating Bubble",
+      "sourceSha256": "ec7de4da98a4db61c0f8a5c5e446aaaf5548d7b3a161b259c4332401280a60ba",
+      "effectSummary": "For 1 round per caster level, a globe of supernaturally dry air can move 30 feet per round and leap up to 30 feet to strike a target. Directing it requires a move-equivalent action; otherwise it stays where it is. When it enters a creature's space it stops for that round and deals 2d4 damage, Reflex negates and spell resistance applies; oozes, water-composed creatures, and creatures with the aquatic subtype instead take 2d6. Objects can pass through its yielding surface and it cannot batter down large obstacles. It disappears if it leaves the spell's medium range. The arcane material components are a tiny air-filled bag or bladder and a sprinkle of dust.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/desiccating-bubble-3213",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its action terminology is preserved"
+        }
+      ]
+    },
+    "spells/desiccating-bubble-4360": {
+      "name": "Desiccating Bubble",
+      "sourceSha256": "d950dcd1491878080fe85f69f96c205b54c7ab53d68c54ce79a26eef99094cf1",
+      "effectSummary": "For 1 round per caster level, a globe of supernaturally dry air can move 30 feet per round and leap up to 30 feet to strike a target. Directing it requires a move action; otherwise it stays where it is. When it enters a creature's space it stops for that round and deals 2d4 damage, Reflex negates and spell resistance applies; oozes, water-composed creatures, and creatures with the aquatic subtype instead take 2d6. Objects can pass through its yielding surface and it cannot batter down large obstacles. It disappears if it leaves the spell's medium range. The arcane material components are a tiny air-filled bag or bladder and a sprinkle of dust.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/desiccating-bubble-4360",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its move-action terminology is preserved"
+        }
+      ]
+    },
+    "spells/despoil-1162": {
+      "name": "Despoil",
+      "sourceSha256": "5ffe06c5aa1a2ea547624e8f3fe1283e9974173e5b14621278e6cae8d28d363a",
+      "effectSummary": "The 100-feet-per-caster-level spread permanently blights the land. Plant creatures with more than 1 Hit Die must make a Fortitude save or die; on a success they still take 5d6 damage. Less hardy plants simply die, and normal plants cannot grow there again unless a wish or miracle restores the land. Every other living creature except the caster must make a Fortitude save or take 1d4 Strength damage. Each unattended object, including structural features, loses half its hardness rounded down to a minimum of 1, then takes 1d6 damage that bypasses the remaining hardness; mending can repair damaged objects. Spell resistance applies. The material component is the fresh or preserved corpse of a living creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/despoil-1162",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its object-hardness and restoration wording are preserved separately"
+        }
+      ]
+    },
+    "spells/despoil-1544": {
+      "name": "Despoil",
+      "sourceSha256": "bf3da9b1691c69b65bef7c24d521dfc31a868f79502c4108e0f9e378d21bc608",
+      "effectSummary": "The 100-feet-per-caster-level area permanently blights the land. Plants with 1 Hit Die or less die outright; plants with more than 1 Hit Die must make a Fortitude save or die, and still take 5d6 damage on a success. Every other living creature except the caster must make a Fortitude save or take 1d4 Strength damage. Each unattended object, including structural features, loses 1 point of hardness to a minimum of 0 and then takes 1d6 damage that bypasses any remaining hardness. Only the effects of multiple wish or miracle spells can undo the lasting environmental damage. Spell resistance applies. The material component is the corpse of a freshly dead or preserved living creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/despoil-1544",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its object-hardness and restoration wording are preserved separately"
+        }
+      ]
+    },
+    "spells/despoil-237": {
+      "name": "Despoil",
+      "sourceSha256": "76cd8f70bf9f6b1c42bc10312031038b9de2063d3ced996949410e380d9af456",
+      "effectSummary": "The 100-feet-per-caster-level area permanently blights the land. Plants with 1 Hit Die or less die outright; plants with more than 1 Hit Die must make a Fortitude save or die, and still take 5d6 damage on a success. Every other living creature except the caster must make a Fortitude save or take 1d4 Strength damage. Each unattended object, including structural features, loses 1 point of hardness to a minimum of 0 and then takes 1d6 damage; unlike the later Lords of Madness printing, this source does not state that the damage bypasses remaining hardness. Only the effects of multiple wish or miracle spells can undo the lasting environmental damage. Spell resistance applies. The material component is a freshly dead or preserved, still-bloody corpse of a living creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/despoil-237",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for this printing; its object-hardness and restoration wording are preserved separately"
+        }
+      ]
+    },
+    "spells/destruction-2729": {
+      "name": "Destruction",
+      "sourceSha256": "f0449cabe36013b2b8bbd414e579f8b413520b0933529b2843904a38242d7145",
+      "effectSummary": "The target must overcome spell resistance and make a Fortitude save. Failure instantly kills it and utterly consumes its remains while leaving equipment and possessions behind; restoring such a victim requires true resurrection, a carefully worded wish followed by resurrection, or miracle. A successful save instead deals 10d6 damage. The focus is a silver holy or unholy symbol marked with verses of anathema and worth 500 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/destruction-2729",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/detect-abberation-4912": {
+      "name": "Detect Abberation",
+      "sourceSha256": "a29891bbabbfe704adcf884d60cdefe49f4fb74b9c3df7e2cb856df8c76e291a",
+      "effectSummary": "For up to 1 minute per caster level of concentration, the 60-foot cone detects aberrations. Round 1 reveals presence or absence; round 2 reveals their number and the strongest aura, and an overwhelming aura from an aberration with Hit Dice at least twice your character level stuns you for 1 round and ends the spell; round 3 reveals each aura's strength and location, or only its direction if outside line of sight. Aura strength by Hit Dice is 1 or less faint, 2–4 moderate, 5–10 strong, and 11+ overwhelming. Unlike similar detection spells, this printing does not reveal lingering auras. Each round you can turn to a new area; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-abberation-4912",
+          "role": "primary Eberron Campaign Setting effect text and captured aura-strength table reviewed and paraphrased; this printing's no-lingering-aura rule is preserved"
+        }
+      ]
+    },
+    "spells/detect-animals-or-plants-2484": {
+      "name": "Detect Animals Or Plants",
+      "sourceSha256": "bba699a5344af0d1e27b9eb66ae7e65ac1be7647ea8fba59d0da248e7c22a773",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the long-range cone detects one chosen kind of animal or plant, which you can change each round. Round 1 reveals presence or absence; round 2 reveals the number present and the condition of the healthiest specimen; round 3 reveals each specimen's condition and location, or only its direction if outside line of sight. Condition categories are normal (at least 90% hit points and disease-free), fair (30% to 90% hit points), poor (below 30% hit points, diseased, or debilitatingly injured), and weak (0 or fewer hit points, terminally diseased, or crippled); if more than one applies, use the weaker category. Each round you can turn to a new area; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection. The DM determines whether the specified kind is present.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-animals-or-plants-2484",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/detect-crossroads-1634": {
+      "name": "Detect Crossroads",
+      "sourceSha256": "faac1915a558811fbfd4297d7a6ecfead7dfa87043159e7188d2a5fbc3f2db46",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, visible fey crossroads within 60 feet appear as blue-hued X-shaped shadows on the ground and are recognized as genuine rather than false or illusory. The spell does not reveal where a crossroads's backroad leads. If the nearest crossroads is less than 1 mile away but cannot be seen because of distance or barriers, you can still sense its general direction. You can turn to search a new direction each round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-crossroads-1634",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/detect-curse-2045": {
+      "name": "Detect Curse",
+      "sourceSha256": "1f7e054df50818ca87f66bf21de01aeb4da71a0561d1cd55aeff0ad08841ccab",
+      "effectSummary": "Instantly determines whether the targeted creature, object, or 5-foot cube is cursed or carries a curse. A DC 20 Spellcraft check reveals the curse's general nature but not its exact effects; succeeding also grants +4 to your effective caster level when casting remove curse on the analyzed item or creature. The detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt. The material component is a gem worth at least 10 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-curse-2045",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/detect-disease-2046": {
+      "name": "Detect Disease",
+      "sourceSha256": "2aa0b04a2963c1e08a8554f7057b0e65c6987956781d2825f0aa55e1fa94ed99",
+      "effectSummary": "Instantly determines whether the targeted creature, object, or 5-foot cube is infected with or carries disease. A DC 20 Wisdom check identifies the exact disease; a character with Heal can instead make a DC 20 Heal check before the Wisdom check or after it fails. The detection is blocked by 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-disease-2046",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/detect-dragonmark-4757": {
+      "name": "Detect Dragonmark",
+      "sourceSha256": "66a987d7bf57a0a70401fd5b02851e294049b1749801acb4fb2a206da43a389a",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects dragonmarks. Round 1 reveals presence or absence; round 2 reveals the number of marks on creatures or objects and the type of the most potent mark; round 3 reveals each mark's location and type. Types are aberrant, least, lesser, greater, and Siberys. If a mark is in line of sight, a Spellcraft check identifies the spell-like ability it grants: DC 18 for aberrant, 15 for least, 20 for lesser, 25 for greater, and 30 for Siberys. Beating that DC by 5 or more also reveals whether the granted ability has any daily uses remaining. The material component is a scale from a true dragon.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-dragonmark-4757",
+          "role": "primary Magic of Eberron record reviewed and paraphrased for the three-round dragonmark detection behavior"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Eberron%20Setting/Eberron%20Campaign%20Setting.pdf",
+          "role": "Eberron Campaign Setting p.47 used only to restore the Spellcraft DCs explicitly referenced by the primary spell record"
+        }
+      ]
     }
   }
 }
