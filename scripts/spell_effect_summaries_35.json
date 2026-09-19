@@ -8547,6 +8547,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/beget-bogun-3943": {
+      "name": "Beget Bogun",
+      "sourceSha256": "571df7fa58058885b7c3716bd42c22bfdef99eec18f27a1d16a74ffd97fae1c9",
+      "effectSummary": "Completes creation of a bogun from the prepared vegetable mannequin. The resulting Tiny construct is CR 1 with AC 15, 11 hp, 20-foot land speed, 50-foot good flight, darkvision 60 feet, low-light vision, and a nettle attack dealing 1d4-2 plus poison (DC 11, 1d6 Dex/1d6 Dex). It has Str 7, Dex 16, Int 8, Wis 13, Cha 10 and a telepathic link with its creator out to 500 yards, sharing what it sees and hears. A bogun can perform simple tasks but has a 5% chance to refuse a task, requiring DC 11 Diplomacy; destruction deals its creator 2d10 damage, and it dies if its creator dies. Creation requires a 7th-level creator with Craft Wondrous Item, a DC 12 Craft mannequin containing a piece of the creator, a week-long solitary 8-hours-per-day forest ritual, and control plants, wood shape, and beget bogun on the final day. Casting costs 25 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beget-bogun-3943",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beget-bogun-642": {
+      "name": "Beget Bogun",
+      "sourceSha256": "e976fd2287defc5762536dfee59c105161ba0db83f2c0bb7f0cda7ce913ce153",
+      "effectSummary": "Infuses living magic into a previously prepared vegetable-matter mannequin as the final spell in creating a bogun. The mannequin is consumed into the completed bogun, and casting costs 25 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beget-bogun-642",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/belker-claws-2198": {
+      "name": "Belker Claws",
+      "sourceSha256": "432e7fb5d8855dff898cd6999f09d41cf58709e7b85b92fdee655993be1d2605",
+      "effectSummary": "Transforms one hand into a smoky claw. A successful melee touch against a living creature fills its lungs with solidifying smoke claws for 3d4 damage, Fortitude half. For every three caster levels the smoke persists for another round, to a maximum of 4 rounds at 12th level, dealing another 3d4 each round. The caster can make this touch attack once per round for every three caster levels, to a maximum of four uses at 12th level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/belker-claws-2198",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/belker-claws-3944": {
+      "name": "Belker Claws",
+      "sourceSha256": "5ade66672b70167d15e887cd8832abbb8cf56c2c9bbd1445902bc86fdbe132d9",
+      "effectSummary": "Turns one hand into smoke. A successful melee touch deals 2d12 damage, then the smoke continues damaging the target for one additional round per three caster levels, to a maximum of 4 additional rounds at 12th level, dealing another 2d12 each round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/belker-claws-3944",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/beltyns-burning-blood-3469": {
+      "name": "Beltyn's Burning Blood",
+      "sourceSha256": "bda831c16eb6f98e2539313d11a8adfe9df5825348b8f6eae17ff70b4c1ccb2d",
+      "effectSummary": "Infuses a living creature's blood with corrosive heat. Each round the subject takes 1d8 acid plus 1d8 fire damage unless it succeeds on a Fortitude save for that round. On a failed save, pain also limits the subject to a single move-equivalent action that round. Constructs, elementals, oozes, plants, and undead are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/beltyns-burning-blood-3469",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/benediction-582": {
+      "name": "Benediction",
+      "sourceSha256": "49483b2903b0b8fdeee48d59c2d2d3c353fb92b21fed00d2bda5b49cb9625391",
+      "effectSummary": "Grants another creature +2 luck on all saving throws; this bonus stacks with other effects that grant saving-throw bonuses. Before the spell expires, the subject can reroll one attack roll, saving throw, skill check, or ability check after seeing the first result but before learning success or failure, and uses the higher roll. Using the reroll immediately ends the spell. The caster cannot target themself.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/benediction-582",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/benign-projection-322": {
+      "name": "Benign Projection",
+      "sourceSha256": "6f2c6f51caeb651efb4fc431372a885e3277aff3623ab4d1da48e148114a77d1",
+      "effectSummary": "Functions as project image with restrictions: the projection can show the caster's whole body or only the face, can shed candlelike light at will, and can only mimic the caster's own actions and speech rather than being directed independently. Spells cast through the image are limited to abjuration, divination, and conjuration (healing). Casting inflicts 1d2 Strength damage as a sacrifice cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/benign-projection-322",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/benign-transposition-1949": {
+      "name": "Benign Transposition",
+      "sourceSha256": "5c3d487776b2aa9de4f77a35ad9fb55c681d42f5e8d024f951e315cd9792e2f8",
+      "effectSummary": "Instantly swaps the positions of two target creatures within range; the caster can be one target. Each target's carried objects up to its maximum load move with it, but carried creatures do not. The movement does not provoke attacks of opportunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/benign-transposition-1949",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/benign-transposition-3945": {
+      "name": "Benign Transposition",
+      "sourceSha256": "63bcd7f957bb6fe29390bdb7d2db510a272da6cd88b7af7d08aa2dc2d16b905f",
+      "effectSummary": "Instantly swaps the positions of two target creatures within range; the caster can be one target. Each creature's carried objects up to its maximum load move with it, but carried creatures do not. The movement does not provoke attacks of opportunity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/benign-transposition-3945",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bestow-curse-2713": {
+      "name": "Bestow Curse",
+      "sourceSha256": "4ad27eb77cedfa5de215a664a135130400006ba025077d15783dbcdb3e021301",
+      "effectSummary": "Places one curse on the subject: -6 to one ability score (minimum 1); -4 on attack rolls, saves, ability checks, and skill checks; or each turn only a 50% chance to act normally, otherwise taking no action. A custom curse is allowed if no more powerful than these options, subject to DM approval. The curse cannot be dispelled, but break enchantment, limited wish, miracle, remove curse, or wish can remove it. Bestow curse counters remove curse.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bestow-curse-2713",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bestow-curse-greater-3050": {
+      "name": "Bestow Curse, Greater",
+      "sourceSha256": "57cb724633cc81cd80347baf1524cb425e4c489fd31519ad1c7b20e43586ad48",
+      "effectSummary": "Places one greater curse: reduce one ability score to 1 or impose -6 on two ability scores (minimum 1); impose -8 on attack rolls, saving throws, ability checks, and skill checks; or give the subject only a 25% chance each turn to act normally. A custom curse of comparable power is allowed with DM approval. It cannot be dispelled or removed by break enchantment, limited wish, or remove curse. Miracle or wish removes it, and the caster must also define a deed the subject could accomplish within one year that removes the curse.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bestow-curse-greater-3050",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bestow-curse-greater-3946": {
+      "name": "Bestow Curse, Greater",
+      "sourceSha256": "02c19ea1e826772f1b645ae79088f0165b466d0d8375c1f2f334aded49b0484c",
+      "effectSummary": "Places one greater curse: reduce one ability score to 1 or impose -6 on two ability scores (minimum 1); impose -8 on attack rolls, saving throws, ability checks, and skill checks; or give the subject only a 25% chance each turn to act normally. A custom curse of comparable power is allowed with DM approval. It cannot be dispelled and cannot be removed by break enchantment or limited wish. Miracle or wish removes it, as does remove curse cast by a spellcaster of at least 17th level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bestow-curse-greater-3946",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bestow-curse-greater-4997": {
+      "name": "Bestow Curse, Greater",
+      "sourceSha256": "1930f65277d8d794d7483516f83ac8438d8f0e93dc6a60bd23d18a55364dfc40",
+      "effectSummary": "Places one greater curse: reduce one ability score to 1 or impose -6 on two ability scores (minimum 1); impose -8 on attack rolls, saving throws, ability checks, and skill checks; or give the subject only a 25% chance each turn to act normally. A comparable custom curse is allowed with DM approval. It cannot be dispelled. Break enchantment, limited wish, or remove curse can remove it only with a caster-level check against DC 15 + the original curse caster level; miracle or wish succeeds automatically. The caster can also specify a deed, event, or task achievable within one year that ends the curse.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bestow-curse-greater-4997",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bestow-curse-greater-729": {
+      "name": "Bestow Curse, Greater",
+      "sourceSha256": "b6b23bf44e298356da362a8fdcfff74c81ab2249308639f219546c8742c0623b",
+      "effectSummary": "Places one greater curse: reduce one ability score to 1 or impose -6 on two ability scores (minimum 1); impose -8 on attack rolls, saving throws, ability checks, and skill checks; or give the subject only a 25% chance each turn to act normally. A comparable custom curse is allowed with DM approval. It cannot be dispelled or removed by break enchantment, limited wish, or remove curse. Miracle or wish removes it, and the caster must define a deed achievable within one year that can also lift the curse.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bestow-curse-greater-729",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bestow-curse-greater-228": {
+      "name": "Bestow Greater Curse",
+      "sourceSha256": "be3f272aabfe88d2214e3ac68dbaa4e130c42d3bb3c539961954eaac1127af9f",
+      "effectSummary": "Places one greater curse: reduce one ability score to 1 or impose -6 on two ability scores (minimum 1); impose -8 on attack rolls, saving throws, ability checks, and skill checks; or give the subject only a 25% chance each turn to act normally. A comparable custom curse is allowed with DM approval. It cannot be dispelled or removed by break enchantment, limited wish, or remove curse. Miracle or wish removes it, and the curse can also be ended by a deed designated by the caster that is achievable within one year.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bestow-curse-greater-228",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bestow-wound-1448": {
+      "name": "Bestow Wound",
+      "sourceSha256": "360c2ee87d5042d4e555bd3fc0315bfb89823534c9dc561277a8263d778761b0",
+      "effectSummary": "If the caster is wounded, a touch transfers damage to one living creature and heals the caster by the same amount. The amount transferred is the lesser of the caster's current missing hit points or 1 hit point per caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bestow-wound-1448",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bestow-wound-229": {
+      "name": "Bestow Wound",
+      "sourceSha256": "52da41103e9134a57a702e9e1715d6f69feab27520446371d614493c181e4f43",
+      "effectSummary": "If the caster is wounded, a touch transfers damage to one living creature and heals the caster by the same amount. The amount transferred is the lesser of the caster's current missing hit points or 1 hit point per caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bestow-wound-229",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bewildering-mischance-606": {
+      "name": "Bewildering Mischance",
+      "sourceSha256": "5cb59b07743a2b62a039a1abafd7841b0c8b36524a3b6c3871c52a3c7fab1e6e",
+      "effectSummary": "For the spell's duration, the subject rolls every saving throw, attack roll, and skill check twice and keeps the lower result.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bewildering-mischance-606",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bewildering-substitution-614": {
+      "name": "Bewildering Substitution",
+      "sourceSha256": "a56e845cab771aed9aad06ccb6585b2c0ee64a66c9bd0e967267eb6f6f27fa3f",
+      "effectSummary": "Causes only the subject to perceive its physically nearest ally and that ally's nearest enemy as having exchanged appearances, voices, clothing, and gear. Both perceived creatures must be within the spell's range; the effect ends immediately if either moves out of range from the caster.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bewildering-substitution-614",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/bewildering-visions-615": {
+      "name": "Bewildering Visions",
+      "sourceSha256": "10cd72814a60b710144d2177a1dacb6e99676daab9af35edad44021b7810d82b",
+      "effectSummary": "On a failed Will save, the subject is sickened for the spell's duration and must make a Fortitude save each round or become nauseated for that round. A successful initial Will save negates the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/bewildering-visions-615",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
