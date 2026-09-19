@@ -136,54 +136,52 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,221**
+- Digest-locked reviewed spell effects: **1,261**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
-- Permanent focused spell regression corpus: **76 / 76 green** on the current repaired head before the latest full audit.
+- Permanent focused spell regression corpus: **77 / 77 green**
 - Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings are preferred when they can supply the missing mechanic.
 - Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
 
 ### Recent source-completeness repairs
 
-In addition to the earlier table/truncation repairs, review after the 1,185 checkpoint exposed several more source defects and parser edge cases:
+The current permanent regression corpus includes the recent damaged-primary/parser cases that must remain green:
 
-- `Dragonblood Beast` (`spells/dragonblood-beast-4864`): the rebuilt primary text drops die values from the bite-damage progression. The intact printed *Dragonmarked* progression is restored by supplement; this record is not digest-locked to the corrupt prose.
-- Spell Compendium `Dragon Ally, Lesser` (`spells/dragon-ally-lesser-4417`): the rebuilt primary text corrupts the one-hour payment unit as “250 fp per HD.” The printed 250 gp/HD value is restored by supplement.
-- `Dragonshape` and `Dragonshape, Lesser`: their rebuilt pages omit referenced form/stat-block mechanics required to use the spell. The missing mechanics are restored with provenance-backed supplements and pinned regressions.
-- Spaced class-level parsing was hardened so all listed spell class levels are preserved rather than silently collapsing valid access entries.
-- `Dreaded Form of the Eye Tyrant` (`spells/dreaded-form-of-the-eye-tyrant-873`): the rebuilt primary effect is truncated. The missing gameplay mechanics are repaired through a provenance-backed supplement and pinned regression.
+- `Dragonblood Beast` (`spells/dragonblood-beast-4864`): rebuilt primary text drops die values from the bite-damage progression; repaired from the printed *Dragonmarked* progression.
+- Spell Compendium `Dragon Ally, Lesser` (`spells/dragon-ally-lesser-4417`): rebuilt primary corrupts the payment unit as “250 fp per HD”; repaired to the printed 250 gp/HD value.
+- `Dragonshape` and `Dragonshape, Lesser`: rebuilt pages omit required form/stat-block mechanics; repaired by provenance-backed supplements.
+- Spaced class-level parsing was hardened so all listed spell class levels are preserved.
+- `Dreaded Form of the Eye Tyrant` (`spells/dreaded-form-of-the-eye-tyrant-873`): rebuilt primary effect is truncated; repaired by supplement.
+- `Drown` (`spells/drown-5004`, Dragonlance Campaign Setting): rebuilt primary text truncates after “or begin to drown (see The...” and later resumes near the Concentration rule. The supplement restores the omitted staggered state, immunity for creatures that do not breathe or can breathe water, DC 25 Concentration requirement, and speech/verbal-component restrictions.
 
 These records remain supplement-backed where the primary source is damaged; corrupt source text is **not** accepted as an ordinary digest-locked review.
 
 ### Latest authoritative full spell audit
 
-Category Enrichment Audit **#64**, run **35421149859**, audited commit `ee5ef2c88c8b3151e232a617bf0b363f31aabe66` with **1,221** digest-locked reviewed summaries and **76** permanent focused spell regressions:
+Category Enrichment Audit **#68**, run **35422270678**, audited commit `610ed4a24dc93414ec1de738da63202e1a79678f` with **1,261** digest-locked reviewed summaries and **77** permanent focused spell regressions:
 
 - Samples: **25 / 25**, **50 / 50**, **100 / 100**, **250 / 250** passed.
 - Source shards: **8 / 8 passed**.
 - Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**.
 - Candidate shards: **8 / 8 generated successfully**.
-- Candidate/output audit: **1,895 / 5,035 output-complete**, **3,140 incomplete**, **37.6365%** output-complete.
-- `criticalMissingCount`: **3,140**.
+- Candidate merge: **5,035 / 5,035 exact candidate records**, no duplicates, missing IDs, unexpected IDs, or merge errors.
+- Candidate/output audit: **1,936 / 5,035 output-complete**, **3,099 incomplete**, **38.4508%** output-complete.
+- `criticalMissingCount`: **3,099**.
 - `errors`: **empty**.
 - Sampled incomplete records contain only the expected missing `effect` / `effectSummary` backlog.
 - `sourceExtractionVerified: true`
 - `outputCompletenessVerified: false`
 - `releaseReady: false`
 
-The workflow's final `output-audit` job therefore reports **failure by design** because the independent final-output gate remains below 100%. The strengthened source gate passed cleanly and was not weakened.
+The workflow's final `output-audit` job therefore reports **failure by design** because the independent final-output gate remains below 100%. The source gate passed cleanly and was not weakened.
 
-For comparison, earlier authoritative checkpoints included:
+For comparison, recent authoritative checkpoints include:
 
-- 966 reviews: **1,620 / 5,035** output-complete, **3,415** incomplete, **32.1748%**.
-- 1,026 reviews: **1,687 / 5,035** output-complete, **3,348** incomplete, **33.5055%**.
-- 1,046 reviews: **1,714 / 5,035** output-complete, **3,321** incomplete, **34.0417%**.
-- 1,106 reviews: **1,774 / 5,035** output-complete, **3,261** incomplete, **35.2334%**.
-- 1,185 reviews: **1,854 / 5,035** output-complete, **3,181** incomplete, **36.8222%**.
-- 1,203 reviews plus the post-1,185 source repairs: **1,876 / 5,035** output-complete, **3,159** incomplete, **37.2592%**.
-- 1,221 reviews with 76 regressions: **1,895 / 5,035** output-complete, **3,140** incomplete, **37.6365%**.
+- 1,221 reviews / 76 regressions: **1,895 / 5,035** output-complete, **3,140** incomplete, **37.6365%**.
+- 1,241 reviews / 77 regressions: **1,916 / 5,035** output-complete, **3,119** incomplete, **38.0536%**.
+- 1,261 reviews / 77 regressions: **1,936 / 5,035** output-complete, **3,099** incomplete, **38.4508%**.
 
-The next review queue begins with the Dream/Drown-family records immediately after the supplement-backed `Dreaded Form of the Eye Tyrant`. A refreshed read-only review export completed successfully with **3,140 review entries and 0 fetch failures**.
+The next ordinary review queue begins immediately after `spells/earthbind-2007`. The next slice starts with Spell Compendium `Earthbind`, then `Earthbolt`, `Earthen Grace`, `Earthen Grasp`, `Earthen Shield`, `Earthfast`, `Earthquake`, and continues through the Earth-family records toward `Echo Skull`. Same-name printing differences must remain independent.
 
 No catalog enrichment and no `--write` operation has been performed. Supabase remains unchanged.
 
@@ -200,4 +198,4 @@ Do **not** use `--write` and do **not** unlock live/catalog writes. Overall rele
 
 ## Validation status
 
-The repaired 1,026-review audit head (`636a74c56b60f135360c1a9e1ca59d1a81f1b474`) passed Validate modernization run `35415470538` end-to-end, including the browser suites. The previously noted browser-editions regression is therefore no longer a current blocker.
+The current 1,261-review audit head (`610ed4a24dc93414ec1de738da63202e1a79678f`) passed Validate modernization run `35422272303` end-to-end. The 1,261 checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
