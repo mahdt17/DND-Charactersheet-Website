@@ -8767,6 +8767,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/contagious-touch-718": {
+      "name": "Contagious Touch",
+      "sourceSha256": "8838f3e31631c64a7fddf6209b1421741bf5354e6ca8f247224292cb70a3be7a",
+      "effectSummary": "Choose blinding sickness, cackle fever, filth fever, mindfire, red ache, the shakes, or slimy doom when casting. During the spell's duration, a successful melee touch against a living creature infects it as though by contagion unless it succeeds on a Fortitude save. The caster can infect at most one creature per round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contagious-touch-718",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contingency-2597": {
+      "name": "Contingency",
+      "sourceSha256": "23f6d241aef991aff1ddfea4292c7a5b2ef18aa7a322f6c40b29bc96d6121102",
+      "effectSummary": "Stores one companion spell on the caster and causes it to take effect automatically when a clearly stated condition occurs. The companion spell must affect the caster's person and be no higher than one-third caster level, rounded down, maximum 6th level. Both spells are cast together; the total casting time is at least 10 minutes or the companion spell's longer casting time. The companion spell triggers instantaneously and involuntarily when the condition is met. Only one contingency can be active at a time; a later casting dispels the earlier one. The caster must carry the required 1,500 gp ivory-and-gem statuette focus for the contingency to function.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contingency-2597",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contingent-energy-resistance-4047": {
+      "name": "Contingent Energy Resistance",
+      "sourceSha256": "5e9b78160db89ea1b32311cdf0641fbcaa20566e13eb06f29762e46822123022",
+      "effectSummary": "When the caster first takes acid, cold, electricity, fire, or sonic damage, the spell automatically grants energy resistance 10 against that energy type for up to 10 minutes per caster level or until the spell's remaining duration ends, whichever comes first. Once triggered, the protected energy type cannot change. Only one casting can be active at a time, and its resistance does not stack with other resistance against the same energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contingent-energy-resistance-4047",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contingent-energy-resistance-997": {
+      "name": "Contingent Energy Resistance",
+      "sourceSha256": "1e7ec62964b12a02ba09f677ddc7b9d82cd8533a5957d029e703324f5e252ad9",
+      "effectSummary": "When the caster first takes acid, cold, electricity, fire, or sonic damage, the spell automatically grants energy resistance 10 against that energy type for the remainder of the spell's duration. Once triggered, the protected energy type cannot change. Only one casting can be active at a time, and its resistance does not stack with other resistance against the same energy type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contingent-energy-resistance-997",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contingent-spell-lock-1382": {
+      "name": "Contingent Spell Lock",
+      "sourceSha256": "71e240616bd323c98cb8c0b9adf0dda8a4f9abb0b9a98728290c031a84cb0ea9",
+      "effectSummary": "Transfers up to one prepared spell or available spell slot of each spell level the caster can cast into a hidden reserve in the caster's soul. Those spells or slots become inaccessible while the caster lives, but if the caster dies and appears on the Ethereal Plane as a ghost they remain available for normal use with their usual components. During later spell preparation the caster can either leave the reserve intact or recover the stored spells or slots. If raised from the dead, the reserve becomes inaccessible again until the caster next prepares or readies spells and chooses to recover it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contingent-spell-lock-1382",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/continual-flame-2598": {
+      "name": "Continual Flame",
+      "sourceSha256": "99e9af248329b70a8f25581da141ed4b3f8613dfc288169644094a6354877b6d",
+      "effectSummary": "Causes a touched object to shed torch-equivalent light indefinitely. The flame produces no heat, consumes no oxygen, and can be covered but not smothered or quenched. Light spells counter and dispel darkness spells of equal or lower level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/continual-flame-2598",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-currents-3358": {
+      "name": "Control Currents",
+      "sourceSha256": "5a64a778e3ba71281a5c9dea0d7f3c907444cd778d081b28196a2ed79a0b6213",
+      "effectSummary": "Alters water currents in the area. The caster can direct the current uniformly across the area or make it rotate clockwise or counterclockwise, and can increase or decrease current speed by 10 feet for every three caster levels. An eye of calm water up to 80 feet across can be created at the center, and the affected area can be reduced. Changing the chosen current after casting requires concentration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-currents-3358",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-darkness-and-shadow-291": {
+      "name": "Control Darkness and Shadow",
+      "sourceSha256": "e2f392f1d0526cb4a9ec5da1c408cf21ca3c07facfb79a088263a917bef8a997",
+      "effectSummary": "Controls existing natural and magical shadows in the entire spell area, using one mode at a time and switching modes once per round as a free action. Deepen grants normal shadows +4 on Hide checks and concealment, while magical darkness gives total concealment. Lighten suppresses normal shadows and their hiding or shadow-based uses, removes concealment from magical darkness, and allows ordinary illumination. Move Shadow lets the caster reposition shadows, form colorless silent-image-like shadow illusions, remove a creature's shadow to reveal it, or make shadows follow the caster, but cannot move actual areas of darkness.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-darkness-and-shadow-291",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-deathless-4884": {
+      "name": "Control Deathless",
+      "sourceSha256": "bc6c8ddd8a3019fc05bf42aa334f7366cd52603c02d5bf1e373b61915ef7e31e",
+      "effectSummary": "Lets the caster command the affected deathless creatures by voice for the spell's duration; they understand commands regardless of language. If vocal communication becomes impossible, they at least do not attack the caster. When the spell ends they resume normal behavior, and intelligent deathless remember having been controlled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-deathless-4884",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-elemental-4834": {
+      "name": "Control Elemental",
+      "sourceSha256": "b41b390f7bb61b8d04192779f4eeb610de1e1c371f5bb0343b796eaa99cf3241",
+      "effectSummary": "Lets the caster command one elemental by voice for the spell's duration, and the elemental understands regardless of language. A bound elemental inside a Khyber shard can be targeted by maintaining physical contact with the shard while casting; continuing to issue orders likewise requires contact with the binding shard or access to an elemental vessel's helm. If vocal communication becomes impossible, the elemental at least does not attack the caster. When the spell ends it resumes normal behavior and remembers being controlled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-elemental-4834",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-plants-2795": {
+      "name": "Control Plants",
+      "sourceSha256": "41af47f6c15ce9c9b78584d75096697e1dc22a00344545c39ca88b3661800073",
+      "effectSummary": "Lets the caster control the affected plant creatures by voice for the spell's duration; they understand commands regardless of language. If vocal communication becomes impossible, they at least do not attack the caster. Suicidal or self-destructive commands are ignored. When the spell ends, the plants resume normal behavior.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-plants-2795",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-sand-3171": {
+      "name": "Control Sand",
+      "sourceSha256": "1bc10144ae5c993428c62afed600e230b021c7175be024bf626af8d267b9e77f",
+      "effectSummary": "Raises or lowers dust or sand by as much as 2 feet per caster level, with lowered material never dropping below 1 inch deep, in a square whose sides can be up to 10 feet per caster level. One horizontal dimension can be halved to double the other. Lowering a very deep mass such as a dune can create a pit that sweeps creatures down and prevents ordinary movement out for the duration. Against earth elementals, dust paraelementals, and similar earth- or dust-based creatures, lowering sand functions as slow, Will negates. Raising sand lifts creatures and objects resting on it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-sand-3171",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-snow-and-ice-1302": {
+      "name": "Control Snow and Ice",
+      "sourceSha256": "9aa074f4afa39f767ac9286f17550c6d0e2f948b066c94dfbaf068461f1c2fdf",
+      "effectSummary": "Raises or lowers snow and ice by as much as 2 feet per caster level, with lowered material never dropping below 1 inch deep, in a roughly square area whose sides can be up to 10 feet per caster level. One horizontal dimension can be halved to double the other. Lowering a deep glacier or snowfield can create a crevasse that sweeps creatures down; escaping it normally requires DC 18 Climb. Against ice elementals and similar ice-based creatures, lowering snow and ice functions as slow. Raising the material lifts creatures and objects resting on it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-snow-and-ice-1302",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-temperature-1303": {
+      "name": "Control Temperature",
+      "sourceSha256": "3440245fa6fbbc3d7396156194f712c3e19917bdddb3949811921fe4ca6c959b",
+      "effectSummary": "Raises or lowers the area's temperature by one temperature band for every five caster levels. The new environmental temperature and its normal effects on creatures apply immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-temperature-1303",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-undead-2722": {
+      "name": "Control Undead",
+      "sourceSha256": "1fca1b5195f357bae9764c32325089c4b436b1cf46ef7661442669d6c8f2d2f3",
+      "effectSummary": "Lets the caster command the affected undead creatures by voice for the spell's duration; they understand commands regardless of language. If vocal communication becomes impossible, they at least do not attack the caster. When the spell ends they resume normal behavior, and intelligent undead remember having been controlled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-undead-2722",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-water-2796": {
+      "name": "Control Water",
+      "sourceSha256": "9d4b147ad9f45a9caef870338b4e7c3a1cc65b0f46271f05f50edb324c5b96cb",
+      "effectSummary": "Raises or lowers water or similar liquid by up to 2 feet per caster level, with lowered liquid never dropping below 1 inch deep, in an area whose sides can be up to 10 feet per caster level. One horizontal dimension can be halved to double the other. Lowering a very deep body of water can create a whirlpool that sweeps ships and similar craft downward and prevents normal escape for the duration; against water elementals and similar water-based creatures, it functions as slow, Will negates. Raising water lifts boats and can spill onto nearby land.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-water-2796",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-weather-2797": {
+      "name": "Control Weather",
+      "sourceSha256": "8f8408e42450be271284c80452ea95655b0b30bb869315993d9eb08ac5824e1a",
+      "effectSummary": "Changes local weather to a condition appropriate to the climate and season. Casting takes 10 minutes and the selected weather takes another 10 minutes to fully develop; changing it later is a standard action followed by another 10-minute transition. Seasonal options are: spring—tornado, thunderstorm, sleet storm, or hot weather; summer—torrential rain, heat wave, or hailstorm; autumn—hot or cold weather, fog, or sleet; winter—frigid cold, blizzard, or thaw; late winter in coastal areas—hurricane-force winds or early spring. Contradictory conditions cannot coexist. A druid doubles the duration and affects a 3-mile-radius circle.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-weather-2797",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/control-winds-2798": {
+      "name": "Control Winds",
+      "sourceSha256": "41ec0bc7ddf3dab6d3dba714e392b320e191dcdef1487ba7e45b669031a329ab",
+      "effectSummary": "Alters wind direction and force in the area, with changes after casting requiring concentration. The caster can create a downdraft, updraft, rotation, or straight blast and can create a calm eye up to 80 feet across or reduce the affected cylinder. Wind strength can be raised or lowered by one category per three caster levels. Each round, creatures in the wind make Fortitude saves against the normal effects of the resulting wind category, which can range from strong winds through severe winds, windstorms, hurricane-force winds, and tornadoes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/control-winds-2798",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/convert-wand-104": {
+      "name": "Convert Wand",
+      "sourceSha256": "62617b2482ff454c5914b4e3b3bd1b8034b708bfc22026beaa7b4e1282dc7db3",
+      "effectSummary": "Temporarily changes any magic wand into a healing wand while preserving its current charge count. A 1st-level wand becomes cure light wounds, 2nd becomes cure moderate wounds, 3rd becomes cure serious wounds, and 4th becomes cure critical wounds. When the spell ends, the wand's original effect returns with whatever charges remain after use.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/convert-wand-104",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/convert-wand-324": {
+      "name": "Convert Wand",
+      "sourceSha256": "c2cf024ae7fc44ca1ea07a59b1890f90545418930c33e52c0ac4fba5c31b4fee",
+      "effectSummary": "Temporarily changes any magic wand into a healing wand while preserving its current charge count. A 1st-level wand becomes cure light wounds, 2nd becomes cure moderate wounds, 3rd becomes cure serious wounds, and 4th becomes cure critical wounds. When the spell ends, the wand's original properties return with whatever charges remain after use.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/convert-wand-324",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
