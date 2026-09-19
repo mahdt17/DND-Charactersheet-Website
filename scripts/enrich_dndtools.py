@@ -1106,6 +1106,13 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="corrupt-lesser-dragon-ally-payment-unit"
+        if (
+            entry.get("id")=="spells/dragonshape-3011"
+            and re.search(r"see below for your new statistics",effect_source,re.I)
+            and not re.search(r"mature adult red dragon\s+init\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-dragonshape-stat-block"
         if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
