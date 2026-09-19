@@ -296,6 +296,10 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bsee\s+(?:the\s+)?[^.;]{1,100}?\s+for\s+(?:more\s+)?details\b",
         re.I,
     )),
+    ("condition-as-the-spell", re.compile(
+        r"\b(?:slowed|hasted|confused|frightened|paralyzed|petrified|stunned|dazed|blinded|deafened|charmed)\s+as\s+the\s+spell\b",
+        re.I,
+    )),
 )
 
 
@@ -985,6 +989,8 @@ def run_self_test() -> None:
     assert "named-effect-shorthand" in external_mechanics_reasons("Those who succeed gain a true seeing effect.")
     assert "affected-by-shorthand" in external_mechanics_reasons("Those who fail behave as though affected by confusion.")
     assert "external-see-for-details" in external_mechanics_reasons("Failure by 5 or more means it falls; see the Balance skill for details.")
+    assert "condition-as-the-spell" in external_mechanics_reasons("A subject who fails a Will save is slowed as the spell.")
+    assert "condition-as-the-spell" not in external_mechanics_reasons("The effect lasts as long as the spell remains active.")
     assert "malformed-dice-notation" in suspicious_reasons({"effectSource":"Creatures in the burst take ld8 points of damage."})
     assert "malformed-dice-notation" not in suspicious_reasons({"effectSource":"Creatures in the burst take 1d8 points of damage."})
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
