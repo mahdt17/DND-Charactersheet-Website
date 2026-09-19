@@ -1066,6 +1066,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
+        if entry.get("id")=="spells/crumble-1748" and not parser.tables and re.search(r"maximum size of the object affected depends on your level",effect_source,re.I):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-crumble-size-table"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
