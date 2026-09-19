@@ -9439,6 +9439,238 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/create-trap-3076": {
+      "name": "Create Trap",
+      "sourceSha256": "aca06aeafea4fabc9f55bb9978ef902e108b44aa775e23439abd9555bb17eb40",
+      "effectSummary": "Creates one active CR 1 trap chosen from basic arrow trap, fusillade of darts, scything blade trap, or spear trap. The caster places its 5-foot-by-5-foot trigger in any square within spell range, and the trap is immediately complete and ready to spring.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-trap-3076",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-undead-2724": {
+      "name": "Create Undead",
+      "sourceSha256": "bd0d90ee08338bacf32b0ce0d579713f7d2d3136e57ac66f93fffcdeb13cd132",
+      "effectSummary": "Creates undead from a corpse at night according to caster level: 11th or lower can create a ghoul, 12th–14th a ghast, 15th–17th a mummy, and 18th+ a mohrg; the caster may choose a weaker eligible type. Created undead are not automatically controlled, though a caster capable of commanding undead can attempt to command them as they form. Each corpse requires black onyx worth at least 50 gp per Hit Die, which the spell consumes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-undead-2724",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-water-2376": {
+      "name": "Create Water",
+      "sourceSha256": "488e84a0a52a16d6bfd05b442ad2759599cb0fe11166e3f630cfc3ed30c6faaa",
+      "effectSummary": "Creates wholesome drinkable water like clean rainwater, placed in a volume that can contain it or spread over an area up to three times as large. It cannot be created inside a creature. Water weighs about 8 pounds per gallon; one cubic foot is roughly 8 gallons and 60 pounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-water-2376",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/creeping-cold-1921": {
+      "name": "Creeping Cold",
+      "sourceSha256": "b3d332a90303abaed6681edcbbb524a6e79774f5dbe0aa59fff8296d23350f4b",
+      "effectSummary": "Deals escalating cold damage for 3 rounds: 1d6 on round 1, 2d6 on round 2, and 3d6 on round 3. The target makes only one saving throw when the spell is cast; success halves the damage in every round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creeping-cold-1921",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/creeping-cold-4256": {
+      "name": "Creeping Cold",
+      "sourceSha256": "b3f614f469758614ae31116a307486e67ea61961d24981ea250c081cf8550650",
+      "effectSummary": "Deals escalating cold damage for 3 rounds: 1d6 on round 1, 2d6 on round 2, and 3d6 on round 3. The target makes only one saving throw when the spell is cast; success halves the damage in every round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creeping-cold-4256",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/creeping-cold-738": {
+      "name": "Creeping Cold",
+      "sourceSha256": "b3d332a90303abaed6681edcbbb524a6e79774f5dbe0aa59fff8296d23350f4b",
+      "effectSummary": "Deals escalating cold damage for 3 rounds: 1d6 on round 1, 2d6 on round 2, and 3d6 on round 3. The target makes only one saving throw when the spell is cast; success halves the damage in every round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creeping-cold-738",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/creeping-cold-greater-1928": {
+      "name": "Creeping Cold, Greater",
+      "sourceSha256": "ba004766d3e93c84d5a8cd11abdb933a584d05978bf9944d6d4149646a7b15d1",
+      "effectSummary": "Functions as creeping cold but extends the escalating damage: 1d6, 2d6, and 3d6 over the first three rounds, then 4d6 on round 4. At caster level 15+ it adds a fifth round for 5d6, and at level 20+ a sixth round for 6d6. The inherited creeping-cold save halves each round's damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creeping-cold-greater-1928",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/creeping-cold-1921",
+          "role": "same-primary-catalog cross-reference used to retain inherited Creeping Cold save and first-three-round mechanics"
+        }
+      ]
+    },
+    "spells/creeping-cold-greater-4258": {
+      "name": "Creeping Cold, Greater",
+      "sourceSha256": "a5025349f13797e4802d8f9c5d0b42dd439f82c9de916bd77f4776ed0db552be",
+      "effectSummary": "Functions as creeping cold but extends the escalating damage: 1d6, 2d6, and 3d6 over the first three rounds, then 4d6 on round 4. At caster level 15+ it lasts 5 rounds and deals 5d6 on the fifth; at level 20+ it lasts 6 rounds and deals 6d6 on the sixth. The inherited creeping-cold save halves each round's damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creeping-cold-greater-4258",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/creeping-cold-4256",
+          "role": "same-primary-catalog cross-reference used to retain inherited Creeping Cold save and first-three-round mechanics"
+        }
+      ]
+    },
+    "spells/creeping-cold-greater-739": {
+      "name": "Creeping Cold, Greater",
+      "sourceSha256": "8e6262649df6f32eba4adf9c6932dd4550ea9e77ce9cc175aafe279ee75993a8",
+      "effectSummary": "Functions as creeping cold but extends the escalating damage: 1d6, 2d6, and 3d6 over the first three rounds, then 4d6 on round 4. At caster level 15+ it adds a fifth round for 5d6, and at level 20+ a sixth round for 6d6. The inherited creeping-cold save halves each round's damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creeping-cold-greater-739",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/creeping-cold-1921",
+          "role": "same-primary-catalog cross-reference used to retain inherited Creeping Cold save and first-three-round mechanics"
+        }
+      ]
+    },
+    "spells/creeping-darkness-2064": {
+      "name": "Creeping Darkness",
+      "sourceSha256": "a429c4c9f19e8b6eadc90b198e229ef859135f31876d02e323d6eee43c36988a",
+      "effectSummary": "Creates a movable amorphous cloud of inky darkness that can be shaped and moved up to 20 feet per round while the caster concentrates and keeps it within range. It can seep through tiny cracks and float through air. Creatures whose visual organs are inside cannot see by normal vision or darkvision; vocal organs inside cannot speak or cast spells, and auditory organs inside cannot hear. Moderate wind disperses it in 5 rounds and strong wind in 2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creeping-darkness-2064",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/creeping-darkness-492": {
+      "name": "Creeping Darkness",
+      "sourceSha256": "32ef965d3e78d401dfb325608335fc1a949fca9353ed04e1eee66e3edfe9dd8f",
+      "effectSummary": "Creates a movable inky cloud that can be shaped and moved up to 20 feet per round while the caster concentrates. It blocks all light and sound: affected creatures are treated as blinded and deafened, including against darkvision, cannot speak or cast verbal-component spells, and creatures entirely inside have total concealment. Moderate wind disperses it in 5 rounds and strong wind in 2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creeping-darkness-492",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/creeping-doom-2377": {
+      "name": "Creeping Doom",
+      "sourceSha256": "e512a6792dbc775485a0fdf5ce9260e908b6d9473ffead61d4d46bf3bc04c2d6",
+      "effectSummary": "Summons one centipede swarm per two caster levels, maximum ten at 20th level. Swarms can appear in occupied areas and remain stationary attacking creatures in their spaces unless directed. As a standard action, the caster can command any number of swarms to move toward prey within 100 feet. A swarm cannot be commanded beyond 100 feet from the caster and becomes stationary if the caster moves farther away.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creeping-doom-2377",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crescendo-3307": {
+      "name": "Crescendo",
+      "sourceSha256": "3b425ba17b79e2b493e9734e1e428802c0c04c247a4656aebeed03b83d21084b",
+      "effectSummary": "Builds a martial fanfare over time. Round 1 grants no bonus; affected creatures gain +1 morale on attack rolls in round 2, +2 in round 3, and +3 in round 4. An ally more than 30 feet from the caster loses the bonus but regains the then-current bonus on returning within range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crescendo-3307",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crisis-of-confidence-1405": {
+      "name": "Crisis of Confidence",
+      "sourceSha256": "07b69cdfce5802dd7f1e9a6a476794abd80c20da6dddafa91c76eb68b632414b",
+      "effectSummary": "Strips away the target's battlefield leadership: it cannot add its Charisma bonus to rally checks, its commander rating becomes 0, and it loses any commander auras. The target can add its existing commander rating as a bonus on the Will save against this spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crisis-of-confidence-1405",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/critical-strike-370": {
+      "name": "Critical Strike",
+      "sourceSha256": "30acd863487482ea1514a8f2568f1e6df0e57bef1e8f8f3a8c7d57b8b7575969",
+      "effectSummary": "While active, melee attacks against a flanked foe or a foe denied Dexterity to AC deal +1d6 damage, double the weapon's threat range as keen edge, and gain +4 insight on critical-confirmation rolls. The threat-range increase does not stack with other threat-range increases. Creatures immune to sneak-attack damage are immune to the extra 1d6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/critical-strike-370",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/critical-strike-4260": {
+      "name": "Critical Strike",
+      "sourceSha256": "2b3615ee3c6c29b8acc7fb1a885d59288efbfd9373da270522f1b8c92f27a304",
+      "effectSummary": "While active, melee attacks against a flanked foe or a foe denied Dexterity to AC deal +1d6 damage, double the weapon's threat range as keen edge, and gain +4 insight on critical-confirmation rolls. The threat-range increase does not stack with other threat-range increases. Creatures immune to sneak-attack extra damage are immune to the extra 1d6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/critical-strike-4260",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/critical-strike-797": {
+      "name": "Critical Strike",
+      "sourceSha256": "be241af5fe58d75cb2422a63968b35f0669d9cff5397d5fa6962ed48b03e6de7",
+      "effectSummary": "The caster's next single attack roll, if made before the end of the next round, ignores concealment miss chance. Against total concealment the correct square must still be chosen. This also allows a sneak attack against a foe that has concealment.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/critical-strike-797",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-brilliance-65": {
+      "name": "Crown of Brilliance",
+      "sourceSha256": "a0ae919bd0f687fb9c36bd52e544afc7d5175444c5396113a0a1bce407628832",
+      "effectSummary": "Surrounds the caster with brilliant light. Creatures engaged in melee with the caster must make a Fortitude save or be blinded for 1d4 rounds; successful savers and creatures recovering from blindness remain dazzled while in melee. Creatures with light sensitivity or harmed by sunlight within the area must make a Will save or move outside it. Undead in the area take 1d6 damage each round. The required 100 gp opal must remain intact on the caster or the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-brilliance-65",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-of-clarity-2940": {
+      "name": "Crown of Clarity",
+      "sourceSha256": "fd2100e212cb2b69330400183f3ec7444a1a8a8ef4dcd2d0c771d77000c3eed2",
+      "effectSummary": "Creates a crown that grants +2 competence on Listen and Spot checks. As an immediate action, the wearer can discharge it for +8 on one Spot or Listen check, ending the spell. The crown occupies the head slot and the spell ends if it is removed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-of-clarity-2940",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crown-courage-3545": {
+      "name": "Crown of Courage",
+      "sourceSha256": "a9da96f31f87c40faf08738f31044d4839e5429ad84df8d4ac90b5a16f669652",
+      "effectSummary": "Creates a crown granting the wearer and allies within 30 feet +1 on attack rolls and weapon damage and +4 morale on saves against fear. As an immediate action, the wearer can discharge it to give the wearer and those allies a new save against current fear effects with the +4 morale bonus, ending the spell. It occupies the head slot; casting fails if the target already wears a head-slot item, and removing or replacing the crown ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crown-courage-3545",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
