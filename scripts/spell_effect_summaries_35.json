@@ -19091,6 +19091,221 @@
           "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for complete fog and ice mechanics"
         }
       ]
+    },
+    "spells/freezing-fog-457": {
+      "name": "Freezing Fog",
+      "sourceSha256": "d005ce62ee8e502a2b6ee2fb656c5e4ac2fd3d0dfcd46126944a225cc1a367bc",
+      "effectSummary": "Creates a dense freezing mist that blocks sight beyond 5 feet; creatures within 5 feet have concealment and those farther in have total concealment. On your turn each round, creatures and objects in the fog take 1d6 cold damage. Movement through the fog is limited to 5 feet regardless of normal speed, creatures inside take -2 on melee attack and damage rolls and -6 on ranged weapon attacks, and they cannot take 5-foot steps. Falling through the fog reduces effective falling distance by 10 feet for each 10 feet of fog crossed. All solid surfaces become icy; on your turn each round creatures in the area must make a Reflex save or fall, and standing creatures need a DC 10 Balance check to move, falling if they fail by 5 or more. Severe wind disperses the fog in 1 round, and the spell does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/freezing-fog-457",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/freezing-glance-1266": {
+      "name": "Freezing Glance",
+      "sourceSha256": "0744b2b71664e8ae92e60680db24be2f982fb69b21aef8929c3cb786ae61342b",
+      "effectSummary": "Each round you can target one living creature with your gaze. A failed Will save freezes the creature in place for 1 minute per caster level: it cannot move, attack, cast spells, or defend itself, loses shield and Dexterity bonuses to Armor Class, and takes an additional -4 AC penalty. A frozen creature gets another save when attacked; success restores its movement but does not make it immune to being targeted again by the same gaze on a later round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/freezing-glance-1266",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/friend-to-foe-2985": {
+      "name": "Friend to Foe",
+      "sourceSha256": "eecf028f73b07404c434c7173da6854701f5493072f307df2a500ef053ef5b7e",
+      "effectSummary": "Overlays phantasmal images on your enemies so that each appears to the others as something hated and must make a Will save to see through the illusion. A creature that fails turns on its closest ally and attacks that ally until it first deals damage, at which point the spell ends for that attacker. The material component is a swatch of white silk.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/friend-to-foe-2985",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/friendly-face-3044": {
+      "name": "Friendly Face",
+      "sourceSha256": "e3e75cd27457ff4c5400d0141ed1855f49f96c2aed1c72a751c4bfcf5d8ab5cd",
+      "effectSummary": "Subtly alters your appearance to seem especially friendly. You gain a +5 circumstance bonus on Diplomacy and Gather Information checks made to influence or gather information from creatures with Intelligence 3 or higher that are not already hostile toward you. The change is not significant enough to grant a Disguise bonus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/friendly-face-3044",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/friendly-fire-4965": {
+      "name": "Friendly Fire",
+      "sourceSha256": "ebbaac0901b7beb6dc59211be480d77c82977b3fb747ce8de5bbf1fa5db8eee8",
+      "effectSummary": "When you are targeted by a ranged attack or ranged touch attack, you can cast this spell to redirect that attack to another target within 30 feet, reusing the original attack roll; if that roll hits the new target, resolve the attack normally, otherwise it misses. If you instead cast the spell with a full-round casting time, its duration becomes 1 round per caster level rather than instantaneous.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/friendly-fire-4965",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/frost-breath-4540": {
+      "name": "Frost Breath",
+      "sourceSha256": "396356d6f85ba617602f97ef1f5effd523f90ba9b59543768378216ada4fcf20",
+      "effectSummary": "Breathes a cone of intense cold that deals 1d4 cold damage per two caster levels, maximum 5d4. A creature damaged by the spell that fails its Reflex save is also dazed for 1 round. The material component is three drops of water or fragments of ice held in a cupped palm and blown toward the targets.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/frost-breath-4540",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/frost-weapon-1312": {
+      "name": "Frost Weapon",
+      "sourceSha256": "e53a117919311103c0bd29d402ca60ba1a6118efe9e5e1f870e1780c0fb96508",
+      "effectSummary": "Imbues one weapon with cold so that each successful hit deals an extra 1d6 cold damage. On a bow, crossbow, or sling, the cold applies to ammunition fired from the weapon. The effect stacks with an existing frost weapon special ability but not with another casting of frost weapon. The material component is a drop of water.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/frost-weapon-1312",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/frostbite-1249": {
+      "name": "Frostbite",
+      "sourceSha256": "c48e12aaaa8f09ee5a025c86e63a1b580adea5a46f2563572fc9e71386bb1026",
+      "effectSummary": "Coats the targets in frost. A target that fails its Fortitude save takes 6d6 cold damage and 2d6 Dexterity damage. A creature reduced to 0 Dexterity is frozen in a layer of ice and cannot attack, move, or defend itself.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/frostbite-1249",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/frostburn-1283": {
+      "name": "Frostburn",
+      "sourceSha256": "08063e6e2d495c86c133239b362c366d5e465c074f9d5381983e6bd43558f517",
+      "effectSummary": "Functions as lesser frostburn with increased magnitude: a touch channels cold energy that deals 3d12 frostburn damage +1 per caster level, maximum +20. Against a creature with the cold subtype, the spell heals the same amount instead of dealing damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/frostburn-1283",
+          "role": "primary DnD Tools effect text reviewed and paraphrased; increased damage retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/frostburn-lesser-1284",
+          "role": "primary catalog base spell used to resolve inherited touch and cold-subtype healing mechanics"
+        }
+      ]
+    },
+    "spells/frostburn-lesser-1284": {
+      "name": "Frostburn, Lesser",
+      "sourceSha256": "33be744fe6b0d8fb56a331177227c20e82e5f6d54e14dfc3fd6e844014612eb4",
+      "effectSummary": "By touch, deals 1d12 frostburn damage +1 per caster level, maximum +5. If cast on a creature with the cold subtype, it heals the same amount instead of dealing damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/frostburn-lesser-1284",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/frostburn-mass-1285": {
+      "name": "Frostburn, Mass",
+      "sourceSha256": "e4a2089f888dcef89854d5dc467a764dee1bee61c4d84f13aa712d61fc52a617",
+      "effectSummary": "Releases cold energy from the point of origin, dealing 3d12 frostburn damage +1 per caster level, maximum +20, to affected enemies. Creatures with the cold subtype in the area are healed by that amount instead of damaged.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/frostburn-mass-1285",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/frostfell-slide-1250": {
+      "name": "Frostfell Slide",
+      "sourceSha256": "93e4e8377ae43651e0bbf0f4598373f62af5136937c71339083d7c620d9d7b53",
+      "tablesSha256": "d3b315bb54142979d96d463c56000f75c9311bcc1120864b087d7fe45eb543ed",
+      "effectSummary": "Lets you teleport instantly from one area of slush, snow, or ice to another such area. Maximum distance depends on the departure surface: 1,000 feet from slush, 2,000 feet from snow, or 3,000 feet from ice. You can hold the effect for up to the spell's duration before traveling, but the spell ends immediately when you arrive.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/frostfell-slide-1250",
+          "role": "primary DnD Tools effect text and transport-distance table reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fugue-4541": {
+      "name": "Fugue",
+      "sourceSha256": "dab2fbcf88874ea723949202cfc406ca4eaa0e040437ab42f338c2af2a3f5057",
+      "tablesSha256": "4ba44ce4b39f54b82f2c79a85393d1fa535341baa0cecc9f169600d43bec01dd",
+      "effectSummary": "Fills the area with haunting music that does not affect you. On each turn of a creature that failed its save and remains in the area, make a Perform check and choose any effect whose DC you meet: DC 15 deals 3d6 nonlethal damage; DC 20 deals 3d6 sonic damage; DC 25 knocks the victim prone; DC 30 nauseates it for 1 round; DC 35 stuns it for 1 round; DC 40 makes it attack the nearest target. Creatures that succeed on their save instead take -2 on attack rolls and skill checks while they remain in the area. The focus is a miniature platinum violin bow worth 250 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fugue-4541",
+          "role": "primary DnD Tools effect text and DC table reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/furnace-within-4813": {
+      "name": "Furnace Within",
+      "sourceSha256": "3af7b42eb3654cc89a43398d91a63564a13cc10e0bc5e192b06d705b7291847e",
+      "effectSummary": "Releases a burst of heat dealing 1d8 fire damage per two caster levels, maximum 5d8, igniting combustibles and damaging objects. If an intervening barrier is destroyed by the spell, the blast can continue beyond it when the area permits; otherwise the barrier stops the spell normally. While this spell is prepared, its mindset heats your body so that unarmed strikes, natural weapons, and melee attacks with metallic weapons deal +1 fire damage; that heat ends when you cast the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/furnace-within-4813",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fuse-arms-3228": {
+      "name": "Fuse Arms",
+      "sourceSha256": "7040d54be2f85e3212a4dee0d9f0e6b8d0e8f9e39c2385d61e66754559a3cfce",
+      "effectSummary": "Fuses multiple usable arms or grasping tentacles into one stronger pair; non-grasping limbs are unaffected. For each additional set fused into the primary pair, the subject gains +4 Strength only for activities using the fused limbs, while attacks or actions using bites, legs, and other body parts use normal Strength. The lost limbs reduce the number of attacks available to the subject.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fuse-arms-3228",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fuse-arms-4542": {
+      "name": "Fuse Arms",
+      "sourceSha256": "0cc0acc1ccd00c1a3c820217f0a8ac1ac00d15c441891ef182ed1ef10817254f",
+      "effectSummary": "Fuses a creature's usable arms or grasping tentacles into one stronger pair; non-grasping limbs are unaffected. For each additional set fused into the primary set, the subject gains +4 Strength only for activities using those fused limbs, while other attacks and body parts use normal Strength; losing limbs can reduce its available attacks. If the subject begins with only two arms or tentacles, they fuse into a single limb and attacks made with that limb gain +4 Strength.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fuse-arms-4542",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fuse-sand-3174": {
+      "name": "Fuse Sand",
+      "sourceSha256": "2b4c0bb9caf201773aa47241320922a2c9f12901c137503b6e1a8a25aa04a05a",
+      "effectSummary": "Melts normal sand slightly so it bonds into a soft, porous solid. Creatures in the area can make a Reflex save to escape before it hardens; creatures that fail are trapped and must be broken out, and one trapped beneath the surface begins to suffocate. The fused sand has hardness 3, 5 hit points per inch of thickness, and break DC 22. The material component is a glass marble.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fuse-sand-3174",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gelsewhere-chant-1758": {
+      "name": "G'elsewhere Chant",
+      "sourceSha256": "5ba4827f1236434025f71a30d7ad42c4e1de365fc177266f4af67c5c40e717ef",
+      "effectSummary": "Teleports the target to a random safe location within 100 feet that you can see. Roll 1d8 for direction and 1d10×10 feet for distance, rerolling if the destination is outside your line of sight, inside a solid object, or more than 5 feet above the ground. If the target is being held or grappled, the creature holding or grappling it also receives a Will save to resist the teleport.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gelsewhere-chant-1758",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/gelsewhere-chant-3877": {
+      "name": "G'Elsewhere Chant",
+      "sourceSha256": "34ea8528b54b7592d727a599d7926ce36123b2a8eac44ec97a2df6bf2813c9f8",
+      "effectSummary": "Teleports the touched target to a random safe location within 100 feet that you can see. Roll 1d8 for direction and 1d10×10 feet for distance, rerolling if the destination is outside your line of sight, inside a solid object, or more than 5 feet above the ground. If the target is being held or grappled, the creature holding or grappling it also receives a Will save to resist the teleport.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gelsewhere-chant-3877",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
