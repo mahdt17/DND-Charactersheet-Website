@@ -13399,7 +13399,7 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         },
         {
-          "url": "https://new.dndtools.org/spells/teleport-2437",
+          "url": "https://new.dndtools.org/spells/teleport-2461",
           "role": "same primary catalog referenced spell retained as the inherited teleport framework; Door to Great Evil replaces destination selection and mishap behavior with its two special modes"
         }
       ]
@@ -13513,7 +13513,7 @@
     },
     "spells/dragon-blight-1106": {
       "name": "Dragon Blight",
-      "sourceSha256": "23fd1cb93a37d65bf3464fe980e9cc76718d57d09f291a7425930db7db90bc48",
+      "sourceSha256": "25e732816aca855c3f86054abee05be4fabfb40843f7d558d78fd18b4069d0e6",
       "effectSummary": "Creates a phosphorescent cloud that harms dragons and dragonblood creatures. A dragonblood creature takes 1d8 damage per two caster levels, maximum 5d8; a creature of the dragon type takes 1d6 damage per caster level, maximum 10d6. Either target is also stunned for 1d4 rounds. A successful Fortitude save halves the damage and negates the stun. Including the claw of a Large-or-larger deep dragon worth 50–75 gp increases the spell's save DC by 2 and consumes the claw.",
       "provenance": [
         {
@@ -13524,7 +13524,7 @@
     },
     "spells/dragon-breath-1034": {
       "name": "Dragon Breath",
-      "sourceSha256": "b8ad74ce9b5388970b541a0f5cf3e993efdb9642b735f293d8541bf37ace8797",
+      "sourceSha256": "f9469eee5b801826bc40b6c1be29708f8bc68fdfd31c6093eee7454efa7e837f",
       "effectSummary": "Grants a breath weapon whose shape and energy are fixed when cast: a 60-foot line of acid, electricity, or fire, or a 30-foot cone of acid, cold, or fire. Using it is a standard action and deals 3d6 damage plus 1d6 per two caster levels above 5th, maximum 10d6 at 19th level, with Reflex half. You can use it three times plus one additional use per two levels above 5th, waiting 1d4+1 rounds between uses. It does not interfere with other breath weapons, grants no matching energy resistance or immunity, and only one dragon breath spell can be active at once. Sorcerers cast this printing at +1 caster level.",
       "provenance": [
         {
