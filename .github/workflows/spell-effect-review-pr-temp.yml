@@ -1,0 +1,59 @@
+name: Spell effect review (temporary PR bridge)
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/spell-effect-review-pr-temp.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: spell-effect-review-pr-temp
+  cancel-in-progress: true
+
+jobs:
+  review-shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6,7]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export long spell effects shard ${{ matrix.shard }}
+        run: >
+          python scripts/export_spell_effect_review.py
+          --shard-count 8 --shard-index ${{ matrix.shard }} --delay 0.08
+          --output test-results/review/shard-${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spell-effect-review-pr-temp-shard-${{ matrix.shard }}
+          path: test-results/review/shard-${{ matrix.shard }}.json
+          retention-days: 1
+
+  merge:
+    needs: review-shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: spell-effect-review-pr-temp-shard-*
+          path: test-results/review-shards
+          merge-multiple: true
+      - name: Merge review queue
+        run: >
+          python scripts/merge_spell_effect_review.py
+          --input-dir test-results/review-shards --shard-count 8
+          --output test-results/spell-effect-review.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spell-effect-review-pr-temp
+          path: test-results/spell-effect-review.json
+          retention-days: 1
