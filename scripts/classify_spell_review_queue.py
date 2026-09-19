@@ -44,33 +44,33 @@ KNOWN_REFERENCE_FIXTURES = {
 
 REFERENCE_PATTERNS = (
     re.compile(
-        r"\\b(?:functions?|works?|operates?)\\s+like\\s+"
-        r"(?P<name>[^.;:!?]{2,120}?)(?=,\\s*(?:except|but)\\b|[.;:!?]|$)",
+        r"\b(?:functions?|works?|operates?)\s+like\s+"
+        r"(?P<name>[^.;:!?]{2,120}?)(?=,\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
     ),
     re.compile(
-        r"\\b(?:functions?|works?|operates?)\\s+as\\s+"
-        r"(?!if\\b|though\\b|a\\b|an\\b)(?P<name>[^.;:!?]{2,120}?)(?=,\\s*(?:except|but)\\b|[.;:!?]|$)",
+        r"\b(?:functions?|works?|operates?)\s+as\s+"
+        r"(?!if\b|though\b|a\b|an\b)(?P<name>[^.;:!?]{2,120}?)(?=,\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
     ),
     re.compile(
-        r"(?:^|[.!?:]\\s+)As\\s+(?:the\\s+spell\\s+)?(?P<name>[^.!?]{2,120}?),\\s*(?:except|but)\\b",
+        r"(?:^|[.!?:]\s+)As\s+(?:the\s+spell\s+)?(?P<name>[^.!?]{2,120}?),\s*(?:except|but)\b",
         re.I,
     ),
     re.compile(
-        r"\\(\\s*as\\s+(?:the\\s+)?(?P<name>[^()]{2,100}?)(?:\\s+spell)?\\s*\\)",
+        r"\(\s*as\s+(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
     re.compile(
-        r"\\bas\\s+(?P<name>(?:greater|lesser)\\s+[A-Za-z][A-Za-z'’ -]{1,80})(?=[.;])",
+        r"\bas\s+(?P<name>(?:greater|lesser)\s+[A-Za-z][A-Za-z'’ -]{1,80})(?=[.;])",
         re.I,
     ),
     re.compile(
-        r"\\b(?:version\\s+of|as\\s+per\\s+(?:a\\s+)?standard)\\s+(?P<name>[A-Za-z][A-Za-z'’/-]{1,80})(?=[.;,(]|$)",
+        r"\b(?:version\s+of|as\s+per\s+(?:a\s+)?standard)\s+(?P<name>[A-Za-z][A-Za-z'’/-]{1,80})(?=[.;,(]|$)",
         re.I,
     ),
     re.compile(
-        r"\\b(?:identical\\s+to|same\\s+as)\\s+(?!if\\b|the\\s+original\\b|that\\b|those\\b)(?P<name>[^.;:!?]{2,100}?)(?=,\\s*(?:except|but)\\b|[.;:!?]|$)",
+        r"\b(?:identical\s+to|same\s+as)\s+(?!if\b|the\s+original\b|that\b|those\b)(?P<name>[^.;:!?]{2,100}?)(?=,\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
     ),
 )
@@ -111,11 +111,11 @@ def name_aliases(name: str) -> set[str]:
 
 def clean_reference_name(value: str) -> str:
     value = d35.clean(value or "")
-    value = re.sub(r"\\s*\\(\\s*(?:see\\b|p(?:age)?\\.?\\b|ph\\b)[^)]*\\)\\s*$", "", value, flags=re.I)
-    value = re.sub(r"^\\d+(?:st|nd|rd|th)-level\\s+(?:spell\\s+)?", "", value, flags=re.I)
-    value = re.sub(r"^(?:the\\s+)?(?:spell\\s+)?", "", value, flags=re.I)
-    value = re.sub(r"^(?:a|an)\\s+", "", value, flags=re.I)
-    value = re.sub(r"\\s+spell$", "", value, flags=re.I)
+    value = re.sub(r"\s*\(\s*(?:see\b|p(?:age)?\.?\b|ph\b)[^)]*\)\s*$", "", value, flags=re.I)
+    value = re.sub(r"^\d+(?:st|nd|rd|th)-level\s+(?:spell\s+)?", "", value, flags=re.I)
+    value = re.sub(r"^(?:the\s+)?(?:spell\s+)?", "", value, flags=re.I)
+    value = re.sub(r"^(?:a|an)\s+", "", value, flags=re.I)
+    value = re.sub(r"\s+spell$", "", value, flags=re.I)
     return d35.clean(value.strip(" ,;:-"))
 
 def extract_reference_names(effect_source: str) -> list[str]:
@@ -646,15 +646,18 @@ def run_self_test() -> None:
     ) == ["geas/quest"]
     assert extract_reference_names("The weapon functions as if cast by you.") == []
     assert extract_reference_names("The spell functions as though cast from the eye.") == []
-    assert extract_reference_names("Any scrying sees an image (as the major image spell).") == ["major image"]
-    assert extract_reference_names("You transport the target as greater teleport.") == ["greater teleport"]
-    assert extract_reference_names("Glass Creature: As flesh to stone (PH 232), but the subject becomes glass.") == ["flesh to stone"]
-    assert extract_reference_names("This spell is the same as reincarnate, except it works longer.") == ["reincarnate"]
-    assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
-    assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
-    assert extract_reference_names("The spell functions as though cast from the eye.") == []
-    assert extract_reference_names("Any scrying sees an image (as the major image spell).") == ["major image"]
-    assert extract_reference_names("You transport the target as greater teleport.") == ["greater teleport"]
+    assert extract_reference_names(
+        "Any scrying sees an image (as the major image spell)."
+    ) == ["major image"]
+    assert extract_reference_names(
+        "You transport the target as greater teleport."
+    ) == ["greater teleport"]
+    assert extract_reference_names(
+        "Glass Creature: As flesh to stone (PH 232), but the subject becomes glass."
+    ) == ["flesh to stone"]
+    assert extract_reference_names(
+        "This spell is the same as reincarnate, except it works longer."
+    ) == ["reincarnate"]
     assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
     assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
     assert "teleport greater" in name_aliases("Teleport, Greater")
@@ -665,7 +668,6 @@ def run_self_test() -> None:
     )
     assert near_family_key("short effect") == ""
     print(json.dumps({"selfTest": "passed"}, indent=2))
-
 
 def main():
     ap = argparse.ArgumentParser()
