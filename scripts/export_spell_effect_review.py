@@ -36,6 +36,7 @@ def main():
             raw=d35.fetch(row["url"],args.delay)
             parser=d35.DetailParser(); parser.feed(raw); parser.close()
             details=d35.parse_spell(parser,row)
+            effect_source=d35.spell_description_text(parser)
             needs_summary=bool(details.get("effectNeedsSummary") and not details.get("effectSummary"))
             if needs_summary or (args.include_complete and requested):
                 entries.append({
@@ -45,8 +46,16 @@ def main():
                     "domainLevels":details.get("domainLevels"),
                     "needsSummary":needs_summary,
                     "effectReferenceDependent":bool(details.get("effectReferenceDependent")),
+                    "sourceIncomplete":bool(details.get("sourceIncomplete")),
+                    "sourceIncompleteResolved":bool(details.get("sourceIncompleteResolved")),
+                    "sourceIncompleteMarker":details.get("sourceIncompleteMarker"),
+                    "supplementVerified":bool(details.get("supplementVerified")),
+                    "effectReviewMismatch":bool(details.get("effectReviewMismatch")),
+                    "effectReviewTableMismatch":bool(details.get("effectReviewTableMismatch")),
                     "tables":parser.tables,
-                    "effectSource":d35.spell_description_text(parser),
+                    "sourceSha256":d35.spell_effect_digest(effect_source),
+                    "tablesSha256":d35.spell_tables_digest(parser.tables) if parser.tables else None,
+                    "effectSource":effect_source,
                 })
         except Exception as exc:
             failures.append({"id":row.get("id"),"name":row.get("name"),"error":str(exc)})
