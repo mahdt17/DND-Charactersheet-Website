@@ -1140,6 +1140,21 @@
           "role": "preserved rendering of the official Oriental Adventures errata used to verify the exact Elemental Burst correction"
         }
       ]
+    },
+    "spells/enlarge-person-2805": {
+      "name": "Enlarge Person",
+      "effectSummary": "Instantly increases one humanoid by one size category, doubling height and multiplying weight by 8. The target gains +2 size Strength, -2 size Dexterity to a minimum of 1, and -1 on attack rolls and Armor Class from increased size; a creature enlarged to Large has 10-foot space and 10-foot natural reach, and speed does not change. If space is insufficient, the creature grows as much as possible and can make a Strength check using its increased Strength to burst the enclosure; failure leaves it constrained without damage, so the spell cannot crush a creature. Worn and carried equipment enlarges too. Enlarged melee and projectile weapons use the larger weapon's damage as applicable, while their other magical properties do not improve. An enlarged item that leaves the creature's possession returns to normal size; thrown weapons therefore deal normal damage, while projectiles deal damage based on the size of the weapon that fired them. Multiple magical size-increase effects do not stack. Enlarge person counters and dispels reduce person and can be made permanent with permanency.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/enlarge-person-2805",
+          "role": "primary Player's Handbook v.3.5 catalog record; rebuilt effect text is truncated/corrupted in the equipment paragraph"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/enlargePerson.htm",
+          "role": "3.5 SRD rendering used to restore the omitted equipment, size-stacking, reduce person, and permanency mechanics"
+        }
+      ]
     }
   }
 }

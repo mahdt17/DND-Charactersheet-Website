@@ -1120,6 +1120,13 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="contradictory-oriental-adventures-elemental-burst-target"
+        if entry.get("id")=="spells/enlarge-person-2805" and re.search(
+            r"see Table 2-2 in the permanency spell",
+            effect_source,
+            re.I,
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-enlarge-person-equipment-rules"
         if entry.get("id")=="spells/drown-5004" and re.search(
             r"or begin to drown \(see The Concentration check to cast a spell",
             effect_source,
