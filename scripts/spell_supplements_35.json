@@ -906,6 +906,21 @@
           "role": "Stormwrack sourcebook rendering used only to restore the omitted Profession (sailor) DC/result table"
         }
       ]
+    },
+    "spells/sandform-3176": {
+      "name": "Sandform",
+      "effectSummary": "For 1 minute per caster level, you and all worn or carried equipment become living sand. You take an oozelike form and gain immunity to poison, sleep, paralysis, polymorphing, and stunning; you are not subject to extra damage from critical hits or flanking, but you retain Intelligence, Wisdom, and Charisma and remain vulnerable to mind-affecting effects. You ignore environmental heat and dehydration but can still take fire and dessication damage. You become blind but gain blindsight 60 feet. Your base attack bonus, base saves, alignment, level, class, hit points, type/subtype, extraordinary abilities, spells, and spell-like abilities remain unchanged; supernatural abilities are suppressed. In demanding situations such as combat, you must make a DC 19 Will save or take -2 on attacks, saves, skill checks, and ability checks until the situation passes. Your land speed becomes 20 feet; you can pass through openings as small as 1/4 inch, though moving through a space at least two size categories smaller takes a full-round action. You gain a pseudopod slam with 5 feet of extra reach; damage by caster size is Fine —, Diminutive 1, Tiny 1d4, Small 1d6, Medium 1d8, Large 2d6, Huge 3d6, Gargantuan 4d6, Colossal 5d6. The number of pseudopod attacks follows your base attack bonus and each adds 1-1/2 times Strength damage; you cannot wield weapons in this form. In sandy terrain you gain a burrow speed equal to your land speed, +10 circumstance on Hide checks, and concealment. On death you revert to your normal form. The material component is sand taken from an earth-subtype elemental.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sandform-3176",
+          "role": "primary Sandstorm catalog record; rebuilt prose omits the caster-size/slam-damage table immediately after introducing it"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/Dungeons%20and%20dragons%20mega%20book%20pack/WIzards%20OF%20the%20coast%20Sourcebooks/Sandstorm%20%28OEF%2C%20BM%2C%20WE%29.pdf",
+          "role": "Sandstorm sourcebook copy used only to restore the omitted slam-damage table"
+        }
+      ]
     }
   }
 }
