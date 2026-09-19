@@ -13334,17 +13334,6 @@
         }
       ]
     },
-    "spells/doom-of-the-seas-3332": {
-      "name": "Doom of the Seas",
-      "sourceSha256": "197a3ef3133ffa5480a68750befd2dac598bc2c85f8362eab00bcc7b1006afbf",
-      "effectSummary": "Summons a fiendish kraken that obeys you for the spell's duration. The XP cost is 500 XP.",
-      "provenance": [
-        {
-          "url": "https://new.dndtools.org/spells/doom-of-the-seas-3332",
-          "role": "primary DnD Tools effect text reviewed and paraphrased for summoned creature, obedience, duration, and XP cost"
-        }
-      ]
-    },
     "spells/doom-scarabs-2947": {
       "name": "Doom Scarabs",
       "sourceSha256": "33ab5e715321eb94309208f9ccf5f6c1a96e482c81248ac2724269752ae3a6cc",
