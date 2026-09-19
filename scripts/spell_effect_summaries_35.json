@@ -15878,6 +15878,242 @@
           "role": "primary Player's Handbook v.3.5 printing and captured damage table reviewed and paraphrased"
         }
       ]
+    },
+    "spells/ethereal-breath-1038": {
+      "name": "Ethereal Breath",
+      "sourceSha256": "001d653981d01c4c92251dd0e12f50b993f4e2882987c1b68473d57d092b3eb6",
+      "effectSummary": "Modifies only the breath weapon produced as part of this casting so that it manifests on the Ethereal Plane instead of the Material Plane. You must be on the Material Plane or another plane with a coexistent Ethereal Plane. The breath affects ethereal creatures as though they were material and does not affect material creatures in its area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ethereal-breath-1038",
+          "role": "primary Draconomicon printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ethereal-breath-4456": {
+      "name": "Ethereal Breath",
+      "sourceSha256": "305bd9c7c758c49177a740e0d3262330e6505e7d9ad3624410de553e6debe3dc",
+      "effectSummary": "Requires a breath weapon, whether a supernatural ability or one supplied by a spell such as dragon breath. The breath used with this casting manifests on the Ethereal Plane rather than the Material Plane. You must be on the Material Plane or another plane with a coexistent Ethereal Plane. The breath affects ethereal creatures as though they were material and leaves material creatures in its area unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ethereal-breath-4456",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ethereal-chamber-3937": {
+      "name": "Ethereal Chamber",
+      "sourceSha256": "42cd58edf75766c8e3301016c123e1731fead8c77b0621387b4fff452e32305d",
+      "effectSummary": "Creates a crystalline force prison around a target on the Ethereal Plane that you can see or otherwise target. The subject cannot move on the Ethereal Plane or onto a coterminous plane, cannot make physical attacks or be physically attacked, and is unaffected by most spells and supernatural abilities. Gaze attacks and sonic spells can pass through the chamber, but the trapped creature gains +2 on saves against them. The subject can break free with a Strength check at DC 10 + caster level, and disintegrate destroys the chamber.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ethereal-chamber-3937",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ethereal-jaunt-2809": {
+      "name": "Ethereal Jaunt",
+      "sourceSha256": "f723477a74d395343ba52db3706b62829bb83fd09aba1288780b4001ee56a226",
+      "effectSummary": "Makes you and your equipment ethereal. While ethereal you are invisible and insubstantial, can move in any direction at half normal speed, can pass through solid material, and can see and hear the Material Plane only out to 60 feet. Force effects and abjurations from the Material Plane affect you normally. You cannot attack material creatures, and spells you cast while ethereal affect only ethereal targets, though some material creatures or effects can reach the Ethereal Plane. Other ethereal creatures and objects interact with you normally. When the spell ends you return to material existence; if you rematerialize inside a solid object, you are shunted to the nearest open space and take 1d6 damage per 5 feet moved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ethereal-jaunt-2809",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ethereal-mount-1855": {
+      "name": "Ethereal Mount",
+      "sourceSha256": "c814772382d7bfc41bd76c1c7d193d6daff68b201fb90b321c8a851e515df062",
+      "effectSummary": "On the Ethereal Plane, creates one or more quasi-real mounts that accept only you and riders you designate. Each mount has AC 18, 10 hit points +1 per caster level, no attacks, a speed of 240 feet on the Ethereal Plane, and carrying capacity equal to its rider's weight plus 10 pounds per caster level. A mount melts back into ethereal fog at 0 hit points. The spell can be cast only on the Ethereal Plane and the mounts never leave it. If the campaign uses the Deep Ethereal, travel time to destinations is halved while riding one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ethereal-mount-1855",
+          "role": "primary Manual of the Planes printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/ethereal-mount-4461": {
+      "name": "Ethereal Mount",
+      "sourceSha256": "f127d1b36eabaf601b19e4916ccbbbc6de25264804d4781fff661c060f6f53c1",
+      "effectSummary": "Creates one or more quasi-real mounts for riders you designate and otherwise functions as phantom steed except for this printing's overrides. Each mount has AC 18, hit points equal to 10 + caster level, no attacks, a speed of 240 feet on the Ethereal Plane, and can carry its rider plus 10 pounds per caster level; at 0 hit points it dissolves into ethereal fog. It retains phantom steed's caster-level abilities unless superseded: at caster level 8 it ignores difficult sandy, muddy, and swampy ground, at 10 it can water walk at will, at 12 it can air walk for 1 round at a time, and at 14 it can fly at its speed with average maneuverability. If the campaign uses the Deep Ethereal, travel time to destinations is halved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ethereal-mount-4461",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/phantom-steed-2415",
+          "role": "same primary catalog cross-reference used to resolve inherited phantom steed abilities"
+        }
+      ]
+    },
+    "spells/etherealness-2810": {
+      "name": "Etherealness",
+      "sourceSha256": "706d59706ba8aa49dc768e232d1d9cc7b019a20ffe782d6a658cc01d4638bda5",
+      "effectSummary": "Functions as ethereal jaunt for you plus one willing creature per three caster levels, provided all subjects are joined by linked hands when cast; once ethereal, they need not remain together. Subjects and their equipment become invisible and insubstantial, move in any direction at half normal speed, can pass through solid material, and can perceive the Material Plane only out to 60 feet. Force effects and abjurations from the Material Plane still affect them. Ethereal subjects cannot attack material creatures, and their spells affect only ethereal targets, though some material effects can reach the Ethereal Plane. When the spell ends all affected creatures return to material existence; a creature rematerializing inside solid matter is shunted to the nearest open space and takes 1d6 damage per 5 feet moved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/etherealness-2810",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/ethereal-jaunt-2809",
+          "role": "same primary catalog cross-reference used to resolve inherited ethereal jaunt mechanics"
+        }
+      ]
+    },
+    "spells/etherealness-swift-3015": {
+      "name": "Etherealness, Swift",
+      "sourceSha256": "fcf9747845cb2ea53b5ecdf42dea90a63147c1f4e33ddb508ba5f4d1c8469af7",
+      "effectSummary": "Makes the subject ethereal until the end of its next turn. If it would rematerialize inside a solid object or an occupied space, it is shunted to the nearest open space and takes 1d6 damage per 5 feet moved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/etherealness-swift-3015",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/evacuation-rune-899": {
+      "name": "Evacuation Rune",
+      "sourceSha256": "41f10576963bd2d4a10281a00b0a5199dcb809918205db7719a3b6f4b6ea9f5e",
+      "effectSummary": "Creates an invisible rune on a touched surface or inanimate object. At any time during the spell, you can use a swift action to teleport yourself and your carried gear back to the rune as greater teleport: there is no range limit or off-target chance, but the destination must remain on the same plane. Doing so ends the spell and prevents you from taking further actions until your next turn. The rune can be detected by the methods that reveal an invisible arcane mark, including detect magic, see invisibility, true seeing, a gem of seeing, or a robe of eyes. You are not warned if the rune is dispelled or its object destroyed, and trying to return to a missing rune wastes the swift action. A portable marked object can be moved without your knowledge. If the destination is obstructed, you take 1d6 damage and are shunted to open space within 100 feet; if none exists, you take 2d6 additional damage and are shunted within 1,000 feet; if no space exists there either, you take another 4d6 and the teleport fails.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/evacuation-rune-899",
+          "role": "primary Complete Scoundrel printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-greater-2462",
+          "role": "same primary catalog cross-reference used to resolve greater teleport range, accuracy, and planar limits"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/arcane-mark-2898",
+          "role": "same primary catalog cross-reference used to resolve detection methods for the invisible rune"
+        }
+      ]
+    },
+    "spells/evards-black-tentacles-2391": {
+      "name": "Evard's Black Tentacles",
+      "sourceSha256": "cc716fc5c18d9330d0101100cf2670201a721dde73457a470b4bdd878b54a8a1",
+      "effectSummary": "Fills the area with 10-foot tentacles that immediately attempt to grapple every creature present or entering later. Against each target, treat the tentacles as a Large creature with base attack bonus equal to caster level and Strength 19, for a grapple modifier of caster level +8. The tentacles are immune to all damage. A grappled creature takes 1d6+4 bludgeoning damage each round when the tentacles win another grapple check, continuing until it escapes or the spell ends. Even creatures not grappled can move through the area only at half normal speed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/evards-black-tentacles-2391",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/evards-menacing-tentacles-3016": {
+      "name": "Evard's Menacing Tentacles",
+      "sourceSha256": "82faae880d54495b4216b274ee6129f2da7abc4c359edfa6669aca45981e4f8e",
+      "effectSummary": "Grows two animated black tentacles from your shoulders, each with 10-foot reach. Starting on the casting turn, you can direct each tentacle as a free action once per round to attack one opponent in reach. They use your base attack bonus and Strength score and deal 1d8 + your Strength modifier bludgeoning damage. Each tentacle threatens its reach and can make one attack of opportunity per round. You also gain +4 on Climb checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/evards-menacing-tentacles-3016",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/evergreen-1305": {
+      "name": "Evergreen",
+      "sourceSha256": "901a97e674991fc76e9a625ffdef413244109c18bca5c6f1510109bb329d6b25",
+      "effectSummary": "Heals all plant life in a 10-foot-radius area for 1d8 +1 per caster level, maximum +10, and grants the affected plants immunity to cold for the spell's duration. It affects both ordinary plants and creatures with the plant subtype.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/evergreen-1305",
+          "role": "primary Frostburn printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/evil-eye-161": {
+      "name": "Evil Eye",
+      "sourceSha256": "3de747399f6b4ae75d58ec1fc5608b19cfe11fd21b67d18498ba107d3022e505",
+      "effectSummary": "Curses one creature with a -4 luck penalty on all attack rolls, saving throws, and checks. The curse ends at the next sunrise, when you dismiss it, when remove curse is cast on the subject, or when the subject deals at least 1 point of damage to you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/evil-eye-161",
+          "role": "primary Book of Vile Darkness printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/evil-glare-2189": {
+      "name": "Evil Glare",
+      "sourceSha256": "463aeb0cea0e2e848b37e8e932bcf2f48581f36f44dcfc955cb3df70d6bc3b73",
+      "effectSummary": "Immediately targets one living creature in range that can see you and that you can see; it need not meet your gaze. On a failed save the target is paralyzed with fear for 1d8 rounds. Once per round thereafter for the spell's duration, you can target another creature with the glare as a move action. A given creature can be targeted only once by the same casting, whether or not it saved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/evil-glare-2189",
+          "role": "primary Planar Handbook printing reviewed and paraphrased; its move-action repeat glare is preserved"
+        }
+      ]
+    },
+    "spells/evil-glare-4463": {
+      "name": "Evil Glare",
+      "sourceSha256": "b37666768f8850f15a8f9ba16b8fc8dc0b67dbd473ffd22e19a69a0f7f4e16c8",
+      "effectSummary": "Immediately targets one living creature in range that can see you and that you can see; it need not meet your gaze. On a failed save the target is paralyzed with fear for 1d8 rounds. Once per round thereafter for the spell's duration, you can target another creature with the glare as a standard action. A given creature can be targeted only once by the same casting, regardless of the save result.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/evil-glare-4463",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its standard-action repeat glare is preserved"
+        }
+      ]
+    },
+    "spells/exacting-shot-420": {
+      "name": "Exacting Shot",
+      "sourceSha256": "ff39a05a2d6318d420e5c18fa46ce58777db4a5f9438f25beb46f7f0013eb3d0",
+      "effectSummary": "Enhances one ranged weapon against your favored enemies. Every critical threat the weapon makes against a favored enemy is automatically confirmed. When you fire it at a favored enemy, the attack also ignores concealment miss chance unless the target has total concealment. The spell has no effect if either the weapon or the projectile has a magical effect or property related to critical hits.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/exacting-shot-420",
+          "role": "primary Complete Adventurer printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/exacting-shot-4464": {
+      "name": "Exacting Shot",
+      "sourceSha256": "755671f15f6922e093e76784bf0582f70ed43bfa2ed8ebc1d0570c03abd072dc",
+      "effectSummary": "Enhances one ranged weapon against your favored enemies. Every critical threat the weapon makes against a favored enemy is automatically confirmed. When you fire it at a favored enemy, the attack ignores concealment miss chance unless the target has total concealment. The spell has no effect if either the weapon or the projectile has a magical effect or property related to critical hits.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/exacting-shot-4464",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/exalted-fury-72": {
+      "name": "Exalted Fury",
+      "sourceSha256": "f61dc76e135c74c39852436a0d54b5b13c493b64dc508f06cd177e585132a1bb",
+      "effectSummary": "Deals damage to every evil creature in the spell's area equal to your current hit points +50. Casting the spell kills you as its sacrifice cost, though you can be raised or resurrected normally afterward.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/exalted-fury-72",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/exalted-raiment-4": {
+      "name": "Exalted Raiment",
+      "sourceSha256": "b3b74f2a7fedfe01609b3adc81f8c01153aa69703cf71ce0e0f8dc39de496169",
+      "effectSummary": "Imbues a robe, priestly garment, or ordinary clothing with benefits usable only by a good-aligned wearer: a +1 sacred Armor Class bonus per five caster levels, maximum +4; damage reduction 10/evil; spell resistance 5 + caster level, maximum 25; and a 1-point reduction to ability damage caused by spellcasting, to a minimum of 1 point. That reduction does not reduce this spell's own sacrifice cost. Nongood creatures can wear the garment but gain none of these benefits. Casting costs 1d4 Strength damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/exalted-raiment-4",
+          "role": "primary Book of Exalted Deeds printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/excavate-3510": {
+      "name": "Excavate",
+      "sourceSha256": "e054a53263050c75d3c66b9d91b87f217ea8b7008dd19b07b5412fc9bfa5511d",
+      "effectSummary": "Creates a permanent passage through wooden, plaster, or stone walls, but not metal or harder materials. A single casting can penetrate up to 1 foot of wall thickness per caster level using the spell's stated opening dimensions; against thicker barriers it creates only a niche or short tunnel, and repeated castings can extend the passage. Unlike passwall, the effect is instantaneous, does not expire, and cannot be dispelled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/excavate-3510",
+          "role": "primary Underdark printing reviewed and paraphrased"
+        }
+      ]
     }
   }
 }
