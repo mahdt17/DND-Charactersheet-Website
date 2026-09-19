@@ -1,8 +1,11 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/arcane-mark-2898",
-    "spells/teleport-greater-2462"
+    "spells/peacebond-361",
+    "spells/glyph-of-warding-2326",
+    "spells/geasquest-2551",
+    "spells/teleport-greater-2462",
+    "spells/major-image-2681"
   ],
-  "nonce": "2026-09-19-crossrefs-evacuation-rune"
+  "nonce": "2026-09-19-crossrefs-false-peacebond-fang-familial-refuge-vision"
 }
