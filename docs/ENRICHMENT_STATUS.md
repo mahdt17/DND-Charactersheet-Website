@@ -136,10 +136,10 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,066**
+- Digest-locked reviewed spell effects: **1,185**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
-- Permanent focused spell regression corpus: **69 / 69 green** on the 1,066-review validation head.
+- Permanent focused spell regression corpus: **70 / 70 green** on the 1,185-review validation head.
 - Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings are preferred when they can supply the missing mechanic.
 - Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
 
@@ -156,32 +156,37 @@ Review beyond the earlier 966 checkpoint exposed several source-page omissions t
 - `Know Greatest Enemy`: the Magic of Faerûn printing omits its CR/strength table; matching thresholds were restored from a same-primary printing.
 - Libris Mortis `Summon Undead I`: its 1st-level summon list is omitted by the rebuilt page. The exact older-printing list—Medium skeleton or Small zombie—was restored without importing later revision mechanics.
 - Ghostwalk `Weapon of the Deity`: its deity-specific favored-weapon property list is omitted by the rebuilt page. The exact Ghostwalk table was restored rather than normalizing to later printings.
+- `Doom of the Seas` (`spells/doom-of-the-seas-3332`): the rebuilt primary page says a creature statistics block follows but omits that block. The omitted *Stormwrack* Doom of the Seas / half-fiend kraken statistics are restored by a provenance-backed supplement while retaining the primary spell's own summoning, obedience, duration, and 500 XP-cost rules. This record remains **supplement-backed only** and is not digest-locked to the corrupt primary effect text.
 
-These records are supplement-backed and regression-pinned; they are **not** treated as ordinary digest-locked source prose.
+These records are supplement-backed and regression-pinned as appropriate; corrupt/incomplete source prose is **not** treated as a trustworthy ordinary digest-locked effect.
 
 ### Latest authoritative full spell audit
 
-Category Enrichment Audit **#55**, run **35416735536**, audited commit `7347936ad02ff6be28e3d27fedc831b17823fd15`, with **1,046** digest-locked reviewed summaries and all **69** focused source regressions active:
+Category Enrichment Audit run **35417846309** audited commit `0ad5b31e7d642892be09e7e9ccad12845f10d1b8` with **1,185** digest-locked reviewed summaries and all **70** focused source regressions active:
 
 - Samples: **25 / 25**, **50 / 50**, **100 / 100**, **250 / 250** passed.
 - Source shards: **8 / 8 passed**.
 - Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**.
 - Candidate shards: **8 / 8 generated successfully**.
-- Candidate/output audit: **1,714 / 5,035 output-complete**, **3,321 incomplete**, **34.0417%** output-complete.
+- Candidate/output audit: **1,854 / 5,035 output-complete**, **3,181 incomplete**, **36.8222%** output-complete.
+- `criticalMissingCount`: **3,181**.
 - `errors`: **empty**.
-- Sampled incomplete records still contain only the expected `effect` / `effectSummary` backlog.
+- Sampled incomplete records contain only the expected missing `effect` / `effectSummary` backlog.
 - `sourceExtractionVerified: true`
 - `outputCompletenessVerified: false`
 - `releaseReady: false`
 
-The workflow's overall failure is therefore **expected and correct**: the final output gate remains below 100%, and no completeness gate was weakened.
+The workflow's final `output-audit` job therefore reports **failure by design** because the independent final-output gate remains below 100%. The strengthened source gate passed cleanly and was not weakened.
 
-For comparison, the earlier authoritative checkpoints included:
+For comparison, earlier authoritative checkpoints included:
 
 - 966 reviews: **1,620 / 5,035** output-complete, **3,415** incomplete, **32.1748%**.
-- 1,026 reviews after the first expanded table-repair set: **1,687 / 5,035** output-complete, **3,348** incomplete, **33.5055%**.
+- 1,026 reviews: **1,687 / 5,035** output-complete, **3,348** incomplete, **33.5055%**.
+- 1,046 reviews: **1,714 / 5,035** output-complete, **3,321** incomplete, **34.0417%**.
+- 1,106 reviews: **1,774 / 5,035** output-complete, **3,261** incomplete, **35.2334%**.
+- 1,185 reviews: **1,854 / 5,035** output-complete, **3,181** incomplete, **36.8222%**.
 
-Review work has since advanced from the audited 1,046 checkpoint to **1,066** digest-locked summaries. The exact 1,066-review commit `70f23ba61a240946fa469686b52636a1ec1058a8` passed Validate modernization run **35416990096** end-to-end, including all **69 / 69** spell regressions, enrichment self-tests, the mechanical write gate, build, and browser suites.
+Validate modernization run **35417848494** passed end-to-end on the 1,185-review/Doom-repair audit head, including all spell regressions, enrichment self-tests, the mechanical write gate, build, and browser suites.
 
 No catalog enrichment and no `--write` operation has been performed. Supabase remains unchanged.
 
