@@ -1150,6 +1150,13 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="corrupt-extract-drug-table"
+        if (
+            entry.get("id")=="spells/favorable-sacrifice-1942"
+            and re.search(r"By expending 250 gp",effect_source,re.I)
+            and re.search(r"Gems worth a total of 1,000 gp, 5,000 gp, or 25,000 gp",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="mixed-printing-favorable-sacrifice-tiers"
         if entry.get("id")=="spells/drown-5004" and re.search(
             r"or begin to drown \(see The Concentration check to cast a spell",
             effect_source,
