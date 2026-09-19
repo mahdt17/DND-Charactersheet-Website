@@ -1155,6 +1155,70 @@
           "role": "3.5 SRD rendering used to restore the omitted equipment, size-stacking, reduce person, and permanency mechanics"
         }
       ]
+    },
+    "spells/evil-weather-139": {
+      "name": "Evil Weather",
+      "effectSummary": "Conjures one of five evil-weather manifestations over the spell's 1-mile-per-caster-level radius for 3d6 minutes, replacing the normal area and duration of the Chapter 2 weather. Violet rain severs connection with divine agencies for 24 hours: divine spellcasters cannot access spells, existing divine spell effects are suppressed, and divinely infused magic items cease functioning; this version additionally costs 10,000 gp in amethysts and 200 XP. Green fog forces living creatures it touches to make Fortitude DC 17 or be polymorphed into a random creature, using reincarnate or an appropriate wilderness list to determine the form. Plague of nettles deals 1d2 damage each round to unsheltered creatures, rapidly destroys crops and forests, and leaves the area infested a week later with dangerous animate plants such as assassin vines, tendriculoses, and shambling mounds. Rain of blood forces living nonevil creatures to make Will DC 20 or take a -1 morale penalty on attack and damage rolls, checks, and saves for 24 hours, while corporeal undead in the rain gain a +1 morale bonus on those rolls for 24 hours. Rain of frogs or fish deals 1d3 damage each round to anyone without shelter, and about one falling animal in twenty survives briefly. Other weather forms have no material component or XP cost. Casting always inflicts the spell's 3d6 Constitution-damage corruption cost.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/evil-weather-139",
+          "role": "primary Book of Vile Darkness spell record; it delegates the actual weather mechanics to Chapter 2"
+        },
+        {
+          "url": "https://housegriffon.com/RPG/Games/DnD/dd3.x/3.0eCore/BookVileDarkness.pdf",
+          "role": "same-source Book of Vile Darkness Chapter 2 evil-weather rules used to restore the delegated violet rain, green fog, plague of nettles, rain of blood, and rain of frogs/fish mechanics"
+        }
+      ]
+    },
+    "spells/extract-drug-140": {
+      "name": "Extract Drug",
+      "effectSummary": "Infuses a qualifying focus to create one magical drug dose as greenish fumes, which must be inhaled as a standard action within 1 round. Metal produces Baccaran and lowers the metal's hardness by 1. Stone produces Vodare and lowers the stone's hardness by 1. Water produces Sannish and becomes brackish and foul. Air produces Mordayn vapor and leaves a foul odor in an area up to a 50-foot radius for 1 hour. Wood produces Mushroom powder and takes on a permanent foul odor. Rarer substances can produce other drugs at the DM's discretion. The required focus is 15 pounds or 1 cubic foot of the chosen material.",
+      "tables": [
+        [
+          [
+            "Material",
+            "Drug Extracted",
+            "Effect on Focus"
+          ],
+          [
+            "Metal",
+            "Baccaran",
+            "Metal's hardness drops by 1."
+          ],
+          [
+            "Stone",
+            "Vodare",
+            "Stone's hardness drops by 1."
+          ],
+          [
+            "Water",
+            "Sannish",
+            "Water becomes brackish and foul."
+          ],
+          [
+            "Air",
+            "Mordayn vapor",
+            "Foul odor fills the area (up to 50-ft. radius) for 1 hour."
+          ],
+          [
+            "Wood",
+            "Mushroom powder",
+            "Wood takes on a permanent foul odor."
+          ]
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/extract-drug-140",
+          "role": "primary Book of Vile Darkness spell record; rebuilt table corrupts the air/wood drug names and wood focus-effect text"
+        },
+        {
+          "url": "https://www.tjlee.com/DnD/BoVileDarkness.pdf",
+          "role": "clean rendering of the same Book of Vile Darkness spell table used to restore Mordayn vapor, Mushroom powder, and the wood focus effect"
+        }
+      ]
     }
   }
 }

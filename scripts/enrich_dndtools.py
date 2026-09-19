@@ -998,6 +998,16 @@ def apply_spell_supplement(entry: dict, details: dict) -> dict:
     if supplement.get("effectSummary"):
         result.pop("effectNeedsSummary",None)
         result.pop("effectSourceLength",None)
+    replacement_tables=supplement.get("tables")
+    if replacement_tables not in (None,"",[],{}):
+        if supplement.get("resolvesSourceIncomplete") and result.get("sourceIncomplete"):
+            result["tables"]=replacement_tables
+            result["supplementTableReplacement"]=True
+        elif result.get("tables") in (None,"",[],{}):
+            result["tables"]=replacement_tables
+        elif normalized_compare(result.get("tables"))!=normalized_compare(replacement_tables):
+            conflicts.append("tables")
+            result["supplementConflicts"]=conflicts
     if supplement.get("resolvesSourceIncomplete") and result.get("sourceIncomplete"):
         result["sourceIncompleteResolved"]=True
     return result
@@ -1127,6 +1137,19 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-enlarge-person-equipment-rules"
+        if entry.get("id")=="spells/evil-weather-139" and re.search(
+            r"functions as described in Chapter 2 of this book",
+            effect_source,
+            re.I,
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="external-evil-weather-rules-not-inline"
+        if entry.get("id")=="spells/extract-drug-140" and any(
+            re.search(r"Wood takes on powder a permanent foul odor",clean(cell),re.I)
+            for table in parser.tables for row in table for cell in row
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-extract-drug-table"
         if entry.get("id")=="spells/drown-5004" and re.search(
             r"or begin to drown \(see The Concentration check to cast a spell",
             effect_source,
