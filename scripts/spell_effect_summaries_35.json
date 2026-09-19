@@ -16806,6 +16806,149 @@
           "role": "primary catalog base spell used to resolve inherited ward placement, concealment, dispelling, deception, and trap-handling mechanics"
         }
       ]
+    },
+    "spells/fantastic-machine-4477": {
+      "name": "Fantastic Machine",
+      "sourceSha256": "4606c384552523a34b8fd840f484d0060e55687e2113b57534cf672a016eb51e",
+      "effectSummary": "Creates a noisy, many-armed machine that follows one simple physical task of 25 words or fewer chosen at casting; the task can repeat but cannot later be changed. It acts on your initiative, including the casting turn, as a Large animated object with speed 40 ft., swim 10 ft., fly 10 ft. (clumsy), 22 hp, AC 14, hardness 10, Strength 16, and Fort +1, Ref +1, Will -4. Its loads are 172 lb. light, 173–346 lb. medium, and 347–520 lb. heavy; it can swim or fly only while lightly loaded, lift 1,040 lb. to 15 feet, push or drag 2,600 lb., excavate 7,000 lb. of loose rock per minute or twice that amount of sand/loose soil, and clear a 5-foot cube of loose rock in 3 rounds. It makes one slam per round at +5 for 1d8+4 damage, tripled to 3d8+12 against stone or metal, and can hurl Small rocks at +3 with a 150-foot range increment out to 10 increments for 2d6+4 damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fantastic-machine-4477",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/greater-fantastic-machine-1213": {
+      "name": "Fantastic Machine, Greater",
+      "sourceSha256": "d1470a357fcb88ffa6618b308ab7fa14f130b596c8b0840f86f4251b26e93a34",
+      "effectSummary": "Creates a massive adamantine machine that can either follow your direct concentration or execute a simple programmed physical task; directing or reprogramming it is a standard action. It acts on your initiative, including the casting turn, as a Large animated object with speed 60 ft., swim 20 ft., fly 20 ft. (poor), 16 HD, 88 hp, AC 20, hardness 20, Strength 22, and Fort +5, Ref +5, Will +0. Its loads are 520 lb. light, 521–1,040 lb. medium, and 1,041–1,560 lb. heavy; it can swim or fly only while lightly loaded, lift 3,120 lb. to 15 feet, push or drag 7,800 lb., excavate 20,000 lb. of loose rock per minute or twice that amount of sand/loose soil, and clear a 5-foot cube of loose rock in 1 round. It slams at +17/+12 for 1d8+9 damage, tripled to 3d8+27 against stone or metal, and can hurl Small rocks at +12/+7 with a 150-foot range increment out to 10 increments for 2d6+9 damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/greater-fantastic-machine-1213",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fatal-flame-906": {
+      "name": "Fatal Flame",
+      "sourceSha256": "b7956dbe64190ef7930d3a282716952cbdcbd470d7f069de5d089ab8f9716219",
+      "effectSummary": "Plants a dormant spark of elemental fire inside one creature; the target can negate the spell with a Will save and suffers no effect while alive. When the target dies, its body explodes and deals fire damage to every adjacent creature equal to twice the target’s Hit Dice or twice your caster level, whichever is lower, to a maximum of 20 damage; creatures below 1 HD count as 1/2 HD, producing 1 damage. A Reflex save halves the explosion damage. The material component is a splinter of charred bone.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fatal-flame-906",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fatigue-2109": {
+      "name": "Fatigue",
+      "sourceSha256": "3a6d4dfaead3237e9df1879daf95506e30ccba317e57193c4f66b21c3bf0b6ff",
+      "effectSummary": "Makes the subject fatigued: -2 Strength and Dexterity, inability to run or charge, and any effect that would normally cause fatigue instead makes it exhausted. A subject already fatigued becomes exhausted, moving at half speed and taking -6 Strength and Dexterity. Normal rest can remove the spell’s condition; removing fatigue requires 8 hours of rest.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fatigue-2109",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/favor-of-ilmater-1710": {
+      "name": "Favor of Ilmater",
+      "sourceSha256": "ff40c569680db0cbf46f6a87a84e5a5fb0f142941006c6b9d220935edf5ed2f1",
+      "effectSummary": "Choose one of two effects. Divine Fortitude lasts 1 minute per level and makes the target immune to nonlethal damage, charm, compulsion, pain-based attacks, and effects that would daze, exhaust, fatigue, nauseate, stagger, or stun it; the target remains conscious from -1 to -9 hp and can take a partial action each round. Existing listed conditions are suspended and return afterward only if their normal duration has not expired. Pact of Martyrdom instead exchanges your actual hit-point total with the target’s, and works only if you currently have more hit points; unconscious/dying or stabilized status transfers with the exchanged total, while temporary hit points do not. Non-Ilmater clerics and paladins rename the spell for their own deity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/favor-of-ilmater-1710",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/favor-of-ilmater-2271": {
+      "name": "Favor of Ilmater",
+      "sourceSha256": "64329616a048ac1c71fb82cfe5f8d9fd0283f2e290211b872a60b21eebb91f5d",
+      "effectSummary": "Makes the target immune to nonlethal damage, charm and compulsion, pain-based attacks, and effects that would daze, exhaust, fatigue, nauseate, sicken, stagger, or stun it. The target remains conscious from -1 to -9 hit points and can take one action each round in that state. Existing listed conditions are suspended for the duration and return afterward only if they have not otherwise expired. The target also gains the Endurance feat for the spell’s duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/favor-of-ilmater-2271",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/favor-martyr-4479": {
+      "name": "Favor of the Martyr",
+      "sourceSha256": "20bbd47ef33d1d06fe1bd5951a9ebe3318e4fd43a4cf4ce7bdfa839c9855520e",
+      "effectSummary": "Makes the subject immune to nonlethal damage, charm and compulsion, pain-based attacks, and effects that would daze, exhaust, fatigue, nauseate, sicken, stagger, or stun it. The subject remains conscious from -1 to -9 hit points, can take one action each round in that state, and does not lose a hit point for acting. Existing listed conditions are suspended for the duration and return afterward only if they have not otherwise expired. The subject also gains the Endurance feat for the spell’s duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/favor-martyr-4479",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/favor-of-yathaghera-3295": {
+      "name": "Favor of Yathaghera",
+      "sourceSha256": "612c1865d7c9f8ab6fd0ecefce1a3adb1e1a7b4e708a802c4389060f1264c64e",
+      "effectSummary": "Gives the target large pegasuslike feathered wings and a fly speed of 100 feet with average maneuverability. The wings function immediately as natural parts of the creature’s body. Ride checks to control the creature are made as though it were not flying, so a rider accustomed to an equivalent ground mount can handle the flying mount normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/favor-of-yathaghera-3295",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/favorable-sacrifice-4480": {
+      "name": "Favorable Sacrifice",
+      "sourceSha256": "999587850fa136cc7fefad93aa0de689a38504bfa9e3d2fcdd6d42ec2438067a",
+      "effectSummary": "Grants one of three nonstacking protection tiers based on the gems consumed. A 250 gp sacrifice grants DR 5/magic, resistance 10 to acid, cold, electricity, fire, and sonic, and spell resistance equal to your caster level. A 1,000 gp sacrifice grants DR 10/magic, resistance 15 to each listed energy type, and spell resistance equal to caster level +5. A 10,000 gp sacrifice grants DR 20/magic, resistance 20 to each listed energy type, and spell resistance equal to caster level +10. The material component is gems worth exactly the selected 250 gp, 1,000 gp, or 10,000 gp tier.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/favorable-sacrifice-4480",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/favorable-wind-3347": {
+      "name": "Favorable Wind",
+      "sourceSha256": "64de4e7cfefc7535c9bad389456b9fda16d889feee15ba0ff6b2ab6490513732",
+      "effectSummary": "Creates a roughly 30 mph strong wind blowing directly away from you that can fill sails, disperse gases, and impede creatures. Tiny or smaller creatures are knocked prone, or if airborne blown back 1d6×10 feet; Small creatures are checked and cannot advance, or if airborne are blown back 1d6×5 feet. Medium or larger creatures move normally, and no creature can be pushed beyond the spell’s range. All creatures in the area take -2 on ranged attacks and Listen checks. The wind extinguishes candles, torches, and similar unprotected flames and can perform other strong-wind effects, including fanning fires, dispersing gases or vapors through its range in 1 round, and making sailing difficult for nearby small craft.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/favorable-wind-3347",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fear-2736": {
+      "name": "Fear",
+      "sourceSha256": "cbbbdc1214cb4e373a3e93b0b8e10e5f0ee6fe2ea622f9e589066528ce3ca03a",
+      "effectSummary": "Projects an invisible cone of terror. Each living creature in the area that fails its Will save becomes panicked and cowers if cornered; a creature that succeeds is shaken for 1 round instead. The material component is either a hen’s heart or a white feather.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fear-2736",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fearsome-grapple-4481": {
+      "name": "Fearsome Grapple",
+      "sourceSha256": "e4843c6e9aa291da1470b09c965a802ec5807c2600a76e741bc4432cbb0d7f53",
+      "effectSummary": "Grows two otyugh-like tentacles that can be used only to assist grappling and grant a +4 circumstance bonus on grapple checks; they cannot attack, hold or manipulate objects, or perform any other action. At caster level 9th or higher, you grow four tentacles instead and the grapple bonus increases to +8.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fearsome-grapple-4481",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/feast-champions-4898": {
+      "name": "Feast of Champions",
+      "sourceSha256": "dd573c2c8d1a3bd3de1a800e3a081bc6de3a14b04a6894bc261f529479431e35",
+      "effectSummary": "Conjures a feast that requires 1 uninterrupted hour to consume; if interrupted, the spell is ruined and grants no benefits. After completion, every participant is cured of diseases, sickness, nausea, fatigue, and exhaustion, any existing poison is neutralized, and each participant becomes immune to poison for 12 hours. The feast’s drink heals 2d8 +1 per caster level damage, maximum +20, and grants 1d8 temporary hit points +1 per two caster levels, maximum +10. Its food grants a +1 morale bonus on attack rolls, skill checks, ability checks, and saving throws plus immunity to fear effects for 12 hours.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/feast-champions-4898",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
