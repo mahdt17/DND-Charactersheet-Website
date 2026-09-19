@@ -136,13 +136,13 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,398**
+- Digest-locked reviewed spell effects: **1,438**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
-- Permanent focused spell regression corpus: **79 / 79 green**
-- Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings and official errata are preferred when they can supply the missing mechanic.
+- Permanent focused spell regression corpus: **81 / 81 green**
+- Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, delegated outside the spell page, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings and official errata are preferred when they can supply the missing mechanic.
 - Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
-- **Reference-dependent spell effects remain strict:** short prose such as “functions like/as …” or “as …, except/but …” does not count as standalone-complete until inherited mechanics are resolved into a self-contained reviewed effect summary. The detector excludes ordinary “functions as if …” phrasing so those clauses are not falsely classified as spell references.
+- **Reference-dependent spell effects remain strict:** short prose such as “functions like/as …” or “as …, except/but …” does not count as standalone-complete until inherited mechanics are resolved into a self-contained reviewed effect summary. Generic rules language such as “functions as a splash weapon” and ordinary “functions as if …” phrasing is excluded from this detector so those clauses are not falsely treated as spell references.
 
 ### Recent source-completeness repairs
 
@@ -155,21 +155,23 @@ The current permanent regression corpus includes the damaged-primary/parser case
 - `Dreaded Form of the Eye Tyrant` (`spells/dreaded-form-of-the-eye-tyrant-873`): rebuilt primary effect is truncated; repaired by supplement.
 - `Drown` (`spells/drown-5004`, Dragonlance Campaign Setting): rebuilt primary text truncates after “or begin to drown (see The...” and later resumes near the Concentration rule. The supplement restores the omitted staggered state, immunity for creatures that do not breathe or can breathe water, DC 25 Concentration requirement, and speech/verbal-component restrictions.
 - Oriental Adventures `Elemental Burst` (`spells/elemental-burst-2066`): the rebuilt primary page lists “wood, fire, water, stone, or air” even though the same effect supplies metal mechanics and no air mechanics. Official *Oriental Adventures* errata changes the final target element from **air** to **metal**.
-- `Enlarge Person` (`spells/enlarge-person-2805`): the rebuilt Player's Handbook effect corrupts/truncates the equipment paragraph at “see Table 2-2 in the permanency spell.” The supplement restores the omitted equipment resizing, item-leaving-possession, projectile/thrown-weapon, nonstacking size-increase, reduce person, and permanency mechanics from the 3.5 SRD rendering.
+- `Enlarge Person` (`spells/enlarge-person-2805`): the rebuilt Player's Handbook effect corrupts/truncates the equipment paragraph; the supplement restores the missing equipment, size-stacking, reduce person, and permanency mechanics.
+- `Evil Weather` (`spells/evil-weather-139`): the spell page delegates its actual weather mechanics to Chapter 2 instead of including them. The supplement restores the five weather modes from the same *Book of Vile Darkness* source and preserves the spell-specific radius, duration, corruption cost, and violet-rain costs.
+- `Extract Drug` (`spells/extract-drug-140`): the rebuilt spell table corrupts the air/wood rows. A source-incomplete-only table replacement restores **Mordayn vapor** for air and **Mushroom powder** for wood plus the correct focus effects. Spell supplements may replace parsed tables only when the exact record is already flagged source-incomplete and the supplement explicitly resolves that defect.
 
-These records remain supplement-backed where the primary source is damaged or contradictory; corrupt source text is **not** accepted as an ordinary digest-locked review.
+These records remain supplement-backed where the primary spell page is damaged, contradictory, or not self-contained; corrupt source text is **not** accepted as an ordinary digest-locked review.
 
 ### Latest authoritative full spell audit
 
-Category Enrichment Audit **#74**, run **35426962308**, audited commit `7c6f0f42373bd5ff9efd16a70e5cc8b4fd3743f9` with **1,398** digest-locked reviewed summaries and **79** permanent focused spell regressions:
+Category Enrichment Audit **#75**, run **35428021129**, audited commit `4dc063f94e05fd46ddcbce948ab90145d6f9a3b8` with **1,438** digest-locked reviewed summaries and **81** permanent focused spell regressions:
 
 - Samples: **25 / 25**, **50 / 50**, **100 / 100**, **250 / 250** passed.
 - Source shards: **8 / 8 passed**.
 - Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**, `coverageErrors: []`.
 - Candidate shards: **8 / 8 generated successfully**.
 - Candidate merge: **5,035 / 5,035 exact candidate records**, no duplicates, missing IDs, unexpected IDs, or merge errors.
-- Candidate/output audit: **1,726 / 5,035 output-complete**, **3,309 incomplete**, **34.2800%** output-complete.
-- `criticalMissingCount`: **3,309**.
+- Candidate/output audit: **1,768 / 5,035 output-complete**, **3,267 incomplete**, **35.1142%** output-complete.
+- `criticalMissingCount`: **3,267**.
 - `errors`: **empty**.
 - `sourceExtractionVerified: true`
 - `outputCompletenessVerified: false`
@@ -182,8 +184,9 @@ For comparison, recent strict-reference checkpoints include:
 - 1,340 reviews / 78 regressions: **1,667 / 5,035** output-complete, **3,368** incomplete, **33.1082%**.
 - 1,359 reviews / 79 regressions: **1,686 / 5,035** output-complete, **3,349** incomplete, **33.4856%**.
 - 1,398 reviews / 79 regressions: **1,726 / 5,035** output-complete, **3,309** incomplete, **34.2800%**.
+- 1,438 reviews / 81 regressions: **1,768 / 5,035** output-complete, **3,267** incomplete, **35.1142%**.
 
-The next ordinary review queue begins immediately after `spells/ethereal-alarm-1331`. Same-name and same-family printing differences must remain independent, cross-referenced base mechanics must be resolved into standalone summaries from the same primary catalog when available, and damaged-primary records must be diverted to supplements instead of digest-locking bad source text.
+The next ordinary review queue begins immediately after `spells/extract-drug-140`. `Phantom Steed` and `Spurn the Supernatural` were also reviewed opportunistically because current records inherited their mechanics. Same-name and same-family printing differences must remain independent, cross-referenced base mechanics must be resolved into standalone summaries from the same primary catalog when available, and damaged-primary records must be diverted to supplements instead of digest-locking bad source text.
 
 No catalog enrichment and no `--write` operation has been performed. Supabase remains unchanged.
 
@@ -200,4 +203,4 @@ Do **not** use `--write` and do **not** unlock live/catalog writes. Overall rele
 
 ## Validation status
 
-The current 1,398-review / 79-regression audit head (`7c6f0f42373bd5ff9efd16a70e5cc8b4fd3743f9`) passed Validate modernization run `35426965297` end-to-end. The checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
+The current 1,438-review / 81-regression audit head (`4dc063f94e05fd46ddcbce948ab90145d6f9a3b8`) passed Validate modernization run `35428022567` end-to-end. The checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
