@@ -1,26 +1,12 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/gaseous-form-2819",
-    "spells/gate-2394",
-    "spells/gate-seal-1191",
-    "spells/gaze-screen-1096",
-    "spells/gaze-screen-3381",
-    "spells/geas-lesser-2550",
-    "spells/geasquest-2551",
-    "spells/gedlees-electric-loop-1673",
-    "spells/gedlees-electric-loop-2251",
-    "spells/gelid-blood-1286",
-    "spells/gem-tracer-1098",
-    "spells/gembomb-1194",
-    "spells/gembomb-3878",
-    "spells/gemjump-1759",
-    "spells/gemjump-3896",
-    "spells/general-undeath-1371",
-    "spells/general-undeath-1711",
-    "spells/general-undeath-2273",
-    "spells/general-undeath-3897",
-    "spells/genesis-1134"
+    "spells/planar-ally-lesser-2419",
+    "spells/locate-object-2506",
+    "spells/scrying-2512",
+    "spells/plane-shift-2423",
+    "spells/teleport-without-error-5027",
+    "spells/teleport-greater-2462"
   ],
-  "nonce": "2026-09-19-review-gaseous-form-through-genesis"
+  "nonce": "2026-09-19-g-section-reference-bases"
 }
