@@ -773,7 +773,7 @@ def main():
     queue_entries = queue.get("entries") or []
     catalog_rows = load_json(CATALOG, [])
     by_id, by_alias = build_catalog_indexes(catalog_rows)
-    summaries = load_json(SUMMARIES, {"entries": {}})
+    summaries = {"entries": dict(d35.spell_effect_summaries())}
     supplements = load_json(SUPPLEMENTS, {"entries": {}})
     regressions = set(
         (load_json(REGRESSIONS, {"recordIds": []}).get("recordIds") or [])
