@@ -1,8 +1,8 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/phantom-steed-2415",
-    "spells/spurn-the-supernatural-3435"
+    "spells/arcane-mark-2898",
+    "spells/teleport-greater-2462"
   ],
-  "nonce": "2026-09-19-crossrefs-phantom-steed-spurn-supernatural"
+  "nonce": "2026-09-19-crossrefs-evacuation-rune"
 }
