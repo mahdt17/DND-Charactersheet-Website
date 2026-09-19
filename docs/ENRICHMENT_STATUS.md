@@ -136,12 +136,13 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **1,320**
+- Digest-locked reviewed spell effects: **1,340**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
 - Permanent focused spell regression corpus: **78 / 78 green**
 - Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings and official errata are preferred when they can supply the missing mechanic.
 - Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
+- **Reference-dependent spell effects are now strict:** short prose such as “functions like/as …” or “as …, except/but …” no longer counts as standalone-complete merely because it is short. Those records enter the reviewed-summary backlog until the inherited mechanics are resolved into a self-contained effect summary.
 
 ### Recent source-completeness repairs
 
@@ -159,31 +160,31 @@ These records remain supplement-backed where the primary source is damaged or co
 
 ### Latest authoritative full spell audit
 
-Category Enrichment Audit **#71**, run **35424772641**, audited commit `76fa611cf2bca957c6a3f2ee6c6f033bcdde6ccb` with **1,320** digest-locked reviewed summaries and **78** permanent focused spell regressions:
+Category Enrichment Audit **#72**, run **35425577685**, audited commit `144e2c2f4f1a77fb64f3386e2e1b38f31c3977b5` with **1,340** digest-locked reviewed summaries, **78** permanent focused spell regressions, and strict reference-dependent effect resolution enabled:
 
 - Samples: **25 / 25**, **50 / 50**, **100 / 100**, **250 / 250** passed.
 - Source shards: **8 / 8 passed**.
-- Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**.
+- Source aggregate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, **0 critical source gaps**, `coverageErrors: []`.
 - Candidate shards: **8 / 8 generated successfully**.
 - Candidate merge: **5,035 / 5,035 exact candidate records**, no duplicates, missing IDs, unexpected IDs, or merge errors.
-- Candidate/output audit: **1,996 / 5,035 output-complete**, **3,039 incomplete**, **39.6425%** output-complete.
-- `criticalMissingCount`: **3,039**.
+- Candidate/output audit: **1,667 / 5,035 output-complete**, **3,368 incomplete**, **33.1082%** output-complete.
+- `criticalMissingCount`: **3,368**.
 - `errors`: **empty**.
-- Sampled incomplete records contain only the expected missing `effect` / `effectSummary` backlog.
 - `sourceExtractionVerified: true`
 - `outputCompletenessVerified: false`
 - `releaseReady: false`
 
+The stricter reference-resolution gate intentionally reduced the complete count from the prior non-strict **1,996** to **1,667**. That **329-record decrease is a correction of false-positive completeness**, not lost enrichment data: those short effects depended on another spell/power/maneuver and are now required to have inherited mechanics resolved before they can pass.
+
 The workflow's final `output-audit` job therefore reports **failure by design** because the independent final-output gate remains below 100%. The source gate passed cleanly and was not weakened.
 
-For comparison, recent authoritative checkpoints include:
+For comparison, recent checkpoints include:
 
-- 1,261 reviews / 77 regressions: **1,936 / 5,035** output-complete, **3,099** incomplete, **38.4508%**.
-- 1,281 reviews / 77 regressions: **1,956 / 5,035** output-complete, **3,079** incomplete, **38.8481%**.
-- 1,301 reviews / 77 regressions: **1,976 / 5,035** output-complete, **3,059** incomplete, **39.2453%**.
-- 1,320 digest-locked reviews / 78 regressions: **1,996 / 5,035** output-complete, **3,039** incomplete, **39.6425%**.
+- 1,301 reviews / 77 regressions, pre-strict-reference: **1,976 / 5,035** output-complete, **3,059** incomplete, **39.2453%**.
+- 1,320 reviews / 78 regressions, pre-strict-reference: **1,996 / 5,035** output-complete, **3,039** incomplete, **39.6425%**.
+- 1,340 reviews / 78 regressions, **strict reference resolution**: **1,667 / 5,035** output-complete, **3,368** incomplete, **33.1082%**.
 
-The next ordinary review queue begins immediately after `spells/emerald-flame-fist-4437`. Same-name and same-family printing differences must remain independent, and cross-referenced base mechanics should continue to be resolved from the same primary catalog when available.
+The next ordinary review queue begins immediately after `spells/energy-ebb-4440`. Same-name and same-family printing differences must remain independent, and cross-referenced base mechanics must be resolved into standalone summaries from the same primary catalog when available.
 
 No catalog enrichment and no `--write` operation has been performed. Supabase remains unchanged.
 
@@ -200,4 +201,4 @@ Do **not** use `--write` and do **not** unlock live/catalog writes. Overall rele
 
 ## Validation status
 
-The current 1,320-review / 78-regression audit head (`76fa611cf2bca957c6a3f2ee6c6f033bcdde6ccb`) passed Validate modernization run `35424774978` end-to-end. The checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
+The current 1,340-review / 78-regression strict-reference audit head (`144e2c2f4f1a77fb64f3386e2e1b38f31c3977b5`) passed Validate modernization run `35425579375` end-to-end. The checkpoint is therefore validated while the final spell output-completeness gate remains intentionally locked.
