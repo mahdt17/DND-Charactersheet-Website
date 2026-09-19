@@ -12958,6 +12958,227 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for alignment substitution, obedience, hostility, and dismissal mechanics"
         }
       ]
+    },
+    "spells/distort-weapon-242": {
+      "name": "Distort Weapon",
+      "sourceSha256": "d430f60316807890fc0a95de8604d40d78dd9cb2389b5fb110435731cc8becb9",
+      "effectSummary": "Against a good foe, every critical threat made with the affected weapon is automatically confirmed. The weapon also overcomes a good creature's damage reduction as though it had a +1 enhancement bonus. Individual arrows or bolts can be affected, but enchanting a bow or other projectile weapon this way does not pass the benefit to its ammunition. The spell has no effect on a magic weapon that already has a critical-hit-related special ability such as keen or vorpal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distort-weapon-242",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for automatic confirmation, damage-reduction interaction, projectile limits, and critical-property exclusion"
+        }
+      ]
+    },
+    "spells/distract-4403": {
+      "name": "Distract",
+      "sourceSha256": "cba9fd98e929608502820c467ea6da4a22b7dd889e68232be58f93402ff9ddd5",
+      "effectSummary": "A target with 6 Hit Dice or fewer that fails its Will save becomes distracted: it takes -4 on Concentration, Listen, Search, and Spot checks and can take only one standard action or one move action each round, not both. Creatures with more than 6 Hit Dice are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distract-4403",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Hit Die limit, skill penalties, and action restriction"
+        }
+      ]
+    },
+    "spells/distract-assailant-4404": {
+      "name": "Distract Assailant",
+      "sourceSha256": "7561bd3708900579955d324920342f065919ebad37c87b406ee2bf6c69382bb4",
+      "effectSummary": "The target becomes flat-footed until the beginning of its next turn. The material component is a dried fly wing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distract-assailant-4404",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for condition duration and material component"
+        }
+      ]
+    },
+    "spells/distracting-ember-3572": {
+      "name": "Distracting Ember",
+      "sourceSha256": "85a1d11eadcae2e1f77f62fa2c4fe37996ea32402b42dcfa959f3486940a7681",
+      "effectSummary": "Conjures a Small fire elemental into any space within range until the end of your current turn. Its purpose is to threaten enemies so you or an ally can gain a flanking position. The elemental threatens creatures within its reach but takes no actions and makes no attacks of opportunity during your turn. This maneuver is supernatural.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distracting-ember-3572",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for placement, flanking, duration, threat, and action limits"
+        }
+      ]
+    },
+    "spells/distracting-ray-4405": {
+      "name": "Distracting Ray",
+      "sourceSha256": "10e8abd697cfee267ac0b344a25abc59f1abaad38681ac9cc08fa77d049242e8",
+      "effectSummary": "Use the ray as a readied counterspell-like action against a caster currently casting a spell. You must hit with a ranged touch attack; on a hit, the caster must make a Concentration check at DC 17 + the level of the spell being cast or lose that spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distracting-ray-4405",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for readied timing, ranged touch attack, and Concentration DC"
+        }
+      ]
+    },
+    "spells/distracting-shadows-4836": {
+      "name": "Distracting Shadows",
+      "sourceSha256": "da6cb576d31d977f57f0d5002df01dadc9dfb15e73ace1f4e68921f29db17bd4",
+      "effectSummary": "The affected object radiates distracting shadows in a 10-foot-radius spread. Creatures in or looking into the area take -5 on Spot and Search checks, making cracks, traps, secret entrances, and similar details harder to notice, but the shadows do not provide enough concealment to enable Hide checks. The spell counters or dispels equal- or lower-level light and darkness spells and can be made permanent at caster level 10th for 1,000 XP. A caster with any Mark of Shadow dragonmark or Favored in House (Phiarlan or Thuranni) can instead create a 20-foot-radius spread. The material components are bat fur plus a drop of pitch or a piece of coal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/distracting-shadows-4836",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for skill penalties, concealment limit, countering, permanency, dragonmark scaling, and components"
+        }
+      ]
+    },
+    "spells/divest-essentia-1834": {
+      "name": "Divest Essentia",
+      "sourceSha256": "1afd371027c3e94416ffd22de5f8c389f8bc3ac49a373846517e133b9725738c",
+      "effectSummary": "Returns all of the target's currently invested essentia to its essentia pool as though those investments were set to 0. The target can reinvest normally on its next turn. Essentia invested in an incarnum feat or another receptacle that the target cannot normally reallocate as a swift action is unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divest-essentia-1834",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for essentia reset, reinvestment timing, and protected receptacles"
+        }
+      ]
+    },
+    "spells/divination-3543": {
+      "name": "Divination",
+      "sourceSha256": "d269273d634bf8c22d78053dda7a3c7bf10f0b83e65d250da1421de51529e62e",
+      "effectSummary": "Ask about a specific goal, event, or activity expected within one week and receive a useful piece of advice, possibly direct or cryptic; the DM controls the information and changed circumstances can make it obsolete. The base chance of a correct answer is 70% +1% per caster level, maximum 90%, subject to DM adjustment for unusual circumstances. On an ordinary failed roll you know the divination failed unless magic is supplying false information. Repeated divinations by the same caster about the same topic use the same die result and answer as the first. The material components are religious incense and a sacrificial offering worth at least 25 gp total.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divination-3543",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for time horizon, answer control, success chance, failure handling, repeat-query rule, and component cost"
+        }
+      ]
+    },
+    "spells/divine-agility-742": {
+      "name": "Divine Agility",
+      "sourceSha256": "f8c44814823afc1ddb2eed5480ac1c3da903363a265a013f7aa0f1461cd7ff50",
+      "effectSummary": "For the duration, the living target gains the base Reflex save bonus of a rogue whose level equals your total character level, a +4 enhancement bonus to Dexterity, and the Spring Attack feat.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-agility-742",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Complete Divine printing; its fixed +4 Dexterity bonus is preserved"
+        }
+      ]
+    },
+    "spells/divine-agility-974": {
+      "name": "Divine Agility",
+      "sourceSha256": "7ed95d76eb1d2bceb49265613814fea2b3ddfbb94d1edc240d333800eb9a4e4f",
+      "effectSummary": "For the duration, the living target gains the base Reflex save bonus of a rogue whose level equals your total character level, the Spring Attack feat, and an enhancement bonus to Dexterity large enough to raise its Dexterity score to 18 if it is below 18; a Dexterity score already 18 or higher receives no increase. This differs from the later Complete Divine printing's fixed +4 enhancement bonus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-agility-974",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Defenders of the Faith printing; its raise-to-18 Dexterity rule is preserved"
+        }
+      ]
+    },
+    "spells/divine-flame-930": {
+      "name": "Divine Flame",
+      "sourceSha256": "aa3941c07983834dd8444e94f98dbe409d26c876541f4d8c9964508e21e7e012",
+      "effectSummary": "Creates an immobile ward that damages cold creatures entering or remaining in the area for 1d4 damage per caster level, maximum 5d4. A Fortitude save halves the damage, and a new save is allowed each round the creature remains in the ward.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-flame-930",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for recurring damage, target type, cap, and per-round save"
+        }
+      ]
+    },
+    "spells/divine-insight-371": {
+      "name": "Divine Insight",
+      "sourceSha256": "42c52c89c7e6790259504755684f9f4237109bb8591a0ad0d09394a48b540154",
+      "effectSummary": "Once during the duration, before making a skill check, you can spend an immediate action to gain an insight bonus on that check equal to 5 + caster level, maximum +15. Using the bonus ends the spell, and you cannot have more than one Divine Insight effect active at once.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-insight-371",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Complete Adventurer printing"
+        }
+      ]
+    },
+    "spells/divine-insight-4407": {
+      "name": "Divine Insight",
+      "sourceSha256": "c1db32a06678e3ff6f5ee49a6fd87b89bacc6225965b17f37b200226e2a90e10",
+      "effectSummary": "Once during the duration, before making a skill check, you can spend an immediate action to gain an insight bonus on that check equal to 5 + caster level, maximum +15. Using the bonus ends the spell, and you cannot have more than one Divine Insight effect active at once.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-insight-4407",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing"
+        }
+      ]
+    },
+    "spells/divine-inspiration-37": {
+      "name": "Divine Inspiration",
+      "sourceSha256": "31f2c2fd15363cd971f61e9d50ab30e2e8b02c19bcb9b9cc37483f60b3173d11",
+      "effectSummary": "The target gains a +3 sacred bonus on attack rolls against evil creatures; the bonus does not apply against nonevil creatures. The sacrifice cost is 1d2 Strength damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-inspiration-37",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for attack bonus, alignment restriction, and sacrifice cost"
+        }
+      ]
+    },
+    "spells/divine-interdiction-4408": {
+      "name": "Divine Interdiction",
+      "sourceSha256": "7da4dbc5364bfd091a7cc0ba203493dce51071d58f92ce72051f2a87cb1835d4",
+      "effectSummary": "Creates a stationary area if cast at a point, an area that moves with an object if cast on one, or an emanation that moves with a creature if cast on it; a creature target can negate with Will and spell resistance applies. Within the effect, clerics temporarily lose the ability to turn or rebuke creatures and lose granted domain powers. Paladins, blackguards, and other classes with turn/rebuke abilities likewise lose them. Because it blocks channeling energy through turn/rebuke attempts, it also prevents many divine feats that expend or use those attempts.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-interdiction-4408",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for mobile/stationary targeting, saves, turn/rebuke suppression, domain powers, and divine-feat interaction"
+        }
+      ]
+    },
+    "spells/divine-power-2607": {
+      "name": "Divine Power",
+      "sourceSha256": "1794d0aef3e455eb66a8316d61328c99949661fc548672fa24290c6571e02e27",
+      "effectSummary": "Your base attack bonus becomes equal to your character level, potentially granting additional attacks. You also gain a +6 enhancement bonus to Strength and 1 temporary hit point per caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-power-2607",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for base attack, Strength, and temporary-hit-point mechanics"
+        }
+      ]
+    },
+    "spells/divine-presence-620": {
+      "name": "Divine Presence",
+      "sourceSha256": "da98d88e3b466c08a1cc568736fb33d05cbad07e3a455f2693c1ad909179ef7d",
+      "effectSummary": "Gain a sacred bonus if your deity is good or neutral, or a profane bonus if your deity is evil, on Intimidate checks against creatures that do not worship your deity. The bonus is +5 normally, +10 against a creature with one alignment component opposed to yours on the law/chaos or good/evil axes, and +15 against a creature whose alignment is diametrically opposed to yours.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-presence-620",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for deity alignment, worship restriction, and three Intimidate bonus tiers"
+        }
+      ]
+    },
+    "spells/divine-retaliation-2971": {
+      "name": "Divine Retaliation",
+      "sourceSha256": "a6ce024b734bac8ac1563b16e16433714600ee1458d9346e51ce3cb35cf6b6f2",
+      "effectSummary": "Creates a force weapon resembling your deity's favored weapon that shares your space. Every time a melee attack damages you, the weapon immediately attacks that foe, with no limit on how many retaliation attacks it can make. Its attack uses caster level + either your Strength or Wisdom modifier, chosen by you; it deals the favored weapon's normal damage for a weapon of your current size plus 1-1/2 times the chosen Strength or Wisdom modifier. It has the normal reach or range of that weapon type. If you are Large or larger, it counts as occupying every square of your space.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-retaliation-2971",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for retaliation trigger, unlimited attacks, attack/damage modifiers, favored-weapon scaling, reach, and space"
+        }
+      ]
+    },
+    "spells/divine-retribution-5003": {
+      "name": "Divine Retribution",
+      "sourceSha256": "3322adaaf63e60cb1966a2314488bd3d15bd3e9ecf1c77fb3b614402b30efd5b",
+      "effectSummary": "Choose acid, cold, electricity, fire, or force when casting. For the duration, an attack based on that chosen form that strikes you is absorbed and immediately reflected back at its originator; this applies to effect, area, and touch-range spells, spell-like abilities, and supernatural abilities using the selected energy. The reflected effect becomes sacred or profane according to your deity, so a creature normally immune to its own attack can still be affected regardless of its alignment. The originator still receives any applicable spell resistance and saving throw against its reflected attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-retribution-5003",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Dragonlance printing; its selected-energy absorption/reflection mechanic is preserved separately"
+        }
+      ]
+    },
+    "spells/divine-retribution-586": {
+      "name": "Divine Retribution",
+      "sourceSha256": "da133c8785a825c1ec4be7c87b6b2d72bb4beb13f517657142e17d273ab38375",
+      "tablesSha256": "f6de6ed260b6a7c40463d66f1c1d0d627ed71a51757b1b69459fab7466d6571b",
+      "effectSummary": "The first creature that attacks you by any means during the duration is immediately struck after its attack affects you; the retribution then ends the spell. It deals 1d6 damage per caster level, maximum 15d6, plus 1d4 ability damage. The hit point damage is always half divine power and half an energy type, and the ability damaged depends on your deity: Bahamut cold/Dex; Boccob electricity/Int; Corellon acid/Wis; Ehlonna cold/Str; Erythnul fire/Con; Fharlanghn acid/Con; Garl sonic/Wis; Gruumsh fire/Str; Heironeous electricity/Dex; Hextor fire/Str; Kord acid/Str; Kurtulmak fire/Int; Lolth electricity/Cha; Moradin sonic/Dex; Nerull cold/Cha; Obad-Hai electricity/Dex; Olidammara fire/Dex; Pelor fire/Wis; St. Cuthbert sonic/Con; Tiamat fire/Wis; Vecna cold/Int; Wee Jas cold/Str; Yondalla acid/Str. A successful Will save halves the hit point damage and negates the ability damage. A caster without a deity permanently chooses an eligible deity within one alignment step on the first casting, changing only if later alignment changes make that choice invalid. Only one Divine Retribution can be active at a time.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/divine-retribution-586",
+          "role": "primary DnD Tools effect text and deity/energy/ability table reviewed and paraphrased for the Complete Champion printing; its trigger, damage split, save, and deity mapping are preserved separately"
+        }
+      ]
     }
   }
 }
