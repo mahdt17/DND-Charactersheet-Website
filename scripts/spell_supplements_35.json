@@ -1049,6 +1049,21 @@
           "role": "Spell Compendium p.73 sourcebook rendering used only to restore the printed one-hour payment as 250 gp per HD"
         }
       ]
+    },
+    "spells/dragonshape-3011": {
+      "name": "Dragonshape",
+      "effectSummary": "Transforms you into the spell's fixed mature adult red dragon form for 1 round per level and grants 150 temporary hit points that vanish when the spell ends; you do not gain the dragon form's normal spellcasting. The printed form has Init +0; blindsense 60 ft., darkvision 120 ft., quadruple-strength low-light vision, Listen +32 and Spot +32; languages as your normal form; AC 32 (touch 8, flat-footed 32); your normal hit points plus the 150 temporary hit points; DR 10/magic; SR 23; immunity to fire and vulnerability to cold; Fort +20, Ref +14, Will +18; speed 40 ft. and fly 150 ft. (poor). Its melee routine is bite +34 (2d8+11/19–20), 2 claws +32 (2d6+5/19–20), 2 wings +32 (1d8+5/19–20), and tail slap +32 (2d6+16/19–20); space 15 ft.; reach 10 ft. or 15 ft. with bite; BAB +25; grapple +44. Ability scores are Str 33, Dex 10, Con 23, Int 18, Wis 19, Cha 18. It has Cleave, Combat Reflexes, Flyby Attack, Improved Critical with bite/claw/tail slap/wing, Multiattack, and Power Attack; Appraise +32, Bluff +32, Concentration +34, Diplomacy +34, Intimidate +34, Jump +39, Knowledge (arcana) +32, Listen +32, Search +32, Spot +32. It can use locate object 7/day at CL 9th, has a 50-foot cone breath weapon dealing 14d10 fire (Reflex DC 30 half), and can crush a 15-by-15-foot area: Small or smaller opponents take 2d8+16 bludgeoning damage and must make Reflex DC 28 or be pinned.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonshape-3011",
+          "role": "primary Player's Handbook II catalog record; rebuilt page says the mature adult red dragon statistics appear below but omits the promised stat block"
+        },
+        {
+          "url": "https://anyflip.com/myubd/nenj/basic/101-150",
+          "role": "Player's Handbook II pp.111-112 rendering used only to restore the omitted fixed mature-adult-red-dragon statistics"
+        }
+      ]
     }
   }
 }
