@@ -8315,6 +8315,238 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/conjure-midnight-construct-1817": {
+      "name": "Conjure Midnight Construct",
+      "sourceSha256": "85d43cf92f74259b3a0a57841da08e8b8863e4ae842e3c96cd2b5ebe98354ae3",
+      "effectSummary": "Creates one midnight construct that acts immediately under the caster's mental direction and dissipates when the spell ends. It is created on the current plane rather than summoned. At creation, each invested essentia point can grant +1 enhancement on attack and damage, +2 damage reduction, +10 feet land speed, +20 feet fly speed, or an adjacent damaging aura dealing 1d6 per point at the end of the construct's turn, Fortitude half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-midnight-construct-1817",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-lesser-midnight-construct-1816",
+          "role": "same-primary-catalog cross-reference used to retain inherited construct options"
+        }
+      ]
+    },
+    "spells/consecrate-2596": {
+      "name": "Consecrate",
+      "sourceSha256": "fac123cad95eff44838b0ea32eb718a2f248870e2473a033ab16fb60ea070adb",
+      "effectSummary": "Fills the area with positive energy. Turning-undead Charisma checks gain +3 sacred, while undead in the area take -1 on attacks, damage, and saves and cannot be created or summoned there. If the area contains a permanent fixture dedicated to the caster's deity or aligned power, these modifiers double to +6/-2. A fixture dedicated to another deity is instead severed from that deity without granting the undead-related bonuses. Consecrate counters and dispels desecrate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/consecrate-2596",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/consecrate-battlefield-1409": {
+      "name": "Consecrate Battlefield",
+      "sourceSha256": "b282b5a003b6f8e7420699a6f9a5fcf9bf83a043814dd08040321f881723d587",
+      "effectSummary": "Functions as consecrate over a much larger area. In addition, any creature slain inside the area cannot be turned into an undead creature for the spell's duration even if its corpse is removed. It counters and dispels desecrate and desecrate battlefield.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/consecrate-battlefield-1409",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/constricting-chains-64": {
+      "name": "Constricting Chains",
+      "sourceSha256": "4abca506f0dddd0b08df85bb2270172f52aef4f27e54a46f9bdf4c3c468e565b",
+      "effectSummary": "Binds the target in anchored chains, entangling it, preventing movement, imposing -2 on attacks and -4 effective Dexterity, and requiring DC 15 + spell level Concentration to cast. The chains deal 3d6 nonlethal damage per round unless the caster suppresses that damage as a free action. They have AC 20, 5 hit points per caster level to 100, DR 10/magic, and broad immunities; half of damage dealt to the chains is also dealt to the target. DC 32 Strength breaks them, or DC 40 Escape Artist over 1 minute escapes. Casting causes 1d2 Strength drain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/constricting-chains-64",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/construct-essence-4806": {
+      "name": "Construct Essence",
+      "sourceSha256": "af9afe8f477e232870c86bb106a8ec96dfbcdbafba04aa468559272a9fd01794",
+      "effectSummary": "A living construct gains the lesser construct essence benefits—75% fortification against critical hits and sneak attacks, low-light vision, and immunity to nonlethal damage and stunning—plus full immunity to critical hits, sneak attacks, ability damage, ability drain, death effects, and necromancy effects, and gains 60-foot darkvision. It counters and interacts with humanoid-essence spells as specified by the source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/construct-essence-4806",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/construct-essence-lesser-4805",
+          "role": "same-primary-catalog cross-reference used to retain inherited lesser construct-essence mechanics"
+        }
+      ]
+    },
+    "spells/construct-essence-greater-4807": {
+      "name": "Construct Essence, Greater",
+      "sourceSha256": "4b5bf2c02bf52f27e58017f99193f50ab9dab39d18f45e6dedab62b68e55a0c7",
+      "effectSummary": "Grants the benefits of construct essence and removes the living construct subtype for the duration. The target becomes immune to mind-affecting effects and to Fortitude-save effects unless harmless or object-affecting, is no longer affected by spells that target living creatures, gains no benefit from healing-subschooled spells, and has no Constitution score while retaining its current hit points. At 0 to -9 hit points the spell ends rather than destroying the target; at -10 it dies normally. It counters the humanoid-essence line as specified by the source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/construct-essence-greater-4807",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/construct-essence-lesser-4805",
+          "role": "same-primary-catalog cross-reference used to retain inherited lesser construct-essence mechanics"
+        }
+      ]
+    },
+    "spells/construct-essence-lesser-4805": {
+      "name": "Construct Essence, Lesser",
+      "sourceSha256": "22b2e872ac09451d3b6c6ebd11b7b3430340ba01a96068e694b5c3b8502f2cf2",
+      "effectSummary": "A living construct gains moderate fortification, negating critical hits and sneak attacks 75% of the time, plus low-light vision and immunity to nonlethal damage and stunning. It counters lesser humanoid essence, has no effect on creatures under humanoid essence or greater humanoid essence, and mutually dispels with lesser humanoid essence.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/construct-essence-lesser-4805",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/construct-essence-lesser-4901": {
+      "name": "Construct Essence, Lesser",
+      "sourceSha256": "1efdd6596d44a30c38e133102d06cfa2df6fba90921ba9faecf5e16314f5e7cf",
+      "effectSummary": "A living construct gains moderate fortification, negating critical hits and sneak attacks 75% of the time, plus low-light vision and immunity to nonlethal damage and stunning. Casting it on a creature under lesser humanoid essence dispels both effects, and it has no effect on a creature under humanoid essence or greater humanoid essence.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/construct-essence-lesser-4901",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/consume-likeness-203": {
+      "name": "Consume Likeness",
+      "sourceSha256": "c0bb813e399f690640cd676e887890a86be34708c3b5cb1188a5f501dfdc30f2",
+      "effectSummary": "After consuming flesh from a freshly dead corporeal humanoid of the caster's size, the caster can assume that creature's living appearance, clothing, and equipment at will. The form can add or remove one or two limbs and alter weight by up to half; wings grant 30-foot poor flight and gills grant water breathing. Attack bonuses, natural armor, saves, ability scores, special abilities, defenses, and mannerisms do not change. Damage or death forces reversion, and voluntary reversion is a standard action. The disguise grants +10 on Disguise checks. Casting causes 2d6 Wisdom drain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/consume-likeness-203",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/consumptive-field-1472": {
+      "name": "Consumptive Field",
+      "sourceSha256": "4a49f3d2c5ea51956524e8302ae3b5959b25cd5404e1fd10cdb62bc9861a8ed5",
+      "effectSummary": "Creates a death field around the caster. Creatures in the area below 0 hit points that fail their save die; creatures that later fall below 0 while in the field are likewise affected. Each death caused by the spell grants 1d8 temporary hit points, +2 Strength for the spell's duration, and +1 effective caster level, capped at an increase equal to half the caster's original caster level. A creature can be affected only once per casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/consumptive-field-1472",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/consumptive-field-4042": {
+      "name": "Consumptive Field",
+      "sourceSha256": "5a5c9819c64ef8eb99b63c861df38581d4ba0a99882dd0cc018429f2f24ac21a",
+      "effectSummary": "Creates a death field around the caster. Creatures in the area below 0 hit points that fail their save die; creatures that later fall to -1 hit point or lower while in the field are likewise affected. Each death caused by the spell grants 1d8 temporary hit points, +2 Strength for the spell's duration, and +1 effective caster level, capped at an increase equal to half the caster's original caster level. A creature can be affected only once per casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/consumptive-field-4042",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/consumptive-field-greater-1473": {
+      "name": "Consumptive Field, Greater",
+      "sourceSha256": "007d88ca4ebef823ca8a5ca3376e473a95339b303ee46a03ea702f3ad7468fd0",
+      "effectSummary": "Functions as consumptive field, but affects creatures with 9 hit points or fewer instead of only creatures below 0. Affected creatures that fail their save die, and creatures that later fall to 9 hit points or fewer while in the field are likewise subject to the effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/consumptive-field-greater-1473",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/consumptive-field-greater-4043": {
+      "name": "Consumptive Field, Greater",
+      "sourceSha256": "b2da5277fbc3eea51c6e57d90cc5ee6c0d642b4cf4178b74d8329aba22431325",
+      "effectSummary": "Functions as consumptive field, but affects creatures with 9 hit points or fewer instead of only creatures below 0. Affected creatures that fail their save die, and creatures that later fall to 9 hit points or fewer while in the field are likewise subject to the effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/consumptive-field-greater-4043",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contact-other-plane-2483": {
+      "name": "Contact Other Plane",
+      "sourceSha256": "8b755b62ad08a6aaa4096ad64f58603bed8d8a04769c9ab29e2adceee395b3fe",
+      "effectSummary": "Allows one question per two caster levels to an extraplanar power, one per round while concentrating. More distant and powerful contacts improve the chance of a true answer but increase mental risk. Elemental/Positive-Negative/Astral/demideity/lesser/intermediate/greater contacts require Intelligence checks DC 7/8/9/10/12/14/16 to avoid Intelligence and Charisma dropping to 8 for 1/1/1/2/3/4/5 weeks. True-answer chances are 34/39/44/49/60/73/88%, with remaining results split among don't know, deliberate lie, or random answer according to the captured table. Appropriate questions about the contacted Elemental Plane use the special 68% true-answer row.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contact-other-plane-2483",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contagion-2721": {
+      "name": "Contagion",
+      "sourceSha256": "c3744a5f147fd83df2b393bd6d70a466d5218ece2f1707bf2fa16e2446eed34e",
+      "effectSummary": "Immediately infects the subject with one chosen disease, using the spell's save DC for the initial save and the disease's listed DC afterward: blinding sickness DC 16, 1d4 Strength and possible blindness after 2+ Strength damage; cackle fever DC 16, 1d6 Wisdom; filth fever DC 12, 1d3 Dexterity and 1d3 Constitution; mindfire DC 12, 1d4 Intelligence; red ache DC 15, 1d6 Strength; shakes DC 13, 1d8 Dexterity; or slimy doom DC 14, 1d4 Constitution.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contagion-2721",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contagion-mass-4044": {
+      "name": "Contagion, Mass",
+      "sourceSha256": "bba14770bccd0ce757151720ff3ed2ed914a34fd977ac53a760df754143232f5",
+      "effectSummary": "Functions as contagion but infects all creatures in the target area.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contagion-mass-4044",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contagious-fog-3484": {
+      "name": "Contagious Fog",
+      "sourceSha256": "bcd8878e4d9883d530d3955262a935915c8773d58d98e9f0ac2a2b42f83e1219",
+      "effectSummary": "Creates disease-filled fog. Each round inside, a creature must make a Fortitude save or immediately contract the shakes, taking 1d8 Dexterity damage; each subsequent day the disease persists, DC 13 Fortitude prevents another 1d8 Dexterity damage. The fog moves away from the caster at 10 feet per round, hugs low terrain and passes through small openings, cannot penetrate liquids, and cannot be cast underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contagious-fog-3484",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contagious-fog-4045": {
+      "name": "Contagious Fog",
+      "sourceSha256": "92539613047aa4a337200302d6fb803ec0be348483e4322fb31baaa4eaa30d60",
+      "effectSummary": "Functions like fog cloud with disease-filled vapors. Each round inside, a creature must make a Fortitude save or immediately contract the shakes, taking 1d8 Dexterity damage; each subsequent day the disease persists, DC 13 Fortitude prevents another 1d8 Dexterity damage. The fog moves away from the caster at 10 feet per round, hugs low terrain and passes through small openings, cannot penetrate liquids, and cannot be cast underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contagious-fog-4045",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contagious-touch-1907": {
+      "name": "Contagious Touch",
+      "sourceSha256": "bd6c6d67f2769af7c28ed3a77753300048de9adad2901f69603d48c9b2a4b0de",
+      "effectSummary": "At casting, choose blinding sickness, cackle fever, filth fever, mindfire, red ache, shakes, or slimy doom. For the duration, one living creature per round hit by the caster's melee touch immediately contracts the chosen disease as though affected by contagion unless it succeeds on a Fortitude save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contagious-touch-1907",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/contagious-touch-4046": {
+      "name": "Contagious Touch",
+      "sourceSha256": "f3fa825d9c0c69ea013a56071143180eac83341d87aea3f83155dc3a4d557290",
+      "effectSummary": "At casting, choose blinding sickness, cackle fever, filth fever, mindfire, red ache, shakes, or slimy doom. For the duration, one living creature per round hit by the caster's melee touch immediately contracts the chosen disease as though affected by contagion unless it succeeds on a Fortitude save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contagious-touch-4046",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
