@@ -136,15 +136,15 @@ The 3.5 item audit has been repaired through the latest known failures. The fina
 
 ## Current 3.5 spell review checkpoint
 
-- Digest-locked reviewed spell effects: **2,354**
+- Digest-locked reviewed spell effects: **2,454**
 - Primary catalog: `https://new.dndtools.org`
 - Live/catalog writes: **LOCKED**
-- Permanent focused spell regression corpus: **689 / 689 green**
-- Latest review-only classifier checkpoint: Spell effect review **#39**, run **35468521601**, on commit `ef79965db94e4d2683e5157526e53a45a01a026d`.
-- Remaining review queue: **2,343**; clean standalone long effects: **1,205**; reference-dependent primary bucket: **1,021**; manual-verification tag count: **870**.
-- Known corpus at that checkpoint: **2,354 reviews / 689 regressions / 80 supplements**, with **0 digest drift**, **0 errors**, and **0 warnings**.
-- The next strict-clean selector produced **100 / 1,193 eligible** candidates with selection SHA-256 `6fa0aba958a42045c21b661999770d346bfab61791dad34a94220479c23f20fc`.
-- Validate modernization **#537**, run **35468356136**, passed end-to-end on corrected batch-six commit `9f857ab5bf32c7a8b3df65194521ef99931d3846`, including all **689** spell regressions and browser tests.
+- Permanent focused spell regression corpus: **789 / 789 green**
+- Latest review-only classifier checkpoint: Spell effect review **#42**, run **35469585047**, on commit `a42a89dca6b3e6358ff6cb6d0347e066374edff7`.
+- Remaining review queue: **2,243**; clean standalone long effects: **1,097**; reference-dependent primary bucket: **1,027**; manual-verification tag count: **878**.
+- Known corpus at that checkpoint: **2,454 reviews / 789 regressions / 80 supplements**, with **0 digest drift**, **0 errors**, and **0 warnings**.
+- The next strict-clean selector produced **100 / 1,085 eligible** candidates with selection SHA-256 `9cd5ba23830e56f42476c252a2d6692d633756d9a15eeb8873544d69f590adeb`.
+- Validate modernization **#543**, run **35469587052**, passed end-to-end on batch-seven commit `a42a89dca6b3e6358ff6cb6d0347e066374edff7`, including all **789** spell regressions and browser tests.
 - Expensive all-category audits remain periodic milestone checks rather than running after every 100-record review batch; this does not relax the final 100% release/write gate.
 - Outside sources remain repair-only: they may fill an existing primary-catalog record only when its primary material is missing, truncated, corrupted, contradictory, delegated outside the spell page, or otherwise insufficient. Valid primary facts are preserved and provenance is recorded. Same-primary printings and official errata are preferred when they can supply the missing mechanic.
 - Ordinary reviewed summaries remain SHA-256 locked to the exact primary effect text. Table-driven reviews also lock the captured table digest. Records whose primary prose or tables are genuinely incomplete remain provenance-backed supplements instead of digest-locking bad source material.
