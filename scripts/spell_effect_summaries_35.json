@@ -12273,6 +12273,227 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for complete blocked-travel and exception mechanics"
         }
       ]
+    },
+    "spells/dimensional-lock-1574": {
+      "name": "Dimensional Lock",
+      "sourceSha256": "44ee01ebab86ee920d698833520a49d055e5ac5d18f86b4dee37f696df0e74a3",
+      "effectSummary": "The field prevents bodily extradimensional travel into or out of the affected area, including astral projection, blink, dimension door, ethereal jaunt, etherealness, gate, maze, phasing, plane shift, shadow walk, teleport, and similar spell-like or psionic abilities. It does not interfere with creatures already in ethereal or astral form when cast, does not block extradimensional perception or attacks such as a basilisk's gaze, and does not prevent summoned creatures from disappearing when their summoning ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimensional-lock-1574",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Magic of Faerûn printing; its explicit inclusion of phasing is preserved"
+        }
+      ]
+    },
+    "spells/dimensional-lock-2309": {
+      "name": "Dimensional Lock",
+      "sourceSha256": "5c28d4077b6ee62e0db605577fff22cbd79e0307bc84b05411b11713ab65f2a6",
+      "effectSummary": "The field prevents extradimensional travel into or out of the affected area, including astral projection, blink, dimension door, ethereal jaunt, etherealness, gate, maze, plane shift, shadow walk, teleport, and similar spell-like or psionic abilities. It does not interfere with creatures already in ethereal or astral form when cast, does not block extradimensional perception or attacks such as a basilisk's gaze, and does not prevent summoned creatures from disappearing when their summoning ends. This Player's Handbook printing does not list phasing among its examples.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimensional-lock-2309",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Player's Handbook v.3.5 printing"
+        }
+      ]
+    },
+    "spells/dimensional-lock-3377": {
+      "name": "Dimensional Lock",
+      "sourceSha256": "4db60eb7d147a1c5ed16dbe847ff5a3afb0853b3c1bbcac6b835b31184890181",
+      "effectSummary": "The field prevents physical extradimensional travel into or out of the affected area, including astral projection, blink, dimension door, ethereal jaunt, etherealness, gate, maze, phasing, plane shift, shadow walk, teleport, and similar spell-like or psionic abilities. It does not interfere with creatures already in ethereal or astral form when cast, does not block extradimensional perception or attacks such as a basilisk's gaze, and does not prevent summoned creatures from disappearing when their summoning ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dimensional-lock-3377",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Tome and Blood printing; its explicit inclusion of phasing is preserved"
+        }
+      ]
+    },
+    "spells/diminish-breath-weapon-1115": {
+      "name": "Diminish Breath Weapon",
+      "sourceSha256": "f92092ae7eafb21770180a0246954b47932b1eae7db936540bb65c152a3143af",
+      "effectSummary": "The target's breath weapon loses 1 damage die per caster level, but cannot be reduced below 1 die. If you use at least 100 gp of ashes from an object damaged or destroyed by the same type of dragon breath as the target's breath weapon, your caster level for this spell increases by 2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/diminish-breath-weapon-1115",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for damage-die reduction, minimum damage, and special component scaling"
+        }
+      ]
+    },
+    "spells/diminish-plants-2800": {
+      "name": "Diminish Plants",
+      "sourceSha256": "7b445b97f7623b96ef359fa1c70fe53ac6b5afcc81b7f155e63cce016ec565b1",
+      "effectSummary": "Choose one of two versions. Prune Growth affects normal vegetation within long range, shrinking it to about one-third normal size and making it untangled and less bushy; choose a 100-foot-radius circle, 150-foot-radius semicircle, or 200-foot-radius quarter-circle and optionally exclude portions of that area. Stunt Growth affects normal plants within 1/2 mile and reduces their potential productivity during the following year to one-third below normal. The spell has no effect on plant creatures and counters plant growth.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/diminish-plants-2800",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for both area-selection and long-term growth versions"
+        }
+      ]
+    },
+    "spells/dinosaur-stampede-4379": {
+      "name": "Dinosaur Stampede",
+      "sourceSha256": "c462513387cbf3decc56ae1023c793631e596007da36714d9b85b1456b724b49",
+      "effectSummary": "Creatures in the stampede take 1d12 damage +1 per caster level, maximum +20; creatures more than 10 feet above the ground are unaffected. As a free action, you can move the stampede's effective point of origin along the ground up to 40 feet per round. A creature can take this spell's damage at most once per round. The material component is a fossil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dinosaur-stampede-4379",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for damage, altitude immunity, movement, repeat-hit limit, and component"
+        }
+      ]
+    },
+    "spells/dire-hunger-4382": {
+      "name": "Dire Hunger",
+      "sourceSha256": "d24e194d15f15ff164cf2618d3ddb86325c46439956a2c98196818c594a94889",
+      "tablesSha256": "e20efa04d8bdaf54841f3ae2103291a2413ffbeec8fa0ba69540f24949f33aa9",
+      "effectSummary": "The subject becomes ravenously compelled to attack living creatures and gains a bite attack sized as follows: Fine 1, Diminutive 1d2, Tiny 1d3, Small 1d4, Medium 1d6, Large 1d8, Huge 2d6, Gargantuan 2d8, Colossal 4d6. Add 1-1/2 times Strength bonus; if the creature already has a stronger bite attack, use its existing bite damage instead. It takes no attacks or other actions except biting, though it defends normally, and moves to attack the nearest living creature until that creature dies or another living target becomes closer. It avoids obvious lethal hazards when possible, switches targets if routing around a hazard makes another creature nearer, and searches for a living target if none is currently detectable or reachable.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dire-hunger-4382",
+          "role": "primary DnD Tools effect text and size/bite-damage table reviewed and paraphrased for complete compulsion and attack mechanics"
+        }
+      ]
+    },
+    "spells/dirge-1666": {
+      "name": "Dirge",
+      "sourceSha256": "21c14db32a40fd6c035bae5ef9a83ef30c777ff29a7745b09bc01b6ba6d66215",
+      "effectSummary": "Each round, every enemy in the area takes 2 points of temporary Strength damage and 2 points of temporary Dexterity damage. A successful saving throw negates only that round's ability damage; a new save is required each round. This Magic of Faerûn printing expressly describes the ability damage as temporary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dirge-1666",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Magic of Faerûn printing; its temporary-damage wording is preserved"
+        }
+      ]
+    },
+    "spells/dirge-4386": {
+      "name": "Dirge",
+      "sourceSha256": "ba243d769082dc1a2cbfa5126d17ae62e7869c89797bf1487b1fa1bd7507effd",
+      "effectSummary": "Each round, every enemy in the area takes 2 points of Strength damage and 2 points of Dexterity damage. A Fortitude save negates only that round's damage; succeeding does not protect against later rounds. This Spell Compendium printing states ordinary ability damage rather than the earlier printing's explicit 'temporary' wording.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dirge-4386",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its revised ability-damage wording is preserved"
+        }
+      ]
+    },
+    "spells/dirge-of-discord-387": {
+      "name": "Dirge of Discord",
+      "sourceSha256": "5494496bc200f43069de20a42baf5af773a2baf3b303a4d2834ef144e0d1c2a7",
+      "effectSummary": "Affected creatures take -4 on attack rolls and Concentration checks, -4 Dexterity, and have their speed reduced by 50%, to a minimum of 5 feet. The material component is a pinch of ashes from a destrachan.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dirge-of-discord-387",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Complete Adventurer printing; its flat Concentration penalty is preserved"
+        }
+      ]
+    },
+    "spells/dirge-of-discord-4387": {
+      "name": "Dirge of Discord",
+      "sourceSha256": "d61d479e22a48e481eb29017b68ce73808d0702e53267d17d5b76d4846bcb639",
+      "effectSummary": "Affected creatures take -4 on attack rolls and Dexterity and have their speed reduced by 50%, to a minimum of 5 feet. Instead of the earlier printing's flat Concentration penalty, a creature must make a Concentration check whenever it casts a spell, with DC equal to Dirge of Discord's save DC + the level of the spell being cast. The material component is a pinch of ashes from a destrachan.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dirge-of-discord-4387",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its revised spellcasting Concentration check is preserved"
+        }
+      ]
+    },
+    "spells/disable-construct-4921": {
+      "name": "Disable Construct",
+      "sourceSha256": "05ef7c3019eb3d9a457382f2319607c593e538d24dd01f61fc1142db4b17285d",
+      "effectSummary": "A construct takes 10 damage per caster level, maximum 150 at 15th level. A successful save halves the damage, but damage from this spell can never reduce the construct below 1 hit point on a successful save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disable-construct-4921",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for scaling damage and successful-save hit-point floor"
+        }
+      ]
+    },
+    "spells/disarming-strike-3645": {
+      "name": "Disarming Strike",
+      "sourceSha256": "0116d3baf8ec54b3ba4ab6b60fdcfd22b47d058e0cd6587418f7af9a6b022877",
+      "effectSummary": "As part of the strike, make one normal melee attack. If it hits and deals damage, you can immediately attempt to disarm that opponent. The disarm attempt does not provoke an attack of opportunity, and if it fails the opponent cannot use the normal counter-disarm opportunity against you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disarming-strike-3645",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for attack-triggered disarm and retaliation exceptions"
+        }
+      ]
+    },
+    "spells/discern-bloodline-3035": {
+      "name": "Discern Bloodline",
+      "sourceSha256": "ccaf828f9e78007fa76ab65fc0dffb85fe1dbb998c63bc0a47d5116a08fa520b",
+      "effectSummary": "Instantly learn the target's race and every inherited template it possesses, such as celestial or half-dragon. While you continue concentrating, you can determine the race and inherited templates of one additional target each round. The material component is a drop of blood.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discern-bloodline-3035",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for target information, continued concentration, and component"
+        }
+      ]
+    },
+    "spells/discern-lies-2496": {
+      "name": "Discern Lies",
+      "sourceSha256": "f0284155b772145973cd163bccf77e300ea501c9b680cab767c4cbd6e7675006",
+      "effectSummary": "Each round, concentrate on one subject within range. You know when that subject deliberately and knowingly speaks a lie, but the spell does not reveal the truth, identify unintentional inaccuracies, or necessarily expose evasive statements. You may switch to a different subject each round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discern-lies-2496",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concentration, lie-detection scope, and limitations"
+        }
+      ]
+    },
+    "spells/discern-location-2497": {
+      "name": "Discern Location",
+      "sourceSha256": "189e0a7de3f4a4c75dd1a6aa2a8f15060758672d70c1f05f349ec6783f5abda6",
+      "effectSummary": "Reveals an exact target location despite normal anti-scrying or anti-location protections; only mind blank or direct divine intervention prevents it. The result identifies the target's place or building, community, county or equivalent division, country, continent, and plane. To locate a creature, you must have seen it or possess an item that once belonged to it. To locate an object, you must have touched that object at least once.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discern-location-2497",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for protection bypass, location detail, and familiarity requirements"
+        }
+      ]
+    },
+    "spells/discern-shapechanger-2048": {
+      "name": "Discern Shapechanger",
+      "sourceSha256": "d137c40b58f3b452e26c74e499d5b2357e10f0b068bb5efcdb40c620d17d7d81",
+      "effectSummary": "By spending a standard action concentrating, examine one visible creature within 60 feet each round to determine whether it is polymorphed, disguised, or transmuted and learn its true form. If a shapechanger is already in its true form, you learn that it is a shapechanger but not its other possible forms. This printing defines a shapechanger as a creature with the shapechanger type or a supernatural or extraordinary alternate-form ability; spell-based transformations alone do not qualify. The material component is honey-and-lotus balm applied to your eyelids.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discern-shapechanger-2048",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Oriental Adventures printing and its shapechanger definition"
+        }
+      ]
+    },
+    "spells/discern-shapechanger-4493": {
+      "name": "Discern Shapechanger",
+      "sourceSha256": "74be85077434f06b67c2f9d9d69f378f9c6fc08a65a18082cdb8253ac4b1bb12",
+      "effectSummary": "By spending a standard action concentrating, examine one visible creature within 60 feet each round to determine whether it is polymorphed, disguised, or transmuted and learn its true form. If a shapechanger is already in its true form, you sense its shapechanging ability but not its other possible forms. A shapechanger is a creature with the shapechanger type or a supernatural or extraordinary alternate-form ability; knowing an alter-self-style spell does not qualify. The material component is honey-and-lotus balm worth 25 gp applied to your eyelids.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discern-shapechanger-4493",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its 25 gp material cost is preserved"
+        }
+      ]
+    },
+    "spells/discern-shapechanger-4808": {
+      "name": "Discern Shapechanger",
+      "sourceSha256": "73782a41c2bd52e94ed79346033129c823c0eb6e04f2d1448cbf5c15c7860b1a",
+      "effectSummary": "By spending a standard action concentrating, examine one visible creature within 60 feet each round to determine whether it is polymorphed, disguised, or transmuted and learn its true form. If a shapechanger is already in its true form, you sense its shapechanging ability but not its other possible forms. A shapechanger is a creature with the shapechanger type or a supernatural or extraordinary alternate-form ability; spell-based transformations alone do not qualify. The material component is honey-and-lotus balm applied to your eyelids.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discern-shapechanger-4808",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Races of Eberron printing"
+        }
+      ]
+    },
+    "spells/discern-shapechanger-486": {
+      "name": "Discern Shapechanger",
+      "sourceSha256": "633a2409b5d6b17b315c35e1ea6aa76f3e6d8cccb5c724130382467f716a52dc",
+      "effectSummary": "By spending a standard action concentrating, examine one visible creature within 60 feet each round to determine whether it is polymorphed, disguised, or transmuted and learn its true form. If a shapechanger is already in its true form, you sense its shapechanging ability but not its other possible forms. A shapechanger is a creature with the shapechanger type or a supernatural or extraordinary alternate-form ability; spell-based transformations alone do not qualify. The material component is honey-and-lotus balm applied to your eyelids.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/discern-shapechanger-486",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Complete Arcane printing"
+        }
+      ]
     }
   }
 }
