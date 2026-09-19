@@ -786,6 +786,111 @@
           "role": "independent archived D&D Tools rendering confirming the same omitted Complete Mage mechanics"
         }
       ]
+    },
+    "spells/detect-aberration-1529": {
+      "name": "Detect Aberration",
+      "effectSummary": "For up to 1 minute per caster level of concentration, the spell scans a 60-foot quarter-circle for aberrant life. Round 1 reveals presence or absence; round 2 reveals the number of aberrant auras and the strongest aura, and an overwhelming aura from a source with Hit Dice or level at least twice your character level stuns you for 1 round and ends the spell; round 3 reveals each aura's strength and location. Aura strength by Hit Dice is 1–3 faint, 4–7 moderate, 8–13 strong, and 14+ overwhelming; a humanoid with Aberration Blood is faint regardless of having more than 3 HD. After a source leaves or is destroyed, its aura lingers for 1d6 minutes if faint, 1d6×10 minutes if moderate, 1d6 hours if strong, or 1d6 days if overwhelming. Each round you can turn to a new area; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-aberration-1529",
+          "role": "primary Lords of Madness catalog record; prose references aura-strength and lingering-aura tables that are omitted from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellslom.html",
+          "role": "D&D Tools Lords of Madness SRD copy used only to restore the two omitted tables"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-dragonblood-1056": {
+      "name": "Detect Dragonblood",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the spell detects creatures of the dragon type or dragonblood subtype in a 60-foot cone. Round 1 reveals presence or absence; round 2 reveals their number and the strongest aura; round 3 reveals each aura's power and location, or only its direction if outside line of sight. If a detected aura is in line of sight, a Knowledge (arcana) check at DC 10 + the creature's Hit Dice identifies whether it comes from the dragon type or dragonblood subtype. Aura power is: dragonblood subtype—10 HD or lower faint, 11–25 moderate, 26–50 strong, 51+ overwhelming; dragon type—2 HD or lower faint, 3–8 moderate, 9–20 strong, 21+ overwhelming. If more than one category applies, use the stronger aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-dragonblood-1056",
+          "role": "primary Dragon Magic catalog record; prose references an accompanying aura-power table that is omitted from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsdragonmagic.html",
+          "role": "D&D Tools Dragon Magic SRD copy used only to restore the omitted aura-power table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-taint-1429": {
+      "name": "Detect Taint",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects taint in nearby objects and creatures. Round 1 reveals presence or absence; round 2 reveals the number of tainted creatures and the strongest aura, and if you are free of taint an overwhelming aura at least twice your character level nauseates you for 1 round and ends the spell; round 3 reveals each aura's strength and location, or only its direction if outside line of sight. Aura strength uses the higher of a creature's corruption or depravity score, or the amount of taint bestowed by a source without a taint score: score 1 or 0 taint bestowed is faint; score 2–6 or 1 taint bestowed is moderate; score 7–14 or 1d2/1d3 taint bestowed is strong; score 15+ or 1d4+ taint bestowed is overwhelming. A tainted object or location that bestows no taint is generally faint. Lingering duration is 1d6 minutes for faint, 1d6×10 minutes for moderate, 1d6 hours for strong, and 1d6 days for overwhelming. Each round you can turn to a new area; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-taint-1429",
+          "role": "primary Heroes of Horror catalog record; prose references aura-strength and lingering-aura tables that are omitted from the rebuilt page"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/sgqz/basic/101-150",
+          "role": "Heroes of Horror sourcebook rendering used only to restore the two omitted tables"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-taint-2047": {
+      "name": "Detect Taint",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot quarter-circle detects the Shadowlands Taint. Round 1 reveals presence or absence; round 2 reveals the number of Tainted creatures and the strongest aura, and if you are free of Taint an overwhelming aura at least twice your character level stuns you for 1 round and ends the effect; round 3 reveals each aura's strength and location, or only its direction if outside line of sight. A Shadowlands creature's Taint score is half its Charisma score, +1 if undead and +2 if an outsider. Aura strength is: a lingering aura dim; Taint score 1 faint; 2–4 moderate; 5–10 strong; 11+ overwhelming. If multiple categories apply, use the stronger aura. Lingering duration is 1d6 minutes for faint, 1d6×10 minutes for moderate, 1d6 hours for strong, and 1d6 days for overwhelming. Each round you can turn to a new area; 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood or dirt blocks detection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-taint-2047",
+          "role": "primary Oriental Adventures catalog record; prose references aura-strength and lingering-aura tables that are omitted from the rebuilt page"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures sourcebook copy used only to restore the two omitted tables"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/detect-incarnum-1825": {
+      "name": "Detect Incarnum",
+      "effectSummary": "For up to 10 minutes per caster level of concentration, the 60-foot cone detects incarnum, including creatures with the incarnum subtype, soulmelds, creatures with essentia, and essentia-invested magic items. Round 1 reveals presence or absence; round 2 reveals the number of incarnum auras and the strongest aura; round 3 reveals each aura's power and location, or only its direction if outside line of sight. Aura power is: incarnum-subtype creature by HD—10 or lower faint, 11–25 moderate, 26–50 strong, 51+ overwhelming; creature by essentia pool—2 or less faint, 3–10 moderate, 11–30 strong, 31+ overwhelming; shaped soulmeld by meldshaper level—5th or lower faint, 6th–11th moderate, 12th–20th strong, 21st+ overwhelming; essentia-invested object by caster level—5th or lower faint, 6th–11th moderate, 12th–20th strong, 21st+ overwhelming. If multiple categories apply, use the stronger aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/detect-incarnum-1825",
+          "role": "primary Magic of Incarnum catalog record; prose references an aura-power table that is omitted from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsmoi.html",
+          "role": "D&D Tools Magic of Incarnum SRD copy used only to restore the omitted aura-power table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/freeze-armor-1311": {
+      "name": "Freeze Armor",
+      "effectSummary": "For 1 round per caster level, metal armor and equipment freeze. Unattended nonmagical metal gets no save; enchanted metal can save, and an item in a creature's possession uses the creature's save if higher. A creature in metal armor that fails its Fortitude save is immobilized, takes -6 on attack rolls and -8 effective Dexterity, cannot move, and must make a Concentration check at DC 15 + spell level to cast; it takes 1d6 cold damage on round 1, 2d6 on round 2, 3d6 on rounds 3–5, and 4d6 on round 6 and later. A metal-armored creature that saves takes half this damage. A creature not wearing metal armor that fails its save takes the listed damage if affected metal it holds, touches, wears, or carries weighs at least one-fifth of its weight; with less metal it instead takes the minimum 1, 2, 3, or 4 points respectively by those same round bands. A creature carrying less than one-fifth its weight in metal that saves is unaffected. Heat damage offsets this cold damage point for point, and vice versa.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/freeze-armor-1311",
+          "role": "primary Frostburn catalog record; prose references a required round/temperature/damage table that is omitted from the rebuilt page"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsfrost.html",
+          "role": "D&D Tools Frostburn SRD copy used only to restore the omitted damage progression table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
+    },
+    "spells/prismatic-wall-2344": {
+      "name": "Prismatic Wall",
+      "effectSummary": "Creates an immobile vertical opaque wall up to 4 feet wide per caster level and 2 feet high per caster level for 10 minutes per caster level; placing it through an occupied space wastes the spell. The caster can pass or remain nearby safely, but another creature with fewer than 8 HD within 20 feet that looks at it is blinded for 2d4 rounds. Its seven ordered colors are: red—stops nonmagical ranged weapons, deals 20 fire damage (Reflex half), negated by cone of cold; orange—stops magical ranged weapons, deals 40 acid damage (Reflex half), negated by gust of wind; yellow—stops poisons, gases, and petrification, deals 80 electricity damage (Reflex half), negated by disintegrate; green—stops breath weapons, poison kills with Fortitude partial for 1d6 Constitution damage instead, negated by passwall; blue—stops divination and mental attacks, petrifies with Fortitude negates, negated by magic missile; indigo—stops all spells, Will save or become insane as insanity, negated by daylight; violet—destroys all objects and effects and sends creatures to another plane unless they succeed on a Will save, negated by dispel magic. Colors must be removed in order. Rod of cancellation or mage's disjunction destroys the wall; antimagic field does not penetrate it; dispel magic and greater dispel magic cannot dispel the wall or anything beyond it except for the violet layer's listed negation. Spell resistance is checked separately against each color. The wall can be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-wall-2344",
+          "role": "primary Player's Handbook v.3.5 catalog record; the rebuilt prose loses the seven-color table and contains truncated raw table markup"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/prismaticWall.htm",
+          "role": "3.5 SRD reference used only to restore the corrupted seven-color effects and negation table"
+        }
+      ],
+      "resolvesSourceIncomplete": true
     }
   }
 }
