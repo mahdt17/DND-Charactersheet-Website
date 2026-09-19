@@ -18013,6 +18013,258 @@
           "role": "primary DnD Tools effect text and destination-familiarity table reviewed and paraphrased for complete portal mechanics"
         }
       ]
+    },
+    "spells/five-shadow-creeping-ice-enervating-strike-3692": {
+      "name": "Five-Shadow Creeping Ice Enervating Strike",
+      "sourceSha256": "28a7c9be71186ef398b25d9e734c1a45df43c2e40caf26df3a6135cea8cc04c2",
+      "effectSummary": "As part of this supernatural strike, make one melee attack. On a hit, deal normal melee damage +15d6, then roll 1d20 for the freezing-shadow effect: 1–7 deals 2d6 Dexterity damage and reduces speed to 0; 8–14 deals 2d6 Strength damage and imposes -6 on attack rolls and Concentration checks; 15–20 deals 2d6 Dexterity damage, 2d6 Strength damage, and 2d6 Constitution damage. The special effect lasts 1d6 rounds. A Fortitude save at DC 19 + your Wisdom modifier negates the special effect and halves the indicated ability damage, but does not reduce the normal weapon damage or extra 15d6.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/five-shadow-creeping-ice-enervating-strike-3692",
+          "role": "primary DnD Tools maneuver text reviewed and paraphrased for complete strike mechanics"
+        }
+      ]
+    },
+    "spells/flame-arrow-2814": {
+      "name": "Flame Arrow",
+      "sourceSha256": "54bc1fbdf6be52287e3db016a6ee4464bf57eaf129dc943199f4e709354b3a5f",
+      "effectSummary": "Turns ammunition such as arrows, bolts, shuriken, or sling stones into fiery projectiles. Each affected piece deals +1d6 fire damage on a hit and can readily ignite flammable objects or structures, but it does not set a creature on fire merely by hitting it. The material components are a drop of oil and a small piece of flint.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-arrow-2814",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flame-blade-2613": {
+      "name": "Flame Blade",
+      "sourceSha256": "0e6f192ec2f0f5c353ee73ef87c6035f2a0363065dc63ba03484930c10820cba",
+      "effectSummary": "Creates a 3-foot blade of fire wielded like a scimitar. Its attacks are melee touch attacks dealing 1d8 fire damage +1 per two caster levels, maximum +10; your Strength modifier does not add to the damage. It can ignite combustible materials and does not function underwater.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-blade-2613",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flame-dagger-1670": {
+      "name": "Flame Dagger",
+      "sourceSha256": "d149e8982fcd377832c140ddc3b757c28936577fd3fe9a37efde9531c2f2b5c7",
+      "effectSummary": "Creates a 1-foot daggerlike beam of fire. Its attacks are melee touch attacks and deal 1d4 fire damage +1 per caster level, maximum +10; your Strength modifier does not add to the damage. It can ignite combustible materials and does not function underwater. The material component is a candle.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-dagger-1670",
+          "role": "primary Magic of Faerûn DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flame-of-faith-4509": {
+      "name": "Flame of Faith",
+      "sourceSha256": "57fc5ba8414d8963baa686f63b33ab751717b6143c955efed1086426e14ddee1",
+      "effectSummary": "Temporarily turns one nonmagical or masterwork melee weapon into a +1 flaming burst weapon. It gains a +1 enhancement bonus and deals +1d6 fire damage on hits; on a critical hit it deals an additional +1d10 fire damage with a ×2 weapon, +2d10 with ×3, or +3d10 with ×4. These magical weapon properties do not stack with equivalent enhancement, flaming, or flaming-burst bonuses already on a weapon. The material component is a lump of phosphorus touched to the weapon.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-of-faith-4509",
+          "role": "primary Spell Compendium record reviewed; grants the +1 flaming-burst property"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/flame-of-faith-703",
+          "role": "same primary catalog printing family used to make the flaming-burst damage and nonstacking mechanics self-contained"
+        }
+      ]
+    },
+    "spells/flame-of-faith-703": {
+      "name": "Flame of Faith",
+      "sourceSha256": "7313b4118020797d09df6203e5ca213fd48cc359a6afd3b0dad75ed7d292b01c",
+      "effectSummary": "Temporarily turns one normal or masterwork melee weapon into a +1 flaming burst weapon. It deals +1d6 fire damage on hits; on a critical hit it deals an additional +1d10 fire damage with a ×2 weapon, +2d10 with ×3, or +3d10 with ×4. The effect does not stack with the weapon’s existing enhancement bonus or existing flaming/flaming-burst property. The focus is a lump of phosphorus touched to the weapon.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-of-faith-703",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flame-of-faith-961": {
+      "name": "Flame of Faith",
+      "sourceSha256": "7313b4118020797d09df6203e5ca213fd48cc359a6afd3b0dad75ed7d292b01c",
+      "effectSummary": "Temporarily turns one normal or masterwork melee weapon into a +1 flaming burst weapon. It deals +1d6 fire damage on hits; on a critical hit it deals an additional +1d10 fire damage with a ×2 weapon, +2d10 with ×3, or +3d10 with ×4. The effect does not stack with the weapon’s existing enhancement bonus or existing flaming/flaming-burst property. The focus is a lump of phosphorus touched to the weapon.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-of-faith-961",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flame-strike-2614": {
+      "name": "Flame Strike",
+      "sourceSha256": "b16d476da3a92851435d2dbbda7e4fb44d43b58a075139cd824c58d18de5e6d2",
+      "effectSummary": "Calls down a vertical column dealing 1d6 damage per caster level, maximum 15d6. Half the damage is fire; the other half is divine power and is not reduced by fire resistance or similar protection against fire damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-strike-2614",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flame-whips-3225": {
+      "name": "Flame Whips",
+      "sourceSha256": "beb35fad3f981346830e177e9abeb4f552c3af977e4592d752690f128d5030de",
+      "effectSummary": "Transforms your forelimbs into flaming whips, replacing any natural attacks made with those limbs. Each whip deals 5d6 fire damage +1 per caster level, maximum +20. While transformed, you cannot cast spells with material components or carry items with those forelimbs, and magic items worn on the affected limbs cease functioning.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-whips-3225",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flame-whips-4510": {
+      "name": "Flame Whips",
+      "sourceSha256": "c10cc24420f198993550f8826d6e350c11a275ebfad9f69c0cb4280d6bf0bdf4",
+      "effectSummary": "Transforms your forelimbs into two flaming whips. You gain two melee touch attacks with 15-foot reach, each dealing 6d6 fire damage; they replace any natural attacks normally made with those limbs. While transformed, you cannot cast spells with material components or carry items with your forelimbs, and items worn on those limbs cease functioning.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-whips-4510",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flames-blessing-3577": {
+      "name": "Flame's Blessing",
+      "sourceSha256": "5160b904444ecf50ff5ec806a3144c161160bdf31711a40282be15d1c90f8fd0",
+      "tablesSha256": "3ed026f08c6d0a6208c4863f416e8b67fe537a739c68bb1d8d2fae00b8299625",
+      "effectSummary": "While you remain in this supernatural stance, your Tumble ranks determine your fire protection: 4–8 ranks grants fire resistance 5; 9–13 grants resistance 10; 14–18 grants resistance 20; and 19 or more ranks grants immunity to fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flames-blessing-3577",
+          "role": "primary DnD Tools stance text and resistance table reviewed and paraphrased for complete mechanics"
+        }
+      ]
+    },
+    "spells/flaming-sphere-2615": {
+      "name": "Flaming Sphere",
+      "sourceSha256": "a9430fa6363502615d87dd7b5680babe72821d897013407c29bef078e802fb7f",
+      "effectSummary": "Creates a rolling sphere of fire that moves up to 30 feet per round in the direction you direct as a move action; it can also climb or jump up to 30 feet during that movement. Entering a creature’s space ends its movement for the round and deals 2d6 fire damage unless the creature succeeds on a Reflex save. It rolls over barriers under 4 feet high, ignites flammables, gives torchlike illumination, and remains stationary if not directed. It cannot push unwilling creatures or break large obstacles, can be extinguished like an ordinary fire of its size, and disappears if it leaves the spell’s range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flaming-sphere-2615",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flanking-maneuver-3759": {
+      "name": "Flanking Maneuver",
+      "sourceSha256": "58df9ba6f543a10c11e0a5dd9a63d1620749a88d30419082a7583139e2c15ed2",
+      "effectSummary": "Use this strike while you and one or more allies flank a designated opponent. Make one melee attack as part of the maneuver. If it hits, every ally currently flanking that foe who can see you can immediately make one melee attack against it. These granted attacks are not attacks of opportunity; your allies need to see you but do not need to hear you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flanking-maneuver-3759",
+          "role": "primary DnD Tools maneuver text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flare-2616": {
+      "name": "Flare",
+      "sourceSha256": "6287f9bf30543b297e728d5ad2c8810e459290573847d244af46e516e4b2c0f3",
+      "effectSummary": "Creates a burst of light in front of one creature. Unless it succeeds on a Fortitude save, the creature is dazzled for 1 minute. Sightless creatures and creatures already dazzled are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flare-2616",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flash-freeze-1307": {
+      "name": "Flash-freeze",
+      "sourceSha256": "647291c611caaf7ba5a996f57356e3684d1cdbfa8fbcddf0c894c8638504cb80",
+      "effectSummary": "Permanently chills a 10-foot-square area to a depth of 1 foot: earth, mud, and stone become everfrost and water freezes. It cannot affect magical, enchanted, dressed, or worked stone, or earth/stone/water creatures. In a large body of water it can create a small floating iceberg; standing on such an iceberg requires a DC 15 Balance check each round because it is slippery and unstable, and the iceberg can be moved by current, paddling, or similar means.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flash-freeze-1307",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flashburst-1202": {
+      "name": "Flashburst",
+      "sourceSha256": "865a92a7896a42d9a06d2d9071ead9961046d17bf7575727cbfd2e451d36c89a",
+      "effectSummary": "Creates a blinding flash. Sighted creatures inside the burst are automatically dazzled for 1 round and must make a Will save or be blinded for 2d8 rounds. Sighted creatures outside the burst but within 120 feet and with line of sight can also be blinded for 2d8 rounds on a failed Will save, but are not dazzled. A blinded creature has a 50% miss chance, loses its Dexterity bonus to AC, gives attackers +2 on attacks, moves at half speed, and takes -4 on most Strength- and Dexterity-based skill checks. The arcane material component is sulfur or phosphorus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flashburst-1202",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete condition mechanics"
+        }
+      ]
+    },
+    "spells/flashburst-4514": {
+      "name": "Flashburst",
+      "sourceSha256": "b7e2c2ce72ed9e2b646ef1e9a7a56ad4c819138777c104fe1a75839830b4e46c",
+      "effectSummary": "Creates a blinding flash. Sighted creatures inside the burst must make a Will save or be blinded for 2d8 rounds and are dazzled for 1 round even on a successful save. Sighted creatures outside the burst but within 120 feet and with line of sight can also be blinded for 2d8 rounds on a failed Will save, but are not dazzled. The arcane material component is sulfur or phosphorus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flashburst-4514",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/flashflood-3132": {
+      "name": "Flashflood",
+      "sourceSha256": "517b201107ffd98c9ffc619749bd05e9c6aecf2c17b882f144916e0247e24458",
+      "effectSummary": "Creates a 10-foot-high, 120-foot-cone surge lasting 1 round and leaving 100,000 cubic feet of ordinary water behind. Grounded creatures in the surge cannot move or attack; casting requires Concentration DC 20 + spell level. The surge deals 1d6 nonlethal damage +1d6 per five caster levels, maximum 4d6, and pushes unsecured creatures/objects to the area’s outer edge; collision with a solid surface deals 8d6. Holding a sturdy object requires Strength DC 20, grabbing one requires Reflex or Swim DC 20, and Huge-or-larger creatures can resist with Strength DC 30; failure also knocks a creature prone. In caves or tunnels the water fills available volume and can flood higher areas, creating drowning risk; cast from a cliff it can sweep creatures over the edge; on open ground creatures are mainly knocked prone or swept away. Structures in open ground take 60 damage without the normal object-damage halving, reduced by hardness; collapse deals 8d6 bludgeoning damage, Reflex DC 15 half. Rivers, lakes, and marshes overflow according to the added water volume.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flashflood-3132",
+          "role": "primary DnD Tools effect text reviewed and paraphrased with terrain-specific consequences preserved"
+        }
+      ]
+    },
+    "spells/flashing-sun-3578": {
+      "name": "Flashing Sun",
+      "sourceSha256": "cb92db39030d85bb4129d01436d982e0fad743aa378eee429c15581310b743d2",
+      "effectSummary": "As part of this maneuver, take a full attack and make one additional melee attack at your highest attack bonus. Every attack you make during that full attack, including the extra attack, takes a -2 penalty.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flashing-sun-3578",
+          "role": "primary DnD Tools maneuver text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fireward-2284": {
+      "name": "Fireward",
+      "sourceSha256": "f225c63d4cb82e2943689d785df5a02d394a49349b1d65499d8169568233a450",
+      "effectSummary": "When cast, the area-mode effects of quench apply: all nonmagical fires in the area are extinguished; each fire spell there is subject to a dispel check of 1d20 +1 per caster level, maximum +15, against DC 11 + that spell's caster level; and each elemental (fire) creature in the area takes 1d6 damage per caster level, maximum 15d6, with no save. For the spell’s 1-hour-per-level duration, magical fire effects cannot function inside its area, as with an antimagic field limited to magical fire, and any nonmagical fire created in or brought into the area is immediately extinguished.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fireward-2284",
+          "role": "primary Player's Guide to Faerûn record reviewed; persistent fire-suppression mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/quench-2857",
+          "role": "primary catalog base spell; its damaged rebuilt text is separately repaired by the Quench supplement"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/quench.htm",
+          "role": "3.5 SRD used to resolve the inherited area-mode Quench mechanics"
+        }
+      ]
+    },
+    "spells/fireward-4506": {
+      "name": "Fireward",
+      "sourceSha256": "d12dc6902ebbe0fb1c517c13c5cf69b903188bf698dd823ef6c8f93a7a799132",
+      "effectSummary": "When cast, the area-mode effects of quench apply: all nonmagical fires in the area are extinguished; each fire spell there is subject to a dispel check of 1d20 +1 per caster level, maximum +15, against DC 11 + that spell's caster level; and each elemental (fire) creature in the area takes 1d6 damage per caster level, maximum 15d6, with no save. For the spell’s 1-hour-per-level duration, magical fire effects cannot function inside its area, as with an antimagic field limited to magical fire, and any nonmagical fire created in or brought into the area is immediately extinguished.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fireward-4506",
+          "role": "primary Spell Compendium record reviewed; persistent fire-suppression mechanics retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/quench-2857",
+          "role": "primary catalog base spell; its damaged rebuilt text is separately repaired by the Quench supplement"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/quench.htm",
+          "role": "3.5 SRD used to resolve the inherited area-mode Quench mechanics"
+        }
+      ]
     }
   }
 }
