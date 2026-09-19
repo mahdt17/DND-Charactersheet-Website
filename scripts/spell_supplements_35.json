@@ -767,6 +767,25 @@
           "role": "same-primary-catalog printing with matching 1d6/level, maximum 15d6 mechanics used to restore the omitted size table"
         }
       ]
+    },
+    "spells/crystalline-memories-871": {
+      "name": "Crystalline Memories",
+      "effectSummary": "Will negates and spell resistance applies. After casting, the caster must study the target for 3 consecutive rounds, concentrating each round; interruption causes the spell to be lost. When the study completes, the target's current surface thoughts, as detect thoughts, crystallize and erupt from its head, dealing 2d8 damage and 2 Intelligence damage before flying to the caster. Only the caster can spend a full-round action to view the stored thoughts. The crystal lasts 24 hours or until viewed once.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crystalline-memories-871",
+          "role": "primary catalog record; effect prose is truncated between the concentration rule and the crystallization of the target's surface thoughts"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCMage.html",
+          "role": "complete D&D Tools Complete Mage spell text used only to restore the omitted concentration/interruption and surface-thought crystallization mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-mage--58/crystalline-memories--871/",
+          "role": "independent archived D&D Tools rendering confirming the same omitted Complete Mage mechanics"
+        }
+      ]
     }
   }
 }
