@@ -9211,6 +9211,234 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/crawling-darkness-1609": {
+      "name": "Crawling Darkness",
+      "sourceSha256": "1d6099cbe2187215d95e88497c83da047ad615574713f21b4925a621e5df1fb3",
+      "effectSummary": "Surrounds the caster with dark writhing tentacles that provide 20% concealment and completely hide the caster's features without interfering with movement or spellcasting. Grants +4 competence on grapple, Climb, and Escape Artist checks, automatically provides feather fall whenever the caster falls more than 3 feet, and allows water walk at will.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crawling-darkness-1609",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crawling-darkness-3196": {
+      "name": "Crawling Darkness",
+      "sourceSha256": "8a26a4475d0d8cb8b4b1c09ca470d9a40af4d4afd622299ffab608256ad28a54",
+      "effectSummary": "Surrounds the caster with dark writhing tentacles that provide 20% concealment and completely hide the caster's features without interfering with movement or spellcasting. Grants +4 competence on grapple, Climb, and Escape Artist checks, automatically provides feather fall whenever the caster falls more than 3 feet, and allows water walk at will.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crawling-darkness-3196",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/crawling-darkness-4242": {
+      "name": "Crawling Darkness",
+      "sourceSha256": "a5211c11c3d02b4215f39583fe068d1d1135790953d248e4ae0215380ac9c516",
+      "effectSummary": "Surrounds the caster with dark writhing tentacles that provide concealment and completely hide the caster's features without interfering with movement or spellcasting. Grants +4 competence on grapple, Climb, and Escape Artist checks. When the caster is attacked, the tentacles strike back using an attack bonus equal to the caster's base attack bonus + Wisdom modifier and deal 1d12 damage on a hit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/crawling-darkness-4242",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/creaking-cacophony-4243": {
+      "name": "Creaking Cacophony",
+      "sourceSha256": "5b9f3fb99f182856f2306ac9ed07265e91d60c0af6c9ab0d4f02115cf3602fa1",
+      "effectSummary": "Fills the area with overwhelming noise. Creatures inside take -4 on Listen checks. A spellcaster in the area must make a Concentration check with DC equal to this spell's save DC + the level of the spell being cast. Creatures in the area that are not immune to sonic damage gain vulnerability to sonic damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/creaking-cacophony-4243",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-chosen-one-2008": {
+      "name": "Create Chosen One",
+      "sourceSha256": "e5650fdd084802867a3d7fe491193702b11fd63b2f831e4c44e23c7493ac30b0",
+      "effectSummary": "An evil wizard can transform a bound and helpless normal human of up to 3rd level into a chosen one. After the ritual, the victim makes a Will save; on failure it is transformed into a maddened chosen one under the creator's control.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-chosen-one-2008",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-crawling-claw-2009": {
+      "name": "Create Crawling Claw",
+      "sourceSha256": "a110d963738429b5d0c851530c27305b7b1a368c0874e528c432c8ed9f5328c7",
+      "effectSummary": "Transforms up to twice caster level severed hands within a 5-foot-radius area into crawling claws. Casting must begin inside a magic circle against good. The claws obey simple telepathic commands while within 100 feet; beyond that range they follow simple standing orders given beforehand. A hand used this way does not prevent its former owner from later being resurrected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-crawling-claw-2009",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-crossroads-and-backroad-1610": {
+      "name": "Create Crossroads and Backroad",
+      "sourceSha256": "fe7a56bc655d3278c44a67a4ed8f1d972663376e66d91a32afa48894ffb530fc",
+      "effectSummary": "Creates two vertical crossroads areas, each up to 50 square feet, and a backroad linking them. The caster must have personally visited the destination crossroads. A crossroads guardian is summoned at each end and begins Helpful toward the caster. Establishing the sites requires a full day of uninterrupted preparation and costs 3,500 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-crossroads-and-backroad-1610",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-darkenbeast-2010": {
+      "name": "Create Darkenbeast",
+      "sourceSha256": "81415eb76398247f658dcef60a19d9d8772796d10a9c8f5ddce28064b354837e",
+      "effectSummary": "Transforms one Small or Medium animal of no more than 2 HD into a darkenbeast. Intelligence 5+ targets receive a Will save; lower-Intelligence targets are automatically affected. The spell must be cast in darkness and lasts until the darkenbeast is slain, exposed to sunlight, dispelled, or hit by sunbeam, which ends the transmutation automatically. The caster telepathically controls created darkenbeasts. A spell can be imprinted immediately afterward with a Spellcraft check against DC 12 + spell level; the caster can maintain imprinted darkenbeasts up to caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-darkenbeast-2010",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-deathless-4885": {
+      "name": "Create Deathless",
+      "sourceSha256": "12b3e458c2bbb42759c67dff0465e1bccace7d4706a6747da42aa56b5b84fc8a",
+      "effectSummary": "Creates an undying soldier deathless from a corpse. The new deathless is not automatically controlled, though a caster able to command deathless can attempt to command it as it forms. Each corpse requires a moonstone worth at least 50 gp per Hit Die of the created deathless, which the spell consumes. This spell cannot create an ascendant councilor.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-deathless-4885",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-ectoplasm-1338": {
+      "name": "Create Ectoplasm",
+      "sourceSha256": "9414100d9618dc66ffe44c1dcd0c2c5829c5505a963ab8da433396e7b847fc8f",
+      "effectSummary": "Creates raw ectoplasm from the caster's body, choosing sticky or slippery ectoplasm. It normally remains until the spell duration expires; if dispelled after it has existed for more than 10 minutes, it vanishes immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-ectoplasm-1338",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-faux-human-4974": {
+      "name": "Create Faux Human",
+      "sourceSha256": "ffb86748ade14aa7d74f8747b56baf5dde0372e6bae0827b1e5ffde314cdafa6",
+      "effectSummary": "Transforms a Tiny animal into a halfling-like humanoid or a Small animal into a human-like humanoid if the caster succeeds on a Will save against DC 10 + the target's Hit Dice. The new faux human has 3d6 Intelligence, gains +1d3 Charisma, becomes a 1st-level commoner, expert, or warrior chosen by the caster, speaks Common, changes to the humanoid type, and no longer communicates with animals or counts as an animal for spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-faux-human-4974",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-fetch-898": {
+      "name": "Create Fetch",
+      "sourceSha256": "3748110fbaa84135911693826bef55777b884b26fc6376bb0b07b01c8079144a",
+      "effectSummary": "Creates a mindless physical duplicate of the caster that can perform simple telepathically ordered tasks, imitate the caster, carry items, open unstuck doors, and perform untrained tasks with DC 10 or lower, but cannot attack, flank, aid attacks or AC, communicate, or use copied equipment. The likeness uses a Disguise check set at casting, but touch reveals its rubbery magical nature. It has the caster's normal land speed only, automatically fails saves, has Strength 6 if Medium, Dexterity 10, AC 10 plus size, 10 hit points, no Constitution/mental scores, and is destroyed at 0 hit points or if sent beyond spell range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-fetch-898",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-food-and-water-2375": {
+      "name": "Create Food and Water",
+      "sourceSha256": "9737c0e4332d1997b534af841695fd77cb43bb21153c87160087d91f343692dd",
+      "effectSummary": "Creates simple nourishing food and clean rainlike water. The food spoils after 24 hours unless purify food and water extends freshness for another 24 hours; the created water does not spoil.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-food-and-water-2375",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-greater-deathless-4886": {
+      "name": "Create Greater Deathless",
+      "sourceSha256": "eb70ff2edd0516f6b17e0b71db0dbc6e379f8ca1a7773590970e8d0a457b8b9f",
+      "effectSummary": "Functions as create deathless but can create an undying councilor, a more powerful intelligent deathless. It retains create deathless's normal creation and control rules, including that the created deathless is not automatically controlled. Other campaign-approved deathless may also be possible, but no spell can create an ascendant councilor.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-greater-deathless-4886",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/create-deathless-4885",
+          "role": "same-primary-catalog cross-reference used to retain inherited creation/control mechanics"
+        }
+      ]
+    },
+    "spells/create-greater-undead-2723": {
+      "name": "Create Greater Undead",
+      "sourceSha256": "dc45493722267de6cf96e749b10bb7938cbe6d3dd5325a999221602b87e61a56",
+      "effectSummary": "Functions as create undead but creates more powerful undead according to caster level: 15th or lower creates a shadow, 16th–17th a wraith, 18th–19th a spectre, and 20th or higher a devourer. The caster can choose a less powerful eligible type instead. Created undead are not automatically controlled and use the normal create-undead creation and command rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-greater-undead-2723",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/create-undead-2724",
+          "role": "same-primary-catalog cross-reference used to retain inherited creation/control mechanics"
+        }
+      ]
+    },
+    "spells/create-lantern-archon-307": {
+      "name": "Create Lantern Archon",
+      "sourceSha256": "f7880199f01b1f812f765cb1951964afadf7a85ea0405d18e12d1fd85b7136db",
+      "effectSummary": "Creates a new lantern archon in the service of the caster's patron. It is friendly but not controlled and willingly performs one nonhazardous task lasting up to 1 hour without payment; hazardous or longer service requires payment under the lesser planar ally rules. After completing its task it is transported to the patron deity's home plane. Casting costs 1d2 Constitution drain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-lantern-archon-307",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-magic-tattoo-1193": {
+      "name": "Create Magic Tattoo",
+      "sourceSha256": "e85e81470d120e64f7804170d00c1651b1c70e6070810bfe7006c118d0755bb4",
+      "effectSummary": "Creates one magic tattoo with a successful Craft check and at least 1 rank in an appropriate artistic Craft. At caster levels 3–6 (DC 10), choose +2 resistance to one save, +1 luck on attacks, or +1 deflection AC. At levels 7–12 (DC 15), also choose +2 resistance to all saves, +2 competence on attacks, or recall one cast 0th–2nd-level spell like a pearl of power. At 13th+ (DC 20), also choose spell resistance 10 +1 per six caster levels, +2 enhancement to one ability score, or +1 effective caster level for level-based spell variables. A creature can have at most three magic tattoos; erase removes one and targeted dispel magic can remove multiple.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-magic-tattoo-1193",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-magic-tattoo-2226": {
+      "name": "Create Magic Tattoo",
+      "sourceSha256": "e54b801741a12d74f1eec397a3216363060d3141dd8cf73b54c27bf0bdc737f6",
+      "effectSummary": "Creates one magic tattoo with a successful Craft check and at least 1 rank in an appropriate artistic Craft. At caster levels 3–6 (DC 10), choose +2 resistance to one save, +1 luck on attacks, or +1 deflection AC. At levels 7–12 (DC 15), also choose +2 resistance to all saves or +2 competence on attacks. At 13th+ (DC 20), also choose spell resistance 10 +1 per six caster levels, +2 enhancement to one ability score, or +1 effective caster level for level-based spell variables. A creature can have at most three magic tattoos; erase removes one and targeted dispel magic can remove multiple. Tattoo inks cost at least 100 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-magic-tattoo-2226",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-magic-tattoo-4247": {
+      "name": "Create Magic Tattoo",
+      "sourceSha256": "752dc7fb89d503b772f7c528fc92e591bf902abdd862f4b0b2ea262237d0f1b9",
+      "effectSummary": "Creates one magic tattoo with a successful Craft check and at least 1 rank in an appropriate artistic Craft. At caster levels 3–6 (DC 10), choose +2 resistance to one save, +1 luck on attacks, or +1 deflection AC. At levels 7–12 (DC 15), also choose +2 resistance on saving throws or +2 competence on attacks. At 13th+ (DC 20), also choose spell resistance 10 +1 per three caster levels, +2 enhancement to one ability score, or +1 effective spellcaster level for level-based spell variables. A creature can have at most three magic tattoos; erase removes one and targeted dispel magic can remove multiple. Tattoo inks cost at least 100 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-magic-tattoo-4247",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/create-spring-2105": {
+      "name": "Create Spring",
+      "sourceSha256": "9f95bf4437de753e7a03de92d29ff6ac02a4b871890e9c410f55a66b73f7d608",
+      "effectSummary": "Creates a permanent spring from touched natural rock or earth, producing six gallons of fresh, clear, cool water per hour. It cannot originate from creatures, plants, or artificial constructions, and no more than one such spring can be created within 100 yards.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/create-spring-2105",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
