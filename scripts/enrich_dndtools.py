@@ -1909,6 +1909,20 @@ def self_test():
     assert f["mechanicsPresence"]["benefit"] and f["mechanicsPresence"]["prerequisiteLabeled"]
     assert enrichment_gaps("feats",f) == []
 
+    long_special = "This repeated special rule remains source-captured but requires a concise review summary. " * 8
+    long_normal = "This repeated normal rule remains source-captured but requires a concise review summary. " * 8
+    long_feat_html = f"""
+    <h1>Long Rule Feat</h1><p>General feat</p><p>Example Source (EX), p. 2</p>
+    <div>Benefit</div><div>Source mechanic.</div>
+    <div>Normal</div><div>{long_normal}</div>
+    <div>Special</div><div>{long_special}</div>
+    """
+    p=DetailParser();p.feed(long_feat_html);p.close()
+    f=parse_feat(p,{"name":"Long Rule Feat","id":"self-test-long-feat-rules"})
+    assert f.get("normalNeedsSummary") and f.get("specialNeedsSummary")
+    assert "normalRule" not in enrichment_gaps("feats",f)
+    assert "specialRule" not in enrichment_gaps("feats",f)
+
     malformed_feat = """
     <h1>Kuo-Toan Monasticism</h1><p>General feat</p><p>Monster Manual V (MM5), p. 97</p>
     <div>Prerequisite</div><div>a kuo-toa can smear a strange sticky substance on its hands. When using flurry of blows, Flurry of blows. As a swift action, Kuo-Toa, rather than its character level to determine its stunning fist save DC, the kuo-toa automatically hits with one of its extra attacks if its first attack hits. A kuo-toa that has this feat uses its Hit Dice.</div>
