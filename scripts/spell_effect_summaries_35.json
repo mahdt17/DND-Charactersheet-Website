@@ -16114,6 +16114,230 @@
           "role": "primary Underdark printing reviewed and paraphrased"
         }
       ]
+    },
+    "spells/excavate-4465": {
+      "name": "Excavate",
+      "sourceSha256": "99606f2f71187cae72d543105162ce2223004b250a38731e3d5928348697ba34",
+      "effectSummary": "Creates a permanent passage through wooden, plaster, or stone walls, but not metal or harder materials. A single casting can penetrate up to 1 foot of wall thickness per caster level using the spell's stated opening dimensions; against thicker barriers it creates only a niche or short tunnel, and repeated castings can extend the passage. Because the effect is instantaneous, the opening does not expire and cannot be dispelled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/excavate-4465",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/execration-617": {
+      "name": "Execration",
+      "sourceSha256": "972e0f366e606b2fcf013ecf992f146ac95bb2fb4cefe2c14c44c529691d7adf",
+      "effectSummary": "Curses the touched creature with a -2 luck penalty on all saving throws; this penalty stacks with other saving-throw penalties. Once before the spell ends, as an immediate action and while you have line of sight to the subject, you can force it to reroll one attack roll, saving throw, skill check, or ability check, whether you invoke the effect before or after seeing the original result. The lower of the two rolls applies, and using this reroll ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/execration-617",
+          "role": "primary Complete Champion printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/exorcism-1145": {
+      "name": "Exorcism",
+      "sourceSha256": "ecc539cdafc1cb0f30b70c4fa2d36770d6bcc5a6f581d87b220edfda63a057ba",
+      "effectSummary": "After casting, you can expend one use of turn or rebuke undead as a standard action against a creature within range that is possessed by a fiend. No turning check is made. The possessing fiend must make a Will save or be expelled into the nearest open space, appearing incorporeally; an expelled fiend cannot possess the same host again for 24 hours. The spell does not affect undead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/exorcism-1145",
+          "role": "primary Fiendish Codex I printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/exorcism-steel-3646": {
+      "name": "Exorcism of Steel",
+      "sourceSha256": "110dd15fd94318fd9909d24d62a33b8514b31eb04765e88b6b20ebd6aae06f2f",
+      "effectSummary": "As part of the maneuver, make one melee attack against an opponent's manufactured weapon without provoking an attack of opportunity. On a hit, the weapon's wielder takes a -4 penalty on melee damage rolls for 1 minute. A successful Will save at DC 13 + your Strength modifier reduces the penalty to -2. The maneuver cannot target natural weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/exorcism-steel-3646",
+          "role": "primary Tome of Battle printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/expeditious-retreat-2811": {
+      "name": "Expeditious Retreat",
+      "sourceSha256": "1e842de0ed0aad1657f8550613a7f588ad6d314f1d89300486eb7f198ab9b284",
+      "effectSummary": "Increases your base land speed by 30 feet as an enhancement bonus for the spell's duration. It does not increase other movement modes such as burrow, climb, fly, or swim, and the increased land speed also increases jumping distance normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/expeditious-retreat-2811",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/expeditious-retreat-swift-1986": {
+      "name": "Expeditious Retreat, Swift",
+      "sourceSha256": "6b29c85221cb70951a7aafa2484b600618950c0aba6da5c2ee8e30c218a43ef5",
+      "effectSummary": "Increases your base land speed by 30 feet as an enhancement bonus for this printing's short duration. It does not increase other movement modes such as burrow, climb, fly, or swim, and the increased land speed also increases jumping distance normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/expeditious-retreat-swift-1986",
+          "role": "primary Complete Scoundrel printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/expeditious-retreat-swift-421": {
+      "name": "Expeditious Retreat, Swift",
+      "sourceSha256": "6b29c85221cb70951a7aafa2484b600618950c0aba6da5c2ee8e30c218a43ef5",
+      "effectSummary": "Increases your base land speed by 30 feet as an enhancement bonus for this printing's short duration. It does not increase other movement modes such as burrow, climb, fly, or swim, and the increased land speed also increases jumping distance normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/expeditious-retreat-swift-421",
+          "role": "primary Complete Adventurer printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/expeditious-retreat-swift-4466": {
+      "name": "Expeditious Retreat, Swift",
+      "sourceSha256": "6b29c85221cb70951a7aafa2484b600618950c0aba6da5c2ee8e30c218a43ef5",
+      "effectSummary": "Increases your base land speed by 30 feet as an enhancement bonus for this printing's short duration. It does not increase other movement modes such as burrow, climb, fly, or swim, and the increased land speed also increases jumping distance normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/expeditious-retreat-swift-4466",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/explosive-cascade-1668": {
+      "name": "Explosive Cascade",
+      "sourceSha256": "0815d0405bd3ba58c54cfd98c00d19467cca7794c7ef4ef380261cfe415b435f",
+      "effectSummary": "Sends a path of flame through the spell's area, dealing 1d6 fire damage per caster level, maximum 10d6, to creatures and objects it passes through. The flames shed torchlike light while moving; sparks remain for 1 round afterward, shedding candlelike light but dealing no damage. If the fire destroys a barrier in its path and unused area remains, the cascade continues beyond that barrier.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/explosive-cascade-1668",
+          "role": "primary Magic of Faerûn printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/explosive-cascade-4467": {
+      "name": "Explosive Cascade",
+      "sourceSha256": "e74ba78f3238cb60c49b46ec17991327d1e4c9c645c60314b67fdd6bca80b1ea",
+      "effectSummary": "Sends a path of flame through the spell's area, dealing 1d6 fire damage per caster level, maximum 10d6, to each creature or object it passes through; a given creature or object can be damaged only once by the same casting. The flames shed torchlike light while moving, and harmless sparks linger for 1 round with candlelike illumination. If the fire destroys a barrier in its path and unused area remains, the cascade continues beyond it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/explosive-cascade-4467",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; its explicit once-per-casting damage limit is preserved"
+        }
+      ]
+    },
+    "spells/explosive-pinecone-3547": {
+      "name": "Explosive Pinecone",
+      "sourceSha256": "764657f1d0fb26f2056c105d52863ee834ac8176af09704506899ea35c139501",
+      "effectSummary": "Transforms the pinecone focus into an explosive projectile that functions as a splash weapon and can be thrown up to 100 feet. A direct hit requires a ranged touch attack and deals 1d6 piercing damage per caster level, maximum 25d6, with no saving throw for that direct-hit damage. Creatures within 20 feet of the impact take 1 point of piercing splash damage per damage die, with a Reflex save for half. The 20-foot-radius blast area is littered with sharp debris for 10 minutes per caster level; creatures moving through it on foot move at half speed and take 1d8 piercing damage for every 5 feet traveled.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/explosive-pinecone-3547",
+          "role": "primary Spell Compendium printing reviewed and paraphrased; 'functions as a splash weapon' is treated as generic rules language, not a spell cross-reference"
+        }
+      ]
+    },
+    "spells/explosive-rune-field-2924": {
+      "name": "Explosive Rune Field",
+      "sourceSha256": "53e5442a2b122c689eddad9797d576dcac483b4e6c66f6dddabb5416d43ac6bb",
+      "effectSummary": "Creates a field of explosive magical runes that affects living creatures other than you. A creature that begins its turn in the field must save or take 4d6 fire damage. A creature moving through the area at normal speed must also save against the field, while a creature that moves at half speed automatically avoids the runes' damage. The material component is parchment inscribed with silver-flecked ink worth 25 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/explosive-rune-field-2924",
+          "role": "primary Player's Handbook II printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/explosive-runes-2319": {
+      "name": "Explosive Runes",
+      "sourceSha256": "663c361d202219ee5945b85cef8a6a3437b7e81770746dcc9365dd800e40e85f",
+      "effectSummary": "Places destructive runes on a book, map, scroll, or similar written object. Anyone who reads the runes triggers them, causing 6d6 force damage to the reader and any creature close enough to the runes, with no save for creatures in direct contact; other creatures within 10 feet receive a Reflex save for half. The object bearing the runes also takes the full damage. You and creatures you specifically instruct can read the protected writing without triggering it, and you can remove your own runes at will. Dispel magic can remove them, but a failed dispel check triggers the explosion; erase also attempts to remove them and can trigger them on failure. A rogue can find and disable them with Search and Disable Device checks at DC 25 + spell level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/explosive-runes-2319",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/expose-the-dead-4837": {
+      "name": "Expose the Dead",
+      "sourceSha256": "688e099806067a5a599e235865b81ce6d571b1f1b539895da96c88c4ad355c29",
+      "effectSummary": "Turns your eyes white while leaving your vision otherwise normal and sharpens your ability to investigate the dead. You gain an insight bonus equal to caster level, maximum +10, on Survival checks to track undead and may follow undead tracks even when the DC exceeds 10 as though you had Track. The same bonus applies to Listen and Spot checks against undead and to Search checks involving dead bodies, and you are treated as having Investigate when examining a corpse. The save DC of any speak with dead spell you cast increases by 2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/expose-the-dead-4837",
+          "role": "primary Eberron Campaign Setting printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/expunge-the-supernatural-3433": {
+      "name": "Expunge the Supernatural",
+      "sourceSha256": "6a4790f933578b3a814ac6fb011f902bb34c6d6c7e0a650c27bae4a5f50f3a25",
+      "effectSummary": "Permanently removes one supernatural ability you choose from the creature whose personal truename you successfully speak. The utterance otherwise follows spurn the supernatural's targeting distinction: it affects supernatural abilities, not extraordinary or spell-like abilities, but unlike spurn the supernatural it removes only the one chosen ability rather than additional abilities for exceeding the Truespeak DC. The lost ability remains gone until the target receives a ritual of renaming, wish, or miracle; if the removed ability was only temporary in the first place, the creature can later regain it normally when the underlying source grants it again. Speaking the utterance requires the target's personal truename and costs 500 XP.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/expunge-the-supernatural-3433",
+          "role": "primary Tome of Magic printing reviewed and paraphrased"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/spurn-the-supernatural-3435",
+          "role": "same primary catalog cross-reference used to resolve the supernatural-ability targeting rules inherited from spurn the supernatural"
+        }
+      ]
+    },
+    "spells/extend-shifting-4811": {
+      "name": "Extend Shifting",
+      "sourceSha256": "f422fd9a29cbec922430d303c0eb63564fabb076d298a4cb565d80af45ca538f",
+      "effectSummary": "Can be cast only while you are shifting and extends the current shifting duration by 4 rounds. When the shifting ends, you become fatigued for 10 minutes. If you were already fatigued when you cast the spell, or become fatigued before the shifting ends, you become exhausted instead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/extend-shifting-4811",
+          "role": "primary Races of Eberron printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/extend-tentacles-3223": {
+      "name": "Extend Tentacles",
+      "sourceSha256": "3bce6adff28b39c929b08668514ee04de52162886110e78dbaf1b4d2084ab010",
+      "effectSummary": "Increases the reach of your tentacle natural attacks by 5 feet for the spell's duration. If you are a medusa whose snakes function as tentacles, they gain 10-foot reach; after a successful snake attack you can attempt to start a grapple as though using improved grab, and after establishing a hold you can deal 1d3 + Strength modifier constriction damage on later successful grapple checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/extend-tentacles-3223",
+          "role": "primary Savage Species printing reviewed and paraphrased; its medusa-specific grapple and constriction rules are preserved"
+        }
+      ]
+    },
+    "spells/extend-tentacles-4468": {
+      "name": "Extend Tentacles",
+      "sourceSha256": "184009e42175702330b0e738c9a640c9f9cb91b278ddc711122e0b7dd8e5c53b",
+      "effectSummary": "Increases the reach of your existing tentacle natural attacks by 5 feet. The tentacles otherwise attack normally. The spell has no effect if you do not have tentacle attacks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/extend-tentacles-4468",
+          "role": "primary Spell Compendium printing reviewed and paraphrased"
+        }
+      ]
+    },
+    "spells/phantom-steed-2415": {
+      "name": "Phantom Steed",
+      "sourceSha256": "f5e08c6457316f9d4cb50e13ac0457cf079e4d09ae9cf8d324b8af802911596d",
+      "effectSummary": "Creates a Large quasi-real horselike mount that only the designated rider can ride. It has AC 18, 7 hit points +1 per caster level, no attacks, and disappears when reduced to 0 hit points. Its speed is 20 feet per caster level, maximum 240 feet, and it can carry its rider plus 10 pounds per caster level. At caster level 8 it can ride over sandy, muddy, or swampy ground without penalty; at 10 it can water walk at will; at 12 it can air walk for up to 1 round at a time; and at 14 it can fly at its speed with average maneuverability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantom-steed-2415",
+          "role": "primary Player's Handbook v.3.5 printing reviewed and paraphrased; reviewed opportunistically because Ethereal Mount inherits its mechanics"
+        }
+      ]
+    },
+    "spells/spurn-the-supernatural-3435": {
+      "name": "Spurn the Supernatural",
+      "sourceSha256": "a6215e64d96593c0411b191fae9e2dd517439a66b4617f1c9b35ffa34466eed9",
+      "effectSummary": "Requires you to know and correctly speak the target's personal truename. Choose one supernatural ability the target possesses; on a successful Truespeak check, the target cannot activate or use that supernatural ability for the utterance's duration. Extraordinary and spell-like abilities are unaffected. For every 5 points by which your Truespeak check exceeds the required DC, you can suppress one additional supernatural ability of the same target for the same duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spurn-the-supernatural-3435",
+          "role": "primary Tome of Magic printing reviewed and paraphrased; reviewed opportunistically because Expunge the Supernatural inherits its targeting mechanics"
+        }
+      ]
     }
   }
 }
