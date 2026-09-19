@@ -11354,11 +11354,15 @@
     "spells/deific-bastion-619": {
       "name": "Deific Bastion",
       "sourceSha256": "7ea0018330e9fd0d4192286074628735be909a84ed684ef11d982247f6e9db2e",
-      "effectSummary": "You must be holding a shield or wearing heavy armor. For 1 round per caster level, the touched shield or heavy armor gains a defensive enhancement bonus of +1, increasing to +2 at caster levels 9–11, +3 at 12–14, +4 at 15–17, and +5 at 18th or higher; a shield does not gain a weapon enhancement for shield bashes. It also gains your deity's listed ability: Bahamut, Ehlonna, or Vecna—cold resistance 5; Pelor or Tiamat—fire resistance 5; Heironeous—electricity resistance 5; Boccob, Garl Glittergold, or Wee Jas—spell resistance 13; Corellon Larethian, Gruumsh, or Moradin—arrow deflection; Erythnul, Hextor, or Kord—damage reduction 2/magic; Fharlanghn, Lolth, or Nerull—50% fortification; and Kurtulmak, Obad-Hai, Olidammara, or Yondalla—shadow and silent moves.",
+      "effectSummary": "You must be holding a shield or wearing heavy armor. For 1 round per caster level, the touched shield or heavy armor gains a defensive +1 enhancement bonus; the printed source raises it to +2 at caster levels 9–11, +3 at 12–14, +4 at 15–16, and +5 at 18th or higher, but does not specify a separate value for 17th caster level. A shield does not gain a weapon enhancement for shield bashes. The armor or shield also gains your deity's listed ability: Bahamut, Ehlonna, or Vecna—cold resistance 5; Pelor or Tiamat—fire resistance 5; Heironeous—electricity resistance 5; Boccob, Garl Glittergold, or Wee Jas—spell resistance 13; Corellon Larethian, Gruumsh, or Moradin—arrow deflection; Erythnul, Hextor, or Kord—damage reduction 2/magic; Fharlanghn, Lolth, or Nerull—50% fortification; and Kurtulmak, Obad-Hai, Olidammara, or Yondalla—shadow and silent moves.",
       "provenance": [
         {
           "url": "https://new.dndtools.org/spells/deific-bastion-619",
-          "role": "primary DnD Tools effect text and deity/ability table reviewed and paraphrased for complete defensive mechanics"
+          "role": "primary DnD Tools effect text and deity/ability table reviewed and paraphrased; the source's missing 17th-caster-level bracket is preserved explicitly rather than inferred"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203rd%20Edition/D%26D%203.5e%20Core/Complete%20Champion.pdf",
+          "role": "independent copy of Complete Champion p.119 used only to verify that the 17th-level omission is present in the printed source rather than introduced by the primary-site parser"
         }
       ]
     },
