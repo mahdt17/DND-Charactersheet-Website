@@ -92,6 +92,16 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\b(?:see\s+(?:page\s+\d+|chapter\s+\d+|the\s+[^.;]{1,70}\s+spell\s+description)|PH\s+\d+)\b",
         re.I,
     )),
+    ("external-rulebook-section", re.compile(
+        r"\bsee\s+[^.;]{1,100}\b(?:page|chapter)\s+\d+|"
+        r"\bsee\s+[^.;]{1,100}\b(?:Player[’']s Handbook|Dungeon Master[’']s Guide|Book of Vile Darkness|Campaign Setting)\b",
+        re.I,
+    )),
+    ("numbered-table-reference", re.compile(r"\bTable\s+\d+(?:-\d+)?\b", re.I)),
+    ("similar-spell-effect", re.compile(
+        r"\bsimilar\s+to\s+(?:the\s+)?effects?\s+of\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?:\s+spell)?(?=[,.;)]|$)",
+        re.I,
+    )),
     ("polymorph-subschool-reference", re.compile(r"\bpolymorph\s+subschool\b", re.I)),
     ("referenced-creature-stat-block", re.compile(
         r"\b(?:equivalent\s+to|use(?:s)?\s+(?:the\s+)?)\s*(?:a|an|the)?\s*"
@@ -728,6 +738,9 @@ def run_self_test() -> None:
     assert "generic-identical-with" in external_mechanics_reasons("This is identical with deathwatch, but only functions on animals and plants.")
     assert "granted-spell-effect" in external_mechanics_reasons("The animal gains a bonus plus the effect of a haste spell.")
     assert "external-page-reference" in external_mechanics_reasons("See page 297 for the inherited servant rules.")
+    assert "external-rulebook-section" in external_mechanics_reasons("See Sacrifices in Chapter 2 for the required DCs.")
+    assert "numbered-table-reference" in external_mechanics_reasons("Add +30% to the roll on Table 2-2: Portal Malfunction.")
+    assert "similar-spell-effect" in external_mechanics_reasons("The creatures are paralyzed, similar to the effect of hold person.")
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
     assert "teleport greater" in name_aliases("Teleport, Greater")
     assert near_family_key(
