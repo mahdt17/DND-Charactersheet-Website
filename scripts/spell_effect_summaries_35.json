@@ -17601,6 +17601,194 @@
           "role": "matching primary-catalog base spell used to resolve inherited lesser-orb count, targeting, and attack mechanics"
         }
       ]
+    },
+    "spells/fire-shield-legions-1968": {
+      "name": "Fire Shield, Legion's",
+      "sourceSha256": "f880c05f2fb73e816a855b95c5b9588666439cae049f03ff9dcd0bdeb253966d",
+      "effectSummary": "Each subject gains the normal fire shield effect. Choose a warm or chill shield: melee attackers that strike a warded creature with their body or a normal-reach handheld weapon take 1d6 damage +1 per caster level, maximum +15, with spell resistance applying to this retaliation. A warm shield retaliates with fire and halves cold damage; a chill shield retaliates with cold and halves fire damage. If the protected energy attack allows Reflex half, a successful save reduces that damage to zero. Reach weapons avoid the retaliation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-shield-legions-1968",
+          "role": "primary Miniatures Handbook variant reviewed; multi-target inheritance retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fire-shield-2610",
+          "role": "primary Player's Handbook v.3.5 base spell used to resolve inherited fire-shield mechanics"
+        }
+      ]
+    },
+    "spells/fire-shield-mass-4497": {
+      "name": "Fire Shield, Mass",
+      "sourceSha256": "88bf57b89ce73df94837361230e069ccadeb90432e53e5a5d2c03b15e69057a4",
+      "effectSummary": "Each subject gains the normal fire shield effect. Choose a warm or chill shield: melee attackers that strike a warded creature with their body or a normal-reach handheld weapon take 1d6 damage +1 per caster level, maximum +15, with spell resistance applying to this retaliation. A warm shield retaliates with fire and halves cold damage; a chill shield retaliates with cold and halves fire damage. If the protected energy attack allows Reflex half, a successful save reduces that damage to zero. Reach weapons avoid the retaliation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-shield-mass-4497",
+          "role": "primary Spell Compendium variant reviewed; mass-target inheritance retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fire-shield-2610",
+          "role": "primary Player's Handbook v.3.5 base spell used to resolve inherited fire-shield mechanics"
+        }
+      ]
+    },
+    "spells/fire-shield-mass-499": {
+      "name": "Fire Shield, Mass",
+      "sourceSha256": "a8a30e3c7acc534d1bc726613bc6d6d79875c739eccab9063f32a14bcca804b7",
+      "effectSummary": "Each subject gains the normal fire shield effect. Choose a warm or chill shield: melee attackers that strike a warded creature with their body or a normal-reach handheld weapon take 1d6 damage +1 per caster level, maximum +15, with spell resistance applying to this retaliation. A warm shield retaliates with fire and halves cold damage; a chill shield retaliates with cold and halves fire damage. If the protected energy attack allows Reflex half, a successful save reduces that damage to zero. Reach weapons avoid the retaliation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-shield-mass-499",
+          "role": "primary Complete Arcane variant reviewed; mass-target inheritance retained"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fire-shield-2610",
+          "role": "primary Player's Handbook v.3.5 base spell used to resolve inherited fire-shield mechanics"
+        }
+      ]
+    },
+    "spells/fire-shuriken-2069": {
+      "name": "Fire Shuriken",
+      "sourceSha256": "59e85baa086eebe8727b83ee248678ca6420f626bfa6f88404334945e1efa275",
+      "effectSummary": "Creates three fire shuriken at caster levels 1–6, six at 7–12, or nine at 13th or higher. You are proficient with them. You can throw three as a standard action, all at the same creature, with a 10-foot range increment; extra shuriken can be thrown on later rounds. Each deals 1 normal damage +1d4 fire damage, with no Strength bonus. On a critical hit the normal shuriken damage is doubled and the fire damage becomes 1d8. Sneak-attack damage applies only to the first shuriken you throw in a round. The material component is a shuriken coated with pine sap and sulfur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-shuriken-2069",
+          "role": "primary Oriental Adventures DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-shuriken-4498": {
+      "name": "Fire Shuriken",
+      "sourceSha256": "ab5f63fb51afbb38d1e17548ff03f5af211c1547a1bebcf267dddc13247b55b7",
+      "effectSummary": "Creates one magical fire shuriken per three caster levels, maximum six at 18th level. You are proficient with them; each has a 10-foot range increment, threatens a critical on 19–20, and deals 3d6 fire damage on a hit. Any additional damage, including Strength and sneak-attack bonuses, is also fire damage. The shuriken vanish on impact and therefore cannot ignite combustibles or damage objects. The material component is a shuriken coated with pine sap and sulfur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-shuriken-4498",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-shuriken-500": {
+      "name": "Fire Shuriken",
+      "sourceSha256": "2daef90b906beb0c8cf8ea889a889c589770ceb9901fdca9472fbc45ef8d83f5",
+      "effectSummary": "Creates one magical fire shuriken per three caster levels, maximum six at 18th level. You are proficient with them; each has a 10-foot range increment, threatens a critical on 19–20, and deals 3d6 fire damage on a hit. Any additional damage, including Strength and sneak-attack bonuses, is also fire damage. The shuriken vanish on impact and therefore cannot ignite combustibles or damage objects. The material component is a shuriken coated with pine sap and sulfur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-shuriken-500",
+          "role": "primary Complete Arcane DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-spiders-1613": {
+      "name": "Fire Spiders",
+      "sourceSha256": "5f9fb53d422f97ca0ccd26b33e3e9190bb5b4740ec456d40c6f89cbe040feff4",
+      "effectSummary": "Summons 240 spider-sized fire elementals, each with 1 hp, speed 10 ft., climb 10 ft., and AC 18. They begin at six spiders per 5-foot square and thereafter swarm toward creatures and objects. Spiders in one square make a group area attack that deals fire damage equal to the number of spiders there, Reflex half; they do not disappear after attacking. Six spiders resting on a flammable object for at least 2 rounds can ignite it. They are immune to fire, are blocked by barriers that stop neutral outsiders, and are killed by nonflammable liquid: a flask destroys 2d4 spiders in the targeted square and its splash kills one spider in each adjacent square. As spiders die, the swarm contracts to maintain six per 5-foot square. The material component is rubies or ruby dust worth at least 500 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-spiders-1613",
+          "role": "primary Magic of Faerûn DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-spiders-4499": {
+      "name": "Fire Spiders",
+      "sourceSha256": "81ee9f932063b59981055f6a37228d64d8a5c61a83d9aecbf12f740e6a1d1c0b",
+      "effectSummary": "Summons a mass of spider-sized fire elementals. A creature that begins its turn in the affected area takes 4d6 fire damage. Each round you can spend a move action to direct the spiders up to 30 feet; if undirected, they move 15 feet toward the nearest living creature unless one is already in their area. As fire elementals they are immune to fire and blocked by barriers that stop neutral outsiders. Any cold spell of 3rd level or higher disperses the swarm and ends the spell. The material component is a pinch of sulfur.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-spiders-4499",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-storm-2611": {
+      "name": "Fire Storm",
+      "sourceSha256": "e815eb50c3a2e344f7ad73bbff0420a58539cc33cbd335bd9e566a685650aa1d",
+      "effectSummary": "Fills the area with roaring flame, dealing 1d6 fire damage per caster level, maximum 20d6, to affected creatures. You can choose for natural vegetation, ground cover, and plant creatures in the area to remain unharmed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-storm-2611",
+          "role": "primary Player's Handbook v.3.5 DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-stride-1219": {
+      "name": "Fire Stride",
+      "sourceSha256": "7d5d3bdf6ee41288615b38a487febfe8e3a4dd0ec1e0185d868dd501634493f8",
+      "effectSummary": "Lets you enter a fire at least as large around as you are and transport yourself to another qualifying fire within long range, instantly sensing all viable fires within that range. Fire creatures and sources of heat such as lava do not count. Each transport is a full move action, and you can transport once per caster level during the spell. A fire is not a viable destination if there is insufficient room for you, but a fire on an unsafe surface still qualifies and you suffer the normal consequences on arrival. The spell gives no protection from fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-stride-1219",
+          "role": "primary Forgotten Realms Campaign Setting DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-stride-4500": {
+      "name": "Fire Stride",
+      "sourceSha256": "79e8f8987765341c906356cb06b51d13933b84f84dc0382ea3a9108e96341f4d",
+      "effectSummary": "Lets you enter a fire at least as large around as you are and transport yourself to another qualifying fire within long range, instantly sensing all viable fires within that range. Fire creatures and sources of heat such as lava do not count. Each transport is a full-round action, and you can transport once per caster level during the spell. A fire is not viable if there is insufficient room for you, but a fire on an unsafe surface still qualifies and you suffer the normal consequences on arrival. The spell gives no protection from fire.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-stride-4500",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-trap-2320": {
+      "name": "Fire Trap",
+      "sourceSha256": "d8bca1eb02d80dcd725d57f180b31d588c86aa708041a096beb9dc2736c0cd23",
+      "effectSummary": "Wards an object that can be opened and closed. When anyone other than you or an attuned individual opens it, a 5-foot-radius explosion centered on the chosen point deals 1d4 fire damage +1 per caster level, maximum +20; the warded object is unharmed. The object cannot also bear another closure or warding spell. Knock does not bypass the trap, and a failed dispel magic attempt does not trigger it. Underwater it deals half damage and produces a large steam cloud. You can attune specific individuals, normally through a shared password. Only a rogue can find and disable this magic trap, using Search and Disable Device at DC 25 + spell level. The material component is 25 gp worth of gold dust.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-trap-2320",
+          "role": "primary Player's Handbook v.3.5 DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-wings-2110": {
+      "name": "Fire Wings",
+      "sourceSha256": "16a528e5597ba63952f994dbdc0b3e9163a22d541769287faf9925b475e4f5f5",
+      "effectSummary": "Transforms your arms into harmless-to-you phoenixlike fire wings. You cannot hold items or cast spells while your arms are transformed, though arm-worn magic items keep functioning. You fly at 60 feet with good maneuverability, can charge but not run, and cannot fly with more than a light load. If the spell ends while aloft, you fall normally. You can make unarmed attacks with the wings at a -4 nonproficiency penalty; a hit deals your normal unarmed damage plus 2d6 fire damage. Quench, immersion in water, or hurricane-force-or-stronger wind extinguishes the wings and ends the spell. The material component is a burned bird feather and the focus is a golden phoenix amulet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-wings-2110",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-wings-4501": {
+      "name": "Fire Wings",
+      "sourceSha256": "6dadf76ef2ccf03ccee607e4720abd27e00dc7e0096f53f68f5c2e32a1a9d974",
+      "effectSummary": "Transforms your arms into fire wings that do not harm you or your gear. You cannot hold items or cast spells requiring somatic components, though arm-worn items continue functioning. You fly at 60 feet with good maneuverability, reduced to 40 feet in medium or heavy armor; you can charge but not run and can carry no more than a light load. If the spell expires or is dispelled while you are aloft, you descend 60 feet per round for 1d6 rounds before falling normally if still airborne; antimagic suppression does not grant this descent. While not flying, you can make up to two natural wing attacks per round, each dealing 2d6 fire damage. Quench, immersion in water, or hurricane-force-or-stronger wind ends the spell. The material component is a burned bird feather and the focus is a 150 gp golden phoenix amulet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-wings-4501",
+          "role": "primary Spell Compendium DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-wings-545": {
+      "name": "Fire Wings",
+      "sourceSha256": "8d272a955e094076b02e21fc5aa077509068d80a5da37b090f21e6ea2115b592",
+      "effectSummary": "Transforms your arms into fire wings that do not harm you or your gear. You cannot hold items or cast spells requiring somatic components; arm-worn items meld into the form and continue to function. You fly at 60 feet with good maneuverability while carrying no more than a light load, ascending at half speed and descending at double speed; you can charge but not run. Wing unarmed attacks take a -4 nonproficiency penalty and deal your normal unarmed damage plus 2d6 fire damage, treated as lethal. Quench, 1 round of immersion in water, or hurricane-force-or-stronger wind ends the spell. If it ends while you are aloft, you fall normally. The material component is a burned bird feather and the focus is a golden phoenix amulet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-wings-545",
+          "role": "primary Complete Arcane DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/fire-wings-743": {
+      "name": "Fire Wings",
+      "sourceSha256": "c0d727d630bf5d2717b1feddf05cc1f0693fa14ef6515afbca560907b402efdc",
+      "effectSummary": "Transforms your arms into fire wings that do not harm you or your gear. You cannot hold items or cast spells requiring somatic components, though arm-worn items continue functioning. You fly at 60 feet with good maneuverability, reduced to 40 feet in medium or heavy armor; you can charge but not run and can carry no more than a light load. If the spell expires or is dispelled while you are aloft, you descend 60 feet per round for 1d6 rounds before falling normally if still airborne; antimagic suppression does not grant this descent. You can make unarmed wing attacks at a -4 nonproficiency penalty, dealing your normal unarmed damage plus 2d6 fire damage. Quench, immersion in water, or hurricane-force-or-stronger wind ends the spell. The material component is a burned bird feather and the focus is a golden phoenix amulet.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fire-wings-743",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
