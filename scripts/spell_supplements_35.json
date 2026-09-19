@@ -1064,6 +1064,25 @@
           "role": "Player's Handbook II pp.111-112 rendering used only to restore the omitted fixed mature-adult-red-dragon statistics"
         }
       ]
+    },
+    "spells/dragonshape-lesser-1078": {
+      "name": "Dragonshape, Lesser",
+      "effectSummary": "Transforms you into the spell's fixed Large young red dragon form for 1 round per level and grants 60 temporary hit points that disappear when the spell ends. The printed form is CR 7 with Init +0; blindsense 60 feet, darkvision 120 feet, four-times-human low-light vision, Listen +17, Spot +17, and Draconic; AC 21 (touch 9, flat-footed 21); your normal hit points plus the 60 temporary hit points; immunity to fire, magical sleep, and paralysis; vulnerability to cold; Fort +11, Ref +8, Will +9; speed 40 feet and fly 150 feet (poor). Its melee routine is bite +20 for 2d8+7, two claws +14 for 1d8+3, two wings +14 for 1d6+3, and tail slap +14 for 1d8+10; space 10 feet; reach 5 feet or 10 feet with bite; BAB +13; grapple +24. Ability scores are Str 25, Dex 10, Con 17, Int 12, Wis 13, Cha 12. Feats are Flyby Attack, Hover, Improved Natural Attack (bite), Power Attack, and Weapon Focus (bite). Skills are Appraise +17, Bluff +17, Diplomacy +5, Intimidate +19, Listen +17, Search +17, Sense Motive +17, Spot +17, and Survival +1 (+3 following tracks). Its breath weapon is usable once every 1d4 rounds as a 40-foot cone dealing 6d10 fire damage, Reflex DC 19 half.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonshape-lesser-1078",
+          "role": "primary Dragon Magic catalog record; rebuilt page says the young red dragon statistics appear below but omits the promised stat block"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsdragonmagic.html",
+          "role": "older D&D Tools Dragon Magic SRD copy confirms the same spell text and the same omitted promised stat block"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/Dragon%20Magic.pdf",
+          "role": "Dragon Magic sourcebook copy used only to restore the omitted fixed young-red-dragon statistics"
+        }
+      ]
     }
   }
 }
