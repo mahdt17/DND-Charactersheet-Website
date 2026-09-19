@@ -70,6 +70,13 @@ jobs:
           --output test-results/spell-review-classification.json
           --reference-output test-results/spell-reference-review-packets.json
           --delay 0.08
+      - name: Select strict clean review batch
+        run: >
+          python scripts/select_spell_review_batch.py
+          --classification test-results/spell-review-classification.json
+          --review test-results/review/spell-effect-review.json
+          --count 100
+          --output test-results/spell-review-strict-batch.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -77,4 +84,5 @@ jobs:
           path: |
             test-results/spell-review-classification.json
             test-results/spell-reference-review-packets.json
+            test-results/spell-review-strict-batch.json
           retention-days: 1

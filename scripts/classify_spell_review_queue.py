@@ -222,6 +222,39 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?P<name>[A-Za-z][A-Za-z'’ -]{2,80})(?=[,.;]|$)",
         re.I,
     )),
+    ("equivalent-to-named-spell", re.compile(
+        r"\bequivalent\s+to\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("similar-to-named-spell-comparison", re.compile(
+        r"\bsimilar\s+to\s+(?:the\s+)?(?:(?:divine|arcane)\s+spell\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?=\s*,\s*(?:this\s+spell\b|except\b|but\b|you\b)|\s*\))",
+        re.I,
+    )),
+    ("similar-to-created-by-named-spell", re.compile(
+        r"\bsimilar\s+to\s+(?:that|those)\s+created\s+by\s+(?:a|an|the)?\s*"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?=\s*,\s*(?:except|but)\b|[.;])",
+        re.I,
+    )),
+    ("as-named-spell-does", re.compile(
+        r"\bas\s+(?:a|an|the)\s+(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"\s+spell\s+does\b",
+        re.I,
+    )),
+    ("interacts-like-named-spell", re.compile(
+        r"\binteracts?\s+with\s+other\s+spells?\s+just\s+(?:like|as)\s+"
+        r"(?:a|an|the)?\s*(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?:\s*\([^)]*\))?\s*(?:does)?(?=[.;])",
+        re.I,
+    )),
+    ("servant-conjured-by-named-spell", re.compile(
+        r"\b(?:acts?|behaves?)\s+similar\s+to\s+the\s+servant\s+conjured\s+by\s+"
+        r"(?:a|an|the)\s+(?P<name>unseen servant)\s+spell\b",
+        re.I,
+    )),
     ("modified-named-spell-reference", re.compile(
         r"\bacts?\s+as\s+(?:a|an|the)\s+\+\d+\s+(?P<name>bless\s+weapon)\b",
         re.I,
@@ -888,6 +921,19 @@ def run_self_test() -> None:
     assert "targeted-dispel-magic-inheritance" in external_mechanics_reasons("This spell functions as a targeted dispel magic.")
     assert "targeted-dispel-magic-inheritance" not in external_mechanics_reasons("This functions as a splash weapon.")
     assert "weapon-stat-inheritance" in external_mechanics_reasons("The lance is treated in all ways like a +2 shortspear.")
+    assert "equivalent-to-named-spell" in external_mechanics_reasons("The armor sheds light equivalent to a daylight spell.")
+    assert "similar-to-named-spell-comparison" in external_mechanics_reasons("Similar to status, this spell reports the subject's condition.")
+    assert "similar-to-named-spell-comparison" in external_mechanics_reasons("Similar to the divine spell poison, you inflict a toxin.")
+    assert "similar-to-named-spell-comparison" in external_mechanics_reasons("This spell is similar to summon monster IX, except it summons one titan.")
+    assert "similar-to-named-spell-comparison" in external_mechanics_reasons("Similar to Bigby's grasping hand, this spell creates a claw.")
+    assert "similar-to-named-spell-comparison" in external_mechanics_reasons("It serves as a safe haven (similar to project image).")
+    assert "similar-to-created-by-named-spell" in external_mechanics_reasons("The pollen is similar to that created by fog cloud, except that it sickens creatures.")
+    assert "as-named-spell-does" in external_mechanics_reasons("The effect ends magic as a dispel magic spell does.")
+    assert "interacts-like-named-spell" in external_mechanics_reasons("It interacts with other spells just like a wall of force.")
+    assert "interacts-like-named-spell" in external_mechanics_reasons("It interacts with other spells just as a wall of force (PH 298) does.")
+    assert "servant-conjured-by-named-spell" in external_mechanics_reasons("The shadows act similar to the servant conjured by an unseen servant spell.")
+    assert "similar-to-named-spell-comparison" not in external_mechanics_reasons("The structure is similar to a stone archway.")
+    assert "equivalent-to-named-spell" not in external_mechanics_reasons("The object is equivalent to a masterwork sword.")
     assert "modified-named-spell-reference" in external_mechanics_reasons("The weapon acts as a +5 bless weapon.")
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
