@@ -465,6 +465,11 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\b(?:normal\s+)?Monster\s+Manual\s+statistics\b",
         re.I,
     )),
+    ("prismatic-spray-inheritance", re.compile(
+        r"\bfunctions?\s+as\s+(?:a|an|the)\s+\+\d+\s+"
+        r"(?P<name>prismatic spray)\b",
+        re.I,
+    )),
 )
 
 
@@ -1187,6 +1192,8 @@ def run_self_test() -> None:
     assert "dmg-page-reference" not in external_mechanics_reasons("The spell deals 90 points of damage.")
     assert "monster-manual-statistics-dependency" in external_mechanics_reasons("The skeletons have the normal Monster Manual statistics for their kind.")
     assert "monster-manual-statistics-dependency" not in external_mechanics_reasons("The creature resembles a skeleton illustrated in the Monster Manual.")
+    assert "prismatic-spray-inheritance" in external_mechanics_reasons("A prismatic bow functions as a +1 prismatic spray.")
+    assert "prismatic-spray-inheritance" not in external_mechanics_reasons("The weapon functions as a +1 longsword.")
     assert "functions-as-if-named-spell-cast" in external_mechanics_reasons("She functions as if a raise dead spell had been cast upon her, except she loses no level.")
     assert "functions-as-if-named-spell-cast" not in external_mechanics_reasons("The device functions as if underwater.")
     assert "same-way-as-named-spell" in external_mechanics_reasons("The burst reveals objects in the same way as a true seeing spell.")
