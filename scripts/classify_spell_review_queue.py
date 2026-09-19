@@ -579,6 +579,11 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?P<name>Player[’']s Handbook|Dungeon Master[’']s Guide)\b",
         re.I,
     )),
+    ("blessed-weapon-special-effects-dependency", re.compile(
+        r"\bweapon\s+is\s+considered\s+blessed\s*,?\s*which\s+means\s+"
+        r"it\s+has\s+special\s+effects\s+on\s+certain\s+creatures\b",
+        re.I,
+    )),
 
 )
 
@@ -1403,6 +1408,8 @@ def run_self_test() -> None:
     assert "weapon-transformation-stat-inheritance" not in external_mechanics_reasons("The spell transforms a melee weapon into a harmless beam of light.")
     assert "rulebook-modifier-page-reference" in external_mechanics_reasons("The following modifiers are used in place of those given on page 101 of the Player’s Handbook.")
     assert "rulebook-modifier-page-reference" not in external_mechanics_reasons("The following modifiers are +2 during rain and -2 during fog.")
+    assert "blessed-weapon-special-effects-dependency" in external_mechanics_reasons("The weapon is considered blessed, which means it has special effects on certain creatures.")
+    assert "blessed-weapon-special-effects-dependency" not in external_mechanics_reasons("The weapon is considered good-aligned for the purpose of overcoming damage reduction.")
     assert "missing-following-modifier-block" in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. The caster must have the Track feat to use this spell."})
     assert "missing-following-modifier-block" not in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. Light rain: +2. Heavy fog: -4."})
     assert "garbled-spell-matrix-lesser-source" in suspicious_reasons({"effectSource":"Only a spell that can be altered by the antimagic field , the duration of the matrix is interrupted, but the spell does not activate."})
