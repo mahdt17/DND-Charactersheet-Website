@@ -11328,6 +11328,242 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise reaction and AC mechanics"
         }
       ]
+    },
+    "spells/dehydrate-3499": {
+      "name": "Dehydrate",
+      "sourceSha256": "b880ccc2653efd195e805af7c8e81af6c6f27bcda39e6258f33dd3df32c61d4c",
+      "effectSummary": "The living target must overcome spell resistance and make a Fortitude save or take 1d6 Constitution damage plus 1 additional Constitution damage per three caster levels, to a maximum of 1d6+5 at 15th level. Oozes, plants, and creatures with the aquatic subtype instead take 1d8 Constitution damage plus the same +1 per three caster levels, to a maximum of 1d8+5.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dehydrate-3499",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Underdark printing"
+        }
+      ]
+    },
+    "spells/dehydrate-4355": {
+      "name": "Dehydrate",
+      "sourceSha256": "6237f3235d20c67c1e9a50063bb90f91452376c0ba95f2b6a7a9bc00313bfa95",
+      "effectSummary": "The living target must overcome spell resistance and make a Fortitude save or take 1d6 Constitution damage plus 1 additional Constitution damage per three caster levels, to a maximum of 1d6+5 at 15th level. Oozes, plants, and creatures with the aquatic subtype instead take 1d8 Constitution damage plus the same +1 per three caster levels, to a maximum of 1d8+5 at 15th level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dehydrate-4355",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing"
+        }
+      ]
+    },
+    "spells/deific-bastion-619": {
+      "name": "Deific Bastion",
+      "sourceSha256": "7ea0018330e9fd0d4192286074628735be909a84ed684ef11d982247f6e9db2e",
+      "effectSummary": "You must be holding a shield or wearing heavy armor. For 1 round per caster level, the touched shield or heavy armor gains a defensive enhancement bonus of +1, increasing to +2 at caster levels 9–11, +3 at 12–14, +4 at 15–17, and +5 at 18th or higher; a shield does not gain a weapon enhancement for shield bashes. It also gains your deity's listed ability: Bahamut, Ehlonna, or Vecna—cold resistance 5; Pelor or Tiamat—fire resistance 5; Heironeous—electricity resistance 5; Boccob, Garl Glittergold, or Wee Jas—spell resistance 13; Corellon Larethian, Gruumsh, or Moradin—arrow deflection; Erythnul, Hextor, or Kord—damage reduction 2/magic; Fharlanghn, Lolth, or Nerull—50% fortification; and Kurtulmak, Obad-Hai, Olidammara, or Yondalla—shadow and silent moves.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deific-bastion-619",
+          "role": "primary DnD Tools effect text and deity/ability table reviewed and paraphrased for complete defensive mechanics"
+        }
+      ]
+    },
+    "spells/deific-vengeance-645": {
+      "name": "Deific Vengeance",
+      "sourceSha256": "23c95e6ea8abb4cb80e437010e9573d991c06dd44aa106b3597acf9a7797a6c7",
+      "effectSummary": "The deity's spiritual blow hits the target automatically. It deals 1d6 damage per two caster levels, maximum 5d6, or 1d6 per caster level, maximum 10d6, if the target is undead. A successful Will save halves the damage, and spell resistance applies; the target's alignment does not affect the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/deific-vengeance-645",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/delay-death-1980": {
+      "name": "Delay Death",
+      "sourceSha256": "0307c5f2aded45c2a4d2daf2a5a61ee6f8b6119c2b47543f67ae0923b89735e2",
+      "effectSummary": "For 1 round per caster level, the subject cannot die from hit point loss: its usual -9-hit-point death threshold is removed, though it still becomes dying at -1 hit point. The spell does not prevent death from body-destroying effects that defeat raise dead, ability-score damage, level drain, or death effects. If the subject is below -9 hit points when the spell ends, it dies immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/delay-death-1980",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Miniatures Handbook printing"
+        }
+      ]
+    },
+    "spells/delay-death-3048": {
+      "name": "Delay Death",
+      "sourceSha256": "a1b9339d31670b3782985b73ddd1048bee801294f314be376ec2360c4a067cea",
+      "effectSummary": "For 1 round per caster level, the subject cannot die from hit point loss: its usual -9-hit-point death threshold is removed, though it still becomes dying at -1 hit point. The spell does not prevent death from body-destroying effects that defeat raise dead, ability-score damage or drain, level drain, or death effects. If the subject is below -9 hit points when the spell ends, it dies immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/delay-death-3048",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Races of Destiny printing; its explicit ability-drain wording is preserved"
+        }
+      ]
+    },
+    "spells/delay-death-3776": {
+      "name": "Delay Death",
+      "sourceSha256": "4c7f302b5c3f25dab16c06e93ec056ca2a0378ef5e8e219dc1e37832441d3287",
+      "effectSummary": "For 1 round per caster level, the subject cannot die from hit point loss: its usual -9-hit-point death threshold is removed, though it still becomes dying at -1 hit point. The spell does not prevent death from body-destroying effects that defeat raise dead, ability-score damage, level drain, or death effects. If the subject is below -9 hit points when the spell ends, it dies immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/delay-death-3776",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing"
+        }
+      ]
+    },
+    "spells/delay-disease-4357": {
+      "name": "Delay Disease",
+      "sourceSha256": "17958de29fb7ec81f5cbb81d672213d98910e83a225dc32abf8ce3533ec9e74d",
+      "effectSummary": "For 1 day, every nonmagical disease already affecting the subject is halted: the subject skips that day's disease saving throw and takes no additional ability damage, and the skipped save counts as neither a success nor a failure toward recovery. The incubation period of any nonmagical disease contracted during the spell does not begin until the spell ends. Existing disease damage is not healed, and magical or supernatural diseases are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/delay-disease-4357",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete disease-timing mechanics"
+        }
+      ]
+    },
+    "spells/delay-manifestation-1329": {
+      "name": "Delay Manifestation",
+      "sourceSha256": "58629f176e8e8254d740febd6f71e773d78cba1872e6e412fb7782ba271b218a",
+      "effectSummary": "For 1 hour per caster level, an affected ethereal ghost or living creature with a physical body cannot manifest as a ghost on the Material Plane. If a living subject dies, its soul appears on the Ethereal Plane normally but cannot enter the Material Plane until the spell ends. The spell cannot target the corpse of someone already dead because the corpse no longer contains the soul it affects. Will negates and spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/delay-manifestation-1329",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for ghost-manifestation mechanics"
+        }
+      ]
+    },
+    "spells/delay-poison-2387": {
+      "name": "Delay Poison",
+      "sourceSha256": "4d3b87d6374e769eb540f43929e7bd941cb775a9bdecf7e40a0c9ab1b06ae7d2",
+      "effectSummary": "For 1 hour per caster level, the subject is temporarily immune to poison. Poison already in its system and poison encountered during the spell remain suspended and take effect only after the duration expires. The spell does not repair damage poison caused before it was cast.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/delay-poison-2387",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/delayed-blast-fireball-2603": {
+      "name": "Delayed Blast Fireball",
+      "sourceSha256": "47da6f673e2d253b6dee88954000f038a775fe282038645ff2e5b9ca39645927",
+      "effectSummary": "Functions as fireball but deals 1d6 fire damage per caster level, maximum 20d6, in a 20-foot-radius spread, Reflex half and spell resistance applicable. Its glowing bead follows fireball's normal trajectory rules, detonating early if it strikes a solid barrier and requiring a ranged touch attack to pass through a narrow opening. You choose an unchangeable delay of 0 to 5 rounds when casting. During a delay the bead remains at its destination; another creature can pick it up and throw it with a 10-foot range increment, but moving it within 1 round of detonation has a 25% chance to make it explode while handled. As with fireball, the blast damages unattended objects, ignites combustibles, and can melt low-melting-point metals.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/delayed-blast-fireball-2603",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for delayed detonation, scaling, and bead handling"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fireball-2612",
+          "role": "same primary catalog referenced spell used to retain inherited area, trajectory, object, ignition, save, and spell-resistance mechanics"
+        }
+      ]
+    },
+    "spells/delusions-grandeur-4358": {
+      "name": "Delusions of Grandeur",
+      "sourceSha256": "eafd14c510cac9cfb42744af962845512bb29611a8fbfce12b8f1f569ee57539",
+      "effectSummary": "For 10 minutes per caster level, a failed Will save leaves the subject convinced it is safer and more capable than it really is. It takes -2 on attack rolls, saving throws, ability checks, skill checks, and Wisdom; this cannot reduce Wisdom below 1. The subject also cannot fight defensively or take the total defense action. Spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/delusions-grandeur-4358",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for complete mechanical penalties"
+        }
+      ]
+    },
+    "spells/demand-2544": {
+      "name": "Demand",
+      "sourceSha256": "069dbbf7b384f43dcf3f2b0f99cd4c856e83f7de73088802fa1cf82ec78ab28c",
+      "effectSummary": "Functions as sending, allowing a message of no more than 25 words to a familiar creature, which recognizes you if it knows you, understands the message with Intelligence as low as 1, and can immediately send a short reply; if the target is on another plane, the message normally has a 5% chance to fail. The message can also include a suggestion that must sound reasonable and cannot demand an obviously self-destructive act; it can direct an activity for up to 1 hour per caster level or until completed, including a condition-triggered activity. A successful Will save negates only the suggestion, not the contact, and an impossible or meaningless suggestion is understood but has no effect. The 25-word limit includes the suggestion, and spell resistance applies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/demand-2544",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for Demand-specific contact and suggestion interaction"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/sending-2645",
+          "role": "same primary catalog referenced spell used to retain inherited messaging, reply, Intelligence, and interplanar-failure mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/suggestion-2573",
+          "role": "same primary catalog referenced spell used to retain inherited reasonableness, duration, condition-trigger, and harmful-request limits"
+        }
+      ]
+    },
+    "spells/demon-dirge-2200": {
+      "name": "Demon Dirge",
+      "sourceSha256": "a6e34f792e40e8f2fa511e545ed1ee9236353d52487e467f95cb52c2f5369269",
+      "effectSummary": "Against a living creature with both chaotic and evil subtypes, the spell deals 3d6 damage; a successful Fortitude save negates that damage and spell resistance applies. If the target also has the tanar'ri subtype, it instead is stunned for 1d4 rounds and takes 3d6 damage in each of those rounds; a successful Fortitude save prevents the stun and shortens the damage duration to 1 round. A tanar'ri's spell resistance does not apply to this enhanced effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/demon-dirge-2200",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Planar Handbook printing; its 3d6 base damage and tanar'ri exception are preserved"
+        }
+      ]
+    },
+    "spells/demon-dirge-3536": {
+      "name": "Demon Dirge",
+      "sourceSha256": "446cabad9d2030a856b58d799eba703a745290a6599223617cce8c33cc010ede",
+      "effectSummary": "For 1d6 rounds, a living target with both chaotic and evil subtypes takes 2d6 damage each round with no saving throw; spell resistance applies. If the target also has the tanar'ri subtype, it is additionally stunned for the spell's duration unless it succeeds on a Fortitude save. This Spell Compendium printing does not remove spell resistance for tanar'ri.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/demon-dirge-3536",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Spell Compendium printing; its revised recurring damage, duration, and spell-resistance behavior are preserved"
+        }
+      ]
+    },
+    "spells/demon-wings-1160": {
+      "name": "Demon Wings",
+      "sourceSha256": "1e2a9234274196bb1a10f55b42916c5d298a1ba987e1315ef7f753010f49100e",
+      "effectSummary": "For 10 minutes per caster level, demonic wings let you fly at your normal land speed with average maneuverability. You can carry weight according to your normal carrying capacity, and heavier loads reduce your fly speed in the same way they reduce your land speed. This Fiendish Codex I printing is dismissible.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/demon-wings-1160",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Fiendish Codex I printing"
+        }
+      ]
+    },
+    "spells/demon-wings-235": {
+      "name": "Demon Wings",
+      "sourceSha256": "daa17e58ed952d03c9cf22f219efdb8078c0878d6cb4c14a71652d845fcab09a",
+      "effectSummary": "For 10 minutes per caster level, massive batlike wings let you fly at your normal land speed with average maneuverability. You can carry weight according to your normal carrying capacity, and heavier loads reduce your fly speed as they reduce your land speed. Unlike the Fiendish Codex I printing, this Book of Vile Darkness printing is not listed as dismissible.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/demon-wings-235",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for the Book of Vile Darkness printing"
+        }
+      ]
+    },
+    "spells/demoncall-1149": {
+      "name": "Demoncall",
+      "sourceSha256": "a384a61ff3898038000aee5f92a8e211ea969884abe34fab64ba3432ad513ca6",
+      "effectSummary": "Immediately grants a +10 profane bonus on one Knowledge (arcana), Knowledge (the planes), or Knowledge (religion) skill check. The check must be made in the same turn in which the spell is cast.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/demoncall-1149",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/demonflesh-1161": {
+      "name": "Demonflesh",
+      "sourceSha256": "391b030e801b496591c2ac8d18a73cf07cc9edfaaafc7e338186d0a2ae22a0e1",
+      "effectSummary": "For 1 minute per caster level, your flesh thickens and grants an enhancement bonus to natural armor of +1 per five caster levels, minimum +1 and maximum +4. A creature with no existing natural armor is treated as having a +0 natural armor bonus before this enhancement is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/demonflesh-1161",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise armor-scaling mechanics"
+        }
+      ]
+    },
+    "spells/demonic-blood-infusion-1383": {
+      "name": "Demonic Blood Infusion",
+      "sourceSha256": "03252cbd07dc5a1c8c7a16c775f733e777f596e617bbda5da61c672f83a368b6",
+      "effectSummary": "For 1 hour per caster level, the willing subject gains the fiendish template, the chaotic and evil subtypes, and becomes chaotic evil if it is not already. The fiendish template retains the base creature's abilities while granting 60-foot darkvision; cold and fire resistance 5 at 1–7 HD or 10 at 8+ HD; damage reduction 5/magic at 4–11 HD or 10/magic at 12+ HD; spell resistance equal to HD +5, maximum 25; and a once-per-day Smite Good that adds damage equal to HD, maximum +20, on a normal melee attack against a good foe. Animals or vermin become magical beasts, Intelligence is at least 3, and a fiendish creature on the Material Plane has the extraplanar subtype. The infused subject also counts as an outsider for effects that target creature types, but banishment, binding, or other outsider-sending effects merely end this spell instead of sending it away. When the spell ends, the target is nauseated for 1d4 rounds. Each casting also requires a Will save against permanent corruption: failure makes a nonchaotic subject chaotic, or a chaotic nonevil subject evil, and the save DC rises by 1 for each prior use on that creature. The material component is 100 gp worth of demon blood.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/demonic-blood-infusion-1383",
+          "role": "primary DnD Tools spell record reviewed and paraphrased for spell-specific transformation, outsider interaction, aftermath, corruption, and cost"
+        },
+        {
+          "url": "https://new.dndtools.org/templates/fiendish-creature",
+          "role": "same primary site referenced template used to retain inherited fiendish darkvision, resistances, damage reduction, spell resistance, smite, type, Intelligence, and subtype mechanics"
+        }
+      ]
     }
   }
 }
