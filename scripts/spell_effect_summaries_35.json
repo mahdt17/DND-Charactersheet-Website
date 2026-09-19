@@ -7427,6 +7427,226 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/climbing-tree-776": {
+      "name": "Climbing Tree",
+      "sourceSha256": "ee3f6768106d491f37f3a29bfe172f8e72990ea32257c91b1ceb2a799daccc68",
+      "effectSummary": "Causes a 1-foot-diameter tree to grow in an adjacent square of soft terrain, reaching up to 10 feet per caster level to a maximum of 50 feet. Its evenly spaced branches require only DC 5 Climb checks. The tree has hardness 5 and 120 hit points; if cut down it vanishes. It cannot be animated or used as the basis for plant-related spells such as tree stride.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/climbing-tree-776",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clinging-shadow-strike-3686": {
+      "name": "Clinging Shadow Strike",
+      "sourceSha256": "ce88973bd9d958a64bd7448b9aeb02762b2d86862fce9920798eac227446b0ed",
+      "effectSummary": "As part of the maneuver, make one melee attack. On a hit, it deals +1d6 damage and the target must make a Fortitude save against DC 11 + Wisdom modifier or suffer a 20% miss chance on all melee and ranged attacks for 1 round. A successful save negates only the miss chance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clinging-shadow-strike-3686",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-of-bravery-4026": {
+      "name": "Cloak of Bravery",
+      "sourceSha256": "114db066cb679987089dff8ef3a187eca0778ea492979797ccac4e606cda398b",
+      "effectSummary": "Grants the caster and allies within the emanation a morale bonus on saving throws against fear equal to caster level, to a maximum of +10 at caster level 10th.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-of-bravery-4026",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-of-chaos-2307": {
+      "name": "Cloak of Chaos",
+      "sourceSha256": "e173d37f4c48d20b1c36850faae6fdb4ce0dfe90231a068a0ff5b99f4b8e70fc",
+      "effectSummary": "Each warded creature gains +4 deflection to AC, +4 resistance on saving throws, spell resistance 25 against lawful spells and spells cast by lawful creatures, and protection against possession and mental influence as protection from law. A lawful creature that hits a warded creature in melee becomes confused for 1 round unless it succeeds on a Will save against this spell's DC.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-of-chaos-2307",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-dark-power-1190": {
+      "name": "Cloak of Dark Power",
+      "sourceSha256": "59de1ee8b2fb551acc88ee0ccb19ce9c7d38f93eb76971df8d1df0e52c9e4ce8",
+      "effectSummary": "Creates a dusky haze that does not impair vision but protects the subject and its gear from the effects of full sunlight. A drow subject avoids sunlight blindness and bright-light combat penalties. The subject also gains +4 resistance on saves against light or darkness spells and effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-dark-power-1190",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-dark-power-4028": {
+      "name": "Cloak of Dark Power",
+      "sourceSha256": "875f81646d46ee62e5d5f1fc2157d07bf049fbb7071504356c4140f64a1d20eb",
+      "effectSummary": "Creates a dim haze that does not impair vision but protects the subject and its worn or carried gear from full sunlight. A drow subject avoids sunlight blindness and bright-illumination combat penalties. The subject also gains +4 resistance on saves against light or darkness spells and effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-dark-power-4028",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-deception-3687": {
+      "name": "Cloak of Deception",
+      "sourceSha256": "f79e2aa80296eee5a33114d50206ae4b0b342b42bef346ca48b636684c9b36b7",
+      "effectSummary": "Turns the initiator invisible as greater invisibility until the end of the current turn.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-deception-3687",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-of-hate-1432": {
+      "name": "Cloak of Hate",
+      "sourceSha256": "418ca3c989f67f515b03fdc1c351762e8600f048212ee4a9ca4e8e4c00a79a17",
+      "effectSummary": "Causes living creatures unfamiliar with the subject to react one attitude category worse than normal and imposes -10 circumstance on Diplomacy checks used to improve those reactions. Strangers also interpret ambiguous evidence against the subject in the worst possible way. Old friends, loved ones, and others who know the subject well are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-of-hate-1432",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-of-shade-3120": {
+      "name": "Cloak of Shade",
+      "sourceSha256": "ccb799f78184802b8646633ea892404b47e5fb3830fb2d5c5d89b760c0434616",
+      "effectSummary": "Wraps the subject in perfect shade, lowering effective environmental heat by one temperature band and protecting against sunburn and sun glare while allowing recovery from heat exposure. It does not protect against unearthly or hotter heat, fire damage, magical light effects, or sunlight-based damage suffered by creatures vulnerable to sunlight.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-of-shade-3120",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-of-the-sea-1919": {
+      "name": "Cloak of the Sea",
+      "sourceSha256": "176cb9df55e7135c4309e6d0f7dada094761419396b1c4dcc951263aa86047c8",
+      "effectSummary": "While fully underwater, the subject functions as though under blur, freedom of movement, and water breathing and does not take nonlethal damage from water pressure or hypothermia. Outside or partially outside water, only water breathing remains. Leaving and reentering water does not end the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-of-the-sea-1919",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-of-the-sea-4029": {
+      "name": "Cloak of the Sea",
+      "sourceSha256": "37881a737024798de972385aa8d9cd08c44cf32d57fab20e07b46eb3d57d976b",
+      "effectSummary": "While fully underwater, the subject functions as though under blur, freedom of movement, and water breathing and does not take nonlethal damage from underwater exposure. Outside or partially outside water, only water breathing remains. Leaving and reentering water does not end the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-of-the-sea-4029",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-of-the-sea-415": {
+      "name": "Cloak of the Sea",
+      "sourceSha256": "4c8e17b4c1dc5e2ee184fca1149d28671a4fff147fcd639cd67dd0ee8f645da0",
+      "effectSummary": "While fully underwater, the subject functions as though under blur, freedom of movement, and water breathing and does not take nonlethal damage from water pressure or hypothermia. Outside or partially outside water, only water breathing remains. Leaving and reentering water does not end the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-of-the-sea-415",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-pool-2184": {
+      "name": "Cloak Pool",
+      "sourceSha256": "2e7f5707437fd6a0345e1b80e85b38a6bb3481718eac32a2f3076e9a78e581d2",
+      "effectSummary": "Hides one Astral Plane color pool from normal sight without concealing the surrounding area. The portal still exists and functions normally. See invisibility, true seeing, and analyze portal reveal the hidden pool.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-pool-2184",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloak-pool-4030": {
+      "name": "Cloak Pool",
+      "sourceSha256": "b2fcc269fc38fef3963aa9448828663c0deffd8474d4017fc67785078e7e1cb1",
+      "effectSummary": "Hides one Astral Plane color pool from normal sight without concealing the surrounding area. The portal still exists and functions normally. See invisibility, true seeing, and analyze portal reveal the hidden pool.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloak-pool-4030",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clone-2719": {
+      "name": "Clone",
+      "sourceSha256": "0e6d65c87e333e1f87fa9f48c0049e9ff6e494784caed49113b22f5eff75cc07",
+      "effectSummary": "Grows an inert duplicate from at least 1 cubic inch of preserved living flesh over 2d4 months. If the original is dead and the soul is free and willing, it transfers into the clone; surviving original remains then become inert and cannot be restored. The clone is physically identical and retains personality and memories but returns as though raised from the dead, including the normal level or Constitution loss. Natural-death victims cannot be cloned, and equipment is not duplicated. A completed clone whose soul is unavailable remains inert and must be preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clone-2719",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/close-wounds-1952": {
+      "name": "Close Wounds",
+      "sourceSha256": "e24fdf0f8da894e336a1d69a7fffa05c4faee769cbba929c43e93c812af368aa",
+      "effectSummary": "Immediately heals 2d4 hit points and can be cast even when it is not the caster's turn. If cast immediately after damage is dealt, the healing effectively reduces that damage and can keep a creature from dying. Against undead, it deals the same amount as damage instead, with a Will save for half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/close-wounds-1952",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/close-wounds-3542": {
+      "name": "Close Wounds",
+      "sourceSha256": "24be338a7c4ab3d3cffb2a3196a6e7fb7a77d76b2e7d2feb41c136d3614bba2c",
+      "effectSummary": "Immediately heals 1d4 + caster level hit points, maximum +5, and can be cast immediately after a creature takes damage so the healing effectively reduces that damage and can prevent death. Against undead, it deals the same amount as damage instead, with a Will save for half.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/close-wounds-3542",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/clothiers-closet-4676": {
+      "name": "Clothier's Closet",
+      "sourceSha256": "5a2514ccdf3dd5177e33ecb8379d22203a5903155c92db39a43ee07fb2fa7c97",
+      "effectSummary": "Conjures a wooden clothing rod and any mix of ordinary outfits chosen at casting whose total market price does not exceed 100 gp. The clothing is nonmagical and remains after the spell ends even though the rod and hangers disappear. A caster with a Mark of Hospitality dragonmark or Favored in House (Ghallanda) can cast without material components, but in that case the conjured clothing disappears when the spell ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/clothiers-closet-4676",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloud-chariot-2103": {
+      "name": "Cloud Chariot",
+      "sourceSha256": "378747c284d39498f8b0412124693226d44436560f4ac3ec4315f602ac5c225c",
+      "effectSummary": "Creates a cloud chariot carrying the caster and willing allies touched at casting. It flies in a chosen direction at 10 miles per minute, covering up to 100 miles over the spell's duration, with a steady ride unaffected by weather. At the end of the spell, the cloud settles gently to the ground and disappears.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloud-chariot-2103",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/cloud-chariot-455": {
+      "name": "Cloud Chariot",
+      "sourceSha256": "160f87e7975e6b742360436a9b38126735f114fd65854bc1a4e9298ad69abd01",
+      "effectSummary": "Creates a cloud chariot carrying the caster plus one willing Medium-or-smaller creature per four caster levels; larger creatures count as multiple Medium creatures. It flies at 10 miles per minute, up to 100 miles over the full duration. Dismissing or dispelling the spell causes a gentle descent. If the duration expires while still aloft, the chariot descends 60 feet per round for 1d6 rounds and then falls if it has not reached the ground; antimagic negation does not provide the slow descent.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cloud-chariot-455",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
