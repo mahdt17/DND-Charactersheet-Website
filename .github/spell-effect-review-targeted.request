@@ -1,12 +1,26 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/planar-ally-lesser-2419",
-    "spells/locate-object-2506",
-    "spells/scrying-2512",
-    "spells/plane-shift-2423",
-    "spells/teleport-without-error-5027",
-    "spells/teleport-greater-2462"
+    "spells/genesis-934",
+    "spells/genesis-982",
+    "spells/genius-loci-782",
+    "spells/gentle-repose-2738",
+    "spells/getaway-3302",
+    "spells/ghorus-toths-magnetism-3474",
+    "spells/ghorus-toths-metal-melt-1760",
+    "spells/ghost-bane-weapon-1387",
+    "spells/ghost-blade-3693",
+    "spells/ghost-companion-1372",
+    "spells/ghost-lantern-823",
+    "spells/ghost-light-2088",
+    "spells/ghost-light-523",
+    "spells/ghost-lock-1332",
+    "spells/ghost-pipes-1568",
+    "spells/ghost-sound-2670",
+    "spells/ghost-touch-armor-1388",
+    "spells/ghost-touch-armor-1504",
+    "spells/ghost-touch-armor-3898",
+    "spells/ghost-touch-weapon-1505"
   ],
-  "nonce": "2026-09-19-g-section-reference-bases"
+  "nonce": "2026-09-19-genesis-through-ghost-touch-weapon"
 }
