@@ -921,6 +921,36 @@
           "role": "Sandstorm sourcebook copy used only to restore the omitted slam-damage table"
         }
       ]
+    },
+    "spells/standing-wave-1936": {
+      "name": "Standing Wave",
+      "effectSummary": "For 10 minutes per caster level, you command water beneath one creature or object to lift and carry it in a straight line at 60 feet per round across water. The maximum size depends on caster level: 5th up to Medium, 7th Large, 9th Huge, 11th Gargantuan, and 13th Colossal. An affected object can carry creatures or other objects. When the wave reaches land, the spell ends and lowers its burden harmlessly to shore.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/standing-wave-1936",
+          "role": "primary Masters of the Wild catalog record; rebuilt prose states that lift capacity depends on caster level but omits the caster-level/size table"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/standing-wave-750",
+          "role": "same primary catalog Complete Divine printing used only to restore the matching 5th/7th/9th/11th/13th caster-level size thresholds"
+        }
+      ]
+    },
+    "spells/word-of-balance-3496": {
+      "name": "Word of Balance",
+      "effectSummary": "Any lawful good, chaotic good, lawful evil, or chaotic evil creature that hears the word suffers cumulative effects by Hit Dice with no saving throw: HD equal to caster level is nauseated for 1 round; up to caster level -1 is weakened for 2d4 rounds and nauseated; up to caster level -5 is paralyzed for 1d10 minutes, weakened, and nauseated; up to caster level -10 is killed if living or destroyed if undead in addition to the lesser effects. Weakened means -2d6 Strength. Creatures with more Hit Dice than your caster level are unaffected. If you cast on your home plane, aligned elementals and outsiders in the area are also banished to their home plane unless they make a Will save at -4; this banishment does not require them to hear the word, and a banished creature cannot return for at least 24 hours.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/word-of-balance-3496",
+          "role": "primary Underdark catalog record; rebuilt prose names the four cumulative effects but omits the Hit-Dice threshold table that assigns them"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/word-of-balance-4784",
+          "role": "same primary catalog Spell Compendium printing used only to restore the matching HD/effect thresholds"
+        }
+      ]
     }
   }
 }
