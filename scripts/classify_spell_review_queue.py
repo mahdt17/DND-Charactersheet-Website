@@ -317,6 +317,12 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+effect\b",
         re.I,
     )),
+    ("activated-named-effect-as-spell", re.compile(
+        r"\b(?:activate|invoke|create|produce)s?\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+effect\s*"
+        r"\(\s*as\s+the\s+spell\s*\)",
+        re.I,
+    )),
     ("affected-by-shorthand", re.compile(
         r"\b(?:acts?|behaves?)\s+as\s+though\s+affected\s+by\s+"
         r"(?:a|an|the)?\s*(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)(?=[,.;]|$)",
@@ -1198,6 +1204,8 @@ def run_self_test() -> None:
     assert "generic-identical-with" in external_mechanics_reasons("This is identical with deathwatch, but only functions on animals and plants.")
     assert "granted-spell-effect" in external_mechanics_reasons("The animal gains a bonus plus the effect of a haste spell.")
     assert "external-page-reference" in external_mechanics_reasons("See page 297 for the inherited servant rules.")
+    assert "activated-named-effect-as-spell" in external_mechanics_reasons("You can activate a feather fall effect (as the spell) on yourself.")
+    assert "activated-named-effect-as-spell" not in external_mechanics_reasons("You can activate a protective effect on yourself.")
     assert "external-rules-detailed-page-reference" in external_mechanics_reasons("Truename research rules are detailed on page 196.")
     assert "external-rules-detailed-page-reference" not in external_mechanics_reasons("The rules are detailed in the spell text below.")
     assert "external-rulebook-section" in external_mechanics_reasons("See Sacrifices in Chapter 2 for the required DCs.")
