@@ -10,16 +10,26 @@ CATALOG=ROOT/"public"/"catalogs"/"dndtools"/"spells.json"
 def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("--shard-count",type=int,default=8)
-    ap.add_argument("--shard-index",type=int,required=True)
+    ap.add_argument("--shard-index",type=int,default=0)
+    ap.add_argument("--record-id",action="append",default=[],help="limit export to one or more exact catalog record IDs")
     ap.add_argument("--delay",type=float,default=0.08)
     ap.add_argument("--output",type=Path,required=True)
     args=ap.parse_args()
     if args.shard_count<1 or not 0<=args.shard_index<args.shard_count:
         ap.error("invalid shard")
     rows=json.loads(CATALOG.read_text(encoding="utf-8"))
+    requested=set(args.record_id)
+    if requested:
+        known={row.get("id") for row in rows}
+        missing=sorted(requested-known)
+        if missing:
+            raise SystemExit("Unknown record ID(s): "+", ".join(missing))
     entries=[]; failures=[]
     for i,row in enumerate(rows):
-        if i % args.shard_count != args.shard_index:
+        if requested:
+            if row.get("id") not in requested:
+                continue
+        elif i % args.shard_count != args.shard_index:
             continue
         try:
             raw=d35.fetch(row["url"],args.delay)
@@ -36,7 +46,7 @@ def main():
                 })
         except Exception as exc:
             failures.append({"id":row.get("id"),"name":row.get("name"),"error":str(exc)})
-    payload={"reviewOnly":True,"shardCount":args.shard_count,"shardIndex":args.shard_index,"entries":entries,"fetchFailures":failures}
+    payload={"reviewOnly":True,"shardCount":args.shard_count,"shardIndex":args.shard_index,"recordIds":sorted(requested),"entries":entries,"fetchFailures":failures}
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"reviewEntries":len(entries),"fetchFailures":len(failures)},indent=2))
