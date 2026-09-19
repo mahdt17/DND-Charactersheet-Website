@@ -534,6 +534,41 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bsee\s+The\s+Unnamed\s+section\s+below\b",
         re.I,
     )),
+    ("spell-turning-level-inheritance", re.compile(
+        r"\bturns?\b[^.;]{0,100}\bspell\s+levels?\s+as\s+the\s+"
+        r"(?P<name>spell turning)\s+spell\b",
+        re.I,
+    )),
+    ("receives-named-spell-inheritance", re.compile(
+        r"\breceives?\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("normal-restrictions-for-named-effect", re.compile(
+        r"\bnormal\s+restrictions?\s+for\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)(?=[).,;]|$)",
+        re.I,
+    )),
+    ("parenthetical-as-the-spell", re.compile(
+        r"\b[A-Za-z][A-Za-z0-9'’ -]{1,60}\s*\(\s*as\s+the\s+spell\s*\)",
+        re.I,
+    )),
+    ("glows-as-named-spell", re.compile(
+        r"\b(?:glows?|shines?|radiates?)\s+as\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("normal-weapon-use-inheritance", re.compile(
+        r"\buse\b[^.;]{0,120}\bas\s+if\s+it\s+were\s+"
+        r"(?:a|an|the)\s+normal\s+"
+        r"(?P<name>[A-Za-z][A-Za-z'’ -]{1,50})(?=[.;,]|$)",
+        re.I,
+    )),
+    ("normal-weapon-type-inheritance", re.compile(
+        r"\bbehaves?\s+as\s+(?:a|an|the)\s+normal\s+weapon\s+of\s+its\s+type\b",
+        re.I,
+    )),
+
 )
 
 
@@ -589,6 +624,17 @@ SUSPICIOUS_PATTERNS = (
         r"\bEvil outsider must make its saving throw first\b",
         re.I,
     )),
+    ("garbled-spell-matrix-lesser-source", re.compile(
+        r"\bOnly a spell that can be altered by the antimagic field\s*,\s*"
+        r"the duration of the matrix is interrupted\b",
+        re.I,
+    )),
+    ("undead-torch-unspecified-residual-damage", re.compile(
+        r"\bcontinues to burn at the location of its destruction\b[^.]*"
+        r"\bcreatures that pass through that area take damage\.",
+        re.I,
+    )),
+
 )
 
 
@@ -1322,6 +1368,25 @@ def run_self_test() -> None:
     assert "summoned-creature-stat-dependency" in external_mechanics_reasons("You summon a flesh, clay, stone, or iron golem.")
     assert "summoned-creature-stat-dependency" not in external_mechanics_reasons("You summon a handheld musical instrument.")
     assert "summoned-creature-stat-dependency" not in external_mechanics_reasons("You summon an avalanche of snow.")
+
+    assert "spell-turning-level-inheritance" in external_mechanics_reasons("The star can turn 1d4+3 spell levels as the spell turning spell.")
+    assert "spell-turning-level-inheritance" not in external_mechanics_reasons("The star turns aside attacks with a +3 deflection bonus.")
+    assert "receives-named-spell-inheritance" in external_mechanics_reasons("The subject receives a panacea spell (page 152) one round later.")
+    assert "receives-named-spell-inheritance" not in external_mechanics_reasons("The subject receives a +2 healing bonus.")
+    assert "normal-restrictions-for-named-effect" in external_mechanics_reasons("The caster commands it with the normal restrictions for control undead.")
+    assert "normal-restrictions-for-named-effect" not in external_mechanics_reasons("The caster commands it with the normal restrictions for telepathy.")
+    assert "parenthetical-as-the-spell" in external_mechanics_reasons("It emits a magic circle against chaos (as the spell).")
+    assert "parenthetical-as-the-spell" not in external_mechanics_reasons("It emits a fully described protective circle.")
+    assert "glows-as-named-spell" in external_mechanics_reasons("The point glows as a light spell for the remaining duration.")
+    assert "glows-as-named-spell" not in external_mechanics_reasons("The point glows as bright as a torch.")
+    assert "normal-weapon-use-inheritance" in external_mechanics_reasons("You can use the whip in combat as if it were a normal whip.")
+    assert "normal-weapon-use-inheritance" not in external_mechanics_reasons("You can use the whip in combat with the statistics described here.")
+    assert "normal-weapon-type-inheritance" in external_mechanics_reasons("The spectral blade behaves as a normal weapon of its type, with two exceptions.")
+    assert "normal-weapon-type-inheritance" not in external_mechanics_reasons("The spectral blade behaves as described below.")
+    assert "garbled-spell-matrix-lesser-source" in suspicious_reasons({"effectSource":"Only a spell that can be altered by the antimagic field , the duration of the matrix is interrupted, but the spell does not activate."})
+    assert "garbled-spell-matrix-lesser-source" not in suspicious_reasons({"effectSource":"If you enter an antimagic field, the duration of the matrix is interrupted, but the spell does not activate."})
+    assert "undead-torch-unspecified-residual-damage" in suspicious_reasons({"effectSource":"The undead torch continues to burn at the location of its destruction until the duration expires, and creatures that pass through that area take damage."})
+    assert "undead-torch-unspecified-residual-damage" not in suspicious_reasons({"effectSource":"The undead torch continues to burn at the location of its destruction until the duration expires, and creatures that pass through that area take 2d6 points of damage."})
     assert "contradictory-vulnerability-scaling" in suspicious_reasons({"effectSource": "For every four caster levels beyond 9th, the reduction increases; a reduction of 10 at caster level 15th and a reduction of 15 at caster level 19th."})
     assert "contradictory-vulnerability-scaling" not in suspicious_reasons({"effectSource": "For every four caster levels beyond 9th, the reduction increases at 13th and 17th levels."})
     assert "missing-skull-eyes-effects" in suspicious_reasons({"effectSource": "Depending on Hit Dice, the gaze attack may have either of two effects, as follows. While the spell lasts, your eyes are black."})
