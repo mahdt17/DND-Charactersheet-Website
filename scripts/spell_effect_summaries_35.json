@@ -13814,6 +13814,254 @@
           "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
         }
       ]
+    },
+    "spells/dragonshape-least-1077": {
+      "name": "Dragonshape, Least",
+      "sourceSha256": "af9c2bfb4fb9829d813350e6ee6854a53b4f9c720442d1e3830a70562240e856",
+      "effectSummary": "Transforms you into a Tiny pseudodragon under the polymorph subschool rules for the spell's duration, replacing your normal form with the pseudodragon form and abilities subject to the standard polymorph-subschoool exceptions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragonshape-least-1077",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-2668": {
+      "name": "Dream",
+      "sourceSha256": "5a7e92e5997c5014718d21fc2d00bee19d472d47395948bf335e0302eb22a57b",
+      "effectSummary": "You or a touched messenger enters a trance and delivers a one-way dream message of any length to one unambiguously identified recipient, who remembers it perfectly on waking. The recipient cannot reply and the messenger learns nothing from the recipient's dreams. If the recipient is awake, the messenger can end the spell or remain helpless in the trance until the recipient sleeps. Disturbing the messenger ends the spell. Creatures that do not sleep or dream cannot be contacted, and while entranced the messenger is unaware of its surroundings, physically and mentally defenseless, and automatically fails saving throws.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-2668",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-casting-3209": {
+      "name": "Dream Casting",
+      "sourceSha256": "2578da1bdd08532b3e6ee9e785bd56ad82c1d9ce54fa4ff8699d106bb25a5f36",
+      "effectSummary": "Functions as dream for delivering the message, but a failed Will save lets you attach one additional effect for the spell's duration. Fear makes the dreamer shaken whenever it can see you or knows you are present. Charm subjects it to charm monster. Rage makes it preferentially attack you in combat and grants it +2 morale on saving throws, attack rolls, ability checks, skill checks, and weapon damage rolls while affected. Harrow gives the dreamer two random behavioral traits from the Dungeon Master's Guide table, rerolling physical traits; if it can see you or knows you are present, it acts bewildered. A successful save prevents the added effect but still allows the dream message.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-casting-3209",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dream-2668",
+          "role": "same primary catalog referenced spell used to retain the inherited dream-message framework"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/charm-monster-2533",
+          "role": "same primary catalog referenced spell retained for the charm option"
+        }
+      ]
+    },
+    "spells/dream-casting-4420": {
+      "name": "Dream Casting",
+      "sourceSha256": "216675abb12a3970047b5cf6a93c5d134a242307848e0b59478ad52d61d9fbc1",
+      "effectSummary": "Functions as dream for delivering the message, but a failed Will save lets you attach one additional effect for the spell's duration. Fear makes the dreamer shaken whenever it can see you or knows you are present. Charm subjects it to charm monster. Rage makes it preferentially attack you in combat and grants +2 morale on saving throws, attack rolls, ability checks, skill checks, and weapon damage rolls when attacking you. Harrow gives the dreamer two random behavior-appropriate traits from the Dungeon Master's Guide table; whenever it can see you or knows you are present, it is confused for 1 round per caster level. A successful save prevents the added effect but still allows the dream message.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-casting-4420",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dream-2668",
+          "role": "same primary catalog referenced spell used to retain the inherited dream-message framework"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/charm-monster-2533",
+          "role": "same primary catalog referenced spell retained for the charm option"
+        }
+      ]
+    },
+    "spells/dream-conduit-5741": {
+      "name": "Dream Conduit",
+      "sourceSha256": "5c60300f3470c367a87f4a44c36bcfb9656458122f697d3b11320bd5e31a1340",
+      "effectSummary": "Names one living target and uses a personal focus to project your mind into that creature's dreamscape, waiting in a trance until it sleeps. In the dream you can speak and interact normally, participate in or try to influence the dream, and cast nondamaging single-target spells of 4th level or lower except Conjuration, Evocation, or Transmutation spells. The target receives the spell's normal save, immediately realizes what is happening, and any successful effect does not activate until it wakes. The target can force itself awake to end the conduit. If the target is awake when cast, you can end the spell or wait in trance until it sleeps. You are unaware and physically defenseless while entranced, and any disturbance ends the spell. Creatures that do not sleep or dream, or are isolated from the Plane of Dreams, cannot be targeted. The focus is an item valuable to the target or a sample from its body.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-conduit-5741",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-image-4978": {
+      "name": "Dream Image",
+      "sourceSha256": "967b9ce03352b75e4174177185c444b5c0a594952261bc334fb76b9b32c1e30f",
+      "effectSummary": "You fall asleep and create an adjacent dream duplicate that looks, sounds, smells, and feels like you. You perceive through it, can manipulate objects, and can cast any spell you normally could; it has your current memorized spells, hit points, and abilities. It begins without equipment but can borrow gear from your sleeping body. It cannot move farther than 400 feet + 40 feet per caster level from your body or travel to another plane; doing so, being killed, or otherwise ending the spell wakes you. Spells and daily abilities used by the image are expended from your own resources, but damage or ability damage to the image does not harm you. Borrowed equipment remains where the image vanished and must be retrieved. The spell costs 300 XP and uses a small replica of you as its material component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-image-4978",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-lock-4794": {
+      "name": "Dream Lock",
+      "sourceSha256": "cc9d0dd3dfc94074a0aaf78b383e7b67bdcb7f89b8745d9107321d143c113829",
+      "effectSummary": "Wraps one creature in dreamspace energy, dazing it for 1 round and then leaving it trapped in waking dreams for the remaining duration. While trapped it is shaken and treats all opponents as having concealment. Creatures that do not dream are still affected unless they are immune to enchantments or mind-affecting effects. If you cast while dreamtouched, you can partially direct the visions and influence the target as suggestion for the spell's full duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-lock-4794",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-lock-mass-4795": {
+      "name": "Dream Lock, Mass",
+      "sourceSha256": "0bcdb1d26b2d4372c5fad404ab839eab57bdb7434f8c91e8bea26e1c306ab627",
+      "effectSummary": "Functions as dream lock but affects multiple creatures. Each affected creature is dazed for 1 round, then remains trapped in waking dreams, shaken, and treats all opponents as having concealment for the rest of the spell. If cast while dreamtouched, you can give the same suggestion-like course of activity to all affected creatures at once; a creature ignores it if the instruction is inapplicable.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-lock-mass-4795",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dream-lock-4794",
+          "role": "same primary catalog referenced spell used to retain the inherited dream-lock condition mechanics"
+        }
+      ]
+    },
+    "spells/dream-sight-1430": {
+      "name": "Dream Sight",
+      "sourceSha256": "4cfc3f9585d526c404c99aad10ecba7bbd2dce1723c2f7a02373953c8617d5f7",
+      "effectSummary": "You fall into a deep sleep while your spirit leaves your body as an incorporeal observer that moves 100 feet per round and sees and hears as though physically present. Effects that ward incorporeal creatures can block it, and it can be detected and attacked like an incorporeal creature. The spirit can only move and observe; it cannot speak, attack, cast spells, or take other actions. When the spell ends it instantly returns and you awaken. Disturbing your body while the spirit is away ends the spell immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-sight-1430",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-sight-2049": {
+      "name": "Dream Sight",
+      "sourceSha256": "931bc008f3946241adc36cb30780a32f4aa0d56b57cd8e8e8067257881348a2a",
+      "effectSummary": "You fall into a deep sleep while your spirit leaves your body as an incorporeal observer that moves 100 feet per round and sees and hears as though physically present. Effects that ward incorporeal creatures can block it, and it can be detected and attacked like an incorporeal creature. Commune with lesser spirit or, for a sufficiently high-level shaman, commune with greater spirit can contact you; invisibility to spirits can hide creatures from you, and protection from spirits wards against you. The spirit can only move and observe. When the spell ends it returns instantly and you awaken; disturbing your body ends the spell immediately. The material component is at least 5 gp of incense.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-sight-2049",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-sight-4421": {
+      "name": "Dream Sight",
+      "sourceSha256": "91a7974a350f9374eb51bfcc17910f72e71dc6bfe5c413af37ffc5701d9731f2",
+      "effectSummary": "You fall into a deep sleep while your spirit leaves your body invisibly in incorporeal form. It moves 100 feet per round, sees and hears as though physically present, can be blocked by wards against incorporeal creatures, and can be detected or attacked like one. It can only move and observe, not speak, attack, cast spells, or take other actions. When the spell ends it returns instantly and you awaken. If your body is disturbed or attacked while the spirit is away, the spell ends immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-sight-4421",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-sight-676": {
+      "name": "Dream Sight",
+      "sourceSha256": "77040f019f39e388a3c464db27a0d180afcbedd51898d095a160b6fe85070698",
+      "effectSummary": "You fall into a deep sleep while your spirit leaves your body in incorporeal form, moving 100 feet per round and seeing and hearing as though physically present. Wards against incorporeal creatures can block it, and it can be detected and attacked like an incorporeal creature. It can only move and observe, not speak, attack, cast spells, or take other actions. When the spell ends it returns instantly and you awaken; disturbing your body while it is away ends the spell immediately.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-sight-676",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-spirit-4796": {
+      "name": "Dream Spirit",
+      "sourceSha256": "0e7e289c3c0e3d97f18e28bbb973af836bcfeea138801ee8a84c18e7218695be",
+      "effectSummary": "Creates a dreamspace manifestation treated as an incorporeal creature with your hit points and the AC you would have while incorporeal: your armor and natural armor bonuses are lost and replaced by a deflection bonus equal to your Charisma modifier or +1, whichever is higher. It appears where designated, acts immediately on your turn, and makes one incorporeal touch attack using your base attack bonus plus Dexterity modifier for 1d6 damage +1 per two caster levels, maximum +10. You can redirect or restrain it mentally as a free action. It acts normally on the final round and then dissipates; reaching 0 hp or moving beyond spell range ends the spell. Despite its incorporeal treatment, it is material in nature, so dismissal and effects that specifically affect outsiders do not apply.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-spirit-4796",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dream-travel-1866": {
+      "name": "Dream Travel",
+      "sourceSha256": "aab3e888b6c8fbe7d27b1e84c53be8d72052a1ed963529638730084d79212f63",
+      "effectSummary": "Physically carries you and the creatures touching you into the Region of Dreams. For each minute spent moving there—only 1 round on the Material Plane—you can wake up 5 miles displaced in the waking world, and you know where you will emerge. Travel to another plane inhabited by dreamers is also possible through the Dreamheart and takes 1d4 hours in Dream, corresponding to 1d4×6 minutes on most other planes. Companions can follow you, wander into other dreamscapes, or return to the waking world; a lost or abandoned companion has an equal chance of wandering or waking. Unwilling creatures receive a Will save to avoid the transition. Unlike ordinary dreaming, consumables and spells expended during the trip remain spent, while items and experience gained remain with you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dream-travel-1866",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/dreaming-puppet-1433": {
+      "name": "Dreaming Puppet",
+      "sourceSha256": "1225c011c15415447a8571db520b4336a98eae804b1e53d4440e4a6b753ed334",
+      "effectSummary": "While a named subject sleeps, you enter a trance, appear in its dream, see through its body, and control that body as dominate monster. The subject is aware of your presence and can identify you if it knows you. Instructions contrary to its moral code grant a new save with a +2 bonus; when the effect ends, it remembers the gist of its actions as dreamlike memories. If the subject is awake when cast, you can end the spell or wait in trance until it sleeps. Disturbing you ends the spell, and creatures that do not sleep or dream or are immune to mind-affecting effects are immune. While entranced you are unaware and automatically fail saving throws. If the target beats the original Will save DC by 10 or more or rolls a natural 20, your soul becomes lost in the dreamscape and must find its way back, use planar travel, or be rescued.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dreaming-puppet-1433",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dominate-monster-2546",
+          "role": "same primary catalog referenced spell retained for the inherited body-control framework"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dominate-person-2547",
+          "role": "same primary catalog referenced spell used to retain the opposed-moral-code save rule"
+        }
+      ]
+    },
+    "spells/dridershape-1127": {
+      "name": "Dridershape",
+      "sourceSha256": "2d3b7d7c62ded4f007452ebca35fd3ac5ad8c1825a8d42f0b65d2c6228621773",
+      "effectSummary": "Transforms you under the polymorph subschool into the form and abilities of a drider and grants 20 temporary hit points that disappear when the spell ends. You do not gain the drider's spellcasting, but you retain your own spellcasting subject to the drider form's ability scores; for example, Intelligence 15 prevents wizard spells above 5th level. Objects already held remain held in the new form, while other gear melds into it under the normal polymorph-subschool rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dridershape-1127",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/drifts-of-the-shalm-2972": {
+      "name": "Drifts of the Shalm",
+      "sourceSha256": "f95d11c2181316ed02d5bd1fff11ee02f764d0d4e11050069b0faa40d3af46ed",
+      "effectSummary": "Creates 3-foot-thick drifts of snow, leaves, or smoldering ash. Entering a drift-covered square costs 2 squares of movement. Snow deals 3 cold damage each round to anyone moving through or standing in it. If any part of a leaf drift contacts fire, the entire drift ignites and deals 2d6 fire damage to creatures in the inferno. Ash deals 3 fire damage each round to anyone moving through or standing in it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drifts-of-the-shalm-2972",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/drown-138": {
+      "name": "Drown",
+      "sourceSha256": "48bbd1e7dd8d9ce2bd7bb452bc0a24cb390ab82c577a30f5305408d0a576f984",
+      "effectSummary": "On a failed Fortitude save, fills the subject's lungs with water. The victim can hold its breath under the normal drowning rules and gains a new saving throw every 2 rounds after the first to expel the water. While holding its breath with water-filled lungs, it cannot speak or cast spells with verbal components and takes a -2 circumstance penalty on attack rolls, saving throws, ability checks, and skill checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drown-138",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/drown-1611": {
+      "name": "Drown",
+      "sourceSha256": "50c1088cc3b27c484baae4058efb7014a385f381d8f0725d062164db4e75c28b",
+      "effectSummary": "Creates water in one living subject's lungs. The victim immediately falls unconscious at 0 hit points; in the next round it drops to -1 hit point and is dying, and in the following round it dies. Coughing cannot expel the water, but another creature can stabilize the victim with a DC 15 Heal check before death. Undead, constructs, creatures that do not need to breathe, and creatures that can breathe water are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drown-1611",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/drown-3485": {
+      "name": "Drown",
+      "sourceSha256": "56a3434b33e97a9b8e55c82392d2279694b63f191d49af67434f067c3fe84cd1",
+      "effectSummary": "Creates water in one living subject's lungs. The target immediately falls unconscious at 0 hit points, loses another hit point and becomes dying in the next round, and dies in the following round. Coughing cannot expel the water, but another creature can stabilize it with a DC 15 Heal check before death. Undead, constructs, creatures that do not need to breathe, and creatures that can breathe water are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/drown-3485",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
     }
   }
 }
