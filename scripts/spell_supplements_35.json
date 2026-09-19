@@ -1234,6 +1234,25 @@
           "role": "Miniatures Handbook pp.35-36 sourcebook rendering used to restore the original 1,000/5,000/25,000 gp sacrifice table and matching DR, energy-resistance, and spell-resistance values"
         }
       ]
+    },
+    "spells/fiery-eyes-2067": {
+      "name": "Fiery Eyes",
+      "effectSummary": "Makes your eyes glow in a color you choose and brightly illuminate out to 3 feet. By fixing your gaze on one spot within 3 feet for 3 rounds, you ignite combustible material there; living creatures cannot be targeted directly. A creature carrying or wearing an item you ignite takes 1d6 fire damage immediately and must make a DC 15 Reflex save or catch fire. A creature that catches fire takes 1d6 fire damage immediately and, on each subsequent round, another 1d6 unless it succeeds on a Reflex save to extinguish the flames. Jumping into enough water extinguishes the fire automatically; rolling on the ground or smothering the flames allows another save with a +4 bonus.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fiery-eyes-2067",
+          "role": "primary Oriental Adventures catalog record; delegates continuing fire mechanics to the Dungeon Master's Guide"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fiery-eyes-497",
+          "role": "later primary-catalog printing confirming the DC 15 Reflex save to avoid catching fire after an ignited carried or worn item deals its initial 1d6 damage"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/environment.htm#catchingOnFire",
+          "role": "SRD catching-on-fire rule used to resolve the delegated continuing damage and extinguishing mechanics"
+        }
+      ]
     }
   }
 }
