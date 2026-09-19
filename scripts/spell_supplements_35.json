@@ -1291,6 +1291,44 @@
           "role": "SRD catch-fire rule used to resolve the delegated immediate/subsequent 1d6 fire damage and Reflex-save extinguishing mechanics"
         }
       ]
+    },
+    "spells/flame-dagger-4508": {
+      "name": "Flame Dagger",
+      "effectSummary": "Creates a daggerlike beam of fire that you wield as a dagger. Its attacks are melee touch attacks and deal 1d4 fire damage +1 per caster level, maximum +10; your Strength modifier does not add to this damage. The blade can ignite combustible materials but does not function underwater. The material component is a candle.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flame-dagger-4508",
+          "role": "primary Spell Compendium catalog record; rebuilt prose corrupts the printed 1d4 damage die as 'ad4'"
+        },
+        {
+          "url": "https://anyflip.com/myubd/qfne/basic/51-100",
+          "role": "Spell Compendium sourcebook rendering confirming the printed 1d4 fire damage"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/flame-dagger-1670",
+          "role": "earlier primary-catalog printing independently confirms the same 1d4 base damage"
+        }
+      ]
+    },
+    "spells/flaying-tendrils-874": {
+      "name": "Flaying Tendrils",
+      "effectSummary": "Grows four mind-flayer-like facial tentacles. You can attack with one tentacle as a standard action or all four as a full-round action; each deals 1d4 damage + your Strength modifier. While using them you are treated as having Improved Grapple. A successful grapple check can attach one tentacle to a foe's head; if you begin your turn with one attached, a single grapple check can attach the other three as a full-round action. The foe can escape with one grapple or Escape Artist check, but you gain +2 on the opposed check for each tentacle attached at the start of its turn. If all four are attached at the start of your turn, you can attempt brain extraction; a failed Fortitude save kills the victim, while success prevents extraction but leaves it grappled. The tentacles cannot grapple creatures more than one size category larger or smaller than you. Brain extraction does nothing to constructs, elementals, oozes, plants, or undead and is not instantly fatal to creatures with multiple heads.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flaying-tendrils-874",
+          "role": "primary Complete Mage catalog record; rebuilt effect loses most of the grapple and extraction rules after the tentacle-damage clause"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-mage--58/flaying-tendrils--874/",
+          "role": "complete same-spell rendering used to restore the omitted grapple and brain-extraction mechanics"
+        },
+        {
+          "url": "https://fliphtml5.com/zorhx/vbbe/Complete_Mage/",
+          "role": "Complete Mage sourcebook rendering independently confirms the restored mechanics"
+        }
+      ]
     }
   }
 }
