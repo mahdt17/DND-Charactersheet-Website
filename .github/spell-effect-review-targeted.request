@@ -1,7 +1,26 @@
 {
   "scope": "3.5/spells",
   "recordIds": [
-    "spells/enervation-2733"
+    "spells/energy-immunity-3379",
+    "spells/energy-immunity-439",
+    "spells/energy-immunity-4441",
+    "spells/energy-immunity-999",
+    "spells/energy-spheres-4442",
+    "spells/energy-surge-3012",
+    "spells/energy-surge-greater-3013",
+    "spells/energy-surge-lesser-3014",
+    "spells/energy-transformation-field-1756",
+    "spells/energy-transformation-field-4443",
+    "spells/energy-vortex-3541",
+    "spells/energy-vortex-700",
+    "spells/energy-vulnerability-2911",
+    "spells/enervating-breath-1021",
+    "spells/enervating-breath-4444",
+    "spells/enervating-shadow-strike-3691",
+    "spells/enervation-2733",
+    "spells/engulfing-terror-1120",
+    "spells/enhance-familiar-3428",
+    "spells/enhance-familiar-4445"
   ],
-  "nonce": "2026-09-19-targeted-review-enervation"
+  "nonce": "2026-09-19-targeted-review-after-1340-strict"
 }
