@@ -8440,7 +8440,7 @@
     },
     "spells/consumptive-field-4042": {
       "name": "Consumptive Field",
-      "sourceSha256": "5a5c9819c64ef8eb99b63c861df38581d4ba0a99882dd0cc018429f2f24ac21a",
+      "sourceSha256": "e669b31b2b7f788d3970bcebb2b09f5b361c8be12de711c4281f1329820b0e1a",
       "effectSummary": "Creates a death field around the caster. Creatures in the area below 0 hit points that fail their save die; creatures that later fall to -1 hit point or lower while in the field are likewise affected. Each death caused by the spell grants 1d8 temporary hit points, +2 Strength for the spell's duration, and +1 effective caster level, capped at an increase equal to half the caster's original caster level. A creature can be affected only once per casting.",
       "provenance": [
         {
