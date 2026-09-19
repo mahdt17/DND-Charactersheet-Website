@@ -1187,6 +1187,12 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-flaying-tendrils-grapple-rules"
+        if (
+            entry.get("id")=="spells/quench-2857"
+            and re.search(r"Each fireball or a flaming burst sword",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-quench-fire-elemental-rule"
         if entry.get("id")=="spells/drown-5004" and re.search(
             r"or begin to drown \(see The Concentration check to cast a spell",
             effect_source,
