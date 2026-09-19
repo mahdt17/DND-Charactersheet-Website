@@ -1092,6 +1092,13 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         if entry.get("id")=="spells/doom-of-the-seas-3332" and re.search(r"statistics block for this creature appears below",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="omitted-doom-of-the-seas-stat-block"
+        if entry.get("id")=="spells/dragonblood-beast-4864" and re.search(
+            r"Progression 1:.*\\b1d,\\s*2d6\\b.*\\b8d,\\s*12d6\\b",
+            effect_source,
+            re.I,
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-dragonblood-beast-bite-progression"
         if entry.get("id")=="spells/cloak-dark-power-4987" and re.search(r"a darkness spells or effects",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-cloak-dark-power-source"
