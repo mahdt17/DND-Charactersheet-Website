@@ -430,6 +430,33 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bmuch\s+like\s+(?:a|an|the)\s+(?P<name>clairaudience)\s+effect\b",
         re.I,
     )),
+    ("green-slime-dmg-dependency", re.compile(
+        r"\bgreen\s+slime\s*\(\s*DMG\s+76\s*\)",
+        re.I,
+    )),
+    ("daylight-dispel-inheritance", re.compile(
+        r"\bdispels?\s+darkness\)?\s+as\s+(?:a|an|the)\s+"
+        r"(?P<name>daylight)\s+spell\b",
+        re.I,
+    )),
+    ("evasion-ability-inheritance", re.compile(
+        r"\bgain(?:s)?[^.;]{0,100}\bthe\s+(?P<name>evasion)\s+ability\b",
+        re.I,
+    )),
+    ("bard-feature-inheritance", re.compile(
+        r"\bfunction(?:s)?\s+as\s+a\s+bard[^.;]{0,140}\bwith\s+respect\s+to\s+"
+        r"(?P<name>bardic music and bardic knowledge)\b",
+        re.I,
+    )),
+    ("listed-spell-suite-inheritance", re.compile(
+        r"\bchoose\s+a\s+spell\s+from\s+those\s+listed\s+below[^.;]{0,100}\b"
+        r"use\s+it\s+as\s+a\s+spell-like\s+ability\b",
+        re.I,
+    )),
+    ("manual-of-the-planes-reference", re.compile(
+        r"\bsee\s+Manual\s+of\s+the\s+Planes\b",
+        re.I,
+    )),
 )
 
 
@@ -1139,6 +1166,15 @@ def run_self_test() -> None:
     assert "dispel-magic-effect-inheritance" in external_mechanics_reasons("Anyone passing through becomes the target of a dispel magic effect.")
     assert "equivalent-of-named-spell" not in external_mechanics_reasons("The object has the equivalent of a +2 enhancement bonus.")
     assert "works-just-like-named-spell" not in external_mechanics_reasons("The device works just like normal machinery.")
+    assert "green-slime-dmg-dependency" in external_mechanics_reasons("You create a wave of green slime (DMG 76) across the area.")
+    assert "green-slime-dmg-dependency" not in external_mechanics_reasons("The spell creates harmless green slime.")
+    assert "daylight-dispel-inheritance" in external_mechanics_reasons("The cloak illuminates the area and dispels darkness as a daylight spell.")
+    assert "daylight-dispel-inheritance" not in external_mechanics_reasons("The cloak sheds bright daylight.")
+    assert "evasion-ability-inheritance" in external_mechanics_reasons("You gain a luck bonus and the evasion ability.")
+    assert "evasion-ability-inheritance" not in external_mechanics_reasons("You gain a +2 evasion bonus.")
+    assert "bard-feature-inheritance" in external_mechanics_reasons("The subject can function as a bard of one-half your level with respect to bardic music and bardic knowledge.")
+    assert "listed-spell-suite-inheritance" in external_mechanics_reasons("You may choose a spell from those listed below once per round and use it as a spell-like ability.")
+    assert "manual-of-the-planes-reference" in external_mechanics_reasons("See Manual of the Planes for the gatecrasher ability.")
     assert "functions-as-if-named-spell-cast" in external_mechanics_reasons("She functions as if a raise dead spell had been cast upon her, except she loses no level.")
     assert "functions-as-if-named-spell-cast" not in external_mechanics_reasons("The device functions as if underwater.")
     assert "same-way-as-named-spell" in external_mechanics_reasons("The burst reveals objects in the same way as a true seeing spell.")
