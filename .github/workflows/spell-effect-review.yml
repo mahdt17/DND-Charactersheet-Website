@@ -67,6 +67,7 @@ jobs:
         run: |
           python scripts/classify_spell_review_queue.py --self-test
           python scripts/select_spell_review_batch.py --self-test
+          python scripts/select_spell_reference_batch.py --self-test
       - name: Classify remaining review queue
         run: >
           python scripts/classify_spell_review_queue.py
@@ -74,14 +75,20 @@ jobs:
           --output test-results/spell-review-classification.json
           --reference-output test-results/spell-reference-review-packets.json
           --delay 0.08
-      - name: Select strict clean review batch
+      - name: Select review batches
         run: |
-          COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("count", 100)))')"
+          STRICT_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("count", 0)))')"
+          REFERENCE_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("referenceCount", 0)))')"
           python scripts/select_spell_review_batch.py \
             --classification test-results/spell-review-classification.json \
             --review test-results/review/spell-effect-review.json \
-            --count "$COUNT" \
+            --count "$STRICT_COUNT" \
             --output test-results/spell-review-strict-batch.json
+          python scripts/select_spell_reference_batch.py \
+            --classification test-results/spell-review-classification.json \
+            --references test-results/spell-reference-review-packets.json \
+            --count "$REFERENCE_COUNT" \
+            --output test-results/spell-review-reference-batch.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -90,4 +97,5 @@ jobs:
             test-results/spell-review-classification.json
             test-results/spell-reference-review-packets.json
             test-results/spell-review-strict-batch.json
+            test-results/spell-review-reference-batch.json
           retention-days: 1
