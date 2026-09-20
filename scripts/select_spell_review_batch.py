@@ -67,7 +67,17 @@ def strict_candidate(classified: dict, raw: dict) -> tuple[bool, list[str]]:
         reasons.append("current-suspicion-detector-hit")
     if classifier.external_mechanics_reasons(source):
         reasons.append("current-external-mechanics-detector-hit")
-    if classifier.extract_reference_names(source):
+    current_reference_names = classifier.extract_reference_names(source)
+    self_aliases = classifier.name_aliases(classified.get("name") or "")
+    current_reference_names = [
+        name
+        for name in current_reference_names
+        if not (
+            classifier.name_aliases(classifier.clean_reference_name(name))
+            & self_aliases
+        )
+    ]
+    if current_reference_names:
         reasons.append("current-reference-detector-hit")
 
     return (not reasons), sorted(set(reasons))
@@ -181,6 +191,29 @@ def run_self_test() -> None:
     drifted = dict(raw)
     drifted["effectSource"] = source + " Changed."
     assert "raw-source-sha-mismatch" in strict_candidate(classified, drifted)[1]
+
+    self_named_source = (
+        "Mindless Rage fills the subject with fury. "
+        "The subject of this mindless rage spell cannot voluntarily end the effect."
+    )
+    self_named_digest = d35.spell_effect_digest(self_named_source)
+    self_named_classified = dict(
+        classified,
+        id="spells/mindless-rage-test",
+        name="Mindless Rage",
+        sourceSha256=self_named_digest,
+    )
+    self_named_raw = dict(
+        raw,
+        id="spells/mindless-rage-test",
+        name="Mindless Rage",
+        sourceSha256=self_named_digest,
+        effectSource=self_named_source,
+    )
+    # A detector hit that resolves only to the record's own spell name is not
+    # an external mechanics dependency and must match classifier behavior.
+    ok, reasons = strict_candidate(self_named_classified, self_named_raw)
+    assert "current-reference-detector-hit" not in reasons
 
     inherited_source = "The armor sheds light equivalent to a daylight spell."
     inherited_digest = d35.spell_effect_digest(inherited_source)
