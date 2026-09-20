@@ -739,7 +739,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("luminous-assassin-stat-dependency", re.compile(
-        r"\b(?:Lesser\s+)?Luminous\s+Assassin\s+appears?\b[^.]{0,220}\b"
+        r"\b(?:Lesser\s+)?Luminous\s+Assassin\s+appears?\b.{0,700}?\b"
         r"(?:attacks?\s+its\s+target\s+every\s+round|attacks?\s+as\s+it\s+falls)\b",
         re.I | re.S,
     )),
@@ -754,7 +754,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("possess-animal-stat-dependency", re.compile(
-        r"\bproject\s+your\s+spirit\s+into\s+the\s+body\s+of\s+an\s+animal\b[^.]{0,800}\b"
+        r"\bproject\s+your\s+spirit\s+into\s+the\s+body\s+of\s+an\s+animal\b.{0,1000}?\b"
         r"keep\s+your\s+Intelligence\s*,\s*Wisdom\s*,\s*Charisma\b",
         re.I | re.S,
     )),
@@ -773,7 +773,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("manifest-zone-trait-dependency", re.compile(
-        r"\benhance\s+the\s+effects\s+of\s+a\s+manifest\s+zone\s+of\s+a\s+specified\s+plane\b[^.]{0,420}\b"
+        r"\benhance\s+the\s+effects\s+of\s+a\s+manifest\s+zone\s+of\s+a\s+specified\s+plane\b.{0,520}?\b"
         r"(?:next\s+inmost|planar\s+trait|each\s+zone\s+is\s+different)\b",
         re.I | re.S,
     )),
