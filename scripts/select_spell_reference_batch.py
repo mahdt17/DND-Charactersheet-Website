@@ -60,7 +60,7 @@ def candidate_reasons(
     # Phrases like "except as noted above" delegate mechanics to header fields
     # (target/range/area/duration/save) that are not present in this review packet.
     # They cannot be flattened safely in this reference-only phase.
-    if re.search(r"\\bexcept\\s+as\\s+noted\\s+above\\b", source, re.I):
+    if re.search(r"\bexcept\s+as\s+noted\s+above\b", source, re.I):
         reasons.append("header-dependent-exception")
 
     if packet.get("id") != record_id:
