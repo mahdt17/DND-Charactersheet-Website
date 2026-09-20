@@ -664,6 +664,11 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?:scent\s+special\s+quality|feats\s+you\s+have\s+access\s+to\s+in\s+animal\s+form)\b",
         re.I | re.S,
     )),
+    ("dmg-small-town-focus-reference", re.compile(
+        r"\bsettlement\s+of\s+at\s+least\s+small\s+town\s+size\s+or\s+larger\b[^)]{0,80}"
+        r"\bDUNGEON\s+MASTER\s*[’'‘]S\s+Guide\s*,\s*page\s+\d+\b",
+        re.I,
+    )),
 
 )
 
@@ -733,6 +738,23 @@ SUSPICIOUS_PATTERNS = (
     ("missing-following-modifier-block", re.compile(
         r"\bThe following modifiers are used in place of those given on page\s+\d+\s+"
         r"of the Player[’']s Handbook\.\s*(?:The caster|If|Material Component:)",
+        re.I,
+    )),
+    ("garbled-nystuls-magic-aura-source", re.compile(
+        r"\bmake\s+a\s+\+\d+\s+identify\s+cast\s+on\s+it\b",
+        re.I,
+    )),
+    ("garbled-shadow-well-source", re.compile(
+        r"\bBeings\s+unable\s+to\s+flee\s+cove\.\b|\bupo\s+leaving\b",
+        re.I,
+    )),
+    ("missing-minus-jade-strike-penalty", re.compile(
+        r"\bsuffers\s+a\s+4\s+penalty\s+on\s+most\s+Strength\s+and\s+Dexterity-based\s+skills\b",
+        re.I,
+    )),
+    ("missing-malebranche-size-damage-table", re.compile(
+        r"\bdeals\s+extra\s+damage\s+whenever\s+it\s+successfully\s+hits\s+with\s+a\s+charge\s+attack\s*,?\s*"
+        r"depending\s+on\s+its\s+size\.\s*In\s+addition\b",
         re.I,
     )),
 
@@ -1525,6 +1547,16 @@ def run_self_test() -> None:
     assert "domain-swap-content-inheritance" not in external_mechanics_reasons("You replace the Strength domain with Healing and gain a +2 bonus on Heal checks.")
     assert "animal-form-trait-inheritance" in external_mechanics_reasons("You gain the same damage reduction you have in animal form, the scent special quality, and the feats you have access to in animal form.")
     assert "animal-form-trait-inheritance" not in external_mechanics_reasons("You gain damage reduction 10/silver, scent out to 30 feet, and a +4 Strength bonus.")
+    assert "dmg-small-town-focus-reference" in external_mechanics_reasons("Focus: An abandoned building in a settlement of at least small town size or larger (DUNGEON MASTER ‘S Guide, page 137).")
+    assert "dmg-small-town-focus-reference" not in external_mechanics_reasons("Focus: An abandoned building in a settlement of at least small town size or larger.")
+    assert "garbled-nystuls-magic-aura-source" in suspicious_reasons({"effectSource":"You could make an ordinary sword register as magical or make a +2 identify cast on it or is similarly examined."})
+    assert "garbled-nystuls-magic-aura-source" not in suspicious_reasons({"effectSource":"You could make an ordinary sword register as a +2 vorpal sword to magical detection."})
+    assert "garbled-shadow-well-source" in suspicious_reasons({"effectSource":"Beings unable to flee cove. The subject is still afraid upo leaving."})
+    assert "garbled-shadow-well-source" not in suspicious_reasons({"effectSource":"Beings unable to flee cower. The subject is still afraid upon leaving."})
+    assert "missing-minus-jade-strike-penalty" in suspicious_reasons({"effectSource":"The blinded creature suffers a 4 penalty on most Strength and Dexterity-based skills."})
+    assert "missing-minus-jade-strike-penalty" not in suspicious_reasons({"effectSource":"The blinded creature suffers a -4 penalty on most Strength and Dexterity-based skills."})
+    assert "missing-malebranche-size-damage-table" in suspicious_reasons({"effectSource":"The subject deals extra damage whenever it successfully hits with a charge attack, depending on its size. In addition, the subject gains resistance to fire 10."})
+    assert "missing-malebranche-size-damage-table" not in suspicious_reasons({"effectSource":"The subject deals +2d6 extra damage on a successful charge attack. In addition, it gains resistance to fire 10."})
     assert "listed-spell-suite-inheritance" in external_mechanics_reasons("You can choose a spell from those listed below once per round and use it as a spelllike ability.")
     assert "missing-following-modifier-block" in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. The caster must have the Track feat to use this spell."})
     assert "missing-following-modifier-block" not in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. Light rain: +2. Heavy fog: -4."})
