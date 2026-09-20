@@ -959,7 +959,7 @@ SUSPICIOUS_PATTERNS = (
         re.I,
     )),
     ("missing-reality-maelstrom-plane-sidebar", re.compile(
-        r"\bsending\s+them\s+to\s+a\s+random\s+plane\s*\(\s*see\s+sidebar\s*\)",
+        r"\bsend(?:s|ing)?\s+them\s+to\s+a\s+random\s+plane\s*\(\s*see\s+sidebar\s*\)",
         re.I,
     )),
 
