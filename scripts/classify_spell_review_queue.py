@@ -737,7 +737,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("summoned-viper-stat-dependency", re.compile(
-        r"\bsummons?\s+\d+d\d+(?:\+\d+)?\s+(?:fiendish|celestial)[^.;]{0,80}\bMedium\s+vipers?\b",
+        r"\bsummons?\s+\d+d\d+(?:\+\d+)?\s+(?:fiendish|celestial)[^.;]{0,80}\bMedium(?:-size)?\s+vipers?\b",
         re.I,
     )),
     ("greater-teleport-circle-inheritance", re.compile(
@@ -978,6 +978,21 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bcreature\s+acquires\s+the\s+physical\s+and\s+natural\s+abilities\s+of\s+"
         r"the\s+creature\s+it\s+has\s+been\s+polymorphed\s+into\b",
         re.I,
+    )),
+    ("phantom-wolf-feat-package-dependency", re.compile(
+        r"\bSkills\s+and\s+Feats\s*:\s*Listen\s+\+20\s*,\s*Spot\s+\+20\s*;\s*"
+        r"Alertness\s*,\s*Dodge\s*,\s*Combat\s+Reflexes\s*,\s*Mobility\s*,\s*"
+        r"Weapon\s+Focus\s*\(\s*bite\s*\)",
+        re.I,
+    )),
+    ("spider-plague-traits-web-dependency", re.compile(
+        r"\bSA\s+poison\s*,\s*web\s*,\s*smite\s+(?:evil|good)\s*;\s*"
+        r"SQ\s+vermin\s+traits\b",
+        re.I,
+    )),
+    ("prying-eyes-construct-traits-dependency", re.compile(
+        r"\bEach\s+eye\s+is\s+a\s+Fine\s+construct\b.{0,260}?\b1\s+hit\s+point\b",
+        re.I | re.S,
     )),
 
 )
@@ -2017,6 +2032,13 @@ def run_self_test() -> None:
     assert "telekinesis-combat-maneuver-inheritance" not in external_mechanics_reasons("Make an opposed caster-level check against the target’s Strength check; success moves it 5 feet.")
     assert "polymorph-other-creature-stat-inheritance" in external_mechanics_reasons("The creature acquires the physical and natural abilities of the creature it has been polymorphed into.")
     assert "polymorph-other-creature-stat-inheritance" not in external_mechanics_reasons("The subject becomes Large with Strength 20, Dexterity 12, and natural armor +4.")
+    assert "summoned-viper-stat-dependency" in external_mechanics_reasons("This spell summons 1d4+3 fiendish (CE) Medium-size vipers.")
+    assert "phantom-wolf-feat-package-dependency" in external_mechanics_reasons("Skills and Feats: Listen +20, Spot +20; Alertness, Dodge, Combat Reflexes, Mobility, Weapon Focus (bite).")
+    assert "phantom-wolf-feat-package-dependency" not in external_mechanics_reasons("The wolf has +20 Listen, +20 Spot, and all attack/defense modifiers are fully stated.")
+    assert "spider-plague-traits-web-dependency" in external_mechanics_reasons("SA poison, web, smite evil; SQ vermin traits, darkvision 60 ft.")
+    assert "spider-plague-traits-web-dependency" not in external_mechanics_reasons("The spider's web is fully defined here and it has darkvision 60 ft.")
+    assert "prying-eyes-construct-traits-dependency" in external_mechanics_reasons("Each eye is a Fine construct, about the size of a small apple, that has 1 hit point, AC 18.")
+    assert "prying-eyes-construct-traits-dependency" not in external_mechanics_reasons("Each eye has 1 hit point, AC 18, fly speed 30 feet, and its immunities are all explicitly listed.")
     assert "missing-cerulean-sign-effect-table" in suspicious_reasons({"effectSource":"Once a creature recovers from an effect, it moves up one level on the table."})
     assert "missing-cerulean-sign-effect-table" not in suspicious_reasons({"effectSource":"Once a creature recovers, it becomes sickened for 1 round and then recovers fully."})
     assert "missing-reality-maelstrom-plane-sidebar" in suspicious_reasons({"effectSource":"The tear sends them to a random plane (see sidebar)."})
