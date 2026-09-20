@@ -75,12 +75,13 @@ jobs:
           --reference-output test-results/spell-reference-review-packets.json
           --delay 0.08
       - name: Select strict clean review batch
-        run: >
-          python scripts/select_spell_review_batch.py
-          --classification test-results/spell-review-classification.json
-          --review test-results/review/spell-effect-review.json
-          --count 100
-          --output test-results/spell-review-strict-batch.json
+        run: |
+          COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("count", 100)))')"
+          python scripts/select_spell_review_batch.py \
+            --classification test-results/spell-review-classification.json \
+            --review test-results/review/spell-effect-review.json \
+            --count "$COUNT" \
+            --output test-results/spell-review-strict-batch.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
