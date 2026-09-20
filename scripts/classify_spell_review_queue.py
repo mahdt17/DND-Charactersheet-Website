@@ -684,6 +684,85 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bchoose\s+to\s+create\s+\d+d\d+(?:\+\d+)?\s+(?:ordinary\s+)?otyughs?\b",
         re.I,
     )),
+    ("clairaudience-clairvoyance-cast-inheritance", re.compile(
+        r"\bfunctions?\s+as\s+if\s+you\s+had\s+cast\s+"
+        r"(?P<name>clairaudience/clairvoyance)\b",
+        re.I,
+    )),
+    ("protection-from-evil-taint-possession-inheritance", re.compile(
+        r"\bblocks?\s+possession\s+and\s+mental\s+influence\s*,?\s+just\s+as\s+"
+        r"(?P<name>protection from (?:evil|Taint))\s+does\b",
+        re.I,
+    )),
+    ("prismatic-spray-ray-suite-inheritance", re.compile(
+        r"\b(?:ray\s+effects\s+duplicating\s+the\s+beams\s+of|suffers?\s+the\s+effect\s+of\s+one\s+beam\s+of)\s+"
+        r"(?:a\s+)?(?P<name>prismatic spray)\s+spell\b",
+        re.I,
+    )),
+    ("elemental-monolith-stat-dependency", re.compile(
+        r"\b(?:elemental monolith|monolith)\s*\(\s*Complete Arcane\s+\d+\s*\)\b|"
+        r"\bconjure\s+a\s+tremendously\s+powerful\s+creature\s+known\s+as\s+an\s+elemental\s+monolith\b",
+        re.I,
+    )),
+    ("magic-mouth-message-inheritance", re.compile(
+        r"\bactivates?\s+a\s+message\s+as\s+if\s+[^.;]{0,40}\s+were\s+a\s+"
+        r"(?P<name>magic mouth)\b",
+        re.I,
+    )),
+    ("speak-spell-suite-inheritance", re.compile(
+        r"\bgrants?\s+you\s+the\s+effects?\s+of\s+"
+        r"(?P<name>speak with animals\s*,\s*speak with plants\s*,\s*and\s*tongues)\b|"
+        r"\bas\s+though\s+under\s+the\s+influence\s+of\s+(?P<name2>stone tell)\b",
+        re.I,
+    )),
+    ("shadow-evocation-spell-suite-inheritance", re.compile(
+        r"\bquasi-real\s*,?\s*illusory\s+version\s+of\s+a\s+sorcerer\s+or\s+wizard\s+"
+        r"(?P<name>evocation spell)\s+of\s+\d+(?:st|nd|rd|th)\s+level\s+or\s+lower\b",
+        re.I,
+    )),
+    ("hold-person-similarity-inheritance", re.compile(
+        r"\b(?:effect\s+is\s+)?similar\s+to\s+(?P<name>hold person)\b",
+        re.I,
+    )),
+    ("summon-monster-turn-inheritance-expanded", re.compile(
+        r"\bact\s+on\s+the\s+same\s+round\s*,?\s+on\s+your\s+turn\s*,?\s+"
+        r"just\s+as\s+creatures\s+summoned\s+by\s+(?:a\s+)?"
+        r"(?P<name>summon monster)\s+spell\s+do\b",
+        re.I,
+    )),
+    ("summoned-viper-stat-dependency", re.compile(
+        r"\bsummons?\s+\d+d\d+(?:\+\d+)?\s+(?:fiendish|celestial)[^.;]{0,80}\bMedium\s+vipers?\b",
+        re.I,
+    )),
+    ("greater-teleport-circle-inheritance", re.compile(
+        r"\bteleports?\s*,?\s+as\s+(?P<name>greater teleport)\b",
+        re.I,
+    )),
+    ("luminous-assassin-stat-dependency", re.compile(
+        r"\b(?:Lesser\s+)?Luminous\s+Assassin\s+appears?\b[^.]{0,220}\b"
+        r"(?:attacks?\s+its\s+target\s+every\s+round|attacks?\s+as\s+it\s+falls)\b",
+        re.I | re.S,
+    )),
+    ("turn-as-undead-rules-inheritance", re.compile(
+        r"\bturn\s+creatures?\s+with\s+the\s+opposing\s+alignment\s+subtype\s+"
+        r"as\s+though\s+they\s+were\s+(?P<name>undead)\b",
+        re.I,
+    )),
+    ("shroud-undead-rule-inheritance", re.compile(
+        r"\btreated\s+as\s+if\s+you\s+were\s+undead\s+for\s+the\s+purpose\s+of\s+"
+        r"all\s+spells\s+and\s+effects?\b",
+        re.I,
+    )),
+    ("possess-animal-stat-dependency", re.compile(
+        r"\bproject\s+your\s+spirit\s+into\s+the\s+body\s+of\s+an\s+animal\b[^.]{0,800}\b"
+        r"keep\s+your\s+Intelligence\s*,\s*Wisdom\s*,\s*Charisma\b",
+        re.I | re.S,
+    )),
+    ("quicken-feat-eligibility-inheritance", re.compile(
+        r"\bOnly\s+a\s+spell\s+that\s+can\s+be\s+altered\s+by\s+the\s+"
+        r"(?P<name>Quicken Spell)\s+feat\s+can\s+be\s+placed\s+in\s+the\s+matrix\b",
+        re.I,
+    )),
 
 )
 
@@ -774,6 +853,15 @@ SUSPICIOUS_PATTERNS = (
     )),
     ("garbled-otyugh-pounds-source", re.compile(
         r"\bat\s+least\s+6,000\s+ounds\s+of\s+(?:sewage|refuse|offal)\b",
+        re.I,
+    )),
+    ("garbled-hidden-ward-source", re.compile(
+        r"\bprevent\s+subicion\s+by\s+the\s+players\b|"
+        r"\bby\s+one-half\s+you\s+caster\s+level\b",
+        re.I,
+    )),
+    ("self-slowed-condition-shorthand", re.compile(
+        r"\byou\s+are\s+slowed\s+for\s+\d+d\d+\s+rounds\b",
         re.I,
     )),
 
@@ -1585,6 +1673,30 @@ def run_self_test() -> None:
     assert "otyugh-creation-stat-dependency" not in external_mechanics_reasons("The spell creates a cloud of foul-smelling gas.")
     assert "garbled-otyugh-pounds-source" in suspicious_reasons({"effectSource":"You must create the otyughs in an area containing at least 6,000 ounds of sewage."})
     assert "garbled-otyugh-pounds-source" not in suspicious_reasons({"effectSource":"You must create the otyughs in an area containing at least 6,000 pounds of sewage."})
+    assert "clairaudience-clairvoyance-cast-inheritance" in external_mechanics_reasons("This effect otherwise functions as if you had cast clairaudience/clairvoyance in the object’s area.")
+    assert "clairaudience-clairvoyance-cast-inheritance" not in external_mechanics_reasons("The coin lets you hear normally from its location while concentrating.")
+    assert "protection-from-evil-taint-possession-inheritance" in external_mechanics_reasons("The abjuration blocks possession and mental influence, just as protection from evil does.")
+    assert "protection-from-evil-taint-possession-inheritance" in external_mechanics_reasons("The abjuration blocks possession and mental influence, just as protection from Taint does.")
+    assert "prismatic-spray-ray-suite-inheritance" in external_mechanics_reasons("A target struck by a ray suffers the effect of one beam of a prismatic spray spell.")
+    assert "elemental-monolith-stat-dependency" in external_mechanics_reasons("You conjure a tremendously powerful creature known as an elemental monolith (Complete Arcane 156).")
+    assert "magic-mouth-message-inheritance" in external_mechanics_reasons("The first activates a message as if the skull were a magic mouth.")
+    assert "speak-spell-suite-inheritance" in external_mechanics_reasons("This spell grants you the effects of speak with animals, speak with plants, and tongues.")
+    assert "speak-spell-suite-inheritance" in external_mechanics_reasons("You speak with stone as though under the influence of stone tell.")
+    assert "shadow-evocation-spell-suite-inheritance" in external_mechanics_reasons("You cast a quasi-real, illusory version of a sorcerer or wizard evocation spell of 4th level or lower.")
+    assert "hold-person-similarity-inheritance" in external_mechanics_reasons("The effect is similar to hold person.")
+    assert "summon-monster-turn-inheritance-expanded" in external_mechanics_reasons("Spat vipers land nearby and act on the same round, on your turn, just as creatures summoned by a summon monster spell do.")
+    assert "summoned-viper-stat-dependency" in external_mechanics_reasons("This spell summons 1d4+3 fiendish (chaotic evil) Medium vipers.")
+    assert "greater-teleport-circle-inheritance" in external_mechanics_reasons("The circle teleports, as greater teleport, any creature who stands on it.")
+    assert "luminous-assassin-stat-dependency" in external_mechanics_reasons("A Lesser Luminous Assassin appears above the target and attacks as it falls. After its initial attack, a Lesser Luminous Assassin attacks its target every round.")
+    assert "turn-as-undead-rules-inheritance" in external_mechanics_reasons("You can turn creatures with the opposing alignment subtype as though they were undead.")
+    assert "shroud-undead-rule-inheritance" in external_mechanics_reasons("You are treated as if you were undead for the purpose of all spells and effects.")
+    assert "possess-animal-stat-dependency" in external_mechanics_reasons("You project your spirit into the body of an animal. While there, you keep your Intelligence, Wisdom, Charisma, level, and classes.")
+    assert "quicken-feat-eligibility-inheritance" in external_mechanics_reasons("Only a spell that can be altered by the Quicken Spell feat can be placed in the matrix.")
+    assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"The DM should make this roll in secret to prevent subicion by the players."})
+    assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"This increases the Search DC by one-half you caster level."})
+    assert "garbled-hidden-ward-source" not in suspicious_reasons({"effectSource":"This increases the Search DC by one-half your caster level."})
+    assert "self-slowed-condition-shorthand" in suspicious_reasons({"effectSource":"If hit by transmute rock to mud, you are slowed for 2d6 rounds."})
+    assert "self-slowed-condition-shorthand" not in suspicious_reasons({"effectSource":"Your speed is reduced to 10 feet for 2d6 rounds."})
     assert "listed-spell-suite-inheritance" in external_mechanics_reasons("You can choose a spell from those listed below once per round and use it as a spelllike ability.")
     assert "missing-following-modifier-block" in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. The caster must have the Track feat to use this spell."})
     assert "missing-following-modifier-block" not in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. Light rain: +2. Heavy fog: -4."})
