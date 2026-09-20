@@ -185,7 +185,11 @@ def candidate_reasons(
     if target_id not in regression_ids:
         reasons.append("reference-target-not-regression-locked")
 
-    if target.get("effectReferenceDependent"):
+    target_source = target.get("effectSource") or ""
+    target_summary = d35.clean(target.get("effectSummary") or "")
+    target_review_verified = bool(target.get("effectReviewVerified") and target_summary)
+
+    if target.get("effectReferenceDependent") and not target_review_verified:
         reasons.append("reference-target-reference-dependent")
     if target.get("sourceIncomplete"):
         reasons.append("reference-target-source-incomplete")
@@ -196,19 +200,32 @@ def candidate_reasons(
     if target.get("tables") or target.get("tablesSha256"):
         reasons.append("reference-target-table-driven")
 
-    target_source = target.get("effectSource") or ""
     target_sha = d35.spell_effect_digest(target_source)
     if not target_source.strip():
         reasons.append("reference-target-empty-source")
     if target.get("sourceSha256") != target_sha:
         reasons.append("reference-target-source-sha-mismatch")
 
-    if classifier.suspicious_reasons(target):
-        reasons.append("reference-target-current-suspicion-hit")
-    if classifier.external_mechanics_reasons(target_source):
-        reasons.append("reference-target-current-external-mechanics-hit")
-    if classifier.extract_reference_names(target_source):
-        reasons.append("reference-target-current-reference-hit")
+    if target_review_verified:
+        reviewed_target = {
+            **target,
+            "effectSource": target_summary,
+            "sourceIncomplete": False,
+            "tables": [],
+        }
+        if classifier.suspicious_reasons(reviewed_target):
+            reasons.append("reference-target-reviewed-summary-suspicion-hit")
+        if classifier.external_mechanics_reasons(target_summary):
+            reasons.append("reference-target-reviewed-summary-external-mechanics-hit")
+        if classifier.extract_reference_names(target_summary):
+            reasons.append("reference-target-reviewed-summary-reference-hit")
+    else:
+        if classifier.suspicious_reasons(target):
+            reasons.append("reference-target-current-suspicion-hit")
+        if classifier.external_mechanics_reasons(target_source):
+            reasons.append("reference-target-current-external-mechanics-hit")
+        if classifier.extract_reference_names(target_source):
+            reasons.append("reference-target-current-reference-hit")
 
     counts = packet.get("resolutionStatusCounts") or {}
     if counts != {"resolved": 1}:
@@ -290,7 +307,7 @@ def select_batch(
     return {
         "reviewOnly": True,
         "catalogMutation": False,
-        "selectionPolicy": "resolved-single-reference-compatible-sourcebook-regression-locked-shortest-first-v3",
+        "selectionPolicy": "resolved-single-reference-compatible-sourcebook-regression-locked-shortest-first-v4",
         "requestedCount": count,
         "eligibleCount": len(eligible),
         "selectedCount": len(selected),
@@ -373,6 +390,36 @@ def run_self_test() -> None:
     )
     assert "reference-target-not-regression-locked" in candidate_reasons(
         classified, packet, {classified["id"]}, set()
+    )
+
+    reviewed_nested = json.loads(json.dumps(packet))
+    reviewed_target = reviewed_nested["references"][0]["record"]
+    reviewed_target["effectSource"] = (
+        "This spell functions like protection from energy, except it grants resistance 10."
+    )
+    reviewed_target["sourceSha256"] = d35.spell_effect_digest(reviewed_target["effectSource"])
+    reviewed_target["effectReferenceDependent"] = True
+    reviewed_target["effectSummary"] = "The subject gains resistance 10 to one energy type."
+    reviewed_target["effectReviewVerified"] = True
+    reviewed_reasons = candidate_reasons(
+        classified, reviewed_nested, {classified["id"]}, {target["id"]}
+    )
+    assert "reference-target-reference-dependent" not in reviewed_reasons
+    assert "reference-target-current-reference-hit" not in reviewed_reasons
+    assert "reference-target-reviewed-summary-reference-hit" not in reviewed_reasons
+
+    unverified_nested = json.loads(json.dumps(reviewed_nested))
+    unverified_nested["references"][0]["record"]["effectReviewVerified"] = False
+    assert "reference-target-reference-dependent" in candidate_reasons(
+        classified, unverified_nested, {classified["id"]}, {target["id"]}
+    )
+
+    unresolved_review = json.loads(json.dumps(reviewed_nested))
+    unresolved_review["references"][0]["record"]["effectSummary"] = (
+        "This effect functions like protection from energy."
+    )
+    assert "reference-target-reviewed-summary-reference-hit" in candidate_reasons(
+        classified, unresolved_review, {classified["id"]}, {target["id"]}
     )
 
     cited = json.loads(json.dumps(packet))

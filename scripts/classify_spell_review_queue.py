@@ -1255,6 +1255,8 @@ def fetch_spell_packet(row: dict, delay: float) -> dict:
         "tablesSha256": table_sha(parser.tables) if parser.tables else None,
         "tables": parser.tables,
         "effectSource": effect_source,
+        "effectSummary": details.get("effectSummary"),
+        "effectReviewVerified": bool(details.get("effectReviewVerified")),
         "effectReferenceDependent": bool(details.get("effectReferenceDependent")),
         "sourceIncomplete": bool(details.get("sourceIncomplete")),
         "sourceIncompleteResolved": bool(details.get("sourceIncompleteResolved")),
