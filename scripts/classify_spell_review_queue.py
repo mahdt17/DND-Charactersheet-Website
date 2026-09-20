@@ -786,6 +786,16 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\d+\s+HD\s*\)",
         re.I,
     )),
+    ("daylight-properties-inheritance", re.compile(
+        r"\bradiates?\s+light\s+with\s+all\s+the\s+same\s+properties\s+of\s+a\s+"
+        r"(?P<name>daylight)\s+spell\b",
+        re.I,
+    )),
+    ("dagger-stat-inheritance", re.compile(
+        r"\bdealing\s+damage\s+as\s+a\s+(?P<name>dagger)\s*"
+        r"\(\s*including\s+the\s+threat\s+range\s+and\s+critical\s+multiplier\s*\)",
+        re.I,
+    )),
 
 )
 
@@ -885,6 +895,11 @@ SUSPICIOUS_PATTERNS = (
     )),
     ("self-slowed-condition-shorthand", re.compile(
         r"\byou\s+are\s+slowed\s+for\s+\d+d\d+\s+rounds\b",
+        re.I,
+    )),
+    ("missing-minus-blinded-skill-penalty", re.compile(
+        r"\bblinded\s+creature\s+suffers\s+a\s+4\s+penalty\s+on\s+most\s+"
+        r"Strength\s+and\s+Dexterity-based\s+skill\s+checks\b",
         re.I,
     )),
 
@@ -1725,6 +1740,12 @@ def run_self_test() -> None:
     assert "spectral-hand-incorporeal-defense-dependency" not in external_mechanics_reasons("The hand has AC 22 and can be damaged by any magic weapon with no miss chance.")
     assert "spirit-ally-creature-stat-dependency" in external_mechanics_reasons("You request the services of a spirit (of up to 8 HD) that shares your philosophical alignment.")
     assert "spirit-ally-creature-stat-dependency" not in external_mechanics_reasons("You create a harmless spirit image with AC 20 and 10 hit points.")
+    assert "daylight-properties-inheritance" in external_mechanics_reasons("The touched object radiates light with all the same properties of a daylight spell.")
+    assert "daylight-properties-inheritance" not in external_mechanics_reasons("The touched object sheds bright light in a 60-foot radius.")
+    assert "dagger-stat-inheritance" in external_mechanics_reasons("The blade attacks once per round, dealing damage as a dagger (including the threat range and critical multiplier).")
+    assert "dagger-stat-inheritance" not in external_mechanics_reasons("The blade deals 1d4 piercing damage and threatens a critical on 19-20/x2.")
+    assert "missing-minus-blinded-skill-penalty" in suspicious_reasons({"effectSource":"A blinded creature suffers a 4 penalty on most Strength and Dexterity-based skill checks."})
+    assert "missing-minus-blinded-skill-penalty" not in suspicious_reasons({"effectSource":"A blinded creature suffers a -4 penalty on most Strength and Dexterity-based skill checks."})
     assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"The DM should make this roll in secret to prevent subicion by the players."})
     assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"This increases the Search DC by one-half you caster level."})
     assert "garbled-hidden-ward-source" not in suspicious_reasons({"effectSource":"This increases the Search DC by one-half your caster level."})
