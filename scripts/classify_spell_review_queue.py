@@ -763,6 +763,24 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?P<name>Quicken Spell)\s+feat\s+can\s+be\s+placed\s+in\s+the\s+matrix\b",
         re.I,
     )),
+    ("hold-person-that-of-inheritance", re.compile(
+        r"\b(?:effect\s+is\s+)?similar\s+to\s+that\s+of\s+(?P<name>hold person)\b",
+        re.I,
+    )),
+    ("limited-wish-spell-suite-inheritance", re.compile(
+        r"\bDuplicate\s+any\s+(?:sorcerer\s*/\s*wizard\s+)?spell\s+of\s+"
+        r"\d+(?:st|nd|rd|th)\s+level\s+or\s+lower\b",
+        re.I,
+    )),
+    ("manifest-zone-trait-dependency", re.compile(
+        r"\benhance\s+the\s+effects\s+of\s+a\s+manifest\s+zone\s+of\s+a\s+specified\s+plane\b[^.]{0,420}\b"
+        r"(?:next\s+inmost|planar\s+trait|each\s+zone\s+is\s+different)\b",
+        re.I | re.S,
+    )),
+    ("spectral-hand-incorporeal-defense-dependency", re.compile(
+        r"\bhand\s+is\s+incorporeal\s+and\s+thus\s+cannot\s+be\s+harmed\s+by\s+normal\s+weapons\b",
+        re.I,
+    )),
 
 )
 
@@ -1692,6 +1710,14 @@ def run_self_test() -> None:
     assert "shroud-undead-rule-inheritance" in external_mechanics_reasons("You are treated as if you were undead for the purpose of all spells and effects.")
     assert "possess-animal-stat-dependency" in external_mechanics_reasons("You project your spirit into the body of an animal. While there, you keep your Intelligence, Wisdom, Charisma, level, and classes.")
     assert "quicken-feat-eligibility-inheritance" in external_mechanics_reasons("Only a spell that can be altered by the Quicken Spell feat can be placed in the matrix.")
+    assert "hold-person-that-of-inheritance" in external_mechanics_reasons("The effect is similar to that of hold person.")
+    assert "hold-person-that-of-inheritance" not in external_mechanics_reasons("The effect immobilizes the creature and explicitly lists every restriction.")
+    assert "limited-wish-spell-suite-inheritance" in external_mechanics_reasons("Duplicate any sorcerer / wizard spell of 6th level or lower.")
+    assert "limited-wish-spell-suite-inheritance" not in external_mechanics_reasons("The spell deals 6d6 damage and allows a Reflex save for half.")
+    assert "manifest-zone-trait-dependency" in external_mechanics_reasons("You enhance the effects of a manifest zone of a specified plane. Since each zone is different, the next inmost ring can gain a planar trait.")
+    assert "manifest-zone-trait-dependency" not in external_mechanics_reasons("The zone grants a +2 bonus on saves and a 20-foot speed increase.")
+    assert "spectral-hand-incorporeal-defense-dependency" in external_mechanics_reasons("The hand is incorporeal and thus cannot be harmed by normal weapons.")
+    assert "spectral-hand-incorporeal-defense-dependency" not in external_mechanics_reasons("The hand has AC 22 and can be damaged by any magic weapon with no miss chance.")
     assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"The DM should make this roll in secret to prevent subicion by the players."})
     assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"This increases the Search DC by one-half you caster level."})
     assert "garbled-hidden-ward-source" not in suspicious_reasons({"effectSource":"This increases the Search DC by one-half your caster level."})
