@@ -63,12 +63,13 @@ def candidate_reasons(
     record_id = classified.get("id")
     source = packet.get("effectSource") or ""
 
-    # Phrases like "except as noted above" delegate mechanics to header fields
-    # (target/range/area/duration/save) that are not present in this review packet.
-    # They cannot be flattened safely in this reference-only phase.
+    # Phrases like "except as noted/described above" delegate mechanics to header
+    # fields (target/range/area/duration/save) that are not present in this review
+    # packet. Terminal "noted/described here" likewise supplies no local exception.
+    # These cannot be flattened safely in this reference-only phase.
     if (
-        re.search(r"\bexcept\s+as\s+noted\s+above\b", source, re.I)
-        or re.search(r"\bexcept\s+as\s+noted\s+here\s*\.?\s*$", source, re.I)
+        re.search(r"\bexcept\s+as\s+(?:noted|described)\s+above\b", source, re.I)
+        or re.search(r"\bexcept\s+as\s+(?:noted|described)\s+here\s*\.?\s*$", source, re.I)
     ):
         reasons.append("header-dependent-exception")
 
@@ -347,6 +348,22 @@ def run_self_test() -> None:
     terminal_classified["sourceSha256"] = terminal_here["sourceSha256"]
     assert "header-dependent-exception" in candidate_reasons(
         terminal_classified, terminal_here, {classified["id"]}, {target["id"]}
+    )
+    described_above = json.loads(json.dumps(packet))
+    described_above["effectSource"] = "This spell functions like slide, except as described above, and moves the subject 20 feet."
+    described_above["sourceSha256"] = d35.spell_effect_digest(described_above["effectSource"])
+    described_above_classified = json.loads(json.dumps(classified))
+    described_above_classified["sourceSha256"] = described_above["sourceSha256"]
+    assert "header-dependent-exception" in candidate_reasons(
+        described_above_classified, described_above, {classified["id"]}, {target["id"]}
+    )
+    described_here = json.loads(json.dumps(packet))
+    described_here["effectSource"] = "This spell functions like resistance, except as described here."
+    described_here["sourceSha256"] = d35.spell_effect_digest(described_here["effectSource"])
+    described_here_classified = json.loads(json.dumps(classified))
+    described_here_classified["sourceSha256"] = described_here["sourceSha256"]
+    assert "header-dependent-exception" in candidate_reasons(
+        described_here_classified, described_here, {classified["id"]}, {target["id"]}
     )
     explicit_here = json.loads(json.dumps(packet))
     explicit_here["effectSource"] = "This spell functions like resistance, except as noted here. You grant a +3 resistance bonus on saves."
