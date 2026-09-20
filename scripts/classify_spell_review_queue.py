@@ -796,6 +796,11 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\(\s*including\s+the\s+threat\s+range\s+and\s+critical\s+multiplier\s*\)",
         re.I,
     )),
+    ("transcribed-symbol-mechanics-inheritance", re.compile(
+        r"\btransferred\s+symbol\s+works\s+normally\s+thereafter\s+and\s+retains\s+"
+        r"all\s+its\s+original\s+triggering\s+conditions\b",
+        re.I,
+    )),
 
 )
 
@@ -1744,6 +1749,8 @@ def run_self_test() -> None:
     assert "daylight-properties-inheritance" not in external_mechanics_reasons("The touched object sheds bright light in a 60-foot radius.")
     assert "dagger-stat-inheritance" in external_mechanics_reasons("The blade attacks once per round, dealing damage as a dagger (including the threat range and critical multiplier).")
     assert "dagger-stat-inheritance" not in external_mechanics_reasons("The blade deals 1d4 piercing damage and threatens a critical on 19-20/x2.")
+    assert "transcribed-symbol-mechanics-inheritance" in external_mechanics_reasons("The transferred symbol works normally thereafter and retains all its original triggering conditions.")
+    assert "transcribed-symbol-mechanics-inheritance" not in external_mechanics_reasons("The transferred mark deals 2d6 fire damage when a creature enters its square.")
     assert "missing-minus-blinded-skill-penalty" in suspicious_reasons({"effectSource":"A blinded creature suffers a 4 penalty on most Strength and Dexterity-based skill checks."})
     assert "missing-minus-blinded-skill-penalty" not in suspicious_reasons({"effectSource":"A blinded creature suffers a -4 penalty on most Strength and Dexterity-based skill checks."})
     assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"The DM should make this roll in secret to prevent subicion by the players."})
