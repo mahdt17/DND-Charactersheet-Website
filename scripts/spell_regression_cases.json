@@ -1772,6 +1772,8 @@
     "spells/planar-ally-greater-2418",
     "spells/soul-ward-592",
     "spells/cause-fear-2716",
-    "spells/beckon-person-3446"
+    "spells/beckon-person-3446",
+    "spells/beckon-monster-3445",
+    "spells/scare-2757"
   ]
 }
