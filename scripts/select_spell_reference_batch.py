@@ -30,6 +30,12 @@ LEGACY_REFERENCE_SOURCE_BOOKS = {
     "Savage Species",
 }
 
+# Cross-sourcebook inheritance remains fail-closed. Add pairs only after
+# independently confirming that both sources use compatible 3.5 mechanics.
+ALLOWED_CROSS_SOURCEBOOK_PAIRS = {
+    ("Spell Compendium", "Player's Handbook v.3.5"),
+}
+
 
 ALLOWED_EXTERNAL_REASONS = {
     "leading-inherited-spell",
@@ -115,7 +121,10 @@ def candidate_reasons(
     target_source_book = d35.clean(target.get("sourceBook") or "")
     if not source_book or not target_source_book:
         reasons.append("reference-sourcebook-missing")
-    elif source_book.casefold() != target_source_book.casefold():
+    elif (
+        source_book.casefold() != target_source_book.casefold()
+        and (source_book, target_source_book) not in ALLOWED_CROSS_SOURCEBOOK_PAIRS
+    ):
         reasons.append("reference-target-sourcebook-mismatch")
 
     target_id = target.get("id")
@@ -235,7 +244,7 @@ def select_batch(
     return {
         "reviewOnly": True,
         "catalogMutation": False,
-        "selectionPolicy": "resolved-single-reference-same-sourcebook-regression-locked-shortest-first-v2",
+        "selectionPolicy": "resolved-single-reference-compatible-sourcebook-regression-locked-shortest-first-v3",
         "requestedCount": count,
         "eligibleCount": len(eligible),
         "selectedCount": len(selected),
@@ -338,6 +347,12 @@ def run_self_test() -> None:
     cross_book_classified["sourceBook"] = "Complete Arcane"
     assert "reference-target-sourcebook-mismatch" in candidate_reasons(
         cross_book_classified, packet, {classified["id"]}, {target["id"]}
+    )
+
+    spell_compendium_classified = json.loads(json.dumps(classified))
+    spell_compendium_classified["sourceBook"] = "Spell Compendium"
+    assert "reference-target-sourcebook-mismatch" not in candidate_reasons(
+        spell_compendium_classified, packet, {classified["id"]}, {target["id"]}
     )
 
     missing_book_target = json.loads(json.dumps(target))
