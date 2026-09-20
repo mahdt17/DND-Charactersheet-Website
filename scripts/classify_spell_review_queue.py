@@ -471,7 +471,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
     )),
     ("listed-spell-suite-inheritance", re.compile(
         r"\bchoose\s+a\s+spell\s+from\s+those\s+listed\s+below[^.;]{0,100}\b"
-        r"use\s+it\s+as\s+a\s+spell-like\s+ability\b",
+        r"use\s+it\s+as\s+a\s+spell[- ]?like\s+ability\b",
         re.I,
     )),
     ("manual-of-the-planes-reference", re.compile(
@@ -583,6 +583,86 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bweapon\s+is\s+considered\s+blessed\s*,?\s*which\s+means\s+"
         r"it\s+has\s+special\s+effects\s+on\s+certain\s+creatures\b",
         re.I,
+    )),
+    ("targeted-dispel-screen-inheritance", re.compile(
+        r"\baffected\s+as\s+by\s+(?:a\s+)?(?P<name>targeted dispel magic)\b",
+        re.I,
+    )),
+    ("summon-monster-turn-inheritance", re.compile(
+        r"\bact\s+on\s+your\s+turn\s+just\s+as\s+creatures\s+summoned\s+by\s+"
+        r"(?:a\s+)?(?P<name>summon monster)\s+spell\b",
+        re.I,
+    )),
+    ("weapon-size-damage-inheritance", re.compile(
+        r"\bdeal\s+damage\s+as\s+if\s+you\s+were\s+one\s+size\s+larger\s+than\s+normal\b",
+        re.I,
+    )),
+    ("held-touch-spell-delivery-inheritance", re.compile(
+        r"\bdelivers?\s+the\s+touch\s+spell\b[^.;]{0,120}\bas\s+if\s+you\s+had\s+touched\s+it\s+directly\b",
+        re.I,
+    )),
+    ("evil-outsider-bane-inheritance", re.compile(
+        r"\bmagic\s+weapons\s+with\s+the\s+(?P<name>evil outsider bane)\s+special\s+ability\s+"
+        r"have\s+full\s+effect\b",
+        re.I,
+    )),
+    ("heavy-armor-movement-inheritance", re.compile(
+        r"\bslows?\s+(?:a|the)\s+creature[’']?s\s+movement\s+as\s+if\s+"
+        r"(?:it|the\s+creature)\s+were\s+wearing\s+(?P<name>heavy armor)\b",
+        re.I,
+    )),
+    ("monster-manual-found-statistics", re.compile(
+        r"\b(?:other\s+)?statistics\s+for\s+[^.;]{1,80}\s+are\s+found\s+in\s+the\s+"
+        r"(?P<name>Monster Manual)\b",
+        re.I,
+    )),
+    ("resurrection-restoration-inheritance", re.compile(
+        r"\brise\s+from\s+the\s+ashes\s+as\s+if\s+restored\s+to\s+life\s+by\s+a\s+"
+        r"(?P<name>resurrection)\s+spell\b",
+        re.I,
+    )),
+    ("protection-from-good-possession-inheritance", re.compile(
+        r"\bblocks?\s+possession\s+and\s+mental\s+influence\s*,?\s+just\s+as\s+"
+        r"(?P<name>protection from good)\s+does\b",
+        re.I,
+    )),
+    ("legacy-ritual-subsystem-inheritance", re.compile(
+        r"\btreated\s+as\s+if\s+(?:it|the\s+target)\s+had\s+not\s+performed\s+"
+        r"any\s+of\s+the\s+(?P<name>legacy rituals)\b",
+        re.I,
+    )),
+    ("heroes-feast-benefit-inheritance", re.compile(
+        r"\bbenefits?\s+identical\s+to\s+those\s+of\s+(?:a\s+)?"
+        r"(?P<name>heroes[’'] feast)\b",
+        re.I,
+    )),
+    ("faerie-fire-effect-inheritance", re.compile(
+        r"\bglow\s+with\s+(?:a\s+)?(?:red\s+)?(?P<name>faerie fire)\s+effect\b",
+        re.I,
+    )),
+    ("incorporeal-subtype-rulebook-inheritance", re.compile(
+        r"\bas\s+described\s+under\s+the\s+(?P<name>incorporeal subtype)\s+on\s+page\s+\d+\s+"
+        r"of\s+the\s+Monster\s+Manual\b",
+        re.I,
+    )),
+    ("corrosive-grasp-inheritance", re.compile(
+        r"\bas\s+if\s+(?:you\s+were\s+)?(?:touching\s+it\s+with|using)\s+(?:a\s+)?"
+        r"(?P<name>corrosive grasp)(?:\s+spell)?\b",
+        re.I,
+    )),
+    ("lightning-bolt-emulation-inheritance", re.compile(
+        r"\bexactly\s+as\s+the\s+(?P<name>lightning bolt)\s+spell\b",
+        re.I,
+    )),
+    ("domain-swap-content-inheritance", re.compile(
+        r"\bswap\s+one\s+of\s+your\s+current\s+domains\s+for\s+another\b[^.]{0,220}\b"
+        r"gain\s+the\s+granted\s+power\s+of\s+the\s+new\s+domain\b",
+        re.I | re.S,
+    )),
+    ("animal-form-trait-inheritance", re.compile(
+        r"\bgain\s+the\s+same\s+damage\s+reduction\s+you\s+have\s+in\s+animal\s+form\b[^.]{0,220}\b"
+        r"(?:scent\s+special\s+quality|feats\s+you\s+have\s+access\s+to\s+in\s+animal\s+form)\b",
+        re.I | re.S,
     )),
 
 )
@@ -1410,6 +1490,42 @@ def run_self_test() -> None:
     assert "rulebook-modifier-page-reference" not in external_mechanics_reasons("The following modifiers are +2 during rain and -2 during fog.")
     assert "blessed-weapon-special-effects-dependency" in external_mechanics_reasons("The weapon is considered blessed, which means it has special effects on certain creatures.")
     assert "blessed-weapon-special-effects-dependency" not in external_mechanics_reasons("The weapon is considered good-aligned for the purpose of overcoming damage reduction.")
+    assert "targeted-dispel-screen-inheritance" in external_mechanics_reasons("Any spell effect passing through is affected as by a targeted dispel magic at your caster level.")
+    assert "targeted-dispel-screen-inheritance" not in external_mechanics_reasons("The screen uses a caster level check against DC 11 + caster level, as fully described here.")
+    assert "summon-monster-turn-inheritance" in external_mechanics_reasons("The vipers act on your turn just as creatures summoned by a summon monster spell.")
+    assert "summon-monster-turn-inheritance" not in external_mechanics_reasons("The vipers act on your turn and each can move and attack normally.")
+    assert "weapon-size-damage-inheritance" in external_mechanics_reasons("While in this stance, you deal damage as if you were one size larger than normal.")
+    assert "weapon-size-damage-inheritance" not in external_mechanics_reasons("While in this stance, your attacks deal an extra 1d6 damage.")
+    assert "held-touch-spell-delivery-inheritance" in external_mechanics_reasons("This spell also delivers the touch spell to the target as if you had touched it directly.")
+    assert "held-touch-spell-delivery-inheritance" not in external_mechanics_reasons("This spell deals 1 point of damage on a successful melee touch attack.")
+    assert "evil-outsider-bane-inheritance" in external_mechanics_reasons("Magic weapons with the evil outsider bane special ability have full effect against the subject.")
+    assert "evil-outsider-bane-inheritance" not in external_mechanics_reasons("Evil outsiders take 2d6 extra damage from the subject.")
+    assert "heavy-armor-movement-inheritance" in external_mechanics_reasons("Tortoise shell slows a creature’s movement as if it were wearing heavy armor.")
+    assert "heavy-armor-movement-inheritance" not in external_mechanics_reasons("The creature’s speed becomes 20 feet and its run speed becomes 60 feet.")
+    assert "monster-manual-found-statistics" in external_mechanics_reasons("Other statistics for animated objects are found in the Monster Manual.")
+    assert "monster-manual-found-statistics" not in external_mechanics_reasons("The object has hardness 5, 30 hit points, and speed 20 feet.")
+    assert "resurrection-restoration-inheritance" in external_mechanics_reasons("After 10 minutes, you rise from the ashes as if restored to life by a resurrection spell.")
+    assert "resurrection-restoration-inheritance" not in external_mechanics_reasons("After 10 minutes, you rise with 1 hit point and one lost level.")
+    assert "protection-from-good-possession-inheritance" in external_mechanics_reasons("The abjuration blocks possession and mental influence, just as protection from good does.")
+    assert "protection-from-good-possession-inheritance" not in external_mechanics_reasons("The abjuration blocks possession and grants immunity to charm effects.")
+    assert "legacy-ritual-subsystem-inheritance" in external_mechanics_reasons("The target is treated as if it had not performed any of the legacy rituals for its item.")
+    assert "legacy-ritual-subsystem-inheritance" not in external_mechanics_reasons("The target loses Greater Legacy, Least Legacy, and Lesser Legacy until it repeats the stated ritual.")
+    assert "heroes-feast-benefit-inheritance" in external_mechanics_reasons("Anyone dining here gains benefits identical to those of a heroes’ feast.")
+    assert "heroes-feast-benefit-inheritance" not in external_mechanics_reasons("Anyone dining here gains 1d8 temporary hit points and a +1 morale bonus on attacks.")
+    assert "faerie-fire-effect-inheritance" in external_mechanics_reasons("Magic items that touch the wall glow with a red faerie fire effect for 1d4+1 rounds.")
+    assert "faerie-fire-effect-inheritance" not in external_mechanics_reasons("Magic items glow red for 1d4+1 rounds and shed dim light.")
+    assert "incorporeal-subtype-rulebook-inheritance" in external_mechanics_reasons("You can pass through solid objects as described under the incorporeal subtype on page 310 of the Monster Manual.")
+    assert "incorporeal-subtype-rulebook-inheritance" not in external_mechanics_reasons("You can pass through solid objects, but not force effects, and cannot attack while inside them.")
+    assert "corrosive-grasp-inheritance" in external_mechanics_reasons("The mount takes damage every round as if you were touching it with a corrosive grasp.")
+    assert "corrosive-grasp-inheritance" in external_mechanics_reasons("You may make melee touch attacks as if you were using a corrosive grasp spell.")
+    assert "corrosive-grasp-inheritance" not in external_mechanics_reasons("Your melee touch attacks deal 1d8 acid damage.")
+    assert "lightning-bolt-emulation-inheritance" in external_mechanics_reasons("You can direct two bolts that deal 5d6 electricity damage each, exactly as the lightning bolt spell.")
+    assert "lightning-bolt-emulation-inheritance" not in external_mechanics_reasons("You can direct two 120-foot lines that deal 5d6 electricity damage, Reflex half.")
+    assert "domain-swap-content-inheritance" in external_mechanics_reasons("You can swap one of your current domains for another that your deity offers. You gain the granted power of the new domain, as well as access to its spells.")
+    assert "domain-swap-content-inheritance" not in external_mechanics_reasons("You replace the Strength domain with Healing and gain a +2 bonus on Heal checks.")
+    assert "animal-form-trait-inheritance" in external_mechanics_reasons("You gain the same damage reduction you have in animal form, the scent special quality, and the feats you have access to in animal form.")
+    assert "animal-form-trait-inheritance" not in external_mechanics_reasons("You gain damage reduction 10/silver, scent out to 30 feet, and a +4 Strength bonus.")
+    assert "listed-spell-suite-inheritance" in external_mechanics_reasons("You can choose a spell from those listed below once per round and use it as a spelllike ability.")
     assert "missing-following-modifier-block" in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. The caster must have the Track feat to use this spell."})
     assert "missing-following-modifier-block" not in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. Light rain: +2. Heavy fog: -4."})
     assert "garbled-spell-matrix-lesser-source" in suspicious_reasons({"effectSource":"Only a spell that can be altered by the antimagic field , the duration of the matrix is interrupted, but the spell does not activate."})
