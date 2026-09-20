@@ -1,5 +1,5 @@
 {
-  "scope": "3.5/feats",
+  "scope": "3.5/spells",
   "shards": 8,
-  "nonce": "2026-09-19-long-feat-rule-source-gate-v2"
+  "nonce": "2026-09-20-verify-spells-temporary-check"
 }
