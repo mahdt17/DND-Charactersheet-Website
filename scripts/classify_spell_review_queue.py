@@ -1270,6 +1270,7 @@ def resolve_reference_tree(
     by_alias: dict[str, list[dict]],
     delay: float,
     cache: dict[str, dict],
+    source_book: str | None = None,
     active: tuple[str, ...] = (),
     depth: int = 0,
     max_depth: int = 8,
@@ -1284,6 +1285,25 @@ def resolve_reference_tree(
     if not candidates:
         result["status"] = "missing"
         return result
+    if len(candidates) != 1 and d35.clean(source_book or ""):
+        source_key = d35.clean(source_book or "").casefold()
+        source_matches = []
+        candidate_books = {}
+        for candidate in candidates:
+            candidate_id = candidate.get("id")
+            if candidate_id not in cache:
+                cache[candidate_id] = fetch_spell_packet(candidate, delay)
+            candidate_packet = cache[candidate_id]
+            candidate_book = d35.clean(candidate_packet.get("sourceBook") or "")
+            candidate_books[candidate_id] = candidate_book
+            if candidate_book.casefold() == source_key:
+                source_matches.append(candidate)
+        result["allCandidateIds"] = [row.get("id") for row in candidates]
+        result["candidateSourceBooks"] = candidate_books
+        if len(source_matches) == 1:
+            candidates = source_matches
+            result["candidateIds"] = [source_matches[0].get("id")]
+            result["resolutionBasis"] = "unique-sourcebook-match"
     if len(candidates) != 1:
         result["status"] = "ambiguous"
         result["candidates"] = [
@@ -1313,6 +1333,7 @@ def resolve_reference_tree(
                 by_alias,
                 delay,
                 cache,
+                source_book=packet.get("sourceBook"),
                 active=active + (record_id,),
                 depth=depth + 1,
                 max_depth=max_depth,
@@ -1574,6 +1595,7 @@ def classify_queue(
                         by_alias,
                         delay,
                         cache,
+                        source_book=entry.get("sourceBook"),
                         max_depth=max_reference_depth,
                     )
                     for name in reference_names
@@ -1693,6 +1715,45 @@ def classify_queue(
 
 
 def run_self_test() -> None:
+    same_name_rows = [
+        {"id": "spells/shared-a", "name": "Shared Spell", "url": "https://example.invalid/a"},
+        {"id": "spells/shared-b", "name": "Shared Spell", "url": "https://example.invalid/b"},
+    ]
+    same_name_cache = {
+        "spells/shared-a": {
+            "id": "spells/shared-a",
+            "name": "Shared Spell",
+            "sourceBook": "Book A",
+            "effectSource": "A self-contained effect.",
+        },
+        "spells/shared-b": {
+            "id": "spells/shared-b",
+            "name": "Shared Spell",
+            "sourceBook": "Book B",
+            "effectSource": "Another self-contained effect.",
+        },
+    }
+    source_matched = resolve_reference_tree(
+        "Shared Spell",
+        {"shared spell": same_name_rows},
+        0,
+        same_name_cache,
+        source_book="Book B",
+    )
+    assert source_matched["status"] == "resolved"
+    assert source_matched["record"]["id"] == "spells/shared-b"
+    assert source_matched["candidateIds"] == ["spells/shared-b"]
+    assert source_matched["allCandidateIds"] == ["spells/shared-a", "spells/shared-b"]
+    assert source_matched["resolutionBasis"] == "unique-sourcebook-match"
+    still_ambiguous = resolve_reference_tree(
+        "Shared Spell",
+        {"shared spell": same_name_rows},
+        0,
+        same_name_cache,
+        source_book="Book C",
+    )
+    assert still_ambiguous["status"] == "ambiguous"
+
     assert extract_reference_names(
         "This spell functions like arcane eye, except it lasts longer."
     ) == ["arcane eye"]
