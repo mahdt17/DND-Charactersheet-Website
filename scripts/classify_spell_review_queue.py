@@ -417,6 +417,12 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"(?:to\s+(?:your|the\s+caster[’']s)\s+location|to\s+serve\s+you))",
         re.I,
     )),
+    ("planar-exchange-creature-stat-dependency", re.compile(
+        r"\bcall\s+an\s+extraplanar\s+creature\s*\(\s*specifically\s*,\s*"
+        r"(?:an\s+)?avoral\s+guardinal\s*,\s*bone\s+devil\s*,\s*or\s+babau\s+demon\b"
+        r".{0,700}?\bfull\s+access\s+to\s+all\s+of\s+its\s+abilities\b",
+        re.I | re.S,
+    )),
     ("spell-of-that-name-inheritance", re.compile(
         r"\b(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,60}?)\s+effect[^.;]{0,100}\b"
         r"functions?\s+identically\s+to\s+the\s+spell\s+of\s+that\s+name\b",
@@ -1899,6 +1905,8 @@ def run_self_test() -> None:
     assert "mobility-feat-inheritance" in external_mechanics_reasons("When moving in combat, you act as if you had the Mobility feat.")
     assert "called-creature-stat-dependency" in external_mechanics_reasons("The caster calls a special servant of Valarian—either a pegasus or unicorn—to her location.")
     assert "called-creature-stat-dependency" not in external_mechanics_reasons("The caster calls down a peal of thunder.")
+    assert "planar-exchange-creature-stat-dependency" in external_mechanics_reasons("You call an extraplanar creature (specifically, an avoral guardinal, bone devil, or babau demon, at your option) to your location. The creature has full access to all of its abilities.")
+    assert "planar-exchange-creature-stat-dependency" not in external_mechanics_reasons("You create a fixed guardian with AC 22, 60 hit points, and a +12 bite attack.")
     assert "spell-of-that-name-inheritance" in external_mechanics_reasons("You can create a suggestion effect, which functions identically to the spell of that name.")
     assert "spell-of-that-name-inheritance" not in external_mechanics_reasons("The visual effect is identical in color to the original.")
     assert "caught-in-named-spell" in external_mechanics_reasons("Creatures trapped act as if caught in an entomb spell.")
