@@ -2,6 +2,6 @@
   "scope": "3.5/spells",
   "count": 0,
   "referenceCount": 0,
-  "duplicateFamilyCount": 0,
-  "nonce": "2026-09-20-measure-exact-duplicate-spell-families"
+  "duplicateFamilyCount": 10,
+  "nonce": "2026-09-20-select-all-exact-duplicate-spell-families"
 }
