@@ -1774,6 +1774,16 @@
     "spells/cause-fear-2716",
     "spells/beckon-person-3446",
     "spells/beckon-monster-3445",
-    "spells/scare-2757"
+    "spells/scare-2757",
+    "spells/mass-haste-5030",
+    "spells/orb-fire-lesser-469",
+    "spells/orb-cold-lesser-465",
+    "spells/owls-wisdom-mass-2849",
+    "spells/vigor-mass-lesser-4729",
+    "spells/orb-electricity-lesser-467",
+    "spells/stunning-breath-greater-1047",
+    "spells/vigor-4726",
+    "spells/vigor-greater-4728",
+    "spells/snakes-swiftness-legions-2001"
   ]
 }
