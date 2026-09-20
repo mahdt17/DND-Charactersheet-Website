@@ -111,6 +111,13 @@ def candidate_reasons(
         reasons.append("resolved-reference-missing-record")
         return sorted(set(reasons))
 
+    source_book = d35.clean(classified.get("sourceBook") or packet.get("sourceBook") or "")
+    target_source_book = d35.clean(target.get("sourceBook") or "")
+    if not source_book or not target_source_book:
+        reasons.append("reference-sourcebook-missing")
+    elif source_book.casefold() != target_source_book.casefold():
+        reasons.append("reference-target-sourcebook-mismatch")
+
     target_id = target.get("id")
     candidate_ids = reference.get("candidateIds") or []
     if len(candidate_ids) != 1 or candidate_ids[0] != target_id:
@@ -228,7 +235,7 @@ def select_batch(
     return {
         "reviewOnly": True,
         "catalogMutation": False,
-        "selectionPolicy": "resolved-single-reference-regression-locked-shortest-first-v1",
+        "selectionPolicy": "resolved-single-reference-same-sourcebook-regression-locked-shortest-first-v2",
         "requestedCount": count,
         "eligibleCount": len(eligible),
         "selectedCount": len(selected),
@@ -244,6 +251,7 @@ def run_self_test() -> None:
     target = {
         "id": "spells/resist-energy-test",
         "name": "Resist Energy Test",
+        "sourceBook": "Player's Handbook v.3.5",
         "sourceSha256": base_sha,
         "tablesSha256": None,
         "tables": [],
@@ -259,6 +267,7 @@ def run_self_test() -> None:
     classified = {
         "id": "spells/resist-energy-mass-test",
         "name": "Resist Energy Mass Test",
+        "sourceBook": "Player's Handbook v.3.5",
         "sourceSha256": source_sha,
         "primaryBucket": "reference-dependent",
         "tags": ["reference-dependent"],
@@ -323,6 +332,20 @@ def run_self_test() -> None:
     legacy_classified["sourceBook"] = "Ghostwalk"
     assert "legacy-source-edition-needs-manual-reference-review" in candidate_reasons(
         legacy_classified, packet, {classified["id"]}, {target["id"]}
+    )
+
+    cross_book_classified = json.loads(json.dumps(classified))
+    cross_book_classified["sourceBook"] = "Complete Arcane"
+    assert "reference-target-sourcebook-mismatch" in candidate_reasons(
+        cross_book_classified, packet, {classified["id"]}, {target["id"]}
+    )
+
+    missing_book_target = json.loads(json.dumps(target))
+    missing_book_target.pop("sourceBook")
+    missing_book_packet = json.loads(json.dumps(packet))
+    missing_book_packet["references"][0]["record"] = missing_book_target
+    assert "reference-sourcebook-missing" in candidate_reasons(
+        classified, missing_book_packet, {classified["id"]}, {target["id"]}
     )
 
     print(json.dumps({"selfTest": "passed"}, indent=2))
