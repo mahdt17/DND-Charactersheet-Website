@@ -1137,7 +1137,11 @@ def clean_reference_name(value: str) -> str:
     value = d35.clean(value or "")
     value = re.sub(r"\s*\(\s*(?:see\b|p(?:age)?\.?\b|ph\b)[^)]*\)\s*$", "", value, flags=re.I)
     value = re.sub(r"^\d+(?:st|nd|rd|th)-level\s+(?:spell\s+)?", "", value, flags=re.I)
-    value = re.sub(r"^(?:the\s+)?(?:spell\s+)?", "", value, flags=re.I)
+    # Strip grammatical "the"/"the spell" prefixes, but preserve a real
+    # spell name beginning with "Spell" (for example, Spell Resistance).
+    # Ambiguous bare "spell <name>" prose now fails closed instead of silently
+    # truncating a legitimate catalog name.
+    value = re.sub(r"^the\s+(?:spell\s+)?", "", value, flags=re.I)
     value = re.sub(r"^(?:a|an)\s+", "", value, flags=re.I)
     value = re.sub(r"\s+spell$", "", value, flags=re.I)
     return d35.clean(value.strip(" ,;:-"))
@@ -1718,6 +1722,11 @@ def run_self_test() -> None:
     ) == []
     assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
     assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
+    assert clean_reference_name("spell resistance (PH 282)") == "spell resistance"
+    assert clean_reference_name("the spell arcane eye") == "arcane eye"
+    assert extract_reference_names(
+        "This spell functions like spell resistance (PH 282), except as noted here."
+    ) == ["spell resistance"]
     assert "polymorph-subschool-reference" in external_mechanics_reasons("For details, see The Polymorph Subschool on page 60.")
     assert "referenced-creature-stat-block" in external_mechanics_reasons("The tentacle is equivalent to a giant constrictor snake (MM 280) except that it obeys you.")
     assert external_mechanics_reasons("These strands are identical with those created by the web spell, except they regrow.") == ["embedded-spell-mechanics"]
