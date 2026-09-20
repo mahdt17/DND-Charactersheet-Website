@@ -705,7 +705,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("magic-mouth-message-inheritance", re.compile(
-        r"\bactivates?\s+a\s+message\s+as\s+if\s+[^.;]{0,40}\s+were\s+a\s+"
+        r"\bactivates?\s+a\s+message\b[^.;]{0,100}\bas\s+if\s+[^.;]{0,40}\s+were\s+a\s+"
         r"(?P<name>magic mouth)\b",
         re.I,
     )),
@@ -749,7 +749,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("shroud-undead-rule-inheritance", re.compile(
-        r"\btreated\s+as\s+if\s+you\s+were\s+undead\s+for\s+the\s+purpose\s+of\s+"
+        r"\btreated\s+as\s+if\s+you\s+were\s+undead\s+for\s+the\s+purposes?\s+of\s+"
         r"all\s+spells\s+and\s+effects?\b",
         re.I,
     )),
@@ -759,7 +759,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I | re.S,
     )),
     ("quicken-feat-eligibility-inheritance", re.compile(
-        r"\bOnly\s+a\s+spell\s+that\s+can\s+be\s+altered\s+by\s+the\s+"
+        r"\bOnly\s+(?:a\s+)?spells?\s+that\s+can\s+be\s+altered\s+by\s+the\s+"
         r"(?P<name>Quicken Spell)\s+feat\s+can\s+be\s+placed\s+in\s+the\s+matrix\b",
         re.I,
     )),
@@ -797,9 +797,60 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("transcribed-symbol-mechanics-inheritance", re.compile(
-        r"\btransferred\s+symbol\s+works\s+normally\s+thereafter\s+and\s+retains\s+"
-        r"all\s+its\s+original\s+triggering\s+conditions\b",
+        r"\btransferred\s+(?:symbol|sigil)\s+works\s+normally\s+thereafter\s+and\s+retains\s+"
+        r"(?:all\s+)?(?:its\s+)?original\s+triggering\s+conditions\b",
         re.I,
+    )),
+    ("dancing-lights-illumination-inheritance", re.compile(
+        r"\bprovide\s+as\s+much\s+light\s+as\s+(?:a\s+)?(?P<name>dancing lights)\s+spell\b",
+        re.I,
+    )),
+    ("spell-storing-item-arbitrary-spell", re.compile(
+        r"\bimbue\s+any\s+spell\s+of\s+\d+(?:st|nd|rd|th)\s+level\s+or\s+lower\s+into\s+the\s+item\b",
+        re.I,
+    )),
+    ("illusory-script-suggestion-inheritance", re.compile(
+        r"\bsubject\s+to\s+a\s+(?P<name>suggestion)\s+implanted\s+in\s+the\s+script\b",
+        re.I,
+    )),
+    ("ghost-template-transformation-dependency", re.compile(
+        r"\btransform\s+a\s+willing\s+incorporeal\s+undead\s+creature\s+into\s+a\s+(?P<name>ghost)\b",
+        re.I,
+    )),
+    ("disintegrate-effect-inheritance", re.compile(
+        r"\b(?:be\s+)?subject\s+to\s+a\s+(?P<name>disintegrate)\s+effect\b",
+        re.I,
+    )),
+    ("pending-potion-effect-dependency", re.compile(
+        r"\bmagically\s+delay\s+the\s+effects?\s+of\s+a\s+potion\s+or\s+oil\b",
+        re.I,
+    )),
+    ("psionic-power-suite-dependency", re.compile(
+        r"\bgain\s+[^.]{0,120}\baccess\s+to\s+the\s+following\s+powers\b.{0,900}?\b"
+        r"manifest\s+the\s+powers\s+as\s+a\s+psion\b",
+        re.I | re.S,
+    )),
+    ("dispel-magic-effect-inheritance", re.compile(
+        r"\btargeted\s+by\s+a\s+(?P<name>dispel magic)\s+effect\s+as\s+if\s+you\s+had\s+cast\s+that\s+spell\b",
+        re.I,
+    )),
+    ("passwall-ejection-inheritance", re.compile(
+        r"\bharmlessly\s+ejected\s+just\s+as\s+if\s+[^.;]{0,40}\s+inside\s+a\s+(?P<name>passwall)\s+effect\b",
+        re.I,
+    )),
+    ("teleport-base-spell-inheritance", re.compile(
+        r"\bAs\s+(?P<name>teleport)\s*,\s*save\s+that\b",
+        re.I,
+    )),
+    ("stored-spell-disk-inheritance", re.compile(
+        r"\bsingle\s+spell\s+of\s+up\s+to\s+\d+(?:st|nd|rd|th)\s+level\s+can\s+be\s+cast\s+into\s+it\b"
+        r".{0,700}?\bspell\s+immediately\s+takes\s+effect\s+as\s+if\s+it\s+had\s+just\s+been\s+cast\b",
+        re.I | re.S,
+    )),
+    ("shadow-hand-spell-suite-inheritance", re.compile(
+        r"\bgive\s+cover\s+as\s+(?:a\s+)?(?P<name>Bigby[’']s interposing hand)\s+spell\b"
+        r".{0,180}?\bcarry\s+materials\s+as\s+(?P<name2>Tenser[’']s floating disk)\b",
+        re.I | re.S,
     )),
 
 )
@@ -905,6 +956,10 @@ SUSPICIOUS_PATTERNS = (
     ("missing-minus-blinded-skill-penalty", re.compile(
         r"\bsuffers\s+a\s+4\s+penalty\s+on\s+most\s+"
         r"Strength\s+and\s+Dexterity-based\s+skill\s+checks\b",
+        re.I,
+    )),
+    ("missing-reality-maelstrom-plane-sidebar", re.compile(
+        r"\bsending\s+them\s+to\s+a\s+random\s+plane\s*\(\s*see\s+sidebar\s*\)",
         re.I,
     )),
 
@@ -1723,6 +1778,7 @@ def run_self_test() -> None:
     assert "prismatic-spray-ray-suite-inheritance" in external_mechanics_reasons("A target struck by a ray suffers the effect of one beam of a prismatic spray spell.")
     assert "elemental-monolith-stat-dependency" in external_mechanics_reasons("You conjure a tremendously powerful creature known as an elemental monolith (Complete Arcane 156).")
     assert "magic-mouth-message-inheritance" in external_mechanics_reasons("The first activates a message as if the skull were a magic mouth.")
+    assert "magic-mouth-message-inheritance" in external_mechanics_reasons("The first activates a message that the skull delivers as if it were a magic mouth.")
     assert "speak-spell-suite-inheritance" in external_mechanics_reasons("This spell grants you the effects of speak with animals, speak with plants, and tongues.")
     assert "speak-spell-suite-inheritance" in external_mechanics_reasons("You speak with stone as though under the influence of stone tell.")
     assert "shadow-evocation-spell-suite-inheritance" in external_mechanics_reasons("You cast a quasi-real, illusory version of a sorcerer or wizard evocation spell of 4th level or lower.")
@@ -1733,8 +1789,10 @@ def run_self_test() -> None:
     assert "luminous-assassin-stat-dependency" in external_mechanics_reasons("A Lesser Luminous Assassin appears above the target and attacks as it falls. After its initial attack, a Lesser Luminous Assassin attacks its target every round.")
     assert "turn-as-undead-rules-inheritance" in external_mechanics_reasons("You can turn creatures with the opposing alignment subtype as though they were undead.")
     assert "shroud-undead-rule-inheritance" in external_mechanics_reasons("You are treated as if you were undead for the purpose of all spells and effects.")
+    assert "shroud-undead-rule-inheritance" in external_mechanics_reasons("You are treated as if you were undead for the purposes of all spells and effects.")
     assert "possess-animal-stat-dependency" in external_mechanics_reasons("You project your spirit into the body of an animal. While there, you keep your Intelligence, Wisdom, Charisma, level, and classes.")
     assert "quicken-feat-eligibility-inheritance" in external_mechanics_reasons("Only a spell that can be altered by the Quicken Spell feat can be placed in the matrix.")
+    assert "quicken-feat-eligibility-inheritance" in external_mechanics_reasons("Only spells that can be altered by the Quicken Spell feat can be placed in the matrix.")
     assert "hold-person-that-of-inheritance" in external_mechanics_reasons("The effect is similar to that of hold person.")
     assert "hold-person-that-of-inheritance" not in external_mechanics_reasons("The effect immobilizes the creature and explicitly lists every restriction.")
     assert "limited-wish-spell-suite-inheritance" in external_mechanics_reasons("Duplicate any sorcerer / wizard spell of 6th level or lower.")
@@ -1751,6 +1809,34 @@ def run_self_test() -> None:
     assert "dagger-stat-inheritance" not in external_mechanics_reasons("The blade deals 1d4 piercing damage and threatens a critical on 19-20/x2.")
     assert "transcribed-symbol-mechanics-inheritance" in external_mechanics_reasons("The transferred symbol works normally thereafter and retains all its original triggering conditions.")
     assert "transcribed-symbol-mechanics-inheritance" not in external_mechanics_reasons("The transferred mark deals 2d6 fire damage when a creature enters its square.")
+    assert "transcribed-symbol-mechanics-inheritance" in external_mechanics_reasons("The transferred sigil works normally thereafter and retains its original triggering conditions.")
+    assert "transcribed-symbol-mechanics-inheritance" in external_mechanics_reasons("The transferred sigil works normally thereafter and retains all its original triggering conditions.")
+    assert "dancing-lights-illumination-inheritance" in external_mechanics_reasons("These spheres provide as much light as a dancing lights spell.")
+    assert "dancing-lights-illumination-inheritance" not in external_mechanics_reasons("These spheres shed bright light in a 20-foot radius.")
+    assert "spell-storing-item-arbitrary-spell" in external_mechanics_reasons("You can imbue any spell of 4th level or lower into the item.")
+    assert "spell-storing-item-arbitrary-spell" not in external_mechanics_reasons("The item releases a fixed 4d6 fire burst.")
+    assert "illusory-script-suggestion-inheritance" in external_mechanics_reasons("Failure means the creature is subject to a suggestion implanted in the script.")
+    assert "illusory-script-suggestion-inheritance" not in external_mechanics_reasons("Failure means the creature must close the book and leave for 30 minutes.")
+    assert "ghost-template-transformation-dependency" in external_mechanics_reasons("You transform a willing incorporeal undead creature into a ghost.")
+    assert "ghost-template-transformation-dependency" not in external_mechanics_reasons("The target becomes translucent and gains a 30-foot fly speed.")
+    assert "disintegrate-effect-inheritance" in external_mechanics_reasons("The target must succeed at a Fortitude save or be subject to a disintegrate effect.")
+    assert "disintegrate-effect-inheritance" not in external_mechanics_reasons("The target takes 20d6 damage on a failed Fortitude save.")
+    assert "pending-potion-effect-dependency" in external_mechanics_reasons("You magically delay the effects of a potion or oil.")
+    assert "pending-potion-effect-dependency" not in external_mechanics_reasons("You delay 2d8 points of healing until a later swift action.")
+    assert "psionic-power-suite-dependency" in external_mechanics_reasons("You gain 3 power points per caster level and access to the following powers. Mind Thrust: Deal 1d10 damage. You manifest the powers as a psion of your caster level does.")
+    assert "psionic-power-suite-dependency" not in external_mechanics_reasons("You gain a +4 bonus to Intelligence and can deal 1d10 damage with a ranged touch attack.")
+    assert "dispel-magic-effect-inheritance" in external_mechanics_reasons("Magical fires are targeted by a dispel magic effect as if you had cast that spell.")
+    assert "dispel-magic-effect-inheritance" not in external_mechanics_reasons("Magical fires are extinguished on a successful caster level check against DC 11 + the fire caster level.")
+    assert "passwall-ejection-inheritance" in external_mechanics_reasons("He is harmlessly ejected just as if he were inside a passwall effect.")
+    assert "passwall-ejection-inheritance" not in external_mechanics_reasons("He is harmlessly ejected to the nearest open square.")
+    assert "teleport-base-spell-inheritance" in external_mechanics_reasons("As teleport, save that you draw upon the power of a storm.")
+    assert "teleport-base-spell-inheritance" not in external_mechanics_reasons("You teleport all targets to the named location with no chance of error.")
+    assert "stored-spell-disk-inheritance" in external_mechanics_reasons("A single spell of up to 5th level can be cast into it. The disk stores the spell until shattered. At that point, the spell immediately takes effect as if it had just been cast.")
+    assert "stored-spell-disk-inheritance" not in external_mechanics_reasons("The disk releases a fixed 6d6 fire burst when shattered.")
+    assert "shadow-hand-spell-suite-inheritance" in external_mechanics_reasons("It can give cover as a Bigby’s interposing hand spell, carry materials as Tenser’s floating disk, or strike opponents.")
+    assert "shadow-hand-spell-suite-inheritance" not in external_mechanics_reasons("The hand grants one-half cover, carries 100 pounds, and deals 1d6+4 damage.")
+    assert "missing-reality-maelstrom-plane-sidebar" in suspicious_reasons({"effectSource":"The tear sends them to a random plane (see sidebar)."})
+    assert "missing-reality-maelstrom-plane-sidebar" not in suspicious_reasons({"effectSource":"The tear sends them to the Astral Plane."})
     assert "missing-minus-blinded-skill-penalty" in suspicious_reasons({"effectSource":"A blinded creature suffers a 4 penalty on most Strength and Dexterity-based skill checks."})
     assert "missing-minus-blinded-skill-penalty" not in suspicious_reasons({"effectSource":"A blinded creature suffers a -4 penalty on most Strength and Dexterity-based skill checks."})
     assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"The DM should make this roll in secret to prevent subicion by the players."})
