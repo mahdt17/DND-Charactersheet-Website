@@ -201,6 +201,13 @@ def run_self_test() -> None:
     assert selected["selectedCount"] == 1
     assert selected["entries"][0]["id"] == "spell/test"
 
+    # A zero-count run is verification-only: it selects nothing but still
+    # reports the exact number of strict-clean candidates that remain.
+    verified_empty_selection = select_batch(report, review, 0)
+    assert verified_empty_selection["selectedCount"] == 0
+    assert verified_empty_selection["eligibleCount"] == 1
+    assert verified_empty_selection["entries"] == []
+
     bad_report = dict(report)
     bad_report["knownCorpusValidation"] = {"errors": ["bad"], "warnings": []}
     try:
@@ -225,8 +232,8 @@ def main() -> None:
         return
     if not args.classification or not args.review or not args.output:
         ap.error("--classification, --review and --output are required unless --self-test is used")
-    if args.count < 1:
-        ap.error("--count must be positive")
+    if args.count < 0:
+        ap.error("--count must be non-negative")
 
     payload = select_batch(
         load_json(args.classification),
