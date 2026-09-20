@@ -655,7 +655,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("domain-swap-content-inheritance", re.compile(
-        r"\bswap\s+one\s+of\s+your\s+current\s+domains\s+for\s+another\b[^.]{0,220}\b"
+        r"\bswap\s+one\s+of\s+your\s+current\s+domains\s+for\s+another\b.{0,260}?\b"
         r"gain\s+the\s+granted\s+power\s+of\s+the\s+new\s+domain\b",
         re.I | re.S,
     )),
