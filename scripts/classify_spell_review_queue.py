@@ -669,6 +669,21 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bDUNGEON\s+MASTER\s*[’'‘]S\s+Guide\s*,\s*page\s+\d+\b",
         re.I,
     )),
+    ("good-aligned-special-effects-dependency", re.compile(
+        r"\b(?:weapon|item)\s+(?:affected\s+by\s+this\s+spell\s+)?is\s+considered\s+good-aligned\s*,?\s*"
+        r"so\s+it\s+has\s+special\s+effects\s+on\s+certain\s+creatures\b",
+        re.I,
+    )),
+    ("whip-weapon-rules-inheritance", re.compile(
+        r"\b(?:wield\s+this\s+weapon\s+as\s+if\s+it\s+were\s+an\s+actual\s+whip|"
+        r"follows\s+all\s+the\s+rules\s+for\s+a\s+whip\s+except)\b",
+        re.I,
+    )),
+    ("otyugh-creation-stat-dependency", re.compile(
+        r"\b(?:otyughs?\s+swarm\s+)?creates?\s+otyughs?\b|"
+        r"\bchoose\s+to\s+create\s+\d+d\d+(?:\+\d+)?\s+(?:ordinary\s+)?otyughs?\b",
+        re.I,
+    )),
 
 )
 
@@ -755,6 +770,10 @@ SUSPICIOUS_PATTERNS = (
     ("missing-malebranche-size-damage-table", re.compile(
         r"\bdeals\s+extra\s+damage\s+whenever\s+it\s+successfully\s+hits\s+with\s+a\s+charge\s+attack\s*,?\s*"
         r"depending\s+on\s+its\s+size\.\s*In\s+addition\b",
+        re.I,
+    )),
+    ("garbled-otyugh-pounds-source", re.compile(
+        r"\bat\s+least\s+6,000\s+ounds\s+of\s+(?:sewage|refuse|offal)\b",
         re.I,
     )),
 
@@ -1557,6 +1576,15 @@ def run_self_test() -> None:
     assert "missing-minus-jade-strike-penalty" not in suspicious_reasons({"effectSource":"The blinded creature suffers a -4 penalty on most Strength and Dexterity-based skills."})
     assert "missing-malebranche-size-damage-table" in suspicious_reasons({"effectSource":"The subject deals extra damage whenever it successfully hits with a charge attack, depending on its size. In addition, the subject gains resistance to fire 10."})
     assert "missing-malebranche-size-damage-table" not in suspicious_reasons({"effectSource":"The subject deals +2d6 extra damage on a successful charge attack. In addition, it gains resistance to fire 10."})
+    assert "good-aligned-special-effects-dependency" in external_mechanics_reasons("A weapon affected by this spell is considered good-aligned, so it has special effects on certain creatures.")
+    assert "good-aligned-special-effects-dependency" not in external_mechanics_reasons("A weapon affected by this spell is considered good-aligned for overcoming damage reduction.")
+    assert "whip-weapon-rules-inheritance" in external_mechanics_reasons("You wield this weapon as if it were an actual whip and you were proficient with it.")
+    assert "whip-weapon-rules-inheritance" in external_mechanics_reasons("It follows all the rules for a whip except that it deals 1d8 lethal damage.")
+    assert "whip-weapon-rules-inheritance" not in external_mechanics_reasons("The lash is a ranged touch attack with a 15-foot reach and deals 1d8 electricity damage.")
+    assert "otyugh-creation-stat-dependency" in external_mechanics_reasons("Otyughs swarm creates otyughs from a large collection of refuse and filth.")
+    assert "otyugh-creation-stat-dependency" not in external_mechanics_reasons("The spell creates a cloud of foul-smelling gas.")
+    assert "garbled-otyugh-pounds-source" in suspicious_reasons({"effectSource":"You must create the otyughs in an area containing at least 6,000 ounds of sewage."})
+    assert "garbled-otyugh-pounds-source" not in suspicious_reasons({"effectSource":"You must create the otyughs in an area containing at least 6,000 pounds of sewage."})
     assert "listed-spell-suite-inheritance" in external_mechanics_reasons("You can choose a spell from those listed below once per round and use it as a spelllike ability.")
     assert "missing-following-modifier-block" in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. The caster must have the Track feat to use this spell."})
     assert "missing-following-modifier-block" not in suspicious_reasons({"effectSource":"The following modifiers are used in place of those given on page 101 of the Player’s Handbook. Light rain: +2. Heavy fog: -4."})
