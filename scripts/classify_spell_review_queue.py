@@ -871,9 +871,9 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"determining\s+movement\s*,\s*special\s+qualities\s*,\s*and\s+weaknesses\b",
         re.I,
     )),
-    ("iron-golem-special-attack-inheritance", re.compile(
+    ("golem-special-attack-inheritance", re.compile(
         r"\b(?:you|the\s+subject)\s+(?:also\s+)?become(?:s)?\s+vulnerable\s+to\s+all\s+"
-        r"special\s+attacks\s+that\s+affect\s+iron\s+golems\b",
+        r"special\s+attacks\s+that\s+affect\s+(?:iron|stone)\s+golems\b",
         re.I,
     )),
 
@@ -1868,8 +1868,9 @@ def run_self_test() -> None:
     assert "any-sword-skill-inheritance" not in external_mechanics_reasons("The beam is a melee touch weapon that deals 1d8 damage and has no critical threat range.")
     assert "spirit-self-incorporeal-rule-inheritance" in external_mechanics_reasons("Your spirit is treated as an incorporeal creature for the purposes of determining movement, special qualities, and weaknesses.")
     assert "spirit-self-incorporeal-rule-inheritance" not in external_mechanics_reasons("Your spirit has speed 90 feet, can pass through solid objects, and has a 50% miss chance against nonmagical attacks.")
-    assert "iron-golem-special-attack-inheritance" in external_mechanics_reasons("You also become vulnerable to all special attacks that affect iron golems.")
-    assert "iron-golem-special-attack-inheritance" not in external_mechanics_reasons("You take 1d6 damage per caster level from rusting effects and are slowed by electricity.")
+    assert "golem-special-attack-inheritance" in external_mechanics_reasons("You also become vulnerable to all special attacks that affect iron golems.")
+    assert "golem-special-attack-inheritance" in external_mechanics_reasons("You also become vulnerable to all special attacks that affect stone golems.")
+    assert "golem-special-attack-inheritance" not in external_mechanics_reasons("You take 1d6 damage per caster level from rusting effects and are slowed by electricity.")
     assert "missing-reality-maelstrom-plane-sidebar" in suspicious_reasons({"effectSource":"The tear sends them to a random plane (see sidebar)."})
     assert "missing-reality-maelstrom-plane-sidebar" not in suspicious_reasons({"effectSource":"The tear sends them to the Astral Plane."})
     assert "missing-minus-blinded-skill-penalty" in suspicious_reasons({"effectSource":"A blinded creature suffers a 4 penalty on most Strength and Dexterity-based skill checks."})
