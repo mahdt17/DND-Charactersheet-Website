@@ -50,6 +50,12 @@ def candidate_reasons(
     record_id = classified.get("id")
     source = packet.get("effectSource") or ""
 
+    # Phrases like "except as noted above" delegate mechanics to header fields
+    # (target/range/area/duration/save) that are not present in this review packet.
+    # They cannot be flattened safely in this reference-only phase.
+    if classifier.re.search(r"\\bexcept\\s+as\\s+noted\\s+above\\b", source, classifier.re.I):
+        reasons.append("header-dependent-exception")
+
     if packet.get("id") != record_id:
         reasons.append("classification-packet-id-mismatch")
     if classified.get("primaryBucket") != "reference-dependent":
@@ -295,6 +301,15 @@ def run_self_test() -> None:
     assert "reference-target-not-regression-locked" in candidate_reasons(
         classified, packet, {classified["id"]}, set()
     )
+    header_dependent = json.loads(json.dumps(packet))
+    header_dependent["effectSource"] = "As keen edge, except as noted above."
+    header_dependent["sourceSha256"] = d35.spell_effect_digest(header_dependent["effectSource"])
+    header_classified = json.loads(json.dumps(classified))
+    header_classified["sourceSha256"] = header_dependent["sourceSha256"]
+    assert "header-dependent-exception" in candidate_reasons(
+        header_classified, header_dependent, {classified["id"]}, {target["id"]}
+    )
+
     print(json.dumps({"selfTest": "passed"}, indent=2))
 
 
