@@ -93,6 +93,11 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\breveals?\s+as\s+much\s+information\s+as\s+(?:a|an|the)\s+"
+        r"(?P<name>detect magic)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
         r"\bas\s+if\s+(?:it\s+were\s+)?affected\s+by\s+(?:a|an|the)\s+"
         r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
         re.I,
@@ -1714,6 +1719,9 @@ def run_self_test() -> None:
     assert "cloudkill" in extract_reference_names(
         "As with a cloudkill spell, the smoke moves away from you."
     )
+    assert extract_reference_names(
+        "If unnatural forces affect the weather, weather eye reveals as much information as a detect magic spell."
+    ) == ["detect magic"]
     assert extract_reference_names(
         "If the subject is delaying, it acts as soon as the spell is cast."
     ) == []
