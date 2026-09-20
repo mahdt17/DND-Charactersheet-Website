@@ -66,7 +66,10 @@ def candidate_reasons(
     # Phrases like "except as noted above" delegate mechanics to header fields
     # (target/range/area/duration/save) that are not present in this review packet.
     # They cannot be flattened safely in this reference-only phase.
-    if re.search(r"\bexcept\s+as\s+noted\s+above\b", source, re.I):
+    if (
+        re.search(r"\bexcept\s+as\s+noted\s+above\b", source, re.I)
+        or re.search(r"\bexcept\s+as\s+noted\s+here\s*\.?\s*$", source, re.I)
+    ):
         reasons.append("header-dependent-exception")
 
     if packet.get("id") != record_id:
@@ -335,6 +338,23 @@ def run_self_test() -> None:
     header_classified["sourceSha256"] = header_dependent["sourceSha256"]
     assert "header-dependent-exception" in candidate_reasons(
         header_classified, header_dependent, {classified["id"]}, {target["id"]}
+    )
+
+    terminal_here = json.loads(json.dumps(packet))
+    terminal_here["effectSource"] = "This spell functions like spell resistance, except as noted here."
+    terminal_here["sourceSha256"] = d35.spell_effect_digest(terminal_here["effectSource"])
+    terminal_classified = json.loads(json.dumps(classified))
+    terminal_classified["sourceSha256"] = terminal_here["sourceSha256"]
+    assert "header-dependent-exception" in candidate_reasons(
+        terminal_classified, terminal_here, {classified["id"]}, {target["id"]}
+    )
+    explicit_here = json.loads(json.dumps(packet))
+    explicit_here["effectSource"] = "This spell functions like resistance, except as noted here. You grant a +3 resistance bonus on saves."
+    explicit_here["sourceSha256"] = d35.spell_effect_digest(explicit_here["effectSource"])
+    explicit_classified = json.loads(json.dumps(classified))
+    explicit_classified["sourceSha256"] = explicit_here["sourceSha256"]
+    assert "header-dependent-exception" not in candidate_reasons(
+        explicit_classified, explicit_here, {classified["id"]}, {target["id"]}
     )
 
     legacy_classified = json.loads(json.dumps(classified))
