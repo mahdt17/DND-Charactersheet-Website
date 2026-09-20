@@ -74,6 +74,11 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\b(?:functions?|works?|operates?)\s+identically\s+to\s+"
+        r"(?!the\s+original\b|that\b|those\b)(?P<name>[^.;:!?]{2,100}?)(?=,\s*(?:except|but)\b|[.;:!?]|$)",
+        re.I,
+    ),
+    re.compile(
         r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+as\s+"
         r"(?:a|an|the)\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
         re.I,
@@ -116,6 +121,11 @@ EXTERNAL_MECHANICS_PATTERNS = (
     )),
     ("generic-identical-with", re.compile(
         r"\bidentical\s+(?:with|to)\s+(?!the\s+original\b|that\b|those\b)(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?=[,.;(]|$)",
+        re.I,
+    )),
+    ("works-identically-to-spell", re.compile(
+        r"\b(?:functions?|works?|operates?)\s+identically\s+to\s+"
+        r"(?!the\s+original\b|that\b|those\b)(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?=[,.;(]|$)",
         re.I,
     )),
     ("granted-spell-effect", re.compile(
@@ -1737,6 +1747,16 @@ def run_self_test() -> None:
     ) == ["spell resistance"]
     assert "polymorph-subschool-reference" in external_mechanics_reasons("For details, see The Polymorph Subschool on page 60.")
     assert "referenced-creature-stat-block" in external_mechanics_reasons("The tentacle is equivalent to a giant constrictor snake (MM 280) except that it obeys you.")
+    assert extract_reference_names(
+        "This spell works identically to arcane lock, except attuned creatures can pass."
+    ) == ["arcane lock"]
+    assert "works-identically-to-spell" in external_mechanics_reasons(
+        "This spell works identically to arcane lock, except attuned creatures can pass."
+    )
+    assert extract_reference_names("The replica works identically to the original.") == []
+    assert "works-identically-to-spell" not in external_mechanics_reasons(
+        "The replica works identically to the original."
+    )
     assert external_mechanics_reasons("These strands are identical with those created by the web spell, except they regrow.") == ["embedded-spell-mechanics"]
     assert "leading-inherited-spell" in external_mechanics_reasons("As the alarm spell, and in addition this affects coterminous planes.")
     assert "generic-identical-with" in external_mechanics_reasons("This is identical with deathwatch, but only functions on animals and plants.")
