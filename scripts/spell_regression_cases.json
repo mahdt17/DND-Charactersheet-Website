@@ -1752,6 +1752,19 @@
     "spells/inflict-light-damage-4924",
     "spells/inflict-light-damage-mass-4955",
     "spells/daze-2542",
-    "spells/deflect-lesser-2908"
+    "spells/deflect-lesser-2908",
+    "spells/cure-minor-wounds-2382",
+    "spells/inflict-serious-damage-4927",
+    "spells/inflict-critical-damage-4925",
+    "spells/inflict-moderate-damage-4926",
+    "spells/inflict-moderate-damage-mass-4956",
+    "spells/daze-monster-2541",
+    "spells/deflect-2907",
+    "spells/circle-of-death-2718",
+    "spells/planar-ally-lesser-2419",
+    "spells/body-ward-583",
+    "spells/fog-cloud-2393",
+    "spells/disguise-self-2666",
+    "spells/fly-2816"
   ]
 }
