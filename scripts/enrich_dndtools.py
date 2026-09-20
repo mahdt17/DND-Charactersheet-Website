@@ -1348,6 +1348,7 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
                 break
         reference_dependent=bool(
             re.search(r"\b(?:functions?|works?|operates?)\s+like\b",effect_source,re.I)
+            or re.search(r"\b(?:functions?|works?|operates?)\s+identically\s+to\b",effect_source,re.I)
             or re.search(r"\b(?:functions?|works?|operates?)\s+as\s+(?!if\b|a\b|an\b)",effect_source,re.I)
             or re.search(r"^As\s+[^.!?]{1,120}?,\s*(?:except|but)\b",effect_source,re.I)
         )
@@ -1953,6 +1954,18 @@ def self_test():
     """
     p=DetailParser();p.feed(reference_effect_html);p.close()
     s=parse_spell(p,{"name":"Reference Effect"})
+    assert s.get("effectReferenceDependent")
+    assert s.get("effectNeedsSummary") and not s.get("effect")
+
+    identical_reference_html = """
+    <h1>Identical Reference Effect</h1><p>Example Book (EX), p. 4</p>
+    <div>School</div><div>Abjuration</div><div>Casting Time</div><div>1 action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Touch</div>
+    <div>Duration</div><div>1 minute</div><div>Classes</div><div>Wizard 2</div>
+    <h2>Description</h2><p>This spell works identically to arcane lock, except its DC is 5 higher.</p>
+    """
+    p=DetailParser();p.feed(identical_reference_html);p.close()
+    s=parse_spell(p,{"name":"Identical Reference Effect"})
     assert s.get("effectReferenceDependent")
     assert s.get("effectNeedsSummary") and not s.get("effect")
 
