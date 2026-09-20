@@ -831,7 +831,7 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I | re.S,
     )),
     ("dispel-magic-effect-inheritance", re.compile(
-        r"\btargeted\s+by\s+a\s+(?P<name>dispel magic)\s+effect\s+as\s+if\s+you\s+had\s+cast\s+that\s+spell\b",
+        r"\btargeted\s+by\s+a\s+(?P<name>dispel magic)\s+effect\s+as\s+if\s+you\s+had\s+cast\s+(?:that|the)\s+spell\b",
         re.I,
     )),
     ("passwall-ejection-inheritance", re.compile(
@@ -851,6 +851,20 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bgive\s+cover\s+as\s+(?:a\s+)?(?P<name>Bigby[’']s interposing hand)\s+spell\b"
         r".{0,180}?\bcarry\s+materials\s+as\s+(?P<name2>Tenser[’']s floating disk)\b",
         re.I | re.S,
+    )),
+    ("incorporeal-traits-statblock-dependency", re.compile(
+        r"\bSQ\s*:\s*[^\n]{0,200}\bincorporeal\s+traits\b|"
+        r"\bSpecial\s+Qualities\s*:\s*[^\n]{0,200}\bincorporeal\s+traits\b",
+        re.I,
+    )),
+    ("undefined-mirror-self-dependency", re.compile(
+        r"\bcreate\s+a\s+mirror-self\s+that\s+will\s+try\s+to\s+slay\s+you\b",
+        re.I,
+    )),
+    ("any-sword-skill-inheritance", re.compile(
+        r"\bwield\s+the\s+beam\s+as\s+if\s+it\s+were\s+any\s+type\s+of\s+sword\b"
+        r"[^.]{0,180}\bgain\s+the\s+benefits\s+of\s+any\s+special\s+sword\s+skill\b",
+        re.I,
     )),
 
 )
@@ -1835,6 +1849,13 @@ def run_self_test() -> None:
     assert "stored-spell-disk-inheritance" not in external_mechanics_reasons("The disk releases a fixed 6d6 fire burst when shattered.")
     assert "shadow-hand-spell-suite-inheritance" in external_mechanics_reasons("It can give cover as a Bigby’s interposing hand spell, carry materials as Tenser’s floating disk, or strike opponents.")
     assert "shadow-hand-spell-suite-inheritance" not in external_mechanics_reasons("The hand grants one-half cover, carries 100 pounds, and deals 1d6+4 damage.")
+    assert "dispel-magic-effect-inheritance" in external_mechanics_reasons("Magical fires are targeted by a dispel magic effect as if you had cast the spell.")
+    assert "incorporeal-traits-statblock-dependency" in external_mechanics_reasons("SQ: incorporeal traits; Feats: Alertness, Dodge.")
+    assert "incorporeal-traits-statblock-dependency" not in external_mechanics_reasons("The creature is incorporeal; it has a 50% miss chance against nonmagical attacks, can pass through objects, and has no Strength score.")
+    assert "undefined-mirror-self-dependency" in external_mechanics_reasons("When you travel there, you create a mirror-self that will try to slay you and escape.")
+    assert "undefined-mirror-self-dependency" not in external_mechanics_reasons("You create a mirror image with AC 18, 20 hit points, and a +6 attack bonus.")
+    assert "any-sword-skill-inheritance" in external_mechanics_reasons("If proficient with any type of sword, you can wield the beam as if it were any type of sword and thus gain the benefits of any special sword skill you might have.")
+    assert "any-sword-skill-inheritance" not in external_mechanics_reasons("The beam is a melee touch weapon that deals 1d8 damage and has no critical threat range.")
     assert "missing-reality-maelstrom-plane-sidebar" in suspicious_reasons({"effectSource":"The tear sends them to a random plane (see sidebar)."})
     assert "missing-reality-maelstrom-plane-sidebar" not in suspicious_reasons({"effectSource":"The tear sends them to the Astral Plane."})
     assert "missing-minus-blinded-skill-penalty" in suspicious_reasons({"effectSource":"A blinded creature suffers a 4 penalty on most Strength and Dexterity-based skill checks."})
