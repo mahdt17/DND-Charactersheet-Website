@@ -903,7 +903,7 @@ SUSPICIOUS_PATTERNS = (
         re.I,
     )),
     ("missing-minus-blinded-skill-penalty", re.compile(
-        r"\bblinded\s+creature\s+suffers\s+a\s+4\s+penalty\s+on\s+most\s+"
+        r"\bsuffers\s+a\s+4\s+penalty\s+on\s+most\s+"
         r"Strength\s+and\s+Dexterity-based\s+skill\s+checks\b",
         re.I,
     )),
