@@ -49,6 +49,32 @@ ALLOWED_EXTERNAL_REASONS = {
 }
 
 
+def strip_resolved_reference_page_citations(
+    effect_source: str,
+    reference_name: str | None,
+    target_name: str | None,
+) -> str:
+    """Strip only page citations directly attached to the resolved spell name."""
+    stripped = effect_source or ""
+    names = {
+        d35.clean(reference_name or ""),
+        d35.clean(target_name or ""),
+    }
+    names.discard("")
+    citation = (
+        r"(?:PH\s*\d+|page\s+\d+|"
+        r"see\s+page\s+\d+(?:\s+of\s+the\s+Player[’']s\s+Handbook)?)"
+    )
+    for name in sorted(names, key=len, reverse=True):
+        name_pattern = re.escape(name).replace(r"\ ", r"\s+")
+        pattern = re.compile(
+            rf"(?P<name>{name_pattern})\s*\(\s*{citation}\s*\)",
+            re.I,
+        )
+        stripped = pattern.sub(lambda match: match.group("name"), stripped)
+    return stripped
+
+
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -87,7 +113,8 @@ def candidate_reasons(
         reasons.append("disallowed-classifier-tags")
 
     external_reasons = set(classified.get("externalMechanicsReasons") or [])
-    if not external_reasons.issubset(ALLOWED_EXTERNAL_REASONS):
+    provisional_external = ALLOWED_EXTERNAL_REASONS | {"external-page-reference"}
+    if not external_reasons.issubset(provisional_external):
         reasons.append("disallowed-external-mechanics")
 
     packet_sha = packet.get("sourceSha256")
@@ -103,7 +130,7 @@ def candidate_reasons(
     if classifier.suspicious_reasons(packet):
         reasons.append("current-suspicion-detector-hit")
     current_external = set(classifier.external_mechanics_reasons(source))
-    if not current_external.issubset(ALLOWED_EXTERNAL_REASONS):
+    if not current_external.issubset(provisional_external):
         reasons.append("current-disallowed-external-mechanics")
 
     references = packet.get("references") or []
@@ -120,6 +147,21 @@ def candidate_reasons(
     if not target:
         reasons.append("resolved-reference-missing-record")
         return sorted(set(reasons))
+
+    if "external-page-reference" in external_reasons or "external-page-reference" in current_external:
+        citation_stripped_source = strip_resolved_reference_page_citations(
+            source,
+            reference.get("referenceName"),
+            target.get("name"),
+        )
+        if citation_stripped_source == source:
+            reasons.append("unverified-reference-page-citation")
+        else:
+            stripped_external = set(
+                classifier.external_mechanics_reasons(citation_stripped_source)
+            )
+            if not stripped_external.issubset(ALLOWED_EXTERNAL_REASONS):
+                reasons.append("current-disallowed-external-mechanics")
 
     source_book = d35.clean(classified.get("sourceBook") or packet.get("sourceBook") or "")
     target_source_book = d35.clean(target.get("sourceBook") or "")
@@ -332,6 +374,43 @@ def run_self_test() -> None:
     assert "reference-target-not-regression-locked" in candidate_reasons(
         classified, packet, {classified["id"]}, set()
     )
+
+    cited = json.loads(json.dumps(packet))
+    cited["effectSource"] = (
+        "This spell functions like Resist Energy Test (PH 272), "
+        "except that it affects multiple creatures."
+    )
+    cited["sourceSha256"] = d35.spell_effect_digest(cited["effectSource"])
+    cited["references"][0]["referenceName"] = "Resist Energy Test"
+    cited_classified = json.loads(json.dumps(classified))
+    cited_classified["sourceSha256"] = cited["sourceSha256"]
+    cited_classified["tags"] = [
+        "reference-dependent",
+        "external-mechanics-reference",
+        "manual-verification-required",
+    ]
+    cited_classified["externalMechanicsReasons"] = ["external-page-reference"]
+    cited_reasons = candidate_reasons(
+        cited_classified, cited, {classified["id"]}, {target["id"]}
+    )
+    assert "disallowed-external-mechanics" not in cited_reasons
+    assert "current-disallowed-external-mechanics" not in cited_reasons
+    assert "unverified-reference-page-citation" not in cited_reasons
+
+    cited_extra = json.loads(json.dumps(cited))
+    cited_extra["effectSource"] += " See page 150 for planar hazard rules."
+    cited_extra["sourceSha256"] = d35.spell_effect_digest(cited_extra["effectSource"])
+    cited_extra_classified = json.loads(json.dumps(cited_classified))
+    cited_extra_classified["sourceSha256"] = cited_extra["sourceSha256"]
+    assert "current-disallowed-external-mechanics" in candidate_reasons(
+        cited_extra_classified, cited_extra, {classified["id"]}, {target["id"]}
+    )
+
+    assert strip_resolved_reference_page_citations(
+        "As Earthen Grasp (see page 104), except the arm is stone.",
+        "Earthen Grasp",
+        "Earthen Grasp",
+    ) == "As Earthen Grasp, except the arm is stone."
     header_dependent = json.loads(json.dumps(packet))
     header_dependent["effectSource"] = "As keen edge, except as noted above."
     header_dependent["sourceSha256"] = d35.spell_effect_digest(header_dependent["effectSource"])
