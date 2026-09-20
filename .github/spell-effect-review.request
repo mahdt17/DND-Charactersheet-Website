@@ -1,8 +1,8 @@
 {
   "scope": "3.5/spells",
   "count": 0,
-  "referenceCount": 0,
+  "referenceCount": 1,
   "duplicateFamilyCount": 0,
-  "nonce": "2026-09-20-post-lock-recitation-zero-check",
+  "nonce": "2026-09-20-select-first-regression-locked-reference",
   "nearDuplicateFamilyCount": 0
 }
