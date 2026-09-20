@@ -1859,6 +1859,14 @@
     "spells/repair-critical-damage-558",
     "spells/repair-moderate-damage-561",
     "spells/repair-serious-damage-562",
-    "spells/sonic-orb-lesser-1960"
+    "spells/sonic-orb-lesser-1960",
+    "spells/dispel-good-2313",
+    "spells/dispel-chaos-2311",
+    "spells/dispel-law-2314",
+    "spells/mantle-of-evil-2137",
+    "spells/mantle-of-good-2138",
+    "spells/mantle-of-law-2139",
+    "spells/cold-orb-3393",
+    "spells/sonic-orb-3403"
   ]
 }
