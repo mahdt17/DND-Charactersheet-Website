@@ -1925,6 +1925,14 @@
     "spells/feeblemind-2549",
     "spells/resistance-greater-4098",
     "spells/resistance-superior-4099",
-    "spells/panacea-4118"
+    "spells/panacea-4118",
+    "spells/drown-mass-3486",
+    "spells/desiccate-mass-3165",
+    "spells/bears-endurance-mass-2784",
+    "spells/charm-monster-2533",
+    "spells/dispelling-screen-greater-4396",
+    "spells/call-lightning-storm-2591",
+    "spells/dragon-ally-1003",
+    "spells/dragon-ally-greater-1004"
   ]
 }
