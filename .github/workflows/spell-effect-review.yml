@@ -68,6 +68,7 @@ jobs:
           python scripts/classify_spell_review_queue.py --self-test
           python scripts/select_spell_review_batch.py --self-test
           python scripts/select_spell_reference_batch.py --self-test
+          python scripts/select_spell_exact_duplicate_batch.py --self-test
       - name: Classify remaining review queue
         run: >
           python scripts/classify_spell_review_queue.py
@@ -79,6 +80,7 @@ jobs:
         run: |
           STRICT_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("count", 0)))')"
           REFERENCE_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("referenceCount", 0)))')"
+          DUPLICATE_FAMILY_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("duplicateFamilyCount", 0)))')"
           python scripts/select_spell_review_batch.py \
             --classification test-results/spell-review-classification.json \
             --review test-results/review/spell-effect-review.json \
@@ -89,6 +91,11 @@ jobs:
             --references test-results/spell-reference-review-packets.json \
             --count "$REFERENCE_COUNT" \
             --output test-results/spell-review-reference-batch.json
+          python scripts/select_spell_exact_duplicate_batch.py \
+            --classification test-results/spell-review-classification.json \
+            --review test-results/review/spell-effect-review.json \
+            --family-count "$DUPLICATE_FAMILY_COUNT" \
+            --output test-results/spell-review-exact-duplicate-batch.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -98,4 +105,5 @@ jobs:
             test-results/spell-reference-review-packets.json
             test-results/spell-review-strict-batch.json
             test-results/spell-review-reference-batch.json
+            test-results/spell-review-exact-duplicate-batch.json
           retention-days: 1
