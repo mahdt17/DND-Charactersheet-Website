@@ -781,6 +781,11 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\bhand\s+is\s+incorporeal\s+and\s+thus\s+cannot\s+be\s+harmed\s+by\s+normal\s+weapons\b",
         re.I,
     )),
+    ("spirit-ally-creature-stat-dependency", re.compile(
+        r"\brequest\s+the\s+services\s+of\s+a\s+spirit\s*\(\s*of\s+up\s+to\s+"
+        r"\d+\s+HD\s*\)",
+        re.I,
+    )),
 
 )
 
@@ -1718,6 +1723,8 @@ def run_self_test() -> None:
     assert "manifest-zone-trait-dependency" not in external_mechanics_reasons("The zone grants a +2 bonus on saves and a 20-foot speed increase.")
     assert "spectral-hand-incorporeal-defense-dependency" in external_mechanics_reasons("The hand is incorporeal and thus cannot be harmed by normal weapons.")
     assert "spectral-hand-incorporeal-defense-dependency" not in external_mechanics_reasons("The hand has AC 22 and can be damaged by any magic weapon with no miss chance.")
+    assert "spirit-ally-creature-stat-dependency" in external_mechanics_reasons("You request the services of a spirit (of up to 8 HD) that shares your philosophical alignment.")
+    assert "spirit-ally-creature-stat-dependency" not in external_mechanics_reasons("You create a harmless spirit image with AC 20 and 10 hit points.")
     assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"The DM should make this roll in secret to prevent subicion by the players."})
     assert "garbled-hidden-ward-source" in suspicious_reasons({"effectSource":"This increases the Search DC by one-half you caster level."})
     assert "garbled-hidden-ward-source" not in suspicious_reasons({"effectSource":"This increases the Search DC by one-half your caster level."})
