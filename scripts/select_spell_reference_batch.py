@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -23,6 +24,12 @@ ALLOWED_TAGS = {
     "external-mechanics-reference",
     "manual-verification-required",
 }
+
+LEGACY_REFERENCE_SOURCE_BOOKS = {
+    "Ghostwalk",
+    "Savage Species",
+}
+
 
 ALLOWED_EXTERNAL_REASONS = {
     "leading-inherited-spell",
@@ -53,13 +60,15 @@ def candidate_reasons(
     # Phrases like "except as noted above" delegate mechanics to header fields
     # (target/range/area/duration/save) that are not present in this review packet.
     # They cannot be flattened safely in this reference-only phase.
-    if classifier.re.search(r"\\bexcept\\s+as\\s+noted\\s+above\\b", source, classifier.re.I):
+    if re.search(r"\\bexcept\\s+as\\s+noted\\s+above\\b", source, re.I):
         reasons.append("header-dependent-exception")
 
     if packet.get("id") != record_id:
         reasons.append("classification-packet-id-mismatch")
     if classified.get("primaryBucket") != "reference-dependent":
         reasons.append("not-reference-dependent-primary")
+    if classified.get("sourceBook") in LEGACY_REFERENCE_SOURCE_BOOKS:
+        reasons.append("legacy-source-edition-needs-manual-reference-review")
     if classified.get("suspiciousReasons"):
         reasons.append("classifier-suspicious-reasons")
 
@@ -308,6 +317,12 @@ def run_self_test() -> None:
     header_classified["sourceSha256"] = header_dependent["sourceSha256"]
     assert "header-dependent-exception" in candidate_reasons(
         header_classified, header_dependent, {classified["id"]}, {target["id"]}
+    )
+
+    legacy_classified = json.loads(json.dumps(classified))
+    legacy_classified["sourceBook"] = "Ghostwalk"
+    assert "legacy-source-edition-needs-manual-reference-review" in candidate_reasons(
+        legacy_classified, packet, {classified["id"]}, {target["id"]}
     )
 
     print(json.dumps({"selfTest": "passed"}, indent=2))
