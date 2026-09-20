@@ -882,6 +882,103 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"special\s+attacks\s+that\s+affect\s+(?:iron|stone)\s+golems\b",
         re.I,
     )),
+    ("phantom-steed-air-movement-inheritance", re.compile(
+        r"\b(?:ride|move)\s+(?:in|through)\s+the\s+air\s+as\s+if\s+it\s+were\s+"
+        r"(?:on\s+)?firm\s+land\s*,?\s+as\s+(?:a\s+)?phantom\s+steed\s+spell\b",
+        re.I,
+    )),
+    ("phantasmal-thief-improved-disarm-inheritance", re.compile(
+        r"\b(?:does|do)\s+this\s+as\s+if\s+it\s+had\s+the\s+Improved\s+Disarm\s+feat\b",
+        re.I,
+    )),
+    ("wand-modulation-arbitrary-spell-inheritance", re.compile(
+        r"\bnext\s+spell\s+you\s+cast\s+upon\s+the\s+target\s+wand\b.{0,160}?"
+        r"\ballowing\s+the\s+wand\s+to\s+discharge\s+that\s+spell\s+instead\b",
+        re.I | re.S,
+    )),
+    ("simulacrum-creature-stat-inheritance", re.compile(
+        r"\bsame\s+as\s+the\s+original\b.{0,220}?\bone-half\s+of\s+the\s+real\s+"
+        r"creature[’']s\s+(?:levels|levels\s+or\s+Hit\s+Dice)\b.{0,260}?"
+        r"\b(?:feats|skill\s+ranks|special\s+abilities)\b",
+        re.I | re.S,
+    )),
+    ("secure-shelter-spell-suite-inheritance", re.compile(
+        r"\barcane\s+locked\b.{0,500}?\balarm\s+spell\b.{0,500}?\bunseen\s+servant\b",
+        re.I | re.S,
+    )),
+    ("imbue-familiar-arbitrary-spell-inheritance", re.compile(
+        r"\btransfer\s+a\s+number\s+of\s+your\s+spells\s+and\s+the\s+ability\s+to\s+"
+        r"cast\s+them\s+into\s+your\s+familiar\b.{0,500}?\bany\s+spell\b",
+        re.I | re.S,
+    )),
+    ("spirit-self-incorporeal-combat-inheritance", re.compile(
+        r"\bdetected\s+and\s+attacked\s+in\s+the\s+same\s+way\s+as\s+"
+        r"incorporeal\s+creatures\s+can\b",
+        re.I,
+    )),
+    ("scent-track-feat-rule-inheritance", re.compile(
+        r"\bability\s+otherwise\s+follows\s+the\s+rules\s+for\s+the\s+Track\s+feat\b",
+        re.I,
+    )),
+    ("spell-engine-rod-absorption-inheritance", re.compile(
+        r"\babsorbs?\s+all\s+these\s+effects\s+as\s+if\s+it\s+were\s+a\s+"
+        r"rod\s+of\s+absorption\b",
+        re.I,
+    )),
+    ("miracle-arbitrary-spell-duplication", re.compile(
+        r"\bDuplicate\s+any\s+cleric\s+spell\s+of\s+\d+(?:st|nd|rd|th)\s+level\s+or\s+lower\b"
+        r".{0,260}?\bDuplicate\s+any\s+other\s+spell\s+of\s+\d+(?:st|nd|rd|th)\s+level\s+or\s+lower\b",
+        re.I | re.S,
+    )),
+    ("srinshee-metamagic-feat-suite-inheritance", re.compile(
+        r"\bmetamagic\s+feat\s+from\s+the\s+following\s+list\s*:\s*"
+        r"Empower\s+Spell\s*,\s*Enlarge\s+Spell\s*,\s*Extend\s+Spell\s*,\s*"
+        r"Maximize\s+Spell\s*,\s*or\s+Widen\s+Spell\b",
+        re.I,
+    )),
+    ("spell-phylactery-arbitrary-scroll-inheritance", re.compile(
+        r"\bspell\s+on\s+the\s+scroll\b.{0,260}?\b(?:is\s+cast|cast)\s+"
+        r"(?:upon|on)\s+you\b",
+        re.I | re.S,
+    )),
+    ("weapon-deity-special-ability-inheritance", re.compile(
+        r"\bweapon\s+gains?\s+a\s+\+\d+\s+enhancement\s+bonus\b.{0,180}?"
+        r"\ban\s+additional\s+special\s+ability\s*\(\s*see\s+the\s+list\s+below\s*\)",
+        re.I | re.S,
+    )),
+    ("scramble-phb-diagram-dependency", re.compile(
+        r"\busing\s+the\s+[\"“]targeted\s+on\s+square[\"”]\s+part\s+of\s+the\s+diagram\s+"
+        r"on\s+page\s+158\s+of\s+the\s+Player[’']s\s+Handbook\b",
+        re.I,
+    )),
+    ("howling-chain-phb-thrown-weapon-dependency", re.compile(
+        r"\bUse\s+the\s+rules\s+for\s+missing\s+with\s+a\s+thrown\s+weapon\s+"
+        r"on\s+page\s+158\s+of\s+the\s+Player[’']s\s+Handbook\b",
+        re.I,
+    )),
+    ("shadow-conjuration-arbitrary-spell-inheritance", re.compile(
+        r"\bcan\s+mimic\s+any\s+sorcerer\s+or\s+wizard\s+conjuration\s*"
+        r"\(\s*(?:summoning|creation)\s*\)\s+or\s+conjuration\s*"
+        r"\(\s*(?:creation|summoning)\s*\)\s+spell\s+of\s+\d+(?:st|nd|rd|th)\s+"
+        r"level\s+or\s+lower\b",
+        re.I,
+    )),
+    ("stored-lightning-bolt-inheritance", re.compile(
+        r"\binitial\s+strike\s+does\s+damage\b[^.]{0,120}\bas\s+a\s+lightning\s+bolt\s+spell\b|"
+        r"\bdamages\s+objects\s*,?\s+just\s+as\s+a\s+normal\s+lightning\s+bolt\b",
+        re.I,
+    )),
+    ("telekinesis-combat-maneuver-inheritance", re.compile(
+        r"\bperform\s+a\s+bull\s+rush\s*,\s*disarm\s*,\s*grapple\s*"
+        r"\(\s*including\s+pin\s*\)\s*,\s*or\s+trip\b.{0,120}?"
+        r"\bResolve\s+these\s+attempts\s+as\s+normal\b",
+        re.I | re.S,
+    )),
+    ("polymorph-other-creature-stat-inheritance", re.compile(
+        r"\bcreature\s+acquires\s+the\s+physical\s+and\s+natural\s+abilities\s+of\s+"
+        r"the\s+creature\s+it\s+has\s+been\s+polymorphed\s+into\b",
+        re.I,
+    )),
 
 )
 
@@ -986,6 +1083,11 @@ SUSPICIOUS_PATTERNS = (
     ("missing-minus-blinded-skill-penalty", re.compile(
         r"\bsuffers\s+a\s+4\s+penalty\s+on\s+most\s+"
         r"Strength\s+and\s+Dexterity-based\s+skill\s+checks\b",
+        re.I,
+    )),
+    ("missing-cerulean-sign-effect-table", re.compile(
+        r"\bonce\s+a\s+creature\s+recovers\s+from\s+an\s+effect\s*,?\s+"
+        r"it\s+moves\s+up\s+one\s+level\s+on\s+the\s+table\b",
         re.I,
     )),
     ("missing-reality-maelstrom-plane-sidebar", re.compile(
@@ -1877,6 +1979,46 @@ def run_self_test() -> None:
     assert "golem-special-attack-inheritance" in external_mechanics_reasons("You also become vulnerable to all special attacks that affect iron golems.")
     assert "golem-special-attack-inheritance" in external_mechanics_reasons("You also become vulnerable to all special attacks that affect stone golems.")
     assert "golem-special-attack-inheritance" not in external_mechanics_reasons("You take 1d6 damage per caster level from rusting effects and are slowed by electricity.")
+    assert "phantom-steed-air-movement-inheritance" in external_mechanics_reasons("The stag can move through the air as if it were on firm land, as a phantom steed spell cast by a 12th-level caster.")
+    assert "phantom-steed-air-movement-inheritance" not in external_mechanics_reasons("The stag has a 60-foot fly speed with good maneuverability.")
+    assert "phantasmal-thief-improved-disarm-inheritance" in external_mechanics_reasons("It does this as if it had the Improved Disarm feat.")
+    assert "phantasmal-thief-improved-disarm-inheritance" not in external_mechanics_reasons("It makes a +20 opposed check and does not provoke attacks of opportunity.")
+    assert "wand-modulation-arbitrary-spell-inheritance" in external_mechanics_reasons("The next spell you cast upon the target wand affects the remaining charges, allowing the wand to discharge that spell instead.")
+    assert "wand-modulation-arbitrary-spell-inheritance" not in external_mechanics_reasons("The wand now fires a fixed 2d6 force bolt.")
+    assert "simulacrum-creature-stat-inheritance" in external_mechanics_reasons("It appears the same as the original, but it has only one-half of the real creature’s levels or Hit Dice and the appropriate feats, skill ranks, and special abilities.")
+    assert "simulacrum-creature-stat-inheritance" not in external_mechanics_reasons("The duplicate has AC 18, 40 hit points, and a +8 melee attack.")
+    assert "secure-shelter-spell-suite-inheritance" in external_mechanics_reasons("The doors are arcane locked, the openings are protected by an alarm spell, and an unseen servant is conjured.")
+    assert "secure-shelter-spell-suite-inheritance" not in external_mechanics_reasons("The doors have hardness 10 and the alarm rings for 1 round when a creature enters.")
+    assert "imbue-familiar-arbitrary-spell-inheritance" in external_mechanics_reasons("This spell allows you to transfer a number of your spells and the ability to cast them into your familiar; you can imbue any spell you have prepared.")
+    assert "imbue-familiar-arbitrary-spell-inheritance" not in external_mechanics_reasons("The familiar gains a fixed 3d6 fire ray once.")
+    assert "spirit-self-incorporeal-combat-inheritance" in external_mechanics_reasons("Your spirit can be detected and attacked in the same way as incorporeal creatures can.")
+    assert "spirit-self-incorporeal-combat-inheritance" not in external_mechanics_reasons("Your spirit has a 50% miss chance against corporeal attacks and can pass through solid objects.")
+    assert "scent-track-feat-rule-inheritance" in external_mechanics_reasons("The ability otherwise follows the rules for the Track feat.")
+    assert "scent-track-feat-rule-inheritance" not in external_mechanics_reasons("The trail DC is 10 and rises by 2 for each hour of age.")
+    assert "spell-engine-rod-absorption-inheritance" in external_mechanics_reasons("It absorbs all these effects as if it were a rod of absorption with unlimited capacity.")
+    assert "spell-engine-rod-absorption-inheritance" not in external_mechanics_reasons("It absorbs any spell of 3rd level or lower and can hold 20 spell levels.")
+    assert "miracle-arbitrary-spell-duplication" in external_mechanics_reasons("Duplicate any cleric spell of 8th level or lower. Duplicate any other spell of 7th level or lower.")
+    assert "miracle-arbitrary-spell-duplication" not in external_mechanics_reasons("The miracle restores all allies to full hit points.")
+    assert "srinshee-metamagic-feat-suite-inheritance" in external_mechanics_reasons("You can apply any one metamagic feat from the following list: Empower Spell, Enlarge Spell, Extend Spell, Maximize Spell, or Widen Spell.")
+    assert "srinshee-metamagic-feat-suite-inheritance" not in external_mechanics_reasons("You can double a spell’s range or duration.")
+    assert "spell-phylactery-arbitrary-scroll-inheritance" in external_mechanics_reasons("When triggered, the spell on the scroll is cast upon you.")
+    assert "spell-phylactery-arbitrary-scroll-inheritance" not in external_mechanics_reasons("When triggered, the scroll grants you 10 temporary hit points.")
+    assert "weapon-deity-special-ability-inheritance" in external_mechanics_reasons("The weapon gains a +1 enhancement bonus and an additional special ability (see the list below).")
+    assert "weapon-deity-special-ability-inheritance" not in external_mechanics_reasons("The weapon gains a +1 enhancement bonus and deals +1d6 fire damage.")
+    assert "scramble-phb-diagram-dependency" in external_mechanics_reasons("Move the creature using the \"targeted on square\" part of the diagram on page 158 of the Player’s Handbook.")
+    assert "scramble-phb-diagram-dependency" not in external_mechanics_reasons("Roll 1d8 clockwise from north to determine the direction.")
+    assert "howling-chain-phb-thrown-weapon-dependency" in external_mechanics_reasons("Use the rules for missing with a thrown weapon on page 158 of the Player’s Handbook.")
+    assert "howling-chain-phb-thrown-weapon-dependency" not in external_mechanics_reasons("On a miss, roll 1d8 for direction and 1d4 for distance.")
+    assert "shadow-conjuration-arbitrary-spell-inheritance" in external_mechanics_reasons("Shadow conjuration can mimic any sorcerer or wizard conjuration (summoning) or conjuration (creation) spell of 3rd level or lower.")
+    assert "shadow-conjuration-arbitrary-spell-inheritance" not in external_mechanics_reasons("The shadow creature deals 4d6 damage and has AC 20.")
+    assert "stored-lightning-bolt-inheritance" in external_mechanics_reasons("The initial strike does damage to all creatures within its area, as a lightning bolt spell.")
+    assert "stored-lightning-bolt-inheritance" not in external_mechanics_reasons("The initial strike deals 10d6 electricity damage in a 120-foot line.")
+    assert "telekinesis-combat-maneuver-inheritance" in external_mechanics_reasons("You can perform a bull rush, disarm, grapple (including pin), or trip. Resolve these attempts as normal, except they do not provoke attacks of opportunity.")
+    assert "telekinesis-combat-maneuver-inheritance" not in external_mechanics_reasons("Make an opposed caster-level check against the target’s Strength check; success moves it 5 feet.")
+    assert "polymorph-other-creature-stat-inheritance" in external_mechanics_reasons("The creature acquires the physical and natural abilities of the creature it has been polymorphed into.")
+    assert "polymorph-other-creature-stat-inheritance" not in external_mechanics_reasons("The subject becomes Large with Strength 20, Dexterity 12, and natural armor +4.")
+    assert "missing-cerulean-sign-effect-table" in suspicious_reasons({"effectSource":"Once a creature recovers from an effect, it moves up one level on the table."})
+    assert "missing-cerulean-sign-effect-table" not in suspicious_reasons({"effectSource":"Once a creature recovers, it becomes sickened for 1 round and then recovers fully."})
     assert "missing-reality-maelstrom-plane-sidebar" in suspicious_reasons({"effectSource":"The tear sends them to a random plane (see sidebar)."})
     assert "missing-reality-maelstrom-plane-sidebar" not in suspicious_reasons({"effectSource":"The tear sends them to the Astral Plane."})
     assert "missing-minus-blinded-skill-penalty" in suspicious_reasons({"effectSource":"A blinded creature suffers a 4 penalty on most Strength and Dexterity-based skill checks."})
