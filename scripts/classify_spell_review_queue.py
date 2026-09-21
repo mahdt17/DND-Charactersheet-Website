@@ -101,7 +101,7 @@ REFERENCE_PATTERNS = (
     ),
     re.compile(
         r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+like\s+"
-        r"(?:a|an|the)?\s*(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        r"(?:(?:a|an|the)\s+)?(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
         re.I,
     ),
     re.compile(
@@ -1836,6 +1836,12 @@ def run_self_test() -> None:
     assert extract_reference_names(
         "This spell functions like invisibility except as noted above."
     ) == ["invisibility"]
+    assert extract_reference_names(
+        "This spell functions like anyspell , except you can read and prepare any arcane spell of up to 5th level."
+    ) == ["anyspell"]
+    assert extract_reference_names(
+        "This spell functions like dominate person , except that the spell is not restricted by creature type."
+    ) == ["dominate person"]
     assert extract_reference_names(
         "This spell functions as teleport, greater, but only you can travel."
     ) == ["teleport, greater"]
