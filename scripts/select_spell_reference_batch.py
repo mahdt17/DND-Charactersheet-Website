@@ -267,20 +267,49 @@ def select_batch(
 
     eligible: list[dict] = []
     rejected_counts: dict[str, int] = {}
+    rejected_entries: list[dict] = []
+
+    def rejection_diagnostic(packet: dict, reasons: list[str], classified: dict | None = None) -> dict:
+        references = []
+        for reference in packet.get("references") or []:
+            target = reference.get("record") or {}
+            references.append({
+                "referenceName": reference.get("referenceName"),
+                "status": reference.get("status"),
+                "candidateIds": reference.get("candidateIds") or [],
+                "targetId": target.get("id"),
+                "targetName": target.get("name"),
+                "targetSourceBook": target.get("sourceBook"),
+            })
+        return {
+            "id": packet.get("id"),
+            "name": packet.get("name"),
+            "sourceBook": (classified or {}).get("sourceBook"),
+            "reasons": sorted(set(reasons)),
+            "references": references,
+        }
+
     for packet in packet_entries:
         classified = classified_by_id.get(packet["id"])
         if classified is None:
-            rejected_counts["packet-record-not-in-review-queue"] = (
-                rejected_counts.get("packet-record-not-in-review-queue", 0) + 1
-            )
+            reason = "packet-record-not-in-review-queue"
+            rejected_counts[reason] = rejected_counts.get(reason, 0) + 1
+            rejected_entries.append(rejection_diagnostic(packet, [reason]))
             continue
         reasons = candidate_reasons(classified, packet, queue_ids, regression_ids)
         if reasons:
             for reason in reasons:
                 rejected_counts[reason] = rejected_counts.get(reason, 0) + 1
+            rejected_entries.append(rejection_diagnostic(packet, reasons, classified))
             continue
         eligible.append(packet)
 
+    rejected_entries.sort(
+        key=lambda entry: (
+            entry.get("id") or "",
+            entry.get("name") or "",
+        )
+    )
     eligible.sort(
         key=lambda entry: (
             len(d35.clean(entry.get("effectSource") or "")),
@@ -313,6 +342,8 @@ def select_batch(
         "selectedCount": len(selected),
         "selectionSha256": hashlib.sha256(fingerprint.encode("utf-8")).hexdigest(),
         "rejectedReasonCounts": dict(sorted(rejected_counts.items())),
+        "rejectedDiagnosticsVersion": 1,
+        "rejectedEntries": rejected_entries,
         "entries": selected,
     }
 
@@ -376,6 +407,15 @@ def run_self_test() -> None:
     zero = select_batch(report, packets, regressions, 0)
     assert zero["selectedCount"] == 0
     assert zero["eligibleCount"] == 1
+    assert zero["rejectedEntries"] == []
+
+    unlocked = select_batch(report, packets, {"recordIds": []}, 0)
+    assert unlocked["eligibleCount"] == 0
+    assert len(unlocked["rejectedEntries"]) == 1
+    diagnostic = unlocked["rejectedEntries"][0]
+    assert diagnostic["id"] == classified["id"]
+    assert diagnostic["reasons"] == ["reference-target-not-regression-locked"]
+    assert diagnostic["references"][0]["targetId"] == target["id"]
 
     unresolved = json.loads(json.dumps(packet))
     unresolved["references"][0]["status"] = "ambiguous"
