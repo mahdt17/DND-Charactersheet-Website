@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 047
+
+- Classifier head `6c27248005dd4332c16a342a7fe92c76ebc52f75` passed Spell effect review #274 (`35658467656`) and Validate modernization #837 (`35658471269`).
+- Review #274 measured **1,088 remaining**, **3,609 reviews**, **2,012 regressions**, zero errors/warnings/digest drift. The strict selector exposed exactly **1** clean standalone record: Wall of Water (`4747`); all other selectors remained **0 eligible**.
+- Classification artifact `10665058926`, ZIP SHA-256 `6c93eed790cad23f22658c8bedeaf3f28af7bdc92922886d4dba17852b64e269`.
+- Batch `2026-09-21-clean-047.json` locks Wall of Water to primary digest `83640cfd2580c651025bf7aac739d3bb367238a37cc5b0ab0dec9609a4da61cb` and adds a permanent regression ID. The parenthetical `(as selected by you)` remains local caster-choice text rather than a spell dependency.
+- Corpus after this commit: **3,610** summaries / **2,013** permanent regression IDs. Predicted queue after remeasurement: **1,087**; treat that as provisional until both CI gates pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — exact caster-selection phrase
 
 - Clean batch 046 head `9d2b9a40f26de37b579ecee215d509078e0b002d` passed Spell effect review #273 (`35658022206`) and Validate modernization #836 (`35658027389`).
