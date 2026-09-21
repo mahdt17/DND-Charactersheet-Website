@@ -113,10 +113,13 @@ def strip_resolved_reference_page_citations(
     for name in sorted(names, key=len, reverse=True):
         name_pattern = re.escape(name).replace(r"\ ", r"\s+")
         pattern = re.compile(
-            rf"(?P<name>{name_pattern})\s*\(\s*{citation}\s*\)",
+            rf"(?P<name>{name_pattern})(?P<suffix>\s+effect)?\s*\(\s*{citation}\s*\)",
             re.I,
         )
-        stripped = pattern.sub(lambda match: match.group("name"), stripped)
+        stripped = pattern.sub(
+            lambda match: match.group("name") + (match.group("suffix") or ""),
+            stripped,
+        )
     return stripped
 
 
@@ -590,6 +593,21 @@ def run_self_test() -> None:
         "Earthen Grasp",
         "Earthen Grasp",
     ) == "As Earthen Grasp, except the arm is stone."
+    assert strip_resolved_reference_page_citations(
+        "All subjects receive a death ward effect (PH 217).",
+        "death ward",
+        "Death Ward",
+    ) == "All subjects receive a death ward effect."
+    assert strip_resolved_reference_page_citations(
+        "All subjects receive a death ward effect. See page 217.",
+        "death ward",
+        "Death Ward",
+    ) == "All subjects receive a death ward effect. See page 217."
+    assert strip_resolved_reference_page_citations(
+        "All subjects receive a death ward effect (DMG 217).",
+        "death ward",
+        "Death Ward",
+    ) == "All subjects receive a death ward effect (DMG 217)."
     header_dependent = json.loads(json.dumps(packet))
     header_dependent["effectSource"] = "As Resist Energy Test, except as noted above."
     header_dependent["sourceSha256"] = d35.spell_effect_digest(header_dependent["effectSource"])
