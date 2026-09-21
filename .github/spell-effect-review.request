@@ -2,8 +2,8 @@
   "scope": "3.5/spells",
   "count": 0,
   "referenceCount": 0,
-  "prerequisiteCount": 0,
+  "prerequisiteCount": 1,
   "duplicateFamilyCount": 0,
-  "nonce": "2026-09-20-measure-after-planar-tolerance-lock-002",
+  "nonce": "2026-09-20-select-next-prerequisite-001",
   "nearDuplicateFamilyCount": 0
 }
