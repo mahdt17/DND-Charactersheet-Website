@@ -2002,6 +2002,9 @@
     "spells/repair-light-damage-mass-4961",
     "spells/repair-moderate-damage-mass-4962",
     "spells/portal-alarm-improved-4651",
-    "spells/otilukes-telekinetic-sphere-2638"
+    "spells/otilukes-telekinetic-sphere-2638",
+    "spells/speak-with-animals-2515",
+    "spells/speak-with-plants-2516",
+    "spells/stone-tell-2518"
   ]
 }

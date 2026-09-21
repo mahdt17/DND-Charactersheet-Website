@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summaries; clean batch 039.",
+  "entries": {
+    "spells/speak-with-animals-2515": {
+      "name": "Speak With Animals",
+      "sourceSha256": "2d4dbff414a120b4d3db993ac7b7f38209c4561e38b69b823278b852910ed409",
+      "effectSummary": "Lets you understand and communicate with animals, ask questions, and receive answers. The spell does not make animals friendlier or more cooperative; responses reflect each animal's temperament and intelligence. A friendly animal may perform a favor or service, with the details determined by the DM.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/speak-with-animals-2515",
+          "role": "Player's Handbook v.3.5 primary effect reviewed; communication, unchanged attitude/cooperation, intelligence-dependent responses and DM-adjudicated friendly service preserved"
+        }
+      ]
+    },
+    "spells/speak-with-plants-2516": {
+      "name": "Speak With Plants",
+      "sourceSha256": "360b35129df00cc573563baa149c5377c0c3c103b6d284161e8c3e6d29b9cb44",
+      "effectSummary": "Lets you understand and communicate with normal plants and plant creatures. Normal plants have only limited awareness of their immediate surroundings, so they cannot provide or recognize detailed creature descriptions or report events outside that vicinity. The spell does not change plant creatures' friendliness or cooperation; their responses reflect temperament and intelligence, and a friendly plant creature may perform a DM-determined favor or service.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/speak-with-plants-2516",
+          "role": "Player's Handbook v.3.5 primary effect reviewed; normal-plant perception limits, plant-creature attitude, intelligence-dependent responses and DM-adjudicated friendly service preserved"
+        }
+      ]
+    },
+    "spells/stone-tell-2518": {
+      "name": "Stone Tell",
+      "sourceSha256": "8f94d48b1a0386b5a1f85aa71c818cd4dbf9c9b6a7f24c8339c1e4ba7feb4a23",
+      "effectSummary": "Lets you speak with natural or worked stone. Stones can tell you who or what has touched them and reveal what is covered or concealed behind or beneath them, giving complete descriptions when asked. A stone's perspective, perception, and knowledge can limit the details it can provide, as determined by the DM.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-tell-2518",
+          "role": "Player's Handbook v.3.5 primary effect reviewed; contact history, concealed features, complete descriptions, natural/worked stone scope and DM-adjudicated perception limits preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "b21ed44eba6ea339f99c2de4c8c2e711b3c348fe",
+    "workflowRun": 35581099508,
+    "classificationArtifact": 10629449336,
+    "classificationArtifactSha256": "955f8fd4db5eb434076c0b5f16e80b06026a250c9d915efd473626386e23e0a5",
+    "eligibleCount": 3
+  }
+}

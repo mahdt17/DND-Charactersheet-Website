@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 039
+
+- Classifier commit `b21ed44eba6ea339f99c2de4c8c2e711b3c348fe` passed Spell effect review #256 (`35581099508`) and Validate modernization #819 (`35581104312`).
+- Review #256 measured **1,098 remaining**, **3,599 reviews**, **2,002 regressions**, zero errors/warnings/digest drift. The corrected strict selector exposed exactly **3 clean standalone** records; reference, prerequisite, exact-duplicate and near-duplicate selectors remained **0 eligible**.
+- Classification artifact `10629449336`, ZIP SHA-256 `955f8fd4db5eb434076c0b5f16e80b06026a250c9d915efd473626386e23e0a5`.
+- Batch `2026-09-21-clean-039.json` independently locks Speak With Animals (`2515`), Speak With Plants (`2516`) and Stone Tell (`2518`) to their unchanged primary digests and adds permanent regression IDs. The exact phrase `(as determined by the DM)` is retained as adjudication, not treated as a spell reference.
+- Corpus after this commit: **3,602** summaries / **2,005** permanent regression IDs. Predicted queue after remeasurement: **1,095**. Treat that queue value as provisional until both CI gates on this lock commit pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — exact DM parenthetical
 
 - Batch 037 head: `fdee502dc41cc65ba7eb9f49f719a3a5adde8bd9`; Validate modernization #818 (`35580638629`) passed all regressions and browser checks.
