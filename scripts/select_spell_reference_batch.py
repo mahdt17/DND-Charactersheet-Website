@@ -32,6 +32,9 @@ ALLOWED_TAGS = {
 LEGACY_REFERENCE_SOURCE_BOOKS = {
     "Ghostwalk",
     "Savage Species",
+    # Tome and Blood is a D&D 3.0 source. Keep it out of the automated
+    # 3.5 reference-lock path unless it is handled with explicit edition provenance.
+    "Tome and Blood: A Guidebook to Wizards and Sorcerers",
 }
 
 # Cross-sourcebook inheritance remains fail-closed. Add pairs only after
@@ -156,6 +159,8 @@ def candidate_reasons(
         reasons.append("legacy-source-edition-needs-manual-reference-review")
     if classified.get("suspiciousReasons"):
         reasons.append("classifier-suspicious-reasons")
+    if packet.get("sourceIncomplete") and not packet.get("sourceIncompleteResolved"):
+        reasons.append("reference-source-incomplete")
 
     tags = set(classified.get("tags") or [])
     if not tags.issubset(ALLOWED_TAGS):
@@ -705,6 +710,19 @@ def run_self_test() -> None:
     legacy_classified["sourceBook"] = "Ghostwalk"
     assert "legacy-source-edition-needs-manual-reference-review" in candidate_reasons(
         legacy_classified, packet, {classified["id"]}, {target["id"]}
+    )
+
+    tome_blood_classified = json.loads(json.dumps(classified))
+    tome_blood_classified["sourceBook"] = "Tome and Blood: A Guidebook to Wizards and Sorcerers"
+    assert "legacy-source-edition-needs-manual-reference-review" in candidate_reasons(
+        tome_blood_classified, packet, {classified["id"]}, {target["id"]}
+    )
+
+    incomplete_packet = json.loads(json.dumps(packet))
+    incomplete_packet["sourceIncomplete"] = True
+    incomplete_packet["sourceIncompleteResolved"] = False
+    assert "reference-source-incomplete" in candidate_reasons(
+        classified, incomplete_packet, {classified["id"]}, {target["id"]}
     )
 
     cross_book_classified = json.loads(json.dumps(classified))
