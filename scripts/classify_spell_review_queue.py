@@ -59,6 +59,14 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"(?:^|[.!?:]\s+)As\s+(?:the\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)(?:\s+spell)?\s*,\s*and\s+in\s+addition\b",
+        re.I,
+    ),
+    re.compile(
+        r"(?:^|[.!?:]\s+)As\s+(?:the\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)(?:\s+spell)?\s+with\s+the\s+following\s+additional\s+effects\b",
+        re.I,
+    ),
+    re.compile(
         r"\(\s*as\s+(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
@@ -1168,6 +1176,13 @@ def name_aliases(name: str) -> set[str]:
 def clean_reference_name(value: str) -> str:
     value = d35.clean(value or "")
     value = re.sub(r"\s*\(\s*(?:see\b|p(?:age)?\.?\b|ph\b)[^)]*\)\s*$", "", value, flags=re.I)
+    value = re.sub(
+        r"\s*\(\s*(?:PHB|Player[’']s\s+Handbook|Spell\s+Compendium)"
+        r"\s*(?:page\s*)?\d+\s*\)\s*$",
+        "",
+        value,
+        flags=re.I,
+    )
     value = re.sub(r"^\d+(?:st|nd|rd|th)-level\s+(?:spell\s+)?", "", value, flags=re.I)
     # Strip grammatical "the"/"the spell" prefixes, but preserve a real
     # spell name beginning with "Spell" (for example, Spell Resistance).
@@ -1796,6 +1811,12 @@ def run_self_test() -> None:
     assert extract_reference_names(
         "As geas/quest, except the casting time is 1 round."
     ) == ["geas/quest"]
+    assert extract_reference_names(
+        "As the alarm spell, and in addition the spell works on coterminous planes."
+    ) == ["alarm"]
+    assert extract_reference_names(
+        "As lesser humanoid essence with the following additional effects."
+    ) == ["lesser humanoid essence"]
     assert extract_reference_names("The weapon functions as if cast by you.") == []
     assert extract_reference_names("The spell functions as though cast from the eye.") == []
     assert extract_reference_names(
@@ -1840,6 +1861,11 @@ def run_self_test() -> None:
     ) == []
     assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
     assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
+    assert clean_reference_name("grease (PHB 237)") == "grease"
+    assert clean_reference_name("stone bones (Spell Compendium page 208)") == "stone bones"
+    assert extract_reference_names(
+        "This spell functions like grease (PHB 237), but the liquid is flammable."
+    ) == ["grease"]
     assert clean_reference_name("spell resistance (PH 282)") == "spell resistance"
     assert clean_reference_name("the spell arcane eye") == "arcane eye"
     assert extract_reference_names(
