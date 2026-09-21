@@ -1375,6 +1375,33 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-storm-elemental-fury-windstorm-source"
+        if (
+            entry.get("id") in {"spells/golden-barding-4555","spells/golden-barding-646"}
+            and re.search(r"scale mail barding\s*\(\s*4 armor bonus\)",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-golden-barding-bonus-sign"
+        if (
+            entry.get("id")=="spells/jade-strike-2073"
+            and re.search(r"suffers a 4 penalty on most Strength and Dexterity-based skills",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-jade-strike-penalty-sign"
+        if (
+            entry.get("id")=="spells/scatterspray-3806"
+            and re.search(r"\btake ld8 points of damage\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-scatterspray-dice-notation"
+        if (
+            entry.get("id")=="spells/talons-5021"
+            and (
+                re.search(r"\byout other hand\b",effect_source,re.I)
+                or re.search(r"\bYou are considered arms\.",effect_source,re.I)
+            )
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-talons-source"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
@@ -2034,6 +2061,67 @@ def self_test():
     assert storm_fixed.get("supplementVerified")
     assert "siege-weapon attacks take a -4 penalty" in storm_fixed.get("effectSummary","").casefold()
     assert "15d6" not in storm_fixed.get("effectSummary",""), "do not import the later Spell Compendium damage cap"
+
+    repair_batch_cases = [
+        (
+            "spells/golden-barding-4555",
+            "Golden Barding",
+            "Spell Compendium (SpC), p. 106",
+            "A spectral suit of armor appears around your special mount. 2nd—3rd: Scale mail barding ( 4 armor bonus). 4th—5th: Chainmail barding (+5 armor bonus).",
+            "corrupt-golden-barding-bonus-sign",
+            ("scale mail (+4 armor", "magic vestment"),
+        ),
+        (
+            "spells/golden-barding-646",
+            "Golden Barding",
+            "Complete Divine (CDiv), p. 167",
+            "A suit of shining golden armor appears. 2nd-3rd: Scale mail barding ( 4 armor bonus). 4th-5th: Chainmail barding (+5 armor bonus).",
+            "corrupt-golden-barding-bonus-sign",
+            ("scale mail (+4 armor", "incorporeal"),
+        ),
+        (
+            "spells/jade-strike-2073",
+            "Jade Strike",
+            "Oriental Adventures (OA), p. 109",
+            "A blinded creature moves at half speed, and suffers a 4 penalty on most Strength and Dexterity-based skills.",
+            "corrupt-jade-strike-penalty-sign",
+            ("-4 penalty", "1d8"),
+        ),
+        (
+            "spells/scatterspray-3806",
+            "Scatterspray",
+            "Dragon Compendium, p. 116",
+            "Hard or sharp objects scatter outward; creatures in the burst take ld8 points of damage.",
+            "corrupt-scatterspray-dice-notation",
+            ("1d8", "reflex"),
+        ),
+        (
+            "spells/talons-5021",
+            "Talons",
+            "Dragonlance Campaign Setting, p. 108",
+            "You can make a claw attack with yout other hand as a secondary attack. You are considered arms.",
+            "corrupt-talons-source",
+            ("considered armed", "-5"),
+        ),
+    ]
+    for record_id, spell_name, source_line, damaged_text, marker, expected_fragments in repair_batch_cases:
+        damaged_html = f"""
+        <h1>{spell_name}</h1><p>{source_line}</p>
+        <div>School</div><div>Transmutation</div><div>Casting Time</div><div>1 standard action</div>
+        <div>Components</div><div>V, S</div><div>Range</div><div>Close</div>
+        <div>Duration</div><div>1 round/level</div><div>Saving Throw</div><div>See text</div>
+        <div>Spell Resistance</div><div>Yes</div><div>Classes</div><div>Wizard 4</div>
+        <h2>Description</h2><p>{damaged_text}</p>
+        """
+        p=DetailParser();p.feed(damaged_html);p.close()
+        repaired=parse_spell(p,{"name":spell_name,"id":record_id})
+        assert repaired.get("sourceIncomplete"), record_id
+        assert repaired.get("sourceIncompleteMarker")==marker, record_id
+        assert repaired.get("sourceIncompleteResolved"), record_id
+        assert repaired.get("supplementVerified"), record_id
+        summary=repaired.get("effectSummary","").casefold()
+        for fragment in expected_fragments:
+            assert fragment.casefold() in summary, (record_id, fragment, summary)
 
     repair_header_mismatch_html = """
     <h1>Repair Moderate Damage</h1><p>Miniatures Handbook (MH), p. 38</p>

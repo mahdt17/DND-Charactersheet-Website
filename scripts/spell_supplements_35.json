@@ -1438,6 +1438,86 @@
           "role": "3.5 SRD windstorm rules used to expand the delegated flame, siege-weapon, Listen, and blown-away mechanics into a self-contained summary"
         }
       ]
+    },
+    "spells/golden-barding-4555": {
+      "name": "Golden Barding",
+      "effectSummary": "Creates perfectly fitting barding around your special mount for 1 hour per caster level, with no armor check penalty or speed reduction. At caster levels 2–3 it is scale mail (+4 armor), 4–5 chainmail (+5), 6–7 splint mail (+6), 8–9 half-plate (+7), and 10 or higher full plate (+8). Armor-targeting spells such as magic vestment can be cast on the created barding.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/golden-barding-4555",
+          "role": "primary Spell Compendium catalog record; rebuilt text drops the plus sign from the +4 scale-mail bonus"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/golden-barding--4555/",
+          "role": "clean same-printing Spell Compendium rendering used to verify the +4/+5/+6/+7/+8 progression and magic vestment clause"
+        }
+      ]
+    },
+    "spells/golden-barding-646": {
+      "name": "Golden Barding",
+      "effectSummary": "Creates perfectly fitting force barding around your special mount for 1 hour per caster level, with no armor check penalty or speed reduction. At caster levels 2–3 it is scale mail (+4 armor), 4–5 chainmail (+5), 6–7 splint mail (+6), 8–9 half-plate (+7), and 10 or higher full plate (+8). Because the barding is made of force, incorporeal creatures cannot bypass it as they can ordinary armor.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/golden-barding-646",
+          "role": "primary Complete Divine catalog record; rebuilt text drops the plus sign from the +4 scale-mail bonus"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-divine--56/golden-barding--646/",
+          "role": "clean same-printing Complete Divine rendering used to verify the +4/+5/+6/+7/+8 progression and force/incorporeal rule"
+        }
+      ]
+    },
+    "spells/jade-strike-2073": {
+      "name": "Jade Strike",
+      "effectSummary": "Affects only Tainted creatures, undead, and creatures with the Shadowlands subtype in a 20-foot-radius burst. Undead and Shadowlands creatures take 1d8 damage per two caster levels (maximum 5d8) and are blinded for 1 round; a successful Reflex save halves the damage and negates the blindness. A creature with a Taint score but without the Shadowlands subtype takes half the listed damage, is not blinded, and a successful Reflex save halves that damage again. The spell's stated blindness effects include a 50% miss chance, loss of Dexterity bonus to AC, a +2 bonus for attackers, half speed, and a -4 penalty on most Strength- and Dexterity-based skills.",
+      "notes": "Locked to the Oriental Adventures printing; preserve the spell's own listed blindness consequences rather than silently substituting later-edition condition wording.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/jade-strike-2073",
+          "role": "primary Oriental Adventures catalog record; rebuilt prose loses the minus sign from the -4 skill penalty"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures sourcebook copy used to verify the damage, save, blindness, movement, attack, and -4 skill-penalty mechanics"
+        }
+      ]
+    },
+    "spells/scatterspray-3806": {
+      "name": "Scatterspray",
+      "effectSummary": "Scatters small unsecured objects in a 10-foot-radius burst. Hard or sharp objects deal 1d8 points of damage to creatures in the burst, and a successful Reflex save negates that damage. Soft objects instead deal nonlethal damage.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scatterspray-3806",
+          "role": "primary Dragon Compendium catalog record; rebuilt prose contains the malformed dice token 'ld8'"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/scatterspray--4127/",
+          "role": "clean later compilation of the same spell used to verify the 1d8 damage notation and Reflex-negates mechanic"
+        }
+      ]
+    },
+    "spells/talons-5021": {
+      "name": "Talons",
+      "effectSummary": "Transforms your hands into talonlike claws. You can make two natural claw attacks each round, each dealing 1d6 slashing damage plus your Strength modifier. Alternatively, you can wield a weapon in one hand and make the other claw as a secondary attack at -5, adding half your Strength modifier to that claw's damage, without penalizing the primary weapon attack. You are considered armed.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/talons-5021",
+          "role": "primary Dragonlance Campaign Setting catalog record; rebuilt prose contains 'yout' and ends with 'considered arms'"
+        },
+        {
+          "url": "https://www.tapatalk.com/groups/hum_forgotten_realms/dragonlance-spell-compendium-t295.html",
+          "role": "independent clean rendering used to verify 'your other hand', the -5 secondary-claw penalty, half Strength modifier, and 'considered armed' wording"
+        },
+        {
+          "url": "https://pdfcoffee.com/dragonlance-campaign-setting-6-pdf-free.html",
+          "role": "Dragonlance Campaign Setting sourcebook copy used to cross-check the same attack routine"
+        }
+      ]
     }
   }
 }
