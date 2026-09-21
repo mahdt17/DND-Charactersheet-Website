@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 044
+
+- Classifier head `c3c07f55b154731204c07bcc91d9f645e9aa98f3` passed Spell effect review #268 (`35655150888`) and Validate modernization #831 (`35655158594`).
+- Review #268 measured **1,091 remaining**, **3,606 reviews**, **2,009 regressions**, zero errors/warnings/digest drift. The strict selector exposed exactly **1** clean standalone record: Graz'zt's Long Grasp (`246`); all other selectors remained **0 eligible**.
+- Classification artifact `10663334726`, ZIP SHA-256 `1a77dd9308ef67f277c751899cf413240ce35032d0a53bfca1005119b705da71`.
+- Batch `2026-09-21-clean-044.json` locks Graz'zt's Long Grasp to primary digest `ba8e0c0ea79e441337c6931cace021a8f471591646ff7fafd6e516bf82605d26` and adds a permanent regression ID. The ordinary phrase `(as a normal unarmed attack with a +2 attack bonus)` is preserved as local attack rules rather than an inherited spell dependency.
+- Corpus after this commit: **3,607** summaries / **2,010** permanent regression IDs. Predicted queue after remeasurement: **1,090**; treat that as provisional until both CI gates pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — exact mundane attack comparison
 
 - Clean batch 043 head `f765c7a57941fdee2dd7422b943a49c8a6b33dce` passed Spell effect review #267 (`35653911124`) and Validate modernization #830 (`35653914432`).
