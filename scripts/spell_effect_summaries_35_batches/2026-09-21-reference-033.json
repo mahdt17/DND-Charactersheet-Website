@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked reviewed DnD Tools spell effects; resolved reference batch 033. Legacy source material is retained only with explicit edition provenance.",
+  "entries": {
+    "spells/repair-serious-damage-3427": {
+      "name": "Repair Serious Damage",
+      "sourceSha256": "df8a325b94ddd96d0ac477ca047c1684dd03c470338a28cf48b80ce9ead6eee6",
+      "effectSummary": "By touch, repairs 3d8 points of damage +1 point per caster level (maximum +15) to a construct that has at least 1 hit point remaining.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-serious-damage-3427",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-3424",
+          "role": "same-book inherited Repair Light Damage mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/repair-serious-damage-1997": {
+      "name": "Repair Serious Damage",
+      "sourceSha256": "c8d3e9fee35730a581118fcd35c5a51933d9960d16b9bc3e4ae3478b31807cbf",
+      "effectSummary": "By touch, repairs 3d8 points of damage +1 point per caster level (maximum +15) to a construct that has at least 1 hit point remaining.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-serious-damage-1997",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-1994",
+          "role": "same-book inherited Repair Light Damage mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/repair-moderate-damage-1996": {
+      "name": "Repair Moderate Damage",
+      "sourceSha256": "09940b986a1f7b2a12bc33621fb57ca166f2befa25d34c1f1d340916407abf25",
+      "effectSummary": "By touch, repairs 2d8 points of damage +1 point per caster level (maximum +10) to a construct that has at least 1 hit point remaining.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-moderate-damage-1996",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-1994",
+          "role": "same-book inherited Repair Light Damage mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    }
+  }
+}

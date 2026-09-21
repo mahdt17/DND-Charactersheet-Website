@@ -1164,10 +1164,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
 
     effect_source=spell_description_text(parser)
     if effect_source:
-        # The rebuilt Miniatures Handbook pages currently report an extra Focus
-        # component for these inherited repair spells. The sourcebook spell block
-        # gives Repair Light Damage V, S, and the derived spells declare no
-        # component exception. Fail closed until the rebuilt header is repaired.
+        # Verified Miniatures Handbook repair: the rebuilt pages report an
+        # extra Focus component, but the sourcebook gives Repair Light Damage
+        # components V, S and the derived spells declare no component exception.
         if (
             entry.get("id") in {
                 "spells/repair-moderate-damage-1996",
@@ -1175,8 +1174,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
             }
             and result.get("components") == ["V", "S", "F"]
         ):
-            result["sourceIncomplete"] = True
-            result["sourceIncompleteMarker"] = "incorrect-miniatures-handbook-repair-components"
+            result["components"] = ["V", "S"]
+            result["sourceRepairApplied"] = True
+            result["sourceRepairMarker"] = "verified-miniatures-handbook-repair-components"
 
         # These rebuilt primary pages flatten their complete table rows into the
         # surrounding prose, so a table reference without parser.tables is not
@@ -1982,13 +1982,16 @@ def self_test():
     <h2>Description</h2><p>As repair light damage, except repair moderate damage repairs 2d8 points of damage + 1 point per caster level (up to +10).</p>
     """
     p=DetailParser();p.feed(repair_header_mismatch_html);p.close()
-    repair_bad=parse_spell(p,{"name":"Repair Moderate Damage","id":"spells/repair-moderate-damage-1996"})
-    assert repair_bad.get("sourceIncomplete")
-    assert repair_bad.get("sourceIncompleteMarker")=="incorrect-miniatures-handbook-repair-components"
+    repair_fixed=parse_spell(p,{"name":"Repair Moderate Damage","id":"spells/repair-moderate-damage-1996"})
+    assert repair_fixed.get("components")==["V","S"]
+    assert repair_fixed.get("sourceRepairApplied")
+    assert repair_fixed.get("sourceRepairMarker")=="verified-miniatures-handbook-repair-components"
+    assert not repair_fixed.get("sourceIncomplete")
 
     repair_header_verified_html = repair_header_mismatch_html.replace("V, S, F", "V, S")
     p=DetailParser();p.feed(repair_header_verified_html);p.close()
     repair_good=parse_spell(p,{"name":"Repair Moderate Damage","id":"spells/repair-moderate-damage-1996"})
+    assert repair_good.get("components")==["V","S"]
     assert not repair_good.get("sourceIncomplete")
 
     identical_reference_html = """

@@ -1367,6 +1367,57 @@
           "role": "independent same-spell mirror cross-check for the repaired Complete Mage mechanics"
         }
       ]
+    },
+    "spells/repair-moderate-damage-1996": {
+      "name": "Repair Moderate Damage",
+      "components": [
+        "V",
+        "S"
+      ],
+      "notes": "Verified Miniatures Handbook component repair: the rebuilt page adds an unsupported Focus component; the spell inherits Repair Light Damage and declares no component exception.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-moderate-damage-1996",
+          "role": "primary catalog identity and rebuilt header showing the discrepant Focus component"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsMinHB.html",
+          "role": "Miniatures Handbook spell block cross-check: Repair Light Damage is V, S and Repair Moderate Damage inherits it without a component exception"
+        }
+      ]
+    },
+    "spells/repair-serious-damage-1997": {
+      "name": "Repair Serious Damage",
+      "components": [
+        "V",
+        "S"
+      ],
+      "notes": "Verified Miniatures Handbook component repair: the rebuilt page adds an unsupported Focus component; the spell inherits Repair Light Damage and declares no component exception.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-serious-damage-1997",
+          "role": "primary catalog identity and rebuilt header showing the discrepant Focus component"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsMinHB.html",
+          "role": "Miniatures Handbook spell block cross-check: Repair Light Damage is V, S and Repair Serious Damage inherits it without a component exception"
+        }
+      ]
+    },
+    "spells/repair-serious-damage-3427": {
+      "name": "Repair Serious Damage",
+      "sourceEdition": "3.0",
+      "notes": "Tome and Blood is D&D 3.0 material; retain the reviewed mechanics with explicit edition provenance rather than treating this printing as 3.5.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-serious-damage-3427",
+          "role": "primary catalog identity and Tome and Blood source"
+        },
+        {
+          "url": "https://dndtools.net/spells/tome-and-blood-a-guidebook-to-wizards-and-sorcerers--51/repair-serious-damage--3427/",
+          "role": "same-printing D&D Tools cross-check and 3.0 source provenance"
+        }
+      ]
     }
   }
 }
