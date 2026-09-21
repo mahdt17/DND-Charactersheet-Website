@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact mundane attack comparison
+
+- Clean batch 043 head `f765c7a57941fdee2dd7422b943a49c8a6b33dce` passed Spell effect review #267 (`35653911124`) and Validate modernization #830 (`35653914432`).
+- Review #267 measured **1,091 remaining**, **3,606 reviews**, **2,009 regressions**, zero errors/warnings/digest drift; every automatic selector returned **0 eligible**. Classification artifact `10663273177`, ZIP SHA-256 `e8f2bb1c832f06aa54d68b932d9961f3a060c639ae3edf165edddb8c408b44f3`.
+- Blocker discovery found Graz'zt's Long Grasp (`246`) blocked only by `(as a normal unarmed attack with a +2 attack bonus)`. The upstream parser marks the effect self-contained, and the record has no suspected-damage or external-mechanics flags.
+- This correction excludes only the exact prefix `a normal unarmed attack` from the generic parenthetical detector. A positive test preserves `(as magic missile)` as a genuine spell reference.
+- No content is locked by this parser commit. Require both CI gates and exactly the intended strict-clean exposure before locking. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 043
 
 - Classifier head `cc4ba17bef32a7320f4621093184f7575e6fcc5b` passed Spell effect review #266 (`35653396315`) and Validate modernization #829 (`35653400015`).
