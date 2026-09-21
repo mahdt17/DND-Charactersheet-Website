@@ -126,6 +126,11 @@ jobs:
             --review test-results/review/spell-effect-review.json \
             --family-count "$NEAR_DUPLICATE_FAMILY_COUNT" \
             --output test-results/spell-review-near-duplicate-batch.json
+          python scripts/select_spell_parser_candidate_manifest.py \
+            --classification test-results/spell-review-classification.json \
+            --review test-results/review/spell-effect-review.json \
+            --count 25 \
+            --output test-results/spell-parser-candidate-manifest.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
