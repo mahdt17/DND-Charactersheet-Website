@@ -1,8 +1,8 @@
 {
   "scope": "3.5/spells",
   "count": 0,
-  "referenceCount": 0,
+  "referenceCount": 13,
   "duplicateFamilyCount": 0,
-  "nonce": "2026-09-20-measure-header-aware-references-002",
+  "nonce": "2026-09-20-select-header-aware-references-001",
   "nearDuplicateFamilyCount": 0
 }
