@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — generic “as with most” comparison
+
+- Clean batch 041 head `3da2e9968b4d2fe3a74bcd4fe6717606d526cedd` passed Spell effect review #263 (`35651595987`) and Validate modernization #826 (`35651600195`).
+- Review #263 measured **1,093 remaining**, **3,604 reviews**, **2,007 regressions**, zero errors/warnings/digest drift; every automatic selector returned **0 eligible**. Classification artifact `10663145120`, ZIP SHA-256 `ea72d8619e1085a6c8200ee139bf84c419922709b82ec64047e8944c64cbd894`.
+- Blocker discovery found Pestilence (`212`) blocked only by the parenthetical `(as with most diseases)`. Its effect text explicitly states the two-consecutive-save rule, so that phrase is explanatory comparison rather than inherited spell mechanics.
+- The exact prefix `(as with most ...)` occurs only once in the current review queue. This correction excludes only `with most` from the generic parenthetical reference detector and retains existing positive reference tests such as `(as fly)`.
+- No content is locked by this parser commit. Require both CI gates and exactly the intended strict-clean exposure before locking Pestilence. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 041
 
 - Upstream parser head `b1e9d16e1aab12c23fd08d9a608cc2aacaf3f94f` passed Spell effect review #262 (`35650528593`) and Validate modernization #825 (`35650535129`).
