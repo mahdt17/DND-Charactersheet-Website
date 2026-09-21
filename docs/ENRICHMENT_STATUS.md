@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 046
+
+- Classifier head `511c9014ed581cfc12bb45021f270499b3f45c01` passed Spell effect review #272 (`35657105507`) and Validate modernization #835 (`35657111063`).
+- Review #272 measured **1,089 remaining**, **3,608 reviews**, **2,011 regressions**, zero errors/warnings/digest drift. The strict selector exposed exactly **1** clean standalone record: Project Image (`2693`); all other selectors remained **0 eligible**.
+- Classification artifact `10666051250`, ZIP SHA-256 `e6f3cce68c727108af06e6a1a5efcc9ca559b939d781cbc0bb66bbc2d7f8a719`.
+- Batch `2026-09-21-clean-046.json` locks Project Image to primary digest `ffbb60fe8dbc7f75fac3a022ea4fa17bb2f811373a28ecd582024c342ac5be85` and adds a permanent regression ID. The phrase `version of yourself` is preserved as self-description rather than a spell dependency; teleportation spell names remain examples of line-of-effect-breaking effects, not inherited mechanics.
+- Corpus after this commit: **3,609** summaries / **2,012** permanent regression IDs. Predicted queue after remeasurement: **1,088**; treat that as provisional until both CI gates pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — exact self-description phrase
 
 - Clean batch 045 head `6ba72bed211bc45854fc0a7256d673b25af025d3` passed Spell effect review #271 (`35656635239`) and Validate modernization #834 (`35656641078`).
