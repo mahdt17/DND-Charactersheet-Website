@@ -4,10 +4,21 @@ on:
     branches: [codex/content-foundation]
     paths:
       - ".github/spell-effect-review.request"
+      - ".github/workflows/spell-effect-review.yml"
+      - "public/catalogs/dndtools/spells.json"
+      - "scripts/classify_spell_review_queue.py"
+      - "scripts/enrich_dndtools.py"
+      - "scripts/export_spell_effect_review.py"
+      - "scripts/merge_spell_effect_review.py"
+      - "scripts/select_spell_*"
+      - "scripts/spell_effect_summaries_35.json"
+      - "scripts/spell_effect_summaries_35_batches/**"
+      - "scripts/spell_regression_cases.json"
+      - "scripts/spell_supplements_35.json"
 permissions:
   contents: read
 concurrency:
-  group: spell-effect-review-bulk-v2
+  group: spell-effect-review-bulk-v3
   cancel-in-progress: true
 jobs:
   review-shard:
@@ -19,8 +30,14 @@ jobs:
         shard: [0,1,2,3,4,5,6,7]
     steps:
       - uses: actions/checkout@v4
+      - id: review-cache
+        uses: actions/cache@v4
+        with:
+          path: test-results/review/shard-${{ matrix.shard }}.json
+          key: spell-review-v3-${{ runner.os }}-${{ matrix.shard }}-${{ hashFiles('public/catalogs/dndtools/spells.json', 'scripts/enrich_dndtools.py', 'scripts/export_spell_effect_review.py', 'scripts/classify_spell_review_queue.py', 'scripts/spell_effect_summaries_35.json', 'scripts/spell_effect_summaries_35_batches/**', 'scripts/spell_regression_cases.json', 'scripts/spell_supplements_35.json') }}
       - name: Export long spell effects shard ${{ matrix.shard }}
-        run: >
+        if: steps.review-cache.outputs.cache-hit != 'true'
+        run: >-
           python scripts/export_spell_effect_review.py
           --shard-count 8 --shard-index ${{ matrix.shard }} --delay 0.08
           --output test-results/review/shard-${{ matrix.shard }}.json
@@ -42,7 +59,7 @@ jobs:
           path: test-results/review-shards
           merge-multiple: true
       - name: Merge review queue
-        run: >
+        run: >-
           python scripts/merge_spell_effect_review.py
           --input-dir test-results/review-shards --shard-count 8
           --output test-results/spell-effect-review.json
@@ -68,19 +85,21 @@ jobs:
           python scripts/classify_spell_review_queue.py --self-test
           python scripts/select_spell_review_batch.py --self-test
           python scripts/select_spell_reference_batch.py --self-test
+          python scripts/select_spell_prerequisite_wave.py --self-test
           python scripts/select_spell_exact_duplicate_batch.py --self-test
           python scripts/select_spell_near_duplicate_batch.py --self-test
       - name: Classify remaining review queue
-        run: >
+        run: >-
           python scripts/classify_spell_review_queue.py
           --input test-results/review/spell-effect-review.json
           --output test-results/spell-review-classification.json
           --reference-output test-results/spell-reference-review-packets.json
           --delay 0.08
-      - name: Select review batches
+      - name: Select review batches and prerequisite wave
         run: |
           STRICT_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("count", 0)))')"
           REFERENCE_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("referenceCount", 0)))')"
+          PREREQUISITE_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("prerequisiteCount", 0)))')"
           DUPLICATE_FAMILY_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("duplicateFamilyCount", 0)))')"
           NEAR_DUPLICATE_FAMILY_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("nearDuplicateFamilyCount", 0)))')"
           python scripts/select_spell_review_batch.py \
@@ -93,6 +112,10 @@ jobs:
             --references test-results/spell-reference-review-packets.json \
             --count "$REFERENCE_COUNT" \
             --output test-results/spell-review-reference-batch.json
+          python scripts/select_spell_prerequisite_wave.py \
+            --reference-batch test-results/spell-review-reference-batch.json \
+            --count "$PREREQUISITE_COUNT" \
+            --output test-results/spell-review-prerequisite-wave.json
           python scripts/select_spell_exact_duplicate_batch.py \
             --classification test-results/spell-review-classification.json \
             --review test-results/review/spell-effect-review.json \
@@ -112,6 +135,7 @@ jobs:
             test-results/spell-reference-review-packets.json
             test-results/spell-review-strict-batch.json
             test-results/spell-review-reference-batch.json
+            test-results/spell-review-prerequisite-wave.json
             test-results/spell-review-exact-duplicate-batch.json
             test-results/spell-review-near-duplicate-batch.json
           retention-days: 1

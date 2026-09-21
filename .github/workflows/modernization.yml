@@ -7,19 +7,33 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: modernization-v2-${{ github.ref }}
+  group: modernization-v3-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   validate:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+      - id: scope
+        name: Choose targeted or full validation
+        env:
+          BEFORE_SHA: ${{ github.event.before || github.event.pull_request.base.sha }}
+          AFTER_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          python scripts/determine_spell_validation_scope.py \
+            --before "$BEFORE_SHA" --after "$AFTER_SHA" \
+            --milestone-size 50 \
+            --report test-results/spell-validation-scope.json \
+            --ids-file test-results/changed-spell-regressions.txt
       - run: npm test
       - run: node tests/casting.mjs
       - run: node tests/editions.mjs
@@ -27,22 +41,54 @@ jobs:
       - run: python scripts/enrich_dndtools.py --self-test
       - run: python scripts/classify_spell_review_queue.py --self-test
       - run: python scripts/select_spell_review_batch.py --self-test
-      - run: python scripts/preflight_35_class_regressions.py
-      - run: python scripts/preflight_35_feat_regressions.py
-      - run: python scripts/preflight_35_spell_regressions.py
-      - run: python scripts/preflight_35_item_regressions.py
+      - run: python scripts/select_spell_reference_batch.py --self-test
+      - run: python scripts/select_spell_prerequisite_wave.py --self-test
+      - run: python scripts/select_spell_exact_duplicate_batch.py --self-test
+      - run: python scripts/select_spell_near_duplicate_batch.py --self-test
       - run: python scripts/import_wikidot.py --self-test
-      - run: python scripts/preflight_5e_item_regressions.py
       - run: python scripts/audit_srd2024.py
       - run: python tests/enrichment_gate.py
       - run: node tests/setup-choices.mjs
-      - run: npm run build
-      - run: npx playwright install --with-deps chromium
-      - run: npm run test:browser
-      - run: node tests/browser-editions.mjs
-      - run: node tests/browser-casting-setup.mjs
+      - name: Run targeted live spell regressions
+        if: steps.scope.outputs.mode == 'targeted' && steps.scope.outputs.added_count != '0'
+        run: >-
+          python scripts/preflight_35_spell_regressions.py
+          --ids-file test-results/changed-spell-regressions.txt
+      - name: Run full 3.5 class regressions
+        if: steps.scope.outputs.mode == 'full'
+        run: python scripts/preflight_35_class_regressions.py
+      - name: Run full 3.5 feat regressions
+        if: steps.scope.outputs.mode == 'full'
+        run: python scripts/preflight_35_feat_regressions.py
+      - name: Run full 3.5 spell regressions
+        if: steps.scope.outputs.mode == 'full'
+        run: python scripts/preflight_35_spell_regressions.py
+      - name: Run full 3.5 item regressions
+        if: steps.scope.outputs.mode == 'full'
+        run: python scripts/preflight_35_item_regressions.py
+      - name: Run full 5e item regressions
+        if: steps.scope.outputs.mode == 'full'
+        run: python scripts/preflight_5e_item_regressions.py
+      - name: Build application
+        if: steps.scope.outputs.mode == 'full'
+        run: npm run build
+      - name: Install Chromium
+        if: steps.scope.outputs.mode == 'full'
+        run: npx playwright install --with-deps chromium
+      - name: Run browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: npm run test:browser
+      - name: Run edition browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-editions.mjs
+      - name: Run casting/setup browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-casting-setup.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: modernization-browser-results
-          path: test-results/
+          name: modernization-validation-results
+          path: |
+            test-results/spell-validation-scope.json
+            test-results/changed-spell-regressions.txt
+            test-results/
