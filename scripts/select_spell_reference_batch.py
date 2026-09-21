@@ -23,6 +23,10 @@ ALLOWED_TAGS = {
     "reference-dependent",
     "external-mechanics-reference",
     "manual-verification-required",
+    # Near-duplicate membership is a review-routing tag, not an accuracy
+    # failure. Every selected record is still independently digest-checked,
+    # reference-resolved, target-locked, and detector-validated below.
+    "near-duplicate-family",
 }
 
 LEGACY_REFERENCE_SOURCE_BOOKS = {
@@ -477,6 +481,17 @@ def run_self_test() -> None:
     assert zero["selectedCount"] == 0
     assert zero["eligibleCount"] == 1
     assert zero["rejectedEntries"] == []
+    near_duplicate_classified = json.loads(json.dumps(classified))
+    near_duplicate_classified["tags"] = ["reference-dependent", "near-duplicate-family"]
+    assert "disallowed-classifier-tags" not in candidate_reasons(
+        near_duplicate_classified, packet, {classified["id"]}, {target["id"]}
+    )
+
+    unrelated_family_classified = json.loads(json.dumps(classified))
+    unrelated_family_classified["tags"] = ["reference-dependent", "exact-duplicate-effect"]
+    assert "disallowed-classifier-tags" in candidate_reasons(
+        unrelated_family_classified, packet, {classified["id"]}, {target["id"]}
+    )
 
     unlocked = select_batch(report, packets, {"recordIds": []}, 0)
     assert unlocked["eligibleCount"] == 0
