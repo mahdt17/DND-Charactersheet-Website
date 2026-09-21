@@ -41,6 +41,7 @@ ALLOWED_EXTERNAL_REASONS = {
     "leading-inherited-spell",
     "similar-to-named-spell-comparison",
     "as-with-named-spell",
+    "as-per-named-spell",
     "receives-named-spell-inheritance",
     "named-effect-shorthand",
     "parenthetical-as-the-spell",
@@ -557,6 +558,23 @@ def run_self_test() -> None:
     assert "disallowed-external-mechanics" not in cited_reasons
     assert "current-disallowed-external-mechanics" not in cited_reasons
     assert "unverified-reference-page-citation" not in cited_reasons
+
+    as_per = json.loads(json.dumps(packet))
+    as_per["effectSource"] = "The subject gains resistance as per the resist energy spell."
+    as_per["sourceSha256"] = d35.spell_effect_digest(as_per["effectSource"])
+    as_per_classified = json.loads(json.dumps(classified))
+    as_per_classified["sourceSha256"] = as_per["sourceSha256"]
+    as_per_classified["tags"] = [
+        "reference-dependent",
+        "external-mechanics-reference",
+        "manual-verification-required",
+    ]
+    as_per_classified["externalMechanicsReasons"] = ["as-per-named-spell"]
+    as_per_reasons = candidate_reasons(
+        as_per_classified, as_per, {classified["id"]}, {target["id"]}
+    )
+    assert "disallowed-external-mechanics" not in as_per_reasons
+    assert "current-disallowed-external-mechanics" not in as_per_reasons
 
     cited_extra = json.loads(json.dumps(cited))
     cited_extra["effectSource"] += " See page 150 for planar hazard rules."
