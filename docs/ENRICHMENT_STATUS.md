@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 043
+
+- Classifier head `cc4ba17bef32a7320f4621093184f7575e6fcc5b` passed Spell effect review #266 (`35653396315`) and Validate modernization #829 (`35653400015`).
+- Review #266 measured **1,092 remaining**, **3,605 reviews**, **2,008 regressions**, zero errors/warnings/digest drift. The strict selector exposed exactly **1** clean standalone record: Leap Into Animal (`4841`); all other selectors remained **0 eligible**.
+- Classification artifact `10663062969`, ZIP SHA-256 `68279ff240d6cc1412edf62c4e994e3faeb69235b869bd1fc1a7f207cf8b5faf`.
+- Batch `2026-09-21-clean-043.json` locks Leap Into Animal to primary digest `bcd595313671144a93b3e88f216066ebbfec17aa12b27009cfe3c259078cb194` and adds a permanent regression ID. The summary preserves the merge/gear limit, size requirement, existence/detection state, control and mental-action restrictions, exit/shunting rules, and the Vadalis unwilling-animal exception.
+- Corpus after this commit: **3,606** summaries / **2,009** permanent regression IDs. Predicted queue after remeasurement: **1,091**; treat that as provisional until both CI gates pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — exact narrative as-if phrase
 
 - Clean batch 042 head `10a7844ccbf3b7cef6386fa56991920c74d56cd0` passed Spell effect review #265 (`35652685712`) and Validate modernization #828 (`35652692568`).
