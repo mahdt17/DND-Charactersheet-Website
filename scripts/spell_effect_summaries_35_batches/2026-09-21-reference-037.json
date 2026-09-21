@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 references with explicit header exceptions; batch 037.",
+  "entries": {
+    "spells/portal-alarm-improved-4651": {
+      "name": "Portal Alarm, Improved",
+      "sourceSha256": "d6cd77f68c921884e059f5bb6578f9ba5df9d0c6a02befaef5012cdb04045526",
+      "effectSummary": "Wards one interplanar gate or portal for 8 hours/level (dismissible). At casting, choose mental, audible, or both alarms; each passage by a Tiny or larger creature triggers the ward, including ethereal and astral travelers. The mental alarm reaches its recipient within 1 mile on the same plane, wakes normal sleepers, does not interrupt concentration, and ignores silence. It shows all passing creatures and their travel direction from a viewpoint 10 feet from the portal. You may substitute a creature you touch as the mental recipient; that creature can negate this with a Will save. The audible alarm lasts 1 round, is clear within 60 feet and faint within 180 feet, and crosses closed doors and planes. Silence at the portal suppresses the audible alarm; listeners in silence cannot hear it. You may choose a password at casting; speaking it before passage bypasses the alarm, and analyze portal can reveal it. Components are V, S, and a focus: a small leather pouch holding three brass bells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/portal-alarm-improved-4651",
+          "role": "Spell Compendium p. 160 child effect and V/S/F header reviewed; duration, combined alarms, image, recipient-save exception and focus preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/portal-alarm-4649",
+          "role": "Same-book Portal Alarm dependency; digest 608353c8206a7b2da1996b050a39ad897c409c499a86cb4976b445697d688152 verified; inherited triggers, range, silence, password and alarm behavior expanded"
+        }
+      ]
+    },
+    "spells/otilukes-telekinetic-sphere-2638": {
+      "name": "Otiluke's Telekinetic Sphere",
+      "sourceSha256": "f0d096788ce092282b4cb3dc6282e93b3541746c4df94f4445c332f79c134d5b",
+      "effectSummary": "Encloses fitting creatures or objects in a force sphere 1 foot in diameter per caster level; Reflex negates (object), spell resistance applies (object). Nothing passes through the barrier, but occupants breathe normally. Physical force cannot move or damage it; a rod of cancellation, rod of negation, disintegrate, or targeted dispel magic destroys it without harming occupants. Contents weigh one-sixteenth normal weight. You can telekinetically lift and move the sphere only if its contents normally weigh at most 5,000 pounds total. After enclosure, control reaches 100 feet + 10 feet/caster level. Starting the round after casting, concentrating as a standard action moves it up to 30 feet per round, even with you inside. Without concentration, it stays still on level ground or falls 60 feet per round without damaging occupants, until level ground, expiration, or resumed concentration. After voluntary or involuntary interruption, concentration may resume on your next or any later turn within the duration. Duration is 1 minute/level, dismissible. V, S, M; materials: matching hemispheres of clear crystal and gum arabic, plus two small bar magnets.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otilukes-telekinetic-sphere-2638",
+          "role": "PHB v.3.5 p. 259 child effect/header reviewed; object targeting, geometry, normal-weight cap, control range, concentration, falling and materials preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/otilukes-resilient-sphere-2637",
+          "role": "PHB v.3.5 p. 258 dependency; digest 08c6871fa4aee85aee0e1645fba4774292756b33975e92e40a6d24e018587a72 verified; barrier, breathing, physical immobility and destruction exceptions expanded"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "74c6bee7a8a0f838faa77aa1d64eadfe1797e7d0",
+    "workflowRun": 35580155438,
+    "classificationArtifact": 10629818777,
+    "selectionSha256": "bd0968ce0dd19c3944c38a4f0b99b73eb4175442829c9e0ac9524884e9c63a16"
+  }
+}

@@ -4,6 +4,16 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — batch 037
+
+- Parser/header commit `74c6bee7a8a0f838faa77aa1d64eadfe1797e7d0` passed Spell effect review #254 (`35580155438`) and Validate modernization #817 (`35580159270`), including full regressions and browser tests.
+- Review #254 measured **1,100** remaining, **2** eligible references, **0** strict standalone and **0** prerequisite targets. Classification artifact `10629818777`, ZIP SHA-256 `2f801de9dca6db1e545f362fe7b2740a90b4acfcded982001b1ace1a538cac1f`.
+- Batch `2026-09-21-reference-037.json` adds **2** digest-locked, self-contained summaries and permanent regression IDs: Portal Alarm, Improved (`4651`, Spell Compendium) and Otiluke's Telekinetic Sphere (`2638`, PHB v.3.5). Both parent digests were independently refetched; geometry, header exceptions, components, saves/SR and all inherited mechanics were checked.
+- Corpus after this commit: **3,599** summaries / **2,002** permanent regression IDs. Queue reduction to 1,098 is a prediction until the lock commit's measurement artifact passes.
+- Selector is in measurement mode. Require both CI gates on the lock commit before proceeding. Full category audit #83 (`35580155383`) is running on the preceding parser commit; preserve its actual source/output results separately from queue measurements.
+- Next high-confidence blocker: the parenthetical reference detector misreads the exact phrase `(as determined by the DM)` as a spell name. A temporary evaluation changes only Speak With Animals (`2515`), Speak With Plants (`2516`), and Stone Tell (`2518`) in the 1,100-record artifact; their primary digests were refetched unchanged. Implement a narrowly scoped exclusion with positive/negative self-tests, pass CI, then independently review each newly eligible record. Do not broadly suppress parentheticals or genuine spell references.
+- Manual of the Planes legacy records remain held for verified 3.0 provenance. Live/catalog writes locked; no Supabase changes; PR #4 must remain open/unmerged.
+
 ## Resume checkpoint — 2026-09-21
 
 - Verified incoming head: `f50ad5a1d03a213e7c1229a86afe71836df0355b`; PR #4 open, unmerged, mergeable.
