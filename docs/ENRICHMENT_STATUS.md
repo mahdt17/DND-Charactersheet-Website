@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact caster-selection phrase
+
+- Clean batch 046 head `9d2b9a40f26de37b579ecee215d509078e0b002d` passed Spell effect review #273 (`35658022206`) and Validate modernization #836 (`35658027389`).
+- Review #273 measured **1,088 remaining**, **3,609 reviews**, **2,012 regressions**, zero errors/warnings/digest drift; every automatic selector returned **0 eligible**. Classification artifact `10666013260`, ZIP SHA-256 `44a09483975d991f53c07047ba18dcc9ad1ee6ed849c77b0e40e691cc2f5ba1f`.
+- Blocker discovery found Wall of Water (`4747`) blocked only by the parenthetical `(as selected by you)` in its fresh-water/seawater choice. The upstream review marks the source complete and not reference-dependent, with no external-mechanics or source-damage flags.
+- This correction excludes only the exact phrase `selected by you` from the generic parenthetical detector; genuine `(as magic missile)`-style spell references remain fail-closed.
+- No content is locked by this parser commit. Require both CI gates and exactly the intended strict-clean exposure before locking. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 046
 
 - Classifier head `511c9014ed581cfc12bb45021f270499b3f45c01` passed Spell effect review #272 (`35657105507`) and Validate modernization #835 (`35657111063`).
