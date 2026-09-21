@@ -1,9 +1,9 @@
 {
   "scope": "3.5/spells",
   "count": 0,
-  "referenceCount": 0,
+  "referenceCount": 1,
   "prerequisiteCount": 0,
   "duplicateFamilyCount": 0,
-  "nonce": "2026-09-21-measure-after-repair-light-mass-prerequisite-001",
+  "nonce": "2026-09-21-select-repair-moderate-mass-reference-001",
   "nearDuplicateFamilyCount": 0
 }
