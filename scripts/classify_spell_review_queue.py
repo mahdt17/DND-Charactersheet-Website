@@ -157,7 +157,7 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\b(?:version\s+of|as\s+per\s+(?:a\s+)?standard)\s+(?P<name>[A-Za-z][A-Za-z'’/-]{1,80})(?=[.;,(]|$)",
+        r"\b(?:version\s+of|as\s+per\s+(?:a\s+)?standard)\s+(?!yourself\b)(?P<name>[A-Za-z][A-Za-z'’/-]{1,80})(?=[.;,(]|$)",
         re.I,
     ),
     re.compile(
@@ -1999,6 +1999,10 @@ def run_self_test() -> None:
     assert extract_reference_names("The effect moves (as a free action).") == []
     # Preserve genuine parenthetical spell-name references.
     assert extract_reference_names("The effect functions (as magic missile).") == ["magic missile"]
+    # A projected copy described as a version of yourself is not a spell reference.
+    assert extract_reference_names("You create a quasi-real, illusory version of yourself.") == []
+    # Preserve a genuine version-of-spell reference.
+    assert extract_reference_names("This creates a version of fireball.") == ["fireball"]
     # Preserve genuine parenthetical spell-name references.
     assert extract_reference_names("The effect functions (as magic missile).") == ["magic missile"]
     # Preserve genuinely referential as-if clauses fail-closed.

@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact self-description phrase
+
+- Clean batch 045 head `6ba72bed211bc45854fc0a7256d673b25af025d3` passed Spell effect review #271 (`35656635239`) and Validate modernization #834 (`35656641078`).
+- Review #271 measured **1,089 remaining**, **3,608 reviews**, **2,011 regressions**, zero errors/warnings/digest drift; every automatic selector returned **0 eligible**. Classification artifact `10665685797`, ZIP SHA-256 `ac805d133371bcdfb1b4d5ff428fedc9649bf154c2f0008c9ce548e5e5a54dec`.
+- Blocker discovery found Project Image (`2693`) blocked by the literal phrase `version of yourself` in its opening description. That pronoun is not a spell name; the upstream review marks the source complete and not reference-dependent.
+- This correction excludes only `yourself` from the existing `version of ...` detector. A positive self-test preserves `version of fireball` as a genuine reference-bearing phrase.
+- No content is locked by this parser commit. Require both CI gates and exactly the intended strict-clean exposure before locking. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 045
 
 - Classifier head `73f3cbd193164a83e528e2d1eff73ce379294810` passed Spell effect review #270 (`35656120125`) and Validate modernization #833 (`35656124732`).
