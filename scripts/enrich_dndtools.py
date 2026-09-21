@@ -2271,7 +2271,7 @@ def self_test():
             "You tear a temporary hole in reality itself that sends creatures to a random plane (see sidebar). The primary area has a 5-foot radius per caster level and the secondary area extends to a 10-foot radius per caster level. A reality maelstrom is a one-way portal.",
             "omitted-reality-maelstrom-random-plane-sidebar",
             ("5-foot radius per caster level", "additional saving throws every round", "one-way portal"),
-            ("random planar destinations", "01-05", "heroic domains of ysgard", "00", "demiplane of the dm's choice"),
+            ("01-05", "heroic domains of ysgard", "00", "demiplane of the dm's choice"),
         ),
         (
             "spells/reality-maelstrom-4072",
@@ -2280,7 +2280,7 @@ def self_test():
             "You tear a temporary hole in reality itself that sends creatures to a random plane (see sidebar). The primary area is a 20-foot-radius sphere and the secondary area extends from 20 feet to 40 feet. A reality maelstrom is a one-way portal.",
             "omitted-reality-maelstrom-random-plane-sidebar",
             ("20-foot radius", "50 pounds or less", "one-way portal"),
-            ("random planar destinations", "01-05", "heroic domains of ysgard", "100", "demiplane of dm's choice"),
+            ("01-05", "heroic domains of ysgard", "100", "demiplane of dm's choice"),
         ),
         (
             "spells/spell-matrix-lesser-4207",
