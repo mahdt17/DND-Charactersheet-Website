@@ -191,30 +191,12 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\bsimilar\s+to\s+(?:the\s+)?effects?\s+of\s+(?:a|an|the)?\s*"
-        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)(?:\s+spell)?"
-        r"(?=\s+(?:on|for)\s+(?:a|an|the)\b|[,.;)]|$)",
-        re.I,
-    ),
-    re.compile(
-        r"\bsimilar\s+to\s+(?:the\s+)?"
-        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
-        r"\s*\(\s*(?:PH|PHB)\s*\d+\s*\)"
-        r"(?=\s*,\s*(?:except|but|this)\b|[.;)]|$)",
-        re.I,
-    ),
-    re.compile(
         r"\bas\s+per\s+(?:a|an|the)\s+"
         r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
         re.I,
     ),
     re.compile(
         r"\baffected\s+as\s+though\s+by\s+(?:a|an|the)\s+"
-        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
-        re.I,
-    ),
-    re.compile(
-        r"\bsimilar\s+to\s+(?:that|those)\s+created\s+by\s+(?:a|an|the)?\s*"
         r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
         re.I,
     ),
@@ -2089,19 +2071,10 @@ def run_self_test() -> None:
     assert extract_reference_names(
         "If you do not wield it, the weapon behaves as if unaffected by this spell."
     ) == []
-    assert extract_reference_names(
-        "This spell is similar to deathwatch (PH 217), but it functions only on animals and plants."
-    ) == ["deathwatch"]
-    assert extract_reference_names(
-        "The creatures are paralyzed, similar to the effect of hold person on a living creature."
-    ) == ["hold person"]
     assert extract_reference_names("The glow provides light as per the light spell.") == ["light"]
     assert extract_reference_names(
         "Every creature in the area is affected as though by the prismatic spray spell."
     ) == ["prismatic spray"]
-    assert extract_reference_names(
-        "The darkness is similar to that created by the deeper darkness spell."
-    ) == ["deeper darkness"]
     assert extract_reference_names("This spell functions as a targeted dispel magic.") == ["dispel magic"]
     assert extract_reference_names("The illumination is the equivalent of a daylight spell.") == ["daylight"]
     assert extract_reference_names(
