@@ -87,6 +87,31 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\b(?:receive|receives|received)\s+(?P<name>negative energy protection)\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bfunctions?\s+as\s+if\s+affected\s+by\s+(?P<name>negative energy protection)\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bas\s+the\s+(?P<name>spell turning)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\binteracts?\s+with\s+other\s+spells?\s+just\s+(?:as|like)\s+"
+        r"(?:a|an|the)?\s*(?P<name>wall of force)(?:\s*\([^)]*\))?\s*(?:does)?\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bprotected\s+by\s+(?P<name>freedom of movement)\b",
+        re.I,
+    ),
+    re.compile(
+        r"\(\s*see\s+the\s+(?P<name>temporal stasis)\s+spell\s*\)",
+        re.I,
+    ),
+    re.compile(
         r"\b(?:functions?|works?|operates?)\s+as\s+"
         r"(?!if\b|though\b|a\b|an\b)(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
@@ -2032,6 +2057,30 @@ def run_self_test() -> None:
     ) == ["lightning bolt"]
     assert extract_reference_names(
         "The result appears exactly as the original spell described."
+    ) == []
+    assert extract_reference_names(
+        "All subjects receive negative energy protection, except that their resistance roll gains +10."
+    ) == ["negative energy protection"]
+    assert extract_reference_names(
+        "Each subject functions as if affected by negative energy protection, except for the stated bonus."
+    ) == ["negative energy protection"]
+    assert extract_reference_names(
+        "The holy star can turn spell levels as the spell turning spell."
+    ) == ["spell turning"]
+    assert extract_reference_names(
+        "It interacts with other spells just as a wall of force (PH 298) does."
+    ) == ["wall of force"]
+    assert extract_reference_names(
+        "You are protected by freedom of movement."
+    ) == ["freedom of movement"]
+    assert extract_reference_names(
+        "The subject is suspended (see the temporal stasis spell) until freed."
+    ) == ["temporal stasis"]
+    assert extract_reference_names(
+        "The subject receives negative energy damage."
+    ) == []
+    assert extract_reference_names(
+        "The wall interacts with other spells normally."
     ) == []
     assert extract_reference_names(
         "This spell functions as teleport, greater, but only you can travel."
