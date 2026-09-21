@@ -142,7 +142,7 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|though\s+it\s+was\b|with\s+most\b|if\s+leaping\s+forth\s+from\s+the\s+animal\b|a\s+normal\s+unarmed\s+attack\b|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
+        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|though\s+it\s+was\b|with\s+most\b|if\s+leaping\s+forth\s+from\s+the\s+animal\b|a\s+normal\s+unarmed\s+attack\b|a\s+free\s+action\b|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
         r"(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
@@ -1995,6 +1995,10 @@ def run_self_test() -> None:
     assert extract_reference_names("You appear (as if leaping forth from the animal) nearby.") == []
     # Exact mundane attack comparison is not an inherited spell reference.
     assert extract_reference_names("The hand punches (as a normal unarmed attack with a +2 attack bonus).") == []
+    # Action-economy timing is local rules text, not a spell reference.
+    assert extract_reference_names("The effect moves (as a free action).") == []
+    # Preserve genuine parenthetical spell-name references.
+    assert extract_reference_names("The effect functions (as magic missile).") == ["magic missile"]
     # Preserve genuine parenthetical spell-name references.
     assert extract_reference_names("The effect functions (as magic missile).") == ["magic missile"]
     # Preserve genuinely referential as-if clauses fail-closed.

@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact action-economy comparison
+
+- Clean batch 044 head `4730f708c97f7ef7eb25594d72260161d1af7d6f` passed Spell effect review #269 (`35655652031`) and Validate modernization #832 (`35655654230`).
+- Review #269 measured **1,090 remaining**, **3,607 reviews**, **2,010 regressions**, zero errors/warnings/digest drift; every automatic selector returned **0 eligible**. Classification artifact `10663513722`, ZIP SHA-256 `0005435cd7a9a5b4b7c841cea4bec13112ce57f55f722bbb87f657448a938cc3`.
+- Blocker discovery found Whirlwind of Teeth (`190`) blocked only by `(as a free action)`. The upstream parser marks the effect self-contained, and the record has no suspected-damage or external-mechanics flags.
+- This correction excludes only the exact phrase `a free action` from the generic parenthetical detector. A positive test preserves `(as magic missile)` as a genuine spell reference.
+- No content is locked by this parser commit. Require both CI gates and exactly the intended strict-clean exposure before locking. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 044
 
 - Classifier head `c3c07f55b154731204c07bcc91d9f645e9aa98f3` passed Spell effect review #268 (`35655150888`) and Validate modernization #831 (`35655158594`).
