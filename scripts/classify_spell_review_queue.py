@@ -190,7 +190,7 @@ REFERENCE_PATTERNS = (
         r"(?:^|[.!?]\s+)As\s+with\s+(?P<name>fog cloud)\s*,",
         re.I,
     ),
-)    re.compile(
+    re.compile(
         r"\bsimilar\s+to\s+(?:the\s+)?effects?\s+of\s+(?:a|an|the)?\s*"
         r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)(?:\s+spell)?"
         r"(?=\s+(?:on|for)\s+(?:a|an|the)\b|[,.;)]|$)",
