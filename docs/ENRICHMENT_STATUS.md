@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 049
+
+- Prerequisite-lock head `070f1d37b21cfaaf5c02667a6c7d8615bc1ae01c` passed Spell effect review #279 (`35661405122`) and Validate modernization #842 (`35661412580`).
+- Review #279 measured **1,086 remaining**, **3,611 reviews**, **2,015 regressions**, zero errors/warnings/digest drift. It exposed exactly **1 strict-clean** record, Tvash-prull's Bonefiddle (`286`), and exactly **1 reference-eligible** record, Dominate Monster (`2546`); prerequisite/exact-duplicate/near-duplicate selectors returned **0 eligible**.
+- Classification artifact `10666954044`, ZIP SHA-256 `c8576af83f517516d9f733ea987aac1f8581fa68ac4afb73e216a1e67df3a6e3`.
+- Batch `2026-09-21-clean-049.json` locks Tvash-prull's Bonefiddle to primary digest `7efeea36493552ff289a3b88a45f295a620a8aa29bbdb27c655e76df29883152` and adds a permanent regression ID. Its sentence-leading standard-action retargeting rule is local mechanics, not inherited spell behavior.
+- Corpus after this commit: **3,612** summaries / **2,016** permanent regression IDs. Predicted queue after remeasurement: **1,085**. Dominate Monster remains intentionally unlocked until the reference path is independently remeasured.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Prerequisite checkpoint — Dominate Person regression lock
 
 - Parser head `5f0aa3eefa3ad6f06caab148da5dff328e02f84d` passed Spell effect review #278 (`35660788377`) and Validate modernization #841 (`35660793570`).
