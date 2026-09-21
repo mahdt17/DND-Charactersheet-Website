@@ -96,6 +96,12 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\bidentical\s+(?:with|to)\s+"
+        r"(?!(?:the\s+)?effects?\s+of\b|the\s+original\b|that\b|those\b)"
+        r"(?P<name>[^.;:!?]{2,100}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
+        re.I,
+    ),
+    re.compile(
         r"\b(?:functions?|works?|operates?)\s+identically\s+to\s+"
         r"(?!the\s+original\b|that\b|those\b)(?P<name>[^.;:!?]{2,100}?)(?=,\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
@@ -121,6 +127,17 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\breceives?\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bsimilar\s+to\s+(?:the\s+)?(?:(?:divine|arcane)\s+spell\s+)?"
+        r"(?!that\b|those\b)(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?=\s*,\s*(?:this\s+spell\b|except\b|but\b|you\b)|\s*\))",
+        re.I,
+    ),
+    re.compile(
         r"\breveals?\s+as\s+much\s+information\s+as\s+(?:a|an|the)\s+"
         r"(?P<name>detect magic)\s+spell\b",
         re.I,
@@ -137,12 +154,12 @@ REFERENCE_PATTERNS = (
     ),
     re.compile(
         r"\b(?:emits?|activates?|activating|creates?|creating|produces?|producing|invokes?|invoking)\s+"
-        r"(?:(?:a|an|the)\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s*"
-        r"\(\s*as\s+the\s+spell(?:\s*,[^)]*)?\)",
+        r"(?:(?:a|an|the)\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?:\s+effect)?\s*\(\s*as\s+the\s+spell(?:\s*,[^)]*)?\)",
         re.I,
     ),
     re.compile(
-        r"(?:^|[.!?:]\s+)As\s+with\s+(?:a|an|the)\s+"
+        r"\bas\s+with\s+(?:a|an|the)\s+"
         r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
         re.I,
     ),
@@ -1229,6 +1246,12 @@ def clean_reference_name(value: str) -> str:
         value,
         flags=re.I,
     )
+    value = re.sub(
+        r"\s*,\s*(?:a|an)\s+(?:glamer|figment|phantasm|pattern|shadow)\s*$",
+        "",
+        value,
+        flags=re.I,
+    )
     value = re.sub(r"^\d+(?:st|nd|rd|th)-level\s+(?:spell\s+)?", "", value, flags=re.I)
     # Strip grammatical "the"/"the spell" prefixes, but preserve a real
     # spell name beginning with "Spell" (for example, Spell Resistance).
@@ -1888,6 +1911,24 @@ def run_self_test() -> None:
         "The effect of the mark is identical with the effect of bestow curse."
     ) == ["bestow curse"]
     assert extract_reference_names(
+        "This is identical with deathwatch, but only functions on animals and plants."
+    ) == ["deathwatch"]
+    assert extract_reference_names(
+        "You restore life to a dead outsider as with the raise dead spell."
+    ) == ["raise dead"]
+    assert extract_reference_names(
+        "The target receives a panacea spell one round later."
+    ) == ["panacea"]
+    assert extract_reference_names(
+        "Similar to the divine spell poison, you inflict a paralyzing poison."
+    ) == ["poison"]
+    assert extract_reference_names(
+        "This spell is similar to summon monster IX, except that it summons one titan."
+    ) == ["summon monster IX"]
+    assert extract_reference_names(
+        "You can activate a feather fall effect (as the spell) on yourself."
+    ) == ["feather fall"]
+    assert extract_reference_names(
         "The subjects gain the benefits of a bless spell as long as you are in sight of them."
     ) == ["bless"]
     assert extract_reference_names(
@@ -1947,6 +1988,8 @@ def run_self_test() -> None:
     assert clean_reference_name("grease (PHB 237)") == "grease"
     assert clean_reference_name("stone bones (Spell Compendium page 208)") == "stone bones"
     assert clean_reference_name("alarm spell, page 197 of the Player’s Handbook") == "alarm"
+    assert clean_reference_name("improved invisibility, a glamer") == "improved invisibility"
+    assert clean_reference_name("major image, a figment") == "major image"
     assert extract_reference_names(
         "This spell functions like grease (PHB 237), but the liquid is flammable."
     ) == ["grease"]
