@@ -142,7 +142,7 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\(\s*as\s+(?!well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
+        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
         r"(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
@@ -1976,6 +1976,17 @@ def classify_queue(
 
 
 def run_self_test() -> None:
+    # Exact DM adjudication parentheticals are not inherited spell names.
+    assert extract_reference_names("A favor may be granted (as determined by the DM).") == []
+    assert extract_reference_names("A detail is chosen (AS DETERMINED BY THE DM ).") == []
+    assert extract_reference_names("Flight is granted (as fly).") == ["fly"]
+    assert extract_reference_names(
+        "A favor (as determined by the DM) accompanies flight (as fly)."
+    ) == ["fly"]
+    # Do not discard a larger clause or a named spell merely sharing this prefix.
+    assert extract_reference_names("A favor (as determined by the DM spell).") == ["determined by the DM"]
+    assert extract_reference_names("A favor (as determined by the DM using haste).") == ["determined by the DM using haste"]
+    assert extract_reference_names("A favor (as determined by the spell).") == ["determined by the"]
     same_name_rows = [
         {"id": "spells/shared-a", "name": "Shared Spell", "url": "https://example.invalid/a"},
         {"id": "spells/shared-b", "name": "Shared Spell", "url": "https://example.invalid/b"},

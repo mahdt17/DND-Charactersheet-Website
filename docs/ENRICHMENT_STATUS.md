@@ -4,6 +4,26 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact DM parenthetical
+
+- Batch 037 head: `fdee502dc41cc65ba7eb9f49f719a3a5adde8bd9`; Validate modernization #818 (`35580638629`) passed all regressions and browser checks.
+- Spell effect review #255 (`35580634861`) passed and measured **1,098 remaining**, **3,599 reviews**, **2,002 regressions**, zero errors/warnings/digest drift; strict/reference/prerequisite selectors all **0 eligible**.
+- Classification artifact `10629919477`, ZIP SHA-256 `c1849d09a1c1d99fd6aeede12428077291002e65fe5b24fc1b7b52593f57f811`.
+- The classifier correction excludes only the complete parenthetical `(as determined by the DM)` from spell-name extraction. Same-prefix larger clauses and actual spell references still fail closed; positive/negative/mixed-clause tests cover both sides.
+- Across the entire current artifact, the only changed reference classifications are Speak With Animals (`2515`), Speak With Plants (`2516`) and Stone Tell (`2518`). Fresh primary digests match. These records are not locked by this classifier commit.
+- Wait for this commit's Spell effect review and Validate modernization passes; inspect the new strict selection and then independently lock the three self-contained summaries. Request stays in measurement mode.
+
+## Full spell audit — 2026-09-21, parser commit 74c6bee
+
+Category Enrichment Audit #83 (`35580155383`) independently verified:
+
+- All samples (25/50/100/250) and source shards passed; **5,035 / 5,035** source records, zero critical gaps and coverage errors.
+- All candidate shards passed; **5,035** unique candidate records. The Effect geometry for both Otiluke sphere records is preserved in candidate output.
+- Output audit: **3,935 / 5,035 (78.1529%)** complete; **1,100** incomplete; `errors: []`.
+- Source verified: true; output verified: false; release ready: false. The final job fails deliberately at the unchanged 100% output gate.
+- Source artifact `10630155946` SHA-256 `b6df7195f1b1c9dd14b67ba3b2926ffa31aa7ef14493ad0929a4463f64352ef6`; output artifact `10630111395` SHA-256 `136358c509698f1bd0571a8a21228dd5ce36823b2d438c9183ccc5bece821eac`.
+- This audit predates batch 037. Never substitute its output count for a later lock commit's measurement.
+
 ## Active spell checkpoint — batch 037
 
 - Parser/header commit `74c6bee7a8a0f838faa77aa1d64eadfe1797e7d0` passed Spell effect review #254 (`35580155438`) and Validate modernization #817 (`35580159270`), including full regressions and browser tests.
