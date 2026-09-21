@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 040
+
+- Parser commit `bc171a76e454c7941342d09471b5aa84782b262d` passed Spell effect review #258 (`35647248642`) and Validate modernization #821 (`35647256312`).
+- Review #258 measured **1,095 remaining**, **3,602 reviews**, **2,005 regressions**, zero errors/warnings/digest drift. The strict selector exposed exactly **1** clean standalone record: Touch of Adamantine (`119`); all other selectors remained **0 eligible**.
+- Classification artifact `10660706619`, ZIP SHA-256 `9d74d4447859528213dc28189c45353086ba21a5648b40d47e439c5ee0ba6ec0`.
+- Batch `2026-09-21-clean-040.json` locks Touch of Adamantine to primary digest `0c4032de7c87612eab52624c5740b366fe5ac180e4554754f5bc2168f08ffcb6` and adds a permanent regression ID. Its masterwork comparison is retained as ordinary rules prose, not a spell dependency.
+- Corpus after this commit: **3,603** summaries / **2,006** permanent regression IDs. Predicted queue after remeasurement: **1,094**; treat that as provisional until both CI gates pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — exact non-reference comparison
 
 - Clean batch 039 head `58401054ca5fea6732925e1d7e58a52aa7f495ef` passed Spell effect review #257 (`35646657027`) and Validate modernization #820 (`35646660418`).

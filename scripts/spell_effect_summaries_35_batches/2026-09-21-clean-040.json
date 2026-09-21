@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summary; clean batch 040.",
+  "entries": {
+    "spells/touch-of-adamantine-119": {
+      "name": "Touch of Adamantine",
+      "sourceSha256": "0c4032de7c87612eab52624c5740b366fe5ac180e4554754f5bc2168f08ffcb6",
+      "effectSummary": "Grants one touched weapon the properties of adamantine for 1 minute per caster level. The weapon gains a +1 enhancement bonus on attack rolls, ignores hardness below 20 when striking objects or sundering weapons, and has one-third more hit points than normal. Natural weapons cannot be targeted, except a monk's unarmed strike counts as a weapon for this spell. If the weapon is made from another special material, it loses that material's benefits for the duration. The spell cannot be made permanent with permanency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/touch-of-adamantine-119",
+          "role": "Book of Exalted Deeds primary effect and header reviewed; adamantine properties, hardness threshold, hit-point increase, targeting exception, special-material replacement and permanency restriction preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "bc171a76e454c7941342d09471b5aa84782b262d",
+    "workflowRun": 35647248642,
+    "validationRun": 35647256312,
+    "classificationArtifact": 10660706619,
+    "classificationArtifactSha256": "9d74d4447859528213dc28189c45353086ba21a5648b40d47e439c5ee0ba6ec0",
+    "eligibleCount": 1
+  }
+}
