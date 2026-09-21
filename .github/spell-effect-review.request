@@ -1,9 +1,9 @@
 {
   "scope": "3.5/spells",
   "count": 0,
-  "referenceCount": 3,
+  "referenceCount": 0,
   "prerequisiteCount": 0,
   "duplicateFamilyCount": 0,
-  "nonce": "2026-09-21-select-with-additions-reference-001",
+  "nonce": "2026-09-21-effect-geometry-measurement",
   "nearDuplicateFamilyCount": 0
 }

@@ -4,6 +4,21 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Resume checkpoint — 2026-09-21
+
+- Verified incoming head: `f50ad5a1d03a213e7c1229a86afe71836df0355b`; PR #4 open, unmerged, mergeable.
+- Incoming CI: Spell effect review #253 (`35571808946`) and Validate modernization #816 (`35571813689`) passed.
+- Classification artifact `10626465973`: SHA-256 `2ecebfa12420ee76a1228256651297e79a5bf7edf54e1ec9d44dc26c64bf6bc5`.
+- Authoritative incoming queue: **1,100**; reviewed summaries **3,597**; permanent spell regression IDs **2,000**; supplements **83**; corpus errors/warnings/digest overlap **0**.
+- Buckets: 997 reference-dependent, 62 repair, 41 table-driven. Strict/prerequisite selectors: 0 eligible. Incoming reference selector: 3 eligible.
+- New review-integrity change: preserve the source Effect header as `effectGeometry` in parsed candidates, review exports, dependency packets, and header comparisons. Positive and negative self-tests keep header geometry separate from required effect mechanics.
+- Hold `spells/portal-alarm-improved-1849` (Manual of the Planes) for explicit 3.0 provenance review; it must not be accepted as a 3.5 reference merely because DnDTools labels its site 3.5. Legacy selector exclusion added; no edition or mechanics are silently rewritten.
+- Next verified candidates: Spell Compendium `spells/portal-alarm-improved-4651` -> same-book `spells/portal-alarm-4649`; PHB v.3.5 `spells/otilukes-telekinetic-sphere-2638` -> `spells/otilukes-resilient-sphere-2637`. Fresh primary fetches matched all four artifact effect digests. No new locks yet.
+- Selector reset to measurement mode. Require both CI workflows to pass and inspect the new artifact before locking. A full 3.5 spell category source/candidate-output audit is requested for this parser change; output completeness is expected to remain below 100% while the queue is nonempty.
+- Preserve the 16-shard spell review workflow, permanent regression order, repair-component protections, and Tome and Blood 3.0 provenance. PR stays open; live/catalog and Supabase writes remain prohibited.
+
+Older checkpoints below are historical, not current queue measurements.
+
 ## Current release rule
 
 No live enrichment is allowed until both of these pass:

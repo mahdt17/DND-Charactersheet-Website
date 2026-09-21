@@ -1506,6 +1506,7 @@ def fetch_spell_packet(row: dict, delay: float) -> dict:
             "range": details.get("range"),
             "target": details.get("target"),
             "area": details.get("area"),
+            "effectGeometry": details.get("effectGeometry"),
             "duration": details.get("duration"),
             "savingThrow": details.get("savingThrow"),
             "spellResistance": details.get("spellResistance"),

@@ -1112,6 +1112,26 @@ def apply_spell_supplement(entry: dict, details: dict) -> dict:
     return result
 
 
+def spell_effect_geometry(lines: list[str]) -> str:
+    """Read the Effect header without confusing it with reviewed effect prose."""
+    headers = {"school", "casting time", "components", "range", "target", "area",
+               "duration", "saving throw", "spell resistance", "classes", "domains",
+               "descriptors", "description"}
+    for index, line in enumerate(lines):
+        label = clean(line)
+        if label.casefold() == "description":
+            break
+        if label.casefold().startswith("effect:"):
+            return clean(label.split(":", 1)[1])
+        if label.casefold() == "effect":
+            for value in lines[index + 1:]:
+                value = clean(value)
+                if not value:
+                    continue
+                return "" if value.casefold().split(":", 1)[0] in headers else value
+    return ""
+
+
 def parse_spell(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     result = {
@@ -1126,6 +1146,9 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         "savingThrow": next_value(lines, "Saving Throw"),
         "spellResistance": next_value(lines, "Spell Resistance"),
     }
+    geometry = spell_effect_geometry(lines)
+    if geometry:
+        result["effectGeometry"] = geometry
     school_value=result.get("school","")
     source_value=result.get("sourceBook","")
     maneuver_disciplines=("Desert Wind","Devoted Spirit","Diamond Mind","Iron Heart","Setting Sun","Shadow Hand","Stone Dragon","Tiger Claw","White Raven")
@@ -1960,6 +1983,20 @@ def self_test():
     p=DetailParser();p.feed(long_effect_html);p.close()
     s=parse_spell(p,{"name":"Long Effect"})
     assert s.get("effectNeedsSummary") and not s.get("effect")
+
+    # An Effect header is geometry/quantity, never a substitute for rules prose.
+    geometry_html = long_effect_html.replace(
+        "<div>Duration</div>",
+        "<div>Effect</div><div>2 ft./level sphere around objects</div><div>Duration</div>",
+    )
+    p=DetailParser();p.feed(geometry_html);p.close()
+    s=parse_spell(p,{"name":"Long Effect"})
+    assert s["effectGeometry"] == "2 ft./level sphere around objects"
+    assert s.get("effectNeedsSummary") and not s.get("effect")
+    assert spell_effect_geometry(["Effect: One sphere", "Description", "Rules."]) == "One sphere"
+    assert spell_effect_geometry(["Effect", "", "Duration", "1 round", "Description"]) == ""
+    assert spell_effect_geometry(["Description", "Effect", "A prose subheading."]) == ""
+    assert spell_effect_geometry(["Area", "20-ft. radius", "Description", "Rules."]) == ""
 
     reference_effect_html = """
     <h1>Reference Effect</h1><p>Example Book (EX), p. 3</p>

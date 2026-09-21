@@ -16,7 +16,7 @@ Every selection and lock commit still runs:
 The spell review workflow caches each export shard only while every input that
 can affect that shard is byte-for-byte unchanged. A lock commit changes the
 review summaries or regression corpus, invalidates the cache, and performs a
-fresh eight-shard export. A request-only selection commit may reuse the
+fresh 16-shard export. A request-only selection commit may reuse the
 immediately preceding measurement shards. Its selected records are fetched
 again by the targeted live regression on the lock commit.
 

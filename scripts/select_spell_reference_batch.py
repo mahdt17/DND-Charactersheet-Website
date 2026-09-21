@@ -32,6 +32,8 @@ ALLOWED_TAGS = {
 LEGACY_REFERENCE_SOURCE_BOOKS = {
     "Ghostwalk",
     "Savage Species",
+    # The 2001 printing requires explicit legacy-edition provenance review.
+    "Manual of the Planes",
     # Tome and Blood is a D&D 3.0 source. Keep it out of the automated
     # 3.5 reference-lock path unless it is handled with explicit edition provenance.
     "Tome and Blood: A Guidebook to Wizards and Sorcerers",
@@ -63,6 +65,7 @@ HEADER_FIELDS = (
     "range",
     "target",
     "area",
+    "effectGeometry",
     "duration",
     "savingThrow",
     "spellResistance",
@@ -679,6 +682,22 @@ def run_self_test() -> None:
         header_classified, same_header, {classified["id"]}, {target["id"]}
     )
 
+    geometry_header = json.loads(json.dumps(same_header))
+    geometry_header["header"]["effectGeometry"] = "One sphere around creatures or objects"
+    geometry_target = geometry_header["references"][0]["record"]
+    geometry_target["header"]["effectGeometry"] = "One sphere around a creature"
+    assert header_differences(geometry_header, geometry_target) == [{
+        "field": "effectGeometry", "source": "One sphere around creatures or objects",
+        "reference": "One sphere around a creature",
+    }]
+    assert "header-dependent-exception-without-header-difference" not in candidate_reasons(
+        header_classified, geometry_header, {classified["id"]}, {target["id"]}
+    )
+    geometry_header["header"]["effectGeometry"] = geometry_target["header"]["effectGeometry"]
+    assert "header-dependent-exception-without-header-difference" in candidate_reasons(
+        header_classified, geometry_header, {classified["id"]}, {target["id"]}
+    )
+
     described_above = json.loads(json.dumps(header_dependent))
     described_above["effectSource"] = "This spell functions like Resist Energy Test, except as described above, and grants resistance 20."
     described_above["sourceSha256"] = d35.spell_effect_digest(described_above["effectSource"])
@@ -707,6 +726,13 @@ def run_self_test() -> None:
     )
 
     legacy_classified = json.loads(json.dumps(classified))
+    legacy_classified["sourceBook"] = "Manual of the Planes"
+    assert "legacy-source-edition-needs-manual-reference-review" in candidate_reasons(
+        legacy_classified, packet, {classified["id"]}, {target["id"]}
+    )
+    assert "legacy-source-edition-needs-manual-reference-review" not in candidate_reasons(
+        classified, packet, {classified["id"]}, {target["id"]}
+    )
     legacy_classified["sourceBook"] = "Ghostwalk"
     assert "legacy-source-edition-needs-manual-reference-review" in candidate_reasons(
         legacy_classified, packet, {classified["id"]}, {target["id"]}
