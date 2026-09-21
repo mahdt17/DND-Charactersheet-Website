@@ -11,6 +11,7 @@ on:
       - "scripts/export_spell_effect_review.py"
       - "scripts/merge_spell_effect_review.py"
       - "scripts/select_spell_*"
+      - "scripts/verify_spell_classification_delta.py"
       - "scripts/spell_effect_summaries_35.json"
       - "scripts/spell_effect_summaries_35_batches/**"
       - "scripts/spell_regression_cases.json"
@@ -88,6 +89,8 @@ jobs:
           python scripts/select_spell_prerequisite_wave.py --self-test
           python scripts/select_spell_exact_duplicate_batch.py --self-test
           python scripts/select_spell_near_duplicate_batch.py --self-test
+          python scripts/verify_spell_classification_delta.py --self-test
+          python scripts/select_spell_parser_candidate_manifest.py --self-test
       - name: Classify remaining review queue
         run: >-
           python scripts/classify_spell_review_queue.py
@@ -143,4 +146,5 @@ jobs:
             test-results/spell-review-prerequisite-wave.json
             test-results/spell-review-exact-duplicate-batch.json
             test-results/spell-review-near-duplicate-batch.json
+            test-results/spell-parser-candidate-manifest.json
           retention-days: 1
