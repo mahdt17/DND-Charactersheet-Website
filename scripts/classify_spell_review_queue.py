@@ -58,7 +58,8 @@ REFERENCE_PATTERNS = (
     ),
     re.compile(
         r"\b(?:functions?|works?|operates?)\s+like\s+"
-        r"(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|\s*,\s*with\s+the\s+(?:following\s+)?addition(?:s|\s+that)\b|[.;:!?]|$)",
+        r"(?![^.;:!?]{2,120}?\s*,\s*with\s+the\s+(?:following\s+)?addition(?:s|\s+that)\b)"
+        r"(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
     ),
     re.compile(
