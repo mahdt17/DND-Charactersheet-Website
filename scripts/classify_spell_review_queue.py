@@ -155,7 +155,20 @@ REFERENCE_PATTERNS = (
     re.compile(
         r"\b(?:emits?|activates?|activating|creates?|creating|produces?|producing|invokes?|invoking)\s+"
         r"(?:(?:a|an|the)\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
-        r"(?:\s+effect)?\s*\(\s*as\s+the\s+spell(?:\s*,[^)]*)?\)",
+        r"(?:\s+effect)?\s*\(\s*as\s+the\s+spell(?:\s*[,;][^)]*)?\)",
+        re.I,
+    ),
+    re.compile(
+        r"\(\s*as\s+the\s+spell\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?=\s*,\s*(?:except|but)\b|\s*[.;)]|$)",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:use|uses|using)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,60}?)"
+        r"(?:\s+at\s+will|\s+on\s+behalf\s+of\s+[^()]{1,80})?\s*"
+        r"\(\s*as\s+the\s+spell(?:\s*[,;][^)]*)?\)",
         re.I,
     ),
     re.compile(
@@ -193,6 +206,10 @@ EXTERNAL_MECHANICS_PATTERNS = (
     )),
     ("external-page-reference", re.compile(
         r"\b(?:see\s+(?:page\s+\d+|chapter\s+\d+|the\s+[^.;]{1,70}\s+spell\s+description)|PH\s+\d+)\b",
+        re.I,
+    )),
+    ("external-ecs-page-reference", re.compile(
+        r"\(\s*ECS\s+(?:p\.?\s*)?\d+\s*\)",
         re.I,
     )),
     ("external-rulebook-section", re.compile(
@@ -1929,6 +1946,18 @@ def run_self_test() -> None:
         "You can activate a feather fall effect (as the spell) on yourself."
     ) == ["feather fall"]
     assert extract_reference_names(
+        "You can activate a fire shield effect (as the spell; fire-based protection only) on yourself."
+    ) == ["fire shield"]
+    assert extract_reference_names(
+        "You make a dispel check (as the spell dispel magic, but the maximum caster level is +25)."
+    ) == ["dispel magic"]
+    assert extract_reference_names(
+        "The phantom stag can use air walk at will (as the spell, no action required)."
+    ) == ["air walk"]
+    assert extract_reference_names(
+        "The phantom stag can use etherealness on behalf of its rider (as the spell, caster level 18th)."
+    ) == ["etherealness"]
+    assert extract_reference_names(
         "The subjects gain the benefits of a bless spell as long as you are in sight of them."
     ) == ["bless"]
     assert extract_reference_names(
@@ -2033,6 +2062,9 @@ def run_self_test() -> None:
     )
     assert "external-dmg-abbreviation-reference" in external_mechanics_reasons(
         "Modifiers to the DC are listed in the DMG."
+    )
+    assert "external-ecs-page-reference" in external_mechanics_reasons(
+        "The host falls under the control of the possessing spirit (ECS 101)."
     )
     assert "external-described-page-reference" not in external_mechanics_reasons("The page turns as you read it.")
     assert "external-rules-sidebar-reference" not in external_mechanics_reasons("The sidebar contains decorative artwork.")
