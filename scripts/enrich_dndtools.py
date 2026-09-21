@@ -2252,7 +2252,7 @@ def self_test():
             "Lords of Madness (LoM), p. 212",
             "Any aberration within the area must make a Fortitude saving throw or suffer the following ill effects. Closer aberrations are affected first. Each effect lasts for 1 round. Once a creature recovers from an effect, it moves up one level on the table.",
             "omitted-cerulean-sign-effect-table",
-            ("combined total hit dice", "stunned", "recovers fully"),
+            ("combined total hit dice", "stunned", "fully recovered"),
             ("aberration hit dice", "caster level +10", "caster level -10", "stunned"),
         ),
         (
