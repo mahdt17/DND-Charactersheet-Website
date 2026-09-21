@@ -1,9 +1,9 @@
 {
   "scope": "3.5/spells",
   "count": 0,
-  "referenceCount": 0,
+  "referenceCount": 6,
   "prerequisiteCount": 0,
   "duplicateFamilyCount": 0,
-  "nonce": "2026-09-21-measure-after-phb-cure-inflict-reference-034-001",
+  "nonce": "2026-09-21-select-remaining-reference-001",
   "nearDuplicateFamilyCount": 0
 }
