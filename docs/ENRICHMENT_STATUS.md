@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Prerequisite checkpoint — Dominate Person regression lock
+
+- Parser head `5f0aa3eefa3ad6f06caab148da5dff328e02f84d` passed Spell effect review #278 (`35660788377`) and Validate modernization #841 (`35660793570`).
+- Review #278 measured **1,086 remaining**, **3,611 reviews**, **2,014 regressions**, zero errors/warnings/digest drift. It exposed **1 strict-clean** record (Tvash-prull's Bonefiddle, `286`) and **1 prerequisite target**: Dominate Person (`2547`), required by Dominate Monster (`2546`). Reference/exact-duplicate/near-duplicate selectors remained **0 eligible**.
+- Classification artifact `10667491763`, ZIP SHA-256 `cf4217fbf1a73baab2c23b74b1cd58483457f4182c85aebb922705eb552dcefb`.
+- Dominate Person is already present in the reviewed summary corpus with unchanged primary digest `ceac0f5f54f390e263fa9e419fb2ef89c6a9ec44ae93d00dd17308a9c8f33283` and a self-contained effect summary. This commit adds only its permanent regression ID; it does **not** rewrite the summary or mutate any catalog.
+- Corpus after this commit: **3,611** summaries / **2,015** permanent regression IDs. Queue is expected to remain **1,086** because the prerequisite target was already outside the review queue; remeasurement must determine whether Dominate Monster becomes reference-eligible and whether Bonefiddle remains strict-clean.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — exact leading action-economy phrase
 
 - Clean batch 048 head `f9fc2b3e480dd648f124a96751b8f7931967bc66` passed Spell effect review #277 (`35660300002`) and Validate modernization #840 (`35660305296`).
