@@ -100,11 +100,6 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+like\s+"
-        r"(?:(?:a|an|the)\s+)?(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
-        re.I,
-    ),
-    re.compile(
         r"\b(?:acts?|behaves?)\s+like\s+(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?=[.;,]|$)",
         re.I,
     ),
