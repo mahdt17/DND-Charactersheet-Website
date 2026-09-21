@@ -71,7 +71,8 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\bas\s+(?P<name>(?:greater|lesser)\s+[A-Za-z][A-Za-z'’ -]{1,80})(?=[.;])",
+        r"\bas\s+(?P<name>(?:greater|lesser)\s+[A-Za-z][A-Za-z'’ -]{1,80}?)"
+        r"(?=\s+with\s+the\s+following\s+additional\s+effects\b|[.;])",
         re.I,
     ),
     re.compile(
