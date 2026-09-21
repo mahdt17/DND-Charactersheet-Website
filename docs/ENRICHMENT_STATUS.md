@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact concentration-action phrase
+
+- Clean batch 047 head `a8f72e4ff5535ab289b404fb4bf0f6496bb8894d` passed Validate modernization #838 (`35658937565`). Spell effect review #275 (`35658932385`) had a transient artifact-finalization 403 after successful classification/selectors; retry attempt 2 reran only the failed classify job and passed, producing classification artifact `10667505465`, ZIP SHA-256 `03a97185c6ecf65ced8eff59b660d5f7428fc9a301f7b65e511ce99c68a6ede1`.
+- The authoritative retry measurement is **1,087 remaining**, **3,610 reviews**, **2,013 regressions**, zero errors/warnings/digest drift, with every automatic selector at **0 eligible**.
+- Blocker discovery found Local Tremor (`3096`) blocked only by the parenthetical `(as you refocus your concentration on the spell)`. The upstream review marks the effect self-contained; the phrase is local action-description text, not a spell name, and this exact wording appears in only this remaining record.
+- This correction excludes only the exact `you refocus your concentration on the spell` parenthetical from the generic detector. Existing positive tests continue to preserve genuine spell-name parentheticals fail-closed.
+- No content is locked by this parser commit. Require both CI gates and exactly the intended strict-clean exposure before locking. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 047
 
 - Classifier head `6c27248005dd4332c16a342a7fe92c76ebc52f75` passed Spell effect review #274 (`35658467656`) and Validate modernization #837 (`35658471269`).

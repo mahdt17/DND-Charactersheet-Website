@@ -142,7 +142,7 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|though\s+it\s+was\b|with\s+most\b|if\s+leaping\s+forth\s+from\s+the\s+animal\b|a\s+normal\s+unarmed\s+attack\b|a\s+free\s+action\b|selected\s+by\s+you\b|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
+        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|though\s+it\s+was\b|with\s+most\b|if\s+leaping\s+forth\s+from\s+the\s+animal\b|a\s+normal\s+unarmed\s+attack\b|a\s+free\s+action\b|selected\s+by\s+you\b|you\s+refocus\s+your\s+concentration\s+on\s+the\s+spell\b|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
         r"(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
@@ -1999,6 +1999,8 @@ def run_self_test() -> None:
     assert extract_reference_names("The effect moves (as a free action).") == []
     # Caster-selected local options are not inherited spell references.
     assert extract_reference_names("The wall is fresh water or seawater (as selected by you).") == []
+    # Local action description is not an inherited spell reference.
+    assert extract_reference_names("Calling a tremor requires a standard action (as you refocus your concentration on the spell).") == []
     # Preserve genuine parenthetical spell-name references.
     assert extract_reference_names("The effect functions (as magic missile).") == ["magic missile"]
     # A projected copy described as a version of yourself is not a spell reference.
