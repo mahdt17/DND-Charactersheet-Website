@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 041
+
+- Upstream parser head `b1e9d16e1aab12c23fd08d9a608cc2aacaf3f94f` passed Spell effect review #262 (`35650528593`) and Validate modernization #825 (`35650535129`).
+- Review #262 measured **1,094 remaining**, **3,603 reviews**, **2,006 regressions**, zero errors/warnings/digest drift. The strict selector exposed exactly **1** clean standalone record: Rebirth of Iron (`881`); reference/prerequisite/exact-duplicate/near-duplicate selectors remained **0 eligible**.
+- Classification artifact `10661938149`, ZIP SHA-256 `ca7e78edc3a903fbc4f645bb5a08cf202355bcb4327843588797a8c656a2187c`.
+- Batch `2026-09-21-clean-041.json` locks Rebirth of Iron to primary digest `dbc763fb2654e80a2a706648d8bf0de21795e323d98518c8063667573bf2184a` and adds a permanent regression ID. The mention of rusting grasp remains an example of rust damage, not inherited spell mechanics.
+- Corpus after this commit: **3,604** summaries / **2,007** permanent regression IDs. Predicted queue after remeasurement: **1,093**; treat that as provisional until both CI gates pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Upstream reference-detector correction — Rebirth of Iron
 
 - Downstream parser commit `014027747870efbe3778c28f44783a12bb14bc99` passed Spell effect review #261 (`35650046735`) and Validate modernization #824 (`35650051589`). Review #261 still exposed **0 eligible** records, proving the remaining block is upstream rather than in classification selection.
