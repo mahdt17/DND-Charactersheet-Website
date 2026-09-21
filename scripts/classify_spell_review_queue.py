@@ -40,6 +40,7 @@ KNOWN_REFERENCE_FIXTURES = {
     "spells/familial-geas-1434",
     "spells/false-vision-2669",
     "spells/familiar-refuge-780",
+    "spells/incendiary-cloud-2401",
 }
 
 REFERENCE_PATTERNS = (
@@ -110,6 +111,14 @@ REFERENCE_PATTERNS = (
     re.compile(
         r"(?:^|[.!?:]\s+)As\s+with\s+(?:a|an|the)\s+"
         r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bas\s+(?:a|the)\s+(?P<name>fog cloud)\s+does\b",
+        re.I,
+    ),
+    re.compile(
+        r"(?:^|[.!?]\s+)As\s+with\s+(?P<name>fog cloud)\s*,",
         re.I,
     ),
 )
@@ -186,6 +195,14 @@ EXTERNAL_MECHANICS_PATTERNS = (
     ("as-with-named-spell", re.compile(
         r"\bas\s+with\s+(?!any\b|all\b|every\b|other\b)(?:a|an|the)?\s*"
         r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("fog-cloud-as-does-inheritance", re.compile(
+        r"\bas\s+(?:a|the)\s+(?P<name>fog cloud)\s+does\b",
+        re.I,
+    )),
+    ("as-with-fog-cloud-inheritance", re.compile(
+        r"\bas\s+with\s+(?P<name>fog cloud)\s*,",
         re.I,
     )),
     ("as-per-named-spell", re.compile(
@@ -1793,6 +1810,12 @@ def run_self_test() -> None:
         "As with a cloudkill spell, the smoke moves away from you."
     )
     assert extract_reference_names(
+        "The smoke obscures all sight as a fog cloud does."
+    ) == ["fog cloud"]
+    assert extract_reference_names(
+        "As with fog cloud, wind disperses the smoke."
+    ) == ["fog cloud"]
+    assert extract_reference_names(
         "If unnatural forces affect the weather, weather eye reveals as much information as a detect magic spell."
     ) == ["detect magic"]
     assert extract_reference_names(
@@ -1841,6 +1864,8 @@ def run_self_test() -> None:
     assert "external-monster-manual-reference" in external_mechanics_reasons("The Monster Manual has statistics for the rat swarm.")
     assert "as-with-named-spell" in external_mechanics_reasons("You restore life to a dead outsider as with the raise dead spell.")
     assert "as-with-named-spell" not in external_mechanics_reasons("As with any darkness spell, the effect can be suppressed.")
+    assert "fog-cloud-as-does-inheritance" in external_mechanics_reasons("The smoke obscures all sight as a fog cloud does.")
+    assert "as-with-fog-cloud-inheritance" in external_mechanics_reasons("As with fog cloud, wind disperses the smoke.")
     assert "as-per-named-spell" in external_mechanics_reasons("The glow provides light as per the light spell.")
     assert "leading-like-named-spell" in external_mechanics_reasons("Like shield other, this spell transfers some wounds.")
     assert "functions-much-like-spell" in external_mechanics_reasons("This spell functions much like the sanctuary spell.")

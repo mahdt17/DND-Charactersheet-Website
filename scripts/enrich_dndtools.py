@@ -1351,6 +1351,8 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
             or re.search(r"\b(?:functions?|works?|operates?)\s+identically\s+to\b",effect_source,re.I)
             or re.search(r"\b(?:functions?|works?|operates?)\s+as\s+(?!if\b|a\b|an\b)",effect_source,re.I)
             or re.search(r"^As\s+[^.!?]{1,120}?,\s*(?:except|but)\b",effect_source,re.I)
+            or re.search(r"\bas\s+(?:a|the)\s+fog cloud\s+does\b",effect_source,re.I)
+            or re.search(r"\bas\s+with\s+fog cloud\b",effect_source,re.I)
         )
         if reference_dependent:
             result["effectReferenceDependent"]=True
@@ -1966,6 +1968,30 @@ def self_test():
     """
     p=DetailParser();p.feed(identical_reference_html);p.close()
     s=parse_spell(p,{"name":"Identical Reference Effect"})
+    assert s.get("effectReferenceDependent")
+    assert s.get("effectNeedsSummary") and not s.get("effect")
+
+    fog_does_reference_html = """
+    <h1>Fog Does Reference</h1><p>Example Book (EX), p. 4</p>
+    <div>School</div><div>Conjuration</div><div>Casting Time</div><div>1 action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Medium</div>
+    <div>Duration</div><div>1 minute</div><div>Classes</div><div>Wizard 2</div>
+    <h2>Description</h2><p>The smoke obscures all sight as a fog cloud does.</p>
+    """
+    p=DetailParser();p.feed(fog_does_reference_html);p.close()
+    s=parse_spell(p,{"name":"Fog Does Reference"})
+    assert s.get("effectReferenceDependent")
+    assert s.get("effectNeedsSummary") and not s.get("effect")
+
+    fog_with_reference_html = """
+    <h1>Fog With Reference</h1><p>Example Book (EX), p. 4</p>
+    <div>School</div><div>Conjuration</div><div>Casting Time</div><div>1 action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Medium</div>
+    <div>Duration</div><div>1 minute</div><div>Classes</div><div>Wizard 2</div>
+    <h2>Description</h2><p>As with fog cloud, wind disperses the smoke.</p>
+    """
+    p=DetailParser();p.feed(fog_with_reference_html);p.close()
+    s=parse_spell(p,{"name":"Fog With Reference"})
     assert s.get("effectReferenceDependent")
     assert s.get("effectNeedsSummary") and not s.get("effect")
 
