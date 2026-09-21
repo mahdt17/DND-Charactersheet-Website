@@ -132,8 +132,10 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\bsimilar\s+to\s+(?:the\s+)?(?:(?:divine|arcane)\s+spell\s+)?"
-        r"(?!effects?\s+of\b|that\b|those\b)(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"\bsimilar\s+to\s+"
+        r"(?!(?:the\s+)?effects?\s+of\b|that\b|those\b)"
+        r"(?:the\s+)?(?:(?:divine|arcane)\s+spell\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
         r"(?=\s*,\s*(?:this\s+spell\b|except\b|but\b|you\b)|\s*\))",
         re.I,
     ),
