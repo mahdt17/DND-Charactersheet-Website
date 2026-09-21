@@ -1466,7 +1466,19 @@ def suspicious_reasons(entry: dict) -> list[str]:
         reasons.append(label)
     if re.search(r"\bsee below\b", text, re.I) and not tables:
         match = re.search(r"\bsee below\b", text, re.I)
-        if match and len(text[match.end():].strip()) < 100:
+        profane_item_cross_reference = (
+            entry.get("id") == "spells/profane-item-627"
+            and re.search(
+                r"Profane item counters and dispels sacred item \(see below\)\.\s*$",
+                text,
+                re.I,
+            )
+        )
+        if (
+            match
+            and len(text[match.end():].strip()) < 100
+            and not profane_item_cross_reference
+        ):
             reasons.append("see-below-without-content")
     if text.count("(") != text.count(")"):
         reasons.append("unbalanced-parentheses")
@@ -2732,6 +2744,9 @@ def run_self_test() -> None:
     assert "malformed-dice-notation" not in suspicious_reasons({"effectSource":"Creatures in the burst take 1d8 points of damage."})
     assert "garbled-phantasmal-thief-source" in suspicious_reasons({"effectSource":"Even objects in a Improved Disarm feat and a +20 Strength modifier."})
     assert "malformed-talons-source" in suspicious_reasons({"effectSource":"You can attack with yout other hand. You are considered arms."})
+    assert "see-below-without-content" in suspicious_reasons({"id":"spells/example","effectSource":"The missing rules are described below (see below).","tables":[]})
+    assert "see-below-without-content" not in suspicious_reasons({"id":"spells/profane-item-627","effectSource":"Profane item counters and dispels sacred item (see below).","tables":[]})
+    assert "see-below-without-content" in suspicious_reasons({"id":"spells/profane-item-627","effectSource":"The omitted mechanics appear elsewhere (see below).","tables":[]})
     assert "garbled-last-judgment-source" in suspicious_reasons({"effectSource":"This spell affects only humanoids, monstrous humanoids, and resurrection is cast."})
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
     assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
