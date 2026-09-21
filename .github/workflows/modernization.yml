@@ -45,6 +45,7 @@ jobs:
       - run: python scripts/select_spell_prerequisite_wave.py --self-test
       - run: python scripts/select_spell_exact_duplicate_batch.py --self-test
       - run: python scripts/select_spell_near_duplicate_batch.py --self-test
+      - run: python scripts/select_spell_repair_candidate_manifest.py --self-test
       - run: python scripts/import_wikidot.py --self-test
       - run: python scripts/audit_srd2024.py
       - run: python tests/enrichment_gate.py

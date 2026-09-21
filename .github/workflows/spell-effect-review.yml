@@ -91,6 +91,7 @@ jobs:
           python scripts/select_spell_near_duplicate_batch.py --self-test
           python scripts/verify_spell_classification_delta.py --self-test
           python scripts/select_spell_parser_candidate_manifest.py --self-test
+          python scripts/select_spell_repair_candidate_manifest.py --self-test
       - name: Classify remaining review queue
         run: >-
           python scripts/classify_spell_review_queue.py
@@ -152,4 +153,5 @@ jobs:
             test-results/spell-review-exact-duplicate-batch.json
             test-results/spell-review-near-duplicate-batch.json
             test-results/spell-parser-candidate-manifest.json
+            test-results/spell-repair-candidate-manifest.json
           retention-days: 1
