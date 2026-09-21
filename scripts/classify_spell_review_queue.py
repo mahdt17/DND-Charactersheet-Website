@@ -56,6 +56,12 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"^\s*Like\s+(?!a\b|an\b|the\b)"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"\s*,\s*this\s+spell\b",
+        re.I,
+    ),
+    re.compile(
         r"\b(?:functions?|works?|operates?)\s+as\s+"
         r"(?!if\b|though\b|a\b|an\b)(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
@@ -1965,6 +1971,18 @@ def run_self_test() -> None:
     ) == []
     assert extract_reference_names(
         "This effect functions in all respects like major image."
+    ) == []
+    assert extract_reference_names(
+        "Like shield other, this spell wards the subjects and transfers some of their wounds to you."
+    ) == ["shield other"]
+    assert extract_reference_names(
+        "Like repel wood, this spell creates waves of force against metal or stone."
+    ) == ["repel wood"]
+    assert extract_reference_names(
+        "Like a whirlwind, this spell hurls creatures through the air."
+    ) == []
+    assert extract_reference_names(
+        "Like the original device, this spell glows while active."
     ) == []
     assert extract_reference_names(
         "This spell functions as teleport, greater, but only you can travel."
