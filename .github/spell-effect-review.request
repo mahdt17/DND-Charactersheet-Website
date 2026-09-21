@@ -1,9 +1,9 @@
 {
   "scope": "3.5/spells",
-  "count": 7,
+  "count": 5,
   "referenceCount": 0,
   "prerequisiteCount": 1,
   "duplicateFamilyCount": 0,
-  "nonce": "2026-09-20-select-parser-unlocked-clean-and-prereq-001",
+  "nonce": "2026-09-20-select-parser-unlocked-clean-and-prereq-002",
   "nearDuplicateFamilyCount": 0
 }
