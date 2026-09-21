@@ -62,6 +62,31 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\bfunctions?\s+as\s+if\s+(?:a|an|the)\s+"
+        r"(?!(?:normal|ordinary|generic|original|same|previous)\b)"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\s+had\s+been\s+cast\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bas\s+though\s+(?:it|they|he|she|the\s+[A-Za-z][A-Za-z'’ -]{0,40})\s+"
+        r"(?:were|was)\s+affected\s+by\s+(?:a|an|the)\s+"
+        r"(?!(?:normal|ordinary|generic|original|same|previous)\b)"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bfunctions?\s+much\s+like\s+(?:a|an|the)\s+"
+        r"(?!(?:normal|ordinary|generic|original|same|previous)\b)"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bexactly\s+as\s+(?:a|an|the)\s+"
+        r"(?!(?:normal|ordinary|generic|original|same|previous)\b)"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
         r"\b(?:functions?|works?|operates?)\s+as\s+"
         r"(?!if\b|though\b|a\b|an\b)(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
@@ -1983,6 +2008,30 @@ def run_self_test() -> None:
     ) == []
     assert extract_reference_names(
         "Like the original device, this spell glows while active."
+    ) == []
+    assert extract_reference_names(
+        "She functions as if a raise dead spell had been cast upon her, except she loses no level."
+    ) == ["raise dead"]
+    assert extract_reference_names(
+        "The device functions as if underwater."
+    ) == []
+    assert extract_reference_names(
+        "The weapon's threat range doubles, as though it were affected by a keen edge spell."
+    ) == ["keen edge"]
+    assert extract_reference_names(
+        "The creature moves as though it were affected by ordinary gravity."
+    ) == []
+    assert extract_reference_names(
+        "This spell functions much like the sanctuary spell."
+    ) == ["sanctuary"]
+    assert extract_reference_names(
+        "This device functions much like a normal mirror."
+    ) == []
+    assert extract_reference_names(
+        "The ring emits two bolts, exactly as the lightning bolt spell."
+    ) == ["lightning bolt"]
+    assert extract_reference_names(
+        "The result appears exactly as the original spell described."
     ) == []
     assert extract_reference_names(
         "This spell functions as teleport, greater, but only you can travel."
