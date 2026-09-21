@@ -72,6 +72,11 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\bas\s+described\s+in\s+(?:the\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
         r"\bas\s+(?P<name>(?:greater|lesser)\s+[A-Za-z][A-Za-z'’ -]{1,80}?)"
         r"(?=\s+with\s+the\s+following\s+additional\s+effects\b|[.;])",
         re.I,
@@ -166,6 +171,21 @@ EXTERNAL_MECHANICS_PATTERNS = (
     )),
     ("external-rules-sidebar-reference", re.compile(
         r"\bas\s+(?:described|outlined|detailed)\s+in\s+(?:the\s+)?[^.;]{1,80}\bsidebar\b",
+        re.I,
+    )),
+    ("as-described-in-named-spell", re.compile(
+        r"\bas\s+described\s+in\s+(?:the\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("external-described-rulebook-chapter", re.compile(
+        r"\b(?:fully\s+)?described\s+in\s+Chapter\s+\d+\s+of\s+(?:the\s+)?"
+        r"(?:Dungeon Master[’']s Guide|Player[’']s Handbook)\b",
+        re.I,
+    )),
+    ("external-dmg-abbreviation-reference", re.compile(
+        r"\b(?:as\s+noted\s+in|(?:modifiers?\s+(?:to\s+the\s+DC\s+)?are\s+)?listed\s+in)"
+        r"\s+the\s+DMG\b",
         re.I,
     )),
     ("numbered-table-reference", re.compile(r"\bTable\s+\d+(?:-\d+)?\b", re.I)),
@@ -1841,6 +1861,9 @@ def run_self_test() -> None:
         "Any scrying sees an image (as the major image spell)."
     ) == ["major image"]
     assert extract_reference_names(
+        "She can leave the creature insane (as described in the insanity spell)."
+    ) == ["insanity"]
+    assert extract_reference_names(
         "You transport the target as greater teleport."
     ) == ["greater teleport"]
     assert extract_reference_names(
@@ -1914,6 +1937,18 @@ def run_self_test() -> None:
     assert "external-rulebook-section" in external_mechanics_reasons("See Sacrifices in Chapter 2 for the required DCs.")
     assert "external-described-page-reference" in external_mechanics_reasons("As described on page 76 of the Dungeon Master's Guide, the mold deals damage.")
     assert "external-rules-sidebar-reference" in external_mechanics_reasons("You gain the drawbacks, as outlined in the Incorporeal Subtype sidebar.")
+    assert "as-described-in-named-spell" in external_mechanics_reasons(
+        "She can leave the creature insane (as described in the insanity spell)."
+    )
+    assert "external-described-rulebook-chapter" in external_mechanics_reasons(
+        "You gain the Scent special ability (fully described in Chapter 3 of the Dungeon Master’s Guide)."
+    )
+    assert "external-dmg-abbreviation-reference" in external_mechanics_reasons(
+        "Strong and overpowering scents increase the range (as noted in the DMG)."
+    )
+    assert "external-dmg-abbreviation-reference" in external_mechanics_reasons(
+        "Modifiers to the DC are listed in the DMG."
+    )
     assert "external-described-page-reference" not in external_mechanics_reasons("The page turns as you read it.")
     assert "external-rules-sidebar-reference" not in external_mechanics_reasons("The sidebar contains decorative artwork.")
     assert "numbered-table-reference" in external_mechanics_reasons("Add +30% to the roll on Table 2-2: Portal Malfunction.")
