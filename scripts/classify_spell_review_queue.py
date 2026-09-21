@@ -67,7 +67,7 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\(\s*as\s+(?!well\b|normal\b|appropriate\b|noted\b|described\b)"
+        r"\(\s*as\s+(?!well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
         r"(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
@@ -90,6 +90,12 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\bidentical\s+(?:with|to)\s+(?:the\s+)?effects?\s+of\s+"
+        r"(?:(?:a|an|the)\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?:\s+spell)?(?=[,.;)]|$)",
+        re.I,
+    ),
+    re.compile(
         r"\b(?:functions?|works?|operates?)\s+identically\s+to\s+"
         r"(?!the\s+original\b|that\b|those\b)(?P<name>[^.;:!?]{2,100}?)(?=,\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
@@ -109,6 +115,12 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\b(?:gains?|grants?|receives?|has)\s+(?:the\s+)?benefits?\s+of\s+"
+        r"(?:a|an|the)\s+(?!spell\b|this\b|that\b)"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
         r"\breveals?\s+as\s+much\s+information\s+as\s+(?:a|an|the)\s+"
         r"(?P<name>detect magic)\s+spell\b",
         re.I,
@@ -116,6 +128,17 @@ REFERENCE_PATTERNS = (
     re.compile(
         r"\bas\s+if\s+(?:it\s+were\s+)?affected\s+by\s+(?:a|an|the)\s+"
         r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bas\s+if\s+(?:it\s+were\s+)?subject\s+to\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:emits?|activates?|activating|creates?|creating|produces?|producing|invokes?|invoking)\s+"
+        r"(?:(?:a|an|the)\s+)?(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s*"
+        r"\(\s*as\s+the\s+spell(?:\s*,[^)]*)?\)",
         re.I,
     ),
     re.compile(
@@ -1861,6 +1884,24 @@ def run_self_test() -> None:
     assert extract_reference_names(
         "Any scrying sees an image (as the major image spell)."
     ) == ["major image"]
+    assert extract_reference_names(
+        "The effect of the mark is identical with the effect of bestow curse."
+    ) == ["bestow curse"]
+    assert extract_reference_names(
+        "The subjects gain the benefits of a bless spell as long as you are in sight of them."
+    ) == ["bless"]
+    assert extract_reference_names(
+        "The spirit is forced from the body as if subject to a dismissal spell."
+    ) == ["dismissal"]
+    assert extract_reference_names(
+        "It emits a magic circle against chaos (as the spell)."
+    ) == ["magic circle against chaos"]
+    assert extract_reference_names(
+        "It ends the effect by activating protection from evil (as the spell, but targeting itself) as a swift action."
+    ) == ["protection from evil"]
+    assert extract_reference_names(
+        "The duration is measured in days (as reckoned on the Material Plane)."
+    ) == []
     assert extract_reference_names(
         "She can leave the creature insane (as described in the insanity spell)."
     ) == ["insanity"]
