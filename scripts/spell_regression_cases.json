@@ -1992,6 +1992,12 @@
     "spells/cure-serious-wounds-2385",
     "spells/inflict-critical-wounds-2743",
     "spells/inflict-moderate-wounds-2748",
-    "spells/inflict-serious-wounds-2750"
+    "spells/inflict-serious-wounds-2750",
+    "spells/cure-critical-wounds-mass-2379",
+    "spells/cure-moderate-wounds-mass-2384",
+    "spells/cure-serious-wounds-mass-2386",
+    "spells/inflict-critical-wounds-mass-2744",
+    "spells/inflict-moderate-wounds-mass-2749",
+    "spells/inflict-serious-wounds-mass-2751"
   ]
 }
