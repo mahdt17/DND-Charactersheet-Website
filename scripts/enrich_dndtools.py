@@ -1437,6 +1437,32 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="garbled-nystuls-magic-aura-source"
+        if (
+            entry.get("id")=="spells/invoke-the-cerulean-sign-1539"
+            and re.search(r"\bmoves up one level on the table\b",effect_source,re.I)
+            and not parser.tables
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-cerulean-sign-effect-table"
+        if (
+            entry.get("id")=="spells/phantasmal-thief-1006"
+            and re.search(r"\bEven objects in a Improved Disarm feat and a \+20 Strength modifier\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-draconomicon-phantasmal-thief-source"
+        if (
+            entry.get("id") in {"spells/reality-maelstrom-1861","spells/reality-maelstrom-4072"}
+            and re.search(r"\brandom plane\s*\(see sidebar\)",effect_source,re.I)
+            and not parser.tables
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-reality-maelstrom-random-plane-sidebar"
+        if (
+            entry.get("id")=="spells/spell-matrix-lesser-4207"
+            and re.search(r"\bOnly a spell that can be altered by the antimagic field\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-lesser-spell-matrix-source"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
@@ -2218,6 +2244,80 @@ def self_test():
         summary=repaired.get("effectSummary","").casefold()
         for fragment in expected_fragments:
             assert fragment.casefold() in summary, (record_id, fragment, summary)
+
+    repair_batch_cases_3 = [
+        (
+            "spells/invoke-the-cerulean-sign-1539",
+            "Invoke the Cerulean Sign",
+            "Lords of Madness (LoM), p. 212",
+            "Any aberration within the area must make a Fortitude saving throw or suffer the following ill effects. Closer aberrations are affected first. Each effect lasts for 1 round. Once a creature recovers from an effect, it moves up one level on the table.",
+            "omitted-cerulean-sign-effect-table",
+            ("combined total hit dice", "stunned", "recovers fully"),
+            ("aberration hit dice", "caster level +10", "caster level -10", "stunned"),
+        ),
+        (
+            "spells/phantasmal-thief-1006",
+            "Phantasmal Thief",
+            "Draconomicon (Dr), p. 114",
+            "A phantasmal thief has a Hide modifier of +20 and a Move Silently modifier of +20. Even objects in a Improved Disarm feat and a +20 Strength modifier. If a phantasmal thief is used in this way, it disappears after it brings the stolen object to the caster.",
+            "truncated-draconomicon-phantasmal-thief-source",
+            ("cannot break into locked chests", "bag of holding", "improved disarm"),
+            (),
+        ),
+        (
+            "spells/reality-maelstrom-1861",
+            "Reality Maelstrom",
+            "Manual of the Planes (MP), p. 38",
+            "You tear a temporary hole in reality itself that sends creatures to a random plane (see sidebar). The primary area has a 5-foot radius per caster level and the secondary area extends to a 10-foot radius per caster level. A reality maelstrom is a one-way portal.",
+            "omitted-reality-maelstrom-random-plane-sidebar",
+            ("5-foot radius per caster level", "additional saving throws every round", "one-way portal"),
+            ("random planar destinations", "01-05", "heroic domains of ysgard", "00", "demiplane of the dm's choice"),
+        ),
+        (
+            "spells/reality-maelstrom-4072",
+            "Reality Maelstrom",
+            "Spell Compendium (SpC), p. 168",
+            "You tear a temporary hole in reality itself that sends creatures to a random plane (see sidebar). The primary area is a 20-foot-radius sphere and the secondary area extends from 20 feet to 40 feet. A reality maelstrom is a one-way portal.",
+            "omitted-reality-maelstrom-random-plane-sidebar",
+            ("20-foot radius", "50 pounds or less", "one-way portal"),
+            ("random planar destinations", "01-05", "heroic domains of ysgard", "100", "demiplane of dm's choice"),
+        ),
+        (
+            "spells/spell-matrix-lesser-4207",
+            "Spell Matrix, Lesser",
+            "Spell Compendium (SpC), p. 199",
+            "You prepare a magical matrix that allows you to store one of your spells. Only a spell that can be altered by the antimagic field, the duration of the matrix is interrupted, but the spell does not activate.",
+            "truncated-lesser-spell-matrix-source",
+            ("up to 3rd level", "quicken spell", "swift action", "1d6"),
+            (),
+        ),
+    ]
+    for record_id, spell_name, source_line, damaged_text, marker, expected_fragments, expected_table_fragments in repair_batch_cases_3:
+        damaged_html = f"""
+        <h1>{spell_name}</h1><p>{source_line}</p>
+        <div>School</div><div>Evocation</div><div>Casting Time</div><div>1 standard action</div>
+        <div>Components</div><div>V, S</div><div>Range</div><div>Medium</div>
+        <div>Duration</div><div>1 round</div><div>Saving Throw</div><div>See text</div>
+        <div>Spell Resistance</div><div>Yes</div><div>Classes</div><div>Wizard 9</div>
+        <h2>Description</h2><p>{damaged_text}</p>
+        """
+        p=DetailParser();p.feed(damaged_html);p.close()
+        repaired=parse_spell(p,{"name":spell_name,"id":record_id})
+        assert repaired.get("sourceIncomplete"), record_id
+        assert repaired.get("sourceIncompleteMarker")==marker, record_id
+        assert repaired.get("sourceIncompleteResolved"), record_id
+        assert repaired.get("supplementVerified"), record_id
+        summary=repaired.get("effectSummary","").casefold()
+        for fragment in expected_fragments:
+            assert fragment.casefold() in summary, (record_id, fragment, summary)
+        flattened_tables=clean(" ".join(
+            str(cell)
+            for table in (repaired.get("tables") or [])
+            for row in table
+            for cell in row
+        )).casefold()
+        for fragment in expected_table_fragments:
+            assert fragment.casefold() in flattened_tables, (record_id, fragment, flattened_tables)
 
     repair_header_mismatch_html = """
     <h1>Repair Moderate Damage</h1><p>Miniatures Handbook (MH), p. 38</p>

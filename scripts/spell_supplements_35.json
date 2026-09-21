@@ -1600,6 +1600,340 @@
           "role": "3.5 SRD corroboration for the identify/Will-save, exceptional-aura, and masterwork-item mechanics"
         }
       ]
+    },
+    "spells/invoke-the-cerulean-sign-1539": {
+      "name": "Invoke the Cerulean Sign",
+      "effectSummary": "Affects multiple aberrations in a 30-foot spread whose combined total Hit Dice do not exceed twice your caster level, with closer aberrations affected first. Each aberration makes a Fortitude save; on a failed save, its effect is determined by Hit Dice relative to your caster level using the restored table: up to caster level +10, none; up to caster level +5, sickened; up to caster level, nauseated; up to caster level -5, dazed; up to caster level -10, stunned. Each stage lasts 1 round. After a creature recovers from a stage, it moves one step upward each round until fully recovered, so a stunned creature becomes dazed, then nauseated, then sickened, then normal.",
+      "tables": [
+        [
+          [
+            "Aberration Hit Dice",
+            "Effect"
+          ],
+          [
+            "Up to caster level +10",
+            "None"
+          ],
+          [
+            "Up to caster level +5",
+            "Sickened"
+          ],
+          [
+            "Up to caster level",
+            "Nauseated"
+          ],
+          [
+            "Up to caster level -5",
+            "Dazed"
+          ],
+          [
+            "Up to caster level -10",
+            "Stunned"
+          ]
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invoke-the-cerulean-sign-1539",
+          "role": "primary rebuilt Lords of Madness record; prose refers to a table that is absent from the rebuilt page"
+        },
+        {
+          "url": "https://dndtools.net/spells/lords-of-madness--72/invoke-the-cerulean-sign--1539/",
+          "role": "clean same-printing Lords of Madness spell rendering used to verify the spell body and recovery sequence"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellslom.html",
+          "role": "Lords of Madness SRD rendering used to restore the omitted Hit Dice/effect table"
+        }
+      ]
+    },
+    "spells/phantasmal-thief-1006": {
+      "name": "Phantasmal Thief",
+      "effectSummary": "Creates an invisible force similar to an unseen servant that you direct on your turn as a free action. The Draconomicon version can steal only from creatures; it cannot break into locked chests or steal unattended objects. It has Hide +20 and Move Silently +20. If undetected, it can steal an object a creature possesses but is not holding or wearing, including an object inside a bag of holding. It can only steal, bring an object to you, or return it; stealing takes 1 round and bringing the object takes another round. It can hold only one object, which becomes invisible in its grasp. If detected, it cannot take the item that round but can retry. It cannot be harmed, though it can be dispelled. It can disarm a held object as though it had Improved Disarm and a +20 Strength modifier; when used this way, it disappears after delivering the stolen object.",
+      "notes": "Locked to the Draconomicon 8th-level printing. Do not substitute the later Spell Compendium revision, which changes spell level, unattended-object rules, skill modifiers, and the disarm bonus.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantasmal-thief-1006",
+          "role": "primary rebuilt Draconomicon record; a large middle rules block is corrupted/truncated"
+        },
+        {
+          "url": "https://dndtools.net/spells/draconomicon--92/phantasmal-thief--1006/",
+          "role": "clean same-printing Draconomicon rendering used to restore the theft, detection, action, and disarm mechanics"
+        }
+      ]
+    },
+    "spells/reality-maelstrom-1861": {
+      "name": "Reality Maelstrom",
+      "effectSummary": "Manual of the Planes (3.0) version. Creates a one-way planar tear for 1 round per level. The primary area is a sphere with a 5-foot radius per caster level; unattended objects weighing 100 pounds or less are sucked through, and creatures are sent through on a failed Will save. The secondary windstorm extends to a 10-foot radius per caster level; unattended objects weighing 50 pounds or less are pulled into the primary area, while creatures failing a Reflex save are pulled into the primary area and must then make a Will save. A creature that succeeds on either save can act normally but must make additional saves each round it remains in the relevant area. Everything sent through goes to the same random plane determined by the restored Random Planar Destinations table. The layer and exact location are chosen by the DM; if cast away from the Material Plane, replace the origin plane's table entry with the Material Plane.",
+      "notes": "Source-locked to the Manual of the Planes 3.0 printing: Sorcerer/Wizard 7, scaling 5-ft./level and 10-ft./level areas, duration 1 round/level, and repeated saves each round. Do not substitute the Spell Compendium revision.",
+      "tables": [
+        [
+          [
+            "Random Planar Destinations",
+            ""
+          ]
+        ],
+        [
+          "d%",
+          "Plane"
+        ],
+        [
+          "01-05",
+          "Heroic Domains of Ysgard"
+        ],
+        [
+          "06-10",
+          "Ever-Changing Chaos of Limbo"
+        ],
+        [
+          "11-15",
+          "Windswept Depths of Pandemonium"
+        ],
+        [
+          "16-20",
+          "Infinite Layers of the Abyss"
+        ],
+        [
+          "21-25",
+          "Tarterian Depths of Carceri"
+        ],
+        [
+          "26-30",
+          "Gray Waste of Hades"
+        ],
+        [
+          "31-35",
+          "Bleak Eternity of Gehenna"
+        ],
+        [
+          "36-40",
+          "Nine Hells of Baator"
+        ],
+        [
+          "41-45",
+          "Infernal Battlefield of Acheron"
+        ],
+        [
+          "46-50",
+          "Clockwork Nirvana of Mechanus"
+        ],
+        [
+          "51-55",
+          "Peaceable Kingdoms of Arcadia"
+        ],
+        [
+          "56-60",
+          "Seven Mounting Heavens of Celestia"
+        ],
+        [
+          "61-65",
+          "Twin Paradises of Bytopia"
+        ],
+        [
+          "66-70",
+          "Blessed Fields of Elysium"
+        ],
+        [
+          "71-75",
+          "Wilderness of the Beastlands"
+        ],
+        [
+          "76-80",
+          "Olympian Glades of Arborea"
+        ],
+        [
+          "81-89",
+          "Concordant Domain of the Outlands"
+        ],
+        [
+          "90-91",
+          "Elemental Plane of Fire"
+        ],
+        [
+          "92-93",
+          "Elemental Plane of Earth"
+        ],
+        [
+          "94-95",
+          "Elemental Plane of Air"
+        ],
+        [
+          "96-97",
+          "Elemental Plane of Water"
+        ],
+        [
+          "98",
+          "Positive Energy Plane"
+        ],
+        [
+          "99",
+          "Negative Energy Plane"
+        ],
+        [
+          "00",
+          "Demiplane of the DM's choice"
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reality-maelstrom-1861",
+          "role": "primary rebuilt Manual of the Planes record; it points to a random-plane sidebar that is absent"
+        },
+        {
+          "url": "https://dndtools.net/spells/manual-of-the-planes--43/reality-maelstrom--1861/",
+          "role": "clean same-printing Manual of the Planes spell body used to preserve its 3.0 area, duration, and repeated-save mechanics"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/jmsf/basic",
+          "role": "Manual of the Planes sourcebook rendering used to restore Table 3-7: Random Planar Destinations and its origin-plane replacement rule"
+        }
+      ]
+    },
+    "spells/reality-maelstrom-4072": {
+      "name": "Reality Maelstrom",
+      "effectSummary": "Spell Compendium version. Creates a one-way planar tear for 1 round. The primary area is a 20-foot-radius sphere; unattended objects weighing 100 pounds or less are sucked through, and creatures are sent through on a failed Will save. The secondary area extends from 20 feet to 40 feet from the origin; unattended objects weighing 50 pounds or less are drawn into the primary area, while creatures failing a Reflex save are pulled into the primary area and must then make a Will save. A creature that succeeds on either save can move and attack normally. Everything sent through goes to the same random plane determined by the restored Random Planar Destinations table. The layer and exact location are chosen by the DM; if cast away from the Material Plane, replace the origin plane's table entry with the Material Plane.",
+      "notes": "Source-locked to the Spell Compendium 3.5 printing: Sorcerer/Wizard 9, fixed 20-ft. primary and 40-ft. outer radius, and duration 1 round. Do not import the earlier Manual of the Planes scaling areas or repeated-round saves.",
+      "tables": [
+        [
+          [
+            "Random Planar Destinations",
+            ""
+          ]
+        ],
+        [
+          "d%",
+          "Plane"
+        ],
+        [
+          "01-05",
+          "Heroic Domains of Ysgard"
+        ],
+        [
+          "06-10",
+          "Ever-Changing Chaos of Limbo"
+        ],
+        [
+          "11-15",
+          "Windswept Depths of Pandemonium"
+        ],
+        [
+          "16-20",
+          "Infinite Layers of the Abyss"
+        ],
+        [
+          "21-25",
+          "Tarterian Depths of Carceri"
+        ],
+        [
+          "26-30",
+          "Gray Waste of Hades"
+        ],
+        [
+          "31-35",
+          "Bleak Eternity of Gehenna"
+        ],
+        [
+          "36-40",
+          "Nine Hells of Baator"
+        ],
+        [
+          "41-45",
+          "Infernal Battlefield of Acheron"
+        ],
+        [
+          "46-50",
+          "Clockwork Nirvana of Mechanus"
+        ],
+        [
+          "51-55",
+          "Peaceable Kingdoms of Arcadia"
+        ],
+        [
+          "56-60",
+          "Seven Mounting Heavens of Celestia"
+        ],
+        [
+          "61-65",
+          "Twin Paradises of Bytopia"
+        ],
+        [
+          "66-70",
+          "Blessed Fields of Elysium"
+        ],
+        [
+          "71-75",
+          "Wilderness of the Beastlands"
+        ],
+        [
+          "76-80",
+          "Olympian Glades of Arborea"
+        ],
+        [
+          "81-89",
+          "Concordant Domain of the Outlands"
+        ],
+        [
+          "90-91",
+          "Elemental Plane of Fire"
+        ],
+        [
+          "92-93",
+          "Elemental Plane of Earth"
+        ],
+        [
+          "94-95",
+          "Elemental Plane of Air"
+        ],
+        [
+          "96-97",
+          "Elemental Plane of Water"
+        ],
+        [
+          "98",
+          "Positive Energy Plane"
+        ],
+        [
+          "99",
+          "Negative Energy Plane"
+        ],
+        [
+          "100",
+          "Demiplane of DM’s choice"
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reality-maelstrom-4072",
+          "role": "primary rebuilt Spell Compendium record; it points to a random-plane sidebar that is absent"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/reality-maelstrom--4072/",
+          "role": "clean same-printing Spell Compendium rendering used to preserve the 3.5 spell body"
+        },
+        {
+          "url": "https://anyflip.com/kpthp/tqqk/basic/151-200",
+          "role": "Spell Compendium sourcebook rendering used to restore the Random Planar Destinations sidebar and table"
+        }
+      ]
+    },
+    "spells/spell-matrix-lesser-4207": {
+      "name": "Spell Matrix, Lesser",
+      "effectSummary": "Prepares a magical matrix for 10 minutes per caster level. In the round after casting it, you can place one spell of up to 3rd level into the matrix; it closes after 1 round whether or not a spell was stored. Only a spell eligible for Quicken Spell can be stored, and the stored spell is treated as prepared. Casting lesser spell matrix deals 1d6 damage to you that cannot be healed while the matrix exists. You can cast the stored spell as a swift action, after which it is gone. A successful dispel magic against the matrix also dispels the stored spell. An antimagic field pauses the matrix's duration without activating the stored spell; the matrix resumes after you leave the field. If you die while the matrix holds a spell, both dissipate harmlessly.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-matrix-lesser-4207",
+          "role": "primary rebuilt Spell Compendium record; its middle rules block is truncated into a malformed antimagic-field sentence"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/spell-matrix-lesser--4207/",
+          "role": "clean same-printing Spell Compendium rendering used to restore storage, Quicken Spell, damage, swift-action, dispel, antimagic, and death rules"
+        }
+      ]
     }
   }
 }
