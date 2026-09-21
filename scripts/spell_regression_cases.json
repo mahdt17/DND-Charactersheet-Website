@@ -1998,6 +1998,7 @@
     "spells/cure-serious-wounds-mass-2386",
     "spells/inflict-critical-wounds-mass-2744",
     "spells/inflict-moderate-wounds-mass-2749",
-    "spells/inflict-serious-wounds-mass-2751"
+    "spells/inflict-serious-wounds-mass-2751",
+    "spells/repair-light-damage-mass-4961"
   ]
 }
