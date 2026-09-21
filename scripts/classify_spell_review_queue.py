@@ -46,12 +46,12 @@ KNOWN_REFERENCE_FIXTURES = {
 REFERENCE_PATTERNS = (
     re.compile(
         r"\b(?:functions?|works?|operates?)\s+like\s+"
-        r"(?P<name>[^.;:!?]{2,120}?)(?=,\s*(?:except|but)\b|[.;:!?]|$)",
+        r"(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
     ),
     re.compile(
         r"\b(?:functions?|works?|operates?)\s+as\s+"
-        r"(?!if\b|though\b|a\b|an\b)(?P<name>[^.;:!?]{2,120}?)(?=,\s*(?:except|but)\b|[.;:!?]|$)",
+        r"(?!if\b|though\b|a\b|an\b)(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
     ),
     re.compile(
@@ -67,7 +67,8 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\(\s*as\s+(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
+        r"\(\s*as\s+(?!well\b|normal\b|appropriate\b|noted\b|described\b)"
+        r"(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
     re.compile(
@@ -1184,6 +1185,12 @@ def clean_reference_name(value: str) -> str:
         value,
         flags=re.I,
     )
+    value = re.sub(
+        r"\s+(?:spell\s*)?,\s*page\s+\d+\s+of\s+the\s+Player[’']s\s+Handbook\s*$",
+        "",
+        value,
+        flags=re.I,
+    )
     value = re.sub(r"^\d+(?:st|nd|rd|th)-level\s+(?:spell\s+)?", "", value, flags=re.I)
     # Strip grammatical "the"/"the spell" prefixes, but preserve a real
     # spell name beginning with "Spell" (for example, Spell Resistance).
@@ -1807,6 +1814,9 @@ def run_self_test() -> None:
         "This spell functions like arcane eye, except it lasts longer."
     ) == ["arcane eye"]
     assert extract_reference_names(
+        "This spell functions like invisibility except as noted above."
+    ) == ["invisibility"]
+    assert extract_reference_names(
         "This spell functions as teleport, greater, but only you can travel."
     ) == ["teleport, greater"]
     assert extract_reference_names(
@@ -1819,6 +1829,13 @@ def run_self_test() -> None:
         "As lesser humanoid essence with the following additional effects."
     ) == ["lesser humanoid essence"]
     assert extract_reference_names("The weapon functions as if cast by you.") == []
+    assert extract_reference_names(
+        "You (as well as any other druid of 3rd or higher level) can identify the berries."
+    ) == []
+    assert extract_reference_names(
+        "The effect applies each round (as well as to any creature entering the storm)."
+    ) == []
+    assert extract_reference_names("Use the normal attack rules (as normal).") == []
     assert extract_reference_names("The spell functions as though cast from the eye.") == []
     assert extract_reference_names(
         "Any scrying sees an image (as the major image spell)."
@@ -1864,6 +1881,7 @@ def run_self_test() -> None:
     assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
     assert clean_reference_name("grease (PHB 237)") == "grease"
     assert clean_reference_name("stone bones (Spell Compendium page 208)") == "stone bones"
+    assert clean_reference_name("alarm spell, page 197 of the Player’s Handbook") == "alarm"
     assert extract_reference_names(
         "This spell functions like grease (PHB 237), but the liquid is flammable."
     ) == ["grease"]
