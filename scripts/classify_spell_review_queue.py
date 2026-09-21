@@ -242,7 +242,9 @@ REFERENCE_PATTERNS = (
         r"\b(?:is|becomes?|become)\s+(?P<name>slow)ed\s+as\s+the\s+spell\b",
         re.I,
     ),
-)\n\nEXTERNAL_MECHANICS_PATTERNS = (
+)
+
+EXTERNAL_MECHANICS_PATTERNS = (
     ("leading-inherited-spell", re.compile(
         r"^\s*As\s+(?:the\s+)?(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?:\s+spell)?\s*,\s*(?:and|except|but)\b",
         re.I,
