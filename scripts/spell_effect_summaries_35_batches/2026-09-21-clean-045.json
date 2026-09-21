@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summary; clean batch 045.",
+  "entries": {
+    "spells/whirlwind-of-teeth-190": {
+      "name": "Whirlwind of Teeth",
+      "sourceSha256": "5c64b8173dc4986f86baab3bd235af27a101026733de0e5c4bf1e4a99859d022",
+      "effectSummary": "Creates an opaque cylinder of swirling, roaring mouths and teeth. Creatures in the area take 1d8 damage for every two caster levels, to a maximum of 10d8, with a Reflex save for half and spell resistance applying. You can mentally direct the whirlwind as a free action, moving it at a speed of 40 feet. Its area is a cylinder with a 5-foot radius per caster level and a height of 10 feet per caster level, and it lasts 1 round per caster level. The arcane material component is a handful of bloody teeth.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/whirlwind-of-teeth-190",
+          "role": "Book of Vile Darkness primary effect and header reviewed; opacity, cylinder dimensions, scaling damage and cap, save/SR, free-action mental movement, speed, duration and material component preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "73f3cbd193164a83e528e2d1eff73ce379294810",
+    "workflowRun": 35656120125,
+    "validationRun": 35656124732,
+    "classificationArtifact": 10663774009,
+    "classificationArtifactSha256": "25d57f17c35cf1a85c442097f2964065c9edd75ac350736f3e2305f2d84bb7ae",
+    "eligibleCount": 1
+  }
+}

@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 045
+
+- Classifier head `73f3cbd193164a83e528e2d1eff73ce379294810` passed Spell effect review #270 (`35656120125`) and Validate modernization #833 (`35656124732`).
+- Review #270 measured **1,090 remaining**, **3,607 reviews**, **2,010 regressions**, zero errors/warnings/digest drift. The strict selector exposed exactly **1** clean standalone record: Whirlwind of Teeth (`190`); all other selectors remained **0 eligible**.
+- Classification artifact `10663774009`, ZIP SHA-256 `25d57f17c35cf1a85c442097f2964065c9edd75ac350736f3e2305f2d84bb7ae`.
+- Batch `2026-09-21-clean-045.json` locks Whirlwind of Teeth to primary digest `5c64b8173dc4986f86baab3bd235af27a101026733de0e5c4bf1e4a99859d022` and adds a permanent regression ID. The phrase `(as a free action)` is retained as local action-economy timing, not treated as a spell dependency.
+- Corpus after this commit: **3,608** summaries / **2,011** permanent regression IDs. Predicted queue after remeasurement: **1,089**; treat that as provisional until both CI gates pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — exact action-economy comparison
 
 - Clean batch 044 head `4730f708c97f7ef7eb25594d72260161d1af7d6f` passed Spell effect review #269 (`35655652031`) and Validate modernization #832 (`35655654230`).
