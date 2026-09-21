@@ -532,8 +532,10 @@ EXTERNAL_MECHANICS_PATTERNS = (
         re.I,
     )),
     ("slow-condition-shorthand", re.compile(
-        r"\b(?:subject|target|creatures?|foe|enemy)\b[^.;]{0,100}\b"
-        r"(?:is|are|becomes?|become)\s+slowed\b",
+        r"\b(?:subject|target|creatures?|foe|enemy)\b"
+        r"(?![^.;]{0,120}\b(?:is|are|becomes?|become)\s+slowed\s*,\s*so\s+that\b"
+        r"[^.;]{0,180}\breduces?\s+falling\s+damage\b)"
+        r"[^.;]{0,100}\b(?:is|are|becomes?|become)\s+slowed\b",
         re.I,
     )),
     ("planar-environment-dependency", re.compile(
@@ -2238,6 +2240,13 @@ def run_self_test() -> None:
     assert "slow-condition-shorthand" in external_mechanics_reasons("The subject is slowed for the spell's duration.")
     assert "slow-condition-shorthand" not in external_mechanics_reasons("Movement is slowed by deep mud.")
     assert "slow-condition-shorthand" in external_mechanics_reasons("A subject that fails a Will save is slowed.")
+    assert "slow-condition-shorthand" not in external_mechanics_reasons(
+        "A creature or object that falls into solid fog is slowed, so that each 10 feet of vapor "
+        "that it passes through reduces falling damage by 1d6."
+    )
+    assert "slow-condition-shorthand" in external_mechanics_reasons(
+        "A creature that fails its save is slowed, so that it can take only one action each round."
+    )
     assert "external-see-rulebook-reference" in external_mechanics_reasons("The target catches fire; see Catching on Fire in the Dungeon's Master Guide.")
     assert "parenthetical-see-named-spell" in external_mechanics_reasons("The subject is suspended (see the temporal stasis spell) until freed.")
     assert "parenthetical-see-named-spell" not in external_mechanics_reasons("The subject can see and hear itself as if unaffected by the spell.")
