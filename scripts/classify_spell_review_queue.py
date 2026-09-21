@@ -121,6 +121,10 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\beffectively\s+(?:a|an|the)\s+(?P<name>minor image)\b",
+        re.I,
+    ),
+    re.compile(
         r"\b(?:gains?|grants?|receives?|has)\s+(?:the\s+)?benefits?\s+of\s+"
         r"(?:a|an|the)\s+(?!spell\b|this\b|that\b)"
         r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
@@ -307,6 +311,10 @@ EXTERNAL_MECHANICS_PATTERNS = (
         r"\b(?:gains?|grants?|receives?|has)\s+(?:the\s+)?benefits?\s+of\s+"
         r"(?:a|an|the)\s+(?!spell\b|this\b|that\b)"
         r"(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    )),
+    ("effectively-minor-image-inheritance", re.compile(
+        r"\beffectively\s+(?:a|an|the)\s+(?P<name>minor image)\b",
         re.I,
     )),
     ("receives-heal-spell-inheritance", re.compile(
@@ -2002,6 +2010,9 @@ def run_self_test() -> None:
     assert "cure critical wounds" in extract_reference_names(
         "The first charge functions as a cure critical wounds spell."
     )
+    assert extract_reference_names(
+        "Each figure is effectively a minor image, and can appear dressed in any way."
+    ) == ["minor image"]
     assert "hallow" in extract_reference_names(
         "The chorus grants the effect of a hallow spell."
     )
@@ -2096,6 +2107,9 @@ def run_self_test() -> None:
     assert "functions-much-like-spell" in external_mechanics_reasons("This spell functions much like the sanctuary spell.")
     assert "named-spell-benefit" in external_mechanics_reasons("The subjects gain the benefits of a bless spell.")
     assert "named-spell-benefit" not in external_mechanics_reasons("Creatures receive the benefits of this spell.")
+    assert "effectively-minor-image-inheritance" in external_mechanics_reasons(
+        "Each figure is effectively a minor image, and can appear dressed in any way."
+    )
     assert "receives-heal-spell-inheritance" in external_mechanics_reasons("One round later, the target receives a heal spell.")
     assert "receives-heal-spell-inheritance" not in external_mechanics_reasons("The target receives a healing bonus.")
     assert "exactly-like-named-spell" in external_mechanics_reasons("This works exactly like the 1st-level spell sanctuary except for the save DC.")
