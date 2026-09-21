@@ -130,7 +130,7 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"(?:^|[.!?:]\s+)As\s+(?:the\s+spell\s+)?(?P<name>[^.!?]{2,120}?),\s*(?:except|but)\b",
+        r"(?:^|[.!?:]\s+)As\s+(?!a\s+standard\s+action\b)(?:the\s+spell\s+)?(?P<name>[^.!?]{2,120}?),\s*(?:except|but)\b",
         re.I,
     ),
     re.compile(
@@ -2017,6 +2017,10 @@ def run_self_test() -> None:
     assert extract_reference_names("The spell functions as long as at least 1/4 remains.") == []
     # Preserve a similarly prefixed genuine spell name on the same parser branch.
     assert extract_reference_names("The effect functions as longstrider.") == ["longstrider"]
+    # Sentence-leading action economy prose is not a spell reference.
+    assert extract_reference_names("As a standard action, you can move the bonefiddle to another creature in range, but the new target gains a saving throw.") == []
+    # Preserve a genuine inherited-spell leading clause.
+    assert extract_reference_names("As fireball, but the damage is cold.") == ["fireball"]
     same_name_rows = [
         {"id": "spells/shared-a", "name": "Shared Spell", "url": "https://example.invalid/a"},
         {"id": "spells/shared-b", "name": "Shared Spell", "url": "https://example.invalid/b"},

@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact leading action-economy phrase
+
+- Clean batch 048 head `f9fc2b3e480dd648f124a96751b8f7931967bc66` passed Spell effect review #277 (`35660300002`) and Validate modernization #840 (`35660305296`).
+- Review #277 measured **1,086 remaining**, **3,611 reviews**, **2,014 regressions**, zero errors/warnings/digest drift; every automatic selector returned **0 eligible**. Classification artifact `10667241284`, ZIP SHA-256 `a9177c3fcdb499c697562d107927fb3fe798c09cc3ec2e3900210023323966d0`.
+- Blocker discovery found Tvash-prull's Bonefiddle (`286`) blocked only by the ordinary sentence `As a standard action, you can move the bonefiddle to another creature in range, but ...`. The upstream review marks the source complete and not reference-dependent, with no external-mechanics or source-damage flags; this exact standard-action reference shape appears in only this remaining record.
+- This correction excludes only sentence-leading `As a standard action ...` from the inherited-spell detector. A positive self-test preserves `As fireball, but ...` as a genuine spell reference.
+- No content is locked by this parser commit. Require both CI gates and exactly the intended strict-clean exposure before locking. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 048
 
 - Classifier head `1bff7a83c39503f4e6e58be8b1c00cb4fd444bdc` passed Spell effect review #276 (`35659855406`) and Validate modernization #839 (`35659866704`).
