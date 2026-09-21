@@ -142,7 +142,7 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|though\s+it\s+was\b|with\s+most\b|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
+        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|though\s+it\s+was\b|with\s+most\b|if\s+leaping\s+forth\s+from\s+the\s+animal\b|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
         r"(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
@@ -1991,6 +1991,10 @@ def run_self_test() -> None:
     assert extract_reference_names("The weapon attacks (as though it was a masterwork weapon).") == []
     # Ordinary comparisons to a general rules family are not spell references.
     assert extract_reference_names("Two saves are required (as with most diseases).") == []
+    # Exact narrative appearance text is not an inherited spell reference.
+    assert extract_reference_names("You appear (as if leaping forth from the animal) nearby.") == []
+    # Preserve genuinely referential as-if clauses fail-closed.
+    assert extract_reference_names("You switch places (as if using dimension door spells).") == ["if using dimension door spells"]
     # Preserve genuinely referential "as though by <spell>" clauses fail-closed.
     assert extract_reference_names("You travel (as though by greater teleport).") == ["though by greater teleport"]
     # Exact quantitative "functions as long as at least ..." conditions are not spell references.

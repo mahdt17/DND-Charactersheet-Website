@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact narrative as-if phrase
+
+- Clean batch 042 head `10a7844ccbf3b7cef6386fa56991920c74d56cd0` passed Spell effect review #265 (`35652685712`) and Validate modernization #828 (`35652692568`).
+- Review #265 measured **1,092 remaining**, **3,605 reviews**, **2,008 regressions**, zero errors/warnings/digest drift; all strict/reference/prerequisite/duplicate selectors returned **0 eligible**. Classification artifact `10662358903`, ZIP SHA-256 `2b02c047ea509f3a52868506e659b5899de2cc6e9945cd4abc223b56050129b6`.
+- Blocker discovery found Leap Into Animal (`4841`) blocked only by the parenthetical `(as if leaping forth from the animal)`. The upstream parser already marks the source self-contained, and the exit-position/shunting mechanics are stated inline.
+- This correction excludes only the exact phrase `if leaping forth from the animal` from the generic parenthetical detector. A positive test preserves `(as if using dimension door spells)` as a reference-bearing clause, so Translocation Trick and similar inherited mechanics remain fail-closed.
+- No content is locked by this parser commit. Require both CI gates and exactly the intended strict-clean exposure before locking. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 042
 
 - Classifier head `3540901a283613643efbe11819a8eaba4724a8b5` passed Spell effect review #264 (`35652106112`) and Validate modernization #827 (`35652112140`).
