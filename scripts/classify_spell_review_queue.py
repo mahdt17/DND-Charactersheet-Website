@@ -190,9 +190,59 @@ REFERENCE_PATTERNS = (
         r"(?:^|[.!?]\s+)As\s+with\s+(?P<name>fog cloud)\s*,",
         re.I,
     ),
-)
-
-EXTERNAL_MECHANICS_PATTERNS = (
+)    re.compile(
+        r"\bsimilar\s+to\s+(?:the\s+)?effects?\s+of\s+(?:a|an|the)?\s*"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)(?:\s+spell)?"
+        r"(?=\s+(?:on|for)\s+(?:a|an|the)\b|[,.;)]|$)",
+        re.I,
+    ),
+    re.compile(
+        r"\bsimilar\s+to\s+(?:the\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"\s*\(\s*(?:PH|PHB)\s*\d+\s*\)"
+        r"(?=\s*,\s*(?:except|but|this)\b|[.;)]|$)",
+        re.I,
+    ),
+    re.compile(
+        r"\bas\s+per\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\baffected\s+as\s+though\s+by\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bsimilar\s+to\s+(?:that|those)\s+created\s+by\s+(?:a|an|the)?\s*"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+as\s+"
+        r"(?:a|an|the)\s+(?:targeted|area)\s+(?P<name>dispel magic)\b",
+        re.I,
+    ),
+    re.compile(
+        r"\bequivalent\s+(?:to|of)\s+(?:a|an|the)\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:functions?|works?|operates?|acts?|behaves?)\s+just\s+like\s+"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?=\s*,?\s*(?:except|but)\b|\s+spell\b)",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:target\s+of|as|like)\s+(?:a|an|the)?\s*(?P<name>dispel magic)\s+effect\b",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:is|becomes?|become)\s+(?P<name>slow)ed\s+as\s+the\s+spell\b",
+        re.I,
+    ),
+)\n\nEXTERNAL_MECHANICS_PATTERNS = (
     ("leading-inherited-spell", re.compile(
         r"^\s*As\s+(?:the\s+)?(?P<name>[A-Za-z][A-Za-z'’ /,-]{1,80}?)(?:\s+spell)?\s*,\s*(?:and|except|but)\b",
         re.I,
@@ -2037,6 +2087,31 @@ def run_self_test() -> None:
     assert extract_reference_names(
         "If you do not wield it, the weapon behaves as if unaffected by this spell."
     ) == []
+    assert extract_reference_names(
+        "This spell is similar to deathwatch (PH 217), but it functions only on animals and plants."
+    ) == ["deathwatch"]
+    assert extract_reference_names(
+        "The creatures are paralyzed, similar to the effect of hold person on a living creature."
+    ) == ["hold person"]
+    assert extract_reference_names("The glow provides light as per the light spell.") == ["light"]
+    assert extract_reference_names(
+        "Every creature in the area is affected as though by the prismatic spray spell."
+    ) == ["prismatic spray"]
+    assert extract_reference_names(
+        "The darkness is similar to that created by the deeper darkness spell."
+    ) == ["deeper darkness"]
+    assert extract_reference_names("This spell functions as a targeted dispel magic.") == ["dispel magic"]
+    assert extract_reference_names("The illumination is the equivalent of a daylight spell.") == ["daylight"]
+    assert extract_reference_names(
+        "This spell works just like insignia of alarm except the wearers are healed."
+    ) == ["insignia of alarm"]
+    assert extract_reference_names(
+        "Anyone passing through becomes the target of a dispel magic effect."
+    ) == ["dispel magic"]
+    assert extract_reference_names("A subject who fails a Will save is slowed as the spell.") == ["slow"]
+    assert extract_reference_names("The structure is similar to a stone archway.") == []
+    assert extract_reference_names("The object is equivalent to a masterwork sword.") == []
+    assert extract_reference_names("The device works just like normal machinery.") == []
     assert clean_reference_name("4th-level spell arcane eye") == "arcane eye"
     assert clean_reference_name("arcane eye spell (see page 200)") == "arcane eye"
     assert clean_reference_name("grease (PHB 237)") == "grease"
