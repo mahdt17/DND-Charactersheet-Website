@@ -1386,7 +1386,7 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         reference_dependent=bool(
             re.search(r"\b(?:functions?|works?|operates?)\s+like\b",effect_source,re.I)
             or re.search(r"\b(?:functions?|works?|operates?)\s+identically\s+to\b",effect_source,re.I)
-            or re.search(r"\b(?:functions?|works?|operates?)\s+as\s+(?!if\b|a\b|an\b)",effect_source,re.I)
+            or re.search(r"\b(?:functions?|works?|operates?)\s+as\s+(?!if\b|long\s+as\s+at\s+least\b|a\b|an\b)",effect_source,re.I)
             or re.search(r"^As\s+[^.!?]{1,120}?,\s*(?:except|but)\b",effect_source,re.I)
             or re.search(r"\bas\s+(?:a|the)\s+fog cloud\s+does\b",effect_source,re.I)
             or re.search(r"\bas\s+with\s+fog cloud\b",effect_source,re.I)
@@ -2090,6 +2090,24 @@ def self_test():
     s=parse_spell(p,{"name":"Generic As Test"})
     assert not s.get("effectReferenceDependent")
     assert s.get("effect") and not s.get("effectNeedsSummary")
+
+    quantitative_condition_html = """
+    <h1>Quantitative Condition</h1><p>Example Book (EX), p. 6</p>
+    <div>School</div><div>Transmutation</div><div>Casting Time</div><div>1 action</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Touch</div>
+    <div>Duration</div><div>Instantaneous</div><div>Classes</div><div>Wizard 4</div>
+    <h2>Description</h2><p>The spell functions as long as at least 1/4 of the object remains.</p>
+    """
+    p=DetailParser();p.feed(quantitative_condition_html);p.close()
+    s=parse_spell(p,{"name":"Quantitative Condition"})
+    assert not s.get("effectReferenceDependent")
+
+    longstrider_reference_html = quantitative_condition_html.replace(
+        "functions as long as at least 1/4 of the object remains", "functions as longstrider"
+    )
+    p=DetailParser();p.feed(longstrider_reference_html);p.close()
+    s=parse_spell(p,{"name":"Longstrider Reference"})
+    assert s.get("effectReferenceDependent")
 
     feat_html = """
     <h1>Monkey Grip</h1><p>General feat</p><p>Complete Warrior (CW), p. 103</p>

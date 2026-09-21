@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Upstream reference-detector correction — Rebirth of Iron
+
+- Downstream parser commit `014027747870efbe3778c28f44783a12bb14bc99` passed Spell effect review #261 (`35650046735`) and Validate modernization #824 (`35650051589`). Review #261 still exposed **0 eligible** records, proving the remaining block is upstream rather than in classification selection.
+- Review #261 kept the queue at **1,094**, with **3,603 reviews / 2,006 regressions**; zero errors/warnings/digest drift. Classification artifact `10661653515`, ZIP SHA-256 `a72e45634c905617d7d151571ad54197bcf7a52449172365bf73fdfbae769c06`.
+- Root cause: `enrich_dndtools.py` independently sets `effectReferenceDependent` for any `functions as ...` clause. This commit gives that upstream rule the same exact `long as at least` exclusion and adds parser-level positive/negative self-tests.
+- The broader `functions as ...` inheritance detector remains fail-closed. Rebirth of Iron (`881`) remains unmodified until both CI gates pass and the fresh review artifact proves the intended exposure.
+- Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Corrected classifier target — functions-as quantitative condition
 
 - Parser commit `cb52fb6a0c598479ecc8d3cf79d474cbbd5bab4e` passed Spell effect review #260 (`35649487767`) and Validate modernization #823 (`35649492037`), but Review #260 correctly showed **0 newly eligible** records; queue remained **1,094**. This proved the first exclusion was attached to the wrong parser branch and no content was promoted.
