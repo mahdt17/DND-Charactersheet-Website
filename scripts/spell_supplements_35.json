@@ -1671,109 +1671,105 @@
       "tables": [
         [
           [
-            "Random Planar Destinations",
-            ""
+            "d%",
+            "Plane"
+          ],
+          [
+            "01-05",
+            "Heroic Domains of Ysgard"
+          ],
+          [
+            "06-10",
+            "Ever-Changing Chaos of Limbo"
+          ],
+          [
+            "11-15",
+            "Windswept Depths of Pandemonium"
+          ],
+          [
+            "16-20",
+            "Infinite Layers of the Abyss"
+          ],
+          [
+            "21-25",
+            "Tarterian Depths of Carceri"
+          ],
+          [
+            "26-30",
+            "Gray Waste of Hades"
+          ],
+          [
+            "31-35",
+            "Bleak Eternity of Gehenna"
+          ],
+          [
+            "36-40",
+            "Nine Hells of Baator"
+          ],
+          [
+            "41-45",
+            "Infernal Battlefield of Acheron"
+          ],
+          [
+            "46-50",
+            "Clockwork Nirvana of Mechanus"
+          ],
+          [
+            "51-55",
+            "Peaceable Kingdoms of Arcadia"
+          ],
+          [
+            "56-60",
+            "Seven Mounting Heavens of Celestia"
+          ],
+          [
+            "61-65",
+            "Twin Paradises of Bytopia"
+          ],
+          [
+            "66-70",
+            "Blessed Fields of Elysium"
+          ],
+          [
+            "71-75",
+            "Wilderness of the Beastlands"
+          ],
+          [
+            "76-80",
+            "Olympian Glades of Arborea"
+          ],
+          [
+            "81-89",
+            "Concordant Domain of the Outlands"
+          ],
+          [
+            "90-91",
+            "Elemental Plane of Fire"
+          ],
+          [
+            "92-93",
+            "Elemental Plane of Earth"
+          ],
+          [
+            "94-95",
+            "Elemental Plane of Air"
+          ],
+          [
+            "96-97",
+            "Elemental Plane of Water"
+          ],
+          [
+            "98",
+            "Positive Energy Plane"
+          ],
+          [
+            "99",
+            "Negative Energy Plane"
+          ],
+          [
+            "00",
+            "Demiplane of the DM's choice"
           ]
-        ],
-        [
-          "d%",
-          "Plane"
-        ],
-        [
-          "01-05",
-          "Heroic Domains of Ysgard"
-        ],
-        [
-          "06-10",
-          "Ever-Changing Chaos of Limbo"
-        ],
-        [
-          "11-15",
-          "Windswept Depths of Pandemonium"
-        ],
-        [
-          "16-20",
-          "Infinite Layers of the Abyss"
-        ],
-        [
-          "21-25",
-          "Tarterian Depths of Carceri"
-        ],
-        [
-          "26-30",
-          "Gray Waste of Hades"
-        ],
-        [
-          "31-35",
-          "Bleak Eternity of Gehenna"
-        ],
-        [
-          "36-40",
-          "Nine Hells of Baator"
-        ],
-        [
-          "41-45",
-          "Infernal Battlefield of Acheron"
-        ],
-        [
-          "46-50",
-          "Clockwork Nirvana of Mechanus"
-        ],
-        [
-          "51-55",
-          "Peaceable Kingdoms of Arcadia"
-        ],
-        [
-          "56-60",
-          "Seven Mounting Heavens of Celestia"
-        ],
-        [
-          "61-65",
-          "Twin Paradises of Bytopia"
-        ],
-        [
-          "66-70",
-          "Blessed Fields of Elysium"
-        ],
-        [
-          "71-75",
-          "Wilderness of the Beastlands"
-        ],
-        [
-          "76-80",
-          "Olympian Glades of Arborea"
-        ],
-        [
-          "81-89",
-          "Concordant Domain of the Outlands"
-        ],
-        [
-          "90-91",
-          "Elemental Plane of Fire"
-        ],
-        [
-          "92-93",
-          "Elemental Plane of Earth"
-        ],
-        [
-          "94-95",
-          "Elemental Plane of Air"
-        ],
-        [
-          "96-97",
-          "Elemental Plane of Water"
-        ],
-        [
-          "98",
-          "Positive Energy Plane"
-        ],
-        [
-          "99",
-          "Negative Energy Plane"
-        ],
-        [
-          "00",
-          "Demiplane of the DM's choice"
         ]
       ],
       "resolvesSourceIncomplete": true,
@@ -1799,109 +1795,105 @@
       "tables": [
         [
           [
-            "Random Planar Destinations",
-            ""
+            "d%",
+            "Plane"
+          ],
+          [
+            "01-05",
+            "Heroic Domains of Ysgard"
+          ],
+          [
+            "06-10",
+            "Ever-Changing Chaos of Limbo"
+          ],
+          [
+            "11-15",
+            "Windswept Depths of Pandemonium"
+          ],
+          [
+            "16-20",
+            "Infinite Layers of the Abyss"
+          ],
+          [
+            "21-25",
+            "Tarterian Depths of Carceri"
+          ],
+          [
+            "26-30",
+            "Gray Waste of Hades"
+          ],
+          [
+            "31-35",
+            "Bleak Eternity of Gehenna"
+          ],
+          [
+            "36-40",
+            "Nine Hells of Baator"
+          ],
+          [
+            "41-45",
+            "Infernal Battlefield of Acheron"
+          ],
+          [
+            "46-50",
+            "Clockwork Nirvana of Mechanus"
+          ],
+          [
+            "51-55",
+            "Peaceable Kingdoms of Arcadia"
+          ],
+          [
+            "56-60",
+            "Seven Mounting Heavens of Celestia"
+          ],
+          [
+            "61-65",
+            "Twin Paradises of Bytopia"
+          ],
+          [
+            "66-70",
+            "Blessed Fields of Elysium"
+          ],
+          [
+            "71-75",
+            "Wilderness of the Beastlands"
+          ],
+          [
+            "76-80",
+            "Olympian Glades of Arborea"
+          ],
+          [
+            "81-89",
+            "Concordant Domain of the Outlands"
+          ],
+          [
+            "90-91",
+            "Elemental Plane of Fire"
+          ],
+          [
+            "92-93",
+            "Elemental Plane of Earth"
+          ],
+          [
+            "94-95",
+            "Elemental Plane of Air"
+          ],
+          [
+            "96-97",
+            "Elemental Plane of Water"
+          ],
+          [
+            "98",
+            "Positive Energy Plane"
+          ],
+          [
+            "99",
+            "Negative Energy Plane"
+          ],
+          [
+            "100",
+            "Demiplane of DM’s choice"
           ]
-        ],
-        [
-          "d%",
-          "Plane"
-        ],
-        [
-          "01-05",
-          "Heroic Domains of Ysgard"
-        ],
-        [
-          "06-10",
-          "Ever-Changing Chaos of Limbo"
-        ],
-        [
-          "11-15",
-          "Windswept Depths of Pandemonium"
-        ],
-        [
-          "16-20",
-          "Infinite Layers of the Abyss"
-        ],
-        [
-          "21-25",
-          "Tarterian Depths of Carceri"
-        ],
-        [
-          "26-30",
-          "Gray Waste of Hades"
-        ],
-        [
-          "31-35",
-          "Bleak Eternity of Gehenna"
-        ],
-        [
-          "36-40",
-          "Nine Hells of Baator"
-        ],
-        [
-          "41-45",
-          "Infernal Battlefield of Acheron"
-        ],
-        [
-          "46-50",
-          "Clockwork Nirvana of Mechanus"
-        ],
-        [
-          "51-55",
-          "Peaceable Kingdoms of Arcadia"
-        ],
-        [
-          "56-60",
-          "Seven Mounting Heavens of Celestia"
-        ],
-        [
-          "61-65",
-          "Twin Paradises of Bytopia"
-        ],
-        [
-          "66-70",
-          "Blessed Fields of Elysium"
-        ],
-        [
-          "71-75",
-          "Wilderness of the Beastlands"
-        ],
-        [
-          "76-80",
-          "Olympian Glades of Arborea"
-        ],
-        [
-          "81-89",
-          "Concordant Domain of the Outlands"
-        ],
-        [
-          "90-91",
-          "Elemental Plane of Fire"
-        ],
-        [
-          "92-93",
-          "Elemental Plane of Earth"
-        ],
-        [
-          "94-95",
-          "Elemental Plane of Air"
-        ],
-        [
-          "96-97",
-          "Elemental Plane of Water"
-        ],
-        [
-          "98",
-          "Positive Energy Plane"
-        ],
-        [
-          "99",
-          "Negative Energy Plane"
-        ],
-        [
-          "100",
-          "Demiplane of DM’s choice"
         ]
       ],
       "resolvesSourceIncomplete": true,
