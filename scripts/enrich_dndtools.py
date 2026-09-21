@@ -1402,6 +1402,41 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="corrupt-talons-source"
+        if (
+            entry.get("id")=="spells/hidden-ward-4759"
+            and (
+                re.search(r"\bprevent subicion by the players\b",effect_source,re.I)
+                or re.search(r"\bone-half you caster level\b",effect_source,re.I)
+            )
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="garbled-hidden-ward-source"
+        if (
+            entry.get("id")=="spells/last-judgment-90"
+            and re.search(r"\bmonstrous humanoids\s*,\s*and resurrection is cast\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-last-judgment-source"
+        if (
+            entry.get("id")=="spells/nether-trail-142"
+            and re.search(r"\bEvil outsider must make its saving throw first\b",effect_source,re.I)
+            and not re.search(r"\bcome within 10 feet\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-nether-trail-source"
+        if (
+            entry.get("id")=="spells/nightstalkers-transformation-428"
+            and re.search(r"\bYou also gain the cat[’']s grace\b",effect_source,re.I)
+            and not re.search(r"\bWeapon Finesse\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-nightstalkers-transformation-source"
+        if (
+            entry.get("id")=="spells/nystuls-magic-aura-2688"
+            and re.search(r"\bmake a \+2 identify cast on it\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="garbled-nystuls-magic-aura-source"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
@@ -2111,6 +2146,67 @@ def self_test():
         <div>Components</div><div>V, S</div><div>Range</div><div>Close</div>
         <div>Duration</div><div>1 round/level</div><div>Saving Throw</div><div>See text</div>
         <div>Spell Resistance</div><div>Yes</div><div>Classes</div><div>Wizard 4</div>
+        <h2>Description</h2><p>{damaged_text}</p>
+        """
+        p=DetailParser();p.feed(damaged_html);p.close()
+        repaired=parse_spell(p,{"name":spell_name,"id":record_id})
+        assert repaired.get("sourceIncomplete"), record_id
+        assert repaired.get("sourceIncompleteMarker")==marker, record_id
+        assert repaired.get("sourceIncompleteResolved"), record_id
+        assert repaired.get("supplementVerified"), record_id
+        summary=repaired.get("effectSummary","").casefold()
+        for fragment in expected_fragments:
+            assert fragment.casefold() in summary, (record_id, fragment, summary)
+
+    repair_batch_cases_2 = [
+        (
+            "spells/hidden-ward-4759",
+            "Hidden Ward",
+            "Magic of Eberron (MoE), p. 96",
+            "The DM should make this roll in secret to prevent subicion by the players. Casting this spell on a magic trap increases the Search DC by one-half you caster level (maximum +5).",
+            "garbled-hidden-ward-source",
+            ("dc 10 + your caster level", "maximum +5", "one day per level"),
+        ),
+        (
+            "spells/last-judgment-90",
+            "Last Judgment",
+            "Book of Exalted Deeds (BE), p. 102",
+            "Creatures that succeed nevertheless take 3d6 points of temporary Wisdom damage. This spell affects only humanoids, monstrous humanoids, and resurrection is cast.",
+            "truncated-last-judgment-source",
+            ("giants of evil alignment", "true resurrection", "lower planes"),
+        ),
+        (
+            "spells/nether-trail-142",
+            "Nether Trail",
+            "Book of Vile Darkness (BV), p. 100",
+            "The caster creates a handful of invisible, nigh-intangible powder. The caster can sprinkle this powder in a trail on the ground. Evil outsider must make its saving throw first.",
+            "truncated-nether-trail-source",
+            ("within 10 feet", "another saving throw", "standard action"),
+        ),
+        (
+            "spells/nightstalkers-transformation-428",
+            "Nightstalker's Transformation",
+            "Complete Adventurer (CAd), p. 158",
+            "You gain a +4 enhancement bonus to Dexterity, a +3 luck bonus to Armor Class, a +5 luck bonus on Reflex saving throws, and weapon proficiencies. You also gain the cat’s grace, which you drink.",
+            "truncated-nightstalkers-transformation-source",
+            ("weapon finesse", "extra 3d6", "spell activation"),
+        ),
+        (
+            "spells/nystuls-magic-aura-2688",
+            "Nystul's Magic Aura",
+            "Player's Handbook v.3.5 (PH), p. 257",
+            "You could make an ordinary sword register as a +2 vorpal sword or make a +2 identify cast on it or is similarly examined, the examiner recognizes that the aura is false.",
+            "garbled-nystuls-magic-aura-source",
+            ("+2 vorpal sword", "+1 sword", "will save"),
+        ),
+    ]
+    for record_id, spell_name, source_line, damaged_text, marker, expected_fragments in repair_batch_cases_2:
+        damaged_html = f"""
+        <h1>{spell_name}</h1><p>{source_line}</p>
+        <div>School</div><div>Illusion</div><div>Casting Time</div><div>1 standard action</div>
+        <div>Components</div><div>V, S</div><div>Range</div><div>Touch</div>
+        <div>Duration</div><div>1 round/level</div><div>Saving Throw</div><div>See text</div>
+        <div>Spell Resistance</div><div>Yes</div><div>Classes</div><div>Wizard 5</div>
         <h2>Description</h2><p>{damaged_text}</p>
         """
         p=DetailParser();p.feed(damaged_html);p.close()

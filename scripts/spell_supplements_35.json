@@ -1518,6 +1518,88 @@
           "role": "Dragonlance Campaign Setting sourcebook copy used to cross-check the same attack routine"
         }
       ]
+    },
+    "spells/hidden-ward-4759": {
+      "name": "Hidden Ward",
+      "effectSummary": "Disguises active spell auras on a touched object for 24 hours. Detect magic or a similar effect reveals those auras only if its caster succeeds on a caster level check against DC 10 + your caster level; one successful check reveals both hidden ward and the active spells it conceals. If cast on a magic trap, hidden ward increases the Search DC to find that trap by one-half your caster level (maximum +5). It cannot conceal nonmagical traps or an item's inherent magical properties that do not depend on active spells. If you have any Mark of Warding dragonmark or the Favored in House feat (Kundarak), the duration becomes one day per level.",
+      "notes": "The catalog text preserves two OCR/transcription errors ('subicion' and 'one-half you caster level'); this repair follows the Magic of Eberron p. 96 printing.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hidden-ward-4759",
+          "role": "primary catalog record containing the garbled Hidden Ward text"
+        },
+        {
+          "url": "https://anyflip.com/kpthp/vxud/basic/51-100",
+          "role": "Magic of Eberron sourcebook rendering used to verify 'suspicion', 'one-half your caster level', the +5 cap, and the special duration rule"
+        }
+      ]
+    },
+    "spells/last-judgment-90": {
+      "name": "Last Judgment",
+      "effectSummary": "Targets one evil humanoid, monstrous humanoid, or giant per two caster levels. A target that fails its Will save dies and is bodily transported to the appropriate Lower Plane. A target that succeeds still takes 3d6 points of temporary Wisdom damage. The spell affects only humanoids, monstrous humanoids, and giants of evil alignment. True resurrection or miracle can restore a slain creature normally; resurrection works only if the creature's body is recovered from the Lower Planes before the spell is cast.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/last-judgment-90",
+          "role": "primary catalog record; the final creature-type and resurrection rules are truncated"
+        },
+        {
+          "url": "https://dndtools.net/spells/book-of-exalted-deeds--52/last-judgment--90/",
+          "role": "same-printing Book of Exalted Deeds rendering used to restore the omitted giant/alignment and resurrection mechanics"
+        }
+      ]
+    },
+    "spells/nether-trail-142": {
+      "name": "Nether Trail",
+      "effectSummary": "Creates an invisible, nearly intangible powder trail 20 feet long per caster level that lasts 10 minutes per level. An evil outsider that comes within 10 feet of any part of the trail must make a Will save or follow it as a compulsion, even into danger. Obvious danger grants another saving throw. A compelled creature follows only to the trail's end; a creature encountering it midway instinctively knows the forward direction. Reaching the end ends the compulsion and makes that creature immune to that particular trail thereafter. Anyone able to see invisible objects can destroy 10 feet of trail as a standard action, but an evil outsider must make its saving throw before doing so.",
+      "notes": "Source-locked to the Book of Vile Darkness printing represented by the catalog; no later-edition rewrite is substituted.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nether-trail-142",
+          "role": "primary catalog record; most of the compulsion/trail mechanics are absent"
+        },
+        {
+          "url": "https://dndtools.net/spells/book-of-vile-darkness--37/nether-trail--142/",
+          "role": "same-printing Book of Vile Darkness rendering used to restore the complete trail, save, danger, endpoint, and destruction rules"
+        }
+      ]
+    },
+    "spells/nightstalkers-transformation-428": {
+      "name": "Nightstalker's Transformation",
+      "effectSummary": "For 1 round per level, you gain a +4 enhancement bonus to Dexterity, a +3 luck bonus to AC, a +5 luck bonus on Reflex saves, a +5 competence bonus on Spot, Listen, Hide, and Move Silently checks, proficiency with all simple weapons plus the hand crossbow, rapier, sap, shortbow, and short sword, the Weapon Finesse feat, and evasion. You deal an extra 3d6 damage when flanking an opponent or attacking an opponent denied its Dexterity bonus to AC; this extra damage works like a rogue's sneak attack. For the duration you lose your spellcasting ability, including the ability to use spell activation or spell completion magic items, as though those spells were no longer on your class list.",
+      "notes": "Locked to the Complete Adventurer printing. Do not replace its 'spell activation or spell completion' wording with the later Spell Compendium revision.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nightstalkers-transformation-428",
+          "role": "primary Complete Adventurer catalog record; the text jumps from weapon proficiencies to the material component and omits the core combat/spellcasting rules"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-adventurer--54/nightstalkers-transformation--428/",
+          "role": "same-printing Complete Adventurer rendering used to restore Weapon Finesse, evasion, +3d6 conditional damage, and spellcasting/item restrictions"
+        }
+      ]
+    },
+    "spells/nystuls-magic-aura-2688": {
+      "name": "Nystul's Magic Aura",
+      "effectSummary": "Alters a touched object's magical aura for one day per level so detect spells and similar effects register it as nonmagical, as a magic item of a kind you specify, or as the subject of a spell you specify. For example, an ordinary sword can appear to be a +2 vorpal sword, while a +2 vorpal sword can appear to be a +1 sword or even nonmagical. If identify or a similar examination is used, the examiner detects the false aura and the object's actual qualities on a successful Will save; otherwise the examiner believes the false aura and testing does not reveal the truth. The spell fails on an exceptionally powerful inherent aura such as an artifact's. A non-masterwork weapon, shield, or armor may still look suspicious if given a magical aura.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nystuls-magic-aura-2688",
+          "role": "primary Player's Handbook v.3.5 catalog record; a malformed sentence deletes the middle of the false-aura example"
+        },
+        {
+          "url": "https://dndtools.net/spells/players-handbook-v35--6/nystuls-magic-aura--2688/",
+          "role": "clean same-printing Player's Handbook v.3.5 rendering used to restore the +2 vorpal/+1/nonmagical example"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/magicAura.htm",
+          "role": "3.5 SRD corroboration for the identify/Will-save, exceptional-aura, and masterwork-item mechanics"
+        }
+      ]
     }
   }
 }
