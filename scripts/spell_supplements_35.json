@@ -1418,6 +1418,26 @@
           "role": "same-printing D&D Tools cross-check and 3.0 source provenance"
         }
       ]
+    },
+    "spells/storm-of-elemental-fury-663": {
+      "name": "Storm of Elemental Fury",
+      "effectSummary": "Creates a 40-foot-radius storm cloud 200 feet above the ground and requires concentration for up to 4 rounds. In the first round, the area below the cloud is a windstorm: unprotected flames are extinguished, protected flames have a 75% chance to go out, normal ranged weapon attacks are impossible, siege-weapon attacks take a -4 penalty, and Listen checks take a -8 penalty. Small or smaller creatures that fail their Fortitude save are blown away; on the ground this knocks them prone, rolls them 1d4×10 feet, and deals 1d4 nonlethal damage per 10 feet. Medium creatures that fail are knocked prone, and Large or larger creatures that fail cannot move that round. Flying creatures that fail are instead blown in a random direction: 1d6×5 feet if Large or larger, 1d6×10 feet if Medium, or 2d6×10 feet if Small or smaller. Spellcasting inside the storm requires a Concentration check against DC equal to this spell's save DC + the level of the spell being cast. Maintaining the spell uses the normal standard action for concentration; as an additional move action you can move the cloud up to 40 feet in any direction. In the second round, falling rock deals 5d6 bludgeoning damage with no save. In the third round, torrential rain extinguishes unprotected flames, has a 50% chance to extinguish protected flames, reduces visibility to 5 feet, and halves movement speed. In the fourth round, flame deals 1d6 fire damage per caster level, with a Reflex save for half; the Complete Divine printing states no damage cap.",
+      "notes": "Repair is locked to the Complete Divine p. 182 printing. Do not import the later Spell Compendium revision, which changes spell level/duration presentation and adds a 15d6 cap.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/storm-of-elemental-fury-663",
+          "role": "primary Complete Divine catalog record; rebuilt prose drops 'Dungeon Master's Guide' and the intervening first-round windstorm mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-divine--56/storm-of-elemental-fury--663/",
+          "role": "complete same-printing Complete Divine spell text used to restore the omitted first-round creature, ranged-attack, and spellcasting mechanics"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/weather.htm",
+          "role": "3.5 SRD windstorm rules used to expand the delegated flame, siege-weapon, Listen, and blown-away mechanics into a self-contained summary"
+        }
+      ]
     }
   }
 }

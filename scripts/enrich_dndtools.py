@@ -1369,6 +1369,12 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         if entry.get("id")=="spells/crumble-1748" and not parser.tables and re.search(r"maximum size of the object affected depends on your level",effect_source,re.I):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="omitted-crumble-size-table"
+        if (
+            entry.get("id")=="spells/storm-of-elemental-fury-663"
+            and re.search(r"pages\\s*94-95\\s+of\\s+the\\s+Concentration check",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-storm-elemental-fury-windstorm-source"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
@@ -2009,6 +2015,25 @@ def self_test():
     s=parse_spell(p,{"name":"Reference Effect"})
     assert s.get("effectReferenceDependent")
     assert s.get("effectNeedsSummary") and not s.get("effect")
+
+    storm_elemental_fury_damaged_html = """
+    <h1>Storm of Elemental Fury</h1><p>Complete Divine (CDiv), p. 182</p>
+    <div>School</div><div>Conjuration (Summoning)</div><div>Casting Time</div><div>1 full round</div>
+    <div>Components</div><div>V, S</div><div>Range</div><div>Long (400 ft. + 40 ft./level)</div>
+    <div>Effect</div><div>40-ft.-radius storm cloud, 200 feet above the ground</div>
+    <div>Duration</div><div>Concentration (maximum 4 rounds) (D)</div>
+    <div>Saving Throw</div><div>See text</div><div>Spell Resistance</div><div>Yes</div>
+    <div>Classes</div><div>Druid 8</div>
+    <h2>Description</h2><p>When created, the storm of elemental fury buffets the area immediately below it with a whirling windstorm that functions as described on pages 94-95 of the Concentration check against a DC equal to the storm of elemental fury's save DC + the level of the spell the caster is trying to cast.</p>
+    """
+    p=DetailParser();p.feed(storm_elemental_fury_damaged_html);p.close()
+    storm_fixed=parse_spell(p,{"name":"Storm of Elemental Fury","id":"spells/storm-of-elemental-fury-663"})
+    assert storm_fixed.get("sourceIncomplete")
+    assert storm_fixed.get("sourceIncompleteMarker")=="truncated-storm-elemental-fury-windstorm-source"
+    assert storm_fixed.get("sourceIncompleteResolved")
+    assert storm_fixed.get("supplementVerified")
+    assert "siege weapon" in storm_fixed.get("effectSummary","").casefold()
+    assert "15d6" not in storm_fixed.get("effectSummary",""), "do not import the later Spell Compendium damage cap"
 
     repair_header_mismatch_html = """
     <h1>Repair Moderate Damage</h1><p>Miniatures Handbook (MH), p. 38</p>
