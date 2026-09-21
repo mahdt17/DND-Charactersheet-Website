@@ -48,6 +48,50 @@ ALLOWED_EXTERNAL_REASONS = {
     "generic-identical-with",
 }
 
+HEADER_FIELDS = (
+    "school",
+    "castingTime",
+    "components",
+    "range",
+    "target",
+    "area",
+    "duration",
+    "savingThrow",
+    "spellResistance",
+    "descriptors",
+)
+
+
+def normalized_header(entry: dict) -> dict | None:
+    header = entry.get("header")
+    if not isinstance(header, dict):
+        return None
+    result = {}
+    for field in HEADER_FIELDS:
+        value = header.get(field)
+        if isinstance(value, list):
+            result[field] = [d35.clean(str(item)) for item in value if d35.clean(str(item))]
+        else:
+            result[field] = d35.clean(str(value or ""))
+    return result
+
+
+def header_differences(source_entry: dict, target_entry: dict) -> list[dict]:
+    source_header = normalized_header(source_entry)
+    target_header = normalized_header(target_entry)
+    if source_header is None or target_header is None:
+        return []
+    differences = []
+    for field in HEADER_FIELDS:
+        if source_header[field] == target_header[field]:
+            continue
+        differences.append({
+            "field": field,
+            "source": source_header[field],
+            "reference": target_header[field],
+        })
+    return differences
+
 
 def strip_resolved_reference_page_citations(
     effect_source: str,
@@ -89,15 +133,12 @@ def candidate_reasons(
     record_id = classified.get("id")
     source = packet.get("effectSource") or ""
 
-    # Phrases like "except as noted/described above" delegate mechanics to header
-    # fields (target/range/area/duration/save) that are not present in this review
-    # packet. Terminal "noted/described here" likewise supplies no local exception.
-    # These cannot be flattened safely in this reference-only phase.
-    if (
-        re.search(r"\bexcept\s+as\s+(?:noted|described)\s+above\b", source, re.I)
-        or re.search(r"\bexcept\s+as\s+(?:noted|described)\s+here\s*\.?\s*$", source, re.I)
-    ):
-        reasons.append("header-dependent-exception")
+    # Phrases like "except as noted/described above/here" delegate part of
+    # the mechanics to the spell header. They are reviewable only when both
+    # headers are captured and at least one explicit header field differs.
+    header_exception = bool(
+        re.search(r"\bexcept\s+as\s+(?:noted|described)\s+(?:above|here)\b", source, re.I)
+    )
 
     if packet.get("id") != record_id:
         reasons.append("classification-packet-id-mismatch")
@@ -147,6 +188,14 @@ def candidate_reasons(
     if not target:
         reasons.append("resolved-reference-missing-record")
         return sorted(set(reasons))
+
+    if header_exception:
+        source_header = normalized_header(packet)
+        target_header = normalized_header(target)
+        if source_header is None or target_header is None:
+            reasons.append("header-dependent-exception-missing-header-context")
+        elif not header_differences(packet, target):
+            reasons.append("header-dependent-exception-without-header-difference")
 
     if "external-page-reference" in external_reasons or "external-page-reference" in current_external:
         citation_stripped_source = strip_resolved_reference_page_citations(
@@ -284,6 +333,7 @@ def select_batch(
                 "targetId": target.get("id"),
                 "targetName": target.get("name"),
                 "targetSourceBook": target.get("sourceBook"),
+                "headerDifferences": header_differences(packet, target) if target else [],
             })
         return {
             "id": packet.get("id"),
@@ -306,7 +356,12 @@ def select_batch(
                 rejected_counts[reason] = rejected_counts.get(reason, 0) + 1
             rejected_entries.append(rejection_diagnostic(packet, reasons, classified))
             continue
-        eligible.append(packet)
+        candidate = json.loads(json.dumps(packet))
+        target = candidate["references"][0]["record"]
+        differences = header_differences(candidate, target)
+        if differences:
+            candidate["referenceHeaderDifferences"] = differences
+        eligible.append(candidate)
 
     rejected_entries.sort(
         key=lambda entry: (
@@ -331,16 +386,22 @@ def select_batch(
     for entry in selected:
         ref = entry["references"][0]
         target = ref["record"]
+        header_fingerprint = json.dumps(
+            entry.get("referenceHeaderDifferences") or [],
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        )
         fingerprint_lines.append(
             f"{entry.get('id')}:{entry.get('sourceSha256')}:"
-            f"{target.get('id')}:{target.get('sourceSha256')}"
+            f"{target.get('id')}:{target.get('sourceSha256')}:{header_fingerprint}"
         )
     fingerprint = "\n".join(fingerprint_lines)
 
     return {
         "reviewOnly": True,
         "catalogMutation": False,
-        "selectionPolicy": "resolved-single-reference-compatible-sourcebook-regression-locked-reviewed-boundary-shortest-first-v5",
+        "selectionPolicy": "resolved-single-reference-compatible-sourcebook-regression-locked-reviewed-boundary-header-aware-shortest-first-v6",
         "requestedCount": count,
         "eligibleCount": len(eligible),
         "selectedCount": len(selected),
@@ -512,44 +573,80 @@ def run_self_test() -> None:
         "Earthen Grasp",
     ) == "As Earthen Grasp, except the arm is stone."
     header_dependent = json.loads(json.dumps(packet))
-    header_dependent["effectSource"] = "As keen edge, except as noted above."
+    header_dependent["effectSource"] = "As Resist Energy Test, except as noted above."
     header_dependent["sourceSha256"] = d35.spell_effect_digest(header_dependent["effectSource"])
+    header_dependent["header"] = {
+        "school": "Abjuration",
+        "castingTime": "1 standard action",
+        "components": ["V", "S"],
+        "range": "Close (25 ft. + 5 ft./2 levels)",
+        "target": "One creature/level",
+        "area": "",
+        "duration": "10 min./level",
+        "savingThrow": "Fortitude negates (harmless)",
+        "spellResistance": "Yes (harmless)",
+        "descriptors": [],
+    }
+    header_target = header_dependent["references"][0]["record"]
+    header_target["header"] = {
+        "school": "Abjuration",
+        "castingTime": "1 standard action",
+        "components": ["V", "S"],
+        "range": "Touch",
+        "target": "Creature touched",
+        "area": "",
+        "duration": "10 min./level",
+        "savingThrow": "Fortitude negates (harmless)",
+        "spellResistance": "Yes (harmless)",
+        "descriptors": [],
+    }
     header_classified = json.loads(json.dumps(classified))
     header_classified["sourceSha256"] = header_dependent["sourceSha256"]
-    assert "header-dependent-exception" in candidate_reasons(
+    header_reasons = candidate_reasons(
         header_classified, header_dependent, {classified["id"]}, {target["id"]}
     )
+    assert "header-dependent-exception-missing-header-context" not in header_reasons
+    assert "header-dependent-exception-without-header-difference" not in header_reasons
+    assert {row["field"] for row in header_differences(header_dependent, header_target)} == {
+        "range", "target"
+    }
 
-    terminal_here = json.loads(json.dumps(packet))
-    terminal_here["effectSource"] = "This spell functions like spell resistance, except as noted here."
-    terminal_here["sourceSha256"] = d35.spell_effect_digest(terminal_here["effectSource"])
-    terminal_classified = json.loads(json.dumps(classified))
-    terminal_classified["sourceSha256"] = terminal_here["sourceSha256"]
-    assert "header-dependent-exception" in candidate_reasons(
-        terminal_classified, terminal_here, {classified["id"]}, {target["id"]}
+    missing_header = json.loads(json.dumps(header_dependent))
+    missing_header.pop("header")
+    assert "header-dependent-exception-missing-header-context" in candidate_reasons(
+        header_classified, missing_header, {classified["id"]}, {target["id"]}
     )
-    described_above = json.loads(json.dumps(packet))
-    described_above["effectSource"] = "This spell functions like slide, except as described above, and moves the subject 20 feet."
+
+    same_header = json.loads(json.dumps(header_dependent))
+    same_header["header"] = json.loads(json.dumps(same_header["references"][0]["record"]["header"]))
+    assert "header-dependent-exception-without-header-difference" in candidate_reasons(
+        header_classified, same_header, {classified["id"]}, {target["id"]}
+    )
+
+    described_above = json.loads(json.dumps(header_dependent))
+    described_above["effectSource"] = "This spell functions like Resist Energy Test, except as described above, and grants resistance 20."
     described_above["sourceSha256"] = d35.spell_effect_digest(described_above["effectSource"])
-    described_above_classified = json.loads(json.dumps(classified))
-    described_above_classified["sourceSha256"] = described_above["sourceSha256"]
-    assert "header-dependent-exception" in candidate_reasons(
-        described_above_classified, described_above, {classified["id"]}, {target["id"]}
+    described_classified = json.loads(json.dumps(classified))
+    described_classified["sourceSha256"] = described_above["sourceSha256"]
+    assert "header-dependent-exception-missing-header-context" not in candidate_reasons(
+        described_classified, described_above, {classified["id"]}, {target["id"]}
     )
-    described_here = json.loads(json.dumps(packet))
-    described_here["effectSource"] = "This spell functions like resistance, except as described here."
-    described_here["sourceSha256"] = d35.spell_effect_digest(described_here["effectSource"])
-    described_here_classified = json.loads(json.dumps(classified))
-    described_here_classified["sourceSha256"] = described_here["sourceSha256"]
-    assert "header-dependent-exception" in candidate_reasons(
-        described_here_classified, described_here, {classified["id"]}, {target["id"]}
+
+    noted_here = json.loads(json.dumps(header_dependent))
+    noted_here["effectSource"] = "This spell functions like Resist Energy Test, except as noted here."
+    noted_here["sourceSha256"] = d35.spell_effect_digest(noted_here["effectSource"])
+    noted_here_classified = json.loads(json.dumps(classified))
+    noted_here_classified["sourceSha256"] = noted_here["sourceSha256"]
+    assert "header-dependent-exception-missing-header-context" not in candidate_reasons(
+        noted_here_classified, noted_here, {classified["id"]}, {target["id"]}
     )
-    explicit_here = json.loads(json.dumps(packet))
-    explicit_here["effectSource"] = "This spell functions like resistance, except as noted here. You grant a +3 resistance bonus on saves."
+
+    explicit_here = json.loads(json.dumps(header_dependent))
+    explicit_here["effectSource"] = "This spell functions like Resist Energy Test, except as noted here and it grants resistance 30."
     explicit_here["sourceSha256"] = d35.spell_effect_digest(explicit_here["effectSource"])
     explicit_classified = json.loads(json.dumps(classified))
     explicit_classified["sourceSha256"] = explicit_here["sourceSha256"]
-    assert "header-dependent-exception" not in candidate_reasons(
+    assert "header-dependent-exception-missing-header-context" not in candidate_reasons(
         explicit_classified, explicit_here, {classified["id"]}, {target["id"]}
     )
 
