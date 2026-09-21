@@ -50,6 +50,12 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\bfunctions?\s+in\s+all\s+respects\s+like\s+"
+        r"(?!a\b|an\b|the\b)(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?=\s*,\s*(?:except|but)\b)",
+        re.I,
+    ),
+    re.compile(
         r"\b(?:functions?|works?|operates?)\s+as\s+"
         r"(?!if\b|though\b|a\b|an\b)(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
@@ -1946,6 +1952,15 @@ def run_self_test() -> None:
     assert extract_reference_names(
         "This spell functions like dominate person , except that the spell is not restricted by creature type."
     ) == ["dominate person"]
+    assert extract_reference_names(
+        "This effect functions in all respects like major image, except that it is a pattern."
+    ) == ["major image"]
+    assert extract_reference_names(
+        "The device functions in all respects like a normal mirror, except that it is silver."
+    ) == []
+    assert extract_reference_names(
+        "This effect functions in all respects like major image."
+    ) == []
     assert extract_reference_names(
         "This spell functions as teleport, greater, but only you can travel."
     ) == ["teleport, greater"]
