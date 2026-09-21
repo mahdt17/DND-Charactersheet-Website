@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact non-reference comparison
+
+- Clean batch 039 head `58401054ca5fea6732925e1d7e58a52aa7f495ef` passed Spell effect review #257 (`35646657027`) and Validate modernization #820 (`35646660418`).
+- Review #257 measured **1,095 remaining**, **3,602 reviews**, **2,005 regressions**, zero errors/warnings/digest drift; all strict/reference/prerequisite/duplicate selectors were **0 eligible**. Classification artifact `10660581321`, ZIP SHA-256 `57318ca520cf6140db4d134ab281c25d161c533073bebc7d99f25b93db6d4b4b`.
+- Blocker discovery found the generic parenthetical detector misclassifying Touch of Adamantine's exact comparison `(as though it was a masterwork weapon)` as a spell reference. Across the current artifact, this exact `though it was` prefix affects only Touch of Adamantine (`119`).
+- This correction excludes only `(as though it was ...)`; a positive fail-closed test preserves `(as though by greater teleport)` as a reference-bearing clause. No content is locked by this parser commit.
+- Wait for both CI gates, then inspect the fresh strict selector and independently review any newly eligible record. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 039
 
 - Classifier commit `b21ed44eba6ea339f99c2de4c8c2e711b3c348fe` passed Spell effect review #256 (`35581099508`) and Validate modernization #819 (`35581104312`).

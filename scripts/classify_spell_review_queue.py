@@ -142,7 +142,7 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
+        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|though\s+it\s+was\b|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
         r"(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
@@ -1987,6 +1987,10 @@ def run_self_test() -> None:
     assert extract_reference_names("A favor (as determined by the DM spell).") == ["determined by the DM"]
     assert extract_reference_names("A favor (as determined by the DM using haste).") == ["determined by the DM using haste"]
     assert extract_reference_names("A favor (as determined by the spell).") == ["determined by the"]
+    # Ordinary "as though it was ..." comparisons are not spell references.
+    assert extract_reference_names("The weapon attacks (as though it was a masterwork weapon).") == []
+    # Preserve genuinely referential "as though by <spell>" clauses fail-closed.
+    assert extract_reference_names("You travel (as though by greater teleport).") == ["though by greater teleport"]
     same_name_rows = [
         {"id": "spells/shared-a", "name": "Shared Spell", "url": "https://example.invalid/a"},
         {"id": "spells/shared-b", "name": "Shared Spell", "url": "https://example.invalid/b"},
