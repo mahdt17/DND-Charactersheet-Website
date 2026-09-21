@@ -1371,7 +1371,7 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
             result["sourceIncompleteMarker"]="omitted-crumble-size-table"
         if (
             entry.get("id")=="spells/storm-of-elemental-fury-663"
-            and re.search(r"pages\\s*94-95\\s+of\\s+the\\s+Concentration check",effect_source,re.I)
+            and re.search(r"pages\s*94-95\s+of\s+the\s+Concentration check",effect_source,re.I)
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-storm-elemental-fury-windstorm-source"
