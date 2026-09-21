@@ -126,7 +126,7 @@ REFERENCE_PATTERNS = (
     ),
     re.compile(
         r"\b(?:functions?|works?|operates?)\s+as\s+"
-        r"(?!if\b|though\b|a\b|an\b)(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
+        r"(?!if\b|though\b|long\s+as\s+at\s+least\b|a\b|an\b)(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
     ),
     re.compile(
@@ -142,7 +142,7 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
-        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|though\s+it\s+was\b|long\s+as\s+at\s+least\b|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
+        r"\(\s*as\s+(?!determined\s+by\s+the\s+DM\s*\)|though\s+it\s+was\b|well\b|normal\b|appropriate\b|noted\b|described\b|reckoned\b|the\s+spell\b)"
         r"(?:the\s+)?(?P<name>[^()]{2,100}?)(?:\s+spell)?\s*\)",
         re.I,
     ),
@@ -1991,10 +1991,10 @@ def run_self_test() -> None:
     assert extract_reference_names("The weapon attacks (as though it was a masterwork weapon).") == []
     # Preserve genuinely referential "as though by <spell>" clauses fail-closed.
     assert extract_reference_names("You travel (as though by greater teleport).") == ["though by greater teleport"]
-    # Exact quantitative "as long as at least ..." conditions are not spell references.
-    assert extract_reference_names("The spell works (as long as at least 1/4 remains).") == []
-    # Preserve a similarly prefixed genuine spell name.
-    assert extract_reference_names("Movement changes (as longstrider).") == ["longstrider"]
+    # Exact quantitative "functions as long as at least ..." conditions are not spell references.
+    assert extract_reference_names("The spell functions as long as at least 1/4 remains.") == []
+    # Preserve a similarly prefixed genuine spell name on the same parser branch.
+    assert extract_reference_names("The effect functions as longstrider.") == ["longstrider"]
     same_name_rows = [
         {"id": "spells/shared-a", "name": "Shared Spell", "url": "https://example.invalid/a"},
         {"id": "spells/shared-b", "name": "Shared Spell", "url": "https://example.invalid/b"},
