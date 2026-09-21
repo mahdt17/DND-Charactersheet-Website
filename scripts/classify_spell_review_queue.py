@@ -128,12 +128,12 @@ REFERENCE_PATTERNS = (
     ),
     re.compile(
         r"\breceives?\s+(?:a|an|the)\s+"
-        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
+        r"(?!benefits?\s+of\b)(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
         re.I,
     ),
     re.compile(
         r"\bsimilar\s+to\s+(?:the\s+)?(?:(?:divine|arcane)\s+spell\s+)?"
-        r"(?!that\b|those\b)(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
+        r"(?!effects?\s+of\b|that\b|those\b)(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)"
         r"(?=\s*,\s*(?:this\s+spell\b|except\b|but\b|you\b)|\s*\))",
         re.I,
     ),
@@ -167,7 +167,7 @@ REFERENCE_PATTERNS = (
     re.compile(
         r"\b(?:use|uses|using)\s+"
         r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,60}?)"
-        r"(?:\s+at\s+will|\s+on\s+behalf\s+of\s+[^()]{1,80})?\s*"
+        r"(?:\s+at\s+will|\s+on\s+behalf\s+of\s+[^()]{1,80})\s*"
         r"\(\s*as\s+the\s+spell(?:\s*[,;][^)]*)?\)",
         re.I,
     ),
@@ -1937,14 +1937,26 @@ def run_self_test() -> None:
         "The target receives a panacea spell one round later."
     ) == ["panacea"]
     assert extract_reference_names(
+        "Items receive the benefits of saves and spell resistance."
+    ) == []
+    assert extract_reference_names(
+        "The target receives the benefit of a heal spell."
+    ) == ["heal"]
+    assert extract_reference_names(
         "Similar to the divine spell poison, you inflict a paralyzing poison."
     ) == ["poison"]
     assert extract_reference_names(
         "This spell is similar to summon monster IX, except that it summons one titan."
     ) == ["summon monster IX"]
     assert extract_reference_names(
+        "The creature is immobile (similar to the effect of hold person on a living creature)."
+    ) == []
+    assert extract_reference_names(
         "You can activate a feather fall effect (as the spell) on yourself."
     ) == ["feather fall"]
+    assert extract_reference_names(
+        "You use an immediate action to activate a dominate person effect (as the spell)."
+    ) == ["dominate person"]
     assert extract_reference_names(
         "You can activate a fire shield effect (as the spell; fire-based protection only) on yourself."
     ) == ["fire shield"]
