@@ -2270,7 +2270,7 @@ def self_test():
             "Manual of the Planes (MP), p. 38",
             "You tear a temporary hole in reality itself that sends creatures to a random plane (see sidebar). The primary area has a 5-foot radius per caster level and the secondary area extends to a 10-foot radius per caster level. A reality maelstrom is a one-way portal.",
             "omitted-reality-maelstrom-random-plane-sidebar",
-            ("5-foot radius per caster level", "additional saving throws every round", "one-way portal"),
+            ("5-foot radius per caster level", "additional saves each round", "one-way portal"),
             ("01-05", "heroic domains of ysgard", "00", "demiplane of the dm's choice"),
         ),
         (
