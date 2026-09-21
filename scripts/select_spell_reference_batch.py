@@ -228,7 +228,11 @@ def candidate_reasons(
             reasons.append("reference-target-current-reference-hit")
 
     counts = packet.get("resolutionStatusCounts") or {}
-    if counts != {"resolved": 1}:
+    # A digest-locked reviewed target summary is the canonical mechanics boundary.
+    # Once that summary is independently verified as self-contained above, nested
+    # references found only in the target's original source prose are no longer
+    # dependencies of the candidate being selected.
+    if not target_review_verified and counts != {"resolved": 1}:
         reasons.append("reference-resolution-count-not-exact")
 
     return sorted(set(reasons))
@@ -336,7 +340,7 @@ def select_batch(
     return {
         "reviewOnly": True,
         "catalogMutation": False,
-        "selectionPolicy": "resolved-single-reference-compatible-sourcebook-regression-locked-shortest-first-v4",
+        "selectionPolicy": "resolved-single-reference-compatible-sourcebook-regression-locked-reviewed-boundary-shortest-first-v5",
         "requestedCount": count,
         "eligibleCount": len(eligible),
         "selectedCount": len(selected),
@@ -441,18 +445,27 @@ def run_self_test() -> None:
     reviewed_target["effectReferenceDependent"] = True
     reviewed_target["effectSummary"] = "The subject gains resistance 10 to one energy type."
     reviewed_target["effectReviewVerified"] = True
+    reviewed_nested["references"][0]["references"] = [{
+        "referenceName": "protection from energy",
+        "status": "resolved",
+        "candidateIds": ["spells/protection-from-energy-test"],
+    }]
+    reviewed_nested["resolutionStatusCounts"] = {"resolved": 2}
     reviewed_reasons = candidate_reasons(
         classified, reviewed_nested, {classified["id"]}, {target["id"]}
     )
     assert "reference-target-reference-dependent" not in reviewed_reasons
     assert "reference-target-current-reference-hit" not in reviewed_reasons
     assert "reference-target-reviewed-summary-reference-hit" not in reviewed_reasons
+    assert "reference-resolution-count-not-exact" not in reviewed_reasons
 
     unverified_nested = json.loads(json.dumps(reviewed_nested))
     unverified_nested["references"][0]["record"]["effectReviewVerified"] = False
-    assert "reference-target-reference-dependent" in candidate_reasons(
+    unverified_reasons = candidate_reasons(
         classified, unverified_nested, {classified["id"]}, {target["id"]}
     )
+    assert "reference-target-reference-dependent" in unverified_reasons
+    assert "reference-resolution-count-not-exact" in unverified_reasons
 
     unresolved_review = json.loads(json.dumps(reviewed_nested))
     unresolved_review["references"][0]["record"]["effectSummary"] = (
