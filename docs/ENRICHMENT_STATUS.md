@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 042
+
+- Classifier head `3540901a283613643efbe11819a8eaba4724a8b5` passed Spell effect review #264 (`35652106112`) and Validate modernization #827 (`35652112140`).
+- Review #264 measured **1,093 remaining**, **3,604 reviews**, **2,007 regressions**, zero errors/warnings/digest drift. The strict selector exposed exactly **1** clean standalone record: Pestilence (`212`); all other selectors remained **0 eligible**.
+- Classification artifact `10663410456`, ZIP SHA-256 `28b9bd7b0ee446f16d4604af35ff48bdffaedf9177052c6bf2edf1a84b546882`.
+- Batch `2026-09-21-clean-042.json` locks Pestilence to primary digest `3ff9462f53015da09ce8cb58e4258585a2ce4a1e237bd56512897f3a7b23b97c` and adds a permanent regression ID. The summary preserves the Disease Component as well as transmission and recovery mechanics.
+- Corpus after this commit: **3,605** summaries / **2,008** permanent regression IDs. Predicted queue after remeasurement: **1,092**; treat that as provisional until both CI gates pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — generic “as with most” comparison
 
 - Clean batch 041 head `3da2e9968b4d2fe3a74bcd4fe6717606d526cedd` passed Spell effect review #263 (`35651595987`) and Validate modernization #826 (`35651600195`).

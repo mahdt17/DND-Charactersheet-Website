@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summary; clean batch 042.",
+  "entries": {
+    "spells/pestilence-212": {
+      "name": "Pestilence",
+      "sourceSha256": "3ff9462f53015da09ce8cb58e4258585a2ce4a1e237bd56512897f3a7b23b97c",
+      "effectSummary": "Immediately infects the touched living subject with a contagious disease that has no incubation period and deals 1d4 points of Constitution drain each day until the subject dies. The subject can attempt a new saving throw each day but must succeed on two consecutive saves to end the disease. During the first day of an infection, anyone who touches the victim must succeed on a Fortitude save or contract the same disease; each newly infected victim is likewise contagious on the first day of that infection. The spell also requires any disease as its Disease Component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/pestilence-212",
+          "role": "Book of Vile Darkness primary effect and header reviewed; immediate infection, daily Constitution drain, two-consecutive-save recovery, first-day contact transmission and Disease Component preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "3540901a283613643efbe11819a8eaba4724a8b5",
+    "workflowRun": 35652106112,
+    "validationRun": 35652112140,
+    "classificationArtifact": 10663410456,
+    "classificationArtifactSha256": "28b9bd7b0ee446f16d4604af35ff48bdffaedf9177052c6bf2edf1a84b546882",
+    "eligibleCount": 1
+  }
+}
