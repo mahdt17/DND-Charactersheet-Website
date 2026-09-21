@@ -27,19 +27,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0,1,2,3,4,5,6,7]
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
     steps:
       - uses: actions/checkout@v4
       - id: review-cache
         uses: actions/cache@v4
         with:
           path: test-results/review/shard-${{ matrix.shard }}.json
-          key: spell-review-v3-${{ runner.os }}-${{ matrix.shard }}-${{ hashFiles('public/catalogs/dndtools/spells.json', 'scripts/enrich_dndtools.py', 'scripts/export_spell_effect_review.py', 'scripts/classify_spell_review_queue.py', 'scripts/spell_effect_summaries_35.json', 'scripts/spell_effect_summaries_35_batches/**', 'scripts/spell_regression_cases.json', 'scripts/spell_supplements_35.json') }}
+          key: spell-review-v4-${{ runner.os }}-${{ matrix.shard }}-${{ hashFiles('public/catalogs/dndtools/spells.json', 'scripts/enrich_dndtools.py', 'scripts/export_spell_effect_review.py', 'scripts/classify_spell_review_queue.py', 'scripts/spell_effect_summaries_35.json', 'scripts/spell_effect_summaries_35_batches/**', 'scripts/spell_regression_cases.json', 'scripts/spell_supplements_35.json') }}
       - name: Export long spell effects shard ${{ matrix.shard }}
         if: steps.review-cache.outputs.cache-hit != 'true'
         run: >-
           python scripts/export_spell_effect_review.py
-          --shard-count 8 --shard-index ${{ matrix.shard }} --delay 0.08
+          --shard-count 16 --shard-index ${{ matrix.shard }} --delay 0.08
           --output test-results/review/shard-${{ matrix.shard }}.json
       - uses: actions/upload-artifact@v4
         if: always()
@@ -61,7 +61,7 @@ jobs:
       - name: Merge review queue
         run: >-
           python scripts/merge_spell_effect_review.py
-          --input-dir test-results/review-shards --shard-count 8
+          --input-dir test-results/review-shards --shard-count 16
           --output test-results/spell-effect-review.json
       - uses: actions/upload-artifact@v4
         if: always()
