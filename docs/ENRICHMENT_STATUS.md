@@ -4,6 +4,14 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Next classifier correction — exact quantitative condition
+
+- Clean batch 040 head `602b1c65ed82baa370c59e657652ade57a3475fb` passed Spell effect review #259 (`35647739424`) and Validate modernization #822 (`35647743162`).
+- Review #259 measured **1,094 remaining**, **3,603 reviews**, **2,006 regressions**, zero errors/warnings/digest drift; all strict/reference/prerequisite/duplicate selectors returned **0 eligible**. Classification artifact `10661321176`, ZIP SHA-256 `3b7ac7ea93b7de2a935eb87dcc0ca66871da79c39bacadbb09be009989c3ae99`.
+- Blocker discovery found Rebirth of Iron (`881`) blocked only by the quantitative parenthetical `(as long as at least 1/4 of the object remains)`, which is ordinary condition text rather than a spell dependency.
+- This correction excludes only the exact prefix `(as long as at least ...)`. It intentionally does **not** suppress the broader `(as long as ...)` family, so Spider Curse/Spiderform remain fail-closed pending their implicit drider mechanics review. A positive self-test preserves `(as longstrider)` as a spell reference.
+- No content is locked by this parser commit. Wait for both CI gates, inspect the fresh strict selector, and independently review any newly eligible record. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Active spell checkpoint — clean batch 040
 
 - Parser commit `bc171a76e454c7941342d09471b5aa84782b262d` passed Spell effect review #258 (`35647248642`) and Validate modernization #821 (`35647256312`).
