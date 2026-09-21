@@ -42,6 +42,18 @@ def main():
                 entries.append({
                     "id":row.get("id"),"name":row.get("name"),"url":row.get("url"),
                     "sourceBook":details.get("sourceBook"),"school":details.get("school"),
+                    "header":{
+                        "school":details.get("school"),
+                        "castingTime":details.get("casting_time"),
+                        "components":details.get("components") or [],
+                        "range":details.get("range"),
+                        "target":details.get("target"),
+                        "area":details.get("area"),
+                        "duration":details.get("duration"),
+                        "savingThrow":details.get("savingThrow"),
+                        "spellResistance":details.get("spellResistance"),
+                        "descriptors":details.get("descriptors") or [],
+                    },
                     "level":details.get("level"),"classLevels":details.get("classLevels"),
                     "domainLevels":details.get("domainLevels"),
                     "needsSummary":needs_summary,

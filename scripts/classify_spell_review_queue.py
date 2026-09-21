@@ -1650,8 +1650,10 @@ def classify_queue(
                 "id": record_id,
                 "name": entry.get("name"),
                 "url": entry.get("url"),
+                "sourceBook": entry.get("sourceBook"),
                 "sourceSha256": entry["sourceSha256"],
                 "effectSource": source,
+                "header": entry.get("header"),
                 "references": ref_trees,
                 "resolutionStatusCounts": dict(statuses),
             })
