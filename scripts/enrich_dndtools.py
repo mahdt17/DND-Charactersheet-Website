@@ -2032,7 +2032,7 @@ def self_test():
     assert storm_fixed.get("sourceIncompleteMarker")=="truncated-storm-elemental-fury-windstorm-source"
     assert storm_fixed.get("sourceIncompleteResolved")
     assert storm_fixed.get("supplementVerified")
-    assert "siege weapon" in storm_fixed.get("effectSummary","").casefold()
+    assert "siege-weapon attacks take a -4 penalty" in storm_fixed.get("effectSummary","").casefold()
     assert "15d6" not in storm_fixed.get("effectSummary",""), "do not import the later Spell Compendium damage cap"
 
     repair_header_mismatch_html = """
