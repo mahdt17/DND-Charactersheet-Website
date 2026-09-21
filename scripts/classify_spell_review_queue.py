@@ -46,6 +46,18 @@ KNOWN_REFERENCE_FIXTURES = {
 REFERENCE_PATTERNS = (
     re.compile(
         r"\b(?:functions?|works?|operates?)\s+like\s+"
+        r"(?!a\b|an\b|the\b)(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,100}?)"
+        r"(?=\s*,\s*with\s+the\s+(?:following\s+)?addition(?:s|\s+that)\b)",
+        re.I,
+    ),
+    re.compile(
+        r"(?:^|[.!?:]\s+)As\s+(?:the\s+)?"
+        r"(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,100}?)(?:\s+spell)?"
+        r"(?=\s*,\s*with\s+the\s+(?:following\s+)?addition(?:s|\s+that)\b)",
+        re.I,
+    ),
+    re.compile(
+        r"\b(?:functions?|works?|operates?)\s+like\s+"
         r"(?P<name>[^.;:!?]{2,120}?)(?=\s*,?\s*(?:except|but)\b|[.;:!?]|$)",
         re.I,
     ),
@@ -2004,6 +2016,18 @@ def run_self_test() -> None:
     assert extract_reference_names(
         "This spell functions like arcane eye, except it lasts longer."
     ) == ["arcane eye"]
+    assert extract_reference_names(
+        "This spell functions like portal alarm, with the following additions: the alarm can be mental."
+    ) == ["portal alarm"]
+    assert extract_reference_names(
+        "This spell functions like Otiluke’s resilient sphere, with the addition that the globe is nearly weightless."
+    ) == ["Otiluke’s resilient sphere"]
+    assert extract_reference_names(
+        "As the portal alarm spell, with the following additions: the alarm can be mental."
+    ) == ["portal alarm"]
+    assert extract_reference_names(
+        "The device functions like a normal mirror, with the following additions: it is silver."
+    ) == []
     assert extract_reference_names(
         "This spell functions like invisibility except as noted above."
     ) == ["invisibility"]
