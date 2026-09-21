@@ -1,9 +1,9 @@
 {
   "scope": "3.5/spells",
   "count": 0,
-  "referenceCount": 0,
+  "referenceCount": 3,
   "prerequisiteCount": 0,
   "duplicateFamilyCount": 0,
-  "nonce": "2026-09-20-measure-after-mantle-prerequisite-lock-001",
+  "nonce": "2026-09-20-select-mantle-reference-family-001",
   "nearDuplicateFamilyCount": 0
 }
