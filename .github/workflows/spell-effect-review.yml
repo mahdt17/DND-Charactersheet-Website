@@ -34,7 +34,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: test-results/review/shard-${{ matrix.shard }}.json
-          key: spell-review-v4-${{ runner.os }}-${{ matrix.shard }}-${{ hashFiles('public/catalogs/dndtools/spells.json', 'scripts/enrich_dndtools.py', 'scripts/export_spell_effect_review.py', 'scripts/classify_spell_review_queue.py', 'scripts/spell_effect_summaries_35.json', 'scripts/spell_effect_summaries_35_batches/**', 'scripts/spell_regression_cases.json', 'scripts/spell_supplements_35.json') }}
+          key: spell-review-v4-${{ runner.os }}-${{ matrix.shard }}-${{ hashFiles('public/catalogs/dndtools/spells.json', 'scripts/enrich_dndtools.py', 'scripts/export_spell_effect_review.py', 'scripts/spell_effect_summaries_35.json', 'scripts/spell_effect_summaries_35_batches/**', 'scripts/spell_regression_cases.json', 'scripts/spell_supplements_35.json') }}
       - name: Export long spell effects shard ${{ matrix.shard }}
         if: steps.review-cache.outputs.cache-hit != 'true'
         run: >-

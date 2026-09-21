@@ -137,6 +137,11 @@ REFERENCE_PATTERNS = (
         re.I,
     ),
     re.compile(
+        r"\b(?:gains?|receives?)\s+(?:a|an|the)\s+"
+        r"(?P<name>death ward)\s+effect\b",
+        re.I,
+    ),
+    re.compile(
         r"\breceives?\s+(?:a|an|the)\s+"
         r"(?!benefits?\s+of\b)(?P<name>[A-Za-z][A-Za-z0-9'’ /,-]{1,80}?)\s+spell\b",
         re.I,
@@ -1997,6 +2002,12 @@ def run_self_test() -> None:
     assert extract_reference_names(
         "The target receives a panacea spell one round later."
     ) == ["panacea"]
+    assert extract_reference_names(
+        "All subjects receive a death ward effect (PH 217)."
+    ) == ["death ward"]
+    assert extract_reference_names(
+        "The weapon gains a flaming effect."
+    ) == []
     assert extract_reference_names(
         "Items receive the benefits of saves and spell resistance."
     ) == []
