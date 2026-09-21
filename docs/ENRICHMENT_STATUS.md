@@ -4,6 +4,15 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## Active spell checkpoint — clean batch 048
+
+- Classifier head `1bff7a83c39503f4e6e58be8b1c00cb4fd444bdc` passed Spell effect review #276 (`35659855406`) and Validate modernization #839 (`35659866704`).
+- Review #276 measured **1,087 remaining**, **3,610 reviews**, **2,013 regressions**, zero errors/warnings/digest drift. The strict selector exposed exactly **1** clean standalone record: Local Tremor (`3096`); all other selectors remained **0 eligible**.
+- Classification artifact `10667705969`, ZIP SHA-256 `8fa51f2383eb711ce4c15b15f541e59544c6ca9f378d604fb0174fc047ebc40b`.
+- Batch `2026-09-21-clean-048.json` locks Local Tremor to primary digest `3bc599dba7caf772a30e8b090452367bf96bef9df713853a0d8db5d483b888bc` and adds a permanent regression ID. The phrase `(as you refocus your concentration on the spell)` remains local action-description text rather than an inherited spell dependency.
+- Corpus after this commit: **3,611** summaries / **2,014** permanent regression IDs. Predicted queue after remeasurement: **1,086**; treat that as provisional until both CI gates pass.
+- Selector request remains measurement-only. Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## Next classifier correction — exact concentration-action phrase
 
 - Clean batch 047 head `a8f72e4ff5535ab289b404fb4bf0f6496bb8894d` passed Validate modernization #838 (`35658937565`). Spell effect review #275 (`35658932385`) had a transient artifact-finalization 403 after successful classification/selectors; retry attempt 2 reran only the failed classify job and passed, producing classification artifact `10667505465`, ZIP SHA-256 `03a97185c6ecf65ced8eff59b660d5f7428fc9a301f7b65e511ce99c68a6ede1`.
