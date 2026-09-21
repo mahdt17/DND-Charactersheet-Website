@@ -2,8 +2,8 @@
   "scope": "3.5/spells",
   "count": 0,
   "referenceCount": 0,
-  "prerequisiteCount": 1,
+  "prerequisiteCount": 0,
   "duplicateFamilyCount": 0,
-  "nonce": "2026-09-20-select-next-prerequisite-001",
+  "nonce": "2026-09-20-measure-after-mantle-prerequisite-lock-001",
   "nearDuplicateFamilyCount": 0
 }
