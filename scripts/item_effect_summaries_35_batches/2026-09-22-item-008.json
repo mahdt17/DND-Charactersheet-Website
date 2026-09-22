@@ -1,0 +1,614 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record item effect batch 008. Content-only, damaged-tail, and truncated inherited entries were deliberately deferred.",
+  "reviewCheckpoint": {
+    "head": "679d943f0d1e9b87c79fdb95bea94c5f950b4146",
+    "reviewRun": 35793823797,
+    "reviewArtifact": 10723480790,
+    "reviewArtifactSha256": "20c32c37b2bc1bf4ba4a50457bfc9b54d73e5a424246feb327dc8dcbe3af80c6",
+    "ordinaryReviewRemainingBefore": 853,
+    "errors": []
+  },
+  "entries": {
+    "items/heavens-thorn": {
+      "name": "Heaven's Thorn",
+      "sourceSha256": "c438a8df0018a12451abbbc79809f237f8e1004b81f4604d23eb264c95c0e397",
+      "effectSummary": "On a successful touch attack against a good-aligned outsider, the thorn breaks and stuns the target for 1d4 rounds with no saving throw; spell resistance applies.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/heavens-thorn",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/averter-12": {
+      "name": "Averter",
+      "sourceSha256": "edec665cd772fefabbfdaa0d2dd389f81ecb842ed1fe15d04b87d6c0140b91c0",
+      "effectSummary": "Three times per day, activating the shield forces enemies that can see it to make a DC 14 Will save or be unable to approach within 30 feet of the wielder for 3 rounds; this is a mind-affecting compulsion.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/averter-12",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/medallion-of-the-lycanthrope": {
+      "name": "Medallion of the Lycanthrope",
+      "sourceSha256": "389c1e0ac016b2506f46d62edaf3db5417fa39797ef29812195b8004162fcd23",
+      "effectSummary": "Once per day, the medallion can create antipathy against lycanthropes at caster level 15. Melee weapons carried by the wearer also damage lycanthropes as though made of silver; ranged weapons are unaffected.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/medallion-of-the-lycanthrope",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/orb-of-showers": {
+      "name": "Orb of Showers",
+      "sourceSha256": "33cb56a946ce8c5a73a11175246bbd1addfc2bce1d6a0de85fa596b44f3e6457",
+      "effectSummary": "Once per week, the orb creates a 2-mile-radius rain shower lasting 24 hours. It has no effect indoors or underground, and produces sleet instead of rain in cold climates.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/orb-of-showers",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/magic-siphon-437": {
+      "name": "Magic Siphon",
+      "sourceSha256": "c5edce92279fb2ca4e06a19b1f0e255799f96f1b1b52317b91f72e724729a74f",
+      "effectSummary": "Once per day, activating the rod subjects every creature adjacent to the user to a targeted greater dispel magic effect.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/magic-siphon-437",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/mattock-of-the-titans": {
+      "name": "Mattock of the Titans",
+      "sourceSha256": "a7e34fb17ed48ad5fa957d0fe8f466037531b08eb7e6d68dc201ea44cd717fa1",
+      "effectSummary": "A Huge or larger creature can excavate a 10-foot cube of earth in 10 minutes or rock in 1 hour with the mattock. As a weapon it functions as a +3 Gargantuan morningstar dealing 4d6 base damage.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/mattock-of-the-titans",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/powder-of-the-black-veil": {
+      "name": "Powder of the Black Veil",
+      "sourceSha256": "f2305112beec1fc1761d092885d8b5bdcab06a405e40050b2c217704d9f90975",
+      "effectSummary": "A pinch creates a 10-foot-high cloud in a 10-foot spread centered on the user for 2d4 rounds. A creature in the cloud must make Will DC 13 or be blinded while inside and for 1d4 rounds after leaving.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/powder-of-the-black-veil",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ectoplasmic-feedback-32": {
+      "name": "Ectoplasmic Feedback",
+      "sourceSha256": "7febf5c84bfa5d412e06f9feafa6ca5a1a9d89a1e9acf9f69474d703f52c5c54",
+      "effectSummary": "Whenever the wearer is hit by an incorporeal touch attack, the armor deals 1d6 damage to the attacker with no miss chance for incorporeality.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ectoplasmic-feedback-32",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/skin-of-the-sahuagin-783": {
+      "name": "Skin of the Sahuagin",
+      "sourceSha256": "83bded85fc74bea8a044e387838d8eb4253078356a1e6967ff2a4b246a7447ec",
+      "effectSummary": "The wearer can breathe underwater, gains a 40-foot swim speed, two 1d12 claw attacks, one 1d8 bite attack, underwater sense 30 feet, and takes on a sahuagin appearance.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/skin-of-the-sahuagin-783",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gauntlet-of-utterdeath": {
+      "name": "Gauntlet of Utterdeath",
+      "sourceSha256": "c7a4dbfe505f7ea52d6a692483866eb71aeedfd8eac586cbd4bc8413946f0826",
+      "effectSummary": "Three times per day, a successful melee touch forces Fortitude DC 20; failure reduces the target to smoldering cinders, while success instead deals 10d6 damage.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gauntlet-of-utterdeath",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-arachnida-278": {
+      "name": "Cloak of Arachnida",
+      "sourceSha256": "4bde603bec360333e1e20fc227f97f3d8c61fcaea90330b3a6abf5c988846262",
+      "effectSummary": "The wearer gains spider climb, immunity to entrapment by webs and can move through webs at half speed, can cast web once per day, and gains +2 luck on Fortitude saves against spider poison.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-arachnida-278",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/two-bladed-sword-571": {
+      "name": "Two-Bladed Sword",
+      "sourceSha256": "fe0bb6f12d3415b24124047232e342844f8a3d2db847f1334f79d53f9a3820ac",
+      "effectSummary": "This is a double weapon and can be used as two weapons with the normal two-weapon fighting penalties. If wielded in one hand, only one end can be used in a round.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/two-bladed-sword-571",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/goggles-of-draconic-vision": {
+      "name": "Goggles of Draconic Vision",
+      "sourceSha256": "cce59a9796afa9b6ee5187f09a86af722b796d15079e15db0b560bf1619ee04d",
+      "effectSummary": "The wearer gains +10 on Spot checks, low-light vision, and darkvision 60 feet. Once per day the goggles grant blindsense for 1 minute, and they prevent blindness from a hovering dragon's cloud although the cloud still provides concealment.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/goggles-of-draconic-vision",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-of-shelter": {
+      "name": "Cloak of Shelter",
+      "sourceSha256": "c069858d2b4bf0c8af7a79a9dd37f7d813d555b8b3a383b9aabc142d3cfb2f12",
+      "effectSummary": "The cloak protects against ordinary wind, cold, sun, and rain. On command it becomes a four-person tent with an alarm effect, and once per day it can become a small lodge as Leomund's secure shelter.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-of-shelter",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-monks-136": {
+      "name": "Belt, Monk's",
+      "sourceSha256": "1426b004c75efabae9c91d7a6968d2d78483a1668b57e805134cf589605f117a",
+      "effectSummary": "The wearer's monk AC and unarmed damage are treated as 5 monk levels higher; a nonmonk gains the AC and unarmed damage of a 5th-level monk. A wearer with Stunning Fist gains one additional stunning attack per day.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-monks-136",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/heavenly-burst-45": {
+      "name": "Heavenly Burst",
+      "sourceSha256": "143783c4cedfcbdc1342fd1e789f32d10140b51fb8ce9196173c780ce71c6171",
+      "effectSummary": "On a critical hit against an evil creature, the weapon deals +3d6 damage and blinds the target for 1 round; Fortitude DC 14 negates the blindness. The wielder takes 1d2 temporary Strength damage each time the burst triggers, and ranged weapons transfer the effect to their ammunition.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/heavenly-burst-45",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/badge-of-the-svirfneblin": {
+      "name": "Badge of the Svirfneblin",
+      "sourceSha256": "7383475d1e1f279d35befc7c95e0917c3dd2265ccb900b2d3cfbf56403556f0f",
+      "effectSummary": "The wearer gains darkvision 60 feet, can use blur and change self on themself by command once per day, and gains +10 circumstance on Hide checks in areas of stone.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/badge-of-the-svirfneblin",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blend-cream-341": {
+      "name": "Blend Cream",
+      "sourceSha256": "038cb091ab2c987a1a984a8938a44ee06f2b56d2df4401ffbb46838fe278994e",
+      "effectSummary": "Applying the cream is a standard action that provokes attacks of opportunity and grants +1 alchemical on Hide checks for 1 hour. It does not allow hiding without cover or hiding in plain sight.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blend-cream-341",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ectoplasmic-ichor": {
+      "name": "Ectoplasmic Ichor",
+      "sourceSha256": "342974aea6827695a33ce42333099b85766dbf44a6bf00c3945601dc7e6a8565",
+      "effectSummary": "Applying the ichor to a corporeal object takes a standard action and lets incorporeal creatures interact with it as though corporeal for 1 hour. One vial coats one Medium or smaller weapon, shield, suit of armor, or similarly sized object.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ectoplasmic-ichor",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/goggles-of-day": {
+      "name": "Goggles of Day",
+      "sourceSha256": "95c7df0a8e1fedbabc0538d2f609dea5a35a295e03ba6a4d55a65b313ee7a59d",
+      "effectSummary": "The wearer suffers no penalty from preternaturally bright light. A vampire wearing them has a full-round action before sunlight dissolution instead of the normal shorter interval.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/goggles-of-day",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/flesheater-401": {
+      "name": "Flesheater",
+      "sourceSha256": "41ae74515a153d5cb3e087e96948ab4d6a273035c194be0c873be7ab9760f566",
+      "effectSummary": "Twice per day, the scepter can target a living creature within 30 feet; Fortitude DC 18 negates, otherwise the target takes 3d6 damage each round for 4 rounds.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/flesheater-401",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/hammersphere-410": {
+      "name": "Hammersphere",
+      "sourceSha256": "1801a3e3b40e3d3bf5e6b5962f7e98e49efd70cfaf52829ff49f3f8ecf370683",
+      "effectSummary": "Once per day, activating the sphere conjures a giant hammer that functions as spiritual weapon but deals 3d6 damage on a hit. It requires no concentration and the sphere need not remain held aloft.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/hammersphere-410",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/mithral-bells": {
+      "name": "Mithral Bells",
+      "sourceSha256": "3c453fbe35a208b1cb36f791608653b822be4daf7d82b765d03d2cb3edf5228d",
+      "effectSummary": "The chain begins with eleven bells; a bell can be detached and thrown up to 40 feet to create sound burst at the end of its trajectory. While at least three bells remain, the item grants +2 circumstance on Perform checks.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/mithral-bells",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/torque-of-the-titans": {
+      "name": "Torque of the Titans",
+      "sourceSha256": "796aa140d0ad4f30c9be1b575b966d95d03d2969f17b9fc44d2420fde4239990",
+      "effectSummary": "The torque has hardness 20, 50 hp, and break DC 50. Five times per day as a free action, the wearer can gain +10 enhancement to Strength for 1 round.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/torque-of-the-titans",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/dragondodger-30": {
+      "name": "Dragondodger",
+      "sourceSha256": "e2c9037617ef27bcb4b659f907b1673003a03ae99a475f9bc59512424eb145c7",
+      "effectSummary": "This light armor grants evasion only against breath weapons: when a breath weapon allows a Reflex save for half damage, a successful save instead negates the damage.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dragondodger-30",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/keen-151": {
+      "name": "Keen",
+      "sourceSha256": "be6a9571b583b9b13d8f55aad3424156e05e52a07b0a6f559a668a1b1982e81d",
+      "effectSummary": "This property doubles the weapon's threat range. It can be placed only on piercing or slashing weapons and does not stack with other effects that expand threat range.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/keen-151",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ice-axe-587": {
+      "name": "Ice Axe",
+      "sourceSha256": "d782dc9c3265a8e7d6be203416c69a761e1b3daa4bdd23da830ca79ea495fda1",
+      "effectSummary": "The ice axe grants +1 circumstance on Climb checks in mountainous or icy terrain, increasing to +4 if the user has Exotic Weapon Proficiency (ice axe). It can be used as a martial weapon at -2 on attack rolls.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ice-axe-587",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/moondraught": {
+      "name": "Moondraught",
+      "sourceSha256": "d944063edc5ab44f1639ec8010ec6082c6673894fc921411fd739550b4b74244",
+      "effectSummary": "The draught contains four cure-light-wounds-equivalent doses: drink all at once for 4d8+4 healing or separately for 1d8+1 each. A lycanthrope automatically receives the maximum possible healing for the amount consumed.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/moondraught",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/silversheen": {
+      "name": "Silversheen",
+      "sourceSha256": "4277c988778a56680b4a6e2876215076c5e6ecdc6f8f3920f1c19789f1c16744",
+      "effectSummary": "Applying silversheen is a standard action and gives a weapon the properties of alchemical silver for 1 hour, temporarily replacing any other special-material properties. One vial coats one melee weapon or 20 pieces of ammunition.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/silversheen",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/instrument-of-the-winds": {
+      "name": "Instrument of the Winds",
+      "sourceSha256": "601992d6214f9a2e52c2ecf771bd98075e4c907f3f34acfc9d49fc32259f8b15",
+      "effectSummary": "This masterwork lute grants +2 circumstance on Perform (string instruments). Once per day, a DC 13 Perform check summons a Large air elemental as summon monster VI.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/instrument-of-the-winds",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/saddle-of-weather-protection": {
+      "name": "Saddle of Weather Protection",
+      "sourceSha256": "e988819d9b4abc10af2e688e37f2911dd8baa499c981423e9f273142231e8767",
+      "effectSummary": "The rider and mount are unaffected by normal temperatures from 0°F to 110°F and remain dry unless fully immersed. Once per day, the rider can cast protection from elements on both themself and the mount.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/saddle-of-weather-protection",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/aoxars-helm": {
+      "name": "Aoxar's Helm",
+      "sourceSha256": "237680adcff76338366fa644debd8d9d259cd346e5c074f4c82a661346253e51",
+      "effectSummary": "The wearer can use deathwatch at will and speak with dead once per day.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/aoxars-helm",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/daerns-instant-tent-367": {
+      "name": "Daern's Instant Tent",
+      "sourceSha256": "6a816ca2f50afee2681e781abd3efa553547de0f824d9c4364be61f9bd1e3ca7",
+      "effectSummary": "When activated, the folded canvas becomes a 20-foot-square temperate tent with cots for eight Medium creatures and a fire pit. The tent has resistance 10 to electricity, fire, and acid and immunity to cold.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/daerns-instant-tent-367",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sword-planes-474": {
+      "name": "Sword of the Planes",
+      "sourceSha256": "b4b90b5b5e9426378c333e9557cee7a3fa61bdd5a141a7317ae6c5f255e3a223",
+      "effectSummary": "The longsword is +1 on the Material Plane, +2 on Elemental Planes or against elementals on the Material Plane, +3 on the Astral or Ethereal Plane or against natives of those planes, and +4 on other planes or against any outsider.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sword-planes-474",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/wall-663": {
+      "name": "Wall",
+      "sourceSha256": "a9f387a178f18eb5b91cb665b33751314b2321205486789ca3415897de725011",
+      "effectSummary": "Once per day as a standard action, the wielder can drop the shield to create wall of ectoplasm from that point, up to twelve 10-foot squares or a sphere/hemisphere up to 12-foot radius. It lasts 7 minutes or until the wielder reclaims the shield.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/wall-663",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blindfold-of-true-darkness": {
+      "name": "Blindfold of True Darkness",
+      "sourceSha256": "e3152556c53cf42708ede57362ad2ecf400e01ef07d2cf1ce303ec1ee2345fb1",
+      "effectSummary": "The wearer gains blindsight 60 feet and is immune to gaze attacks and other effects that rely on sight, but cannot use normal vision while wearing the blindfold; it occupies the goggles slot.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blindfold-of-true-darkness",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/horn-of-volume": {
+      "name": "Horn of Volume",
+      "sourceSha256": "116adbc750336d6581b5ef0208f44816b04f9fb79d0c5a5b6aa74039f081a09a",
+      "effectSummary": "The user can be heard up to twice the normal distance when speaking, singing, or using hearing-based abilities. In skirmish or mass-battle rules, commands can reach creatures out of line of sight up to 12 squares away instead of 6, without increasing Commander Effect range.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/horn-of-volume",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/mantle-predator-220": {
+      "name": "Mantle of the Predator",
+      "sourceSha256": "ec6054328a9f397dc2e2a9a4c517c09dd5fbc47d58c5d0eb5d793e27ac0c4e9d",
+      "effectSummary": "The wearer gains +5 competence on Hide and Move Silently checks and deals +1d6 melee damage against foes denied their Dexterity bonus to AC. The extra damage does not apply to foes with concealment, no discernible anatomy, or immunity to extra critical-hit damage.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/mantle-predator-220",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sign-of-the-favored": {
+      "name": "Sign of the Favored",
+      "sourceSha256": "55838820a0ad090d525ff13e7530240da2c0eec027bf8af2f076646f0b17cbd0",
+      "effectSummary": "Three times per day, the bearer can grant allies within 30 feet +1 luck on attack rolls, weapon damage rolls, saving throws, and skill checks for 5 rounds.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sign-of-the-favored",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/portable-fountain": {
+      "name": "Portable Fountain",
+      "sourceSha256": "15fe3fd16ee7218563a579f30e17db324ad17e4bc46f393e711036c8afe25a5f",
+      "effectSummary": "Once per day, placing the item on the ground and speaking its command word creates a fountain occupying a 5-foot square and producing 10 gallons of fresh water; it returns to portable form when the basin is emptied.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/portable-fountain",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sending-stones": {
+      "name": "Sending Stones",
+      "sourceSha256": "c9144242ac0545b19cef3ee2096d80e208601f5214d9583252578abe5c88f0f1",
+      "effectSummary": "Each stone in a matched pair can use sending once per day to contact the bearer of its mate. If the mate is not being carried, the message fails and the user knows it; destroying either stone makes the other useless.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sending-stones",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/scrying-beacon": {
+      "name": "Scrying Beacon",
+      "sourceSha256": "0aab0f2d5b61d2f6b857031add65fec5870114889f5c617d91ad286aac783e1a",
+      "effectSummary": "After a spellcaster spends 1 minute attuning to the beacon, the next clairaudience/clairvoyance spell cast within 1 mile can be centered on it. After use, the beacon must be attuned again.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/scrying-beacon",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/vest-of-escape": {
+      "name": "Vest of Escape",
+      "sourceSha256": "726bea506d33b76985825c5efc40d5c0ebd5922c4c27502c0697d78ac8fc44ba",
+      "effectSummary": "The vest grants +6 competence on Escape Artist checks. Its hidden lockpicks grant +4 competence on Open Lock checks while they remain within 15 feet of the vest.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/vest-of-escape",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/crystal-ball-telepathy-304": {
+      "name": "Crystal ball with Telepathy",
+      "sourceSha256": "31dece6382a4bb89695eec72e818b66dfa77baf1f6b5870a280ab4996427ca94",
+      "effectSummary": "Functions as a crystal ball for scrying across great distances or planes, with Will DC 16 to resist. The viewer can exchange silent mental messages with the viewed creature and once per day can attempt to implant a suggestion, Will DC 14 negates.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/crystal-ball-telepathy-304",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/crossbow-hand-574": {
+      "name": "Crossbow, hand",
+      "sourceSha256": "43cacf90e719e69d1001fc03f5e8b461fb5f88a70f6dfe1a6e0b7f7a3b8ac0da",
+      "effectSummary": "Loading a hand crossbow is a move action that provokes attacks of opportunity. It can be fired, but not loaded, one-handed without penalty; firing one in each hand uses the two-light-weapon attack penalties.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/crossbow-hand-574",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/pipes-of-haunting": {
+      "name": "Pipes of Haunting",
+      "sourceSha256": "d486ee483b6e4423d67aedc8b32c5af4e73d3a5b3d5ae1ab3abe3f378764faa7",
+      "effectSummary": "A user with Perform (pan pipes) can play the pipes so listeners unaware of the piper must make Will DC 13 or become shaken for 10 minutes; affected listeners perceive the music as coming from somewhere within 30 feet of the musician.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/pipes-of-haunting",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/choker-of-eloquence": {
+      "name": "Choker of Eloquence",
+      "sourceSha256": "359673ebb61432e880b4a02733e765c1b75b0ec14bba3a9fa0b45d2dea26f96b",
+      "effectSummary": "The lesser choker grants +5 competence on Diplomacy, Bluff, and vocal Perform checks; the greater version grants +10 instead.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/choker-of-eloquence",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gloves-of-brachiation": {
+      "name": "Gloves of Brachiation",
+      "sourceSha256": "0e96477dcc11c9e9d7f759f136678a524537e715dccf7009c55db9ec71fd4d90",
+      "effectSummary": "At medium encumbrance or less, the wearer can move at full speed through a tree canopy using only their arms and gains +10 circumstance on Jump checks while aboveground.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gloves-of-brachiation",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/magic-bedroll-421": {
+      "name": "Magic Bedroll",
+      "sourceSha256": "92a57204c3b59783bd13c71766d8829ade07d2195d5bb642fef852462de225b0",
+      "effectSummary": "While lying in the bedroll, the user benefits from endure elements. After sleeping in it for 8 hours, the user recovers an additional 1 hit point per character level; entering or leaving it is a full-round action.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/magic-bedroll-421",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/oil-of-the-lamia": {
+      "name": "Oil of the Lamia",
+      "sourceSha256": "01f93de68c0ddcd1a02b5951cec153314e86708d285d2e2206deee02cb35e1a5",
+      "effectSummary": "Applied to one magic item that produces a saving-throw effect, the oil increases that effect's save DC by +2 against good-aligned foes for 1 hour; one flask coats one item regardless of size.",
+      "notes": "Manually reviewed against the verified 853-record item-effect queue after batch 007 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/oil-of-the-lamia",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    }
+  }
+}
