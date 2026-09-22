@@ -2545,7 +2545,7 @@ def self_test():
             "Player's Handbook v.3.5 (PH), p. 249",
             "This spell functions like locate object, except this spell locates a known or familiar creature. You slowly turn and sense the creature's direction. The spell can locate a creature of a specific kind (such as a polymorph spells. Material Component: A bit of fur from a bloodhound.",
             "truncated-locate-creature-source",
-            ("specific kind", "certain type", "within 30 feet", "running water", "mislead"),
+            ("specific kind", "broad creature type", "within 30 feet", "running water", "mislead"),
             (),
         ),
         (
