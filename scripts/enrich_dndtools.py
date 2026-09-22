@@ -2572,7 +2572,7 @@ def self_test():
             "Underdark (Und), p. 59",
             "The newly generated earth node retains its Class 1 status for one year. Thereafter, its diameter increases at a rate of 20 feet per year. When the node's diameter reaches the low end of the range for the next higher class (see Table 4-1), its class increases by +1. A Class 1 node becomes Class 2 at 40 feet and Class 3 at 120 feet. XP Cost: 5,000 XP.",
             "external-node-genesis-class-table",
-            ("20 feet per year", "40 feet", "120 feet", "5,000 xp"),
+            ("20 feet in diameter per year", "40 feet", "120 feet", "5,000 xp"),
             ("class", "node dc", "layer width", "node diameter", "6+", "35+", "600 to 2,400 feet"),
         ),
         (
