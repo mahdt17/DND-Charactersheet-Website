@@ -2388,7 +2388,7 @@ def self_test():
             "Player's Handbook v.3.5 (PH), p. 283",
             "The weapon always strikes from your direction. It does not get a flanking bonus or help a combatant get one. Your feats (such as disintegrate, a sphere of annihilation, or a rod of cancellation affects it. A spiritual weapon's AC against touch attacks is 12.",
             "truncated-spiritual-weapon-direction-rules",
-            ("move action", "returns to you and hovers", "cannot be attacked or harmed by physical attacks", "touch ac 12"),
+            ("move action", "returns to you and hovers", "physical attacks cannot harm it", "touch ac is 12"),
             (),
         ),
         (
