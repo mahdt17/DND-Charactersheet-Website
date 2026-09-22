@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Source-verified Dragon Compendium repair-damage family, resolving OCR-like suspicion without changing classifier policy; clean batch 090.",
+  "entries": {
+    "spells/repair-critical-damage-3808": {
+      "name": "Repair Critical Damage",
+      "sourceSha256": "f347c9eff6913461c56606ff77d5b3c9662e361eb7957c0a8f2a7a358e80ee84",
+      "effectSummary": "By touching one construct that has at least 1 hit point remaining, instantly repairs 4d8 points of damage +1 point per caster level, maximum +20. The spell inherits Repair Light Damage's construct-only and minimum-1-hit-point applicability; it changes only the amount repaired. It has no saving throw and allows harmless spell resistance.",
+      "notes": "Source-locked to Dragon Compendium. The same printing confirms Repair Light Damage as 1d8 despite an OCR-like 'ld8' rendering in some catalog text; Repair Critical Damage itself clearly prints 4d8 +1/level, maximum +20.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-critical-damage-3808",
+          "role": "primary Dragon Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/ogyal/mwhz/basic/51-100",
+          "role": "same-printing Dragon Compendium page cross-check for the repair-damage progression"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-3810",
+          "role": "same-book base spell supplying construct applicability"
+        }
+      ]
+    },
+    "spells/repair-critical-damage-mass-3809": {
+      "name": "Repair Critical Damage, Mass",
+      "sourceSha256": "45a32a6f546f8d73b4ac21c3f1df8aee380059d5bbdcea2d9408575a3c4372e9",
+      "effectSummary": "Instantly repairs 4d8 points of damage +1 point per caster level, maximum +40, to each selected construct. You can target one construct per caster level at Close range, with no two targets more than 30 feet apart. The spell has no saving throw and allows harmless spell resistance.",
+      "notes": "Source-locked to Dragon Compendium. This spell inherits Mass Repair Light Damage's multi-construct targeting and changes only the amount repaired. The same printing confirms the 4d8 +1/level, maximum +40 progression.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-critical-damage-mass-3809",
+          "role": "primary Dragon Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/ogyal/mwhz/basic/51-100",
+          "role": "same-printing Dragon Compendium cross-check for the mass repair progression"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-mass-3811",
+          "role": "same-book base spell supplying mass targeting geometry"
+        }
+      ]
+    },
+    "spells/repair-moderate-damage-mass-3814": {
+      "name": "Repair Moderate Damage, Mass",
+      "sourceSha256": "1cad30611bd18a4d149da534af85bc90acca99c9cf793ee80a541c67f40b8ce0",
+      "effectSummary": "Instantly repairs 2d8 points of damage +1 point per caster level, maximum +30, to each selected construct. You can target one construct per caster level at Close range, with no two targets more than 30 feet apart. The spell has no saving throw and allows harmless spell resistance.",
+      "notes": "Source-locked to Dragon Compendium. This spell inherits Mass Repair Light Damage's multi-construct targeting and changes only the amount repaired. The same printing clearly gives 2d8 +1/level, maximum +30.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-moderate-damage-mass-3814",
+          "role": "primary Dragon Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/ogyal/mwhz/basic/51-100",
+          "role": "same-printing Dragon Compendium cross-check for the 2d8 mass progression"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-mass-3811",
+          "role": "same-book base spell supplying mass targeting geometry"
+        }
+      ]
+    },
+    "spells/repair-serious-damage-3815": {
+      "name": "Repair Serious Damage",
+      "sourceSha256": "4f9b52b99181ecf65d66b73c2016f1cffc4c3c232f7cc4a6f9a7cbf4a3b834d1",
+      "effectSummary": "By touching one construct that has at least 1 hit point remaining, instantly repairs 3d8 points of damage +1 point per caster level, maximum +15. The spell inherits Repair Light Damage's construct-only and minimum-1-hit-point applicability; it changes only the amount repaired. It has no saving throw and allows harmless spell resistance.",
+      "notes": "Source-locked to Dragon Compendium. The same printing confirms the Repair Light Damage baseline and clearly gives Repair Serious Damage as 3d8 +1/level, maximum +15.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-serious-damage-3815",
+          "role": "primary Dragon Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/ogyal/mwhz/basic/51-100",
+          "role": "same-printing Dragon Compendium cross-check for the repair-damage progression"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-3810",
+          "role": "same-book base spell supplying construct applicability"
+        }
+      ]
+    },
+    "spells/repair-serious-damage-mass-3816": {
+      "name": "Repair Serious Damage, Mass",
+      "sourceSha256": "1c9e80cabf921eea6aef64c4c7fa4a32ab56c5a91b964eaa53641f64c15a16b7",
+      "effectSummary": "Instantly repairs 3d8 points of damage +1 point per caster level, maximum +35, to each selected construct. You can target one construct per caster level at Close range, with no two targets more than 30 feet apart. The spell has no saving throw and allows harmless spell resistance.",
+      "notes": "Source-locked to Dragon Compendium. This spell inherits Mass Repair Light Damage's multi-construct targeting and changes only the amount repaired. The same printing clearly gives 3d8 +1/level, maximum +35.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-serious-damage-mass-3816",
+          "role": "primary Dragon Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/ogyal/mwhz/basic/51-100",
+          "role": "same-printing Dragon Compendium cross-check for the 3d8 mass progression"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-mass-3811",
+          "role": "same-book base spell supplying mass targeting geometry"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "b318534ac01bcfaaca828e7b2ff21bd0067ed7ed",
+    "workflowRun": 35688229427,
+    "validationRun": 35688231998,
+    "classificationArtifact": 10677716090,
+    "classificationArtifactSha256": "cab56502ab3d23032d4c63699cbd72bc01fb94a36b4d8832f3408c12339e851e",
+    "queueCountBefore": 889,
+    "referenceQueueCountBefore": 889,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

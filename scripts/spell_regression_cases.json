@@ -2211,6 +2211,11 @@
     "spells/halasters-shaking-hand-344",
     "spells/holy-star-4709",
     "spells/swamp-stride-4290",
-    "spells/magic-miasma-4512"
+    "spells/magic-miasma-4512",
+    "spells/repair-critical-damage-3808",
+    "spells/repair-critical-damage-mass-3809",
+    "spells/repair-moderate-damage-mass-3814",
+    "spells/repair-serious-damage-3815",
+    "spells/repair-serious-damage-mass-3816"
   ]
 }
