@@ -2755,7 +2755,7 @@ def run_self_test() -> None:
     assert "see-below-without-content" in suspicious_reasons({"id":"spells/profane-item-627","effectSource":"The omitted mechanics appear elsewhere (see below).","tables":[]})
     assert "garbled-last-judgment-source" in suspicious_reasons({"effectSource":"This spell affects only humanoids, monstrous humanoids, and resurrection is cast."})
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
-    assert "garbled-shadow-landscape-source" in suspicious_reasons({"effectSource":"The tundra is dangerous (see Cold Dangers and Heat Dangers, pages 302-303 of the Climb check to ascend."})
+    assert "garbled-shadow-landscape-source" in suspicious_reasons({"effectSource":"The desert is actually a tundra (see Cold Dangers and Heat Dangers, pages 302-303 of the Climb check to ascend."})
     assert "garbled-shadow-landscape-source" in suspicious_reasons({"effectSource":"Half the marsh becomes quicksand (described on page 88 of the Climb check to scale."})
     assert "garbled-shadow-landscape-source" in suspicious_reasons({"effectSource":"Noise can start an avalanche (described on page 90 of the entangle spell had been cast."})
     assert "garbled-shadow-landscape-source" not in suspicious_reasons({"effectSource":"Half the marsh becomes quicksand (described on page 88 of the Dungeon Master’s Guide). Mountain cliffs require a DC 25 Climb check."})
