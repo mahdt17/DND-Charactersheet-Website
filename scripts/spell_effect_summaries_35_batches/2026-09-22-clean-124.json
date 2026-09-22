@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 3-record batch 124 from the 182-record reference-dependent tail. The two Player's Handbook II Luminous Assassin upgrades have a resolved inheritance chain and independently recoverable source stat blocks. Summon Clockwork Mender Swarm cleanly inherits the general Summon Monster I behavior while its external swarm stat block and named repair/sacrifice abilities remain intentionally unexpanded.",
+  "entries": {
+    "spells/luminous-assassin-2930": {
+      "name": "Luminous Assassin",
+      "sourceSha256": "a22cacfdecad1b0240d9fdf23acc6b0739963e1fd58a0ada589a56c66629b9c6",
+      "effectSummary": "Functions as Lesser Luminous Assassin except for the summoned assassin's statistics. It appears above one creature within range, makes an initial falling attack while that target is treated as flat-footed, and is then placed in an adjacent square that can hold it. Afterward it acts after your turn each round, intelligently attacks and pursues the original target, and needs no direction. You can order it only to attack creatures or wait; you can redirect it as a free action only after the original target dies or escapes. It and all its possessions vanish when the spell ends. Its source stat block is a CR 3 neutral Medium human rogue 3 (human, extraplanar): initiative +6; Listen +6, Spot +6; Common, Dwarven, and Elven; AC 16, touch 12, flat-footed 14, with Dodge and Mobility; 16 hp; evasion; Fort +3, Ref +6, Will +2; speed 30 ft.; masterwork rapier +4 (1d6+1, 18-20) and masterwork shortbow +5 (1d6+1, x3); base attack +2, grapple +3; sneak attack +2d6; potions of cure moderate wounds and darkvision; Str 12, Dex 15, Con 13, Int 14, Wis 10, Cha 8; feats Dodge, Improved Initiative, Mobility; Appraise +8, Balance +8, Disable Device +8, Escape Artist +8, Hide +8, Listen +6, Move Silently +8, Open Lock +8, Search +8, Spot +6, Tumble +8; and possessions of masterwork studded leather, masterwork rapier, masterwork buckler, cloak of resistance +1, masterwork shortbow, and 200 gp. Focus: a serrated dagger.",
+      "notes": "Manually source-reviewed and digest-locked. The primary catalog entry preserves the inheritance sentence but not the inline PHB II assassin stat block, so the original PHB II spell block was independently cross-checked before locking this summary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-assassin-2930",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsphb2.html",
+          "role": "Player's Handbook II spell-block cross-check for inherited behavior and CR 3 assassin statistics"
+        }
+      ]
+    },
+    "spells/luminous-assassin-greater-2931": {
+      "name": "Luminous Assassin, Greater",
+      "sourceSha256": "ec7d7e3678e87fae3bf5cadf340f8834161b895703fc14eefb9ce9b0ce861dd5",
+      "effectSummary": "Uses the Luminous Assassin/Lesser Luminous Assassin behavior with the greater assassin's statistics: it appears above one creature within range, makes an initial falling attack while that target is treated as flat-footed, is placed in an adjacent square that can hold it, then acts after your turn each round and intelligently attacks and pursues that target. It can only be commanded to attack creatures or wait, and can be redirected as a free action only after the original target dies or escapes. It and its possessions vanish when the spell ends. Its source stat block is a CR 5 neutral Medium human rogue 5 (human, extraplanar): initiative +7; Listen +8, Spot +8; Common, Dwarven, and Elven; AC 17, touch 13, flat-footed 14, with Dodge, Mobility, and uncanny dodge; 25 hp; evasion; Fort +3, Ref +8, Will +2; speed 30 ft.; masterwork rapier +5 (1d6+1, 18-20) and +1 shortbow +7 (1d6+1, x3); base attack +3, grapple +4; sneak attack +3d6; potions of cure serious wounds and darkvision; Str 12, Dex 16, Con 13, Int 14, Wis 10, Cha 8; trap sense +1; feats Dodge, Improved Initiative, Mobility; Appraise +10, Balance +11, Disable Device +10, Escape Artist +11, Hide +11, Listen +8, Move Silently +11, Open Lock +11, Search +10, Spot +8, Tumble +11; and possessions of masterwork studded leather, masterwork rapier, masterwork buckler, cloak of resistance +1, +1 shortbow, and 200 gp. Focus: a serrated dagger.",
+      "notes": "Manually source-reviewed and digest-locked. The original PHB II block says Greater Luminous Assassin functions like Luminous Assassin, while the primary catalog page flattens the sentence to Lesser Luminous Assassin. Both chains inherit the same behavior before substituting the CR 5 stat block, but this review explicitly preserves the source-book inheritance chain rather than silently normalizing it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-assassin-greater-2931",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsphb2.html",
+          "role": "Player's Handbook II spell-block cross-check for the printed inheritance chain and CR 5 assassin statistics"
+        }
+      ]
+    },
+    "spells/summon-clockwork-mender-swarm-2006": {
+      "name": "Summon Clockwork Mender Swarm",
+      "sourceSha256": "afdf3d197e5390f42e8084902befaac8d230c83005e31d0fdd486cb9f7dff508",
+      "effectSummary": "Functions as Summon Monster I except that it always summons one clockwork mender swarm rather than choosing from the Summon Monster I list. The swarm appears where designated and acts immediately on your turn; it attacks opponents to the best of its ability and, when you can communicate with it, can be directed to attack particular enemies or take other permitted actions. This spell specifically allows directing the swarm to attack, use its swarm repair ability, or use its swarm sacrifice ability. As inherited from Summon Monster I, the summoned creature cannot summon or otherwise conjure another creature, cannot use teleportation or planar-travel abilities, and cannot be summoned into an environment that cannot support it. The spell is Lawful, has a 1-full-round casting time, Close range, one-swarm effect, duration 1 round/level (D), no saving throw, and no spell resistance. Arcane focus: a broken metal gear. The external clockwork mender swarm stat block and the detailed mechanics of swarm repair and swarm sacrifice are deliberately left as named references rather than invented or expanded from memory.",
+      "notes": "Manually source-reviewed and digest-locked. The Monster Manual IV spell text and the inherited 3.5 Summon Monster I rules were independently cross-checked. This lock intentionally does not fabricate the external monster stat block or the internals of its named special abilities.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-clockwork-mender-swarm-2006",
+          "role": "primary Monster Manual IV catalog record and digest source"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsmm4.html",
+          "role": "Monster Manual IV spell-block cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/summonMonsterI.htm",
+          "role": "3.5 SRD cross-check for inherited Summon Monster I general behavior"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "afa048a87ef4cc98d95e5d3816398fea037e44fa",
+    "workflowRun": 35712747316,
+    "validationRun": 35712751811,
+    "classificationArtifact": 10686859824,
+    "classificationArtifactSha256": "bf7b0db1a96a5f2ee37a67a28ec117a93158b36b67c8f93467ddfc4d069fba43",
+    "queueCountBefore": 182,
+    "referenceQueueCountBefore": 182,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
