@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Adaptive maximum-safe manual reference batch 098: two Miniatures Handbook Repair Damage variants sharing a same-book regression-locked Repair Light Damage base; older duplicate printings intentionally excluded for separate lineage review.",
+  "entries": {
+    "spells/repair-critical-damage-1993": {
+      "name": "Repair Critical Damage",
+      "sourceSha256": "092e5baf751cdd0251a0ed9e4c09eeebd727f4dd1e7aea6c1069e675ffc19d66",
+      "effectSummary": "By touching a construct that has at least 1 hit point remaining, repairs 4d8 points of damage +1 point per caster level, maximum +20. It otherwise follows Repair Light Damage's same-book construct-repair rules. The spell is instantaneous, allows no saving throw, and permits spell resistance only as a harmless effect.",
+      "notes": "Miniatures Handbook printing, digest-locked. The same-book Repair Light Damage source supplies the requirement that the touched construct still have at least 1 hit point and the general construct-repair behavior; this spell changes the repaired amount to 4d8 +1/level (maximum +20). The header's focus component is preserved as printed and is not inferred from the effect prose.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-critical-damage-1993",
+          "role": "primary Miniatures Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-1994",
+          "role": "same-book regression-locked base spell for inherited construct-repair mechanics"
+        }
+      ]
+    },
+    "spells/repair-minor-damage-1995": {
+      "name": "Repair Minor Damage",
+      "sourceSha256": "653a07ed785d9b12c438ad133c15b0bc8e4f43866d4c90758056c1d9bfdf06ef",
+      "effectSummary": "By touching a construct that has at least 1 hit point remaining, repairs exactly 1 point of damage. It otherwise follows Repair Light Damage's same-book construct-repair rules. The spell is instantaneous, allows no saving throw, and permits spell resistance only as a harmless effect.",
+      "notes": "Miniatures Handbook printing, digest-locked. The same-book Repair Light Damage source supplies the requirement that the touched construct still have at least 1 hit point and the general construct-repair behavior; this spell changes the repaired amount to exactly 1 point. The header's focus component is preserved as printed and is not inferred from the effect prose.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-minor-damage-1995",
+          "role": "primary Miniatures Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-1994",
+          "role": "same-book regression-locked base spell for inherited construct-repair mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "4022fa4a7f0791372de1f8472021171f1900750c",
+    "workflowRun": 35694436503,
+    "validationRun": 35694439674,
+    "classificationArtifact": 10679956249,
+    "classificationArtifactSha256": "015607b36e51a8aa7bfc81b04b24bbc8e783fce993b3a3a28e2c7bb4920978ab",
+    "queueCountBefore": 849,
+    "referenceQueueCountBefore": 849,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

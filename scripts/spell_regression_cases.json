@@ -2251,6 +2251,8 @@
     "spells/true-creation-4890",
     "spells/true-creation-664",
     "spells/true-creation-940",
-    "spells/true-creation-983"
+    "spells/true-creation-983",
+    "spells/repair-critical-damage-1993",
+    "spells/repair-minor-damage-1995"
   ]
 }
