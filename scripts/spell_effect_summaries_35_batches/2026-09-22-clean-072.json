@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified reference-dependent roots blocked only by legacy-edition or page-reference safeguards; clean batch 072.",
+  "entries": {
+    "spells/forestfold-3226": {
+      "name": "Forestfold",
+      "sourceSha256": "8cd9bad42b56500c628733b8590defe94a757fea34b04b715de5d6fd726fcd84",
+      "effectSummary": "Functions as the Savage Species version of camouflage, changing your coloring to match the surrounding environment, but improves the benefit to a +20 circumstance bonus on both Hide and Move Silently checks. The spell is personal and lasts 10 minutes per caster level; unlike the referenced Camouflage entry, Forestfold is dismissible.",
+      "notes": "Source-locked to Savage Species. The same-book Camouflage reference is uniquely resolved and supplies the underlying coloration mechanic. This review deliberately preserves the 3.0 Savage Species version rather than substituting later Complete Adventurer, Complete Divine, or Spell Compendium revisions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/forestfold-3226",
+          "role": "primary Savage Species record and digest source"
+        },
+        {
+          "url": "https://dndtools.org/spells/savage-species--47/forestfold--3226/",
+          "role": "matching Savage Species rendering confirming the Camouflage inheritance and +20 Hide/Move Silently override"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/camouflage-3219",
+          "role": "same-sourcebook Camouflage reference supplying the underlying coloration mechanic and +10 Hide baseline"
+        }
+      ]
+    },
+    "spells/iron-bones-1390": {
+      "name": "Iron Bones",
+      "sourceSha256": "f46d4baacf58afbcc4ccfb96aac75e00ffde5223a28ed70776561559e6414395",
+      "effectSummary": "Functions as the Ghostwalk version of stone bones, except the target's skeleton changes to iron and the natural armor bonus becomes +5. It affects one corporeal undead for 10 minutes per caster level; creatures without a skeleton are unaffected, while exoskeletons qualify as they do for stone bones. The focus is a miniature skull made of iron or steel.",
+      "notes": "Source-locked to Ghostwalk. The spell uniquely references the same-book Stone Bones entry, whose skeleton/exoskeleton applicability is inherited. This review preserves Ghostwalk's +5 bonus and does not substitute the later Spell Compendium +6 revision.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/iron-bones-1390",
+          "role": "primary Ghostwalk record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/ghostwalk--94/iron-bones--1390/",
+          "role": "matching Ghostwalk rendering confirming Stone Bones inheritance, +5 natural armor, and iron/steel skull focus"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/stone-bones-1395",
+          "role": "same-sourcebook Stone Bones reference supplying skeleton/exoskeleton applicability"
+        }
+      ]
+    },
+    "spells/portal-alarm-improved-1849": {
+      "name": "Improved Portal Alarm",
+      "sourceSha256": "f969f76a7dddc1ff8f9da3f89d92943fafed26ebbbb8ef46f6845a341bc59b76",
+      "effectSummary": "Functions as the Manual of the Planes portal alarm for one interplanar gate, but lasts 8 hours per caster level and can produce a mental alarm, an audible alarm, or both. As with portal alarm, any Tiny or larger creature passing through triggers the ward; a mental alarm normally reaches its recipient within 1 mile on the same plane, while an audible alarm rings for 1 round, is clearly audible to 60 feet and faintly to 180 feet, is suppressed by silence at the portal, and extends through closed doors and onto other planes. Ethereal and astral travelers trigger it, and a password can exempt travelers. When a mental alarm is used, you receive a mental picture of every creature that passed through and its direction of travel, with detail as though you stood 10 feet from the portal. You can designate another touched creature to receive the mental alarm instead of you; that creature receives a Will save to negate if applicable. The focus is a small leather pouch containing three brass bells.",
+      "notes": "Source-locked to the 3.0 Manual of the Planes printing and its same-book Portal Alarm reference. The later Spell Compendium wording is not substituted. Inherited Portal Alarm trigger/password/audible/mental mechanics are expanded explicitly; Improved Portal Alarm's own V,S,F components replace the base spell's material component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/portal-alarm-improved-1849",
+          "role": "primary Manual of the Planes record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/manual-of-the-planes--43/portal-alarm--1850/",
+          "role": "same-book Portal Alarm reference supplying inherited trigger, alarm, password, and planar-traveler mechanics"
+        },
+        {
+          "url": "https://dokumen.pub/manual-of-the-planes.html",
+          "role": "same-printing Manual of the Planes text cross-check for Improved Portal Alarm additions and focus"
+        }
+      ]
+    },
+    "spells/overland-flight-2847": {
+      "name": "Overland Flight",
+      "sourceSha256": "5d4d0f4dca32d20f7f023e1b95e99b4f526b13e87f3e9a91a2681f699659d9c6",
+      "effectSummary": "Functions as fly for the caster, except the fly speed is 40 feet, reduced to 30 feet in medium or heavy armor or with a medium or heavy load, and maneuverability is average. The inherited flight rules still allow ascent at half speed and descent at double speed, normal attacking and spellcasting, charging but not running, and carrying no more than the caster's maximum load plus armor. If the spell expires or is dispelled while you are aloft, the inherited fly slow-descent rule applies; antimagic suppression does not provide that descent. For long-distance travel you can hustle without taking nonlethal damage, though forced marches still require Constitution checks; the spell's printed examples are 64 miles in 8 hours at 40-foot speed or 48 miles at 30-foot speed.",
+      "notes": "Player's Handbook v.3.5 source-locked review. The Fly reference is uniquely resolved to the same book and its movement/safe-descent rules are inherited except where Overland Flight explicitly changes speed and maneuverability. The page-164 overland-movement citation is represented by the spell's own explicit hustle, forced-march, and 8-hour distance rules rather than by inventing additional travel mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/overland-flight-2847",
+          "role": "primary Player's Handbook v.3.5 record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/fly.htm",
+          "role": "3.5 core Fly reference cross-check for inherited movement, carrying, and slow-descent mechanics"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/PlayersHandbookI.pdf",
+          "role": "same-printing Player's Handbook cross-check for Overland Flight wording and page-164 travel reference"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "916fb272108521caf256b401eeb60313b086dd24",
+    "workflowRun": 35682488951,
+    "validationRun": 35682492414,
+    "classificationArtifact": 10675880635,
+    "classificationArtifactSha256": "4291cf08163221e32c70574711419f5bb527db19e6b8919b315480b62c13ead2",
+    "queueCountBefore": 977,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 0,
+    "tableQueueCountBefore": 0,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
