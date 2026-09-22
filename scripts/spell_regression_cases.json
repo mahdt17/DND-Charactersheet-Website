@@ -2187,6 +2187,11 @@
     "spells/anyspell-greater-3841",
     "spells/detect-chaos-2485",
     "spells/detect-law-2488",
-    "spells/transcend-mortality-885"
+    "spells/transcend-mortality-885",
+    "spells/align-weapon-legions-1984",
+    "spells/bless-weapon-swift-1985",
+    "spells/death-ward-mass-1474",
+    "spells/dispel-cold-1228",
+    "spells/dispel-fire-1229"
   ]
 }
