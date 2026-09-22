@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified 3.5 reference spells with narrow inherited mechanics; Poison Vines follows official Complete Divine errata; clean batch 088.",
+  "entries": {
+    "spells/insignia-of-alarm-3027": {
+      "name": "Insignia of Alarm",
+      "sourceSha256": "af73a51b9002ceffe072c266dd1e58ee7ae9ffa0c82b044574cb1bbba3be64ac",
+      "effectSummary": "Instantly alerts every bearer of your specially prepared matching insignia within Long range (400 feet + 40 feet per caster level). Each qualifying wearer hears one mental ping when the spell is cast; this is the mental signal used by alarm, not a continuing alarm ward. Before you can use the spell, you must have forged matching insignias—amulets, badges, rings, or similar objects—each bearing the same logo, crest, or symbol and costing 10 gp. A specially prepared insignia is also the spell's focus. The spell is harmless but allows spell resistance.",
+      "notes": "Source-locked to Races of Destiny. The Alarm reference supplies only the nature of the one-time mental ping; Insignia of Alarm is instantaneous and does not inherit Alarm's warded area, duration, trigger conditions, audible option, or password mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/insignia-of-alarm-3027",
+          "role": "primary Races of Destiny catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/races-of-destiny--81/insignia-of-alarm--3027/",
+          "role": "matching Races of Destiny rendering used to verify range, insignia preparation, cost, and focus"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsrod.html",
+          "role": "Races of Destiny SRD cross-check"
+        }
+      ]
+    },
+    "spells/khelbens-dweomerdoom-333": {
+      "name": "Khelben's Dweomerdoom",
+      "sourceSha256": "5944e84914dc8f2163c991da581ee343deb8f88de4e1ad6693e7748b3e5f9dff",
+      "effectSummary": "As a swift action, targets one creature at Close range and attempts to remove its highest-level currently available magical resource before that resource is cast or used. Against a prepared caster, it removes the highest-level spell currently prepared for that day. Against a spontaneous caster that does not prepare spells, it reduces by one the remaining spells per day of the highest spell level currently available. Against a creature that instead has spell-like abilities, it removes one use of the highest-level spell-like ability currently available. If none of those cases applies, the spell has no effect. Success requires a dispel check of 1d20 + your caster level, capped at +25 instead of dispel magic's +10, against DC 11 + the caster level of the spell or spell-like resource being removed. The focus is a reusable crystal lens worth at least 1,000 gp.",
+      "notes": "Source-locked to City of Splendors: Waterdeep p.155. Dispel Magic is referenced only for the dispel-check mechanic; Dweomerdoom does not inherit Dispel Magic's targeted-dispel, area-dispel, magic-item suppression, or ordinary counterspell modes.",
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/spells/city-of-splendors-waterdeep--16/khelbens-dweomerdoom--333/index.html",
+          "role": "matching City of Splendors rendering used to verify all three resource-removal cases and the +25 dispel cap"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/dispelMagic.htm",
+          "role": "3.5 SRD cross-check for the inherited dispel-check formula"
+        }
+      ]
+    },
+    "spells/naturewatch-724": {
+      "name": "Naturewatch",
+      "sourceSha256": "26bdcdc6f6e19f6c55b788e8336b3041df6559ed415a6d160ce0c7d780f0b434",
+      "effectSummary": "For 10 minutes per caster level, senses the life-state of animals and plants within the spell's quarter-circle emanation out to Close range. For each qualifying creature, you can distinguish whether it is dead, fragile (alive with 3 or fewer hit points remaining), fighting off death (alive with 4 or more hit points), or in an exceptional nonliving state that the inherited deathwatch sense can identify; the sense also pierces effects that merely feign death. Naturewatch applies only to animals and plants and additionally reveals ordinary biological condition information such as whether a plant is dehydrated or an animal is malnourished. It has no saving throw and no spell resistance.",
+      "notes": "Source-locked to Complete Divine. Deathwatch supplies the life-state categories, but Naturewatch's own header controls its Close-range quarter-circle geometry, somatic-only component, duration, and lack of the Deathwatch evil descriptor. The source also adds mundane condition information for animals and plants.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/naturewatch-724",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCDiv.html",
+          "role": "Complete Divine SRD cross-check for Naturewatch's restricted target types"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/deathwatch.htm",
+          "role": "3.5 SRD cross-check for inherited life-state sensing mechanics"
+        }
+      ]
+    },
+    "spells/poison-vines-655": {
+      "name": "Poison Vines",
+      "sourceSha256": "dce92bf88f9cfd373080f2df0fc9a52f4f2d062c32cdd476bba437c486354992",
+      "effectSummary": "Creates a 10-foot-per-caster-level-radius spread of entangling poisonous vines at Long range for 1 minute per caster level. The entangling vegetation otherwise uses entangle's normal behavior: creatures in or entering the vegetation must resist being entangled, movement through the area is impeded, and an entangled creature can work free using the normal Strength or Escape Artist procedures. In addition, contact with the vines delivers poison that deals 1d6 Dexterity damage initially and 2d6 Dexterity damage 1 minute later. A Fortitude save is required when a creature first enters the spell's area and again 1 minute later for the poison; the source explicitly says creatures do not make a new poison save every time they enter or every round they remain. You are immune to the vines' poison and can designate a number of other creatures equal to your caster level to share that poison immunity. Spell resistance applies.",
+      "notes": "Source-locked to Complete Divine p.175 using the official 2004 erratum. The original book said 'As vine mine'; the erratum replaces that opening with 'create a mass of entangling vines' and states that the spell otherwise works as Entangle. This review follows the official correction and keeps the poison's separate Fortitude timing explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/poison-vines-655",
+          "role": "primary corrected Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/Complete%20Divine%20%5BErrata%5D.pdf",
+          "role": "official Complete Divine errata correcting the obsolete Vine Mine reference to Entangle"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/entangle.htm",
+          "role": "3.5 SRD cross-check for inherited entangling-vegetation mechanics"
+        }
+      ]
+    },
+    "spells/slashing-dispel-2949": {
+      "name": "Slashing Dispel",
+      "sourceSha256": "051ddd3fd194560afe3e38a2407521b6e1fcb1b2b89962230ae87d904dddbf64",
+      "effectSummary": "Uses dispel magic's dispelling rules at Medium range, either against one creature or in a 20-foot-radius burst. A dispel check is 1d20 + your caster level, maximum +10, against DC 11 + the affected spell's caster level. In targeted use against a creature, checks can remove ongoing spells affecting that creature; in area use, normal area-dispel checks can remove qualifying ongoing spell effects in the burst. Every creature from which Slashing Dispel actually removes a spell effect immediately takes 2 damage per spell level of that removed effect. If multiple spell effects are removed from the same creature, that creature takes the damage separately for each removed spell. Instantaneous spell effects and effects that dispel magic cannot dispel remain unaffected.",
+      "notes": "Source-locked to Player's Handbook II. Dispel Magic supplies the dispel-check and targeted/area dispelling framework, while Slashing Dispel narrows the printed target/area header and adds damage only when an ongoing spell effect is actually removed from a creature.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/slashing-dispel-2949",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.org/m/spells/players-handbook-ii--80/slashing-dispel--2949/",
+          "role": "matching Player's Handbook II rendering used to verify the damage rider"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/dispelMagic.htm",
+          "role": "3.5 SRD cross-check for inherited targeted/area dispel checks and limitations"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "df415657d801d9697f13163e228bc2c4916024e6",
+    "workflowRun": 35687550875,
+    "validationRun": 35687553402,
+    "classificationArtifact": 10677510565,
+    "classificationArtifactSha256": "da89eaa4e8189efd97ba812678e358acabdfef3670fb5bf6b03bff81b37e17ac",
+    "queueCountBefore": 899,
+    "referenceQueueCountBefore": 899,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
