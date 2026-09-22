@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 10-record batch 132 from the 111-record difficult reference-dependent tail. This is the largest currently safe batch: four source-complete standalone spells plus three two-printing families. Significant printing differences—especially Greater Whirlwind—are preserved rather than normalized, while standard spell/rules dependencies remain named references.",
+  "entries": {
+    "spells/howling-chain-2253": {
+      "name": "Howling Chain",
+      "sourceSha256": "1f10537f146588a83afaf7f3bbff877c73e72f9931a75ae1d1739f7be47ff440",
+      "effectSummary": "Creates a Medium blood-red chain of force around one target. Its howl gives every creature within 100 feet a -2 penalty on Listen checks. While ensnared, the target takes -2 on attacks, saves, and skill checks and must make Concentration DC 15 + spell level to cast a spell with somatic components. Each round the chain makes two melee attacks at +13/+8 for 3d4 bludgeoning damage each; if both hit during a round in which the target casts a spell, that spell's Concentration DC increases by 5. The target gets a Reflex save when the spell is cast; on success the chain appears within 5 feet using the thrown-weapon miss rules and tries again on your next action if the target remains adjacent. Otherwise it pursues its designated target at speed 20 feet. The chain has AC 12, 33 hit points, and uses your save bonuses. Damage dealt to it also damages the target, who gets a Fortitude save for half that transferred damage. The spell ends when its duration expires, the chain is destroyed, or the target dies. Casting time 1 standard action; range Medium; duration 1 round/level; spell resistance yes. Focus: a platinum chain worth at least 500 gp.",
+      "notes": "Manually source-reviewed and digest-locked. The only external dependency is the standard thrown-weapon miss procedure; all chain combat and durability mechanics are explicit in the source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/howling-chain-2253",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/iconic-manifestation-624": {
+      "name": "Iconic Manifestation",
+      "sourceSha256": "61107b470dee28a2c2a21cff43e049593de8e095e89f9454c0ef576e9264cf98",
+      "effectSummary": "The spell takes one non-neutral alignment descriptor matching your alignment; a character with two eligible components chooses one, while a true neutral caster gains no effect. For up to 10 minutes per caster level after casting, you can invoke the stored effect as a swift action by expending one daily use of wild shape. You then temporarily gain the celestial template if good, fiendish if evil, anarchic if chaotic, or axiomatic if lawful for 1 minute per caster level. If Manual of the Planes is not used, the source permits approximating axiomatic from celestial by substituting lawful for good and chaotic for evil, and anarchic from fiendish by the same substitution. You can continue using wild shape while the template is active without ending this spell. Casting time 1 swift action; range Personal.",
+      "notes": "Manually source-reviewed and digest-locked. Celestial, fiendish, anarchic, and axiomatic template statistics remain explicit external references rather than being reconstructed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/iconic-manifestation-624",
+          "role": "primary Complete Champion catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-hellfire-engine-1180": {
+      "name": "Investiture of the Hellfire Engine",
+      "sourceSha256": "8f95444a559c7b04772e00d6feb1c16217c788c3eb61483828f775808301c851",
+      "effectSummary": "Grants all benefits of Iron Body except the subject becomes living cold iron, causing its unarmed natural attacks to count as cold iron for overcoming damage reduction. It also gains a 30-foot cone hellfire breath weapon dealing 8d10 damage, Reflex half; this is not fire damage and is not reduced by fire resistance or fire-protection effects. The breath weapon can be used again after 1d4 rounds. The subject gains fire resistance 20, which stacks with resistance from other evil investiture spells but not with multiple castings of Investiture of the Chain Devil. Evil-outsider-bane magic weapons have their full effect against the subject while this spell lasts. When the spell ends for any reason, the subject is fatigued for 1 minute. Casting time 1 standard action; range Close; target one living creature; duration 1 minute/level; Will negates (harmless, see text); spell resistance yes (harmless). Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually source-reviewed and digest-locked. Iron Body's base benefits remain a named Player's Handbook dependency; every modification added by this investiture is preserved explicitly.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-hellfire-engine-1180",
+          "role": "primary Fiendish Codex II catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wall-of-water-3149": {
+      "name": "Wall of Water",
+      "sourceSha256": "2f52f34dc4c34cfd8217475c177205d6384c4df2face61b0d2cba27b9ded1b23",
+      "effectSummary": "Creates a vertical wall of water 1 foot thick with area up to one 10-foot square per caster level; you can double its area by halving its thickness. A creature entering or caught in the wall must make Swim DC 14 + your spellcasting ability modifier or become trapped and unable to move, retrying each round and risking drowning. Nonmagical flames carried through it are extinguished. Thrown weapons cannot pass through; other ranged attacks take -2 per 5 feet of wall crossed, minimum -2. Breaches close immediately. The wall blocks line of effect for fire spells and grants cover across it unless the attacker has Freedom of Movement. A 5-foot section taking 20+ fire damage in one round becomes steam for 1 minute; 20+ cold damage freezes it for 10 minutes as Wall of Ice, without the normal object damage division. Control Water can hold a breach open, and Permanency can make the wall permanent. Casting time 1 standard action; range Close; duration 1 round/level (D); no save; no spell resistance. Arcane material component: a vial of water.",
+      "notes": "Manually source-reviewed and digest-locked. Drowning, Wall of Ice, Control Water, Freedom of Movement, and Permanency remain named external rules/spell references; the wall's own mechanics are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-water-3149",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/moon-path-1206": {
+      "name": "Moon Path",
+      "sourceSha256": "b7efa9dd0bf568d687bb4b138960f38711564bef3d9da76b44be3bb2e41386da",
+      "effectSummary": "Creates a straight, continuous stair or bridge of translucent force up to 15 feet per caster level long and 3–20 feet wide, with width variable along its length. Its endpoints can be in midair. You designate up to one creature per caster level for protection while on the path: they gain Sanctuary with save DC 15 + your Wisdom modifier, but any protected subject attacking ends that Sanctuary benefit for all protected subjects; they also adhere to the path as though under Spider Climb. Both benefits end when a creature leaves the path. The path needs no support, is immune to damage, blocks spells, breath weapons, ethereal creatures, and gaze attacks, but can be dispelled. Disintegrate creates a 10-foot-square hole; a rod of cancellation, sphere of annihilation, or Mordenkainen's Disjunction destroys it. Dimension Door, Teleport, and similar effects bypass it. It must be unbroken when formed; bridges are flat and stairs cannot exceed 45 degrees. Casting time 1 standard action; range Medium; duration 1 minute/level (D); no spell resistance. Arcane material component: a white handkerchief.",
+      "notes": "Manually source-reviewed and digest-locked. This Forgotten Realms Campaign Setting printing is kept separate from the Spell Compendium reprint; no substantive mechanical difference was found in the reviewed text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/moon-path-1206",
+          "role": "primary Forgotten Realms Campaign Setting catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/moon-path-4578",
+          "role": "Spell Compendium reprint cross-check"
+        }
+      ]
+    },
+    "spells/moon-path-4578": {
+      "name": "Moon Path",
+      "sourceSha256": "c5d0a6abbac3c15ff81a923ed7df7a27129b9abe266b32e05ba3c115cf2b7ae6",
+      "effectSummary": "Creates a straight, continuous stair or bridge of translucent force up to 15 feet per caster level long and 3–20 feet wide, with width variable along its length. Its endpoints can be in midair. You designate up to one creature per caster level for protection while on the path: they gain a Sanctuary effect with save DC 15 + your Wisdom modifier, but any protected subject attacking ends that benefit for all protected subjects; they also adhere to the path as though under Spider Climb. Both benefits end on leaving the path. The path needs no support, is immune to damage, blocks spells, breath weapons, ethereal creatures, and gaze attacks, but can be dispelled. Disintegrate creates a 10-foot-square hole; a rod of cancellation, sphere of annihilation, or Mordenkainen's Disjunction destroys it. Dimension Door, Teleport, and similar effects bypass it. It must be straight and uninterrupted when formed; bridges are flat and stairs cannot exceed 45 degrees. Casting time 1 standard action; range Medium; duration 1 minute/level (D); no spell resistance. Arcane material component: a white handkerchief.",
+      "notes": "Manually source-reviewed and digest-locked. This Spell Compendium reprint was compared directly with the Forgotten Realms Campaign Setting printing; no substantive mechanical difference was found in the reviewed text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/moon-path-4578",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/moon-path-1206",
+          "role": "Forgotten Realms Campaign Setting printing cross-check"
+        }
+      ]
+    },
+    "spells/obedient-avalanche-1258": {
+      "name": "Obedient Avalanche",
+      "sourceSha256": "b219d6c8b6af66c3c68ecc84781838b473620ee262bc2215c59a0277390f4637",
+      "effectSummary": "Creates an avalanche centered within Medium range. Within 20 feet of the center, creatures take 1d8 damage per two caster levels (maximum 10d8) plus 1d6 cold damage per two caster levels; a failed Reflex save also buries them under the standard avalanche rules. Those squares become heavy snow. From 20 to 40 feet, creatures take half the inner-ring impact damage, with Reflex negating; on a failed save the moving snow also bull rushes them away from the center at +13 (+5 effective Strength 20, +8 effective Huge size). This outer ring becomes light snow. The avalanche automatically uproots small trees and vegetation, leaves light rubble after melting, deals 1d6×10 damage to structures, and extinguishes every normal or magical flame it touches. Casting time 1 standard action; duration instantaneous; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. Standard avalanche burial, snow, bull-rush, and rubble rules remain named DMG dependencies. This Frostburn printing explicitly calls the outer-ring covering light snow.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/obedient-avalanche-1258",
+          "role": "primary Frostburn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/obedient-avalanche-2228",
+          "role": "Player's Guide to Faerûn printing comparison"
+        }
+      ]
+    },
+    "spells/obedient-avalanche-2228": {
+      "name": "Obedient Avalanche",
+      "sourceSha256": "59305c0d236349669aef7fd468aece7f2144b255038e07173cca672c4a07e7ce",
+      "effectSummary": "Creates an avalanche centered within Medium range. Within 20 feet of the point of origin, creatures take 1d8 damage per two caster levels (maximum 10d8) plus 1d6 cold damage per two caster levels; a failed Reflex save also buries them under the standard avalanche rules. Those squares become heavy snow. From 20 to 40 feet, creatures take half the inner-ring impact damage, with Reflex negating; on a failed save the snow also bull rushes them away from the center at +13 (+5 effective Strength 20, +8 effective Huge size). The outer ring is covered in snow. The avalanche automatically uproots small trees and vegetation, leaves light rubble after melting, deals 1d6×10 damage to structures, and extinguishes every flame it touches. Casting time 1 standard action; duration instantaneous; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. Standard avalanche burial, snow, bull-rush, and rubble rules remain named DMG dependencies. This Player's Guide to Faerûn printing is preserved separately from Frostburn's explicit 'light snow' outer-ring wording.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/obedient-avalanche-2228",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/obedient-avalanche-1258",
+          "role": "Frostburn printing comparison"
+        }
+      ]
+    },
+    "spells/whirlwind-greater-712": {
+      "name": "Whirlwind, Greater",
+      "sourceSha256": "e878f9d37f45c7f764bca205a5a45fb1c24cc5543581eccb66846f766c6222e2",
+      "effectSummary": "Creates a 20-foot-radius tornado up to 5 feet per caster level high. Large or smaller creatures starting within 60 feet must save or be dragged 1d4×10 feet toward it and take 1d4 nonlethal damage per 10 feet dragged. Huge creatures within 40 feet save or fall prone; Gargantuan and Colossal creatures within 40 feet must save before moving away. Huge-or-smaller flying creatures that fail are sucked to the center and take 2d6 damage; Gargantuan flyers are pulled 1d6×10 feet and Colossal flyers 1d6×5 feet on failed saves. In this Complete Divine printing, creatures starting inside take 6d6 damage for each of 1d10 rounds they remain inside, with that duration rolled separately for each creature; attacks, spellcasting, and movement are impossible inside. When expelled, a creature appears 4d6×5 feet from the center in a random direction and 4d6×5 feet above ground. The tornado uproots vegetation, leaves dense rubble, deals 2d6×10 damage per round to structures, blocks ranged attacks, extinguishes flames, and makes Listen checks impossible. It is stationary unless you direct it up to 60 feet as a move action. Casting time 1 standard action; range Medium; duration 1 round/level; Fortitude partial; spell resistance yes.",
+      "notes": "Manually source-reviewed and digest-locked. This Complete Divine printing is intentionally kept distinct from Spell Compendium: it uses a separately rolled 1d10-round inside duration and does not include the reprint's contact Reflex/3d6 and three-round pickup clauses.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/whirlwind-greater-712",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/whirlwind-greater-4769",
+          "role": "Spell Compendium reprint comparison"
+        }
+      ]
+    },
+    "spells/whirlwind-greater-4769": {
+      "name": "Whirlwind, Greater",
+      "sourceSha256": "d10312d8eac96a116e553eaa2d3e596a75ce21eab1c7becd5ae87b1107fcd9d1",
+      "effectSummary": "Creates a 20-foot-radius tornado up to 5 feet per caster level high. Large or smaller creatures starting within 60 feet must save or be dragged 1d4×10 feet toward it and take 1d4 nonlethal damage per 10 feet dragged. Huge creatures within 40 feet save or fall prone; Gargantuan and Colossal creatures within 40 feet must save before moving away. Huge-or-smaller flying creatures that fail are sucked to the center and take 2d6 damage; Gargantuan flyers are pulled 1d6×10 feet and Colossal flyers 1d6×5 feet on failed saves. In this Spell Compendium reprint, any Huge-or-smaller creature contacting the tornado must make Reflex or take 3d6 damage; a Large-or-smaller creature failing its first save must make a second save or be picked up and ejected 3 rounds later. Creatures starting inside take 6d6 damage each round and cannot attack, cast spells, or move. Ejected creatures appear 4d6×5 feet from the center in a random direction and 4d6×5 feet above ground. The tornado uproots vegetation, leaves dense rubble, deals 2d6×10 damage per round to structures, blocks ranged attacks, extinguishes flames, and makes Listen checks impossible. It remains stationary unless directed up to 60 feet as a move action. Casting time 1 standard action; range Medium; duration 1 round/level; Fortitude partial; spell resistance yes.",
+      "notes": "Manually source-reviewed and digest-locked. This Spell Compendium printing adds contact Reflex damage, a second save to avoid pickup, and fixed three-round ejection timing absent from the Complete Divine text; those differences are preserved rather than normalized.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/whirlwind-greater-4769",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/whirlwind-greater-712",
+          "role": "Complete Divine printing comparison"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "92aff4061bc97f66df6a6b8ffe74e23c5ac8d63b",
+    "workflowRun": 35773274156,
+    "validationRun": 35773280641,
+    "classificationArtifact": 10714718826,
+    "classificationArtifactSha256": "1fb496f426174a6b6b4a54b3fab61f593a6d6fde3613099f95fa048b390620ce",
+    "queueCountBefore": 111,
+    "referenceQueueCountBefore": 111,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
