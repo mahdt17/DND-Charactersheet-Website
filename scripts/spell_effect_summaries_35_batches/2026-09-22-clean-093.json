@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Automatically eligible same-book reference unlocked by reviewed Phantom Guardians dependency; clean batch 093.",
+  "entries": {
+    "spells/shadow-guardians-3046": {
+      "name": "Shadow Guardians",
+      "sourceSha256": "06aa5c01571df4d16b3c5e96772abe268ffa04f24e69ee44bd5e34ee3ef51fc2",
+      "effectSummary": "Creates one partially real guardian per caster level for 1 hour/level, using Phantom Guardians' Small-or-Medium humanoid appearance, chosen humanoid race, dress, and brief fixed orders assigned when cast. In addition, each guardian can receive one simple attack trigger, such as attacking anyone who approaches within 30 feet or anyone not wearing specified colors. The guardians have no special visual acuity, so invisibility, disguises, and similar deception can fool them. Each guardian deals normal weapon damage to creatures that do not recognize it as an illusion; against a creature that recognizes the guardian as illusory, it deals 50% normal damage. Interaction allows a Will save to disbelieve; spell resistance does not apply. Regardless of apparent size or appearance, each guardian uses this fixed stat block: Medium construct; 4d8 HD, 18 hp; initiative +1; speed 30 ft.; AC 17, touch 17, flat-footed 15; base attack +2; grapple +4; melee attack +4 for 1d8+2 weapon damage; alignment neutral; Fort +2, Ref +4, Will +4; Str 14, Dex 14, Con —, Int —, Wis 14, Cha 1. No additional unprinted creature abilities are added.",
+      "notes": "Races of Destiny source-locked. Phantom Guardians' appearance and fixed-order setup are inherited, while Shadow Guardians explicitly adds partial reality, a simple attack trigger, combat statistics, and the 50%-damage disbelief rule. The printed stat block is preserved without inventing omitted monster abilities.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-guardians-3046",
+          "role": "primary Races of Destiny catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/phantom-guardians-3045",
+          "role": "same-book reviewed base spell supplying inherited appearance and order mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "fd7d50b02bb2fc51f3b51492bbab2884ac9e6489",
+    "workflowRun": 35692360973,
+    "validationRun": 35692364043,
+    "classificationArtifact": 10679527109,
+    "classificationArtifactSha256": "ed4086c3b09f7b18ea3ffa4e480613474059506c60ba31efc966238e749b0dff",
+    "queueCountBefore": 874,
+    "referenceQueueCountBefore": 874,
+    "automaticReferenceEligibleCountBefore": 1
+  }
+}
