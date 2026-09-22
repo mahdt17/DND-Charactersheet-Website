@@ -1,0 +1,618 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record feat long-rule batch 002 from the fresh 321-record review queue. Benefit/Normal/Special summaries are independently concise and SHA-256 locked to the exact exported source fields; printing-specific differences among same-name feat records are preserved. Two records were already in the regression corpus from earlier parser failures, so 48 new regression IDs are added while all 50 review records are completed.",
+  "entries": {
+    "feats/aberrant-dragonmark-2": {
+      "name": "Aberrant Dragonmark",
+      "benefitSha256": "add2dd961b7d813791d80f5eb900b6436a75c682058faea3c87253b9a3293177",
+      "effectSummary": "Choose one aberrant dragonmark spell-like ability when taking the feat: burning hands, cause fear, charm person, chill touch, detect secret doors, feather fall, inflict light wounds, jump, light, pass without trace, produce flame, shield, or Tenser's floating disk. The chosen ability is usable once per day, is always treated as a 1st-level spell for save DC 10 + 1 + Charisma modifier, and has caster level equal to half your character level. The mark cannot be improved and you cannot gain a second aberrant mark. Aberrant Dragonmark and any true dragonmark feat are mutually exclusive.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/aberrant-dragonmark-2",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/aberration-banemagic-7": {
+      "name": "Aberration Banemagic",
+      "benefitSha256": "d9ee963e5c79b024ed6c23f1ec69bc848f390504f65b48753f55246a94142b1f",
+      "effectSummary": "A damaging spell you cast deals +2d6 damage to aberrations and its save DC increases by 2. A single casting gains the extra damage only once per affected aberration even if it creates multiple simultaneous hits, but a spell that deals damage across multiple rounds applies the extra damage each round. The bonus damage follows the base spell's save result: it is halved or negated on a successful save as the spell's normal damage is. Scrolls, wands, potions, and most other magic items do not gain the feat's benefit; staffs you activate do, because they use your caster level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/aberration-banemagic-7",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/abyss-bound-soul-20": {
+      "name": "Abyss-Bound Soul",
+      "benefitSha256": "ce3165d39270d57b398d0dd4593eb4dfbb357ab770ddb6faf69bb118e0983268",
+      "effectSummary": "Your evil brand bears your demon lord patron's symbol and grants +2 on saves against spells with the good descriptor, plus a patron-specific benefit: Baphomet doubles weapon damage on a charge; Dagon grants water breathing; Demogorgon lets you once/day automatically summon a commanded tanar'ri of CR no greater than half your character level for up to 1 hour, as a spell-equivalent ability at your character level; Fraz-Urb'luu +1 caster level for illusions; Graz'zt immunity to fear; Juiblex acid resistance +5; Kostchtchie cold resistance +5; Malcanthet +1 caster level for enchantments; Obox-ob +1 natural armor; Orcus +1 caster level for necromancy; Pale Night immunity to insanity and confusion; Pazuzu +2 profane Reflex saves while flying; Yeenoghu +1 profane attack/damage with natural weapons; Zuggtmoy 25% chance to ignore extra critical-hit and sneak-attack damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/abyss-bound-soul-20",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/advanced-construction-3792": {
+      "name": "Advanced Construction",
+      "benefitSha256": "6fa9022af46ac47ecca373c973fa378be3054808dcb731dc39537d330c485257",
+      "effectSummary": "Permanently expand the special-ability choices available to your astral constructs. When you take the feat, choose a number of Advanced Construction Menu A abilities equal to twice your manifester level; each later manifester level grants two more Menu A selections. You may exchange two Menu A selections for one Menu B selection. You can postpone selections; if you have postponed enough, four Menu A selections can be exchanged for one Menu C selection, and eight Menu A selections for one Menu D selection. The selected abilities are permanently added to your astral construct options.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/advanced-construction-3792",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/aligned-attack-61": {
+      "name": "Aligned Attack",
+      "benefitSha256": "92fe2c4a25b5789a7b0cff9747400008c45c4a67aabbfe476798aedddc1e7f80",
+      "effectSummary": "Choose chaos, good, evil, or law when taking the feat; the choice must match one component of your alignment and cannot later change. Before a melee or ranged attack, you can expend psionic focus. If the attack hits, it deals +1d6 damage and counts as the chosen alignment for overcoming damage reduction. You must declare use before the attack roll, and the focus is expended even if the attack misses.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/aligned-attack-61",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/aquatic-shot-85": {
+      "name": "Aquatic Shot",
+      "benefitSha256": "b965c720eb696aa63b81d008e3ad4e91f6ddb8f6a3804c0f84c04ce0445074e4",
+      "effectSummary": "You avoid the normal general penalty for ranged attacks through water. Underwater thrown piercing weapons instead take -2 per 5 feet traveled, plus normal range-increment penalties; bows and crossbows take -2 per 10 feet, plus range penalties. An aquatic longbow has a 30-foot underwater range increment. When firing from air into water, water provides no cover against your ranged attacks. If a weapon's range increment changes at the water surface, treat that surface as the start of a new range increment and use the underwater increment thereafter.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/aquatic-shot-85",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/arcane-disciple-92": {
+      "name": "Arcane Disciple",
+      "benefitSha256": "5d4c3e108d7cfa017fd9a94fb03fc082b079d7d2393893f5deae1a5a0ae2ea5f",
+      "specialSha256": "f554b1c3da63d705eef781b61b010154bc58e950deee68a1f5fd4b6d657a7e43",
+      "effectSummary": "Add the chosen deity domain's spells to one chosen arcane class spell list; if you have multiple arcane classes, the affected class is chosen when taking the feat and cannot be changed. You learn or prepare those spells normally for that class, but use Wisdom to determine their save DC and need Wisdom 10 + spell level to prepare or cast them. Each day you may prepare or spontaneously cast at most one domain spell of each spell level gained through this feat.",
+      "specialSummary": "You may take Arcane Disciple multiple times. Each additional selection must choose a different domain offered by the same deity selected with your first Arcane Disciple feat.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/arcane-disciple-92",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/area-attack-110": {
+      "name": "Area Attack",
+      "benefitSha256": "79535a0de225cabdea9c87255ef7a518fab48bd658933057f218f7894d6f50de",
+      "effectSummary": "As a standard action, use a heavy object to strike a half-circle whose radius equals your reach, damaging every creature in the area at least two size categories smaller than you. Base damage is 1d8 if Huge, 2d6 if Gargantuan, or 2d8 if Colossal, plus 1-1/2 times your Strength bonus. After the attack, you take -2 AC and -2 on Reflex saves until your next action.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/area-attack-110",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/art-fascination-3661": {
+      "name": "Art of Fascination",
+      "benefitSha256": "720fc524b805a22039bb5bb30f20fd8870e93899b86f6a9c65b597ddf55242f6",
+      "effectSummary": "Use music or poetics to fascinate one creature. Make a Perform check; the target negates with a Will save equal to or greater than your result, and a successful save prevents another attempt against that creature for 24 hours. On failure, the target quietly listens for up to 1 round per level you possess and takes -4 on Spot and Listen checks. A potential threat allows another Will save against a new Perform check, while an obvious threat ends the effect automatically. You must concentrate as though maintaining a spell. This is a spell-like, mind-affecting charm ability.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/art-fascination-3661",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/ascetic-mage-127": {
+      "name": "Ascetic Mage",
+      "benefitSha256": "e906ec58cb4c4cf2b42df43c9f7eab891abaecb6c18844cf9211c0e5cdf400b4",
+      "effectSummary": "As a swift action that does not provoke, expend one daily spell to gain a bonus on unarmed-strike attack and damage rolls for 1 round equal to the sacrificed spell's level. Sorcerer and monk levels stack for determining your monk AC bonus. When you would normally add Wisdom to AC as an unarmored, unencumbered monk, add Charisma instead. You may multiclass freely between sorcerer and monk, though you must remain lawful to continue advancing as a monk and normal multiclass XP penalties still apply.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/ascetic-mage-127",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/assume-supernatural-ability-133": {
+      "name": "Assume Supernatural Ability",
+      "benefitSha256": "d973d1069dffc16217b8b7da6d2b05d8a1edaa30d2a52a6ce112cd1bbfaa3e84",
+      "effectSummary": "Choose one supernatural ability of another creature; while assuming that creature's form through polymorph self or a similar effect, you can use that ability. Save DCs use your statistics: breath weapon DC = 10 + your Constitution modifier + half your Hit Dice; other supernatural ability DCs = 10 + your Charisma modifier + half your Hit Dice. If the assumed form has no Constitution score, use the higher of its Charisma modifier or +0 for the nonability when the breath-weapon rule requires it. While using the alien ability you take -2 on attacks, saves, skill checks, and ability checks, and in stressful situations such as combat you must make Will DC 19 or be unable to use it.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/assume-supernatural-ability-133",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/attune-gem-136": {
+      "name": "Attune Gem",
+      "benefitSha256": "9fef927f01502521582c9f0e8161c10366cf1a6d5d3b9b6a67b7ea568a421175",
+      "effectSummary": "Store one available arcane spell in a gem. The spell must be prepared if your class prepares spells, otherwise known; you provide normal components/foci and pay any spell XP cost when attunement begins. One gem stores one spell. Its inherent value must be at least 50 gp per spell level. Choose a caster level high enough to cast the spell and no higher than your own. The attuned magic's base price is 50 gp × spell level × caster level; crafting costs 1/25 of that base price in XP and half the base price in raw materials, in addition to the gem's value and any spell component/XP costs. Attunement takes 1 hour plus the spell's normal casting time. The finished item's market price is its base price plus the gem's inherent value.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/attune-gem-136",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/awesome-blow-154": {
+      "name": "Awesome Blow",
+      "benefitSha256": "be9b658effaa300f0f174e98a339c1d0d5ee2bd09f323f0ca0846bd2c446c0a3",
+      "effectSummary": "As a standard action, take -4 on a melee attack to attempt an awesome blow against a smaller corporeal opponent. On a hit, the target makes a Reflex save with DC equal to damage dealt; failure knocks it 10 feet in a straight direction you choose and leaves it prone, but never closer to you than its starting square. If an obstacle stops the movement, both target and obstacle take 1d6 damage and the target stops adjacent to the obstacle.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/awesome-blow-154",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/awesome-blow-155": {
+      "name": "Awesome Blow",
+      "benefitSha256": "be9b658effaa300f0f174e98a339c1d0d5ee2bd09f323f0ca0846bd2c446c0a3",
+      "effectSummary": "As a standard action, take -4 on a melee attack to attempt an awesome blow against a smaller corporeal opponent. On a hit, the target makes a Reflex save with DC equal to damage dealt; failure knocks it 10 feet in a straight direction you choose and leaves it prone, but never closer to you than its starting square. If an obstacle stops the movement, both target and obstacle take 1d6 damage and the target stops adjacent to the obstacle.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/awesome-blow-155",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/awesome-blow-156": {
+      "name": "Awesome Blow",
+      "benefitSha256": "7f2031382a957adb0c2e6d4eb70d464df88b6e093912121eda618a5c968d9aa3",
+      "effectSummary": "As a standard action, take -4 on a melee attack to attempt an awesome blow against a smaller corporeal opponent. On a hit, the target makes a Reflex save with DC equal to damage dealt; failure knocks it 10 feet in a straight direction you choose and leaves it prone, but never closer to you than its starting square. If an obstacle stops the movement, both target and obstacle take 1d6 damage and the target stops adjacent to the obstacle.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/awesome-blow-156",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/awesome-blow-157": {
+      "name": "Awesome Blow",
+      "benefitSha256": "be9b658effaa300f0f174e98a339c1d0d5ee2bd09f323f0ca0846bd2c446c0a3",
+      "effectSummary": "As a standard action, take -4 on a melee attack to attempt an awesome blow against a smaller corporeal opponent. On a hit, the target makes a Reflex save with DC equal to damage dealt; failure knocks it 10 feet in a straight direction you choose and leaves it prone, but never closer to you than its starting square. If an obstacle stops the movement, both target and obstacle take 1d6 damage and the target stops adjacent to the obstacle.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/awesome-blow-157",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/bane-magic-6": {
+      "name": "Bane Magic",
+      "benefitSha256": "c3a959219ba4ffa9f6e40fd9ad21aa8ca7c2c11702bfd30314e1ff8f8334f118",
+      "effectSummary": "A damaging spell you cast deals +2d6 damage to aberrations and increases its save DC by 2 against them. A single casting applies the bonus only once per aberration for simultaneous multiple hits, but applies it again each round if the spell deals damage over multiple rounds. The extra damage is halved or negated by a successful save in the same way as the spell's regular damage. Scrolls, wands, potions, and most other magic items do not benefit; staffs you activate can benefit because they use your caster level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/bane-magic-6",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/battle-jump-187": {
+      "name": "Battle Jump",
+      "benefitSha256": "aa5fe998365ffaef47121b65d0acc1de14c0d7a4a1c5e7d7fe8a24673460e6ab",
+      "effectSummary": "You can charge by dropping from at least 5 feet above an opponent, with enough height to begin above that creature, but not from more than 30 feet; flying or levitating cannot enable the maneuver. On a hit choose either double damage with a melee weapon/natural attack or a trip attempt, treating yourself as one size category larger for that trip. You then take normal falling damage; Jump DC 15 reduces the effective fall by 10 feet, and failure also leaves you prone 5 feet from the opponent. You can instead use the battle jump to begin a grapple, counting as one size larger for the first grapple check.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/battle-jump-187",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/battleshifter-training-193": {
+      "name": "Battleshifter Training",
+      "benefitSha256": "1f3db7394edcad636d222c20f5d81adc53cfb0388944c7f837e42061a2d6fb79",
+      "effectSummary": "While shifting, you gain three tactical maneuvers. Tiring Defense: after using Combat Expertise with at least -2 attack or fighting defensively for 2 consecutive rounds, a creature that attacks you in melee both rounds, misses, and is hit by you at least once becomes fatigued; an already fatigued creature must meet the condition for 4 consecutive rounds to become exhausted, and the effect continues while you maintain the defensive mode. Exploit Weakness: hit a fatigued, exhausted, dazed, or dazzled creature for +1d6 damage, but not in a round you use Combat Expertise or fight defensively. Riposte: while using Combat Expertise at least -2 or fighting defensively, if a foe full-attacks you and misses every attack, spend 1 action point to make one extra melee attack against it as an immediate action.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/battleshifter-training-193",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/bind-elemental-206": {
+      "name": "Bind Elemental",
+      "benefitSha256": "c9d3f67c2f909bc2ca09c8384ede72a6ca9e3940888d13d8aa1a0260b596a8b0",
+      "effectSummary": "Allows creation of bound-elemental items. The required planar binding spell must be cast normally using both the item and a Khyber dragonshard as the elemental's receptacle; the elemental gets its normal save, then while trapped you must win the opposed Charisma check described by lesser planar binding to compel permanent bondage. An artificer may emulate the planar binding spell solely for crafting such an item with Use Magic Device DC 20 + caster level; its effective caster level for resisting the elemental's escape attempts equals the UMD result -20. Otherwise construction follows wondrous-item-style creation and the specific bound-elemental item's prerequisites.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/bind-elemental-206",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/black-lore-of-moil-211": {
+      "name": "Black Lore of Moil",
+      "benefitSha256": "a880dddf6a71b51cd2b05b9f3a93ccf24c4acec8e86f1951375a583ab0c68ab3",
+      "effectSummary": "Any necromancy spell can be cast as a Moilian spell, adding negative-energy damage equal to 1d6 plus another 1d6 per two spell levels: +1d6 for 1st, +2d6 for 2nd–3rd, +3d6 for 4th–5th, and so on. If the spell normally allows a save, a successful save halves this added damage regardless of the base effect's save result. Each Moilian spell consumes a specially scribed human-bone runebone. Crafting the runebone takes 1 hour and special materials worth 25 gp per d6 it can supply. Added damage cannot exceed either the spell-level maximum or the runebone's capacity. The spell uses its normal spell slot.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/black-lore-of-moil-211",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/blackwater-invocation-212": {
+      "name": "Blackwater Invocation",
+      "benefitSha256": "38a6b01b3e94c59fc1f3fb641b45af57e76291a3018383c68e7c9e3c5634f2eb",
+      "effectSummary": "Expend one daily rebuke-undead attempt to fill water in a 30-foot radius around you with negative energy for 10 minutes. The water darkens, becomes bitterly cold, and grants concealment to creatures in it. A creature entering without cold protection makes Fortitude DC 15 or takes 1d6 nonlethal cold-weather damage; normally this applies only once during the duration, but leaving and reentering requires another save. Warm clothing, any cold resistance, or endure elements prevents the damage. Creatures able to channel negative energy are immune to the cold damage but still suffer the concealment miss chance.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/blackwater-invocation-212",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/blade-of-force-214": {
+      "name": "Blade of Force",
+      "benefitSha256": "6a7ebb1a54ad852d2eeee513d6e9bcc9c4d90ff636a1c895d5e71f6b2e031fb5",
+      "effectSummary": "While you have a 3rd-level-or-higher force spell available to cast, use a swift action and touch one melee weapon or piece of ammunition to sheath it in force. Its next attack before the end of your next turn deals bonus damage equal to the level of your highest-level available force spell and ignores the normal incorporeal miss chance; the benefit is lost if that attack misses. Separately, you gain +1 competence bonus to caster level when casting force spells.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/blade-of-force-214",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/bladebearer-of-the-valenar-216": {
+      "name": "Bladebearer of the Valenar",
+      "benefitSha256": "485a3cd0ea4c0184ddef1783af4350de922d7d1cde2644741ef169f585c005f5",
+      "effectSummary": "Treat the Valenar double scimitar as a martial weapon. While mounted, gain +1 damage with a scimitar, falchion, or Valenar double scimitar. If you have Improved Critical, Weapon Focus, Weapon Specialization, Greater Weapon Focus, or Greater Weapon Specialization for any one of those three weapons, apply that feat to all three. When you spend an action point to modify an attack roll with any of those weapons, also add the action-point result to that attack's damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/bladebearer-of-the-valenar-216",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/blessed-of-the-seven-sisters-220": {
+      "name": "Blessed of the Seven Sisters",
+      "benefitSha256": "3ece8b50e16f0ddcd108d4923d4014c8b96185f2a0a91123d9e814ea9b3da7d8",
+      "effectSummary": "Add the following spells to one arcane class spell list that already grants access to 6th-level spells: 1st ray of hope, vision of heaven; 2nd ease pain; 3rd blessed sight; 4th sword of conscience; 5th crown of flame, sacred guardian; 6th crown of brilliance; 7th righteous smite. A spellbook caster can add them normally. A spontaneous caster may immediately swap one known spell for a same-level spell from this list when taking the feat, and later uses the class's normal spell-known replacement rules.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/blessed-of-the-seven-sisters-220",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/blessed-of-vulkoor-221": {
+      "name": "Blessed of Vulkoor",
+      "benefitSha256": "9bf6cc0ea962b55872bf787d5e6bffafc4be176c975a3681f330edb8081dd9a5",
+      "effectSummary": "Gain acid splash, detect poison, and pass without trace as spell-like abilities once per day each at caster level 1. If you can obtain a familiar, add a Tiny monstrous scorpion to your options. If you have an animal companion, add Small or Medium monstrous scorpion at 1st-level companion eligibility, Large at 4th, and Huge at 10th. If you have wild empathy, you may use it on scorpions as though they were animals.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/blessed-of-vulkoor-221",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/blind-fight-224": {
+      "name": "Blind-Fight",
+      "benefitSha256": "d8e5f0df984a70b7942b1b5308dc0b180c5e55c46a5e20119d1f83bade9eb4ac",
+      "effectSummary": "In melee, whenever concealment makes you miss, reroll the miss-chance percentile once. Invisible melee attackers gain neither the usual +2 attack bonus nor denial of your Dexterity bonus to AC against you, though their normal ranged advantages still apply. When you cannot see, movement penalties are halved: darkness or poor visibility reduces your speed to three-quarters normal instead of one-half.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/blind-fight-224",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/blood-spiked-charger-239": {
+      "name": "Blood-Spiked Charger",
+      "benefitSha256": "27d21d6eac96911a529fa5c0aeef356e77f49a1b75a2717cf3105067a7e40311",
+      "effectSummary": "Gain three tactical maneuvers. Spiked Avalanche: on a charge while wearing spiked armor and carrying a spiked shield or nothing, a hit with armor spikes or shield spikes adds twice your Strength bonus; you can attack with both using normal two-weapon penalties and each gains that bonus. Spiked Rebuke: while fighting defensively with a spiked shield, if an attack would hit your AC without the shield and defensive bonus but misses your actual AC, gain +2 on your next spiked-shield attack against that foe. Spiked Slam: as a full-round action with a spiked shield, make one best-BAB attack after entering the foe's space and provoking attacks of opportunity; on a hit add twice Strength plus size damage (Small 1d4, Medium 1d6, Large 1d8, Huge 2d6, Gargantuan 2d8, Colossal 3d6), then return to your starting square and threaten no squares until your next turn.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/blood-spiked-charger-239",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/born-of-the-three-thunders-260": {
+      "name": "Born of the Three Thunders",
+      "benefitSha256": "f66d5c0225575e568a0a337cbb8a01fc6cd59199ef6de89f9946f93feffd7a38",
+      "effectSummary": "When casting a hit-point-damaging spell with the electricity or sonic descriptor, you may make it a three-thunders spell. Split its damage evenly between electricity and sonic, and add both descriptors. Any creature that takes damage must make a Fortitude save at the spell's normal DC or be stunned for 1 round; a stunned creature then makes Reflex at the same DC or falls prone. After resolving the spell, you are automatically dazed for 1 round. The modified spell uses a slot of its normal level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/born-of-the-three-thunders-260",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/brew-potion-274": {
+      "name": "Brew Potion",
+      "benefitSha256": "369ab58dc1c8e7e3c35639632ea7e1a6df8315d130c16f730a99747e727f568d",
+      "effectSummary": "Create a potion of a known spell of 3rd level or lower that targets one or more creatures. Brewing takes 1 day. Choose a caster level high enough to cast the spell and no higher than your own. Base price = spell level × caster level × 50 gp; creation costs 1/25 of base price in XP and half the base price in raw materials. You make all spell choices during creation, and the drinker becomes the spell's target. A costly material component or spell XP cost must also be paid during creation in addition to the normal potion costs.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/brew-potion-274",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/broken-ones-sacrifice-276": {
+      "name": "Broken One's Sacrifice",
+      "benefitSha256": "f6e3cc2607b09d7b05a01bddd90891f55718bb6cd6631855f79552db4033e8cb",
+      "effectSummary": "As an immediate action, protect an adjacent ally of your size or smaller by swapping spaces and becoming the target of a harmful effect aimed at that ally; insufficient space or inability to physically exchange spaces prevents use. You may decide after the effect's hit/save/SR/miss-chance result is known but before its magnitude is rolled or applied. The ally is unaffected; you automatically accept the effect: attacks hit you (including an already-confirmed critical), you automatically fail any save and spell resistance, and you do not get your own AC or concealment, though your immunities and resistances still apply. After resolution you become fatigued. You cannot use the feat while exhausted, immune to fatigue, unable to act, or unable to physically exchange positions with the ally.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/broken-ones-sacrifice-276",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/burrowing-power-285": {
+      "name": "Burrowing Power",
+      "benefitSha256": "44151d9816a47129e5a0df08cee2b3cad67ad9f3d984854d36ccfbf44e0d08c3",
+      "effectSummary": "Expend psionic focus to manifest a power through a wall or force barrier by briefly routing it through the Astral Plane. Make Psicraft against DC 10 + barrier hardness + 1 per foot of thickness, minimum 1 foot; barriers without a hardness value, including force effects and wall of ectoplasm, use hardness 20, and such force barriers are assumed under 1 foot thick unless stated otherwise. A power requiring line of sight still needs a way to see its target. Burrowing Power increases the power's cost by 2 power points, and total cost cannot exceed your manifester level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/burrowing-power-285",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/calishite-elementalist-air-286": {
+      "name": "Calishite Elementalist: Air",
+      "benefitSha256": "142067c262fb5aea69d4d5db4c6a3010ec0881cfdf9a5734fd51edab4501b3b9",
+      "effectSummary": "Choose the Air tradition for this feat. Cast its tradition spells at +1 caster level, and this bonus may exceed a spell's normal maximum damage dice. A wizard may add each Air-tradition spell to the spellbook for free when first able to cast that level, without using either normal free spell gained at a class level. Air tradition: 0 mage hand; 1st shocking grasp; 2nd levitate; 3rd lightning bolt; 4th shout; 5th telekinesis; 6th chain lightning; 7th reverse gravity; 8th Bigby's clenched fist; 9th Bigby's crushing hand.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/calishite-elementalist-air-286",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/calishite-elementalist-fire-287": {
+      "name": "Calishite Elementalist: Fire",
+      "benefitSha256": "f6299f10b79308c6168c8707a3c2feb061382eb3dd0a31465ab26283f2fae443",
+      "effectSummary": "Choose the Fire tradition for this feat. Cast its tradition spells at +1 caster level, and this bonus may exceed a spell's normal maximum damage dice. A wizard may add each Fire-tradition spell to the spellbook for free when first able to cast that level, without using either normal free spell gained at a class level. Fire tradition: 0 flare; 1st burning hands; 2nd pyrotechnics; 3rd fireball; 4th wall of fire; 5th dismissal; 6th control weather; 7th delayed blast fireball; 8th incendiary cloud; 9th meteor swarm.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/calishite-elementalist-fire-287",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/celestial-familiar-299": {
+      "name": "Celestial Familiar",
+      "benefitSha256": "33f6763c2d38df795bff90e5e1be4b45fc922e4c5cbd752b6082548ee99b8392",
+      "effectSummary": "Expand familiar choices, requiring the familiar to share your alignment: from arcane caster level 3, any good caster may select a celestial-templated animal from the standard familiar list; from level 7, chaotic good may choose a coure eladrin, lawful good a lantern archon, and neutral good a musteval guardinal. The familiar remains magically linked as normal. For HD-based effects use the higher of master's level or creature HD; hit points are the higher of half the master's total or normal familiar hp; attacks use the better BAB; saves use the master's base saves when better. Normal familiar special abilities scale from the master's level. Only celestial animals grant the standard master benefit associated with their base animal type; other celestial familiars do not.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/celestial-familiar-299",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/chain-power-313": {
+      "name": "Chain Power",
+      "benefitSha256": "2c225face7a7229c340978069a31e81e84284bfc4d9a06792bd016285f6ab190",
+      "effectSummary": "Expend psionic focus to chain a single-target power that deals acid, cold, electricity, fire, or sonic damage. After the primary target, it arcs to up to one secondary target per manifester level, maximum 20, all within 30 feet of the primary and each hit at most once. Secondary targets take half the primary target's damage, rounded down, and each makes any save the power normally allows. You may choose fewer targets. The feat adds 6 power points to the power's cost, and total cost cannot exceed your manifester level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/chain-power-313",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/chain-spell-314": {
+      "name": "Chain Spell",
+      "benefitSha256": "fcfca0f4b6c36a2015d25642de16de9e8bf7bace98166749f9c1540333b1cf8e",
+      "effectSummary": "A single-target spell with range greater than touch affects its primary target normally, then arcs to up to one secondary target per caster level, maximum 20. Secondaries must be within 30 feet of the primary and cannot be affected more than once; you may choose fewer. If the spell deals damage, each secondary takes half as much damage as the primary, rounded down, and gets a Reflex save for half that secondary damage even if the base spell normally has no such save. For nondamaging spells, secondary save DCs are 4 lower. A chained spell uses a slot three levels higher than normal.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/chain-spell-314",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/chain-spell-315": {
+      "name": "Chain Spell",
+      "benefitSha256": "d97283efc5e328acae052429f8c80ecb380effced22429d34fa345022acf040e",
+      "effectSummary": "A single-target spell with range greater than touch affects its primary target normally, then arcs to a number of secondary targets up to your caster level. Secondaries must be within 30 feet of the primary, cannot be affected more than once, and may be fewer than the maximum. If the spell deals damage, each secondary takes half as many damage dice as the primary, rounded down, and may make a Reflex save for half that secondary damage. For spells that do not deal hit-point damage, secondary save DCs are 4 lower. A chained spell uses a slot three levels higher than normal.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/chain-spell-315",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/child-of-winter-339": {
+      "name": "Child of Winter",
+      "benefitSha256": "719d2f7899f30ff2bc318f21936fd60b0fae9754b4b71c7a58bbeba300a5bcfd",
+      "effectSummary": "Druid spells that normally target animals can target vermin. Mindless vermin count as Intelligence 2 when interacting with you and can be charmed, calmed, or targeted by wild empathy and similar abilities. Add vermin to summon nature's ally lists: 1st Medium monstrous centipede, Small monstrous scorpion, Small monstrous spider; 2nd worker giant ant, Large centipede, Medium scorpion, Medium spider, spider swarm; 3rd queen giant ant, soldier giant ant, Huge centipede, Large spider; 4th giant praying mantis, giant wasp, locust swarm, Large scorpion; 5th centipede swarm, carrion crawler, giant stag beetle; 6th Gargantuan centipede, Huge scorpion; 7th hellwasp swarm, Gargantuan spider; 8th Colossal centipede, Gargantuan scorpion; 9th Colossal scorpion, Colossal spider.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/child-of-winter-339",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/chosen-of-iborighu-343": {
+      "name": "Chosen of Iborighu",
+      "benefitSha256": "22cc6b753570a509a36fdb775fd3315c7fdac426859ff37993654484e17a0c81",
+      "effectSummary": "Your left eye radiates faint evocation to detect magic and faint evil to detect evil. Cleric becomes a favored class for multiclass XP-penalty purposes. Once per day as a standard supernatural action that does not provoke, target a creature within 30 feet that meets your gaze. Fortitude DC 10 + half your character level + Charisma modifier negates; on failure the target takes cold damage equal to Charisma modifier +3, minimum 1, and becomes fatigued. A target already fatigued becomes exhausted instead.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/chosen-of-iborighu-343",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/city-magic-347": {
+      "name": "City Magic",
+      "benefitSha256": "1ef0569c03b7c0d4e134dc669a1950f7ad5e7d9ca460c44ccdd03dabe3387071",
+      "effectSummary": "When casting a damaging acid-, cold-, electricity-, fire-, or sonic-descriptor spell in an urban environment larger than a small town, you may invest it with city magic. Half of its damage remains the original energy type and is subject to energy resistance/immunity; the other half is damage from the city itself and is not subject to those energy defenses. The modification does not change spell level. The feat has no effect outside a qualifying urban environment.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/city-magic-347",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/clinging-breath-3603": {
+      "name": "Clinging Breath",
+      "benefitSha256": "e447d14bdf88c6237976d811cb7033e35dd80fbe3e114d928273b22d0bbdef17",
+      "effectSummary": "Your breath weapon has its normal initial effect and then clings for 1 round. In the following round, each creature that took initial damage takes additional damage equal to half what it personally took from the breath, so a successful initial save also reduces the clinging damage accordingly. A creature that avoided all initial damage takes none. Before the extra damage, the creature can spend a full-round action and make Reflex against the breath's normal save DC to remove the effect; rolling on the ground gives +2 but leaves it prone. Water does not remove it. The clinging effect can also be dispelled with dispel DC equal to the breath weapon's save DC.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/clinging-breath-3603",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/close-quarters-fighting-365": {
+      "name": "Close-Quarters Fighting",
+      "benefitSha256": "c2674c0324499b17cb53382c3137fe7821f06266d60175a2212054f2f1ac1f33",
+      "effectSummary": "Whenever an enemy attempts to grapple you, you may make an attack of opportunity even if a feat or special ability would normally prevent it. If that attack deals damage, an enemy without Improved Grapple or a comparable ability such as improved grab automatically fails to start the grapple. If it has such an ability, add the damage you dealt as a bonus on your opposed check to resist the grapple. The feat does not grant extra attacks of opportunity and gives no attack when you could not normally take one because you are surprised, helpless, or similarly unable.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/close-quarters-fighting-365",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/close-quarters-fighting-366": {
+      "name": "Close-Quarters Fighting",
+      "benefitSha256": "d8b8edbe8472df9c5285af007ef08ad4c2178f3a7af330e1858252209d093748",
+      "effectSummary": "When a creature uses improved grab against you, you may still make an attack of opportunity. If that attack deals damage, add the damage as a bonus on your ensuing grapple check to avoid being grappled.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/close-quarters-fighting-366",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/close-quarters-fighting-367": {
+      "name": "Close-Quarters Fighting",
+      "benefitSha256": "45f2ceda151e76fd616a06160aa81c6eb455bcdd2a934bdb157eb94db18be046",
+      "effectSummary": "When an enemy attempts to grapple you, damage from a successful attack of opportunity provoked by that attempt is added as a bonus on your ensuing grapple check to avoid being grappled. You are entitled to the attack of opportunity even against improved grab. The feat does not provide extra attacks of opportunity, so it gives no benefit if you have none available when the grapple attempt occurs.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/close-quarters-fighting-367",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/combat-focus-396": {
+      "name": "Combat Focus",
+      "benefitSha256": "9f60d7812e151df3419a33d3b07553b77813cccf2c5f7b3e10b7ca1f2702ff9d",
+      "effectSummary": "The first time you successfully attack during an encounter, you enter combat focus. It lasts 10 rounds plus 1 round for each other combat form feat you possess, and can be gained only once per encounter. While focused, gain +2 on Will saves; if you possess at least three combat form feats total, the Will-save bonus becomes +4.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/combat-focus-396",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/consecrate-spell-like-ability-418": {
+      "name": "Consecrate Spell Like Ability",
+      "benefitSha256": "9ba7b9ec83465c8970c6f3d034db6d4f70472e8e518210e3834f3975bc3d02e2",
+      "effectSummary": "A consecrated spell-like ability gains the good descriptor. If it deals damage, half the total damage, rounded down, becomes divine power that is not reduced by energy resistance or immunity; the remainder retains its normal type. Each of your spell-like abilities can be consecrated up to three times per day, but this feat never increases that ability's normal daily usage limit.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/consecrate-spell-like-ability-418",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/cooperative-spell-426": {
+      "name": "Cooperative Spell",
+      "specialSha256": "be92e6e9751f6b0d59db8674c140f782cdc04b24e5bfd3048c4bbd7e581d06f4",
+      "specialSummary": "With more than two simultaneous cooperative casters, each caster must be adjacent to at least two other participating casters. Each additional caster with Cooperative Spell increases the cooperative spell's save DC and caster-level-check bonus by 1. The source's four-caster example uses the highest participant's normal save DC as the base, then applies +4 total to that save DC (+2 for the first cooperative partner and +1 for each of the other two), while the highest caster level receives a +3 check bonus.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/cooperative-spell-426",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/cooperative-spell-427": {
+      "name": "Cooperative Spell",
+      "specialSha256": "ecf20c4b6d91eeb3c8913fbfb320f9bc95c1132216f2afe1663262b335a170f9",
+      "specialSummary": "With more than two simultaneous cooperative casters, each caster must be adjacent to at least two other participants. Each additional caster with Cooperative Spell increases the spell's save DC and caster-level check. In the source's four-caster example, the highest individual save DC is the base and the final cooperative save DC gains +4 total (+2 for the first cooperative caster and +1 for each of the other two); the highest caster level's check is also shown with a +4 modifier in this printing.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/cooperative-spell-427",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/corrupt-spell-like-ability-438": {
+      "name": "Corrupt Spell-Like Ability",
+      "benefitSha256": "8f6f7c1d0f7e205f3e75e7b788130661406f70f5a5bd0cebe72e3ff1515e22b4",
+      "effectSummary": "A corrupted spell-like ability gains the evil descriptor. If it deals damage, half the total, rounded down as the unholy portion described by the source, becomes unholy damage that nonevil creatures still take even if immune to the ability's normal energy type; the rest retains its normal damage type. Each of your spell-like abilities can be corrupted up to three times per day, without increasing that ability's normal daily usage limit.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Concise summaries preserve gameplay mechanics while leaving named external spells, templates, creatures, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/corrupt-spell-like-ability-438",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "5facbfc2ea33b6df78e6030da67cb97218a39e9d",
+    "featReviewRun": 35781227811,
+    "featReviewArtifact": 10718635433,
+    "featReviewArtifactSha256": "ebab66aeaad83fb49b41e87c26cd621632a05f2981b926748788b0f0ba33aa62",
+    "reviewQueueCountBefore": 321,
+    "fullFeatAuditRun": 35780589058,
+    "outputCompleteBefore": 3345,
+    "catalogCount": 3666
+  }
+}
