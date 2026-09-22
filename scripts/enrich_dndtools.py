@@ -2554,7 +2554,7 @@ def self_test():
             "Fiendish Codex II: Tyrants of the Nine Hells (FC2), p. 104",
             "You infuse a creature with the raw power of a malebranche. While under the effect of this spell, the subject deals extra damage whenever it successfully hits with a charge attack, depending on its size. In addition, the subject gains resistance to fire 10. Magic weapons with the evil outsider bane special ability have full effect against the subject. After the spell expires, the subject is fatigued for 1 minute.",
             "omitted-malebranche-size-damage-table",
-            ("charge attack", "fire 10", "evil outsider bane", "fatigued for 1 minute"),
+            ("charge attack", "fire resistance 10", "evil outsider bane", "fatigued for 1 minute"),
             ("tiny or smaller", "small", "1d6", "medium", "2d6", "colossal", "8d6"),
         ),
         (
