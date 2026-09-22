@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Adaptive maximum-safe manual reference batch 099: two 3.5-native spells with hidden secondary PHB dependencies independently verified from exact 3.5 source text; no legacy-lineage records included.",
+  "entries": {
+    "spells/passage-of-the-shifting-sands-1059": {
+      "name": "Passage of the Shifting Sands",
+      "sourceSha256": "e1cfbbd0634c8b12bc45d2e7f7da7268d4708e4954d210f2b0ea07e5c2d44dbf",
+      "effectSummary": "You and all your belongings become a conscious cloud of sand for 1 minute/level or until expended. You occupy your normal space, fly at 40 feet with perfect maneuverability, and lose your other movement modes. Except for that movement override and the spell's added sand effects, you use gaseous form's rules: your material and natural armor cease to apply while size, Dexterity, deflection, and force-based armor bonuses still do; you gain DR 10/magic and immunity to poison and critical hits; you cannot attack, lose supernatural abilities, and cannot cast spells requiring verbal, somatic, material, or focus components unless an applicable metamagic/component workaround removes those requirements; a held touch spell is discharged harmlessly; you cannot run, manipulate objects, activate items, or enter liquids; continuously active carried items remain active when applicable; you can pass through tiny openings and are subject to wind. If you end movement in another creature's space, that creature is blinded for 1 round unless it succeeds on a Fortitude save; spell resistance does not apply to this blindness. While the spell lasts, you may produce a gust of wind as a swift action; doing so ends Passage of the Shifting Sands. That gust uses the normal severe-wind line effects, including size-based knockdown or forced movement, -4 penalties on ranged attacks and Listen checks in the gust, flame-extinguishing, and displacement of gases or vapors. A blue dragon capable of casting 6th-level sorcerer spells can cast Passage of the Shifting Sands as a swift action.",
+      "notes": "Dragon Magic printing, digest-locked. The source explicitly cites gaseous form (PH 234) and gust of wind. Both Player's Handbook v.3.5 dependencies were independently verified rather than relying on the classifier's single parsed Gust of Wind reference. Passage overrides gaseous form's 10-foot fly speed with 40-foot perfect flight and adds the blindness, expend-to-gust, and blue-dragon casting rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/passage-of-the-shifting-sands-1059",
+          "role": "primary Dragon Magic catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/gaseous-form-2819",
+          "role": "Player's Handbook v.3.5 source for the explicitly inherited gaseous-form mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/gust-of-wind-2618",
+          "role": "reviewed and regression-locked Player's Handbook v.3.5 source for the expend-to-gust effect"
+        }
+      ]
+    },
+    "spells/soul-link-1156": {
+      "name": "Soul Link",
+      "sourceSha256": "df59478a40cf4cc6f7fa508801c031353bd9dbf06e886967da838c91f02cafe8",
+      "effectSummary": "Creates a 1-hour/level link with one touched creature. You monitor the subject's direction, distance, and general condition as with status while the link can function, and you and the subject can communicate telepathically while both remain on the same plane. By concentrating, you can scry on the linked subject; the subject receives no saving throw against that scrying, and the normal scrying sensor lets you see and hear the subject and roughly 10 feet of its surroundings while following it. The subject takes a -4 penalty on saving throws against mind-affecting spells and abilities you use against it. When you cast Soul Link, you may take a -2 penalty to one of your ability scores to grant the subject a +2 enhancement bonus to the same score; if you choose this option, the subject chooses which ability score is affected for both of you and takes a -4 penalty on its save against Soul Link. You can maintain only one Soul Link at a time; casting another immediately ends the existing link regardless of whether the new casting succeeds. Material component: parchment bearing the target's name or detailed physical description written in your blood.",
+      "notes": "Fiendish Codex I printing, digest-locked. The source explicitly invokes both status and scrying even though the classifier resolves only the status reference. Status supplies the monitoring semantics; Player's Handbook v.3.5 scrying was independently verified for sensor behavior, while Soul Link's own 'by concentrating' activation and no-save exception control rather than importing scrying's normal casting-time/save setup.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/soul-link-1156",
+          "role": "primary Fiendish Codex I catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/status-2517",
+          "role": "reviewed and regression-locked Player's Handbook v.3.5 source for inherited status monitoring"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/scrying-2512",
+          "role": "independently verified Player's Handbook v.3.5 source for inherited scrying sensor behavior"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "663ebd8fcfcf2bd5adbe1ea14fcf981a1c74b7fc",
+    "workflowRun": 35694777442,
+    "validationRun": 35694780330,
+    "classificationArtifact": 10679314298,
+    "classificationArtifactSha256": "33c3df2f0c38857a33d559e5f2231c7e542face7d8819a33f953325f87adc091",
+    "queueCountBefore": 847,
+    "referenceQueueCountBefore": 847,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
