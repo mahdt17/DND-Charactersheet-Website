@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified 3.5 reference records with explicit source ambiguities and source-specific printings preserved; clean batch 087.",
+  "entries": {
+    "spells/lava-splash-3249": {
+      "name": "Lava Splash",
+      "sourceSha256": "e4a54e58c6d6b8a1695a10c623cc3f770dea0c5ca5026962c6cedf14177f4d2c",
+      "effectSummary": "Creates a 20-foot-radius, 20-foot-high cylinder of lava spray at Close range. Each creature in the area takes 1d4 fire damage per caster level with a Reflex save for half and no spell resistance. The printed source gives the maximum as 15d6 even though the per-level die is d4; this review preserves that source-internal inconsistency rather than converting one value to match the other. For firenewts, the source says Lava Splash acts as cure moderate wounds, so its special effect is the cure spell's 2d8 +1 per caster level healing, maximum +10. The source does not explicitly reconcile that firenewt special case with Lava Splash's area-spell Reflex-half and spell-resistance-none header. The focus is a fist-sized lump of volcanic rock.",
+      "notes": "Source-locked to Serpent Kingdoms p.156. Both the 1d4-per-level / maximum-15d6 mismatch and the unreconciled firenewt cure-vs-header interaction are present in the printed source and are documented rather than silently repaired.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lava-splash-3249",
+          "role": "primary Serpent Kingdoms catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/serpent-kingdoms--24/lava-splash--3249/",
+          "role": "matching Serpent Kingdoms rendering preserving the printed damage inconsistency and firenewt clause"
+        },
+        {
+          "url": "https://online.anyflip.com/wggp/wfsa/files/basic-html/page157.html",
+          "role": "same-printing Serpent Kingdoms page cross-check"
+        }
+      ]
+    },
+    "spells/mordenkainens-trusted-bloodhound-785": {
+      "name": "Mordenkainen's Trusted Bloodhound",
+      "sourceSha256": "3599dd8fb3d5c414ebb6be1b94b0dfdf84aa96dd7105474a13f49bfb00e144c6",
+      "effectSummary": "Conjures a phantom bloodhound for 1 hour per caster level or until discharged, then 1 round per caster level as described below. In tracking mode, it can track as though it had the Track feat, using a Survival modifier equal to your caster level only for tracking; its land speed equals yours, it can move at full speed without taking the normal tracking penalty, and it cannot attack, flank, or otherwise affect combat. As a standard action you can switch it to watchdog mode. In watchdog mode it functions as Mordenkainen's faithful hound: it is invisible to everyone but you, sees invisible and ethereal creatures, ignores figments but reacts to shadow illusions, barks when a Small or larger intruder approaches within 30 feet, and attacks an intruder within 5 feet once per round for 2d6+3 piercing damage; for Trusted Bloodhound, the attack bonus is your caster level instead of +10. It receives the normal benefits of being invisible, is ready to bite on the intruder's turn, its bite counts as a magic weapon for damage reduction, it cannot be attacked but can be dispelled, and once it begins barking the remaining duration becomes 1 round per caster level. The spell ends if you move more than 100 feet from the hound. As a standard action you can return it from watchdog mode to tracking mode.",
+      "notes": "Source-locked to Complete Mage. The imported review text had a damaged sentence around the Track feat; the same-book/SRD rendering confirms the intended tracking paragraph. Faithful Hound mechanics are expanded explicitly, with Trusted Bloodhound's mobile tracking mode and caster-level attack-bonus override preserved.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/complete-mage--58/mordenkainens-trusted-bloodhound--785/",
+          "role": "matching Complete Mage rendering used to repair the damaged imported tracking sentence"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCMage.html",
+          "role": "Complete Mage SRD cross-check for tracking mode and watchdog switching"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/mordenkainens-faithful-hound-2410",
+          "role": "Player's Handbook v.3.5 base spell used to expand inherited watchdog mechanics"
+        }
+      ]
+    },
+    "spells/unbinding-640": {
+      "name": "Unbinding",
+      "sourceSha256": "51c0faf8b5ced50217aa1f85d765a0b1f0691c152e33281133fefee77e0270cf",
+      "effectSummary": "A 180-foot-radius burst centered on you instantly destroys or releases many magical effects that contain, constrain, or seal. It negates charm and hold spells of all types, arcane locks and similar closures, physical or magical barrier spells such as wall of stone and wall of force, guards and wards, temporal stasis, slow, and similar effects. It ends statue, permanently destroys a magic jar and the life force within it, and forces spells that hold other magical effects—such as magic mouth or imbue with spell ability—to release them immediately at range 0. It does not affect protective spells such as protection from evil, shield, or globe of invulnerability; does not reveal or restore petrified creatures; does not free creatures bound to service such as familiars, invisible stalkers, genies, or elementals; and neither affects nor penetrates antimagic field. A magic circle currently imprisoning a creature is dispelled. Curses and geas/quest are negated only if your caster level is at least that of the original caster. All qualifying effects in the burst are affected regardless of your wishes except effects on your person or items/effects you carry or wear. Opening locks or closures can trigger attached alarms or traps, and released creatures need not be friendly. The material components are a lodestone and a pinch of saltpeter.",
+      "notes": "Source-locked to Complete Divine p.185. The reference to Statue is only an explicitly enumerated effect that Unbinding ends; no Statue mechanics are inherited. This printing uses wall of stone/wall of force examples and does not include Dragonlance's 'duration longer than instantaneous' barrier qualifier.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unbinding-640",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://www.dndtools.org/spells/complete-divine--56/unbinding--640/",
+          "role": "matching Complete Divine rendering used to verify the complete effect list"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/CompleteDivine.pdf",
+          "role": "same-printing Complete Divine source cross-check"
+        }
+      ]
+    },
+    "spells/unbinding-5022": {
+      "name": "Unbinding",
+      "sourceSha256": "647bdb06ccd5d4cc14d3ee081e70b98a7d6836c3b0d9e0bfd544405b25e4eacf",
+      "effectSummary": "A 180-foot-radius burst centered on you instantly destroys or releases many magical effects that contain, constrain, or seal. It negates charm and hold spells of all types, arcane locks and similar closures, spells with a duration longer than instantaneous that create physical or magical barriers such as wall of fire and wall of force, guards and wards, temporal stasis, slow, and similar effects. It ends statue, permanently destroys a magic jar and the life force within it, and forces spells that hold other magical effects—such as magic mouth or imbue with spell ability—to release them immediately at range 0. It does not affect protective spells such as protection from evil, shield, or globe of invulnerability; does not reveal or restore petrified creatures; does not free creatures bound to service; and neither affects nor penetrates antimagic field. A magic circle currently imprisoning a creature is dispelled. Curses and geas/quest are negated only if your caster level is at least that of the original caster. All qualifying effects in the burst are affected regardless of your wishes except effects on your person or items/effects you carry or wear. Opening locks or closures can trigger attached alarms or traps, and released creatures need not be friendly. The material components are a lodestone and a pinch of saltpeter.",
+      "notes": "Source-locked to Dragonlance Campaign Setting p.113. The reference to Statue is an enumerated effect, not inherited mechanics. This printing is kept distinct from Complete Divine: it specifies barrier spells with duration longer than instantaneous and uses wall of fire/wall of force as examples, while its casting-time/header wording also differs.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unbinding-5022",
+          "role": "primary Dragonlance Campaign Setting catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/dragonlance-campaign-setting--98/unbinding--5022/index.html",
+          "role": "matching Dragonlance Campaign Setting rendering used to verify source-specific wording"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "2ed4a2ae5bd77129e856dce742d0bc7e771e7aa6",
+    "workflowRun": 35687140485,
+    "validationRun": 35687142811,
+    "classificationArtifact": 10676599277,
+    "classificationArtifactSha256": "39d6ca6bbfdd8e8616ce6a705ae418d49e5bc1bf3265028df485f8469b3facf0",
+    "queueCountBefore": 903,
+    "referenceQueueCountBefore": 903,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
