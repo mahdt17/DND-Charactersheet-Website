@@ -2270,6 +2270,139 @@
           "role": "matching Dragonlance Campaign Setting p. 109 text used to verify 6,000 pounds, duration, guard restrictions, reversion, and ruby-dust component"
         }
       ]
+    },
+    "spells/form-of-the-threefold-beast-875": {
+      "name": "Form of the Threefold Beast",
+      "effectSummary": "You take the form of a chimera (Monster Manual p. 34) and choose the color of its dragon head when you cast the spell. You gain 30 temporary hit points that disappear when the spell ends. Under the Complete Mage polymorph subschool rules, the new form replaces your statistics and special abilities except that you retain your alignment, your own hit points, your normal Hit Dice for effects based on HD, and your ability to understand your normal languages (and speak them if the new form can speak). You otherwise use the chimera's statistics and special abilities, lose your normal special abilities and class features, and your worn or carried gear melds into the form and becomes nonfunctional. The spell ends if you are slain or rendered unconscious.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/form-of-the-threefold-beast-875",
+          "role": "primary rebuilt Complete Mage record; source truncates inside the chimera parenthetical"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-mage--58/form-of-the-threefold-beast--875/",
+          "role": "matching Complete Mage spell rendering restores the chimera reference, dragon-head choice, 30 temporary hit points, and polymorph-subschool reference"
+        },
+        {
+          "url": "https://studylib.net/doc/28157361/complete-mage",
+          "role": "Complete Mage polymorph-subschool rules used to preserve the form-replacement exceptions delegated by the spell"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/monsters/chimera.htm",
+          "role": "3.5 SRD chimera stat block used to verify the delegated monster form"
+        }
+      ]
+    },
+    "spells/shape-of-the-hellspawned-stalker-883": {
+      "name": "Shape of the Hellspawned Stalker",
+      "effectSummary": "You take the form of a hell hound (Monster Manual p. 151) and gain 10 temporary hit points that disappear when the spell ends. Under the Complete Mage polymorph subschool rules, the new form replaces your statistics and special abilities except that you retain your alignment, your own hit points, your normal Hit Dice for effects based on HD, and your ability to understand your normal languages (and speak them if the new form can speak). You otherwise use the hell hound's statistics and special abilities, lose your normal special abilities and class features, and your worn or carried gear melds into the form and becomes nonfunctional. The spell ends if you are slain or rendered unconscious.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shape-of-the-hellspawned-stalker-883",
+          "role": "primary rebuilt Complete Mage record; source truncates inside the hell-hound parenthetical"
+        },
+        {
+          "url": "https://dndtools.org/spells/complete-mage--58/shape-of-the-hellspawned-stalker--883/",
+          "role": "matching Complete Mage spell rendering restores the hell-hound reference, 10 temporary hit points, and polymorph-subschool reference"
+        },
+        {
+          "url": "https://studylib.net/doc/28157361/complete-mage",
+          "role": "Complete Mage polymorph-subschool rules used to preserve the form-replacement exceptions delegated by the spell"
+        },
+        {
+          "url": "https://www.35srd.com/monsters/monster-index/hellhound/",
+          "role": "3.5 SRD hell hound stat block used to verify the delegated monster form"
+        }
+      ]
+    },
+    "spells/prismatic-deluge-831": {
+      "name": "Prismatic Deluge",
+      "effectSummary": "Every creature in the spell's 40-foot-radius, 80-foot-high cylinder is affected as by prismatic spray. A creature with 8 Hit Dice or fewer is blinded for 2d4 rounds, then roll 1d8 separately for each target: 1 red deals 20 fire damage (Reflex half); 2 orange deals 40 acid damage (Reflex half); 3 yellow deals 80 electricity damage (Reflex half); 4 green is poison that kills on a failed Fortitude save or deals 1d6 Constitution damage on a successful save; 5 blue turns the target to stone (Fortitude negates); 6 indigo causes insanity (Will negates); 7 violet sends the target to another plane (Will negates); 8 strikes the target with two rays, rolling twice more and ignoring further 8 results.",
+      "tables": [
+        [
+          [
+            "1d8",
+            "Color",
+            "Effect"
+          ],
+          [
+            "1",
+            "Red",
+            "20 fire damage (Reflex half)"
+          ],
+          [
+            "2",
+            "Orange",
+            "40 acid damage (Reflex half)"
+          ],
+          [
+            "3",
+            "Yellow",
+            "80 electricity damage (Reflex half)"
+          ],
+          [
+            "4",
+            "Green",
+            "Poison: kills; Fortitude partial, 1d6 Constitution damage instead"
+          ],
+          [
+            "5",
+            "Blue",
+            "Turned to stone (Fortitude negates)"
+          ],
+          [
+            "6",
+            "Indigo",
+            "Insane, as insanity (Will negates)"
+          ],
+          [
+            "7",
+            "Violet",
+            "Sent to another plane (Will negates)"
+          ],
+          [
+            "8",
+            "Two rays",
+            "Roll twice more, ignoring further 8 results"
+          ]
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-deluge-831",
+          "role": "primary rebuilt Complete Mage record; source truncates inside the prismatic-spray parenthetical"
+        },
+        {
+          "url": "https://dndtools.org/m/spells/complete-mage--58/prismatic-deluge--831/",
+          "role": "matching Complete Mage rendering restores the PH 264 reference, 8-HD blindness rule, and d8 roll instruction"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/prismaticSpray.htm",
+          "role": "3.5 SRD prismatic-spray table inlined so the delegated d8 effects remain gameplay-complete"
+        }
+      ]
+    },
+    "spells/seed-of-undeath-860": {
+      "name": "Seed of Undeath",
+      "effectSummary": "You plant negative energy in one living humanoid or animal without harming it directly. If the subject dies before the spell expires and enough of the corpse remains, it rises as a zombie 1 round later as under animate dead. Undead created this way are automatically under your control. At any time, the total Hit Dice of undead animated through seed of undeath cannot exceed your own Hit Dice, and those undead also count against the normal maximum Hit Dice of undead you can control through animate dead. The material component is a black onyx gem worth 25 gp per Hit Die of the subject.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/seed-of-undeath-860",
+          "role": "primary rebuilt Complete Mage record; source truncates the animate-dead control-cap sentence"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-mage--58/seed-of-undeath--860/",
+          "role": "matching Complete Mage rendering restores the full control-cap language and material component"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCMage.html",
+          "role": "independent Complete Mage SRD rendering cross-check"
+        }
+      ]
     }
   }
 }

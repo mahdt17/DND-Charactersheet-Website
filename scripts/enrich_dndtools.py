@@ -1552,6 +1552,30 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="corrupt-dragonlance-otyugh-swarm-pounds"
+        if (
+            entry.get("id")=="spells/form-of-the-threefold-beast-875"
+            and re.search(r"\bform of a chimera\s*\(\s*Polymorph Subschool sidebar\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-threefold-beast-chimera-source"
+        if (
+            entry.get("id")=="spells/shape-of-the-hellspawned-stalker-883"
+            and re.search(r"\bform of a hell hound\s*\(\s*Polymorph Subschool sidebar\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-hellspawned-stalker-source"
+        if (
+            entry.get("id")=="spells/prismatic-deluge-831"
+            and re.search(r"\bprismatic spray spell\s*\(\s*prismatic spray table\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-prismatic-deluge-source"
+        if (
+            entry.get("id")=="spells/seed-of-undeath-860"
+            and re.search(r"\bmaximum number of HD worth of animate dead\s*\)",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-seed-of-undeath-control-cap"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
@@ -2592,6 +2616,71 @@ def self_test():
         <div>Components</div><div>V, S, M</div><div>Range</div><div>Medium</div>
         <div>Duration</div><div>1 minute/level</div><div>Saving Throw</div><div>See text</div>
         <div>Spell Resistance</div><div>No</div><div>Classes</div><div>Wizard 6</div>
+        <h2>Description</h2><p>{damaged_text}</p>
+        """
+        p=DetailParser();p.feed(damaged_html);p.close()
+        repaired=parse_spell(p,{"name":spell_name,"id":record_id})
+        assert repaired.get("sourceIncomplete"), record_id
+        assert repaired.get("sourceIncompleteMarker")==marker, record_id
+        assert repaired.get("sourceIncompleteResolved"), record_id
+        assert repaired.get("supplementVerified"), record_id
+        summary=repaired.get("effectSummary","").casefold()
+        for fragment in expected_fragments:
+            assert fragment.casefold() in summary, (record_id, fragment, summary)
+        flattened_tables=clean(" ".join(
+            str(cell)
+            for table in (repaired.get("tables") or [])
+            for row in table
+            for cell in row
+        )).casefold()
+        for fragment in expected_table_fragments:
+            assert fragment.casefold() in flattened_tables, (record_id, fragment, flattened_tables)
+
+    repair_batch_cases_7 = [
+        (
+            "spells/form-of-the-threefold-beast-875",
+            "Form of the Threefold Beast",
+            "Complete Mage (CM), p. 104",
+            "Your arms and legs become powerfully muscled and grow sharp claws as your body hunches over on all fours. Two additional monstrous heads sprout from your shoulders, and two batlike wings stretch out to the sky. You take the form of a chimera ( Polymorph Subschool sidebar on page 91 for more details.",
+            "truncated-threefold-beast-chimera-source",
+            ("form of a chimera", "30 temporary hit points", "retain your alignment", "own hit points", "gear melds", "slain or rendered unconscious"),
+            (),
+        ),
+        (
+            "spells/shape-of-the-hellspawned-stalker-883",
+            "Shape of the Hellspawned Stalker",
+            "Complete Mage (CM), p. 117",
+            "Rust-red fur sprouts from your skin, and your back hunches over until you stand on four clawed feet. Tendrils of black smoke curl from your fanged mouth. You take the form of a hell hound ( Polymorph Subschool sidebar on page 91 for more details.",
+            "truncated-hellspawned-stalker-source",
+            ("form of a hell hound", "10 temporary hit points", "retain your alignment", "own hit points", "gear melds", "slain or rendered unconscious"),
+            (),
+        ),
+        (
+            "spells/prismatic-deluge-831",
+            "Prismatic Deluge",
+            "Complete Mage (CM), p. 113",
+            "In a blinding shower of light, you call an enormous, painfully bright rainbow from the heavens. This spell produces a column of colors resembling the end of a rainbow. Every creature in the area is affected as though by the prismatic spray spell ( prismatic spray table to see what color affects which target.",
+            "truncated-prismatic-deluge-source",
+            ("8 hit dice or fewer", "blinded for 2d4 rounds", "20 fire damage", "1d6 constitution damage", "two rays"),
+            ("red", "20 fire damage", "green", "1d6 constitution damage", "violet", "another plane", "two rays"),
+        ),
+        (
+            "spells/seed-of-undeath-860",
+            "Seed of Undeath",
+            "Complete Mage (CM), p. 116",
+            "The subject's face briefly takes on a gaunt, pale look and a death's-head rictus before returning to normal. You plant a kernel of negative energy in a subject. Should the subject die before the spell expires, it rises as a zombie 1 round later (as per the animate dead spell), as long as a sufficient corpse remains. Any undead created in this manner are automatically under your control. At any given time, you can have a number of HD worth of undead animated through seed of undeath equal to your own HD, and they count against the maximum number of HD worth of animate dead ). Material Component: A black onyx gem worth 25 gp per HD of the subject.",
+            "truncated-seed-of-undeath-control-cap",
+            ("rises as a zombie 1 round later", "automatically under your control", "cannot exceed your own hit dice", "normal maximum hit dice", "25 gp per hit die"),
+            (),
+        ),
+    ]
+    for record_id, spell_name, source_line, damaged_text, marker, expected_fragments, expected_table_fragments in repair_batch_cases_7:
+        damaged_html = f"""
+        <h1>{spell_name}</h1><p>{source_line}</p>
+        <div>School</div><div>Transmutation</div><div>Casting Time</div><div>1 swift action</div>
+        <div>Components</div><div>V, S</div><div>Range</div><div>Personal</div>
+        <div>Duration</div><div>1 round/level (D)</div><div>Saving Throw</div><div>None</div>
+        <div>Spell Resistance</div><div>No</div><div>Classes</div><div>Wizard 5</div>
         <h2>Description</h2><p>{damaged_text}</p>
         """
         p=DetailParser();p.feed(damaged_html);p.close()
