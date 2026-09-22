@@ -1349,6 +1349,7 @@ SUSPICIOUS_PATTERNS = (
         r"\bsend(?:s|ing)?\s+them\s+to\s+a\s+random\s+plane\s*\(\s*see\s+sidebar\s*\)",
         re.I,
     )),
+    ("garbled-shadow-landscape-source", re.compile(\n        r"\\btundra\\s*\\(see Cold Dangers and Heat Dangers,\\s*pages\\s*302-303\\s*of\\s*the\\s+Climb check\\b|"\n        r"\\bquicksand\\s*\\(described on page 88 of the\\s+Climb check\\b|"\n        r"\\bavalanche\\s*\\(described on page 90 of the\\s+entangle spell\\b",\n        re.I,\n    )),\n
 
 )
 
@@ -2749,7 +2750,7 @@ def run_self_test() -> None:
     assert "see-below-without-content" in suspicious_reasons({"id":"spells/profane-item-627","effectSource":"The omitted mechanics appear elsewhere (see below).","tables":[]})
     assert "garbled-last-judgment-source" in suspicious_reasons({"effectSource":"This spell affects only humanoids, monstrous humanoids, and resurrection is cast."})
     assert "truncated-nether-trail-source" in suspicious_reasons({"effectSource":"Evil outsider must make its saving throw first."})
-    assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
+    assert "garbled-shadow-landscape-source" in suspicious_reasons({"effectSource":"The tundra is dangerous (see Cold Dangers and Heat Dangers, pages 302-303 of the Climb check to ascend."})\n    assert "garbled-shadow-landscape-source" in suspicious_reasons({"effectSource":"Half the marsh becomes quicksand (described on page 88 of the Climb check to scale."})\n    assert "garbled-shadow-landscape-source" in suspicious_reasons({"effectSource":"Noise can start an avalanche (described on page 90 of the entangle spell had been cast."})\n    assert "garbled-shadow-landscape-source" not in suspicious_reasons({"effectSource":"Half the marsh becomes quicksand (described on page 88 of the Dungeon Master’s Guide). Mountain cliffs require a DC 25 Climb check."})\n    assert "unbalanced-parentheses" in suspicious_reasons({"effectSource": "You take the form of a chimera ( Polymorph Subschool sidebar."})
     assert "teleport greater" in name_aliases("Teleport, Greater")
     assert near_family_key(
         "A " + "word " * 40 + "10 feet"

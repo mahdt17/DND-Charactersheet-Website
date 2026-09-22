@@ -3143,6 +3143,154 @@
           "role": "3.5 SRD combat concealment rules used to verify total concealment and the 50% miss chance"
         }
       ]
+    },
+    "spells/shadow-landscape-717": {
+      "name": "Shadow Landscape",
+      "effectSummary": "Transforms natural terrain throughout a one-mile-radius spread for 1 day per caster level. Desert or tundra shifts 30°F hotter or colder, respectively, and produces hourly sandstorms or snowstorms. In forests, light undergrowth becomes heavy and existing heavy undergrowth grasps creatures as entangling vegetation; in hills, light undergrowth becomes heavy, uphill movement costs 2 squares on gradual slopes or 4 on steep slopes, and cliffs require DC 25 Climb checks. In marshes, half of undergrowth spaces become quicksand. In mountains, cliffs and chasms require DC 25 Climb checks; a failed Climb check or loud noise has a 10% chance to start an avalanche; altitude exposure is treated one category worse. On natural plains, half of undergrowth spaces become entangling vegetation and thunderstorms or tornadoes are frequent. Ordinary constructed dungeons are unaffected, but natural caverns make natural-stone floor squares cost 4 squares of movement and cover 10% of floor space with stalagmites. The spell also worsens random weather: use the normal local weather table, roll twice and take the higher result, or three times on plains; do not roll random weather underground. The caster ignores the spell's terrain-specific hindrances and can designate one traveler per four caster levels to ignore them as well, though designated travelers still suffer the worsened weather. The caster can also designate native animals, plants, or magical beasts totaling up to 1 HD per caster level as shadow guardians. While a guardian stays in the area it is friendly to the caster and designated travelers and gains cold resistance 10, darkvision 60 feet, damage reduction 5/magic, evasion, and low-light vision, using a better preexisting value instead of the spell's value.",
+      "tables": [
+        [
+          [
+            "Terrain",
+            "Shadow Landscape modification"
+          ],
+          [
+            "Desert / tundra",
+            "Temperature shifts +30°F in desert or -30°F in tundra; an hourly sandstorm/snowstorm occurs."
+          ],
+          [
+            "Forest",
+            "Light undergrowth becomes heavy; existing heavy undergrowth entangles passersby on a failed Reflex save against this spell."
+          ],
+          [
+            "Hill",
+            "Light undergrowth becomes heavy; uphill movement costs 2 squares on gradual slopes or 4 on steep slopes; cliffs use DC 25 Climb."
+          ],
+          [
+            "Marsh",
+            "Half of undergrowth spaces become quicksand."
+          ],
+          [
+            "Mountain",
+            "Cliffs/chasms use DC 25 Climb; failed Climb checks or loud noises have a 10% avalanche chance; altitude category worsens by one step."
+          ],
+          [
+            "Plain",
+            "Only natural grassland changes; half of undergrowth spaces entangle passersby; thunderstorms/tornadoes are frequent."
+          ],
+          [
+            "Underground",
+            "Constructed dungeons are unchanged; in natural caverns, natural-stone squares cost 4 squares to enter and stalagmites occupy 10% of floor space."
+          ]
+        ],
+        [
+          [
+            "d%",
+            "Cold climate",
+            "Temperate climate",
+            "Desert"
+          ],
+          [
+            "01–70",
+            "Cold and calm",
+            "Normal for season",
+            "Hot and calm"
+          ],
+          [
+            "71–80",
+            "Heat wave on 01–30; otherwise cold snap",
+            "Heat wave on 01–50; otherwise cold snap",
+            "Hot and windy"
+          ],
+          [
+            "81–90",
+            "Snow precipitation",
+            "Season-appropriate precipitation",
+            "Hot and windy"
+          ],
+          [
+            "91–99",
+            "Snowstorm",
+            "Thunderstorm or snowstorm",
+            "Duststorm"
+          ],
+          [
+            "100",
+            "Blizzard",
+            "Windstorm, blizzard, hurricane, or tornado",
+            "Downpour"
+          ]
+        ],
+        [
+          [
+            "Referenced rule",
+            "Operational 3.5 rule"
+          ],
+          [
+            "Entangled condition",
+            "Half speed; cannot run or charge; -2 on attacks and -4 Dexterity; spellcasting requires Concentration DC 15 + spell level."
+          ],
+          [
+            "Quicksand detection",
+            "At normal pace, DC 8 Survival spots a typical hidden 20-ft patch; running/charging gives no detection chance and carries the creature 1d2×5 ft into it."
+          ],
+          [
+            "Quicksand movement",
+            "Each round DC 10 Swim to stay in place or DC 15 Swim to move 5 ft; fail by 5+ and sink. From below the surface, Swim DC 15 +1 per consecutive submerged round returns to the surface."
+          ],
+          [
+            "Quicksand rescue",
+            "Rescuer uses a reach aid and succeeds on DC 15 Strength; victim succeeds on DC 10 Strength; both successes pull victim 5 ft. If the victim loses grip, DC 15 Swim is required to remain at the surface."
+          ],
+          [
+            "Avalanche bury zone",
+            "8d6 damage, DC 15 Reflex halves; creatures are buried regardless of that save."
+          ],
+          [
+            "Avalanche slide zone",
+            "3d6 damage, DC 15 Reflex negates; a failed save also buries the creature."
+          ],
+          [
+            "Buried by avalanche",
+            "1d6 nonlethal damage each minute; once unconscious, DC 15 Constitution each minute or take 1d6 lethal damage."
+          ],
+          [
+            "Altitude worsening",
+            "Below 5,000 ft is treated as 5,000–15,000 ft; 5,000 ft or higher is treated as above 15,000 ft."
+          ]
+        ]
+      ],
+      "notes": "Source-locked to Complete Divine. The rebuilt primary text loses three spans around the Dungeon Master's Guide cold/heat, quicksand, and avalanche citations. This repair restores only the Complete Divine printing and its delegated 3.5 core mechanics; it does not substitute later Spell Compendium wording.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-landscape-717",
+          "role": "primary rebuilt Complete Divine record and digest source; three internal source spans are concatenated/truncated"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-divine--56/shadow-landscape--717/",
+          "role": "matching Complete Divine rendering used to restore all terrain-specific, weather, traveler, and guardian mechanics"
+        },
+        {
+          "url": "https://anyflip.com/myubd/ahli/basic/151-200",
+          "role": "same-printing Complete Divine page rendering independently cross-checking the restored mountain, plain, underground, weather, traveler, and guardian text"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/weather.htm",
+          "role": "3.5 SRD random-weather table used to make the delegated Table 3-23 mechanic explicit"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/wilderness.htm",
+          "role": "3.5 SRD wilderness rules used to expand avalanche mechanics"
+        },
+        {
+          "url": "https://www.35srd.com/wildernessweatherenvironment/wilderness/",
+          "role": "3.5 SRD quicksand rules cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/conditionSummary.htm",
+          "role": "3.5 SRD entangled-condition rules used to make the terrain effect self-contained"
+        }
+      ]
     }
   }
 }
