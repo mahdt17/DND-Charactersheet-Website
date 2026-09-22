@@ -1,0 +1,614 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record item effect batch 002. Questionable or source-damaged records were deliberately skipped rather than summarized.",
+  "reviewCheckpoint": {
+    "head": "2d013726a130bb373675be7977e54292756f7a85",
+    "run": 35791534258,
+    "artifact": 10722411489,
+    "artifactSha256": "909a9fa5ebf6b871a81d17ecf468ac3ae3389b47af9f5aa6ac17beac132f872a",
+    "remainingBefore": 1153,
+    "errors": []
+  },
+  "entries": {
+    "items/crystal-mask-of-doubt-736": {
+      "name": "Crystal Mask of Doubt",
+      "sourceSha256": "3c9cb27827c83b0ad15c98a23286d3e7a58203a2fad777c9f234713a82dea7f1",
+      "effectSummary": "A creature that enters melee combat with the wearer must make a DC 14 Will save or take a -1 morale penalty from the mask's shifting visage. Each creature makes this save only once per combat.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/crystal-mask-of-doubt-736",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/moon-mote": {
+      "name": "Moon Mote",
+      "sourceSha256": "54498022b8360b8360fc69e2d6302085ff30d97f6692a808ed161b63e9802462",
+      "effectSummary": "Once per day, the bearer can command the mote to create dancing lights under the bearer's control.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/moon-mote",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/tongs-of-the-armorer": {
+      "name": "Tongs of the Armorer",
+      "sourceSha256": "59ececb38d31e36edf97fbaf94b2fcde76407ce9c505cfda22de99b28686ecf8",
+      "effectSummary": "The user gains a +10 competence bonus on Craft (armorsmithing) checks made to create metal armor.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/tongs-of-the-armorer",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/javelin-542": {
+      "name": "Javelin",
+      "sourceSha256": "324fb6b778a18eb9b68fa8564196fa21261a7495cc6c2ac98c39a4ee7f4c0cd1",
+      "effectSummary": "A javelin is designed for throwing. It can be used in melee, but the wielder is treated as nonproficient and takes a -4 penalty on melee attack rolls with it.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/javelin-542",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-displacement-major-284": {
+      "name": "Cloak of Displacement, Major",
+      "sourceSha256": "a3239b48d1ac83b4556301ea4f60370884f6e17a7b8ab11242f2270bcda894f9",
+      "effectSummary": "On command, the cloak produces displacement as the spell for a total of 15 rounds per day; the wearer can divide those rounds among multiple uses.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-displacement-major-284",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gauntlets-ogre-power-140": {
+      "name": "Gauntlets of Ogre Power",
+      "sourceSha256": "f3fcfefb1e24f4ca7a1dc68341454ed22f4633ed89258910571dd3ac001545ec",
+      "effectSummary": "When both gauntlets are worn, they grant a +2 enhancement bonus to Strength.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gauntlets-ogre-power-140",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/drilbu-of-influence-713": {
+      "name": "Drilbu of Influence",
+      "sourceSha256": "836fbc7280db1cbe9f55b3340074e0b3989fda64f41c274aefa81966f84eac2f",
+      "effectSummary": "The drilbu can manifest charm monster for 1 charge, charm person for 1 charge, or mass suggestion for 2 charges. Activation requires a telepath or Charisma 16.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/drilbu-of-influence-713",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ectoplasmic-646": {
+      "name": "Ectoplasmic",
+      "sourceSha256": "c372080bbb215a879a4e923e8fe1f9f965e0d64fd815438b28710ec4587146e9",
+      "effectSummary": "Once per day as a standard action, ectoplasmic armor transforms itself, its wearer, and the wearer's equipment into ectoplasmic form for up to 5 minutes; while transformed, the wearer has damage reduction 10/psionics.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ectoplasmic-646",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/pipes-of-sounding": {
+      "name": "Pipes of Sounding",
+      "sourceSha256": "da7053c7ff390b1e3622462b25042f67323b2f16545309222c600de2386577fa",
+      "effectSummary": "A character with Perform (pan pipes) can play these pipes to create figment sounds equivalent to ghost sound at caster level 2.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/pipes-of-sounding",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/darkwood-buckler-98": {
+      "name": "Darkwood Buckler",
+      "sourceSha256": "88b0a80f3cd0dc922e1ef7053bbe24a62099e0604cbeeb3fa3170284637e4a94",
+      "effectSummary": "This nonmagical darkwood buckler has no enhancement bonus, weighs 2-1/2 pounds, and has no armor check penalty.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/darkwood-buckler-98",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/nunchaku-501": {
+      "name": "Nunchaku",
+      "sourceSha256": "ec0c2071afd07c2da4fb3905a7bed100e89e3dd2ff408079818fb997ba2a8fe7",
+      "effectSummary": "A nunchaku is a special monk weapon. It grants a +2 bonus on opposed attack rolls to disarm an enemy, including the roll to avoid being disarmed after a failed attempt.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/nunchaku-501",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/hand-of-the-mage": {
+      "name": "Hand of the Mage",
+      "sourceSha256": "8ae9f2b01e5a28743942a3b0ef2a5e7712776cc95707dd3ad542796020cce32f",
+      "effectSummary": "The wearer can use mage hand at will.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/hand-of-the-mage",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/darkskull-296": {
+      "name": "Darkskull",
+      "sourceSha256": "9416d6d79f057dc333a9fbdf05d18b625e04c79a6d27c0891950f1cb7a66db39",
+      "effectSummary": "The area around the skull is continually treated as though unhallow had been cast with the skull as the point of origin, but no additional spell effect is tied to it.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/darkskull-296",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/dimensional-shackles-264": {
+      "name": "Dimensional Shackles",
+      "sourceSha256": "949f461aa9e9e50fec53035c17947f1d4a36a1e510f4adf0d049ee0aee099f88",
+      "effectSummary": "A Small to Large creature bound in these shackles is affected by dimensional anchor with no save. Breaking or slipping free of the shackles is DC 30.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dimensional-shackles-264",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-giant-strength": {
+      "name": "Belt of Giant Strength",
+      "sourceSha256": "e0c9cafe548da64858204ce8ba01083ca044326a42c52b75e1682ed2f38c6fe4",
+      "effectSummary": "The belt grants a +4 or +6 enhancement bonus to Strength, depending on the version.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-giant-strength",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/medallion-aerial-defense-200": {
+      "name": "Medallion of Aerial Defense",
+      "sourceSha256": "547f2db8beadd194788879aabe63a0cd229ec14aef5da3e009b67f32a2ebf4cf",
+      "effectSummary": "Grants damage reduction 10/magic against ranged weapons whenever either the wearer or the attacker is airborne.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/medallion-aerial-defense-200",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/celestial-blade-50": {
+      "name": "Celestial Blade",
+      "sourceSha256": "3c10fedd8a3ab3c4a61f808e8d199e10ffd2717fbf3a2071fbd02c0ab766ae8b",
+      "effectSummary": "This Large +3 bastard sword continually sheds light like a torch: bright light in a 20-foot radius and shadowy illumination out to 40 feet.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/celestial-blade-50",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/flesh-ring-of-scorn": {
+      "name": "Flesh Ring of Scorn",
+      "sourceSha256": "3951f5ab09b5f8cfafefb33fb466ba4e0db56475ea6572f5391b75c73804348a",
+      "effectSummary": "When pierced into an evil outsider, the ring causes any critical threat the outsider scores against a non-outsider to become an automatic critical hit.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/flesh-ring-of-scorn",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sphere-of-hovering-767": {
+      "name": "Sphere of Hovering",
+      "sourceSha256": "7591ac81758af9025d4209a06e5f91ee3c1d2bd1d4a9680cc6aca85fe4592c3f",
+      "effectSummary": "Once activated, the sphere orbits the user's head like an ioun stone and creates a hover field as the power for up to 10 hours while it remains in orbit.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sphere-of-hovering-767",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/lantern-of-revealing": {
+      "name": "Lantern of Revealing",
+      "sourceSha256": "cf5cd70a195319a60a37c93babf9ed881e96cfdece9c1638c748b8f5423fe3bd",
+      "effectSummary": "While lit, the lantern reveals invisible creatures and objects within 25 feet as invisibility purge; otherwise it functions as a normal hooded lantern.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/lantern-of-revealing",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ranseur-557": {
+      "name": "Ranseur",
+      "sourceSha256": "d569a54f608107db095b5c964e4576ff034ed63b096eec519eb19a4f142f0281",
+      "effectSummary": "A ranseur has reach, allowing attacks against foes 10 feet away but not adjacent foes. It also grants +2 on opposed attack rolls to disarm, including the roll to avoid being disarmed after a failed attempt.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ranseur-557",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/whip-of-the-devil-sail-785": {
+      "name": "Whip of the Devil Sail",
+      "sourceSha256": "2a0c8254a7035c0178c7aa2f1076a6a1aa4281bfbb97992f61154c193b0cafb2",
+      "effectSummary": "This +2 whip retains the devil sail's paralytic effect: a creature struck must make a DC 16 Fortitude save or take 1d4 temporary Dexterity damage.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/whip-of-the-devil-sail-785",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-of-mental-adversary-720": {
+      "name": "Amulet of Mental Adversary",
+      "sourceSha256": "943068792d82a5f6bf93d9b5bc430d03f08bee949fe5d40683783e5675d0134f",
+      "effectSummary": "Successful psionic attacks by the wearer deal +1 ability damage. This bonus does not stack with the Mental Adversary feat.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-of-mental-adversary-720",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/shadow-puppet-765": {
+      "name": "Shadow Puppet",
+      "sourceSha256": "f58f8474c7abfb1a7f8c7f0d9fa90b5e724f3eb12920e6c60d6a96022579e98b",
+      "effectSummary": "Once activated, the puppet lets its user manipulate a shadow as the control shadow power for 1 minute.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shadow-puppet-765",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/medallion-of-contact": {
+      "name": "Medallion of Contact",
+      "sourceSha256": "3d638c7347b62ef657b736c32cb29b0a0c46625f794e2075b706b706de0ec895",
+      "effectSummary": "Once per day by command word, the wearer forms a telepathic bond with one person for 1 minute as Rary's telepathic bond; the range is 1 mile.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/medallion-of-contact",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cobra-straps-221": {
+      "name": "Cobra Straps",
+      "sourceSha256": "b0f6bd6b37feabca7b7ae8e2316d225cbfe97260e1853961ba51f20c788bcf25",
+      "effectSummary": "After making an unarmed attack at the end of a charge, the wearer can activate the straps to move 5 feet away from the target without provoking attacks of opportunity.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cobra-straps-221",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ring-chameleon-power-63": {
+      "name": "Ring of Chameleon Power",
+      "sourceSha256": "4ac272189da1c3f00c7ecd2c442bded0069cc8e1a998f7bfaf474fb119c52d04",
+      "effectSummary": "As a free action, the wearer can gain a +10 competence bonus on Hide checks by blending into the surroundings. As a standard action, the wearer can use disguise self through the ring at will.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-chameleon-power-63",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/freedom-58": {
+      "name": "Freedom",
+      "sourceSha256": "9305abda06cf680ff93f14600f4afc9995e6e4bfb5b81f66bdd56a0564adbd52",
+      "effectSummary": "While wearing armor with this +5-equivalent property, the wearer moves and attacks normally despite effects that would impede movement, as if under freedom of movement.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/freedom-58",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/merciful-153": {
+      "name": "Merciful",
+      "sourceSha256": "6d7046ca60f20eba43e170cc6fd6f2998c0ef1308cf25970091c120fbd38f022",
+      "effectSummary": "The weapon deals +1d6 damage and converts all damage it deals to nonlethal damage. This property can be suppressed or restored by command; bows, crossbows, and slings pass the effect to their ammunition.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/merciful-153",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/vest-free-movement-209": {
+      "name": "Vest of Free Movement",
+      "sourceSha256": "07e2e454b52baba7de7fce299479f1d7a734fb7d8b5c2bd45b48f545e294e431",
+      "effectSummary": "Three times per day, activating the vest grants freedom of movement as the spell for 3 rounds.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/vest-free-movement-209",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blueshine-20": {
+      "name": "Blueshine",
+      "sourceSha256": "90aa802015693a35771bf14575e3782ef71c993a4c1e797ee8058b424658f04e",
+      "effectSummary": "Armor with this property never tarnishes, is immune to acid damage and rusting effects, and grants its wearer a +2 competence bonus on Hide checks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blueshine-20",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/collar-of-venom": {
+      "name": "Collar of Venom",
+      "sourceSha256": "b3142197dd9e6385574b535312ab5b1abd51dae9207b1c78636ec985614bda7c",
+      "effectSummary": "All of the wearer's natural attacks gain a poison effect: Fortitude DC 14, dealing 1d10 Constitution damage as both initial and secondary damage.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/collar-of-venom",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gloves-of-burrowing": {
+      "name": "Gloves of Burrowing",
+      "sourceSha256": "4d9a3bd2852079521e0f84b7ed969a528e41dfaf1b41e443452bd01bd4db860a",
+      "effectSummary": "By command word, the gloves let the wearer burrow as the burrow spell for up to 10 minutes per day.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gloves-of-burrowing",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/candle-truth-266": {
+      "name": "Candle of Truth",
+      "sourceSha256": "f13a882f747a033655efdd775430d6509396d041565346be6db44811d846494a",
+      "effectSummary": "When burned, the candle creates a 5-foot-radius zone of truth with Will DC 13 centered on itself for up to 1 hour. Snuffing it early ends the effect and ruins the candle.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/candle-truth-266",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/incense-concentration-415": {
+      "name": "Incense of Concentration",
+      "sourceSha256": "7cccf9916b425f9df2f0e0e1c72550c79d531be02e2132b6ca583d65f174b3ee",
+      "effectSummary": "If burned while preparing spells, the incense lets the user prepare one additional 1st-level spell for that day. A creature can benefit only once in any 24-hour period.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/incense-concentration-415",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-etherealness-286": {
+      "name": "Cloak of Etherealness",
+      "sourceSha256": "54d0df44b7c30b0e79bccb3a3a5b9c315da43a75f927de073465860f9adcb07a",
+      "effectSummary": "On command, the wearer becomes ethereal as ethereal jaunt. The effect is dismissible and can be used for a total of up to 10 minutes per day, divided among multiple uses.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-etherealness-286",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/guisarme-554": {
+      "name": "Guisarme",
+      "sourceSha256": "d628f8a3f686bde542d09b10d77afe7ac89ae75502063ecd5401094d791cd4a0",
+      "effectSummary": "A guisarme has reach, attacking foes 10 feet away but not adjacent foes. It can make trip attacks, and the wielder can drop it to avoid being tripped after a failed trip attempt.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/guisarme-554",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/speed-160": {
+      "name": "Speed",
+      "sourceSha256": "e76c574cb969a8904f0485cad9ab1ae7d301d9aa34812b94dd2bad91786458d6",
+      "effectSummary": "During a full attack, a speed weapon grants one additional attack with that weapon at the wielder's full base attack bonus and applicable modifiers. This benefit does not stack with similar extra-attack effects such as haste.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/speed-160",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/talon-rings-770": {
+      "name": "Talon Rings",
+      "sourceSha256": "bf715abd802694e3171fcc89dabc7e0a23ab081e13832785014badc58fe4e941",
+      "effectSummary": "When activated, the eight rings grant the effects of the talon power for up to 10 minutes. Four must be worn on each hand, and all eight count together as one magic ring.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/talon-rings-770",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/wounding-165": {
+      "name": "Wounding",
+      "sourceSha256": "2f62d0e04cafde53ca23333a2178fec42e9aaf6699f782f8a615c4332e1b530a",
+      "effectSummary": "Each hit deals 1 point of Constitution damage from blood loss. Critical hits do not multiply this Constitution damage, and creatures immune to critical hits are immune to it.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/wounding-165",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/vassal-armor-35": {
+      "name": "Vassal Armor",
+      "sourceSha256": "8d12f3f5ca2cb85ff9afe4b3ada700f37e9377d00b610a31abdcf8b9623b99fa",
+      "effectSummary": "This +3 exalted half-plate is reinforced with Ysgardian heartwire, granting the wearer +2 AC solely for rolls made to confirm critical hits against the wearer.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/vassal-armor-35",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-of-charisma": {
+      "name": "Cloak of Charisma",
+      "sourceSha256": "4a2eaa4d1ab95559c8f8131902c4947aff6932df54c88deb684081c0e469b957",
+      "effectSummary": "The cloak grants a +2, +4, or +6 enhancement bonus to Charisma, depending on the version.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-of-charisma",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/flail-485": {
+      "name": "Flail",
+      "sourceSha256": "a8e1d55657a95dc0d79e08874cafa273486f9f19f38725cc832083defa9ccf67",
+      "effectSummary": "A flail grants +2 on opposed attack rolls to disarm, including the roll to avoid being disarmed after a failed attempt. It can also make trip attacks, and can be dropped to avoid being tripped during a failed trip attempt.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/flail-485",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/flail-heavy-480": {
+      "name": "Flail, heavy",
+      "sourceSha256": "a8e1d55657a95dc0d79e08874cafa273486f9f19f38725cc832083defa9ccf67",
+      "effectSummary": "A heavy flail grants +2 on opposed attack rolls to disarm, including the roll to avoid being disarmed after a failed attempt. It can also make trip attacks, and can be dropped to avoid being tripped during a failed trip attempt.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/flail-heavy-480",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/robe-of-gentle-repose": {
+      "name": "Robe of Gentle Repose",
+      "sourceSha256": "703c8d01f1a66a9d5b1ad94ef55cc791dbd0b075a604f57c70d924e06625c3cd",
+      "effectSummary": "The wearer is continuously affected by gentle repose, preventing decay of the wearer's corporeal form.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/robe-of-gentle-repose",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/banner-of-the-unliving": {
+      "name": "Banner of the Unliving",
+      "sourceSha256": "a24ba6800e28ab25b081a30a2e7f5546ee47292bc3c8a4e8c184c5f92f678c1b",
+      "effectSummary": "Undead allies within 30 feet gain +2 turn resistance; this stacks with any turn resistance they already possess.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/banner-of-the-unliving",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/buoyant-23": {
+      "name": "Buoyant",
+      "sourceSha256": "f686493ebad5b531bdd042230885dcaa1f04e65fc65bdcdbdedc71f2780cd3d4",
+      "effectSummary": "Armor with this property is buoyant in water or similar liquids, applies no armor check penalty to Swim checks, and grants a +2 competence bonus on Swim checks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/buoyant-23",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/crystal-mask-of-the-merfolk-781": {
+      "name": "Crystal Mask of the Merfolk",
+      "sourceSha256": "1d2a8858dcfc25ad0452e38505e2e3cad9676185df3310ce1a00c7f7b8d4e69e",
+      "effectSummary": "The wearer can breathe underwater, can see 8d8×10 feet in clear water or 2d8×10 feet in murky water regardless of lighting, and gains +5 competence on sea-related Knowledge (nature) and Knowledge (geography) checks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/crystal-mask-of-the-merfolk-781",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gwaerons-belt": {
+      "name": "Gwaeron's Belt",
+      "sourceSha256": "362fba66ffbd4ad8833b3f4ee2b169f7490a2f506e8d095136c5c3f5563fecb7",
+      "effectSummary": "Once per day the wearer can use wind walk; separately, once per day the wearer can command a melee weapon to become a +1 flaming weapon for 12 rounds.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gwaerons-belt",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/necklace-of-adaptation": {
+      "name": "Necklace of Adaptation",
+      "sourceSha256": "2815085f61bb217dd85cfefc0a1fa9763b06174d5d50e9e1018378c7398cf605",
+      "effectSummary": "The wearer is surrounded by fresh air, becoming immune to gases and able to breathe even underwater or in a vacuum.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 001 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/necklace-of-adaptation",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    }
+  }
+}
