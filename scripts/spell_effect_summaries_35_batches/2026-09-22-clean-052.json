@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5 spell summary resolving a repair-lane punctuation/header false positive; clean batch 052.",
+  "entries": {
+    "spells/water-to-acid-3371": {
+      "name": "Water to Acid",
+      "sourceSha256": "dfcc4aa96aaa88fa3fb5db0ead71c5ef37ed81d3173ea00a211044d48ed1c7b6",
+      "effectSummary": "Transforms up to 1 cubic foot of water per caster level into an equal volume of acid. It cannot transform water inside a creature and cannot affect water containing more than a trace of dissolved or suspended substances. Acid bottled as a splash weapon deals 1d6 damage on a direct hit and 1 splash damage; ongoing contact deals 1d6 acid damage each round. Underwater, the created acid dissipates after 1 round per caster level. It dissolves metallic objects for 1d6 damage per round while ignoring hardness; a magic item makes a Fortitude save each round for half damage. The material component is a few drops of vinegar.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/water-to-acid-3371",
+          "role": "primary Stormwrack record reviewed; malformed header/citation punctuation does not omit a gameplay mechanic"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/stormwrack--87/water-to-acid--3371/",
+          "role": "matching Stormwrack rendering used to verify the complete acid/contact/object rules"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsstorm.html",
+          "role": "independent Stormwrack SRD rendering corroborates the complete mechanics and vinegar component"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "1cc11d01518d2805082054ac90dd4de1ae6c7f23",
+    "workflowRun": 35674331549,
+    "validationRun": 35674335720,
+    "classificationArtifact": 10672009149,
+    "classificationArtifactSha256": "b52853235d1a1d71da642177a8f4f5a85dc53af402f4c5d6af2b96877cfdee2e",
+    "repairQueueCountBefore": 21
+  }
+}

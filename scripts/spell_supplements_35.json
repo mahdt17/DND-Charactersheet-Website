@@ -2512,6 +2512,286 @@
           "role": "independent Complete Warrior SRD rendering used as a mechanics cross-check"
         }
       ]
+    },
+    "spells/node-genesis-269": {
+      "name": "Node Genesis",
+      "effectSummary": "Creates a Class 1 node of a type you choose, centered on the ground you touch, with a 10-foot radius. Its boundary can cross terrain, materials, or empty space and need not be spherical. It remains Class 1 for one year, then grows 20 feet in diameter per year until reaching 20 feet per caster level you had when casting. Its class rises when its diameter reaches the low end of the next class range: Class 2 begins at 40 feet, Class 3 at 120 feet, Class 4 at 240 feet, Class 5 at 400 feet, and Class 6+ at 600 feet. The node is automatically node locked by you and otherwise behaves like a natural node. Casting costs 5,000 XP and requires the Node Spellcasting feat.",
+      "tables": [
+        [
+          [
+            "Node Class",
+            "Node DC",
+            "Layer Width",
+            "Node Diameter"
+          ],
+          [
+            "1",
+            "10",
+            "5 to 30 feet",
+            "10 to 60 feet"
+          ],
+          [
+            "2",
+            "15",
+            "10 to 40 feet",
+            "40 to 160 feet"
+          ],
+          [
+            "3",
+            "20",
+            "20 to 80 feet",
+            "120 to 480 feet"
+          ],
+          [
+            "4",
+            "25",
+            "30 to 120 feet",
+            "240 to 960 feet"
+          ],
+          [
+            "5",
+            "30",
+            "40 to 160 feet",
+            "400 to 1,600 feet"
+          ],
+          [
+            "6+",
+            "35+",
+            "50 to 200 feet",
+            "600 to 2,400 feet"
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/node-genesis-269",
+          "role": "primary Champions of Ruin spell record; node growth depends on external Table 5-1"
+        },
+        {
+          "url": "https://www.dndtools.org/spells/champions-of-ruin--27/node-genesis--269/",
+          "role": "matching Champions of Ruin rendering used to verify the spell body and class-growth thresholds"
+        },
+        {
+          "url": "https://www.scribd.com/document/555205907/D-D-3-5-Champions-of-Ruin",
+          "role": "Champions of Ruin Table 5-1 rendering used to restore node DC, layer width, and diameter ranges"
+        }
+      ]
+    },
+    "spells/hardening-1763": {
+      "name": "Hardening",
+      "effectSummary": "Permanently increases a material's hardness by 1 for every two caster levels. The increase affects only resistance to damage: it does not change hit points, attack or damage modifiers, burning, melting, or susceptibility to transformations such as transmute rock to mud. The spell affects up to 10 cubic feet per caster level, reduced to 1 cubic foot per caster level for metal or mineral. The referenced Player's Handbook substance table is restored below so the base hardness values used by this spell are explicit.",
+      "tables": [
+        [
+          [
+            "Substance",
+            "Hardness",
+            "Hit Points"
+          ],
+          [
+            "Paper",
+            "0",
+            "2/inch of thickness"
+          ],
+          [
+            "Rope",
+            "0",
+            "2/inch of thickness"
+          ],
+          [
+            "Glass",
+            "1",
+            "1/inch of thickness"
+          ],
+          [
+            "Ice",
+            "0",
+            "3/inch of thickness"
+          ],
+          [
+            "Wood",
+            "5",
+            "10/inch of thickness"
+          ],
+          [
+            "Stone",
+            "8",
+            "15/inch of thickness"
+          ],
+          [
+            "Iron",
+            "10",
+            "30/inch of thickness"
+          ],
+          [
+            "Mithral",
+            "15",
+            "30/inch of thickness"
+          ],
+          [
+            "Adamantite",
+            "20",
+            "40/inch of thickness"
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hardening-1763",
+          "role": "primary Magic of Faerûn record; mechanics depend on Player's Handbook Table 8-12"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/51-100",
+          "role": "Magic of Faerûn sourcebook rendering used to verify the matching hardening text"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/Dungeons%20%26%20Dragons%20RPG/d20%20-%20D%26D%203e%20-%20Players%20Handbook%20-%20Core%20Rulebook%20I.pdf",
+          "role": "3.0 Player's Handbook Table 8-12 used to restore the exact base hardness/hit-point values"
+        }
+      ]
+    },
+    "spells/hardening-5009": {
+      "name": "Hardening",
+      "effectSummary": "Instantaneously increases a material's hardness by 1 for every two caster levels. The increase affects only resistance to damage and does not change the object's hit points, attack or damage modifiers, or susceptibility to burning, melting, or magical transformation. The spell affects up to 10 cubic feet per caster level, reduced to 1 cubic foot per caster level for metal or mineral. Its material component is diamond dust worth at least 100 gp per cubic foot of the item being hardened. The referenced Player's Handbook substance table is restored below.",
+      "tables": [
+        [
+          [
+            "Substance",
+            "Hardness",
+            "Hit Points"
+          ],
+          [
+            "Paper",
+            "0",
+            "2/inch of thickness"
+          ],
+          [
+            "Rope",
+            "0",
+            "2/inch of thickness"
+          ],
+          [
+            "Glass",
+            "1",
+            "1/inch of thickness"
+          ],
+          [
+            "Ice",
+            "0",
+            "3/inch of thickness"
+          ],
+          [
+            "Wood",
+            "5",
+            "10/inch of thickness"
+          ],
+          [
+            "Stone",
+            "8",
+            "15/inch of thickness"
+          ],
+          [
+            "Iron",
+            "10",
+            "30/inch of thickness"
+          ],
+          [
+            "Mithral",
+            "15",
+            "30/inch of thickness"
+          ],
+          [
+            "Adamantite",
+            "20",
+            "40/inch of thickness"
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hardening-5009",
+          "role": "primary Dragonlance Campaign Setting record; mechanics depend on Player's Handbook Table 8-12"
+        },
+        {
+          "url": "https://pdfcoffee.com/dragonlance-campaign-setting-6-pdf-free.html",
+          "role": "matching Dragonlance Campaign Setting text used to verify the instantaneous duration and 100 gp/cubic-foot diamond-dust component"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/Dungeons%20%26%20Dragons%20RPG/d20%20-%20D%26D%203e%20-%20Players%20Handbook%20-%20Core%20Rulebook%20I.pdf",
+          "role": "3.0 Player's Handbook Table 8-12 used to restore the exact base hardness/hit-point values"
+        }
+      ]
+    },
+    "spells/hardening-992": {
+      "name": "Hardening",
+      "effectSummary": "Permanently increases a material's hardness by 1 for every two caster levels. The increase improves only resistance to damage; it does not alter hit points, attack or damage modifiers, burning, melting, or other transformations. The spell affects up to 10 cubic feet per caster level, reduced to 1 cubic foot per caster level for metal or mineral. The referenced Player's Handbook substance table is restored below so the base hardness values are explicit.",
+      "tables": [
+        [
+          [
+            "Substance",
+            "Hardness",
+            "Hit Points"
+          ],
+          [
+            "Paper",
+            "0",
+            "2/inch of thickness"
+          ],
+          [
+            "Rope",
+            "0",
+            "2/inch of thickness"
+          ],
+          [
+            "Glass",
+            "1",
+            "1/inch of thickness"
+          ],
+          [
+            "Ice",
+            "0",
+            "3/inch of thickness"
+          ],
+          [
+            "Wood",
+            "5",
+            "10/inch of thickness"
+          ],
+          [
+            "Stone",
+            "8",
+            "15/inch of thickness"
+          ],
+          [
+            "Iron",
+            "10",
+            "30/inch of thickness"
+          ],
+          [
+            "Mithral",
+            "15",
+            "30/inch of thickness"
+          ],
+          [
+            "Adamantite",
+            "20",
+            "40/inch of thickness"
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hardening-992",
+          "role": "primary Deities and Demigods record; mechanics depend on Player's Handbook Table 8-12"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/deities-and-demigods--39/hardening--992/index.html",
+          "role": "matching Deities and Demigods rendering used to verify the spell body"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/Dungeons%20%26%20Dragons%20RPG/d20%20-%20D%26D%203e%20-%20Players%20Handbook%20-%20Core%20Rulebook%20I.pdf",
+          "role": "3.0 Player's Handbook Table 8-12 used to restore the exact base hardness/hit-point values"
+        }
+      ]
     }
   }
 }
