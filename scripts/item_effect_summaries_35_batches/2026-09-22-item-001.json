@@ -1,0 +1,613 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record first batch from the initial D&D 3.5 item long-effect review queue. Only concise, mechanically explicit records were selected; every summary is locked to the exact exported source digest.",
+  "reviewCheckpoint": {
+    "head": "c99234d0fa5a81ec449a56d119bbad4da5f56dee",
+    "run": 35790497136,
+    "artifact": 10721757458,
+    "artifactSha256": "5012349d7c9b335ffcc5be29457cafb6c74c944ab00e4b135a98d153196d01ae",
+    "initialQueue": 1203
+  },
+  "entries": {
+    "items/crystal-ball-300": {
+      "name": "Crystal Ball",
+      "sourceSha256": "88156fb3ef8ce1691db0d6c981c945fa7fb0b689db7c5b41c8e688874e789788",
+      "effectSummary": "Allows scrying over virtually any distance or into other planes as the scrying spell; the observed subject can negate the effect with a DC 16 Will save.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/crystal-ball-300",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/phylactery-of-undead-turning": {
+      "name": "Phylactery of Undead Turning",
+      "sourceSha256": "d6b99a11e735a03b724f27a6d4b09d9390b998f8a4dbd60855342e93cfa246ea",
+      "effectSummary": "When the wearer turns undead, treat the wearer's class level as 4 levels higher for that turning attempt.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/phylactery-of-undead-turning",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/shirt-of-demonskin": {
+      "name": "Shirt of Demonskin",
+      "sourceSha256": "fafb0614d589efa3a8dbbc4b9482ce9fa73dbdb7767abb98f6df9c76b4cc4364",
+      "effectSummary": "Grants the wearer damage reduction 5/good.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shirt-of-demonskin",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/twilight-41": {
+      "name": "Twilight",
+      "sourceSha256": "88147fe4657123b990a38087ae97cefea5e9058a6a8bcb9ad3d40f4d53802e31",
+      "effectSummary": "This +1-equivalent armor property reduces the wearer's arcane spell failure chance by 10 percentage points.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/twilight-41",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/devilhusk-34": {
+      "name": "Devilhusk",
+      "sourceSha256": "81e83332cd33ed191792d892b926e3ba2b5891304a4a112d979b54366a0450db",
+      "effectSummary": "This +5 hide armor is covered in barbs; on a successful grapple check against a grabbed opponent, the wearer can deal 3d8 damage plus 1-1/2 times the wearer's Strength modifier.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/devilhusk-34",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/enfeebling-44": {
+      "name": "Enfeebling",
+      "sourceSha256": "9429d3dfb8dd638685c7a95d0d39f9051e1035fb31c00bc1c3602c201b8c3fc5",
+      "effectSummary": "On a critical hit, the weapon deals an additional 1d6+2 temporary Strength damage; spell resistance applies. Bows, crossbows, and slings transfer this property to their ammunition.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/enfeebling-44",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/goggles-of-lifesight": {
+      "name": "Goggles of Lifesight",
+      "sourceSha256": "e6c03b3cc9dbc3b8c826ccf36c56ca5dfd4c8fb70f1b68dc86d383bf4d56e3fd",
+      "effectSummary": "The wearer automatically knows whether each visible creature within 30 feet is alive, dead, undead, or neither alive nor dead, such as a construct.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/goggles-of-lifesight",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/ring-mind-shielding-83": {
+      "name": "Ring of Mind Shielding",
+      "sourceSha256": "4d0eb4e87541d7e0ed8912a9f1bfab19717cc63549b764f74ca09441b5687d08",
+      "effectSummary": "The wearer is continuously immune to detect thoughts, discern lies, and magical attempts to determine alignment.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-mind-shielding-83",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/antimagic-torc": {
+      "name": "Antimagic Torc",
+      "sourceSha256": "7864263550d1153d378f5ea0c098c164136fe371689692673794e0610e20ed03",
+      "effectSummary": "Once per day, speaking the command word creates an antimagic field centered on the wearer, as the spell.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/antimagic-torc",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/boots-winged-241": {
+      "name": "Boots, Winged",
+      "sourceSha256": "8a114a4eb7dedb56545ab3b44b57bb69f37469ea590a9ba684c7037fd538e7a2",
+      "effectSummary": "On command, the wearer can fly as if affected by fly without maintaining concentration. The boots can be used three times per day for up to 5 minutes per flight.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-winged-241",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/bracers-armor-1-247": {
+      "name": "Bracers of Armor +1",
+      "sourceSha256": "446be151e8450f8ebd7cdd105fe2be5ad730d0b468e4ee3f1f0400e71151b1b9",
+      "effectSummary": "When both bracers are worn, they grant a +1 armor bonus through an invisible force field.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-armor-1-247",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/bracers-armor-2-248": {
+      "name": "Bracers of Armor +2",
+      "sourceSha256": "7704ee1e6dadf60845767ef414a244dfdf76e3b9f19caf9977cbf37b55d4135c",
+      "effectSummary": "When both bracers are worn, they grant a +2 armor bonus through an invisible force field.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-armor-2-248",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/bracers-armor-3-249": {
+      "name": "Bracers of Armor +3",
+      "sourceSha256": "8a729011326e38c9484a86908555d81d9f9431eacc857cb2a119d165f7d71b70",
+      "effectSummary": "When both bracers are worn, they grant a +3 armor bonus through an invisible force field.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-armor-3-249",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/bracers-armor-4-250": {
+      "name": "Bracers of Armor +4",
+      "sourceSha256": "3594b3bb482c9578f2bad218a27fd2e72c4c1d0e8123d7fa6ee050202c0fa7d9",
+      "effectSummary": "When both bracers are worn, they grant a +4 armor bonus through an invisible force field.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-armor-4-250",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/bracers-armor-5-251": {
+      "name": "Bracers of Armor +5",
+      "sourceSha256": "9b9311d9feb88540db2fcbfb3bfe78833f5e92ee3dc9ef8761a875451ef616b8",
+      "effectSummary": "When both bracers are worn, they grant a +5 armor bonus through an invisible force field.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-armor-5-251",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/bracers-armor-6-252": {
+      "name": "Bracers of Armor +6",
+      "sourceSha256": "11169829fae75ce5ad020d527af806243256a4d5cd2601ca36be51bcf4bdd072",
+      "effectSummary": "When both bracers are worn, they grant a +6 armor bonus through an invisible force field.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-armor-6-252",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/bracers-armor-7-253": {
+      "name": "Bracers of Armor +7",
+      "sourceSha256": "2f4b8674929d5b34eaf7d4b0fc80d320f0a8efa168aae34c4af5b111e0cede93",
+      "effectSummary": "When both bracers are worn, they grant a +7 armor bonus through an invisible force field.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-armor-7-253",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/bracers-armor-8-254": {
+      "name": "Bracers of Armor +8",
+      "sourceSha256": "39d484481fcc5e802defb2430face23b86466f64d93965572dbf66e4ebca0c02",
+      "effectSummary": "When both bracers are worn, they grant a +8 armor bonus through an invisible force field.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-armor-8-254",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/field-provisions-box-400": {
+      "name": "Field Provisions Box",
+      "sourceSha256": "bec63020fa395293da46701cdf7d5ae3452d4d391508614823eb491bd8bbc19f",
+      "effectSummary": "Once per day when activated, the box produces a full day's food and water for up to 15 humans or 5 horses.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/field-provisions-box-400",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/stone-of-good-luck": {
+      "name": "Stone of Good Luck (Luckstone)",
+      "sourceSha256": "01ccfd8b4be965008d85e9f6ea48885c2fd90c6108b64964e7a794fe73fd67a0",
+      "effectSummary": "The possessor gains a +1 luck bonus on saving throws, ability checks, and skill checks.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/stone-of-good-luck",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/antimagic-shackles-428": {
+      "name": "Antimagic Shackles",
+      "sourceSha256": "a8d074bdccb8947ea602a0bd96c7ccb7e6469c78c489b50a415155d57dbeebfd",
+      "effectSummary": "These manacles fit Small through Large creatures and create a 5-foot-radius antimagic field when fastened. Slipping free is DC 28, and breaking them requires a DC 40 Strength check.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/antimagic-shackles-428",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/salve-of-minor-spell-resistance": {
+      "name": "Salve of Minor Spell Resistance",
+      "sourceSha256": "139a7a8011a260f3e8d0d055d8745673c54b3010c053212c6419fac7ce7d1f80",
+      "effectSummary": "Applying the salve to the skin takes a full-round action and grants spell resistance 17 for 5 minutes.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/salve-of-minor-spell-resistance",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/coin-of-decision-749": {
+      "name": "Coin of Decision",
+      "sourceSha256": "bf68d566847ab8b362fbb07ad90dcd4a49203e2b8502da68833e475b2f13d94f",
+      "effectSummary": "Each activation lets the user flip the coin to gain the effects of the inkling power. Every use requires a separate activation and counts against the user's daily limit of inkling uses.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/coin-of-decision-749",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/agility-6": {
+      "name": "Agility",
+      "sourceSha256": "84918d528e9dfde87f8224ebf76bb2df4ae5748b05e3d0347b34f4583267874f",
+      "effectSummary": "While wearing armor with this property, the wearer gains a +1 resistance bonus on Reflex saves.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/agility-6",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/longspear-528": {
+      "name": "Longspear",
+      "sourceSha256": "c17f1c58dff6d06f41859d26c58f633cc95fd2c063e0322dfad077b0fe7e4701",
+      "effectSummary": "A longspear has reach: it can attack opponents 10 feet away but not adjacent foes. If readied against a charge, a successful hit deals double damage to the charging creature.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/longspear-528",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/net-snaring-95": {
+      "name": "Net of Snaring",
+      "sourceSha256": "8f9f3df329fbc19a53f4c67f9ef79e074add07ef1730ad66b5859cb5ec35a32f",
+      "effectSummary": "The net functions only underwater, where it grants a +3 bonus on attack rolls and can be commanded to shoot up to 30 feet to trap a creature.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/net-snaring-95",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/scourge-580": {
+      "name": "Scourge",
+      "sourceSha256": "c5b2bd7918591b8467cd40e91b54362c1af2f242ae40e406435865976ddb8c71",
+      "effectSummary": "When using the scourge to disarm, gain a +2 bonus on the opposed attack roll, including the roll to avoid being disarmed if the attempt fails.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/scourge-580",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/cloak-displacement-minor-283": {
+      "name": "Cloak of Displacement, Minor",
+      "sourceSha256": "5151efd6699478bfbc2d1f64ae430a8927c94b485367d79eba43135ace853f46",
+      "effectSummary": "The cloak functions continuously, distorting the wearer's position like displacement but providing a 20% miss chance against attacks.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-displacement-minor-283",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/kama-562": {
+      "name": "Kama",
+      "sourceSha256": "acc450ab2aefd5d6892dfd4060b0f7daff4daa380d59466caf37eeac2867b328",
+      "effectSummary": "A kama is a special monk weapon and can be used to make trip attacks. If the wielder is tripped during their own trip attempt, they can drop the kama to avoid being tripped.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/kama-562",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/lucky-669": {
+      "name": "Lucky",
+      "sourceSha256": "1f0493e42f4249eb5816d40694979e560ed5ac2720399d9988c48abfe931c681",
+      "effectSummary": "Once per day as a free action, the wielder can reroll a failed attack roll using the same bonuses and penalties as the original roll.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/lucky-669",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/banner-of-law": {
+      "name": "Banner of Law",
+      "sourceSha256": "8ef32285c9716d246a8aec3556b89ba566a6389867e0872a1bfe8f873869ab84",
+      "effectSummary": "Nonchaotic allies within 30 feet of this banner are protected as by protection from chaos. Parallel banner variants can instead protect against law, evil, or good.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/banner-of-law",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/blurring-21": {
+      "name": "Blurring",
+      "sourceSha256": "3233f2bcb515804ffc1ff1d164fb9fcc13756b9baa116c7434077331588618f5",
+      "effectSummary": "Activating this armor gives the wearer a blur-like distorted appearance for 5 rounds. The property can be used three times per day.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blurring-21",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/boots-of-the-sea": {
+      "name": "Boots of the Sea",
+      "sourceSha256": "bc2dd4981789e2fde29445dc4cfc343aa29d5365004a4e8ef6a64942e64a6d01",
+      "effectSummary": "The wearer can water walk and use water breathing on themself at will, and gains a +10 competence bonus on Swim checks.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-of-the-sea",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/vambraces-evils-warding-436": {
+      "name": "Vambraces of Evil's Warding",
+      "sourceSha256": "9bee44ceee8a8c2ce33adcdaeea3a3324f84eabaa6b6341bc8ad3e69364b9f62",
+      "effectSummary": "Ranged attacks made by evil creatures against the wearer take a -4 penalty. An evil creature wearing the vambraces takes 2d6 damage each round.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/vambraces-evils-warding-436",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/dragons-eye-amulet": {
+      "name": "Dragon's Eye Amulet",
+      "sourceSha256": "e6139098cc81393358179a33d2a97fb961a87196a0aa6a60c7b4343880775163",
+      "effectSummary": "The wearer gains a +10 enhancement bonus on Search and Spot checks and blindsense out to 30 feet.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dragons-eye-amulet",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/elixir-of-the-dark-speech": {
+      "name": "Elixir of the Dark Speech",
+      "sourceSha256": "71e87e90be7d3fae29e955c2140f8ecb1a7a48ebb53be2d64669cce9ee96a7b9",
+      "effectSummary": "For 10 minutes, the imbiber can speak and understand the Dark Speech as if possessing the feat. Using the elixir deals 1 point of Strength damage.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/elixir-of-the-dark-speech",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/lens-desert-418": {
+      "name": "Lens of the Desert",
+      "sourceSha256": "cd817276af75fded56e7edd3fe77e33fc5f2efc0f3b7829b9451adc10eb59789",
+      "effectSummary": "Three times per day, activation creates a focused beam of sunlight equivalent to a sunbeam spell.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/lens-desert-418",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/disruption-144": {
+      "name": "Disruption",
+      "sourceSha256": "12dd807a7cb01bdf7d4d6b81789634c52183374ab959eb73fdf56f8ba86643c8",
+      "effectSummary": "This property can be placed only on bludgeoning weapons. An undead creature struck must succeed on a DC 14 Will save or be destroyed.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/disruption-144",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/sphere-of-direction-766": {
+      "name": "Sphere of Direction",
+      "sourceSha256": "3fa094c80a5479248cc896c69af046c844ab3cb89da6b3d8687b89452107543e",
+      "effectSummary": "Once activated, anyone holding the sphere gains the effects of the know direction power.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sphere-of-direction-766",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/boots-of-landing-816": {
+      "name": "Boots of Landing",
+      "sourceSha256": "fe61473530792708865a6603bf7171ecc255acecbbdd29fcdee3fe182af0bbb2",
+      "effectSummary": "The wearer lands on their feet regardless of falling distance. Once per day, the boots also reduce falling damage by 2 dice, so a fall of 20 feet or less deals no falling damage.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-of-landing-816",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/claw-bracer-586": {
+      "name": "Claw Bracer",
+      "sourceSha256": "01f8764a554a6ce5db0897ceceb6f6fa7bf67da0c7ceb266649f7d51251cd17b",
+      "effectSummary": "This wrist-mounted claw weapon does not prevent normal spellcasting and cannot be disarmed; it can also be enhanced as a magic weapon.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/claw-bracer-586",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/veil-of-allure": {
+      "name": "Veil of Allure",
+      "sourceSha256": "4495907518fd76b3b83535abce7d24392def0d83f710b65339abbe44a8359681",
+      "effectSummary": "The wearer increases by 2 the save DC of their enchantment spells and of their Charisma-based supernatural abilities.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/veil-of-allure",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/bullet-sling-540": {
+      "name": "Bullet, sling",
+      "sourceSha256": "fc8f489164545b89a3e1197ecc5af53a20278330317befc419503268cbe1d734",
+      "effectSummary": "The listed item statistics are for 100 lead sling bullets, while a leather pouch holds 10. A bullet that hits is destroyed; a missed bullet has a 50% chance to be destroyed or lost.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bullet-sling-540",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/chime-interruption-273": {
+      "name": "Chime of Interruption",
+      "sourceSha256": "c5d68ff2a936178cf96ae6cc76f28eecef5064f7a9d373ae457cd93b730cecbd",
+      "effectSummary": "The chime can be struck once every 10 minutes and resonates for 3 minutes. Within 30 feet, casting a spell with a verbal component requires a Concentration check with DC 15 + the spell's level.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/chime-interruption-273",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/horseshoes-of-speed": {
+      "name": "Horseshoes of Speed",
+      "sourceSha256": "c3e133ca2fa1d67acd1b307aa00fcb960021e7878c129a5ad164c61b5080e03b",
+      "effectSummary": "When all four horseshoes are worn by the same horse, they double that animal's speed.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/horseshoes-of-speed",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/shirt-of-the-inevitable": {
+      "name": "Shirt of the Inevitable",
+      "sourceSha256": "d9405e90f3e0b1fe1f5a2b7f20d1cf6cd304afbae522ce907377da441ff09512",
+      "effectSummary": "Grants the wearer damage reduction 5/chaos.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shirt-of-the-inevitable",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/pendant-of-invisibility": {
+      "name": "Pendant of Invisibility",
+      "sourceSha256": "6f43ab113d50d62623bd183ae45f880257b2a3eaa3e3d7ebc173c27e341a6738",
+      "effectSummary": "Up to three times per day, the wearer can activate the pendant to become invisible as the invisibility spell.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/pendant-of-invisibility",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/ring-affliction-423": {
+      "name": "Ring of Affliction",
+      "sourceSha256": "2169866ce20f969e30dd4d8b87f4482a42443789fcec5a83132f5c4214e58bfa",
+      "effectSummary": "Each natural or unarmed attack made by the wearer forces the target to make a DC 17 Fortitude save or suffer an affliction chosen by the wearer, using the affliction spell's effects.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-affliction-423",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/vicious-164": {
+      "name": "Vicious",
+      "sourceSha256": "df91b00170f328f059a4205194748636e1eb88405b9bc99aeae7d5c5690e4c2d",
+      "effectSummary": "When this melee weapon hits, it deals an extra 2d6 damage to the target and 1d6 damage to the wielder. Only melee weapons can have this property.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/vicious-164",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    },
+    "items/dracolich-brew": {
+      "name": "Dracolich Brew",
+      "sourceSha256": "8c06ce1525d31242564b4528ab519d3a91276ff503c036a606f3f39eb6fadf22",
+      "effectSummary": "This ingested poison has Fortitude DC 25 and deals 2d6 Constitution damage as both initial and secondary damage. A dose prepared for a specific dragon automatically kills that dragon with no save.",
+      "notes": "Manually reviewed against item-effect-review #1 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dracolich-brew",
+          "role": "primary new.dndtools.org item record exported by item-effect-review #1"
+        }
+      ]
+    }
+  }
+}

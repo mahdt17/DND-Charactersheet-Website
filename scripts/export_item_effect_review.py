@@ -24,6 +24,8 @@ def main():
         try:
             parser,details=d35.extract_entry_details(row,"items",args.delay)
             effect_source=d35.item_effect_text(parser,row.get("name",""))
+            if details.get("itemEffectReviewMismatch"):
+                raise ValueError("reviewed item effect digest mismatch")
             needs_summary=bool(details.get("effectNeedsSummary") and not details.get("effectSummary"))
             if needs_summary:
                 entries.append({
