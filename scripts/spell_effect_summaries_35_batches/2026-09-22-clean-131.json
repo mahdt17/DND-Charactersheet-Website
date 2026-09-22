@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 10-record batch 131 from the 121-record difficult reference-dependent tail. This is the largest currently safe batch: each selected spell has explicit spell-level mechanics with only standard templates, creature statistics, feats, hazards, grapple rules, or named spells left as external references. Corrupted and cross-edition inheritance cases remain deferred.",
+  "entries": {
+    "spells/shelgarns-persistent-blade-1688": {
+      "name": "Shelgarn's Persistent Blade",
+      "sourceSha256": "8a068b10f903b9b8779b7702860c91fe0f54519278ffbfe8bcc2078590831e07",
+      "effectSummary": "Creates a Tiny blade of force with speed 40 feet that begins attacking in the round you cast the spell and attacks once on your turn each round. Its attack bonus is half your Charisma modifier if you are a sorcerer or half your Intelligence modifier if you are a wizard, and it deals damage as a dagger, including the dagger's threat range and critical multiplier. If an ally also attacks the target, the blade moves to flank it. As a force effect it can strike ethereal and incorporeal creatures. The blade has AC 14 (+2 size, +2 Dexterity) and 1 hit point. After the first round, changing its target costs a standard action; otherwise it continues attacking the same target. For a creature with spell resistance, SR is checked the first time the blade strikes it; successful resistance dispels the spell, otherwise the blade affects that creature normally for the duration. Range Close; duration 1 round per 2 levels; saving throw none; spell resistance yes. Focus: a silvered dagger.",
+      "notes": "Manually source-reviewed and digest-locked. Dagger base damage/threat/critical statistics remain the standard weapon reference; all spell-specific blade mechanics are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shelgarns-persistent-blade-1688",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/nar-fiendbond-1569": {
+      "name": "Nar Fiendbond",
+      "sourceSha256": "c6b4fe6afb00dfcb3b4add1f91871cacafc50b3d21e0e79eeac17a849fc697bd",
+      "effectSummary": "Transforms one humanoid with Intelligence 4 or higher into a half-fiend. The subject cannot have more character levels than you and must be willing or restrained; after the 1-hour casting it can attempt a Will save to avoid the transformation. The spell applies the half-fiend template as an acquired template, changes the subject's type to outsider, changes the moral component of its alignment to evil, and gives it a +4 level adjustment that raises the XP needed for future class levels. You cannot cast it on yourself. Range Touch; duration instantaneous; spell resistance yes. Arcane material component: precious gems worth the same amount as the spell's XP cost. XP cost: 500 XP per character level of the created half-fiend.",
+      "notes": "Manually source-reviewed and digest-locked. The half-fiend template's detailed statistics remain a Monster Manual reference; the spell-specific eligibility, type/alignment, level-adjustment, material, and XP rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nar-fiendbond-1569",
+          "role": "primary Lost Empires of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/slipsand-3178": {
+      "name": "Slipsand",
+      "sourceSha256": "1ad8d6750304f9730a7f3288a332fae096b84db02b3a62b9cde42e7a5e5e0ed6",
+      "effectSummary": "Permanently turns one 10-foot cube of natural sand per caster level into slipsand; supernatural sandlike materials such as black sand or slumber sand are unaffected. A creature unable to free itself immediately sinks to the bottom and must hold its breath or begin suffocating, using the Sandstorm slipsand rules. Cast on fused sand or a sandy foundation, it can collapse the affected structure; in building material it spreads to fill available space and can bury occupants, with normal cave-in/collapse hazards applying. The resulting magic trap requires a Survival check against the spell's save DC to notice; a running or charging creature has no chance to notice it. A rogue can find it with Search DC 25 + spell level (DC 29 for this spell) but cannot disable it. Casting time is 1 standard action; range Close; duration permanent; saving throw see text; spell resistance no. Material component: a pinch of slipsand.",
+      "notes": "Manually source-reviewed and digest-locked. Standard slipsand and cave-in/suffocation subsystems remain named Sandstorm/DMG references; the spell's area, permanence, detection, and structural effects are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/slipsand-3178",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/primal-form-4656": {
+      "name": "Primal Form",
+      "sourceSha256": "f20591e14f2295e984da2aaa834bb693036791e8b071d98a4803c54c4d07707c",
+      "effectSummary": "Choose air, earth, fire, or water when casting. You take on the appearance and many qualities of a Medium elemental of that element and gain the corresponding elemental subtype, a +4 bonus on saves against mind-affecting spells and abilities, and a 25% chance to negate critical hits and sneak attacks as light fortification. You cannot cast spells and lose the spell-like, supernatural, and extraordinary abilities of your normal form; your equipment melds into the new form and becomes nonfunctional. Air grants fly 20 feet (perfect); earth grants DR 5/—; fire grants +1d4 fire damage, fire resistance 10, and the elemental's burn ability; water grants swim 90 feet and the elemental's drench ability. Casting time is 1 standard action; range Personal; duration 1 minute per caster level (D).",
+      "notes": "Manually source-reviewed and digest-locked. Medium-elemental base statistics plus burn/drench details remain Monster Manual references; all spell-added subtype, fortification, restrictions, and elemental options are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/primal-form-4656",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/Rejuvenative-Corpse-4087": {
+      "name": "Rejuvenative Corpse",
+      "sourceSha256": "c6513edbe584fc5a624f015fcc1d855c6878465cba4f48a307edc1e7cb16f28a",
+      "effectSummary": "Charges the corpse of a humanoid that died within the past week with negative energy for up to 24 hours. An undead creature that eats a full meal of the charged flesh gains fast healing 1 for 5 minutes after finishing; this does not stack with fast healing from other sources, does not regrow or reattach lost body parts, and eating the meal discharges one casting. Multiple castings can charge the same corpse for multiple meals, but one undead cannot gain extra benefit from overlapping meals. A typical Medium corpse supplies about 10 meals, Small 5, Tiny 2, and Diminutive 1. A living creature that eats charged flesh must make a Fortitude save or immediately contract filth fever with no incubation time; creatures that are neither living nor undead are unaffected. Casting time is 1 minute; range Touch; duration 1 day or until discharged; Will negates (object); spell resistance yes (object).",
+      "notes": "Manually source-reviewed and digest-locked. The external filth-fever disease statistics remain a DMG reference; corpse capacity, fast-healing duration/stacking, and discharge rules are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/Rejuvenative-Corpse-4087",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadowy-grappler-4153": {
+      "name": "Shadowy Grappler",
+      "sourceSha256": "be19d9c4b2ea36732b79193b0126666bfcfbfa774f2670d3b88ef22e5d5f3c08",
+      "effectSummary": "Creates a shadowy force that immediately attempts to grapple one target with a grapple-check bonus equal to the spell's save DC. If the target succeeds on its Will save, that bonus is halved. On every one of your turns the grappler makes another grapple check; once it establishes a hold, it attempts to pin on the following round, and if it pins the target it uses the grapple option that prevents speech. It always works to maintain the grapple or achieve a pin, occupies the target's square, and moves with the target. Other creatures cannot join this grapple to help either side. Casting time is 1 standard action; range Medium; duration 1 round per caster level (D); Will partial; spell resistance yes. Material component: a dried squid tentacle.",
+      "notes": "Manually source-reviewed and digest-locked. Standard grapple terminology remains a Player's Handbook rules reference; the spell's check bonus, save consequence, pin behavior, movement, and third-party restriction are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadowy-grappler-4153",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sanctify-the-wicked-93": {
+      "name": "Sanctify the Wicked",
+      "sourceSha256": "05b80290a00c53db0b300c75ddd4b303e9b6d590260872041cd1af32e22cd20d",
+      "effectSummary": "Tears the soul from one evil creature and traps it in the spell's diamond focus, while the soulless body immediately withers or crumbles to dust. After one year of penitence in the gem, the soul adopts the caster's good alignment (lawful good, chaotic good, or neutral good). Shattering the diamond after penitence reforms the creature's original body, returns its soul, and transforms it into a sanctified creature. If the diamond is broken before the year is complete, body and soul are fully restored to their pre-spell state; the creature remembers the imprisonment and regards the caster as a hated enemy. The diamond has hardness 20 and 1 hit point. Casting time is 1 standard action; range Close; duration see text; Will negates; spell resistance yes. Focus: a flawless diamond worth at least 10,000 gp. Sacrifice: 1 character level.",
+      "notes": "Manually source-reviewed and digest-locked. The sanctified-creature template remains a Book of Exalted Deeds reference; the one-year conversion, early-release consequence, focus durability/cost, and sacrifice are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sanctify-the-wicked-93",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-hand-4144": {
+      "name": "Shadow Hand",
+      "sourceSha256": "b277203bcf95783e8c5f540e02885d886cc2b1c8bcad6150ed41e6e861ca9592",
+      "effectSummary": "Creates an opaque Medium hand of shadow, 5 feet long and 5 feet wide. It can provide total concealment against one designated opponent, carry materials as Tenser's floating disk, or point and gesture. The hand has AC 18 (+6 natural, +2 deflection), hit points equal to half your normal full hit-point total, can be damaged as Bigby's interposing hand, and makes saving throws as you do. Changing its task or target is a standard action, and it can move anywhere within range. Without commands it follows you at your speed while maintaining the same distance; the spell ends if it leaves range. If it is carrying items and receives another task, it drops them unless you spend a standard action ordering it to set them down gently. Unlike Tenser's floating disk, you freely direct its position. Casting time is 1 standard action; range Close; duration 1 round per caster level (D); saving throw none; spell resistance yes.",
+      "notes": "Manually source-reviewed and digest-locked. Tenser's floating disk and Bigby's interposing hand remain named comparison rules; all Shadow Hand-specific durability, concealment, movement, command, and carrying behavior is explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-hand-4144",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/magic-of-the-dragonheart-1081": {
+      "name": "Magic of the Dragonheart",
+      "sourceSha256": "fe80b0ef046801906949a5c6aa355236b096d57ba34b2c9417f25727f6c4ad86",
+      "effectSummary": "Has no effect if you have no draconic feats. While active, you count as having two additional draconic feats for determining the benefits of your draconic feats. For the same purpose, treat Magic of the Dragonheart as though its spell level were half your caster level. In addition, if you have Draconic Heritage, you gain a competence bonus equal to half your caster level (maximum +10) on checks with the class skill granted by that feat. Casting time is 1 standard action; range Personal; duration 1 hour per caster level; saving throw none (harmless); spell resistance no (harmless).",
+      "notes": "Manually source-reviewed and digest-locked. Individual draconic-feat benefit formulas remain their feat references; the spell's +2 effective-feat count, effective spell-level rule, and Draconic Heritage skill bonus are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-of-the-dragonheart-1081",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spider-curse-4213": {
+      "name": "Spider Curse",
+      "sourceSha256": "9c7b36ba6d56db680b231bfaf6515d8f6c96efed343803a5bfc89c70dc639765",
+      "effectSummary": "Transforms one Medium or smaller humanoid into a drider-like Large creature under your mental control. The subject gains a drider's speed, natural armor, bite attack, and poison, plus +4 Strength, Dexterity, and Constitution; it becomes Large with 10-foot space and 5-foot reach and takes the normal -1 size penalty to AC and attack rolls. It retains Intelligence, Wisdom, Charisma, level/class, hit points despite the Constitution change, alignment, base attack bonus, and base saves; the new physical scores can alter final AC, attacks, and saves. Equipment that fits the drider body continues to function; upper-body items are retained, while leg/foot/whole-body items such as armor, robes, vestments, and boots are subsumed and cease functioning. Its bite poison has Fortitude DC 16 + your Wisdom bonus and deals 1d6 Strength damage as both initial and secondary damage. Your control functions like Dominate Person, with telepathic control while the creature remains within range. Casting time is 1 minute; range Medium; duration 1 day per caster level; Will negates; spell resistance yes.",
+      "notes": "Manually source-reviewed and digest-locked. The current classifier's missing-reference phrase is a parser false positive from ordinary prose. Drider baseline statistics and Dominate Person control remain named references; all spell-specific transformations and poison values are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-curse-4213",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "8b8943228a6dae7fabc2627086ae310fe4c744e8",
+    "workflowRun": 35772561304,
+    "validationRun": 35772567045,
+    "classificationArtifact": 10714906591,
+    "classificationArtifactSha256": "dcf63064bf8a567ee8bff9ceb6002ed0a03030accbee4a385902225fe375e4d4",
+    "queueCountBefore": 121,
+    "referenceQueueCountBefore": 121,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
