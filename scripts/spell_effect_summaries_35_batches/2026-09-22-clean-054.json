@@ -1,0 +1,248 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5 spell summaries resolving three repair-lane false positives/external-rule dependencies; clean batch 054.",
+  "entries": {
+    "spells/nightstalkers-transformation-4596": {
+      "name": "Nightstalker's Transformation",
+      "sourceSha256": "e51d73a3c6fd7c3c8b083f8c104e85e9938dadc73149ed377fcde5d63f2a06be",
+      "effectSummary": "For 1 round per level, you gain a +4 enhancement bonus to Dexterity, a +3 luck bonus to AC, a +5 luck bonus on Reflex saves, and a +5 competence bonus on Spot, Listen, Hide, and Move Silently checks. You become proficient with all simple weapons plus the hand crossbow, rapier, sap, shortbow, and short sword, and gain Weapon Finesse: with a light weapon, rapier, whip, spiked chain, or natural weapon of the appropriate size, you can use Dexterity instead of Strength on attack rolls; a carried shield's armor check penalty still applies to those attacks. You also gain evasion: while in light or no armor and not helpless, a successful Reflex save against an effect that normally deals half damage instead deals no damage. You deal +3d6 damage when flanking or attacking a target denied its Dexterity bonus to AC. This extra damage follows rogue sneak-attack rules: it is not multiplied on a critical hit, ranged attacks qualify only within 30 feet, and it requires a living target with discernible anatomy that you can see and reach without concealment. For the duration you lose spellcasting ability, including use of spell trigger and spell completion items, as though the spells were no longer on your class list. The material component is a potion of cat's grace, whose effect is subsumed by this spell.",
+      "notes": "Source-locked to the Spell Compendium printing. The earlier Complete Adventurer version uses different magic-item wording ('spell activation or spell completion'); that wording is not substituted here.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nightstalkers-transformation-4596",
+          "role": "primary Spell Compendium record; effect text is mechanically complete despite a stale repair heuristic"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/nightstalkers-transformation--4596/",
+          "role": "matching Spell Compendium rendering used to verify bonuses, proficiencies, +3d6 damage and spell-trigger/completion restriction"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/feats.htm#weaponFinesse",
+          "role": "3.5 SRD Weapon Finesse rules expanded so the granted feat is self-contained"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/classes/rogue.htm",
+          "role": "3.5 SRD rogue sneak-attack and evasion rules expanded so the granted abilities are self-contained"
+        }
+      ]
+    },
+    "spells/random-action-5023": {
+      "name": "Random Action",
+      "sourceSha256": "7f6d33d948e50f5f032198fba5ad40b1fd391475599fcfea203f8a338b1ea803",
+      "effectSummary": "For 1 round, a living creature that fails its Will save cannot choose its action; roll 1d8 on the restored Random Action table and carry out that result. Nothing can modify this roll. Because the spell is mind-affecting, nonintelligent creatures are immune.",
+      "tables": [
+        [
+          [
+            "1d8",
+            "Action"
+          ],
+          [
+            "1",
+            "Attack self; the attack succeeds on any attack roll except a natural 1."
+          ],
+          [
+            "2",
+            "Attack the nearest being; a familiar counts as part of the subject's self for this purpose."
+          ],
+          [
+            "3",
+            "Flee away from the caster at the highest possible speed."
+          ],
+          [
+            "4",
+            "Drop anything held."
+          ],
+          [
+            "5",
+            "Stand motionless for the round, as if stunned."
+          ],
+          [
+            "6",
+            "Take total defense and do nothing else."
+          ],
+          [
+            "7",
+            "Speak surface thoughts in its native tongue, or make noises if it cannot speak."
+          ],
+          [
+            "8",
+            "Attack the caster with melee or ranged weapons, or close with the caster if attacking is not possible."
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/random-action-5023",
+          "role": "primary Player's Handbook 3.0 record; flattened table is complete and the phrase 'as if stunned' is not a spell reference"
+        },
+        {
+          "url": "https://aak.duckdns.org/srd30/spellsqr.htm",
+          "role": "3.0 SRD rendering used to verify the complete d8 action table and unmodifiable random roll"
+        },
+        {
+          "url": "https://dnd-wiki.org/wiki/SRD:Random_Action",
+          "role": "independent OGL rendering cross-check for the same 3.0 table"
+        }
+      ]
+    },
+    "spells/minute-form-555": {
+      "name": "Minute Form",
+      "sourceSha256": "22cc6a62e73f490d3be3f8ce61be4ef4cbdd0cff6b40bebb6dc9e208d4de4639",
+      "effectSummary": "For 1 minute, you shrink to a size allowed by your caster level, choosing any permitted size no smaller than the maximum reduction shown in the table. At caster levels 15–16 you can become Tiny, at 17–18 Diminutive, and at 19 or higher Fine. Apply the listed Strength, Dexterity, Constitution, attack/AC size modifier, space, and reach changes; no ability score can be reduced below 1. All equipment changes size with you and remains usable. Weapons carried when you cast the spell use the restored Dungeon Master's Guide decreasing-weapon-damage progression. The material component is a flea.",
+      "notes": "The Complete Arcane printing and matching renderings contain an unmatched closing parenthesis in the opening sentence; source comparison shows no missing gameplay text. The source's own caster-level/size table is preserved exactly.",
+      "tables": [
+        [
+          [
+            "Caster Level",
+            "Size",
+            "Str",
+            "Dex",
+            "Con",
+            "AC/Atk Mod",
+            "Space/Reach"
+          ],
+          [
+            "15th—16th",
+            "Tiny (18 in.)",
+            "-8",
+            "+4",
+            "-2",
+            "+2",
+            "2-1/2 ft./0 ft."
+          ],
+          [
+            "17th—18th",
+            "Diminutive (9 in.)",
+            "-10",
+            "+6",
+            "-2",
+            "+4",
+            "1 ft./0 ft."
+          ],
+          [
+            "19th or higher",
+            "Fine (3 in.)",
+            "-10",
+            "+8",
+            "-2",
+            "+8",
+            "1/2 ft./0 ft."
+          ]
+        ],
+        [
+          [
+            "Medium Weapon Damage",
+            "One Size Smaller",
+            "Two Sizes Smaller",
+            "Three Sizes Smaller",
+            "Four Sizes Smaller"
+          ],
+          [
+            "1d2",
+            "1",
+            "—",
+            "—",
+            "—"
+          ],
+          [
+            "1d3",
+            "1d2",
+            "1",
+            "—",
+            "—"
+          ],
+          [
+            "1d4",
+            "1d3",
+            "1d2",
+            "1",
+            "—"
+          ],
+          [
+            "1d6",
+            "1d4",
+            "1d3",
+            "1d2",
+            "1"
+          ],
+          [
+            "1d8",
+            "1d6",
+            "1d4",
+            "1d3",
+            "1d2"
+          ],
+          [
+            "1d10",
+            "1d8",
+            "1d6",
+            "1d4",
+            "1d3"
+          ],
+          [
+            "1d12",
+            "1d10",
+            "1d8",
+            "1d6",
+            "1d4"
+          ],
+          [
+            "2d4",
+            "1d6",
+            "1d4",
+            "1d3",
+            "1d2"
+          ],
+          [
+            "2d6",
+            "1d10",
+            "1d8",
+            "1d6",
+            "1d4"
+          ],
+          [
+            "2d8",
+            "2d6",
+            "1d10",
+            "1d8",
+            "1d6"
+          ],
+          [
+            "2d10",
+            "2d8",
+            "2d6",
+            "1d10",
+            "1d8"
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/minute-form-555",
+          "role": "primary Complete Arcane record; source table and mechanics reviewed directly"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-arcane--55/minute-form--555/",
+          "role": "matching Complete Arcane rendering confirms the same unmatched parenthesis and otherwise complete mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-arcane--55/minute-form--555/index.html",
+          "role": "second matching Complete Arcane rendering confirms the exact caster-level size table"
+        },
+        {
+          "url": "https://orkerhulen.dk/Core%20books/Dungeon%20Masters%20Guide%20v3.5.pdf",
+          "role": "Dungeon Master's Guide 3.5 Table 2-3 source used for the decreasing weapon-damage progression"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "162ce00fa52a2a3ec63227982b3df3b2c8dbe074",
+    "workflowRun": 35675676321,
+    "validationRun": 35675679545,
+    "classificationArtifact": 10672574103,
+    "classificationArtifactSha256": "fb775daa051fd6790396e4e45872ec8936a5e5a27a21cb227f2946bcb8401d84",
+    "queueCountBefore": 1034,
+    "repairQueueCountBefore": 13
+  }
+}
