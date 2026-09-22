@@ -2089,6 +2089,11 @@
     "spells/power-word-fatigue-3087",
     "spells/power-word-nauseate-3089",
     "spells/power-word-pain-3090",
-    "spells/power-word-sicken-3092"
+    "spells/power-word-sicken-3092",
+    "spells/helping-hand-2620",
+    "spells/holy-word-2623",
+    "spells/imbue-with-spell-ability-2625",
+    "spells/spell-turning-2368",
+    "spells/tree-stride-2466"
   ]
 }
