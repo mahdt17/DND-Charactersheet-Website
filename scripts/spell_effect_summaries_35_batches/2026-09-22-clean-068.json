@@ -1,0 +1,283 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest- and table-digest-locked source-specific prismatic table reviews; clean batch 068.",
+  "entries": {
+    "spells/prismatic-mist-2975": {
+      "name": "Prismatic Mist",
+      "sourceSha256": "9033ac3d17f3ff9720288b2d958bfd310ff708b873eb42fb1f7aa37c3a12fbfa",
+      "tablesSha256": "9c1f4192c6f04067d0675b1a141958b983aa0a4f10dec9659ee809d2b7997e2f",
+      "effectSummary": "Creates a thin 30-foot-radius multihued mist for 1 minute per caster level. It does not obscure vision or provide concealment. Each round a creature begins its turn in the mist, or whenever it enters the mist during its turn, roll 1d8: 1 red deals 1d4 fire damage; 2 orange deals 1d6 acid damage; 3 yellow deals 1d8 electricity damage; 4 green deals 1d4 Strength damage with a Fortitude save to negate; 5 blue slows the creature for 1 round with a Will save to negate; 6 indigo causes lesser confusion for 1 round with a Will save to negate and is mind-affecting; 7 violet dazes for 1 round with a Will save to negate; 8 means the creature is at a junction of two colors, so roll twice more and apply both results, rerolling any further 8s. Spell resistance does not apply.",
+      "tables": [
+        [
+          [
+            "d8",
+            "Color",
+            "Effect"
+          ],
+          [
+            "1",
+            "Red",
+            "1d4 points fire damage"
+          ],
+          [
+            "2",
+            "Orange",
+            "1d6 points acid damage"
+          ],
+          [
+            "3",
+            "Yellow",
+            "1d8 points electricity damage"
+          ],
+          [
+            "4",
+            "Green",
+            "Poison; 1d4 points Str damage (Fort negates)"
+          ],
+          [
+            "5",
+            "Blue",
+            "Slowed for 1 round (Will negates)"
+          ],
+          [
+            "6",
+            "Indigo",
+            "Lesser confusion for 1 round (Will negates, mind-affecting)"
+          ],
+          [
+            "7",
+            "Violet",
+            "Dazed for 1 round (Will negates)"
+          ],
+          [
+            "8",
+            "At",
+            "the junction of two colors; roll twice more, ignoring any \"8\" results"
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook II table is fully captured and table-digest locked; the rebuilt table splits the row-8 phrase across its Color and Effect cells, which is preserved verbatim for fail-closed digest checking.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-mist-2975",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/players-handbook-ii--80/prismatic-mist--2975/index.html",
+          "role": "matching Player's Handbook II rendering used to verify triggering, saves, damage, and the complete d8 table"
+        },
+        {
+          "url": "https://anyflip.com/myubd/nenj/basic/101-150",
+          "role": "same-printing Player's Handbook II page rendering cross-check"
+        }
+      ]
+    },
+    "spells/prismatic-ray-508": {
+      "name": "Prismatic Ray",
+      "sourceSha256": "169cd520afe89bf369391f6ab61707bc21fc3a128084d4f918ce69d1c9d83b54",
+      "tablesSha256": "cbd2ca067f429e6b5423e8d3ed217bd4028400f7ed2e92d9c68dfabbf2c6fa9d",
+      "effectSummary": "Fires one ray requiring a ranged touch attack. On a hit, a creature with 6 Hit Dice or fewer is blinded for 2d4 rounds in addition to one randomly determined effect from 1d6: 1 red deals 20 fire damage (Reflex half); 2 orange deals 40 acid damage (Reflex half); 3 yellow deals 80 electricity damage (Reflex half); 4 green kills by poison, but a successful Fortitude save instead deals 1d6 Constitution damage; 5 blue turns the target to stone unless it succeeds on a Fortitude save; 6 indigo causes permanent insanity, functioning as continuous confusion, unless it succeeds on a Will save.",
+      "tables": [
+        [
+          [
+            "1d6",
+            "Color of Beam",
+            "Effect"
+          ],
+          [
+            "1",
+            "Red",
+            "20 points fire damage (Reflex half)"
+          ],
+          [
+            "2",
+            "Orange",
+            "40 points acid damage (Reflex half)"
+          ],
+          [
+            "3",
+            "Yellow",
+            "80 points electricity damage (Reflex half)"
+          ],
+          [
+            "4",
+            "Green",
+            "Poison (Kills; Fortitude partial, take 1d6 Con damage instead)"
+          ],
+          [
+            "5",
+            "Blue",
+            "Turned to stone (Fortitude negates)"
+          ],
+          [
+            "6",
+            "Indigo",
+            "Insane, as insanity spell (Will negates)"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to Complete Arcane p.118. This original version uses a 1d6 table and has no violet planar result or two-effect result; those later Spell Compendium additions are not imported.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-ray-508",
+          "role": "primary Complete Arcane catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-arcane--55/prismatic-ray--508/index.html",
+          "role": "matching Complete Arcane rendering used to verify the 1d6 table and 6-HD blindness rider"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Complete%20Arcane.pdf",
+          "role": "same-printing Complete Arcane text/table cross-check"
+        }
+      ]
+    },
+    "spells/prismatic-ray-3958": {
+      "name": "Prismatic Ray",
+      "sourceSha256": "a6844d0c9833e9b0c7a5c6a679e91efadb5818062e4ad773c847f433d5c8d692",
+      "tablesSha256": "36dffba045a610d33db8768d1a72523b3f774105c241fd4b5cc12f07a3382923",
+      "effectSummary": "Fires one ray requiring a ranged touch attack. On a hit, a creature with 6 Hit Dice or fewer is blinded for 2d4 rounds in addition to one randomly determined effect from 1d8: 1 red deals 20 fire damage (Reflex half); 2 orange deals 40 acid damage (Reflex half); 3 yellow deals 80 electricity damage (Reflex half); 4 green kills by poison, but a successful Fortitude save instead deals 1d6 Constitution damage; 5 blue turns the target to stone unless it succeeds on a Fortitude save; 6 indigo causes permanent insanity, functioning as continuous confusion, unless it succeeds on a Will save; 7 violet sends the target to another plane unless it succeeds on a Will save; 8 applies two effects, rolling twice more and ignoring further 8s.",
+      "tables": [
+        [
+          [
+            "1d8",
+            "Color of Beam",
+            "Effect"
+          ],
+          [
+            "1",
+            "Red",
+            "20 points fire damage (Reflex half)"
+          ],
+          [
+            "2",
+            "Orange",
+            "40 points acid damage (Reflex half)"
+          ],
+          [
+            "3",
+            "Yellow",
+            "80 points electricity damage (Reflex half)"
+          ],
+          [
+            "4",
+            "Green",
+            "Poison (Kills; Fortitude partial, take 1d6 Con damage instead)"
+          ],
+          [
+            "5",
+            "Blue",
+            "Turned to stone (Fortitude negates)"
+          ],
+          [
+            "6",
+            "Indigo",
+            "Insane, as insanity spell (Will negates)"
+          ],
+          [
+            "7",
+            "Violet",
+            "Sent to another plane (Will negates)"
+          ],
+          [
+            "8",
+            "—",
+            "Two effects; roll twice more, ignoring any \"8\" results"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to Spell Compendium p.162. This revision expands the earlier Complete Arcane 1d6 table to 1d8 by adding violet planar transport and a two-effect result.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-ray-3958",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/prismatic-ray--3958/",
+          "role": "matching Spell Compendium rendering used to verify the revised 1d8 table and 6-HD blindness rider"
+        }
+      ]
+    },
+    "spells/prismatic-spray-2640": {
+      "name": "Prismatic Spray",
+      "sourceSha256": "0f1414cba1fdff023721fd2006149257192d6b613d1b76918426c353f24a5f67",
+      "tablesSha256": "524d84223e18547dd19b4582835aea1c0226e503f12c418c018d5d5d103ffed4",
+      "effectSummary": "Fills the 60-foot cone with seven multicolored beams. Creatures in the area with 8 Hit Dice or fewer are automatically blinded for 2d4 rounds. Every creature in the area is also struck by one or more randomly determined beam effects from 1d8: 1 red deals 20 fire damage (Reflex half); 2 orange deals 40 acid damage (Reflex half); 3 yellow deals 80 electricity damage (Reflex half); 4 green kills by poison, but a successful Fortitude save instead deals 1d6 Constitution damage; 5 blue turns the creature to stone unless it succeeds on a Fortitude save; 6 indigo causes permanent insanity, functioning as continuous confusion, unless it succeeds on a Will save; 7 violet sends the creature to another plane unless it succeeds on a Will save; 8 strikes the creature with two rays, rolling twice more and ignoring further 8s.",
+      "tables": [
+        [
+          [
+            "1d8",
+            "Color of Beam",
+            "Effect"
+          ],
+          [
+            "1",
+            "Red",
+            "20 points fire damage (Reflex half)"
+          ],
+          [
+            "2",
+            "Orange",
+            "40 points acid damage (Reflex half)"
+          ],
+          [
+            "3",
+            "Yellow",
+            "80 points electricity damage (Reflex half)"
+          ],
+          [
+            "4",
+            "Green",
+            "Poison (Kills; Fortitude partial, take 1d6 points of Con damage instead)"
+          ],
+          [
+            "5",
+            "Blue",
+            "Turned to stone (Fortitude negates)"
+          ],
+          [
+            "6",
+            "Indigo",
+            "Insane, as insanity spell (Will negates)"
+          ],
+          [
+            "7",
+            "Violet",
+            "Sent to another plane (Will negates)"
+          ],
+          [
+            "8",
+            "—",
+            "Struck by two rays; roll twice more, ignoring any \"8\" results."
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-spray-2640",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/prismaticSpray.htm",
+          "role": "3.5 SRD cross-check for blindness threshold and complete d8 beam table"
+        },
+        {
+          "url": "https://dndtools.net/spells/players-handbook-v35--6/prismatic-spray--2640/",
+          "role": "matching Player's Handbook v.3.5 rendering cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "ad2cb827965b7f664ba18fa17e61616a11f1538f",
+    "workflowRun": 35681494168,
+    "validationRun": 35681497921,
+    "classificationArtifact": 10675073892,
+    "classificationArtifactSha256": "33e8618d3a1fd30aa4014046b5a429a2b767298fbb741aadbf486813f4d7bd6f",
+    "queueCountBefore": 991,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 0,
+    "tableQueueCountBefore": 14
+  }
+}
