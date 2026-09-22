@@ -1,0 +1,614 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record item effect batch 004. Table-driven and inherited-base entries remain deferred for dedicated treatment.",
+  "reviewCheckpoint": {
+    "head": "2f34c6b430a1c1b29bb0ef1f9f75393ffbfebdb3",
+    "run": 35791976260,
+    "artifact": 10722377387,
+    "artifactSha256": "9f3616b0424e9baa16462ac4939866bd59b592df8ba95e68d7fb83d0e0962ddc",
+    "remainingBefore": 1053,
+    "errors": []
+  },
+  "entries": {
+    "items/sling-bullets-of-the-construct-ii-726": {
+      "name": "Sling Bullets of the Construct II",
+      "sourceSha256": "b8f87bbe6feba01b0e84f2006f27a7923d18d40919fe9e7170c02863920cff00",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one manifester-level-4 astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-ii-726",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sling-bullets-of-the-construct-iiii-727": {
+      "name": "Sling Bullets of the Construct IIII",
+      "sourceSha256": "c1b3cc06ab3be0b03832d0b2dd3862c3842032636e922430a6394c939a605428",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one manifester-level-6 astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-iiii-727",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sling-bullets-of-the-construct-iv-728": {
+      "name": "Sling Bullets of the Construct IV",
+      "sourceSha256": "1da3972d1cb6f33f8a7acbe41c9ee7954e836918252260bb9cb3622ec040bd4f",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one manifester-level-8 astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-iv-728",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/averter": {
+      "name": "Averter",
+      "sourceSha256": "1ffd668deea94ac98dd476265d9e67f7980a52708f6672d8bbe408b0bed21d83",
+      "effectSummary": "Up to three times per day by command, presenting the shield to a creature forces a DC 14 Will save; on a failure, the creature develops a mind-affecting aversion to the wielder and will not approach within 30 feet.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/averter",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/daylight-26": {
+      "name": "Daylight",
+      "sourceSha256": "7bcb0585f50d3f4e076026b02975723f8fca66ec3a9e1069d1267e377507b5cf",
+      "effectSummary": "When activated, armor or a shield with this property shines as daylight for up to 30 minutes per day. The duration can be split among uses, and the effect can be turned off with a swift action.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/daylight-26",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sling-bullets-of-the-construct-ix-733": {
+      "name": "Sling Bullets of the Construct IX",
+      "sourceSha256": "483db5186e3a682c95f59dcbe8b48cb09df9cbb6a9e2ad97687d11a6a52282b9",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one manifester-level-18 astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-ix-733",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sling-bullets-of-the-construct-v-729": {
+      "name": "Sling Bullets of the Construct V",
+      "sourceSha256": "8019cf8be3dca0d97b798acdacd64ccaa32d61d4cead73b340eb75954fa05c77",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one manifester-level-10 astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-v-729",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sling-bullets-of-the-construct-vi-730": {
+      "name": "Sling Bullets of the Construct VI",
+      "sourceSha256": "04215786db9d83b5fe3fa944360ff81e003831534058a53b7127282503bf19b8",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one manifester-level-12 astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-vi-730",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sling-bullets-of-the-construct-vii-731": {
+      "name": "Sling Bullets of the Construct VII",
+      "sourceSha256": "74fdda09540bbd5702d04db31be75afa31ed3296924429700977770e4f1e0cc0",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one manifester-level-14 astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-vii-731",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sling-bullets-of-the-construct-viii-732": {
+      "name": "Sling Bullets of the Construct VIII",
+      "sourceSha256": "462769714922cc0e5f922da138a919024ceae9e032dc6f4f9a2a63dd07fd8013",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one manifester-level-16 astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-viii-732",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/drilbu-of-insight-714": {
+      "name": "Drilbu of Insight",
+      "sourceSha256": "88276942f200f7f8fd41bbd0d90262443d3e2c24a5b7d869bb2b61dfd741d321",
+      "effectSummary": "The drilbu can manifest aura sight for 1 charge, recall agony for 1 charge, or recall death for 2 charges. Activation requires a seer or Wisdom 18.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/drilbu-of-insight-714",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/drilbu-of-the-warrior-717": {
+      "name": "Drilbu of the Warrior",
+      "sourceSha256": "10b8ef1a4ebc859deee8a1ee6c57f2f5deef22e455ac81088d6b305a38cdbe50",
+      "effectSummary": "The drilbu can manifest ectoplasmic armor for 1 charge or metaphysical weapon for 1 charge, with the drilbu itself as the target of metaphysical weapon. Activation requires a shaper or Intelligence 15.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/drilbu-of-the-warrior-717",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/headband-of-intellect": {
+      "name": "Headband of Intellect",
+      "sourceSha256": "00953ab579d0b2502bad713deadd2d293d48547936c3935e7ff8bb78c828ef10",
+      "effectSummary": "The headband grants a +2, +4, or +6 enhancement bonus to Intelligence, depending on the version.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/headband-of-intellect",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ki-focus-152": {
+      "name": "Ki Focus",
+      "sourceSha256": "960f88eea0339965c6a591a6760020d670de28007e25e20e3f167cb490345b00",
+      "effectSummary": "A melee weapon with this property channels the wielder's special ki attacks through the weapon as though they were unarmed attacks, including stunning attack, ki strike, quivering palm, and Stunning Fist.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ki-focus-152",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/serpents-eye": {
+      "name": "Serpent's Eye",
+      "sourceSha256": "222779bd5358684bab9486c534cb08989ed2c8fea3f3701b3e21ae12a925929b",
+      "effectSummary": "When grasped, the orb lets its owner use foresight once per day. A newly created serpent's eye has 50 charges.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/serpents-eye",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/standard-of-the-galloping-steed": {
+      "name": "Standard of the Galloping Steed",
+      "sourceSha256": "a3fea821d71c34bdcdaa5989bbaf82e4306778f69aae244f3e8df563dd3fef59",
+      "effectSummary": "When charging, the bearer and any charging allies within 30 feet gain a +2 bonus on attack rolls.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/standard-of-the-galloping-steed",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boots-of-the-mountain-king": {
+      "name": "Boots of the Mountain King",
+      "sourceSha256": "f46935b84ffd08f12e19ea478d9718cdeae0ef9a48f0fb419e8af6b325be5ac7",
+      "effectSummary": "The wearer moves normally through rocky, rugged, or mountain terrain, including bad or very bad surfaces, and can cast stoneskin on themself twice per day at caster level 12.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-of-the-mountain-king",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gauntlet-of-lassitude": {
+      "name": "Gauntlet of Lassitude",
+      "sourceSha256": "22e4d789151768044ef5c41bbfdcac7ce25eec9e53f8851142189466f850d531",
+      "effectSummary": "A successful melee touch attack with the gauntlet slows the target for 5 rounds; a DC 14 Will save negates.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gauntlet-of-lassitude",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gem-seeing-329": {
+      "name": "Gem of Seeing",
+      "sourceSha256": "4553e6fbedde1df60e714c50b2a0d0ce9549409210025593e577f88b8fcf6784",
+      "effectSummary": "Looking through the gem grants true seeing as the spell for a total of up to 30 minutes per day, divided among multiple uses.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gem-seeing-329",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/glass-coffin": {
+      "name": "Glass Coffin",
+      "sourceSha256": "267100bf19c741ad9ed575dfdd47bcd06aaf012298d0eec23555da3657df3f21",
+      "effectSummary": "The coffin preserves the body placed inside and creates an illusion that the body remains healthy and shows no signs of decomposition.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/glass-coffin",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/goggles-of-night": {
+      "name": "Goggles of Night",
+      "sourceSha256": "bf86c58b639583ac461ff16c7343a09d52a5993f98c5e87cad50f0f891d8a487",
+      "effectSummary": "When both lenses are worn, the wearer can see normally through them and gains darkvision to 60 feet.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/goggles-of-night",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/lenses-of-darkness": {
+      "name": "Lenses of Darkness",
+      "sourceSha256": "4add301f5ada07b231acb101b968cbaf248e1e1778c7d50e1107cad0e0c59454",
+      "effectSummary": "The wearer gains +4 on saving throws against illusion (pattern) spells, spells with the light descriptor, and light effects that cause blindness.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/lenses-of-darkness",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/shrouds-of-disintegration": {
+      "name": "Shrouds of Disintegration",
+      "sourceSha256": "278151cc2974bc9607ef692dea0031b9437b854284a371a5638fbf964cb2f5a5",
+      "effectSummary": "Placing a body in the shrouds and speaking the command word turns the body to dust. The shrouds work only once, after which they become ordinary cloth.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shrouds-of-disintegration",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ghost-ward-59": {
+      "name": "Ghost Ward",
+      "sourceSha256": "0aea945977b9b67965b859fd62db0347629bc4b3b40c1fcf08bd63beee454b60",
+      "effectSummary": "Armor or a shield with this property adds its enhancement bonus, but not its normal armor or shield bonus, to the wearer's AC against touch attacks, including incorporeal touch attacks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ghost-ward-59",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/orbakhs-glass-skull": {
+      "name": "Orbakh's Glass Skull",
+      "sourceSha256": "1de9bc036ed6e6629f8a40ba924f071520806159a56f7b059bd5a36bab25d605",
+      "effectSummary": "The skull can cast disrupt undead three times per day and can cast enervation and shroud of undeath once per day each.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/orbakhs-glass-skull",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/shortbow-559": {
+      "name": "Shortbow",
+      "sourceSha256": "427517a7e08fbc75586865d90041e88de6d63e852024cfefbaedc67fe67445c9",
+      "effectSummary": "A shortbow requires two hands but can be used while mounted. A Strength penalty applies to its damage; a positive Strength bonus applies only when using a composite shortbow, not a regular shortbow.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shortbow-559",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-of-resistance": {
+      "name": "Cloak of Resistance",
+      "sourceSha256": "b3565406e1379bcb9b200f934f19f60eaec45ec911c8cf11e78533484971a442",
+      "effectSummary": "The cloak grants a +1 to +5 resistance bonus on Fortitude, Reflex, and Will saves, depending on the version.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-of-resistance",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/slippers-of-spider-climbing": {
+      "name": "Slippers of Spider Climbing",
+      "sourceSha256": "26b0d83bb69c18311de6ac3191f50f5fe2e684b139a5d37527047b864998116b",
+      "effectSummary": "The wearer can move on vertical surfaces and ceilings at speed 15 feet with hands free. The slippers do not function on extremely slippery surfaces such as ice, oil, or grease.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/slippers-of-spider-climbing",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/drums-of-the-dead": {
+      "name": "Drums of the Dead",
+      "sourceSha256": "6b5156c999dab089fb93d70c874f904c5dc9e98821fa450fb833ae54c5c800d7",
+      "effectSummary": "Each round the drums are played, the drummer makes a DC 15 Perform (drums) check. On a success, allies attempting to rebuke or command undead gain +4 on the turning damage roll.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/drums-of-the-dead",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/globe-sunlight-407": {
+      "name": "Globe of Sunlight",
+      "sourceSha256": "6890b2deffe9ae2188469d9ae783256370af39d9fd300f87d2baca949e68df55",
+      "effectSummary": "The globe can be thrown up to 50 feet, where it detonates as sunburst with a 40-foot radius and DC 22 Reflex save for partial effect. The globe is expended after one use.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/globe-sunlight-407",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/defending-143": {
+      "name": "Defending",
+      "sourceSha256": "e93af3937e026798aa54c78387f58271f33f482ce7815852f6e5ec986198bcb3",
+      "effectSummary": "At the start of the wielder's turn as a free action, some or all of the weapon's enhancement bonus can be transferred to AC; the chosen AC bonus lasts until the wielder's next turn and stacks with other bonuses.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/defending-143",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/lens-of-detection": {
+      "name": "Lens of Detection",
+      "sourceSha256": "19ff0a869fa7edca82fcb85c52b2abe9d53890635cccdd306afd31c7ea714fcf",
+      "effectSummary": "The lens grants +10 on Search checks and +10 on Survival checks made to follow tracks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/lens-of-detection",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sickle-534": {
+      "name": "Sickle",
+      "sourceSha256": "7657115b041d942f05dcae8a5e28a7829404eed4be070548c3f98018f18a9b3a",
+      "effectSummary": "A sickle can be used to make trip attacks. If the wielder is tripped during their own trip attempt, they can drop the sickle to avoid being tripped.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sickle-534",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/dislocator-666": {
+      "name": "Dislocator",
+      "sourceSha256": "f38d1a764a55174c6fca5a194acad1b28fd634369c4990fedbf3c07aa9049bed",
+      "effectSummary": "Up to three times per day, a successful hit can force the target to make a DC 17 Will save or be teleported 1-100 miles in a random direction; a missed attack wastes the use. Bows, crossbows, and slings pass the effect to their ammunition.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dislocator-666",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/paralyzing-46": {
+      "name": "Paralyzing",
+      "sourceSha256": "7c9491b4991ccd22ff2ddfe77c47aa77951ad98fded6d4bf2b8035a31072ecf3",
+      "effectSummary": "A creature struck must make a DC 17 Will save or be paralyzed. It can retry the save each round on its turn; otherwise the paralysis lasts 10 rounds. Spell resistance applies, and ranged weapons pass the effect to their ammunition.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/paralyzing-46",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/periapt-of-wisdom": {
+      "name": "Periapt of Wisdom",
+      "sourceSha256": "f0ff8966a0a1dfc692667d7260f516f552a98027e12cebfb79b0af1d70ab7590",
+      "effectSummary": "The periapt grants a +2, +4, or +6 enhancement bonus to Wisdom, depending on the version.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/periapt-of-wisdom",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sacred-39": {
+      "name": "Sacred",
+      "sourceSha256": "cbe416db9e2ddf70e33653c14e410d02c69a9631912f72e92d64af442ba4c47c",
+      "effectSummary": "For a wearer able to turn or rebuke undead, sacred armor or a sacred shield increases the wearer's effective level for turning checks by +2. Such items are tied to a specific deity.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sacred-39",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/displacement-29": {
+      "name": "Displacement",
+      "sourceSha256": "d0b7430726af72eda006442f9e1c440eb547d1158ef4d2e3bad35d45ec823e34",
+      "effectSummary": "Once per day, activating armor with this property gives the wearer displacement as the spell for 5 rounds.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/displacement-29",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/exalted-38": {
+      "name": "Exalted",
+      "sourceSha256": "0f45ba7df3df8b5c1926a9047357be21e368dabf80fcd329ae2b6b9dbcb75b4b",
+      "effectSummary": "If the wearer is good, this armor reduces an unholy weapon's extra damage from +2d6 to +1d6, continuously grants protection from evil, and negates vile damage dealt by vile melee, ranged, or natural weapons.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/exalted-38",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/phylactery-of-protection-from-evil": {
+      "name": "Phylactery of Protection From Evil",
+      "sourceSha256": "3d2f6a1ae903fdf0347da9bced38a409b61967af4e59514ec2a4deedb38506ed",
+      "effectSummary": "Continuously grants protection from evil. Equivalent phylacteries for the other protection-from-alignment effects also exist.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/phylactery-of-protection-from-evil",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-of-mighty-fists": {
+      "name": "Amulet of Mighty Fists",
+      "sourceSha256": "cc5ac92e4d49f3ee662c32b13a11cd81b0dc3990c36b017d8ff73d76d8e96b51",
+      "effectSummary": "Grants a +1 to +5 enhancement bonus on attack and damage rolls with unarmed attacks and natural weapons, depending on the version.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-of-mighty-fists",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/mask-of-lies": {
+      "name": "Mask of Lies",
+      "sourceSha256": "8db26c9743c5cd67bcfd1350fe249134e6ca7a5338128a1f1e6396de979205ed",
+      "effectSummary": "The wearer can use disguise self on themself at will, is continuously protected by undetectable alignment, and gains +5 on Bluff checks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/mask-of-lies",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/shroud-of-undeath": {
+      "name": "Shroud of Undeath",
+      "sourceSha256": "d6fa4abe5b918be4a7c785fa68166f152003b11ab8024983e71f8c3ab0b077e9",
+      "effectSummary": "Continuously grants the wearer the benefits of hide from undead with a DC 15 Will save.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shroud-of-undeath",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/trumpet-doom-434": {
+      "name": "Trumpet of Doom",
+      "sourceSha256": "26cfcf6cac5c0fd3c8187ca79950033558d0af879f94cd75e95ce0998a9fd915",
+      "effectSummary": "Up to three times per day, blowing the trumpet forces evil creatures within 100 feet that can hear it to make a DC 14 Will save or become shaken for 1 minute.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/trumpet-doom-434",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/shock-158": {
+      "name": "Shock",
+      "sourceSha256": "dfafe0c0462e37a7870d4989b1ab6fd324ee25682da3925c90ffb94646ec59c2",
+      "effectSummary": "On command, the weapon becomes electrically charged without harming its wielder and deals +1d6 electricity damage on successful hits until commanded off. Bows, crossbows, and slings transfer the electricity damage to their ammunition.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shock-158",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/mantle-of-the-silver-wyrm": {
+      "name": "Mantle of the Silver Wyrm",
+      "sourceSha256": "ed3dd404c84afcd58ca336938b1a4fb2ab99ba1421b73dd9b702602aea5dad6e",
+      "effectSummary": "The wearer gains +2 enhancement to Charisma, cold resistance 10, and can use fly once per day.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/mantle-of-the-silver-wyrm",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/wyrmfang-amulet": {
+      "name": "Wyrmfang Amulet",
+      "sourceSha256": "c309c4ebc73fd35b2a58c3584dd4e6eee0c6a11e20617206438657788c5b2c9f",
+      "effectSummary": "The wearer's natural attacks count as magic weapons for overcoming damage reduction, but they gain no actual enhancement bonus.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/wyrmfang-amulet",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blinking-19": {
+      "name": "Blinking",
+      "sourceSha256": "8d3d1b78c795e81345ac40fc91149f0fda5d23599db36d0bd0bacd2e6fbc93ef",
+      "effectSummary": "Once per day, activating armor with this property makes the wearer blink between the Material and Ethereal Planes as the blink spell for 1 minute.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blinking-19",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sails-of-displacement-minor": {
+      "name": "Sails of Displacement, Minor",
+      "sourceSha256": "c0dcdbe2b36197bb94b50255e3c678eac34d35ef41456acae14f8fd1bc831e24",
+      "effectSummary": "A ship fitted with these sails continually gains a 20% miss chance against ship-to-ship attacks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sails-of-displacement-minor",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/longbow-91": {
+      "name": "Longbow",
+      "sourceSha256": "81330789e081857551a6fab10ac001d47aa26f2f9d958781034d518b74ed80a8",
+      "effectSummary": "A longbow requires two hands and cannot be used while mounted. A Strength penalty applies to damage with a regular longbow; a positive Strength bonus applies only when using a composite longbow.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 003 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/longbow-91",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    }
+  }
+}
