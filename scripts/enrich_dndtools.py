@@ -2370,7 +2370,7 @@ def self_test():
             "Dragonlance Campaign Setting (DLCS), p. 111",
             "While you control the animal, you are limited to a single move action every round in your own body. When in doubt whether something is an animal as defined by the spell, check Animal ). Focus: A piece of clay molded to approximate the chosen animal's form.",
             "truncated-share-animals-mind-animal-definition",
-            ("monster manual", "creature type must be animal", "single move action"),
+            ("monster manual", "creature type must be animal", "one move action each round"),
             (),
         ),
         (
