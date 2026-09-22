@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified cross-sourcebook reference spells blocked only by the sourcebook safeguard; clean batch 077.",
+  "entries": {
+    "spells/repelling-shield-771": {
+      "name": "Repelling Shield",
+      "sourceSha256": "71f5678a54ee04a67f8b19b27833eb35bb371dceb934dad8eb4af276725aeeff",
+      "effectSummary": "Functions as shield: a mobile force shield grants a +4 shield bonus to AC, including against incorporeal touch attacks, negates magic missile attacks, has no armor check penalty or arcane spell failure chance, and cannot provide cover like a tower shield. In addition, after any adjacent creature resolves a melee attack against you, that attacker is pushed 5 feet away unless it succeeds on a Reflex save or its spell resistance prevents the push. You choose the movement direction, but the creature must end farther from you and cannot be pushed into an illegal space; if no legal destination exists, it is not moved.",
+      "notes": "Source-locked to Complete Mage. The Shield reference is uniquely resolved to Player's Handbook v.3.5 and supplies the force-shield mechanics; Complete Mage adds the post-attack 5-foot repulsion rider.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repelling-shield-771",
+          "role": "primary Complete Mage record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/shield-2364",
+          "role": "uniquely resolved Player's Handbook v.3.5 Shield reference supplying the inherited AC, magic-missile, and force-shield rules"
+        }
+      ]
+    },
+    "spells/reveille-1719": {
+      "name": "Reveille",
+      "sourceSha256": "0e8bf32f34f677d50b7b147867e94d2afcb01b91025bc01c2c0c5b01af6f04f5",
+      "effectSummary": "Causes a creature dead for no more than three days to speak tersely in its native language, using roughly a dozen words per round, about the events leading to its death. Round 1 reveals the last thing it saw; round 2 its dying wish; round 3 the wound that killed it; round 4 who killed it; round 5 why it believes it was killed; from round 6 onward it answers one question per round to the best of its ability. It knows only what it knew in life and remembers nothing after death. All speak with dead restrictions also apply: the corpse must be sufficiently intact, an alignment mismatch allows the inherited Will save, neither this spell nor speak with dead can question the same corpse again within seven days, undead are invalid targets, and the corpse cannot gain new knowledge.",
+      "notes": "Source-locked to Magic of Faerûn. The Speak with Dead reference is uniquely resolved to Player's Handbook v.3.5; Reveille prints its own first-five-round sequence and explicitly imports the base spell's corpse, alignment, repeat-use, and undead restrictions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reveille-1719",
+          "role": "primary Magic of Faerûn record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/speak-with-dead-2760",
+          "role": "uniquely resolved Player's Handbook v.3.5 Speak with Dead reference supplying inherited corpse, alignment, repeat-use, and knowledge restrictions"
+        }
+      ]
+    },
+    "spells/sacred-guardian-41": {
+      "name": "Sacred Guardian",
+      "sourceSha256": "7c3fec99da768d4ac768b7d7f0c920a9aa738019de4f9763a8704c73b503fb1f",
+      "effectSummary": "Links you to one willing creature or object for 1 day per level and keeps you constantly aware of its precise location and condition. For a creature this includes states such as unharmed, wounded, disabled, staggered, unconscious, dying, or dead; for an object it includes unharmed, damaged, or destroyed. Distance does not break the link and it continues across planes. If you have access to teleportation magic, you can teleport to the subject even without familiarity with its location. Scrying or greater scrying cast by you on the subject allows no saving throw and automatically succeeds unless a ward or location blocks scrying. Unwilling creatures cannot be affected, and an attended object can be targeted only if its attendant is willing.",
+      "notes": "Source-locked to Book of Exalted Deeds. The Status comparison is uniquely resolved to Player's Handbook v.3.5, but Sacred Guardian explicitly extends the link across planes, adds precise location/object status, and adds teleportation and scrying benefits.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sacred-guardian-41",
+          "role": "primary Book of Exalted Deeds record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/status-2517",
+          "role": "uniquely resolved Player's Handbook v.3.5 Status reference supplying the underlying condition-monitoring concept"
+        }
+      ]
+    },
+    "spells/shape-metal-3067": {
+      "name": "Shape Metal",
+      "sourceSha256": "b7b343fc9512bb85318b266296005ba5d950142c714c30d18aa87c9246c71456",
+      "effectSummary": "Functions as stone shape on metal rather than stone, letting you reshape up to 10 cubic feet plus 1 cubic foot per caster level into a crude desired form; fine detail is impossible and forms with moving parts retain stone shape's 30% chance not to work. It can also be used offensively with a melee touch attack. Against armor it reduces the armor's AC protection by 1d6, or half that against armor made mostly from nonmetal material. Against a shield, weapon, or metallic creature it deals 1d6 damage per two caster levels, bypassing hardness or a metallic creature's damage reduction. Touching an unwilling creature or held item normally requires a melee touch attack and provokes an attack of opportunity; you can instead ready the touch for when the creature attacks you, avoiding that attack of opportunity. The arcane material component is wire bent roughly into the desired shape.",
+      "notes": "Source-locked to Races of Faerûn. The Stone Shape reference is uniquely resolved to Player's Handbook v.3.5 for crude-form and moving-parts behavior; all metal-specific combat rules are printed directly in Shape Metal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shape-metal-3067",
+          "role": "primary Races of Faerûn record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/stone-shape-2881",
+          "role": "uniquely resolved Player's Handbook v.3.5 Stone Shape reference supplying crude shaping and moving-parts failure mechanics"
+        }
+      ]
+    },
+    "spells/unseen-crafter-4832": {
+      "name": "Unseen Crafter",
+      "sourceSha256": "21f30279eb96a970f4a1b09e3ded6bb6187b4c6316484d6973423ab481c5d3cd",
+      "effectSummary": "Functions as unseen servant but can be assigned one task achievable with the Craft skill and lasts up to 1 day per level. It remains an invisible, mindless servant with Strength 2, speed 15 feet, a 20-pound lift/100-pound drag capacity, no attacks or saves, and the base servant's range and area-damage limitations. You must provide appropriate tools and materials. For its Craft check it uses your ranks in the relevant Craft skill plus your spellcasting-ability modifier: Intelligence for artificers, wizards, and magewrights; Charisma for bards and sorcerers; Wisdom for clerics. At casting you can order it to take 10 or to attempt faster work. The spell ends when the assigned task is complete; unfinished work can be continued by another creature or unseen crafter. When repairing a warforged, the unseen crafter gains a +10 bonus on its Craft check.",
+      "notes": "Source-locked to Races of Eberron. The Unseen Servant reference is uniquely resolved to Player's Handbook v.3.5 and supplies the servant's physical/operational limits; the Craft task, check formula, duration, completion rule, and warforged bonus are printed directly here.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unseen-crafter-4832",
+          "role": "primary Races of Eberron record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/unseen-servant-2468",
+          "role": "uniquely resolved Player's Handbook v.3.5 Unseen Servant reference supplying inherited servant statistics and operational limitations"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "1f8b595734dfb3e358deba958d6c038022fcf6bb",
+    "workflowRun": 35683691942,
+    "validationRun": 35683694561,
+    "classificationArtifact": 10676012315,
+    "classificationArtifactSha256": "cd030af81ce8d4ad70e53dd541953a67755e0dedf67c842a7f474747503b8ae8",
+    "queueCountBefore": 952,
+    "referenceQueueCountBefore": 952,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
