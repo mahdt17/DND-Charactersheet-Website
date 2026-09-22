@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 7-record batch 119 from the clean 209-record reference-dependent queue. This batch closes the Oriental Adventures Spirit Binding chain, expands two Servant Horde printings using the complete Unseen Servant mechanics, resolves I Smell Your Fear from Locate Creature, and locks Greater Mighty Wallop. Riskier source/header conflicts, summon-stat tables, and damaged legacy records remain deferred.",
+  "entries": {
+    "spells/spirit-binding-lesser-2036": {
+      "name": "Spirit Binding, Lesser",
+      "sourceSha256": "c6f6e53e914f0887986455c31b2f5f8ea9bf33506f8005ed0bfec65adf35eae0",
+      "effectSummary": "Calls one specifically identified spirit of up to 8 Hit Dice into an inward-focused magic-circle trap. The spirit gets a Will save to resist being called; spell resistance does not stop the initial calling. Once trapped, it can try once per day to escape through spell resistance, dimensional travel, or a Charisma check against DC 15 + half your caster level + your Charisma modifier; dimensional anchor blocks dimensional travel and a calling diagram can strengthen the prison. If it remains bound, you bargain for one service using opposed Charisma checks with a DM-assigned +0 to +6 modifier based on the proposed service and reward. A natural 1 on your check frees the spirit. An open-ended task lasts at most 1 day per caster level and gives an immediate escape chance. Completing the agreed service lets the spirit report completion and return home. Calling an air, chaotic, earth, evil, fire, good, lawful, or water spirit gives the spell the corresponding descriptor.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 119 remains deliberately small; only closed inheritance chains and source/base mechanics that can be reconstructed without unresolved stat blocks or damaged tables are included.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-binding-lesser-2036",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spirit-binding-2041": {
+      "name": "Spirit Binding",
+      "sourceSha256": "6ba316ed95d0ddb53663b204c5544d8336b2b0f7644f8ee5704f2622812e64cb",
+      "effectSummary": "Functions as lesser spirit binding, but can call one spirit or multiple spirits of the same type whose total Hit Dice do not exceed 16. Each spirit gets its own saving throw, makes its own independent escape attempts, and must be bargained with individually for service.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 119 remains deliberately small; only closed inheritance chains and source/base mechanics that can be reconstructed without unresolved stat blocks or damaged tables are included.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-binding-2041",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spirit-binding-greater-2032": {
+      "name": "Spirit Binding, Greater",
+      "sourceSha256": "f01c7aad2f74b5f9dba43acbe0c114556c60a07d459e48a40708986d28c36fe3",
+      "effectSummary": "Functions as lesser spirit binding, but can call one spirit or multiple spirits of the same type whose total Hit Dice do not exceed 24. Each spirit gets its own saving throw, makes its own independent escape attempts, and must be persuaded individually to aid you.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 119 remains deliberately small; only closed inheritance chains and source/base mechanics that can be reconstructed without unresolved stat blocks or damaged tables are included.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-binding-greater-2032",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/i-smell-your-fear-1350": {
+      "name": "I Smell Your Fear",
+      "sourceSha256": "5adceca498f2caf932ce991cf49c24a0e90943134c9bd1393e77735c6e5313db",
+      "effectSummary": "For 1 hour per caster level, functions as locate creature but with long range, sensing the direction to a known or familiar target within 400 feet + 40 feet per caster level and the direction of its movement, if any. It retains locate creature's restrictions: a specific kind can be sought only if you have seen that kind up close, running water blocks the divination, and effects such as mislead, nondetection, and polymorph can fool it. Material component: a physical sample from the target such as flesh, blood, hair, ectoplasm, or another body part.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 119 remains deliberately small; only closed inheritance chains and source/base mechanics that can be reconstructed without unresolved stat blocks or damaged tables are included.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/i-smell-your-fear-1350",
+          "role": "primary Ghostwalk catalog record and digest source"
+        }
+      ]
+    },
+    "spells/servant-horde-475": {
+      "name": "Servant Horde",
+      "sourceSha256": "27cfa4aefa057d7d9f24321de5713b5281f5805936d38217ee64ad820e86d08b",
+      "effectSummary": "For 1 hour per caster level, creates 2d6 +1 unseen servants per caster level, to a maximum bonus of +15. Each is an invisible, mindless, shapeless force with speed 15 feet, AC 10, 6 hit points, and Strength 2 that performs simple unattended tasks at your direction. A servant can exert up to 20 pounds of force or drag up to 100 pounds, cannot attack, and cannot perform tasks requiring a skill check above DC 10; a servant ceases to exist if destroyed or forced beyond the spell's range. Material component: a small crossbar with many lengths of knotted thread.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 119 remains deliberately small; only closed inheritance chains and source/base mechanics that can be reconstructed without unresolved stat blocks or damaged tables are included.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/servant-horde-475",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/servant-horde-4140": {
+      "name": "Servant Horde",
+      "sourceSha256": "7bee00274431db1b228b160f072509b31fb3f6635d79f2af9153e50bf86b76a4",
+      "effectSummary": "For 1 hour per caster level, creates 2d6 +1 unseen servants per caster level, to a maximum bonus of +15. Each is an invisible, mindless, shapeless force with speed 15 feet, AC 10, 6 hit points, and Strength 2 that performs simple unattended tasks at your direction. A servant can exert up to 20 pounds of force or drag up to 100 pounds, cannot attack, and cannot perform tasks requiring a skill check above DC 10; a servant ceases to exist if destroyed or forced beyond the spell's range. Material component: a small stick with many lengths of knotted thread.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 119 remains deliberately small; only closed inheritance chains and source/base mechanics that can be reconstructed without unresolved stat blocks or damaged tables are included.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/servant-horde-4140",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mighty-wallop-greater-3107": {
+      "name": "Mighty Wallop, Greater",
+      "sourceSha256": "fa8837871a2b086e470e3ef547480e536e7cc8eea36b863a8dbe9fce0157803b",
+      "effectSummary": "For 1 hour per caster level, increases a touched bludgeoning melee weapon's damage as though its effective size increased by one category per four caster levels, without changing the weapon's actual dimensions or weight. The increase is capped at five size categories and can never exceed effective Colossal size. For a Small weapon, apply Mighty Wallop's Small-to-larger progression until it reaches effective Medium size, then continue with the normal weapon-damage-by-size progression; Medium or larger weapons use that normal progression from the start.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 119 remains deliberately small; only closed inheritance chains and source/base mechanics that can be reconstructed without unresolved stat blocks or damaged tables are included.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mighty-wallop-greater-3107",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "4ff578ed1106be60f9d3a12259b53e163449eb93",
+    "workflowRun": 35710655744,
+    "validationRun": 35710660459,
+    "classificationArtifact": 10687045915,
+    "classificationArtifactSha256": "e5a753b832bbf95ed0782a26d948a0fbfdd42d8b7b962f52637394dc199cd1d6",
+    "queueCountBefore": 209,
+    "referenceQueueCountBefore": 209,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
