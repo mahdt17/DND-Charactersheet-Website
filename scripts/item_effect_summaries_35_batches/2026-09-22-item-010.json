@@ -1,0 +1,614 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record item effect batch 010, reaching the planned 500-review milestone. Records with omitted tables, truncated lists, or damaged mechanics remain deferred.",
+  "reviewCheckpoint": {
+    "head": "2621366a53d8186f635ddf24a0e341a4c17b604d",
+    "reviewRun": 35794458148,
+    "reviewArtifact": 10723271363,
+    "reviewArtifactSha256": "9e7d38d8c1d75e93ff80928996fe38168834b9fafea52186f2562e54bced1559",
+    "ordinaryReviewRemainingBefore": 753,
+    "errors": []
+  },
+  "entries": {
+    "items/aberrant-sphere-212": {
+      "name": "Aberrant Sphere",
+      "sourceSha256": "48b5074d0a79c7b53165dac7df304c36b737f709f86929966aa21a2e05fe411d",
+      "effectSummary": "The sphere has 3 charges renewed at dawn and shatters temporarily when used: 1 charge summons a choker and gives the wielder -1 on Will saves, 2 charges summon a grick and impose -2, and 3 charges summon a carrion crawler and impose -3. The aberration appears within 30 feet and serves for 7 rounds; when it vanishes or is destroyed, the sphere reforms and the Will penalty ends.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/aberrant-sphere-212",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/acidic-2": {
+      "name": "Acidic",
+      "sourceSha256": "91b95cfeb40ee06a698212a29cea63fa17a996fff0968766a64224c3a04de16e",
+      "effectSummary": "A continuous acid film covers the armor or shield without damaging it. A creature grappling the wearer, or an unattended object in direct contact with the item for a full round, takes 2d4 acid damage per full round; briefer contact does no damage.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/acidic-2",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/acrobat-boots-507": {
+      "name": "Acrobat Boots",
+      "sourceSha256": "7eeeb54c19d0d2625f56963b3dd70b1a016b97c9c47ff6fd7e1bb8444ebcdc55",
+      "effectSummary": "The boots continuously grant +2 competence on Tumble checks and have 3 charges renewed at dawn. Spending 1, 2, or 3 charges grants a +10-foot, +15-foot, or +20-foot enhancement bonus to speed for 1 round.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/acrobat-boots-507",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/adamantine-689": {
+      "name": "Adamantine",
+      "sourceSha256": "d5cb3782ba2538988e8c6b5ef1e53bbfcbc02ad8074f788f3b35e73c1e672086",
+      "effectSummary": "Adamantine weapons ignore hardness below 20 when attacking objects and are masterwork. Adamantine armor grants DR 1/— if light, 2/— if medium, or 3/— if heavy; metal weapons, armor, and shields made from it have one-third more hit points than steel equivalents, and the material has hardness 20.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/adamantine-689",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/adamantine-mind-blade-gauntlets-508": {
+      "name": "Adamantine Mind Blade Gauntlets",
+      "sourceSha256": "9b7997c497ecf1959c7831931a86e881d98279f44bd9e6957728fe54515a18ca",
+      "effectSummary": "When a soulknife who can enhance a mind blade materializes it, the gauntlets can make the blade count as adamantine for ignoring hardness and overcoming damage reduction. This replaces a +1-equivalent mind-blade enhancement and can be used without a daily limit.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/adamantine-mind-blade-gauntlets-508",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/admirals-bicorne": {
+      "name": "Admiral's Bicorne",
+      "sourceSha256": "c5ba6198dc24b3fd4a9b16daf64010cb550b7013c14f1b08270643de914d1ad6",
+      "effectSummary": "A humanoid or monstrous humanoid wearer gains +5 on Profession (sailor) and Charisma-based checks, has a magically amplified voice audible within 100 feet, and grants allies who can hear that voice—including the wearer—+2 morale on attack rolls, saving throws, and skill checks.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/admirals-bicorne",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/alchemicalsilver-684": {
+      "name": "Alchemical Silver",
+      "sourceSha256": "600ab0fbd03d5c59bff97de5089ec2192dfa1cb6a6e42537132981d556de8567",
+      "effectSummary": "Silver bonded to a steel weapon lets it bypass damage reduction vulnerable to silver, but successful attacks take -1 on damage rolls, minimum 1. The process cannot be applied to nonmetal items or rare metals such as adamantine, cold iron, or mithral; alchemical silver has hardness 8.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/alchemicalsilver-684",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amber-acorns-of-the-moonwood-circle": {
+      "name": "Amber Acorns of the Moonwood Circle",
+      "sourceSha256": "8b86420f517b78bc3941ff6921d6bcafd6164017e000e397c73207f5bfa00877",
+      "effectSummary": "The necklace has four elemental acorns—air, earth, fire, and water. Each day, each acorn can independently use summon nature's ally VI once to summon a creature appropriate to its element.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amber-acorns-of-the-moonwood-circle",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-catapsi-511": {
+      "name": "Amulet of Catapsi",
+      "sourceSha256": "3b150044344f7b6b3ed3b04189b1df0da786ee34b3e3021c0e834f15ab154220",
+      "effectSummary": "Once per day, activation creates a 30-foot-radius catapsi field centered on the wearer for 9 rounds. A creature in the area attempting to manifest a power must make a DC 17 Will save or pay 4 additional power points, still subject to the normal maximum power-point spending limit.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-catapsi-511",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-emergency-healing-512": {
+      "name": "Amulet of Emergency Healing",
+      "sourceSha256": "8515014c4a52bec545fd9930d46778137fa8d1c407ec1910d05fa1faee346785",
+      "effectSummary": "Three times per day, the amulet can instantly heal the wearer or a creature within 30 feet for 1d4+5 hit points, including in time to prevent death if the healing raises a dying target to at least -9 hit points. It does not affect undead or creatures immune to healing spells.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-emergency-healing-512",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-of-fearsome-might": {
+      "name": "Amulet of Fearsome Might",
+      "sourceSha256": "5b6b42c795fa6229be0c78f43af0ce13d8b83889731005733202c0ec80e83998",
+      "effectSummary": "The amulet doubles the radius of the wearer's existing frightful presence and increases its save DC by 2, but does not grant frightful presence to a creature that lacks it. It also increases by 2 the save DC of the wearer's fear-descriptor spells and spell-like abilities; that bonus does not stack with Spell Focus or Greater Spell Focus.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-of-fearsome-might",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-inviolate-form-515": {
+      "name": "Amulet of Inviolate Form",
+      "sourceSha256": "28d974bf482c41944dbe59d8bcb803247d957f6ddb6fa54b3b1f466f211eb9da",
+      "effectSummary": "The amulet has 7 charges. When targeted by a transformative effect such as polymorph, petrification, an aboleth's tentacle, or a chaos beast attack, the wearer can spend 1 charge before attempting a saving throw to negate the transformation.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-inviolate-form-515",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-of-laerals-tears": {
+      "name": "Amulet of Laeral's Tears",
+      "sourceSha256": "6dc04042cc0f8542d9b55e05f8d663de9f172a4c119e81b3c676309e9a9bbc99",
+      "effectSummary": "When worn against the skin, the amulet grants 24 temporary hit points. After those temporary hit points are expended, the amulet crumbles into worthless dust.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-of-laerals-tears",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-retributive-healing-516": {
+      "name": "Amulet of Retributive Healing",
+      "sourceSha256": "0635acaf02bfce1099cd6d06d3392f6597f9be67bb4b481ca6e6d8dc2c34931e",
+      "effectSummary": "Three times per day, activation causes the next healing effect the wearer uses before the end of the turn on another creature to heal the wearer by the same amount, provided the same effect could heal the wearer. A multi-target healing effect grants this self-healing only once.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-retributive-healing-516",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-second-chances-517": {
+      "name": "Amulet of Second Chances",
+      "sourceSha256": "d06e44fe7433fbdff03747248462a688f5f5f369afec3c2bc4606449508e8b1a",
+      "effectSummary": "Once per day, activation resets all events of the wearer's current turn: positions, damage, conditions, and other changes are restored to their state at the turn's start. Creatures remember the erased events and may make different choices when the turn is replayed.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-second-chances-517",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-teamwork-518": {
+      "name": "Amulet of Teamwork",
+      "sourceSha256": "0ad130583b9733cc62672a4f1050404ef72a566acd6008d7a447314d3b5f76de",
+      "effectSummary": "The wearer's successful aid another grants +3 instead of +2, and the wearer plus allies flanking the same enemy gain +2 on damage rolls. Once per day, activation grants the wearer and an adjacent ally +5 competence to AC for 1 round.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-teamwork-518",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-tears-519": {
+      "name": "Amulet of Tears",
+      "sourceSha256": "e8ea5a61f3e85c5fd56d96a0c1d8b04b807bac9e308a1bd2a4abf7aad341c6d3",
+      "effectSummary": "The amulet has 3 charges renewed at dawn. Spending 1, 2, or 3 charges grants 12, 18, or 24 temporary hit points for up to 10 minutes; these temporary hit points do not stack with other temporary hit points.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-tears-519",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-planes-117": {
+      "name": "Amulet of the Planes",
+      "sourceSha256": "08bb045f8edd4410b33b469276994b11574086264084340ac3c08f48df38c592",
+      "effectSummary": "The wearer can use plane shift, but must succeed on a DC 15 Intelligence check to reach the intended plane and location. Failure sends the travelers either to a random location on the intended plane or, on a higher percentile result, to a random plane.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-planes-117",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-of-the-silent-word": {
+      "name": "Amulet of The Silent Word",
+      "sourceSha256": "414fcc7a0dc8bcea8f941ce42ef79f96f8e899c4140ccac357b52f8c6fcfc2f2",
+      "effectSummary": "As a free action, the wearer can mentally supply a known verbal password to a ward such as alarm, fire trap, or glyph of warding without speaking. The target must be known, within 110 feet, and in clear line of sight.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-of-the-silent-word",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/aquamarine-of-spell-extending": {
+      "name": "Aquamarine of Spell Extending",
+      "sourceSha256": "b0dfeba537658800cea381f6e5015aee5337a2b0226c94217d05b4346f70f1fb",
+      "effectSummary": "Once per day while holding the aquamarine, the owner can apply Extend Spell to a spell of 6th level or lower without using a higher-level spell slot. Spontaneous casters still pay the normal increased casting-time cost of metamagic.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/aquamarine-of-spell-extending",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/arcane-thieves-tools-177": {
+      "name": "Arcane Thieve's Tools",
+      "sourceSha256": "e19487eea8b641c7818d351d92af047ed799a779f289dbc26ee52deb111acab9",
+      "effectSummary": "These masterwork thieves' tools grant the normal +2 circumstance bonus on Disable Device and Open Lock. A character with trapfinding can also expend an arcane spell or spell slot of 1st level or higher to gain +5 competence on one Disable Device or Open Lock check begun before the end of that turn.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/arcane-thieves-tools-177",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ark-of-forced-return": {
+      "name": "Ark of Forced Return",
+      "sourceSha256": "12410a0a36c4954ee89ed830cfce89c5f77e7fa61265717aa0ade1fd8e902fea",
+      "effectSummary": "Four divine spellcasters touching the ark can activate it together as a standard action. Extraplanar creatures within 30 feet must make a DC 20 Will save or be sent back to their home plane.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ark-of-forced-return",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/armband-of-maximized-healing": {
+      "name": "Armband of Maximized Healing",
+      "sourceSha256": "4a54640027c11f03f448eca25b6bede1107c629d8b0c9e1f241251174027066e",
+      "effectSummary": "Once per day, the wearer can apply Maximize Spell to a conjuration (healing) spell of 6th level or lower without increasing the spell-slot level. Spontaneous casters still incur the normal metamagic casting-time penalty.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/armband-of-maximized-healing",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/armor-spikes-597": {
+      "name": "Armor Spikes",
+      "sourceSha256": "5c6acb0fbdaad343655ac7a4c39264da4e789929a0101462445d30ae6bf1846d",
+      "effectSummary": "Armor spikes are martial weapons that can deal extra piercing damage on successful grapple attacks or be used as a light melee or off-hand weapon. Nonproficient users take -4 on grapple checks made to use them; armor enhancement bonuses do not improve the spikes, though the spikes can be separately enchanted as weapons.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/armor-spikes-597",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/aroma-curdled-death-178": {
+      "name": "Aroma of Curdled Death",
+      "sourceSha256": "03fde6ba1d88b08a25a14e0cfc85606e27c7bc017d500c2e7abfecaa710236fe",
+      "effectSummary": "One round after application, the elixir creates a moving 10-foot-radius cloud around the user for 1 minute; the user is immune. Other creatures with 3 HD or fewer die with no save, creatures with 4–6 HD must make Fortitude DC 17 each round or die, and creatures with 7+ HD take 1d4 Constitution damage per round, Fortitude DC 17 half.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/aroma-curdled-death-178",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/aroma-dreams-179": {
+      "name": "Aroma of Dreams",
+      "sourceSha256": "e8d59f6c9c72cddadf69cebaed10b16a0f528a3132a9ad2137ae5c0b63209bac",
+      "effectSummary": "One round after application, the elixir creates a moving 10-foot-radius cloud around the user for 5 rounds; the user is immune. Other creatures with 10 HD or fewer must make Fortitude DC 14 or sleep for 1 minute, then creatures still present 1 round later must save again or sleep for 1 hour; creatures above 10 HD are immune.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/aroma-dreams-179",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/arrow-deflection-333": {
+      "name": "Arrow Deflection",
+      "sourceSha256": "327f22ac8d9318c2936745ed21047ff5e44d2dcabd35576318c1115442f6a131",
+      "effectSummary": "Once per round when an aware, non-flat-footed wielder would be hit by a normal ranged weapon, the shield allows a DC 20 Reflex save to deflect it; the DC increases by the weapon's enhancement bonus. Exceptional ranged attacks such as giant-thrown boulders or Melf's acid arrow cannot be deflected.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/arrow-deflection-333",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/arrow-alchemists-93": {
+      "name": "Arrow, Alchemist's",
+      "sourceSha256": "03d51995b0a519e3de3af3e6de3c93c43a9ad6d05a419896de5dd7064e16b8a9",
+      "effectSummary": "On a hit, the arrow shatters and coats the target in alchemist's fire. One round later it deals 1d4 fire damage unless the target spends a full-round action and succeeds on a DC 15 Reflex save to extinguish it; rolling on the ground gives +2, while immersion or magical extinguishing automatically succeeds.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/arrow-alchemists-93",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ashworm-pellet": {
+      "name": "Ashworm Pellet",
+      "sourceSha256": "69e7846ff980709a98864ccca6cc10c4d614679ee29c48ccecbf386294f9954c",
+      "effectSummary": "Throwing the pellet to the ground consumes it and creates an average ashworm after 1 full round. Destroying the forming pellet with disintegration or at least 50 damage prevents the summon; otherwise the ashworm serves the user with simple commands for 10 minutes or until slain.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ashworm-pellet",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/assassins-cloak": {
+      "name": "Assassin's Cloak",
+      "sourceSha256": "6817ee45ff3518acf4e72a1574f85f2c974ea0570719584ec463c98fb282ab15",
+      "effectSummary": "Three times per day, the cloak grants +10 competence on Hide checks and forces creatures to make a DC 17 Will save before they can attack the wearer. The effect lasts 10 rounds or until the wearer attacks, whichever comes first.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/assassins-cloak",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/axiomatic-127": {
+      "name": "Axiomatic",
+      "sourceSha256": "be7a9594017451c40030bd2dff600239d2f99ef1dee9036c1e1a3f671f58d5c9",
+      "effectSummary": "The weapon is lawful-aligned for overcoming damage reduction and deals +2d6 damage to chaotic creatures. A chaotic creature wielding it gains one negative level while it remains in hand; bows, crossbows, and slings pass the lawful effect to their ammunition.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/axiomatic-127",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/barsolidor-tyrant-bane-446": {
+      "name": "Barsolidor, the Tyrant Bane",
+      "sourceSha256": "dcfc412f97e1ac506d6f2309e2118d83d841f080788e62d64bf83d0c853c923c",
+      "effectSummary": "This intelligent +3 longsword can use cure moderate wounds on its wielder three times per day, zone of truth three times per day, detect lawful evil at will, and has 10 ranks in Knowledge (history), along with speech, telepathy, darkvision 120 feet, and hearing.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/barsolidor-tyrant-bane-446",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/battlecloak-of-vycaena": {
+      "name": "Battlecloak of Vycaena",
+      "sourceSha256": "2aa9a901991de0cc9941d64afbd1a2a5851199a25770d6c6df5339ad7403e772",
+      "effectSummary": "The cloak grants +4 armor to AC and +1 resistance on all saving throws. Each of its two clasps can store one item like a glove of storing, and touching a clasp as a free action instantly calls its stored item into the wearer's hand.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/battlecloak-of-vycaena",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-priestly-might": {
+      "name": "Belt of Priestly Might",
+      "sourceSha256": "be07e60b26009b1a81cb81ef19eac2bf757884e19fdc84ac0acb75c52acffdc9",
+      "effectSummary": "A wearer who follows the belt's deity or shares that deity's alignment gains +2 natural armor to AC and +4 enhancement to Strength. Other wearers gain one negative level while the belt is worn; the source also describes upgraded warding and holy-might variants with additional magic-circle and word-of-recall powers.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-priestly-might",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boots-of-sidestepping": {
+      "name": "Boots of Sidestepping",
+      "sourceSha256": "b3414baa46ef1dcecf365333123fb98d7aaec419dc4c2b4ab30a85f69424e417",
+      "effectSummary": "When exposed to an effect allowing a Reflex save, the wearer can move 5 feet as an immediate action before making the save, without provoking attacks of opportunity. If that movement carries the wearer outside the effect's area, the attack is avoided and no save is required.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-of-sidestepping",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bottle-air-242": {
+      "name": "Bottle of Air",
+      "sourceSha256": "c93cb801b4086af396b074bd11d715361dfc3232b620d17593663ce05b23bcba",
+      "effectSummary": "In an airless environment the bottle continually renews its supply of air. Breathing from it is a standard action and lets a creature then act for as long as it can hold its breath; multiple creatures can share the bottle.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bottle-air-242",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bottle-of-endless-sand": {
+      "name": "Bottle of Endless Sand",
+      "sourceSha256": "740e675a593828f626fde180b7dd2fd6c162d79c855f3c04a7f568c77ec10bc9",
+      "effectSummary": "Command words produce sand in three modes: heap creates 1 cubic foot per round, dune creates 20 cubic feet at 5 cubic feet per round, and sandblast deals 1d6 damage per round to one target while requiring the holder to make a DC 12 Strength check to avoid being knocked prone. A command word stops the flow.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bottle-of-endless-sand",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bottled-night": {
+      "name": "Bottled Night",
+      "sourceSha256": "7e03c807fc889d5d00f610d324895d4300f0d76fc082a8e9220d0a689ea4bfa6",
+      "effectSummary": "Thrown as a ranged touch attack with a 10-foot range increment, the vial creates magical darkness in a 20-foot radius for 10 rounds on impact, granting concealment. It also dispels light spells of 2nd level or lower.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bottled-night",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bracers-of-archery": {
+      "name": "Bracers of Archery",
+      "sourceSha256": "605eb7d836d08e7a1bec863bbb008d38cb939b49c08b4f5ac702a339be71b2f8",
+      "effectSummary": "When both bracers are worn, the wearer is treated as proficient with bows other than crossbows. For any bow type the wearer is already proficient with, the bracers grant +2 competence on attack rolls and +1 competence on damage rolls against targets within 30 feet.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-of-archery",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bracers-of-armor": {
+      "name": "Bracers of Armor",
+      "sourceSha256": "e378e780b6b7ec1b12c88674e69e2977fa718389018677b2b3ffe87ad7c25cdc",
+      "effectSummary": "When both bracers are worn, they create an invisible force field granting an armor bonus to AC from +1 through +8, depending on the version.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-of-armor",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bracers-blinding-strike-207": {
+      "name": "Bracers of blinding strike",
+      "sourceSha256": "90a8464195ac16f20c818f90c7e0bfed9e3cccf1a519c6165f3f8e6685ebbe4b",
+      "effectSummary": "The bracers continuously grant +2 competence on initiative checks. Three times per day, after the wearer has used a full attack action, activation grants one additional attack with a held weapon at full base attack bonus; it does not stack with similar extra-attack effects such as haste or a speed weapon.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-blinding-strike-207",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bracers-of-dawn": {
+      "name": "Bracers of Dawn",
+      "sourceSha256": "8041dd9e733c3a6f6fbc1a581b9ce075eaa790fcf1350a7761b3281b78706d96",
+      "effectSummary": "A move action can set the bracers to illuminate like a bullseye lantern. Four times per day, a standard action fires searing light for 3d8 damage to most creatures, 6d6 to undead, or 6d8 to creatures with light sensitivity; both bracers must be worn.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-of-dawn",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bracers-of-murder": {
+      "name": "Bracers Of Murder",
+      "sourceSha256": "4dc200cae35f82cdb151ca91da4ac35979dfe214d4fa8502a2def5c6c1e99088",
+      "effectSummary": "The wearer gains +2 profane on attack and damage rolls against flat-footed targets. Death attack save DC increases by 2, and if the wearer has sneak attack or sudden strike, any damage die result of 1 is rerolled.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-of-murder",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bracers-of-quick-strike": {
+      "name": "Bracers of Quick Strike",
+      "sourceSha256": "ed0cbaeb1894eeec1b6b68024796a16ef12a57bbd2eaa8dbb259c50ab19d4315",
+      "effectSummary": "Once per day, after taking a full attack action, the wearer can make one additional attack with a held weapon at full base attack bonus. The effect does not stack with similar extra-attack effects and requires 24 continuous hours of wear to become active.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-of-quick-strike",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bracers-of-whirlwind": {
+      "name": "Bracers of Whirlwind",
+      "sourceSha256": "97f7c8a810d39b8ef5dbc7e12e8ce57b9dfc2cf8833430799d2475fe32bc1ad7",
+      "effectSummary": "Once per day as a standard action, the wearer transforms for up to 15 minutes into a 40-foot-high whirlwind like that of a Large air elemental, gaining DR 10/magic and a 100-foot fly speed with perfect maneuverability. The form can be dismissed early as a move action.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-of-whirlwind",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/breachstone": {
+      "name": "Breachstone",
+      "sourceSha256": "df012570f90d0f49e82c789496f8a6fa940c640af1e1e5ee11d17924207f4c6a",
+      "effectSummary": "Touching the stone to a valid wall creates a passwall-like opening 5 feet wide, 8 feet tall, and up to 10 feet long that remains while the stone stays in the passage and closes 1 round after removal. It works only through stone, wood, or plaster, functions five times, then crumbles.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/breachstone",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/brilliant-energy-141": {
+      "name": "Brilliant Energy",
+      "sourceSha256": "0fdc3cecf0a66ef873b2ce9e535aa2b86870e8e18d40cb22edeed6708fe5a753",
+      "effectSummary": "The weapon's striking portion becomes light, sheds illumination like a torch, and ignores nonliving matter, including armor bonuses to AC. It cannot harm undead, constructs, or objects and can be applied only to melee weapons, thrown weapons, and ammunition.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/brilliant-energy-141",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/brilliant-jewel": {
+      "name": "Brilliant Jewel",
+      "sourceSha256": "179cd481a4ff3711b905bff81de0c50440f0ef9194d687b78924b5526c7b7558",
+      "effectSummary": "The wielder gains +1 luck on all saving throws. Casting a spell or spell-like ability into the jewel makes it shine for a number of rounds equal to that effect's level/duration trigger in the source and causes later spells and spell-like abilities of the same school cast by the wielder while it is active to function at +2 caster levels.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/brilliant-jewel",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/broadblade-short-sword-331": {
+      "name": "Broadblade Short Sword",
+      "sourceSha256": "9873c4522651ae4fa99bda0bbfe93ffc2356fc4e0747d9a77c0f1eead9e53869",
+      "effectSummary": "A proficient wielder gains an additional +1 dodge AC while fighting defensively or using total defense, and also when using Combat Expertise to shift at least 2 attack bonus to AC. A proficient wielder can treat it as a short sword for the listed weapon-focus and critical feats.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/broadblade-short-sword-331",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/broom-flying-257": {
+      "name": "Broom of Flying",
+      "sourceSha256": "6f65cd10f31eecac86cc86d8179df74a47b6b3fbaf305efc94e7c204b91359c1",
+      "effectSummary": "The broom can fly with average maneuverability for up to 9 hours per day, carrying up to 200 pounds at 40 feet or up to 400 pounds at 30 feet. It can also travel alone to a named, known destination and can be called to its owner from up to 300 yards away.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/broom-flying-257",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    }
+  }
+}
