@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified cross-sourcebook reference spells, preserving source-specific Sacred Haven wording; clean batch 079.",
+  "entries": {
+    "spells/glory-martyr-1579": {
+      "name": "Glory of the Martyr",
+      "sourceSha256": "0c68d44b174eba17598e6406eb5325a16bdb44af7330a2308c4712878397fc81",
+      "effectSummary": "Functions as shield other for one creature per caster level at Close range. Each linked subject gains a +1 deflection bonus to AC and +1 resistance bonus on saves, and half of all hit-point damage that subject would take is transferred to you instead; effects that do not deal hit-point damage are not split, damage already transferred remains with you, and a link cannot function beyond the inherited spell range. All selected creatures link to you simultaneously, so you absorb half of each subject's qualifying damage. If you die while the spell is active, the spell ends in a burst of positive energy and each creature still linked to you is healed for 1d8 hit points.",
+      "notes": "Source-locked to Magic of Faerûn. The Shield Other reference is uniquely resolved to Player's Handbook v.3.5 and supplies the AC/save bonuses, hit-point-damage split, and range behavior; this spell expands the link to one creature per caster level and adds the death-triggered positive-energy burst.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/glory-martyr-1579",
+          "role": "primary Magic of Faerûn record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/shield-other-2363",
+          "role": "uniquely resolved Player's Handbook v.3.5 Shield Other reference supplying the inherited defensive bonuses and damage-transfer rules"
+        }
+      ]
+    },
+    "spells/jhanifers-deliquescence-352": {
+      "name": "Jhanifer's Deliquescence",
+      "sourceSha256": "8b17745d61b752bbe20567f3696b28cd230be63c24c586f40093f455b3ba10f1",
+      "effectSummary": "Functions as transmute rock to mud except that it transforms ice into cold water at about 40°F, affecting up to two 10-foot cubes per caster level. The change is permanent until successfully dispelled or a spell with the cold descriptor restores the water's substance to ice; restoration does not necessarily restore the original shape. The water can also freeze again naturally according to local weather and depth, normally over hours or days.",
+      "notes": "Source-locked to City of Splendors: Waterdeep. The Transmute Rock to Mud reference is uniquely resolved to Player's Handbook v.3.5 for the transformation framework and area scaling, while this spell explicitly substitutes ice-to-water and its own restoration/freezing rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/jhanifers-deliquescence-352",
+          "role": "primary City of Splendors: Waterdeep record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/transmute-rock-to-mud-2889",
+          "role": "uniquely resolved Player's Handbook v.3.5 Transmute Rock to Mud reference supplying the inherited transformation framework"
+        }
+      ]
+    },
+    "spells/mystras-miasma-2215": {
+      "name": "Mystra's Miasma",
+      "sourceSha256": "8a885ae0f916c731ae9a6a1576c648bf8190bdfe67e5c92651cb7d5214210d6b",
+      "effectSummary": "Creates a 30-foot-radius emanation plus 5 feet per caster level that functions as solid fog: it blocks sight beyond 5 feet, provides concealment, reduces movement to 5 feet, prevents 5-foot steps, imposes -2 on melee attack and damage rolls, blocks ordinary ranged weapon attacks, cushions falling, is dispersed by severe wind, and does not function underwater. In addition, a creature in the miasma takes a -4 penalty on caster level checks when attempting to cast spells; a Will save made when it first enters negates this penalty. Shadow Weave users ignore the penalty unless you cast the Shadow Weave version, Shar's miasma, in which case Weave users ignore the caster-level-check penalty instead. The material component is a small piece of quilted cloth soaked in water during casting.",
+      "notes": "Source-locked to Player's Guide to Faerûn. The Solid Fog reference is uniquely resolved to Player's Handbook v.3.5; Mystra's Miasma adds the Weave/Shadow Weave caster-level-check penalty and entry save.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mystras-miasma-2215",
+          "role": "primary Player's Guide to Faerûn record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/solid-fog-2437",
+          "role": "uniquely resolved Player's Handbook v.3.5 Solid Fog reference supplying inherited visibility, movement, attack, wind, falling, and underwater mechanics"
+        }
+      ]
+    },
+    "spells/sacred-haven-11": {
+      "name": "Sacred Haven",
+      "sourceSha256": "f51e2c960910d373461d1a8e36e27aac4662e81cb5db1ab67e69c676fe7e0dcf",
+      "effectSummary": "For 1 minute per level, one touched creature is surrounded by holy light, gains a +2 sacred bonus to AC, and keeps its Dexterity bonus to AC while flat-footed. You also gain status-like awareness of the subject's direction, distance, and general condition while it remains on the same plane. During the spell you can use lay on hands on the subject without touching it; doing so still requires a standard action and can be done at any range provided the subject is on the same plane as you.",
+      "notes": "Source-locked to Book of Exalted Deeds. The Status reference is uniquely resolved to Player's Handbook v.3.5. This printing explicitly limits remote lay on hands to the same plane; that qualifier is preserved rather than inferred away.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sacred-haven-11",
+          "role": "primary Book of Exalted Deeds record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/status-2517",
+          "role": "uniquely resolved Player's Handbook v.3.5 Status reference supplying inherited condition awareness"
+        }
+      ]
+    },
+    "spells/sacred-haven-637": {
+      "name": "Sacred Haven",
+      "sourceSha256": "3b28c1810c6457eb0420a2d122e885748a1105e0b176aff1f48cbf2bf550c8de",
+      "effectSummary": "For 1 minute per level, one touched creature is surrounded by holy energy, gains a +2 sacred bonus to AC, and keeps its Dexterity bonus to AC while flat-footed. You also gain status-like awareness of the subject's direction, distance, and general condition while that status link can function. During the spell you can use lay on hands on the subject without touching it; doing so still requires a standard action and this Complete Divine printing states that it can be done at any range.",
+      "notes": "Source-locked specifically to Complete Divine. The Status reference is uniquely resolved to Player's Handbook v.3.5. Unlike the earlier Book of Exalted Deeds wording, this printing says remote lay on hands works 'at any range' without restating the earlier same-plane qualifier; the review preserves that textual distinction rather than silently merging the printings.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sacred-haven-637",
+          "role": "primary Complete Divine record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/status-2517",
+          "role": "uniquely resolved Player's Handbook v.3.5 Status reference supplying inherited condition awareness"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "eb87b2019abfe5703efa8291119f20f1d593ff58",
+    "workflowRun": 35684285557,
+    "validationRun": 35684288035,
+    "classificationArtifact": 10675858627,
+    "classificationArtifactSha256": "4392f70df170f327155c65f8d0a959b415b56106153ae82b75718aee0c556575",
+    "queueCountBefore": 942,
+    "referenceQueueCountBefore": 942,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
