@@ -577,8 +577,8 @@
     "items/brilliant-jewel": {
       "name": "Brilliant Jewel",
       "sourceSha256": "179cd481a4ff3711b905bff81de0c50440f0ef9194d687b78924b5526c7b7558",
-      "effectSummary": "The wielder gains +1 luck on all saving throws. Casting a spell or spell-like ability into the jewel makes it shine for a number of rounds equal to that effect's level/duration trigger in the source and causes later spells and spell-like abilities of the same school cast by the wielder while it is active to function at +2 caster levels.",
-      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text.",
+      "effectSummary": "The wielder gains +1 luck on all saving throws. Casting a spell or spell-like ability into the jewel makes it shine for a number of rounds determined by that effect as stated in the source; while illuminated, later spells and spell-like abilities the wielder casts from the corresponding school function at +2 caster levels.",
+      "notes": "Manually reviewed against the verified 753-record item-effect queue after batch 009 and digest-locked to the exact captured primary source text. Wording preserves the source's ambiguous illumination-duration statement without inferring a missing formula.",
       "provenance": [
         {
           "url": "https://new.dndtools.org/items/brilliant-jewel",
