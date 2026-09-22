@@ -1,5 +1,5 @@
 {
-  "scope": "3.5/spells",
-  "shards": 8,
-  "nonce": "2026-09-22-final-spell-source-output-audit"
+  "scope": "3.5/feats",
+  "shards": 16,
+  "nonce": "2026-09-22-final-feat-source-output-audit"
 }
