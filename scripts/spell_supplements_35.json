@@ -2792,6 +2792,357 @@
           "role": "3.0 Player's Handbook Table 8-12 used to restore the exact base hardness/hit-point values"
         }
       ]
+    },
+    "spells/reduce-person-2860": {
+      "name": "Reduce Person",
+      "effectSummary": "Instantly halves a humanoid's height, length, and width and divides its weight by 8, reducing it by one size category. The target gains +2 Dexterity, -2 Strength (minimum 1), and +1 on attack rolls and AC from its smaller size. Space and reach change with the new size, but speed does not. Worn and carried equipment shrinks as well; melee and projectile weapons use the smaller-size damage progression below. Items leaving the creature's possession immediately return to normal size, so thrown weapons deal normal damage while projectiles use the size of the weapon that fired them. Multiple magical size reductions do not stack. Reduce person counters and dispels enlarge person and can be made permanent with permanency. The material component is a pinch of powdered iron.",
+      "tables": [
+        [
+          [
+            "Medium Weapon Damage",
+            "One Size Smaller",
+            "Two Sizes Smaller",
+            "Three Sizes Smaller",
+            "Four Sizes Smaller"
+          ],
+          [
+            "1d2",
+            "1",
+            "—",
+            "—",
+            "—"
+          ],
+          [
+            "1d3",
+            "1d2",
+            "1",
+            "—",
+            "—"
+          ],
+          [
+            "1d4",
+            "1d3",
+            "1d2",
+            "1",
+            "—"
+          ],
+          [
+            "1d6",
+            "1d4",
+            "1d3",
+            "1d2",
+            "1"
+          ],
+          [
+            "1d8",
+            "1d6",
+            "1d4",
+            "1d3",
+            "1d2"
+          ],
+          [
+            "1d10",
+            "1d8",
+            "1d6",
+            "1d4",
+            "1d3"
+          ],
+          [
+            "1d12",
+            "1d10",
+            "1d8",
+            "1d6",
+            "1d4"
+          ],
+          [
+            "2d4",
+            "1d6",
+            "1d4",
+            "1d3",
+            "1d2"
+          ],
+          [
+            "2d6",
+            "1d10",
+            "1d8",
+            "1d6",
+            "1d4"
+          ],
+          [
+            "2d8",
+            "2d6",
+            "1d10",
+            "1d8",
+            "1d6"
+          ],
+          [
+            "2d10",
+            "2d8",
+            "2d6",
+            "1d10",
+            "1d8"
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reduce-person-2860",
+          "role": "primary Player's Handbook v.3.5 record; its tail is malformed and it externally references DMG Table 2-3"
+        },
+        {
+          "url": "https://dndtools.net/spells/players-handbook-v35--6/reduce-person--2860/",
+          "role": "clean same-printing rendering used to restore the counter/dispels and permanency clauses"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/PlayersHandbookI.pdf",
+          "role": "Player's Handbook v.3.5 sourcebook rendering used to cross-check the complete spell text"
+        },
+        {
+          "url": "https://orkerhulen.dk/Core%20books/Dungeon%20Masters%20Guide%20v3.5.pdf",
+          "role": "Dungeon Master's Guide 3.5 Table 2-3 source used for reduced weapon damage progression"
+        }
+      ]
+    },
+    "spells/righteous-might-2865": {
+      "name": "Righteous Might",
+      "effectSummary": "Source-locked to the Player's Handbook v.3.5 printing represented by this catalog record. You double in height and multiply your weight by 8, increasing one size category. You gain a +4 size bonus to Strength, +2 size bonus to Constitution, +2 enhancement bonus to natural armor, and DR 3/evil if you channel positive energy or DR 3/good if you channel negative energy; the DR becomes 6 at caster level 12 and 9 at level 15. Your size modifier to attacks and AC, space, reach, and weapon damage change for the new size as shown below; speed does not change. If space is insufficient, you grow as much as possible and may attempt a Strength check to burst the enclosure, but the spell cannot crush you. Your equipment enlarges with you; items leaving your possession return to normal size, and multiple magical size increases do not stack.",
+      "notes": "Preserves the +4 Str/+2 Con/+2 natural armor and DR 3/6/9 values in the primary PH v.3.5/SRD printing used by this repository. Do not silently substitute later alternative renderings with +8/+4/+4 and DR 5/10/15.",
+      "tables": [
+        [
+          [
+            "Creature Size",
+            "Size Modifier",
+            "Space",
+            "Typical Natural Reach (Tall)",
+            "Typical Natural Reach (Long)"
+          ],
+          [
+            "Fine",
+            "+8",
+            "1/2 ft.",
+            "0 ft.",
+            "0 ft."
+          ],
+          [
+            "Diminutive",
+            "+4",
+            "1 ft.",
+            "0 ft.",
+            "0 ft."
+          ],
+          [
+            "Tiny",
+            "+2",
+            "2-1/2 ft.",
+            "0 ft.",
+            "0 ft."
+          ],
+          [
+            "Small",
+            "+1",
+            "5 ft.",
+            "5 ft.",
+            "5 ft."
+          ],
+          [
+            "Medium",
+            "+0",
+            "5 ft.",
+            "5 ft.",
+            "5 ft."
+          ],
+          [
+            "Large",
+            "-1",
+            "10 ft.",
+            "10 ft.",
+            "5 ft."
+          ],
+          [
+            "Huge",
+            "-2",
+            "15 ft.",
+            "15 ft.",
+            "10 ft."
+          ],
+          [
+            "Gargantuan",
+            "-4",
+            "20 ft.",
+            "20 ft.",
+            "15 ft."
+          ],
+          [
+            "Colossal",
+            "-8",
+            "30 ft. or more",
+            "30 ft. or more",
+            "20 ft. or more"
+          ]
+        ],
+        [
+          [
+            "Medium Weapon Damage",
+            "One Size Larger",
+            "Two Sizes Larger",
+            "Three Sizes Larger",
+            "Four Sizes Larger"
+          ],
+          [
+            "1d2",
+            "1d3",
+            "1d4",
+            "1d6",
+            "1d8"
+          ],
+          [
+            "1d3",
+            "1d4",
+            "1d6",
+            "1d8",
+            "2d6"
+          ],
+          [
+            "1d4",
+            "1d6",
+            "1d8",
+            "2d6",
+            "3d6"
+          ],
+          [
+            "1d6",
+            "1d8",
+            "2d6",
+            "3d6",
+            "4d6"
+          ],
+          [
+            "1d8",
+            "2d6",
+            "3d6",
+            "4d6",
+            "6d6"
+          ],
+          [
+            "1d10",
+            "2d8",
+            "3d8",
+            "4d8",
+            "6d8"
+          ],
+          [
+            "1d12",
+            "3d6",
+            "4d6",
+            "6d6",
+            "8d6"
+          ],
+          [
+            "2d4",
+            "2d6",
+            "3d6",
+            "4d6",
+            "6d6"
+          ],
+          [
+            "2d6",
+            "3d6",
+            "4d6",
+            "6d6",
+            "8d6"
+          ],
+          [
+            "2d8",
+            "3d8",
+            "4d8",
+            "6d8",
+            "8d8"
+          ],
+          [
+            "2d10",
+            "4d8",
+            "6d8",
+            "8d8",
+            "12d8"
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/righteous-might-2865",
+          "role": "primary rebuilt Player's Handbook v.3.5 record whose exact values are preserved"
+        },
+        {
+          "url": "https://www.dndtools.one/righteous-might-2865",
+          "role": "independent rendering confirming +4 Str, +2 Con, +2 natural armor and DR 3/6/9"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Core/Player%27s%20Handbook%203.5.pdf",
+          "role": "Player's Handbook v.3.5 sourcebook rendering used to verify the printing-specific spell body"
+        },
+        {
+          "url": "https://orkerhulen.dk/Core%20books/Dungeon%20Masters%20Guide%20v3.5.pdf",
+          "role": "Dungeon Master's Guide 3.5 Table 2-2 used for increased weapon damage progression"
+        }
+      ]
+    },
+    "spells/invisibility-2676": {
+      "name": "Invisibility",
+      "effectSummary": "Makes the touched creature or qualifying object invisible to normal sight and darkvision for 1 minute per level. A creature's carried gear vanishes with it; dropped items become visible, picked-up items disappear when concealed on the subject, light itself never becomes invisible, and carried portions extending more than 10 feet from the subject become visible. The subject is not silenced and can still be detected by environmental clues. Attacking ends the spell: direct attacks, hostile targeted spells, and hostile areas/effects count; actions against unattended objects and indirect harm do not. In combat, an invisible attacker gets +2 on melee and ranged attacks against sighted targets and the defender loses any Dexterity bonus to AC; an invisible defender has total concealment, producing a 50% miss chance even when the correct square is attacked. The spell can be made permanent on objects only. The arcane material component is an eyelash encased in gum arabic.",
+      "tables": [
+        [
+          [
+            "Table 8-5: Attack Roll Modifiers — relevant row",
+            "Melee",
+            "Ranged"
+          ],
+          [
+            "Attacker invisible",
+            "+2",
+            "+2"
+          ],
+          [
+            "Note",
+            "Defender loses any Dexterity bonus to AC; this +2 does not apply if the target is blinded.",
+            "Same"
+          ]
+        ],
+        [
+          [
+            "Table 8-6: Armor Class Modifiers — relevant row",
+            "Melee",
+            "Ranged"
+          ],
+          [
+            "Defender concealed or invisible",
+            "See concealment",
+            "See concealment"
+          ],
+          [
+            "Total concealment",
+            "50% miss chance if the attacker targets the correct square",
+            "50% miss chance if the attacker targets the correct square"
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "primary Player's Handbook v.3.5 record; combat effects are delegated to PH Tables 8-5 and 8-6"
+        },
+        {
+          "url": "https://dndtools.net/spells/players-handbook-v35--6/invisibility--2676/",
+          "role": "matching PH v.3.5 rendering used to verify the full attack-ending and permanency rules"
+        },
+        {
+          "url": "https://fliphtml5.com/ryluz/bvms/DND_Player%E2%80%99s_Handbook/152/",
+          "role": "Player's Handbook page 151 rendering used to restore the invisibility rows from Tables 8-5 and 8-6"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/combat/combatModifiers.htm",
+          "role": "3.5 SRD combat concealment rules used to verify total concealment and the 50% miss chance"
+        }
+      ]
     }
   }
 }
