@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Adaptive maximum-safe printing-aware Magic of Faerûn 3.0 reference batch 100: four same-lineage records independently resolved against 3.0 core mechanics and preserved without 3.5 normalization.",
+  "entries": {
+    "spells/holy-star-1582": {
+      "name": "Holy Star",
+      "sourceSha256": "49461d55dd4017848ad901dc6a64fa4cae2c6ccf9e47164927298682c9746747",
+      "effectSummary": "Creates a candle-bright mote near your shoulder for 1 round/level. As a free action on your turn, choose one of three functions. Spell Turning: the star turns 1d4+3 spell levels using the 3.0 spell turning rules—only spells and spell-like effects targeted on you can be turned; area, effect, and touch-range spells are not. Fully turned spells consume their level from the remaining capacity, and a higher-level incoming spell is partially turned in proportion to the capacity left. If both sides have spell turning active, use the 3.0 resonating-field outcomes: 01–70 the spell drains away, 71–80 both are affected at full effect, 81–97 both turning effects become nonfunctional for 1d4 minutes, and 98–100 both creatures pass through a rift to another plane. Capacity spent by Holy Star stays spent when you switch functions, and this mode stops working once all 1d4+3 levels are used. Cover: gain a +10 cover bonus to AC without restricting your actions. Fire Bolt: make a ranged touch attack against a creature within 90 feet for 1d4 fire damage +1 per two caster levels, maximum +10.",
+      "notes": "Magic of Faerûn 3.0 printing, digest-locked and intentionally kept distinct from the later Player's Guide to Faerûn 3.5 Holy Star. The source-specific +10 cover bonus and 1d4 +1/two-level fire bolt are preserved; later 3.5 circumstance-bonus and d6-per-two-level wording is not substituted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/holy-star-1582",
+          "role": "primary Magic of Faerûn 3.0 catalog record and digest source"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/453/spell-turning",
+          "role": "3.0 core Spell Turning cross-check for inherited targeting, partial-turning, and resonating-field mechanics"
+        }
+      ]
+    },
+    "spells/reverse-arrows-1587": {
+      "name": "Reverse Arrows",
+      "sourceSha256": "16d84d583c7598e8f87c2d4655a8d7bcfb11d6730233b253ec24c603689464fa",
+      "effectSummary": "Functions as the 3.0 protection from arrows spell for you, beginning with damage reduction 10/+1 against ranged weapons: the first 10 points of qualifying ranged-weapon damage are ignored each time, while a +1 or better weapon or another magical attack bypasses that initial reduction. Reverse Arrows explicitly replaces the base spell's scaling with its own printed progression: 10/+2 at caster level 10, 10/+3 at 15, and 10/+5 at 20. Whenever a missile hits you and all of its damage is negated by this damage reduction, the missile reverses toward its attacker. Reuse the attacker's original attack roll to determine whether it hits the attacker, but reroll damage. If the attacker also has reverse arrows, a fully negated missile can bounce back and forth each round until one of the spells is discharged. The spell ends after preventing 10 points of damage per caster level, maximum 100. Focus: a piece of tortoise shell and a ball of tree sap.",
+      "notes": "Magic of Faerûn 3.0 printing, digest-locked. Its explicit 10/+2-at-10th, 10/+3-at-15th, 10/+5-at-20th progression is authoritative for this printing and is not normalized to either the 3.0 Protection from Arrows progression or the later 3.5 DR 10/magic form.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reverse-arrows-1587",
+          "role": "primary Magic of Faerûn 3.0 catalog record and digest source"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/368/protection-from-arrows",
+          "role": "3.0 core Protection from Arrows cross-check for inherited ranged-damage reduction and discharge mechanics"
+        }
+      ]
+    },
+    "spells/safe-clearing-1589": {
+      "name": "Safe Clearing",
+      "sourceSha256": "8c68cd2597b8f355ec35f5cea21548e501df372ade4618dfe7c6f0d2802f8a28",
+      "effectSummary": "Creates an immobile 30-foot-radius safe area for 1 hour/level. A creature attempting to strike or otherwise directly attack anyone inside, or attempting to enter the area, must make a Will save. On success it acts normally and is unaffected by this casting. On failure it cannot attack anyone in the area or enter the area for the spell's duration. Creatures not attempting those actions are unaffected. Area-effect spells can still affect creatures in the clearing. Anyone inside the clearing, even a creature that succeeded on its save or otherwise is unaffected by the ward, breaks the spell by attacking, but can cast nonattack spells or take other nonattack actions without ending it.",
+      "notes": "Magic of Faerûn 3.0 printing, digest-locked. Although the source says it functions much like sanctuary, it explicitly restates the operative warding rules and then expands them to entry into an immobile area. The 3.0 Sanctuary source was independently checked only to confirm the shared direct-attack/save/break-on-attack chassis; no 3.5-only wording is imported.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/safe-clearing-1589",
+          "role": "primary Magic of Faerûn 3.0 catalog record and digest source"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/408/sanctuary",
+          "role": "3.0 core Sanctuary cross-check for the explicitly referenced warding chassis"
+        }
+      ]
+    },
+    "spells/stormrage-1800": {
+      "name": "Stormrage",
+      "sourceSha256": "0f6400032aef2d0e18a2cc9c5f06756ff298d4ce9d8997c416013f2331a0a9d0",
+      "effectSummary": "For 1 minute/level, gains the benefits of the 3.0 fly spell: fly speed 90 feet, reduced to 60 feet in medium or heavy armor, with good maneuverability; ascend at half speed and descend at double speed; attack and cast normally while flying; charge but not run; and carry no more than your maximum load plus armor. If the effect expires or is dispelled while you are aloft, the inherited fly magic lowers you 60 feet per round for up to 1d6 rounds before any remaining fall. You are also protected from every direction as if surrounded by the 3.0 wind wall spell: arrows and bolts are deflected, other ordinary ranged weapons crossing the protection suffer a 30% miss chance, Tiny and Small flying creatures cannot pass through it, and gases, most gaseous breath weapons, and gaseous creatures cannot pass. You are completely unaffected by natural or magical wind and by adverse extreme-wind consequences. Finally, you have a pool of electricity damage dice equal to your caster level, maximum 20d6. You may fire any number of those dice in one bolt or divide them among bolts over multiple rounds. Each bolt targets one creature within 100 feet; firing is a standard action that does not provoke attacks of opportunity and requires a ranged touch attack, with +3 on the attack roll against a foe wearing metal armor, made of metal, or carrying a large amount of metal. Spent electricity dice do not replenish during the spell.",
+      "notes": "Magic of Faerûn 3.0 printing, digest-locked and intentionally not normalized to later Complete Divine or Spell Compendium revisions. The 3.0 Fly speed of 90 feet (60 in medium/heavy armor), 3.0 Wind Wall defenses, and this printing's flexible caster-level d6 electricity pool are preserved exactly by lineage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stormrage-1800",
+          "role": "primary Magic of Faerûn 3.0 catalog record and digest source"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/184/fly",
+          "role": "3.0 core Fly cross-check for inherited flight mechanics"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/537/wind-wall",
+          "role": "3.0 core Wind Wall cross-check for inherited surrounding wind defenses"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "d0e0bfb7fbc0f20413adac1ad0d76c5a6160b7e4",
+    "workflowRun": 35695099280,
+    "validationRun": 35695103770,
+    "classificationArtifact": 10680416584,
+    "classificationArtifactSha256": "3ab9dc8d08b9b39d0a4077b4108acfa027239ae2f0e8eaeddcc87828f683e1f2",
+    "queueCountBefore": 845,
+    "referenceQueueCountBefore": 845,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
