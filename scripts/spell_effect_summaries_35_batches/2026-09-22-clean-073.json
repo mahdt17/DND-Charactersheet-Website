@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified explicit cross-book reference spells with reviewed core targets; clean batch 073.",
+  "entries": {
+    "spells/construct-energy-ward-4920": {
+      "name": "Construct Energy Ward",
+      "sourceSha256": "55b1b8c3f4d5a880929819f0fbde8238c507f643a153144f0b112a45e9f4e05e",
+      "effectSummary": "Functions as resist energy, but can target only one construct. Choose acid, cold, electricity, fire, or sonic; the construct gains resistance 10 to that energy type, increasing to 20 at caster level 7 and 30 at caster level 11. The ward also protects the construct's equipment and reduces only energy damage, not secondary consequences such as suffocation or being trapped in ice. It overlaps rather than stacks with protection from energy; while both apply, the protection spell absorbs damage first.",
+      "notes": "Source-locked to Eberron Campaign Setting p.109. The cross-book reference to Player's Handbook resist energy is explicit in the source; only the target restriction and this infusion's own header differ.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/construct-energy-ward-4920",
+          "role": "primary Eberron Campaign Setting record and digest source"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Eberron%20Setting/Eberron%20Campaign%20Setting.pdf",
+          "role": "same-printing Eberron Campaign Setting cross-check confirming explicit resist energy inheritance and construct-only target"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/resistEnergy.htm",
+          "role": "3.5 core Resist Energy mechanics inherited by the infusion"
+        }
+      ]
+    },
+    "spells/construct-energy-ward-greater-4911": {
+      "name": "Construct Energy Ward, Greater",
+      "sourceSha256": "4e5138445f1c12f7decc6a0814223701467a2ccd64c3bc6b9b65bc5e12a1b0d4",
+      "effectSummary": "Functions as protection from energy, but can target only one construct. Choose acid, cold, electricity, fire, or sonic; the spell absorbs 12 points of damage of that type per caster level, to a maximum of 120 points, and ends when that capacity is exhausted. It overlaps rather than stacks with resist energy; while both apply, this spell absorbs damage first.",
+      "notes": "Source-locked to Eberron Campaign Setting p.109. The cross-book reference to Player's Handbook protection from energy is explicit in the source; only the construct target and the infusion's own header differ.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/construct-energy-ward-greater-4911",
+          "role": "primary Eberron Campaign Setting record and digest source"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Eberron%20Setting/Eberron%20Campaign%20Setting.pdf",
+          "role": "same-printing Eberron Campaign Setting cross-check confirming explicit protection from energy inheritance and construct-only target"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/protectionFromEnergy.htm",
+          "role": "3.5 core Protection from Energy mechanics inherited by the infusion"
+        }
+      ]
+    },
+    "spells/dominate-living-construct-4954": {
+      "name": "Dominate Living Construct",
+      "sourceSha256": "e239c5e4c8588b937da066dd5c7e49c75db86fd5ec6a97df6c1630b386744540",
+      "effectSummary": "Functions as dominate person, except the target is one living construct. On a failed Will save, you control the subject through a telepathic link for 1 day per caster level. With a shared language you can issue detailed commands; otherwise only basic commands are possible. The subject follows its current command except for ordinary survival needs, and a DC 15 Sense Motive check can detect that its behavior is being influenced. Changing instructions is a move action. By concentrating as a standard action, you can receive the subject's interpreted sensory impressions, though it cannot communicate back telepathically. Commands against the subject's nature grant a new save with a +2 bonus, and obviously self-destructive orders are ignored. Once established, control has unlimited range on the same plane and does not require sight. If you fail to spend at least 1 round concentrating on the spell each day, the subject gains a new save to break free. Protection from evil or similar magic suppresses control and use of the telepathic link while present but does not prevent the domination from being established or dispel it.",
+      "notes": "Source-locked to Races of Eberron p.184. The source explicitly says 'As dominate person, except that it affects a living construct'; the reviewed Player's Handbook dominate person mechanics are inherited without importing any other construct-specific changes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dominate-living-construct-4954",
+          "role": "primary Races of Eberron record and digest source"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Eberron%20Setting/Races%20Of%20Eberron.pdf",
+          "role": "same-printing Races of Eberron cross-check confirming explicit dominate person inheritance"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/dominatePerson.htm",
+          "role": "3.5 core Dominate Person mechanics inherited by the spell"
+        }
+      ]
+    },
+    "spells/mage-armor-greater-461": {
+      "name": "Mage Armor, Greater",
+      "sourceSha256": "8134f10484ca9d90d0a5fc1f0c6334130ac5663232b22876a7b53bbb4579a7f9",
+      "effectSummary": "Functions as mage armor, except the tangible field of force grants a +6 armor bonus to AC instead of +4. It imposes no armor check penalty, arcane spell failure chance, or speed reduction, and because it is a force effect incorporeal creatures cannot bypass it as they can ordinary armor. The material component is a tiny platinum shield worth 25 gp.",
+      "notes": "Source-locked to Complete Arcane. The cross-book Player's Handbook Mage Armor reference is explicit; this printing's +6 bonus and 25 gp material component are preserved rather than substituting the later Spell Compendium no-component revision.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mage-armor-greater-461",
+          "role": "primary Complete Arcane record and digest source"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Complete%20Arcane.pdf",
+          "role": "same-printing Complete Arcane cross-check for +6 armor bonus and material component"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/mageArmor.htm",
+          "role": "3.5 core Mage Armor mechanics inherited by the spell"
+        }
+      ]
+    },
+    "spells/mirror-image-greater-2987": {
+      "name": "Mirror Image, Greater",
+      "sourceSha256": "260a4c7919c4bd08f90e1da63bb5492cffd641ad3e8dfa356664dfc04711d3ad",
+      "effectSummary": "Functions as mirror image and can be cast as an immediate action even when it is not your turn. On casting, it creates the normal mirror image allotment of 1d4 images plus one per three caster levels, to a maximum of eight; then one additional image appears in each round after the first until there are eight concurrent images. The figments remain clustered near you, mimic your actions, and are visually and audibly indistinguishable from you. Attacks and targeted spells must randomly determine whether they select you or an image; a successful attack destroys an image, whose AC is 10 + your size modifier + Dexterity modifier. You can merge with and split from the images while moving to conceal which is real, and attackers who cannot see the images are not fooled. If all images are destroyed, the spell ends.",
+      "notes": "Source-locked to Player's Handbook II p.120. The Player's Handbook mirror image mechanics are inherited explicitly, while the immediate-action casting and one-new-image-per-round replenishment are the printed Greater differences.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mirror-image-greater-2987",
+          "role": "primary Player's Handbook II record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/players-handbook-ii--80/mirror-image-greater--2987/index.html",
+          "role": "matching Player's Handbook II rendering confirming immediate-action casting and image replenishment"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/mirrorImage.htm",
+          "role": "3.5 core Mirror Image mechanics inherited by the spell"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "992bc81997cd6924eb8e773f88ddfd832dfcd440",
+    "workflowRun": 35682805179,
+    "validationRun": 35682807514,
+    "classificationArtifact": 10674314775,
+    "classificationArtifactSha256": "6e489febc107d220e84ab83b52e1749396aa5de750b13b91364ef46d0d845263",
+    "queueCountBefore": 973,
+    "referenceQueueCountBefore": 973,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
