@@ -1,0 +1,660 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 50-record batch 109 from the clean 461-record reference-dependent queue. Forty-two records were preserved from a previously reviewed candidate set after a concurrent batch 108 claimed eight overlaps; eight additional source-complete records were then vetted from the fresh post-108 queue. Ambiguous Haste inheritance, truncated source records, unresolved tables, and deep stat-block dependencies remain deferred.",
+  "entries": {
+    "spells/harm-greater-1439": {
+      "name": "Harm, Greater",
+      "sourceSha256": "e07bb2ed51e5065619fda9a061d037b0ec52557a698e578aa4a2afef67fb44bb",
+      "effectSummary": "Functions as harm at close range, but deals 1d12 negative-energy damage per caster level, maximum 20d12. A Will save halves the damage and retains harm's rule that a successful save cannot reduce the target below 1 hp; against undead it follows harm's heal interaction.",
+      "notes": "Harm is already regression-locked; this record preserves the Heroes of Horror range and 1d12-per-level progression.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/harm-greater-1439",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/harm-2741",
+          "role": "Player's Handbook v.3.5 source for inherited Harm mechanics"
+        }
+      ]
+    },
+    "spells/harm-mass-1440": {
+      "name": "Harm, Mass",
+      "sourceSha256": "26322b87ebae6452ff36906ba65ab6f89829025b5b404bde70eb2dc3b5f33671",
+      "effectSummary": "Applies greater harm to every creature except you in a 20-foot-radius burst centered on you. Each affected creature takes 1d12 damage per caster level, maximum 20d12, with Will half and the inherited harm restrictions and undead interaction.",
+      "notes": "Greater Harm is reviewed in this same batch; the mass version changes targeting to the source's 20-foot burst.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/harm-mass-1440",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/harm-greater-1439",
+          "role": "Heroes of Horror source for inherited Greater Harm mechanics"
+        }
+      ]
+    },
+    "spells/laogzeds-breath-3247": {
+      "name": "Laogzed's Breath",
+      "sourceSha256": "582efec7360ea1d347e6a451e3c821c829fb5fb4413362b7df2d116c4cddc29f",
+      "effectSummary": "Creates a close-range cone of nauseating vapors using stinking cloud's nausea rules. Living creatures in the vapors save as normal for stinking cloud, and nausea persists after leaving as that spell specifies; the vapors themselves persist for 10 rounds.",
+      "notes": "Printing kept source-distinct. Stinking Cloud is already reviewed; this record preserves the cone geometry and 10-round persistence.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/laogzeds-breath-3247",
+          "role": "primary Serpent Kingdoms catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/stinking-cloud-2438",
+          "role": "Player's Handbook v.3.5 source for inherited Stinking Cloud mechanics"
+        }
+      ]
+    },
+    "spells/laogzeds-breath-3198": {
+      "name": "Laogzed's Breath",
+      "sourceSha256": "f8b17c8a8b5ece5f6b872dbfefc9bc4d82dee290830d5b6dafff9c732cd5422c",
+      "effectSummary": "Creates a close-range cone of nauseating vapors using stinking cloud's nausea rules. Living creatures in the vapors save as normal for stinking cloud, and nausea persists after leaving as that spell specifies; the vapors themselves persist for 10 rounds.",
+      "notes": "Printing kept source-distinct. Stinking Cloud is already reviewed; this record preserves the cone geometry and 10-round persistence.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/laogzeds-breath-3198",
+          "role": "primary Savage Species catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/stinking-cloud-2438",
+          "role": "Player's Handbook v.3.5 source for inherited Stinking Cloud mechanics"
+        }
+      ]
+    },
+    "spells/khelbens-suspended-silence-1700": {
+      "name": "Khelben's Suspended Silence",
+      "sourceSha256": "b32e6e0ec441127e63ffb82ded4411133ae744625b1df3c922697021e5d55524",
+      "effectSummary": "Permanently enchants one touched object until triggered. When you touch that object and speak the chosen command word, it becomes the center of a silence effect that moves with it and lasts exactly 6 rounds. Material component: a feather and 50 gp of gem dust.",
+      "notes": "Older printing retained as written; Silence is already regression-locked.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/khelbens-suspended-silence-1700",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/silence-2704",
+          "role": "Player's Handbook v.3.5 source for inherited Silence mechanics"
+        }
+      ]
+    },
+    "spells/strike-righteous-vitality-3615": {
+      "name": "Strike of Righteous Vitality",
+      "sourceSha256": "dfaf679835aa0898aa60b7076e1ac0fa4d9ebff1d0f7389d4798d18ca1671b2b",
+      "effectSummary": "When this melee strike hits a directly threatening enemy whose alignment differs from yours in at least one component, you or one ally within 10 feet immediately receives heal as though cast by a cleric of your character level.",
+      "notes": "Heal is already regression-locked; the hit, alignment, threat, and ally-distance requirements are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/strike-righteous-vitality-3615",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "Player's Handbook v.3.5 source for inherited Heal mechanics"
+        }
+      ]
+    },
+    "spells/thicket-blades-3616": {
+      "name": "Thicket of Blades",
+      "sourceSha256": "5860c700348bb55d617e73731c3f0a92523d75b7f865d90bf49f071d863a7057",
+      "effectSummary": "While in this stance, every kind of movement by an opponent you threaten—including a 5-foot step—provokes an attack of opportunity from you before the opponent leaves your threatened area. Opponents also cannot use withdraw to make their starting square nonthreatened against you.",
+      "notes": "Self-contained stance mechanics; the Player's Handbook citation is only to the normal withdraw rule.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/thicket-blades-3616",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/hunters-sense-3740": {
+      "name": "Hunter's Sense",
+      "sourceSha256": "f546e100565899c54a54bb66575f74d90043f3ebcfcaaa84a2f1f84fb88f941a",
+      "effectSummary": "While in this stance, you gain the scent special ability, allowing scent-based detection, direction finding, pinpointing at close range, and tracking under the normal scent rules.",
+      "notes": "The source's only external dependency is the general scent ability definition.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hunters-sense-3740",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/unholy-aura-2371": {
+      "name": "Unholy Aura",
+      "sourceSha256": "4e42342c0f63baa5e0c970e16315d4d43b9e03106e00093646db263d6247ecae",
+      "effectSummary": "For 1 round per caster level, up to one creature per caster level within 20 feet gains +4 deflection AC, +4 resistance on saves, spell resistance 25 against good spells and spells cast by good creatures, and protection from possession and mental influence. A good creature that hits a warded subject in melee takes 1d6 temporary Strength damage unless it succeeds on Fortitude. Focus: an unholy reliquary worth at least 500 gp.",
+      "notes": "Source-complete four-part evil protective aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unholy-aura-2371",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shield-of-law-2362": {
+      "name": "Shield of Law",
+      "sourceSha256": "b40024c0e00768f10f6662144319f236e513facb355a17cce002d649ada5a1b8",
+      "effectSummary": "For 1 round per caster level, up to one creature per caster level within 20 feet gains +4 deflection AC, +4 resistance on saves, spell resistance 25 against chaotic spells and chaotic casters, and protection from possession and mental influence. A chaotic creature that hits a warded subject in melee is slowed unless it succeeds on Will. Focus: a lawful reliquary worth at least 500 gp.",
+      "notes": "Source-complete four-part lawful protective aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shield-of-law-2362",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tidal-surge-4306": {
+      "name": "Tidal Surge",
+      "sourceSha256": "10c1d1408d130c3e75b2a76019b10ea6096bdfcb3472cb837dc55795b4c43f07",
+      "effectSummary": "Creates a powerful wave at medium range. Without a large natural water source it affects one target; with one, it becomes a 20-foot-radius burst. It deals 1d6 damage per caster level, maximum 15d6, Reflex half. Every affected creature also makes an opposed Strength check against the wave at +5, or +10 near natural water; losing pushes it 5 feet plus 5 feet per 5 points of margin in the chosen direction. The wave extinguishes ordinary exposed flames and attempts to dispel magical fire.",
+      "notes": "Later printing kept distinct from the Complete Divine Tidal Surge already locked in batch 107.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tidal-surge-4306",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wall-of-sand-2238": {
+      "name": "Wall of Sand",
+      "sourceSha256": "e922e4be559ca266a8ecc96d47c1f211c3449aec82be9893573658bdc4928e3a",
+      "effectSummary": "Creates an immobile opaque sand wall resting on a solid surface, with area up to one 5-foot square per caster level. It provides cover against ranged attacks. Crossing requires a full-round action and a Strength check, moving 5 feet per 5 points by which the check exceeds 15. Creatures within are blinded, deafened, unable to speak or breathe, and can suffocate; verbal spells fail and other spells require Concentration DC 20 + spell level. Melee attacks through the wall require locating a reachable target and still face cover and total concealment. Open unprotected flames entering it are extinguished.",
+      "notes": "Printing distinction preserved: this version uses one 5-foot square/level and a Strength-check threshold of 15 rather than the later Spell Compendium values.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-sand-2238",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-phylactery-2294": {
+      "name": "Spell Phylactery",
+      "sourceSha256": "e68c82c13d6492b3610bec134fdb730fd198cded76b4178729bef0f038e0d49b",
+      "effectSummary": "Places clear contingency-style trigger conditions on a scroll containing a personal spell on your spell list of no more than one-fourth your caster level, maximum 5th. When the condition occurs, the scroll casts on you as though you used it, subject to normal ability and caster-level requirements; if the spell is unusable then, the phylactery magic ends without casting it. The prepared scroll must be worn on the arm or forehead, occupies that magic-item space, works only for you, and loses the phylactery effect if left unworn for 24 hours.",
+      "notes": "Self-contained trigger and scroll-use mechanics; the contingency reference only defines acceptable trigger clarity.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-phylactery-2294",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/hoard-gullet-1080": {
+      "name": "Hoard Gullet",
+      "sourceSha256": "0ba2be6abdc9079084063147216f1ce56d694bd59324e436b80fc6d123c8b38c",
+      "effectSummary": "Creates a magical second stomach that can securely hold swallowable objects totaling up to 100 pounds and 10 cubic feet per caster level, maximum 1,000 pounds and 100 cubic feet. You cannot retrieve individual items; a full-round action expels everything into your square. Remaining contents are expelled when the spell ends. It otherwise functions as a bag of holding, and only one hoard gullet can be active at once.",
+      "notes": "Source-complete storage capacity and retrieval rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hoard-gullet-1080",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sea-legs-3290": {
+      "name": "Sea Legs",
+      "sourceSha256": "7ea6488ed0b2de57b9e81b95eb687bb3795a46b77b8031df919cceea3e8d5054",
+      "effectSummary": "For 1 hour per caster level, the touched creature automatically succeeds on Balance checks DC 20 or lower caused by a ship's sloped or mildly slippery surfaces and can move at normal speed rather than half speed while balancing on a ship's deck.",
+      "notes": "Self-contained shipboard balance benefit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sea-legs-3290",
+          "role": "primary Shining South catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spirit-steed-4908": {
+      "name": "Spirit Steed",
+      "sourceSha256": "60d6bb8cd7c2a0a2d1130c79ce4f2cd32688bf1d934291aa99b0071f81a35aa1",
+      "effectSummary": "For 1 hour per caster level, a living animal mount gains +30 feet enhancement to base land speed and the Run feat. If it already has Run, it runs at six times speed in light/no armor with a light load or five times speed in medium/heavy armor or with a medium/heavy load. It can hustle for the full spell without damage or fatigue, doubling overland distance, but becomes fatigued when the spell ends.",
+      "notes": "Self-contained mount-speed and overland-movement effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-steed-4908",
+          "role": "primary Eberron Campaign Setting catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spymasters-coin-904": {
+      "name": "Spymaster's Coin",
+      "sourceSha256": "7679d62f65e16816b6d40156493a6926c3af8c82d8accc58da001e0771f6985d",
+      "effectSummary": "Imbues a Fine object with a dormant same-plane scrying sensor for 1 hour per caster level. Detecting its aura requires a caster-level check DC 15 + your caster level. Once during the duration, a standard action activates either sight or hearing from the object's location; you must concentrate continuously, gain no special senses or movement control, and the active sensor lasts at most one round per caster level. Focus: the Fine object.",
+      "notes": "Source-complete concealed sensor mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spymasters-coin-904",
+          "role": "primary Complete Scoundrel catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stone-body-3243": {
+      "name": "Stone Body",
+      "sourceSha256": "9d2068216e28bdda7a9fc6f8d72ec2c24f855cdd1e64b0bf7d5f8e317935832e",
+      "effectSummary": "Transforms you into living stone for 1 round per caster level. You gain DR 10/—; immunity to blindness, critical hits, ability-score damage, deafness, disease, drowning, electricity, poison, stunning, and physiology/respiration effects; and take half cold and fire damage. You become vulnerable to effects that specially affect stone golems, gain +4 enhancement Strength and -4 Dexterity to a minimum 1, move at half speed, suffer 50% arcane spell failure and -8 armor-check penalty, cannot drink or play wind instruments, and gain armed unarmed strikes dealing at least 1d6 for Medium or 1d4 for Small. Your weight triples, causing you to sink in water.",
+      "notes": "Source-complete Savage Species printing; retained separately from later Stone Body variants.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-body-3243",
+          "role": "primary Savage Species catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stone-dragons-fury-3727": {
+      "name": "Stone Dragon's Fury",
+      "sourceSha256": "57b7dc86323caed85cf71827a2e5c4ab64f281714f3640fb4161171fb0675560",
+      "effectSummary": "As part of this strike, make one melee attack. If it hits a construct or object, it deals an extra 4d6 damage. It can be combined with a sunder attempt against a held or carried object; against other targets it provides no special benefit.",
+      "notes": "Self-contained strike mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-dragons-fury-3727",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stonefire-3278": {
+      "name": "Stonefire",
+      "sourceSha256": "5f52acbe1d14c773b8d7ce9f34bccd39ed3a7cdb58322005eb8d280d9a38e5bd",
+      "effectSummary": "Sets natural nonliving stone ablaze. A creature touching it takes 2d6 fire damage each round; creatures within 10 feet take 2d4, and those more than 10 but within 20 feet take 1d4, including on the round the spell appears. Undead take double damage. The fire consumes 1 foot of stone thickness per round and can undermine supports; 20 or more cold damage to the burning stone in one round extinguishes it.",
+      "notes": "Source-complete stone-burning damage and consumption rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stonefire-3278",
+          "role": "primary Shining South catalog record and digest source"
+        }
+      ]
+    },
+    "spells/storm-of-elemental-fury-4248": {
+      "name": "Storm of Elemental Fury",
+      "sourceSha256": "dc197adb0e768329eeeb5efafdc51f91d8b88d94a348d3e7e3635b41cd6b0b62",
+      "effectSummary": "Creates a 40-foot-radius storm that runs through four fixed rounds. Round 1 is a windstorm: ranged attacks are impossible, Small-or-smaller creatures risk being blown away, Medium creatures risk being knocked prone, Large-or-larger creatures can be prevented from moving, flying creatures are blown varying distances, and spellcasting requires Concentration against the spell's save DC + spell level. Round 2 deals 5d6 falling-rock damage with no save. Round 3 extinguishes unprotected flames, has a 50% chance to extinguish protected flames, reduces visibility to 5 feet, and halves movement. Round 4 deals 1d6 fire damage per caster level, maximum 15d6, Reflex half.",
+      "notes": "Source-complete four-round sequence.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/storm-of-elemental-fury-4248",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sun-scepter-1558": {
+      "name": "Sun Scepter",
+      "sourceSha256": "aaa947e13702889c4b60869e68e99482eec945e92e401b5374fd76e64f0d3e16",
+      "effectSummary": "Creates a radiant scepter you alone can wield. It functions as a physical weapon dealing 2d6 bludgeoning damage and carries the axiomatic, disruption, and flaming burst special abilities; you attack with it as a melee touch attack. It vanishes immediately if you drop it or hand it to another creature.",
+      "notes": "Source-complete conjured-weapon effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sun-scepter-1558",
+          "role": "primary Lost Empires of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sunmantle-15": {
+      "name": "Sunmantle",
+      "sourceSha256": "31613f2cad87da98c6c96664d26c99c2c3b50e9658bb8a649783e581b25cfef6",
+      "effectSummary": "For 1 round per caster level, cloaks the touched creature in daylight-bright illumination that also dispels darkness as daylight, grants DR 5/—, and automatically lashes any melee attacker that deals hit-point damage for 5 damage. Creatures sensitive to bright light suffer their normal penalties in its light. Sacrifice: 1d4 Strength damage.",
+      "notes": "Source-complete defensive light effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sunmantle-15",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    },
+    "spells/supreme-blade-parry-3660": {
+      "name": "Supreme Blade Parry",
+      "sourceSha256": "c63737ce50d246b466875ac429b71501111d8bb6035958c27b322aed6eb9c636",
+      "effectSummary": "While in this stance, you gain DR 5/— against attacks from opponents that do not catch you flat-footed. You must be proficient with your wielded weapon; while unarmed, the benefit applies only if you have Improved Unarmed Strike.",
+      "notes": "Self-contained stance mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/supreme-blade-parry-3660",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/susurrus-city-3807": {
+      "name": "Susurrus of the City",
+      "sourceSha256": "822b63f1acf34c14c9294657f91ac04abbc5bac9ef3749459b6915c2ce700691",
+      "effectSummary": "Animates the façade of a vacant building in a small town or larger settlement to answer one one-word-answer question per round for 1 round per caster level. An answer must be knowledge currently known by at least one person in the city; when multiple answers exist, the spell gives the one most pertinent to you and does not intentionally deceive. Pausing to discuss answers or do something else ends the spell. Focus: the vacant building. XP cost: 100.",
+      "notes": "Source-complete city-divination mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/susurrus-city-3807",
+          "role": "primary Dragon Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spectral-hand-2761": {
+      "name": "Spectral Hand",
+      "sourceSha256": "a6ea4c29adb63c14d798e679fd527f56197e92379fa3ce8bd1ba88849c7fec4b",
+      "effectSummary": "Creates an incorporeal hand for 1 minute per caster level and costs you 1d4 hp, which return when the spell ends unless the hand is destroyed. It can deliver any touch spell of 4th level or lower at medium range, giving +2 on the melee touch attack; it cannot flank and returns after delivering a spell or reaching its movement limits. The hand has improved evasion, your saves, AC at least 22 with your Intelligence modifier applied as Dexterity, and hit points equal to the 1d4 hp you spent.",
+      "notes": "Source-complete remote-touch delivery mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spectral-hand-2761",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-storing-item-4934": {
+      "name": "Spell Storing Item",
+      "sourceSha256": "ea5163382afcef48370f6382851551f143dea601219d2e124b8395e74630d7fb",
+      "effectSummary": "Turns one item into a one-charge wand usable only by you for 1 hour per caster level or until discharged. You can store a spell of 4th level or lower whose level is no greater than half your artificer level by succeeding on Use Magic Device DC 20 + three times the spell level; failing by 10 or more causes a scroll-style mishap. Only one spell can be stored in an item at once. You pay any expensive material or XP component when storing it and supply any focus when activating it. XP cost for the infusion is your caster level × stored spell level.",
+      "notes": "Source-complete infusion and failure mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-storing-item-4934",
+          "role": "primary Eberron Campaign Setting catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sphere-of-ultimate-destruction-3461": {
+      "name": "Sphere of Ultimate Destruction",
+      "sourceSha256": "86f3922ea4ff30992060810e2a67a5e727ed32bc477c7176186358d8ad29b400",
+      "effectSummary": "Creates a 2-foot-radius sphere that moves up to 30 feet per round under your direction; redirecting it uses a move-equivalent action. Attacking a creature requires a ranged touch attack and stops the sphere's movement for that round. A creature or object contacted must save Fortitude or suffer disintegrate; success takes 5d6 damage instead. It can destroy at most one creature, object, or 5-foot cube per round and counts as disintegrate for destroying wall of force and similar effects. It vanishes if it leaves spell range.",
+      "notes": "Source-complete mobile disintegration effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sphere-of-ultimate-destruction-3461",
+          "role": "primary Unapproachable East catalog record and digest source"
+        }
+      ]
+    },
+    "spells/soaring-throw-3677": {
+      "name": "Soaring Throw",
+      "sourceSha256": "b2276b50a2c9ed41b79afc7962bbb84cd93793970acdbb3984cebe44a6d874d6",
+      "effectSummary": "Make a melee touch attack, then resolve a trip attempt without provoking and without allowing a counter-trip; use Strength or Dexterity, whichever is better, and gain +4 on the opposed check. Success throws the foe up to 20 feet plus 5 feet per 5 points of margin, leaves it prone, and deals 8d6 damage. You choose an empty landing square; insufficient clear distance leaves it prone in its current square. The thrown creature does not provoke for moving through threatened squares.",
+      "notes": "Self-contained throw maneuver.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/soaring-throw-3677",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/vile-lance-188": {
+      "name": "Vile Lance",
+      "sourceSha256": "0b857c020076d4ba50d8901b2f140aeb90eedb6823cf391cb3f3ea950dd0a340",
+      "effectSummary": "Creates a black +2 shortspear that only you can wield, and you are proficient with it. Its damage is vile damage. You can throw it, but doing so ends the spell after that ranged attack resolves. Arcane material component: a bone fragment from a good-aligned creature.",
+      "notes": "Self-contained conjured-weapon effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vile-lance-188",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/simbuls-spell-matrix-2289": {
+      "name": "Simbul's Spell Matrix",
+      "sourceSha256": "e420397e2247e2b3216764164ca7ec12f65c39af06d702cf601ee94aee3b9796",
+      "effectSummary": "Creates a matrix that can store one spell of 3rd level or lower cast into it during the next round, provided that spell can be modified by Quicken Spell. The matrix closes after that round whether filled or not; a stored spell is treated as prepared and can later be cast as a free action. Casting the matrix deals you 1d6 damage that cannot be healed while it exists. Dispel magic removes both matrix and stored spell; antimagic pauses the duration without triggering it; death dissipates both. Focus: amber worth at least 500 gp.",
+      "notes": "Source-complete single-spell matrix mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/simbuls-spell-matrix-2289",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/simulacrum-2706": {
+      "name": "Simulacrum",
+      "sourceSha256": "38f02e795b695288d33416d11df97dba38ffddffa755a4e244c54f9961db9f18",
+      "effectSummary": "Creates a partially real ice-or-snow duplicate of a creature with half the original's levels or Hit Dice and the corresponding hit points, feats, skill ranks, and special abilities; the original cannot exceed twice your caster level in levels/HD. A Disguise check determines resemblance. The duplicate obeys you absolutely but has no telepathic link and cannot gain levels or improve abilities. At 0 hp or destruction it reverts to snow. Repair requires at least 24 hours, a magical laboratory, and 100 gp per restored hit point. Materials include snow/ice, a piece of the original, and 100 gp ruby dust per HD; XP cost is 100 per HD, minimum 1,000.",
+      "notes": "Source-complete duplicate creation, control, and repair mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/simulacrum-2706",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spring-sheath-3328": {
+      "name": "Spring Sheath",
+      "sourceSha256": "1da4a84d136edcdb7342492682c02d6699bc379cabeff5edefe494f84f0b937c",
+      "effectSummary": "For 10 minutes per caster level, enchants a weapon sheath, strap, buckle, pocket, or similar holder so that a quick hand motion as a free action causes the held weapon to fly into your hand, effectively granting Quick Draw for that stored weapon.",
+      "notes": "Older printing kept source-distinct; the effect is self-contained.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spring-sheath-3328",
+          "role": "primary Song and Silence: A Guidebook to Bards and Rogues catalog record and digest source"
+        }
+      ]
+    },
+    "spells/one-shadow-3697": {
+      "name": "One with Shadow",
+      "sourceSha256": "135a0f1842a345fbc3a25c2793e7f3ed7697384928dbc78e0191068ab077a1ff",
+      "effectSummary": "As an immediate action, you and all your gear become incorporeal until the beginning of your next turn, gaining all normal benefits and drawbacks of the incorporeal subtype. The effect cannot be extended to a living creature you touch or carry.",
+      "notes": "The only external dependency is the standard incorporeal-subtype rule set.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/one-shadow-3697",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/golem-immunity-4815": {
+      "name": "Golem Immunity",
+      "sourceSha256": "d04d1ec5ea6dcc1a7d75dd0e1b8e2b48670d5a8baa643f96c4ca7340f82424ec",
+      "effectSummary": "For 1 minute per caster level, a touched construct gains one chosen golem-style magic immunity and becomes immune to spells and spell-like abilities that allow spell resistance, with additional vulnerabilities and conversions by type. Clay: move earth pushes it 120 feet and deals 3d12, disintegrate slows it 1d6 rounds and deals 1d12, earthquake stops its next move and deals 5d10, and acid magic heals 1 hp per 3 damage with excess becoming temporary hp. Flesh: cold or fire slows it 2d6 rounds; electricity removes slow and heals 1 per 3 damage. Iron: electricity slows it 3 rounds; fire removes slow and heals 1 per 3 damage; rust attacks affect it as iron. Stone: transmute rock to mud slows it 2d6 rounds, transmute mud to rock acts as total repair, and stone to flesh suppresses magic immunity for 1 round.",
+      "notes": "Slow and Total Repair are already reviewed; all four golem-mode exceptions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/golem-immunity-4815",
+          "role": "primary Races of Eberron catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/slow-2873",
+          "role": "Player's Handbook v.3.5 source for inherited Slow mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/total-repair-4814",
+          "role": "Eberron Campaign Setting source for inherited Total Repair mechanics"
+        }
+      ]
+    },
+    "spells/utterdark-146": {
+      "name": "Utterdark",
+      "sourceSha256": "f273cb38ac4130a0eb683d2c23ee51523fce9ede9f67b80836e5674b1f71ff2e",
+      "effectSummary": "For 1 hour per caster level, creates cold magical darkness in a 100-foot-per-level-radius spread centered on you. It resembles deeper darkness but cannot be countered or dispelled by magical light, and evil-aligned creatures see within it as though the area were dimly lit. Arcane material component: a blood-smeared black stick.",
+      "notes": "Older source printing kept distinct from the later Utterdark record already regression-locked.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/utterdark-146",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/horses-nose-2112": {
+      "name": "Horse's Nose",
+      "sourceSha256": "428db7068b580e3e70b737097a6e17905610c6d1f116c26bd941d9a25a104844",
+      "effectSummary": "Grants scent for the duration: detect creatures normally within 30 feet, at 60 feet upwind or 15 feet downwind, with strong odors extending range. Noticing presence is automatic; determining direction uses a move-equivalent action and moving within 5 feet pinpoints the source. You can track by scent with a typical fresh-trail Wisdom DC 10, modified by conditions; water destroys a trail. Familiar odors can be recognized only if they were previously detectable to you without this spell.",
+      "notes": "The source explicitly spells out the scent ranges, direction, pinpointing, and tracking procedure.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/horses-nose-2112",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spirit-self-528": {
+      "name": "Spirit Self",
+      "sourceSha256": "a7166c112525e3a374cbf7e62f9f04711f01a360a52b0664a417f6e2b9946948",
+      "effectSummary": "For 1 minute, projects your spirit in incorporeal form with speed 90 feet, never more than 200 feet from your body. The spirit can cast spells with only verbal components but cannot physically attack or affect the material world and can return to the body as a standard action. Your body remains half-awake, can take only one move action per round, loses Dexterity to AC, and gives attackers +2; within 5 feet you can direct it to simple actions. Body and spirit share one hit-point total, and you die if separation or another effect prevents reunion when the spell ends. Material component: a small prayer wheel.",
+      "notes": "Source-complete spirit/body split mechanics; incorporeal movement traits remain standard subsystem rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-self-528",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/revive-outsider-1856": {
+      "name": "Revive Outsider",
+      "sourceSha256": "b9ac1849774df8be56bfa400a3f9f26e7cd9945659a2151abf4aadb61b6798cb",
+      "effectSummary": "Restores a dead outsider as raise dead, provided its Hit Dice do not exceed your caster level; unlike normal raise dead, the outsider can have been dead for any length of time. Material components: unworked natural material from its native plane and a diamond worth at least 500 gp.",
+      "notes": "Older printing retained exactly; Raise Dead supplies the shared resurrection framework.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/revive-outsider-1856",
+          "role": "primary Manual of the Planes catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "Player's Handbook v.3.5 source for inherited Raise Dead mechanics"
+        }
+      ]
+    },
+    "spells/revenance-1621": {
+      "name": "Revenance",
+      "sourceSha256": "1e122a323aef4cb3e6de3d62ac32580b892897dbb5dffaedb038e224a6d2ff12",
+      "effectSummary": "Temporarily restores an ally dead no more than 1 round per caster level. It otherwise functions as raise dead, but causes no level loss and returns the subject with half normal hit points; the subject is living and healable but dies again when the spell ends. While active, raise dead and resurrection do not affect it. It gains +1 morale on attacks, damage, saves, and checks against the creature that killed it. Material component: 500 gp diamond dust.",
+      "notes": "Older printing retained source-distinct; Raise Dead supplies the common resurrection framework.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/revenance-1621",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "Player's Handbook v.3.5 source for inherited Raise Dead mechanics"
+        }
+      ]
+    },
+    "spells/raise-ghost-1342": {
+      "name": "Raise Ghost",
+      "sourceSha256": "38e6d746f795d49009f2c95dc7a010c1fe095b47b8684e3196c9bcdb43556a79",
+      "effectSummary": "Functions as raise dead but restores only a slain ghost as a ghost, requiring some of that ghost's original ectoplasm. It can instead be cast on a dead body to return a creature as a ghost if that creature is capable of becoming one; the soul knows it would return as a ghost and can refuse. Within the Manifest Ward, a raised ghost does not lose a level or Constitution point.",
+      "notes": "Raise Dead is already reviewed; this record preserves Ghostwalk's ectoplasm, eligibility, consent, and Manifest Ward rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/raise-ghost-1342",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "Player's Handbook v.3.5 source for inherited Raise Dead mechanics"
+        }
+      ]
+    },
+    "spells/unholy-beast-296": {
+      "name": "Unholy Beast",
+      "sourceSha256": "f7403254bedb3983a210624a3e9870d3f6939fa24ef4972fa2136f778194a128",
+      "effectSummary": "For 1 round per caster level, transforms one animal of up to 1 HD per caster level into an evil servant under your control. It gains +2 Strength, Dexterity, Constitution, and natural armor, and its natural-weapon damage increases as though it were one size category larger. It serves you as though affected by dominate animal.",
+      "notes": "Source-complete transformation bonuses; dominate animal supplies only the control model.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unholy-beast-296",
+          "role": "primary Champions of Ruin catalog record and digest source"
+        }
+      ]
+    },
+    "spells/liquid-pain-211": {
+      "name": "Liquid Pain",
+      "sourceSha256": "1cd3b60fcb8bd19d0277e91f36d35cd48f8417c2a9aea767630e4b43e1a94e02",
+      "effectSummary": "Over a one-day casting, extracts the agony of a living subject already suffering intense pain into a permanent liquid form if the subject fails Fortitude. The resulting liquid can be used by the source's Pain as Power subsystem for magic items or spell enhancement and can also function as a drug. Focus: a jar, vial, or similar container.",
+      "notes": "The extraction mechanics are source-complete; downstream Pain as Power uses remain part of that book's separate subsystem.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/liquid-pain-211",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/lava-missile-3248": {
+      "name": "Lava Missile",
+      "sourceSha256": "b6f4da2e53e9ce34f1837b32a08ecbeddb14738f401585e87a89399395734dec",
+      "effectSummary": "Fires one unerring lava missile at medium range, plus one additional missile per two caster levels to a maximum of five at 10th level. Each missile deals 1d4 fire damage, Reflex half; a target that fails its save also catches fire. Multiple missiles can strike one creature or several targets within 15 feet of one another, but targets must be chosen before damage is rolled. A lava missile instead heals a firenewt for 1d4 hp.",
+      "notes": "Source-complete missile scaling and fire interaction; catching-fire uses the normal environmental rule.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lava-missile-3248",
+          "role": "primary Serpent Kingdoms catalog record and digest source"
+        }
+      ]
+    },
+    "spells/light-of-xymor-1107": {
+      "name": "Light of Xymor",
+      "sourceSha256": "051abf93c9bee6ea94381bd7870d3f1a176427728b836867b6e54104ee54ebc3",
+      "effectSummary": "For 2 rounds per caster level, the touched object radiates daylight that counts as natural sunlight for sunlight-vulnerable creatures. An evil dragon or dragonblood creature must succeed on Will to enter the full-light area; while remaining there it takes 2d6 damage and is dazed each round, with a successful Will save halving damage and negating daze. The spell counters and dispels Shadow of the Dark Queen and darkness spells of equal or lower level. Divine casters empowered by Xymor/Bahamut cast it at +1 caster level.",
+      "notes": "Source-complete sunlight, warding, and dispelling mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/light-of-xymor-1107",
+          "role": "primary Dragons of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/love-bite-316": {
+      "name": "Love Bite",
+      "sourceSha256": "3f9d2c5af07a84f63a1f62573803c9e888d4a04ce455714b437f8231bc8efce8",
+      "effectSummary": "Choose either a harmless fleeting-kiss sensation used as a signal or a love bite that deals 1 damage. If you are holding the charge of a touch spell of 2nd level or lower, either form can also deliver that held spell at medium range with a melee touch attack at +2, using the held spell's normal save and spell resistance. This delivery attacks from your direction and cannot flank, and casting Love Bite does not dissipate the held charge before delivery.",
+      "notes": "Self-contained signaling and remote-touch-delivery rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/love-bite-316",
+          "role": "primary Champions of Valor catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undead-eyes-4977": {
+      "name": "Undead Eyes",
+      "sourceSha256": "0589f6832c0e639855fb0ee0f73501185c102e5dc16d80ef77445fa3657598f3",
+      "effectSummary": "For 1 day per caster level, links you telepathically to one mindless undead creature that you have already placed under control undead. You can issue telepathic commands subject to that control's normal restrictions and can create a sight-and-hearing sense-link as a free action. While using the sense-link you are stunned and cannot take physical actions. Focus: a piece of the undead's body; removing it from you breaks the link.",
+      "notes": "Source-complete telepathic command and sensory-link mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undead-eyes-4977",
+          "role": "primary Shadows of the Last War catalog record and digest source"
+        }
+      ]
+    },
+    "spells/venom-bolt-3250": {
+      "name": "Venom Bolt",
+      "sourceSha256": "5291a7d0920f29cab1e2e8820454b24fa3b96a47a371dd07dad2b3048e5540de",
+      "effectSummary": "Creates a 100-foot line that deals 2d8 acid damage to every creature in its path, Reflex half. Each creature also makes Fortitude: failure paralyzes for 1d4+1 rounds, while success slows for 1 round. Creatures do not block the line but solid barriers do. Yuan-ti, their creations, and creatures with Snake Blood are immune to the spell; other Scaled Ones are immune to the paralysis effect. Material component: a drop of poisonous-snake venom.",
+      "notes": "Source-complete line damage, save sequence, and immunity rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/venom-bolt-3250",
+          "role": "primary Serpent Kingdoms catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wail-of-doom-3315": {
+      "name": "Wail of Doom",
+      "sourceSha256": "4bf9aea872908cb42a9e5f928415376518f1fd271bdf7584a9b6ab4993a05956",
+      "effectSummary": "Creatures in the close-range cone that fail Will take 1d4 damage per caster level, suffer -2 morale on saving throws for 1 round per caster level, and flee from you for the same duration. A fleeing creature has a 50% chance to drop what it holds, chooses a random route away while avoiding other dangers, and cowers if cornered.",
+      "notes": "Older printing kept source-distinct; the damaging fear effect is fully stated.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wail-of-doom-3315",
+          "role": "primary Song and Silence: A Guidebook to Bards and Rogues catalog record and digest source"
+        }
+      ]
+    },
+    "spells/whip-of-thorns-297": {
+      "name": "Whip of Thorns",
+      "sourceSha256": "21dd4bf205bf603a8ef78c82011bc548d403118d6634078088f232c3cd9b5785",
+      "effectSummary": "Transforms a vine into a thorny whip you can wield proficiently; it follows normal whip rules except it deals 1d8+1 lethal damage. After hitting a Large-or-smaller foe, you can release the whip to entangle it, ending the spell but leaving the vine wrapped around the target. Escape Artist against the spell save DC frees it; failure deals 1d4 and leaves it entangled, while a success exceeding the DC by no more than 10 still deals 1d4. Strength DC 20 can burst the vine, but the attempt deals 1d4 whether it succeeds or fails. Material component: a tiny piece of vine.",
+      "notes": "Source-complete weapon and entanglement mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/whip-of-thorns-297",
+          "role": "primary Champions of Ruin catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "0b8f04ab01b5fe6b146f53ed0a7c797d7c052cee",
+    "workflowRun": 35704053374,
+    "validationRun": 35704056244,
+    "classificationArtifact": 10683568215,
+    "classificationArtifactSha256": "1b329f1659fb26da694f02ae7e68057aad47c2304f4842550f068ae7db2fa076",
+    "queueCountBefore": 461,
+    "referenceQueueCountBefore": 461,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
