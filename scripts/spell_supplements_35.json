@@ -2403,6 +2403,115 @@
           "role": "independent Complete Mage SRD rendering cross-check"
         }
       ]
+    },
+    "spells/halasters-light-step-351": {
+      "name": "Halaster's Light Step",
+      "effectSummary": "Functions as fly except that the subject's maximum speed is 30 feet, or 20 feet in medium or heavy armor. The subject cannot ascend or descend vertically unless it stays within 1 foot of terrain sloping less than 45 degrees, allowing it to move over reasonably level ground without tracks and cross chasms. It gains a +15 circumstance bonus on Climb checks, a +10 circumstance bonus on Move Silently checks that does not stack with boots of elvenkind, and cannot fall. Combined with levitate, the effect is equivalent to a slow-speed fly spell; combining it with fly gives no additional benefit.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-light-step-351",
+          "role": "primary rebuilt City of Splendors: Waterdeep record; description truncates inside the Move Silently stacking clause"
+        },
+        {
+          "url": "https://world-walker-chronicles.fandom.com/wiki/City_of_Splendors:_Waterdeep_Spells",
+          "role": "matching City of Splendors spell rendering used to restore boots of elvenkind, falling, levitate, and fly interaction rules"
+        }
+      ]
+    },
+    "spells/plague-rats-937": {
+      "name": "Plague of Rats",
+      "effectSummary": "Creates a 20-foot-spread swarm of dire rats that attacks other creatures and can spread filth fever. A creature that does nothing except fight off the rats takes 1d4 damage on its turn and makes a Fortitude save against DC 15 + your Intelligence bonus to avoid filth fever. A creature that takes any other action, including leaving the swarm, takes 1d4 damage per caster level and takes a -4 penalty on the disease save. Spellcasting and concentrating on spells in the swarm are impossible. The rat attacks are nonmagical, but the disease is a magical touch-spread effect. Weapons cannot effectively fight the swarm; fire and damaging area effects disperse it after dealing a total of 8 damage per caster level, while stinking cloud and similar area or effect spells disperse it immediately. As a move-equivalent action, you can direct the swarm to move up to 40 feet per round.",
+      "notes": "Locked to the Defenders of the Faith 3.0 printing. Do not substitute the later Complete Divine rat-swarm rewrite.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-rats-937",
+          "role": "primary rebuilt Defenders of the Faith record; text collapses from the filth-fever citation into the final dispersal paragraph"
+        },
+        {
+          "url": "https://dndtools.net/spells/defenders-of-the-faith-a-guidebook-to-clerics-and-paladins--38/plague-of-rats--937/",
+          "role": "matching Defenders of the Faith rendering used to restore damage, disease, concentration, defenses, dispersal, and movement rules"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203rd%20Edition/D%26D%203.0e%20Core/Defenders%20of%20the%20Faith.pdf",
+          "role": "Defenders of the Faith sourcebook text used as a same-printing cross-check"
+        }
+      ]
+    },
+    "spells/wake-trailing-3342": {
+      "name": "Wake Trailing",
+      "effectSummary": "For 24 hours, lets you track a vessel over open water by following flotsam and subtle signs of its passage. Make Survival checks as though tracking a Huge, Gargantuan, or Colossal creature over soft ground, depending on the ship's size, using this spell's modifiers instead of the Player's Handbook tracking modifiers. You must have the Track feat. If several ships passed through the area, you can follow a specific ship only if you know a distinguishing detail such as its size, type, construction, or crew. The material component is a bit of driftwood wrapped with red thread.",
+      "tables": [
+        [
+          [
+            "Condition",
+            "Survival DC Modifier"
+          ],
+          [
+            "Every 4 hours since the trail was made",
+            "+1"
+          ],
+          [
+            "Every hour of water-affecting weather since the trail was made",
+            "+1"
+          ],
+          [
+            "Trail leads through vigorous currents",
+            "+2"
+          ],
+          [
+            "Trail leads through dangerous or stronger currents",
+            "+5"
+          ],
+          [
+            "Moonlight",
+            "+3"
+          ],
+          [
+            "Fog or precipitation",
+            "+3"
+          ],
+          [
+            "Overcast or moonless night",
+            "+6"
+          ]
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wake-trailing-3342",
+          "role": "primary rebuilt Stormwrack record; prose says to use following modifiers but the modifier table is absent"
+        },
+        {
+          "url": "https://dndtools.net/spells/stormwrack--87/wake-trailing--3342/",
+          "role": "matching Stormwrack spell rendering used to cross-check the non-table spell text"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/Stormwrack.pdf",
+          "role": "Stormwrack sourcebook rendering used to restore the complete Survival DC modifier table"
+        }
+      ]
+    },
+    "spells/hound-of-doom-924": {
+      "name": "Hound of Doom",
+      "effectSummary": "Creates one shadowy hound with the statistics of a dire wolf, modified as follows: it gains a deflection bonus to AC equal to your Charisma bonus, its created hit points equal your full normal hit points, and it uses your base attack bonus instead of the dire wolf's while still applying the wolf's +7 Strength bonus and -1 size penalty. You command it as a move action as though it were fully trained for every Handle Animal trick. At 0 hit points it is destroyed. It counts as a magical beast for spells and effects and can be dispelled. You can have only one hound of doom at a time; casting the spell again instantly dispels the previous hound.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hound-of-doom-924",
+          "role": "primary rebuilt Complete Warrior record; source collapses the dire-wolf adjustment block into the Handle Animal citation"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-warrior--61/hound-of-doom--924/",
+          "role": "matching Complete Warrior rendering used to restore all hound adjustments and command rules"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCWar.html",
+          "role": "independent Complete Warrior SRD rendering used as a mechanics cross-check"
+        }
+      ]
     }
   }
 }

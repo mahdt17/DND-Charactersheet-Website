@@ -1576,6 +1576,31 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-seed-of-undeath-control-cap"
+        if (
+            entry.get("id")=="spells/halasters-light-step-351"
+            and re.search(r"\bbonus provided by fly\s*\.\s*$",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-halasters-light-step-source"
+        if (
+            entry.get("id")=="spells/plague-rats-937"
+            and re.search(r"\bfilth fever\s*\(see page 74 of the stinking cloud spell\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-defenders-plague-of-rats-source"
+        if (
+            entry.get("id")=="spells/wake-trailing-3342"
+            and re.search(r"\bfollowing modifiers are used in place of those given\b",effect_source,re.I)
+            and not parser.tables
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-wake-trailing-survival-table"
+        if (
+            entry.get("id")=="spells/hound-of-doom-924"
+            and re.search(r"\bstatistics of a dire wolf\s*\(see page 65 of the Handle Animal skill\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-hound-of-doom-adjustments"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
@@ -2681,6 +2706,71 @@ def self_test():
         <div>Components</div><div>V, S</div><div>Range</div><div>Personal</div>
         <div>Duration</div><div>1 round/level (D)</div><div>Saving Throw</div><div>None</div>
         <div>Spell Resistance</div><div>No</div><div>Classes</div><div>Wizard 5</div>
+        <h2>Description</h2><p>{damaged_text}</p>
+        """
+        p=DetailParser();p.feed(damaged_html);p.close()
+        repaired=parse_spell(p,{"name":spell_name,"id":record_id})
+        assert repaired.get("sourceIncomplete"), record_id
+        assert repaired.get("sourceIncompleteMarker")==marker, record_id
+        assert repaired.get("sourceIncompleteResolved"), record_id
+        assert repaired.get("supplementVerified"), record_id
+        summary=repaired.get("effectSummary","").casefold()
+        for fragment in expected_fragments:
+            assert fragment.casefold() in summary, (record_id, fragment, summary)
+        flattened_tables=clean(" ".join(
+            str(cell)
+            for table in (repaired.get("tables") or [])
+            for row in table
+            for cell in row
+        )).casefold()
+        for fragment in expected_table_fragments:
+            assert fragment.casefold() in flattened_tables, (record_id, fragment, flattened_tables)
+
+    repair_batch_cases_8 = [
+        (
+            "spells/halasters-light-step-351",
+            "Halaster's Light Step",
+            "City of Splendors: Waterdeep (CoS), p. 154",
+            "As fly, except Halaster's light step provides a maximum speed of 30 feet (20 feet if the subject wears medium or heavy armor). Additionally, the subject cannot ascend or descend vertically unless hovering 1 foot or less above terrain that ascends or descends at an angle of less than 45 degrees. It also adds a +15 circumstance bonus on Climb checks, a +10 circumstance bonus on Move Silently checks (which does not stack with the bonus provided by fly .",
+            "truncated-halasters-light-step-source",
+            ("maximum speed is 30 feet", "+15 circumstance bonus", "+10 circumstance bonus", "boots of elvenkind", "cannot fall", "slow-speed fly"),
+            (),
+        ),
+        (
+            "spells/plague-rats-937",
+            "Plague of Rats",
+            "Defenders of the Faith: A Guidebook to Clerics and Paladins (DF), p. 92",
+            "A swarm of dire rats viciously attacks all other creatures within a 20-foot spread, inflicting damage and spreading filth fever (see page 74 of the stinking cloud spell and similar area or effect spells disperse a swarm immediately. As a move-equivalent action, you can direct the swarm to move up to 40 feet per round.",
+            "truncated-defenders-plague-of-rats-source",
+            ("1d4 damage per caster level", "dc 15 + your intelligence bonus", "-4 penalty", "8 damage per caster level", "move up to 40 feet per round"),
+            (),
+        ),
+        (
+            "spells/wake-trailing-3342",
+            "Wake Trailing",
+            "Stormwrack (Sto), p. 124",
+            "You are able to track a vessel over open water by following flotsam and other signs of a ship's recent presence. These signs are subtle, but while the spell is active you can find them on a Survival check as though tracking a Huge, Gargantuan, or Colossal creature over soft ground. The following modifiers are used in place of those given on page 101 of the Player's Handbook. The caster must have the Track feat to use this spell. Material Component: A bit of driftwood wrapped with red thread.",
+            "omitted-wake-trailing-survival-table",
+            ("track a vessel over open water", "track feat", "distinguishing detail", "driftwood wrapped with red thread"),
+            ("every 4 hours", "+1", "vigorous currents", "+2", "overcast or moonless night", "+6"),
+        ),
+        (
+            "spells/hound-of-doom-924",
+            "Hound of Doom",
+            "Complete Warrior (CW), p. 117",
+            "You shape the essence of the Plane of Shadow to create a powerful doglike companion. The hound of doom has the statistics of a dire wolf (see page 65 of the Handle Animal skill (see page 74 of the Player's Handbook). If its hit points are reduced to 0, it is destroyed.",
+            "truncated-hound-of-doom-adjustments",
+            ("deflection bonus to ac equal to your charisma bonus", "full normal hit points", "base attack bonus", "move action", "magical beast", "instantly dispels"),
+            (),
+        ),
+    ]
+    for record_id, spell_name, source_line, damaged_text, marker, expected_fragments, expected_table_fragments in repair_batch_cases_8:
+        damaged_html = f"""
+        <h1>{spell_name}</h1><p>{source_line}</p>
+        <div>School</div><div>Transmutation</div><div>Casting Time</div><div>1 standard action</div>
+        <div>Components</div><div>V, S</div><div>Range</div><div>Close</div>
+        <div>Duration</div><div>1 round/level</div><div>Saving Throw</div><div>None</div>
+        <div>Spell Resistance</div><div>No</div><div>Classes</div><div>Wizard 4</div>
         <h2>Description</h2><p>{damaged_text}</p>
         """
         p=DetailParser();p.feed(damaged_html);p.close()
