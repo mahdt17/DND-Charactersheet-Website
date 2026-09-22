@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5/3.0 spell summaries resolving three external-table repair-lane cases; clean batch 055.",
+  "entries": {
+    "spells/sandblast-1563": {
+      "name": "Sandblast",
+      "sourceSha256": "4d178dfef216a848008b9a6acfb023ca323e3fa1d74402d06c61904ee0681834",
+      "effectSummary": "Fires an instantaneous 60-foot cone of sand and hurricane-force wind. Every creature and object in the cone takes 6d8 damage. A creature that fails the spell's Fortitude save also suffers the hurricane wind result for its size: Medium or smaller is blown away, Large is knocked down, Huge is checked, and Gargantuan or Colossal is unaffected by the forced movement. For this spell, the spell's own Fortitude save controls both damage and wind: a successful save halves the 6d8 damage and ignores the wind effect. A checked ground creature cannot move forward against the wind; a checked flying creature is blown back 1d6×5 feet. A knocked-down ground creature falls prone; a flying creature is instead blown back 1d6×10 feet. A blown-away ground creature is knocked prone and rolled 1d4×10 feet, taking 1d4 nonlethal damage per 10 feet; a flying creature is blown back 2d6×10 feet and takes 2d6 nonlethal damage. The material component is a handful of sand from the heart of a desert.",
+      "tables": [
+        [
+          [
+            "Wind Force",
+            "Wind Speed",
+            "Normal/Siege Ranged Attacks",
+            "Creature Size",
+            "Wind Effect",
+            "Ordinary Wind Fort DC"
+          ],
+          [
+            "Hurricane",
+            "75–174 mph",
+            "Impossible / -8",
+            "Medium or smaller",
+            "Blown away",
+            "20"
+          ],
+          [
+            "Hurricane",
+            "75–174 mph",
+            "Impossible / -8",
+            "Large",
+            "Knocked down",
+            "20"
+          ],
+          [
+            "Hurricane",
+            "75–174 mph",
+            "Impossible / -8",
+            "Huge",
+            "Checked",
+            "20"
+          ],
+          [
+            "Hurricane",
+            "75–174 mph",
+            "Impossible / -8",
+            "Gargantuan or Colossal",
+            "None",
+            "20"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to the Lost Empires of Faerûn 6th-level Sandblast, which is a distinct spell from the lower-level Complete Divine/Spell Compendium spell of the same name. The ordinary DMG hurricane DC 20 is shown for reference; Sandblast explicitly uses its own spell saving throw for this instantaneous effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sandblast-1563",
+          "role": "primary Lost Empires of Faerûn record; mechanically complete but externally references DMG wind effects"
+        },
+        {
+          "url": "https://dndtools.net/spells/lost-empires-of-faerun--30/sandblast--1563/",
+          "role": "matching Lost Empires of Faerûn rendering used to verify 6d8 damage, hurricane-force size results and Fortitude partial save"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/weather.htm",
+          "role": "3.5 SRD wind definitions and hurricane-size effects expanded to make the spell self-contained"
+        }
+      ]
+    },
+    "spells/winds-favor-4860": {
+      "name": "Wind's Favor",
+      "sourceSha256": "ad750b93e423c3e9a46760d6a0c653f5329b8c6ac431a81e866019356c769fc6",
+      "effectSummary": "Creates a 10-foot-wide, 10-foot-high corridor of strong wind extending 100 feet + 10 feet per caster level for 1 hour per level. The wind is approximately 30 mph. Strong wind automatically extinguishes unprotected flames, imposes a -2 penalty on normal ranged attacks and Listen checks, and knocks down Tiny or smaller creatures that fail the ordinary DC 10 wind save; Small or larger ground creatures are not displaced. Flying or airborne creatures count as one size category smaller for wind effects. By concentrating as a full-round action, you can rotate the wind's direction by 45 degrees. The spell duplicates the lesser Mark of Storm wind's favor ability except that this spell uses the range and area printed in its own header.",
+      "tables": [
+        [
+          [
+            "Wind Force",
+            "Wind Speed",
+            "Normal/Siege Ranged Attacks",
+            "Creature Size",
+            "Wind Effect",
+            "Fort DC"
+          ],
+          [
+            "Strong",
+            "21–30 mph",
+            "-2 / —",
+            "Tiny or smaller",
+            "Knocked down",
+            "10"
+          ],
+          [
+            "Strong",
+            "21–30 mph",
+            "-2 / —",
+            "Small or larger",
+            "None",
+            "10"
+          ]
+        ]
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/winds-favor-4860",
+          "role": "primary Magic of Eberron record; mechanically complete but externally references DMG wind effects and the lesser Mark of Storm"
+        },
+        {
+          "url": "https://dndtools.net/spells/magic-of-eberron--9/winds-favor--4860/",
+          "role": "matching Magic of Eberron rendering used to verify area, duration, concentration and Mark of Storm equivalence"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/weather.htm",
+          "role": "3.5 SRD strong-wind effects expanded to make the spell self-contained"
+        }
+      ]
+    },
+    "spells/snakebite-1792": {
+      "name": "Snakebite",
+      "sourceSha256": "607db2a7d77f812751c267a80dc66e750bc6036cce23c3d7a037be47c322432b",
+      "effectSummary": "For 1 round per level, one arm becomes a venomous snake. Its bite deals 1d3 damage and delivers poison dealing 1d6 Constitution damage as both initial and secondary damage; each Constitution-damage instance is negated by a Fortitude save with DC 10 + half your caster level + your Wisdom modifier. If the victim fails either poison save, it must also make a Will save against the spell's normal save DC or be paralyzed for 1d4 rounds. The transformed hand cannot hold a weapon, but the other hand can wield a weapon or supply somatic components. If you attack with the snake arm and a weapon, use the Player's Handbook 3.0 two-weapon penalties in the restored table. Only one snakebite spell can affect you at a time.",
+      "tables": [
+        [
+          [
+            "Circumstances",
+            "Primary Hand",
+            "Off Hand"
+          ],
+          [
+            "Normal penalties",
+            "-6",
+            "-10"
+          ],
+          [
+            "Off-hand weapon is light",
+            "-4",
+            "-8"
+          ],
+          [
+            "Ambidexterity feat",
+            "-6",
+            "-6"
+          ],
+          [
+            "Two-Weapon Fighting feat",
+            "-4",
+            "-8"
+          ],
+          [
+            "Off-hand weapon is light and Ambidexterity feat",
+            "-4",
+            "-4"
+          ],
+          [
+            "Off-hand weapon is light and Two-Weapon Fighting feat",
+            "-2",
+            "-6"
+          ],
+          [
+            "Ambidexterity feat and Two-Weapon Fighting feat",
+            "-4",
+            "-4"
+          ],
+          [
+            "Off-hand weapon is light and Ambidexterity feat and Two-Weapon Fighting feat",
+            "-2",
+            "-2"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to the Magic of Faerûn 3.0 printing. Its two-weapon reference uses the 3.0 table with the separate Ambidexterity feat; the later 3.5 two-weapon table and Spell Compendium Snakebite revision are not substituted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/snakebite-1792",
+          "role": "primary Magic of Faerûn record; mechanically complete but externally references Player's Handbook 3.0 Table 8-2"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/101-150",
+          "role": "Magic of Faerûn source rendering used to verify bite damage, poison DC, paralysis and the 3.0 two-weapon-table reference"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/feats/players-handbook-30--106/ambidexterity--3321/index.html",
+          "role": "3.0 Ambidexterity rules cross-check for the edition-specific two-weapon table"
+        },
+        {
+          "url": "https://gamefaqs.gamespot.com/pc/552350-icewind-dale-ii/faqs/56338",
+          "role": "independent 3.0 rules rendering used to verify all eight two-weapon penalty combinations"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "0caed3e7fcea1c715aabf4684bf5bbfa31487ad1",
+    "workflowRun": 35676046852,
+    "validationRun": 35676049478,
+    "classificationArtifact": 10673286206,
+    "classificationArtifactSha256": "1397a0b849edcde861a0e0d79ee985d43dce2266af6a3d0a4060bb0818c1671c",
+    "queueCountBefore": 1031,
+    "repairQueueCountBefore": 10
+  }
+}
