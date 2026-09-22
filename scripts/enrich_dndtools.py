@@ -1463,6 +1463,41 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-lesser-spell-matrix-source"
+        if (
+            entry.get("id")=="spells/shadow-well-4996"
+            and (
+                re.search(r"\bflee cove\.",effect_source,re.I)
+                or re.search(r"\bupo leaving\b",effect_source,re.I)
+            )
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="garbled-shadow-well-source"
+        if (
+            entry.get("id")=="spells/share-animals-mind-5015"
+            and re.search(r"\bcheck Animal\s*\)",effect_source,re.I)
+            and not re.search(r"\bMonster Manual\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-share-animals-mind-animal-definition"
+        if (
+            entry.get("id")=="spells/skull-eyes-2292"
+            and re.search(r"\beither of two effects, as follows\b",effect_source,re.I)
+            and not parser.tables
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="missing-skull-eyes-effects"
+        if (
+            entry.get("id")=="spells/spiritual-weapon-2651"
+            and re.search(r"\bYour feats\s*\(such as disintegrate\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-spiritual-weapon-direction-rules"
+        if (
+            entry.get("id")=="spells/spore-field-918"
+            and re.search(r"\bsuch squares\s*\(\s*Move Silently checks by 2\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-spore-field-terrain-rules"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
@@ -2299,6 +2334,80 @@ def self_test():
         <div>Components</div><div>V, S</div><div>Range</div><div>Medium</div>
         <div>Duration</div><div>1 round</div><div>Saving Throw</div><div>See text</div>
         <div>Spell Resistance</div><div>Yes</div><div>Classes</div><div>Wizard 9</div>
+        <h2>Description</h2><p>{damaged_text}</p>
+        """
+        p=DetailParser();p.feed(damaged_html);p.close()
+        repaired=parse_spell(p,{"name":spell_name,"id":record_id})
+        assert repaired.get("sourceIncomplete"), record_id
+        assert repaired.get("sourceIncompleteMarker")==marker, record_id
+        assert repaired.get("sourceIncompleteResolved"), record_id
+        assert repaired.get("supplementVerified"), record_id
+        summary=repaired.get("effectSummary","").casefold()
+        for fragment in expected_fragments:
+            assert fragment.casefold() in summary, (record_id, fragment, summary)
+        flattened_tables=clean(" ".join(
+            str(cell)
+            for table in (repaired.get("tables") or [])
+            for row in table
+            for cell in row
+        )).casefold()
+        for fragment in expected_table_fragments:
+            assert fragment.casefold() in flattened_tables, (record_id, fragment, flattened_tables)
+
+    repair_batch_cases_4 = [
+        (
+            "spells/shadow-well-4996",
+            "Shadow Well",
+            "Into the Dragon's Lair (DL), p. 95",
+            "The victim flees in a random direction for that time. Beings unable to flee cove. Spells and abilities that move a creature within a plane do not help a creature escape, although plane shift can (but the target is still afraid upo leaving).",
+            "garbled-shadow-well-source",
+            ("cowers", "plane shift", "afraid upon leaving"),
+            (),
+        ),
+        (
+            "spells/share-animals-mind-5015",
+            "Share Animal's Mind",
+            "Dragonlance Campaign Setting (DLCS), p. 111",
+            "While you control the animal, you are limited to a single move action every round in your own body. When in doubt whether something is an animal as defined by the spell, check Animal ). Focus: A piece of clay molded to approximate the chosen animal's form.",
+            "truncated-share-animals-mind-animal-definition",
+            ("monster manual", "creature type animal", "single move action"),
+            (),
+        ),
+        (
+            "spells/skull-eyes-2292",
+            "Skull Eyes",
+            "Player's Guide to Faerûn (PG), p. 111",
+            "You gain a gaze attack out to close range. Depending on the foe's Hit Dice, the gaze attack may have either of two effects, as follows. While this spell is in effect, your eyes are black and have skull-shaped irises.",
+            "missing-skull-eyes-effects",
+            ("beginning of its turn", "actively gaze", "charmed", "confused"),
+            ("equal to or greater than caster level", "less than caster level", "charmed", "confused"),
+        ),
+        (
+            "spells/spiritual-weapon-2651",
+            "Spiritual Weapon",
+            "Player's Handbook v.3.5 (PH), p. 283",
+            "The weapon always strikes from your direction. It does not get a flanking bonus or help a combatant get one. Your feats (such as disintegrate, a sphere of annihilation, or a rod of cancellation affects it. A spiritual weapon's AC against touch attacks is 12.",
+            "truncated-spiritual-weapon-direction-rules",
+            ("move action", "returns to you and hovers", "cannot be attacked or harmed by physical attacks", "touch ac 12"),
+            (),
+        ),
+        (
+            "spells/spore-field-918",
+            "Spore Field",
+            "Complete Scoundrel (CS), p. 104",
+            "The area affected by this spell becomes difficult terrain. Entering a square of difficult terrain costs 2 squares of movement, and creatures cannot charge or run through such squares ( Move Silently checks by 2. In addition, any creature that enters a square affected by this spell bursts several mushrooms.",
+            "truncated-spore-field-terrain-rules",
+            ("balance and tumble", "move silently", "sickened for 1 round", "inhaled poison"),
+            (),
+        ),
+    ]
+    for record_id, spell_name, source_line, damaged_text, marker, expected_fragments, expected_table_fragments in repair_batch_cases_4:
+        damaged_html = f"""
+        <h1>{spell_name}</h1><p>{source_line}</p>
+        <div>School</div><div>Transmutation</div><div>Casting Time</div><div>1 standard action</div>
+        <div>Components</div><div>V, S</div><div>Range</div><div>Medium</div>
+        <div>Duration</div><div>1 round/level</div><div>Saving Throw</div><div>See text</div>
+        <div>Spell Resistance</div><div>Yes</div><div>Classes</div><div>Wizard 4</div>
         <h2>Description</h2><p>{damaged_text}</p>
         """
         p=DetailParser();p.feed(damaged_html);p.close()

@@ -1926,6 +1926,107 @@
           "role": "clean same-printing Spell Compendium rendering used to restore storage, Quicken Spell, damage, swift-action, dispel, antimagic, and death rules"
         }
       ]
+    },
+    "spells/shadow-well-4996": {
+      "name": "Shadow Well",
+      "effectSummary": "On a failed Will save, the target falls through its shadow into a temporary pocket realm within the Plane of Shadow for the spell's duration. When the duration ends, it returns to the real world and is afraid for 1d4 rounds, fleeing in a random direction; a creature unable to flee cowers. It reappears where it stood when the spell was cast, or safely nearby if that space is occupied. Teleport and dimension door do not allow escape from the pocket realm. Plane shift can take the target to its designated plane normally, but the target is still afraid upon leaving.",
+      "notes": "Source-locked to the Into the Dragon's Lair printing. Do not substitute the later Spell Compendium revision, which changes the entry/escape and post-return saving-throw sequence.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-well-4996",
+          "role": "primary rebuilt Into the Dragon's Lair record; closing rules contain garbled words"
+        },
+        {
+          "url": "https://housegriffon.com/RPG/Games/DnD/dd3.x/ForgottenRealms/Into%20the%20Dragons%20Lair.pdf",
+          "role": "matching sourcebook printing used to verify cowering, reappearance, planar-travel, and upon-leaving rules"
+        }
+      ]
+    },
+    "spells/share-animals-mind-5015": {
+      "name": "Share Animal's Mind",
+      "effectSummary": "You control the target animal's body while concentrating, perceive through its senses, and can use its special attacks and qualities or take any action it can physically accomplish. Control can continue at a distance of up to 1 mile after the spell is established. If you force actions contrary to its nature or exceedingly dangerous, it receives another saving throw; attacking a foe no more than one size larger is not exceedingly dangerous. While controlling it, you are limited to one move action each round in your own body, but can still see through your own eyes and defend yourself normally. When eligibility is uncertain, the Monster Manual creature type must be Animal.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/share-animals-mind-5015",
+          "role": "primary rebuilt Dragonlance Campaign Setting record; final animal-definition clause is truncated"
+        },
+        {
+          "url": "https://pdfcoffee.com/dragonlance-campaign-setting-6-pdf-free.html",
+          "role": "matching Dragonlance Campaign Setting text used to restore the Monster Manual creature-type requirement"
+        }
+      ]
+    },
+    "spells/skull-eyes-2292": {
+      "name": "Skull Eyes",
+      "effectSummary": "You gain a gaze attack out to close range for the duration. Each creature within range that can see you attempts a Will save at the beginning of each of its turns to avoid the gaze, and you can also actively gaze at a chosen target as an attack action. The effect depends on the target's Hit Dice: a creature with Hit Dice equal to or greater than your caster level is charmed; a creature with fewer Hit Dice than your caster level is confused. While the spell lasts, your eyes are black with skull-shaped irises.",
+      "tables": [
+        [
+          [
+            "HD",
+            "Effect"
+          ],
+          [
+            "Equal to or greater than caster level",
+            "Charmed"
+          ],
+          [
+            "Less than caster level",
+            "Confused"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to the Player's Guide to Faerûn printing. Do not substitute the distinct Lords of Darkness Skull Eyes mechanics.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/skull-eyes-2292",
+          "role": "primary rebuilt Player's Guide to Faerûn record; the referenced HD/effect rows are omitted"
+        },
+        {
+          "url": "https://www.yumpu.com/en/document/view/6497348/players-guide-to-faerun-the-forgotten-realms-northern-journey-/111",
+          "role": "Player's Guide to Faerûn rendering used to restore the two-row Hit Dice/effect table"
+        }
+      ]
+    },
+    "spells/spiritual-weapon-2651": {
+      "name": "Spiritual Weapon",
+      "effectSummary": "Creates a force weapon that attacks the designated opponent, dealing 1d8 force damage plus 1 per three caster levels (maximum +5). It uses your base attack bonus plus your Wisdom modifier and can make multiple attacks on later rounds when your base attack bonus permits. It strikes as a spell, can damage creatures with damage reduction, and as a force effect can strike incorporeal creatures without the normal miss chance. It attacks from your direction and neither gains nor grants flanking; your feats and combat actions do not modify it. If it leaves spell range, leaves your sight, or is not directed, it returns to you and hovers. After the first round, redirecting it to a new target is a move action; on a target-switching round it makes one attack, with multiple attacks possible on subsequent rounds. Ranged weapon forms still use the spell's range. Physical attacks cannot harm it, but dispel magic, disintegrate, a sphere of annihilation, and a rod of cancellation can affect it; its touch AC is 12. Spell resistance is checked the first time it strikes a creature: a successful resistance dispels the spell, otherwise it affects that creature normally for the duration.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spiritual-weapon-2651",
+          "role": "primary rebuilt Player's Handbook v.3.5 record; the middle direction, redirection, and immunity rules are truncated"
+        },
+        {
+          "url": "https://dndtools.net/spells/players-handbook-v35--6/spiritual-weapon--2651/",
+          "role": "matching Player's Handbook v.3.5 rendering used to restore the missing control and interaction rules"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/spiritualWeapon.htm",
+          "role": "3.5 SRD cross-check for the core spiritual weapon mechanics"
+        }
+      ]
+    },
+    "spells/spore-field-918": {
+      "name": "Spore Field",
+      "effectSummary": "The area becomes difficult terrain: entering a square costs 2 squares of movement, and creatures cannot charge or run through it. The uneven fungal surface increases Balance and Tumble check DCs by 5 and Move Silently check DCs by 2. A creature entering an affected square bursts mushrooms and must save or become sickened for 1 round. Treat the spores as an inhaled poison for bonuses on the save or immunity to poison. Entering multiple affected squares during the same turn does not require multiple saves. The spell can be cast on any type of ground or flooring.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spore-field-918",
+          "role": "primary rebuilt Complete Scoundrel record; difficult-terrain citation and skill-DC rules are truncated"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-scoundrel--60/spore-field--918/",
+          "role": "matching Complete Scoundrel rendering used to restore difficult-terrain and skill-check modifiers"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCScou.html",
+          "role": "independent Complete Scoundrel SRD rendering used as a mechanics cross-check"
+        }
+      ]
     }
   }
 }
