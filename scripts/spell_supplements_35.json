@@ -3291,6 +3291,26 @@
           "role": "3.5 SRD entangled-condition rules used to make the terrain effect self-contained"
         }
       ]
+    },
+    "spells/polymorph-other-5025": {
+      "name": "Polymorph Other",
+      "effectSummary": "On a failed Fortitude save, permanently changes one creature into another creature form from Diminutive size up to one size category larger than the subject's normal form. On changing, the subject recovers lost hit points as though it had rested for a day, but this does not restore temporary ability damage or provide other rest benefits, and changing back does not heal it again; if slain, it reverts to its original form but remains dead. The subject takes the chosen form's average natural size, Strength, Dexterity, Constitution, natural armor, natural attack routines and other gross physical qualities, plus mundane movement capabilities such as walking, swimming, or winged flight and other nonmagical natural abilities such as low-light vision. It does not gain magical movement or the new form's spell-like, supernatural, or extraordinary abilities. The subject keeps its Intelligence, Wisdom, Charisma, level and class, hit points despite any Constitution change, alignment, base attack bonus, base saves, original creature type, its own extraordinary abilities, spells, and spell-like abilities, but not its own supernatural abilities. It can cast spells only when the new form can supply the required components, including a humanlike voice for verbal components and humanlike hands for somatic components. Any separated body part or piece of equipment returns to its original form. In stressful or demanding situations such as combat, the subject must succeed on a DC 19 Will save or take a -2 penalty on attack rolls, saves, skill checks, and ability checks until the situation passes; a creature kept polymorphed for years may overcome some of this disorientation at the DM's discretion. Equipment changes to match the form: for forms that do not use equipment, gear melds into the body and becomes nonfunctional, including material components and focuses; for forms that use equipment, the gear changes to fit and retains its properties, with the chosen creature's entry deciding doubtful cases. You can choose cosmetic and significant physical traits within the normal range for the species, including changing the subject into its own species or itself; changing it into itself avoids the disorientation penalty, and using the spell as a disguise grants a +10 bonus on Disguise checks. Incorporeal or gaseous forms cannot be assumed, incorporeal or gaseous creatures are immune to the spell, and a natural shapeshifter can resume its natural form as a standard action. The material component is an empty cocoon.",
+      "notes": "Source-locked to the Player's Handbook 3.0 printing at p. 236. This review intentionally preserves that record rather than importing the later Tome and Blood replacement or the 3.5 polymorph spell. The selected form's average physical statistics and natural attacks/movement remain inherently defined by that creature's own stat block; no arbitrary form-specific statistics are invented here.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-other-5025",
+          "role": "primary Player's Handbook 3.0 catalog record and digest source; imported effect tail is corrupted/truncated with embedded HTML"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/players-handbook-30--106/polymorph-other--5025/index.html",
+          "role": "complete same-printing Player's Handbook 3.0 rendering used to restore the omitted appearance, disguise, incorporeal/gaseous, shapeshifter, and material-component rules"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/355/polymorph-other",
+          "role": "independent 3e rendering cross-check for the Player's Handbook version"
+        }
+      ]
     }
   }
 }
