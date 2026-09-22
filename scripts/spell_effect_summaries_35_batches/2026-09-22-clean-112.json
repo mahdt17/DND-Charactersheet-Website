@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 25-record batch 112 from the clean 331-record reference-dependent queue. Batch size was intentionally reduced below the 50-record ceiling. Records with parser-corrupted inherited text, ambiguous cross-edition behavior, unresolved stat blocks, or table-heavy mechanics were deferred; these twenty-five are source-complete enough for independent manual verification or use an inheritance chain fully reconstructed in this batch.",
+  "entries": {
+    "spells/otilukes-greater-dispelling-screen-3385": {
+      "name": "Otiluke's Greater Dispelling Screen",
+      "sourceSha256": "070b7fe8b6aaab2aa9785aa35493ed2b6b28050e7f82194787784df22929bbb3",
+      "effectSummary": "Creates the same opaque, immobile violet screen as Otiluke's dispelling screen: creatures and unattended objects crossing it are subjected to targeted dispel checks, attended gear is unaffected, unattended magic items can have their magic suppressed for 1d4 rounds, and spell effects not operating on creatures or objects cannot pass through. Disintegrate or a successful dispel magic removes the screen and antimagic suppresses it. This greater version raises the maximum caster-level bonus on its dispel checks from +10 to +20.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otilukes-greater-dispelling-screen-3385",
+          "role": "primary Tome and Blood: A Guidebook to Wizards and Sorcerers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/resist-elements-3789": {
+      "name": "Resist Elements",
+      "sourceSha256": "09a5180c0a34725b3e3e945c0ec7616f33ed7a12fdd8b0941eaf25a83950d595",
+      "effectSummary": "Protects the touched creature against one chosen energy type as the source-era endure elements spell, but absorbs the first 12 points of damage of that type. It does not stack with endure elements or protection from elements; if protection from elements is also active, that spell absorbs damage first, and if only resist elements and endure elements overlap, resist elements supplies the absorption.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/resist-elements-3789",
+          "role": "primary Psionics Handbook 3.0 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/protection-elements-3790": {
+      "name": "Protection from Elements",
+      "sourceSha256": "fb4142ad408994059f9f118b6619869ee09a157bbc4ca32d735998e760dcc544",
+      "effectSummary": "Protects the touched creature against one chosen energy type and absorbs up to 12 points of that energy damage per caster level, after which the spell is discharged. It overlaps rather than stacks with resist elements and endure elements; when protection from elements is present with either, it absorbs the damage first.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/protection-elements-3790",
+          "role": "primary Player's Handbook 3.0 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mass-resist-elements-3382": {
+      "name": "Resist Elements, Mass",
+      "sourceSha256": "a8058aaff0048a98c3e5a555e603e0a06f2b01e887192d50e33e222d6715848b",
+      "effectSummary": "Applies the source-era resist elements effect to up to one creature per caster level, all within 30 feet of one another: each subject is protected against the chosen energy type and absorbs the first 12 points of that energy damage under resist elements' normal nonstacking rules.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mass-resist-elements-3382",
+          "role": "primary Tome and Blood: A Guidebook to Wizards and Sorcerers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/simbuls-spell-matrix-1787": {
+      "name": "Simbul's Spell Matrix",
+      "sourceSha256": "3eb915060807dc4eaf03ab9fe583675c1110f05247b4ae91dc8facf7b02ee500",
+      "effectSummary": "Creates a personal matrix that can store up to four spells of 3rd level or lower. During the four rounds after casting, you can place one eligible spell into it per round; only spells that can be Quickened qualify. Each stored spell deals 1d6 damage to you that cannot be healed while the matrix exists. Stored spells can later be cast once each as free actions and count as quickened spells for the round. A successful dispel removes the matrix and all stored spells, antimagic suppresses it, and death dissipates it. Focus: amber worth at least 500 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/simbuls-spell-matrix-1787",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/simbuls-spell-sequencer-1788": {
+      "name": "Simbul's Spell Sequencer",
+      "sourceSha256": "b65d0e8a309cfaa687d15fe18556ffdb14e894c75f466f400559e98fdc9eb2db",
+      "effectSummary": "Functions as Simbul's spell matrix but can hold spells of up to 5th level. Two or more stored spells of 2nd level or lower can be linked into a sequence and discharged together with one free action as though casting a single matrix spell. It otherwise retains the matrix's storage, damage, dispel, antimagic, death, and quickened-spell restrictions. Focus: a sapphire worth at least 1,000 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/simbuls-spell-sequencer-1788",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/simbuls-spell-trigger-1789": {
+      "name": "Simbul's Spell Trigger",
+      "sourceSha256": "67644c69a3252d74dc6a79529e84dc6d82d5ce206ac496ee790af4930f5295d4",
+      "effectSummary": "Functions as Simbul's spell sequencer but can hold spells as high as 7th level and can create linked sequences from spells of 4th level or lower. One stored spell or sequence that affects your own person can be assigned a clear contingency-like trigger; when that condition occurs it is cast instantaneously and cannot be suppressed. Focus: a diamond worth at least 1,500 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/simbuls-spell-trigger-1789",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mandragora-1896": {
+      "name": "Mandragora",
+      "sourceSha256": "6f4e78e0d00d88c12d93cdbc93439be028bed0d74c09ca31700cf420573e7ce9",
+      "effectSummary": "When the mandrake root is exposed, you and every other creature within 15 feet make a Will save. Creatures that succeed gain true seeing for the spell's duration; creatures that fail are affected as confusion for the same duration. Material component: a mandrake root worth at least 100 gp kept in a container of equal value.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mandragora-1896",
+          "role": "primary Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/scent-3240": {
+      "name": "Scent",
+      "sourceSha256": "18d55afcf924e4f70d7ea3b3bd629bdcb38a964e3a4b18ccc9984bb3685278ef",
+      "effectSummary": "Grants the scent special ability for 1 hour per caster level, allowing the subject to detect nearby creatures by smell, recognize familiar odors, determine the direction of a detected scent, pinpoint a source at close range, and track trails by scent. Arcane material components: mustard, pepper, and a drop of sweat.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scent-3240",
+          "role": "primary Savage Species catalog record and digest source"
+        }
+      ]
+    },
+    "spells/vine-mine-1630": {
+      "name": "Vine Mine",
+      "sourceSha256": "2a0341c8715ce3f4a581ba66f4fb359716d8568e718932cdde93c49ec17954d8",
+      "effectSummary": "Rapidly grows vines throughout a 10-foot-per-caster-level-radius spread for 10 minutes per caster level. Choose one mode when cast: entangle creatures, form climbing aids like knotted ropes, bind helpless targets with DC 25 escape, hamper movement as heavy undergrowth, or provide +4 competence on Hide checks as camouflage. As a standard action, you can redirect the vines to a different mode. Focus: a crown of ivy leaves.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vine-mine-1630",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/poison-vines-1619": {
+      "name": "Poison Vines",
+      "sourceSha256": "2f76df9f0ce27c10b9d54c21f318244c667aa547acd7d05d6e3f5ecf60c8428e",
+      "effectSummary": "Functions as vine mine, retaining its selectable vine-growth modes, but the created vines are poisonous. Contact poison deals 1d6 Dexterity damage initially and 2d6 Dexterity damage secondarily; a Fortitude save is required on first entering the area and again 1 minute later rather than every round. You are immune and can designate up to one other immune creature per caster level.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/poison-vines-1619",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/protection-from-possession-1334": {
+      "name": "Protection from Possession",
+      "sourceSha256": "c0f58d03aa7eb853db32287b1df813e92aa4cdb3dcc545c9c1efc67ed4058551",
+      "effectSummary": "For 10 minutes per caster level, blocks attempts to possess the touched creature and prevents outside forces from exercising mental control over it. It can suppress the command aspect of an existing domination while the protection lasts, but does not remove the domination itself, and it prevents a new possessing life force from entering without expelling one already present. Arcane material component: powdered silver used to mark the target's forehead.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/protection-from-possession-1334",
+          "role": "primary Ghostwalk catalog record and digest source"
+        }
+      ]
+    },
+    "spells/whip-2080": {
+      "name": "Whip",
+      "sourceSha256": "ddcea556c894969a4c62f57b170ae2f434f4a6fa3ebbf28467ef38e771db7ff9",
+      "effectSummary": "Creates a magical-force whip for 1 round per caster level and grants you proficiency with it. Cracking it keeps normal animals at least 30 feet away unless they succeed on Will. Hitting a normal animal with a ranged whip attack forces another Will save or the animal becomes frightened; against other opponents it functions as a normal whip. Material component: a small silk whip.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/whip-2080",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undeath-after-death-1726": {
+      "name": "Undeath After Death",
+      "sourceSha256": "057bcd8e5438d140d1dc36dab5c6bbc1a13526e37a3700fa940b7d9b7da617ee",
+      "effectSummary": "Permanently corrupts one willing living creature's life force, immediately costing it 2 Constitution. If it later dies with remains intact, it rises as a crypt spawn at the next sunset; destroyed remains prevent the transformation. Dispelling the spell before death does not restore the lost Constitution. Material components: an obsidian heart and black onyx worth at least 50 gp per Hit Die.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undeath-after-death-1726",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undead-bane-weapon-1804": {
+      "name": "Undead Bane Weapon",
+      "sourceSha256": "452ee320cdef57f6f789a0b3c394ff83d204e48a07058384acb52d5d5524b2a7",
+      "effectSummary": "For 1 hour per caster level, one weapon gains undead bane in addition to its other properties: against undead its enhancement bonus is +2 higher and it deals +2d6 bonus damage. At caster level 9 or higher a nonmagical weapon also gains +1 enhancement. The spell can instead affect up to fifty same-type arrows, bolts, or bullets, which lose the transmutation after being fired. It has no effect on a weapon already possessing undead bane, counts the weapon as blessed, and makes it glow like a candle.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undead-bane-weapon-1804",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undead-bane-weapon-1396": {
+      "name": "Undead Bane Weapon",
+      "sourceSha256": "e0f165d02b69220be98c1dfae85c5e50a918afccee4857ccbf3d32dd9008fd7e",
+      "effectSummary": "For 1 hour per caster level, one weapon gains undead bane in addition to its other properties: against undead its enhancement bonus is 2 higher and it deals +2d6 damage. At caster level 9 or higher a nonmagical weapon also gains +1 enhancement. The spell can instead affect up to fifty same-type arrows, bolts, or bullets, which lose the property after being fired. It has no effect on an already-undead-bane weapon, counts the weapon as blessed, and makes it glow like a candle.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undead-bane-weapon-1396",
+          "role": "primary Ghostwalk catalog record and digest source"
+        }
+      ]
+    },
+    "spells/waterball-1905": {
+      "name": "Waterball",
+      "sourceSha256": "a52fbec74ee6976e2282aedc594f0fe4e99128c47e99d7b9604c8a6b4e6812a1",
+      "effectSummary": "Fires a bead that bursts like a fireball, detonating early if it strikes a barrier. The burst deals 1d6 subdual damage per caster level, maximum 10d6, Reflex half. Because it is subdual rather than energy damage, damage reduction can apply. Objects are unharmed unless hardness 0; if such a barrier is broken through, the effect can continue beyond it where space permits. Material component: a full waterskin burst during casting.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/waterball-1905",
+          "role": "primary Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shalanthas-delicate-disk-1557": {
+      "name": "Shalantha's Delicate Disk",
+      "sourceSha256": "5129506718b5a4b02b9e2229bac1e260350e123d7262cd17346c8cdd94f3be53",
+      "effectSummary": "Conjures a fragile disk that can receive one spell of up to 5th level during the first 10 minutes, then stores it indefinitely. Shattering the disk triggers the stored spell as though cast by the original caster: touch or specific-target spells target the breaker, while area and effect spells originate at the disk. If no valid target exists, the stored spell is wasted. The disk can be broken as a standard action with 1 damage or a DC 5 Strength check. Material component: a golden egg worth 200 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shalanthas-delicate-disk-1557",
+          "role": "primary Lost Empires of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/transcribe-symbol-2223": {
+      "name": "Transcribe Symbol",
+      "sourceSha256": "545fbecda20f6403b2d9904bb3158a1c5644cdb99026e6f0fe740eed3f514c8a",
+      "effectSummary": "Lets you safely remove one untriggered magical sigil from its surface and hold it as magical potential on your hand. Picking it up requires a caster-level check against DC 20 + spell level; failure triggers the sigil. As a standard action you can place a successfully held sigil onto another suitable surface, preserving its original triggers and save/spell-resistance rules. If concentration lapses or the duration expires while held, it triggers on you alone. Focus: a smooth piece of slate.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/transcribe-symbol-2223",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-hand-1702": {
+      "name": "Shadow Hand",
+      "sourceSha256": "973152fa70f068e00d80c64efd9a36ca1f4e4eba93cee2f3de920a2b0d058b82",
+      "effectSummary": "Creates a 5-foot floating hand of shadow for 1 round per caster level. It can provide half cover, carry objects, gesture, or make slam attacks. It has AC 18, half your undamaged hit points, uses your saves, moves anywhere within range, and follows you if not otherwise directed. Changing tasks or targets is a standard action. Its slam uses your base attack bonus +4 and deals 1d6+4; it cannot bull rush, grapple, or trip.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-hand-1702",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mental-pinnacle-1142": {
+      "name": "Mental Pinnacle",
+      "sourceSha256": "d15b51cc96d17d0404e375aeb872667e1533262b0b4d3e57a9618b9cfc4e86f6",
+      "effectSummary": "For 1 round per caster level, grants +4 enhancement Intelligence and Wisdom, 3 power points per caster level, and access to mind thrust, ego whip, psionic blast, id insinuation, and psychic crush, manifested as a psion of your caster level. During the spell you lose spellcasting and cannot use spell-completion or spell-activation items as a spellcaster, instead using magic and psionic items as a psion whose list contains only those five powers. Unspent power points vanish when the spell ends. Material component: a potion of fox's cunning consumed during casting.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mental-pinnacle-1142",
+          "role": "primary Expanded Psionics Handbook catalog record and digest source"
+        }
+      ]
+    },
+    "spells/master-of-the-rolling-river-2075": {
+      "name": "Master of the Rolling River",
+      "sourceSha256": "b2813410c240d9263f1096068b23ef9f2e2b97f662f0f8e19111b6a7ec911663",
+      "effectSummary": "Creates a powerful wave. Without a large natural water source in range it affects one target; with such a source it becomes a 20-foot-radius burst. It deals 1d8 damage per two caster levels, maximum 7d8, Reflex half. Affected creatures are also bull-rushed in a direction you choose by a Strength 16 Medium wave, or Strength 20 Large near natural water; creatures that lose are pushed at least 5 feet, farther by the check margin. The wave extinguishes ordinary exposed flames and attempts a dispel against magical fires.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/master-of-the-rolling-river-2075",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/portal-well-328": {
+      "name": "Portal Well",
+      "sourceSha256": "92bc9ad73eab8ae2bc8e04f91884215d4744369dd3bef45875cde21df6a22b5a",
+      "effectSummary": "Lets you pause inside a small extradimensional space between the two ends of a portal you can normally activate. The space holds only you and your gear up to heavy load; you can see blurry views of both endpoints and choose either endpoint when the spell ends. Dispel magic, gate seal, or similar suppression traps you there until the portal functions again; destruction of the portal ejects you from a random end for 5d6 damage. Material component: a knotted silver wire.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/portal-well-328",
+          "role": "primary Champions of Valor catalog record and digest source"
+        }
+      ]
+    },
+    "spells/improved-invisibility-3791": {
+      "name": "Improved Invisibility",
+      "sourceSha256": "1ad3b3326b2f3a13cec96560526e8d6ff94b2a2cf932535eecc9a337b82e7c07",
+      "effectSummary": "Functions as the source-era invisibility spell, but attacking does not end the invisibility. It can affect the caster, another creature, or an eligible object and lasts 1 minute per caster level unless dismissed.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/improved-invisibility-3791",
+          "role": "primary Player's Handbook 3.0 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/status-greater-38": {
+      "name": "Status, Greater",
+      "sourceSha256": "151f9d3bfc73dae2f9d5c2de12e2299beeac8b4a59b4135b5764ee6c6d2b08de",
+      "effectSummary": "Functions as status for up to one creature per three caster levels, letting you monitor linked subjects' condition as normal, and also lets you cast harmless 0th-, 1st-, or 2nd-level touch spells through the status link as though touching a linked target. Only spells with range Touch, target Creature touched, and harmless saving throws qualify.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 112 is intentionally smaller because the remaining queue is dominated by deeper inheritance, source-table, and creature/stat-block dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/status-greater-38",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "fa24b5137d2247763c3d50f6729fd0ffae44a34c",
+    "workflowRun": 35707007270,
+    "validationRun": 35707011331,
+    "classificationArtifact": 10684698915,
+    "classificationArtifactSha256": "8c257b757c21d4ea02ec205149e61d149772eaeaf680dc4f882515571b5e58da",
+    "queueCountBefore": 331,
+    "referenceQueueCountBefore": 331,
+    "automaticReferenceEligibleCountBefore": 1
+  }
+}
