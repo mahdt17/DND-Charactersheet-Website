@@ -2132,6 +2132,12 @@
     "spells/construct-energy-ward-greater-4911",
     "spells/dominate-living-construct-4954",
     "spells/mage-armor-greater-461",
-    "spells/mirror-image-greater-2987"
+    "spells/mirror-image-greater-2987",
+    "spells/orb-cold-464",
+    "spells/orb-electricity-466",
+    "spells/orb-fire-468",
+    "spells/orb-cold-4609",
+    "spells/orb-electricity-4611",
+    "spells/orb-fire-4613"
   ]
 }
