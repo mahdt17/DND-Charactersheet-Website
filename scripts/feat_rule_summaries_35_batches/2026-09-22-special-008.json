@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "purpose": "Verified 18-record feat long-rule batch 008 from the final 21-record tail. This batch consumes only records whose exact exported source field and SHA-256 digest are present in feat-rule-review artifact 10718635433. It deliberately defers Reaping Talons because its exported Benefit text is truncated and Vow of Poverty / Vow of Purity because their review entries lack an exported field digest, preserving the 100% verification requirement.",
+  "purpose": "Verified 18-record feat long-rule batch 008 from the final 21-record tail. Records remain digest-locked to exact exported source fields. A post-closure review corrected three field mappings: Urban Tracking now summarizes its long Special table rather than mislabeling it as Benefit text, and Vow of Nonviolence / Vow of Peace now include their separately digest-locked long Special clauses.",
   "entries": {
     "feats/urban-tracking-3037": {
       "name": "Urban Tracking",
@@ -29,14 +29,14 @@
     "feats/urban-tracking-3040": {
       "name": "Urban Tracking",
       "specialSha256": "b9d89b94efc3b6fc56ca598ea0cd5e7e566a2c46899d168a88b802e87291704a",
-      "effectSummary": "Urban Tracking uses Gather Information to follow a trail through a community; this printing places its detailed modifiers in the Special text. A character with 5 ranks in Knowledge (local) gains +2 on the Gather Information check. Community DC/checks required are thorp/hamlet/village DC 5 and 1d3 checks; small/large town DC 10 and 1d4+1; small/large city DC 15 and 2d4; metropolis DC 20 and 2d4+2. Listed condition modifiers include -1 per three creatures sought, +1 per 24 hours missing, +5 if the quarry lies low, +2 if matching the primary racial demographic, and -2 if matching neither the primary nor secondary demographic. You may halve the normal 1-hour interval between checks to 30 minutes at -5.",
       "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
       "provenance": [
         {
           "url": "https://new.dndtools.org/feats/urban-tracking-3040",
           "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
         }
-      ]
+      ],
+      "specialSummary": "With 5 ranks in Knowledge (local), gain +2 on the Gather Information check used for Urban Tracking. Community DC/checks required are thorp, hamlet, or village: DC 5 and 1d3 checks; small or large town: DC 10 and 1d4+1; small or large city: DC 15 and 2d4; metropolis: DC 20 and 2d4+2. Apply -1 per three creatures sought, +1 per 24 hours the quarry has been missing or sought, +5 if the quarry lies low, +2 if the quarry matches the community's primary racial demographic, and -2 if it matches neither the primary nor secondary demographic. You may halve the normal interval between checks from 1 hour to 30 minutes by taking -5 on the check."
     },
     "feats/vermin-companion-3052": {
       "name": "Vermin Companion",
@@ -84,7 +84,9 @@
           "url": "https://new.dndtools.org/feats/vow-of-nonviolence-3078",
           "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
         }
-      ]
+      ],
+      "specialSha256": "208acb618eb97294359e4bf2480f99d389c5f53dcfd5d583dee3bcf5af1a9e39",
+      "specialSummary": "To maintain the vow, do not cause harm or suffering to humanoid or monstrous humanoid foes: you may deal nonlethal damage, but not real hit point damage, ability damage, death effects, disintegrate, pain effects, or other effects with immediate potential to cause death, suffering, or great harm. If an ally kills a helpless or defenseless foe within 120 feet, that ally takes a cumulative -1 morale penalty on attack rolls for 1 hour per your character level, up to a penalty equal to your character level; the duration resets from the latest slaying. You may bind allies or defeated foes with oaths as described by the source, but leaving a helpless foe for allies to kill breaks the vow. An intentional breach irrevocably removes the feat and cannot be replaced; a breach caused by magical compulsion suspends the benefit until suitable penance and atonement."
     },
     "feats/vow-of-peace-3080": {
       "name": "Vow of Peace",
@@ -96,7 +98,9 @@
           "url": "https://new.dndtools.org/feats/vow-of-peace-3080",
           "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
         }
-      ]
+      ],
+      "specialSha256": "64528c4fd7a71fb8db7dccd98a3a5984c0554aaba07ac65846f0744ab03be0f4",
+      "specialSummary": "To maintain the vow, do not cause harm to living creatures other than constructs and undead. You may deal nonlethal damage, but not real hit point damage, ability damage, death effects, disintegrate, or other effects with immediate potential to cause death or great harm. You also may not use nondamaging effects to incapacitate or weaken living foes so allies can kill them; an incapacitated foe must be taken prisoner. An intentional breach immediately and irrevocably removes the feat and cannot be replaced. A breach caused by magical compulsion or otherwise committed unwittingly suspends the benefit until suitable penance and atonement."
     },
     "feats/wandstrike-3088": {
       "name": "Wandstrike",
@@ -236,6 +240,14 @@
       "feats/vow-of-purity-3082"
     ],
     "fullFeatAuditRun": 35780589058,
-    "catalogCount": 3666
+    "catalogCount": 3666,
+    "postClosureReviewRun": 35788835085,
+    "postClosureReviewArtifact": 10720998113,
+    "postClosureReviewArtifactSha256": "c95bc1f3ee97a44dbbdb327b4030eb074f2c9427e8cb007d4728656addf8083e",
+    "postClosureRemainingBeforeCorrection": [
+      "feats/urban-tracking-3040",
+      "feats/vow-of-nonviolence-3078",
+      "feats/vow-of-peace-3080"
+    ]
   }
 }
