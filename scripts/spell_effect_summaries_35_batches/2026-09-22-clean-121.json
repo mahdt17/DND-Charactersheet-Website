@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 8-record batch 121 from the clean 196-record reference-dependent queue. The batch carries forward four untouched high-confidence records and adds four self-contained Player's Handbook v.3.5 effects. Cross-edition Stone Body/Lutzaen inheritance, summon/stat-block chains, source-damaged records, and table-driven prismatic/polymorph cases remain deferred.",
+  "entries": {
+    "spells/voice-dragon-1048": {
+      "name": "Voice of the Dragon",
+      "sourceSha256": "878f57bc27d32517f2a596053f7ee4c3274a582da10f617189091e09be15a305",
+      "effectSummary": "For 10 minutes per caster level, you gain +10 enhancement on Bluff, Diplomacy, and Intimidate and can speak and understand, but not read, Draconic. Once before the spell ends, as a standard action, you can use a suggestion effect on one creature within the suggestion spell's normal range. The target receives suggestion's normal Will save and spell resistance, and on failure follows a reasonable stated course of activity for up to 1 hour per caster level or until completed. Using the suggestion ends Voice of the Dragon, but the suggestion continues for its own duration. Sorcerers cast Voice of the Dragon at +1 caster level.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 121 favors source-complete mechanics or inheritance whose underlying rules are explicit and edition-appropriate; summon/stat-block, damaged-source, and unresolved table cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/voice-dragon-1048",
+          "role": "primary Draconomicon catalog record and digest source"
+        }
+      ]
+    },
+    "spells/natures-avatar-4584": {
+      "name": "Nature's Avatar",
+      "sourceSha256": "fe38d38876417402bff42fe97be1e5e33c5726b159312903dfcd99a33b9102e3",
+      "effectSummary": "For 1 minute per caster level, one touched animal gains +10 morale on attack rolls and damage rolls, 1d8 temporary hit points per caster level, and haste's benefits: one extra attack with one weapon during a full attack at full base attack bonus, +1 on attack rolls, +1 dodge AC and Reflex saves, and +30-foot enhancement to each movement mode up to twice its normal speed. The extra attack does not stack with similar extra-attack effects.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 121 favors source-complete mechanics or inheritance whose underlying rules are explicit and edition-appropriate; summon/stat-block, damaged-source, and unresolved table cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/natures-avatar-4584",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/lookingglass-1931": {
+      "name": "Lookingglass",
+      "sourceSha256": "6ac82c88e619d984e3984862f4103aa1367be3b4bd9fca5491e4ff9ab24503d3",
+      "effectSummary": "The first 1-hour casting marks one natural mirrored surface, such as a pool or clear lake, for 1 day per caster level. If you complete a second Lookingglass on a similar surface before the first expires, the two form a path: you can look through from one end to the other as with clairvoyance, and for 1 minute per caster level after the second casting you and up to one other creature per caster level can step through and arrive accurately at the opposite mirror as with teleport without error. The spell gives no protection from environmental hazards at either endpoint. If the first casting expires before the second is completed, the first casting is useless.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 121 favors source-complete mechanics or inheritance whose underlying rules are explicit and edition-appropriate; summon/stat-block, damaged-source, and unresolved table cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lookingglass-1931",
+          "role": "primary Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/trobriands-baleful-teleport-341": {
+      "name": "Trobriand's Baleful Teleport",
+      "sourceSha256": "de6ce654351c8200626517ed8789cf729ccb7c40225390b8af0f9c36829426b9",
+      "effectSummary": "Instantly teleports one creature and its carried objects to a destination you designate, using teleport's familiarity and arrival rules; you do not travel with the target. The target receives a Will save and spell resistance. Its Will save gains a bonus based on how well you know the destination: +0 for very familiar, +2 for studied carefully, +4 for seen casually, +6 for viewed once, or +8 for a false destination. Areas of strong physical or magical energy can make the teleport hazardous or impossible.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 121 favors source-complete mechanics or inheritance whose underlying rules are explicit and edition-appropriate; summon/stat-block, damaged-source, and unresolved table cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/trobriands-baleful-teleport-341",
+          "role": "primary City of Splendors: Waterdeep catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-conjuration-2699": {
+      "name": "Shadow Conjuration",
+      "sourceSha256": "f7d2c7d29f5efee6ad6b7761702f28f5976a3477fdc6d0a5e1b0c1290747a0ff",
+      "effectSummary": "Creates a quasi-real shadow version of any sorcerer or wizard conjuration (summoning) or conjuration (creation) spell of 3rd level or lower. A creature that interacts with the effect can Will-save to disbelieve. Believers are affected normally. A disbeliever takes only 20% of simulated damage, and each nondamaging special effect has only a 20% chance to affect that creature; simulated saves still apply using Shadow Conjuration's 4th-level save DC, and every simulated effect allows spell resistance. Shadow objects and substances work only 20% of the time against disbelievers. A shadow creature has 20% normal hit points, deals 20% normal damage to disbelievers, has only 20% effective AC bonuses against them, and its nondamaging special abilities work only 20% of the time against them. Objects automatically disbelieve.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 121 favors source-complete mechanics or inheritance whose underlying rules are explicit and edition-appropriate; summon/stat-block, damaged-source, and unresolved table cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-conjuration-2699",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/limited-wish-2899": {
+      "name": "Limited Wish",
+      "sourceSha256": "e902a74a8ef81f756ef20a752dbfc64cb8202e0acdd57514c05444e22dbd205a",
+      "effectSummary": "Creates a flexible effect that can duplicate a nonprohibited sorcerer/wizard spell of 6th level or lower, a nonprohibited spell from another list of 5th level or lower, a prohibited-school sorcerer/wizard spell of 5th level or lower, or a prohibited-school spell from another list of 4th level or lower. It can instead undo many harmful spells or produce another effect of comparable power, such as making one creature automatically hit with its next attack or imposing -7 on its next saving throw. A duplicated spell keeps its normal saves and spell resistance, but uses the save DC of a 7th-level spell. XP cost is 300 XP, or the duplicated spell's XP cost if higher; material components over 1,000 gp must still be supplied.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 121 favors source-complete mechanics or inheritance whose underlying rules are explicit and edition-appropriate; summon/stat-block, damaged-source, and unresolved table cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/limited-wish-2899",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spike-growth-2878": {
+      "name": "Spike Growth",
+      "sourceSha256": "fd435c42762c6a59ed66aa3191368f0b353dad4c9fa57936625ecd3861b3f133",
+      "effectSummary": "For 1 hour per caster level, hardens ordinary ground-covering vegetation or roots throughout one 20-foot square per caster level into concealed spikes. A creature moving on foot through the area takes 1d4 piercing damage for every 5 feet moved. A creature damaged by the spikes must Reflex-save or have its land speed halved for 24 hours, until a cure spell heals it, or until another character spends 10 minutes and succeeds on a Heal check against the spell's save DC. The spell normally works outdoors except on open water, ice, heavy snow, sandy desert, or bare stone. It cannot be disabled with Disable Device; only a rogue can find this magical trap with Search, normally DC 28 or DC 27 when cast by a ranger.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 121 favors source-complete mechanics or inheritance whose underlying rules are explicit and edition-appropriate; summon/stat-block, damaged-source, and unresolved table cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spike-growth-2878",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/hallow-2619": {
+      "name": "Hallow",
+      "sourceSha256": "ea8c13c488f0e3b12fbf134612ef4e3da96fa764d0ad81caedf0099dded0fa32",
+      "effectSummary": "Consecrates a 40-foot-radius site after a 1-day casting. The area gains a magic circle against evil effect; Charisma checks to turn undead gain +4 sacred and checks to command undead take -4, except for the druid version; and bodies interred there cannot be turned into undead. You can also bind one spell effect to the site for 1 year and choose whether it applies to all creatures, creatures sharing your faith or alignment, or creatures of another faith or alignment. Eligible bound effects are aid, bane, bless, cause fear, darkness, daylight, death ward, deeper darkness, detect evil, detect magic, dimensional anchor, discern lies, dispel magic, endure elements, freedom of movement, invisibility purge, protection from energy, remove fear, resist energy, silence, tongues, or zone of truth, with their normal saves and spell resistance where applicable. Only one Hallow can affect an area at a time. It counters but does not dispel Unhallow. Material cost is 1,000 gp plus 1,000 gp per level of any bound spell.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 121 favors source-complete mechanics or inheritance whose underlying rules are explicit and edition-appropriate; summon/stat-block, damaged-source, and unresolved table cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hallow-2619",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "a20c66b874a102f7a67f97d942b69f35ce2030b1",
+    "workflowRun": 35711554073,
+    "validationRun": 35711560538,
+    "classificationArtifact": 10687211498,
+    "classificationArtifactSha256": "b0ab2e35de5ba62cbb70dbf3e63aa4993c843da2e8ddd9c1db310ba79c77c402",
+    "queueCountBefore": 196,
+    "referenceQueueCountBefore": 196,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
