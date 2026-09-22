@@ -2880,6 +2880,17 @@
     "spells/wall-of-evil-1600",
     "spells/wall-of-law-1602",
     "spells/repair-critical-damage-3423",
-    "spells/repair-moderate-damage-3426"
+    "spells/repair-moderate-damage-3426",
+    "spells/mordenkainens-disjunction-2339",
+    "spells/spike-stones-2879",
+    "spells/shadow-evocation-2701",
+    "spells/speak-with-anything-1892",
+    "spells/teleportation-circle-2463",
+    "spells/possess-animal-2092",
+    "spells/possess-2093",
+    "spells/lesser-spirit-ally-2035",
+    "spells/spirit-ally-2040",
+    "spells/greater-spirit-ally-2031",
+    "spells/sandblast-1903"
   ]
 }
