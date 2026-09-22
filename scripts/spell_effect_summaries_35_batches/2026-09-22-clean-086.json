@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified source-specific reference spells, including an explicitly documented source-internal component contradiction; clean batch 086.",
+  "entries": {
+    "spells/halasters-image-swap-340": {
+      "name": "Halaster's Image Swap",
+      "sourceSha256": "2e2ac39ec30826f3ed43bf3a697b79bffe95b789f037a2ba89a18d338fc57a8f",
+      "effectSummary": "Instantly swaps your location with one projected image you already have in effect. You arrive exactly where the image stood and leave a projected image behind at your former location. To an observer who cannot discern the projected image as an illusion, the exchange has no visible clue; an observer who can discern the illusion sees a relocation that appears like a dimension door, but the spell does not inherit dimension door's action lock, passenger rules, or occupied-destination mishap mechanics. If you have no projected image active, the spell has no effect. Unlike ordinary teleportation, using the spell does not count as breaking line of sight with the projected image. You can bring touched objects up to 50 pounds per caster level. The spell text also specifies a material component: a small replica of you, such as a doll.",
+      "notes": "Source-locked to City of Splendors: Waterdeep p.154. The printed source itself is internally inconsistent: its header says Components: V, while its final paragraph explicitly labels a Material Component (a small replica/doll). This review preserves and documents both source statements rather than silently rewriting the component header. The comparison to dimension door is observational only, not mechanical inheritance.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-image-swap-340",
+          "role": "primary City of Splendors catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/aowzv/roca/basic/151-183",
+          "role": "same-printing City of Splendors page rendering confirming Components: V and the separate Material Component paragraph"
+        },
+        {
+          "url": "https://forgottenrealms.fandom.com/wiki/Halaster%27s_image_swap",
+          "role": "independent source-cited cross-check noting both verbal and replica components"
+        }
+      ]
+    },
+    "spells/heart-of-fire-878": {
+      "name": "Heart of Fire",
+      "sourceSha256": "0752c065d4db5ac395ef44ecf60c1201e2e0d4d7d48d40aa84f5af4d92484b0e",
+      "effectSummary": "For 1 hour per caster level or until expended, you gain a +10-foot enhancement bonus to land speed and fire resistance 20. While the spell is active, you can use a swift action once to activate the fire-based version of fire shield on yourself. That shield lasts 1 round per caster level: creatures striking you with their bodies or ordinary-reach handheld melee weapons take 1d6 fire damage +1 per caster level, maximum +15, and you take only half damage from cold attacks, or none on a successful Reflex save when the attack normally allows Reflex half. Reach weapons that do not bring the attacker adjacent do not trigger the retaliation. When this fire shield duration ends, all remaining Heart of Fire effects end. If any one of Heart of Air, Heart of Earth, or Heart of Water is also active, you gain light fortification; if all four heart spells are active together, you are immune to extra damage from critical hits and sneak attacks.",
+      "notes": "Source-locked to Complete Mage p.107. The Fire Shield reference is limited to the printed fire-based shield activation; Heart of Fire's speed, fire resistance, duration, expenditure rule, and heart-spell synergies remain source-specific.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/complete-mage--58/heart-of-fire--878/",
+          "role": "matching Complete Mage rendering used to verify speed, fire resistance, fire-shield activation, and heart-spell synergies"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/fireShield.htm",
+          "role": "3.5 SRD cross-check for the inherited warm fire-shield retaliation and cold-damage protection"
+        }
+      ]
+    },
+    "spells/holy-fire-shield-315": {
+      "name": "Holy Fire Shield",
+      "sourceSha256": "7dc8bc3b4055b308561c23e07e96c5a8f8b3a640d56e9a3fdcd48ea35c707bb6",
+      "effectSummary": "Functions as fire shield for 1 round per caster level, but its retaliatory damage is split: half is the normal elemental damage of the chosen shield and the remainder is divine energy like flame strike. A warm shield glows golden-red, deals the elemental half as fire, and retains fire shield's protection against cold; a chill shield glows blue-white, deals the elemental half as cold, and retains protection against fire. A creature that hits you with its body or a normal-reach handheld melee weapon takes the shield's 1d6 +1 per caster level retaliatory damage, maximum +15, divided between elemental and divine energy as above; reach weapons that keep the attacker away do not trigger it. Spell resistance applies to the retaliation. The spell requires a sacrifice of 1d3 points of Strength damage.",
+      "notes": "Source-locked to Champions of Valor pp.55–56. Fire Shield supplies the base retaliation and opposite-energy protection, while Holy Fire Shield explicitly splits retaliatory damage between elemental and divine energy and replaces the visual appearance. The sacrifice component is native to this sanctified spell.",
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/spells/champions-of-valor--28/holy-fire-shield--315/index.html",
+          "role": "matching Champions of Valor rendering used to verify the elemental/divine split, colors, and sacrifice"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/fireShield.htm",
+          "role": "3.5 SRD cross-check for inherited Fire Shield mechanics"
+        }
+      ]
+    },
+    "spells/lightning-ring-2255": {
+      "name": "Lightning Ring",
+      "sourceSha256": "e4c3b09762553c5a4e3f99688b49db4e4fff537a8c9f00e64036c5402bf94849",
+      "effectSummary": "Source-specific Player's Guide to Faerûn version. At casting, choose either a persistent ring or an immediate eight-bolt discharge. If kept as a ring, it lasts 1 round per two caster levels, moves with you without interfering with attacks or spellcasting, grants electricity resistance 20, and on each of your turns emits two separately aimed lightning bolts. Each bolt functions as lightning bolt at caster level 5, so it deals 5d6 electricity damage in a 120-foot line with Reflex half and uses the base spell's interactions with combustibles, objects, low-melting-point metals, and barriers; however, its save DC is calculated as an 8th-level spell. Instead, when you finish casting you can release all the power at once as eight such lightning bolts traveling in the eight directions specified by the source, making the spell instantaneous. The material components are a small glass ring and a bit of animal fur.",
+      "notes": "Source-locked to Player's Guide to Faerûn. This earlier printing is materially different from the later Spell Compendium Lightning Ring: it has no automatic adjacent-creature 10d6 pulse and offers the alternative eight-bolt instantaneous discharge.",
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/spells/players-guide-to-faerun--22/lightning-ring--2255/index.html",
+          "role": "matching Player's Guide to Faerûn rendering used to verify both operating modes, CL 5 bolts, and 8th-level save DC"
+        },
+        {
+          "url": "https://manuals.plus/m/07a05aac9d81c638e21996c8efb6e3747477e6bbf343803d74a41d24ab40e380",
+          "role": "same-book text cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/lightningBolt.htm",
+          "role": "3.5 SRD cross-check for inherited Lightning Bolt line and object interactions"
+        }
+      ]
+    },
+    "spells/lingering-flames-827": {
+      "name": "Lingering Flames",
+      "sourceSha256": "ff93260e24f4dfefc117cadaf32c8b66c5f6fc4e56265b2dc07c9feb061741ac",
+      "effectSummary": "Functions as fireball at Medium range in a 20-foot-radius spread, but the fire remains for 3 rounds instead of ending immediately. The initial bead travels to the chosen point and detonates as fireball does, including premature detonation on striking a barrier and the ranged-touch requirement to send it through a narrow opening. Each round, creatures within the burning area or entering it take 1d6 fire damage per caster level, maximum 15d6, with a Reflex save for half; spell resistance applies. The flames can ignite combustibles and affect vulnerable objects as the base fireball does. The material components are a pinch of sulfur and a length of copper wire.",
+      "notes": "Source-locked to Complete Mage p.110. Fireball supplies the bead delivery and basic burst/object interactions, while Lingering Flames explicitly changes duration to 3 rounds and damage cap to 15d6 for the persistent burning area.",
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-mage--58/lingering-flames--827/index.html",
+          "role": "matching Complete Mage rendering used to verify duration, persistent damage, cap, save, and component"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCMage.html",
+          "role": "Complete Mage SRD cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/fireball.htm",
+          "role": "3.5 SRD cross-check for inherited Fireball delivery and object interactions"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "fb9811c192eea29603db675ecfcef690fd4d4b7d",
+    "workflowRun": 35686914452,
+    "validationRun": 35686917181,
+    "classificationArtifact": 10676928207,
+    "classificationArtifactSha256": "a9aec9e213d4b3f41c65ec850d09b0c3642e980973c9fd14c949737ff33c89d7",
+    "queueCountBefore": 908,
+    "referenceQueueCountBefore": 908,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
