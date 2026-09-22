@@ -1,0 +1,623 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record feat long-rule batch 006. Reaping Talons was deliberately excluded because the exported Benefit field is visibly truncated; the next clean Scribe Tattoo printing was used instead so the batch remains 50 records without inventing missing mechanics.",
+  "entries": {
+    "feats/neraph-throw-2051": {
+      "name": "Neraph Throw",
+      "benefitSha256": "5a52d443cb91314dff5092f2cd4be3fe0ad338a90c962d3a2aae5bcee55f879e",
+      "effectSummary": "When you make a thrown-weapon attack using this technique, the target cannot apply Dexterity to AC against that attack, so any effects that depend on loss of Dexterity to AC can apply. After you use Neraph Throw against a particular foe once in an encounter, hit or miss, later Neraph Throw attempts against that foe automatically fail for the rest of that encounter.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/neraph-throw-2051",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/netherese-battle-curse-2053": {
+      "name": "Netherese Battle Curse",
+      "benefitSha256": "e24983c738b286772d4908a76468e00a0b3fcc53fa3711a88423f477a54d78cf",
+      "effectSummary": "Before a melee attack, sacrifice an arcane spell slot or prepared spell. Add the sacrificed spell level to the attack roll. On a hit, the target makes Will DC 10 + sacrificed spell level + Charisma modifier; failure imposes -2 on attack rolls, saves, ability checks, skill checks, and weapon damage for 1 minute. Multiple curses do not stack, and a creature that successfully saves is immune to your battle curse for 24 hours. Remove-curse/dispelling effects that remove curses end it. Your caster level for the curse equals character level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/netherese-battle-curse-2053",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/node-store-2067": {
+      "name": "Node Store",
+      "benefitSha256": "30ae52ca8aa6885e221db311695c8c36e3f1b851c94de20b01e0f224902cec39",
+      "effectSummary": "Choose two spells you know and can cast. In a node to which you are attuned, prepared casters can prepare those two spells as two extra daily slots stored in the node; spontaneous casters gain two extra slots, each usable only for its designated spell. The extra spells/slots are available only while inside the chosen node and refresh normally after rest. You can store them in only one node at a time, changing the storage node by meditating there for 1 hour.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/node-store-2067",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/node-store-2068": {
+      "name": "Node Store",
+      "benefitSha256": "965ed06dc9e0714992940918f036dae5a8813fb23f3cb2ad20444b4af065c5e2",
+      "effectSummary": "Choose two spells you know and can cast. While in a chosen earth node, prepared casters may prepare those two spells as two extra daily slots stored in the node; spontaneous casters gain two extra slots, each restricted to its designated spell. Leaving the earth node makes the slots unavailable until you return, provided they were not already spent since resting. You can store spells in only one earth node at a time and switch nodes by meditating 1 hour in the new node.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/node-store-2068",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/ocular-spell-2079": {
+      "name": "Ocular Spell",
+      "benefitSha256": "0dbf7ba328fb370592bde0b242cfd8fe68d57290e9ab219f31d99ba91563d1bc",
+      "effectSummary": "Cast a qualifying spell with casting time 1 full round or less into one eye instead of having it take effect immediately; only ray spells or nonpersonal targeted spells qualify. You can store at most two ocular spells for up to 8 hours. As a full-round action, release both stored spells, potentially at different targets. Each released spell becomes a ray with range up to 60 feet, requires a ranged touch attack, and affects only the struck creature even if the original spell could affect multiple creatures; the target still receives any save the spell normally allows.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/ocular-spell-2079",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/oneiromancy-2084": {
+      "name": "Oneiromancy",
+      "benefitSha256": "c17e98115859c374c669a97038fd5af7d957d9c0e294c17a0d6bbed7f1cc694c",
+      "effectSummary": "Your spells function normally in nightmare realms without their usual mishap risk. While in a dreamscape, treat yourself as having Spell Focus (enchantment) and Spell Focus (illusion); if you already have either feat, its save-DC bonus stacks there. You can also direct a single-target or fixed-number-of-targets offensive spell at a creature's dream self, converting all damage to nonlethal damage. This dream-self option works only on creatures that sleep and dream; constructs, plants, undead, and elves are immune, and area spells cannot use it.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/oneiromancy-2084",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/otherworldly-countenance-2103": {
+      "name": "Otherworldly Countenance",
+      "benefitSha256": "5d478c253afa71fd171afe39c341efcd4986d8f1660a6fa95ccb08cf2d77c399",
+      "effectSummary": "Permanently choose extraordinary beauty or ugliness. Gain a bonus equal to your number of Abyssal heritor feats on Perform checks for beauty or Intimidate for ugliness. A number of times per day equal to your Abyssal heritor feats, use a full-round action against one creature within 30 feet that can see you; Will DC 10 + half character level + Charisma modifier negates. Failure fascinates the target if beautiful or sickens it if ugly for as long as it remains in your line of sight. Each specific creature can be affected only once per day.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/otherworldly-countenance-2103",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/paraelemental-power-2119": {
+      "name": "Paraelemental Power",
+      "benefitSha256": "bf7cf843c5b02875d0683579b57e28e290455e33327106587f45840c836f4ee4",
+      "effectSummary": "Choose the same energy type selected for Privileged Energy and expend psionic focus when manifesting a matching damaging energy power. Add a paraelemental rider while retaining the underlying energy descriptor: cold/ice limits affected foes to one move or standard action for 1 round; fire/magma deals +2d6 fire damage on the following round; electricity/ooze entangles for 1 round; sonic/smoke limits breathing targets to one move or standard action for 1 round. If the power has a save, the rider applies only on a failed save; if it normally has no save, Fortitude at the power's DC negates only the rider. The added effect remains dispellable during its extra round. Cost increases by 2 power points and cannot exceed manifester level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/paraelemental-power-2119",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/pernicious-magic-2135": {
+      "name": "Pernicious Magic",
+      "benefitSha256": "5447c8205b03dcd1abfdbdab7230730715fa9ad50f6107ea0240760f32a3c7d4",
+      "effectSummary": "A Weave caster trying to counterspell one of your spells must succeed on a level check DC 11 + your caster level. This protection excludes your Evocation/Transmutation spells and does not hinder counterspelling with dispel magic. In exchange, when you counterspell Weave magic you must make a level check DC 9 + the opposing caster's level, except against Enchantment, Illusion, and Necromancy, which you counter normally; you may still use dispel magic normally.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/pernicious-magic-2135",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/persistent-spell-2142": {
+      "name": "Persistent Spell",
+      "benefitSha256": "d00218eb4544bc5b75c432374712db7467ee1b2513e109b90a5afcd6cb786c04",
+      "effectSummary": "A qualifying spell with personal or fixed range lasts 24 hours. Instantaneous spells, touch-range spells, and discharged effects cannot be made persistent. For detection spells such as detect magic or detect thoughts, you need not concentrate to notice mere presence/absence, but must still use a standard-action concentration that does not provoke to gain additional information. A persistent spell uses a slot four levels higher.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/persistent-spell-2142",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/planar-touchstone-2173": {
+      "name": "Planar Touchstone",
+      "benefitSha256": "121a41dbec6173154ed615f5ceda441f7b72dcf550634005b722803f61c0f980",
+      "effectSummary": "Choose a planar touchstone for which you possess the required native object. Forge the first link with 24 hours uninterrupted concentration, 10 XP, and consumption of that object, gaining the site's base ability. Visiting the linked site and meeting its recharge condition grants the site's limited-use higher-order ability; revisiting recharges but does not stack uses. After the first link, you may switch freely to other touchstones by visiting and satisfying their recharge condition, replacing the prior base ability and any unused higher-order uses.",
+      "specialSha256": "f2f67095405c06b077c37565cd6756dbc50da643d08c935ac92c07e2ad18700e",
+      "specialSummary": "You can take Planar Touchstone multiple times. Each additional feat lets you retain one additional touchstone's base ability and one additional site's higher-order uses simultaneously. If you connect to more sites than your number of Planar Touchstone feats allows, choose which previous site's abilities to lose.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/planar-touchstone-2173",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/positive-energy-aura-2203": {
+      "name": "Positive Energy Aura",
+      "benefitSha256": "ffa7c43b62f090c20f76d296cb534ae8ea7e24787a661193ba1cda466fa0b3d5",
+      "effectSummary": "Undead entering within 15 feet are automatically affected as though you turned them, costing no turn attempt and requiring no turning-damage roll. It turns undead with Hit Dice up to your effective cleric level -10 and automatically destroys undead with Hit Dice up to effective cleric level -20. Undead with total cover from you are unaffected, just as with normal turning.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/positive-energy-aura-2203",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/positive-energy-aura-2204": {
+      "name": "Positive Energy Aura",
+      "benefitSha256": "2e12a357cfb98f4292fe75dbd118448beb13b2f1888cc6c3eb125439b20a95b9",
+      "effectSummary": "Undead entering within 15 feet are automatically affected as though you turned them, without spending a turning attempt or rolling turning damage. It turns undead with Hit Dice no greater than effective cleric level -10 and automatically destroys undead with Hit Dice no greater than effective cleric level -20. Total cover protects undead from the aura as it would from normal turning.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/positive-energy-aura-2204",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/practiced-manifester-2230": {
+      "name": "Practiced Manifester",
+      "benefitSha256": "7c96418fc08b631b16f91aca08930b5edbbd1663da10bd6a8e12e206e71e0f4a",
+      "effectSummary": "Increase manifester level for one chosen manifesting class by 4, but never above your total Hit Dice. Any unused portion of the bonus can become effective later if nonmanifesting Hit Dice raise the cap. If you have multiple manifesting classes, choose one. This does not increase powers per day or powers known; it only improves manifester-level-dependent effects such as power resistance checks and durations.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/practiced-manifester-2230",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/practiced-spellcaster-2231": {
+      "name": "Practiced Spellcaster",
+      "benefitSha256": "9f77780ac41ffd3652ee01861b636f2ca19aab85603a3c08729ffbfe7759bfa4",
+      "effectSummary": "Increase caster level for one chosen spellcasting class by 4, never above your total Hit Dice. Any unused portion can become effective later if noncasting Hit Dice raise the cap. If you have multiple spellcasting classes, choose one. The feat does not increase spells per day or spells known; it affects caster-level-dependent functions such as overcoming spell resistance, duration, and other level-based effects.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/practiced-spellcaster-2231",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/practiced-spellcaster-2232": {
+      "name": "Practiced Spellcaster",
+      "benefitSha256": "45e23eb9f63fd91d00975ceec477e22406ceb5588f2dfbc1e73a6a880e57db10",
+      "effectSummary": "Increase caster level for one chosen spellcasting class by +4, but not beyond total Hit Dice. If the full bonus is initially capped, later noncaster Hit Dice can unlock the remainder. Choose one class if you have multiple spellcasting classes. Spells per day and spells known are unchanged; only caster-level-dependent effects such as spell resistance checks and duration improve.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/practiced-spellcaster-2232",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/precocious-apprentice-2236": {
+      "name": "Precocious Apprentice",
+      "benefitSha256": "b7f4377a16ef7ce1dd62bb0538f13488c699bb8afde42c788b1325d152db38aa",
+      "effectSummary": "Choose one 2nd-level spell from an accessible school and gain an extra 2nd-level slot initially usable only for that spell. Until you normally qualify to cast 2nd-level spells, casting it requires caster-level check DC 8; failure wastes it with no effect, while its caster level remains your normal caster level. Once you can normally cast 2nd-level spells, the restriction/check disappear and the bonus slot can hold or spontaneously cast any qualifying spell of 2nd level or lower. You also gain +2 Spellcraft.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/precocious-apprentice-2236",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/primitive-caster-2241": {
+      "name": "Primitive Caster",
+      "benefitSha256": "53f98b967f62db52759aadcfa8a76a4afe2de89b744858b261a080a4f5cd9d72",
+      "effectSummary": "When casting a spell that lacks one or more of verbal, somatic, or material components, voluntarily add any missing component to increase effective caster level by +1 per component added. Added verbal components are conspicuous animalistic sounds (Listen DC -5 before distance); added somatic components require two free hands; added material components require a rare frostfell plant found with Profession (herbalist) DC 15. You cannot add a component the spell already has.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/primitive-caster-2241",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/primitive-caster-2242": {
+      "name": "Primitive Caster",
+      "benefitSha256": "0169929991394807c1addfbebb63f1a1c6c2736f33fffd28d4f4541b80230d8a",
+      "effectSummary": "When casting a spell missing one or more verbal, somatic, or material components, voluntarily add any missing component to increase the spell's effective spell level by +1 per component added. Added verbal components are conspicuous animalistic sounds (Listen DC -5 before distance); added somatic components require two free hands; added material components require a rare forest plant found with Profession (herbalist) DC 15. You cannot add a component the spell already has.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/primitive-caster-2242",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/psionic-combat-buffer-3789": {
+      "name": "Psionic Combat Buffer",
+      "benefitSha256": "0d2b9a3519e3d792449fc0560ba20fe00e3dc450d67f0a83d68b4b7ff0ea50ba",
+      "effectSummary": "Designate up to half your total daily power points as a psionic-combat-only buffer. Charging it is a full-round action; if done during psionic combat, you are flat-footed for that round. Buffer points pay for psionic attack/defense modes at half normal cost, minimum 1 point, and cannot be used for anything else. The buffer lasts 1 hour per manifester level; after that, no more points can be added that day, half of unused buffer points return to you and the rest dissipate. Dismissing it early resolves it as though duration expired.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/psionic-combat-buffer-3789",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/psionic-dodge-2275": {
+      "name": "Psionic Dodge",
+      "benefitSha256": "ee9070495728c82f13a39ef8f1cb3c082d93ce8479f569f9ec25b9979f098134",
+      "effectSummary": "During your action, designate one opponent and gain +1 dodge AC against that opponent. It may be the same target as Dodge, in which case the bonuses stack, or a different target. You can change the designated opponent on any action. Losing Dexterity to AC does not remove this dodge bonus, and it stacks with other dodge bonuses.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/psionic-dodge-2275",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/psithief-2291": {
+      "name": "Psithief",
+      "benefitSha256": "f2f80f3934ab4a0667a6bcecdb0ac2084eed7c5b1d9f314788a95d5171121819",
+      "effectSummary": "Use steal spell to steal psionic power points instead of a spell. You can steal power points equal to twice the maximum spell level you can steal minus 1, capped by the victim's manifester level. Stolen points can only manifest powers you already know and disappear after 1 hour. The rest of the steal spell rules apply. Knowledge (psionics) and Psicraft become spellthief class skills.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/psithief-2291",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/psychic-meditation-3814": {
+      "name": "Psychic Meditation",
+      "benefitSha256": "9ae93a934401770fac62f91da99207d11b12cb6fbf50103592bc43316515fd46",
+      "effectSummary": "Gain access to seven psychic energy centers. Awaken one center with 8 uninterrupted hours of meditation; only one can be awakened at a time. Resetting a center is a standard action that does not provoke, and falling below 0 hit points resets it automatically. Once awakened, activate that center as a standard action that does not provoke, once per day, to gain its listed benefit for 1 hour.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/psychic-meditation-3814",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/purify-spell-2306": {
+      "name": "Purify Spell",
+      "benefitSha256": "b81bac5de7a98c4e86d75eccfe99ea1dae4abef7b732201b9f37d9ab2e2358ab",
+      "effectSummary": "The spell gains the good descriptor. If it deals damage, good creatures take none; neutral creatures take half normal damage, or one-quarter on a successful save when applicable; evil creatures take normal damage. Evil outsiders take increased damage by raising each damage die one step using the weapon-size progression (for example d6→d8, d8→2d6), subject to normal immunities. A purified spell uses a slot one level higher.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/purify-spell-2306",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/purify-spell-like-ability-2308": {
+      "name": "Purify Spell-like Ability",
+      "benefitSha256": "c63b46194fcd4e73fba1cfeb6bea2ef30e34cca7b0b50c1ae34b89764c2e358f",
+      "effectSummary": "The modified spell-like ability gains the good descriptor. If it deals damage, good creatures take none; neutral creatures take half, or one-quarter on a successful save when applicable; evil creatures take normal damage; evil outsiders instead increase each damage die one step using the weapon-size progression, subject to normal immunities. Each of your spell-like abilities can be purified up to three times per day, without exceeding that ability's normal use limit.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/purify-spell-like-ability-2308",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/pushback-2310": {
+      "name": "Pushback",
+      "benefitSha256": "0987f64d02ecde330b8a21b090c78370334a201d452ac735fc1ad2733a685288",
+      "effectSummary": "Once per round after you hit an adjacent opponent of your size or smaller with a melee attack, immediately make a special bull rush. On success, push it exactly 5 feet straight back or diagonally back left/right and move into a square it vacated. The movement is legal only if neither creature would enter an occupied/solid square and you can move into a vacated square. This movement does not provoke attacks of opportunity.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/pushback-2310",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/quicken-spell-like-ability-2331": {
+      "name": "Quicken Spell-Like Ability",
+      "benefitSha256": "1713d4b2eb28b79cd6b8ad1ed2e9c71afaa6b11f085b16002420b644a30cb08b",
+      "effectSummary": "Choose a qualifying spell-like ability that duplicates a spell of level no greater than floor(caster level/2)-4. Use it quickened up to three times per day, or fewer if its normal limit is lower. A quickened use is a swift action, does not provoke, allows other actions including another spell-like ability that round, and is limited to one quickened spell-like ability per round. An ability duplicating a spell with casting time greater than 1 full round cannot be quickened.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/quicken-spell-like-ability-2331",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/quicken-spell-like-ability-2332": {
+      "name": "Quicken Spell-Like Ability",
+      "benefitSha256": "50ee3d35c683e399b2f37e01bf3c0a9db2f7be070deacefe376397c4713934d5",
+      "effectSummary": "A quickened spell-like ability is a free action that does not provoke, allowing another action including another spell-like ability in the same round, with only one quickened ability per round. Abilities duplicating spells with casting time greater than 1 full round cannot be quickened. In this printing, each of your spell-like abilities can be quickened only once per day, subject to its normal usage limit.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/quicken-spell-like-ability-2332",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/quicken-spell-like-ability-2333": {
+      "name": "Quicken Spell-Like Ability",
+      "benefitSha256": "1713d4b2eb28b79cd6b8ad1ed2e9c71afaa6b11f085b16002420b644a30cb08b",
+      "effectSummary": "Choose a spell-like ability duplicating a spell of level no greater than floor(caster level/2)-4. It can be used quickened up to three times per day, or fewer if its normal daily limit is lower. Quickened use is a swift action that does not provoke; you may still act normally that round but can use only one quickened spell-like ability per round. Abilities duplicating spells with casting time over 1 full round do not qualify.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/quicken-spell-like-ability-2333",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/quicken-spell-like-ability-2334": {
+      "name": "Quicken Spell-Like Ability",
+      "benefitSha256": "1713d4b2eb28b79cd6b8ad1ed2e9c71afaa6b11f085b16002420b644a30cb08b",
+      "effectSummary": "Choose a spell-like ability duplicating a spell of level no greater than floor(caster level/2)-4. It can be quickened up to three times per day, limited by the ability's own uses. A quickened use is a swift action, does not provoke, and permits normal other actions that round, but only one spell-like ability can be quickened per round. Abilities based on spells with casting time greater than 1 full round cannot be quickened.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/quicken-spell-like-ability-2334",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/quicken-spell-like-ability-2336": {
+      "name": "Quicken Spell-Like Ability",
+      "benefitSha256": "1713d4b2eb28b79cd6b8ad1ed2e9c71afaa6b11f085b16002420b644a30cb08b",
+      "effectSummary": "Choose a spell-like ability duplicating a spell whose level is at most floor(caster level/2)-4. You can quicken it up to three times per day, capped by its normal uses. Quickened activation is a swift action that does not provoke; you can take other actions and use another spell-like ability in the round, but only one quickened ability per round. Abilities duplicating spells longer than 1 full round to cast cannot be quickened.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/quicken-spell-like-ability-2336",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/quicken-spell-like-ability-2337": {
+      "name": "Quicken Spell-Like Ability",
+      "benefitSha256": "1713d4b2eb28b79cd6b8ad1ed2e9c71afaa6b11f085b16002420b644a30cb08b",
+      "effectSummary": "Choose a spell-like ability whose duplicated spell level is no greater than floor(caster level/2)-4. You may quicken it up to three times daily, subject to its existing use cap. A quickened use is a swift action that does not provoke and does not prevent another action or spell-like ability that round; only one quickened spell-like ability can be used per round. Abilities with duplicated casting time longer than 1 full round are ineligible.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/quicken-spell-like-ability-2337",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/quicken-spell-like-ability-2338": {
+      "name": "Quicken Spell-Like Ability",
+      "benefitSha256": "8d5ddadc400fdb6209846992d7e87f4a28923f9e437e4d0aca53f2dc345e4991",
+      "effectSummary": "Choose one qualifying spell-like ability. The printed caster-level table corresponds to the rule that the duplicated spell level must be no greater than floor(caster level/2)-4 (for example, 3rd-level requires caster level 14). Use the selected ability quickened up to three times per day, or fewer if normally limited. In this printing the quickened use is a free action that does not provoke; you can take other actions that round but only one quickened spell-like ability per round. Abilities duplicating spells with casting time over 1 full round cannot be quickened.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/quicken-spell-like-ability-2338",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/ragewild-fighting-2350": {
+      "name": "Ragewild Fighting",
+      "benefitSha256": "1346e4c167f42e76986b27b5fd8cc56015c84009408f9e6912276338a77656cc",
+      "effectSummary": "Gain three tactical maneuvers. Instinctive Strike: when you fail a Will save against a nonharmless spell, make one melee attack as an immediate action before the spell takes effect. Rattle the Weakling: after hitting a target in one round, next round hit it while using Power Attack with at least -5; a target your size or smaller must make Fortitude DC 10 + half character level + Strength modifier or be dazed 1 round. Brutal Charge: after charging and hitting, spend an action point to add damage equal to your Strength bonus, or 1-1/2 × Strength with a two-handed weapon.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/ragewild-fighting-2350",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/raptor-school-2382": {
+      "name": "Raptor School",
+      "benefitSha256": "bc74cad4d002b4d50a5340c7280f81dad24e5080ebe7728286a6c2dac0abe4f3",
+      "effectSummary": "Gain three tactical maneuvers. Eagle's Swoop: immediately before an attack made after charging or dropping at least 10 feet, choose Jump DC 15 for +2 damage or DC 25 for +4; failure misses, and failure by 5+ leaves you prone adjacent. Falcon's Feathers: while wearing a cloak, use a standard action to feint using base attack bonus instead of Bluff; success makes the target flat-footed against your next melee attack. Hawk's Eye: spend 1–3 full rounds doing nothing but observing a foe, then gain +2 attack and damage per round observed, maximum +6, on your next melee attack; the benefit is lost if the foe attacks you during observation or you fail to attack within 3 rounds afterward.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/raptor-school-2382",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/razing-strike-2385": {
+      "name": "Razing Strike",
+      "benefitSha256": "4504319362f28b1068c8e578433c1e56bed6cc1e4d909454f3bfd953e1f517bd",
+      "effectSummary": "As a swift action, sacrifice a prepared spell or daily spell slot of at least 1st level. For 1 round, gain an insight bonus on melee attacks equal to the spell level and extra damage equal to 1d6 per spell level plus your sneak-attack dice. Arcane sacrifice applies these bonuses only against constructs; divine sacrifice only against undead. The feat does not make constructs/undead vulnerable to critical hits or sneak attacks.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/razing-strike-2385",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/repel-aberration-2429": {
+      "name": "Repel Aberration",
+      "benefitSha256": "fa299922f9de4ac3843b69de536e224cd265330969924b54c95c2e3fa3bae78b",
+      "effectSummary": "Turn aberrations using a Charisma check and the turning-undead table, using druid level to determine the strongest aberration affected; range is 60 feet. Roll turning damage as 2d6 + druid level + Charisma modifier. Affected aberrations cannot move toward you while you concentrate, but can otherwise act normally, including ranged attacks and supernatural/spell-like abilities; moving closer yourself does not force them back and they can make melee attacks if you enter reach. Uses per day equal 3 + Charisma modifier, and Extra Turning grants additional uses.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/repel-aberration-2429",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/residual-magic-2434": {
+      "name": "Residual Magic",
+      "benefitSha256": "4485a67bee55ad043fcefefdec3d09c8ef93375b879c01da448175fa0d07a1ac",
+      "effectSummary": "Gain two tactical options. Enduring Potency: after casting a spell from your daily allotment, if next round you cast the same spell from a scroll or wand, treat the item casting as though it came from your own daily allotment for caster level, save DC, and other spell effects. Lingering Metamagic: after casting a spell modified by one or more of your own metamagic feats, if you cast the same spell next round you may apply one of those metamagic effects without increasing spell level; that second casting does not itself seed another residual use. Item-granted metamagic does not qualify.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/residual-magic-2434",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/retributive-spell-2448": {
+      "name": "Retributive Spell",
+      "benefitSha256": "a6316ca67df8d740d877d115b844fd67cfb8a1e0cc949f213551751c22c63ff5",
+      "effectSummary": "A retributive spell has no immediate effect. For the next 24 hours or until you prepare/ready spells again, when a melee attack damages you, you may release it on that attacker as an immediate action. Only creature-targeting spells qualify; the stored spell can affect only the triggering attacker even if normally multitarget. You can have only one retributive spell active; casting another cancels the first, and preparing/readying spells makes it dissipate. It uses a slot one level higher.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/retributive-spell-2448",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/return-shot-2450": {
+      "name": "Return Shot",
+      "benefitSha256": "44562d3bddcdcb771e84dbbe776f40ecea2a640787a71e992ed3aa39deea9f69",
+      "effectSummary": "Once per round before you have acted, when aware and not flat-footed and about to be hit by a normal ranged weapon, make Reflex DC 20 + the weapon's enhancement bonus to snatch it. You can free a hand by releasing a two-handed grip or dropping a shield. Snatching is free. If you also hold an appropriate ranged weapon, you can return suitable ammunition: loading a bow takes a move-equivalent action, a crossbow a standard action, and rethrowing a thrown weapon is free. The return attack bonus equals half the attacker's ranged attack bonus, rounded down, plus your full ranged attack bonus. Exceptional projectiles such as giant boulders or Melf's acid arrow cannot be caught.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/return-shot-2450",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/right-of-counsel-2456": {
+      "name": "Right of Counsel",
+      "benefitSha256": "d3c54cd2f876d2c0cdf0751874fe26a9e42a41b99766c30011b5eda494ad6e22",
+      "effectSummary": "By hereditary right, enter the City of the Dead and seek aid from a deathless ancestor, generally an undying councilor. If you personally visit, once per month the ancestor can use one of its spell-like abilities on your behalf, answer questions within its own knowledge, or seek supernatural answers equivalent to commune using your level as caster level with no XP cost.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/right-of-counsel-2456",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/roof-jumper-2469": {
+      "name": "Roof-Jumper",
+      "benefitSha256": "c6cffa6e906e3fa5676e7bd093ff34ea5bbb8d41449020a26aee92a8672752c9",
+      "effectSummary": "Gain two urban tactical maneuvers, only one per round. Death from Above: deliberately drop at least 20 feet and attack as a charge; on a hit add 1d6 damage per 10 feet beyond the first 10, while still taking normal falling damage reducible by Jump/Tumble; you cannot use effects that slow the fall. Urban Acrobatics: while deliberately dropping within arm's reach of a wall, move sideways up to 5 feet per 10 feet fallen; on an accidental fall, 5 feet per 20 feet. Horizontal movement can reach your full movement even if combined fall+horizontal distance exceeds normal movement.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/roof-jumper-2469",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/roots-of-the-mountain-2471": {
+      "name": "Roots of the Mountain",
+      "benefitSha256": "a8e4eb16be32dfad9d78290caa4170aa684bc5a2d5a6c82c1ebe9a69afd794f8",
+      "effectSummary": "As a standard action, spend one rebuke-earth-creatures attempt to root yourself for rounds equal to character level. You automatically win opposed Strength checks against bull rush/trip, cannot be pulled into an improved-grab creature's space, automatically win grapple checks made by opponents to move you, and cannot be forcibly moved by spells or other effects. Fear still affects you but cannot make you run. You cannot voluntarily move, even 5 feet, while rooted. End the effect at any time as a free action.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/roots-of-the-mountain-2471",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/saddleback-2496": {
+      "name": "Saddleback",
+      "benefitSha256": "e33f7a4b980c084158fb05e6f4149786e7f874eb5f948559f525aa580abf0fd0",
+      "effectSummary": "You may take 10 on Ride even while rushed or threatened. Once per round, if you or your mount fails a Reflex save, make a Ride check and use it instead if it equals or exceeds the effect's save DC. If both rider and mount fail the same Reflex save, one Ride check can replace both failed saves.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/saddleback-2496",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/sapphire-sprint-2516": {
+      "name": "Sapphire Sprint",
+      "benefitSha256": "0198d4fd1d35e498f59d21eeda02efbb3d52e33306f4cf5d622886876836278b",
+      "effectSummary": "Once per day invest essentia for 24 hours. While using the run action, gain +5 feet insight speed per invested essentia regardless of movement mode and an insight bonus equal to invested essentia on Constitution checks to keep running. If you can bind to the feet chakra, you also retain Dexterity to AC while running and gain insight AC equal to invested essentia against attacks of opportunity provoked by leaving threatened squares during the run. The feat grants 1 essentia.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/sapphire-sprint-2516",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/scorching-sirocco-2523": {
+      "name": "Scorching Sirocco",
+      "benefitSha256": "fef31a5c1ce14d708a7b9038e019085ed62ac7bf01e5f877bcd117bd53652e0b",
+      "effectSummary": "Gain three Desert Wind tactical options. Fan the Flames: after dealing fire damage, next turn while adjacent use a move action and Tumble DC 20; success sets the foe on fire. Mark of Fire: after dealing fire damage with a Desert Wind strike, next turn damage the same foe with fire again and make Spellcraft DC 20; success gives allies +2 attacks against it for 1 round. Dance of Flames: after moving at least 10 feet and initiating a Desert Wind stance, next turn gain +2 Tumble; when a Tumble check successfully avoids an attack of opportunity, that opponent takes 1d6 fire damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/scorching-sirocco-2523",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/scorpions-grasp-2524": {
+      "name": "Scorpion's Grasp",
+      "benefitSha256": "840e97650ccd3855b4076eda23fcc83daf3c73c580ebfeebd8a63e98c09e8450",
+      "effectSummary": "After hitting with an unarmed strike or light/one-handed melee weapon, immediately attempt to start a grapple as a free action without an initial touch attack. If successful, a one-handed weapon must be dropped; a light weapon can continue attacking the grappled foe without the usual -4, but if you initiated while armed you cannot make additional damage-dealing grapple checks that round. Alternatively, hold a creature at least one size smaller in your off hand at -20 grapple; you cannot damage it with grapple checks but are not considered grappled, retain Dexterity to AC, threaten normally, can attack others, and can move while carrying it if its weight is draggable.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/scorpions-grasp-2524",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/scourge-of-the-seas-2528": {
+      "name": "Scourge of the Seas",
+      "benefitSha256": "0fb7c0e3d5df9203cbbb1380d515cbdcf72660dc537e88d92a856ce09932cc6f",
+      "effectSummary": "Use Intimidate against the captain of another ship that can see you or your identifying colors, opposed by the target's modified level check. On success the captain is frightened while it can see you and for 1d6×10 minutes afterward; if escape is impossible, it strikes colors and surrenders. On a failure by less than 5, the target can still become shaken as provided by the source's daunting rules; that condition lasts as long as the effect.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/scourge-of-the-seas-2528",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/scribe-tattoo-2534": {
+      "name": "Scribe Tattoo",
+      "benefitSha256": "1dffdcb787f09eeeed261901baa6dee3a780c9bc75959999564a0dc4b44ff90c",
+      "effectSummary": "Create a psionic tattoo from a known power of 3rd level or lower that targets one or more creatures. Creation takes 1 day; choose a manifester level high enough for the power and no higher than your own. Base price is power level × manifester level × 50 gp, with a 0-level power costing 25 gp; pay 1/25 of base price in XP and half in raw materials, plus any XP cost of the stored power. Choices normally made while manifesting are fixed at creation, and the wearer becomes the target when physically activating the tattoo.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/scribe-tattoo-2534",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/scribe-tattoo-2535": {
+      "name": "Scribe Tattoo",
+      "benefitSha256": "c3eb4f1e040360befb43497c75fb2b6063e6f6ab4971aeea42b99ad6036b8d65",
+      "effectSummary": "Create a psionic tattoo from any known power of 3rd level or lower that targets one or more creatures. Scribing takes 1 day; set a manifester level sufficient to manifest the power and no higher than your own. Base price is power level × manifester level × 50 gp; pay 1/25 of base price in XP and half in raw materials, plus any XP cost of the stored power. All normal manifestation choices are fixed when created, and the wearer is the target when activating the tattoo.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/scribe-tattoo-2535",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "9bb5f246e9667c9d05e85324aecdfa08a91d60d7",
+    "validationRun": 35784385222,
+    "featReviewRun": 35781227811,
+    "featReviewArtifact": 10718635433,
+    "featReviewArtifactSha256": "ebab66aeaad83fb49b41e87c26cd621632a05f2981b926748788b0f0ba33aa62",
+    "sourceArtifactEntryCount": 321,
+    "reviewQueueCountBefore": 121,
+    "reviewedByPriorBatches": 200,
+    "deferredSourceDamaged": [
+      "feats/reaping-talons-2400"
+    ],
+    "fullFeatAuditRun": 35780589058,
+    "catalogCount": 3666
+  }
+}
