@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 10-record batch 130 from the 131-record difficult reference-dependent tail. This is the largest currently safe batch: all spell-level mechanics are explicit, while monster stat blocks, hazard rules, negative-level rules, haunting-presence rules, polymorph rules, and cross-spell enhancements remain named external references. A verified Spider Plague catalog/header discrepancy is corrected to the printed Spell Compendium value.",
+  "entries": {
+    "spells/haunt-shift-1481": {
+      "name": "Haunt Shift",
+      "sourceSha256": "f9f00e63415edf634f54cb40bb29e0df6b57fd39225f2b107b24783fbac8c6d9",
+      "effectSummary": "Instantaneously converts corporeal and incorporeal undead in a 40-foot-radius burst into haunting presences, using the haunting-presence rules referenced by Libris Mortis. It affects 1d4 Hit Dice of undead per caster level, maximum 20d4. Lowest-HD undead are affected first; among equal-HD creatures, those closest to the burst's point of origin are affected first. No creature with 9 or more Hit Dice can be affected, and leftover Hit Dice insufficient to affect another creature are wasted. Range Medium; Will negates; spell resistance yes. Material component: a pinch of powdered skull.",
+      "notes": "Manually source-reviewed and digest-locked. The spell's HD limits and ordering are explicit; the separate Libris Mortis haunting-presence subsystem remains a named external rules reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/haunt-shift-1481",
+          "role": "primary Libris Mortis catalog record and digest source"
+        }
+      ]
+    },
+    "spells/valiant-steed-34": {
+      "name": "Valiant Steed",
+      "sourceSha256": "6659c6c9d128032a41eb219e51480e54b1823f6a0c6a47cdd5672270d77b9de6",
+      "effectSummary": "Calls one special servant of Valarian, either a pegasus or a unicorn, to your location. It serves for up to one year and can be dismissed at any time. Because it is intelligent, it can perform complex tasks, but it will not undertake a quest or other complex burden beyond your supervision. If you cast this spell again, the previously called creature returns home. Casting time is 1 hour; range Close; duration instantaneous with the service period described above; saving throw none; spell resistance no. Sacrifice: 1d3 points of Strength drain.",
+      "notes": "Manually source-reviewed and digest-locked. Pegasus and unicorn statistics remain external creature references rather than being reconstructed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/valiant-steed-34",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    },
+    "spells/form-of-the-desert-hunter-1079": {
+      "name": "Form of the Desert Hunter",
+      "sourceSha256": "c94bf0cc86fe94a0f101a7de8828b2e58d6ee9cf5a5b94816c3ff44de004c190",
+      "effectSummary": "Transforms you into the form of a dragonne under the Dragon Magic polymorph-subschool rules and grants 30 temporary hit points that disappear when the spell ends. Casting time is 1 swift action; range Personal; duration 1 round per caster level (D); saving throw none (harmless); spell resistance no (harmless).",
+      "notes": "Manually source-reviewed and digest-locked. Dragonne statistics and the Dragon Magic polymorph-subschool mechanics remain explicit external references rather than being expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/form-of-the-desert-hunter-1079",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/trollshape-3024": {
+      "name": "Trollshape",
+      "sourceSha256": "29376f9e5cd4b88a97e997b671727de37cc04f5f4ff377d70809840c14ca5bd0",
+      "effectSummary": "Transforms you into the form and abilities of a troll under the Player's Handbook II polymorph-subschool rules and grants 30 temporary hit points that disappear when the spell ends. Casting time is 1 swift action; range Personal; duration 1 round per caster level (D); saving throw none (harmless); spell resistance no (harmless).",
+      "notes": "Manually source-reviewed and digest-locked. Troll statistics and the Player's Handbook II polymorph-subschool mechanics remain named external references rather than being reconstructed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/trollshape-3024",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spider-plague-4214": {
+      "name": "Spider Plague",
+      "sourceSha256": "6791d44c8e97183707a1bbd7364d850e0de6b2b33f68e1968ccefbc75f275de1",
+      "effectSummary": "Summons five celestial or fiendish Large monstrous spiders. They appear where designated and act immediately on your turn, attacking opponents to the best of their ability; if you can communicate with them, you can redirect them or give other instructions. A celestial spider has DR 5/magic, resistance 5 to acid, cold, and electricity, spell resistance 9, and one smite evil that adds +4 to a damage roll. A fiendish spider has DR 5/magic, resistance 5 to acid and fire, spell resistance 9, and one smite good that adds +4 to a damage roll. Summoning good or evil spiders gives the spell that descriptor. Casting time is 1 full round; range Close; duration 1 round per caster level; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. The current catalog header reports spell resistance Yes, but the printed Spell Compendium entry says No; this summary preserves the actual printing. The underlying Large monstrous-spider stat block remains an external Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-plague-4214",
+          "role": "primary catalog identity and digest source"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/ybfo/basic/201-250",
+          "role": "Spell Compendium print-page cross-check for spell resistance No and spell text"
+        }
+      ]
+    },
+    "spells/slime-hurl-272": {
+      "name": "Slime Hurl",
+      "sourceSha256": "57030cbd5c7ab2f90ee86c0cdbd1c2a13b87495b0ac3c34dc0b8c90f0dec025e",
+      "effectSummary": "Conjures three globs of green slime and hurls them separately. Each glob requires its own ranged touch attack using your best ranged attack bonus. A creature struck by a glob is immediately coated by one patch of green slime and begins suffering the normal Dungeon Master's Guide green-slime effects; multiple hits create separate patches that must each be dealt with. The conjured slime does not disappear automatically and must be destroyed normally. Casting time is 1 standard action; range Close; duration instantaneous; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. The spell's attack and multi-patch behavior are explicit; the standard green-slime hazard rules remain a named Dungeon Master's Guide dependency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/slime-hurl-272",
+          "role": "primary Champions of Ruin catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-trap-271": {
+      "name": "Shadow Trap",
+      "sourceSha256": "1db9decac40e78f81c829e287b3f18bcbb1c03251491879639074ff078367587",
+      "effectSummary": "Places a magical trap on an object that casts a shadow. If the object is disturbed so its shadow shifts, a bound greater shadow emerges and attacks the nearest living creature. The greater shadow can be turned or destroyed normally; otherwise it remains for a number of rounds equal to your caster level. If the object is in a place with no shadows, the trap does not trigger but the spell remains in effect. Casting time is 10 minutes; range Touch; duration 1 hour per caster level (D); saving throw Reflex half; spell resistance yes. Material component: a sheet of black cloth large enough to cover the warded object.",
+      "notes": "Manually source-reviewed and digest-locked. The trigger, persistence, and summoned-creature duration are explicit; greater-shadow statistics remain an external Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-trap-271",
+          "role": "primary Champions of Ruin catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-skull-bomb-283": {
+      "name": "Necrotic Skull Bomb",
+      "sourceSha256": "a0bf5bc7cb68f1aa852e8d26243c70a730d811d491d44c7bd6ef3c88fceaeb9a",
+      "effectSummary": "Imbues a humanoid skull with negative energy and hurls it; on impact it detonates in a 20-foot-radius spread. Living and other non-undead creatures in the area gain 1d4 negative levels; survivors regain those levels after a number of hours equal to your caster level, maximum 15 hours, and these temporary negative levels do not last long enough to cause permanent level loss. Undead in the area instead gain 1d4×5 temporary hit points for 1 hour. Casting time is 1 swift action; range Close; duration instantaneous; Fortitude negates; spell resistance yes. Material component: a humanoid skull.",
+      "notes": "Manually source-reviewed and digest-locked. The spell-specific duration of negative levels and undead benefit are explicit; the general Energy Drain/negative-level rules remain a Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-skull-bomb-283",
+          "role": "primary Champions of Ruin catalog record and digest source"
+        }
+      ]
+    },
+    "spells/serpent-arrow-3257": {
+      "name": "Serpent Arrow",
+      "sourceSha256": "3483b8f06638f48d8384366143e0f6e40ad12ffb2e419ff7d38c487a3b07150e",
+      "effectSummary": "Imbues up to eight touching wooden arrows or darts with the potential to become Tiny vipers. The projectiles remain rigid and harmless until fired or hurled and can be used by creatures other than the caster. On a hit, the viper automatically bites the target for 1 point of damage plus poison (injury; Fortitude DC 11; initial and secondary damage 1d6 Constitution). It then remains a viper for the spell's remaining duration and keeps attacking its original target; if the shot misses or that target becomes unreachable, it attacks the nearest opponent. If you can communicate with the viper, you can redirect it. At the end of the spell, transformed vipers melt away while unused projectiles remain normal. Range Close; duration 10 minutes per caster level; saving throw none; spell resistance no. Material component: a snake scale.",
+      "notes": "Manually source-reviewed and digest-locked. The Tiny-viper base stat block remains a Monster Manual reference, while the spell's bite damage, poison DC/damage, targeting, and reversion rules are preserved explicitly.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/serpent-arrow-3257",
+          "role": "primary Serpent Kingdoms catalog record and digest source"
+        }
+      ]
+    },
+    "spells/unicorn-horn-888": {
+      "name": "Unicorn Horn",
+      "sourceSha256": "003620d5fbccbc27776a36b9d931022db9ad4633f829a83234668eaec5419bab",
+      "effectSummary": "Grows a unicorn-like horn from your forehead. As a standard action you can make a gore attack with it; for a Medium caster it deals 1d8 piercing damage plus 1-1/2 times your Strength bonus and counts as magic for overcoming damage reduction. On a charge it deals double damage, or triple damage on a critical hit. Once during the spell, as a swift action, you can invoke the power of good for 1 round: the horn gains a +3 enhancement bonus on attack and damage rolls, counts as good-aligned for overcoming damage reduction, and deals +3d6 damage to evil fey, giants, magical beasts, and outsiders; after that round the spell ends. Duration is 1 minute per caster level (D) or until expended. The spell has enhanced interactions with Unicorn Blood and Unicorn Heart as described by those spells.",
+      "notes": "Manually source-reviewed and digest-locked. All horn attack and empowered-round mechanics are explicit. The cross-spell Unicorn Blood/Unicorn Heart enhancements remain named references rather than being inferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unicorn-horn-888",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "e89ccbc01903517bbfe88c6c630ced1646b95ca2",
+    "workflowRun": 35772083803,
+    "validationRun": 35772089641,
+    "classificationArtifact": 10714627342,
+    "classificationArtifactSha256": "afb8e4949c7eac4190c5c3c55051d30167c1126950b3a2e47007389c4f517011",
+    "queueCountBefore": 131,
+    "referenceQueueCountBefore": 131,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
