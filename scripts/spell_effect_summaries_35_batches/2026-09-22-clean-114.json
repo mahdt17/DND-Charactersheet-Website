@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 20-record batch 114 from the clean 281-record reference-dependent queue. Seventeen high-confidence records were carried forward after concurrent batch 113 claimed three overlaps; Shadowfade, Stalking Spell, and Spellsong were added after independent source review. Summon/stat-block tables, unresolved source damage, and ambiguous inheritance remain deferred.",
+  "entries": {
+    "spells/stasis-clone-1522": {
+      "name": "Stasis Clone",
+      "sourceSha256": "4d9b19cacfd8f5e1cc7b08913a3cc0ee5eb16fac545adc59ecbd2feaf337d24c",
+      "effectSummary": "Functions as clone, but if the original creature is still alive when the duplicate matures, the duplicate enters stasis and does not decay. When the original later dies, its soul transfers to the stasis clone and the body activates under the normal clone rules. If several stasis clones exist, the soul enters the most recently created one.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stasis-clone-1522",
+          "role": "primary Lords of Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/steeldance-1689": {
+      "name": "Steeldance",
+      "sourceSha256": "4f943ca5735b5191d38cd92a90047f58ca02dd2bd2b5d1e713913924f84505ec",
+      "effectSummary": "Animates two daggers for 1 round per caster level, enlarging them to longsword size. Each has AC 14, hardness 10, 5 hp, fly speed 30 feet with good maneuverability, deals 1d8 slashing damage, and threatens on 19–20. They otherwise act as Medium animated objects and attack creatures you specify. Focus: two daggers.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/steeldance-1689",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mindrape-165": {
+      "name": "Mindrape",
+      "sourceSha256": "8ff96c36387f368094bb6c6aa9cd2950635e53408161521a271efb0418193f37",
+      "effectSummary": "On a failed Will save, you enter one creature's mind, learn everything it knows, and can erase or create memories and alter emotions, opinions, personality, and alignment. You can leave the target insane or apparently unaffected and unaware of the intrusion. Severe personality or alignment changes can be corrected by break enchantment, possibly followed by atonement; altered memories and subtler thought changes require miracle or wish.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mindrape-165",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mestils-acid-sheath-1617": {
+      "name": "Mestil's Acid Sheath",
+      "sourceSha256": "7b854a0db30f282445d35b8953190da3bb5b8d3122e283076f17fd9472f0b5cc",
+      "effectSummary": "For 1 round per caster level, surrounds you in harmless acid. A creature that strikes you with its body takes 1d6 +2 per caster level acid damage, while exceptional-reach weapons avoid this retaliation. A mount you ride takes damage each round and requires DC 30 Ride checks to stay mounted. You can make melee touch attacks as corrosive grasp, and the sheath does not protect you from other damage types.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mestils-acid-sheath-1617",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mycontils-last-resort-3276": {
+      "name": "Mycontil's Last Resort",
+      "sourceSha256": "9175d3abafcd5656c82eed29338f7c9ec6c895c928d65a5598c21d3f8fb8133c",
+      "effectSummary": "Converts every remaining spell slot you possess into an explosive 30-foot-radius burst. Creatures within 10 feet take 8 damage per remaining slot, those 11–20 feet away take 6 per slot, and those 21–30 feet away take 4 per slot; Reflex halves. You take the maximum resulting damage with no saving throw. Material component: an archmage finger bone packed in 5,000 gp of diamond dust for one week.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mycontils-last-resort-3276",
+          "role": "primary Shining South catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-theft-896": {
+      "name": "Spell Theft",
+      "sourceSha256": "c8a2596fd091e3339c1ec1096795bc6a0742a0fbb5890f75164597ff31a5f40c",
+      "effectSummary": "Instantly reveals all spells affecting one creature, then lets you attempt a separate dispel check against each beneficial spell using 1d20 + caster level, maximum +15, versus DC 11 + that spell's caster level. On success, the target loses that effect and you gain it for its remaining duration as though it had been cast on you. Only dispellable effects can be stolen, and attempts automatically fail for spells for which you are not a legal target.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-theft-896",
+          "role": "primary Complete Scoundrel catalog record and digest source"
+        }
+      ]
+    },
+    "spells/zajimarns-field-of-icy-razors-1694": {
+      "name": "Zajimarn's Field of Icy Razors",
+      "sourceSha256": "f606e4f28a81dd91661423464039e4ea0a13157349eb18f511671f6fe4c3825d",
+      "effectSummary": "Fills selected 10-foot squares with razor ice for 1 minute per caster level. Creatures present when cast take 2d4 physical damage plus 1d6 cold +1 per caster level; moving on foot through the area causes that damage for every 5 feet traveled. A creature taking physical damage must save Reflex or have its speed reduced by one-third for 24 hours, until cured, or until a successful Heal check after 10 minutes. Each 5-foot section has 20 hp; even after destruction, frigid air there still deals the cold portion to creatures passing through. Focus: a 50 gp silver snowflake shuriken.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/zajimarns-field-of-icy-razors-1694",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mislead-2686": {
+      "name": "Mislead",
+      "sourceSha256": "d3dca2fb795a755921e9488c70b4326d53b3e77c0f51ba05240a90e4b6d56da5",
+      "effectSummary": "Makes you invisible as improved invisibility for 1 round per caster level while simultaneously creating a major-image-like double within close range. The double moves at your speed, can speak and gesture but cannot attack or cast spells, and is directed by concentration beginning the round after casting. It lasts while you concentrate plus 3 rounds, continuing its last activity after concentration ends.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mislead-2686",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/jade-aura-2020": {
+      "name": "Jade Aura",
+      "sourceSha256": "0e2111540d80b175c1205b2a74fab91990bdcab9a7b8a1b22e16e53cbbcd3e14",
+      "effectSummary": "For 1 round per caster level, up to one creature per caster level in the burst gains +4 deflection AC, +4 resistance on saves, SR 25 against evil spells and spells cast by maho-tsukai, oni, Tainted, or Shadowlands creatures, and protection from possession and mental influence. A Tainted or Shadowlands creature that hits a warded target in melee must save Fortitude or be blinded. Focus: a jade Seven Fortunes statue worth at least 500 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/jade-aura-2020",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tainted-aura-2028": {
+      "name": "Tainted Aura",
+      "sourceSha256": "dc356854306c52bf0025ee708ed63f52c7708ac6d64811a4719cd508541c8f81",
+      "effectSummary": "For 1 round per caster level, up to one creature per caster level in the burst gains +4 deflection AC, +4 resistance on saves, SR 25 against good spells and spells cast by creatures without Taint or the Shadowlands subtype, and protection from possession and mental influence. An untainted creature that hits a warded target in melee must save Fortitude or gain 1d3 Taint. Focus: a fragment of an oni's body.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tainted-aura-2028",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sever-legacy-3525": {
+      "name": "Sever Legacy",
+      "sourceSha256": "13cddd6b3531090da73cc67683db77ec0ff7d97de2561cb49084f35309f86f73",
+      "effectSummary": "Permanently breaks one creature's bond to its legacy items on a failed Will save. It is treated as not having completed the item's legacy rituals and loses Least Legacy, Lesser Legacy, and Greater Legacy feats without recovering previously paid personal costs. If its Hit Dice exceed your caster level, the difference adds to its save; a successful save grants 24-hour immunity. Access can be restored by performing the rituals again without repaying already-paid personal costs, or the spell can be undone by miracle or wish.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sever-legacy-3525",
+          "role": "primary Weapons of Legacy catalog record and digest source"
+        }
+      ]
+    },
+    "spells/translocation-trick-1803": {
+      "name": "Translocation Trick",
+      "sourceSha256": "3c91938a0718c46b2748f62672234c1bb88f802d8d972be25c078fed855f57b1",
+      "effectSummary": "Swaps your location with one creature at medium range and disguises each of you as the other for 10 minutes per caster level. The target can Will-save to negate; the spell fails if either body exceeds dimension door capacity or the forms are too different for alter self to imitate. True seeing and similar magic reveal identities. Both creatures gain the normal disguise interaction, and you receive +10 on Disguise checks to impersonate the target. When the spell ends, appearances revert but locations do not swap back.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/translocation-trick-1803",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-snare-4853": {
+      "name": "Spell Snare",
+      "sourceSha256": "3b3e71002f6e838a0e12fc55c1c238b2d7461755e35c2ece080282b0f113afdc",
+      "effectSummary": "For 10 minutes per caster level, enchants an Eberron dragonshard held by its bearer. The next single-target spell or spell-like ability of 3rd level or lower, including an orb or ray, that targets the bearer is automatically absorbed with no effect and the shard disintegrates. It triggers on harmful or beneficial magic alike and requires no action. Only one spell snare can benefit a bearer; carrying several causes all to trigger on the first qualifying spell. Material component: a dragonshard worth at least 25 gp, consumed when it absorbs magic.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-snare-4853",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-snare-greater-4854": {
+      "name": "Spell Snare, Greater",
+      "sourceSha256": "a200b436e763e971695c64466a3524b52127d766566d5f00cbfa24ecf94b8a7e",
+      "effectSummary": "Functions as spell snare but can absorb a qualifying spell or spell-like ability of up to 6th level. Material component: an Eberron dragonshard worth at least 100 gp, consumed when the snare actually absorbs magic.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-snare-greater-4854",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/disguise-undead-3404": {
+      "name": "Disguise Undead",
+      "sourceSha256": "2448bd8fea9bc90eac7ed1d903f39cfefe6143f6cb48bd25ba954ec1cb382b58",
+      "effectSummary": "Functions as the source-era change self glamer, except it targets one corporeal undead and you determine the undead's apparent appearance. The disguise can alter apparent height, build, features, clothing, armor, weapons, and equipment within change self's limits, grants no abilities or mannerisms, and does not change true tactile or audible properties. Physical interaction can reveal the glamer. Focus: a death's-head moth cocoon.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/disguise-undead-3404",
+          "role": "primary Tome and Blood: A Guidebook to Wizards and Sorcerers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/glyph-of-warding-2326": {
+      "name": "Glyph of Warding",
+      "sourceSha256": "92842c9e669f35b870fbb03efedf95e256851ca627a6c9d85b6d7437f3855286",
+      "effectSummary": "Permanently wards an area or object with configurable entry or opening conditions based on passwords, physical characteristics, creature type, subtype or kind, alignment, or religion, but not class, Hit Dice, or level. The nearly invisible glyph can be dispelled and identified with read magic and Spellcraft. A blast glyph deals 1d8 damage per two caster levels, maximum 5d8, in a 5-foot radius using a chosen acid, cold, fire, electricity, or sonic type, Reflex half. A spell glyph stores one harmful spell of 3rd level or lower and delivers it to the intruder under normal save and spell-resistance rules. Material component: incense and diamond powder worth at least 200 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/glyph-of-warding-2326",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/glyph-of-warding-greater-2327": {
+      "name": "Glyph of Warding, Greater",
+      "sourceSha256": "e0a71d9745c5557968620fc3b4cc8f24f6620ccc4ea5f44c1a8c5f69edf8ec79",
+      "effectSummary": "Functions as glyph of warding, preserving its trigger and placement rules, but a blast glyph can deal up to 10d8 damage and a spell glyph can store a spell of 6th level or lower. Material component: incense and diamond powder worth at least 400 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/glyph-of-warding-greater-2327",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadowfade-1864": {
+      "name": "Shadowfade",
+      "sourceSha256": "61043a08bca5d456d1c111e0a0a8c5036ac9992f8cd4c0dcfcec281b87157027",
+      "effectSummary": "For 1 minute per caster level, opens a portal from a region of heavy shadow to the coexistent Plane of Shadow, allowing you and touched companions to enter. Unlike shadow walk, it does not automatically create an exit portal elsewhere. The portal remains for the duration and other creatures can pass either direction with a successful Will save. It is invisible from the Material Plane and appears as a white hole from the Plane of Shadow. It can be cast only on a plane coexistent with Shadow and not on the Plane of Shadow itself.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadowfade-1864",
+          "role": "primary Manual of the Planes catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stalking-spell-3211": {
+      "name": "Stalking Spell",
+      "sourceSha256": "46ee29b1465166f35e5c9c1e436b68852e86ae7bb0e4da07537221826c139c44",
+      "effectSummary": "Functions as improved invisibility for 1 hour per caster level, so attacking does not end the invisibility, and also hides the subject from hearing and scent. The subject radiates silence in a 5-foot radius, leaves no scent, and cannot be detected by the scent ability.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stalking-spell-3211",
+          "role": "primary Savage Species catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spellsong-329": {
+      "name": "Spellsong",
+      "sourceSha256": "7d58fbffba02d741a9bf4656a8c5f2ae967d82cc9731bea18b6d5e7f0bd56975",
+      "effectSummary": "Immediately prepares one spell of 4th level or lower in Spellsong's spell slot. The selected spell must be one you could normally prepare in that slot and still requires its normal components. Casting the prepared spell always requires a verbal component like a bard spell, and Silent Spell or similar effects cannot remove that verbal component.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 114 stays deliberately small because the residual queue is increasingly dominated by table-driven, stat-block, legacy-inheritance, and source-damage cases.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spellsong-329",
+          "role": "primary Champions of Valor catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "764ab551f8067b561c96b867b8cffb9ccd5bec9b",
+    "workflowRun": 35707885717,
+    "validationRun": 35707889508,
+    "classificationArtifact": 10685441282,
+    "classificationArtifactSha256": "1291d8bc227593769a5fe4c5d0b6fade8db950907dab6a47531b811e65166e39",
+    "queueCountBefore": 281,
+    "referenceQueueCountBefore": 281,
+    "automaticReferenceEligibleCountBefore": 1
+  }
+}
