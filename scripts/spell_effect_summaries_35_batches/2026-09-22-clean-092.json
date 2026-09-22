@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified 3.5 reference spells with same-edition inherited mechanics expanded in full; clean batch 092.",
+  "entries": {
+    "spells/holy-transformation-4712": {
+      "name": "Holy Transformation",
+      "sourceSha256": "f4b7839fbe02a5ba483472da0e13ee492068be1d769b2f5c775e7d3e1b694df5",
+      "effectSummary": "For 1 round/level, you assume the physical appearance and many qualities of a hound archon. As with lesser holy transformation, your type becomes outsider and you retain its 60-foot fly speed with good maneuverability; this greater spell changes the type to outsider (archon, good, lawful), sets your size to Medium with 5-foot space and reach, and improves the sacred bonuses to Strength and Constitution to +4 and the sacred bonus on saving throws to +4. You have darkvision 60 feet, damage reduction 5/evil, and can speak and understand Celestial. Evil creatures within 10 feet take a -2 penalty on attack rolls and saving throws.",
+      "notes": "Spell Compendium source-locked. The spell explicitly functions like Lesser Holy Transformation and does not revoke that spell's fly speed; the listed +4 sacred Strength/Constitution and save bonuses replace the lesser spell's +2 values. No unlisted hound-archon abilities are invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/holy-transformation-4712",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/holy-transformation-lesser-4711",
+          "role": "same-book base spell supplying inherited flight and baseline transformation mechanics"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/Spell%20Compendium.pdf",
+          "role": "same-printing Spell Compendium cross-check"
+        }
+      ]
+    },
+    "spells/heart-of-earth-877": {
+      "name": "Heart of Earth",
+      "sourceSha256": "f542a52efb667c5ad07a618874d6597845944382d40f86852c17ba706ec99320",
+      "effectSummary": "For up to 1 hour/level, you gain +8 on checks to resist bull rush, overrun, and trip attempts and temporary hit points equal to twice your caster level, maximum 30. While the spell is active, you can use a swift action to convert it into a self-only stoneskin effect lasting 1 round/level or until its protection is consumed: damage reduction 10/adamantine that ends after preventing 10 damage per caster level, maximum 150. When that stoneskin benefit ends, Heart of Earth ends completely. If any one of Heart of Air, Heart of Fire, or Heart of Water is also active, you gain light fortification; if all four heart spells are active, you are immune to extra damage from critical hits and sneak attacks.",
+      "notes": "Complete Mage source-locked. The stoneskin reference is expanded only for its protective mechanics; Heart of Earth itself has no material component, so Stoneskin's separate diamond-dust casting component is not imported into the swift activation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heart-of-earth-877",
+          "role": "primary Complete Mage catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/stoneskin-2369",
+          "role": "referenced Player's Handbook v.3.5 spell supplying the activated DR mechanics"
+        }
+      ]
+    },
+    "spells/magic-weapon-legions-4844": {
+      "name": "Magic Weapon, Legion's",
+      "sourceSha256": "c5341b858fd95da30f4bb63d33e2cc72a4b629b6b0181960f23ac0842b869545",
+      "effectSummary": "For 1 round/level, grants a +1 enhancement bonus on attack and damage rolls to every weapon that is held by an ally within 20 feet of the chosen point when the spell is cast. The enhancement does not stack with the +1 attack bonus from masterwork quality. As with magic weapon, ordinary natural weapons are not valid weapons for this effect, while a monk's unarmed strike counts as a weapon. Unlike the base spell, Legion's Magic Weapon has no effect on ammunition.",
+      "notes": "Magic of Eberron source-locked. The base Magic Weapon weapon-eligibility and enhancement rules are retained, while this printing explicitly replaces the single-weapon targeting with allied held weapons in the burst and excludes ammunition.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-weapon-legions-4844",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/magic-weapon-2838",
+          "role": "Player's Handbook v.3.5 base spell supplying inherited enhancement and weapon-eligibility mechanics"
+        }
+      ]
+    },
+    "spells/magic-weapon-greater-legions-4843": {
+      "name": "Magic Weapon, Greater Legion's",
+      "sourceSha256": "6d94690e859765bb7010f7965092f336d295554be31a717347c86abc09758fac",
+      "effectSummary": "For 1 minute/level, grants every weapon held by an ally within 20 feet of the chosen point at casting an enhancement bonus on attack and damage rolls of +1 per four caster levels, maximum +5. The bonus does not stack with the +1 attack bonus from masterwork quality. As with greater magic weapon, ordinary natural weapons are not valid targets while a monk's unarmed strike counts as a weapon. Unlike the base spell's projectile option, this Legion's version has no effect on ammunition.",
+      "notes": "Magic of Eberron source-locked. The Greater Magic Weapon scaling and weapon-eligibility rules are retained, while this printing explicitly changes targeting to allied held weapons in the burst and removes the ammunition option.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-weapon-greater-legions-4843",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/magic-weapon-greater-2839",
+          "role": "Player's Handbook v.3.5 base spell supplying inherited enhancement scaling and weapon-eligibility mechanics"
+        }
+      ]
+    },
+    "spells/phantom-guardians-3045": {
+      "name": "Phantom Guardians",
+      "sourceSha256": "70299494b77c4fc38768eecb60c2f48f04a723c20177fc2427a179c8918d50e0",
+      "effectSummary": "Creates one Small or Medium illusory humanoid figure per caster level, all of a chosen humanoid race, for 1 hour/level. Each figure functions as a minor image: it is a visual figment that can include minor sounds but no understandable speech, smell, texture, or temperature, and it can move within the spell's limits. At casting, you give each figure its own brief fixed orders, such as pacing a wall or standing at a gate; the orders cannot later be changed. The figures cannot speak or react to their surroundings. A creature that interacts with a guardian can attempt a Will save to disbelieve it; spell resistance does not apply.",
+      "notes": "Races of Destiny source-locked. Minor Image is expanded only for the figment's sensory limits and movement; Phantom Guardians' explicit fixed-order, no-speech, and no-reaction restrictions remain controlling.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantom-guardians-3045",
+          "role": "primary Races of Destiny catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/minor-image-2682",
+          "role": "Player's Handbook v.3.5 base spell supplying inherited figment sensory mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "11d08e2d094dac6a5a15bf4fca9243cec6ba8cf7",
+    "workflowRun": 35692105796,
+    "validationRun": 35692108652,
+    "classificationArtifact": 10678587626,
+    "classificationArtifactSha256": "a990ab11172e1fddd9f1cbb5f681e4121787d0e22d14608112a0afa1457d763a",
+    "queueCountBefore": 879,
+    "referenceQueueCountBefore": 879,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
