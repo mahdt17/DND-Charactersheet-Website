@@ -1,0 +1,772 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 50-record batch 104. Records were selected from the 711-record reference-dependent queue only where inherited mechanics were already reviewed, a dependency root is locked in the same batch, or the classifier reference was merely a page/rules cross-reference and the source text was self-contained. Cross-edition Lutzaen's Frequent Jaunt and the source/header-awkward Rejection record were deliberately excluded rather than normalized or guessed.",
+  "entries": {
+    "spells/anti-ectoplasm-shell-1328": {
+      "name": "Anti-ectoplasm Shell",
+      "sourceSha256": "b3f397d343d969bca1aac790c2f9217964999fda6f7cb9eb4ffc80b637cbcdd6",
+      "effectSummary": "Creates a mobile 10-foot-radius hemispherical barrier that keeps ectoplasm from entering, whether the ectoplasm is inert or part of an ectoplasmic creature. As with antilife shell, the barrier is defensive only and collapses if deliberately forced against something it keeps at bay.",
+      "notes": "Digest-locked to the Ghostwalk printing; inherited defensive-barrier behavior is taken from the already reviewed Antilife Shell record.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/anti-ectoplasm-shell-1328",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/antilife-shell-2300",
+          "role": "Player's Handbook v.3.5 source for inherited Antilife Shell mechanics"
+        }
+      ]
+    },
+    "spells/charm-person-or-ghost-1352": {
+      "name": "Charm Person Or Ghost",
+      "sourceSha256": "7112e19a0025fc3cfe5c0c0eb94ede847336cce289a2e695277d2ed722525db6",
+      "effectSummary": "Functions as charm person, but can affect either one humanoid or one ghost. The subject regards you as a trusted friend and ally; threatening circumstances improve its save, unusual requests require opposed Charisma checks, obviously harmful requests are refused, and threatening acts by you or apparent allies break the charm.",
+      "notes": "Ghostwalk printing, preserving the source's explicit extension from humanoids to ghosts.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/charm-person-or-ghost-1352",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/charm-person-2535",
+          "role": "Player's Handbook v.3.5 source for inherited Charm Person mechanics"
+        }
+      ]
+    },
+    "spells/dominate-person-or-ghost-1353": {
+      "name": "Dominate Person Or Ghost",
+      "sourceSha256": "3cb049b778ddba1ec245f13867ff2847ffcc25fa1eb17f7b8a6fc55fea93680c",
+      "effectSummary": "Functions as dominate person, including telepathic control, command changes, sensory concentration, new saves against commands contrary to the subject's nature, same-plane unlimited control range after establishment, and the daily concentration requirement, but the source explicitly states that ghosts can also be affected.",
+      "notes": "Ghostwalk printing. The effect text explicitly extends Dominate Person to ghosts even though the reconstructed header still lists one humanoid; the summary preserves that source distinction rather than silently rewriting the header.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dominate-person-or-ghost-1353",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dominate-person-2547",
+          "role": "Player's Handbook v.3.5 source for inherited Dominate Person mechanics"
+        }
+      ]
+    },
+    "spells/hold-person-or-ghost-1355": {
+      "name": "Hold Person Or Ghost",
+      "sourceSha256": "c9a3a1c1d162707800a134b77300c2d83b916032d86ef552d83a491a42d770e7",
+      "effectSummary": "Functions as hold person, but can affect either one humanoid or one ghost. The target is paralyzed but remains aware and breathing, and on each of its turns it can spend a full-round action that does not provoke attacks of opportunity to attempt a new save and end the effect.",
+      "notes": "Ghostwalk printing, preserving the explicit ghost extension.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hold-person-or-ghost-1355",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/hold-person-2558",
+          "role": "Player's Handbook v.3.5 source for inherited Hold Person mechanics"
+        }
+      ]
+    },
+    "spells/preserve-ectoplasm-1392": {
+      "name": "Preserve Ectoplasm",
+      "sourceSha256": "7fa393e263a0aa21c2270527a7a902d2be7279b5bcd097fe3647a255c2771059",
+      "effectSummary": "Purifies up to 1 cubic foot of ectoplasm per caster level in the same manner that purify food and drink cleans contaminated food and water. Material component: a small loop of gold wire.",
+      "notes": "Ghostwalk printing; only ectoplasm is affected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/preserve-ectoplasm-1392",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/purify-food-and-drink-2855",
+          "role": "Player's Handbook v.3.5 source for inherited Purify Food and Drink mechanics"
+        }
+      ]
+    },
+    "spells/repel-ectoplasm-1335": {
+      "name": "Repel Ectoplasm",
+      "sourceSha256": "6c7c5b3a41c34bb0ecc3ca3401479b9727e2ce5e7f6075afeef4b7a8fa1bab15",
+      "effectSummary": "Sends a fixed 60-foot line of repelling energy that pushes ectoplasm away at 40 feet per round, using repel wood's movement rules but affecting ectoplasm instead of wood. It can move inert ectoplasm or ectoplasm that is part of an ectoplasmic creature, and even large ectoplasmic manifestations such as a wall of ectoplasm are treated as movable rather than firmly fixed.",
+      "notes": "Ghostwalk printing; the source explicitly overrides Repel Wood's fixed-object treatment for large ectoplasmic manifestations.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repel-ectoplasm-1335",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repel-wood-2863",
+          "role": "Player's Handbook v.3.5 source for inherited Repel Wood mechanics"
+        }
+      ]
+    },
+    "spells/irresistible-force-1362": {
+      "name": "Irresistible Force",
+      "sourceSha256": "d874b4729ebb86f6897c8b025ed7c789c2d60e391449c3860ed89ee0e0d46b30",
+      "effectSummary": "For 1 round per caster level, you gain freedom of movement and exceptional momentum: you can charge after moving only 5 feet, pass through enemy squares as though they were allied squares, gain +10 on bull rush attempts and +10 on checks to avoid being tripped, can still move 5 feet while pinned if strong enough to move the creature pinning you, and move in combat as though you had the Mobility feat.",
+      "notes": "Self-contained Ghostwalk effect with Freedom of Movement inherited only for the movement-impairment protection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/irresistible-force-1362",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/freedom-of-movement-2322",
+          "role": "Player's Handbook v.3.5 source for inherited Freedom of Movement mechanics"
+        }
+      ]
+    },
+    "spells/contagion-mass-3064": {
+      "name": "Contagion, Mass",
+      "sourceSha256": "19de33f04056e5f1b2c75c6add2a38ab0d60e64419b85c5698029df4b71680d2",
+      "effectSummary": "Immediately infects one or more creatures within 30 feet of one another with a disease chosen as for contagion. Each target makes its own Fortitude save to negate the spell; affected targets thereafter use the selected disease's normal follow-up DC and ability-damage effects.",
+      "notes": "Mass printing; Contagion supplies the disease menu and disease-resolution rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/contagion-mass-3064",
+          "role": "primary Races of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/contagion-2721",
+          "role": "Player's Handbook v.3.5 source for inherited Contagion mechanics"
+        }
+      ]
+    },
+    "spells/plague-carrier-3065": {
+      "name": "Plague Carrier",
+      "sourceSha256": "d5289f15a816c4a2261a55d7645f1f57cddea2335f1ca102b35a5dc0b15c804f",
+      "effectSummary": "Inflicts a contagion disease, but the disease does not immediately produce symptoms. During its incubation period the infected target can transmit the disease to others while appearing symptom-free; symptoms begin when the incubation period ends.",
+      "notes": "Races of Faerûn printing; the selected disease mechanics come from Contagion while the delayed onset and contagious incubation are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-carrier-3065",
+          "role": "primary Races of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/contagion-2721",
+          "role": "Player's Handbook v.3.5 source for inherited Contagion mechanics"
+        }
+      ]
+    },
+    "spells/holy-star-3190": {
+      "name": "Holy Star",
+      "sourceSha256": "d836fe1f54db0748568ad35a50ef0df7bfcfebb402504a6c2f91214ebcf0c62e",
+      "effectSummary": "Creates a candle-bright mote near your shoulder for 1 round per caster level. As a free action on your turn, choose one of three functions: spell turning for a shared pool of 1d4+3 spell levels that is not replenished when you switch functions; a +10 cover bonus to AC without restricting your actions; or a fire bolt as a ranged touch attack out to 90 feet dealing 1d4 fire damage +1 per two caster levels, maximum +10. Expending the turning pool disables only that function.",
+      "notes": "Digest-locked source-complete effect; Spell Turning supplies the reflected-spell behavior for the limited 1d4+3-level pool.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/holy-star-3190",
+          "role": "primary Savage Species catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/spell-turning-2368",
+          "role": "Player's Handbook v.3.5 source for inherited Spell Turning mechanics"
+        }
+      ]
+    },
+    "spells/improved-alarm-1848": {
+      "name": "Improved Alarm",
+      "sourceSha256": "9ada15881965942942b98194d5e22e066b13b06bf41bb9ec894c6cb4693fb1ae",
+      "effectSummary": "Functions as alarm, protecting the warded area and producing the chosen audible or mental warning when an unauthorized creature enters, and additionally detects creatures moving through the area on coterminous or coexistent planes such as the Astral, Ethereal, or Shadow Plane. Focus: a carved crystal bell worth at least 100 gp.",
+      "notes": "Printing-preserved record; the source-specific addition is detection across coterminous/coexistent planes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/improved-alarm-1848",
+          "role": "primary Manual of the Planes catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/alarm-2299",
+          "role": "Player's Handbook v.3.5 source for inherited Alarm mechanics"
+        }
+      ]
+    },
+    "spells/improved-arcane-lock-3374": {
+      "name": "Improved Arcane Lock",
+      "sourceSha256": "566bb3bbd4a4b549b02960b81365dff8e6e595a27443928a369cb59eb14461ee",
+      "effectSummary": "Functions as arcane lock, but when you cast it you can attune up to one individual per caster level to the locked object. Those named individuals need not be present during casting and can freely pass the improved arcane lock as though they had cast it themselves. Material component: 25 gp of gold dust plus 5 gp per attuned individual.",
+      "notes": "Printing kept distinct by source digest and header; attunement and material-cost rules are identical in the effect text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/improved-arcane-lock-3374",
+          "role": "primary Stronghold Builder's Guidebook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/arcane-lock-2303",
+          "role": "Player's Handbook v.3.5 source for inherited Arcane Lock mechanics"
+        }
+      ]
+    },
+    "spells/improved-arcane-lock-4975": {
+      "name": "Improved Arcane Lock",
+      "sourceSha256": "a823bc4a1f03665eaf5c7668d3aad28dc0487e494156ff56956acd78970122f7",
+      "effectSummary": "Functions as arcane lock, but when you cast it you can attune up to one individual per caster level to the locked object. Those named individuals need not be present during casting and can freely pass the improved arcane lock as though they had cast it themselves. Material component: 25 gp of gold dust plus 5 gp per attuned individual.",
+      "notes": "Printing kept distinct by source digest and header; attunement and material-cost rules are identical in the effect text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/improved-arcane-lock-4975",
+          "role": "primary Lord of the Iron Fortress catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/arcane-lock-2303",
+          "role": "Player's Handbook v.3.5 source for inherited Arcane Lock mechanics"
+        }
+      ]
+    },
+    "spells/jagged-tooth-3234": {
+      "name": "Jagged Tooth",
+      "sourceSha256": "2bb584be5bdc6cab85aedda1ae2333ff343904c764fc49e6b2152bca6a7e23ac",
+      "effectSummary": "For 10 minutes per caster level, doubles the threat range of one natural slashing or piercing weapon of the target creature, applying the core keen-edge threat-range increase to a natural weapon rather than to an ordinary manufactured weapon.",
+      "notes": "The target line is the source-specific exception to Keen Edge's normal prohibition on natural weapons.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/jagged-tooth-3234",
+          "role": "primary Savage Species catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/keen-edge-2828",
+          "role": "Player's Handbook v.3.5 source for inherited Keen Edge mechanics"
+        }
+      ]
+    },
+    "spells/languor-1930": {
+      "name": "Languor",
+      "sourceSha256": "ea3964e956596d0a5d6675ffc991e5c2c93890bcc4724189bf6db9ba3501f3d7",
+      "effectSummary": "A creature hit by the spell and failing its Will save is slowed and each round takes a cumulative enhancement penalty to Strength equal to 1d6-1 per two caster levels, with a minimum additional penalty of 0 and a maximum total penalty of -10. If its Strength drops below 1 it becomes helpless. Languor neither counters haste nor is countered by it, but haste can restore a languor-slowed creature to normal speed and languor can reduce a hasted creature to normal speed.",
+      "notes": "Source-complete printing; the reviewed Slow record supplies only the slowed condition mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/languor-1930",
+          "role": "primary Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/slow-2873",
+          "role": "Player's Handbook v.3.5 source for inherited Slow mechanics"
+        }
+      ]
+    },
+    "spells/naturewatch-1718": {
+      "name": "Naturewatch",
+      "sourceSha256": "038576e6cf1dbaf55cdd9e012724daed081a4138735f3ef6007957c06fae6887",
+      "effectSummary": "Functions like deathwatch but only on animals and plants. In addition to judging their life state and condition, it reveals ordinary husbandry information such as whether a plant is underwatered or an animal is malnourished.",
+      "notes": "Printing-preserved effect; the source explicitly narrows Deathwatch to animals and plants and adds mundane condition information.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/naturewatch-1718",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/deathwatch-2728",
+          "role": "Player's Handbook v.3.5 source for inherited Deathwatch mechanics"
+        }
+      ]
+    },
+    "spells/rosemantle-1588": {
+      "name": "Rosemantle",
+      "sourceSha256": "2e0e631e7acf1297e944008d740fdb91f994b5dee068af80f81d7f10661cdae6",
+      "effectSummary": "Surrounds the target with a candle-bright rosy glow. The target gains a +1 sacred bonus per caster level, maximum +10, on saving throws against effects that directly cause pain, nausea, or fear, and becomes temporarily immune to poison as with delay poison. These protections suppress existing qualifying effects rather than removing them, so suppressed effects resume when the spell ends.",
+      "notes": "Source-complete effect; Delay Poison supplies the temporary poison-suppression behavior.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rosemantle-1588",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/delay-poison-2387",
+          "role": "Player's Handbook v.3.5 source for inherited Delay Poison mechanics"
+        }
+      ]
+    },
+    "spells/scintillating-sphere-1686": {
+      "name": "Scintillating Sphere",
+      "sourceSha256": "0f13d795390ffd03502a7a39fec84952838ab3a396c6861ef6e5a5c99869b89a",
+      "effectSummary": "Creates a 20-foot-radius burst at medium range using fireball's damage and Reflex-half resolution, but the damage is electricity rather than fire. Material components: a glass marble and a pinch of iron oxide.",
+      "notes": "Printing-preserved energy-substitution variant; Fireball supplies the inherited burst damage progression.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scintillating-sphere-1686",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fireball-2612",
+          "role": "Player's Handbook v.3.5 source for inherited Fireball mechanics"
+        }
+      ]
+    },
+    "spells/skeletal-guard-3214": {
+      "name": "Skeletal Guard",
+      "sourceSha256": "fb4068190cdd4596d121db3b70c2c80323adaa02d9e37a14f694fce8c8693b1d",
+      "effectSummary": "Creates one loyal Medium skeleton per caster level from fingerbones. Each uses the normal skeleton statistics for the creature type represented by its fingerbone, but its effective Hit Dice for turning equal your caster level. The skeletons count against your animate-dead control limit of 2 HD per caster level and try to remain within 60 feet of you; a skeleton farther away becomes inert until you return within 60 feet. Material component: one Medium-creature fingerbone and a 50 gp onyx gem per skeleton.",
+      "notes": "Source-complete creation/control mechanics; Animate Dead is used only for the shared undead-control cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/skeletal-guard-3214",
+          "role": "primary Savage Species catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/animate-dead-2711",
+          "role": "Player's Handbook v.3.5 source for inherited Animate Dead mechanics"
+        }
+      ]
+    },
+    "spells/skull-eyes-1524": {
+      "name": "Skull Eyes",
+      "sourceSha256": "d9d3fb0e4158e1767ea5d6cf4389a13feaea427c4a68df0734523eb27fa282b9",
+      "effectSummary": "Functions as eyebite but limits your gaze choice to two effects. Charm works as charm monster with its saving throw based on a 5th-level spell; Confusion works as confusion but affects only one target. Casting the spell turns your eyes black with skull-shaped irises.",
+      "notes": "Printing-preserved limited Eyebite variant; the two allowed gaze effects are fully identified by source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/skull-eyes-1524",
+          "role": "primary Lords of Darkness catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/eyebite-2734",
+          "role": "Player's Handbook v.3.5 source for inherited Eyebite mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/confusion-2538",
+          "role": "Player's Handbook v.3.5 source for inherited Confusion mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/charm-monster-2533",
+          "role": "Player's Handbook v.3.5 source for inherited Charm Monster mechanics"
+        }
+      ]
+    },
+    "spells/speak-to-allies-3241": {
+      "name": "Speak to Allies",
+      "sourceSha256": "1b8e24173cf45f19b58aa2499f642dffd8086a58f2449775bf4735a56140f736",
+      "effectSummary": "Functions as message for all allies within the spell's target grouping, but neither you nor the recipients need to mouth words or whisper. Because the communication has no visible lip movement, lip-reading cannot reveal the messages.",
+      "notes": "Source-specific improvement over Message; the communication chassis is inherited.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/speak-to-allies-3241",
+          "role": "primary Savage Species catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/message-2843",
+          "role": "Player's Handbook v.3.5 source for inherited Message mechanics"
+        }
+      ]
+    },
+    "spells/spider-poison-1722": {
+      "name": "Spider Poison",
+      "sourceSha256": "e3bf80b8f255fd1d60dbdeb82e6b5ca1959b2e088ff78a4acd5feb65eac6f853",
+      "effectSummary": "With a successful melee touch attack, inflicts a paralyzing poison that deals 1d6 temporary Strength damage immediately and another 1d6 temporary Strength damage 1 minute later. Each damage instance is negated by a Fortitude save with DC 10 + half your caster level + your Intelligence modifier if a wizard or Charisma modifier if a sorcerer. Material component: a poisonous spider, alive or dead.",
+      "notes": "Source-complete poison profile; the Poison spell is only a comparison point.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-poison-1722",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/poison-2754",
+          "role": "Player's Handbook v.3.5 source for inherited Poison mechanics"
+        }
+      ]
+    },
+    "spells/spikes-977": {
+      "name": "Spikes",
+      "sourceSha256": "8d6d9720cdb288605a28e63e0f052bc7f53b0cf67747ad86bbc94e60b3b79c57",
+      "effectSummary": "For 1 hour per caster level, one wooden melee weapon grows magical spikes, deals both piercing and bludgeoning damage, gains a +2 enhancement bonus on attack rolls, deals +1 additional damage per caster level to a maximum +10, and has its threat range doubled. It does not work on bows, arrows, or melee weapons without a wooden striking surface.",
+      "notes": "Exact effect-source duplicate of the already locked Complete Divine Spikes printing; source/header identity remains separate by record.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spikes-977",
+          "role": "primary Defenders of the Faith: A Guidebook to Clerics and Paladins catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/brambles-971",
+          "role": "Defenders of the Faith: A Guidebook to Clerics and Paladins source for inherited Brambles mechanics"
+        }
+      ]
+    },
+    "spells/stone-spiders-1226": {
+      "name": "Stone Spiders",
+      "sourceSha256": "74e945f052b9a5a7efe1bf138bdfda95370d4904bc630fdb6f083a19615bcd88",
+      "effectSummary": "Transforms 1d3 pebbles into same-sized stone spider constructs, all Tiny through Huge as you choose. They use monstrous-spider statistics of that size with +6 natural armor, DR 30/+2, and poison Fortitude DC 17 + your Wisdom modifier dealing 1d3 temporary Strength damage initially and secondarily. If they can hear you, you can direct their actions; otherwise they attack your enemies. Alternatively, cast the spell on 1d3 existing vermin to grant each stoneskin-style DR 10/+5 for 1 round per caster level.",
+      "notes": "Source-complete dual-mode effect; Stoneskin is inherited only for the alternate vermin-target DR benefit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-spiders-1226",
+          "role": "primary Forgotten Realms Campaign Setting catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/stoneskin-2369",
+          "role": "Player's Handbook v.3.5 source for inherited Stoneskin mechanics"
+        }
+      ]
+    },
+    "spells/transfix-2059": {
+      "name": "Transfix",
+      "sourceSha256": "4575dc57c5bb7d4cc64e632d1a027b4958deb55b2feb69a8b37c512e3c9ccc39",
+      "effectSummary": "Creates an area that paralyzes Medium or smaller humanoids as hold person. At casting you specify any condition that releases victims, however implausible; the spell ends for everyone when that condition is fulfilled. Affected creatures can attempt a new save once per hour. Leaving the area frees a creature; qualifying humanoids entering later must save or become transfixed. If all affected creatures are freed, the spell ends and no new entrants are affected. Material component: a drop of pine resin.",
+      "notes": "Source-complete area/control mechanics; Hold Person supplies only the paralyzed state.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/transfix-2059",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/hold-person-2558",
+          "role": "Player's Handbook v.3.5 source for inherited Hold Person mechanics"
+        }
+      ]
+    },
+    "spells/triple-mask-1517": {
+      "name": "Triple Mask",
+      "sourceSha256": "578bef7eca8b343675d9756db731432c031938fcc01f2b68073f456efe1949eb",
+      "effectSummary": "Creates three intangible shadow duplicates that look, sound, and smell like you. As a free action on your turn you can shift your perceptions between yourself and a shadow; the controlled shadow normally mimics you, while uncontrolled shadows remain inert. You can concentrate to direct a controlled shadow differently, program it to travel at your speed, or originate your touch-or-greater-range spells from it; a shadow can target itself only with spells that affect shadows. The shadows are mindless and limited to simple tasks. If you leave their plane even momentarily by dimension door, teleport, plane shift, or similar magic, the spell ends.",
+      "notes": "Source-complete shadow-duplicate mechanics; Project Image is only an analogy for remote spell origination.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/triple-mask-1517",
+          "role": "primary Lords of Darkness catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/project-image-2693",
+          "role": "Player's Handbook v.3.5 source for inherited Project Image mechanics"
+        }
+      ]
+    },
+    "spells/undeath-death-3413": {
+      "name": "Undeath to Death",
+      "sourceSha256": "d6462335b9a2295b4493d233fb50960b4162211ae84a77e789a3647155af377c",
+      "effectSummary": "Functions as circle of death against undead instead of living creatures, destroying undead in the 50-foot burst subject to the spell's total Hit Dice limit, and unlike ordinary circle of death can affect undead above 9 HD. Material component: crushed diamond powder worth at least 500 gp.",
+      "notes": "Printing-preserved Circle of Death variant; source explicitly removes the normal 9-HD-per-creature ceiling for undead.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undeath-death-3413",
+          "role": "primary Tome and Blood: A Guidebook to Wizards and Sorcerers catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/circle-of-death-2718",
+          "role": "Player's Handbook v.3.5 source for inherited Circle of Death mechanics"
+        }
+      ]
+    },
+    "spells/wall-of-eyes-149": {
+      "name": "Wall of Eyes",
+      "sourceSha256": "e37a5db9d76568da08d51b30b63f0131e443aac030ce5a41c0945490e692e7d8",
+      "effectSummary": "Creates a flat vertical living wall 1 inch thick per four caster levels; you can double its area by halving its thickness. Each 5-foot section has 10 hp per inch of thickness and hardness 5, and breaking through requires Strength DC 15 +2 per inch. A creature touching the wall must save or be held motionless as hold monster; a creature held for 10 rounds is disintegrated and absorbed into the wall. From any distance, even across planes, you can spend a standard action to see in all directions from the wall. Material component: one humanoid eye.",
+      "notes": "Source-complete wall mechanics; Hold Monster supplies the immobilization model only.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-eyes-149",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/hold-monster-2556",
+          "role": "Player's Handbook v.3.5 source for inherited Hold Monster mechanics"
+        }
+      ]
+    },
+    "spells/weather-eye-947": {
+      "name": "Weather Eye",
+      "sourceSha256": "784068b9545149763ec1a0c6977a302aa116dbf401c95d170d400f3334423334",
+      "effectSummary": "After a 1-hour casting, accurately predicts natural weather in the large surrounding area for up to one week. If unnatural forces are currently altering the weather, the spell instead reveals Detect Magic-style information about the magical influence. Material component: incense. Divine focus: a scrying device such as a bowl, mirror, or crystal ball.",
+      "notes": "Exact effect-source duplicate of the already locked Complete Divine Weather Eye printing; the record remains source-distinct.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weather-eye-947",
+          "role": "primary Defenders of the Faith: A Guidebook to Clerics and Paladins catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/detect-magic-2489",
+          "role": "Player's Handbook v.3.5 source for inherited Detect Magic mechanics"
+        }
+      ]
+    },
+    "spells/zajimarns-ice-claw-prison-1695": {
+      "name": "Zajimarn's Ice Claw Prison",
+      "sourceSha256": "db01dfbe89e950d3c02439d1da780e587d302712adebcc944a3c91c32505f64b",
+      "effectSummary": "Creates a Medium icy reptilian claw that makes one grapple attack per round. Its touch and grapple bonus is your caster level + your Intelligence or Charisma modifier +7 from Strength 24. On a successful grapple it deals 1d3+7 normal grapple damage plus 1d8 cold damage each round it maintains the grapple; you can direct it to damage or pin as a free action, and changing targets is a standard action. It attacks on the round it appears, never flanks, has your undamaged hit-point total, AC 20, and uses your saves. It is immune to cold, takes double fire damage, cannot cross wall of force or antimagic field, suffers prismatic effects normally, and is destroyed by disintegrate or a successful dispel magic. Focus: a white leather glove and clear rock crystal.",
+      "notes": "Source-complete hand analogue; Bigby's Grasping Hand is only the inherited conceptual chassis.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/zajimarns-ice-claw-prison-1695",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/bigbys-grasping-hand-2586",
+          "role": "Player's Handbook v.3.5 source for inherited Bigby's Grasping Hand mechanics"
+        }
+      ]
+    },
+    "spells/one-mind-lesser-4602": {
+      "name": "One Mind, Lesser",
+      "sourceSha256": "88eac6386d0c2fbea5939973e1949f95c6c877d2ea5cce879665b27a05f836a5",
+      "effectSummary": "While mounted on your special mount, your strengthened mental bond grants you a +4 insight bonus on Spot and Listen checks and the scent ability. The spell lasts 1 hour per caster level but ends immediately if your mount ever moves more than 10 feet away.",
+      "notes": "Self-contained root of the One Mind chain; the Monster Manual citation is only the general scent ability reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/one-mind-lesser-4602",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/one-mind-4603": {
+      "name": "One Mind",
+      "sourceSha256": "e6221fbf59d99909d4070f9dc02fb8a82d0bc31f186f89288ef7ea15a56e8cbc",
+      "effectSummary": "Functions as lesser one mind, granting the mounted special-mount bond's +4 insight bonus on Spot and Listen checks and scent while the mount stays within 10 feet, and additionally gives both you and your mount a +2 bonus on attack rolls while you are mounted.",
+      "notes": "Lesser One Mind is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/one-mind-4603",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/one-mind-lesser-4602",
+          "role": "Spell Compendium source for inherited Lesser One Mind mechanics"
+        }
+      ]
+    },
+    "spells/one-mind-greater-4604": {
+      "name": "One Mind, Greater",
+      "sourceSha256": "5630d4d8e90f27ae89415af58a84986f9da71f535ba1bce078e6f48109c7cec8",
+      "effectSummary": "Functions as one mind, retaining lesser one mind's sensory bonuses and scent plus the +2 attack bonus for you and your special mount while mounted, and additionally grants both of you a +2 bonus on melee damage rolls while you are mounted.",
+      "notes": "One Mind and Lesser One Mind are locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/one-mind-greater-4604",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/one-mind-4603",
+          "role": "Spell Compendium source for inherited One Mind mechanics"
+        }
+      ]
+    },
+    "spells/nybors-gentle-reminder-2243": {
+      "name": "Nybor's Gentle Reminder",
+      "sourceSha256": "c07133113254c1c0222689ca4e000d0afa8c7ba1440c788f820a196b6a1bb241",
+      "effectSummary": "A living creature that fails its Fortitude save suffers agonizing pain and is dazed for 1 round. In every later round of the spell it takes a -2 penalty on attacks, saving throws, and checks. A spellcaster under the effect must also succeed on a Concentration check to cast. Focus: a stick at least 1 foot long.",
+      "notes": "Self-contained root for the two stronger Nybor variants.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nybors-gentle-reminder-2243",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/nybors-mild-admonishment-2244": {
+      "name": "Nybor's Mild Admonishment",
+      "sourceSha256": "f990375729d4fb862c1ea4cb5c6b9ed4abb2ddd09b4be139106bfa6c288317c2",
+      "effectSummary": "Functions as Nybor's gentle reminder, including its later -2 penalty on attacks, saves, and checks and its Concentration requirement for spellcasting, but the initial dazed period lasts 1d4 rounds instead of 1 round.",
+      "notes": "Nybor's Gentle Reminder is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nybors-mild-admonishment-2244",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/nybors-gentle-reminder-2243",
+          "role": "Player's Guide to Faerûn source for inherited Nybor's Gentle Reminder mechanics"
+        }
+      ]
+    },
+    "spells/nybors-stern-reproof-2245": {
+      "name": "Nybor's Stern Reproof",
+      "sourceSha256": "78f5716e7cdda7102f9596b7f7bb8d82cb35ee446fbdc3406f133182d771bfa4",
+      "effectSummary": "A living target first makes a Fortitude save; failure kills it instantly. A creature that survives then immediately makes a Will save. Failure on that Will save leaves it dazed for 1d4 rounds, after which the continuing Nybor's gentle reminder penalties apply for the remaining duration: -2 on attacks, saves, and checks, with spellcasting requiring Concentration.",
+      "notes": "The source says it functions like Nybor's Gentle Reminder except for the added death gate and altered daze sequence; the root is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nybors-stern-reproof-2245",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/nybors-gentle-reminder-2243",
+          "role": "Player's Guide to Faerûn source for inherited Nybor's Gentle Reminder mechanics"
+        }
+      ]
+    },
+    "spells/otilukes-dispelling-screen-441": {
+      "name": "Otiluke's Dispelling Screen",
+      "sourceSha256": "27644a89c913f9741564446f4109cab519eb5baedba57e86602622b11b086a94",
+      "effectSummary": "Creates an opaque, immobile violet screen. A spell effect operating on a creature or unattended object that passes through is subjected to a targeted dispel at your caster level; attended items are not affected. Roll 1d20 + caster level, maximum +10, against DC 11 + the spell effect's caster level, or against an unattended item's caster level to suppress that item's magic for 1d4 rounds. Spell effects not operating on objects or unattended creatures cannot pass through. Disintegrate or a successful dispel magic destroys the screen; antimagic field suppresses it. Material component: a sheet of fine lead crystal.",
+      "notes": "Self-contained root for the greater screen.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otilukes-dispelling-screen-441",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/otilukes-greater-dispelling-screen-442": {
+      "name": "Otiluke's Greater Dispelling Screen",
+      "sourceSha256": "829f354bb9cfc6ef041f615dd8cbb6c39599a666908d13a4d8bd959bc7cb5169",
+      "effectSummary": "Functions as Otiluke's dispelling screen, including its targeted-dispel behavior for creatures and unattended objects crossing the screen, except the caster-level bonus on dispel checks is capped at +20 instead of +10.",
+      "notes": "Otiluke's Dispelling Screen is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otilukes-greater-dispelling-screen-442",
+          "role": "primary Complete Arcane catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/otilukes-dispelling-screen-441",
+          "role": "Complete Arcane source for inherited Otiluke's Dispelling Screen mechanics"
+        }
+      ]
+    },
+    "spells/planar-exchange-2158": {
+      "name": "Planar Exchange",
+      "sourceSha256": "b78d8a8cab8ebea14e61bb2bcdd3aa0707ea82a13e63a4601b43c6cd386ab8da",
+      "effectSummary": "Calls an avoral guardinal, bone devil, or babau demon to your exact location while transporting you to that creature's home plane in stasis. You fully control the called creature and perceive through its senses; it has all abilities except summoning other creatures. The spell fails if the creature cannot fit where you stood. While in stasis you can act only to control the creature or dismiss the spell and cannot be affected on its home plane. When you dismiss the spell or the creature is slain, you appear in its location and it returns home; if it was slain, you take 3d6 damage. Calling an aligned creature gives the spell the corresponding alignment descriptor.",
+      "notes": "Self-contained root for the lesser and greater Planar Exchange variants.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-2158",
+          "role": "primary Planar Handbook catalog record and digest source"
+        }
+      ]
+    },
+    "spells/planar-exchange-lesser-2160": {
+      "name": "Planar Exchange, Lesser",
+      "sourceSha256": "e4262660e12218fe24aa9879a71040ba7ebc587f71d851aac19aede441d03cb3",
+      "effectSummary": "Functions as planar exchange, but you trade places with a celestial brown bear, celestial griffon, fiendish dire ape, or fiendish tiger. You remain in stasis on the creature's home plane while controlling it and perceiving through it; if the called creature is slain, you take 2d6 damage and the spell ends.",
+      "notes": "Planar Exchange is locked in this same batch; this printing changes the creature list and death backlash.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-lesser-2160",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-2158",
+          "role": "Planar Handbook source for inherited Planar Exchange mechanics"
+        }
+      ]
+    },
+    "spells/planar-exchange-greater-2159": {
+      "name": "Planar Exchange, Greater",
+      "sourceSha256": "644200ccef14d716b978b810676be209cdc73d334a03fe1164a777a83e17b1e3",
+      "effectSummary": "Functions as planar exchange, but you trade places with a leonal guardinal, barbed devil, or hezrou demon. You remain in stasis on the creature's home plane while controlling it and perceiving through it; if the called creature is slain, you take 4d6 damage and the spell ends.",
+      "notes": "Planar Exchange is locked in this same batch; this printing changes the creature list and death backlash.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-greater-2159",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-2158",
+          "role": "Planar Handbook source for inherited Planar Exchange mechanics"
+        }
+      ]
+    },
+    "spells/luminous-swarm-828": {
+      "name": "Luminous Swarm",
+      "sourceSha256": "51c6ba35aab70a5d490678a1b0ff470af989470623a611030d95821bcb1d15c8",
+      "effectSummary": "For 5 rounds, shimmering force motes engulf one creature. If it relies on sight, all its attacks have a 20% miss chance while the motes remain. The motes deal 1d6 damage each round, and the target can attempt a Reflex save each round to avoid that round's damage. The spell has an additional interaction with fever dream, whose own spell text defines the combined effect.",
+      "notes": "Self-contained mechanics; the fever-dream cross-reference is intentionally not expanded beyond the source's statement.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-swarm-828",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/metamagic-scroll-4950": {
+      "name": "Metamagic Scroll",
+      "sourceSha256": "858dc5bc1e0a27784ff7ca68029da7999b01085988a62cf740c176f04dc40118",
+      "effectSummary": "Imbues one spell-completion item, such as a scroll or minor schema, with one metamagic feat you know that increases spell level by no more than two. Anyone using the item during the infusion's duration applies that feat to the stored spell. Only one metamagic feat can be applied to a given spell through metamagic scroll.",
+      "notes": "Self-contained infusion effect; the schema page citation is only an item reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/metamagic-scroll-4950",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/miasma-1900": {
+      "name": "Miasma",
+      "sourceSha256": "f2172701747babd895009e8220d74cab9e2a6f539a61b5109d4478702680cabd",
+      "effectSummary": "Fills one living creature's mouth and throat with unbreathable gas. The subject can hold its breath for 2 rounds per point of Constitution, then must make a Constitution check each round at DC 10 +1 per previous success. A failed check, or voluntarily breathing, drops it unconscious at 0 hp; on the following round it falls to -1 hp and is dying, and on the third round it suffocates.",
+      "notes": "Source-complete suffocation sequence; the Dungeon Master's Guide citation is only the general suffocation reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/miasma-1900",
+          "role": "primary Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-awareness-1485": {
+      "name": "Necrotic Awareness",
+      "sourceSha256": "8e8e68a45a1bed55e8f05dddf8b0c8a400b09e26ee65ba9d2336a357dcd29b35",
+      "effectSummary": "While concentrating, senses creatures within the 60-foot cone that bear necrotic cysts. First round reveals presence or absence; second round reveals the number of cyst-bearers; third round reveals each bearer's location, or only its direction if it is outside your line of sight. Focus: you must possess a mother cyst.",
+      "notes": "Self-contained detection progression; the Necrotic Cyst citation identifies the qualifying condition only.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-awareness-1485",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-empowerment-1490": {
+      "name": "Necrotic Empowerment",
+      "sourceSha256": "8df13974f881ce21a6355ef002f0d0e556a7a72e4bbde15d1263c6159b55e145",
+      "effectSummary": "For 1 round per caster level, you gain +8 enhancement bonuses to Dexterity, Intelligence, and Wisdom; +8 natural armor to AC; +5 competence on Fortitude saves; and 100 temporary hit points. While empowered, you cannot cast any other spell enabled by the Mother Cyst feat. Focus: you must possess a mother cyst.",
+      "notes": "Self-contained personal buff; the Mother Cyst citation identifies the required focus/feat only.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-empowerment-1490",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/pass-through-ice-1322": {
+      "name": "Pass Through Ice",
+      "sourceSha256": "5c217daa3d1aeca9e8e215c4f8bd5c4fa84d2442002b06aa731bf5aff0fdcc2c",
+      "effectSummary": "For 1 round per caster level, the touched creature can move through ice or snow as easily as water, but not stone or frozen mud, at speed 15 feet and can rise or sink through ice at 5 feet per round. When the spell expires normally, the creature is ejected to the nearest ice surface. If the spell is dispelled or dismissed while the creature remains inside, it must reach a surface within one round of movement or become trapped as though caught by entomb.",
+      "notes": "Self-contained movement and termination mechanics; Entomb is used only to define the trapped outcome.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/pass-through-ice-1322",
+          "role": "primary Frostburn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/plague-rats-4631": {
+      "name": "Plague of Rats",
+      "sourceSha256": "e0ac790a45f6265f40f3bf30584ad64a04a3ba58b71a968efa769b6765fa6d6d",
+      "effectSummary": "Summons one rat swarm per two caster levels, maximum six swarms at 12th level, for 1 round per caster level. Every swarm must be adjacent to at least one other swarm, forming one contiguous area, and can be summoned into occupied spaces. Each attacks creatures in its space; if none are present, it attacks or pursues the nearest creature as best it can. You have no control over its target or direction.",
+      "notes": "Self-contained summoning/control behavior; the Monster Manual citation supplies rat-swarm statistics only.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-rats-4631",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/power-surge-4930": {
+      "name": "Power Surge",
+      "sourceSha256": "77ceecabd4265bbe3609c9d9f95fc99f7d0948e651edaca60be7ede625ee95d8",
+      "effectSummary": "Touches a wand or staff with at least 1 charge and grants it 1 temporary charge per five caster levels for 1 minute per caster level. When the item is used, temporary charges are spent before its normal charges; unused temporary charges vanish when the spell ends. XP cost: 5 XP times the level of the highest-level spell stored in the item.",
+      "notes": "Self-contained charge mechanics; the temporary-hit-point comparison only explains spend-order behavior.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-surge-4930",
+          "role": "primary Eberron Campaign Setting catalog record and digest source"
+        }
+      ]
+    },
+    "spells/prickling-torment-857": {
+      "name": "Prickling Torment",
+      "sourceSha256": "2c17a8de9356872ab792caf7e7b65a371a4421cc7f3aec17f81af7f5a20ebd25",
+      "effectSummary": "For 5 rounds, a failed Fortitude save leaves one living creature sickened by an agonizing rash. On any turn in which it takes an action other than a free, swift, or immediate action, it takes 1d8 damage at the end of that turn. While affected it also takes an additional -2 penalty on saves against a swarm creature's distraction ability, on top of the penalty from being sickened. The spell can interact with fever dream as described in that spell.",
+      "notes": "Self-contained mechanics; the fever-dream reference is intentionally not expanded beyond the source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prickling-torment-857",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "60ffbb675bc7156256975823565657ba65aa7983",
+    "workflowRun": 35699877774,
+    "validationRun": 35699880817,
+    "classificationArtifact": 10681816176,
+    "classificationArtifactSha256": "de94a1d8f28d3eafbf03d4a781d09718705cbe45085d73427cd6ca817a9f0195",
+    "queueCountBefore": 711,
+    "referenceQueueCountBefore": 711,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
