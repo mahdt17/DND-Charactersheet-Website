@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified cross-book reference spells with fully expanded inherited mechanics and source-specific overrides; clean batch 083.",
+  "entries": {
+    "spells/darkvision-mass-3508": {
+      "name": "Darkvision, Mass",
+      "sourceSha256": "a4f7210a7174883e27810bbbe882b6ae14001375cd04521f79ba3aec760009b8",
+      "effectSummary": "Functions as darkvision for multiple creatures. Each target gains 60-foot darkvision for 1 hour per caster level: it can see in total nonmagical darkness in black and white as though using normal sight, but the spell does not let it see through magical darkness. This Underdark printing affects one creature per caster level, with all targets within 30 feet of each other. Its own V, S, M, F components and Touch range apply.",
+      "notes": "Source-locked to Underdark. The uniquely resolved Player's Handbook v.3.5 Darkvision spell supplies the 60-foot black-and-white vision mechanics. Later Complete Arcane/Spell Compendium printings use different targeting and add a permanency restriction; those later changes are not imported into this Underdark record.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkvision-mass-3508",
+          "role": "primary Underdark record and digest source"
+        },
+        {
+          "url": "https://housegriffon.com/RPG/Games/DnD/dd3.x/ForgottenRealms/Underdark.pdf",
+          "role": "same-printing Underdark cross-check for the one-subject-per-level version"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/darkvision.htm",
+          "role": "3.5 SRD cross-check for inherited 60-foot darkvision mechanics"
+        }
+      ]
+    },
+    "spells/tactical-teleportation-792": {
+      "name": "Tactical Teleportation",
+      "sourceSha256": "1ad0bbd732a5862f524cbfca190c8dc21fb6c3390058cafd62e5d58382be600b",
+      "effectSummary": "Instantly repositions one willing creature per three caster levels, including yourself if desired, with no chance for teleportation mishap. Every subject must be within the spell's Close range when cast, every destination must be within that same range measured from your original position, and you must have line of sight to every destination. Each subject can bring held or carried objects up to its own maximum load. If a subject's destination is occupied by a creature or solid object, only that subject is left in place; the rest of the teleportation resolves normally. The spell otherwise uses greater teleport's reliable same-plane teleportation model rather than the ordinary teleport mishap table.",
+      "notes": "Source-locked to Complete Mage p.118. Greater Teleport is uniquely resolved to Player's Handbook v.3.5, but Tactical Teleportation replaces its normal range/target geometry with battlefield-scale Close-range positioning and explicitly defines occupied-destination failure per subject.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tactical-teleportation-792",
+          "role": "primary Complete Mage record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/teleportGreater.htm",
+          "role": "3.5 SRD cross-check for the inherited no-mishap teleportation model"
+        }
+      ]
+    },
+    "spells/unicorn-heart-887": {
+      "name": "Unicorn Heart",
+      "sourceSha256": "033f7d78eb2c04ac5329fcbddde1a4ac81ea49c92be3de3f9c3eb1d9070c9f24",
+      "effectSummary": "For 1 hour per caster level or until expended, your land speed becomes 60 feet and you gain a +4 enhancement bonus on Strength-, Dexterity-, and Constitution-based ability checks and skill checks. Once during the spell, as a swift action, you can teleport yourself, everything you carry up to your maximum load, and one other creature you touch up to 360 feet; the other creature does not count against your load but cannot itself carry more than its maximum load. A familiar, special mount, or animal companion counts against neither your weight limit nor the one-creature allowance. This teleport otherwise works like dimension door, including its occupied-destination shunting rules, but Unicorn Heart explicitly lets you act normally after arriving; using the teleport ends Unicorn Heart. If Unicorn Blood is also active, you gain a magic circle against evil centered on yourself. If Unicorn Horn is also active, its horn can smite evil once per casting for +1 damage per caster level, maximum +20. If all three unicorn spells are active together, you also gain damage reduction 5/evil.",
+      "notes": "Source-locked to Complete Mage p.121. Dimension Door supplies only the underlying point-to-point teleport behavior where Unicorn Heart does not override it; the 360-foot range, swift action, passenger/load rules, ability to act afterward, and unicorn-spell synergies are all printed Unicorn Heart mechanics.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/complete-mage--58/unicorn-heart--887/",
+          "role": "matching Complete Mage rendering used to verify speed, check bonuses, teleport, and all Unicorn Blood/Horn synergies"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203rd%20Edition/D%26D%203.5e%20Core/Complete%20Mage.pdf",
+          "role": "same-printing Complete Mage cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/dimensionDoor.htm",
+          "role": "3.5 SRD cross-check for inherited dimension-door destination behavior"
+        }
+      ]
+    },
+    "spells/true-banishment-3436": {
+      "name": "True Banishment",
+      "sourceSha256": "ce486f5bd5a0afecf879aac0cc626efc0184e95a539429902476b5e1dec5cec8",
+      "effectSummary": "Attempts to force one extraplanar creature back to its home plane by speaking its personal truename. The spell functions like banishment's planar expulsion, but it requires a successful Truespeak check, allows no saving throw, and still permits spell resistance. It affects only one creature and has no Hit Dice cap beyond the limitation implicit in the Truespeak check DC. Objects the target hates, fears, or opposes do not improve your check to overcome spell resistance. If the banishment succeeds, the creature cannot return to the plane from which it was banished for one month per caster level unless it learns and correctly speaks your personal truename.",
+      "notes": "Source-locked to Tome of Magic. Banishment is uniquely resolved to Player's Handbook v.3.5 only for the underlying extraplanar-expulsion effect; True Banishment explicitly replaces the save, target count, HD limit, opposition-object bonus, and adds the truename return prohibition.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/tome-of-magic--89/true-banishment--3436/",
+          "role": "matching Tome of Magic rendering used to verify every printed override"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellstom.html",
+          "role": "Tome of Magic SRD cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/banishment.htm",
+          "role": "3.5 SRD cross-check for the inherited extraplanar-expulsion mechanic"
+        }
+      ]
+    },
+    "spells/truename-dispel-3437": {
+      "name": "Truename Dispel",
+      "sourceSha256": "5d58f31c081da801af11da547d39f538ae34e12a0e44c691d4dc5384834c7d45",
+      "effectSummary": "Targets one creature whose personal truename you correctly speak. On a successful Truespeak check, you perceive the nature of every ongoing magical effect currently affecting that creature and may choose which of those effects to remove. Chosen effects are automatically dispelled with no caster level check, while effects you choose to retain remain in place; this allows selective removal of harmful effects while preserving beneficial ones, or the reverse. The spell otherwise follows dispel magic's rule that dispelling ends an ongoing spell as though its duration expired and cannot remove an already-completed instantaneous effect. Truename Dispel has no saving throw and does not allow spell resistance.",
+      "notes": "Source-locked to Tome of Magic. Dispel Magic is uniquely resolved to Player's Handbook v.3.5, but Truename Dispel replaces the normal targeted dispel check with a successful Truespeak check plus automatic, selective removal and never uses the area or counterspell forms.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/tome-of-magic--89/truename-dispel--3437/",
+          "role": "matching Tome of Magic rendering used to verify selective identification/removal and the Truespeak requirement"
+        },
+        {
+          "url": "https://anyflip.com/myubd/fwex/basic/251-291",
+          "role": "same-printing Tome of Magic page cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/dispelMagic.htm",
+          "role": "3.5 SRD cross-check for the limited inherited dispelling semantics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "c96b49a95f7866f8b77d7db465761c674226d457",
+    "workflowRun": 35686044044,
+    "validationRun": 35686048407,
+    "classificationArtifact": 10677116514,
+    "classificationArtifactSha256": "adde6e51c5e41a0dc7f217d1e03946894576e312c83762edacfee4de687cf41b",
+    "queueCountBefore": 922,
+    "referenceQueueCountBefore": 922,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
