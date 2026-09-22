@@ -2370,7 +2370,7 @@ def self_test():
             "Dragonlance Campaign Setting (DLCS), p. 111",
             "While you control the animal, you are limited to a single move action every round in your own body. When in doubt whether something is an animal as defined by the spell, check Animal ). Focus: A piece of clay molded to approximate the chosen animal's form.",
             "truncated-share-animals-mind-animal-definition",
-            ("monster manual", "creature type animal", "single move action"),
+            ("monster manual", "creature type must be animal", "single move action"),
             (),
         ),
         (
@@ -2379,7 +2379,7 @@ def self_test():
             "Player's Guide to Faerûn (PG), p. 111",
             "You gain a gaze attack out to close range. Depending on the foe's Hit Dice, the gaze attack may have either of two effects, as follows. While this spell is in effect, your eyes are black and have skull-shaped irises.",
             "missing-skull-eyes-effects",
-            ("beginning of its turn", "actively gaze", "charmed", "confused"),
+            ("beginning of each of its turns", "actively gaze", "charmed", "confused"),
             ("equal to or greater than caster level", "less than caster level", "charmed", "confused"),
         ),
         (
