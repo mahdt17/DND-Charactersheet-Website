@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified explicit reference spells with printed overrides preserved; clean batch 075.",
+  "entries": {
+    "spells/jump-mass-3288": {
+      "name": "Jump, Mass",
+      "sourceSha256": "dafb051d9c12d16be2a31bdba35d1f70e257502f077fa85cb8f81878b52cca0e",
+      "effectSummary": "Functions as jump, but affects one creature per caster level within 30 feet for 1 minute per caster level. Each subject gains a +10 enhancement bonus on Jump checks; that bonus increases to +20 at caster level 10 and +30 at caster level 14. The spell uses its own printed 10th- and 14th-level breakpoints rather than the 5th- and 9th-level progression of the base jump spell.",
+      "notes": "Source-locked to Shining South. The cross-book Jump reference supplies the enhancement-bonus Jump mechanic, but Mass Jump explicitly replaces the target, duration, and progression thresholds; those printed overrides are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/jump-mass-3288",
+          "role": "primary Shining South record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/shining-south--25/jump-mass--3288/",
+          "role": "matching Shining South rendering confirming one creature/level, 30-foot targeting, 1 minute/level, and the 10th/14th-level progression"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/jump.htm",
+          "role": "3.5 core Jump reference supplying the underlying enhancement bonus on Jump checks"
+        }
+      ]
+    },
+    "spells/lionheart-301": {
+      "name": "Lionheart",
+      "sourceSha256": "fe82a3ee8281be1b5d92891ef3fdef9a9f61e3c675fda778b3e9c8ca914b82dd",
+      "effectSummary": "Functions as remove fear, but can be cast as an immediate action, lasts 1 minute, and affects one creature per four caster levels within 30 feet. Each subject gains a +4 morale bonus on saving throws against fear; a frightened or panicked subject is instead treated as shaken for the spell's duration, and the spell counters and dispels cause fear.",
+      "notes": "Source-locked to Champions of Valor. The Player's Handbook Remove Fear reference supplies the fear-save bonus, suppression of stronger fear, and cause-fear counter/dispel mechanics; Lionheart explicitly replaces casting time, duration, and target count.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lionheart-301",
+          "role": "primary Champions of Valor record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/champions-of-valor--24/lionheart--301/",
+          "role": "matching Champions of Valor rendering confirming immediate-action casting, 1-minute duration, target count, and Remove Fear inheritance"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/removeFear.htm",
+          "role": "3.5 core Remove Fear mechanics inherited by the spell"
+        }
+      ]
+    },
+    "spells/status-greater-4915": {
+      "name": "Status, Greater",
+      "sourceSha256": "4c5f52c3d0b548d897278d908af02e6fab261978f7ed8587b981acde5f1d2c72",
+      "effectSummary": "Functions as status for one living creature per three caster levels for 1 hour per caster level: you continuously know each subject's direction and distance and any listed condition affecting it, including unharmed, wounded, disabled, staggered, unconscious, dying, nauseated, panicked, stunned, poisoned, diseased, confused, and similar conditions; once a subject leaves your plane or dies, the spell ceases to provide information about it. In addition, you can cast another harmless spell of 2nd level or lower through the greater-status link as though you were touching a linked subject, provided that spell has range Touch, targets a creature touched, and allows a harmless saving throw. The transmitted spell uses its normal casting time and other requirements.",
+      "notes": "Source-locked to Eberron Campaign Setting. The Player's Handbook Status reference supplies the monitoring link; Greater Status adds the explicit harmless 0th- through 2nd-level touch-spell transmission rule without otherwise replacing Status.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/status-greater-4915",
+          "role": "primary Eberron Campaign Setting record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/eberron-campaign-setting--12/status-greater--4915/",
+          "role": "matching Eberron Campaign Setting rendering confirming the linked-spell criteria"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/status.htm",
+          "role": "3.5 core Status mechanics inherited by the spell"
+        }
+      ]
+    },
+    "spells/stone-shape-greater-3520": {
+      "name": "Stone Shape, Greater",
+      "sourceSha256": "7f189774771c564e4367676ce2ab197ac0af1ae314f0301718f179bcba9c063a",
+      "effectSummary": "Functions as stone shape, but can affect 10 cubic feet of stone plus 10 cubic feet per caster level. You can form an existing piece of stone into any rough shape suited to your purpose, but fine detail is not possible; shapes with moving parts have a 30% chance to fail. The material component is soft clay worked into roughly the desired final shape and touched to the stone.",
+      "notes": "Source-locked to Underdark. The Player's Handbook Stone Shape reference supplies the crude-shaping, moving-parts failure, and clay-component mechanics; Greater Stone Shape replaces only the quantity of stone affected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-shape-greater-3520",
+          "role": "primary Underdark record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/underdark--34/stone-shape-greater--3520/",
+          "role": "matching Underdark rendering confirming the 10 cubic feet + 10 cubic feet/level quantity"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/stoneShape.htm",
+          "role": "3.5 core Stone Shape mechanics inherited by the spell"
+        }
+      ]
+    },
+    "spells/unseen-servant-mass-3032": {
+      "name": "Unseen Servant, Mass",
+      "sourceSha256": "e0f9694cca591eb6dd853a92cc4bedf865a5bd7c2b6f9c86fa059772b46f12fd",
+      "effectSummary": "Functions as unseen servant, except it creates one invisible, mindless, shapeless servant per caster level for 1 hour per caster level. Each servant has Strength 2, speed 15 feet, can lift 20 pounds or drag 100 pounds, and can perform simple tasks a human servant could do, including untrained tasks with DC 10 or lower, but cannot attack or make saving throws. A servant dissipates if it takes 6 points of damage from area effects or if it moves beyond the spell's permitted range. The material component is a ball of twine and wooden splinters.",
+      "notes": "Source-locked to Races of Destiny. The Player's Handbook Unseen Servant reference supplies the individual servant's capabilities and limitations; the mass spell replaces the number created, duration, and material component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unseen-servant-mass-3032",
+          "role": "primary Races of Destiny record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/races-of-destiny--81/unseen-servant-mass--3032/",
+          "role": "matching Races of Destiny rendering confirming one servant/level, 1 hour/level, and the twine/splinter component"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/unseenServant.htm",
+          "role": "3.5 core Unseen Servant capabilities and limitations inherited by each servant"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "50bcbfd9aa1a6e44e123e2756a3ed9a5e9f7750e",
+    "workflowRun": 35683237568,
+    "validationRun": 35683240503,
+    "classificationArtifact": 10675871848,
+    "classificationArtifactSha256": "ee76bf0f68fc83f5681f63b51acc7ee3ab37abbb0ceaff0ba386c0a3d90cc01b",
+    "queueCountBefore": 962,
+    "referenceQueueCountBefore": 962,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
