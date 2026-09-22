@@ -277,6 +277,30 @@
           "text": "Augment Construction"
         }
       ]
+    },
+    "feats/reaping-talons-2400": {
+      "name": "Reaping Talons",
+      "prerequisiteAdditions": [
+        {
+          "kind": "special",
+          "label": "Prerequisite",
+          "text": "Two Tiger Claw maneuvers"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/reaping-talons-2400",
+          "role": "primary catalog identity/source; rebuilt Benefit text is visibly truncated and prerequisite omits the Tiger Claw maneuver requirement"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/feats/noncore-featstob.html",
+          "role": "Tome of Battle complete prerequisite and tactical-option cross-check"
+        },
+        {
+          "url": "https://dndtools.net/feats/tome-of-battle-the-book-of-nine-swords--88/reaping-talons--2400/",
+          "role": "legacy same-source feat cross-check"
+        }
+      ]
     }
   }
 }
