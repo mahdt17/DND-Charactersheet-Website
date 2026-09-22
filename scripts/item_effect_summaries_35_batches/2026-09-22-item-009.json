@@ -1,0 +1,614 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record item effect batch 009. Table-dependent variants and damaged/incomplete records remain deferred.",
+  "reviewCheckpoint": {
+    "head": "a2fb68a53e4f9b9124b6e55db536947714671324",
+    "reviewRun": 35794128703,
+    "reviewArtifact": 10723116914,
+    "reviewArtifactSha256": "2d84dcbd6806ce146c7f62490e90a50426bdefefe4400adc0f33eaa16ca06149",
+    "ordinaryReviewRemainingBefore": 803,
+    "errors": []
+  },
+  "entries": {
+    "items/righteous-47": {
+      "name": "Righteous",
+      "sourceSha256": "53e564c5e0dbb5976bd7c8110b144c14f929e57466c33d1ecd26811ed959a23c",
+      "effectSummary": "Unless deactivated as a free action, the weapon continually detects evil. Against a creature with a strong or overwhelming evil aura, it grants +2 on attack and damage rolls; ranged weapons pass the benefit to their ammunition.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/righteous-47",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-fortune-prevailing-513": {
+      "name": "Amulet of Fortune Prevailing",
+      "sourceSha256": "1c097ba47444f17f698929d48a3763eb116da430bda9ab08600546329cd863e5",
+      "effectSummary": "Once per day after making a saving throw but before learning the result, the wearer can reroll it and must use the second result. The ability cannot be used if that save has already been rerolled.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-fortune-prevailing-513",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/shield-vigor-205": {
+      "name": "Shield of Vigor",
+      "sourceSha256": "2bb7e8e69266e33a20e90a049d27291629ce16579b37fe10c219ab8f8f485cd1",
+      "effectSummary": "This +1 heavy steel shield can be activated to grant fast healing 5 for 3 rounds. It works once per day, or can be activated again by expending a daily use of knight's challenge if the wielder has that ability.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shield-vigor-205",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/asura-shield-33": {
+      "name": "Asura Shield",
+      "sourceSha256": "9b41d50c4e8fe74241a4cd9d743ef49e0e69f506504c45963d894aac38cafde9",
+      "effectSummary": "This +2 bashing heavy spiked steel shield deals 2d6+2 damage when used to bash by a Medium wielder, plus 1d6 fire damage and an additional 1d6 divine damage against evil creatures. A creature touching the shield takes the same extra fire damage and divine damage if evil.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/asura-shield-33",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/magic-sleeping-bag": {
+      "name": "Magic Sleeping Bag",
+      "sourceSha256": "dcac7b3e2b9b1039bb35a81e034a427e3d30d2ed13d227bda2cc23a83af857fe",
+      "effectSummary": "While inside, the user benefits from endure elements. After sleeping in it for 8 hours, the user recovers 1 additional hit point per character level; entering or leaving it is a full-round action.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/magic-sleeping-bag",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/hellpiercer-404": {
+      "name": "Hellpiercer",
+      "sourceSha256": "e6cccc877ad19b773b7fe02839319fe60dd4aac51ff12461cc77cdaf0a39e0f9",
+      "effectSummary": "This +3 shocking burst arrow or bolt counts as silver for overcoming damage reduction and carries a purified couatl venom/ravage that harms evil creatures, including evil outsiders normally immune to poison.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/hellpiercer-404",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/periapt-of-wound-closure": {
+      "name": "Periapt of Wound Closure",
+      "sourceSha256": "cf9a509659f7df5e1a2acec88410043cd152d8136f51584df523a57d3e4a49c2",
+      "effectSummary": "The wearer automatically stabilizes while at negative hit points, doubles normal natural or magical healing, and can heal wounds that normally resist healing. It also negates ongoing bleeding damage, though not active blood-drain attacks.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/periapt-of-wound-closure",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/forge-of-sustenance": {
+      "name": "Forge of Sustenance",
+      "sourceSha256": "7c83fd3a368e2abafda493e2e9a32856b159a9141d96b70e30afe339677cf64b",
+      "effectSummary": "A dwarf working at this forge need not eat, sleep, or breathe and does not tire while crafting. Crafting progress made with the forge equals the Craft check result multiplied by the DC and then by 3.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/forge-of-sustenance",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/coin-of-eternal-rest": {
+      "name": "Coin of Eternal Rest",
+      "sourceSha256": "9480a3bcbb7afe6580160364af8369dffbf4a93350e86b6816eda0d4d89d31dc",
+      "effectSummary": "Placed in a corpse's mouth, the coin prevents the body from being raised, resurrected, or animated as undead. Vermin and undead avoid the corpse unless they succeed on a DC 20 Will save; the coin has no effect on a living or undead bearer.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/coin-of-eternal-rest",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ring-regeneration-85": {
+      "name": "Ring of Regeneration",
+      "sourceSha256": "8512847a0b1fa1f23f81a489eff03ddb2ae3e6cce78676b50435830ffde5f40b",
+      "effectSummary": "A living wearer heals lethal damage at 1 hit point per level per hour and nonlethal damage at 1 hit point per level per 5 minutes, and can regrow lost body parts. It heals only damage taken while the ring is worn.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-regeneration-85",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/whistle-of-distraction-778": {
+      "name": "Whistle of Distraction",
+      "sourceSha256": "83ed1306410deff8298731f8aa079330fcfd07568064be408991496bcdadde69",
+      "effectSummary": "After activation, blowing the whistle affects all living creatures within 25 feet as the distract power for 1 round; blowing it again renews the duration. The effect is silent and counts against the normal limit on quickened powers.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/whistle-of-distraction-778",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/finned-gauntlets": {
+      "name": "Finned Gauntlets",
+      "sourceSha256": "e2130464b622ff13f4fe57b88121b7d828ecf9e3b7e51138d2cbf57e12951574",
+      "effectSummary": "When both gauntlets are worn, the wearer gains a 30-foot swim speed and +8 on Swim checks, can always take 10 on Swim checks, and can use the run action while swimming.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/finned-gauntlets",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/wings-of-pain": {
+      "name": "Wings of Pain",
+      "sourceSha256": "9521126961a5676eade3182bf300175c53b0d5597fce876a090897cda71dd379",
+      "effectSummary": "Three times per day, the cloak can affect a single target with either doom or ray of enfeeblement. If there is at least 15 feet of space for it to unfurl, it also provides a feather fall effect to the wearer.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/wings-of-pain",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/mindcrusher-671": {
+      "name": "Mindcrusher",
+      "sourceSha256": "4184f7200a3533e33796d8903d0d8e0862ca413164440bf725982a4f6741c501",
+      "effectSummary": "When the weapon hits a psionic target, the target loses power points equal to half the base weapon damage dealt. If the target has no power points remaining, it must make a DC 17 Will save or take 1d2 Wisdom damage.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/mindcrusher-671",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/psychic-tattoo-needle-786": {
+      "name": "Psychic Tattoo Needle",
+      "sourceSha256": "4491e192a03bfef54570e474c0f7272044371714cd64a996393ccea8a3fde55b",
+      "effectSummary": "A creator with the appropriate tattoo feat can use the needle while maintaining contact with a power stone to make a psychic tattoo of a power the creator does not know; the copied power is consumed from the stone in the process.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/psychic-tattoo-needle-786",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/shuriken-579": {
+      "name": "Shuriken",
+      "sourceSha256": "3e288a9111dcdcf91a9d600325cc7c0cf3a0f2856e656bab1c67a08df4c59746",
+      "effectSummary": "Shuriken are special monk weapons and cannot be used as melee weapons. They are treated as ammunition for drawing, masterwork or special-material pricing, and what happens after they are thrown.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shuriken-579",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/banner-of-valor": {
+      "name": "Banner of Valor",
+      "sourceSha256": "9d891d9ef3f62ec196516775cbbd646bb6950ad6511fcf9b2fbbf7ae43874820",
+      "effectSummary": "The bearer can use remove fear at will on chosen creatures within 20 feet and can produce healing circle three times per day, with the spell effects functioning at caster level 9.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/banner-of-valor",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/azlaers-harp": {
+      "name": "Azlaer's Harp",
+      "sourceSha256": "3e6b00b58790627f14f0536d027cd7542ba5dd6fda2b77a3c91aac0da80137c2",
+      "effectSummary": "While played, the harp produces calm emotions on creatures within 100 feet, suppresses existing charm effects there, and prevents new charm effects in the area. Its strings also shed light, and use requires at least 1 rank in Perform (harp).",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/azlaers-harp",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bag-boulders-211": {
+      "name": "Bag of Boulders",
+      "sourceSha256": "4042dbeea68abbe058777f316924d3be355015ee8cc5c1111419c861671a67bb",
+      "effectSummary": "The bag has 3 charges renewed at dawn. Drawing and throwing a pebble is a standard action with a 50-foot range increment; spending 1, 2, or 3 charges makes the stone deal 2d6, 3d6, or 4d6 bludgeoning damage respectively, after which it disappears.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bag-boulders-211",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bag-flames-214": {
+      "name": "Bag of Flames",
+      "sourceSha256": "80d6eac4817863b86e420407f2da38582c1db4cc3cbf5ad300609973b20876d8",
+      "effectSummary": "The bag has 3 charges renewed at dawn. One charge produces flame for 1 minute dealing 1d6+5 fire by touch or thrown attack; two charges summon a Small fire elemental for 5 rounds; three charges grant fire immunity for 1 hour or until 60 fire damage is negated, and remaining protection can be transferred to an adjacent creature.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bag-flames-214",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bag-of-teeth": {
+      "name": "Bag of Teeth",
+      "sourceSha256": "a1aa198b79798e807276af091043b08d57b025aa8fd0f156461ac9360a43cb84",
+      "effectSummary": "Scattering the bag's teeth into a body of water creates an average piranha swarm for 10 minutes. The swarm is uncontrolled and attacks the nearest living creature in the water, or waits for the first creature to approach if none is present.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bag-of-teeth",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bands-blood-rage-224": {
+      "name": "Bands of Blood Rage",
+      "sourceSha256": "7f3170e8fa9450f55291705400f176f51c7d15de6283ce99af96667b701ca56b",
+      "effectSummary": "Donning the bands deals 1 unhealable damage while worn. Three times per day they can put the wearer and willing allies within 30 feet into a 5-round blood rage granting +5 morale on melee weapon damage while each affected creature takes 5 damage at the end of each turn; sorcerers and creatures with the dragonblood subtype also gain +5 morale on arcane spell damage.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bands-blood-rage-224",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bane-134": {
+      "name": "Bane",
+      "sourceSha256": "4e92215f1fd788a97adfc27c5e803a99ab8f73b2502beb15afd853a13826fa51",
+      "effectSummary": "Against its designated creature type or subtype, a bane weapon's effective enhancement bonus is +2 higher and it deals +2d6 damage. Bows, crossbows, and slings pass the bane quality to their ammunition.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bane-134",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bane-blind-17": {
+      "name": "Bane Blind",
+      "sourceSha256": "403201b47b492f9858f8e66cdd8a55cdcef8b14c8c44251194e4eebe20899380",
+      "effectSummary": "Three times per day for 10 rounds, the wearer becomes imperceptible to the armor's designated creature type or subtype by nonmagical senses, including scent, hearing, tremorsense, and blindsense. The effect ends if the wearer attacks.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bane-blind-17",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/banner-storms-eye-215": {
+      "name": "Banner of the Storm's Eye",
+      "sourceSha256": "c4cd06f4283dd0ed7dd5f35b8740400e58bb411f61ec0d05014417cad12e6500",
+      "effectSummary": "While the banner is held aloft, it suppresses existing fear effects within 20 feet and prevents creatures in that area from becoming confused or stunned. It can be mounted on a backpack frame, occupying the shoulders slot.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/banner-storms-eye-215",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/barbed-dagger-337": {
+      "name": "Barbed Dagger",
+      "sourceSha256": "2ee1e759d9783ff028af2e54591d71be2d8598d9ac744b53cbe3f681d4b79d5d",
+      "effectSummary": "A wielder with at least 5 ranks in Sleight of Hand gains +2 damage on successful sneak attacks with the barbed dagger, and that bonus is doubled on critical hits. Proficient wielders can treat it as a dagger for the listed weapon-focused feats.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/barbed-dagger-337",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/beastskin-18": {
+      "name": "Beastskin",
+      "sourceSha256": "5212eb9df9554b8b57dfefbb847b7868d420ce7f9b188284ea3ee0f5acc59801",
+      "effectSummary": "When using wild shape, the wearer can spend one additional daily use to transform beastskin armor with the new form instead of having it merge into the body. The armor remains the same type, resizes and reshapes appropriately, and retains proficiency if the wearer was proficient in the original form.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/beastskin-18",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/beholder-crown": {
+      "name": "Beholder Crown",
+      "sourceSha256": "e617b9032b39544af93458cfa5f85f7e350ecff27039e2925de026ac5c03281f",
+      "effectSummary": "The crown has ten single-use gem powers: charm person, charm monster, disintegrate, eyebite (sleep), single-target fear, finger of death, flesh to stone, ranged inflict moderate wounds, slow, and telekinesis (violent thrust). Each use burns out one gem; after the tenth, the crown crumbles.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/beholder-crown",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-dwarvenkind-137": {
+      "name": "Belt of Dwarvenkind",
+      "sourceSha256": "48d7c34d621bec0ca39e83c785d698f8266938eaf0f509eba7a5713679709622",
+      "effectSummary": "The wearer gains +4 competence on Charisma checks and Charisma-based skills involving dwarves, +2 involving gnomes or halflings, and -2 involving others, and can speak, read, and understand Dwarven. A nondwarf also gains darkvision 60 feet, stonecunning, +2 Constitution, and +2 resistance on saves against poison, spells, and spell-like effects.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-dwarvenkind-137",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-hidden-pouches": {
+      "name": "Belt of Hidden Pouches",
+      "sourceSha256": "a0b8584dcc24e457986ae63d795595aec5932aaf32ef1f5aa46db612ba6afe22",
+      "effectSummary": "The belt contains ten visible and twenty command-word hidden extradimensional pockets, each holding up to 1/2 cubic foot or 5 pounds with stored weight reduced to one-tenth. Objects up to 6 inches can be stored; command words access hidden pockets or retrieve named items, and the pockets never bulge.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-hidden-pouches",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-many-pockets": {
+      "name": "Belt of Many Pockets",
+      "sourceSha256": "2b7ac242277811879db3f96543c8ada266da00f827cb7f71d0e53b720812436f",
+      "effectSummary": "The belt has 64 extradimensional pouches, each holding up to 1 cubic foot or 10 pounds; a familiar can occupy any pouch regardless of size and needs no air, food, or water there. Stored contents are effectively weightless while worn, and retrieving a specific item is a move action that does not provoke attacks of opportunity.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-many-pockets",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-one-mighty-blow": {
+      "name": "Belt of One Mighty Blow",
+      "sourceSha256": "51e77b689022cf0541673ac2e0885eec13ae3d13441e77524ed82cb538f3ab11",
+      "effectSummary": "Once per day as a swift action, the belt adds damage to the wearer's next melee attack: +1d8 with a light weapon, +2d6 with a one-handed weapon, or +3d6 with a two-handed weapon. It requires 24 continuous hours of wear to become active.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-one-mighty-blow",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-the-champion-622": {
+      "name": "Belt of the Champion [Relic]",
+      "sourceSha256": "0a38dd33d0c59169aab843dec034d0abceaa0750fe0268a2b60f5ba5fdd853b0",
+      "effectSummary": "For a chaotic good, neutral good, or chaotic neutral wearer, the belt functions as a belt of giant strength +2. A properly connected worshiper of Kord also gains +5 competence on Strength checks and +4 morale on saves against fear; failing a fear save suppresses the relic power for 1 hour.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-the-champion-622",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-the-dread-emperor": {
+      "name": "Belt of the Dread Emperor",
+      "sourceSha256": "d2cf8215e4d991825908ce78a48535a6aa0d37205647035b7393be0ea71b5bc4",
+      "effectSummary": "A spell preparer can chain a willing, dominated, or helpless humanoid to the belt and recall one of the most recently prepared spells, even if already cast. The chained creature takes damage equal to the square of the recalled spell's level; if it lacks enough hit points, it dies and the recall fails.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-the-dread-emperor",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-the-reinforced-form": {
+      "name": "Belt Of The Reinforced Form",
+      "sourceSha256": "2f157c947ff110dbdc47b052606b6a75eaab7ea4b8636d2ef50890edeac938ea",
+      "effectSummary": "The wearer gains +4 on saving throws against transmutation spells, spell-like effects, and other transformative effects. Once per day, a self-targeted transmutation spell with a 1-standard-action casting time can be cast as a swift action instead.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-the-reinforced-form",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-wide-earth-230": {
+      "name": "Belt of the Wide Earth",
+      "sourceSha256": "85b6d5ddf0ee2acc7638a89addd0889cc89c7e8dd84138c51a17059bf0df4008",
+      "effectSummary": "The belt continuously doubles carrying capacity. Twice per day, the wearer can sacrifice a prepared spell or spell slot of 5th level or higher to use teleport, using the higher of the wearer's caster level or the belt's caster level.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-wide-earth-230",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bird-feather-headdress": {
+      "name": "Bird Feather Headdress",
+      "sourceSha256": "670b29dfd3799bfb5f7b45ad50f4eb19e564acfd640c589a1fd731bafaa5072f",
+      "effectSummary": "The headdress has six expendable large plumes: each of two green plumes summons 1d3 hawks, each of two blue plumes summons 1d3 eagles, and each of two gold plumes summons a giant eagle or giant owl. Summoned creatures serve the wearer as if summoned by summon nature's ally.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bird-feather-headdress",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blankets-of-security": {
+      "name": "Blankets of Security",
+      "sourceSha256": "f721123a172ab254ac8b08cc526406fb9438c116d75b1f90af4d5c7a1fe2ac3a",
+      "effectSummary": "A spoken command word within 100 feet automatically awakens any creature sleeping under a blanket in the matching set, even if the sleep is magical. One command activates all blankets in the set.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blankets-of-security",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blast-disk-231": {
+      "name": "Blast Disk",
+      "sourceSha256": "4982ed6f280896b022af07fea5fada40f70ee97ae354598d602698f26a351763",
+      "effectSummary": "The disk can be set to explode by proximity or after a delay of up to 10 rounds. It is destroyed when triggered and deals 5d6 fire damage in a 10-foot radius, Reflex DC 14 half; the creature that triggers a proximity setting takes -2 on that save.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blast-disk-231",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blast-globes-232": {
+      "name": "Blast Globes",
+      "sourceSha256": "0a8a7cb983023136e55942e5fd2387f5dafa3527ac190415075c4dc08079f96a",
+      "effectSummary": "Once per day, one round after activation the globes can be directed to a point within 400 feet, where they explode in a 20-foot radius for 10d6 fire plus 2d6 sonic damage, deafen for 2d6 rounds, and push creatures 1d6 squares. Reflex DC 15 halves fire and negates the push; Fortitude DC 15 negates deafening.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blast-globes-232",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blessed-43": {
+      "name": "Blessed",
+      "sourceSha256": "e9a5856ca5a9acca17301b289af754798086dccc2139883b2e987174be7b4f4d",
+      "effectSummary": "This permanent bless-weapon effect makes the weapon good for overcoming damage reduction and automatically confirms critical threats against evil foes. Automatic confirmation does not apply if the weapon already has a critical-related magical property such as keen or vorpal.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blessed-43",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blight-stone-321": {
+      "name": "Blight Stone",
+      "sourceSha256": "4a103b7d4dec7d55518958f975d068a96867353023591974002a764fdedca7ab",
+      "effectSummary": "Thrown with a 10-foot range increment or hurled from a sling, the stone bursts on impact into a 10-foot-radius cloud that deals 5d6 damage to plants and plant creatures, Fortitude DC 14 half.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blight-stone-321",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blood-claw-choker-226": {
+      "name": "Blood Claw Choker",
+      "sourceSha256": "0a224cf810429a63df3c689393cb486b05d2856e76c8216a835b7080b158b33a",
+      "effectSummary": "Donning the choker deals 1 damage that cannot heal while it is worn, and it continuously grants +2 Constitution. Twice per day, it can restore one already-used sorcerer spell slot of up to 5th level while dealing damage equal to twice the recovered slot's level.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blood-claw-choker-226",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blood-rock": {
+      "name": "Blood Rock",
+      "sourceSha256": "18b0d04208e947636e8e40d3fd79a8406e2e17630821f7cd4c368afbf1bcdf9a",
+      "effectSummary": "After at least 48 hours in place, 5 pounds spread over a 1-foot area doubles the threat range of attacks made by creatures standing on that area. The increase does not stack with Improved Critical, keen edge, or the keen property, and moving the rock to a new area starts a new 48-hour setup period.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blood-rock",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boat-folding-233": {
+      "name": "Boat, Folding",
+      "sourceSha256": "e8dd0f516396bddc434dca6f9be8adaa6e4af965a5bd2d3a5df62f5f1e6294c3",
+      "effectSummary": "By command word, the box unfolds into either a 10-foot boat for four people or a 24-foot ship for fifteen, with the appropriate oars, anchor, mast, sails, and cabin. A third command folds it back into a box; stored objects remain inside the expanded vessel.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boat-folding-233",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bodyfeeder-643": {
+      "name": "Bodyfeeder",
+      "sourceSha256": "614cffabce5e379e05b10de14f6d9d1b022e081ae61eab1bf9ba5acb96c6fe87",
+      "effectSummary": "On a successful critical hit, the wielder gains temporary hit points equal to the total critical-hit damage for 10 minutes. New temporary hit points replace the old amount only if the new value is higher.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bodyfeeder-643",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bone-bracers-of-the-death-deity": {
+      "name": "Bone Bracers of the Death Deity",
+      "sourceSha256": "8618e2c5e24c052b5989b7f1c5a9a239e4bb03ecc8228f4ec26dd292b21ab8fc",
+      "effectSummary": "These bracers of armor +3 can use death ward, desecrate, and unholy blight once per day each. A good wearer gains one negative level while wearing them; that level disappears when they are removed and cannot be restored away while worn.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bone-bracers-of-the-death-deity",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/book-of-blood": {
+      "name": "Book of Blood",
+      "sourceSha256": "ab2a2d1e778dc97230f0b67c576cff89df7f7e6d771fd3a63140c0d28eed5e70",
+      "effectSummary": "This waterproof, fireproof, lockable spellbook holds up to 45 spells. While held, it can summon a yeth hound with summon monster IV once per day and cast finger of death once per day; each finger of death use permanently drains 1 hit point from the wielder.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/book-of-blood",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boots-of-fire-walking": {
+      "name": "Boots of Fire Walking",
+      "sourceSha256": "bd08b8768db644dc0f4304f1524e6c27ba610924ea8b8607cba66e4672e53a3b",
+      "effectSummary": "The wearer can walk on lava as solid ground, climb flames as solid rock with a DC 15 Climb check, and is immune to environmental heat damage. The boots do not protect against attacks that deal fire damage.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-of-fire-walking",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boots-of-gravity": {
+      "name": "Boots of Gravity",
+      "sourceSha256": "adc4b543b3ee91cfaf5d0c20bf03cd382917cce26af715bedf51ef3ca47494ed",
+      "effectSummary": "Once per round as a free action, the wearer can choose the direction of personal gravity and move normally on any solid surface. By choosing a distant surface as down, the wearer can effectively fly at 60 feet per round and can redirect the fall once per round; carried creatures share the altered gravity only while held.",
+      "notes": "Manually reviewed against the verified 803-record item-effect queue after batch 008 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-of-gravity",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    }
+  }
+}
