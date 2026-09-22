@@ -1,0 +1,616 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 50-record batch 108 from the clean 511-record reference-dependent queue. The batch emphasizes source-complete records and a manually reviewed Fiendish Codex II investiture family. Records with unresolved table dependencies, obvious source damage, or deep unexpanded stat-block inheritance were deferred rather than forced.",
+  "entries": {
+    "spells/flaywind-burst-3156": {
+      "name": "Flaywind Burst",
+      "sourceSha256": "667ad3b1c84a3c1b381550c9068b3167f60b836852eb569976fb860b617d4fe0",
+      "effectSummary": "Creates a 60-foot cone of roughly 70-mph supernatural sandstorm winds. Creatures take 1d6 damage per caster level, maximum 10d6, Reflex half, and separately make Fortitude saves against the wind: Small or smaller creatures are knocked down and rolled 1d4×10 feet for 1d4 nonlethal damage per 10 feet, or if flying are blown back 2d6×10 feet for 2d6 nonlethal; Medium creatures are knocked prone or, if flying, blown back 1d6×10 feet; Large or Huge creatures cannot move forward or, if flying, are blown back 1d6×5 feet; Gargantuan or larger creatures move normally. The burst cannot move creatures beyond its range and can briefly produce other windstorm-force sandstorm effects such as obscuring vision, heeling boats, and dispersing gases. Material component: sand and a vulture wing feather.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/flaywind-burst-3156",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/giants-stance-3718": {
+      "name": "Giant's Stance",
+      "sourceSha256": "9c4d5316ddb95beeb1c35cefe1000f3876715ede3088cec7cb9f5ac132ae389e",
+      "effectSummary": "While in this Stone Dragon stance, your weapon and unarmed-strike damage are calculated as though you were one size category larger than normal, to a maximum effective size of Large. This changes only damage dice, not ability scores, AC, reach, or other size effects. The stance ends immediately if you move more than 5 feet for any reason.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/giants-stance-3718",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/gnome-blight-3077": {
+      "name": "Gnome Blight",
+      "sourceSha256": "e206d2115a348a6e0291c2b70764dfa1e6edf8e53665258e2fb9521c62b8953b",
+      "effectSummary": "Creates a thick fog-cloud-like cloud of itchy pollen. Living creatures inside are sickened on a failed save; the condition persists while they remain in the cloud and for 1d4+1 rounds after leaving. A creature that initially succeeds but stays inside must save again each round. Creatures with especially sensitive smell, including gnomes and creatures with scent, take -4 on these saves. Material components: flower pollen and ground mandrake root.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gnome-blight-3077",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        }
+      ]
+    },
+    "spells/golden-dragonmail-308": {
+      "name": "Golden Dragonmail",
+      "sourceSha256": "31ebaab7a8366037d7ad6868acb70fad42cce21a472df3db57edcac1f438cbaf",
+      "effectSummary": "Creates a suit of +1 mithral full plate around you for 1 hour per caster level; you are treated as proficient with it and it uses normal mithral full-plate properties, including arcane spell failure. Removing or destroying the armor ends the spell, and the spell fails if you are already wearing armor. If you are a sorcerer, the armor also grants fire resistance 10. Focus: a gold coin and a mithral dragonscale-shaped piece.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/golden-dragonmail-308",
+          "role": "primary Champions of Valor catalog record and digest source"
+        }
+      ]
+    },
+    "spells/grasping-wall-900": {
+      "name": "Grasping Wall",
+      "sourceSha256": "912eb088c75495f6037b4e4c89aa76553545e48de1b04af12c63151edd865757",
+      "effectSummary": "Causes grasping hands to sprout from an existing wall in up to four 5-foot squares. Opponents adjacent to the affected wall are entangled unless they succeed on Reflex saves and must repeat the save each round they remain adjacent. Allies are not entangled and gain +10 competence on Climb checks to scale the wall. If the spell ends while an ally is climbing, that climber falls but can attempt a normal Climb check to catch itself. Existing doors, windows, objects, and apertures remain usable and unharmed. Material component: a handful of fingernails.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/grasping-wall-900",
+          "role": "primary Complete Scoundrel catalog record and digest source"
+        }
+      ]
+    },
+    "spells/halasters-blacksphere-343": {
+      "name": "Halaster's Blacksphere",
+      "sourceSha256": "5fc68b982c2116ec01fa52a57d9b620af3594251d327c414c63b522a0606eda1",
+      "effectSummary": "Creates a burst of black force dealing 1d6 force damage per caster level, maximum 20d6, and enclosing the affected 10-foot-radius area in a sphere of force. A successful Reflex save halves the damage and avoids entrapment. Trapped creatures can escape only by effects capable of bypassing or destroying a wall of force. The spell can substitute for wall of force when creating a bead of force. Material components: charcoal and onyx.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-blacksphere-343",
+          "role": "primary City of Splendors: Waterdeep catalog record and digest source"
+        }
+      ]
+    },
+    "spells/heralds-call-4700": {
+      "name": "Herald's Call",
+      "sourceSha256": "d1dca462a6bf305749842666a4df58243c958cbfe025863f79bfdfd7dad55590",
+      "effectSummary": "As a swift-action shout, slows every creature of 5 HD or fewer in the 20-foot-radius burst for 1 round on a failed Will save. Creatures outside the burst can hear the call but are unaffected. If an affected creature is under haste, haste is suppressed rather than dispelled for that round.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heralds-call-4700",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/hidden-truename-3434": {
+      "name": "Hidden Truename",
+      "sourceSha256": "391b5981b6ebb4e12fca0679d640bd2cad7d5b45e34b81a23b9dc0dafccb62f1",
+      "effectSummary": "Protects a creature whose personal truename you correctly speak. The subject gains +2 on saves against utterances, and anyone researching that subject's personal truename takes -8 on the required Knowledge check. The subject's personal truename is a required truename component.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hidden-truename-3434",
+          "role": "primary Tome of Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/hypnotism-2560": {
+      "name": "Hypnotism",
+      "sourceSha256": "f7803774ae405b4bd2158efb9f1bb76bcdf7825b91589b8ff6b84bdde97a1082",
+      "effectSummary": "Fascinates 2d4 total Hit Dice of creatures that can see or hear you, affecting lower-HD creatures first. Targets in combat gain +2 on the save; if exactly one noncombat creature is targeted, it takes -2. A fascinated subject treats its attitude toward you as two steps friendlier, allowing one brief reasonable request if communication is possible. After the spell ends, that improved attitude remains only with respect to the specific request. A creature that fails the save does not remember being enchanted.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hypnotism-2560",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/iceberg-1274": {
+      "name": "Iceberg",
+      "sourceSha256": "335977645c58e5941145e3418bf58d9ead7b0f35cbd765bc9bdf88e09458add2",
+      "effectSummary": "Drops a massive block of ice that shatters at the chosen point. Creatures and objects within 20 feet take 20d6 crushing damage with no save and are buried in snow. From 20 to 40 feet they take 20d6 crushing damage, Reflex half, and are buried. From 40 to 60 feet they take 10d6 damage from flying debris, Reflex half, and are not buried.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/iceberg-1274",
+          "role": "primary Frostburn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/illusory-script-2673": {
+      "name": "Illusory Script",
+      "sourceSha256": "17df4015bda71047cf90b1182567e789ff9581221fe35d361d3d8c756739dfb9",
+      "effectSummary": "Writes a message that appears as unintelligible foreign or magical script to anyone except creatures you designate when casting. An unauthorized reader must save: success lets it look away with mild disorientation; failure subjects it to a suggestion you embedded in the script for 30 minutes. An illusionist recognizes the writing as illusory script. Dispel magic destroys both script and hidden message; true seeing combined with read magic or comprehend languages reveals the message. Casting takes at least 1 minute and scales with message length. Material component: lead-based ink worth at least 50 gp.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/illusory-script-2673",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/imbue-familiar-with-spell-ability-3889": {
+      "name": "Imbue Familiar With Spell Ability",
+      "sourceSha256": "1a3e82e658ba75ee66c831b5c380b7c62dfe07c49261dd7507d49ffcde1a5517",
+      "effectSummary": "Transfers spells and the ability to cast them into your familiar. A spontaneous caster can transfer known spells; a prepared caster can transfer currently prepared spells. You can transfer one spell per three caster levels, each no higher than one-third caster level rounded down, maximum 5th level; repeated castings do not raise these limits. The original spell slot used to cast this spell and the transferred spell slots remain unavailable until the familiar casts the transferred spells or the effect ends. Dispelling loses the transferred spells as though cast; antimagic suppresses their use. Ranges, durations, and other level-dependent values use your level. You supply required material/focus components and pay any XP costs when the familiar casts.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/imbue-familiar-with-spell-ability-3889",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/infernal-transformation-lesser-3907": {
+      "name": "Infernal Transformation, Lesser",
+      "sourceSha256": "026085539b0b0c8580da81bd1fb9f5d62811d1e8eb850adcc1806675e4c19576",
+      "effectSummary": "Transforms you into a bearded-devil-like form. Your type becomes outsider with the baatezu, evil, and lawful subtypes; your size becomes Medium with 5-foot space and reach. You gain +2 profane Strength and Constitution, darkvision 60 feet, and Infernal language. During a full attack you can make one additional beard attack at your highest attack bonus for 1d8 + Strength damage; it counts as evil for overcoming damage reduction and forces a Fortitude save against devil chills disease.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/infernal-transformation-lesser-3907",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/insidious-suggestion-4821": {
+      "name": "Insidious Suggestion",
+      "sourceSha256": "025d448856bb27911c341d947a5709ccaec24372d52900e9b392afd6994b10ab",
+      "effectSummary": "Functions as suggestion, but if the target initially saves, the same suggestion repeats on each of your subsequent turns for up to 1 round per caster level until a save fails. Once affected, the target follows the specified course for up to 1 hour per caster level or until completed. Gnome casters use +1 caster level. While this spell is prepared, its mindset grants +2 competence on Bluff, Diplomacy, and Intimidate checks.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/insidious-suggestion-4821",
+          "role": "primary Races of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/intensify-manifest-zone-4905": {
+      "name": "Intensify Manifest Zone",
+      "sourceSha256": "4f1c47987d9449cd2212298fc56ac41996240e5bc8fa4a5b12672edf6f137b8f",
+      "effectSummary": "Permanently intensifies an existing manifest zone by one step. A ringed zone takes on the effects of its next innermost ring; the innermost ring instead gains one additional trait of its associated plane. A uniform zone gains one planar trait of your choice. A zone or ring cannot be intensified again by another casting. The effect cannot be dispelled but can be removed by limited wish, miracle, planar bubble, or wish. Focus: 500 gp of material associated with the plane. XP cost: 500.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/intensify-manifest-zone-4905",
+          "role": "primary Faiths of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/omen-peril-4600": {
+      "name": "Omen of Peril",
+      "sourceSha256": "97cfe1f8a01d216cb3b1fe7ff2616b0bbdc8d51a71760eb60388cdc1e7ac04b5",
+      "effectSummary": "Provides a brief omen about the danger likely over the next hour along your current course: safety, peril, or great danger. Accuracy is 70% +1% per caster level, maximum 90%, rolled secretly by the DM; failure produces one of the two incorrect results, so you do not automatically know it failed. The omen indicates only overall danger level, not a specific threat or answer to a question. Focus: marked sticks, bones, or similar tokens worth at least 25 gp.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/omen-peril-4600",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/oozepuppet-1165": {
+      "name": "Oozepuppet",
+      "sourceSha256": "2bff18aae6dffdcb3f502f01bd0e8685a9e9d980640504f99dfb0a424bf0f964",
+      "effectSummary": "On a failed Fortitude save, telekinetically controls one ooze. You must retain line of sight to direct it, but same-plane distance otherwise does not matter and scrying can provide the required sight. Directing a full round of the ooze's movement, attacks, and other actions costs you a move action; when not directed it is held immobile. Forcing a self-destructive action grants the ooze a new Fortitude save to end the control. The spell ends if caster and ooze are on different planes.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/oozepuppet-1165",
+          "role": "primary Fiendish Codex I: Hordes of the Abyss catalog record and digest source"
+        }
+      ]
+    },
+    "spells/otilukes-freezing-sphere-2636": {
+      "name": "Otiluke's Freezing Sphere",
+      "sourceSha256": "5e85a09fbd2ba2893523c1b557b878985b701bba40213c316524cd1e494853e3",
+      "effectSummary": "Fires a cold globe that bursts in a 10-foot radius for 1d6 cold damage per caster level, maximum 15d6; water elementals instead take 1d8 per caster level, maximum 15d8. If it strikes a principally water liquid, it freezes a 6-inch depth over 100 square feet per caster level, maximum 1,500 square feet, for 1 round per caster level; surface swimmers are trapped and need a full-round DC 25 Strength or Escape Artist check to break free. You can hold the globe as a charged touch spell for up to 1 round per level, then fire it later as a standard action; if not fired before that limit, it bursts centered on you with no save for you. Focus: a small crystal sphere.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otilukes-freezing-sphere-2636",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/pact-of-return-1444": {
+      "name": "Pact of Return",
+      "sourceSha256": "2a836c29b3e52a217c29c2d9985213dc258cecfc942b03c0acff49ee55525a2d",
+      "effectSummary": "When cast, name either a specific creature or sufficiently specific circumstances you expect to cause your death. If you actually die within the duration and that named creature or circumstance played the required role, you are instantly resurrected with no level loss. The DM judges whether stated circumstances are specific enough and whether the actual death matches them. Multiple pacts can coexist if each has a different trigger, and an untriggered pact remains a dispellable magical effect.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/pact-of-return-1444",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        }
+      ]
+    },
+    "spells/perinarch-4621": {
+      "name": "Perinarch",
+      "sourceSha256": "08687c1bd252cc8524080460d5c7c7cc9fb4887097b8a051216d39cf7538098e",
+      "effectSummary": "Grants automatic control over raw, unstabilized Limbo within close range, preventing others from wresting that controlled area away while the spell lasts. Once per round as a standard action you can add or subtract one basic element and crudely reshape the area. Allies can yield their existing control to you. Moving more than 100 feet from the controlled area causes your imposed order to fade. The spell can form crude mixed-element effects such as thick terrain that reduces speed to 5 feet (10 for Large+), a fiery barrier dealing 3d10 fire damage when crossed and each round occupied, or up to a 1-foot-thick solid-stone enclosure. Foes caught when you seize a new area can Reflex-save to escape it.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/perinarch-4621",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/permeable-form-1545": {
+      "name": "Permeable Form",
+      "sourceSha256": "6d16f875908058c1a53456c97edf54386c8bbe39f6162b9e49d5acbbe15648dd",
+      "effectSummary": "As an immediate action, makes you incorporeal for the spell's brief duration. Corporeal-source spells and magic weapons have a 50% chance to fail to damage you except positive energy, negative energy, force effects, and ghost touch attacks; you can pass through solid objects under incorporeal rules. You cannot attack while incorporeal but can take other actions that state allows. Because it is immediate, it can be cast outside your turn and counts against your one swift/immediate/quickened action for the turn.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/permeable-form-1545",
+          "role": "primary Lords of Madness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/phantasmal-thief-4625": {
+      "name": "Phantasmal Thief",
+      "sourceSha256": "4cf754d5d3b7d31e479f55e62e36a958013a32b7784c9432f30e623ede81cfb6",
+      "effectSummary": "Creates an invisible force that you direct as a free action to steal or retrieve objects weighing up to 1 pound per caster level. It has Hide and Move Silently modifiers equal to caster level, can steal unattended items or items a creature possesses but is not holding or wearing, can reach into containers such as a bag of holding, and takes 1 round to steal an item plus 1 round to bring it to you. It holds one object at a time, making that object invisible. If detected by the victim it cannot take the item that round, but can retry. It cannot be harmed, only dispelled. It can attempt a disarm using your caster level as its check bonus; after delivering an item stolen by disarm, it disappears. Material component: green thread.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantasmal-thief-4625",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/phoenix-fire-91": {
+      "name": "Phoenix Fire",
+      "sourceSha256": "c10b987988658de9d86029d8e06778c6fbd6e7686435fdf7c4ee8a5a8dcc7aa7",
+      "effectSummary": "You immolate yourself and die, creating a flame cloud 20 feet high and 30 feet in diameter. Evil creatures in the cloud take 2d6 damage per caster level, maximum 40d6; neutral creatures take half that amount before a Reflex-half save, and good creatures take none. Half the damage is fire and half is divine power not reduced by fire resistance. Ten minutes later you rise from the ashes as though restored by resurrection. Focus: a 40 gp phoenix tail feather. The spell's sacrifice is your death and the level loss suffered on returning.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phoenix-fire-91",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    },
+    "spells/plague-rats-654": {
+      "name": "Plague of Rats",
+      "sourceSha256": "2f0b41af294f7cc2b79b7212a9c6e47a0f6ef4bd5deaaef4466ca66161836d3c",
+      "effectSummary": "Summons one rat swarm per two caster levels, maximum six at 12th level. The swarms must form a contiguous group, can be placed in occupied spaces, and each attacks creatures sharing its space. Once summoned, the swarms remain stationary rather than pursuing creatures that flee.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-rats-654",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/plague-undead-4632": {
+      "name": "Plague of Undead",
+      "sourceSha256": "4703885afd581de3f7174164c014c4e3bdfed6cf4540226de77d190564235e8f",
+      "effectSummary": "Instantly animates corpses as skeletons or zombies with maximum hit points for their Hit Dice. A single casting can create no more than four times your caster level in undead HD. Created undead remain animated until destroyed and, if you can control them, obey spoken commands. Your total control limit is 4 HD per caster level shared with animate dead; newly created undead enter your control first and excess previously controlled undead become uncontrolled. Material component: black onyx gems worth at least 25 gp per HD animated.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-undead-4632",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/portal-reformat-3513": {
+      "name": "Portal Reformat",
+      "sourceSha256": "4e058c7cc7d583c75ec73d63d75c1e564450539e2a4266ac77e10d5966f99a0d",
+      "effectSummary": "Permanently adds or removes activation keys from a portal whose properties you have already learned, such as through analyze portal. Removing a key can make the portal unusable without it or universally usable, and can remove one behavior from a variable portal. Adding a key makes activation require a specified object/type or another permitted portal-key condition; when an object is designated, you must possess it during casting. The spell changes activation requirements rather than the portal's destination unless the original key controlled destination behavior.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/portal-reformat-3513",
+          "role": "primary Underdark catalog record and digest source"
+        }
+      ]
+    },
+    "spells/portal-stabilization-3514": {
+      "name": "Portal Stabilization",
+      "sourceSha256": "a4ef13c11bbaa498b179dd38ff93330245eab549167c6f2a82f34045fbcfa69c",
+      "effectSummary": "Temporarily stabilizes a malfunctioning portal. Each time the portal activates during the spell, including immediately for a continuously active portal, add +30 percentage points to the roll used on the portal-malfunction table, making a safer result more likely.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/portal-stabilization-3514",
+          "role": "primary Underdark catalog record and digest source"
+        }
+      ]
+    },
+    "spells/reaving-dispel-444": {
+      "name": "Reaving Dispel",
+      "sourceSha256": "2bbc0fe785380bb54a3a6fdf6b4717462861db105c4b99d4ab01d5b9ad904cc1",
+      "effectSummary": "Functions as dispel magic with a +25 maximum caster-level bonus and can also dispel effects removable by remove curse. With a targeted dispel, you can identify ongoing effects using Spellcraft DC 25 + spell level and choose to reave each successfully dispelled spell so its remaining effect transfers to you as though the original caster had cast it on you, preserving duration; dismissible or concentration effects become yours to dismiss or maintain. Harmful reaved spells allow the same save the original target had but ignore your spell resistance. When used to counterspell, a successfully reaved spell can be redirected to legal new targets or area after the enemy finishes casting. Area dispels gain the higher cap but cannot reave effects.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reaving-dispel-444",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/replicate-casting-4095": {
+      "name": "Replicate Casting",
+      "sourceSha256": "38000736cd405071acaabada7aeff85a1ec1f4ec65ad7615ebf3a1e0331bd0f1",
+      "effectSummary": "Duplicates any one spell or spell-like ability of 8th level or lower that you saw within the previous round. The copy works as though you had the appropriate spell prepared and cast it yourself, without the normal wish duplication restrictions on arcane/divine type or school. If the observed effect takes longer than 1 round to cast, replicate casting uses that longer casting time. You pay any XP cost; costly material components must be supplied or replaced by an additional XP cost equal to their gp value divided by 5.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/replicate-casting-4095",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/revivify-1958": {
+      "name": "Revivify",
+      "sourceSha256": "e43ca74fa467075ade9971c774a93919d2021661050fcb8337a714add8c01db3",
+      "effectSummary": "Restores a creature that died no more than 1 round ago, otherwise following raise dead's return-to-life framework. The returned creature suffers no level loss, Constitution loss, or spell loss and returns stable at -1 hp. Material component: diamonds worth at least 1,000 gp.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/revivify-1958",
+          "role": "primary Miniatures Handbook catalog record and digest source"
+        }
+      ]
+    },
+    "spells/righteous-aura-1944": {
+      "name": "Righteous Aura",
+      "sourceSha256": "18aa23ace02fb0680fd7bf09b6eb5f0e7a465a1f95ffa4809ca0f3bfe123121d",
+      "effectSummary": "For 1 hour per caster level, you glow as though under daylight and gain +4 sacred Charisma. If you die while it is active, your body explodes in a 20-foot-radius burst: nongood creatures take 2d6 damage per caster level, maximum 20d6, Reflex half; good creatures are healed by the same amount; undead take double damage. Spell resistance does not apply. Your body is disintegrated, preventing raise dead but still allowing effects such as true resurrection.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/righteous-aura-1944",
+          "role": "primary Miniatures Handbook catalog record and digest source"
+        }
+      ]
+    },
+    "spells/screen-2696": {
+      "name": "Screen",
+      "sourceSha256": "3b8b23ac088812afb5b0154d06039fa77fa8b511df40151ed47966915947fb7f",
+      "effectSummary": "For 1 day, cloaks a large area with a programmed visual-and-auditory glamer and false scrying result. At casting you describe in general terms what observers and divinations should perceive; the conditions cannot later be changed. Scrying automatically sees and hears the programmed scene with no save. Direct observers can receive a Will disbelief save when they have reason to suspect the illusion, but entering the area does not itself end the effect or automatically grant a save.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/screen-2696",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shield-of-the-archons-12": {
+      "name": "Shield of the Archons",
+      "sourceSha256": "cf0a6d0abbd801bee235b1c261516028588a3c73df3fcbed980092766622c03c",
+      "effectSummary": "Creates a protective mystic shield that intercepts the first directly targeted harmful spell, spell-like ability, or supernatural ability to hit you each round and dissipates it. The blocked attack has a 5% chance per spell level to shatter the shield; an attack without a spell level uses 5% per two caster levels. Even an attack that shatters the shield is negated. Harmful area or effect magic that is not directly targeted at you is not blocked, but you gain +4 on its saving throw.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shield-of-the-archons-12",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spear-of-valarian-116": {
+      "name": "Spear of Valarian",
+      "sourceSha256": "a84921c9fdafe26fffcb31e8594c2d9b12558d9da2bdbcd5a04c97225334f741",
+      "effectSummary": "Transforms one drawn nonmagical weapon you carry into a shimmering +1 silvered spear. Against magical beasts it functions as a +3 silvered bane spear, gaining the bane property's +2d6 bonus damage in addition to the higher enhancement. If sundered, the original weapon breaks as the spell ends; if the wielder relinquishes the spear for any reason, it immediately reverts and the spell ends.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spear-of-valarian-116",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spiritjaws-3540": {
+      "name": "Spiritjaws",
+      "sourceSha256": "e2f3b7eaaa2c10b27b191fd1de76d66f84722840c24f2e1c1f7b0e4cb95d235d",
+      "effectSummary": "Creates force jaws that attack the designated creature immediately and each round. Their attack bonus is your base attack bonus + Wisdom modifier; multiple attacks become available in later rounds if your BAB grants them. A hit deals 2d6 and starts a grapple as a free action with grapple bonus equal to attack bonus +4; later successful grapple checks deal 2d6 and immobilize the target under normal grapple restrictions. You can direct the jaws to pin instead of damage, or spend a move action after the first round to change targets, receiving one attack on the switching round. The jaws cannot be damaged, but disintegrate or a sphere of annihilation destroys them; they vanish if moved beyond range or you cannot command them.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spiritjaws-3540",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/water-to-poison-2132": {
+      "name": "Water to Poison",
+      "sourceSha256": "a89fc5f1ce7146cb8ebd5b494a40a3bb2dda0798470f2787d3da8f1284700256",
+      "effectSummary": "Instantly converts the targeted volume of water into an equal volume of ingested poison. The poison save DC is 15 + your Intelligence modifier, its initial damage is 1 temporary Constitution, and its secondary damage is 1d8 temporary Constitution. One swallow is sufficient; consuming more does not increase the effect. Material component: a poisonous snake fang.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/water-to-poison-2132",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/weapon-of-energy-3244": {
+      "name": "Weapon of Energy",
+      "sourceSha256": "f41a76029f63bf367343c41e40be66e182e4c49e6c7e775cc43d9d4bcb57916d",
+      "effectSummary": "For 1 round per caster level, a weapon deals an extra 1d6 acid, cold, electricity, fire, or sonic damage chosen at casting. On a critical hit it deals an additional 1d10 energy damage, or 2d10 for ×3 weapons and 3d10 for ×4 weapons. It can be cast on an already energy-damaging weapon, but damage of the same energy type does not stack in this printing. The spell takes the descriptor matching the chosen energy.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-of-energy-3244",
+          "role": "primary Savage Species catalog record and digest source"
+        }
+      ]
+    },
+    "spells/weapon-of-energy-4762": {
+      "name": "Weapon of Energy",
+      "sourceSha256": "9fb3808b69ebf131e8d22e41ff5d086aa18a39e3831135cfa71d56726fb6810a",
+      "effectSummary": "For 1 round per caster level, a weapon deals an extra 1d6 acid, cold, electricity, or fire damage chosen at casting. On a critical hit it deals an additional 1d10 energy damage, or 2d10 for ×3 weapons and 3d10 for ×4 weapons. Unlike the Savage Species printing, this version explicitly stacks when the weapon already deals the same chosen energy type. The spell takes the descriptor matching the chosen energy.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-of-energy-4762",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wind-walk-2896": {
+      "name": "Wind Walk",
+      "sourceSha256": "635e904a9c87ba1684f587311a639519a3d061e919321fd3bc43d884d0e304e5",
+      "effectSummary": "Transforms you and up to one creature per three caster levels into gaseous, misty forms using gaseous form's defensive and movement restrictions. Each subject normally flies 10 feet with perfect maneuverability or can ride the magical wind up to 600 feet per round with poor maneuverability. Subjects are translucent rather than invisible and, if dressed in white, have an 80% chance to be mistaken for clouds or fog. A subject can switch between physical and cloud form, each transition taking 5 rounds and counting against duration; individual subjects can be dismissed separately. During the final minute, cloud-form subjects automatically descend 60 feet per round as a warning.",
+      "notes": "Manually source-reviewed and digest-locked; the summary preserves the source printing's own mechanics and distinctions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wind-walk-2896",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-amnizu-1174": {
+      "name": "Investiture of the Amnizu",
+      "sourceSha256": "a742b9558e525bc6d13f84f426316e901b5aa9abc3673e570e2f207e08537275",
+      "effectSummary": "Grants fire resistance 5, immunity to effects that damage, drain, or otherwise reduce Intelligence, and a melee touch attack usable once per two caster levels; each touch is a standard action and deals 1d4 Intelligence damage. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-amnizu-1174",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-barbed-devil-1175": {
+      "name": "Investiture of the Barbed Devil",
+      "sourceSha256": "b8faa36098e230de25c7671773b15026d2c2d896c62b36d52391b05d6ad1ad0b",
+      "effectSummary": "Grants fire resistance 10 and barbs. Initiating a grapple no longer provokes attacks of opportunity; if the subject already has improved grab or Improved Grapple, it instead gains +4 profane on grapple checks. Each successful grapple check to grab, pin, or deal damage also inflicts size-based barb damage. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-barbed-devil-1175",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-bearded-devil-1176": {
+      "name": "Investiture of the Bearded Devil",
+      "sourceSha256": "c2fdfcfe113bb1865eaf831d378220c317ced3b350f4ea83f1cd6fb4d657b89a",
+      "effectSummary": "Grants fire resistance 5 and a living beard. In any round the subject hits an adjacent opponent with at least one melee attack, the beard automatically hits that opponent for an extra 2d8 damage. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-bearded-devil-1176",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-chain-devil-1177": {
+      "name": "Investiture of the Chain Devil",
+      "sourceSha256": "15384f221781306a2e8f0417236ed7857b7a36a2cccbfa009a2cf18bbd2350bf",
+      "effectSummary": "Grants fire resistance 5, increases the subject's reach by 5 feet, and increases by one the maximum number of attacks of opportunity it can make each round. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-chain-devil-1177",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-erinyes-1178": {
+      "name": "Investiture of the Erinyes",
+      "sourceSha256": "06522594f860cf0e783d235708ff192ffb1000e0c420671ffc4ab092c0e2e8e2",
+      "effectSummary": "Grants fire resistance 5 and a beckoning compulsion usable once per three caster levels against a clearly seen creature. On a failed Will save, that creature's next action can only be movement toward the subject, although it will not take obviously suicidal movement; once adjacent, it takes no further action that round. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-erinyes-1178",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-harvester-devil-1179": {
+      "name": "Investiture of the Harvester Devil",
+      "sourceSha256": "e5b0325cc3cec8af7f0994cd42912de30011a7b70a667f180e3b0efd84243a2c",
+      "effectSummary": "Grants fire resistance 5 and causes successful melee hits to inflict an infernal wound dealing 1d6 extra damage each round until the victim dies or receives a DC 20 Heal check, a cure spell, or heal. A creature can suffer ongoing damage from only one such wound at a time. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-harvester-devil-1179",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-horned-devil-1181": {
+      "name": "Investiture of the Horned Devil",
+      "sourceSha256": "5183f7a6812b71845ab61a99ef4f953f491d288806e9578fde02f9eebe5317e0",
+      "effectSummary": "Grants fire resistance 10. The first melee attack the subject lands on a living creature each round forces that creature to make a Will save or be stunned for 1 round. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-horned-devil-1181",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-ice-devil-1182": {
+      "name": "Investiture of the Ice Devil",
+      "sourceSha256": "b140ef5499444325859323648d9207def18890a026a64bb23a1dace7738c11e2",
+      "effectSummary": "Grants cold resistance 10 and fire resistance 10. Every successful weapon or natural-weapon melee hit deals +1d6 cold damage and forces a living target to make a Will save or be slowed for 3 rounds. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-ice-devil-1182",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-pit-fiend-1186": {
+      "name": "Investiture of the Pit Fiend",
+      "sourceSha256": "389bc31e2b3f1f3953953f165ef1e83753ef407f69783f9395c68e43d59ee3dd",
+      "effectSummary": "Grants fly speed 60 feet with average maneuverability, immunity to poison, and fire resistance 20. At the beginning of each round the subject chooses one aspect: Tyranny grants two 2d6 primary claw attacks and two 2d6 secondary wing attacks using character level/HD as BAB, with only -2 on the secondary attacks when using only these natural weapons; Pestilence lets a standard-action 10-foot burst force Fortitude or deal 2 Strength damage; Terror lets a standard-action 10-foot mind-affecting fear burst force Will or frighten creatures for 2 rounds. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-pit-fiend-1186",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-spined-devil-1187": {
+      "name": "Investiture of the Spined Devil",
+      "sourceSha256": "592e703245714e69b8b5149d3612842ddf88590367279e012ac352e1c0ce3402",
+      "effectSummary": "Grants fire resistance 5 and lets the subject fire up to three spines as a standard action, each using its own attack roll, dealing 1d6 + Strength damage, with 60-foot range and no increment. Different targets are allowed if all are within 30 feet of one another. At most fifteen spines can be launched per casting. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-spined-devil-1187",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-steel-devil-1188": {
+      "name": "Investiture of the Steel Devil",
+      "sourceSha256": "8649e78d542357c16c4be232e2b775edc81f0cb7c934aae3f9b53fda9983ed3a",
+      "effectSummary": "Grants fire resistance 5 and +3 profane on attack rolls and AC. That profane bonus increases by 1 for every adjacent creature also under investiture of the steel devil. The subject is treated as vulnerable to evil-outsider-bane weapons, gains the listed fire resistance which stacks with other different evil investiture spells but not another copy of itself, and becomes fatigued for 1 minute when the spell ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually reviewed as part of the complete Fiendish Codex II evil-investiture family; shared bane, stacking-resistance, post-duration fatigue, and brimstone-component rules are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-steel-devil-1188",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "961be89ed843fbfcc844ab34126c1f1091fbd4ab",
+    "workflowRun": 35703024517,
+    "validationRun": 35703028902,
+    "classificationArtifact": 10683670386,
+    "classificationArtifactSha256": "5fe58df3595929f11e4ca5e9c22b4ce92d3f831ce0aa2d218c3b5fce41389ba5",
+    "queueCountBefore": 511,
+    "referenceQueueCountBefore": 511,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
