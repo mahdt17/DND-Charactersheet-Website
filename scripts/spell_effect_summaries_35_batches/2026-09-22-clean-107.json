@@ -1,0 +1,632 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 50-record batch 107 from the clean 561-record reference-dependent queue. Twenty-four safe candidates were carried forward after a concurrent batch 106 claimed overlapping records; twenty-six additional records were selected from the fresh post-106 artifact. The batch avoids truncated sources, unresolved cross-edition inheritance, table-driven records, and summon/stat-block-heavy candidates.",
+  "entries": {
+    "spells/rejuvenating-light-599": {
+      "name": "Rejuvenating Light",
+      "sourceSha256": "0484a6e73906119301e6b1be241c321726b51e073db5545c2b3146812e4baf71",
+      "effectSummary": "For 1 minute per caster level, the touched object shines as daylight. Living creatures in the 60-foot bright-light radius gain fast healing 1 while inside it. Undead in the bright light take 1d6 positive-energy damage each round, or 2d6 if especially vulnerable to sunlight; a Fortitude save negates that round's damage and spell resistance applies. It counters and dispels darkness spells of equal or lower level.",
+      "notes": "Self-contained 3.5-era effect; the daylight comparison only defines illumination.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rejuvenating-light-599",
+          "role": "primary Complete Champion catalog record and digest source"
+        }
+      ]
+    },
+    "spells/harm-2741": {
+      "name": "Harm",
+      "sourceSha256": "55ac93f08ce3e777be9f9c4d218234bfb0f679d83c2bec98db6cad2d64052145",
+      "effectSummary": "On a touch, deals 10 points of negative-energy damage per caster level, maximum 150. A successful Will save halves the damage, and on a successful save the spell cannot reduce the target below 1 hp. Against undead, it instead functions as heal.",
+      "notes": "Heal was locked in batch 105.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/harm-2741",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "Player's Handbook v.3.5 source for inherited Heal mechanics"
+        }
+      ]
+    },
+    "spells/terra-cotta-lion-570": {
+      "name": "Terra Cotta Lion",
+      "sourceSha256": "3639224a72f32f7efca9ab9f57386e6f643045282fcda5717d0b23bc133af4d1",
+      "effectSummary": "For 1 round per caster level, animates a terra-cotta foo-lion statuette into a Huge construct with 90 hp, AC 13, hardness 6, speed 30 feet, slam +9, and 2d6+7 slam damage. It otherwise follows terra cotta warrior's command behavior and has none of the Monster Manual animated-object special attack forms. Focus: a terra-cotta foo-lion statuette up to 1 foot tall worth 10 gp.",
+      "notes": "Terra Cotta Warrior was locked in batch 105.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/terra-cotta-lion-570",
+          "role": "primary Complete Arcane catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/terra-cotta-warrior-571",
+          "role": "Complete Arcane source for inherited Terra Cotta Warrior mechanics"
+        }
+      ]
+    },
+    "spells/mold-touch-2227": {
+      "name": "Mold Touch",
+      "sourceSha256": "25e4bb4c97fb13ff71e8fad446ba19e802383d76d727c5d434482fd95bd3a94a",
+      "effectSummary": "Instantly creates a 5-foot-diameter patch of brown mold centered on the touched point; placing it on a living creature requires a melee touch attack. Every living creature within 5 feet takes 3d6 nonlethal cold damage each round. Fire brought within 5 feet instantly doubles the patch's size, while cold damage instantly destroys it.",
+      "notes": "Source text includes the brown-mold mechanics needed for play.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mold-touch-2227",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/insect-plague-2402": {
+      "name": "Insect Plague",
+      "sourceSha256": "047186d5da1ee7364a4e8608ff6a470240281011f30cb855e99b1d7cad5eaa6e",
+      "effectSummary": "Summons one locust swarm per three caster levels, maximum six at 18th level, for 1 minute per caster level. The swarms must form one contiguous area, can be placed in occupied spaces, attack creatures sharing their spaces, and remain stationary rather than pursuing fleeing creatures.",
+      "notes": "The Monster Manual supplies only the locust-swarm stat block; spell-specific behavior is source-complete.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/insect-plague-2402",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/nixies-grace-4598": {
+      "name": "Nixie's Grace",
+      "sourceSha256": "89dafed93581a0ee2e4a7c4344978739826c2004822eb402d95848ff5c320e30",
+      "effectSummary": "For 10 minutes per caster level, grants swim speed 30 feet, water breathing, low-light vision, DR 5/cold iron, +6 enhancement Dexterity, +2 enhancement Wisdom, and +8 enhancement Charisma. Focus: a lock of nixie hair freely given by a nixie.",
+      "notes": "Self-contained personal transformation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nixies-grace-4598",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/lively-step-2287": {
+      "name": "Lively Step",
+      "sourceSha256": "7f83d42d008f099266d9b200e35f4dd572791c5a752d9acaf22fc9eda78dc11d",
+      "effectSummary": "While you perform only move actions, you and allies within 30 feet move 10 feet faster than normal. Affected creatures can also hustle during overland movement for 1 extra hour per day per caster level, though this does not remove forced-march penalties for traveling more than 8 hours in a day. Focus: a small drum.",
+      "notes": "Source-complete movement benefit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lively-step-2287",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stinking-cloud-2438": {
+      "name": "Stinking Cloud",
+      "sourceSha256": "8362a25940d16e6c0ab22379d52dfc6ae56cc2028cb5a12e5d2f8def33b4ba71",
+      "effectSummary": "Creates a 20-foot-radius, 20-foot-high bank of obscuring fog for 1 round per caster level. Living creatures in the cloud must save each round or become nauseated; nausea lasts while they remain inside and for 1d4+1 rounds after leaving. The spell can be made permanent, and a permanent cloud dispersed by wind reforms in 10 minutes. Material component: a rotten egg or skunk-cabbage leaves.",
+      "notes": "Source-complete nausea and persistence rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stinking-cloud-2438",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/steal-size-3109": {
+      "name": "Steal Size",
+      "sourceSha256": "6dc57cab70e00d669493df4eef890f9bebc7079a8a261545ddf346a995cf4060",
+      "effectSummary": "For 1 minute per caster level, a larger humanoid that fails Fortitude shrinks one size category as reduce person while you grow one size category as enlarge person. The target's dimensions halve and weight is divided by eight; yours double and weight is multiplied by eight. If the effect ends for either creature, it ends for both. Material component: powdered iron.",
+      "notes": "Both size changes are explicitly defined by the source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/steal-size-3109",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        }
+      ]
+    },
+    "spells/utterdark-1527": {
+      "name": "Utterdark",
+      "sourceSha256": "132b7819159208945f99bcd35e87300a62228ada082b5b374438b4c7faac93f5",
+      "effectSummary": "For 1 hour per caster level, creates cold magical darkness in a 100-foot-per-level-radius spread. It resembles deeper darkness but cannot be dispelled by magical light; equal- or higher-level light only suppresses it where the areas overlap. Evil creatures see within it as though the area were merely dimly lit. Arcane material component: a blood-smeared black stick.",
+      "notes": "Source-complete illumination rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/utterdark-1527",
+          "role": "primary Lords of Madness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/planar-bubble-2140": {
+      "name": "Planar Bubble",
+      "sourceSha256": "26307035107e7b109e59086a3210ed22c53c553ee8c5fa7730ae07acb9f5146c",
+      "effectSummary": "For 10 minutes per caster level, a 10-foot-radius emanation around the touched creature emulates that creature's native planar environment, reproducing relevant gravity, temperature, magic, alignment, and similar planar traits. Material component: silver dust.",
+      "notes": "Printing kept distinct; effect is defined by the subject's native planar traits.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-bubble-2140",
+          "role": "primary Planar Handbook catalog record and digest source"
+        }
+      ]
+    },
+    "spells/planar-bubble-4633": {
+      "name": "Planar Bubble",
+      "sourceSha256": "75cb4098f6b8c2c1fee8fdc3098d450d1f0861f1797d280aace5db129d799a22",
+      "effectSummary": "For 10 minutes per caster level, a 10-foot-radius emanation around the touched creature mimics its native plane's environmental and planar traits, such as gravity, alignment, and enhanced or impeded magic. Arcane material component: silver dust.",
+      "notes": "Later printing kept source-distinct.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-bubble-4633",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/seal-portal-2145": {
+      "name": "Seal Portal",
+      "sourceSha256": "e3ab2730d4875f779bf0fb1df1917a6fc0332fdae9ed23ec97ec524c414c4cb2",
+      "effectSummary": "Permanently seals one interplanar gate or portal against activation until dismissed or broken. Dispel magic can remove it; knock cannot open it; a chime of opening dispels it if the caster level was below 15th. If a gatecrasher successfully forces the portal open, the seal ends and must be recast. Material component: a 50 gp silver bar.",
+      "notes": "Source-complete portal ward.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/seal-portal-2145",
+          "role": "primary Planar Handbook catalog record and digest source"
+        }
+      ]
+    },
+    "spells/prismatic-aura-770": {
+      "name": "Prismatic Aura",
+      "sourceSha256": "ad9588fa9e645a7cc41989c7540cd82be4501e9d469b3532ea7e4513815b94d8",
+      "effectSummary": "For 1 round per caster level or until discharged, grants concealment and surrounds you with seven expendable prismatic colors. A creature that hits you with a nonreach melee weapon is subjected to one random prismatic-spray color; reroll an 8, and once a color is used it disappears and cannot be selected again. Applicable saves and spell resistance apply. The aura ends after all seven colors are expended.",
+      "notes": "The prismatic-spray table defines the seven standard color effects; this record fully specifies aura use and depletion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-aura-770",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/oath-of-blood-1443": {
+      "name": "Oath of Blood",
+      "sourceSha256": "b7d5add5883f960b799c85aa43f72177c5a82d02aa7c421e6e1e91a44b0cfd84",
+      "effectSummary": "Cast on a living creature recently placed under a geas or similar compulsion, extends that obligation beyond death. If the subject dies before completing the task, it is animated as an undead creature of a type determined by your caster level as for create undead and continues the quest. When the task is completed or the original geas expires, the animation ends and the subject returns to death. Material component: grave dirt and powdered onyx worth at least 40 gp per target HD.",
+      "notes": "Source-complete geas-after-death behavior.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/oath-of-blood-1443",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        }
+      ]
+    },
+    "spells/protege-4664": {
+      "name": "Protégé",
+      "sourceSha256": "fe8145ff63b353f20a3443ed3b376777a1b7303016405b392e2f174dad33ee9b",
+      "effectSummary": "For 1 minute per caster level, a creature with Intelligence 3+ functions as a bard of one-half your current bard level for bardic music and bardic knowledge only. It gains no spellcasting or new spell access. For Perform checks and bardic-music prerequisites, it uses its own Perform ranks or half your ranks, whichever is better, with its own Charisma modifier.",
+      "notes": "Self-contained bardic-ability transfer.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/protege-4664",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ice-flowers-3881": {
+      "name": "Ice Flowers",
+      "sourceSha256": "d22788d4fb5bd7bd3d21fa3c69bec19696ae93681f12323c4d1f58f2926ab87a",
+      "effectSummary": "At long range, a 20-foot-radius burst erupts from a point on the ground, dealing 1d6 damage per caster level, maximum 15d6, Reflex half; half the damage is cold. The eruption leaves dense rubble in the area. It has no effect in desert terrain or on solid stone.",
+      "notes": "Source-complete area-damage and terrain effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-flowers-3881",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/overwhelming-revelations-4847": {
+      "name": "Overwhelming Revelations",
+      "sourceSha256": "8dda6ef3096072240b1f3a6c4da744f625560a6739ac334abfc707941e7e32fc",
+      "effectSummary": "Creatures in a 20-foot-radius burst take a 2d6 penalty to Wisdom and are confused for 1 round. A successful Will save halves the Wisdom penalty and negates confusion. Characters with Dragon Prophesier are immune and can instead enter prophetic favor as an immediate action by spending a daily use; dragonmarked characters take -2 on the save. Material component: an adult-or-older dragon scale.",
+      "notes": "Self-contained Prophecy effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/overwhelming-revelations-4847",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spawn-screen-4199": {
+      "name": "Spawn Screen",
+      "sourceSha256": "b4b5e0701fd489d35d6fc9d61ea3b9ced10a27b3871ce089f667903a2b343f16",
+      "effectSummary": "For 1 hour per caster level, protects up to one creature per caster level from becoming undead spawn if killed by an attack that would normally create spawn. It does not prevent death or otherwise protect the body, and it must already be active when the subject dies; it cannot be cast retroactively on a corpse.",
+      "notes": "Self-contained anti-spawn protection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spawn-screen-4199",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/renewal-pact-659": {
+      "name": "Renewal Pact",
+      "sourceSha256": "3f6b8127f4964e01debcf997bfd8116ba0b87630fb2b124b5b7826707ec96184",
+      "effectSummary": "Creates a permanent-until-triggered pact on one willing living creature. One round after the target first suffers ability damage, blindness, confusion, daze, dazzle, deafness, disease, exhaustion, fatigue, feeblemind, insanity, nausea, sickness, stunning, or poison, it receives a heal effect at your caster level. Only one renewal pact can affect a creature; a new one replaces an untriggered older pact. XP cost: 500.",
+      "notes": "Heal was locked in batch 105.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/renewal-pact-659",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "Player's Handbook v.3.5 source for inherited Heal mechanics"
+        }
+      ]
+    },
+    "spells/leomunds-billet-1402": {
+      "name": "Leomund's Billet",
+      "sourceSha256": "4d4624c914101004b482eec0f49d55b8c992366bd478e7e7f2fcb20305d2f3b1",
+      "effectSummary": "For 2 hours per caster level, creates a 20-by-80-foot nonmagically protected billet for up to forty troops. It has barred doors and shuttered windows, forty bunks, two tables with stools, two burning fireplaces with one night's wood, forty loaves of bread, and two pots of hot gruel. Material components are small samples of stone, lime, iron, wood, flour, water, and dried beef.",
+      "notes": "Source-complete temporary structure.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/leomunds-billet-1402",
+          "role": "primary Heroes of Battle catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sink-3365": {
+      "name": "Sink",
+      "sourceSha256": "dc0a32f59cc1844e4f675bdf3e4161294708188913e41e0de46d1a0e43cdce28",
+      "effectSummary": "For 1 minute per caster level, a living creature that fails Fortitude loses buoyancy in waterlike liquids. Each round it needs Swim DC 25 merely to keep its head above water or DC 30 to move 5 feet; failing by 5 submerges it and failing by 10 also sinks it 5 feet. Surfacing 5 feet requires DC 25. A creature with a swim speed instead loses 10 feet of swim speed, minimum 5, and sinks 5 feet at turn end unless it makes DC 25. Sink counters and dispels wave blessing.",
+      "notes": "Source-complete buoyancy and Swim-check rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sink-3365",
+          "role": "primary Stormwrack catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tortoise-shell-753": {
+      "name": "Tortoise Shell",
+      "sourceSha256": "8ac97fe27eac6845fbe29f500a96451cde7037b247e7ddae1f24ab5730f4f282",
+      "effectSummary": "For 10 minutes per caster level, grants +6 enhancement to existing natural armor, increasing by +1 per three caster levels above 11th to +9 at 20th. It stacks with natural armor but not other enhancement bonuses to natural armor. The subject moves as though wearing heavy armor, but suffers no armor-check penalty or arcane spell-failure chance.",
+      "notes": "Printing kept source-distinct.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tortoise-shell-753",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/revenance-660": {
+      "name": "Revenance",
+      "sourceSha256": "dee962ba14eb3d9e529af321d6c262711ef54854f4fd6f663cc892c099a85263",
+      "effectSummary": "Temporarily restores a dead ally who died no more than 1 round per caster level. The subject functions as though raised by raise dead but loses no level, returns with half normal maximum hit points, is living and can be healed, and dies again when the spell ends. While active, raise dead or resurrection cannot affect it. It gains +1 morale on attacks, damage, saves, and checks against the creature that killed it.",
+      "notes": "Raise Dead was locked in batch 105.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/revenance-660",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "Player's Handbook v.3.5 source for inherited Raise Dead mechanics"
+        }
+      ]
+    },
+    "spells/mastery-of-the-sky-3116": {
+      "name": "Mastery of the Sky",
+      "sourceSha256": "246e8ad299e17fd339d52c2b1efeb0501162c66ba9dfe5a884fae2961e42b2e0",
+      "effectSummary": "For 1 minute per caster level, while airborne you gain +2 competence on attack and damage rolls, perfect maneuverability, and immunity to movement interference from winds below hurricane strength. Windstorm-force air around you makes ranged weapon attacks automatically miss, gives siege weapons -4 to hit, gives melee attacks by Huge-or-smaller creatures a 50% miss chance, and prevents Medium-or-smaller creatures from entering your space. The spell has no effect underwater or in an airless environment.",
+      "notes": "Self-contained aerial defense.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mastery-of-the-sky-3116",
+          "role": "primary Races of the Wild catalog record and digest source"
+        }
+      ]
+    },
+    "spells/watchful-ancestors-4859": {
+      "name": "Watchful Ancestors",
+      "sourceSha256": "ee1eb07324f00c7b297f6f8160b35845e23826db3888a27d23e724e3ee9883d1",
+      "effectSummary": "For 1 minute per caster level, opponents gain no flanking bonus against you as with improved uncanny dodge, using caster level in place of barbarian level to determine whether a rogue can flank for sneak attack. Once during the spell, as an immediate action before rolling, you can add your caster level as an insight bonus to one Reflex save; doing so ends the spell. Arcane material component: a burial-shroud fragment.",
+      "notes": "Self-contained defensive ancestor effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/watchful-ancestors-4859",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/strength-of-the-beast-2296": {
+      "name": "Strength of the Beast",
+      "sourceSha256": "26e7d2d295775594069a58e27c46a476bc4320d4f9db86872c693e0d14755552",
+      "effectSummary": "For 1 round per caster level, a lycanthrope in humanoid form gains the damage reduction, scent quality, and feats of its animal form, plus half each animal-form physical ability adjustment rounded down to the nearest multiple of 2. Control Shape checks take -4 while the spell lasts. Focus: a lock of hair from your animal form.",
+      "notes": "Source-complete lycanthrope transformation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/strength-of-the-beast-2296",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/glimpse-of-the-prophecy-4839": {
+      "name": "Glimpse of the Prophecy",
+      "sourceSha256": "9d95c890c784d28570d7dd8ade0567f75ba9da3a55555c5ef9d5339cea061ddf",
+      "effectSummary": "For 1 hour per caster level or until discharged, grants +1 insight AC and +1 insight on saves. Once, as an immediate action before rolling, you can instead gain an insight bonus equal to half caster level, maximum +10, on one save; this ends the spell. A Dragon Prophesier can alternatively enter prophetic favor as an immediate action, spending a daily use, which also ends the spell. Only one copy can be active at once.",
+      "notes": "Self-contained Prophecy buff.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/glimpse-of-the-prophecy-4839",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wall-of-moonlight-2266": {
+      "name": "Wall of Moonlight",
+      "sourceSha256": "0a99c91f36ca359c1fb564d409855d0ac3f1ab3eeea3aaa1ace39e6140aea5d9",
+      "effectSummary": "For 1 round per caster level, creates an immobile vertical wall up to one 5-foot square per caster level. Undead touching it take 4d12 damage; evil creatures and creatures carrying Shar's or Umberlee's holy symbol take 2d10. Magic items touching it glow with red faerie fire for 1d4+1 rounds. It sheds bright light 20 feet and shadowy light to 40 feet, counters and dispels darkness spells of 4th level or lower within 40 feet, and can be made permanent by a 12th-level caster for 2,000 XP.",
+      "notes": "Source-complete damaging light wall.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-moonlight-2266",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undead-bane-weapon-2298": {
+      "name": "Undead Bane Weapon",
+      "sourceSha256": "f1e681dafc32b344ecddee19704a8d6f6f7aa54ac2280006ff483817ff437776",
+      "effectSummary": "For 1 minute per caster level, one weapon gains undead bane in addition to its existing properties: against undead its enhancement bonus is +2 higher and it deals +2d6 bonus damage. At caster level 9+ it also gains +1 enhancement if otherwise nonmagical. You can instead affect up to fifty same-type arrows, bolts, or bullets; projectiles lose the effect after an attack. The affected weapon counts as good-aligned and glows like a candle.",
+      "notes": "Self-contained weapon enhancement.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undead-bane-weapon-2298",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/transmute-sand-to-glass-3180": {
+      "name": "Transmute Sand to Glass",
+      "sourceSha256": "42c4a4820b7b0521a25212f7b3af5e688db0ef4a1abe729cbdb2494308a22b8e",
+      "effectSummary": "Permanently converts up to two 10-foot cubes of normal sand per caster level into solid glass. Creatures in the sand can Reflex-save to escape; trapped creatures must break free through glass with hardness 1, 1 hp per inch, and break DC 12 +1 per inch. A partially trapped creature takes -2 on attacks, -4 Dexterity, and cannot move; breaking free causes 1d6 damage, and fully buried creatures can suffocate. Arcane material component: crushed glass and sand.",
+      "notes": "Source-complete transformation and entrapment rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/transmute-sand-to-glass-3180",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tree-healing-2236": {
+      "name": "Tree Healing",
+      "sourceSha256": "ee75e10b4a1dd2741ae96ad95ca42aa7855d3926ef45dcbc33cffdb826bcca4a",
+      "effectSummary": "For up to 1 day, you enter a normal tree large enough to contain you. Inside, you need not breathe or eat, regain hit points equal to character level each hour, and gain a heal effect if you remain a full day. The tree gives total cover and environmental protection while you can hear but not see outside. Partial destruction that makes you no longer fit ejects you for 5d6 damage; total destruction ejects you and kills you unless you make Fortitude DC 18.",
+      "notes": "Source-complete healing sanctuary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tree-healing-2236",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/planar-navigation-3336": {
+      "name": "Planar Navigation",
+      "sourceSha256": "06b9c13c5f9a9b3d23522cb81234acc4988b007b4d0a226995c45bc6008cbe57",
+      "effectSummary": "After 1 minute of casting, transports one ship and its contents to another plane. It appears safely on a sufficiently large body of water if possible, automatically in an ocean if the destination has one, or right side up on the ground if no suitable water exists. The spell provides no environmental protection. Unwilling creatures aboard can Will-save to remain behind. Arcane focus: a sextant.",
+      "notes": "Self-contained ship-scale planar transport.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-navigation-3336",
+          "role": "primary Stormwrack catalog record and digest source"
+        }
+      ]
+    },
+    "spells/resinous-tar-787": {
+      "name": "Resinous Tar",
+      "sourceSha256": "d918dc7a2a18ad4e0319a8c6aff1f9ebaed65f0dc0fd0c40261124792d6e5fde",
+      "effectSummary": "For 1 round per caster level, coats a 10-foot square or object in sticky tar. Area movement costs double and a prone creature needs Strength DC 10 to stand. A held object can Reflex-save; once coated, manipulating, dropping, readying, or picking it up takes a full-round action, while the wielder gains +5 against disarm. Coated armor/clothing gives -5 on Escape Artist and grapple checks to resist or escape. It counters and dispels grease. Material component: honey, molasses, or pine resin.",
+      "notes": "Self-contained sticky-surface effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/resinous-tar-787",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/translocation-trick-4314": {
+      "name": "Translocation Trick",
+      "sourceSha256": "27a17fb054283b6efbcf978ae3d08153aa68635c5ee260121d6fa301739d21c5",
+      "effectSummary": "Swaps your location with one creature at medium range as though both used dimension door, and for 10 minutes per caster level disguises each of you as the other with +10 on impersonation Disguise checks. The target can Will-save to negate. The spell fails if either body exceeds dimension door capacity or the forms differ too much for disguise self. True seeing and similar magic reveal identities. When the disguise ends, each creature keeps its current location.",
+      "notes": "Source-complete teleport-and-disguise exchange.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/translocation-trick-4314",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sarcophagus-stone-4125": {
+      "name": "Sarcophagus of Stone",
+      "sourceSha256": "ed051fd2ebe587a1933e26e644f22f1c52527a3b22ffd16c1093066fded1638b",
+      "effectSummary": "Instantly forms an airtight stone coffin around one Medium-or-smaller target that fails Reflex. The 1-inch stone has hardness 8 and 15 hp to break through; the trapped creature has about 1 hour of air before it must hold its breath or suffocate. It can attack the stone with natural or light melee weapons or escape with Strength DC 26. Nonbreathing creatures remain trapped but do not suffocate. Material component: a sarcophagus fragment.",
+      "notes": "Self-contained entrapment rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sarcophagus-stone-4125",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/turn-anathema-611": {
+      "name": "Turn Anathema",
+      "sourceSha256": "c93f736506c73fa3192c6ecf2e37bca3c98c8c48ef297f06a1edae0483c07e27",
+      "effectSummary": "For 10 minutes per caster level, choose a non-neutral component of your alignment; the spell gains that descriptor. You can spend daily turn/rebuke attempts to turn creatures with the opposing alignment subtype as though undead. It affects subtype, not merely alignment, and permits only turning—not rebuking or destroying. A neutral caster chooses a component on first casting and keeps it unless later alignment makes it unsuitable.",
+      "notes": "Self-contained alignment-turning mechanic.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/turn-anathema-611",
+          "role": "primary Complete Champion catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wild-runner-4770": {
+      "name": "Wild Runner",
+      "sourceSha256": "e4bd221b2293c0d61b1971b773d712eb66ac28b103d6c2fdf21c83863fd62b67",
+      "effectSummary": "For 10 minutes per caster level, transforms you into a Large centaur-like monstrous humanoid with 10-foot space, 5-foot reach, Str 18, Dex 14, Con 15, base land speed 50 feet, darkvision 60 feet, and normal retained mental scores and original extraordinary, spell-like, and supernatural abilities. You gain quadruped benefits such as greater carrying capacity and +4 to resist trip, can carry a rider, and can use equipment and cast spells normally.",
+      "notes": "Source-complete centaur transformation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wild-runner-4770",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/possess-animal-2275": {
+      "name": "Possess Animal",
+      "sourceSha256": "cf10ce919c566dd3f5a40ee69578ad2d5acb78dca6c13e2db771b7d36f7f3993",
+      "effectSummary": "For 1 round per caster level, projects your spirit into a normal animal whose HD are below your caster level. Your body is comatose; in the animal you retain mental scores, level, classes, BAB, base saves, alignment, and mental abilities. Spellcasting requires Natural Spell or equivalent, and you cannot use the animal's extraordinary or supernatural abilities. You take 1 damage per 2 damage the animal suffers; if it dies, you must Fortitude DC 10 or die, and if your own body is destroyed you die when the spell ends. Material component: incense and suitable food.",
+      "notes": "Source-complete possession mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/possess-animal-2275",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undying-aura-4858": {
+      "name": "Undying Aura",
+      "sourceSha256": "dad938165c87f79bf6381065fc65b5a4866c4d0de12fbfe6f211a52bd95027f2",
+      "effectSummary": "For 1 minute per caster level or until discharged, grants immunity to death effects, energy drain, and negative-energy effects. The subject can discharge the aura with a melee touch against undead for 1d6 positive-energy damage per caster level, maximum 15d6, and 1-round daze; Will halves damage and negates daze, and incorporeality gives no miss chance. Against a deathless creature, the touch heals the same amount instead. Focus: a 500 gp clear crystal spar.",
+      "notes": "Self-contained positive-energy aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undying-aura-4858",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/pending-potion-4951": {
+      "name": "Pending Potion",
+      "sourceSha256": "12429a00f3915cf6771cedaf6b14ba47e041d448d3f4bbb2d2403c2edc838ed4",
+      "effectSummary": "For 10 minutes per caster level, delays a potion or oil after it is consumed or applied. The beneficiary can activate the delayed effect as a swift action before the infusion ends; otherwise it triggers automatically at expiration. An applied oil is normally activated by the object's wielder, by an intelligent construct itself, or by the applier for a nonintelligent construct. A creature or object can hold only one delayed potion/oil; a second immediately triggers the first. Material component: evergreen needles.",
+      "notes": "Self-contained delayed-consumable mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/pending-potion-4951",
+          "role": "primary Magic of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-cache-4142": {
+      "name": "Shadow Cache",
+      "sourceSha256": "38b4916dfee48fcd5cee781d0689927b86688f73215360788537d72f728d8213",
+      "effectSummary": "For 1 minute per caster level, opens a stationary 1-foot portal to the Plane of Shadow that can store up to 30 cubic feet or 250 pounds of small nonliving objects. You can retrieve stored items during the spell or through a later shadow cache. Items can be taken by Shadow natives or moved by the plane; for every 24 hours, there is a 10% daily chance stored items are gone. It cannot be cast on the Plane of Shadow, only on a coexistent plane.",
+      "notes": "Self-contained extradimensional storage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-cache-4142",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wall-of-sand-4743": {
+      "name": "Wall of Sand",
+      "sourceSha256": "71d92fc377d4e4e67df93cc4fcb1313bde4d38f064d9624bb9574d72ffbc56f4",
+      "effectSummary": "Creates an immobile 10-foot-thick opaque wall of swirling sand for concentration +1 round per caster level. It blocks ranged attacks with cover. Crossing requires a full-round action and Strength check, moving 5 feet per 5 points above 10. Creatures inside are blinded, deafened, unable to speak or breathe, and can suffocate; verbal spells fail and other spells require Concentration DC 20 + spell level. Open flames entering are extinguished. Material component: sand.",
+      "notes": "Source-complete wall traversal and impairment rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-sand-4743",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/skull-secrets-2267": {
+      "name": "Skull of Secrets",
+      "sourceSha256": "7642bb225b17359ebc87c2284b29fb816cbe49b1c835b856bc04f04fdb2faefd",
+      "effectSummary": "Creates an intangible flying skull that remains within 20 feet of its origin until both programmed triggers have fired. One trigger delivers a magic-mouth-style message; the other fires a 10-foot line for 1d8 fire damage per two caster levels, maximum 5d8, Reflex half, and a failed Fortitude save after that dazes for 1 round. The two triggers can be identical or different, and each function can activate only once.",
+      "notes": "Source-complete dual-trigger ward.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/skull-secrets-2267",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tidal-surge-711": {
+      "name": "Tidal Surge",
+      "sourceSha256": "a4e28192ecc92fdf7efffc99e12ec192a80ec9359faae318595b044d8b064f3a",
+      "effectSummary": "Deals 1d8 damage per two caster levels, maximum 7d8, and bull-rushes affected creatures in a chosen direction. Without a large natural water source in range it affects one target and uses effective Str 16/Medium for the rush; with such a source it becomes a 20-foot-radius burst and uses Str 20/Large. Creatures pushed lose 5 feet plus 5 feet per 5 points of margin. The wave extinguishes ordinary exposed flames and attempts dispel magic against magical fire.",
+      "notes": "Source-complete water burst and forced movement.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tidal-surge-711",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/phase-door-2416": {
+      "name": "Phase Door",
+      "sourceSha256": "6296b73830285f9fef497b407995ba92c96b9f08644b62e8c24b74ea76e88e5a",
+      "effectSummary": "Creates an invisible ethereal passage through wood, plaster, or stone, 5 by 8 feet and 10 feet deep +5 feet per three caster levels. It normally works only for you; taking one additional Medium-or-smaller creature costs two uses. It blocks light, sound, spells, and vision through the passage. You can set observable triggering conditions allowing others to use it. Dispel ejects anyone inside harmlessly, true seeing reveals but does not grant access, and permanency can make it permanent.",
+      "notes": "Source-complete ethereal passage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phase-door-2416",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stormwalk-3337": {
+      "name": "Stormwalk",
+      "sourceSha256": "d84f50bdfc7dde60f41fbb6704e82430f27d4aa95bf0c8b9ba42e316692d666b",
+      "effectSummary": "Teleports you and up to one other creature per two caster levels using teleport's destination rules, but requires storm cover. Targets vanish amid a sudden local storm intensification; 10 minutes later a storm develops at the destination and they reappear in a location exposed to it. Travelers perceive the trip as instantaneous and count as being on another plane during the 10-minute interval.",
+      "notes": "Teleport supplies only destination/accuracy rules; Stormwalk's delay and storm-entry behavior are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stormwalk-3337",
+          "role": "primary Stormwrack catalog record and digest source"
+        }
+      ]
+    },
+    "spells/glorious-master-of-the-elements-1066": {
+      "name": "Glorious Master of the Elements",
+      "sourceSha256": "bc451b9e812d82a9f7c54c578a48e5c4b0126bc984e9ea867b8d7f9a417d106e",
+      "effectSummary": "For 5 rounds, as a standard action each round you can make a ranged touch attack within 60 feet, choosing acid, cold, electricity, or fire. A hit deals 1d6 energy damage per two caster levels, maximum 10d6; each successive hit on the same target during the spell gains a cumulative +2 damage bonus. Dragonblood casters use d8s instead, maximum 10d8.",
+      "notes": "Self-contained repeatable elemental attack.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/glorious-master-of-the-elements-1066",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ravenous-darkness-618": {
+      "name": "Ravenous Darkness",
+      "sourceSha256": "de1080d10ee0715743b14a75fcda13218037f5fcdd75f9ace8d51bca231932ff",
+      "effectSummary": "For 1 minute per caster level, the touched object radiates deeper-darkness-like darkness in a 60-foot radius. Living creatures inside take 1d6 negative-energy damage each round, or 2d6 if already under a negative-energy effect; Fortitude negates each round and spell resistance applies. Undead instead gain fast healing 1. The spell counters and dispels light spells of equal or lower level.",
+      "notes": "Self-contained damaging darkness effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ravenous-darkness-618",
+          "role": "primary Complete Champion catalog record and digest source"
+        }
+      ]
+    },
+    "spells/holy-aura-2332": {
+      "name": "Holy Aura",
+      "sourceSha256": "26a29c98b922ea890b70fafb971e471bb3d5e820da5e20e7b429fa0a3f9e5c6e",
+      "effectSummary": "For 1 round per caster level, up to one creature per caster level within 20 feet gains +4 deflection AC, +4 resistance on saves, spell resistance 25 against evil spells and spells cast by evil creatures, and protection from possession and mental influence. An evil creature that hits a warded target in melee must Fortitude-save or become blinded. Focus: a sacred reliquary worth at least 500 gp.",
+      "notes": "Source-complete four-part protective aura.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/holy-aura-2332",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "896d37eeb0f723d542c04adb1c416a9cc861171b",
+    "workflowRun": 35702491512,
+    "validationRun": 35702497055,
+    "classificationArtifact": 10683245592,
+    "classificationArtifactSha256": "236a52a38322428a2f5068647bee87af3238134e5fa44474a6061feac2bd3f5d",
+    "queueCountBefore": 561,
+    "referenceQueueCountBefore": 561,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
