@@ -2027,6 +2027,75 @@
           "role": "independent Complete Scoundrel SRD rendering used as a mechanics cross-check"
         }
       ]
+    },
+    "spells/threesteel-1118": {
+      "name": "Threesteel",
+      "effectSummary": "Splits one weapon of up to Large size in your possession into three exact duplicates that immediately launch at one to three targets within close range. Make a ranged attack roll for each duplicate using your ranged attack bonus or the ranged attack bonus of a fighter of your caster level, whichever is higher, as though proficient with the weapon; this avoids the normal improvised-throwing penalty for weapons such as a greatsword. A weapon without an enhancement bonus gains a +1 enhancement bonus on these attack and damage rolls. A duplicate that hits deals the weapon's melee damage and applicable special effects such as bane, smite evil, critical hits, sneak attack, and Weapon Focus, but your Strength bonus does not apply and the duplicate neither gains nor grants flanking. Casting destroys the original weapon, and all duplicates are destroyed after their attacks whether they hit or miss. The spell cannot target artifacts, natural weapons, weapons animated by animate objects or similar magic, or weaponlike magical creations such as Mordenkainen's sword.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/threesteel-1118",
+          "role": "primary rebuilt Dragons of Faerûn record; effect text jumps from the special-effects parenthetical into the origin paragraph"
+        },
+        {
+          "url": "https://dndtools.net/spells/dragons-of-faerun--26/threesteel--1118/",
+          "role": "matching Dragons of Faerûn rendering used to restore the missing special-effect, Strength, flanking, destruction, and target-restriction rules"
+        }
+      ]
+    },
+    "spells/unfailing-endurance-978": {
+      "name": "Unfailing Endurance",
+      "effectSummary": "Each living creature you touch while casting gains the listed endurance benefits for 1 day per level. The Endurance benefit grants a +4 bonus on checks for sustained physical activity. Subjects also gain a separate +4 morale bonus that stacks with the Endurance bonus and applies to saving throws against spells and magical effects that cause weakness, fatigue, exhaustion, or enfeeblement. Affected creatures can perform up to 12 hours of hard labor or forced marching without becoming fatigued, or continue for up to 16 hours and become fatigued instead of exhausted.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unfailing-endurance-978",
+          "role": "primary rebuilt Defenders of the Faith record; text truncates during the morale-bonus paragraph"
+        },
+        {
+          "url": "https://dndtools.net/spells/defenders-of-the-faith-a-guidebook-to-clerics-and-paladins--38/unfailing-endurance--978/",
+          "role": "matching Defenders of the Faith rendering used to restore the saving-throw and extended-activity rules"
+        }
+      ]
+    },
+    "spells/words-of-the-kami-2081": {
+      "name": "Words of the Kami",
+      "effectSummary": "Creatures in the area with the Shadowlands subtype or a Taint score suffer cumulative effects by Hit Dice: 12 or more are deafened; fewer than 12 are blinded and deafened; fewer than 8 are paralyzed, blinded, and deafened; fewer than 4 are killed, paralyzed, blinded, and deafened. Deafness lasts 1d4 rounds, automatically fails Listen checks, imposes a -4 initiative penalty, and gives a 20% chance to miscast and lose spells with verbal components. Blindness lasts 2d4 rounds, gives opponents full concealment, removes Dexterity bonus to AC, grants attackers +2 on attack rolls, halves speed, and imposes a -4 penalty on most Strength- and Dexterity-based skill checks. Paralysis leaves the creature helpless for 1d10 minutes. The killed result kills living creatures and destroys undead. Creatures without Taint and without the Shadowlands subtype, including the caster, are deafened for 1d4 rounds regardless of Hit Dice.",
+      "tables": [
+        [
+          [
+            "HD",
+            "Effect"
+          ],
+          [
+            "12 or more",
+            "Deafened"
+          ],
+          [
+            "Less than 12",
+            "Blinded, deafened"
+          ],
+          [
+            "Less than 8",
+            "Paralyzed, blinded, deafened"
+          ],
+          [
+            "Less than 4",
+            "Killed, paralyzed, blinded, deafened"
+          ]
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/words-of-the-kami-2081",
+          "role": "primary rebuilt Oriental Adventures record; HD/effect table is omitted and the blinded skill-check penalty loses its minus sign"
+        },
+        {
+          "url": "https://bits.rainwalk.net/Gaming/Oriental_Adventures.pdf",
+          "role": "Oriental Adventures p. 120 source rendering used to restore the HD table and -4 blinded skill-check penalty"
+        }
+      ]
     }
   }
 }

@@ -1498,6 +1498,28 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="truncated-spore-field-terrain-rules"
+        if (
+            entry.get("id")=="spells/threesteel-1118"
+            and re.search(r"\bsneak attack\s*,\s*sorcerer so he could use it as an unexpected advantage\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-threesteel-source"
+        if (
+            entry.get("id")=="spells/unfailing-endurance-978"
+            and re.search(r"\bstacks with the bonus from the Dungeon Master[’']S Guide\s*\)\s*\.?",effect_source,re.I)
+            and not re.search(r"\bExtended Activity\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-unfailing-endurance-source"
+        if (
+            entry.get("id")=="spells/words-of-the-kami-2081"
+            and (
+                re.search(r"\bsuffers a 4 penalty on most Strength and Dexterity-based skill checks\b",effect_source,re.I)
+                or (re.search(r"\bsuffer the following ill effects\b",effect_source,re.I) and not parser.tables)
+            )
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-words-of-the-kami-effects"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
@@ -2406,6 +2428,62 @@ def self_test():
         <h1>{spell_name}</h1><p>{source_line}</p>
         <div>School</div><div>Transmutation</div><div>Casting Time</div><div>1 standard action</div>
         <div>Components</div><div>V, S</div><div>Range</div><div>Medium</div>
+        <div>Duration</div><div>1 round/level</div><div>Saving Throw</div><div>See text</div>
+        <div>Spell Resistance</div><div>Yes</div><div>Classes</div><div>Wizard 4</div>
+        <h2>Description</h2><p>{damaged_text}</p>
+        """
+        p=DetailParser();p.feed(damaged_html);p.close()
+        repaired=parse_spell(p,{"name":spell_name,"id":record_id})
+        assert repaired.get("sourceIncomplete"), record_id
+        assert repaired.get("sourceIncompleteMarker")==marker, record_id
+        assert repaired.get("sourceIncompleteResolved"), record_id
+        assert repaired.get("supplementVerified"), record_id
+        summary=repaired.get("effectSummary","").casefold()
+        for fragment in expected_fragments:
+            assert fragment.casefold() in summary, (record_id, fragment, summary)
+        flattened_tables=clean(" ".join(
+            str(cell)
+            for table in (repaired.get("tables") or [])
+            for row in table
+            for cell in row
+        )).casefold()
+        for fragment in expected_table_fragments:
+            assert fragment.casefold() in flattened_tables, (record_id, fragment, flattened_tables)
+
+    repair_batch_cases_5 = [
+        (
+            "spells/threesteel-1118",
+            "Threesteel",
+            "Dragons of Faerûn (DoF), p. 119",
+            "You touch a weapon, causing it to coalesce into three exact duplicates. Make a ranged attack roll for each weapon using your ranged attack bonus or the ranged attack bonus of a fighter of your caster level, whichever is higher. Each duplicate that hits deals damage as if you had struck the target with the weapon in melee (including any special effects such as bane, smite evil, critical hits, sneak attack, sorcerer so he could use it as an unexpected advantage during the frequent assassination attempts launched by his estranged kinfolk.",
+            "truncated-threesteel-source",
+            ("fighter of your caster level", "weapon focus", "strength bonus does not apply", "destroys the targeted weapon"),
+            (),
+        ),
+        (
+            "spells/unfailing-endurance-978",
+            "Unfailing Endurance",
+            "Defenders of the Faith: A Guidebook to Clerics and Paladins (DF), p. 86",
+            "You can render living creatures virtually immune to fatigue or exhaustion. You must touch each creature to be affected as you cast the spell. The benefits include: Endurance: This feat confers a +4 bonus on any check made for performing a physical action that extends over a period of time (running, swimming, holding breath, and so on). Morale Bonus: Subjects gain an additional +4 morale bonus that stacks with the bonus from the Dungeon Master’S Guide ).",
+            "truncated-unfailing-endurance-source",
+            ("saving throws against spells", "12 hours", "16 hours", "fatigued instead of exhausted"),
+            (),
+        ),
+        (
+            "spells/words-of-the-kami-2081",
+            "Words of the Kami",
+            "Oriental Adventures (OA), p. 120",
+            "To utter the holy words of the kami is to bring forth magic of awesome power. Creatures with the Shadowlands subtype or with a Taint score suffer the following ill effects: The effects are cumulative. Deafened: The creature is deafened for 1d4 rounds. A deafened creature automatically fails Listen checks, suffers a -4 penalty on initiative, and has a 20% chance to miscast and lose any spell with a verbal component. Blinded: The creature is blinded for 2d4 rounds, moves at half speed, and suffers a 4 penalty on most Strength and Dexterity-based skill checks. Paralyzed: The creature is paralyzed and helpless for 1d10 minutes. Killed: Living creatures die. Undead creatures are destroyed.",
+            "corrupt-words-of-the-kami-effects",
+            ("less than 12", "20% chance", "-4 penalty", "1d10 minutes"),
+            ("12 or more", "less than 12", "less than 8", "less than 4"),
+        ),
+    ]
+    for record_id, spell_name, source_line, damaged_text, marker, expected_fragments, expected_table_fragments in repair_batch_cases_5:
+        damaged_html = f"""
+        <h1>{spell_name}</h1><p>{source_line}</p>
+        <div>School</div><div>Transmutation</div><div>Casting Time</div><div>1 standard action</div>
+        <div>Components</div><div>V, S</div><div>Range</div><div>Touch</div>
         <div>Duration</div><div>1 round/level</div><div>Saving Throw</div><div>See text</div>
         <div>Spell Resistance</div><div>Yes</div><div>Classes</div><div>Wizard 4</div>
         <h2>Description</h2><p>{damaged_text}</p>
