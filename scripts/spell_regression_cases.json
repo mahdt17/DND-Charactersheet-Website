@@ -2183,6 +2183,10 @@
     "spells/tactical-teleportation-792",
     "spells/unicorn-heart-887",
     "spells/true-banishment-3436",
-    "spells/truename-dispel-3437"
+    "spells/truename-dispel-3437",
+    "spells/anyspell-greater-3841",
+    "spells/detect-chaos-2485",
+    "spells/detect-law-2488",
+    "spells/transcend-mortality-885"
   ]
 }
