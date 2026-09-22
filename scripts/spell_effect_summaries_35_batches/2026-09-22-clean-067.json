@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest- and table-digest-locked source-specific table reviews; clean batch 067.",
+  "entries": {
+    "spells/interfaith-blessing-609": {
+      "name": "Interfaith Blessing",
+      "sourceSha256": "f0a7642f41b27e4849ffb078f746b8135bbb5d31ded0369f18c5d88e898f9b83",
+      "tablesSha256": "ce93434408209325b82430393c2e4064f2891f26d28055522b48c4aaa269795f",
+      "effectSummary": "Every creature within the 20-foot-radius burst receives a blessing from its own deity for 1 minute per caster level. If a subject venerates more than one deity, determine the blessing randomly. Bahamut, St. Cuthbert, or Yondalla grant +1 on attack rolls and saves; Boccob, Corellon Larethian, Vecna, or Wee Jas grant +1 on attack rolls and skill checks; Ehlonna, Obad-Hai, or general nature worship grants +1 on attack rolls and AC; Erythnul, Gruumsh, or Lolth grant +2 on damage rolls; Fharlanghn, Moradin, or Pelor grant +2 AC; Garl Glittergold, Olidammara, or no deity require a 1d8 roll to determine the blessing, with a result of 6 chosen by the player; Heironeous, Hextor, or Nerull grant +2 on attack rolls; Kord, Kurtulmak, or Tiamat grant +1 on attack and damage rolls. The bonus is sacred for a good or neutral worshipped deity and profane for an evil one.",
+      "tables": [
+        [
+          [
+            "Deity",
+            "Blessing"
+          ],
+          [
+            "Bahamut, St. Cuthbert, or Yondalla",
+            "+1 on attack rolls and saves"
+          ],
+          [
+            "Boccob, Corellon Larethian, Vecna, or Wee Jas",
+            "+1 on attack rolls and skill checks"
+          ],
+          [
+            "Ehlonna, Obad-Hai, or the general worship of nature",
+            "+1 on attack rolls and to AC"
+          ],
+          [
+            "Erythnul, Gruumsh, or Lolth",
+            "+2 on damage rolls"
+          ],
+          [
+            "Fharlanghn, Moradin, or Pelor",
+            "+2 to AC"
+          ],
+          [
+            "Garl Glittergold, Olidammara, or no deity",
+            "Roll 1d8 to determine blessing; a result of 6 is player’s choice"
+          ],
+          [
+            "Heironeous, Hextor, or Nerull",
+            "+2 on attack rolls"
+          ],
+          [
+            "Kord, Kurtulmak, or Tiamat",
+            "+1 on attack rolls and damage rolls"
+          ]
+        ]
+      ],
+      "notes": "Complete Champion p.123 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/interfaith-blessing-609",
+          "role": "primary Complete Champion catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.org/spells/complete-champion--57/interfaith-blessing--609/",
+          "role": "matching Complete Champion rendering used to verify every deity row and sacred/profane bonus type"
+        },
+        {
+          "url": "https://anyflip.com/myubd/svog/basic/101-150",
+          "role": "same-printing Complete Champion page rendering cross-check"
+        }
+      ]
+    },
+    "spells/know-greatest-enemy-4331": {
+      "name": "Know Greatest Enemy",
+      "sourceSha256": "2148d05e8929c5abb069bcc9de9ef6a6abe3e97f8321f79ed1271d5d73036785",
+      "tablesSha256": "14b91e4d41eb5d49bf213d76038070694903e87727be24d075eee18000c90b04",
+      "effectSummary": "While you concentrate, evaluates creatures in the 60-foot cone by Challenge Rating: CR 4 or lower is Weak, CR 5–10 Moderate, CR 11–15 Strong, and CR 16 or higher Overwhelming. Within each category you know which creature is the most powerful, but not why it is stronger. A spell of 3rd level or higher that prevents scrying on a creature or area, such as nondetection or false vision, prevents this spell from evaluating that protected creature or creatures in that protected area.",
+      "tables": [
+        [
+          [
+            "CR",
+            "Strength"
+          ],
+          [
+            "4 or lower",
+            "Weak"
+          ],
+          [
+            "5—10",
+            "Moderate"
+          ],
+          [
+            "11—15",
+            "Strong"
+          ],
+          [
+            "16 or higher",
+            "Overwhelming"
+          ]
+        ]
+      ],
+      "notes": "Spell Compendium table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/know-greatest-enemy-4331",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/ybfo/basic/101-150",
+          "role": "same-printing Spell Compendium rendering used to verify CR categories and same-category comparison rule"
+        },
+        {
+          "url": "https://dnd3-5.wikidot.com/paladinspells",
+          "role": "independent 3.5 rendering cross-check for the complete table"
+        }
+      ]
+    },
+    "spells/prespers-moonbow-2260": {
+      "name": "Presper's Moonbow",
+      "sourceSha256": "a8af3611136cc614a082bb0bcc72ddf5288ddf441dcbf5cc2ff91021caa2a9f8",
+      "tablesSha256": "688c96736ae1923e2b6ddce273159ad6455487db4ad7da195b4c77d29f4f4e6d",
+      "effectSummary": "Conjures 1d4 motes of electricity. You can immediately fire any number of them at targets within range, assigning multiple motes to one target or splitting them among targets; each mote requires its own ranged touch attack. Damage per mote depends on the total number created: 1 mote deals 4d6, 2 motes deal 3d6 each, 3 motes deal 2d6 each, and 4 motes deal 2d4 each. If you do not fire all motes immediately, you can fire remaining motes as a standard action on the next round; if a round passes in which you fire no mote, the spell ends and all remaining motes vanish. The material component is a small piece of moonstone.",
+      "tables": [
+        [
+          [
+            "Motes Created",
+            "Damage per Mote"
+          ],
+          [
+            "1",
+            "4d6"
+          ],
+          [
+            "2",
+            "3d6"
+          ],
+          [
+            "3",
+            "2d6"
+          ],
+          [
+            "4",
+            "2d4"
+          ]
+        ]
+      ],
+      "notes": "Player's Guide to Faerûn p.108 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prespers-moonbow-2260",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/players-guide-to-faerun--22/prespers-moonbow--2260/",
+          "role": "matching Player's Guide to Faerûn rendering used to verify mote targeting, timing, component, and complete damage table"
+        },
+        {
+          "url": "https://manuals.plus/m/07a05aac9d81c638e21996c8efb6e3747477e6bbf343803d74a41d24ab40e380",
+          "role": "same-book text/table cross-check"
+        }
+      ]
+    },
+    "spells/standing-wave-4227": {
+      "name": "Standing Wave",
+      "sourceSha256": "9cee7654a23b3d03e0310658944b76ed08b321c196cf82585cea4c771d661b07",
+      "tablesSha256": "5cbd005fc5c3ca0088ab05c1d4a186b2b536e529612da0f02e658939d7129629",
+      "effectSummary": "Raises a wave under one creature or object within range and carries it in a straight line over water at 60 feet per round. An affected object can carry creatures or other objects. Maximum size depends on caster level: 5th Medium, 7th Large, 9th Huge, 11th Gargantuan, 13th Colossal. The wave dissipates on contacting land and lowers its burden harmlessly ashore. If you are riding in or standing on the affected object, it keeps moving until you leave it or dismiss the spell; otherwise it moves only to the extent of the spell's range from where you cast it.",
+      "tables": [
+        [
+          [
+            "Caster Level",
+            "Size of Creature or Object"
+          ],
+          [
+            "5th",
+            "Medium"
+          ],
+          [
+            "7th",
+            "Large"
+          ],
+          [
+            "9th",
+            "Huge"
+          ],
+          [
+            "11th",
+            "Gargantuan"
+          ],
+          [
+            "13th",
+            "Colossal"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to Spell Compendium p.204. Its added rider/standing-on-object continuation rule is preserved and is not backported to the earlier Complete Divine printing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/standing-wave-4227",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/standing-wave--4227/",
+          "role": "matching Spell Compendium rendering used to verify the complete size table and continuation rule"
+        }
+      ]
+    },
+    "spells/standing-wave-750": {
+      "name": "Standing Wave",
+      "sourceSha256": "3388546ab8896836603ac2d012c6a5afb73ae88bc54205131a63e91c654cbb82",
+      "tablesSha256": "0447027f6dee5d3dd7fec14778ce2b1fcb990c93f63fd61edbb8be211410cb3d",
+      "effectSummary": "Raises a wave under one creature or object within range and carries it in a straight line over water at 60 feet per round. An affected object can contain creatures or other objects. Maximum size depends on caster level: 5th up to Medium, 7th Large, 9th Huge, 11th Gargantuan, 13th Colossal. The wave dissipates on contacting land and lowers its burden harmlessly ashore.",
+      "tables": [
+        [
+          [
+            "Caster Level",
+            "Size of Creature or Object"
+          ],
+          [
+            "5th",
+            "Up to Medium"
+          ],
+          [
+            "7th",
+            "Large"
+          ],
+          [
+            "9th",
+            "Huge"
+          ],
+          [
+            "11th",
+            "Gargantuan"
+          ],
+          [
+            "13th",
+            "Collosal"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to Complete Divine p.182. The original printing says Colossal; the current rebuilt table contains the misspelling 'Collosal', which is intentionally retained in the review table so its current table digest stays fail-closed. The summary normalizes the printed value. The later Spell Compendium continuation rule is not imported.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/standing-wave-750",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-divine--56/standing-wave--750/",
+          "role": "matching Complete Divine rendering used to verify the shorter original mechanics and table"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/CompleteDivine.pdf",
+          "role": "same-printing Complete Divine source used to verify that the final size is printed 'Colossal'"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "5bfe470b8a675193a09e7e26d733e86703ba6a73",
+    "workflowRun": 35680917843,
+    "validationRun": 35680920705,
+    "classificationArtifact": 10674367505,
+    "classificationArtifactSha256": "7502ba4fd9b269750132acfe99526d595dde831836b66bff5df417a0017f173e",
+    "queueCountBefore": 996,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 0,
+    "tableQueueCountBefore": 19
+  }
+}
