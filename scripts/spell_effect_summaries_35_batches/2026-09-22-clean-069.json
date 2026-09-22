@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest- and table-digest-locked condition and scrying table reviews; clean batch 069.",
+  "entries": {
+    "spells/lastais-caress-51": {
+      "name": "Lastai's Caress",
+      "sourceSha256": "dd080fb6d6ccba37cb78b5991b44a74369702f5c9cec7f8e3a5408e7ae02baf8",
+      "tablesSha256": "4347f0713c57e9ba7e3e164e0997b8223d9ab0a517767b7599f389fc271c32ef",
+      "effectSummary": "A melee touch affects one creature you know to be evil for 1 round per caster level; an unwilling target requires a successful melee touch attack, there is no saving throw, and spell resistance applies. At the beginning of the subject's turn each round, roll 1d4: 1 cowering—the creature takes no actions, takes -2 AC, and loses any Dexterity bonus to AC; 2 frightened—the creature takes -2 on attacks, saves, skill checks, and ability checks and must flee the source of fear if possible; 3 nauseated—the creature cannot attack, cast or concentrate on spells, or take other attention-demanding actions and can take only one move action; 4 shaken—the creature takes -2 on attacks, saves, skill checks, and ability checks. Instead of rolling each round, you can choose to keep the target shaken for the spell's entire duration. The material component is a peach seed.",
+      "tables": [
+        [
+          [
+            "d4",
+            "Effect"
+          ],
+          [
+            "1",
+            "Cowering"
+          ],
+          [
+            "2",
+            "Frightened"
+          ],
+          [
+            "3",
+            "Nauseated"
+          ],
+          [
+            "4",
+            "Shaken"
+          ]
+        ]
+      ],
+      "notes": "Book of Exalted Deeds p.102 table is fully captured and table-digest locked. Standard 3.5 condition consequences are expanded from the core condition rules so the review is mechanically usable.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lastais-caress-51",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        },
+        {
+          "url": "https://www.imarvintpa.com/dndLive/Index_Source.php?Small=5&Sources=Book+of+Exalted+Deeds",
+          "role": "independent Book of Exalted Deeds index cross-check for the four possible conditions"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/conditionSummary.htm",
+          "role": "3.5 SRD condition definitions used to expand cowering, frightened, nauseated, and shaken"
+        }
+      ]
+    },
+    "spells/magius-light-truth-5010": {
+      "name": "Magius's Light of Truth",
+      "sourceSha256": "6713e4573ae93224fce0387cc335b67b1d202f56a2d1824de3d8001a766206a8",
+      "tablesSha256": "530310ecab1c6fc5af351d8777e6c88e432e5c5d9096915c17603ed5c46e3e13",
+      "effectSummary": "Creates a 120-foot cone of lawful light affecting nonlawful creatures. If you cast it on your home plane, nonlawful extraplanar creatures in the cone are instantly banished to their home planes and cannot return for at least 1 day per caster level. Neutral good, neutral, and neutral evil creatures are dazed for 1d6 rounds and take 3d6 damage; a successful Will save negates the daze and halves the damage. Chaotic good, chaotic neutral, and chaotic evil creatures take 1d6 damage per caster level, maximum 25d6, with a successful Will save for half. On a failed Will save, a chaotic creature also suffers cumulative effects based on Hit Dice: 15 or more is dazed 1d6 rounds; fewer than 15 is also stunned 2d6 rounds; fewer than 10 is also paralyzed 2d6 minutes; fewer than 5 is also killed, with constructs and undead destroyed. The focus is a lawful artifact or intelligent magic item with minimum caster level 15, and the spell costs 500 XP.",
+      "tables": [
+        [
+          [
+            "Hit Dice",
+            "Effect"
+          ],
+          [
+            "15 or more",
+            "Dazed"
+          ],
+          [
+            "Less than 15",
+            "Stunned, dazed"
+          ],
+          [
+            "Less than 10",
+            "Paralyzed, stunned, dazed"
+          ],
+          [
+            "Less than 5",
+            "Killed, paralyzed, stunned, dazed"
+          ]
+        ]
+      ],
+      "notes": "Dragonlance Campaign Setting p.109 table and alignment branches are fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magius-light-truth-5010",
+          "role": "primary Dragonlance Campaign Setting catalog record and digest source"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203rd%20Edition/Dragonlance/Dragonlance%20Campaign%20Setting.pdf",
+          "role": "same-printing Dragonlance Campaign Setting source used to verify all alignment branches, cumulative HD effects, focus, and XP cost"
+        }
+      ]
+    },
+    "spells/scry-location-903": {
+      "name": "Scry Location",
+      "sourceSha256": "17295a0f99d1f56d53d1b3d36d79d8defe9fdc62ea8e6f8d122b6ab7557d11d6",
+      "tablesSha256": "94c1fa915962ff678e2524162b3badf3e9b1744e8ff09ce4f754a67324142736",
+      "effectSummary": "After a 1-hour ritual, attempt a caster level check (1d20 + caster level) against DC 20 plus all applicable modifiers to create an immobile invisible magical sensor at a chosen location, potentially at any distance or on another plane. Knowledge modifies the DC: no knowledge +10, secondhand +5, firsthand +0, familiar -5; if you have no knowledge, you must have some connection to the location. Location modifiers are +2 per 1,000 miles, +2 if indoors or underground, and +10 if on another plane. Connections reduce the DC: likeness or picture -2, an object that spent at least a week there -4, or a plant/mineral/other object taken from the area -10; for the latter two, the object must have been there within the past year. On success, for 1 minute per caster level you can see and hear from the sensor with your normal visual acuity, including magical vision, rotate its viewpoint but not move it, and make Spot and Listen checks normally. Detect chaos, detect evil, detect good, detect law, detect magic, and message each have a 5% chance per caster level to function through the sensor. On a failed check, you cannot attempt to scry any place within 1 mile of that location for 24 hours. Arcane material components are the eye of a mole, badger, or xorn plus nitric acid, copper, and zinc; wizard/sorcerer/bard focus is a polished silver mirror worth at least 1,000 gp and at least 2 by 4 feet; cleric focus is a holy-water font worth at least 100 gp; druid focus is a natural pool.",
+      "tables": [
+        [
+          [
+            "Knowledge",
+            "Caster Level Check DC Modifier"
+          ],
+          [
+            "None 1",
+            "+10"
+          ],
+          [
+            "Secondhand (you have heard of the location)",
+            "+5"
+          ],
+          [
+            "Firsthand (you have been to the location)",
+            "+0"
+          ],
+          [
+            "Familiar (you have been to the location often)",
+            "-5"
+          ]
+        ],
+        [
+          [
+            "Location",
+            "Caster Level Check DC Modifier"
+          ],
+          [
+            "Per 1,000 miles away",
+            "+2"
+          ],
+          [
+            "Indoors or underground",
+            "+2"
+          ],
+          [
+            "On another plane",
+            "+10"
+          ]
+        ],
+        [
+          [
+            "Connection",
+            "Caster Level Check DC Modifier"
+          ],
+          [
+            "Likeness or picture",
+            "-2"
+          ],
+          [
+            "An object that has been in the location for a week or more 2",
+            "-4"
+          ],
+          [
+            "A plant, mineral, or other object taken from the area 2",
+            "-10"
+          ]
+        ]
+      ],
+      "notes": "Complete Scoundrel table set is fully captured and table-digest locked. The numeric footnote markers embedded in two imported cell labels are preserved verbatim for digest stability; their rules are expanded in the summary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scry-location-903",
+          "role": "primary Complete Scoundrel catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-scoundrel--60/scry-location--903/",
+          "role": "matching Complete Scoundrel rendering used to verify sensor behavior, components/foci, all modifiers, and footnotes"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCScou.html",
+          "role": "independent Complete Scoundrel SRD cross-check"
+        }
+      ]
+    },
+    "spells/word-of-balance-4784": {
+      "name": "Word of Balance",
+      "sourceSha256": "52c8f1ff43033d533ab2129360e76662d769348460735781121e1a5e480b7a38",
+      "tablesSha256": "25d3852360abbcf45949cc69cacd2be3c6e3bc8ddbe0127f790ccbc3e93baeb3",
+      "effectSummary": "Any lawful good, chaotic good, lawful evil, or chaotic evil creature within 30 feet that hears the word suffers cumulative effects by Hit Dice with no save: HD equal to your caster level is nauseated for 1 round; up to caster level -1 is also weakened, taking -2d6 Strength for 2d4 rounds; up to caster level -5 is also paralyzed and helpless for 1d10 minutes; up to caster level -10 is killed if living or destroyed if undead. Creatures with more HD than your caster level are unaffected. If cast on your home plane, all creatures of those four alignments that are elementals or outsiders in the area are also banished to their home planes whether or not they hear the word; the banishment allows a Will save at -4 to negate, and a banished creature cannot return for at least 24 hours.",
+      "tables": [
+        [
+          [
+            "HD",
+            "Effect"
+          ],
+          [
+            "Equal to caster level",
+            "Nauseated"
+          ],
+          [
+            "Up to caster level —1",
+            "Weakened, nauseated"
+          ],
+          [
+            "Up to caster level —5",
+            "Paralyzed, weakened, nauseated"
+          ],
+          [
+            "Up to caster level —10",
+            "Killed"
+          ]
+        ]
+      ],
+      "notes": "Spell Compendium p.242 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/word-of-balance-4784",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/word-of-balance--4784/",
+          "role": "matching Spell Compendium rendering used to verify cumulative effects, durations, banishment, and complete HD table"
+        }
+      ]
+    },
+    "spells/word-of-chaos-2663": {
+      "name": "Word of Chaos",
+      "sourceSha256": "2a16cc455970b54207d06318cf529b096c627a73ab08ddc5ecda5af9d77c6d42",
+      "tablesSha256": "e54874b68acb53b1f2f23a543ef8cc9a3cd5f737ac193a75a86b8c11f248ca01",
+      "effectSummary": "Any nonchaotic creature within 40 feet that hears the word suffers cumulative, concurrent effects by Hit Dice with no save: HD equal to your caster level is deafened for 1d4 rounds; up to caster level -1 is also stunned for 1 round; up to caster level -5 is also confused as by confusion for 1d10 minutes, a mind-affecting enchantment effect; up to caster level -10 is also killed if living or destroyed if undead. Creatures with more HD than your caster level are unaffected. If cast on your home plane, nonchaotic extraplanar creatures in the area are also banished to their home planes whether or not they hear the word; the banishment allows a Will save at -4 to negate, and banished creatures cannot return for at least 24 hours.",
+      "tables": [
+        [
+          [
+            "HD",
+            "Effect"
+          ],
+          [
+            "Equal to caster level",
+            "Deafened"
+          ],
+          [
+            "Up to caster level —1",
+            "Stunned, deafened"
+          ],
+          [
+            "Up to caster level —5",
+            "Confused, stunned, deafened"
+          ],
+          [
+            "Up to caster level —10",
+            "Killed, confused, stunned, deafened"
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/word-of-chaos-2663",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/wordOfChaos.htm",
+          "role": "3.5 SRD cross-check for cumulative effects, durations, banishment, and complete HD table"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "5a077c8940c385df38f77dab80470c7879d1ba79",
+    "workflowRun": 35681749524,
+    "validationRun": 35681753190,
+    "classificationArtifact": 10674693300,
+    "classificationArtifactSha256": "21a7df2066c39b0c16928543cf0a0b8d65b243a27d4a83002544fa1f28e882ea",
+    "queueCountBefore": 987,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 0,
+    "tableQueueCountBefore": 10
+  }
+}
