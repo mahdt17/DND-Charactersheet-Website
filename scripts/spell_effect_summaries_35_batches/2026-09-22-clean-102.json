@@ -1,0 +1,816 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 50-record batch 102: fifty independently reviewed 3.5-era reference-dependent records selected by family-level source verification from the 811-record queue. The batch raises throughput without relaxing digest locking, printing distinctions, inherited-mechanics expansion, or skip-on-ambiguity rules.",
+  "entries": {
+    "spells/summon-monster-ii-2442": {
+      "name": "Summon Monster II",
+      "sourceSha256": "b76ee231f9e2ceee68d918bbc2ad45b5baa67004bbbe2c5db41e0ef828681233",
+      "effectSummary": "Summons one creature from the 2nd-level list or 1d3 creatures of the same kind from the 1st-level list. Each summoned creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors. Arcane focus: a tiny bag and a small candle that need not be lit.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Monster I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are preserved directly from its own source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-ii-2442",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster I mechanics"
+        }
+      ]
+    },
+    "spells/summon-monster-iii-2443": {
+      "name": "Summon Monster III",
+      "sourceSha256": "a607424b02109f5de4f1835293cbfb42416f36b027cd050ccdde60268d8664e0",
+      "effectSummary": "Summons one creature from the 3rd-level list, 1d3 creatures of the same kind from the 2nd-level list, or 1d4+1 creatures of the same kind from the 1st-level list. Each summoned creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors. Arcane focus: a tiny bag and a small candle that need not be lit.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Monster I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are preserved directly from its own source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-iii-2443",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster I mechanics"
+        }
+      ]
+    },
+    "spells/summon-monster-iv-2444": {
+      "name": "Summon Monster IV",
+      "sourceSha256": "e6e3e51625689a28afa6aac0859843d29b26f836cb56f208993da48abc6ee362",
+      "effectSummary": "Summons one creature from the 4th-level list, 1d3 creatures of the same kind from the 3rd-level list, or 1d4+1 creatures of the same kind from a lower-level list. Each summoned creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors. Arcane focus: a tiny bag and a small candle that need not be lit.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Monster I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are preserved directly from its own source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-iv-2444",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster I mechanics"
+        }
+      ]
+    },
+    "spells/summon-monster-v-2445": {
+      "name": "Summon Monster V",
+      "sourceSha256": "32735682153d5c6906587f66249020ba69890a86fdfefadfc83a14623d7aecf7",
+      "effectSummary": "Summons one creature from the 5th-level list, 1d3 creatures of the same kind from the 4th-level list, or 1d4+1 creatures of the same kind from a lower-level list. Each summoned creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors. Arcane focus: a tiny bag and a small candle that need not be lit.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Monster I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are preserved directly from its own source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-v-2445",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster I mechanics"
+        }
+      ]
+    },
+    "spells/summon-monster-vi-2446": {
+      "name": "Summon Monster VI",
+      "sourceSha256": "d236090bc3a3596ab1feffc0dca8790bf12a4ab4bd7da8a0d756ce9e0623d460",
+      "effectSummary": "Summons one creature from the 6th-level list, 1d3 creatures of the same kind from the 5th-level list, or 1d4+1 creatures of the same kind from a lower-level list. Each summoned creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors. Arcane focus: a tiny bag and a small candle that need not be lit.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Monster I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are preserved directly from its own source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-vi-2446",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster I mechanics"
+        }
+      ]
+    },
+    "spells/summon-monster-vii-2447": {
+      "name": "Summon Monster VII",
+      "sourceSha256": "3b5663cd6fdb5d328b2ff7f7865d69197414db1de150b5ed9af2ba5f730461ea",
+      "effectSummary": "Summons one creature from the 7th-level list, 1d3 creatures of the same kind from the 6th-level list, or 1d4+1 creatures of the same kind from a lower-level list. Each summoned creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors. Arcane focus: a tiny bag and a small candle that need not be lit.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Monster I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are preserved directly from its own source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-vii-2447",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster I mechanics"
+        }
+      ]
+    },
+    "spells/summon-monster-viii-2448": {
+      "name": "Summon Monster VIII",
+      "sourceSha256": "c92f212dbe2af05f94c572c1f2d7c972466af856bd863fb8e04f5b5af5380dee",
+      "effectSummary": "Summons one creature from the 8th-level list, 1d3 creatures of the same kind from the 7th-level list, or 1d4+1 creatures of the same kind from a lower-level list. Each summoned creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors. Arcane focus: a tiny bag and a small candle that need not be lit.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Monster I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are preserved directly from its own source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-viii-2448",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster I mechanics"
+        }
+      ]
+    },
+    "spells/summon-monster-ix-2449": {
+      "name": "Summon Monster IX",
+      "sourceSha256": "374a9a6ab9dd010c81e751b79c2857b3d30e2d3a421974b7d54c55729d5888c6",
+      "effectSummary": "Summons one creature from the 9th-level list, 1d3 creatures of the same kind from the 8th-level list, or 1d4+1 creatures of the same kind from a lower-level list. Each summoned creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors. Arcane focus: a tiny bag and a small candle that need not be lit.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Monster I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are preserved directly from its own source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-ix-2449",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster I mechanics"
+        }
+      ]
+    },
+    "spells/summon-natures-ally-ii-2451": {
+      "name": "Summon Nature's Ally II",
+      "sourceSha256": "48f86f08762418f2036c26bb71960ba1719b5931f7657ec99934ac3513320435",
+      "effectSummary": "Summons one 2nd-level creature or 1d3 1st-level creatures of the same kind. Each summoned natural creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the summon nature's ally lists are neutral unless otherwise noted.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Nature's Ally I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-ii-2451",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-i-2450",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Nature's Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-natures-ally-iii-2452": {
+      "name": "Summon Nature's Ally III",
+      "sourceSha256": "c9634765293fac70450075f202ec605f63c2b3f70d2f5c0e1da3b1c94c4767d9",
+      "effectSummary": "Summons one 3rd-level creature, 1d3 2nd-level creatures of the same kind, or 1d4+1 1st-level creatures of the same kind. Each summoned natural creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the summon nature's ally lists are neutral unless otherwise noted. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Nature's Ally I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-iii-2452",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-i-2450",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Nature's Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-natures-ally-iv-2453": {
+      "name": "Summon Nature's Ally IV",
+      "sourceSha256": "408e3eb82fdd176b9a13f7f5838354aab93c89c77cfb23995b69699ae3cd4b52",
+      "effectSummary": "Summons one 4th-level creature, 1d3 3rd-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind. Each summoned natural creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the summon nature's ally lists are neutral unless otherwise noted. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Nature's Ally I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-iv-2453",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-i-2450",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Nature's Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-natures-ally-v-2454": {
+      "name": "Summon Nature's Ally V",
+      "sourceSha256": "4b53f5afae3e489ce4e512128a4d70cec9add30f220f22930f58fd055d69c39f",
+      "effectSummary": "Summons one 5th-level creature, 1d3 4th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind. Each summoned natural creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the summon nature's ally lists are neutral unless otherwise noted. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Nature's Ally I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-v-2454",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-i-2450",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Nature's Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-natures-ally-vi-2455": {
+      "name": "Summon Nature's Ally VI",
+      "sourceSha256": "542a31b24114160e5cf80b2599c907321f5f70dbcb14e3b9d562cea16c536e05",
+      "effectSummary": "Summons one 6th-level creature, 1d3 5th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind. Each summoned natural creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the summon nature's ally lists are neutral unless otherwise noted. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Nature's Ally I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-vi-2455",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-i-2450",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Nature's Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-natures-ally-vii-2456": {
+      "name": "Summon Nature's Ally VII",
+      "sourceSha256": "fb197aaaa1021006121fe12a1ead78e4b818762ecb3495668eea46e8b360f219",
+      "effectSummary": "Summons one 7th-level creature, 1d3 6th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind. Each summoned natural creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the summon nature's ally lists are neutral unless otherwise noted. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Nature's Ally I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-vii-2456",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-i-2450",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Nature's Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-natures-ally-viii-2457": {
+      "name": "Summon Nature's Ally VIII",
+      "sourceSha256": "c34ee6425a651bc9cb37314ebea30bc7265a3299cd4345608a67052a66731f0e",
+      "effectSummary": "Summons one 8th-level creature, 1d3 7th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind. Each summoned natural creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the summon nature's ally lists are neutral unless otherwise noted. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Nature's Ally I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-viii-2457",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-i-2450",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Nature's Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-natures-ally-ix-2458": {
+      "name": "Summon Nature's Ally IX",
+      "sourceSha256": "4bf71dfb893cb1777a4d40c8e161dda4e0310eb8dd40fd171e2c27eb4e8c6c8d",
+      "effectSummary": "Summons one 9th-level creature, 1d3 8th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind. Each summoned natural creature appears where you designate and acts immediately on your turn, attacking your opponents to the best of its ability; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the summon nature's ally lists are neutral unless otherwise noted. Summoning an air, chaotic, earth, evil, fire, good, lawful, or water creature gives this casting the corresponding descriptor or descriptors.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Summon Nature's Ally I supplies the shared summoning behavior; this spell's level-list and multi-creature choices are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-ix-2458",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-i-2450",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Nature's Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-ii-4279": {
+      "name": "Summon Undead II",
+      "sourceSha256": "8e49b4e19f70210b35da264bde2dd319a43124e0d575843e5bcf8e70b9762676",
+      "effectSummary": "Summons one undead from the 2nd-level list or two undead of the same kind from the 1st-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or other command-undead abilities. No summoned undead can have more Hit Dice than your caster level +1. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Spell Compendium printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. This printing also preserves the caster-level +1 Hit Dice cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-ii-4279",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-3780",
+          "role": "Spell Compendium source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-iii-4280": {
+      "name": "Summon Undead III",
+      "sourceSha256": "bae7dd377a3a2c7411f1e15a7b3d6aaa12d49885a2f74f3b53f5b4b8bfeca6ed",
+      "effectSummary": "Summons one undead from the 3rd-level list, two undead of the same kind from the 2nd-level list, or four undead of the same kind from the 1st-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or other command-undead abilities. No summoned undead can have more Hit Dice than your caster level +1. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Spell Compendium printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. This printing also preserves the caster-level +1 Hit Dice cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iii-4280",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-3780",
+          "role": "Spell Compendium source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-iv-4281": {
+      "name": "Summon Undead IV",
+      "sourceSha256": "7fa8c27d2013fe2552ce6721f5835dfc4be83f3afa8800a4827211b506d80117",
+      "effectSummary": "Summons one undead from the 4th-level list, two undead of the same kind from the 3rd-level list, or four undead of the same kind from a lower-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or other command-undead abilities. No summoned undead can have more Hit Dice than your caster level +1. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Spell Compendium printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. This printing also preserves the caster-level +1 Hit Dice cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iv-4281",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-3780",
+          "role": "Spell Compendium source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-v-4282": {
+      "name": "Summon Undead V",
+      "sourceSha256": "80ad41c023efd7fb86f4ac25363eaec892bf02755e8a59d0611cf06971dcf9a7",
+      "effectSummary": "Summons one undead from the 5th-level list, two undead of the same kind from the 4th-level list, or four undead of the same kind from a lower-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or other command-undead abilities. No summoned undead can have more Hit Dice than your caster level +1. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Spell Compendium printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. This printing also preserves the caster-level +1 Hit Dice cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-v-4282",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-3780",
+          "role": "Spell Compendium source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-ii-1424": {
+      "name": "Summon Undead II",
+      "sourceSha256": "6bffd367c13093f16f7195b295d4d7723fb68fafbd8af7036af51a2c15e22359",
+      "effectSummary": "Summons one undead from the 2nd-level list or two undead of the same kind from the 1st-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead, plague of undead, or other command-undead abilities. No summoned undead can have more Hit Dice than your caster level +1. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Heroes of Horror printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. This printing also preserves the caster-level +1 Hit Dice cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-ii-1424",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1423",
+          "role": "Heroes of Horror source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-iii-1425": {
+      "name": "Summon Undead III",
+      "sourceSha256": "88e9c18d4f356e51099da523254cd4f6a994fe5041269f20321323dd00c079b4",
+      "effectSummary": "Summons one undead from the 3rd-level list, two undead of the same kind from the 2nd-level list, or four undead of the same kind from the 1st-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead, plague of undead, or other command-undead abilities. No summoned undead can have more Hit Dice than your caster level +1. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Heroes of Horror printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. This printing also preserves the caster-level +1 Hit Dice cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iii-1425",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1423",
+          "role": "Heroes of Horror source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-iv-1426": {
+      "name": "Summon Undead IV",
+      "sourceSha256": "27372a48057b15c57cd6e736ec95a53e63f671b0c2350ce4a0eb07d80ba71501",
+      "effectSummary": "Summons one undead from the 4th-level list, two undead of the same kind from the 3rd-level list, or four undead of the same kind from a lower-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead, plague of undead, or other command-undead abilities. No summoned undead can have more Hit Dice than your caster level +1. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Heroes of Horror printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. This printing also preserves the caster-level +1 Hit Dice cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iv-1426",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1423",
+          "role": "Heroes of Horror source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-v-1427": {
+      "name": "Summon Undead V",
+      "sourceSha256": "563e71649162ad6d37f48cd486f52b2cb191c2bd2a3b4ea46d5ad5eb886d8aa7",
+      "effectSummary": "Summons one undead from the 5th-level list, two undead of the same kind from the 4th-level list, or four undead of the same kind from a lower-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead, plague of undead, or other command-undead abilities. No summoned undead can have more Hit Dice than your caster level +1. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Heroes of Horror printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. This printing also preserves the caster-level +1 Hit Dice cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-v-1427",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1423",
+          "role": "Heroes of Horror source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-ii-1461": {
+      "name": "Summon Undead II",
+      "sourceSha256": "6bffd367c13093f16f7195b295d4d7723fb68fafbd8af7036af51a2c15e22359",
+      "effectSummary": "Summons one undead from the 2nd-level list or two undead of the same kind from the 1st-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or other command-undead abilities. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Libris Mortis: The Book of Undead printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. No later caster-level Hit Dice cap is imported into this printing because its source does not state one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-ii-1461",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1460",
+          "role": "Libris Mortis: The Book of Undead source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-iii-1462": {
+      "name": "Summon Undead III",
+      "sourceSha256": "88e9c18d4f356e51099da523254cd4f6a994fe5041269f20321323dd00c079b4",
+      "effectSummary": "Summons one undead from the 3rd-level list, two undead of the same kind from the 2nd-level list, or four undead of the same kind from the 1st-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or other command-undead abilities. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Libris Mortis: The Book of Undead printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. No later caster-level Hit Dice cap is imported into this printing because its source does not state one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iii-1462",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1460",
+          "role": "Libris Mortis: The Book of Undead source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-iv-1463": {
+      "name": "Summon Undead IV",
+      "sourceSha256": "27372a48057b15c57cd6e736ec95a53e63f671b0c2350ce4a0eb07d80ba71501",
+      "effectSummary": "Summons one undead from the 4th-level list, two undead of the same kind from the 3rd-level list, or four undead of the same kind from a lower-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or other command-undead abilities. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Libris Mortis: The Book of Undead printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. No later caster-level Hit Dice cap is imported into this printing because its source does not state one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iv-1463",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1460",
+          "role": "Libris Mortis: The Book of Undead source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-v-1464": {
+      "name": "Summon Undead V",
+      "sourceSha256": "563e71649162ad6d37f48cd486f52b2cb191c2bd2a3b4ea46d5ad5eb886d8aa7",
+      "effectSummary": "Summons one undead from the 5th-level list, two undead of the same kind from the 4th-level list, or four undead of the same kind from a lower-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or other command-undead abilities. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Libris Mortis: The Book of Undead printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. No later caster-level Hit Dice cap is imported into this printing because its source does not state one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-v-1464",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1460",
+          "role": "Libris Mortis: The Book of Undead source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-ii-2232": {
+      "name": "Summon Undead II",
+      "sourceSha256": "6bffd367c13093f16f7195b295d4d7723fb68fafbd8af7036af51a2c15e22359",
+      "effectSummary": "Summons one undead from the 2nd-level list or two undead of the same kind from the 1st-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or the cleric command-undead ability. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Player's Guide to Faerûn printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. No later caster-level Hit Dice cap is imported into this printing because its source does not state one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-ii-2232",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-2231",
+          "role": "Player's Guide to Faerûn source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-iii-2233": {
+      "name": "Summon Undead III",
+      "sourceSha256": "88e9c18d4f356e51099da523254cd4f6a994fe5041269f20321323dd00c079b4",
+      "effectSummary": "Summons one undead from the 3rd-level list, two undead of the same kind from the 2nd-level list, or four undead of the same kind from the 1st-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or the cleric command-undead ability. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Player's Guide to Faerûn printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. No later caster-level Hit Dice cap is imported into this printing because its source does not state one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iii-2233",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-2231",
+          "role": "Player's Guide to Faerûn source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-iv-2234": {
+      "name": "Summon Undead IV",
+      "sourceSha256": "27372a48057b15c57cd6e736ec95a53e63f671b0c2350ce4a0eb07d80ba71501",
+      "effectSummary": "Summons one undead from the 4th-level list, two undead of the same kind from the 3rd-level list, or four undead of the same kind from a lower-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or the cleric command-undead ability. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Player's Guide to Faerûn printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. No later caster-level Hit Dice cap is imported into this printing because its source does not state one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iv-2234",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-2231",
+          "role": "Player's Guide to Faerûn source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/summon-undead-v-2235": {
+      "name": "Summon Undead V",
+      "sourceSha256": "563e71649162ad6d37f48cd486f52b2cb191c2bd2a3b4ea46d5ad5eb886d8aa7",
+      "effectSummary": "Summons one undead from the 5th-level list, two undead of the same kind from the 4th-level list, or four undead of the same kind from a lower-level list. The undead appear where you designate and act immediately on your turn, attacking your opponents to the best of their ability; if you can communicate with them, you can direct them not to attack, to attack particular enemies, or to take other actions. Summoned undead cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must be able to support them. They do not count against undead you can control with animate dead or the cleric command-undead ability. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Player's Guide to Faerûn printing, digest-locked and kept distinct from the other Summon Undead printings. Summon Undead I and its inherited Summon Monster I chassis supply the shared summoning behavior; the quantity choices are source-specific. No later caster-level Hit Dice cap is imported into this printing because its source does not state one.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-v-2235",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-2231",
+          "role": "Player's Guide to Faerûn source for inherited Summon Undead I mechanics"
+        }
+      ]
+    },
+    "spells/symbol-of-fear-2763": {
+      "name": "Symbol of Fear",
+      "sourceSha256": "214afed2b6fc7636d4538d75670a1165a64b55a5013203a2e863d7b2a8390806",
+      "effectSummary": "Creates a permanent visible magical rune using Symbol of Death's placement, 60-foot trigger range, trigger-condition, password, attunement, dispelling, permanency, and offensive-use restrictions. A creature normally saves only once while continuously in the active area, but must save again if it leaves and later returns; read magic plus the appropriate Spellcraft check can identify the rune, and a rogue can locate and disable the magic trap at DC 25 + spell level. When triggered, creatures within 60 feet that fail the Will save become panicked for 1 round per caster level; the rune otherwise uses Symbol of Death's normal 10-minute-per-caster-level active period. Material component: mercury and phosphorus plus powdered diamond and opal worth at least 1,000 gp.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Symbol of Death supplies the symbol chassis; this spell replaces the death effect with its panicked condition and has the source-specific trap DC 31.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-fear-2763",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "Player's Handbook v.3.5 source for inherited Symbol of Death mechanics"
+        }
+      ]
+    },
+    "spells/symbol-of-pain-2764": {
+      "name": "Symbol of Pain",
+      "sourceSha256": "8900cd59ebc9ee3d2a1615f2d088d6f807371d337d2cd6de0c27345358b66cce",
+      "effectSummary": "Creates a permanent visible magical rune using Symbol of Death's placement, 60-foot trigger range, trigger-condition, password, attunement, dispelling, permanency, and offensive-use restrictions. A creature normally saves only once while continuously in the active area, but must save again if it leaves and later returns; read magic plus the appropriate Spellcraft check can identify the rune, and a rogue can locate and disable the magic trap at DC 25 + spell level. When triggered, each creature within 60 feet that fails the Fortitude save takes a -4 penalty on attack rolls, skill checks, and ability checks. The penalty lasts for 1 hour after that creature moves more than 60 feet from the rune. There is no hit-point limit; the active symbol lasts 10 minutes per caster level. Material component: mercury and phosphorus plus powdered diamond and opal worth at least 1,000 gp.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Symbol of Death supplies the symbol chassis; the pain penalty, one-hour aftereffect, no-hit-point-limit rule, and trap DC 30 are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-pain-2764",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "Player's Handbook v.3.5 source for inherited Symbol of Death mechanics"
+        }
+      ]
+    },
+    "spells/symbol-of-sleep-2577": {
+      "name": "Symbol of Sleep",
+      "sourceSha256": "e5ac72287ef194a0c774e11f582b4033291cca2846ead78fccf05c788ac520aa",
+      "effectSummary": "Creates a permanent visible magical rune using Symbol of Death's placement, 60-foot trigger range, trigger-condition, password, attunement, dispelling, permanency, and offensive-use restrictions. A creature normally saves only once while continuously in the active area, but must save again if it leaves and later returns; read magic plus the appropriate Spellcraft check can identify the rune, and a rogue can locate and disable the magic trap at DC 25 + spell level. When triggered, creatures of 10 Hit Dice or fewer within 60 feet that fail the Will save fall into a catatonic sleep for 3d6×10 minutes and cannot be awakened by nonmagical means before that time expires. There is no hit-point limit; the active symbol lasts 10 minutes per caster level. Material component: mercury and phosphorus plus powdered diamond and opal worth at least 1,000 gp.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Symbol of Death supplies the symbol chassis; the 10-HD sleep limit, fixed catatonic duration, no-hit-point-limit rule, and trap DC 30 are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-sleep-2577",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "Player's Handbook v.3.5 source for inherited Symbol of Death mechanics"
+        }
+      ]
+    },
+    "spells/symbol-spell-loss-4295": {
+      "name": "Symbol of Spell Loss",
+      "sourceSha256": "bd8464a9e22fc7ace5d92ad8079570f56985a48d3fdff40b9db0b6ad443d49f2",
+      "effectSummary": "Creates a permanent visible magical rune using Symbol of Death's placement, 60-foot trigger range, trigger-condition, password, attunement, dispelling, permanency, and offensive-use restrictions. A creature normally saves only once while continuously in the active area, but must save again if it leaves and later returns; read magic plus the appropriate Spellcraft check can identify the rune, and a rogue can locate and disable the magic trap at DC 25 + spell level. While triggered, each spellcaster within 60 feet makes a Will save at the beginning of every turn. On a failure, the caster loses the highest-level prepared spell, or the highest-level unused spell slot for a spontaneous caster, for the day. A creature with spell-like abilities instead loses one daily use of its highest-level ability, or has its highest at-will ability suppressed for 1 round. The symbol remains active for 10 minutes per caster level or until it has erased 50 spell levels, whichever comes first.",
+      "notes": "Spell Compendium printing, digest-locked. Symbol of Death supplies the symbol chassis; the repeated per-round Will save, prepared-slot/spontaneous-slot loss, spell-like-ability handling, and 50-spell-level discharge limit are source-specific. Spell resistance is No for this printing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-spell-loss-4295",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "Player's Handbook v.3.5 source for inherited Symbol of Death mechanics"
+        }
+      ]
+    },
+    "spells/symbol-of-stunning-2578": {
+      "name": "Symbol of Stunning",
+      "sourceSha256": "8069fd9dc2855c37593478ff732645c53b42a9799b42599479cf4f8daa5eb2cd",
+      "effectSummary": "Creates a permanent visible magical rune using Symbol of Death's placement, 60-foot trigger range, trigger-condition, password, attunement, dispelling, permanency, and offensive-use restrictions. A creature normally saves only once while continuously in the active area, but must save again if it leaves and later returns; read magic plus the appropriate Spellcraft check can identify the rune, and a rogue can locate and disable the magic trap at DC 25 + spell level. When triggered, creatures within 60 feet that fail the Will save are stunned for 1d6 rounds; the rune otherwise uses Symbol of Death's normal 10-minute-per-caster-level active period. Material component: mercury and phosphorus plus powdered diamond and opal worth at least 5,000 gp.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Symbol of Death supplies the symbol chassis; this spell replaces the death effect with 1d6 rounds of stunning and has the source-specific trap DC 32.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-stunning-2578",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "Player's Handbook v.3.5 source for inherited Symbol of Death mechanics"
+        }
+      ]
+    },
+    "spells/symbol-of-weakness-2765": {
+      "name": "Symbol of Weakness",
+      "sourceSha256": "ab982d01014e93c822b4c9a1993024dcabd2086e69aba92ef6e93ebde949aeff",
+      "effectSummary": "Creates a permanent visible magical rune using Symbol of Death's placement, 60-foot trigger range, trigger-condition, password, attunement, dispelling, permanency, and offensive-use restrictions. A creature normally saves only once while continuously in the active area, but must save again if it leaves and later returns; read magic plus the appropriate Spellcraft check can identify the rune, and a rogue can locate and disable the magic trap at DC 25 + spell level. When triggered, every creature within 60 feet that fails the Fortitude save takes 3d6 points of Strength damage. There is no hit-point limit; the active symbol lasts 10 minutes per caster level. Material component: mercury and phosphorus plus powdered diamond and opal worth at least 5,000 gp.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Symbol of Death supplies the symbol chassis; the 3d6 Strength damage, no-hit-point-limit rule, and trap DC 32 are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-weakness-2765",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "Player's Handbook v.3.5 source for inherited Symbol of Death mechanics"
+        }
+      ]
+    },
+    "spells/wall-of-greater-dispel-magic-3483": {
+      "name": "Wall of Greater Dispel Magic",
+      "sourceSha256": "7d891de85b914e828bc02d22f5a75f5afe41204e05ab6d9c4c33fd594f76765c",
+      "effectSummary": "Creates a permeable dispelling wall using the corresponding Wall of Dispel Magic chassis. Any creature or object passing through is subjected to a targeted greater dispel magic at your caster level: make dispel checks of 1d20 + caster level, maximum +20, against DC 11 + each effect's caster level; qualifying summoned effects can be dispelled, and an unattended magic item's properties can be suppressed for 1d4 rounds under the targeted-dispel rules. The wall's detection and pass-through behavior otherwise follows its source printing of Wall of Dispel Magic.",
+      "notes": "Underdark printing, digest-locked and kept distinct. The matching Underdark Wall of Dispel Magic printing supplies the wall chassis; this spell replaces the +10 dispel cap with Greater Dispel Magic's +20 cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-greater-dispel-magic-3483",
+          "role": "primary Underdark catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-dispel-magic-3482",
+          "role": "Underdark source for inherited Wall of Dispel Magic mechanics"
+        }
+      ]
+    },
+    "spells/wall-of-greater-dispel-magic-4738": {
+      "name": "Wall of Greater Dispel Magic",
+      "sourceSha256": "05418b694041abb53bd4a5272e7a1b45ed7af1c2face067c32f39201e234b35f",
+      "effectSummary": "Creates a permeable dispelling wall using the corresponding Wall of Dispel Magic chassis. Any creature or object passing through is subjected to a targeted greater dispel magic at your caster level: make dispel checks of 1d20 + caster level, maximum +20, against DC 11 + each effect's caster level; qualifying summoned effects can be dispelled, and an unattended magic item's properties can be suppressed for 1d4 rounds under the targeted-dispel rules. The wall's detection and pass-through behavior otherwise follows its source printing of Wall of Dispel Magic.",
+      "notes": "Spell Compendium printing, digest-locked and kept distinct. The matching Spell Compendium Wall of Dispel Magic printing supplies the wall chassis; this spell replaces the +10 dispel cap with Greater Dispel Magic's +20 cap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-greater-dispel-magic-4738",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-dispel-magic-4737",
+          "role": "Spell Compendium source for inherited Wall of Dispel Magic mechanics"
+        }
+      ]
+    },
+    "spells/shapechange-2870": {
+      "name": "Shapechange",
+      "sourceSha256": "26a3881c7512928def532c21f67254606f3a9f1357529180ec63f26599f9b31c",
+      "effectSummary": "For 10 minutes per caster level, you can assume the form of any familiar, non-unique creature of any type from Fine to Colossal size, with Hit Dice no greater than your caster level and no more than 25 HD; incorporeal and gaseous forms are allowed. The transformation uses polymorph's physical-form chassis: you take the form's Strength, Dexterity, Constitution, size, movement modes, natural armor, natural weapons, racial skill bonuses, racial bonus feats, and extraordinary attacks while retaining your own Intelligence, Wisdom, and Charisma, and the normal polymorph equipment/body and healing rules apply. Shapechange additionally grants all extraordinary and supernatural abilities of the assumed form, while you lose your own supernatural abilities, and replaces your type with the assumed form's type. You can change to another familiar legal form once each round as a free action, but not during another action. Separated body parts or equipment do not revert, and using a form as a disguise grants +10 on the Disguise check. Focus: a jade circlet worth at least 1,500 gp that melds into the assumed form.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Polymorph supplies the base transformation chassis; Shapechange's broader size/type access, 25-HD cap, incorporeal/gaseous permission, extraordinary/supernatural abilities, repeated free-action changes, and focus are preserved directly.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shapechange-2870",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-2854",
+          "role": "Player's Handbook v.3.5 source for inherited Polymorph mechanics"
+        }
+      ]
+    },
+    "spells/reduce-person-mass-2861": {
+      "name": "Reduce Person, Mass",
+      "sourceSha256": "07589eaef387d1a065c273d0f6218d3923547fd7acc12402856124bdd7ca6e62",
+      "effectSummary": "Affected humanoids are reduced by one size category: height and length are halved and weight becomes one-eighth; each gains +2 Dexterity, takes -2 Strength to a minimum of 1, and gains +1 on attack rolls and AC from smaller size. Space, reach, natural-weapon and weapon damage adjust for the new size while speed does not change. Worn and carried equipment shrinks with the creature; items that leave its possession return to normal size, and multiple magical size reductions do not stack. This casting affects up to one humanoid per caster level, with all targets within 30 feet of one another, for 1 minute per caster level.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Reduce Person supplies the reduction mechanics; this spell changes the target to multiple humanoids within the stated grouping limit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reduce-person-mass-2861",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/reduce-person-2860",
+          "role": "Player's Handbook v.3.5 source for inherited Reduce Person mechanics"
+        }
+      ]
+    },
+    "spells/reduce-person-greater-4080": {
+      "name": "Reduce Person, Greater",
+      "sourceSha256": "9ad7247bcd5efdb74bb1ffdea36903883c07d745fac23625ae75004cf27e822e",
+      "effectSummary": "Affected humanoids are reduced by one size category: height and length are halved and weight becomes one-eighth; each gains +2 Dexterity, takes -2 Strength to a minimum of 1, and gains +1 on attack rolls and AC from smaller size. Space, reach, natural-weapon and weapon damage adjust for the new size while speed does not change. Worn and carried equipment shrinks with the creature; items that leave its possession return to normal size, and multiple magical size reductions do not stack. This casting affects one humanoid at close range for 10 minutes per caster level.",
+      "notes": "Spell Compendium printing, digest-locked. Reduce Person supplies the reduction mechanics; Reduce Person, Greater changes the range and extends the duration to 10 minutes per caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reduce-person-greater-4080",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/reduce-person-2860",
+          "role": "Player's Handbook v.3.5 source for inherited Reduce Person mechanics"
+        }
+      ]
+    },
+    "spells/superior-invisibility-3920": {
+      "name": "Invisibility, Superior",
+      "sourceSha256": "f6b79e193f1991f7544008eb6f4c623920dbee4a953cb229e26bd11833bd3177",
+      "effectSummary": "The touched creature or qualifying object becomes invisible with the normal carried-gear rules, but this glamer also masks image, scent, and sound, concealing the subject from every sense except touch for 1 minute per caster level. Attacking does not end the spell. The subject emits no scent and cannot be detected by scent, blindsense, tremorsense, or blindsight; see invisibility, faerie fire, glitterdust, invisibility purge, and dust of appearance do not reveal it. True seeing can detect the subject, and mundane evidence such as footprints can still reveal its presence.",
+      "notes": "Spell Compendium printing, digest-locked. Invisibility supplies the basic vanishing and carried-equipment chassis; this spell's multisensory concealment, attack persistence, detection immunities, true-seeing exception, and mundane-clue exception are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/superior-invisibility-3920",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "Player's Handbook v.3.5 source for inherited Invisibility mechanics"
+        }
+      ]
+    },
+    "spells/spider-shapes-4215": {
+      "name": "Spider Shapes",
+      "sourceSha256": "dbddeff4c3d50e0a00f1a9a008a00d0759cd0c2235df288a2d63924b33508ab9",
+      "effectSummary": "Transforms up to one willing creature per caster level, all within 30 feet of one another, into monstrous spiders of one size you choose from Tiny through Huge for 1 hour per caster level. Each subject uses polymorph's transformation chassis, gaining the chosen spider form's physical ability scores, size, movement modes, natural armor, natural weapons, racial skill bonuses, racial bonus feats, and extraordinary attacks while retaining its mental ability scores and using the normal polymorph equipment/body and healing rules. Unlike ordinary polymorph, the subjects also gain the spider's poisonous bite. All subjects remain spiders until the spell expires or you dismiss it for everyone; an individual subject can end the effect on itself as a full-round action.",
+      "notes": "Spell Compendium printing, digest-locked. Polymorph supplies the shared transformation mechanics; the multi-target same-size spider restriction, poisonous bite exception, and individual full-round reversion are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-shapes-4215",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-2854",
+          "role": "Player's Handbook v.3.5 source for inherited Polymorph mechanics"
+        }
+      ]
+    },
+    "spells/sequester-2360": {
+      "name": "Sequester",
+      "sourceSha256": "9e3aece69c1dae7616485cfe9d8299a8317cd876605593aec024f97f02d9ef74",
+      "effectSummary": "For 1 day per caster level, a willing creature or qualifying object is hidden from divination spells that would detect or locate it and is invisible to all ordinary sight and seeing as under invisibility. The subject can still be discovered by touch or by devices such as a robe of eyes or gem of seeing. A sequestered creature becomes comatose in suspended animation until the spell ends or is dispelled. An attended or magic object can resist the initial sequestering with its Will save and spell resistance, but there is no separate save to see the subject or locate it with divination once the spell takes hold. Material component: a basilisk eyelash, gum arabic, and a dram of whitewash.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Invisibility supplies the referenced visual-concealment chassis; the divination block, tactile/device exceptions, suspended animation, and object-save rule are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sequester-2360",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "Player's Handbook v.3.5 source for inherited Invisibility mechanics"
+        }
+      ]
+    },
+    "spells/unseen-strike-847": {
+      "name": "Unseen Strike",
+      "sourceSha256": "25688cdc7f36ecbfa150a1f1faeb5104cbbbc7c087c3ecc687db2210ecb4cc73",
+      "effectSummary": "The spell has no immediate effect. The next time you make a successful melee attack before the 1-hour-per-level duration expires, you instantly become invisible together with your carried gear under the normal invisibility rules. The triggering attack has already occurred when the invisibility begins; a later direct attack or other action that counts as an attack under invisibility ends the concealment. Ordinary sight and darkvision cannot see you, although sound, scent, tracks, displaced objects, and other indirect clues can still reveal your presence. If you never make a successful melee attack before the duration expires, the spell ends unused.",
+      "notes": "Complete Mage printing, digest-locked. Invisibility supplies the visibility, equipment, detection-clue, and attack-breaking rules; the delayed trigger on the next successful melee attack is source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unseen-strike-847",
+          "role": "primary Complete Mage catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "Player's Handbook v.3.5 source for inherited Invisibility mechanics"
+        }
+      ]
+    },
+    "spells/repair-minor-damage-3812": {
+      "name": "Repair Minor Damage",
+      "sourceSha256": "653a07ed785d9b12c438ad133c15b0bc8e4f43866d4c90758056c1d9bfdf06ef",
+      "effectSummary": "By touch, repairs exactly 1 point of damage to a construct that still has at least 1 hit point remaining.",
+      "notes": "Dragon Compendium printing, digest-locked. Repair Light Damage supplies the requirement that the touched construct have at least 1 hit point; this spell replaces the repair amount with exactly 1 point.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-minor-damage-3812",
+          "role": "primary Dragon Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-3810",
+          "role": "Dragon Compendium source for inherited Repair Light Damage mechanics"
+        }
+      ]
+    },
+    "spells/repair-moderate-damage-3813": {
+      "name": "Repair Moderate Damage",
+      "sourceSha256": "3e4900fc36705c36bd025f56b2cd7cdbdb71fc5fe1dab930354ce6a53419136d",
+      "effectSummary": "By touch, repairs 2d8 points of damage +1 point per caster level, maximum +10, to a construct that still has at least 1 hit point remaining.",
+      "notes": "Dragon Compendium printing, digest-locked. Repair Light Damage supplies the eligible damaged-construct chassis; this spell replaces the repair amount with 2d8 +1 per caster level, maximum +10.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-moderate-damage-3813",
+          "role": "primary Dragon Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-3810",
+          "role": "Dragon Compendium source for inherited Repair Light Damage mechanics"
+        }
+      ]
+    },
+    "spells/surefooted-stride-mass-4287": {
+      "name": "Surefooted Stride, Mass",
+      "sourceSha256": "e25438899daa0480681a697ca1d4a8196852d483e3f51b3d82e2d5a3bd3c2cf3",
+      "effectSummary": "For 1 minute per caster level, up to one creature per caster level within 30 feet of one another can move through difficult terrain at full speed and can run, charge, and tumble through difficult terrain as though it were clear terrain. Each subject also gains a +2 competence bonus on Climb checks.",
+      "notes": "Spell Compendium printing, digest-locked. Surefooted Stride supplies the difficult-terrain movement and Climb bonus; the mass version applies those benefits to the source-defined group of creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/surefooted-stride-mass-4287",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/surefooted-stride-4286",
+          "role": "Spell Compendium source for inherited Surefooted Stride mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "5ecab67915d642e5b6b7f7a4e7daef4ebdffe21b",
+    "workflowRun": 35696537114,
+    "validationRun": 35696541487,
+    "classificationArtifact": 10680284425,
+    "classificationArtifactSha256": "74f1d52be1ad4826cd0249afb36521861b37c2532f9c92e57bf14efd6fbd3579",
+    "queueCountBefore": 811,
+    "referenceQueueCountBefore": 811,
+    "automaticReferenceEligibleCountBefore": 2
+  }
+}
