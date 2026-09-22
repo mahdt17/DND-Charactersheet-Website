@@ -2457,7 +2457,7 @@ def self_test():
             "Dragons of Faerûn (DoF), p. 119",
             "You touch a weapon, causing it to coalesce into three exact duplicates. Make a ranged attack roll for each weapon using your ranged attack bonus or the ranged attack bonus of a fighter of your caster level, whichever is higher. Each duplicate that hits deals damage as if you had struck the target with the weapon in melee (including any special effects such as bane, smite evil, critical hits, sneak attack, sorcerer so he could use it as an unexpected advantage during the frequent assassination attempts launched by his estranged kinfolk.",
             "truncated-threesteel-source",
-            ("fighter of your caster level", "weapon focus", "strength bonus does not apply", "destroys the targeted weapon"),
+            ("fighter of your caster level", "weapon focus", "strength bonus does not apply", "destroys the original weapon"),
             (),
         ),
         (
@@ -2475,7 +2475,7 @@ def self_test():
             "Oriental Adventures (OA), p. 120",
             "To utter the holy words of the kami is to bring forth magic of awesome power. Creatures with the Shadowlands subtype or with a Taint score suffer the following ill effects: The effects are cumulative. Deafened: The creature is deafened for 1d4 rounds. A deafened creature automatically fails Listen checks, suffers a -4 penalty on initiative, and has a 20% chance to miscast and lose any spell with a verbal component. Blinded: The creature is blinded for 2d4 rounds, moves at half speed, and suffers a 4 penalty on most Strength and Dexterity-based skill checks. Paralyzed: The creature is paralyzed and helpless for 1d10 minutes. Killed: Living creatures die. Undead creatures are destroyed.",
             "corrupt-words-of-the-kami-effects",
-            ("less than 12", "20% chance", "-4 penalty", "1d10 minutes"),
+            ("fewer than 12", "20% chance", "-4 penalty", "1d10 minutes"),
             ("12 or more", "less than 12", "less than 8", "less than 4"),
         ),
     ]
