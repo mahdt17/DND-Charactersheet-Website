@@ -1,0 +1,300 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest- and table-digest-locked source-verified Power Word table reviews; clean batch 063.",
+  "entries": {
+    "spells/power-word-blind-2566": {
+      "name": "Power Word Blind",
+      "sourceSha256": "00519de90a2f68a6ad27bbf4fb5176335f069c7f1923372e75ca5ccc679058cf",
+      "tablesSha256": "d731759de6ead873011a458695d5c0842172945e15ec6371e930274aa356db4c",
+      "effectSummary": "Instantly blinds one creature with 200 hit points or fewer, whether or not it can hear the word. The duration is based on the target's current hit points: 50 or fewer, permanent; 51–100, 1d4+1 minutes; 101–200, 1d4+1 rounds. A creature with 201 or more current hit points is unaffected.",
+      "tables": [
+        [
+          [
+            "Hit Points",
+            "Duration"
+          ],
+          [
+            "50 or less",
+            "Permanent"
+          ],
+          [
+            "51-100",
+            "1d4+1 minutes"
+          ],
+          [
+            "101-200",
+            "1d4+1 rounds"
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-word-blind-2566",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/powerWordBlind.htm",
+          "role": "3.5 SRD cross-check for target threshold, effect, and complete hit-point/duration table"
+        }
+      ]
+    },
+    "spells/power-word-stun-2568": {
+      "name": "Power Word Stun",
+      "sourceSha256": "63e20d88613edf0e59a29dbd7baae8213e886625d923a15f72324b2965d99142",
+      "tablesSha256": "2303d63efebc5fe9b5921f9b65d2617259ae9ded18cb6feb44a7f69a580fd9c9",
+      "effectSummary": "Instantly stuns one creature with 150 hit points or fewer, whether or not it can hear the word. The duration is based on current hit points: 50 or fewer, 4d4 rounds; 51–100, 2d4 rounds; 101–150, 1d4 rounds. A creature with 151 or more current hit points is unaffected.",
+      "tables": [
+        [
+          [
+            "Hit Points",
+            "Duration"
+          ],
+          [
+            "50 or less",
+            "4d4 rounds"
+          ],
+          [
+            "51-100",
+            "2d4 rounds"
+          ],
+          [
+            "101-150",
+            "1d4 rounds"
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-word-stun-2568",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/powerWordStun.htm",
+          "role": "3.5 SRD cross-check for target threshold, effect, and complete hit-point/duration table"
+        }
+      ]
+    },
+    "spells/power-word-deafen-3084": {
+      "name": "Power Word Deafen",
+      "sourceSha256": "d59c55619f7cf0697b58e8f55948ad7cc218b46dfed08a05da98b16c300425de",
+      "tablesSha256": "491732dac6b1348ad8600f76c63941003e95cbb8f27c1ffcd62dfbc5dbcc6d4d",
+      "effectSummary": "Instantly deafens one living creature with 100 hit points or fewer, whether or not it can hear the word. The duration is based on current hit points: 25 or fewer, permanent; 26–50, 1d4+1 minutes; 51–100, 1d4+1 rounds. A creature with 101 or more current hit points is unaffected.",
+      "tables": [
+        [
+          [
+            "Hit Points",
+            "Duration"
+          ],
+          [
+            "25 or less",
+            "Permanent"
+          ],
+          [
+            "26-50",
+            "1d4+1 minutes"
+          ],
+          [
+            "51-100",
+            "1d4+1 rounds"
+          ]
+        ]
+      ],
+      "notes": "Races of the Dragon p.115 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-word-deafen-3084",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/races-of-the-dragon--83/power-word-deafen--3084/index.html",
+          "role": "matching Races of the Dragon rendering used to verify the complete table and 101+ HP cutoff"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsrotd.html",
+          "role": "independent Races of the Dragon SRD cross-check"
+        }
+      ]
+    },
+    "spells/power-word-fatigue-3087": {
+      "name": "Power Word Fatigue",
+      "sourceSha256": "b072d371616b73e196cf4377747abb6679524a390db9b17685ac5b7fae3a10b2",
+      "tablesSha256": "e30a0cb7b2ba1cdd8a9a7c56be784340748cf40bc73f0f33a1479505327b5418",
+      "effectSummary": "Instantly fatigues one living creature with 100 hit points or fewer, whether or not it can hear the word. A creature already fatigued becomes exhausted for the spell's duration and then reverts to fatigued. Duration depends on current hit points: 25 or fewer, 1d4+1 hours; 26–50, 1d4+1 minutes; 51–100, 1d4+1 rounds. A creature with 101 or more current hit points is unaffected.",
+      "tables": [
+        [
+          [
+            "Hit Points",
+            "Duration"
+          ],
+          [
+            "25 or less",
+            "1d4+1 hours"
+          ],
+          [
+            "26-50",
+            "1d4+1 minutes"
+          ],
+          [
+            "51-100",
+            "1d4+1 rounds"
+          ]
+        ]
+      ],
+      "notes": "Races of the Dragon p.115 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-word-fatigue-3087",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/races-of-the-dragon--83/power-word-fatigue--3087/index.html",
+          "role": "matching Races of the Dragon rendering used to verify fatigue/exhaustion handling and the complete table"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsrotd.html",
+          "role": "independent Races of the Dragon SRD cross-check"
+        }
+      ]
+    },
+    "spells/power-word-nauseate-3089": {
+      "name": "Power Word Nauseate",
+      "sourceSha256": "dfd3dfaee208a9755779c61b6af787a6e14972f177bab28b3b29c5e76c7281a5",
+      "tablesSha256": "c61c2fd29a0d5eb6aa57966433870e969e7881cc04119c7a34477d6710158ade",
+      "effectSummary": "Instantly nauseates one living creature with 150 hit points or fewer, whether or not it can hear the word. Duration depends on current hit points: 50 or fewer, 2d4+2 rounds; 51–100, 1d4+1 rounds; 101–150, 1 round. A creature with 151 or more current hit points is unaffected.",
+      "tables": [
+        [
+          [
+            "Hit Points",
+            "Duration"
+          ],
+          [
+            "50 or less",
+            "2d4+2 rounds"
+          ],
+          [
+            "51-100",
+            "1d4+1 rounds"
+          ],
+          [
+            "101-150",
+            "1 round"
+          ]
+        ]
+      ],
+      "notes": "Races of the Dragon p.116 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-word-nauseate-3089",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/races-of-the-dragon--83/power-word-nauseate--3089/index.html",
+          "role": "matching Races of the Dragon rendering used to verify the complete table and 151+ HP cutoff"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsrotd.html",
+          "role": "independent Races of the Dragon SRD cross-check"
+        }
+      ]
+    },
+    "spells/power-word-pain-3090": {
+      "name": "Power Word Pain",
+      "sourceSha256": "af54be801e6d71a114c288e232a77a48198eb2a912be6320b8cc80bbd00b8ce6",
+      "tablesSha256": "85a928fa19a8b8a18e51b2f004c339fc927a940f6a9c75cbfbd068166e02575f",
+      "effectSummary": "Instantly deals 1d6 damage to one living creature with 100 hit points or fewer, then deals another 1d6 damage in every later round for as long as the spell lasts. Duration depends on the target's current hit points when cast: 50 or fewer, 4d4 rounds; 51–75, 2d4 rounds; 76–100, 1d4 rounds. A creature with 101 or more current hit points is unaffected.",
+      "tables": [
+        [
+          [
+            "Hit Points",
+            "Duration"
+          ],
+          [
+            "50 or less",
+            "4d4 rounds"
+          ],
+          [
+            "51-75",
+            "2d4 rounds"
+          ],
+          [
+            "76-100",
+            "1d4 rounds"
+          ]
+        ]
+      ],
+      "notes": "Races of the Dragon p.116 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-word-pain-3090",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/races-of-the-dragon--83/power-word-pain--3090/index.html",
+          "role": "matching Races of the Dragon rendering used to verify recurring 1d6 damage and the complete duration table"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsrotd.html",
+          "role": "independent Races of the Dragon SRD cross-check"
+        }
+      ]
+    },
+    "spells/power-word-sicken-3092": {
+      "name": "Power Word Sicken",
+      "sourceSha256": "cee5f223857286477d8bf3fcaed163f78be66cfd4dde27b3c71831fd7f4405d1",
+      "tablesSha256": "e30a0cb7b2ba1cdd8a9a7c56be784340748cf40bc73f0f33a1479505327b5418",
+      "effectSummary": "Instantly sickens one living creature with 100 hit points or fewer, whether or not it can hear the word. Duration depends on current hit points: 25 or fewer, 1d4+1 hours; 26–50, 1d4+1 minutes; 51–100, 1d4+1 rounds. A creature with 101 or more current hit points is unaffected.",
+      "tables": [
+        [
+          [
+            "Hit Points",
+            "Duration"
+          ],
+          [
+            "25 or less",
+            "1d4+1 hours"
+          ],
+          [
+            "26-50",
+            "1d4+1 minutes"
+          ],
+          [
+            "51-100",
+            "1d4+1 rounds"
+          ]
+        ]
+      ],
+      "notes": "Races of the Dragon p.116 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-word-sicken-3092",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/races-of-the-dragon--83/power-word-sicken--3092/",
+          "role": "matching Races of the Dragon rendering used to verify the complete table and 101+ HP cutoff"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsrotd.html",
+          "role": "independent Races of the Dragon SRD cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "b8e9e5cd10dac502b60879358ac2d8af23af5526",
+    "workflowRun": 35679653884,
+    "validationRun": 35679656724,
+    "classificationArtifact": 10675310493,
+    "classificationArtifactSha256": "294abee98397b3f31bae6a0c5f5da1155957ff961533e0bd0c706d00ac49c21a",
+    "queueCountBefore": 1018,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 0,
+    "tableQueueCountBefore": 41,
+    "excludedKnownBoundaryContradictions": [
+      "spells/power-word-maladroit-3088",
+      "spells/power-word-weaken-3093"
+    ]
+  }
+}

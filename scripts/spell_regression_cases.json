@@ -2082,6 +2082,13 @@
     "spells/shadow-landscape-717",
     "spells/polymorph-other-5025",
     "spells/improved-enlarge-3231",
-    "spells/improved-reduce-3232"
+    "spells/improved-reduce-3232",
+    "spells/power-word-blind-2566",
+    "spells/power-word-stun-2568",
+    "spells/power-word-deafen-3084",
+    "spells/power-word-fatigue-3087",
+    "spells/power-word-nauseate-3089",
+    "spells/power-word-pain-3090",
+    "spells/power-word-sicken-3092"
   ]
 }
