@@ -4,6 +4,18 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## 3.5 feat category — COMPLETE under both independent gates
+
+- Final verification head: `881580495080356d4daa16fdde445417e1b15918`.
+- Feat long-rule review #6 (run `35789253505`) completed successfully. Merged artifact `10721785822`, ZIP SHA-256 `9b440d4729e5c6c9264bdb18fe4114b97fbc37b287e1579cef8a4802a435e9e4`, reports **0 remaining review entries / 0 errors**.
+- Category Enrichment Audit #87 (run `35789253521`) passed all 25/50/100/250 strict samples, all **16 / 16** full source shards, source aggregation, all **16 / 16** dry-run candidate shards, and final output audit.
+- Exact full source gate: **3,666 / 3,666 passed**, **0 failed**, **100.00%**, `criticalMissingCount: 0`, `coverageErrors: []`. Source artifact `10721307493`, ZIP SHA-256 `4579241b2d585010a4f9680bc1a6fb9e50d910326183985547da20428cae08f8`.
+- Exact final-output gate: **3,666 / 3,666 passed**, **0 failed**, **100.00%**, `outputCompletenessVerified: true`, `criticalMissingCount: 0`, `errors: []`. Output artifact `10721880875`, ZIP SHA-256 `a02ecc7d1b194e47234c7a0fb47331dbc4e5e024e4c29270ca092c1e366ff3d7`.
+- Permanent focused feat regression corpus: **378** records. Final corrections include the independently verified Reaping Talons repair and exact digest-locked Special summaries for Urban Tracking, Vow of Nonviolence, Vow of Peace, Vow of Poverty, and Vow of Purity.
+- Validate modernization #978 (run `35789257298`) passed end-to-end on the same verification head, including full class/feat/spell/item regressions, build, and browser suites.
+- This is a scoped category completion only. Global `releaseReady` remains **false**, live/catalog writes remain **LOCKED**, Supabase remains untouched, and PR #4 remains open/unmerged until every required category independently passes both gates.
+
+
 ## Active spell checkpoint — clean batch 049
 
 - Prerequisite-lock head `070f1d37b21cfaaf5c02667a6c7d8615bc1ae01c` passed Spell effect review #279 (`35661405122`) and Validate modernization #842 (`35661412580`).
