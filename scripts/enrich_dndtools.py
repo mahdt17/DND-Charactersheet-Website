@@ -1185,6 +1185,42 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
     if parser.tables:
         result["tables"] = parser.tables
 
+    # Savage Species is a 3.0 source. Its Improved Enlarge/Reduce entries say
+    # "As enlarge/reduce, except as noted above" (range Touch; duration
+    # 10 minutes/level). The rebuilt catalog incorrectly expands those
+    # references with the later 3.5 enlarge person/reduce person headers.
+    # Restore only the inherited 3.0 header fields here; the long-form effect
+    # is separately digest-locked in the reviewed spell summaries.
+    savage_species_size_repairs={
+        "spells/improved-enlarge-3231":{
+            "casting_time":"1 action",
+            "components":["V","S","M"],
+            "range":"Touch",
+            "target":"One creature, or one object of up to 10 cu. ft. per level in volume",
+            "duration":"10 minutes/level",
+            "savingThrow":"Fortitude negates",
+            "spellResistance":"Yes",
+            "sourceEdition":"3.0",
+            "sourcePage":67,
+        },
+        "spells/improved-reduce-3232":{
+            "casting_time":"1 action",
+            "components":["V","S","M"],
+            "range":"Touch",
+            "target":"One creature or object of up to 10 cu. ft./caster level",
+            "duration":"10 minutes/level",
+            "savingThrow":"Fortitude negates (object)",
+            "spellResistance":"Yes (object)",
+            "sourceEdition":"3.0",
+            "sourcePage":67,
+        },
+    }
+    savage_species_repair=savage_species_size_repairs.get(entry.get("id"))
+    if savage_species_repair:
+        result.update(savage_species_repair)
+        result["sourceRepairApplied"]=True
+        result["sourceRepairMarker"]="verified-savage-species-3e-size-spell-inheritance"
+
     effect_source=spell_description_text(parser)
     if effect_source:
         # Verified Miniatures Handbook repair: the rebuilt pages report an
@@ -2241,6 +2277,36 @@ def self_test():
     s=parse_spell(p,{"name":"Reference Effect"})
     assert s.get("effectReferenceDependent")
     assert s.get("effectNeedsSummary") and not s.get("effect")
+
+    savage_enlarge_rebuilt_html = """
+    <h1>Improved Enlarge</h1><p>Savage Species (SS), p. 67</p>
+    <div>School</div><div>Transmutation</div><div>Casting Time</div><div>1 full round</div>
+    <div>Components</div><div>V, S, M</div><div>Range</div><div>Touch</div>
+    <div>Target</div><div>One humanoid creature</div><div>Duration</div><div>10 minutes/level</div>
+    <div>Saving Throw</div><div>Fortitude negates</div><div>Spell Resistance</div><div>Yes</div>
+    <div>Classes</div><div>Sorcerer 5 Wizard 5</div>
+    <h2>Description</h2><p>This rebuilt rendering incorrectly expands the later enlarge person mechanics.</p>
+    """
+    p=DetailParser();p.feed(savage_enlarge_rebuilt_html);p.close()
+    legacy_size=parse_spell(p,{"name":"Improved Enlarge","id":"spells/improved-enlarge-3231"})
+    assert legacy_size["casting_time"]=="1 action"
+    assert legacy_size["target"]=="One creature, or one object of up to 10 cu. ft. per level in volume"
+    assert legacy_size["sourceEdition"]=="3.0" and legacy_size["sourcePage"]==67
+    assert legacy_size["sourceRepairMarker"]=="verified-savage-species-3e-size-spell-inheritance"
+
+    savage_reduce_rebuilt_html = savage_enlarge_rebuilt_html.replace(
+        "Improved Enlarge","Improved Reduce"
+    ).replace(
+        "This rebuilt rendering incorrectly expands the later enlarge person mechanics.",
+        "This rebuilt rendering incorrectly expands the later reduce person mechanics.",
+    )
+    p=DetailParser();p.feed(savage_reduce_rebuilt_html);p.close()
+    legacy_size=parse_spell(p,{"name":"Improved Reduce","id":"spells/improved-reduce-3232"})
+    assert legacy_size["casting_time"]=="1 action"
+    assert legacy_size["target"]=="One creature or object of up to 10 cu. ft./caster level"
+    assert legacy_size["savingThrow"]=="Fortitude negates (object)"
+    assert legacy_size["spellResistance"]=="Yes (object)"
+    assert legacy_size["sourceEdition"]=="3.0" and legacy_size["sourcePage"]==67
 
     storm_elemental_fury_damaged_html = """
     <h1>Storm of Elemental Fury</h1><p>Complete Divine (CDiv), p. 182</p>
