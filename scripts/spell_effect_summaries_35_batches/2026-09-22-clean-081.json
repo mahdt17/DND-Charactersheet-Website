@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified 3.5 reference spells with narrow core-spell inheritance or fully explicit printed effects; clean batch 081.",
+  "entries": {
+    "spells/healing-circle-597": {
+      "name": "Healing Circle",
+      "sourceSha256": "2cf68d10ef9cf6a113a1daf870cf3f02fb6fec3db5a2d88e489b16a0105d6868",
+      "effectSummary": "Creates a personal healing aura with five charges for 1 minute per caster level or until all charges are used. Once per round, one conscious ally within 30 feet can spend a standard action to draw the next charge. The charges are fixed in order: first, cure critical wounds (4d8 +1 per caster level, maximum +20); second, cure serious wounds (3d8 +1 per caster level, maximum +15); third, cure moderate wounds (2d8 +1 per caster level, maximum +10); fourth, cure light wounds (1d8 +1 per caster level, maximum +5); fifth, 5 hit points. Each of the first four charges functions as though you personally cast the corresponding cure spell, so its normal positive-energy interactions apply.",
+      "notes": "Source-locked to Complete Champion p.122. The cure-spell references are used only for their printed charge effects; the order, action economy, 30-foot access condition, consciousness requirement, and final flat 5-point charge come from Healing Circle itself.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/healing-circle-597",
+          "role": "primary Complete Champion record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-champion--57/healing-circle--597/",
+          "role": "matching Complete Champion rendering used to verify charge order and use conditions"
+        }
+      ]
+    },
+    "spells/mark-of-the-enlightened-soul-1082": {
+      "name": "Mark of the Enlightened Soul",
+      "sourceSha256": "ad396d5dab3541dc4a2ebd1fa8440efa12e63784d5fa241facdec5630080d1ba",
+      "effectSummary": "For 3 rounds or until ended, all spells you cast gain the good descriptor, and any spell of 3rd level or lower that deals damage deals 50% more damage to evil-aligned creatures. When casting this spell, a sorcerer can sacrifice one 5th- through 9th-level sorcerer spell slot; the highest spell level that receives the extra damage then becomes one lower than the sacrificed slot's level. A good-aligned caster with the dragonblood subtype can end this spell as a swift action to activate protection from evil on itself for that spell's normal duration: +2 deflection AC and +2 resistance on saves against attacks/effects from evil creatures, suppression of possession or ongoing mental control, and protection from bodily contact by evil summoned creatures subject to protection from evil's normal limitations.",
+      "notes": "Source-locked to Dragon Magic. The Protection from Evil reference applies only to the optional dragonblood termination benefit; it does not replace Mark of the Enlightened Soul's own descriptor and damage rules.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/dragon-magic--62/mark-of-the-enlightened-soul--1082/",
+          "role": "matching Dragon Magic rendering used to verify descriptor, damage threshold, slot sacrifice, and dragonblood rider"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/protectionFromEvil",
+          "role": "3.5 SRD cross-check for the optional self-targeted Protection from Evil effect"
+        }
+      ]
+    },
+    "spells/mind-of-the-labyrinth-1063": {
+      "name": "Mind of the Labyrinth",
+      "sourceSha256": "d725fc4a98f35f0a35bc20e188f85288220fb31c5d6b5c25f0730d97ecda17b5",
+      "effectSummary": "For 1 hour per caster level or until expended, whenever an enemy targets you with a mind-affecting spell or ability, that enemy is confused for 1 round whether or not its effect successfully affects you. A Will save at DC 18 + your Intelligence modifier negates this confusion and makes that enemy immune to this casting. While the spell remains active, when a humanoid casts a mind-affecting spell on you, you can use an immediate action to trigger a dominate person effect on that humanoid with a 1-hour duration. Activating the domination ends Mind of the Labyrinth, but the domination continues for its full hour. The dominate effect otherwise uses the normal dominate person control rules, including telepathic commands, resistance to commands against the subject's nature, refusal of self-destructive orders, and same-plane control. Learning Mind of the Labyrinth also grants a +1 competence bonus on Bluff checks.",
+      "notes": "Source-locked to Dragon Magic. The Dominate Person reference supplies only the domination subsystem; Mind of the Labyrinth itself supplies the trigger, immediate-action activation, humanoid restriction, and 1-hour override.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mind-of-the-labyrinth-1063",
+          "role": "primary Dragon Magic record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/dragon-magic--62/mind-of-the-labyrinth--1063/",
+          "role": "matching Dragon Magic rendering used to verify both triggers and the permanent learning benefit"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/dominatePerson.htm",
+          "role": "3.5 SRD cross-check for inherited Dominate Person control mechanics"
+        }
+      ]
+    },
+    "spells/shard-blessing-aura-303": {
+      "name": "Shard Blessing Aura",
+      "sourceSha256": "4940e5ea60ffca3e508849bc5f18f3ea182268f5ca7c906a9e34a02a602dcef5",
+      "effectSummary": "For 1 round per caster level, a shimmering blue-white aura fills your space, moves with you, and sheds light like a candle. Within that personal aura you gain the spell-exclusion benefit of lesser globe of invulnerability: spell and spell-like effects of 3rd level or lower cannot affect a protected target through the aura, though higher-level spells and effects already active when the aura appears are unaffected; excluded effects are suppressed rather than dispelled when they encounter the ward. If you are a sorcerer and Selûne is your patron, you also gain protection from evil, including its +2 deflection AC and +2 resistance save bonuses against evil creatures, suppression of possession/mental control, and protection from bodily contact by evil summoned creatures under the normal limitations of that spell. The material component is a moonstone or other polished white stone.",
+      "notes": "Source-locked to Champions of Valor p.57. The source explicitly makes the aura mobile and limited to your space, overriding lesser globe of invulnerability's normal immobile 10-foot-radius geometry. The Protection from Evil benefit is conditional on being a sorcerer with Selûne as patron.",
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/spells/champions-of-valor--28/shard-blessing-aura--303/index.html",
+          "role": "matching Champions of Valor rendering used to verify mobile personal aura, candlelight, and Selûne rider"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/globeOfInvulnerabilityLesser.htm",
+          "role": "3.5 SRD cross-check for inherited lesser-globe spell exclusion and suppression mechanics"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/protectionFromEvil",
+          "role": "3.5 SRD cross-check for the conditional Protection from Evil benefit"
+        }
+      ]
+    },
+    "spells/touch-of-the-blackened-soul-1092": {
+      "name": "Touch of the Blackened Soul",
+      "sourceSha256": "df3148f2d654bb9a4ed33586bd6404e88e80f3155c60a4317291688116c75b19",
+      "effectSummary": "For 3 rounds or until ended, all spells you cast gain the evil descriptor, and any spell of 3rd level or lower that deals damage deals 50% more damage to good-aligned creatures. When casting this spell, a sorcerer can sacrifice one 5th- through 9th-level sorcerer spell slot; the highest spell level that receives the extra damage then becomes one lower than the sacrificed slot's level. An evil-aligned caster with the dragonblood subtype can end this spell as a swift action to activate protection from good on itself for that spell's normal duration. Protection from good functions like protection from evil with the alignment reversed: +2 deflection AC and +2 resistance on saves against attacks/effects from good creatures, the normal protection against possession or ongoing mental control, and protection from bodily contact by good summoned creatures subject to the base spell's limitations.",
+      "notes": "Source-locked to Dragon Magic. The Protection from Good reference applies only to the optional dragonblood termination benefit; the evil descriptor, bonus damage, slot-sacrifice scaling, and three-round duration are all native to Touch of the Blackened Soul.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/dragon-magic--62/touch-of-the-blackened-soul--1092/",
+          "role": "matching Dragon Magic rendering used to verify descriptor, damage threshold, slot sacrifice, and dragonblood rider"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/protectionFromGood.htm",
+          "role": "3.5 SRD cross-check for the optional self-targeted Protection from Good effect"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/protectionFromEvil",
+          "role": "3.5 SRD cross-check for the common protection subsystem inherited by Protection from Good"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "6d8c19a8cb5045b8a59324cbe7ad4075048943d7",
+    "workflowRun": 35685475679,
+    "validationRun": 35685479045,
+    "classificationArtifact": 10677205513,
+    "classificationArtifactSha256": "0f693251633322330f5bcab82046dc54a59600d651bba2c536af66fa03fd17b4",
+    "queueCountBefore": 932,
+    "referenceQueueCountBefore": 932,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}
