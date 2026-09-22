@@ -1520,6 +1520,38 @@ def parse_spell(parser: DetailParser, entry: dict) -> dict:
         ):
             result["sourceIncomplete"]=True
             result["sourceIncompleteMarker"]="corrupt-words-of-the-kami-effects"
+        if (
+            entry.get("id")=="spells/locate-creature-2505"
+            and re.search(r"\bcreature of a specific kind\s*\(such as a polymorph spells\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-locate-creature-source"
+        if (
+            entry.get("id")=="spells/investiture-of-the-malebranche-1183"
+            and re.search(r"\bextra damage whenever it successfully hits with a charge attack, depending on its size\b",effect_source,re.I)
+            and not parser.tables
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="omitted-malebranche-size-damage-table"
+        if (
+            entry.get("id")=="spells/mudslide-3335"
+            and re.search(r"\bsee Avalanches on page 90 of the transmute mud to rock spell hardens\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="truncated-stormwrack-mudslide-source"
+        if (
+            entry.get("id")=="spells/node-genesis-3489"
+            and re.search(r"\bsee Table 4-1\b",effect_source,re.I)
+            and not parser.tables
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="external-node-genesis-class-table"
+        if (
+            entry.get("id")=="spells/otyugh-swarm-5011"
+            and re.search(r"\bat least 6,000 ounds of sewage\b",effect_source,re.I)
+        ):
+            result["sourceIncomplete"]=True
+            result["sourceIncompleteMarker"]="corrupt-dragonlance-otyugh-swarm-pounds"
         source_corruption_patterns=(
             (r"\[missing content in source\]|missing content in source","missing-content-in-source"),
             (r"turn or command atonement spell upon the subject","truncated-anathema-source"),
@@ -2486,6 +2518,80 @@ def self_test():
         <div>Components</div><div>V, S</div><div>Range</div><div>Touch</div>
         <div>Duration</div><div>1 round/level</div><div>Saving Throw</div><div>See text</div>
         <div>Spell Resistance</div><div>Yes</div><div>Classes</div><div>Wizard 4</div>
+        <h2>Description</h2><p>{damaged_text}</p>
+        """
+        p=DetailParser();p.feed(damaged_html);p.close()
+        repaired=parse_spell(p,{"name":spell_name,"id":record_id})
+        assert repaired.get("sourceIncomplete"), record_id
+        assert repaired.get("sourceIncompleteMarker")==marker, record_id
+        assert repaired.get("sourceIncompleteResolved"), record_id
+        assert repaired.get("supplementVerified"), record_id
+        summary=repaired.get("effectSummary","").casefold()
+        for fragment in expected_fragments:
+            assert fragment.casefold() in summary, (record_id, fragment, summary)
+        flattened_tables=clean(" ".join(
+            str(cell)
+            for table in (repaired.get("tables") or [])
+            for row in table
+            for cell in row
+        )).casefold()
+        for fragment in expected_table_fragments:
+            assert fragment.casefold() in flattened_tables, (record_id, fragment, flattened_tables)
+
+    repair_batch_cases_6 = [
+        (
+            "spells/locate-creature-2505",
+            "Locate Creature",
+            "Player's Handbook v.3.5 (PH), p. 249",
+            "This spell functions like locate object, except this spell locates a known or familiar creature. You slowly turn and sense the creature's direction. The spell can locate a creature of a specific kind (such as a polymorph spells. Material Component: A bit of fur from a bloodhound.",
+            "truncated-locate-creature-source",
+            ("specific kind", "certain type", "within 30 feet", "running water", "mislead"),
+            (),
+        ),
+        (
+            "spells/investiture-of-the-malebranche-1183",
+            "Investiture of the Malebranche",
+            "Fiendish Codex II: Tyrants of the Nine Hells (FC2), p. 104",
+            "You infuse a creature with the raw power of a malebranche. While under the effect of this spell, the subject deals extra damage whenever it successfully hits with a charge attack, depending on its size. In addition, the subject gains resistance to fire 10. Magic weapons with the evil outsider bane special ability have full effect against the subject. After the spell expires, the subject is fatigued for 1 minute.",
+            "omitted-malebranche-size-damage-table",
+            ("charge attack", "fire 10", "evil outsider bane", "fatigued for 1 minute"),
+            ("tiny or smaller", "small", "1d6", "medium", "2d6", "colossal", "8d6"),
+        ),
+        (
+            "spells/mudslide-3335",
+            "Mudslide",
+            "Stormwrack (Sto), p. 119",
+            "You create a landslide of mud and water. Creatures within the spell's effect must make a Reflex save. Those who fail take 8d6 points of damage and are buried (see Avalanches on page 90 of the transmute mud to rock spell hardens the slide into stone, trapping any creatures still within.",
+            "truncated-stormwrack-mudslide-source",
+            ("8d6", "3d6", "8d8", "4 squares", "2 to 3 days"),
+            (),
+        ),
+        (
+            "spells/node-genesis-3489",
+            "Node Genesis",
+            "Underdark (Und), p. 59",
+            "The newly generated earth node retains its Class 1 status for one year. Thereafter, its diameter increases at a rate of 20 feet per year. When the node's diameter reaches the low end of the range for the next higher class (see Table 4-1), its class increases by +1. A Class 1 node becomes Class 2 at 40 feet and Class 3 at 120 feet. XP Cost: 5,000 XP.",
+            "external-node-genesis-class-table",
+            ("20 feet per year", "40 feet", "120 feet", "5,000 xp"),
+            ("class", "node dc", "layer width", "node diameter", "6+", "35+", "600 to 2,400 feet"),
+        ),
+        (
+            "spells/otyugh-swarm-5011",
+            "Otyugh Swarm",
+            "Dragonlance Campaign Setting (DCS), p. 109",
+            "Otyugh swarm creates 3d4 ordinary otyughs or 1d3+1 Huge otyughs with 15 HD. They remain with you for seven days unless dismissed, or seven months for guard duty. You must create the otyughs in an area containing at least 6,000 ounds of sewage, refuse, or offal. Material Component: Ruby dust worth 1,000 gp.",
+            "corrupt-dragonlance-otyugh-swarm-pounds",
+            ("6,000 pounds", "seven months", "ruby dust worth 1,000 gp", "slough back"),
+            (),
+        ),
+    ]
+    for record_id, spell_name, source_line, damaged_text, marker, expected_fragments, expected_table_fragments in repair_batch_cases_6:
+        damaged_html = f"""
+        <h1>{spell_name}</h1><p>{source_line}</p>
+        <div>School</div><div>Conjuration</div><div>Casting Time</div><div>1 standard action</div>
+        <div>Components</div><div>V, S, M</div><div>Range</div><div>Medium</div>
+        <div>Duration</div><div>1 minute/level</div><div>Saving Throw</div><div>See text</div>
+        <div>Spell Resistance</div><div>No</div><div>Classes</div><div>Wizard 6</div>
         <h2>Description</h2><p>{damaged_text}</p>
         """
         p=DetailParser();p.feed(damaged_html);p.close()

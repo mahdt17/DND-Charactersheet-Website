@@ -2096,6 +2096,180 @@
           "role": "Oriental Adventures p. 120 source rendering used to restore the HD table and -4 blinded skill-check penalty"
         }
       ]
+    },
+    "spells/locate-creature-2505": {
+      "name": "Locate Creature",
+      "effectSummary": "Functions like locate object except that it locates creatures. You sense the direction to a known or familiar creature within range and, if it is moving, the direction of its movement. You can instead locate a creature of a specific kind, such as a human or unicorn, but not merely a broad creature type such as humanoid or animal; to search for a kind, you must have seen such a creature up close within 30 feet at least once. Running water blocks the spell, it cannot detect objects, and mislead, nondetection, and polymorph spells can fool it. The material component is a bit of fur from a bloodhound.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/locate-creature-2505",
+          "role": "primary rebuilt Player's Handbook v.3.5 record; description truncates inside the specific-kind example and loses the remaining limitations"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/locateCreature.htm",
+          "role": "3.5 SRD text used to restore the specific-kind/type distinction, 30-foot familiarity requirement, blocking conditions, and deception interactions"
+        },
+        {
+          "url": "https://dndtools.org/spells/players-handbook-v35--6/locate-creature--2505/",
+          "role": "matching Player's Handbook v.3.5 rendering cross-check"
+        }
+      ]
+    },
+    "spells/investiture-of-the-malebranche-1183": {
+      "name": "Investiture of the Malebranche",
+      "effectSummary": "The subject grows malebranche-like horns and deals extra damage whenever it successfully hits with a charge attack, based on its size: Tiny or smaller gains no extra damage, Small +1d6, Medium +2d6, Large +3d6, Huge +4d6, Gargantuan +6d6, and Colossal +8d6. It also gains fire resistance 10, which stacks with resistance from other evil investiture spells but not with another casting of this spell. Weapons with the evil outsider bane special ability have their full bane effect against the subject. When the spell ends, the subject is fatigued for 1 minute.",
+      "tables": [
+        [
+          [
+            "Size",
+            "Charge Damage"
+          ],
+          [
+            "Tiny or smaller",
+            "—"
+          ],
+          [
+            "Small",
+            "1d6"
+          ],
+          [
+            "Medium",
+            "2d6"
+          ],
+          [
+            "Large",
+            "3d6"
+          ],
+          [
+            "Huge",
+            "4d6"
+          ],
+          [
+            "Gargantuan",
+            "6d6"
+          ],
+          [
+            "Colossal",
+            "8d6"
+          ]
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-malebranche-1183",
+          "role": "primary rebuilt Fiendish Codex II record; prose refers to size-dependent charge damage but omits the table"
+        },
+        {
+          "url": "https://anyflip.com/njwsm/nffo/basic/101-150",
+          "role": "Fiendish Codex II page 104 rendering used to restore the complete size/damage table"
+        },
+        {
+          "url": "https://dndtools.net/spells/fiendish-codex-ii-tyrants-of-the-nine-hells--67/investiture-of-the-malebranche--1183/",
+          "role": "matching spell rendering used to cross-check non-table mechanics"
+        }
+      ]
+    },
+    "spells/mudslide-3335": {
+      "name": "Mudslide",
+      "effectSummary": "Creates a roughly 10-foot-deep landslide of mud and water in the spell area. Creatures that fail the Reflex save take 8d6 damage and are buried under the avalanche rules; creatures that succeed take 3d6 damage and are not buried. Creatures of the fire subtype that are actually aflame instead take 8d8 or 3d8 damage, respectively. A creature escaping burial ends on top of the slide, mired in deep mud. After the initial slide, the mud persists as a deep bog until its water evaporates: entering one square costs 4 squares of movement and running or charging is impossible. Underwater it remains indefinitely as deep muck, where entering a square costs 2 squares of movement, Balance and Tumble DCs increase by 5, and Move Silently DCs increase by 2. Aboveground the mud normally dries in 2 to 3 days. Transmute mud to rock hardens the slide into stone and traps creatures still within it.",
+      "notes": "Stormwrack lists an M/DF component in the spell header but the printed spell text does not provide an arcane material-component description; no component substance is invented here.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mudslide-3335",
+          "role": "primary rebuilt Stormwrack record; description jumps from the avalanche citation to the final transmute mud to rock sentence"
+        },
+        {
+          "url": "https://dndtools.org/spells/stormwrack--87/mudslide--3335/",
+          "role": "matching Stormwrack rendering used to restore damage, burial, deep-bog, underwater-muck, and drying rules"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsstorm.html",
+          "role": "independent Stormwrack SRD rendering used as a mechanics cross-check"
+        }
+      ]
+    },
+    "spells/node-genesis-3489": {
+      "name": "Node Genesis",
+      "effectSummary": "Creates a Class 1 earth node with a 20-foot diameter while on or under the earth's surface. The node can include hollow space, solid rock, or both; if created at the surface, part of it must remain contiguous with natural ground, and no portion of the chosen volume can be less than 3 cubic feet. It remains Class 1 for one year, then grows 20 feet in diameter per year until reaching 20 feet per caster level at the time of casting. Its class rises when its diameter reaches the low end of the next class's diameter range: Class 2 begins at 40 feet, Class 3 at 120 feet, Class 4 at 240 feet, Class 5 at 400 feet, and Class 6+ at 600 feet. The created node is automatically node locked by you and otherwise follows the normal rules for natural earth nodes and their destruction. The spell costs 5,000 XP and requires the Node Spellcasting feat.",
+      "tables": [
+        [
+          [
+            "Node Class",
+            "Node DC",
+            "Layer Width",
+            "Node Diameter"
+          ],
+          [
+            "1",
+            "10",
+            "5 to 30 feet",
+            "10 to 60 feet"
+          ],
+          [
+            "2",
+            "15",
+            "10 to 40 feet",
+            "40 to 160 feet"
+          ],
+          [
+            "3",
+            "20",
+            "20 to 80 feet",
+            "120 to 480 feet"
+          ],
+          [
+            "4",
+            "25",
+            "30 to 120 feet",
+            "240 to 960 feet"
+          ],
+          [
+            "5",
+            "30",
+            "40 to 160 feet",
+            "400 to 1,600 feet"
+          ],
+          [
+            "6+",
+            "35+",
+            "50 to 200 feet",
+            "600 to 2,400 feet"
+          ]
+        ]
+      ],
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/node-genesis-3489",
+          "role": "primary rebuilt Underdark spell record; progression depends on external Table 4-1, which is not embedded"
+        },
+        {
+          "url": "https://dndtools.org/spells/underdark--34/node-genesis--3489/",
+          "role": "matching Underdark spell rendering used to cross-check node growth and class thresholds"
+        },
+        {
+          "url": "https://realmshelps.net/magic/undermagic.shtml",
+          "role": "Underdark earth-node class/size table rendering used to restore all referenced class thresholds, DCs, layer widths, and diameters"
+        }
+      ]
+    },
+    "spells/otyugh-swarm-5011": {
+      "name": "Otyugh Swarm",
+      "effectSummary": "Creates either 3d4 ordinary otyughs or 1d3+1 Huge otyughs with 15 HD from a large collection of refuse or filth. The created otyughs willingly fight, perform a mission, or serve as bodyguards for seven days unless dismissed. If created only for guard duty, they last seven months, must guard a specific site or location, and cannot move outside the spell's range. Casting requires an area containing at least 6,000 pounds of sewage, refuse, or offal. Otyughs not assigned to guard duty can leave that material at your command. When the duration ends, the created otyughs slough back into piles of offal. The material component is ruby dust worth 1,000 gp sprinkled over the matter from which they are created.",
+      "resolvesSourceIncomplete": true,
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otyugh-swarm-5011",
+          "role": "primary rebuilt Dragonlance Campaign Setting record; '6,000 pounds' is corrupted to '6,000 ounds'"
+        },
+        {
+          "url": "https://pdfcoffee.com/dragonlance-campaign-setting-6-pdf-free.html",
+          "role": "matching Dragonlance Campaign Setting p. 109 text used to verify 6,000 pounds, duration, guard restrictions, reversion, and ruby-dust component"
+        }
+      ]
     }
   }
 }
