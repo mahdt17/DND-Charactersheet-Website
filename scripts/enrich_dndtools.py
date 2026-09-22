@@ -1710,6 +1710,64 @@ def item_source_fallback_details(entry: dict) -> dict | None:
     return result
 
 
+_ITEM_EFFECT_SUMMARY_CACHE=None
+
+def item_effect_summaries():
+    global _ITEM_EFFECT_SUMMARY_CACHE
+    if _ITEM_EFFECT_SUMMARY_CACHE is None:
+        entries={}
+        batch_dir=ROOT/"scripts"/"item_effect_summaries_35_batches"
+        if batch_dir.exists():
+            batch_paths=sorted(list(batch_dir.glob("*.json"))+list(batch_dir.glob("*.json.gz")))
+            for batch_path in batch_paths:
+                if batch_path.name.endswith(".json.gz"):
+                    with gzip.open(batch_path,"rt",encoding="utf-8") as fh:
+                        payload=json.load(fh)
+                else:
+                    payload=json.loads(batch_path.read_text(encoding="utf-8"))
+                batch_entries=payload.get("entries",{})
+                if not isinstance(batch_entries,dict):
+                    raise ValueError(f"Item effect review batch must contain an entries object: {batch_path.name}")
+                overlap=sorted(set(entries)&set(batch_entries))
+                if overlap:
+                    raise ValueError(
+                        f"Duplicate item effect review IDs in {batch_path.name}: "
+                        +", ".join(overlap[:10])
+                    )
+                entries.update(batch_entries)
+        _ITEM_EFFECT_SUMMARY_CACHE=entries
+    return _ITEM_EFFECT_SUMMARY_CACHE
+
+
+def item_effect_digest(text: str) -> str:
+    return hashlib.sha256(clean(text).encode("utf-8")).hexdigest()
+
+
+def apply_reviewed_item_effect_summary(entry: dict, details: dict, effect_source: str) -> dict:
+    review=item_effect_summaries().get(entry.get("id"))
+    if not review:
+        return details
+    if clean(review.get("name","")).casefold()!=clean(entry.get("name","")).casefold():
+        raise ValueError(f"Item effect review identity mismatch for {entry.get('name')}")
+    result={**details}
+    expected=clean(review.get("sourceSha256",""))
+    actual=item_effect_digest(effect_source)
+    summary=clean(review.get("effectSummary",""))
+    if not expected or expected!=actual:
+        result["itemEffectReviewMismatch"]=True
+        return result
+    if result.get("effectNeedsSummary") and not result.get("effectSummary") and summary:
+        result["effectSummary"]=summary
+        result.pop("effectNeedsSummary",None)
+        result.pop("effectSourceLength",None)
+        result["itemEffectReviewVerified"]=True
+        result["itemEffectReviewProvenance"]=review.get("provenance",[])
+        presence=result.get("mechanicsPresence") or {}
+        presence["ruleProse"]=True
+        result["mechanicsPresence"]=presence
+    return result
+
+
 _ITEM_SUPPLEMENT_CACHE=None
 
 def item_supplements():
@@ -1842,7 +1900,10 @@ def parse_item(parser: DetailParser, entry: dict) -> dict:
         "descriptionCaptured": bool(effect_source),
     }
     result={k:v for k,v in result.items() if v not in (None,"",[],{})}
-    return apply_item_supplement(entry,result)
+    result=apply_item_supplement(entry,result)
+    if result.get("effectNeedsSummary"):
+        result=apply_reviewed_item_effect_summary(entry,result,effect_source)
+    return result
 
 
 PARSERS = {
@@ -1902,6 +1963,8 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
     elif category == "items":
         if details.get("supplementConflicts"):
             raise ValueError("Item supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
+        if details.get("itemEffectReviewMismatch"):
+            raise ValueError("Reviewed item effect summary no longer matches the current source text")
         if details.get("nonGameplayReference"):
             if details.get("referenceKind") != "generic-varied-entry":
                 raise ValueError("Unrecognized non-gameplay item reference kind")

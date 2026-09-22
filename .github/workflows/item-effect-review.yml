@@ -1,0 +1,62 @@
+name: Item effect review
+on:
+  push:
+    branches: [codex/content-foundation]
+    paths:
+      - ".github/item-effect-review.request"
+      - ".github/workflows/item-effect-review.yml"
+      - "public/catalogs/dndtools/items.json"
+      - "scripts/enrich_dndtools.py"
+      - "scripts/export_item_effect_review.py"
+      - "scripts/merge_item_effect_review.py"
+      - "scripts/item_effect_summaries_35_batches/**"
+      - "scripts/item_supplements_35.json"
+      - "scripts/item_source_fallbacks_35.json"
+permissions:
+  contents: read
+concurrency:
+  group: item-effect-review-bulk-v1
+  cancel-in-progress: true
+jobs:
+  review-shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export long item effects shard ${{ matrix.shard }}
+        run: >-
+          python scripts/export_item_effect_review.py
+          --shard-count 16 --shard-index ${{ matrix.shard }} --delay 0.08
+          --output test-results/review/shard-${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: item-effect-review-shard-${{ matrix.shard }}
+          path: test-results/review/shard-${{ matrix.shard }}.json
+          retention-days: 1
+  merge:
+    needs: review-shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: item-effect-review-shard-*
+          path: test-results/review-shards
+          merge-multiple: true
+      - name: Merge review queue
+        run: >-
+          python scripts/merge_item_effect_review.py
+          --input-dir test-results/review-shards --shard-count 16
+          --output test-results/item-effect-review.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: item-effect-review
+          path: test-results/item-effect-review.json
+          retention-days: 1
