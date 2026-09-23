@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-008-2",
+  "records": {
+    "wikidot5e:spell:primordial-ward": {
+      "sourceDigest": "sha256:d25a1b35d4ae8b39ee9874afe596d8f3cb2311ad85b3d5e3d9e505e21fce17aa",
+      "effectSummary": "For up to 1 minute, you have resistance to acid, cold, fire, lightning, and thunder. When you take one of those damage types, you may use your reaction to become immune to that type, including the triggering damage; doing so ends all the resistances, and the chosen immunity lasts until the end of your next turn, when the spell ends."
+    },
+    "wikidot5e:spell:prismatic-spray": {
+      "sourceDigest": "sha256:bfaa21abb7b30caddfad37f097dc7cc88f874fad047e7e3fced67ba8147a1d15",
+      "effectSummary": "Each creature in a 60-foot cone makes a Dexterity save, then you roll 1d8 separately for each target to determine its ray. 1 red: 10d6 fire, half on success. 2 orange: 10d6 acid, half. 3 yellow: 10d6 lightning, half. 4 green: 10d6 poison, half. 5 blue: 10d6 cold, half. 6 indigo: on a failed save the target is restrained and then makes Constitution saves at the end of its turns until it reaches three successes, ending the effect, or three failures, becoming permanently petrified. 7 violet: on a failed save the target is blinded and at the start of your next turn makes a Wisdom save; success ends blindness, failure transports it to a DM-chosen plane. 8: roll twice more, rerolling any further 8, and apply both rays."
+    },
+    "wikidot5e:spell:prismatic-wall": {
+      "sourceDigest": "sha256:64d3bb4a6c117ed7e85e70a40032f85c944d5e8deb9f2129d5bff4fe09b257d0",
+      "effectSummary": "Create an opaque seven-layer wall up to 90 feet long, 30 feet high, and 1 inch thick, or a sphere up to 30 feet in diameter, for 10 minutes; placing it through a creature causes the spell to fail. It sheds bright light 100 feet and dim light another 100. You and designated creatures are unharmed near or through it; other creatures that see it and come within 20 feet or start there make Constitution saves or are blinded for 1 minute. Crossing requires a Dexterity save against each remaining layer in order. Red deals 10d6 fire, blocks nonmagical ranged attacks, and is destroyed by 25 cold damage. Orange deals 10d6 acid, blocks magical ranged attacks, and is destroyed by strong wind. Yellow deals 10d6 lightning and is destroyed by 60 force damage. Green deals 10d6 poison and is destroyed by passwall or an equal-or-higher-level portal-opening spell. Blue deals 10d6 cold and is destroyed by 25 fire damage. Indigo restrains on a failed save; the creature makes Constitution saves at turn ends until three successes end it or three failures permanently petrify it, while the layer blocks spellcasting through the wall and is destroyed by daylight or similar equal-or-higher-level bright-light magic. Violet blinds on a failed save, followed at the start of your next turn by a Wisdom save; success ends blindness, failure sends the creature to a DM-chosen plane, and the layer is destroyed by dispel magic or similar equal-or-higher-level magic-ending effects. Antimagic field does not suppress the wall."
+    },
+    "wikidot5e:spell:produce-flame": {
+      "sourceDigest": "sha256:0a917ada05d8e96352d77f5761ba4d123ceed61bd838a70f63efb9f59f8e4de7",
+      "effectSummary": "Create a harmless flame in your hand for up to 10 minutes, shedding bright light for 10 feet and dim light for another 10; dismissing it or casting the spell again ends it. When cast or as an action later, you can hurl it at a creature within 30 feet, ending the spell and making a ranged spell attack for 1d8 fire damage on a hit. Damage becomes 2d8 at character level 5, 3d8 at 11, and 4d8 at 17."
+    },
+    "wikidot5e:spell:programmed-illusion": {
+      "sourceDigest": "sha256:b880d1b068c15505836e2188ad890c0463f83f815bea88a0973e10eeec7ffc22",
+      "effectSummary": "Create a dormant illusion no larger than a 30-foot cube within 120 feet that lasts until dispelled. Define a visual or audible trigger within 30 feet and a scripted performance, including sounds, lasting up to 5 minutes. When triggered, the illusion performs, disappears when finished, remains dormant for 10 minutes, then can trigger again. Physical interaction reveals it as insubstantial. A creature can use an action for an Intelligence (Investigation) check against your spell save DC; on success it sees through the image and hears its sounds as hollow."
+    },
+    "wikidot5e:spell:project-image": {
+      "sourceDigest": "sha256:ed5deca8bc44c4fcc8fb72e035bfa5f86690c0266575b0c629a8affa7e71c9a3",
+      "effectSummary": "Create an intangible illusory copy of yourself at any previously seen location within 500 miles for up to 1 day, regardless of obstacles. It looks, sounds, and behaves like you; if it takes any damage, the spell ends. As an action, move it up to twice your speed and control its gestures and speech. You can see and hear through it and switch between its senses and your own as a bonus action; while using its senses you are blind and deaf to your actual surroundings. Physical interaction reveals the illusion, and a creature can use an action for an Intelligence (Investigation) check against your spell save DC to recognize and see through it."
+    },
+    "wikidot5e:spell:protection-from-evil-and-good": {
+      "sourceDigest": "sha256:4ea7b918e49d464b91586de23c1639143e62cefbafd4016853033bdadde5474e",
+      "effectSummary": "For up to 10 minutes, one willing creature you touch is protected from aberrations, celestials, elementals, fey, fiends, and undead. Those creatures have disadvantage on attacks against it, and it cannot be charmed, frightened, or possessed by them. If already subject to one of those effects from such a creature, it has advantage on any new saving throw against that effect."
+    },
+    "wikidot5e:spell:protection-from-poison": {
+      "sourceDigest": "sha256:ac6bc9c6e97fbd6654625f8b243c162806438782a3084a298c978d8fb83f3e55",
+      "effectSummary": "Touch one creature. If it is poisoned, neutralize one poison affecting it—one you know is present, or a random one if several exist. For 1 hour, the target also has advantage on saves against being poisoned and resistance to poison damage."
+    },
+    "wikidot5e:spell:psionic-blast-ua": {
+      "sourceDigest": "sha256:3943531cca0a99300e7fa5c5fb9959b2c9ed0b55c25b4dc98f152d10d7befc5b",
+      "effectSummary": "Creatures in a 30-foot cone make Dexterity saves. On a failure, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and falls prone; on a success it takes half damage with no push or prone. Each slot level above 3rd adds 1d8 damage."
+    },
+    "wikidot5e:spell:psychic-crush-ua": {
+      "sourceDigest": "sha256:6850df8e5b2a47c6bd311501adb100ea4007f7ea5b87488bab90dc22b58e245d",
+      "effectSummary": "One visible creature within 60 feet makes an Intelligence save. On a failure it takes 12d6 psychic damage and is stunned for up to 1 minute; on a success it takes half damage and is not stunned. A stunned target repeats the Intelligence save at the end of each of its turns, ending the stun on a success."
+    }
+  }
+}
