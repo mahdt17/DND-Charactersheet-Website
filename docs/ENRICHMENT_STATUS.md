@@ -27,6 +27,17 @@ authorization. The frontend quarantines contaminated effects in the meantime.
 Application integration progress and remaining automation limits are recorded in
 `docs/APPLICATION_INTEGRATION.md`.
 
+### Repair pipeline checkpoint
+
+The Wikidot importer now has a fail-closed repair path for the 1,603 damaged spell,
+feat and item records. Exact source HTML can be cached with URL, SHA-256 and retrieval
+metadata; every candidate records a digest of all retained rule blocks and tables;
+multi-block/list/table/upcasting pages remain `effectNeedsSummary` until a committed
+summary is pinned to that exact digest. A resumable per-record repair manifest records
+direct-complete, summary-applied and needs-summary states without persisting source
+prose. Category-audit candidate shards upload the cache and repair manifest as
+artifacts. Canonical catalogs remain unchanged until fresh source/output gates pass.
+
 ## Historical nine-category release audit — promoted, subsequently invalidated
 
 - Audited head: \`33180e52edec5d54d9a26f4dcab6fce756325b0b\`.

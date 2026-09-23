@@ -136,4 +136,17 @@ assert w5.concise_rule_effect(p,"Example")==("",True)
 for category in ["spell","feat","item"]:
  assert "effectBoilerplate" in w5.enrichment_gaps({"category":category},{"effect":"You should be logged in to clone a site."})
 assert not output_audit.presence({"effect":"You should be logged in to clone a site."},"effect")
-print("PASS site-shell contamination and partial-effect rejection")
+
+html="""<div id="page-content"><h1>Complex</h1><p>Source: Test</p><p>1st-level evocation</p>
+<p>Casting Time: 1 action</p><p>Range: 60 feet</p><p>Components: V, S</p><p>Duration: Instantaneous</p>
+<p>Primary mechanical paragraph with enough detail to qualify as rule prose.</p>
+<ul><li>Short rider: prone.</li><li>Another rider with a conditional exception.</li></ul>
+<p>At Higher Levels. Increase the damage by one die for each slot level above 1st.</p>
+<table><tr><th>d4</th><th>Result</th></tr><tr><td>1</td><td>One</td></tr></table></div>"""
+p=w5.Page();p.feed(html);p.close()
+ev=w5.rule_evidence(p,"Complex",("Test","1st-level evocation","1 action","60 feet","Instantaneous","V, S"))
+assert ev["blockCount"]>=4 and ev["tableCount"]==1 and ev["hasUpcasting"] and ev["hasNestedRules"]
+row=w5.source_record("Complex",w5.BASE+"/spell:complex","spell",{"level":1})
+parsed=w5.parse_spell_detail(row,p)
+assert parsed.get("effectNeedsSummary") is True and not parsed.get("effect")
+print("PASS site-shell contamination, multi-block/table evidence and partial-effect rejection")

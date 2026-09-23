@@ -145,13 +145,20 @@ jobs:
           if [ "$FAMILY" = "3.5" ]; then
             python scripts/enrich_dndtools.py --categories "$CATEGORY" --force --delay 0.12               --candidate-dir test-results/candidate-shards               --shard-count ${{ needs.prepare.outputs.shards }} --shard-index ${{ matrix.shard }}
           else
-            python scripts/import_wikidot.py --categories "$CATEGORY" --delay 0.12               --candidate-dir test-results/candidate-shards               --shard-count ${{ needs.prepare.outputs.shards }} --shard-index ${{ matrix.shard }}
+            python scripts/import_wikidot.py --categories "$CATEGORY" --delay 0.12 \
+              --candidate-dir test-results/candidate-shards \
+              --source-cache-dir test-results/wikidot-source-cache \
+              --repair-manifest test-results/wikidot-repair-manifest-${{ matrix.shard }}.json \
+              --shard-count ${{ needs.prepare.outputs.shards }} --shard-index ${{ matrix.shard }}
           fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: enrichment-${{ needs.prepare.outputs.key }}-candidate-shard-${{ matrix.shard }}
-          path: test-results/candidate-shards/${{ needs.prepare.outputs.source_dir }}/${{ needs.prepare.outputs.category }}-shard-${{ matrix.shard }}.json
+          path: |
+            test-results/candidate-shards/${{ needs.prepare.outputs.source_dir }}/${{ needs.prepare.outputs.category }}-shard-${{ matrix.shard }}.json
+            test-results/wikidot-repair-manifest-${{ matrix.shard }}.json
+            test-results/wikidot-source-cache/
 
   output-audit:
     needs: [prepare, source-aggregate, candidate-shard]

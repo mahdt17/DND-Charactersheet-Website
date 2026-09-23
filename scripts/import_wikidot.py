@@ -15,6 +15,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -29,6 +30,26 @@ BASE = "https://dnd5e.wikidot.com"
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "public" / "catalogs" / "wikidot5e"
 AGENT = "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)"
+SOURCE_CACHE_DIR = None
+SOURCE_FETCH_META = {}
+SUMMARY_PATH = ROOT / "scripts" / "wikidot_effect_summaries.json"
+_SUMMARY_CACHE = None
+
+def load_effect_summaries():
+    global _SUMMARY_CACHE
+    if _SUMMARY_CACHE is None:
+        if SUMMARY_PATH.exists():
+            payload=json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
+            _SUMMARY_CACHE=payload.get("records",{})
+        else:
+            _SUMMARY_CACHE={}
+    return _SUMMARY_CACHE
+
+def pinned_effect_summary(record_id, source_digest):
+    row=load_effect_summaries().get(record_id) or {}
+    if row.get("sourceDigest") != source_digest:
+        return ""
+    return clean(row.get("effectSummary",""))
 
 INDEX_URLS = {
     "spells": BASE + "/spells",
@@ -175,9 +196,26 @@ class Page(HTMLParser):
         self.flush()
 
 
+def _cache_paths(url):
+    if SOURCE_CACHE_DIR is None:
+        return None,None
+    key=hashlib.sha256(url.encode("utf-8")).hexdigest()
+    root=Path(SOURCE_CACHE_DIR)
+    root.mkdir(parents=True,exist_ok=True)
+    return root/f"{key}.html",root/f"{key}.json"
+
+
 def fetch(url: str, delay: float = 0.25) -> str:
     if urlparse(url).netloc != urlparse(BASE).netloc:
         raise ValueError("Refusing external URL: " + url)
+    html_path,meta_path=_cache_paths(url)
+    if html_path and html_path.exists() and meta_path.exists():
+        text=html_path.read_text(encoding="utf-8")
+        meta=json.loads(meta_path.read_text(encoding="utf-8"))
+        digest="sha256:"+hashlib.sha256(text.encode("utf-8")).hexdigest()
+        if meta.get("url")==url and meta.get("sha256")==digest:
+            SOURCE_FETCH_META[url]={**meta,"cacheHit":True}
+            return text
     for attempt in range(4):
         try:
             if delay:
@@ -186,7 +224,18 @@ def fetch(url: str, delay: float = 0.25) -> str:
                 final=response.geturl()
                 if urlparse(final).netloc != urlparse(BASE).netloc:
                     raise ValueError("Unexpected redirect: " + final)
-                return response.read().decode("utf-8","replace")
+                text=response.read().decode("utf-8","replace")
+                digest="sha256:"+hashlib.sha256(text.encode("utf-8")).hexdigest()
+                meta={
+                    "url":url,"finalUrl":final,"sha256":digest,
+                    "retrievedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime()),
+                    "userAgent":AGENT,"cacheHit":False,
+                }
+                SOURCE_FETCH_META[url]=meta
+                if html_path:
+                    html_path.write_text(text,encoding="utf-8")
+                    meta_path.write_text(json.dumps(meta,indent=2)+"\n",encoding="utf-8")
+                return text
         except HTTPError as error:
             if error.code not in (429,500,502,503,504) or attempt==3:
                 raise
@@ -201,6 +250,7 @@ def parse(url: str, delay: float) -> Page:
     p=Page()
     p.feed(fetch(url,delay))
     p.close()
+    p.sourceFetch=SOURCE_FETCH_META.get(url,{})
     return p
 
 
@@ -370,6 +420,74 @@ def site_boilerplate(value):
     return bool(re.search(r"logged in to clone|click here to|wikidot\.com|view wiki source|manage (?:this site|file attachments)|notify administrators|create account|sign in|check out how this page",str(value),re.I))
 
 
+def rule_evidence(page, entry_name="", skip_values=()):
+    """Return digest-only completeness evidence; source prose is not persisted."""
+    expected=identity_key(entry_name)
+    start=0
+    lines=page.content_lines if page.content_lines is not None else page.lines
+    for i,line in enumerate(lines):
+        candidate=identity_key(line)
+        if expected and (candidate==expected or candidate.startswith(expected)):
+            start=i+1
+            break
+    skip={clean(v).casefold() for v in skip_values if v}
+    ignored_prefixes=(
+        "source:", "souce:", "create account", "toggle navigation", "about",
+        "membership", "help docs", "user guide", "first time user",
+        "quick reference", "creating pages", "editing pages", "navigation bars",
+        "using modules", "templates", "css themes", "site manager",
+        "edit top bar", "edit side bar", "css manager", "recent changes",
+        "list all pages", "menu", "tags", "page revision", "edit this page",
+        "edit", "append content", "view and manage", "wikidot.com",
+    )
+    metadata_prefixes=(
+        "casting time", "range", "components", "duration", "spell lists",
+        "prerequisite", "prerequisites", "hit dice", "saving throws",
+        "armor", "weapons", "tools", "skills",
+    )
+    blocks=[]
+    for line in lines[start:]:
+        value=clean(line)
+        low=value.casefold()
+        if not value or low in skip or low==clean(entry_name).casefold():
+            continue
+        if low.startswith(ignored_prefixes) or low.startswith(metadata_prefixes) or site_boilerplate(value):
+            continue
+        if len(value)<100 and re.fullmatch(r"[a-z0-9-]+(?:\s+[a-z0-9-]+){1,20}",low):
+            continue
+        blocks.append(value)
+    tables=[[[clean(cell) for cell in row] for row in table] for table in page.tables if table]
+    payload=json.dumps({"blocks":blocks,"tables":tables},ensure_ascii=False,separators=(",",":"))
+    return {
+        "sourceDigest":"sha256:"+hashlib.sha256(payload.encode("utf-8")).hexdigest(),
+        "blockCount":len(blocks),
+        "tableCount":len(tables),
+        "hasUpcasting":any(re.match(r"^At Higher Levels\b",b,re.I) for b in blocks),
+        "hasNestedRules":len(blocks)>1,
+        "hasTables":bool(tables),
+        "fetch":dict(getattr(page,"sourceFetch",{}) or {}),
+    }
+
+
+def apply_complete_effect(result,row,page,skip_values=()):
+    evidence=rule_evidence(page,row.get("name",""),skip_values)
+    result["sourceEvidence"]=evidence
+    summary=pinned_effect_summary(row.get("id"),evidence["sourceDigest"])
+    if summary:
+        result["effectSummary"]=summary
+        result.pop("effectNeedsSummary",None)
+        result.pop("effect",None)
+        return result
+    effect,needs_summary=concise_rule_effect(page,row.get("name",""),skip_values)
+    if effect and evidence["blockCount"]==1 and evidence["tableCount"]==0:
+        result["effect"]=effect
+        result.pop("effectNeedsSummary",None)
+    elif needs_summary or evidence["blockCount"] or evidence["tableCount"]:
+        result.pop("effect",None)
+        result["effectNeedsSummary"]=True
+    return result
+
+
 def concise_rule_effect(page, entry_name="", skip_values=()):
     """A short line is complete only when there is no other unrepresented rule text."""
     expected=identity_key(entry_name)
@@ -446,14 +564,10 @@ def parse_spell_detail(row,page):
             break
     result["concentration"]="concentration" in result.get("duration","").casefold()
     result["ritual"]=any(re.search(r"\britual\b",line,re.I) for line in lines)
-    effect,needs_summary=concise_rule_effect(
-        page,row.get("name",""),
-        skip_values=(level_school,result.get("sourceBook",""),result.get("casting_time",""),result.get("range",""),result.get("duration","")),
+    apply_complete_effect(
+        result,row,page,
+        skip_values=(level_school,result.get("sourceBook",""),result.get("casting_time",""),result.get("range",""),result.get("duration",""),comps),
     )
-    if effect:
-        result["effect"]=effect
-    elif needs_summary:
-        result["effectNeedsSummary"]=True
     result["mechanicsPresence"]={"ruleProse":has_rule_prose(page,row.get("name",""))}
     return result
 
@@ -469,11 +583,7 @@ def parse_feat_detail(row,page):
     if prereq:
         result["prerequisites"]=[{"kind":"text","label":"Prerequisite","text":prereq}]
     labeled=any(clean(line).casefold() in ("prerequisite","prerequisites") or clean(line).casefold().startswith(("prerequisite:","prerequisites:")) for line in page.lines)
-    effect,needs_summary=concise_rule_effect(page,row.get("name",""),skip_values=(result.get("sourceBook",""),prereq))
-    if effect:
-        result["effect"]=effect
-    elif needs_summary:
-        result["effectNeedsSummary"]=True
+    apply_complete_effect(result,row,page,skip_values=(result.get("sourceBook",""),prereq))
     result["mechanicsPresence"]={
         "ruleProse":has_rule_prose(page,row.get("name","")),
         "prerequisiteLabeled":labeled
@@ -628,14 +738,10 @@ def parse_item_detail(row,page):
         result.setdefault("rarityOptions",tag_rarities)
 
     result.setdefault("attunement",False)
-    effect,needs_summary=concise_rule_effect(
-        page,row.get("name",""),
+    apply_complete_effect(
+        result,row,page,
         skip_values=(result.get("sourceBook",""),descriptor),
     )
-    if effect:
-        result["effect"]=effect
-    elif needs_summary:
-        result["effectNeedsSummary"]=True
     result["mechanicsPresence"]={"ruleProse":has_rule_prose(page,row.get("name",""))}
     return result
 
@@ -851,6 +957,22 @@ def self_test():
     item=parse_item_detail(source_record("Deck Of Wild Cards",BASE+"/wondrous-items:deck-of-wild-cards","item"),p)
     assert item["rarity"]=="Very Rare"
 
+    complex_html="""
+    <div id="page-content"><h1>Complex Spell</h1><p>Source: Test Book</p>
+    <p>1st-level evocation</p><p>Casting Time: 1 action</p><p>Range: 60 feet</p>
+    <p>Components: V, S</p><p>Duration: Instantaneous</p>
+    <p>A target makes a Dexterity saving throw and takes 2d6 fire damage on a failed save.</p>
+    <ul><li>On a successful save, it takes half as much damage.</li><li>Flammable unattended objects ignite.</li></ul>
+    <p>At Higher Levels. Damage increases by 1d6 per slot level above 1st.</p>
+    <table><tr><th>d4</th><th>Effect</th></tr><tr><td>1</td><td>Example rider</td></tr></table></div>
+    """
+    cp=Page();cp.feed(complex_html);cp.close()
+    cr=source_record("Complex Spell",BASE+"/spell:complex-spell","spell",{"level":1})
+    ce=rule_evidence(cp,"Complex Spell",("Test Book","1st-level evocation","1 action","60 feet","Instantaneous","V, S"))
+    assert ce["blockCount"]>=4 and ce["tableCount"]==1 and ce["hasUpcasting"]
+    parsed=parse_spell_detail(cr,cp)
+    assert parsed.get("effectNeedsSummary") is True and not parsed.get("effect")
+
     fighter="""
     <h1>Fighter</h1><p>You must have a Dexterity or Strength score of 13 or higher in order to multiclass in or out of this class.</p>
     <p>Hit Dice: 1d10 per fighter level</p><p>Saving Throws: Strength, Constitution</p>
@@ -909,7 +1031,45 @@ def audit_report_allows_write(path):
     )
 
 
+def repair_manifest_row(row):
+    evidence=row.get("sourceEvidence") or {}
+    if row.get("effectSummary") and not row.get("effectNeedsSummary"):
+        status="summary-applied"
+    elif row.get("effect") and not row.get("effectNeedsSummary"):
+        status="direct-complete"
+    else:
+        status="needs-summary"
+    return {
+        "id":row.get("id"),"name":row.get("name"),"category":row.get("category"),
+        "url":row.get("url") or row.get("sourceUrl"),"status":status,
+        "sourceDigest":evidence.get("sourceDigest"),
+        "blockCount":evidence.get("blockCount",0),"tableCount":evidence.get("tableCount",0),
+        "hasUpcasting":bool(evidence.get("hasUpcasting")),
+        "fetch":evidence.get("fetch") or {},
+    }
+
+
+def write_repair_manifest(path, rows):
+    if not path:
+        return
+    records=[repair_manifest_row(row) for row in rows if row.get("category") in {"spell","feat","item"}]
+    payload={
+        "version":1,"source":BASE,
+        "generatedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime()),
+        "total":len(records),
+        "counts":{
+            "summaryApplied":sum(r["status"]=="summary-applied" for r in records),
+            "directComplete":sum(r["status"]=="direct-complete" for r in records),
+            "needsSummary":sum(r["status"]=="needs-summary" for r in records),
+        },
+        "records":records,
+    }
+    Path(path).parent.mkdir(parents=True,exist_ok=True)
+    Path(path).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+
+
 def main():
+    global SOURCE_CACHE_DIR
     ap=argparse.ArgumentParser()
     ap.add_argument("--categories",nargs="+",choices=["spells","feats","items","classes"],default=["spells","classes","feats","items"])
     ap.add_argument("--limit",type=int)
@@ -917,10 +1077,13 @@ def main():
     ap.add_argument("--write",action="store_true",help="Persist catalog files. Blocked without a passing full-catalog audit.")
     ap.add_argument("--audit-report",help="Path to a strict full-catalog preflight report required for --write.")
     ap.add_argument("--candidate-dir",type=Path,help="Write dry-run candidate JSON here; never modifies the bundled catalog.")
+    ap.add_argument("--source-cache-dir",type=Path,help="Cache exact source HTML plus URL/digest/retrieval metadata for resumable repair.")
+    ap.add_argument("--repair-manifest",type=Path,help="Write per-record source digest and repair status without source prose.")
     ap.add_argument("--shard-count",type=int,default=1)
     ap.add_argument("--shard-index",type=int,default=0)
     ap.add_argument("--self-test",action="store_true")
     args=ap.parse_args()
+    SOURCE_CACHE_DIR=args.source_cache_dir
     if args.self_test:
         self_test();return
     if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
@@ -930,6 +1093,7 @@ def main():
     if args.write and not audit_report_allows_write(args.audit_report):
         raise SystemExit("--write is locked until a strict full-catalog audit report passes with zero critical gaps.")
     manifest={"source":BASE,"kind":"structured-reference-index","complete":args.limit is None and args.shard_count==1,"categories":[],"generatedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime()),"write":args.write}
+    repair_rows=[]
     for category in args.categories:
         if category=="classes":
             source_rows=[source_record(name.title(),BASE+"/"+name,"class") for name in CLASS_URLS]
@@ -944,10 +1108,12 @@ def main():
             if args.shard_count>1:
                 source_rows=shard_rows(source_rows,args.shard_count,args.shard_index)
             rows=enrich(source_rows,args.limit,args.delay)
+        repair_rows.extend(rows)
         manifest["categories"].append(save(
             category,rows,args.write,args.candidate_dir,
             shard_count=args.shard_count,shard_index=args.shard_index
         ))
+    write_repair_manifest(args.repair_manifest,repair_rows)
     if args.write:
         OUTPUT.mkdir(parents=True,exist_ok=True)
         (OUTPUT/"manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
