@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-3",
+  "records": {
+    "wikidot5e:wondrous-items:scroll-of-tarrasque-summoning": {
+      "sourceDigest": "sha256:a0b05a49237b310326f949131fe0152009e2c327bbceea49b543c6265af81450",
+      "effectSummary": "As an action, read the scroll to summon the tarrasque into an unoccupied space you can see within 1 mile. It is hostile to every creature other than itself and disappears when reduced to 0 HP."
+    },
+    "wikidot5e:wondrous-items:scroll-of-the-comet": {
+      "sourceDigest": "sha256:e95837fbc43ec124a81b49f466d03b1228ad37abea493bfd9be005bbaca2cc86",
+      "effectSummary": "Outdoors, use an action to read the scroll and call a comet to a visible point within 1 mile; indoors, nothing happens and the scroll is wasted. Impact creates a 50-foot-deep, 500-foot-radius crater. Creatures there make DC 20 Dexterity, taking 30d10 force on failure or half on success. All structures and all nonmagical unattended objects in the crater are destroyed."
+    },
+    "wikidot5e:wondrous-items:seeker-dart": {
+      "sourceDigest": "sha256:829b8bf94c4c3ac15a55ab1a75b49feda18e6297183913ba9cacd15e6930b1d1",
+      "effectSummary": "Whisper 'seek' and throw the dart at a creature you have seen before within 120 feet; you need not currently see it. If it is out of range or no clear path exists, the dart falls and becomes ordinary. Otherwise it magically flies around corners and through openings as narrow as 1 inch to the target. The target makes DC 16 Dexterity; on failure take 1d4 piercing +3d4 lightning. After reaching the target, the dart becomes nonmagical."
+    },
+    "wikidot5e:wondrous-items:sekolahian-worshipping-statuette": {
+      "sourceDigest": "sha256:8b0f48e1133bb34cb2e810f8f6a0d04475ca4ad1e34dffd1c7fdc30b36dd4422",
+      "effectSummary": "When a Tiny sea-dwelling animal comes within 1 inch of the statuette's shark mouth, it animates briefly and deals 1 piercing damage. This can occur at most once per hour."
+    },
+    "wikidot5e:wondrous-items:sensory-stone": {
+      "sourceDigest": "sha256:0ffe8b0035d9c096cd3b3ce5522051b53357a66945400917cc53e1f36af93512",
+      "effectSummary": "As an action, you or a willing designated creature touches the stone to experience its stored sensation as a fleeting harmless illusion. As a reaction, record a sensation lasting no more than 6 seconds experienced by one creature within 30 feet, replacing the prior recording. As a bonus action, destroy the stone to end charmed or frightened on yourself."
+    },
+    "wikidot5e:wondrous-items:shadowfell-brand-tattoo": {
+      "sourceDigest": "sha256:3c37ad23acaeea09a29b38ea65885c499694439766672b5c0b30341251ec897a",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes it vanish and the needle reappear. Gain darkvision 60 feet and advantage on Dexterity (Stealth). Once per sunset when you take damage, use your reaction to become briefly insubstantial and halve that damage."
+    },
+    "wikidot5e:wondrous-items:shadowfell-shard": {
+      "sourceDigest": "sha256:00fb8a7a7f8c4b9221b520eb26d649169e2f83b8c0e05fd485a706907cb7a11b",
+      "effectSummary": "Attach/detach it from a Tiny object as an action; it detaches if attunement ends and functions as a spellcasting focus while held/worn. Whenever you apply Metamagic to a spell, choose one creature targeted by that spell and one ability score; until the end of your next turn it has disadvantage on ability checks and saving throws using that ability."
+    },
+    "wikidot5e:wondrous-items:shard-of-the-ise-rune": {
+      "sourceDigest": "sha256:4e52e169a25df347af7811f6e6dce5541145a8d46430928c7b9ee64158c0b101",
+      "effectSummary": "While on your person, gain fire resistance. Once per short or long rest as an action, touch water to freeze a 10-foot-radius sphere around the contact point. Separately once per short or long rest, as an action touch yourself or another creature with water to give an icy mantle for 1 minute; the next bludgeoning, piercing, or slashing damage becomes 0 and destroys the mantle. Separately once per short or long rest, cast sleet storm at save DC 17. Transfer its rune over 8 hours to a nonmagical cloak or boots, destroying the shard. Cloak: rare attunement, fire resistance and advantage on Stealth in snowy terrain. Boots: rare attunement, ignore walking difficult terrain and walk on water."
+    },
+    "wikidot5e:wondrous-items:shard-of-xeluan": {
+      "sourceDigest": "sha256:11a70608016d63919ff52bdd18ada93c7bca59377001f04bb405e47893d8f83a",
+      "effectSummary": "While holding it, use as a spellcasting focus and gain +1 spell attack. While on your person, Strength increases by 4 to maximum 22. Curse persists until remove curse/similar magic or reattachment to Xeluan's petrified heart. Whenever you roll a natural 1 on attack, ability check, or save and no shard misfortune is already active, roll d6: 1 cut yourself and poisoned until dawn; 2 stunned until end of next turn by a catastrophic vision; 3 you and creatures within 10 feet make DC 16 Dexterity or fall prone; 4 three magic darts each deal 1d4+1 force to one random creature within 30 feet, or you if none; 5 beasts Intelligence 3 or lower hostile until dawn; 6 disadvantage on ability checks until dawn."
+    },
+    "wikidot5e:wondrous-items:shard-solitaire": {
+      "sourceDigest": "sha256:bdb9f1096f0eb62192570ae3048d04e48094c8ea14ea155e9885f54557eefaae",
+      "effectSummary": "As a bonus action while held/worn, teleport with worn/carried gear to a visible open space within 30 feet. You may extend this by up to another 30 feet, but teleporting more than 30 feet requires DC 16 Constitution or take 3d10 force afterward. The stone has 6 charges, regaining 1d6 daily at dawn, and casts without material components at save DC 16. All types: mirror image 1; banishment 3, sending the target into the stone's extradimensional space. Black Sapphire: blight 3, finger of death 6. Diamond: ice storm 3, simulacrum 6 with duplicate having the original creature's full HP. Jacinth: fireball 2, fire storm 6. Rainbow Pearl: water breathing 2, prismatic spray 6. Ruby: fly 2, teleport 6."
+    }
+  }
+}
