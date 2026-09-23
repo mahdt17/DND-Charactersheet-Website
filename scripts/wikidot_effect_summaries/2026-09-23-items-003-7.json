@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-7",
+  "records": {
+    "wikidot5e:wondrous-items:heart-weavers-primer": {
+      "sourceDigest": "sha256:28197dbe2b70649387f00e08a789b95d850f41712732f565140aaaf6e26258b7",
+      "effectSummary": "Wizard spellbook/focus containing antipathy/sympathy, charm person, dominate person, enthrall, hypnotic pattern, modify memory, and suggestion. It has 3 charges, regaining 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with another Enchantment spell in the book. When you cast an Enchantment spell, spend 1 charge to impose disadvantage on the first saving throw one target makes against that spell."
+    },
+    "wikidot5e:wondrous-items:hell-hound-cloak": {
+      "sourceDigest": "sha256:cae50a62de446cf4e0d6d07f08ab33a1244593f2d30eff4ba6b337527a362369",
+      "effectSummary": "As an action, transform into a hell hound for up to 1 hour as with polymorph, except you may revert as a bonus action. Curse: attunement makes you unwilling to part with the cloak until remove curse or similar magic. On the sixth and every later use, make DC 15 Charisma; on failure the transformation lasts until dispelled or 0 HP and you cannot willingly revert. If you stay in hell hound form for 6 hours, it becomes permanent and your statistics are replaced by the hell hound's; remove curse or similar magic restores you. If that permanent form lasts 6 days, only wish can reverse it."
+    },
+    "wikidot5e:wondrous-items:hellfire-weapon": {
+      "sourceDigest": "sha256:63389afb30b39793dcd96a3f283200a15ad7fe7e382c7c12fbc71c7884c5603d",
+      "effectSummary": "This infernal-iron weapon sheds dim light 5 feet. Any humanoid killed by one of its attacks has its soul sent to the River Styx and is immediately reborn there as a lemure devil."
+    },
+    "wikidot5e:wondrous-items:helm-of-brilliance": {
+      "sourceDigest": "sha256:32639cb7dfaa3a4e771645fffa357e99377b0f03b40178e8c5c059cf0de8c7dd",
+      "effectSummary": "Set with 1d10 diamonds, 2d10 rubies, 3d10 fire opals, and 4d10 opals; removed gems crumble, and at 0 gems the helm becomes nonmagical. While worn, spend one matching gem as an action to cast at save DC 18: daylight (opal), fireball (fire opal), prismatic spray (diamond), wall of fire (ruby). With at least one diamond, if an undead is within 30 feet the helm emits dim light 30 feet and undead starting there take 1d6 radiant. With at least one ruby, gain fire resistance. With at least one fire opal, as an action ignite one held weapon; it sheds bright 10 feet/dim another 10 and hits deal +1d6 fire until you use a bonus action to extinguish it or drop/stow the weapon. If you fail a save against a spell and take fire damage while wearing it, roll d20; on 1, every other creature within 60 feet makes DC 17 Dexterity or takes radiant damage equal to the number of gems remaining, then the helm and all gems are destroyed."
+    },
+    "wikidot5e:wondrous-items:helm-of-devil-command": {
+      "sourceDigest": "sha256:ba9855324b3574538b83fad3b674a2d367c8999c003701b6bb5420e09db72f31",
+      "effectSummary": "While wearing this resizing, eyeless helm, see normally through it and know the exact location and type of every devil within 1,000 feet. Telepathically communicate with one devil in range or broadcast thoughts to all devils there. It has 3 charges; as an action spend 1 to cast dominate monster at save DC 21 targeting only a devil, otherwise the charge is wasted. A devil that sees you cast it knows you attempted to charm it. The helm regains all charges 24 hours after its last charge is expended. A non-devil using this domination property in the Nine Hells has a 20% chance to attract a narzugon on nightmare in 1d4 hours, which tries to recover the helm, killing you if needed."
+    },
+    "wikidot5e:wondrous-items:helm-of-disjunction": {
+      "sourceDigest": "sha256:8fb0645d5db3138bf30922cd2b150028444cc3f78b4f94ef052ba76c30135d91",
+      "effectSummary": "Once every 1d4 days, as an action while wearing the helm, emit a 300-foot-radius antimagic pulse. Potions and scrolls in the area are destroyed; all other non-artifact magic items in the area except those on your person have their magic suppressed for 1 minute. Every ongoing spell ends if its affected creature, object, or area is even partly within the pulse. Each creature within 30 feet makes DC 15 Strength or falls prone."
+    },
+    "wikidot5e:wondrous-items:helm-of-perfect-potential": {
+      "sourceDigest": "sha256:ab558a32599194ed9881fb4b4a44c07c5166f9e201f3274c721da4782af94aec",
+      "effectSummary": "Artifact with 2 random minor beneficial, 1 major beneficial, and 1 minor detrimental property. While worn, gain advantage on Charisma (Deception) and Wisdom (Insight). As a bonus action, target a visible creature within 90 feet; DC 20 Dexterity, taking 4d6 acid, cold, fire, lightning, or thunder of your choice on failure or half on success. It has 6 charges, regains 1d6 each dawn, and as an action casts at save DC 20: elemental weapon 1, call lightning 2, wall of fire 3, conjure elemental 4, tsunami 5."
+    },
+    "wikidot5e:wondrous-items:helm-of-telepathy": {
+      "sourceDigest": "sha256:c5c2d6390e1e658dea18c3526f7221a64a967261dbb82e1bbade6d7f05d46978",
+      "effectSummary": "While worn, use an action to cast detect thoughts at save DC 13. While concentrating and focused on a creature, use a bonus action to send it a telepathic message; it may reply as a bonus action while your focus remains. Once per dawn, while focused on a creature, use an action to cast suggestion on it at save DC 13."
+    },
+    "wikidot5e:wondrous-items:helm-of-the-gods": {
+      "sourceDigest": "sha256:4fc5dbfa71b4423714fa68643aebae5ee959b30906da4e202ba22fdf37a959ec",
+      "effectSummary": "While worn, know the location of any celestial or fiend within 30 feet that is not behind total cover. After each long rest, pray to one listed god and store that god's spell in the helm, replacing any prior spell. The helm has 3 charges, regains 1d3 daily at dawn, and casts the stored spell for 1 charge at save DC 13. Spells: Athreos protection from evil and good; Ephara sanctuary; Erebos inflict wounds; Heliod guiding bolt; Iroas heroism; Karametra goodberry; Keranos thunderous smite; Klothys entangle; Kruphix dissonant whispers; Mogis hellish rebuke; Nylea faerie fire; Pharika lesser restoration; Phenax charm person; Purphoros searing smite; Thassa identify."
+    },
+    "wikidot5e:wondrous-items:helm-of-the-scavenger": {
+      "sourceDigest": "sha256:e689cf02facf1cb4958055fab7ad9f9cd67e830367941916f2f976f3b3109287",
+      "effectSummary": "Installed helm for a 1–100 ton vessel. Passive in space: creates fresh-air envelope extending from hull by the vessel's beam, temperature 70°F, and creates artificial gravity; overboard creatures/objects bob in a gravity plane extending from the main deck by the beam. While attuned and seated: propel through water/liquids at mph equal to your highest-level unexpended spell slot; propel through air/space at ten times that mph; if you have at least one unexpended spell slot, steer the vessel; at will perceive surroundings as though standing at any chosen location aboard. Drawback: while attuned, you cannot expend your own spell slots."
+    }
+  }
+}
