@@ -12,7 +12,7 @@
       "effectSummary": "Make a ranged spell attack against one creature within 60 feet. On a hit it takes 2d8 poison damage and makes a Constitution save; on a failure it is poisoned until the end of your next turn. Each slot level above 1st adds 1d8 damage."
     },
     "wikidot5e:spell:reality-break": {
-      "sourceDigest": "sha256:f2a773386dd22df208142c19185d2c16be5fb028d2c00b34154ecdfb056204f4",
+      "sourceDigest": "sha256:00f20bbd015ce7e59b67699a40cfecac2865ddce3419b6fbb6db18368606e0eb",
       "effectSummary": "One visible creature within 60 feet makes a Wisdom save or, for up to 1 minute, cannot take reactions and rolls 1d10 at the start of each turn for a random reality fracture. 1–2: take 6d12 psychic damage and be stunned until the end of the turn. 3–5: make a Dexterity save for 8d12 force damage, half on success. 6–8: teleport with worn and carried gear up to 30 feet to a visible unoccupied space you choose, take 10d12 force damage, and fall prone. 9–10: take 10d12 cold damage and be blinded until the end of the turn. At the end of each turn, the target repeats the Wisdom save, ending the spell on a success."
     },
     "wikidot5e:spell:regenerate": {
