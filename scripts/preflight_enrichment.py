@@ -150,8 +150,7 @@ def wikidot_preflight(sample_size, delay, strict=True, only=None, shard_count=1,
         for row in sample:
             page = None
             try:
-                page = w5.parse(row["url"], delay)
-                result = w5.DETAIL_PARSERS[row["category"]](row, page)
+                page,result = w5.parse_detail_with_retry(row,delay)
                 w5.validate_detail(row, page, result)
                 gaps = w5.enrichment_gaps(row, result)
                 if strict and gaps:
