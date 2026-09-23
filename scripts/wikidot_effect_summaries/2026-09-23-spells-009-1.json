@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-009-1",
+  "records": {
+    "wikidot5e:spell:sequester": {
+      "sourceDigest": "sha256:b785e1a9c572ba242370710e45811985037b38090d95ec1742927345e39db3c8",
+      "effectSummary": "Touch a willing creature or object to hide it until dispelled or a condition you set occurs. The target becomes invisible, cannot be targeted by divination spells or perceived through divination-created scrying sensors, and a creature target enters suspended animation without aging. The release condition can be anything that occurs or is visible within 1 mile of the target. The spell also ends if the target takes damage."
+    },
+    "wikidot5e:spell:shadow-blade": {
+      "sourceDigest": "sha256:e4fb4d1033b4e6a6c79688c3023dfaf22a3378eb307ef1ad949895c03fcf801a",
+      "effectSummary": "Create a magic shadow sword in your hand for up to 1 minute. You are proficient with it; it is a simple melee weapon with finesse, light, and thrown 20/60, deals 2d8 psychic damage, and attacks with it have advantage against targets in dim light or darkness. If dropped or thrown it dissipates at the end of the turn, and you can recreate it as a bonus action while the spell lasts. A 3rd- or 4th-level slot raises damage to 3d8, 5th or 6th to 4d8, and 7th or higher to 5d8."
+    },
+    "wikidot5e:spell:shadow-of-moil": {
+      "sourceDigest": "sha256:da0b2171bd78beb9ccd565ca66bc49b993fa4b7e88fde31ab657e209de563b38",
+      "effectSummary": "For up to 1 minute, flame-like shadows heavily obscure you to others, turn dim light within 10 feet of you into darkness and bright light there into dim light, and give you resistance to radiant damage. Whenever a creature within 10 feet hits you with an attack, it takes 2d8 necrotic damage."
+    },
+    "wikidot5e:spell:shape-water": {
+      "sourceDigest": "sha256:974e8cf185536a99a3d4b424364470eeb7f2667cef928835bc19040483e50f9f",
+      "effectSummary": "Manipulate visible water fitting in a 5-foot cube within 30 feet. Choose one: instantly move or redirect its flow up to 5 feet without damaging force; form and animate simple shapes for 1 hour; change its color or opacity uniformly for 1 hour; or freeze it for 1 hour if no creature is in it. You may have no more than two noninstantaneous effects from this spell active at once and can dismiss one as an action."
+    },
+    "wikidot5e:spell:shapechange": {
+      "sourceDigest": "sha256:eb94c5da0409835e336ad916d74a83ea0d7d1436e17e48bc0246dcb97c103a58",
+      "effectSummary": "For up to 1 hour, assume the form of a creature you have seen whose CR is no greater than your level, excluding constructs, undead, creatures with class levels, and forms with the Spellcasting trait. Your statistics become the form's except you retain alignment; Intelligence, Wisdom, and Charisma; your skill and save proficiencies plus any better matching bonuses from the form; and usable class, race, and other features your new body can physically support. You cannot use the form's legendary or lair actions, and retain special senses only if the form also has them. You gain the form's HP and Hit Dice, returning to your previous HP when reverting; excess damage from a 0-HP reversion carries over. You can speak only if the form normally can. Choose whether equipment falls, merges, or is worn; merged gear has no effect and impractical gear falls. As an action during the spell, change to another legal form; if that form's maximum HP exceeds your current HP, your current HP does not increase."
+    },
+    "wikidot5e:spell:shatter": {
+      "sourceDigest": "sha256:4be955618069f1a2d5fdbfb0ca38d3f626fcbb4ecdfb60bb21ae9457ccb8192c",
+      "effectSummary": "Creatures in a 10-foot-radius sphere centered within 60 feet make Constitution saves, taking 3d8 thunder damage on a failure or half on a success; creatures made of inorganic material such as stone, crystal, or metal have disadvantage. Nonmagical unattended objects in the area also take the damage. Each slot level above 2nd adds 1d8 damage."
+    },
+    "wikidot5e:spell:shillelagh": {
+      "sourceDigest": "sha256:c472475cf3a1186449f832ef06010c611b45031870786e1cebb1472613d70a92",
+      "effectSummary": "For 1 minute, a club or quarterstaff you hold becomes magical; its melee damage die becomes d8 and you may use your spellcasting ability instead of Strength for its melee attack and damage rolls. The spell ends if you cast it again or let go of the weapon."
+    },
+    "wikidot5e:spell:shocking-grasp": {
+      "sourceDigest": "sha256:e18db5641a4a5e281551b81a29386fa9010736009f1708b53faaa70b0d57e764",
+      "effectSummary": "Make a melee spell attack against a creature you can touch, with advantage if it wears metal armor. On a hit it takes 1d8 lightning damage and cannot take reactions until the start of its next turn. Damage becomes 2d8 at character level 5, 3d8 at 11, and 4d8 at 17."
+    },
+    "wikidot5e:spell:shutdown": {
+      "sourceDigest": "sha256:b7a7a12bdfeba92341000737f3874af8a1c0f38d47d15ddcad9811edf2baa675",
+      "effectSummary": "For up to 1 minute, shut down all electronic devices within 120 feet that are not wielded or directly controlled by a creature. A creature using a device can make a Constitution save to keep it operating. While the spell lasts, no electronic device in range can be started or restarted."
+    },
+    "wikidot5e:spell:sickening-radiance": {
+      "sourceDigest": "sha256:449f8dc74b23073fb83585b9c9a5a12192a062002f8c569518971785ab83129e",
+      "effectSummary": "Dim green light fills a 30-foot-radius sphere centered within 120 feet, spreading around corners for up to 10 minutes. A creature entering the area for the first time on a turn or starting its turn there makes a Constitution save; on a failure it takes 4d10 radiant damage, gains one level of exhaustion, and emits dim green light in a 5-foot radius that prevents it from benefiting from invisibility. Exhaustion and light caused by this spell end when the spell ends."
+    }
+  }
+}
