@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-7",
+  "records": {
+    "wikidot5e:wondrous-items:mirror-of-life-trapping": {
+      "sourceDigest": "sha256:cd120f230cd1457734e7cbbb87e7bd4e40adbee591a6aee3528b9e8a3362efbb",
+      "effectSummary": "The 50-pound mirror has AC 11, 10 HP, vulnerability to bludgeoning, and shatters at 0 HP, freeing all prisoners nearby. While hanging vertically and you are within 5 feet, use an action and command word to activate or deactivate it. While active, any creature other than you within 30 feet that sees its reflection makes DC 15 Charisma or is trapped with worn/carried gear in one of 12 extradimensional cells; creatures aware of the mirror have advantage and constructs automatically succeed. Cells are infinite foggy spaces with 10-foot visibility; prisoners do not age or need food, drink, or sleep and can escape only by planar travel or being freed. If all 12 cells are occupied, a random prisoner is released to make room. While within 5 feet, use an action to name a prisoner or cell number to display that prisoner in the mirror and communicate normally; use a second command word as an action to free one prisoner into the nearest open space facing away from the mirror."
+    },
+    "wikidot5e:wondrous-items:mirror-of-reflected-pasts": {
+      "sourceDigest": "sha256:e01ba955eda7cbd3b45d82acaef1d1135556e0fed080bbbf64e01e59eb7b1c48",
+      "effectSummary": "The 25-pound mirror has AC 11, 10 HP, vulnerability to bludgeoning, and shatters at 0 HP. While holding it upright, use an action and command word to activate it; it hovers immovably until deactivated as an action or attunement ends, then floats safely down. Once deactivated it cannot activate again until next dawn. A non-construct creature other than you within 30 feet that sees its reflection makes DC 15 Wisdom or is paralyzed while it can see the active mirror. It repeats the save at each turn end; success ends the effect and gives 24-hour immunity. While paralyzed it sees idealized, unreal versions of its past, and indirect observers can glimpse flashes of those memories."
+    },
+    "wikidot5e:wondrous-items:mirror-of-the-past": {
+      "sourceDigest": "sha256:19a8c8c182f030e40172230aa2ecf78ea9ec8d1761079e9afdb2d223dbf8691f",
+      "effectSummary": "Once per dawn as an action while holding the mirror, think of a specific creature or object. For up to 1 minute the mirror replaces your reflection with accurate but random, cryptic, unordered scenes from that target's past, then returns to normal."
+    },
+    "wikidot5e:wondrous-items:mistral-mantle": {
+      "sourceDigest": "sha256:fcd9fdc725916a3b2d49330cc4340907b214ed8c8a8c1687cf81213835aa94af",
+      "effectSummary": "While wearing the cloak, gain cold resistance. When you move within 5 feet of a creature, you may buffet it with frigid wind; DC 14 Dexterity or it takes 1d6 cold and falls prone. A creature can be affected only once per turn. Once per dawn as an action, invoke the rune to cast sleet storm at save DC 14; its area is not difficult terrain for you and you can see through the storm despite its heavy obscuration."
+    },
+    "wikidot5e:wondrous-items:mizzium-apparatus": {
+      "sourceDigest": "sha256:5137676e57ce91271f530c72b1c5bcf8e1233167cc7a516e404946e93d193205",
+      "effectSummary": "While wearing the apparatus, use it as an arcane focus and attempt to cast a sorcerer, warlock, or wizard spell on your class list that you do not know or have prepared, provided you have an appropriate slot and supply components. Expend the slot, then make Intelligence (Arcana) DC 10 + twice the slot level. Success casts the intended spell using your normal spellcasting statistics. Failure casts a random spell from the apparatus table for that slot level; slots 6th+ use the 5th-level table. An unknown cantrip uses DC 10 and simply fails on a failed check. Random tables: 1st d6—burning hands, chaos bolt, color spray, faerie fire, fog cloud, thunderwave; 2nd—blur, gust of wind, heat metal, Melf's acid arrow, scorching ray, shatter; 3rd—fear, feign death, fireball, gaseous form, sleet storm, stinking cloud; 4th d4—confusion, conjure minor elementals, Evard's black tentacles, ice storm; 5th d4—animate objects, cloudkill, cone of cold, flame strike."
+    },
+    "wikidot5e:wondrous-items:mizzium-armor": {
+      "sourceDigest": "sha256:28f34bf2807230294ecccec9490c4e225296aeca72496952db6ebc2ce4ca6145",
+      "effectSummary": "While wearing this medium or heavy non-hide armor, critical hits against you become normal hits. When a magical effect allows a Strength or Constitution save for half damage, you instead take no damage on a successful save."
+    },
+    "wikidot5e:wondrous-items:mizzium-mortar": {
+      "sourceDigest": "sha256:bd045023094a5b5f05d6dba4e2ebd566ca453131564725e47fb78cca092393ea",
+      "effectSummary": "The mortar has 4 charges and regains 1d4 daily at dawn. Molten Spray: action, spend 1 charge for a 30-foot cone; creatures make DC 15 Dexterity, taking 5d4 fire on failure or half on success. Mizzium Bombard: action, spend 3 charges to target a point within 60 feet, creating a 20-foot-radius, 40-foot-high cylinder; creatures there make DC 15 Dexterity, taking 5d8 fire on failure or half on success."
+    },
+    "wikidot5e:wondrous-items:molten-bronze-skin": {
+      "sourceDigest": "sha256:bda671a62855a74b84e3e4f49e4e858ee620816f8dc4c17eb6e8f9b39ecc1559",
+      "effectSummary": "Attuning causes the molten bronze to adhere to your body as breastplate, half plate, or plate. It can be worn under normal clothes, does not impede bodily functions, and cannot be removed unless you choose. While worn, gain fire resistance and the armor imposes no disadvantage on Dexterity (Stealth)."
+    },
+    "wikidot5e:wondrous-items:moodmark-paint": {
+      "sourceDigest": "sha256:9e8753dee934353182734d045c2e9bf315b88f76add3ae1f09ebb8c4fa472b2f",
+      "effectSummary": "One jar paints one creature; application takes 1 minute. For 8 hours the facial marks change with your mental state. A creature that can see you and succeeds on DC 10 Wisdom (Insight) can tell whether you are happy, sad, angry, disgusted, surprised, or afraid and the main source of that emotion; dark elves have advantage on this check."
+    },
+    "wikidot5e:wondrous-items:moon-sickle": {
+      "sourceDigest": "sha256:416c6a0b197cd8094b093f99268fa322aa3a3e2dfbb270a71acbed86c85099e9",
+      "effectSummary": "While holding this magic sickle, gain a rarity-based bonus to its attack/damage rolls and to spell attack rolls and save DCs of your druid and ranger spells: uncommon +1, rare +2, very rare +3. It also functions as a druid/ranger spellcasting focus. Whenever you cast a spell that restores HP while holding it, roll 1d4 and add the result to the HP restored."
+    }
+  }
+}
