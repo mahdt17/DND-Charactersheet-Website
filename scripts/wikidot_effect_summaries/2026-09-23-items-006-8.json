@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-8",
+  "records": {
+    "wikidot5e:wondrous-items:staff-of-flowers": {
+      "sourceDigest": "sha256:17de7b42b39b1f43dc51161faefa4ceeaeb4cb14710ee3af9cc559f54fe91797",
+      "effectSummary": "Has 10 charges, regaining 1d6+4 daily at dawn. While holding it, use an action and 1 charge to cause a harmless nonmagical flower to sprout from earth/soil within 5 feet or from the staff; choose the flower or create a mild-scented daisy. If the last charge is spent, roll d20; on 1 the staff turns into flower petals and is lost forever."
+    },
+    "wikidot5e:wondrous-items:staff-of-frost": {
+      "sourceDigest": "sha256:f8cd259f6eeec9069e5c1f0df0f6717c50f602931bce7edb9feba1efd6e3eebe",
+      "effectSummary": "While holding it, gain cold resistance. It has 10 charges, regaining 1d6+4 daily at dawn. As an action cast cone of cold for 5 charges, fog cloud 1, ice storm 4, or wall of ice 4 using your spell save DC. If the last charge is spent, roll d20; on 1 it turns to water and is destroyed."
+    },
+    "wikidot5e:wondrous-items:staff-of-healing": {
+      "sourceDigest": "sha256:3576616e46687d8c3f29dfd601910f1e8e675594ebc3593720c0daa10fd6e375",
+      "effectSummary": "Bard/cleric/druid staff with 10 charges, regaining 1d6+4 daily at dawn. As an action while holding it, cast cure wounds for 1 charge per spell level up to 4th, lesser restoration for 2, or mass cure wounds for 5, using your spell save DC and spellcasting ability modifier. If the last charge is spent, roll d20; on 1 it vanishes in a flash and is lost forever."
+    },
+    "wikidot5e:wondrous-items:staff-of-power": {
+      "sourceDigest": "sha256:203064c1f87dd2310973562033659823919c9d9090f041da6beeb838ce85b385",
+      "effectSummary": "Functions as a +2 magic quarterstaff and while held grants +2 AC, saving throws, and spell attack rolls. It has 20 charges, regaining 2d8+4 daily at dawn. On a melee hit, spend 1 charge for +1d6 force. As an action cast: cone of cold 5; fireball at 5th level 5; globe of invulnerability 6; hold monster 5; levitate 2; lightning bolt at 5th level 5; magic missile 1; ray of enfeeblement 1; wall of force 5, using your save DC/attack bonus. If the last charge is spent, d20: 1 leaves only its +2 weapon bonus and removes all other magic; 20 restores 1d8+2 charges. Retributive Strike: as an action break the staff, destroying it and exploding in a 30-foot radius. You have 50% chance to teleport to a random plane and avoid the blast; otherwise take force damage equal to 16 × remaining charges. Other creatures make DC 17 Dexterity, taking force damage based on distance, half on success: within 10 feet 8 × charges; 11–20 feet 6 × charges; 21–30 feet 4 × charges."
+    },
+    "wikidot5e:wondrous-items:staff-of-ruling": {
+      "sourceDigest": "sha256:189fab94574f464bc8b7ac4824c6b51b542fec7a247c424d6e6896d7582efd58",
+      "effectSummary": "While holding it, use an action for one of three effects; each effect is usable once per dawn. Orb of Lightning: create a Small orb in a visible open space within 60 feet and concentrate as on a spell; bonus action move it 20 feet. When concentration ends or a creature enters/starts in its space, it detonates in 20-foot radius, DC 15 Dexterity, base 6d6 lightning or half; if it has not detonated by each turn end, damage increases by 2d6 to maximum 10d6. Staff to Snake: throw it to open space within 10 feet to become a giant poisonous snake sharing initiative and acting after you, following mental commands within 60 feet; bonus action command or 0 HP returns it to staff form. Thunderclap: chosen creatures within 30 feet make DC 15 Constitution or are deafened and frightened until the end of your next turn."
+    },
+    "wikidot5e:wondrous-items:staff-of-striking": {
+      "sourceDigest": "sha256:d66eb387a30a8e5f1237315a29e5c070717ed892cb57619bdb5c531288b7381f",
+      "effectSummary": "Functions as a +3 magic quarterstaff. It has 10 charges; on a melee hit, spend up to 3 charges for +1d6 force per charge. Regains 1d6+4 daily at dawn. If the last charge is spent, roll d20; on 1 it becomes a nonmagical quarterstaff."
+    },
+    "wikidot5e:wondrous-items:staff-of-swarming-insects": {
+      "sourceDigest": "sha256:98625ffbc8eda53da59208c8e54d13757f1638d71d9200c44ba12df46f48ecb4",
+      "effectSummary": "Has 10 charges, regaining 1d6+4 daily at dawn. As an action while holding it, cast giant insect for 4 charges or insect plague for 5 using your spell save DC. Alternatively spend 1 charge as an action to create a 30-foot-radius swarm of harmless flying insects centered on and moving with you for 10 minutes; the area is heavily obscured to creatures other than you, and wind of at least 10 mph disperses it. If the last charge is spent, roll d20; on 1 insects consume and destroy the staff."
+    },
+    "wikidot5e:wondrous-items:staff-of-the-adder": {
+      "sourceDigest": "sha256:789e19132d3c64a2699d5351c10e52b18102424411c19397d10f2f3a383e9bfc",
+      "effectSummary": "As a bonus action, animate the staff's snake head for 1 minute; another bonus action reverts it. While animated, make melee attacks with 5-foot reach using your proficiency bonus; on hit deal 1d6 piercing and force DC 15 Constitution or deal +3d6 poison. The animated head has AC 15 and 20 HP and can be attacked; at 0 HP the staff is destroyed. If not destroyed, it regains all lost HP when reverted."
+    },
+    "wikidot5e:wondrous-items:staff-of-the-forgotten-one": {
+      "sourceDigest": "sha256:099700064b3477b9ecdfa6bee0fc6074d9280869bd9c56ec3dfa7e521bb0fb2e",
+      "effectSummary": "Artifact +3 quarterstaff dealing +3d6 necrotic on hits. While on your person, double proficiency on Intelligence (Arcana/History), become immune to blinded, charmed, deafened, frightened, petrified, and stunned, and undead CR 2 or lower will not threaten/attack unless harmed. It has 7 charges, regaining 1d4+3 daily at dawn. As an action spend 1 charge on a visible creature within 60 feet; Constitution save against your spell save DC or it is cursed: cannot regain HP and is vulnerable to necrotic until greater restoration, remove curse, or similar magic. Each charge spent by someone other than Acererak has 50% chance the imprisoned archmage spirit attempts possession: DC 20 Charisma or become a DM-controlled NPC until dispel evil and good or similar traps the spirit back in the staff. Breaking the staff as an action destroys it and creates a 30-foot-radius explosion, DC 18 Dexterity, 24d10 force or half, releasing the spirit to the afterlife. Casting it into a sphere of annihilation destroys both staff and sphere without explosion and destroys the imprisoned life force."
+    },
+    "wikidot5e:wondrous-items:staff-of-the-magi": {
+      "sourceDigest": "sha256:cc35753c1cb8c7dd2ec7b1e4557c71eaa39ec718350cc7839f027e00bf24d740",
+      "effectSummary": "Legendary +2 magic quarterstaff granting +2 spell attack while held. It has 50 charges, regaining 4d6+2 daily at dawn; spending the last charge and rolling 20 restores 1d12+1 charges. Spell Absorption: advantage on saves against spells; when another creature casts a spell targeting only you, use reaction to cancel it and add charges equal to spell level, but exceeding 50 charges causes immediate Retributive Strike. Charged spells using your save DC/attack: conjure elemental 7, dispel magic 3, fireball at 7th 7, flaming sphere 2, ice storm 4, invisibility 2, knock 2, lightning bolt at 7th 7, passwall 5, plane shift 7, telekinesis 5, wall of fire 4, web 2. At-will actions: arcane lock, detect magic, enlarge/reduce, light, mage hand, protection from evil and good. Retributive Strike: action break staff; 30-foot-radius blast, 50% chance you teleport to a random plane and avoid it, otherwise take force equal to 16 × charges. Other creatures DC 17 Dexterity for half: within 10 feet 8 × charges, 11–20 feet 6 × charges, 21–30 feet 4 × charges."
+    }
+  }
+}
