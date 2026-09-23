@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-005-1",
+  "records": {
+    "wikidot5e:spell:friends": {
+      "sourceDigest": "sha256:1b86527d550824af95b17780cafbda0ecd9eb36ba4b4ba15b6875f971150151c",
+      "effectSummary": "Choose one creature that is not hostile toward you. For up to 1 minute, you have advantage on Charisma checks directed at that creature. When the spell ends, it realizes you used magic to influence its mood and becomes hostile toward you; the exact response depends on the creature and the interaction."
+    },
+    "wikidot5e:spell:frost-fingers": {
+      "sourceDigest": "sha256:ea45aa11bfd548a95e0f090b47b0c766d4b90115677d6c75da92a9da042f4200",
+      "effectSummary": "Each creature in a 15-foot cone makes a Constitution save, taking 2d8 cold damage on a failure or half on a success. The cold also freezes nonmagical liquids in the area that are not being worn or carried. Each slot level above 1st adds 1d8 damage."
+    },
+    "wikidot5e:spell:frostbite": {
+      "sourceDigest": "sha256:fefa7510167a4f46fec59d55aa3425d9551d8649d4789879527882c0b3b86b93",
+      "effectSummary": "One visible creature within 60 feet makes a Constitution save. On a failure it takes 1d6 cold damage and has disadvantage on the next weapon attack roll it makes before the end of its next turn. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17."
+    },
+    "wikidot5e:spell:galders-speedy-courier": {
+      "sourceDigest": "sha256:9d689779fda2f334781c90bae54258d3cddd1603ccd54d5cad75f8a84bc5ee4e",
+      "effectSummary": "Summon an untouchable Small air elemental carrying an open 3-foot-cube chest. You may fill the chest and name a living creature you have seen or can identify by a body sample. Closing the lid sends the elemental and chest to that creature; if the target is on another plane or protected from magical location, the contents instead return to your feet. The target knows the chest's contents and remaining duration before deciding whether to open it, and only that target can retrieve items. The elemental and chest vanish when time expires, the chest is emptied, or the target sends it back; unretrieved contents then return to your feet. With an 8th-level slot, the recipient may be on another plane."
+    },
+    "wikidot5e:spell:galders-tower": {
+      "sourceDigest": "sha256:6f1f9de1b38d201495fe4320403537c084930b882f585c8ad09dccf7e915cf3d",
+      "effectSummary": "Conjure a sturdy two-story round or square tower for 24 hours. Each 10-foot-tall story covers up to 100 square feet and is connected by ladder and hatch; for each story choose a bedroom, study, dining room, lounge, washroom, observatory, or empty room. The interior stays warm and dry, and conjured furnishings vanish if removed. When the spell ends, creatures and nonconjured objects inside appear safely outside and the tower disappears. Recasting while active extends it 24 hours; casting daily in the same place and configuration for one year makes it permanent. Each slot level above 3rd adds one story."
+    },
+    "wikidot5e:spell:gaseous-form": {
+      "sourceDigest": "sha256:84cbc61908a76d55f25deaa54cc5ca2506fa6a09f31efce5d566636664a2b576",
+      "effectSummary": "Transform a willing nonincorporeal creature and its worn or carried gear into mist for up to 1 hour, ending early if it reaches 0 HP. Its only movement is a 10-foot flying speed; it can occupy another creature's space, hover even while incapacitated, pass through tiny openings, and treats liquids as solid surfaces. It has resistance to nonmagical damage and advantage on Strength, Dexterity, and Constitution saves. It cannot speak, manipulate or use objects, attack, or cast spells, and its carried objects cannot be dropped or otherwise interacted with."
+    },
+    "wikidot5e:spell:gate": {
+      "sourceDigest": "sha256:2300889962e321b81473c0639d1bb5cf873ada3fa7e3eb258e2e94febb2c3a85",
+      "effectSummary": "Create a 5-to-20-foot-diameter, one-way-from-each-front portal linking a visible unoccupied space within 60 feet to a precise location on another plane for up to 1 minute. Anything entering a portal's front appears at the nearest unoccupied space by the other portal. Planar rulers can prevent such portals within their domains. When casting, you may speak one specific creature's true name; if it is on another plane, the far portal opens near it and pulls it through to your side, but gives you no control over it."
+    },
+    "wikidot5e:spell:gate-seal": {
+      "sourceDigest": "sha256:4b7e5adcd3557a8e13a98bf62f1407b8e4f12fd6b205b87e33b073e7c89fadfc",
+      "effectSummary": "Fortify a stationary 30-foot cube for 24 hours. Portals within it close and cannot open, and spells or effects that enable planar travel or create portals, such as gate or plane shift, fail when used to enter or leave the area. With a 6th-level-or-higher slot, the seal lasts until dispelled."
+    },
+    "wikidot5e:spell:geas": {
+      "sourceDigest": "sha256:8d79a2bdc0cd80980b1b5895317bd400a9d986cd2139b41da52d27309d92652a",
+      "effectSummary": "Give one visible creature that understands you a command to perform or avoid a course of action. It makes a Wisdom save or is charmed for 30 days. While charmed, directly acting against your instructions causes 5d10 psychic damage, at most once per day. A command that would certainly cause its death ends the spell. You can dismiss the spell as an action, and remove curse, greater restoration, or wish also ends it. A 7th- or 8th-level slot lasts 1 year; a 9th-level slot lasts until ended by one of those methods."
+    },
+    "wikidot5e:spell:gentle-repose": {
+      "sourceDigest": "sha256:bc969670e1c7ffa60afe7a41c304f26219d5f42c44a33595334a9723c984a659",
+      "effectSummary": "Touch a corpse or other remains. For 10 days it does not decay and cannot become undead. Time spent under this spell also does not count against time limits for spells that can later restore the creature to life."
+    }
+  }
+}
