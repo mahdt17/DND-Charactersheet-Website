@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-9",
+  "records": {
+    "wikidot5e:wondrous-items:night-caller": {
+      "sourceDigest": "sha256:355efbe67d08a1522f0263e6e6f435d879902c760e2c76c0c06678534de768cf",
+      "effectSummary": "Blow the whistle in darkness or under the night sky to cast animate dead. The corpse may be targeted through up to 10 feet of soft earth or similar material, taking 1 minute to claw to the surface if buried. After animating an undead this way, the whistle cannot animate another for 7 days. Once every 24 hours, blow it to reassert control over one or two undead creatures you animated with the whistle."
+    },
+    "wikidot5e:wondrous-items:nightbringer": {
+      "sourceDigest": "sha256:d598102b8694b50f7a5027235f3c10be70e7fd697d26ed7ef9a3839e34a15493",
+      "effectSummary": "This legendary mace grants +3 to attack and damage and deals +4d4 radiant on every hit. An evil-aligned attuned wielder also gains immunity to charmed and frightened and chooses immunity to acid, cold, fire, lightning, or poison when attuning; gains darkvision 60 feet or +60 feet to existing darkvision; and can use Midnight Shroud. The mace has 6 charges, regaining 1d6 daily at dawn. When you hit with it, spend 1 charge to force DC 20 Constitution; on failure the target is blinded until the start of your next turn."
+    },
+    "wikidot5e:wondrous-items:nightfall-pearl": {
+      "sourceDigest": "sha256:04930083d4b12c9e5a575a09ceee64c3cecf0479e795783c8aa8956a267f91c0",
+      "effectSummary": "Spend 10 minutes activating the pearl to turn the area within 10 miles into night even during daytime. The artificial night lasts 24 hours, until you cancel it as an action, or until attunement ends. After activation, it cannot be used again for 24 hours."
+    },
+    "wikidot5e:wondrous-items:nimbus-coronet": {
+      "sourceDigest": "sha256:cdcc32de1ce01345b94c90ee28510232179203243c16cf9c177cf601d5cbe81c",
+      "effectSummary": "While wearing the circlet, take no falling damage. As a bonus action, teleport yourself and worn/carried gear to a visible unoccupied space within 15 feet. Once per dawn as an action, invoke its rune to become cloudlike for 1 minute, until incapacitated, or until dismissed freely; while cloudlike, gain flying speed 60 feet and resistance to bludgeoning, piercing, and slashing."
+    },
+    "wikidot5e:wondrous-items:nine-lives-stealer": {
+      "sourceDigest": "sha256:7b7cf51c803a0d2aec2024b6414b0b8421432bfe88501490922f9ed9f813d08b",
+      "effectSummary": "This +2 magic sword has 1d8+1 charges. When you score a critical hit against a creature with fewer than 100 HP, excluding constructs and undead, it makes DC 15 Constitution or is instantly slain; only a successful slaying expends 1 charge. At 0 charges, the sword loses this instant-death property."
+    },
+    "wikidot5e:wondrous-items:nolzurs-marvelous-pigments": {
+      "sourceDigest": "sha256:19d5dc4488240a64b1b9db97fa48f8320eb412e85253be0bfbb24326612397a0",
+      "effectSummary": "Usually 1d4 pots with brush. Each pot covers 1,000 square feet and can create up to 10,000 cubic feet of real, nonmagical inanimate objects or terrain by painting them in two dimensions; painting 100 square feet takes 10 minutes. Completed doors, pits, rooms, trees, weapons, and similar depictions become physically real. No created object can have value above 25 gp; apparently more valuable creations are visibly worthless on close inspection. Painted energy such as fire or lightning appears but immediately dissipates harmlessly."
+    },
+    "wikidot5e:wondrous-items:oathbow": {
+      "sourceDigest": "sha256:199af38132ef3b4f4371270ab95c20f09937e10a0d83496de0940ae8fc5c9f52",
+      "effectSummary": "When making a ranged attack with the bow, speak its command phrase to designate that target as your sworn enemy until it dies or dawn seven days later. You can have only one sworn enemy; after it dies, choose another after the next dawn. Against the sworn enemy, bow attacks have advantage, ignore cover except total cover and long-range disadvantage, and deal +3d6 piercing on a hit. While the sworn enemy lives, you have disadvantage on attack rolls with all other weapons."
+    },
+    "wikidot5e:wondrous-items:oil-of-etherealness": {
+      "sourceDigest": "sha256:9bd643414c97437165f2d8b7e36e0a03f34d1bfa785f220da353094cf56adb4a",
+      "effectSummary": "One vial coats a Medium-or-smaller creature plus worn/carried equipment; each size category above Medium requires one additional vial. Applying takes 10 minutes. The coated creature gains the effect of etherealness for 1 hour."
+    },
+    "wikidot5e:wondrous-items:oil-of-sharpness": {
+      "sourceDigest": "sha256:9f2755215cd482c36b7c98ea67b76bfa1fb9cb19976b429334bca8ad6f6b41b3",
+      "effectSummary": "Apply over 1 minute to one slashing or piercing weapon or up to five pieces of slashing/piercing ammunition. For 1 hour the coated items are magical and have +3 to attack and damage rolls."
+    },
+    "wikidot5e:wondrous-items:oil-of-slipperiness": {
+      "sourceDigest": "sha256:870ca4fcd011530b5d82bb4bb3c0b8d444c73c453455b37f4ff5422761b4dd96",
+      "effectSummary": "One vial coats a Medium-or-smaller creature and equipment, with one extra vial required per size category above Medium; application takes 10 minutes and grants freedom of movement for 8 hours. Alternatively, pour a vial on the ground as an action to cover a 10-foot square with the effect of grease for 8 hours."
+    }
+  }
+}
