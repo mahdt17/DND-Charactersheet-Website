@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-2",
+  "records": {
+    "wikidot5e:wondrous-items:sages-signet": {
+      "sourceDigest": "sha256:252f290ad1ef5bf14f2f356d2735f1ca1ab4b95f15b7b4aafc487fd534d322a9",
+      "effectSummary": "While wearing the ring, cast augury once per dawn. Each signet variety also casts each of its listed spells once per dawn using Intelligence as the spellcasting ability: Bear (very rare) enlarge/reduce and polymorph; Hart (very rare) aura of vitality and mass cure wounds; Lion (very rare) destructive wave and fireball; Serpent (rare) fear and hex; Songbird (rare) charm person and hypnotic pattern; Wolf (very rare) freedom of movement and pass without trace."
+    },
+    "wikidot5e:wondrous-items:saint-markovias-thighbone": {
+      "sourceDigest": "sha256:a1a46eae3a10125514035019854301e521f2de98a835e77d142e01f11ff1f401",
+      "effectSummary": "Functions as a mace of disruption. If it scores one or more hits against a vampire or vampire spawn during a battle, the thighbone crumbles into dust when that battle ends."
+    },
+    "wikidot5e:wondrous-items:sanctum-amulet": {
+      "sourceDigest": "sha256:dfb03bd6b7d5d7f436969d760a8517c16087b3d0b49292c3bea2f01dc700bdb2",
+      "effectSummary": "While wearing it, gain necrotic resistance and cast spare the dying using either an action or bonus action. Once per dawn, when a visible creature within 60 feet would be reduced to 0 HP by damage, use your reaction to invoke the rune; it drops to 1 HP instead."
+    },
+    "wikidot5e:wondrous-items:sapphire-buckler": {
+      "sourceDigest": "sha256:8472b20a12d9aea8ce236f24a16b8bbf6bda534a113b52a9cbb2b47ee9cbfe85",
+      "effectSummary": "While wielding, gain psychic and thunder resistance. When a creature within 5 feet damages you, use your reaction to deal it 2d6 thunder. Once per dawn as an action, detect Aberrations until the end of your next turn: if any are within 1 mile, the shield hums and you know the direction of every Aberration in that range."
+    },
+    "wikidot5e:wondrous-items:scaled-ornament": {
+      "sourceDigest": "sha256:5f81d35832b1a8620a4227bdda5aa83ab1ce14a4970a48fe27ba67ed279e121c",
+      "effectSummary": "Evolving item. Slumbering (uncommon): advantage on saves to avoid/end charmed or frightened. Stirring (rare): +1 AC; immunity to charmed and frightened; chosen creatures within 30 feet have advantage on saves to avoid/end those conditions. Wakened (very rare): retains Stirring; once per dawn when you would take the breath-damage type of the dragon hoard that awakened it, use reaction to take no damage and regain HP equal to the prevented damage. Ascendant (legendary): retains Stirring/Wakened and grants flying speed equal to walking plus hover, manifesting spectral dragon wings while flying."
+    },
+    "wikidot5e:wondrous-items:scarab-of-protection": {
+      "sourceDigest": "sha256:ae70f84166d4d1d1398a120d54d61119dc3136cbfc2eaff649c6a34d444ba482",
+      "effectSummary": "While on your person, gain advantage on saving throws against spells. The scarab has 12 charges. If you fail a save against a Necromancy spell or harmful effect from an undead, use your reaction and 1 charge to turn the failure into a success. When the last charge is spent, it crumbles into powder and is destroyed."
+    },
+    "wikidot5e:wondrous-items:scissors-of-shadow-snipping": {
+      "sourceDigest": "sha256:eb81ec9002da302c8d3cf8ad7c8baefa135070378c77642c1dbdbf41ef9fa076",
+      "effectSummary": "Once per dawn as an action, attempt to snip the shadow from a visible humanoid within 5 feet; an unwilling target makes DC 15 Charisma and keeps its shadow on success, but the use is spent either way. A detached shadow is initially rooted in place. As a bonus action while you can see it, either control it to move up to 30 feet along any solid/liquid surface including vertical surfaces while remaining in sight—harmless, invulnerable, silent, needing no air/sleep/food and invisible in darkness—or relinquish control so it becomes a DM-controlled Fey using the shadow stat block, except its Strength Drain reduces a creature at Strength 0 to unconscious instead of death and that creature recovers consciousness/all Strength after a short or long rest. Losing a shadow curses the creature; curse-ending magic on it or reducing the autonomous shadow to 0 HP makes the detached shadow vanish and restores the normal shadow."
+    },
+    "wikidot5e:wondrous-items:scorpion-armor": {
+      "sourceDigest": "sha256:4607203ac9c230d7aaf30379f1473d3979c5ed8b1215c3f023d8053912240e7f",
+      "effectSummary": "While wearing this plate, gain +5 initiative while not incapacitated, suffer no armor-imposed disadvantage on Dexterity (Stealth), and suffer no armor-imposed disadvantage on saves against extreme heat. Curse: every time you don or doff it, make DC 15 Constitution, taking 10d10+45 poison on failure or half on success. Only wish removes the curse."
+    },
+    "wikidot5e:wondrous-items:scribes-pen": {
+      "sourceDigest": "sha256:c39f7b750c359fd33a76259ebe347fb999965f765af4703a9eabfaba9fd88770",
+      "effectSummary": "For a creature with the Mark of Scribing, write on any surface and choose whether the writing is visible or invisible; it is always visible to creatures with the Mark of Scribing. A marked creature can use an action to touch invisible writing and make it visible to everyone. Writing placed on a non-construct creature fades after 7 days."
+    },
+    "wikidot5e:wondrous-items:scroll-of-protection": {
+      "sourceDigest": "sha256:f83cd535ad31225c4ec0e6cb3d19f48ae07362691fcaf0f4ac9c22acb1cd08c9",
+      "effectSummary": "Each scroll protects against a DM-chosen/d100 creature type: 01–10 aberrations, 11–20 beasts, 21–30 celestials, 31–40 elementals, 41–50 fey, 51–60 fiends, 61–70 plants, 81–00 undead. As an action read it to create for 5 minutes an invisible 5-foot-radius, 10-foot-high cylinder centered on and moving with you; specified creatures cannot enter or affect anything inside. If your movement would place such a creature inside, the barrier ends. A specified creature may use an action for DC 15 Charisma; on success it ignores the barrier."
+    }
+  }
+}
