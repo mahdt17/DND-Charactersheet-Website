@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-001-2",
+  "records": {
+    "wikidot5e:feat:agent-of-order-ua": {
+      "sourceDigest": "sha256:a1d131157c3d6bec17b5e7c9872e2284995d639fdf76135de18e067d6db02d3b",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Once per turn when you damage a visible creature within 60 feet, you may deal an extra 1d8 force damage and force a Wisdom save against DC 8 + proficiency bonus + the modifier of the ability score increased by this feat. On a failure, spectral bindings restrain the target until the start of your next turn. Uses equal your proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:alchemist": {
+      "sourceDigest": "sha256:bafe5e28b6526f6991b14f5284d13c1d182e1a22b6c92345426ff1075f13e438",
+      "effectSummary": "Increase Intelligence by 1, maximum 20. Gain proficiency with alchemist's supplies, or expertise with them if already proficient. As an action, identify a visible potion within 5 feet as though tasting it. During a short rest while you have alchemist's supplies and a potion of healing within reach, you can enhance one such potion of any rarity; if consumed within 1 hour after the rest, the drinker may take the potion's maximum possible healing instead of rolling its healing dice."
+    },
+    "wikidot5e:feat:alert": {
+      "sourceDigest": "sha256:cec8a9db209f3f5abcca1f9b2c2564ad7dac891f0ce4ff5cf8e081b3246f5cc9",
+      "effectSummary": "While conscious, you cannot be surprised. Gain +5 to initiative. Other creatures do not gain advantage on attacks against you solely because they are unseen by you."
+    },
+    "wikidot5e:feat:animal-handler": {
+      "sourceDigest": "sha256:167713254402be5e7ba3acac201790f27aba765231071f23a61faefc0ec3218b",
+      "effectSummary": "Increase Wisdom by 1, maximum 20. Gain Animal Handling proficiency, or expertise if already proficient. As a bonus action, command one friendly beast within 60 feet that can hear you and is not following someone else's command; choose its next action and movement or give a general command lasting up to 1 minute."
+    },
+    "wikidot5e:feat:arcanist": {
+      "sourceDigest": "sha256:a0d7c7268f9b18ed186306803e7917791b02227d62e77ae5ad66cc262db5cb18",
+      "effectSummary": "Increase Intelligence by 1, maximum 20. Gain Arcana proficiency, or expertise if already proficient. Learn prestidigitation and detect magic; you can cast detect magic once without a spell slot per long rest."
+    },
+    "wikidot5e:feat:artificer-initiate": {
+      "sourceDigest": "sha256:c20a8d549c3e78b1e300f04413afc9259430e4e0e15658177f557fbda32a2766",
+      "effectSummary": "Learn one artificer cantrip and one 1st-level artificer spell, using Intelligence as your spellcasting ability. Cast the 1st-level spell once without a slot per long rest and also with any appropriate spell slots you have. Gain proficiency with one type of artisan's tools, and you may use that tool type as a spellcasting focus for spells you cast using Intelligence."
+    },
+    "wikidot5e:feat:athlete": {
+      "sourceDigest": "sha256:26584cfd1d86205d257fedef02b23df41874c55ec8cc9319b7fcd75b49b214d3",
+      "effectSummary": "Increase Strength or Dexterity by 1, maximum 20. Standing from prone costs only 5 feet of movement, climbing costs no extra movement, and you need only a 5-foot run-up rather than 10 feet for running long or high jumps."
+    },
+    "wikidot5e:feat:baleful-scion": {
+      "sourceDigest": "sha256:f5f6a7fafd19020114b3db072ac9e2c261d51e05b92b1972ffeebce8691bc83d",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Once per turn when you damage a visible creature within 60 feet, you may deal additional necrotic damage equal to 1d6 + your proficiency bonus and regain HP equal to the necrotic damage dealt. Uses equal your proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:baleful-scion-ua": {
+      "sourceDigest": "sha256:80ad9aca5ca7b0d0859989fee0f1c80bb215e36fb93c04cbcfd423f9186d4fec",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Once per turn when you hit with a melee weapon attack, you may deal extra necrotic damage equal to 1d6 + your proficiency bonus and regain HP equal to that necrotic damage. Uses equal your proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:barbed-hide": {
+      "sourceDigest": "sha256:67dde5239ace013f84fc770fa2778ce27efdce073050596ac2af8e8faa03f33a",
+      "effectSummary": "Increase Constitution or Charisma by 1, maximum 20. Gain Intimidation proficiency, or expertise if already proficient. As a bonus action, extend or retract body barbs. At the start of each of your turns while extended, deal 1d6 piercing damage to every creature grappling you or grappled by you."
+    }
+  }
+}
