@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-004-5",
+  "records": {
+    "wikidot5e:feat:wonder-maker": {
+      "sourceDigest": "sha256:c9fea5636ff5e39a51282e80a2f916fcc831a10a4dd53a3db5e7e856d51a4b45",
+      "effectSummary": "Increase Dexterity or Intelligence by 1, maximum 20. Double your proficiency bonus on checks using tinker’s tools. Your Tinker trait gains additional device options: Alarm detects a creature entering within 15 feet without the password and rings 1 round later for 1 minute, audible 300 feet; Calculator assists with arithmetic; Lifter acts as block and tackle allowing five times normal lift; Timekeeper keeps accurate time; Weather Sensor, used as an action, predicts each hour of weather in a 1-mile radius for the next 4 hours with simple symbols."
+    },
+    "wikidot5e:feat:wood-elf-magic": {
+      "sourceDigest": "sha256:402c5978a4c422f5e37c0831a1ab2f4516abd7e1c27c2114c17a7bfe93ad3f63",
+      "effectSummary": "Learn one druid cantrip plus longstrider and pass without trace. Cast longstrider and pass without trace once each without a slot per long rest. Wisdom is the spellcasting ability for all three spells."
+    }
+  }
+}
