@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-10",
+  "records": {
+    "wikidot5e:wondrous-items:rod-of-retribution": {
+      "sourceDigest": "sha256:588dc9ed656294119404ecce62dc7b43105bee37f0ed5c510a38e307f4f5eaa1",
+      "effectSummary": "The rod has 3 charges, all restored daily at dawn. While holding it, when a visible creature within 60 feet damages you, use your reaction and 1 charge to force DC 13 Dexterity; it takes 2d10 lightning on failure or half on success."
+    },
+    "wikidot5e:wondrous-items:rod-of-rulership": {
+      "sourceDigest": "sha256:7b1334e644b788d11316f0ff5907e3c0ca56d19c19f38f71bd29b69ff3af5344",
+      "effectSummary": "Once per dawn as an action, present the rod and command obedience from chosen visible creatures within 120 feet. Each makes DC 15 Wisdom or is charmed by you for 8 hours and regards you as a trusted leader. The charm ends if you or companions harm it or if you command something contrary to its nature."
+    },
+    "wikidot5e:wondrous-items:rod-of-security": {
+      "sourceDigest": "sha256:9d41627733524c1e449559245de9d2e238bee965ff70db9f3523fcb7965aeaf6",
+      "effectSummary": "Once per 10 days while holding it, use an action to transport yourself and up to 199 willing visible creatures to a customized extraplanar paradise. It contains enough food and water, but objects from it vanish if removed. Each hour there restores HP as if each visitor spent 1 Hit Die; creatures do not age there though time passes. Maximum stay is 200 days divided by the number of visitors, rounded down. When time expires or you use an action to end the stay, all visitors return to their original spaces or nearest open spaces."
+    },
+    "wikidot5e:wondrous-items:rod-of-seven-parts": {
+      "sourceDigest": "sha256:59a086213d5f191c318a0a0008e5d0185aaf6745a96149abe929793df0987685",
+      "effectSummary": "Artifact broken into seven consecutive pieces; broken pieces cannot be attuned. While holding one piece, know the general location of the next consecutive piece. Assemble or separate pieces as an action, but partial rods gain no extra abilities. Each individual piece casts its associated spell once per dawn as an action: 1 commune; 2 arcane gate; 3 reverse gravity save DC 18; 4 regenerate; 5 find the path; 6 mirage arcane; 7 simulacrum. When all seven are assembled, the whole rod can be attuned and functions as a +3 quarterstaff. The complete rod has 7 charges, regaining 1d4+3 daily at dawn; while holding it, cast any piece-table spell for 1 charge or detect evil and good without charges. If not lawful, attunement gradually pushes you toward keeping a personal code, promises, declarations, and beliefs. Destroy only by immersing the complete rod in Abyssal lava for 50 years; an individual piece destroyed this way reforms after 1 year at a random multiversal location."
+    },
+    "wikidot5e:wondrous-items:rod-of-the-pact-keeper": {
+      "sourceDigest": "sha256:47b7a537c14bd06d5ff58957ac455f2076de796d8b195a7d33e24c970cc25309",
+      "effectSummary": "While held by an attuned warlock, gain a rarity-based bonus to warlock spell attacks and save DCs: uncommon +1, rare +2, very rare +3. Once per long rest as an action while holding it, regain one warlock spell slot."
+    },
+    "wikidot5e:wondrous-items:rod-of-the-vonindod": {
+      "sourceDigest": "sha256:224c70733cb7e861afd11cd3aa3af8e1654979eba5553ebc4da500fd2d387e15",
+      "effectSummary": "The 100-pound rod has 10 charges and regains 1d6+4 daily at dawn. As an action while holding it, spend 1 charge to cast locate object. When locating an adamantine object such as a Vonindod fragment, the spell's range becomes 10 miles."
+    },
+    "wikidot5e:wondrous-items:rogues-mantle": {
+      "sourceDigest": "sha256:d0c2874073a0a16bfbfda609093de637d9f4db5e8b2cdf981e050d10c0c95096",
+      "effectSummary": "While worn, gain darkvision 60 feet or extend existing darkvision by 60. While in dim light or darkness, use a bonus action to teleport with worn/carried gear up to 30 feet to a visible open space also in dim light/darkness; gain advantage on the first melee attack before turn end. Once per dawn cast antagonize from the mantle at save DC 15."
+    },
+    "wikidot5e:wondrous-items:rope-of-climbing": {
+      "sourceDigest": "sha256:e22352414122c17992b4298ea4ca70192b5324353ca5177a27ec923047619011",
+      "effectSummary": "The 60-foot, 3-pound silk rope supports 3,000 pounds. Holding one end, use an action and command word to animate it. As a bonus action, command the far end toward a destination; it moves 10 feet immediately and another 10 feet on each of your turns until reaching destination, maximum length, or told to stop. Command it to fasten/unfasten, knot/unknot, or coil. Knotted, it becomes 50 feet long with knots every foot and grants advantage on climbing checks. AC 20, 20 HP, regains 1 HP every 5 minutes while above 0; destroyed at 0 HP."
+    },
+    "wikidot5e:wondrous-items:rope-of-entanglement": {
+      "sourceDigest": "sha256:46473050ed242dc8b8ee5a173e54ea0d47268038c9b7db2bcb9a5f7611cf036f",
+      "effectSummary": "Hold one end and use an action plus command word to target a visible creature within 20 feet; DC 15 Dexterity or restrained. As a bonus action speak a second command to release it. A restrained creature may use an action for DC 15 Strength or Dexterity to escape. Rope AC 20, 20 HP, regains 1 HP every 5 minutes while above 0; destroyed at 0 HP."
+    },
+    "wikidot5e:wondrous-items:rope-of-mending": {
+      "sourceDigest": "sha256:6dbecf56e25066605e5a6404f5e59ecdb7ef395c348c95a2b00173c85ee4da86",
+      "effectSummary": "Cut this 50-foot hemp rope into any number of smaller pieces. As an action, speak its command word to knit touching pieces that are not otherwise in use back together. Any lost or destroyed section permanently shortens the rope."
+    }
+  }
+}
