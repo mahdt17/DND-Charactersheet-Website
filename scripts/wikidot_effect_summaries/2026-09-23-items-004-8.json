@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-8",
+  "records": {
+    "wikidot5e:wondrous-items:moonblade": {
+      "sourceDigest": "sha256:2e5b3c8059b5f72b6eb714206c651d3e2f58e17d425baf4442cbe3ff41a4dae4",
+      "effectSummary": "Sentient neutral-good legendary longsword that chooses one worthy neutral-good elf or half-elf bearer for life; attunement requires a special elven-regent throne-room or elven-temple ritual. If rejected, you have disadvantage on ability checks, attacks, and saves for 24 hours. It normally has 1d6+1 runes, one per past master. First rune always grants +1 attack/damage; each later rune adds a DM-chosen or random property: 01–40 increase attack/damage bonus by 1 to max +3; 41–80 random minor property; 81–82 finesse; 83–84 thrown 20/60; 85–86 functions as defender; 87–90 crit on 19–20; 91–92 hits deal +1d6 slashing; 93–94 against one chosen creature type hits deal +1d6 acid, cold, fire, lightning, or thunder; 95–96 bonus action flash, creatures within 30 feet that can see you make DC 15 Constitution or are blinded 1 minute, repeating each turn, recharge after a short rest while attuned; 97–98 functions as ring of spell storing; 99 action summon one controlled neutral elfshadow within 120 feet using shadow statistics except immune to turning and unable to create shadows, lasting until 0 HP or dismissed; 00 functions as vorpal sword. Sentience: Intelligence 12, Wisdom 10, Charisma 12, hearing/darkvision 120 feet, communicates by emotions and visions/dreams; seeks advancement and protection of elvenkind and loyalty to its chosen family line."
+    },
+    "wikidot5e:wondrous-items:mudslick-tower": {
+      "sourceDigest": "sha256:3a64df172a5a9506d891eefc60d285b23448d3af3b6bc21066e9e7920ee72d49",
+      "effectSummary": "As an action place the 1-inch granite sphere on the ground and speak its Terran command word to expand it into a 20-by-20-foot, 30-foot-high tower; it remains until touched and commanded again as an action while empty, then shrinks. Creatures in the expansion area make DC 15 Dexterity, taking 10d10 bludgeoning or half, and are pushed to adjacent open spaces; unattended objects take full damage and are pushed. The tower tries to merge with natural stone it contacts. It has two floors, ladder/trapdoor, arrow slits, battlement, and one command-controlled door opened as a bonus action; the door is immune to knock and similar magic. It is adamantine, cannot be tipped, and roof, door, and each wall have 100 HP, immunity to nonmagical-weapon damage except siege weapons, and resistance to all other damage. While merged with natural stone, the tower is immune to all damage. Only wish repairs it, restoring 50 HP to one roof/door/wall section per casting."
+    },
+    "wikidot5e:wondrous-items:murgaxor-s-orb": {
+      "sourceDigest": "sha256:9f9c0a12b457be9822c983f8923b6d58e3b70bdd67fb27532020eeeabb8c7f58",
+      "effectSummary": "Sentient chaotic-evil orb: Intelligence 20, Wisdom 16, Charisma 16, hearing/darkvision 30 feet, speaks/reads/understands Common, telepathic with a touching creature. During your turn the orb itself may cast suggestion at save DC 17 on you or anyone who touched it within the past 24 hours; you do not control this power. While holding it, any humanoid you touch makes DC 10 Wisdom or becomes cursed with persistent headaches and an echo of Murgaxor's thoughts. On your turn the orb may use an action on one or more cursed creatures: Unconsciousness makes them unconscious 1 hour, ending on damage or an action to wake; Visions of Terror lasts 10 minutes and makes each victim treat non-cursed creatures as monsters and use its action each round to attack the nearest non-cursed creature, randomizing ties, ending if incapacitated. Either effect ending also ends that creature's curse; remove curse or similar magic ends it, and destroying the orb ends all curses. Detect magic shows a distinctive enchantment aura around cursed creatures. The orb has AC 18, 20 HP, immunity to necrotic, poison, and psychic, resistance to all other damage, and shatters at 0 HP."
+    },
+    "wikidot5e:wondrous-items:natures-mantle": {
+      "sourceDigest": "sha256:0639a8af1b9b8b71b256e8ff693d362c80cc6b5d95bd6dba34c166e479ab35f5",
+      "effectSummary": "While worn by an attuned druid or ranger, use the cloak as a spellcasting focus for druid and ranger spells. While in a lightly obscured area, you may Hide as a bonus action even while directly observed."
+    },
+    "wikidot5e:wondrous-items:navigation-orb": {
+      "sourceDigest": "sha256:1c17811f5809b7da088b8d34f12dc074d83dcb58bd84cb7295251c7208254e00",
+      "effectSummary": "A 7-foot-diameter levitating mithral orb keyed to one cloud castle. While inside that castle and touching the orb, use actions to control it: set movement to 1 mph in a chosen straight-line direction until changed/stopped, landing gently if it meets the ground; gradually stop a moving castle; turn it slowly 90 degrees clockwise or counterclockwise while stationary or moving. Any creature touching the orb knows the altitude of the castle's base above the ground or water. If the orb is removed or destroyed, the castle remains fixed at its current altitude and location until the orb returns or is replaced."
+    },
+    "wikidot5e:wondrous-items:necklace-of-fireballs": {
+      "sourceDigest": "sha256:da9da5c42bd8e9d6b936ff946d68906dca2f79d5df5d766e92c18a4c2794bb3e",
+      "effectSummary": "The necklace has 1d6+3 beads. As an action, detach and throw one up to 60 feet; it detonates at the endpoint as a 3rd-level fireball with save DC 15. You may throw multiple beads or the whole necklace with the same action; increase fireball's spell level by 1 for every bead beyond the first."
+    },
+    "wikidot5e:wondrous-items:necklace-of-prayer-beads": {
+      "sourceDigest": "sha256:c8220c8ae09c33114de445feddb5ad7aa8c1df4110edb1cf1792200ad133c9a3",
+      "effectSummary": "Attunable by cleric, druid, or paladin. Contains 1d4+2 magic beads; removing one makes it nonmagical. While wearing it, cast a bead's spell as a bonus action using your spell save DC; each bead recharges daily at dawn. Bead type by d20: 1–6 Blessing—bless; 7–12 Curing—cure wounds at 2nd level or lesser restoration; 13–16 Favor—greater restoration; 17–18 Smiting—branding smite; 19 Summons—planar ally; 20 Wind Walking—wind walk. Duplicate bead types may occur."
+    },
+    "wikidot5e:wondrous-items:needle-of-mending": {
+      "sourceDigest": "sha256:e373472608002c90068c1c37e668a32cb0bb47b9f24db512660e1232ab3d0325",
+      "effectSummary": "The magic +1 dagger is disguised as a sewing needle. While holding it, use a bonus action and command word to change between needle and dagger forms. While holding it in either form, use an action to cast mending."
+    },
+    "wikidot5e:wondrous-items:nepenthe": {
+      "sourceDigest": "sha256:3f1f21a5c7d83f7842c0eaf85e92272a5f93f7790696268c95a291d56c6b09e7",
+      "effectSummary": "Sentient neutral-evil +3 longsword attunable by a paladin. Hits against fiends or undead deal +2d10 radiant. While drawn and held, create a 10-foot aura in which you and friendly creatures have advantage on saves against spells and other magical effects; at paladin level 17+, radius is 30 feet. Sentience: Intelligence 10, Wisdom 8, Charisma 18, hearing/darkvision 60 feet, reads/understands Elvish, speaks Elvish through its wielder, and communicates telepathically. It is obsessed with punishment and cannot distinguish guilt from innocence, constantly hungering for more 'justice' and blood."
+    },
+    "wikidot5e:wondrous-items:nether-scroll-of-azumar": {
+      "sourceDigest": "sha256:20a31b87ea4c84389dee07d7d6f39b7263160e2cc58ba34cee693a71b0894a06",
+      "effectSummary": "This legendary scroll is not consumed. Study it for 30 days at least 8 hours per day, then make DC 25 Intelligence (Arcana). Failure deals 16d10 psychic and allows another attempt after another 30 days of study. On success, Intelligence increases by 2 to maximum 22, but this scroll cannot raise your Intelligence again; gain advantage on saves against spells and other magical effects; and a stone golem appears in an unoccupied space within 60 feet as your ally. If you die, that golem turns to dust."
+    }
+  }
+}
