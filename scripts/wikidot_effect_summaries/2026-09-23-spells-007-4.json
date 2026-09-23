@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-007-4",
+  "records": {
+    "wikidot5e:spell:mordenkainens-private-sanctum": {
+      "sourceDigest": "sha256:c22a49f4f89e63c56ad72eefda0ff776e3a89f206679e6683b05ab9a97754932",
+      "effectSummary": "Ward a cube from 5 to 100 feet on a side within 120 feet for 24 hours, choosing any combination of protections: sound cannot cross its boundary; vision and darkvision cannot see through the dark, foggy boundary; divination sensors cannot appear inside or cross in; creatures inside cannot be targeted by divination; teleportation into or out of the area is blocked; and planar travel within it is blocked. You may dismiss the ward as an action. Casting on the same spot daily for one year makes it permanent. Each slot level above 4th can increase the cube's maximum side length by 100 feet."
+    },
+    "wikidot5e:spell:mordenkainens-sword": {
+      "sourceDigest": "sha256:6f825779bddd0a65cb9a8e4a9c9efff9345ebeeae9ab983fb0bf725be4b9cefe",
+      "effectSummary": "Create a hovering force sword within 60 feet for up to 1 minute. When it appears, make a melee spell attack against a target within 5 feet of the sword; on a hit it deals 3d10 force damage. As a bonus action on later turns, move the sword up to 20 feet to a visible point and repeat the attack against the same or a different target."
+    },
+    "wikidot5e:spell:motivational-speech": {
+      "sourceDigest": "sha256:02979871554641c94a7c7cd759ab1749472bf8c6969b55cf298f83eeaf91feb4",
+      "effectSummary": "Choose up to five creatures within 60 feet that can hear you. For 1 hour each gains 5 temporary HP and advantage on Wisdom saves; after an affected creature is hit by an attack, it has advantage on its next attack roll. When a creature loses all temporary HP granted by this spell, the spell ends for it. Each slot level above 3rd adds 5 temporary HP."
+    },
+    "wikidot5e:spell:move-earth": {
+      "sourceDigest": "sha256:a4aa30cded5087410419de680baae82bd31f8e18d5e15f4c5699c3f4c6475275",
+      "effectSummary": "Reshape an area of dirt, sand, or clay up to 40 feet on a side within 120 feet for up to 2 hours. You may raise or lower ground, dig or fill trenches, create or flatten walls, or form pillars, with the maximum change no greater than half the area's largest dimension; each change takes 10 minutes. After each 10 minutes of concentration you may choose a new area. The slow movement normally cannot trap or injure creatures. The spell cannot directly manipulate natural or constructed stone or plant growth, though rocks, structures, and plants move with the earth and unstable structures may collapse."
+    },
+    "wikidot5e:spell:nathairs-mischief": {
+      "sourceDigest": "sha256:ff646cf486338fc60cdc8c1b36cf35f74ab62bf67d23aaf8270f79d8611971b2",
+      "effectSummary": "Fill a visible 20-foot cube within 60 feet with fey-draconic magic for up to 1 minute. Roll 1d4 when cast and at the start of each of your turns; before each later roll you may move the cube up to 10 feet. On 1, creatures in the cube make Wisdom saves or are charmed by you until the start of your next turn. On 2, they make Dexterity saves or are blinded until then. On 3, they make Wisdom saves or become incapacitated and spend all movement in a random direction until then. On 4, the cube becomes difficult terrain until the start of your next turn."
+    },
+    "wikidot5e:spell:nathairs-mischief-ua": {
+      "sourceDigest": "sha256:b358e45b153156c6686bdd5043b2dea783cba46a1a0ef00005b4d7bf04e72a93",
+      "effectSummary": "Fill a 20-foot cube centered within 60 feet with fey-draconic magic for up to 1 minute. Roll 1d4 to determine the current effect; at the start of each of your turns you may move the cube up to 10 feet and reroll. On 1, creatures inside make Wisdom saves or are charmed by you until the start of your next turn. On 2, they make Dexterity saves or are blinded until then. On 3, they make Wisdom saves or become incapacitated and use all movement in a random direction until then. On 4, the cube is difficult terrain until then."
+    },
+    "wikidot5e:spell:negative-energy-flood": {
+      "sourceDigest": "sha256:6b16fb26f7fb6754a5ef3817551eadec59141492cbe8eea95c4c986bb280acfe",
+      "effectSummary": "Target one visible creature within 60 feet. A non-undead target makes a Constitution save, taking 5d12 necrotic damage on a failure or half on a success; if killed by this damage, it rises as a zombie at the start of your next turn and pursues the nearest creature it can see. An undead target makes no save; instead roll 5d12 and it gains temporary HP equal to half the total."
+    },
+    "wikidot5e:spell:nystuls-magic-aura": {
+      "sourceDigest": "sha256:f28d1662662aa8bf7f8c99185b315ab85f491bf6d36f06799190751b64eb8077",
+      "effectSummary": "For 24 hours, make a willing creature or unattended object give false information to divination and detection magic. Choose either or both effects. False Aura can make a nonmagical object seem magical, a magical object seem nonmagical, or make its aura appear to belong to a chosen school; you can make this false aura apparent to anyone handling the object. Mask makes the target count as a chosen creature type or alignment to spells and magical effects that detect or react to those traits. Recasting with the same effect on the same target every day for 30 days makes that effect last until dispelled."
+    },
+    "wikidot5e:spell:on-off-ua": {
+      "sourceDigest": "sha256:60404ab3c92351ccf39602813b89bca974e53e2f25b357b9e3ba6b50463e1c6e",
+      "effectSummary": "Instantly activate or deactivate one electronic device within 60 feet if it has a clearly defined externally accessible on/off function. Devices that require a software-based startup or shutdown sequence are unaffected."
+    },
+    "wikidot5e:spell:otherworldly-form-ua": {
+      "sourceDigest": "sha256:2c6c1969a5ef4d01e7cb0a9e1e50c78b420a31afa6a00bea900d2b5b14b74d1f",
+      "effectSummary": "Transform yourself for up to 1 minute using power from either the Lower or Upper Planes. Lower Planes grants immunity to fire and poison damage and the poisoned condition; Upper Planes grants immunity to radiant and necrotic damage and the charmed condition. Either choice also gives a 40-foot flying speed, +2 AC, makes your weapon attacks magical, lets you use your spellcasting ability modifier instead of Strength or Dexterity for weapon attack and damage rolls, and lets you attack twice when taking the Attack action unless another feature already gives you extra attacks."
+    }
+  }
+}
