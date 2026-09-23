@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-011-1",
+  "records": {
+    "wikidot5e:spell:wall-of-light": {
+      "sourceDigest": "sha256:5c509681eaaab8457f37a23c0e9f30c69a98910feeb4461ad3f7d75fd4d72644",
+      "effectSummary": "Create a bright wall within 120 feet for up to 10 minutes, up to 60 feet long, 10 feet high, and 5 feet thick, in any orientation. It blocks line of sight but not movement and sheds bright light 120 feet plus dim light another 120. When it appears, creatures in it make Constitution saves, taking 4d8 radiant damage and becoming blinded for 1 minute on a failure, or half damage without blindness on a success; a blinded creature repeats the save at each turn end. A creature ending its turn in the wall takes 4d8 radiant damage. As an action, fire a beam at one visible creature within 60 feet of the wall; make a ranged spell attack for 4d8 radiant damage, then reduce the wall's length by 10 feet whether the attack hits or misses. At 0 length the spell ends. Each slot level above 5th adds 1d8 to all damage."
+    },
+    "wikidot5e:spell:wall-of-sand": {
+      "sourceDigest": "sha256:f21ad676e4514a3efa9a34b28ac1d01f632f707d8997ff6be494275297f87b37",
+      "effectSummary": "Create a wall of swirling sand on the ground within 90 feet, up to 30 feet long, 10 feet high, and 10 feet thick, for up to 10 minutes. It blocks line of sight but not movement. A creature inside is blinded and must spend 3 feet of movement for every 1 foot traveled in the wall."
+    },
+    "wikidot5e:spell:wall-of-stone": {
+      "sourceDigest": "sha256:7f07b0ef7116d39dd10b99a82e4c51676a72443115d580d07343dd8d28b8a82a",
+      "effectSummary": "Create a nonmagical stone wall within 120 feet for up to 10 minutes from ten contiguous 10-by-10-foot panels 6 inches thick, or ten 10-by-20-foot panels 3 inches thick. A creature whose space is cut is pushed to one side; if enclosed by the wall and other solid surfaces, it can make a Dexterity save and on success use its reaction to move up to its speed out of the enclosure. The wall can be shaped, bridged, ramped, and crudely ornamented but must merge with and be supported by existing stone; spans over 20 feet require halved panel sizes for supports. Each panel has AC 15 and 30 HP per inch of thickness, and destroying one may collapse connected panels. Maintaining concentration for the full duration makes the wall permanent and no longer dispellable."
+    },
+    "wikidot5e:spell:wall-of-thorns": {
+      "sourceDigest": "sha256:8eb8065423298ef90b3034eaba9ce5630bcfebbfae62f54cd98a3a707ebbd236",
+      "effectSummary": "Create a thorn wall on a solid surface within 120 feet for up to 10 minutes, either up to 60 feet long, 10 feet high, and 5 feet thick or a 20-foot-diameter circle up to 20 feet high and 5 feet thick. It blocks line of sight. Creatures in its area when it appears make Dexterity saves for 7d8 piercing damage, half on success. Moving through costs 4 feet per foot, and the first time a creature enters on a turn or ends its turn there it makes a Dexterity save for 7d8 slashing damage, half on success. Each slot level above 6th adds 1d8 to both damage types."
+    },
+    "wikidot5e:spell:wall-of-water": {
+      "sourceDigest": "sha256:336c753f34b9f77dc42e4d86ad57ba990d5430be1dfd277fcb87bb500dc9de7c",
+      "effectSummary": "Create a wall of water on the ground within 60 feet for up to 10 minutes, either up to 30 feet long, 10 feet high, and 1 foot thick or a ring up to 20 feet in diameter, 20 feet high, and 1 foot thick. Its space is difficult terrain. Ranged weapon attacks entering the wall have disadvantage, and fire damage is halved if the effect passes through the wall. Cold-damage spells passing through freeze at least a 5-foot-square section; each frozen section has AC 5 and 15 HP, and when destroyed it leaves a permanent gap that the remaining water does not refill."
+    },
+    "wikidot5e:spell:warding-bond": {
+      "sourceDigest": "sha256:61c50207707aa8029038a0677559182358065851c4dcd3667d59e0e3aac9c60f",
+      "effectSummary": "Touch a willing creature while both of you wear the spell's platinum rings. For 1 hour while it remains within 60 feet, it gains +1 AC and saving throws and resistance to all damage; whenever it takes damage, you take the same amount. The spell ends if you reach 0 HP, you become more than 60 feet apart, the spell is cast again on either connected creature, or you dismiss it as an action."
+    },
+    "wikidot5e:spell:warding-wind": {
+      "sourceDigest": "sha256:ab73721b52761b4cb8f85b97a4d3f91b333a8f0fc71981a3876ff7b1da874412",
+      "effectSummary": "A 20-mph wind blows in a 10-foot radius around you and moves with you for up to 10 minutes. It deafens creatures in the area, extinguishes unprotected torch-sized or smaller flames, makes the area difficult terrain for creatures other than you, imposes disadvantage on ranged weapon attacks passing into or out of it, and disperses vapor, gas, and fog that strong wind can disperse."
+    },
+    "wikidot5e:spell:warp-sense": {
+      "sourceDigest": "sha256:5b7a02b99b135c43a2b33fc52f8c88ed4242b68e0ad842dde1e9a1360a98eae2",
+      "effectSummary": "For up to 1 minute, sense portals, including inactive ones, within 30 feet. After detecting one, you can use your action to make a DC 15 spellcasting-ability check to study it; on success you learn its destination plane and required portal key and the spell ends, while on failure you learn nothing and cannot study that portal again with the same casting. Detection penetrates most barriers but is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt."
+    },
+    "wikidot5e:spell:water-walk": {
+      "sourceDigest": "sha256:2176cff64002ec6b8d87fd1dbd565cc0154d8bbb34db623cff8c02af6c2d9a9f",
+      "effectSummary": "Up to ten willing visible creatures within 30 feet can move across liquid surfaces such as water, acid, mud, snow, quicksand, or lava as though on harmless solid ground for 1 hour, though environmental hazards such as lava heat still apply. A targeted creature already submerged rises toward the surface at 60 feet per round."
+    },
+    "wikidot5e:spell:watery-sphere": {
+      "sourceDigest": "sha256:88d5f5cfd3f3040bb2d528b49f5e134938b203dbce589d97fe2f5f5c1f35eea6",
+      "effectSummary": "Create a 5-foot-radius water sphere at a visible point within 90 feet, hovering no more than 10 feet above the ground for up to 1 minute. A creature in its space makes a Strength save; Huge or larger succeeds automatically. On success it is ejected to the nearest open space; on failure it is restrained and engulfed, repeating the save at the end of each turn. The sphere can hold at most four Medium-or-smaller creatures or one Large creature, ejecting a random previously restrained creature if over capacity. As an action, move it up to 30 feet in a straight line; it descends safely over drops, carries restrained creatures, and can ram creatures to force the save at most once per turn. When the spell ends, the sphere falls, extinguishes normal flames within 30 feet, and knocks restrained creatures prone where it lands."
+    }
+  }
+}
