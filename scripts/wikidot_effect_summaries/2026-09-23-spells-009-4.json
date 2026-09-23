@@ -28,7 +28,7 @@
       "effectSummary": "Touch a Medium-or-smaller stone object or a section of stone no more than 5 feet in any dimension and reshape it as desired. You can make objects, small passages through walls under 5 feet thick, or reshape doors and frames. A created object can include up to two hinges and a latch, but finer mechanical detail is not possible."
     },
     "wikidot5e:spell:storm-of-vengeance": {
-      "sourceDigest": "sha256:0d2e0cda5cea0bfd156e73d74c61c8c35ecd7c3163d49481d086696c43f16780",
+      "sourceDigest": "sha256:1f244802e16ec26f007859168f7d7b40ea9da49319320ea39ed14f5c9c0b7deb",
       "effectSummary": "Create a 360-foot-radius storm cloud centered at a visible point, affecting creatures no more than 5,000 feet below it for up to 1 minute. On appearance, creatures beneath it make Constitution saves, taking 2d6 thunder damage and becoming deafened for 5 minutes on a failure. Each maintained round adds a new effect: round 2, every creature and object under it takes 1d6 acid; round 3, choose six distinct creatures or objects for lightning bolts, each creature making a Dexterity save for 10d6 lightning, half on success; round 4, every creature under it takes 2d6 bludgeoning; rounds 5–10, the area is difficult terrain and heavily obscured, every creature there takes 1d6 cold each round, ranged weapon attacks are impossible, the weather severely distracts concentration, and 20–50 mph winds automatically disperse mundane or magical fog, mist, and similar phenomena."
     },
     "wikidot5e:spell:storm-sphere": {
