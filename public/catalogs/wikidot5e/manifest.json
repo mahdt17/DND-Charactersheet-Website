@@ -1,0 +1,33 @@
+{
+  "source": "https://dnd5e.wikidot.com",
+  "kind": "structured-reference-index",
+  "complete": true,
+  "categories": [
+    {
+      "id": "classes",
+      "count": 13
+    },
+    {
+      "id": "spells",
+      "count": 574
+    },
+    {
+      "id": "feats",
+      "count": 199
+    },
+    {
+      "id": "items",
+      "count": 830
+    }
+  ],
+  "enrichmentAudit": {
+    "verified": true,
+    "releaseReady": true,
+    "auditHeadSha": "33180e52edec5d54d9a26f4dcab6fce756325b0b",
+    "auditRunId": 35816054846,
+    "artifactId": 10732584249,
+    "artifactDigest": "sha256:2ba4b7cb8029882c04acd4ee3e9c76b24de35657024f4a11d349b58fcabbb7e0",
+    "totalRecords": 12891,
+    "criticalMissingCount": 0
+  }
+}

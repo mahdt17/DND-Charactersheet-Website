@@ -1,0 +1,98 @@
+{
+  "readOnly": true,
+  "fullCatalog": true,
+  "fullScopeForSelectedCategories": true,
+  "scopeCategories": [
+    "3.5/classes",
+    "3.5/feats",
+    "3.5/spells",
+    "3.5/items",
+    "3.5/equipment",
+    "5e/classes",
+    "5e/spells",
+    "5e/feats",
+    "5e/items"
+  ],
+  "strictGameplayCompleteness": true,
+  "sourceExtractionVerified": true,
+  "outputCompletenessVerified": true,
+  "releaseReady": true,
+  "minimumRate": 1.0,
+  "criticalMissingCount": 0,
+  "passed": true,
+  "categories": [
+    {
+      "total": 1054,
+      "passed": 1054,
+      "failed": 0,
+      "successRate": 1.0,
+      "examples": [],
+      "category": "3.5/classes"
+    },
+    {
+      "total": 3666,
+      "passed": 3666,
+      "failed": 0,
+      "successRate": 1.0,
+      "examples": [],
+      "category": "3.5/feats"
+    },
+    {
+      "total": 5035,
+      "passed": 5035,
+      "failed": 0,
+      "successRate": 1.0,
+      "examples": [],
+      "category": "3.5/spells"
+    },
+    {
+      "total": 1455,
+      "passed": 1455,
+      "failed": 0,
+      "successRate": 1.0,
+      "examples": [],
+      "category": "3.5/items"
+    },
+    {
+      "total": 65,
+      "passed": 65,
+      "failed": 0,
+      "successRate": 1.0,
+      "examples": [],
+      "category": "3.5/equipment"
+    },
+    {
+      "total": 13,
+      "passed": 13,
+      "failed": 0,
+      "successRate": 1.0,
+      "examples": [],
+      "category": "5e/classes"
+    },
+    {
+      "total": 574,
+      "passed": 574,
+      "failed": 0,
+      "successRate": 1.0,
+      "examples": [],
+      "category": "5e/spells"
+    },
+    {
+      "total": 199,
+      "passed": 199,
+      "failed": 0,
+      "successRate": 1.0,
+      "examples": [],
+      "category": "5e/feats"
+    },
+    {
+      "total": 830,
+      "passed": 830,
+      "failed": 0,
+      "successRate": 1.0,
+      "examples": [],
+      "category": "5e/items"
+    }
+  ],
+  "errors": []
+}

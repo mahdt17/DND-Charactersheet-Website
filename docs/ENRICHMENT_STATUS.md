@@ -2,7 +2,18 @@
 
 Branch: `codex/content-foundation`  
 PR: #4 — Add canonical content foundation  
-Live/catalog writes: **LOCKED**
+Live/catalog writes: **VERIFIED RELEASE PROMOTED TO REPOSITORY STATIC CATALOGS**
+
+## Global nine-category release audit — COMPLETE and PROMOTED
+
+- Audited head: \`33180e52edec5d54d9a26f4dcab6fce756325b0b\`.
+- Full enrichment audit run: \`35816054846\`.
+- Final candidate-output artifact: \`10732584249\`, digest \`sha256:2ba4b7cb8029882c04acd4ee3e9c76b24de35657024f4a11d349b58fcabbb7e0\`.
+- Exact final release gate: **12,891 / 12,891 passed**, **0 failed**, **100.00%** across all nine required 3.5e/5e categories.
+- \`sourceExtractionVerified: true\`, \`outputCompletenessVerified: true\`, \`releaseReady: true\`, \`criticalMissingCount: 0\`, \`errors: []\`.
+- The exact audited candidate files were promoted into \`public/catalogs/dndtools\` and \`public/catalogs/wikidot5e\`; no re-scrape was used for promotion.
+- Supabase was not modified. Catalog reference data remains repository/static-file backed.
+- PR #4 remains open and unmerged pending post-promotion validation.
 
 ## 3.5 equipment category — COMPLETE under both independent gates
 
