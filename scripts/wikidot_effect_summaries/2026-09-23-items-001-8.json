@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-8",
+  "records": {
+    "wikidot5e:wondrous-items:bloodseeker-ammunition": {
+      "sourceDigest": "sha256:fc3008ff569512ee55f1fee9a5b2dfd1e4921d31d87866cedbdebca1431e6acb",
+      "effectSummary": "Ranged attacks made with this magic ammunition have advantage against creatures that are below their hit point maximum."
+    },
+    "wikidot5e:wondrous-items:bloodshed-blade": {
+      "sourceDigest": "sha256:c3129af18e7bfbf25c0b19960852afcb91756a72f896bebe1f575a1dfe823bb6",
+      "effectSummary": "Add your Constitution modifier, minimum +1, to damage rolls with this sword. Once per dawn when targeting a creature with an attack, invoke the rune after seeing the d20 if desired: spend and roll one unspent Hit Die and add it to the attack roll. If the attack hits, you may then spend and roll any number of additional unspent Hit Dice and add their total to the weapon's damage."
+    },
+    "wikidot5e:wondrous-items:bloodwell-vial": {
+      "sourceDigest": "sha256:0a26884efebe5d4e161cb1769f6db184ede7899b1cbaf5fe5cb385c0785f5661",
+      "effectSummary": "Attuning requires placing your blood inside; the vial cannot be opened while attuned, and the blood turns to ash when attunement ends. While holding or wearing it, use it as a spellcasting focus and gain a bonus to sorcerer spell attacks and save DCs by rarity: uncommon +1, rare +2, very rare +3. Once per dawn when you roll any Hit Dice to regain HP while carrying it, regain 5 sorcery points."
+    },
+    "wikidot5e:wondrous-items:bobbing-lily-pad": {
+      "sourceDigest": "sha256:79703d9b2726048686cbd126e60ef4fd65abaf26af1a942da4fbef36d69b2d1f",
+      "effectSummary": "10-foot-diameter magic vehicle that floats on water and follows your spoken directions while you ride it. It has walking, flying, and swimming speeds of 20 feet and can hover, but cannot travel underwater. Carries up to 300 pounds at full speed or up to 600 pounds at half speed."
+    },
+    "wikidot5e:wondrous-items:book-of-exalted-deeds": {
+      "sourceDigest": "sha256:00e93b91bbf98a6b5735aad63f624c02f0f974c9c7e61c32e6080292d757bca1",
+      "effectSummary": "Artifact for a good creature. Only a good attuned creature can open it; after 80 hours of study, gain its benefits, which persist only while you perform at least one act of kindness or generosity every 10 days and do not willingly commit evil. An evil reader takes 24d6 radiant damage ignoring resistance/immunity and all reduction; at 0 HP it is destroyed in a flash, leaving possessions. The book has 2 random minor and 2 random major beneficial properties. Study increases Wisdom by 2 to maximum 24 once ever. Any slot spent on a cleric or paladin spell counts as one level higher. You gain a halo, toggleable as a bonus action, with bright light 10 feet/dim another 10; while active you have advantage on Persuasion with good creatures and Intimidation with evil creatures, and fiends/undead in its bright light have disadvantage attacking you. After being read, the book eventually vanishes elsewhere. It is rumored indestructible while good exists; immersion in the Styx makes it powerless for 1d100 years."
+    },
+    "wikidot5e:wondrous-items:book-of-vile-darkness": {
+      "sourceDigest": "sha256:52e5748ed9dee7c4c26876386e86f33dce5f3497a22adc37859fda817d72a5bc",
+      "effectSummary": "Artifact requiring 80 hours of study for full benefits. A non-evil creature attuning makes DC 17 Charisma or becomes neutral evil. The book remains only while you commit at least one evil act every 10 days and do not willingly do good; if you die attuned, a great evil imprisons your soul and you cannot be revived while imprisoned. Random properties: 3 minor beneficial, 1 major beneficial, 3 minor detrimental, 2 major detrimental. Study once increases one ability by 2 to max 24 and decreases another by 2 to min 3, and gives a DM-chosen physical Mark of Darkness granting advantage on Persuasion with evil creatures and Intimidation with non-evil creatures. Once per dawn while holding it, cast dominate monster on an evil target, save DC 18. When using it for Intelligence checks about evil lore, double proficiency bonus. While carrying and attuned, use an action to speak Dark Speech, taking 1d12 psychic while every non-evil creature within 15 feet takes 3d6 psychic. Nature withers near the book. A solar tearing it in two destroys it for 1d100 years; after 100 years attuned, a hidden Celestial phrase can destroy speaker and book, but it reforms in 1d10×100 years while evil exists; eradication of all evil destroys it forever."
+    },
+    "wikidot5e:wondrous-items:book-of-vile-darkness-variant": {
+      "sourceDigest": "sha256:b0b563e0fce20c5c17c324c76312a294924ba83b3632aabf934536eb4d91460d",
+      "effectSummary": "Variant artifact requiring 80 hours of study. A non-evil creature attuning makes DC 17 Charisma or becomes neutral evil; when first attuned, an evil spirit attempts possession with DC 20 Charisma, making you a DM-controlled NPC until banished by magic such as dispel evil and good, after which it returns to the book. While attuned, you are immune to charmed and frightened. As an action cast circle of death, save DC 20; after casting roll d6, and on 1–5 it cannot be used again until dawn. Full study once increases one ability by 2 to max 24 and reduces another by 2 to min 3, and grants a Mark of Darkness with advantage on Persuasion with evil creatures and Intimidation with non-evil creatures. Once per dawn while holding it, cast dominate monster on an evil target, save DC 18. Double proficiency on Intelligence checks for evil lore. Dark Speech as an action deals 1d12 psychic to you and 3d6 psychic to each non-evil creature within 15 feet. It disappears if you go 10 days without evil or willingly do good; dying attuned imprisons your soul. Destruction rules match the standard book: solar tear destroys for 1d100 years; hidden phrase after 100 years attuned destroys speaker/book but it reforms 1d10×100 years while evil exists; no evil means permanent destruction."
+    },
+    "wikidot5e:wondrous-items:bookmark": {
+      "sourceDigest": "sha256:cc5d3c98b4b9e95be9efa490dda49f0fb6d086b98db130ab4151fc8e65ed49db",
+      "effectSummary": "This +3 dagger has bonus-action properties while drawn: toggle a blue gem shedding bright light 20 feet and dim another 20; turn it into a north-pointing compass while resting on your palm; once per dawn cast dimension door; or once per dawn cast compulsion with save DC 15, range 90 feet, targeting only beast spiders."
+    },
+    "wikidot5e:wondrous-items:boomerang-shield": {
+      "sourceDigest": "sha256:bd14caac4f54933234b9ba9bad682b0f6bc04bd305e672f95da15cb9c8dedef2",
+      "effectSummary": "This magic shield can be thrown as a ranged weapon at 20/60 feet using Strength or Dexterity. Shield proficiency grants proficiency with this attack. On a hit it deals 1d6 slashing damage. Immediately after the attack hits or misses, the shield reappears in your hand. While wielded normally it grants the standard +2 AC shield benefit."
+    },
+    "wikidot5e:wondrous-items:boots-of-speed": {
+      "sourceDigest": "sha256:91d707e3c7c098fc7f87e24078cbaeea0bfa5acd22933e41968c23099b3cbeb5",
+      "effectSummary": "While worn, click heels as a bonus action to double walking speed and impose disadvantage on opportunity attacks against you; click again to end the effect. The boots provide up to 10 total minutes of this effect, after which they cannot function again until you finish a long rest."
+    }
+  }
+}
