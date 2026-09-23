@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-010-1",
+  "records": {
+    "wikidot5e:spell:summon-shadowspawn": {
+      "sourceDigest": "sha256:c3336ca17ebbea00fe39d1bc537e4ba2bef65740896a394d48152ff0ad102886",
+      "effectSummary": "Summon a Medium Shadow Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Fury, Despair, or Fear. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 35 + 15 per spell level above 3rd; speed 40 ft.; Str 13, Dex 16, Con 15, Int 4, Wis 10, Cha 16; necrotic resistance; immune to frightened; darkvision 120 ft.; understands your languages. Fury has advantage on attacks against frightened creatures. Despair reduces the speed of every creature other than you that starts within 5 feet by 20 feet until its next turn. Fear can Hide as a bonus action in dim light or darkness. It makes half the spell level rounded down Chilling Hand attacks for 1d12 + 3 + spell level cold. Once per day Dreadful Scream forces creatures within 30 feet to make Wisdom saves or be frightened for 1 minute, repeating the save at turn end. Higher-level slots scale spell-level statistics."
+    },
+    "wikidot5e:spell:summon-undead": {
+      "sourceDigest": "sha256:3cbf6875e2a009de7953d0e618a62a1ae8297ea1685ab9827c014ca9c1a9f74f",
+      "effectSummary": "Summon a Medium Undead Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Ghostly, Putrid, or Skeletal. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 30 for Ghostly/Putrid or 20 for Skeletal plus 10 per spell level above 3rd; speed 30 ft., with hovering fly 40 ft. for Ghostly; Str 12, Dex 16, Con 15, Int 4, Wis 10, Cha 9; immune to necrotic and poison damage and to exhaustion, frightened, paralyzed, and poisoned; darkvision 60 ft.; understands your languages. Putrid has a 5-foot Festering Aura that can poison creatures until their next turn. Ghostly can pass through creatures and objects as difficult terrain, taking 1d10 force per 5 feet and being shunted out if it ends inside an object. It makes half the spell level rounded down attacks: Ghostly Deathly Touch deals 1d8 + 3 + spell level necrotic and can frighten until the target's next turn; Skeletal Grave Bolt is a 150-foot ranged attack for 2d4 + 3 + spell level necrotic; Putrid Rotting Claw deals 1d6 + 3 + spell level slashing and can paralyze an already poisoned target until its next turn. Higher-level slots scale spell-level statistics."
+    },
+    "wikidot5e:spell:summon-warrior-spirit": {
+      "sourceDigest": "sha256:f7872fee5bc3c25b940d0868876a037018e37bce387c2eafb0a143cb84dcdb39",
+      "effectSummary": "Summon a Medium Undead Warrior Spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Barbarian, Fighter, or Monk. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 13 + spell level, plus 2 for Fighter; HP 30 for Barbarian/Fighter or 20 for Monk plus 10 per spell level above 3rd; speed 30 ft., or 40 ft. for Monk; Str 16, Dex 16, Con 14, Int 10, Wis 16, Cha 9; poison resistance; immune to charmed and poisoned; speaks Common and understands your languages. It makes half the spell level rounded down attacks. Barbarian Reckless Strike has advantage, deals 1d12 + 3 + spell level slashing, and grants advantage on attacks against the warrior until its next turn. Fighter Rallying Strike is melee or 20/60 ranged, deals 1d6 + 3 + spell level piercing, and grants 1d6 temporary HP to another visible creature within 20 feet. Monk Unarmed Strike deals 1d4 + 3 + spell level bludgeoning and can knock the target prone on a failed Strength save; Flurry of Blows makes one additional Unarmed Strike as a bonus action. Higher-level slots scale spell-level statistics."
+    },
+    "wikidot5e:spell:sunbeam": {
+      "sourceDigest": "sha256:303dd673ca1b6947671915de5716f170d9dcad30caa40d6992d8d9a0d6ca1935",
+      "effectSummary": "Fire a 5-foot-wide, 60-foot line of sunlight when cast and, as an action on later turns while concentrating up to 1 minute, again. Creatures in the line make Constitution saves, taking 6d8 radiant damage and becoming blinded until your next turn on a failure, or half damage without blindness on a success; undead and oozes have disadvantage on the save. For the duration, your hand also sheds bright sunlight for 30 feet and dim light for another 30 feet."
+    },
+    "wikidot5e:spell:sunburst": {
+      "sourceDigest": "sha256:76f0a4abc139762d0df255514e2a7df5415f48a4d6c424b2f2aa59cd5db975d8",
+      "effectSummary": "Create a 60-foot-radius burst of sunlight centered within 150 feet. Creatures there make Constitution saves, taking 12d6 radiant damage and becoming blinded for 1 minute on a failure, or half damage without blindness on a success; undead and oozes have disadvantage. A blinded creature repeats the Constitution save at the end of each of its turns, ending the blindness on a success. The spell also dispels magical darkness in its area."
+    },
+    "wikidot5e:spell:swift-quiver": {
+      "sourceDigest": "sha256:851f64c1ee5a9bf3db9647eec20b19e6b6ddce5cfea07809967f28628a98c5dd",
+      "effectSummary": "For up to 1 minute, a touched quiver containing ammunition produces an endless supply of matching nonmagical ammunition. On each of your turns, you can use a bonus action to make two attacks with a weapon using ammunition from that quiver. Each fired piece is magically replaced, and all ammunition created by the spell disintegrates when it ends. The spell ends early if the quiver leaves your possession."
+    },
+    "wikidot5e:spell:sword-burst": {
+      "sourceDigest": "sha256:290b9c9a59ceddbe81351eacc4b877137b0384dc5d76e6eff791a0d5ecf56d8a",
+      "effectSummary": "All other creatures within 5 feet of you make Dexterity saves or take 1d6 force damage from spectral blades. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17."
+    },
+    "wikidot5e:spell:symbol": {
+      "sourceDigest": "sha256:360a805ddec3a22edfa614e7bf6f63b7f6432923659b882cb42167394ac2be19",
+      "effectSummary": "Inscribe a nearly invisible glyph on a surface up to 10 feet across or inside a closable object; an object glyph breaks if moved more than 10 feet from the casting location. Define a trigger based on interaction, proximity, observation, physical traits or creature kind, and optional exemptions such as a password. When triggered, the glyph glows with dim light in a 60-foot-radius sphere for 10 minutes and affects creatures in the sphere when activated and creatures that enter for the first time on a turn or end a turn there. Choose one effect: Death—Constitution save, 10d10 necrotic, half on success; Discord—Constitution save or for 1 minute unable to communicate meaningfully and disadvantaged on attacks and ability checks; Fear—Wisdom save or frightened 1 minute, drop held items, and move at least 20 feet away each turn if able; Hopelessness—Charisma save or for 1 minute cannot attack or target creatures with harmful abilities, spells, or magic; Insanity—Intelligence save or for 1 minute cannot take actions, understand speech, read, or speak coherently, with erratic DM-controlled movement; Pain—Constitution save or incapacitated for 1 minute; Sleep—Wisdom save or unconscious for 10 minutes, ending on damage or an action to wake; Stunning—Wisdom save or stunned for 1 minute."
+    },
+    "wikidot5e:spell:synaptic-static": {
+      "sourceDigest": "sha256:fbbab7b683852bfbec34e35fee6dffa49eb53342f4d65f87a20bcb8860cb56e3",
+      "effectSummary": "Creatures in a 20-foot-radius sphere centered within 120 feet make Intelligence saves; creatures with Intelligence 2 or lower are unaffected. A target takes 8d6 psychic damage on a failure or half on a success. A failed target also subtracts 1d6 from attack rolls, ability checks, and Constitution saves made to maintain concentration for 1 minute, repeating the Intelligence save at the end of each turn to end this penalty."
+    },
+    "wikidot5e:spell:system-backdoor": {
+      "sourceDigest": "sha256:f7d2251a36936dd96b3c2009cacd8ff3fbe3c55b00e36b90a98e480752703f79",
+      "effectSummary": "After a 1-minute casting with hacking tools, create a secure administrator-level login on a foreign computer system for up to 1 hour. The login bypasses ordinary system security and technomagic protection of 3rd level or lower. When the spell ends, the login and its privileges are erased, though system logs still show the activity without traceable user identification. Each slot level above 4th lets the login bypass technomagic spells of a level no higher than the slot used."
+    }
+  }
+}
