@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-10",
+  "records": {
+    "wikidot5e:wondrous-items:stonemaker-war-pick": {
+      "sourceDigest": "sha256:11a6f7691e1bcdcf03c5b9461317ad461d5898571a10f723bd29f9d7ccb037d2",
+      "effectSummary": "This +1 magic war pick can cast meld into stone once per dawn. It has 1d6+1 nonrecharging petrification charges; when you score a critical hit against a creature with fewer than 100 HP, spend 1 charge to force DC 15 Constitution. On failure the creature is petrified for 8 hours. When no charges remain, the petrification property is lost."
+    },
+    "wikidot5e:wondrous-items:stonespeaker-crystal": {
+      "sourceDigest": "sha256:be3f36432375d23e381dda539be87d71830488264e296fc6d1b6cb254229de73",
+      "effectSummary": "While on your person, gain advantage on Intelligence (Investigation). It has 10 charges, regaining 1d6+4 daily at dawn. While holding it, cast speak with animals for 2 charges, speak with plants 3, or speak with dead 4. When casting a divination spell, use the crystal in place of one normally consumed material component by spending 1 charge per spell level; the crystal itself is not consumed. If the last charge is spent, roll d20; on 1 it vanishes forever."
+    },
+    "wikidot5e:wondrous-items:stonkys-ring": {
+      "sourceDigest": "sha256:88b7c213ae4830fa97b39c1fd4efac593b4441955c436c2304c88230b7f829c1",
+      "effectSummary": "While wearing it, cast telekinesis at will, but only targeting unattended objects. Attuning also grants control of Stonky's skitterwidgets, though they ignore commands spoken from more than 30 feet away."
+    },
+    "wikidot5e:wondrous-items:storm-boomerang": {
+      "sourceDigest": "sha256:0e48dc92ea3e4478a64dfb96686b3a6a5800a5878deb7303147f92591c18db37",
+      "effectSummary": "Ranged weapon, range 60/120; javelin proficiency also grants proficiency with it. On a hit, deal 1d4 bludgeoning +3d4 thunder and target makes DC 10 Constitution or is stunned until end of its next turn. On a miss it returns to your hand. After it deals thunder damage once, it loses its thunder damage and stun properties until it spends at least 1 hour inside an elemental air node."
+    },
+    "wikidot5e:wondrous-items:stormgirdle": {
+      "sourceDigest": "sha256:44896f1db705fe8298e9c75dfc261f4014bc89fbe201dc1cae875cb38681e2f4",
+      "effectSummary": "Evolving legendary belt. Dormant: lightning/thunder resistance and Strength 21 if lower. Once per dawn as an action become Storm Avatar for 1 minute: immunity to lightning/thunder; weapon hits that normally deal bludgeoning instead deal thunder, while piercing/slashing instead deal lightning; as bonus action choose visible creature within 30 feet, DC 15 Dexterity, 3d6 lightning or half. Awakened: Strength 23 if lower, lightning strike becomes 4d6, and Storm Avatar gains flying speed 30 feet with hover. Exalted: Strength 25 if lower, lightning strike becomes 5d6, and once per dawn cast control weather from the girdle."
+    },
+    "wikidot5e:wondrous-items:strixhaven-pennant": {
+      "sourceDigest": "sha256:d2f8c60ecf5d163d766898a7e25fc6e62e7c6029fdca2ea9dc46ab7a761da49b",
+      "effectSummary": "While you wave the Strixhaven or college pennant, its symbol glitters and it sheds bright light 10 feet and dim light another 10 feet."
+    },
+    "wikidot5e:wondrous-items:sun-blade": {
+      "sourceDigest": "sha256:64e52495e693dbc3ba559f755d792c8455af7aa20de75e78055b52ce5a23b299",
+      "effectSummary": "As a bonus action while holding the hilt, manifest or dismiss a radiant blade. While active it is a finesse magic longsword; shortsword or longsword proficiency grants proficiency. It grants +2 attack/damage, deals radiant instead of slashing, and deals +1d8 radiant to undead. It emits sunlight as bright light 15 feet/dim another 15; as an action adjust each radius by 5 feet, minimum 10 and maximum 30 feet."
+    },
+    "wikidot5e:wondrous-items:sun-staff": {
+      "sourceDigest": "sha256:8f008f4736796bc5aefd2941fa0a060974cbfdbd38a39a5c5f23e62989e3b77e",
+      "effectSummary": "Functions as a +1 magic quarterstaff and deals +1d8 fire on hits. Use as a spellcasting focus. Once per dawn while holding it, when using a spell slot to cast a fire- or radiant-damage spell, reroll up to proficiency bonus damage dice and use the new rolls. As a bonus action, toggle sunlight: bright 15 feet and dim another 15."
+    },
+    "wikidot5e:wondrous-items:sunforger": {
+      "sourceDigest": "sha256:8919cec0586eb7b988201573b3db1dff61ef3c7ae6dbab9110d73c06e3aeb114",
+      "effectSummary": "This +2 magic warhammer can be hurled as an action to a visible point within 120 feet, where it vanishes in a 20-foot-radius explosion: creatures make DC 15 Dexterity, taking 6d6 fire on failure or half on success. As an action, recall it into an empty hand. It cannot explode again until a short or long rest. If not recalled, it reappears at the explosion point when attunement ends or after 24 hours."
+    },
+    "wikidot5e:wondrous-items:sunsword": {
+      "sourceDigest": "sha256:99bff0cb091d9d73a2eace5c80acbb131facdbc31742f5d41a331c980fb26e62",
+      "effectSummary": "Unique sentient chaotic-good hilt with all properties of a sun blade. Sentience: Intelligence 11, Wisdom 17, Charisma 16, hearing/normal vision 60 feet, communicates through emotions. Its special purpose is to destroy Strahd von Zarovich in revenge for destruction of its original crystal blade, and it secretly fears its own destruction."
+    }
+  }
+}
