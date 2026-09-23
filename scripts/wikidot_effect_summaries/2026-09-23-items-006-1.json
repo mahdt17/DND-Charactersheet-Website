@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-1",
+  "records": {
+    "wikidot5e:wondrous-items:rotor-of-return": {
+      "sourceDigest": "sha256:db5672532bdea1a541787263fe5dc1b625335a39dbd4da4a3bd21cbb5f4c2cb2",
+      "effectSummary": "While attuned, gain +1 Constitution saves, experience periodic memory flashbacks, and perfectly recall events from the previous 30 days. Once per dawn, name a mundane item worth 50 gp or less from ordinary equipment or a DM-approved similar item; a generic example appears in your hand or at your feet from elsewhere in the world and vanishes after 10 minutes. As an action, set your current location as the rotor's return point; while within 500 feet of it, once per dawn use a bonus action to teleport there. When not installed in the Orrery of the Wanderer, its magic may function sporadically or unpredictably at the DM's discretion."
+    },
+    "wikidot5e:wondrous-items:ruby-of-the-war-mage": {
+      "sourceDigest": "sha256:3a372440ae7cfc831ee5d7465d40d9095af01d0bd06818efad63e6292e290a52",
+      "effectSummary": "Attune and press the ruby to a simple or martial weapon for at least 10 minutes to attach it; that weapon then functions as your spellcasting focus. Remove it as an action, by destroying the weapon, or when attunement ends; antimagic field does not detach it."
+    },
+    "wikidot5e:wondrous-items:ruby-weave-gem": {
+      "sourceDigest": "sha256:98e28fbec984364abcdc3b5b4df6fad4f2148c84623c2933207abded15722099",
+      "effectSummary": "Functions as a spellcasting focus while held. It has 3 charges, all restored daily at dawn. When casting a spell while holding it, spend up to 3 charges to ignore costly material components up to 500 gp per charge. After each long rest, choose one spell from any class list of a level you can cast; until your next long rest, you know it and may cast it using appropriate spell slots."
+    },
+    "wikidot5e:wondrous-items:ruidium-armor": {
+      "sourceDigest": "sha256:dabadbe64d689e66396ef5fde274ea87e2d8533978d2d4f5d91c170ac0cf96cd",
+      "effectSummary": "While wearing this medium or heavy non-hide armor, gain psychic resistance, water breathing, and swim speed equal to walking. Whenever you roll a natural 1 on a saving throw while wearing it, make DC 15 Charisma; on failure gain 1 exhaustion and, if not already suffering ruidium corruption, become corrupted. If the Apotheon is killed or redeemed and all ruidium is destroyed, it becomes +1 armor."
+    },
+    "wikidot5e:wondrous-items:ruidium-shield": {
+      "sourceDigest": "sha256:39ce0272375370d5979a9612297e6f84a1d32ac7722b0b0647aa779349601fd4",
+      "effectSummary": "While on your person, gain psychic resistance, water breathing, and swim speed equal to walking. While holding it, when you take psychic damage use your reaction to choose another visible creature within 30 feet; that creature takes the psychic damage instead. Each Psychic Reflection use forces DC 20 Charisma; on failure gain 1 exhaustion and, if not already suffering ruidium corruption, become corrupted. If the Apotheon is killed or redeemed and all ruidium is destroyed, it becomes a +2 shield."
+    },
+    "wikidot5e:wondrous-items:ruidium-weapon": {
+      "sourceDigest": "sha256:f35ee9c74b30bcefe5830fea4bfb85a66a9f6e3f09c9c0e7e9c3808155ce5d22",
+      "effectSummary": "While this magic weapon is on your person, breathe water and gain swim speed equal to walking. Its hits deal +2d6 psychic. Whenever you roll a natural 1 on an attack with it, make DC 20 Charisma; on failure gain 1 exhaustion and, if not already suffering ruidium corruption, become corrupted. If the Apotheon is killed or redeemed and all ruidium is destroyed, it becomes a +2 weapon."
+    },
+    "wikidot5e:wondrous-items:ruinblade": {
+      "sourceDigest": "sha256:615aae2f3832dcfa7996b68c02291eaa129c296fe325f9bf163bbeb600eb6d55",
+      "effectSummary": "Sentient lawful-evil +2 greatsword; hits against undead deal +1d8 force. Once per dawn cast blight at save DC 15; once every 7 dawns cast disintegrate targeting only a nonmagical object or creation of magical force. Curse: attunement makes you unwilling to part with it until remove curse or similar magic, and every 7 days it must directly participate in destroying at least 1,000 gp of materials/objects or item conflict arises. Sentience: Intelligence 15, Wisdom 8, Charisma 16, hearing/darkvision 120 feet, speaks/reads/understands Common, telepathic, and understands your languages while attuned. It constantly urges destruction so the world can be rebuilt from ruin."
+    },
+    "wikidot5e:wondrous-items:ruinous-flail": {
+      "sourceDigest": "sha256:9f9ef1f50645da2daebc268a74ae545698abc1070cf8fb67862b580eb4ee7dd4",
+      "effectSummary": "This +1 magic flail deals double damage to objects and structures. Once per dawn when you hit a creature, force DC 15 Constitution; on failure it is poisoned for 1 minute and takes 2d4 necrotic at the start of each turn, repeating the save at each turn end to end the effect."
+    },
+    "wikidot5e:wondrous-items:ruins-wake": {
+      "sourceDigest": "sha256:91367d31c5df4a16a27627595a9ba091927f36512e4ed514373dd2c7901073a4",
+      "effectSummary": "Sentient chaotic-evil spear housing slaughter-loving balor Yarrowish; Intelligence 20, Wisdom 16, Charisma 22, hearing/darkvision 120 feet, telepathic, speaks/reads/understands Abyssal, Common, Orc. Dormant: learn Abyssal and Orc; +1 attack/damage and +1d8 piercing on hits; after any ranged attack it returns to your hand; once per short or long rest when hit by a melee attack, use reaction to make an advantaged melee attack against attacker. Awakened: bonus +2 and extra piercing +2d8; once per dawn when thrown with command word, becomes a 5-foot-wide lightning line to a visible target within 120 feet, creatures in line excluding you make DC 15 Dexterity for 8d6 lightning or half, then spear returns. Exalted: bonus +3; once per dawn as bonus action battle cry gives chosen creatures within 30 feet advantage on attacks until your next turn; once per dawn when reducing a creature to 0 HP with the spear, regain HP equal to that attack's damage."
+    },
+    "wikidot5e:wondrous-items:ruinstone": {
+      "sourceDigest": "sha256:550b3dc7e71eb428921d9014259370b1182f05d0960a923f90a8355bd4d0bab4",
+      "effectSummary": "Once per day as a bonus action, undo one deed you performed; in combat this can rewind one action for a do-over or reroll a failed saving throw if you can still act. Each use erases someone you know from reality: roll d20, 5–20 one of your allies disintegrates, 1–4 one player character disintegrates. If a creature previously bound its soul to the ruinstone in the Thalivar's Beacon quest, using it instead makes the artifact explode and disintegrates that bound creature from reality; only wish or similar magic can restore it."
+    }
+  }
+}
