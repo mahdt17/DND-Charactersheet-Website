@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-003-1",
+  "records": {
+    "wikidot5e:feat:lucky": {
+      "sourceDigest": "sha256:fcb8997cf36660797600ea43aa02a157a83ff67149a9a5c5546869bf67789d0d",
+      "effectSummary": "You have 3 luck points, all restored on a long rest. After rolling an attack, ability check, or saving throw but before its outcome is known, spend 1 point to roll an additional d20 and choose which d20 is used. You may also spend 1 point when an attack is made against you, roll a d20, and choose whether the attack uses your roll or the attacker's. If multiple creatures spend luck points on the same roll, those points cancel and no extra dice are rolled."
+    },
+    "wikidot5e:feat:mage-slayer": {
+      "sourceDigest": "sha256:0927cbd53c34333a3c4894f719ccd5457ba90488d2aff4acc1ffdbc9c625e278",
+      "effectSummary": "When a creature within 5 feet casts a spell, use your reaction to make a melee weapon attack against it. A creature you damage has disadvantage on its saving throw to maintain concentration. You have advantage on saving throws against spells cast by creatures within 5 feet of you."
+    },
+    "wikidot5e:feat:magic-initiate": {
+      "sourceDigest": "sha256:f76aebe09e421eaeae1e0ebd50540e99387440cd9cd1e4d44bbe8198338a7635",
+      "effectSummary": "Choose bard, cleric, druid, sorcerer, warlock, or wizard. Learn two cantrips and one 1st-level spell from that class's spell list. Cast the 1st-level spell once at its lowest level per long rest using this feat. The spellcasting ability is Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; Intelligence for wizard."
+    },
+    "wikidot5e:feat:martial-adept": {
+      "sourceDigest": "sha256:6bf1ab7c29360237ce6508a7ae4260410d115012f0abd00c4a67f65e03cf8c28",
+      "effectSummary": "Learn two Battle Master maneuvers. If a maneuver requires a saving throw, its DC is 8 + proficiency bonus + your choice of Strength or Dexterity modifier. Gain one d6 superiority die, added to any superiority dice from other sources; expend it to fuel maneuvers and regain expended superiority dice on a short or long rest."
+    },
+    "wikidot5e:feat:master-of-disguise": {
+      "sourceDigest": "sha256:9df6d4b7ef54a2d48564d20d4675ac1145bf2ffd3c10949d4f20d4bf78233fdc",
+      "effectSummary": "Increase Charisma by 1, maximum 20. Gain proficiency with the disguise kit, or expertise if already proficient. After observing a creature for 1 hour, you can spend 8 hours with a disguise kit crafting a disguise to mimic it; normal disguise checks still apply, but you can don that prepared disguise as an action."
+    },
+    "wikidot5e:feat:medic": {
+      "sourceDigest": "sha256:dbf83e95ed68a74afcee29a0e41695bf5a07da19e8a3388924aacdba76dc0c0a",
+      "effectSummary": "Increase Wisdom by 1, maximum 20. Gain Medicine proficiency, or expertise if already proficient. During a short rest, you may tend up to six willing beasts or humanoids, making a DC 15 Wisdom (Medicine) check for each. On a success, if that creature spends a Hit Die during the rest, once during that rest it may take the die's maximum possible healing instead of rolling it."
+    },
+    "wikidot5e:feat:medium-armor-master": {
+      "sourceDigest": "sha256:3a6566add6514d08f7e18a83ae3d4e1aae4e182a281409b493ab63b5521a01b4",
+      "effectSummary": "While wearing medium armor, you do not suffer its normal disadvantage on Dexterity (Stealth) checks. If your Dexterity is 16 or higher, you may add up to +3 rather than +2 Dexterity to AC while wearing medium armor."
+    },
+    "wikidot5e:feat:menacing": {
+      "sourceDigest": "sha256:c82f08272eba0096104205707c4506e1e002aa340b1b92b49808659223a33b72",
+      "effectSummary": "Increase Charisma by 1, maximum 20. Gain Intimidation proficiency, or expertise if already proficient. When you take the Attack action, replace one attack with an attempt to demoralize a visible humanoid within 30 feet that can see and hear you: contest Charisma (Intimidation) against its Wisdom (Insight). On success it is frightened until the end of your next turn; on failure it is immune to this use from you for 1 hour."
+    },
+    "wikidot5e:feat:metabolic-control": {
+      "sourceDigest": "sha256:ff961ac81f4554cff325fdbcedc8dd6d475e7f805c5260ee687052a4568fb493",
+      "effectSummary": "Increase Strength, Dexterity, or Constitution by 1, maximum 20. If your Psionic Talent die is available, you may use an action and decrease it by one die size to nourish yourself as if you had enough food and water for 24 hours. You may instead meditate for 1 minute, then gain the benefits of a short rest and decrease the Psionic Talent die by one size; this meditation can be used only once per long rest."
+    },
+    "wikidot5e:feat:metamagic-adept": {
+      "sourceDigest": "sha256:0c4a6390854e3ffee87ebc136706f3b9487047e42493e43c6270cfc3662bee84",
+      "effectSummary": "Learn two sorcerer Metamagic options, following the normal restriction of one Metamagic option per spell unless an option says otherwise. Whenever you gain an Ability Score Improvement level, you may replace one learned option with another sorcerer Metamagic option. Gain 2 sorcery points usable only for Metamagic; they add to any other sorcery points you have and are restored on a long rest."
+    }
+  }
+}
