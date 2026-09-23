@@ -33,16 +33,27 @@ AGENT = "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/D
 SOURCE_CACHE_DIR = None
 SOURCE_FETCH_META = {}
 SUMMARY_PATH = ROOT / "scripts" / "wikidot_effect_summaries.json"
+SUMMARY_DIR = ROOT / "scripts" / "wikidot_effect_summaries"
 _SUMMARY_CACHE = None
 
 def load_effect_summaries():
     global _SUMMARY_CACHE
     if _SUMMARY_CACHE is None:
-        if SUMMARY_PATH.exists():
-            payload=json.loads(SUMMARY_PATH.read_text(encoding="utf-8"))
-            _SUMMARY_CACHE=payload.get("records",{})
-        else:
-            _SUMMARY_CACHE={}
+        merged={}
+        paths=([SUMMARY_PATH] if SUMMARY_PATH.exists() else [])
+        if SUMMARY_DIR.exists():
+            paths.extend(sorted(SUMMARY_DIR.glob("*.json")))
+        for path in paths:
+            payload=json.loads(path.read_text(encoding="utf-8"))
+            for record_id,row in (payload.get("records") or {}).items():
+                if record_id in merged:
+                    raise ValueError(f"Duplicate Wikidot effect summary ID: {record_id}")
+                if not re.fullmatch(r"sha256:[0-9a-f]{64}",str(row.get("sourceDigest",""))):
+                    raise ValueError(f"Invalid source digest for Wikidot effect summary: {record_id}")
+                if site_boilerplate(row.get("effectSummary","")):
+                    raise ValueError(f"Boilerplate in Wikidot effect summary: {record_id}")
+                merged[record_id]=row
+        _SUMMARY_CACHE=merged
     return _SUMMARY_CACHE
 
 def pinned_effect_summary(record_id, source_digest):
