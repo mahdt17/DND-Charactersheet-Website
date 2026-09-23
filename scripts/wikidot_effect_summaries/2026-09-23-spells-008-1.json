@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-008-1",
+  "records": {
+    "wikidot5e:spell:plane-shift": {
+      "sourceDigest": "sha256:16e40787a856082183ea019e0babdefdea3fd07a484db769a12b89c80b8ac2f6",
+      "effectSummary": "Transport yourself and up to eight willing creatures linking hands to another plane. You may name a general destination and arrive in or near it at the DM's discretion, or travel directly to a known teleportation circle on that plane, placing overflow creatures in nearby open spaces. Alternatively, make a melee spell attack against an unwilling creature; on a hit it makes a Charisma save or is sent to a random location on a plane you specify and must find its own way back."
+    },
+    "wikidot5e:spell:plant-growth": {
+      "sourceDigest": "sha256:fb1032cb590b4386343590652cfc20a2eaf989f9a7a8c11ee58f7126084e5b8e",
+      "effectSummary": "Choose one of two uses. With a 1-action casting, normal plants in a 100-foot radius centered within 150 feet become overgrown, making movement cost 4 feet per foot; you may exempt any subareas. With an 8-hour casting, enrich plants in a half-mile radius for 1 year so harvested crops yield twice their normal food."
+    },
+    "wikidot5e:spell:poison-spray": {
+      "sourceDigest": "sha256:3b440f485ac6681e544ff4513a54a1c38636d8c80513b46d46f6db224a118d77",
+      "effectSummary": "One visible creature within 10 feet makes a Constitution save or takes 1d12 poison damage. Damage becomes 2d12 at character level 5, 3d12 at 11, and 4d12 at 17."
+    },
+    "wikidot5e:spell:polymorph": {
+      "sourceDigest": "sha256:0080f758b0f67e3516ca78bd5125d1e4c6647d1636e339d03819b44df2fc9dd0",
+      "effectSummary": "Transform one visible creature with more than 0 HP into a beast for up to 1 hour. An unwilling creature makes a Wisdom save; a shapechanger automatically succeeds. The beast's CR cannot exceed the target's CR, or its level if it has no CR. Its statistics, including mental abilities, become the beast's, while alignment and personality remain. It uses the beast's HP and returns to its previous HP on reverting; excess damage from a 0-HP reversion carries over. Its available actions are limited by the form, it cannot speak or cast spells or perform actions requiring hands or speech, and its gear melds into the form and cannot be used."
+    },
+    "wikidot5e:spell:power-word-heal": {
+      "sourceDigest": "sha256:4847632de441bd7ab4acac4a2b3205d4122295b2b8747ff3baa9ccae6b2ff6b6",
+      "effectSummary": "A creature you touch regains all HP and ends any charmed, frightened, paralyzed, or stunned condition affecting it. If prone, it may use its reaction to stand. Undead and constructs are unaffected."
+    },
+    "wikidot5e:spell:power-word-pain": {
+      "sourceDigest": "sha256:8f609d0a692db59630613f0d586b167540e6cf379f02fe1380734e584d593c34",
+      "effectSummary": "One visible creature within 60 feet with 100 HP or fewer, unless immune to charm, suffers crippling pain. Its speeds cannot exceed 10 feet; it has disadvantage on attack rolls, ability checks, and all saves except Constitution saves; and when it tries to cast a spell it must first succeed on a Constitution save or the casting fails and the spell is wasted. At the end of each of its turns it can make a Constitution save, ending the pain on a success."
+    },
+    "wikidot5e:spell:power-word-stun": {
+      "sourceDigest": "sha256:100e393ad0111a29a15f30db8db6822810c7c7d773c573b2c335e0607243739b",
+      "effectSummary": "One visible creature within 60 feet with 150 HP or fewer becomes stunned; a creature above that threshold is unaffected. At the end of each of its turns, the stunned target makes a Constitution save, ending the effect on a success."
+    },
+    "wikidot5e:spell:prayer-of-healing": {
+      "sourceDigest": "sha256:b7ef0a1ed3ecdfee2a654daa6e5e137d2bae3a79ebc14128c36e3a4ea60abe36",
+      "effectSummary": "After a 10-minute casting, up to six visible creatures within 30 feet each regain 2d8 + your spellcasting ability modifier HP. Undead and constructs are unaffected. Each slot level above 2nd adds 1d8 healing."
+    },
+    "wikidot5e:spell:prestidigitation": {
+      "sourceDigest": "sha256:d40f7f658cc49e4e106e6fe34bbc468b6f57f4cc2d0c717f5722c42b845e41f2",
+      "effectSummary": "Create one minor magical effect within 10 feet: a harmless instantaneous sensory effect; light or extinguish a candle, torch, or small campfire; instantly clean or soil up to 1 cubic foot; chill, warm, or flavor up to 1 cubic foot of nonliving material for 1 hour; create a color, mark, or symbol on an object or surface for 1 hour; or create a hand-sized nonmagical trinket or illusory image until the end of your next turn. You may have up to three noninstantaneous effects active at once and dismiss one as an action."
+    },
+    "wikidot5e:spell:primal-savagery": {
+      "sourceDigest": "sha256:221a1fa07071b6d6c7d9ca7e1fb34516d4801495d96ea8a84c55b22ed5df84da",
+      "effectSummary": "Make a melee spell attack against one creature within 5 feet using magically sharpened teeth or nails. On a hit it takes 1d10 acid damage, after which your body returns to normal. Damage becomes 2d10 at character level 5, 3d10 at 11, and 4d10 at 17."
+    }
+  }
+}
