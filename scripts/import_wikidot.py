@@ -29,7 +29,8 @@ from urllib.request import Request, urlopen
 BASE = "https://dnd5e.wikidot.com"
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "public" / "catalogs" / "wikidot5e"
-AGENT = "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)"\nFALLBACK_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 AdventurersLedger-5eReferenceIndexer/1.0"
+AGENT = "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)"
+FALLBACK_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 AdventurersLedger-5eReferenceIndexer/1.0"
 SOURCE_CACHE_DIR = None
 SOURCE_FETCH_META = {}
 SUMMARY_PATH = ROOT / "scripts" / "wikidot_effect_summaries.json"
@@ -231,7 +232,8 @@ def fetch(url: str, delay: float = 0.25, force_refresh: bool = False, fallback_a
         try:
             if delay:
                 time.sleep(delay)
-            agent=FALLBACK_AGENT if fallback_agent else AGENT\n            with urlopen(Request(url,headers={"User-Agent":agent,"Cache-Control":"no-cache","Pragma":"no-cache","Accept":"text/html,application/xhtml+xml"}),timeout=45) as response:
+            agent=FALLBACK_AGENT if fallback_agent else AGENT
+            with urlopen(Request(url,headers={"User-Agent":agent,"Cache-Control":"no-cache","Pragma":"no-cache","Accept":"text/html,application/xhtml+xml"}),timeout=45) as response:
                 final=response.geturl()
                 if urlparse(final).netloc != urlparse(BASE).netloc:
                     raise ValueError("Unexpected redirect: " + final)
