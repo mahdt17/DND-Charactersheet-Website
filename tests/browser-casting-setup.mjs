@@ -9,6 +9,19 @@ const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Contin
 const choose=name=>page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:new RegExp(`^${name}$`)})}).first().click();
 const saved=async name=>page.evaluate(async name=>{const index=JSON.parse((await window.storage.get('char-index')).value);const c=index.find(c=>c.name===name);return JSON.parse((await window.storage.get('char-detail:'+c.id)).value);},name);
 const castRow=name=>page.locator('.spell-item').filter({has:page.getByRole('button',{name:new RegExp(`^${name} `)})});
+const escapeRe=value=>value.replace(/[.*+?^${}()|[\]\\]/g,'\\const castRow=name=>page.locator('.spell-item').filter({has:page.getByRole('button',{name:new RegExp(`^${name} `)})});
+');
+const select2014=(region,name)=>region.getByRole('button',{name:new RegExp(`^Select ${escapeRe(name)} \\(5e(?: · .* · 2014:[^)]+)?\\)import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+import {createServer} from 'vite';
+import fs from 'node:fs/promises';
+const server=await createServer({server:{host:'127.0.0.1',port:5176}});await server.listen();
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
+const choose=name=>page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:new RegExp(`^${name}$`)})}).first().click();
+const saved=async name=>page.evaluate(async name=>{const index=JSON.parse((await window.storage.get('char-index')).value);const c=index.find(c=>c.name===name);return JSON.parse((await window.storage.get('char-detail:'+c.id)).value);},name);
+)});
 try{
  await fs.mkdir('test-results',{recursive:true});
  await page.goto('http://127.0.0.1:5176/');await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Create character',exact:true}).click();await page.getByLabel('Character name').fill('Sorcerer Regression');await next();await choose('Sorcerer');
@@ -17,9 +30,9 @@ try{
  await page.getByRole('button',{name:'Arcana',exact:true}).click();await page.getByRole('button',{name:'Deception',exact:true}).click();await page.getByLabel('Subclass name').fill('Draconic Bloodline');assert.equal(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),true);
  assert.match(await page.getByRole('region',{name:'Starting languages'}).innerText(),/Draconic \(Draconic Bloodline\)/);await page.getByLabel('Human language 1',{exact:true}).selectOption('Dwarvish');assert.equal(await page.getByLabel('Noble language 1',{exact:true}).locator('option').filter({hasText:/^Dwarvish$/}).count(),0);await page.getByLabel('Noble language 1',{exact:true}).selectOption('Elvish');await next();
  const cantrips=page.getByRole('region',{name:'Cantrips',exact:true}),spells=page.getByRole('region',{name:'Starting spells',exact:true});
- for(const name of ['Light','Mage Hand','Message','Prestidigitation']){await cantrips.getByLabel('Search spells',{exact:true}).fill(name);await cantrips.getByRole('button',{name:`Select ${name} (5e)`,exact:true}).click();}
- await cantrips.getByLabel('Search spells',{exact:true}).fill('Fire Bolt');assert.equal(await cantrips.getByRole('button',{name:'Select Fire Bolt (5e)',exact:true}).isDisabled(),true);
- for(const name of ['Fog Cloud','Shield']){await spells.getByLabel('Search spells',{exact:true}).fill(name);await spells.getByRole('button',{name:`Select ${name} (5e)`,exact:true}).click();}await spells.getByLabel('Search spells',{exact:true}).fill('Burning Hands');assert.equal(await spells.getByRole('button',{name:'Select Burning Hands (5e)',exact:true}).isDisabled(),true);await next();await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'Sorcerer Regression'}).waitFor();
+ for(const name of ['Light','Mage Hand','Message','Prestidigitation']){await cantrips.getByLabel('Search spells',{exact:true}).fill(name);const button=select2014(cantrips,name);assert.equal(await button.count(),1);await button.click();}
+ await cantrips.getByLabel('Search spells',{exact:true}).fill('Fire Bolt');assert.equal(await select2014(cantrips,'Fire Bolt').isDisabled(),true);
+ for(const name of ['Fog Cloud','Shield']){await spells.getByLabel('Search spells',{exact:true}).fill(name);const button=select2014(spells,name);assert.equal(await button.count(),1);await button.click();}await spells.getByLabel('Search spells',{exact:true}).fill('Burning Hands');assert.equal(await select2014(spells,'Burning Hands').isDisabled(),true);await next();await page.getByRole('button',{name:'Create Character',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'Sorcerer Regression'}).waitFor();
  let c=await saved('Sorcerer Regression');assert.deepEqual(c.abilities,rolls);assert.deepEqual(c.abilityRolls,rolls);assert.equal(c.languages,'Common, Draconic, Dwarvish, Elvish');assert.equal(c.spells.length,6);
  await page.getByRole('tab',{name:'Spells',exact:true}).click();assert.match(await page.locator('.spell-metrics').innerText(),/Known spells\n2 \/ 2/);await page.getByRole('button',{name:'Manage spells',exact:true}).click();await page.getByLabel('Find a class spell').fill('Burning Hands');assert.equal(await page.getByRole('button',{name:'Limit reached',exact:true}).isDisabled(),true);await page.getByRole('button',{name:'Close dialog'}).click();await page.getByLabel('Search spells',{exact:true}).fill('');
  // Confirm a utility cantrip visibly casts without opening dice or consuming slots.
