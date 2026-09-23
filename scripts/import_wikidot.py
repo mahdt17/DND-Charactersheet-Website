@@ -53,7 +53,7 @@ SOURCE_ABBR = {
 }
 
 BLOCK = {"p","div","section","article","dt","dd","li","h1","h2","h3","h4","h5","h6","br"}
-SKIP = {"script","style","noscript","svg"}
+SKIP = {"script","style","noscript","svg","title"}
 HEADINGS = {"h1","h2","h3","h4","h5","h6"}
 
 
@@ -81,6 +81,10 @@ class Page(HTMLParser):
         self._cell = None
         self._href = None
         self._link_text = []
+        self._div_depth = 0
+        self._content_depth = None
+        self._content_start = None
+        self.content_lines = None
 
     def flush(self):
         value = clean(" ".join(self._buf))
@@ -99,6 +103,11 @@ class Page(HTMLParser):
             return
         if tag in BLOCK:
             self.flush()
+        if tag == "div":
+            self._div_depth += 1
+            if dict(attrs).get("id") == "page-content":
+                self._content_depth = self._div_depth
+                self._content_start = len(self.lines)
         if tag in HEADINGS:
             self._heading = tag
         if tag == "a":
@@ -143,6 +152,11 @@ class Page(HTMLParser):
                 self._table = None
         if tag in BLOCK:
             self.flush()
+        if tag == "div":
+            if self._content_depth == self._div_depth:
+                self.content_lines = self.lines[self._content_start:]
+                self._content_depth = None
+            self._div_depth = max(0, self._div_depth - 1)
         if tag in HEADINGS:
             self._heading = None
 
@@ -317,7 +331,8 @@ def has_rule_prose(page, entry_name=""):
     """Check that substantive gameplay text exists without persisting that text."""
     start=0
     expected=identity_key(entry_name)
-    for i,line in enumerate(page.lines):
+    lines=page.content_lines if page.content_lines is not None else page.lines
+    for i,line in enumerate(lines):
         candidate=identity_key(line)
         if expected and (candidate==expected or candidate.startswith(expected)):
             start=i+1
@@ -336,10 +351,10 @@ def has_rule_prose(page, entry_name=""):
         "hit dice","hit points at 1st level","hit points at higher levels","armor","weapons",
         "tools","saving throws","skills"
     }
-    for line in page.lines[start:]:
+    for line in lines[start:]:
         value=clean(line)
         folded=value.casefold()
-        if not value or folded in labels or folded.startswith(ignored_prefixes):
+        if not value or folded in labels or folded.startswith(ignored_prefixes) or site_boilerplate(value):
             continue
         if len(value)>=55:
             return True
@@ -351,11 +366,16 @@ def heading_present(page, heading):
     return any(clean(h).casefold()==target for h in page.headings)
 
 
+def site_boilerplate(value):
+    return bool(re.search(r"logged in to clone|click here to|wikidot\.com|view wiki source|manage (?:this site|file attachments)|notify administrators|create account|sign in|check out how this page",str(value),re.I))
+
+
 def concise_rule_effect(page, entry_name="", skip_values=()):
-    """Retain only a short mechanics line; long rule prose stays source-only."""
+    """A short line is complete only when there is no other unrepresented rule text."""
     expected=identity_key(entry_name)
     start=0
-    for i,line in enumerate(page.lines):
+    lines=page.content_lines if page.content_lines is not None else page.lines
+    for i,line in enumerate(lines):
         candidate=identity_key(line)
         if expected and (candidate==expected or candidate.startswith(expected)):
             start=i+1
@@ -375,22 +395,22 @@ def concise_rule_effect(page, entry_name="", skip_values=()):
         "prerequisite", "prerequisites", "hit dice", "saving throws",
         "armor", "weapons", "tools", "skills",
     )
-    saw_long=False
-    for line in page.lines[start:]:
+    candidates=[]
+    for line in lines[start:]:
         value=clean(line)
         low=value.casefold()
         if not value or low in skip or low==clean(entry_name).casefold():
             continue
-        if low.startswith(ignored_prefixes) or low.startswith(metadata_prefixes):
+        if low.startswith(ignored_prefixes) or low.startswith(metadata_prefixes) or site_boilerplate(value):
             continue
         if re.fullmatch(r"[a-z0-9-]+(?:\s+[a-z0-9-]+){0,12}",low) and len(value)<70:
             continue
         if len(value) < 35:
             continue
-        if len(value) <= 280:
-            return value,False
-        saw_long=True
-    return "",saw_long or has_rule_prose(page,entry_name)
+        candidates.append(value)
+    if len(candidates)==1 and len(candidates[0])<=280:
+        return candidates[0],False
+    return "",bool(candidates) or has_rule_prose(page,entry_name)
 
 
 def parse_spell_detail(row,page):
@@ -634,6 +654,11 @@ def enrichment_gaps(row,result):
     category=row["category"]
     presence=result.get("mechanicsPresence") or {}
     gaps=[]
+    if category in {"spell","feat","item"}:
+        if site_boilerplate(result.get("effect","")):
+            gaps.append("effectBoilerplate")
+        if result.get("effectNeedsSummary") or not (result.get("effect") or result.get("effectSummary")):
+            gaps.append("effectSummary")
     if category=="spell":
         for key in ("level","school","casting_time","components","range","duration","classes"):
             if result.get(key) in (None,"",[]):

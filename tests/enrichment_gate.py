@@ -97,7 +97,7 @@ spell_gaps=w5.enrichment_gaps({"category":"spell"},{
     "range":"150 feet","duration":"Instantaneous","classes":["Wizard"],
     "mechanicsPresence":{"ruleProse":False},
 })
-assert spell_gaps==["spellEffect"]
+assert spell_gaps==["effectSummary","spellEffect"]
 
 # Final-output class audit must match the source completeness contract closely enough
 # to catch staging/generation losses, including dynamic class-skill rules.
@@ -125,3 +125,15 @@ conflicted["supplementConflicts"]=["hit_die"]
 assert "supplementConflict" in output_audit.class_gaps(conflicted)
 
 print("PASS enrichment release gate rejects incomplete audits and critical gameplay gaps")
+
+# Realistic site shell: HTML title previously let navigation pass for effect text.
+html="""<title>Example - DND 5th Edition</title><p>You should be logged in to clone a site.</p><div id="page-content"><h1>Example</h1><p>Source: Example Book</p><p>This short rule grants advantage on the next check.</p></div><p>Click here to edit contents of this page.</p>"""
+p=w5.Page();p.feed(html);p.close()
+assert w5.concise_rule_effect(p,"Example",("Example Book",))==("This short rule grants advantage on the next check.",False)
+# A short secondary clause must not hide an unrepresented long primary effect.
+p=w5.Page();p.feed('<h1>Example</h1><p>'+('Long mechanics with multiple conditions. '*15)+'</p><p>This second effect lasts for only one round.</p>');p.close()
+assert w5.concise_rule_effect(p,"Example")==("",True)
+for category in ["spell","feat","item"]:
+ assert "effectBoilerplate" in w5.enrichment_gaps({"category":category},{"effect":"You should be logged in to clone a site."})
+assert not output_audit.presence({"effect":"You should be logged in to clone a site."},"effect")
+print("PASS site-shell contamination and partial-effect rejection")

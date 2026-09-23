@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 REQUIRED_FILES={
@@ -31,7 +32,10 @@ def has_text(value):
 
 
 def presence(record,*keys):
-    return any(record.get(k) not in (None,"",[],{}) for k in keys)
+    return any(record.get(k) not in (None,"",[],{}) and not (
+        k in {"effect","benefit","effectSummary"} and
+        re.search(r"logged in to clone|click here to|wikidot\.com|view wiki source|notify administrators",str(record[k]),re.I)
+    ) for k in keys)
 
 
 def description_ok(record):

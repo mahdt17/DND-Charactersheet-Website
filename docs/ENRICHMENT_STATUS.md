@@ -2,9 +2,32 @@
 
 Branch: `codex/content-foundation`  
 PR: #4 — Add canonical content foundation  
-Live/catalog writes: **VERIFIED RELEASE PROMOTED TO REPOSITORY STATIC CATALOGS**
+Release status: **BLOCKED — post-promotion integrity defect confirmed**
 
-## Global nine-category release audit — COMPLETE and PROMOTED
+## 2026-09-23 — Wikidot effect integrity reopened
+
+The previous release audit is historical evidence, not current release approval.
+Post-promotion inspection found the identical site footer, "You should be logged in
+to clone a site.", in the effect field of **574 spells, 199 feats and 830 items**.
+The strengthened final-output audit rejects all **1,603** affected records. The
+remaining 11,288 records pass the current structural checks; that does not prove
+semantic accuracy of every rule. PR #4 must remain open and unmerged.
+
+The Wikidot parser now scopes effect extraction to page content, skips the site
+shell, and rejects a short secondary clause when other rule prose remains
+unrepresented. Source/output gates reject contaminated or missing effects.
+Fixtures cover a realistic HTML title/navigation/footer and partial extraction.
+No canonical catalog records or Supabase data were changed by this correction.
+
+Required next content work: repair the affected records with source-grounded,
+complete effects, retain provenance, and rerun independent source and output
+audits before promotion. Do not reuse the historical `releaseReady: true` as
+authorization. The frontend quarantines contaminated effects in the meantime.
+
+Application integration progress and remaining automation limits are recorded in
+`docs/APPLICATION_INTEGRATION.md`.
+
+## Historical nine-category release audit — promoted, subsequently invalidated
 
 - Audited head: \`33180e52edec5d54d9a26f4dcab6fce756325b0b\`.
 - Full enrichment audit run: \`35816054846\`.
