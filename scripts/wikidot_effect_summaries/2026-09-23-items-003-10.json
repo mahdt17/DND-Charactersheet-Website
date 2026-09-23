@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-10",
+  "records": {
+    "wikidot5e:wondrous-items:iggwylvs-horn": {
+      "sourceDigest": "sha256:c41c3a0d64680e10a0f9762101cffd755b140cf69792439f66693b65f60b4934",
+      "effectSummary": "As an action, blow the horn to cast arms of Hadar, fog cloud, gust of wind, or web; any required save uses DC 13. Once the horn casts a particular spell, it cannot cast that spell again until the next dawn."
+    },
+    "wikidot5e:wondrous-items:illuminators-tattoo": {
+      "sourceDigest": "sha256:826fffb8bdcf2c6db65231deeb461a54dfab2fede04c8a10aafcb1907147a58f",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes it vanish and the needle reappear. While tattooed, write with your fingertip like an inexhaustible ink pen. Once per dawn as an action, touch up to one page of writing and name a creature; for 24 hours the writing is invisible to everyone except you and that creature. Either of you can end the invisibility by touching the writing without an action."
+    },
+    "wikidot5e:wondrous-items:illusionists-bracers": {
+      "sourceDigest": "sha256:11f5c7f557a95008f285979b00e0a5e2bbcc8fec77254a2bef88da55803f92e5",
+      "effectSummary": "While wearing the bracers, whenever you cast a cantrip you may use a bonus action on the same turn to cast that same cantrip a second time."
+    },
+    "wikidot5e:wondrous-items:imbued-wood-focus": {
+      "sourceDigest": "sha256:f012c059b087db826f9711ef9c0bf6cc36d7f5aab8ad5977225ed726b9e1b2b0",
+      "effectSummary": "Functions as a spellcasting focus. When you cast a damage-dealing spell using it, add +1 to one damage roll if the spell deals the wood's associated type: Fernian ash fire; Irian rosewood radiant; Kythrian manchineel acid or poison; Lamannian oak lightning or thunder; Mabaran ebony necrotic; Risian pine cold; Shavarran birch force; Xorian wenge psychic."
+    },
+    "wikidot5e:wondrous-items:immovable-rod": {
+      "sourceDigest": "sha256:40a65b9cb6a90f21f23b6046bb08e471a68219caf3c8755a83670d434118dfff",
+      "effectSummary": "As an action, press the button to magically fix the rod in place, even against gravity; press again as an action to release it. It holds up to 8,000 pounds before deactivating and falling. A creature may use an action and succeed on DC 30 Strength to move a fixed rod up to 10 feet."
+    },
+    "wikidot5e:wondrous-items:infernal-puzzle-box": {
+      "sourceDigest": "sha256:910e5c42e53adbcd68a8045bfa71d0a76aab0788bb07fd0907895ffe3afddce1",
+      "effectSummary": "Placing a fitting object inside causes the box to magically seal; no magic can force it open and the sealed box becomes immune to all damage. Each box has a unique mundane opening trick. A creature that knows the trick can open it as an action. Otherwise, after spending 1 hour holding and working on it, make DC 30 Intelligence (Investigation); success learns the trick. If the check fails by 5 or more, make DC 18 Wisdom, taking 12d6 psychic on failure or half on success."
+    },
+    "wikidot5e:wondrous-items:infernal-tack": {
+      "sourceDigest": "sha256:f8aab9fef2ebbace785a4580e6990a023a9ac790d3dc278a48d05f919cc5b210",
+      "effectSummary": "Legendary infernal bridle, bit, reins, saddle, stirrups, and spurs for an evil attuned creature. A nightmare fitted with the tack must serve whoever wears the spurs until that wearer dies or the tack is removed. As an action, clash the spurs or scrape them through blood to call the bound nightmare; it appears at the start of your next turn within 20 feet, acts as your ally on your initiative, and remains 1 day, until you or it dies, or until dismissed as an action. If it dies, it reforms in the Nine Hells within 24 hours and can then be summoned again. The tack does not create a nightmare; one must first be subdued and fitted with it."
+    },
+    "wikidot5e:wondrous-items:infiltrators-key": {
+      "sourceDigest": "sha256:ee029fc16c3fbb66fdd531503124760979a6d761b776dc586b839889ce058977",
+      "effectSummary": "Evolving legendary skeleton key. Dormant: functions as thieves' tools for locks, makes you proficient with them, grants advantage on lock-opening checks, and while held grants advantage on Dexterity (Stealth) checks to move silently. Awakened: as a bonus action transform between key and +1 magic dagger; thrown dagger returns immediately after a ranged attack. Once per dawn for each spell, while holding it cast alter self, invisibility, knock, or pass without trace. Exalted: once per dawn as a bonus action touch a floor/wall/ceiling up to 5 feet thick to create an opening up to 10 by 10 feet that lasts until the key passes through, safely shunting a creature caught when it closes; additionally once per dawn for each spell cast dimension door, gaseous form, or mislead."
+    },
+    "wikidot5e:wondrous-items:ingot-of-the-skold-rune": {
+      "sourceDigest": "sha256:d0aa1b794505b526bf9bf3726c34a86586d30dfafcdcb14d7aba1c1b562b6509",
+      "effectSummary": "While the ingot is on your person, gain +1 AC. Once per short or long rest as a bonus action, choose another visible creature within 30 feet; until the end of your next turn, damage it takes is reduced to 1, but you take half the prevented damage, which cannot be reduced. You may permanently transfer the rune by 8 hours of tracing onto a nonmagical shield or two-handed melee weapon, destroying the ingot. Shield: becomes a rare attunement item granting +1 AC while wielded and the first time after each long rest damage would reduce you to 0 HP, you drop to 1 instead. Weapon: becomes an uncommon magic weapon granting +1 AC while held."
+    },
+    "wikidot5e:wondrous-items:inquisitives-goggles": {
+      "sourceDigest": "sha256:2451338b876ef7cb3d61e433a527e7b1395ce74b3d235c14749ff0d18c82f135",
+      "effectSummary": "Requires the Mark of Finding. While worn, add your Hunter's Intuition die to Wisdom (Insight) checks. When examining an object, make Wisdom (Perception) against DC 13 + days since the last living creature touched it; on success learn that creature's species and may immediately use Imprint Prey to target it."
+    }
+  }
+}
