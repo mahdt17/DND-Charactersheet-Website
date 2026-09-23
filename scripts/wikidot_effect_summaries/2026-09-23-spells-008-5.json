@@ -39,7 +39,7 @@
       "sourceDigest": "sha256:ac0474b5c27e11cf69a66bd35ba932549dcba5193cf8e9a16498aa6d64f49375",
       "effectSummary": "Send a message of up to 25 words to a familiar creature at any distance. It hears the message mentally, recognizes you if it knows you, understands the meaning if its Intelligence is at least 1, and may immediately reply in the same way. The spell can cross planes, but if the target is on another plane there is a 5% chance the message fails to arrive."
     },
-    "wikidot5e:spell:sense-emotion-ua": {
+    "wikidot5e:spell:sense-emotion": {
       "sourceDigest": "sha256:0911c8434c10d01a59d348bc2a80528fd30a299cabd7aa51c9ce5ef4ad82ff4b",
       "effectSummary": "For up to 1 minute, when cast and as an action on later turns, focus on one visible humanoid within 30 feet and learn its prevailing emotion, such as love, anger, pain, fear, or calm. If the target is not actually a humanoid or is immune to charm, you instead sense it as calm."
     }
