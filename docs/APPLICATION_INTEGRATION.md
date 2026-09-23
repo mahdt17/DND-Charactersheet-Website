@@ -14,10 +14,13 @@ catalogs are not requested at application startup. Existing bundled SRD data
 still makes the initial JavaScript bundle large; this work does not claim to
 have completed bundle optimization.
 
-Known site-shell contamination is removed from displayed rule fields and flagged
-as incomplete. Affected spells, feats and items cannot be selected as verified
-content. The original JSON is unchanged pending a fresh source-grounded repair
-and release audit. See `ENRICHMENT_STATUS.md` for the 1,603-record release blocker.
+Site-shell contamination is still rejected defensively and remains covered by
+fixtures, but the production Wikidot catalogs have now been source-grounded,
+independently audited, and promoted. The repaired production state is **zero
+damaged effects** across the 574 spells, 199 feats, and 830 items that were
+affected. Duplicate names retain separate source/catalog identities and the spell
+picker disambiguates same-name/same-edition choices instead of collapsing them.
+See `ENRICHMENT_STATUS.md` for the audit and promotion evidence.
 
 ## Character classes and compatibility
 
@@ -64,9 +67,9 @@ prestige entry, Custom branching, progression editing/reverting and inventory.
 Both run in modernization CI alongside the existing suites. The data gate remains
 strict even while application tests pass.
 
-This is an integration checkpoint, not release completion. Remaining limitations:
+The Wikidot integrity-repair release gate is complete. Remaining broader
+application limitations are separate from that repaired data release:
 
-- Repair and revalidate all contaminated Wikidot effects.
 - Multiclass shared spell slots, Pact Magic, prestige caster advancement and
   cross-edition conversions currently need explicit manual slot configuration.
 - Class-specific multiclass proficiencies/resources and choice-dependent feat
@@ -76,5 +79,5 @@ This is an integration checkpoint, not release completion. Remaining limitations
   before final application acceptance.
 - Retain manual review for unsupported complex prestige prerequisites.
 
-PR #4 stays open and unmerged until the data and application release conditions
-are satisfied.
+PR #4 remains open and unmerged by project instruction. The repair workflow did
+not deploy automatically and did not modify Supabase.
