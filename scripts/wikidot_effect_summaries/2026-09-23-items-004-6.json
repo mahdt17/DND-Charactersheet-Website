@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-6",
+  "records": {
+    "wikidot5e:wondrous-items:mastix": {
+      "sourceDigest": "sha256:981dc7a87f029152a8ee440701af0bb8462708262bb74f3bf3216387bfaa73d7",
+      "effectSummary": "Artifact +3 whip. Hits deal +2d8 necrotic damage, and you regain HP equal to half the necrotic damage dealt. Once per dusk on your turn, one attack with the whip can have 300-foot reach. A worshiper of Erebos gains piety properties: piety 1+ one random minor detrimental property; 25+ one random major beneficial property; 50+ one additional random major beneficial property. A non-worshiper instead has two random major detrimental properties. While carrying it, once per dusk for each spell, use an action to cast circle of death or dominate monster at save DC 18, with dominate monster able to target only undead. To destroy Mastix, take it to Mount Hiastos in Nyx, have a Returned unravel it, then leave the remains in continual daylight for one month."
+    },
+    "wikidot5e:wondrous-items:medal-of-the-horizonback": {
+      "sourceDigest": "sha256:090bfa6a20d300e2621a33e21fc0273b135764edfebe8a0260cd0e07bc005e47",
+      "effectSummary": "One-use item. When an attack would hit you and you can see the attacker, use your reaction to gain +5 AC until the start of your next turn, including against the triggering attack. The medal then becomes nonmagical."
+    },
+    "wikidot5e:wondrous-items:medal-of-the-meat-pie": {
+      "sourceDigest": "sha256:46769eb8bfffba1ccad299bc31532c5e680ddfe1ef5a3f22f91045bc3b9e5271",
+      "effectSummary": "One-use item. As an action, press the medal to your mouth to gain 2d4+2 temporary HP. The medal then becomes nonmagical."
+    },
+    "wikidot5e:wondrous-items:mighty-servant-of-leuk-o": {
+      "sourceDigest": "sha256:a1bf5ec01fe2916b1a28ed2139ed851cf521312827310789255720faea745e33",
+      "effectSummary": "Artifact 10-foot-tall construct vehicle with room for 1 ton of cargo and up to two Medium crew. Up to two creatures can attune at once; attunement takes 2 hours inside, and during each attunement one creature or structure within 50 feet has a 25% chance to be accidentally targeted by a Destructive Fist attack. Attuned creatures can open its hatch normally; others need an action and DC 25 Dexterity with thieves' tools, while knock opens it until the caster's next turn. Entering/exiting costs 10 feet; occupants have total cover and unobstructed outside vision. An attuned occupant can once per turn open/close the hatch and move the servant up to its speed without actions, use an action to command one of its actions, and use a reaction to command a Destructive Fist opportunity attack. Without an attuned occupant it is inert, except once every 24 hours the DM may have Leuk-o's ghost make it take one action. If it loses at least half its HP, each attuned creature makes DC 20 Wisdom or is charmed for 24 hours into a destructive spree using the servant when possible. Self-destruct requires both attuned crew inside using their actions for 3 consecutive rounds after discovering the secret code; once begun the servant uses Ghost in the Machine to turn them against each other. Successful self-destruct kills occupants without remains and forces creatures within 100 feet to make DC 25 Dexterity, taking 25d6 force + 25d6 lightning + 25d6 thunder on failure or half on success; objects and structures take triple damage. In 2d6 days its six major pieces fall at random locations within 1,000 miles and reconnect if brought within 5 feet. Permanently destroy it by melting the separated pieces in an ancient Olman forge-temple, or by making it strike the Machine of Lum the Mad, causing both artifacts to explode with three times the self-destruct radius and damage. Stat block: Huge construct; AC 22; 310 HP (27d12+135); speed 60; Str 30 Dex 14 Con 20 Int 1 Wis 14 Cha 10; Wis +9, Cha +7, Perception +9; resistant piercing/slashing; immune acid, bludgeoning, cold, fire, lightning, necrotic, poison, psychic, radiant; immune to every condition except invisible and prone; blindsight 120 feet, passive Perception 19; understands attuned creatures' languages; proficiency +7. Immutable Existence prevents form alteration or planar banishment. Magic Resistant Construction gives advantage on saves against magic and disadvantage to spell attacks against it. Regeneration restores 10 HP at turn start; at 0 HP it stops until an attuned creature spends 24 hours repairing it or it takes lightning damage. Standing Leap: long jump 50 feet/high jump 25 feet with or without run-up. It needs no air, food, drink, or sleep. Destructive Fist: +17 melee reach 10 or ranged 120, 4d12+10 force, triple damage to objects. Crushing Leap: after jumping at least 25 feet, land in occupied spaces, push occupants to adjacent open spaces; DC 25 Dexterity, 4d12 bludgeoning and prone on failure, half/no prone on success."
+    },
+    "wikidot5e:wondrous-items:mimir": {
+      "sourceDigest": "sha256:cfb7c798d8c514edaff9bb7fe1f5dccc7d73642b7ecf674ff982b5348143e24b",
+      "effectSummary": "As a bonus action, set the Mimir orbiting 1d3 feet from your head; it is considered worn while orbiting. Another creature can remove it only with an action and either an unarmed attack against AC 22 or DC 22 Dexterity (Acrobatics). As a bonus action, seize and stow it. It has AC 22, 25 HP, immunity to poison and psychic damage, and resistance to all other damage. Once per dawn as an action, cast legend lore through it; the Mimir speaks the answer aloud. While orbiting, it also answers questions about the planes and Outlands gate-towns using the ordinary planar information available to it."
+    },
+    "wikidot5e:wondrous-items:mind-blade": {
+      "sourceDigest": "sha256:5e38bbdba2571f1eb36a0f7a6593fe7dd1922ebe974843df1b05c38f50a52b05",
+      "effectSummary": "To anyone except its intended mind flayer or mind flayer thrall wielder, this appears to be an ordinary sword. For that intended wielder it is a magic sword whose hits deal +2d6 psychic damage."
+    },
+    "wikidot5e:wondrous-items:mind-carapace-armor": {
+      "sourceDigest": "sha256:736e543ca3f3122959a06f3bea056a0283de65a01d61fe6d7c12677a646f66e5",
+      "effectSummary": "To anyone except its intended mind flayer or mind flayer thrall wearer, this appears to be ordinary armor. The intended wearer has advantage on Intelligence, Wisdom, and Charisma saving throws and is immune to frightened."
+    },
+    "wikidot5e:wondrous-items:mind-crystal": {
+      "sourceDigest": "sha256:4a00666704c7eb574c6716818cbcd58b5d09310b6da97d89aa778941fa386b8f",
+      "effectSummary": "A one-use spell modifier. While holding the crystal, apply its property when casting a spell with a 1-action casting time; only one Mind Crystal can affect a spell and it cannot be combined with Metamagic. After use it becomes a nonmagical 50-gp gem. Careful (uncommon): choose up to three affected creatures to automatically succeed on their saves. Distant (uncommon): a non-self spell with range at least 5 feet gains +100 feet range; touch becomes 30 feet. Empowered (uncommon): reroll up to three damage dice and use the new rolls. Extended (uncommon): a spell lasting at least 1 minute has doubled duration, maximum 24 hours. Heightened (rare): one target has disadvantage on its first save against the spell. Quickened (rare): casting time becomes 1 bonus action. Subtle (common): cast without verbal or somatic components."
+    },
+    "wikidot5e:wondrous-items:mind-lash": {
+      "sourceDigest": "sha256:44bed1efe7781523026a814eef07ac8f5ce1da4105b7b47ac81822ac5021ea85",
+      "effectSummary": "Only a mind flayer can attune; to others it functions as a normal whip. For an attuned mind flayer, hits deal +2d4 psychic damage. A creature taking psychic damage from the whip makes DC 15 Wisdom or has disadvantage on Intelligence, Wisdom, and Charisma saves for 1 minute, repeating the save at the end of each of its turns to end the effect."
+    },
+    "wikidot5e:wondrous-items:mindblasting-cap": {
+      "sourceDigest": "sha256:fd11c3ec73f1f9f2a5403b20bd337a2367068248851656dd5793f7b18c6d3de0",
+      "effectSummary": "Once per dawn as a bonus action while wearing the cap, emit a 60-foot cone of psychic energy. Creatures in it make DC 15 Intelligence, taking 5d8 psychic and becoming stunned for 1 minute on failure, or half damage without stun on success. A stunned creature repeats the save at the end of each of its turns, ending the stun on success."
+    }
+  }
+}
