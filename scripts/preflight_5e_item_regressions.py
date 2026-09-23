@@ -18,8 +18,7 @@ for record_id in case_file["recordIds"]:
         failures.append({"id":record_id,"error":"not present in discovered item catalog"})
         continue
     try:
-        page=w5.parse(row["url"],0.05)
-        result=w5.parse_item_detail(row,page)
+        page,result=w5.parse_detail_with_retry(row,0.05)
         w5.validate_detail(row,page,result)
         gaps=w5.enrichment_gaps(row,result)
         if gaps:
