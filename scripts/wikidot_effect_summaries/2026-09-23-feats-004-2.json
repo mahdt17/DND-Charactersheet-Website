@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-004-2",
+  "records": {
+    "wikidot5e:feat:soul-of-the-storm-giant-revised-ua": {
+      "sourceDigest": "sha256:d9205d51674bd7b5292b84a41cd6ee6e91f7b8b2adf03d251caefe06f1b625ea",
+      "effectSummary": "Increase Intelligence, Wisdom, or Charisma by 1, maximum 20. As a bonus action, create a 10-foot aura until the start of your next turn or until incapacitated. While active, attacks against you have disadvantage, and when a creature starts its turn in the aura you may force a Strength save against DC 8 + proficiency bonus + the modifier of the ability increased by this feat; on failure its speed is halved until the start of its next turn. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:soul-of-the-storm-giant-ua": {
+      "sourceDigest": "sha256:8d8c0303304d6dc94161c2f6b0d2a4800d72aa0ce82bbad343be809d6458035f",
+      "effectSummary": "As a bonus action once per long rest, create a 10-foot aura of wind and lightning for 1 minute or until incapacitated. Attacks against you have disadvantage, and whenever a creature starts its turn in the aura you may halve its speed until the start of its next turn. You can also cast divination as a ritual without material components once per long rest, choosing Intelligence, Wisdom, or Charisma as the spellcasting ability."
+    },
+    "wikidot5e:feat:spear-mastery": {
+      "sourceDigest": "sha256:0b8ec576645731214e00a93a83ffdc7dee4c26e92f415c42cb340b34018939b1",
+      "effectSummary": "Gain +1 to spear attack rolls. Your spear damage die becomes d8 one-handed and d10 two-handed unless already improved by another feature. As a bonus action, set a spear against one visible creature at least 20 feet away; if it moves into your reach on its next turn without Disengaging, use your reaction to make a spear attack that deals an extra 1d8 piercing, or 1d10 if wielded two-handed, on a hit. As a bonus action, you may also increase your spear reach by 5 feet until the end of the turn."
+    },
+    "wikidot5e:feat:spell-sniper": {
+      "sourceDigest": "sha256:e85bfd055f1e31f4cd7c03f891bf76413f05a86a6b0aab40b55abe1e70de26c2",
+      "effectSummary": "When you cast a spell requiring an attack roll, double its range. Your ranged spell attacks ignore half and three-quarters cover. Learn one attack-roll cantrip from bard, cleric, druid, sorcerer, warlock, or wizard; its spellcasting ability is Charisma for bard, sorcerer, or warlock, Wisdom for cleric or druid, or Intelligence for wizard."
+    },
+    "wikidot5e:feat:spelldriver": {
+      "sourceDigest": "sha256:cd1df1cd98c6174adb13b4617912e6eadf4eb2e202a3979b8459ce6577e6a617",
+      "effectSummary": "When you use a bonus action to cast a spell of 1st level or higher, you may also use your action that turn to cast another spell of 1st level or higher. If you cast two or more spells on the same turn, only one of them may be 3rd level or higher."
+    },
+    "wikidot5e:feat:squat-nimbleness": {
+      "sourceDigest": "sha256:1e0d4e509ee36c69b3fd58846ba822be4a8c81af4e05ba68467a0bb072323523",
+      "effectSummary": "Increase Strength or Dexterity by 1, maximum 20. Increase walking speed by 5 feet. Gain proficiency in Acrobatics or Athletics. Have advantage on Strength (Athletics) and Dexterity (Acrobatics) checks made to escape a grapple."
+    },
+    "wikidot5e:feat:squire-of-solamnia": {
+      "sourceDigest": "sha256:58746b2b3871f20d9f41bba7d2990ad5f71b2531c58b409f3a455dea45bfd3cf",
+      "effectSummary": "Mounting or dismounting costs only 5 feet of movement. Once per turn when you make a weapon attack, you may give it advantage; if it hits, add 1d8 damage. You can invoke this benefit a number of times equal to proficiency bonus per long rest, but a use is expended only when the attack hits."
+    },
+    "wikidot5e:feat:squire-of-solamnia-ua": {
+      "sourceDigest": "sha256:628b7f2140d2f27450d662070cda036c0b8c70f49bf254b845e42a190941cb72",
+      "effectSummary": "Gain proficiency with medium armor and martial weapons. Have advantage on saving throws to avoid falling off a mount. Once per long rest, when another visible creature within 30 feet makes a saving throw, use your reaction to grant it advantage if it can hear and understand you."
+    },
+    "wikidot5e:feat:stealthy": {
+      "sourceDigest": "sha256:21752047a464bd6c5b0d43edda362355c90edfa173f8e633514e9fc8862851f5",
+      "effectSummary": "Increase Dexterity by 1, maximum 20. Gain Stealth proficiency, or expertise if already proficient. While hidden, you may move up to 10 feet through open space without revealing yourself if you end that movement where you are not clearly visible."
+    },
+    "wikidot5e:feat:strike-of-the-giants": {
+      "sourceDigest": "sha256:107ac5165bdbd107c8959a1d6feaf53e19f161fe7fa8b96c2fb7ea1770d8e570",
+      "effectSummary": "Choose one giant strike. Once per turn when a melee weapon or thrown-weapon attack hits, you may add its effect; uses equal proficiency bonus per long rest, with save DC 8 + proficiency bonus + Strength or Constitution modifier. Cloud: +1d4 thunder and Wisdom save or you become invisible to that target until your next turn or until you attack or cast a spell. Fire: +1d10 fire. Frost: +1d6 cold and Constitution save or speed becomes 0 until your next turn. Hill: +1d6 weapon-type damage and Strength save or prone. Stone: +1d6 force and Strength save or pushed 10 feet away. Storm: +1d6 lightning and Constitution save or disadvantage on attacks until your next turn."
+    }
+  }
+}
