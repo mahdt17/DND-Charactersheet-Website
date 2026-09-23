@@ -19,10 +19,6 @@
       "sourceDigest": "sha256:944260a549dcb14217e21222db378dff02b233fcfdce20e8c80512abecc0daff",
       "effectSummary": "Present the spell's gem and choose any number of creatures within 30 feet that can see you. Each makes a Wisdom save or is charmed until the spell ends, you or your companions harm it, or it succeeds on a repeat save at the end of one of its turns. While charmed, it can do nothing except use movement to approach you safely; once within 5 feet, it stops moving and stares at the gem."
     },
-    "wikidot5e:spell:infallible-relay-ua": {
-      "sourceDigest": "sha256:e327e2a7537757166c51cc7c0b3b369d23cf390a07e058d0a0746b9bb4783074",
-      "effectSummary": "Choose a creature you have spoken with before on the same plane. The nearest functioning telephone or similar device within 100 feet of that creature rings; if none exists, the spell fails. The target makes a Charisma save or is compelled to answer. Once connected, the call remains perfectly clear and cannot drop until the conversation or spell ends. You may end it freely; the target must succeed on a Charisma save to end it."
-    },
     "wikidot5e:spell:infernal-calling": {
       "sourceDigest": "sha256:5ac2e6b2586757f6a84b3c26eeb5bcb3b2d46534b4808f94900309084879762b",
       "effectSummary": "Summon a CR 6-or-lower devil of a chosen type into a visible unoccupied space within 90 feet for up to 1 hour. It is unfriendly, has its own initiative, and is DM-controlled. Each turn you may issue a verbal command without an action; it obeys if the result suits its desires, otherwise make Charisma (Deception, Intimidation, or Persuasion) contested by its Wisdom (Insight), with advantage if you use its true name. On a failed contest it becomes immune to your commands for the rest of the spell. If concentration ends early after it became immune, it remains for 3d6 minutes acting as it wishes before disappearing. Possessing that individual devil's talisman lets you summon it at up to the normal CR limit plus 1 and makes it obey without contests. Each slot level above 5th raises the maximum CR by 1."
@@ -42,6 +38,10 @@
     "wikidot5e:spell:intellect-fortress": {
       "sourceDigest": "sha256:d4104437485462c05d4ae28b4973dbca34732c36ddec017777a6568d3143c5c0",
       "effectSummary": "For up to 1 hour, you or one willing visible creature within 30 feet has resistance to psychic damage and advantage on Intelligence, Wisdom, and Charisma saving throws. Each slot level above 3rd adds one target, with all targets within 30 feet of one another when chosen."
+    },
+    "wikidot5e:spell:infallible-relay": {
+      "sourceDigest": "sha256:e327e2a7537757166c51cc7c0b3b369d23cf390a07e058d0a0746b9bb4783074",
+      "effectSummary": "Choose a creature you have spoken with before on the same plane. The nearest functioning telephone or similar device within 100 feet of that creature rings; if none exists, the spell fails. The target makes a Charisma save or is compelled to answer. Once connected, the call remains perfectly clear and cannot drop until the conversation or spell ends. You may end it freely; the target must succeed on a Charisma save to end it."
     }
   }
 }
