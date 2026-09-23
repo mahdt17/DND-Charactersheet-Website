@@ -1887,6 +1887,22 @@ def parse_item(parser: DetailParser, entry: dict) -> dict:
     if re.match(r"power stones?\s+\d+(?:st|nd|rd|th)?\s+level power",name_fold):
         result["ruleFamily"]="power-stone"
         result["genericRuleSource"]="SRD psionic power-stone rules"
+        result["genericRuleProvenance"]=[{
+            "url":"https://www.d20srd.org/srd/psionic/items/powerStones.htm",
+            "role":"generic power-stone activation, addressing, manifester-level, and brainburn rules",
+        }]
+        result["ruleSummary"]=(
+            "A power stone stores one or more psionic powers for single use. "
+            "Before use it must be addressed with a Psicraft check (DC 15 + power level). "
+            "After addressing, manifesting a stored power is a standard action subject to disruption; "
+            "the user must have the power on their class list and the required key ability score. "
+            "If the user's manifester level is below the stone's manifester level, they must make a "
+            "manifester-level check against DC stone manifester level + 1. On failure, a DC 5 Wisdom "
+            "check avoids brainburn, with a natural 1 always failing. Brainburn lasts 1d4 rounds and "
+            "deals 1d6 damage per stored power each round to the user and one random nearby ally until "
+            "the stone is destroyed or moved more than 100 feet away. A standard stone uses the minimum "
+            "manifester level needed for its stored power, and a successfully used power is flushed."
+        )
 
     effect_source=item_effect_text(parser,entry.get("name",""))
     if effect_source:

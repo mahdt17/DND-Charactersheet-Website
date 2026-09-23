@@ -38,6 +38,10 @@ for case in cases:
             expected_kind=case.get("referenceKind")
             if expected_kind and details.get("referenceKind") != expected_kind:
                 raise ValueError(f"Expected referenceKind {expected_kind!r}, got {details.get('referenceKind')!r}")
+        if mode=="ruleFamily":
+            expected_family=case.get("ruleFamily")
+            if expected_family and details.get("ruleFamily") != expected_family:
+                raise ValueError(f"Expected ruleFamily {expected_family!r}, got {details.get('ruleFamily')!r}")
         missing=[key for key in case.get("required",[]) if details.get(key) in (None,"",[],{})]
         if missing:
             raise ValueError("Required regression fields missing: "+", ".join(missing))

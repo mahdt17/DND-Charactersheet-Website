@@ -67,6 +67,105 @@
         "nonGameplayReference",
         "referenceKind"
       ]
+    },
+    {
+      "id": "items/power-stones-1st-level-power-807",
+      "mode": "ruleFamily",
+      "ruleFamily": "power-stone",
+      "required": [
+        "ruleFamily",
+        "genericRuleSource",
+        "genericRuleProvenance",
+        "ruleSummary"
+      ]
+    },
+    {
+      "id": "items/power-stones-2nd-level-power-808",
+      "mode": "ruleFamily",
+      "ruleFamily": "power-stone",
+      "required": [
+        "ruleFamily",
+        "genericRuleSource",
+        "genericRuleProvenance",
+        "ruleSummary"
+      ]
+    },
+    {
+      "id": "items/power-stones-3rd-level-power-809",
+      "mode": "ruleFamily",
+      "ruleFamily": "power-stone",
+      "required": [
+        "ruleFamily",
+        "genericRuleSource",
+        "genericRuleProvenance",
+        "ruleSummary"
+      ]
+    },
+    {
+      "id": "items/power-stones-4th-level-power-810",
+      "mode": "ruleFamily",
+      "ruleFamily": "power-stone",
+      "required": [
+        "ruleFamily",
+        "genericRuleSource",
+        "genericRuleProvenance",
+        "ruleSummary"
+      ]
+    },
+    {
+      "id": "items/power-stones-5th-level-power-811",
+      "mode": "ruleFamily",
+      "ruleFamily": "power-stone",
+      "required": [
+        "ruleFamily",
+        "genericRuleSource",
+        "genericRuleProvenance",
+        "ruleSummary"
+      ]
+    },
+    {
+      "id": "items/power-stones-6th-level-power-812",
+      "mode": "ruleFamily",
+      "ruleFamily": "power-stone",
+      "required": [
+        "ruleFamily",
+        "genericRuleSource",
+        "genericRuleProvenance",
+        "ruleSummary"
+      ]
+    },
+    {
+      "id": "items/power-stones-7th-level-power-813",
+      "mode": "ruleFamily",
+      "ruleFamily": "power-stone",
+      "required": [
+        "ruleFamily",
+        "genericRuleSource",
+        "genericRuleProvenance",
+        "ruleSummary"
+      ]
+    },
+    {
+      "id": "items/power-stones-8th-level-power-814",
+      "mode": "ruleFamily",
+      "ruleFamily": "power-stone",
+      "required": [
+        "ruleFamily",
+        "genericRuleSource",
+        "genericRuleProvenance",
+        "ruleSummary"
+      ]
+    },
+    {
+      "id": "items/power-stones-9th-level-power-815",
+      "mode": "ruleFamily",
+      "ruleFamily": "power-stone",
+      "required": [
+        "ruleFamily",
+        "genericRuleSource",
+        "genericRuleProvenance",
+        "ruleSummary"
+      ]
     }
   ]
 }
