@@ -4,6 +4,8 @@ on:
     branches: [codex/modernize-editions-wizard]
   pull_request:
     branches: [main]
+    paths-ignore:
+      - ".github/wikidot-repair*.request"
 permissions:
   contents: read
 concurrency:
