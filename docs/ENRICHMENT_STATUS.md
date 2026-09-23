@@ -14,6 +14,7 @@ Live/catalog writes: **VERIFIED RELEASE PROMOTED TO REPOSITORY STATIC CATALOGS**
 - The exact audited candidate files were promoted into \`public/catalogs/dndtools\` and \`public/catalogs/wikidot5e\`; no re-scrape was used for promotion.
 - Supabase was not modified. Catalog reference data remains repository/static-file backed.
 - PR #4 remains open and unmerged pending post-promotion validation.
+- Post-promotion validation trigger recorded after static catalog promotion.
 
 ## 3.5 equipment category — COMPLETE under both independent gates
 
