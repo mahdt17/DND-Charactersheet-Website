@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-4",
+  "records": {
+    "wikidot5e:wondrous-items:lords-ensemble": {
+      "sourceDigest": "sha256:03c3ced37647f96081bae4557387e3479ee5cbbc30ff70f47469a4cac943569d",
+      "effectSummary": "Within Waterdeep and its sewers, the helm, amulet, and robe function together as one attuned item. Helm: conceals your face, makes your voice genderless, and makes you immune to magic that reads thoughts, detects lies, reveals alignment, or reveals creature type; telepathy reaches you only if allowed. Amulet: functions as an amulet of proof against detection and location. Robe: functions as a ring of free action and creates an illusion of a nondescript androgynous 6-foot humanoid build."
+    },
+    "wikidot5e:wondrous-items:lorehold-primer": {
+      "sourceDigest": "sha256:8466cdcb2d995e04052b6f7c575d858b388abe1abbb38f51b2d3e9d671a270af",
+      "effectSummary": "The primer has 3 charges and regains 1d3 daily at dawn. While holding it, after rolling an Intelligence (History) or Intelligence (Religion) check, spend 1 charge to add 1d4. If you study it at the end of a long rest, choose one 1st-level cleric or wizard spell; before your next long rest, while holding the primer, cast that spell once without a slot, using Intelligence, Wisdom, or Charisma chosen when cast."
+    },
+    "wikidot5e:wondrous-items:lost-crown-of-besilmer": {
+      "sourceDigest": "sha256:2876fc6fcbdb47096fe3cd3d09318919df231d9b3d2854b1713f926c97d39957",
+      "effectSummary": "While worn, gain psychic resistance and advantage on saves against charm. The crown has 3 charges and regains 1d3 daily at dawn. As a bonus action, spend 1 charge to inspire one visible creature within 60 feet that can see or hear you; once before the end of your next turn, it may add 1d6 to one ability check, attack roll, or saving throw."
+    },
+    "wikidot5e:wondrous-items:lubas-tarokka-of-souls": {
+      "sourceDigest": "sha256:685073c17c614606ff03356219e683303caa6d484a8370b920c6ae351e138d40",
+      "effectSummary": "Artifact with 2 random minor detrimental and 2 random minor beneficial properties. While holding it, cast each of comprehend languages, detect evil and good, detect magic, detect poison and disease, locate object, or scrying once per dawn at save DC 18. You automatically succeed on Constitution saves to maintain concentration on divination spells. Twist of Fate: twice per dawn, as an action draw a card and choose one visible creature within 15 feet; Weal gives advantage on attacks/checks/saves for 1 hour, Woe gives disadvantage for 1 hour. Each use risks releasing an imprisoned soul: d100 1 Artifact flameskull; 2 Beast wraith; 3 Broken One banshee; 4 Darklord vampire; 5 Donjon mummy; 6 Executioner death knight; 7 Ghost ghost; 8 Horseman mummy lord; 9 Innocent ghost; 10 Marionette mummy; 11 Mists wraith; 12 Raven vampire spawn; 13 Seer vampire; 14 Tempter vampire spawn; 15–00 none. Reroll already released souls. A released soul appears 10d10 miles away, gains Weal until destroyed, while you and the original Twist target suffer Woe. If you go 7 days without using Twist of Fate, attunement ends and you cannot reattune until another creature uses Twist of Fate on you. Destroy only by releasing and destroying all 14 souls, revealing a fifteenth lich in the Nether card; destroying that lich removes the Nether card and leaves an ordinary tarokka deck plus a new DM-designed card."
+    },
+    "wikidot5e:wondrous-items:lucent-destroyer": {
+      "sourceDigest": "sha256:c6761f089c8ca8a36681626f76728ecb245713038ebbb3ce4c46bcce4be0939d",
+      "effectSummary": "This triple-barreled +1 magic musket requires no ammunition, deals radiant instead of piercing damage, and lacks loading. While attuned, cast dancing lights from it at will. Once per dawn as an action, invoke its light rune to cast sunbeam at save DC 17."
+    },
+    "wikidot5e:wondrous-items:luck-blade": {
+      "sourceDigest": "sha256:473b61205c79ceaacd8bef9a585233ca4aa62445d63cf5a803f22940a269bba2",
+      "effectSummary": "This +1 magic sword also grants +1 to saving throws while on your person. Once per dawn, without an action, reroll one attack roll, ability check, or saving throw you dislike and use the second result. It has 1d4-1 wish charges; while holding it, once per dawn use an action and 1 charge to cast wish. When no charges remain, it permanently loses the wish property."
+    },
+    "wikidot5e:wondrous-items:luminous-war-pick": {
+      "sourceDigest": "sha256:4f05aacfb2b5b4bbb7756d70435a3d88be4ecf8fe210fb6eb383c98499d47faf",
+      "effectSummary": "This +1 magic war pick can cast daylight once per dawn as a bonus action, choosing a point on the weapon as the spell's origin."
+    },
+    "wikidot5e:wondrous-items:luxon-beacon": {
+      "sourceDigest": "sha256:58cf10357b191e555bbb29713857c9aa7997a1cd2c40e4f646ff48e13ee085ea",
+      "effectSummary": "Once per dawn, a creature touching and concentrating on the beacon for 1 minute gains a Fragment of Possibility for 8 hours or until used; a creature cannot have more than one Fragment from any source. When making an attack, ability check, or save, expend it to roll an extra d20 and choose which die to use; against an incoming attack, expend it to roll a d20 and choose between your roll and the attacker's. If the original roll had advantage/disadvantage, apply that first, then roll the Fragment die. Soul Snare: a consecrated Luxon follower who dies within 100 miles has their soul caught by the beacon and later reincarnated in a random humanoid baby developing within 100 miles."
+    },
+    "wikidot5e:wondrous-items:lyre-of-building": {
+      "sourceDigest": "sha256:01dde8d2963449578c94b4b7c690d581fcd342a9491f67de3ce2ac009d82fabe",
+      "effectSummary": "While holding the lyre, cast mending as an action. When a visible object or structure within 300 feet takes damage, use your reaction to make it immune to that damage and further damage of the same type until the start of your next turn. As an action, cast fabricate, move earth, passwall, or summon construct; each spell can be cast from the lyre once per dawn."
+    },
+    "wikidot5e:wondrous-items:mace-of-disruption": {
+      "sourceDigest": "sha256:0592823bb97749d8312214f12fcb409daf1a31434353765222f46d5c53a87481",
+      "effectSummary": "This magic mace deals +2d6 radiant to fiends and undead. If such a target has 25 HP or fewer after this damage, it makes DC 15 Wisdom; on failure it is destroyed, on success it is frightened of you until the end of your next turn. While held, the mace sheds bright light 20 feet and dim another 20."
+    }
+  }
+}
