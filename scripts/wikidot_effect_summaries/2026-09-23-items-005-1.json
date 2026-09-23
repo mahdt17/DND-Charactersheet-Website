@@ -12,7 +12,7 @@
       "effectSummary": "Attach or detach the shard from a Tiny object as an action; it detaches if attunement ends, and while held or worn it functions as a spellcasting focus. Whenever you use Metamagic on a spell, apply the shard's d4-determined Outer Plane property: 1 Lawful—end charmed, blinded, deafened, frightened, poisoned, or stunned on yourself or one visible creature within 30 feet; 2 Chaotic—choose one creature damaged by the spell, which has disadvantage on attacks and ability checks until the start of your next turn; 3 Good—you or one visible creature within 30 feet gains 3d6 temporary HP; 4 Evil—choose one creature damaged by the spell to take +3d6 necrotic."
     },
     "wikidot5e:wondrous-items:paper-bird": {
-      "sourceDigest": "sha256:fc3008ff569512ee55f1fee9a5b2dfd1e4921d31d87866cedbdebca1431e6acb",
+      "sourceDigest": "sha256:f05a25b7f8ab2159db12cb8cbc7519360b9656e304037a6691657569c67681be",
       "effectSummary": "Write up to 50 words on the parchment and speak a creature's name; it folds into a Tiny paper bird and flies by the most direct route to that named recipient on the same plane. If the recipient is on another plane, it immediately becomes ash. The bird has AC 13, 1 HP, fly 60 feet, Dexterity 16 (+3), all other abilities 1 (-5), and immunity to poison and psychic. On reaching within 5 feet of the recipient it becomes nonmagical parchment that only the intended recipient can unfold. If reduced to 0 HP or speed 0, or otherwise immobilized, it becomes ash. Usually found in boxes of 1d6+3 sheets."
     },
     "wikidot5e:wondrous-items:pariahs-shield": {
