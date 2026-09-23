@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-012-1",
+  "records": {
+    "wikidot5e:spell:invulnerability": {
+      "sourceDigest": "sha256:24565bf424f2a07a9c7e4ec375756fc07c3fbc1df4e42994ecd41178de5aee18",
+      "effectSummary": "For up to 10 minutes while concentrating, you are immune to all damage."
+    }
+  }
+}
