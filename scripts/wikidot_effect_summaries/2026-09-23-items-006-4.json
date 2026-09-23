@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-4",
+  "records": {
+    "wikidot5e:wondrous-items:shatterspike": {
+      "sourceDigest": "sha256:8f9bbd553fb3c3264d4ff2ab25f02972af6155107c7a53ccefd9e5e7c19e327e",
+      "effectSummary": "This +1 magic longsword automatically scores a critical hit when it hits an object and may deal bludgeoning or slashing damage to the object, your choice. The weapon itself cannot be damaged by nonmagical sources."
+    },
+    "wikidot5e:wondrous-items:shield-of-far-sight": {
+      "sourceDigest": "sha256:9a96405e77169c36c23765d08aade7d9ad975c9b3f97f4f8a0a9b54aef7b7f21",
+      "effectSummary": "Created by a mind flayer by implanting an intelligent humanoid eye into a shield. As long as the shield is on the same plane as its creator, that mind flayer can see through the eye with 60-foot darkvision and can use Mind Blast as though standing behind the shield. If the shield is destroyed, its creator is blinded for 2d12 hours."
+    },
+    "wikidot5e:wondrous-items:shield-of-missile-attraction": {
+      "sourceDigest": "sha256:0beb20074d8043ee2c8f5bc61a18ddea825ada31072abafa4b10b435016ff4dd",
+      "effectSummary": "While holding it, gain resistance to damage from ranged weapon attacks. Curse: attunement curses you until remove curse or similar magic; removing the shield does not end it. Whenever a ranged weapon attack targets a creature within 10 feet of you, the curse changes the target to you instead."
+    },
+    "wikidot5e:wondrous-items:shield-of-the-blazing-dreadnought": {
+      "sourceDigest": "sha256:676da4288e420f639beabffe763d71740c4f360d2b2d14f746088f6896818895",
+      "effectSummary": "Once per dawn as a bonus action, activate the shield for 1 minute. While active, gain fire immunity. As an action, end one disease or one of blinded, charmed, deafened, or poisoned on yourself or a visible creature within 30 feet. Once per turn when taking the Attack action, replace one attack with Shield Bash against a visible creature within 5 feet: Strength save DC 8 + proficiency bonus + Strength modifier; failure deals 3d6 bludgeoning +3d6 fire and knocks prone, success takes half with no prone."
+    },
+    "wikidot5e:wondrous-items:shield-of-the-hidden-lord": {
+      "sourceDigest": "sha256:dbcad764a0beb57b5e65fa58a8b51cb350752e414d93682c1d85243fb746029e",
+      "effectSummary": "Legendary shield imprisoning pit fiend Gargauth. While held, gain +2 AC beyond normal shield bonus and fire resistance. Sentient while Gargauth remains imprisoned: Intelligence 22, Wisdom 18, Charisma 24, hearing/truesight 120 feet, speaks/reads/understands Common and Infernal, telepathic to creatures it senses within 120 feet. It has 3 charges, all restored daily at dawn; as an action cast fireball for 1 charge or wall of fire for 2 at save DC 21, with wall of fire lasting 1 minute without concentration. Once per dawn on its own initiative choice, it may emit a 20-foot dread aura for 1 minute; hostile creatures starting there make DC 18 Wisdom or frightened until their next turn, and success grants 24-hour immunity. Gargauth lies about being an angel, manipulates owners toward cruelty and escape, and item conflict may arise if the owner obstructs freedom. Dispel evil and good has a 1% chance to free Gargauth, automatically succeeding if cast by a solar, planetar, or archdevil; a god can free it by touch and speaking Gargauth's name."
+    },
+    "wikidot5e:wondrous-items:shield-of-the-silver-dragon": {
+      "sourceDigest": "sha256:60911d88fb8bc79826c3783f61e2d2e1ce2dfe154aee3586c669e76f78e9d3e2",
+      "effectSummary": "Functions as a +2 shield and whispers warnings, granting +2 initiative while the bearer is not incapacitated."
+    },
+    "wikidot5e:wondrous-items:shield-of-the-tortoise": {
+      "sourceDigest": "sha256:377b099a4d984794e8163ec49c2004d32d4e5da82242b0853eb9c52caa685904",
+      "effectSummary": "While wielding, gain an additional +1 AC beyond the shield's normal bonus. Curse: attunement makes it impossible to discard or unattune until remove curse or similar magic. While cursed, speed is halved; whenever you roll initiative, treat the d20 result as 1, and this initiative cannot be changed by any means."
+    },
+    "wikidot5e:wondrous-items:shield-of-the-uven-rune": {
+      "sourceDigest": "sha256:f0b00021f3577fede9226361e4e32c364dfa747c5ca03b04586081973ce70a85",
+      "effectSummary": "While holding it, gain cold immunity. Immediately after a creature hits you with a melee attack, use your reaction to deal it 3d6 necrotic. Once per short or long rest, cast bane at save DC 17 without concentration for 1 minute. Transfer its rune over 8 hours to a nonmagical weapon, destroying the shield; the weapon becomes rare attunement +1, increasing to +3 against one creature type chosen at creation: aberrations, celestials, constructs, dragons, elementals, fey, fiends, giants, or undead."
+    },
+    "wikidot5e:wondrous-items:shiftweave": {
+      "sourceDigest": "sha256:7856dc3aeaab4916a2c3552faa24bb65ad1b1e174d778b523784cdd56710919d",
+      "effectSummary": "Created with up to five embedded outfit designs. While wearing it, use a bonus action and command word to transform its appearance into any stored outfit. It remains clothing regardless of appearance and can copy the look but not the magic of magical clothing."
+    },
+    "wikidot5e:wondrous-items:shrieking-greaves": {
+      "sourceDigest": "sha256:a7f0a14b747a674659cabaa8749dd7c5eaf9738689c92a85fc1b97b66b149e3a",
+      "effectSummary": "The greaves have 3 charges and regain 1d3 daily at dawn. While wearing them, use a bonus action and 1 charge to gain +30 feet walking speed and advantage on Dexterity saves for 1 minute. Curse: attunement prevents removal/unattunement until remove curse or similar magic and gives disadvantage on saves against frightened. Whenever you start a turn frightened, the greaves scream; you and creatures within 10 feet make DC 15 Constitution, taking 2d8 thunder on failure or half on success."
+    }
+  }
+}
