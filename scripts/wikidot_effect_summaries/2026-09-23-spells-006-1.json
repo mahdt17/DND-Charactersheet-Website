@@ -19,14 +19,6 @@
       "sourceDigest": "sha256:606d29d7a10478a1070de55bd9b9ffb131c31e607afd4ab93c1a95acf133ed86",
       "effectSummary": "Hail pounds a 20-foot-radius, 40-foot-high cylinder centered within 300 feet. Creatures there make Dexterity saves, taking 2d8 bludgeoning plus 4d6 cold damage on a failure or half on a success. The area becomes difficult terrain until the end of your next turn. Each slot level above 4th adds 1d8 bludgeoning damage."
     },
-    "wikidot5e:spell:icingdeaths-frost-ua": {
-      "sourceDigest": "sha256:bbb5b18fbfc52f78353fc3e92323a9658ea139ce948b51423d999b6ffe14f07b",
-      "effectSummary": "Creatures in a 30-foot cone make Constitution saves. On a failure, a creature takes 3d8 cold damage and is encased in ice for up to 1 minute, reducing its speed to 0 until it or another creature uses an action to break the ice away. On a success it takes half damage with no speed effect. Each slot level above 2nd adds 1d8 cold damage."
-    },
-    "wikidot5e:spell:id-insinuation-ua": {
-      "sourceDigest": "sha256:89fe66151f5035d0f70d4e2b66e847c58305852d781e8a3100cf6e0ec60b1401",
-      "effectSummary": "One visible creature within 60 feet makes a Wisdom save or becomes incapacitated for up to 1 minute. At the end of each of its turns it takes 1d12 psychic damage, then repeats the Wisdom save, ending the spell on itself on a success."
-    },
     "wikidot5e:spell:identify": {
       "sourceDigest": "sha256:53a3b6ba1bcb06ef41a59adb4cec1f47879a64d20f8bcfc26d3382bc401910d8",
       "effectSummary": "Touch one object throughout the 1-minute casting to learn its magical properties and use, whether it requires attunement, its charges, any spells affecting it, and which spell created it if applicable. If you instead touch a creature throughout the casting, learn what spells are currently affecting that creature."
@@ -42,6 +34,14 @@
     "wikidot5e:spell:immolation": {
       "sourceDigest": "sha256:562d97523c2e2a55195efdd07ae514c73b7d8ae6ed226b9b373866c41076f8a5",
       "effectSummary": "One visible creature within 90 feet makes a Dexterity save. It takes 8d6 fire damage on a failure or half on a success. On a failed save it also burns for up to 1 minute, shedding bright light for 30 feet and dim light for another 30; at the end of each of its turns it repeats the save, taking 4d6 fire damage on a failure and ending the spell on a success. Nonmagical means cannot extinguish these flames. A target killed by this spell becomes ash."
+    },
+    "wikidot5e:spell:icingdeath-s-frost": {
+      "sourceDigest": "sha256:bbb5b18fbfc52f78353fc3e92323a9658ea139ce948b51423d999b6ffe14f07b",
+      "effectSummary": "Creatures in a 30-foot cone make Constitution saves. On a failure, a creature takes 3d8 cold damage and is encased in ice for up to 1 minute, reducing its speed to 0 until it or another creature uses an action to break the ice away. On a success it takes half damage with no speed effect. Each slot level above 2nd adds 1d8 cold damage."
+    },
+    "wikidot5e:spell:id-insinuation": {
+      "sourceDigest": "sha256:89fe66151f5035d0f70d4e2b66e847c58305852d781e8a3100cf6e0ec60b1401",
+      "effectSummary": "One visible creature within 60 feet makes a Wisdom save or becomes incapacitated for up to 1 minute. At the end of each of its turns it takes 1d12 psychic damage, then repeats the Wisdom save, ending the spell on itself on a success."
     }
   }
 }
