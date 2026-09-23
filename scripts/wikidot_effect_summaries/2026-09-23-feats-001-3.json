@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-001-3",
+  "records": {
+    "wikidot5e:feat:blade-mastery": {
+      "sourceDigest": "sha256:75fe46cbed88a63d2a30ab93c0b0aed677e5b543ff2ad2db48d3971cbd1b605a",
+      "effectSummary": "While using a shortsword, longsword, scimitar, rapier, or greatsword, gain +1 to attack rolls. On your turn, you may spend your reaction while holding the weapon to enter a parrying stance, gaining +1 AC until the start of your next turn or until you stop holding it. Opportunity attacks with these weapons have advantage."
+    },
+    "wikidot5e:feat:bountiful-luck": {
+      "sourceDigest": "sha256:01c7aa16f1b0cc6bd6c2bb41bbf483da2dcaa1ebc99e73544d457b0d9bf38c3c",
+      "effectSummary": "When a visible ally within 30 feet rolls a natural 1 on an attack roll, ability check, or saving throw, use your reaction to make that ally reroll the d20 and use the new result. After using this feature, you cannot use your halfling Lucky trait until the end of your next turn."
+    },
+    "wikidot5e:feat:brawny": {
+      "sourceDigest": "sha256:2149727803e9fe22a6481d684fc15783300cc94cebead00edfa11b94eaf70bab",
+      "effectSummary": "Increase Strength by 1, maximum 20. Gain Athletics proficiency, or expertise if already proficient. Count as one size larger when determining carrying capacity."
+    },
+    "wikidot5e:feat:burglar": {
+      "sourceDigest": "sha256:af1dd0e1f5df0bf7439e059e43fe05cce57e3e0a23f8192347c93bd73e74d4ec",
+      "effectSummary": "Increase Dexterity by 1, maximum 20. Gain proficiency with thieves' tools, or expertise with them if already proficient."
+    },
+    "wikidot5e:feat:cartomancer": {
+      "sourceDigest": "sha256:d5a9ab4d52fbaff4966c69f60cadf6cc7aa27a48ba5a9bcd994307f70dad9016",
+      "effectSummary": "You may use a deck of cards as a spellcasting focus. Learn prestidigitation and, when using it for stage-magic illusions, may disguise its verbal and somatic components as ordinary conversation and card handling. After a long rest, choose one spell from your class spell list with a 1-action casting time and of a level for which you have spell slots; imbue it into a card for 8 hours. While imbued, use a bonus action to flourish the card and cast that spell, after which the card loses its magic."
+    },
+    "wikidot5e:feat:cartomancer-ua": {
+      "sourceDigest": "sha256:b90fb397712edd9a2445bc37c3f554f8c53836a54016f0e93ffb71d92b333f7e",
+      "effectSummary": "Use a deck of cards as a spellcasting focus. When using it to cast a damaging spell, roll 1d4 and add the result to one damage roll against one visible creature damaged by the spell; uses equal proficiency bonus per long rest. Learn prestidigitation and may conceal its stage-magic use as ordinary speech and card handling. After a long rest, imbue one spell you know into a card if it has a 1-action casting time and level no higher than your proficiency bonus; later use a bonus action to flourish the card and cast the spell, after which the card loses its magic."
+    },
+    "wikidot5e:feat:charger": {
+      "sourceDigest": "sha256:f0f79dd5cc91cc966986cff1dfaadc28ee027bc58adb10da591a121d61068542",
+      "effectSummary": "After using your action to Dash, you may use a bonus action to make one melee weapon attack or shove. If you moved at least 10 feet in a straight line immediately before that bonus action, a hit gains +5 damage or a successful shove pushes the target up to 10 feet away."
+    },
+    "wikidot5e:feat:chef": {
+      "sourceDigest": "sha256:fb03f4f3f14918957927d6461b96cd6d2ca9a1ae6ab94bdf70dd8060e5104e30",
+      "effectSummary": "Increase Constitution or Wisdom by 1, maximum 20, and gain cook's-utensils proficiency if needed. During a short rest with ingredients and utensils, prepare food for up to 4 + proficiency bonus creatures; any eater who spends Hit Dice during that rest regains an extra 1d8 HP. With 1 hour of work or after a long rest, create a number of treats equal to proficiency bonus that last 8 hours; a creature can eat one as a bonus action to gain temporary HP equal to your proficiency bonus."
+    },
+    "wikidot5e:feat:cohort-of-chaos": {
+      "sourceDigest": "sha256:ce869b88cf88450539b73b42f0c3727cca596a25552ee22cf3d06f81668c6d6e",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Whenever you roll a natural 1 or 20 on an attack roll or saving throw, if no flare is already active, roll 1d4 for a chaos flare lasting until the end of your next turn: 1 Battle Fury gives one visible creature advantage on attacks and disadvantage on ability checks; 2 Disruption Field makes creatures starting or first entering within 5 feet of you take 1d8 force damage; 3 Unbound lets you replace some or all walking movement with one teleport of the same distance to a visible open space; 4 Wailing Winds gives you and creatures within 15 feet disadvantage on Wisdom saves."
+    },
+    "wikidot5e:feat:cohort-of-chaos-ua": {
+      "sourceDigest": "sha256:99272df7be0fc458e881aa58607a40b70202ac83fe423767b5e7d6a4b84c58f8",
+      "effectSummary": "Increase one ability score by 1, maximum 20. When you roll a natural 1 or 20 on an attack or saving throw and no flare is active, roll 1d4 for a flare lasting until the end of your next turn: 1 Disruption Field deals 1d8 force to other creatures starting or first entering within 10 feet; 2 Battle Fury gives one visible creature advantage on attacks and disadvantage on ability checks; 3 Unbound lets you convert walking movement into one equal-distance teleport; 4 Wailing Winds gives you and creatures within 60 feet disadvantage on Wisdom saves. You may also trigger a random flare as a bonus action a number of times equal to proficiency bonus per long rest."
+    }
+  }
+}
