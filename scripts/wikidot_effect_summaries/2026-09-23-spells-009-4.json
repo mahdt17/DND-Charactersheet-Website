@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-009-4",
+  "records": {
+    "wikidot5e:spell:spray-of-cards": {
+      "sourceDigest": "sha256:c51c2c2251427ee8ce906dc1c1a287f12ba7e7d6a1d3c3afe2f25f8b7f8c9bd7",
+      "effectSummary": "Spray spectral cards in a 15-foot cone. Creatures there make Dexterity saves, taking 2d10 force damage and becoming blinded until the end of their next turn on a failure, or half damage without blindness on a success. Each slot level above 2nd adds 1d10 damage."
+    },
+    "wikidot5e:spell:spray-of-cards-ua": {
+      "sourceDigest": "sha256:37b13031c383f3e7dc6609788d7c4a4942a9962d45816e136b72d8633569d9f2",
+      "effectSummary": "Choose one effect in a 15-foot cone. Blinding Cards: each creature makes a Wisdom save or is blinded until the end of its next turn. Cutting Cards: each creature makes a Dexterity save, taking 2d10 force damage on a failure or half on a success. With a slot of 4th level or higher, Cutting Cards gains 1d10 damage for every two slot levels above 2nd."
+    },
+    "wikidot5e:spell:staggering-smite": {
+      "sourceDigest": "sha256:2697b2212a6675c2dc9c9441f120b546a296ae9001e3aa646757a16595c792b3",
+      "effectSummary": "The next melee weapon hit you make before the spell ends deals an extra 4d6 psychic damage. The target then makes a Wisdom save; on a failure it has disadvantage on attack rolls and ability checks and cannot take reactions until the end of its next turn."
+    },
+    "wikidot5e:spell:steel-wind-strike": {
+      "sourceDigest": "sha256:5afb143f99d61e41f8c173ecc3364c417fb2f7f060651c11eeddb8d670dd3dae",
+      "effectSummary": "Choose up to five visible creatures within 30 feet. Make a separate melee spell attack against each; a hit deals 6d10 force damage. After the attacks, you may teleport to an unoccupied space you can see within 5 feet of one of the chosen targets, whether or not you hit it."
+    },
+    "wikidot5e:spell:stinking-cloud": {
+      "sourceDigest": "sha256:92a244bc1cf1cb9396fee9746ff6de57023aef470752d201c85a37fa07da6a55",
+      "effectSummary": "Create a heavily obscuring 20-foot-radius sphere of nauseating gas within 90 feet for up to 1 minute. A creature completely inside at the start of its turn makes a Constitution save against poison; on a failure it spends its action that turn retching and reeling. Creatures that do not need to breathe or are immune to poison automatically succeed. A moderate wind disperses the cloud after 4 rounds and a strong wind after 1 round."
+    },
+    "wikidot5e:spell:stone-shape": {
+      "sourceDigest": "sha256:ecca9c6c70fbfbaf2a03a1f7f64fcbc28fcf112bf4768b12c9dd542be2eaac1c",
+      "effectSummary": "Touch a Medium-or-smaller stone object or a section of stone no more than 5 feet in any dimension and reshape it as desired. You can make objects, small passages through walls under 5 feet thick, or reshape doors and frames. A created object can include up to two hinges and a latch, but finer mechanical detail is not possible."
+    },
+    "wikidot5e:spell:storm-of-vengeance": {
+      "sourceDigest": "sha256:0d2e0cda5cea0bfd156e73d74c61c8c35ecd7c3163d49481d086696c43f16780",
+      "effectSummary": "Create a 360-foot-radius storm cloud centered at a visible point, affecting creatures no more than 5,000 feet below it for up to 1 minute. On appearance, creatures beneath it make Constitution saves, taking 2d6 thunder damage and becoming deafened for 5 minutes on a failure. Each maintained round adds a new effect: round 2, every creature and object under it takes 1d6 acid; round 3, choose six distinct creatures or objects for lightning bolts, each creature making a Dexterity save for 10d6 lightning, half on success; round 4, every creature under it takes 2d6 bludgeoning; rounds 5–10, the area is difficult terrain and heavily obscured, every creature there takes 1d6 cold each round, ranged weapon attacks are impossible, the weather severely distracts concentration, and 20–50 mph winds automatically disperse mundane or magical fog, mist, and similar phenomena."
+    },
+    "wikidot5e:spell:storm-sphere": {
+      "sourceDigest": "sha256:497ece23ad36050e7e501d061868d78aa175f878e105d56ed5b32507a4acb21a",
+      "effectSummary": "Create a 20-foot-radius sphere of whirling air within 150 feet for up to 1 minute; its space is difficult terrain. Creatures in it when it appears or ending a turn there make Strength saves or take 2d6 bludgeoning damage. As a bonus action each turn, make a ranged spell attack from the sphere's center against one creature within 60 feet of the center, with advantage if the target is inside the sphere; a hit deals 4d6 lightning damage. Creatures within 30 feet of the sphere have disadvantage on Wisdom (Perception) checks to listen. Each slot level above 4th adds 1d6 to both damage effects."
+    },
+    "wikidot5e:spell:suggestion": {
+      "sourceDigest": "sha256:bc4327103a95773969252dfdb95e73ec392c60936835a0cd0301b17f70476cdc",
+      "effectSummary": "Give a reasonable sentence-or-two course of action to one visible creature within 30 feet that can hear and understand you; creatures immune to charm are unaffected. The target makes a Wisdom save or follows the suggestion for up to 8 hours, ending early when the task is completed or if you or your companions damage it. You may set a condition that triggers the activity later during the duration. An obviously harmful suggestion ends the spell rather than compelling the act."
+    },
+    "wikidot5e:spell:summon-aberration": {
+      "sourceDigest": "sha256:33a8f0f5e9887ea3de5dde720ebd5acf7f5feee67498ab32b82fac46609844c4",
+      "effectSummary": "Summon a Medium aberrant spirit in a visible unoccupied space within 90 feet for up to 1 hour, choosing Beholderkin, Slaad, or Star Spawn. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 40 + 10 per level above 4th; speed 30 ft., plus 30-foot hovering flight for Beholderkin; Str 16, Dex 10, Con 15, Int 16, Wis 10, Cha 6; immune to psychic; darkvision 60 ft.; understands your languages. Slaad regenerates 5 HP at turn start while above 0 and its claw hit is 1d10 + 3 + spell level slashing and blocks target healing until its next turn. Star Spawn has a 5-foot Whispering Aura forcing Wisdom saves at its turn start for 2d6 psychic and a Psychic Slam for 1d8 + 3 + spell level psychic. Beholderkin has a 150-foot Eye Ray for 1d8 + 3 + spell level psychic. It makes a number of attacks equal to half the spell level rounded down. Higher-level slots scale spell-level statistics."
+    }
+  }
+}
