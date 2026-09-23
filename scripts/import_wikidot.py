@@ -390,11 +390,82 @@ def discover_items(page: Page):
     return list(out.values())
 
 
+def _bounded_full_page_lines(page, entry_name=""):
+    """Return the entry slice from full document lines, excluding site shell/footer."""
+    lines=page.lines
+    expected=identity_key(entry_name)
+    start=0
+    if expected:
+        matches=[
+            i for i,line in enumerate(lines)
+            if identity_key(line)==expected or identity_key(line).startswith(expected)
+        ]
+        if matches:
+            start=matches[-1]
+    end=len(lines)
+    footer_prefixes=(
+        "click here to edit contents of this page",
+        "click here to toggle editing",
+        "append content without editing",
+        "check out how this page has evolved",
+        "if you want to discuss contents of this page",
+        "view and manage file attachments",
+        "a few useful tools to manage this site",
+    )
+    for i,line in enumerate(lines[start+1:],start+1):
+        if clean(line).casefold().startswith(footer_prefixes):
+            end=i
+            break
+    return lines[start:end]
+
+
+def _has_substantive_rule_line(lines, entry_name=""):
+    expected=identity_key(entry_name)
+    start=0
+    for i,line in enumerate(lines):
+        candidate=identity_key(line)
+        if expected and (candidate==expected or candidate.startswith(expected)):
+            start=i+1
+            break
+    ignored_prefixes=(
+        "source:", "souce:", "casting time", "range", "components", "duration",
+        "spell lists", "prerequisite", "prerequisites", "create account",
+        "toggle navigation", "about", "membership", "help docs", "user guide",
+        "first time user", "quick reference", "creating pages", "editing pages",
+        "navigation bars", "using modules", "templates", "css themes",
+        "site manager", "edit top bar", "edit side bar", "css manager",
+        "recent changes", "list all pages", "menu", "tags", "page revision",
+    )
+    for line in lines[start:]:
+        value=clean(line)
+        low=value.casefold()
+        if not value or low==clean(entry_name).casefold():
+            continue
+        if low.startswith(ignored_prefixes) or site_boilerplate(value):
+            continue
+        if len(value)>=55:
+            return True
+    return False
+
+
+def rule_lines(page, entry_name=""):
+    """Prefer #page-content, but recover when Wikidot closes that div before rule prose."""
+    content=page.content_lines
+    if content is None:
+        return _bounded_full_page_lines(page,entry_name)
+    if _has_substantive_rule_line(content,entry_name):
+        return content
+    full=_bounded_full_page_lines(page,entry_name)
+    if _has_substantive_rule_line(full,entry_name):
+        return full
+    return content
+
+
 def has_rule_prose(page, entry_name=""):
     """Check that substantive gameplay text exists without persisting that text."""
     start=0
     expected=identity_key(entry_name)
-    lines=page.content_lines if page.content_lines is not None else page.lines
+    lines=rule_lines(page,entry_name)
     for i,line in enumerate(lines):
         candidate=identity_key(line)
         if expected and (candidate==expected or candidate.startswith(expected)):
@@ -437,7 +508,7 @@ def rule_evidence(page, entry_name="", skip_values=()):
     """Return digest-only completeness evidence; source prose is not persisted."""
     expected=identity_key(entry_name)
     start=0
-    lines=page.content_lines if page.content_lines is not None else page.lines
+    lines=rule_lines(page,entry_name)
     for i,line in enumerate(lines):
         candidate=identity_key(line)
         if expected and (candidate==expected or candidate.startswith(expected)):
@@ -505,7 +576,7 @@ def concise_rule_effect(page, entry_name="", skip_values=()):
     """A short line is complete only when there is no other unrepresented rule text."""
     expected=identity_key(entry_name)
     start=0
-    lines=page.content_lines if page.content_lines is not None else page.lines
+    lines=rule_lines(page,entry_name)
     for i,line in enumerate(lines):
         candidate=identity_key(line)
         if expected and (candidate==expected or candidate.startswith(expected)):
