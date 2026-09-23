@@ -1,6 +1,6 @@
 {
   "category": "spells",
   "expectedTotal": 574,
-  "checkpoint": "full-evidence-digest-refresh",
-  "nonce": "2026-09-23-full-evidence-spells"
+  "checkpoint": "anchored-body-refresh",
+  "nonce": "2026-09-23-anchored-spells"
 }
