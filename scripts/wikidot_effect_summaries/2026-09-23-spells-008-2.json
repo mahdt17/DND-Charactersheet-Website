@@ -35,11 +35,11 @@
       "sourceDigest": "sha256:ac6bc9c6e97fbd6654625f8b243c162806438782a3084a298c978d8fb83f3e55",
       "effectSummary": "Touch one creature. If it is poisoned, neutralize one poison affecting it—one you know is present, or a random one if several exist. For 1 hour, the target also has advantage on saves against being poisoned and resistance to poison damage."
     },
-    "wikidot5e:spell:psionic-blast-ua": {
+    "wikidot5e:spell:psionic-blast": {
       "sourceDigest": "sha256:3943531cca0a99300e7fa5c5fb9959b2c9ed0b55c25b4dc98f152d10d7befc5b",
       "effectSummary": "Creatures in a 30-foot cone make Dexterity saves. On a failure, a target takes 5d8 force damage, is pushed 20 feet directly away from you, and falls prone; on a success it takes half damage with no push or prone. Each slot level above 3rd adds 1d8 damage."
     },
-    "wikidot5e:spell:psychic-crush-ua": {
+    "wikidot5e:spell:psychic-crush": {
       "sourceDigest": "sha256:6850df8e5b2a47c6bd311501adb100ea4007f7ea5b87488bab90dc22b58e245d",
       "effectSummary": "One visible creature within 60 feet makes an Intelligence save. On a failure it takes 12d6 psychic damage and is stunned for up to 1 minute; on a success it takes half damage and is not stunned. A stunned target repeats the Intelligence save at the end of each of its turns, ending the stun on a success."
     }
