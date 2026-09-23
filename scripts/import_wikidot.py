@@ -390,18 +390,24 @@ def discover_items(page: Page):
     return list(out.values())
 
 
+def _entry_start_index(lines, entry_name=""):
+    expected=identity_key(entry_name)
+    if not expected:
+        return 0
+    matches=[
+        i for i,line in enumerate(lines)
+        if identity_key(line)==expected or identity_key(line).startswith(expected)
+    ]
+    for i in matches:
+        if any(re.match(r"^Sou(?:r)?ce\s*:",clean(v),re.I) for v in lines[i+1:i+8]):
+            return i
+    return matches[0] if matches else 0
+
+
 def _bounded_full_page_lines(page, entry_name=""):
     """Return the entry slice from full document lines, excluding site shell/footer."""
     lines=page.lines
-    expected=identity_key(entry_name)
-    start=0
-    if expected:
-        matches=[
-            i for i,line in enumerate(lines)
-            if identity_key(line)==expected or identity_key(line).startswith(expected)
-        ]
-        if matches:
-            start=matches[-1]
+    start=_entry_start_index(lines,entry_name)
     end=len(lines)
     footer_prefixes=(
         "click here to edit contents of this page",
@@ -501,7 +507,14 @@ def heading_present(page, heading):
 
 
 def site_boilerplate(value):
-    return bool(re.search(r"logged in to clone|click here to|wikidot\.com|view wiki source|manage (?:this site|file attachments)|notify administrators|create account|sign in|check out how this page",str(value),re.I))
+    return bool(re.search(
+        r"logged in to clone|click here to|wikidot\.com|view wiki source|"
+        r"manage (?:this site|file attachments)|notify administrators|create account|sign in|"
+        r"check out how this page|append content|a few useful tools|see pages that link|"
+        r"change the name \(also url address|view/set parent page|something does not work as expected|"
+        r"general wikidot|terms of service|privacy policy",
+        str(value),re.I
+    ))
 
 
 def rule_evidence(page, entry_name="", skip_values=()):
@@ -748,14 +761,7 @@ def parse_item_detail(row,page):
     # or a family rule such as "rarity by figurine".
     title_key=identity_key(row.get("name",""))
     title_text=clean(row.get("name","")).casefold()
-    start=0
-    exact=[i for i,line in enumerate(page.lines) if clean(line).casefold()==title_text]
-    if exact:
-        start=exact[-1]+1
-    else:
-        matches=[i for i,line in enumerate(page.lines) if identity_key(line)==title_key]
-        if matches:
-            start=matches[-1]+1
+    start=_entry_start_index(page.lines,row.get("name",""))+1
 
     descriptor=""
     type_words=("wondrous item","weapon","armor","potion","ring","rod","staff","wand","scroll","ammunition")
