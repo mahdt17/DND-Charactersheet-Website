@@ -35,11 +35,11 @@
       "sourceDigest": "sha256:f28d1662662aa8bf7f8c99185b315ab85f491bf6d36f06799190751b64eb8077",
       "effectSummary": "For 24 hours, make a willing creature or unattended object give false information to divination and detection magic. Choose either or both effects. False Aura can make a nonmagical object seem magical, a magical object seem nonmagical, or make its aura appear to belong to a chosen school; you can make this false aura apparent to anyone handling the object. Mask makes the target count as a chosen creature type or alignment to spells and magical effects that detect or react to those traits. Recasting with the same effect on the same target every day for 30 days makes that effect last until dispelled."
     },
-    "wikidot5e:spell:on-off-ua": {
+    "wikidot5e:spell:on-off": {
       "sourceDigest": "sha256:60404ab3c92351ccf39602813b89bca974e53e2f25b357b9e3ba6b50463e1c6e",
       "effectSummary": "Instantly activate or deactivate one electronic device within 60 feet if it has a clearly defined externally accessible on/off function. Devices that require a software-based startup or shutdown sequence are unaffected."
     },
-    "wikidot5e:spell:otherworldly-form-ua": {
+    "wikidot5e:spell:otherworldly-form": {
       "sourceDigest": "sha256:2c6c1969a5ef4d01e7cb0a9e1e50c78b420a31afa6a00bea900d2b5b14b74d1f",
       "effectSummary": "Transform yourself for up to 1 minute using power from either the Lower or Upper Planes. Lower Planes grants immunity to fire and poison damage and the poisoned condition; Upper Planes grants immunity to radiant and necrotic damage and the charmed condition. Either choice also gives a 40-foot flying speed, +2 AC, makes your weapon attacks magical, lets you use your spellcasting ability modifier instead of Strength or Dexterity for weapon attack and damage rolls, and lets you attack twice when taking the Attack action unless another feature already gives you extra attacks."
     }
