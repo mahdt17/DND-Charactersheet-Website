@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-007-9",
+  "records": {
+    "wikidot5e:wondrous-items:witherbloom-primer": {
+      "sourceDigest": "sha256:346636fef07737138839df3a4bd506966a449e4dba1b49d647efe4cdcf98ae10",
+      "effectSummary": "The primer has 3 charges and regains 1d3 daily at dawn. While holding it, after rolling Intelligence (Nature) or Wisdom (Survival), spend 1 charge to add 1d4. If studied at the end of a long rest, choose one 1st-level druid or wizard spell; before your next long rest, while holding the primer, cast it once without a slot using Intelligence, Wisdom, or Charisma chosen for that casting."
+    },
+    "wikidot5e:wondrous-items:woodcutter-s-axe": {
+      "sourceDigest": "sha256:823cb9af212e4491f184f31e5e724566ec8cbdfddd522bf2682a0ba91085df0e",
+      "effectSummary": "This +1 magic greataxe deals +2d6 slashing when it hits a plant, whether an ordinary plant or Plant creature, or an unattended wooden object."
+    },
+    "wikidot5e:wondrous-items:wraps-of-unarmed-prowess": {
+      "sourceDigest": "sha256:8b543c6088ec999b04579d12474b61220ce306a0d51f48458ca16e1a2ea13b62",
+      "effectSummary": "While worn, unarmed strikes count as magical for overcoming resistance/immunity and gain a rarity-based attack/damage bonus: uncommon +1, rare +2, very rare +3."
+    },
+    "wikidot5e:wondrous-items:wreath-of-the-prism": {
+      "sourceDigest": "sha256:72d2140757243455ac44bb4f4c212d2abe908c43f14684d2efd3f6d65366ef22",
+      "effectSummary": "Evolving legendary wreath. Dormant: darkvision 60 feet or +60 feet to existing darkvision. When you hit or grapple a beast, dragon, or monstrosity CR 5 or lower, you may cast dominate monster on it at DC 13; success grants 24-hour immunity, failure produces a visible golden collar/crown while charmed. You can have only one creature charmed this way; charming another immediately ends the first. Awakened: works on CR 10 or lower and save DC becomes 15. Exalted: works on CR 15 or lower and save DC becomes 17."
+    },
+    "wikidot5e:wondrous-items:wyrmreaver-gauntlets": {
+      "sourceDigest": "sha256:d0a201e46a5f45f90845a5d2df7bef7cf145d57b8be412efbaee05a33b0a3ce8",
+      "effectSummary": "While worn, unarmed hits deal +1d6 force. After each long rest choose acid, cold, fire, lightning, or poison resistance until next long rest. Once per dawn as a bonus action, invoke spectral fists for 1 minute or until incapacitated; during this time unarmed strikes on your turn have 30-foot reach, and a creature hit by your unarmed opportunity attack makes Strength save DC 8 + proficiency bonus + Strength modifier or falls prone."
+    },
+    "wikidot5e:wondrous-items:wyrmskull-throne": {
+      "sourceDigest": "sha256:697cda34cde50666a12b97a08860136505290280bbce0eeb6895223e0109b268",
+      "effectSummary": "Artifact throne usable only by a creature seated on it, attuned to a Ruling Scepter, and possessing that scepter. Anyone else sitting on it is paralyzed and encased in an untouchable, immovable force field; touching a Ruling Scepter to the field dispels it, but paralysis persists until separated from the throne. It has 9 charges, all restored daily at dawn. For a qualified user: the throne flies 30 feet and hovers without charges; throne and rider move through earth/stone without disturbing it; action 1 charge casts 9th-level lightning bolt, DC 19, 14d6 lightning; action 2 charges casts globe of invulnerability centered on throne/rider; action 3 charges creates a spectral ancient blue dragon around throne/rider for 1 minute, which at each rider turn end makes one bite and two claw attacks using an ancient blue dragon's attack bonus, reach, and damage against chosen targets. To destroy it, break at least five Ruling Scepters simultaneously on it; destruction explodes in 30-foot radius, DC 21 Dexterity, 20d6 slashing or half."
+    },
+    "wikidot5e:wondrous-items:yester-hill-axe": {
+      "sourceDigest": "sha256:ed3e6e92a272215d9dc23671d6f46cbd6e48cf106980bf849c4b1a4375eb6466",
+      "effectSummary": "This half-weight battleaxe deals +1d8 slashing when it hits an ordinary plant or Plant creature. When wielded by a non-good creature, thorns sprout on each attack and deal the wielder 1 magical piercing after the attack."
+    },
+    "wikidot5e:wondrous-items:ythryn-mythallar": {
+      "sourceDigest": "sha256:e69e8a0ca126764cd60d8d966bacba8b2b504abc64bcf750caaab0ddf64f3d69",
+      "effectSummary": "Legendary 50-foot-diameter mythallar, bright light 300 feet and dim another 300. Up to eight spellcasters can attune by short-rest meditation within 30 feet; every use requires unanimous permission of all attuned creatures, who all sense its use. Same-plane attuned creature may use an action to fly the mythallar 30 feet in any direction; all matter within 500 feet moves with it and hovers when stationary. As an action within 30 feet, fully recharge one held magic item's expended charges/uses; that item cannot be recharged this way again until it naturally regains some charges/uses. Cast control weather without components or outdoors requirement, radius 50 miles, but remain within 30 feet throughout the casting time or it fails. A creature touching the globe makes DC 22 Constitution, with undead at disadvantage, taking 20d10+70 radiant on failure or half on success. Any touching object other than an artifact or the mythallar's cradle is instantly disintegrated."
+    },
+    "wikidot5e:wondrous-items:zephyr-armor": {
+      "sourceDigest": "sha256:ed7edb9f6c428da14c09bde18aa154d6bb3c66f6e4e84f55a89b943ecd501da5",
+      "effectSummary": "While wearing this light armor, gain advantage on Dexterity (Acrobatics) checks and Dexterity saving throws. Once per dawn as an action, invoke its wind rune to cast wind wall at save DC 15."
+    }
+  }
+}
