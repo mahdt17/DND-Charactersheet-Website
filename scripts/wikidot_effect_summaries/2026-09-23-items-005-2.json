@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-2",
+  "records": {
+    "wikidot5e:wondrous-items:pipes-of-the-sewers": {
+      "sourceDigest": "sha256:51bd843008228a734e5e9ddbe306b60f6e7c2c6b5411fd39c2cd244c18dccafa",
+      "effectSummary": "Requires wind-instrument proficiency. While attuned, ordinary and giant rats are indifferent unless threatened or harmed. The pipes have 3 charges and regain 1d3 daily at dawn. While playing as an action, use a bonus action and 1–3 charges to call one swarm of rats per charge from within half a mile if enough rats are present; otherwise that charge is wasted. Called swarms approach by the shortest route but are uncontrolled. While you continue playing each round, when an uncontrolled rat swarm comes within 30 feet contest your Charisma against its Wisdom. On a loss, it behaves normally and is immune to your pipes for 24 hours. On a win, it becomes friendly to you and companions and obeys your commands while it can hear your continuous playing; if it starts a turn unable to hear the music, control ends and it is immune for 24 hours."
+    },
+    "wikidot5e:wondrous-items:pixie-dust": {
+      "sourceDigest": "sha256:342bbcfcd0f3bd8255df6b63451c5b46b36832fe063bce9f469ff5d57d6e1782",
+      "effectSummary": "One-use packet. As an action, sprinkle it on yourself or a visible creature within 5 feet. For 1 minute the recipient gains flying speed 30 feet and hover. If airborne when the effect ends, it descends safely to the ground without damage and lands on its feet."
+    },
+    "wikidot5e:wondrous-items:planecallers-codex": {
+      "sourceDigest": "sha256:6422f597c90c5030a155b903aefcc3a91c32777eb35a58d55adf6c1c5b386adf",
+      "effectSummary": "Wizard spellbook/focus containing banishment, find familiar, gate, magic circle, planar binding, and summon elemental. It has 3 charges and regains 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with another Conjuration spell in the book. When you cast a Conjuration spell that summons or creates one creature, spend 1 charge to give that creature advantage on attack rolls for 1 minute."
+    },
+    "wikidot5e:wondrous-items:plate-armor-of-etherealness": {
+      "sourceDigest": "sha256:aa03dd7cb60d6c66eb7d0859551645899e31c9a8094b0ee254d8214d4b552f44",
+      "effectSummary": "Once per dawn while wearing the plate, use an action and command word to gain etherealness for 10 minutes, until you remove the armor, or until you use an action to repeat the command word."
+    },
+    "wikidot5e:wondrous-items:plate-of-knights-fellowship": {
+      "sourceDigest": "sha256:471a53ce82b8415e9735b9527c958328951d0422d2fb972169f9c5afec40d1f0",
+      "effectSummary": "The armor never tarnishes. Once per dawn while wearing it, use a bonus action to summon a warrior spirit in an open space within 30 feet using the knight stat block. It is allied to you and companions, shares your initiative and acts immediately after you, obeys no-action commands, and otherwise Dodges and avoids danger. It disappears after 1 minute or at 0 HP."
+    },
+    "wikidot5e:wondrous-items:platinum-scarf": {
+      "sourceDigest": "sha256:cc8900d199b86485212b93c795a33f0f2b50e0611bef1b8a26586ed9c90966b9",
+      "effectSummary": "Up to three scales per dawn can be pulled from the scarf as an action and activated with a command word; missing scales regrow at dawn. Breath of Life: the scale vanishes and you or a touched creature regains 10d4 HP. Platinum Shield: for 1 hour or until dismissed freely, becomes a +1 shield whose wielder is immune to radiant. Radiant Hammer: for 1 hour or until dismissed freely, becomes a magic light hammer dealing 2d4 radiant instead of normal bludgeoning and +2d4 radiant against chromatic dragons. A removed scale not activated disappears after 1 minute."
+    },
+    "wikidot5e:wondrous-items:pole-of-collapsing": {
+      "sourceDigest": "sha256:4f4caea5e089aa3ab69760d4d536def3eb53306037e847db96619dc3b313dbbc",
+      "effectSummary": "As an action while holding the 10-foot pole, speak one command word to collapse it to a 1-foot rod without changing weight. As an action speak a different command to extend it back toward 10 feet, stopping at the maximum length allowed by surrounding space."
+    },
+    "wikidot5e:wondrous-items:polymorph-blade": {
+      "sourceDigest": "sha256:35b18aa9548b014bdd163715f42fd618e73231fcf04a496b93a8b2dbacd195e2",
+      "effectSummary": "On an attack-roll 20 with this magic sword, the target also makes DC 15 Wisdom; on failure it is polymorphed according to d20: 1 tyrannosaurus, 2 giant ape, 3 elephant, 4 giant scorpion, 5 rhinoceros, 6 polar bear, 7 giant toad, 8 giant eagle, 9 black bear, 10 crocodile, 11 wolf, 12 horse, 13 ox, 14 giant frog, 15 poisonous snake, 16 hawk, 17 octopus, 18 cat, 19 rat, 20 rabbit. Creatures immune to the weapon's damage, shapechangers, and creatures with legendary actions are immune. Curse: attunement makes you unwilling to part with the sword until remove curse or similar magic. Whenever you roll a natural 1 attacking with it, you are polymorphed for 1 hour into a random form from the same table."
+    },
+    "wikidot5e:wondrous-items:portable-hole": {
+      "sourceDigest": "sha256:3afe143351f826687ea8d74fe003db6a8fd62c37e8cc0a8499b568220518d9cf",
+      "effectSummary": "As an action, unfold the 6-foot-diameter cloth on a solid surface to open a 10-foot-deep extradimensional cylinder; it cannot create a passage through the supporting surface. Creatures can climb out while open. As an action, fold it to close it with contents inside; it remains almost weightless. A creature trapped in a folded hole can use an action and DC 10 Strength to escape within 5 feet of the hole or its carrier. Breathing creatures have 10 minutes of air, then suffocate. Placing it inside a bag of holding, Heward's handy haversack, or similar extradimensional space destroys both and opens a one-way Astral gate that pulls creatures within 10 feet to random Astral locations before closing."
+    },
+    "wikidot5e:wondrous-items:pot-of-awakening": {
+      "sourceDigest": "sha256:d9eb13287aad1b0897e15e22ee9ea2475d35dc29476cff165e761bbc0933b95a",
+      "effectSummary": "Plant an ordinary shrub in the pot and let it grow for 30 days. At the end, it becomes a friendly awakened shrub, its roots destroying the pot. Without your commands, the awakened shrub does nothing."
+    }
+  }
+}
