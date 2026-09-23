@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-5",
+  "records": {
+    "wikidot5e:wondrous-items:silken-spite": {
+      "sourceDigest": "sha256:5f85ff1f982da7fdb5af3174927319d8df36d533e311e2f7f763acded8f24303",
+      "effectSummary": "Sentient chaotic-evil artifact rapier housing murderous yochlol Sinnafex; Intelligence 13, Wisdom 15, Charisma 15, hearing/darkvision 120 feet, telepathic, speaks/reads/understands Abyssal, Common, Elvish, and Undercommon. Dormant: learn Abyssal, Elvish, Undercommon; gain darkvision 60 feet or extend existing darkvision by 60; +1 attack/damage; as an action coat the blade in poison for 1 minute or until a hit—target makes DC 13 Constitution or is poisoned 1 hour, and if it fails by 5+ is also unconscious until damaged or awakened by another creature's action; while carrying it, gain climbing speed equal to walking, move on walls/ceilings hands-free, cannot be caught in webs, and treat webs as difficult terrain. Awakened: weapon bonus +2, poison DC 15, and once per dawn for each spell cast cloudkill, darkness, levitate, or web at save DC 15. Exalted: weapon bonus +3; poison/spell DC 17; magical darkness does not impede your darkvision; once per dawn as a bonus action while holding it in dim light/darkness, teleport up to 60 feet to a visible open space also in dim light/darkness."
+    },
+    "wikidot5e:wondrous-items:silverquill-primer": {
+      "sourceDigest": "sha256:0e4c4b39095d52eaa57303f7327b27de3a2f0fa2a516ddc355b281978be05391",
+      "effectSummary": "The primer has 3 charges and regains 1d3 daily at dawn. While holding it, after rolling Charisma (Intimidation) or Charisma (Persuasion), spend 1 charge to add 1d4. If studied at the end of a long rest, choose one 1st-level bard or cleric spell; before your next long rest, while holding the primer, cast it once without a slot using Intelligence, Wisdom, or Charisma chosen for that casting."
+    },
+    "wikidot5e:wondrous-items:siren-song-lyre": {
+      "sourceDigest": "sha256:8cc8c09926c14d567bf09d2dde49039eddf2e551dbcee3982878886faf15ae6c",
+      "effectSummary": "As an action while holding the lyre, cast animal friendship, charm person, enthrall, or suggestion at save DC 13. Each of those spells can be cast from the lyre once per dawn."
+    },
+    "wikidot5e:wondrous-items:skull-helm": {
+      "sourceDigest": "sha256:bad4c89716ede7d1076044a661e26dafbf2dace5b7ebfcf9b0c5385d41f451ac",
+      "effectSummary": "While wearing the helm, gain resistance to cold, poison, and necrotic damage. Once per dawn, cast spirit of death from it without material components."
+    },
+    "wikidot5e:wondrous-items:skyblinder-staff": {
+      "sourceDigest": "sha256:170aa599949de5a4cac30b3f4b2ba5bdaa742d5bae602cf4ed7249aa9330e6b7",
+      "effectSummary": "This magic quarterstaff grants +1 to its attack and damage rolls and +1 to spell attack rolls while held. When a visible flying creature within 30 feet makes an attack against you, use your reaction to flare the staff; that attack has disadvantage and the attacker makes DC 15 Constitution or is blinded until the start of its next turn."
+    },
+    "wikidot5e:wondrous-items:sling-bullets-of-althemone": {
+      "sourceDigest": "sha256:629fe17311e6a565988691c693d3cce4160aeace5fee5e2789e09d38ee70df6f",
+      "effectSummary": "A pouch contains 1d4+4 magic sling bullets, each granting +2 attack/damage and independently rolling d4 for its property. On a miss the bullet teleports back to the pouch; after a hit it loses its magic. 1 Banishment: damaged target makes DC 15 Charisma or is banished as by banishment. 2 Fulguration: hit deals +2d8 lightning, and other creatures within 10 feet make DC 15 Constitution or take 1d8 thunder. 3 Stunning: hit deals +1d10 force and stuns the target until the end of your next turn. 4 Tracking: damaged target is marked by a glowing rune for 24 hours, during which you always know its direction."
+    },
+    "wikidot5e:wondrous-items:slippers-of-spider-climbing": {
+      "sourceDigest": "sha256:12116d232be06b5b63ffceba93bf5a02a9043e3f7a52695d6d5dbb661f8ae1c4",
+      "effectSummary": "While worn, gain a climbing speed equal to walking speed and move up, down, and across vertical surfaces and upside down along ceilings with hands free. This special movement does not work on slippery surfaces such as ice or oil."
+    },
+    "wikidot5e:wondrous-items:smokepowder": {
+      "sourceDigest": "sha256:2ca24449260231029a3c3a485b18a76a119945df5ab94b5d1e19c54d74a164c9",
+      "effectSummary": "A magical firearm explosive stored in waterproof packets or airtight kegs; one packet supplies five shots and one keg supplies 500 shots. If ignited, dropped, or handled roughly it explodes in a 20-foot radius: a packet deals 1d6 fire and a keg 9d6 fire, with DC 12 Dexterity for half. Dispel magic permanently renders smokepowder inert."
+    },
+    "wikidot5e:wondrous-items:snicker-snack": {
+      "sourceDigest": "sha256:fc3008ff569512ee55f1fee9a5b2dfd1e4921d31d87866cedbdebca1431e6acb",
+      "effectSummary": "Sentient chaotic-good legendary +3 vorpal greatsword for a non-evil creature; its attacks ignore slashing resistance. On an attack-roll 20 against a creature with at least one head, sever one head; the creature dies if it cannot survive without it. Creatures immune to slashing, lacking/without need of a head, with legendary actions, or judged too large instead take +6d8 slashing. While attuned, gain greatsword proficiency and may use Charisma instead of Strength for its attack/damage rolls. Sentience: Intelligence 9, Wisdom 14, Charisma 18, hearing/darkvision 120 feet, speaks/reads/understands Common, seeks destruction of evil dragons. If you miss with it three attacks in a row, it ends attunement; after each long rest you may contest Charisma against the sword to restore attunement, and no other method restores it."
+    },
+    "wikidot5e:wondrous-items:soul-coin": {
+      "sourceDigest": "sha256:04fdc4e42ad6e423300f7fc7d14580d9ff6d3698efd64f1e8900d399f1fb2db2",
+      "effectSummary": "Each infernal coin contains one bound soul and has 3 charges. Evil creatures may carry any number within carrying capacity; a non-evil creature may carry up to its Constitution modifier without penalty, but carrying more gives disadvantage on attacks, ability checks, and saves. As an action while carrying one, spend 1 charge to Drain Life and gain 1d10 temporary HP, or Query the soul telepathically for a truthful brief answer based only on what it knew in life. Remove curse or another curse-removing spell frees the soul, as does spending the last charge, destroying the coin. The coin can also be destroyed: AC 19, HP equal to remaining charges, immune to all damage except hellfire weapons or an infernal war machine furnace. A freed soul travels to its god's realm or an alignment-linked plane; lawful-evil souls typically emerge from the Styx as lemures."
+    }
+  }
+}
