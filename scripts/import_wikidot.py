@@ -216,11 +216,11 @@ def _cache_paths(url):
     return root/f"{key}.html",root/f"{key}.json"
 
 
-def fetch(url: str, delay: float = 0.25) -> str:
+def fetch(url: str, delay: float = 0.25, force_refresh: bool = False) -> str:
     if urlparse(url).netloc != urlparse(BASE).netloc:
         raise ValueError("Refusing external URL: " + url)
     html_path,meta_path=_cache_paths(url)
-    if html_path and html_path.exists() and meta_path.exists():
+    if not force_refresh and html_path and html_path.exists() and meta_path.exists():
         text=html_path.read_text(encoding="utf-8")
         meta=json.loads(meta_path.read_text(encoding="utf-8"))
         digest="sha256:"+hashlib.sha256(text.encode("utf-8")).hexdigest()
@@ -257,9 +257,9 @@ def fetch(url: str, delay: float = 0.25) -> str:
             time.sleep(3*(attempt+1))
 
 
-def parse(url: str, delay: float) -> Page:
+def parse(url: str, delay: float, force_refresh: bool = False) -> Page:
     p=Page()
-    p.feed(fetch(url,delay))
+    p.feed(fetch(url,delay,force_refresh=force_refresh))
     p.close()
     p.sourceFetch=SOURCE_FETCH_META.get(url,{})
     return p
@@ -864,6 +864,22 @@ def candidate_summary(row,result):
     return f"{name} is a D&D 5e reference entry. Source: {source}."
 
 
+def parse_detail_with_retry(row, delay, attempts=3):
+    """Retry only transient pinned-effect digest mismatches; persistent source changes still fail."""
+    pinned=(load_effect_summaries().get(row.get("id")) or {})
+    last_page=last_result=None
+    for attempt in range(max(1,attempts)):
+        page=parse(row["url"],delay,force_refresh=attempt>0)
+        result=DETAIL_PARSERS[row["category"]](row,page)
+        last_page,last_result=page,result
+        if not pinned or not result.get("effectNeedsSummary"):
+            return page,result
+        evidence=result.get("sourceEvidence") or {}
+        if evidence.get("sourceDigest")==pinned.get("sourceDigest"):
+            return page,result
+    return last_page,last_result
+
+
 def enrich(rows,limit,delay):
     out=[]
     attempted=0
@@ -873,8 +889,7 @@ def enrich(rows,limit,delay):
             break
         attempted+=1
         try:
-            page=parse(row["url"],delay)
-            result=DETAIL_PARSERS[row["category"]](row,page)
+            page,result=parse_detail_with_retry(row,delay)
             validate_detail(row,page,result)
             gaps=enrichment_gaps(row,result)
             result["generatedDescription"]=candidate_summary(row,result)
