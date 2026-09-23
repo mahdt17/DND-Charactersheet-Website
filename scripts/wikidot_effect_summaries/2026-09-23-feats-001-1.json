@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-001-1",
+  "records": {
+    "wikidot5e:feat:aberrant-dragonmark": {
+      "sourceDigest": "sha256:37b13acaa2541ce26190b422095ce849481a039e0ef00a55d374a60821cd6f72",
+      "effectSummary": "Increase Constitution by 1, maximum 20. Learn one sorcerer cantrip and one 1st-level sorcerer spell, using Constitution as the spellcasting ability; the 1st-level spell can be cast through the mark once per short or long rest. When you cast that spell through the mark, you may expend and roll one Hit Die: an even result grants temporary HP equal to the roll, while an odd result deals force damage equal to the roll to a random other creature within 30 feet, or to you if none is present. You also gain a random flaw from the feat's d8 flaw table. Optional DM rule at 10th level and later: each level gives a 10% chance to gain a DM-chosen or random Epic Boon; gaining one permanently costs one Hit Die and reduces maximum HP by that die roll plus Constitution modifier, minimum 1, and the reduction cannot be reversed."
+    },
+    "wikidot5e:feat:acrobat": {
+      "sourceDigest": "sha256:d2695df1948946217fbe3912a6ec0ad555ec51c3c4f309ebd546ba5f3edde316",
+      "effectSummary": "Increase Dexterity by 1, maximum 20. Gain Acrobatics proficiency, or expertise if already proficient. As a bonus action, make a DC 15 Dexterity (Acrobatics) check; on a success, difficult terrain costs no extra movement until the end of the current turn."
+    },
+    "wikidot5e:feat:actor": {
+      "sourceDigest": "sha256:15d4bde0686ad949468d9dfc06ce728d042e9300c6d18059945ecf4be7874313",
+      "effectSummary": "Increase Charisma by 1, maximum 20. Gain advantage on Charisma (Deception) and Charisma (Performance) checks made to pass as another person. You can mimic a person's speech or a creature's sounds after hearing them for at least 1 minute; a listener can identify the imitation with a successful Wisdom (Insight) check contested by your Charisma (Deception) check."
+    },
+    "wikidot5e:feat:adept-of-the-black-robes": {
+      "sourceDigest": "sha256:ada32d3d3ccb5dd107d71a64acfe60a4c510a1a016d05af874ae3479ad9431f4",
+      "effectSummary": "Learn one 2nd-level Enchantment or Necromancy spell. You can cast it once without a slot per long rest and may also cast it with appropriate spell slots, using the spellcasting ability chosen for Initiate of High Sorcery. When a visible creature within 60 feet fails a save against a damaging spell you cast, you can expend Hit Dice equal to that spell's level, roll all expended dice, and increase the damage to that creature by the total."
+    },
+    "wikidot5e:feat:adept-of-the-black-robes-ua": {
+      "sourceDigest": "sha256:e23f20aee1ff49ceece9d41a868a9e1044b14822452b1d08f267e5f5cff49550",
+      "effectSummary": "Learn one 2nd-level Evocation or Necromancy spell. You can cast it once without a slot per long rest and may also cast it with appropriate spell slots, using the spellcasting ability chosen for High Sorcery Initiate. When a visible creature within 60 feet fails a save against a spell you cast, you may expend Hit Dice equal to the spell's level; roll half the number expended, rounded up, and increase that creature's damage taken by the total rolled."
+    },
+    "wikidot5e:feat:adept-of-the-red-robes": {
+      "sourceDigest": "sha256:f38878ea61f726cf285eaad0b59055eb02e2a8279cadc84077e0d81a93978ff7",
+      "effectSummary": "Learn one 2nd-level Illusion or Transmutation spell. You can cast it once without a slot per long rest and may also cast it with appropriate spell slots, using the spellcasting ability chosen for Initiate of High Sorcery. When you make an attack roll or ability check and roll 9 or lower on the d20, you may treat the roll as 10. You can do this a number of times equal to your proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:adept-of-the-red-robes-ua": {
+      "sourceDigest": "sha256:47ed59c2cdd37056784dcc927c7a67a9113676726cdaa3d7e7d6d333d931a642",
+      "effectSummary": "Learn one 2nd-level Divination or Transmutation spell. You can cast it once without a slot per long rest and may also cast it with appropriate spell slots, using the spellcasting ability chosen for High Sorcery Initiate. As a reaction when you make an attack roll, ability check, or saving throw and the d20 shows 9 or lower, you may treat it as 10. Uses equal your proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:adept-of-the-white-robes": {
+      "sourceDigest": "sha256:0047160f1b38b4f148ab943b76d4d92ba27b9c1ca7bfc77c939a55b66df7239c",
+      "effectSummary": "Learn one 2nd-level Abjuration or Divination spell. You can cast it once without a slot per long rest and may also cast it with appropriate spell slots, using the spellcasting ability chosen for Initiate of High Sorcery. As a reaction when you or a visible creature within 30 feet takes damage, expend a spell slot and roll a number of d6s equal to the slot level; reduce the damage by the total plus your spellcasting ability modifier."
+    },
+    "wikidot5e:feat:adept-of-the-white-robes-ua": {
+      "sourceDigest": "sha256:9a91af07479c910f6067a2cb49c9e9e7afd97ea77ec1b0066f3c84e213630d92",
+      "effectSummary": "Learn one 2nd-level Abjuration or Conjuration spell. You can cast it once without a slot per long rest and may also cast it with appropriate spell slots, using the spellcasting ability chosen for High Sorcery Initiate. As a reaction when you or a visible creature within 30 feet takes damage, expend a spell slot and roll a number of d4s equal to the slot level; reduce the damage by the total plus your spellcasting ability modifier."
+    },
+    "wikidot5e:feat:agent-of-order": {
+      "sourceDigest": "sha256:7291fe82a95ca8c83328cf4af9d33cc0f2385cd06221bc909416f53c9026d638",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Once per turn when you damage a visible creature within 60 feet, you may deal an extra 1d8 force damage and force a Wisdom save against DC 8 + proficiency bonus + the spellcasting-ability modifier chosen for Scion of the Outer Planes. On a failure, the target is restrained until the start of your next turn. Uses equal your proficiency bonus per long rest."
+    }
+  }
+}
