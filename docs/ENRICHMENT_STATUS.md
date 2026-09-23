@@ -563,3 +563,39 @@ Do **not** use `--write` and do **not** unlock live/catalog writes. Overall rele
 ## Validation status
 
 The current 1,489-review / 82-regression audit head (`6f50ffaa75e59884fdd5a29fe9cf7a4373c3e667`) passed Validate modernization run `35429122461` (#399) end-to-end. Category Enrichment Audit #77 (run `35429119970`) independently confirmed 5,035 / 5,035 source and candidate integrity with `errors: []`; only the intentionally strict final spell output-completeness gate remains failed at 1,820 / 5,035.
+
+## 2026-09-23 Wikidot integrity repair — authoritative release status
+
+This section supersedes older release-readiness and Wikidot-quarantine checkpoints above. Those earlier sections are retained as historical audit records only.
+
+The Wikidot site-shell integrity defect is repaired and promoted:
+
+- 5e spells: **574 / 574 repaired**, **0 remaining**.
+- 5e feats: **199 / 199 repaired**, **0 remaining**.
+- 5e items: **830 / 830 repaired**, **0 remaining**.
+- Total affected Wikidot records: **1,603 / 1,603 repaired**, **0 remaining**.
+- Production contamination expectation: **0 damaged effects**. Site-shell contamination rejection remains covered by fixtures/defensive runtime checks.
+- Canonical catalogs remain static GitHub files under `public/catalogs`; Supabase was not modified.
+
+Fresh repaired-category qualification:
+
+- 5e spells — Category Enrichment Audit run **35923018645**: all sample shards, all 16 source shards, all 16 candidate shards and final output audit passed; **574 / 574**, zero critical gaps.
+- 5e feats — Category Enrichment Audit run **35923305301**: full source/candidate/output audit passed; **199 / 199**, zero critical gaps.
+- 5e items — Category Enrichment Audit run **35923504671**: full source/candidate/output audit passed; **830 / 830**, zero critical gaps.
+
+Global release qualification and promotion:
+
+- Full Enrichment Audit run **35924997579** passed all nine source categories, merged audit and candidate-output gate.
+- Global candidate report: **12,891 / 12,891 passed**, **0 failed**, `releaseReady: true`.
+- Exact audited release artifact: ID **10780021992**, SHA-256 **8e5203350981d6f72f1dc2530c58296593b7f88764b3d69ee1c378e68f27fc8f**.
+- Promote Verified Enrichment Catalog run **35929350447** passed and committed the exact audited catalogs as `6bade2ca8a08d8a8a2e661ed4c15665d9102c0f3`.
+- No automatic merge or deployment was performed. PR #4 remains open and unmerged.
+
+Post-promotion application validation:
+
+- Production integration now requires zero integrity issues in 5e spells, feats and items.
+- Duplicate same-name/same-edition spell identities remain distinct and are disambiguated in the picker by source/catalog identity.
+- Validate Modernization run **35932854074** (#1092) passed on code/test head `6653975597cf29a902658480a5130ca52a45112c`.
+- That run passed unit/content/integration gates, full 3.5 class/feat/spell/item regressions, full 5e item regressions, application build, generic browser tests, edition browser tests, casting/setup browser tests, and catalog/advancement browser tests.
+
+**Current integrity-repair release blockers: none.** Broader product work may continue on this branch, but this 1,603-record Wikidot repair no longer blocks it.
