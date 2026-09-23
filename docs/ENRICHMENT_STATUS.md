@@ -15,12 +15,16 @@ Live/catalog writes: **LOCKED**
 - Validate modernization #1019 (run `35812607084`) passed end-to-end on the content-fix head, including full class/feat/spell/item regressions, build, and browser suites.
 - This is a scoped category completion only. Global `releaseReady` remains **false**, live/catalog writes remain **LOCKED**, Supabase remains untouched, and PR #4 remains open/unmerged.
 
-## Current 3.5 spell closure checkpoint
+## 3.5 spell category — COMPLETE under both independent gates
 
-- Spell effect review #401 (run `35812603861`) completed successfully on `61a880e39e4a680130a93dc57ac7943f0c72a70c`.
-- Merged spell-review artifact `10730736193`, ZIP SHA-256 `88ffb22cd3239c80f6771ac441e69ce689f03170b74cc211d4a04a1b70ee0753`, reports **0 remaining review entries / 0 errors**.
-- The spell source gate had already reached full-catalog integrity; the next required proof is a fresh scoped `3.5/spells` category audit on the zero-review-queue state.
-- Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+- Final verification head: `d85540742496ee8faa99b5b3f80e06105719c22b`.
+- Spell effect review #401 (run `35812603861`) completed successfully. Merged artifact `10730736193`, ZIP SHA-256 `88ffb22cd3239c80f6771ac441e69ce689f03170b74cc211d4a04a1b70ee0753`, reports **0 remaining review entries / 0 errors**.
+- Category Enrichment Audit #95 (run `35813399010`) passed all 25/50/100/250 strict samples, all **16 / 16** full source shards, source aggregation, all **16 / 16** dry-run candidate shards, and final output audit.
+- Exact full source gate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, `criticalMissingCount: 0`, `coverageErrors: []`. Source artifact `10730382128`, ZIP SHA-256 `641205d868798ec83b7adeef847ca79adb8053bf48765d5fb282220e3a93f6ad`.
+- Exact final-output gate: **5,035 / 5,035 passed**, **0 failed**, **100.00%**, `outputCompletenessVerified: true`, `criticalMissingCount: 0`, `errors: []`. Output artifact `10730013609`, ZIP SHA-256 `80555bae0e3f013d6b6135bfac7d996bf84f738e441676b7522024225ebdba18`.
+- Permanent focused spell regression corpus: **3,095** record IDs.
+- Validate modernization #1021 (run `35813402152`) passed end-to-end on the same verification head, including full class/feat/spell/item regressions, build, and browser suites.
+- This is a scoped category completion only. Global `releaseReady` remains **false**, live/catalog writes remain **LOCKED**, Supabase remains untouched, and PR #4 remains open/unmerged.
 
 ## 3.5 feat category — COMPLETE under both independent gates
 
