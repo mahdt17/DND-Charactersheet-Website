@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-003-2",
+  "records": {
+    "wikidot5e:feat:mobile": {
+      "sourceDigest": "sha256:03ed80f8bcc6c9e6273b8ceb219667c52331f489e0f5f4df809e5a5ff4ff220f",
+      "effectSummary": "Increase your speed by 10 feet. When you Dash, difficult terrain costs no extra movement that turn. After you make a melee attack against a creature, you do not provoke opportunity attacks from that creature for the rest of the turn, whether the attack hits or misses."
+    },
+    "wikidot5e:feat:moderately-armored": {
+      "sourceDigest": "sha256:5c231b500be811ed60b9c177ec43d75b0cc9cebbd8fd1fa964b1d4c5bf4abc6d",
+      "effectSummary": "Increase Strength or Dexterity by 1, maximum 20. Gain proficiency with medium armor and shields."
+    },
+    "wikidot5e:feat:mounted-combatant": {
+      "sourceDigest": "sha256:799d64e4e579c04321898b6239e0fc86077f03f640e6e1a2aa90a323f89241a5",
+      "effectSummary": "While mounted and not incapacitated, you have advantage on melee attacks against unmounted creatures smaller than your mount. You may force an attack targeting your mount to target you instead. If your mount makes a Dexterity save against an effect that deals half damage on success, it instead takes no damage on a success and half damage on a failure."
+    },
+    "wikidot5e:feat:mystic-conflux": {
+      "sourceDigest": "sha256:ac5cb5504c73b50267aa1f29d9f326d27e22a4009955b8a16f9c391bd19f10de",
+      "effectSummary": "You can attune to up to four magic items at once. You can cast identify once without a spell slot or material components per long rest."
+    },
+    "wikidot5e:feat:naturalist": {
+      "sourceDigest": "sha256:8d84a2de3b1c6fc7f927c8d947aabb8c1fc91213aebb9af315458f0f98e16f24",
+      "effectSummary": "Increase Intelligence by 1, maximum 20. Gain Nature proficiency, or expertise if already proficient. Learn druidcraft and detect poison and disease; cast detect poison and disease once without a slot per long rest."
+    },
+    "wikidot5e:feat:observant": {
+      "sourceDigest": "sha256:e7036705f1588dc225b6056618862845a032e51072c636e2a4f4c638df447dbc",
+      "effectSummary": "Increase Intelligence or Wisdom by 1, maximum 20. If you can see a creature's mouth while it speaks a language you understand, you can read its lips. Gain +5 to passive Wisdom (Perception) and passive Intelligence (Investigation)."
+    },
+    "wikidot5e:feat:orcish-fury": {
+      "sourceDigest": "sha256:5492f0937b80301cbf22c95617d0797d78082c8d6df8eafcb98435022fc0584e",
+      "effectSummary": "Increase Strength or Constitution by 1, maximum 20. Once per short or long rest when you hit with a simple or martial weapon, roll one of that weapon's damage dice one additional time and add it as extra damage of the same type. Immediately after using Relentless Endurance, you may use your reaction to make one weapon attack."
+    },
+    "wikidot5e:feat:outlands-envoy": {
+      "sourceDigest": "sha256:53c2796c64ce478e9fb969b9ccbc773f2c5872ff3fbf135b4390c6e2860e1458",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Learn misty step and tongues, using the spellcasting ability chosen for Scion of the Outer Planes. Cast each once without a slot per long rest and also with appropriate spell slots; tongues requires no material components when cast using this feat."
+    },
+    "wikidot5e:feat:outlands-envoy-ua": {
+      "sourceDigest": "sha256:41359d6ca58b575f6d5e3e9da2a16504b21544ad498f8eb11aaface3813c8e3a",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Learn misty step and tongues, using the spellcasting ability chosen for Scion of the Outer Planes. Cast each once without a slot per long rest and also with appropriate spell slots; tongues requires no material components when cast using this feat."
+    },
+    "wikidot5e:feat:outsized-might-ua": {
+      "sourceDigest": "sha256:fe6de476b1c895e7829d2dd093ae13e9284fbb0c87e348d4cd15ec914e1c3f16",
+      "effectSummary": "Gain proficiency in Athletics or Acrobatics. Count as one size larger when determining carrying capacity and how much you can push, drag, or lift. Gain advantage on saving throws against being moved or knocked prone."
+    }
+  }
+}
