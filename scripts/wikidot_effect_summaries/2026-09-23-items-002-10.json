@@ -39,7 +39,7 @@
       "sourceDigest": "sha256:7c05e9b86d1e948fe6aeaf6e6dd85ae89bbf3da26972e18f66050cdf415b1d8c",
       "effectSummary": "As an action, break the gem to summon an elemental as though casting conjure elemental; the gem is consumed. Blue sapphire summons air, yellow diamond earth, red corundum fire, and emerald water."
     },
-    "wikidot5e:wondrous-items:ephixis-bow-of-nyela": {
+    "wikidot5e:wondrous-items:ephixis": {
       "sourceDigest": "sha256:3453c5da9956dd636a46785281d9c3d9ba2405b843e432c7ce73a2dca8267cda",
       "effectSummary": "Artifact +3 shortbow that ignores disadvantage at long range and critically hits on 19–20. A worshiper of Nylea gains one random minor beneficial property at piety 10+ and one random major beneficial property at 25+; a non-worshiper instead has one random major detrimental property. The quiver holds four seasonal arrows, each usable once and reappearing at next dusk; spell save DC 18. Spring: action, fire at a visible beast or plant within 320 feet; on hit deal no damage and grant awaken for 8 hours. Summer: action, fire at an open ground space within 320 feet to summon a Nyxborn lynx using tiger statistics plus Nyxborn traits; it obeys you, acts immediately after you, and lasts 1 hour. Autumn: action, fire at a ground space within 320 feet to cast wall of thorns. Winter: action, fire at a visible space within 320 feet to cast ice storm. To destroy the bow, first destroy all arrows in sequence: feed winter to a cerberus on the winter solstice; plant spring at a Black Oak of Asphodel on the spring equinox; have a sea giant break summer on the summer solstice; shoot autumn into a hydra carcass on the autumnal equinox. Then bow and quiver dissolve into dust."
     }
