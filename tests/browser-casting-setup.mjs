@@ -9,7 +9,18 @@ const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Contin
 const choose=name=>page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:new RegExp(`^${name}$`)})}).first().click();
 const saved=async name=>page.evaluate(async name=>{const index=JSON.parse((await window.storage.get('char-index')).value);const c=index.find(c=>c.name===name);return JSON.parse((await window.storage.get('char-detail:'+c.id)).value);},name);
 const castRow=name=>page.locator('.spell-item').filter({has:page.getByRole('button',{name:new RegExp(`^${name} `)})});
-const srd2014=(region,name)=>region.locator('.compact-spell').filter({hasText:new RegExp(`^${name}\\b`)}).filter({hasText:'SRD 5.1'}).getByRole('button',{name:/^Select /});
+const srd2014=(region,name)=>region.getByRole('button',{name:new RegExp(`^Select ${name} \\(5e · .* · 2014:[^)]+\\)import assert from 'node:assert/strict';
+import {chromium} from 'playwright';
+import {createServer} from 'vite';
+import fs from 'node:fs/promises';
+const server=await createServer({server:{host:'127.0.0.1',port:5176}});await server.listen();
+const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE_PATH||undefined,args:['--no-sandbox','--disable-dev-shm-usage','--no-zygote','--single-process','--disable-gpu','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
+const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
+const choose=name=>page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:new RegExp(`^${name}$`)})}).first().click();
+const saved=async name=>page.evaluate(async name=>{const index=JSON.parse((await window.storage.get('char-index')).value);const c=index.find(c=>c.name===name);return JSON.parse((await window.storage.get('char-detail:'+c.id)).value);},name);
+const castRow=name=>page.locator('.spell-item').filter({has:page.getByRole('button',{name:new RegExp(`^${name} `)})});
+)});
 try{
  await fs.mkdir('test-results',{recursive:true});
  await page.goto('http://127.0.0.1:5176/');await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Create character',exact:true}).click();await page.getByLabel('Character name').fill('Sorcerer Regression');await next();await choose('Sorcerer');
