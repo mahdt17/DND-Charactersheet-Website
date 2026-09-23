@@ -23,10 +23,6 @@
       "sourceDigest": "sha256:b51273f9576245af7d9ee149929a45e53bbc796f1db82da96721b984aa5afd53",
       "effectSummary": "Touch a dead humanoid or a piece of one that died no more than 10 days ago. If its soul is free and willing, create a new adult body and return the creature to life in a new race chosen by the DM or rolled on the spell's table: dragonborn 01–04; hill dwarf 05–13; mountain dwarf 14–21; drow 22–25; high elf 26–34; wood elf 35–42; forest gnome 43–46; rock gnome 47–52; half-elf 53–56; half-orc 57–60; lightfoot halfling 61–68; stout halfling 69–76; human 77–96; tiefling 97–00. The creature remembers its former life and retains its prior capabilities except that its original race and racial traits are replaced by the new ones."
     },
-    "wikidot5e:spell:remote-access-ua": {
-      "sourceDigest": "sha256:d415bd5638f182edb71ec24ec10e47f77066adcfea962f06456c8e85ec451673",
-      "effectSummary": "For 10 minutes, operate one electronic device within 120 feet as though it were in your hands by electronically simulating its ordinary mechanical controls. You can access only functions a manual user could normally access, and can control only one device at a time."
-    },
     "wikidot5e:spell:resurrection": {
       "sourceDigest": "sha256:2ff32917909a10417356299b7ed01588c99c2d39264c380af8621b8440c711d5",
       "effectSummary": "Return a touched non-undead creature dead no more than 100 years and not dead of old age to life with full HP if its soul is free and willing. Neutralize poisons, cure normal diseases, close mortal wounds, and restore missing body parts, but magical diseases, curses, and similar effects remain unless removed first. The revived creature has -4 to attacks, saves, and ability checks, reduced by 1 after each long rest. If the creature was dead for at least 1 year, after casting you cannot cast spells and have disadvantage on attacks, ability checks, and saves until you finish a long rest."
@@ -42,6 +38,10 @@
     "wikidot5e:spell:rope-trick": {
       "sourceDigest": "sha256:a22d1af7407457bbfbd0619df7d8d9867f796fff6a0f283f3f06d1cdd91d56a3",
       "effectSummary": "Touch a rope up to 60 feet long; it rises vertically and opens an invisible extradimensional entrance at its top for 1 hour. Up to eight Medium-or-smaller creatures can enter by climbing, and the rope can be pulled inside and hidden. Attacks and spells cannot cross the entrance in either direction, while occupants can see out through a 3-by-5-foot window centered on the rope. Anything still inside falls out when the spell ends."
+    },
+    "wikidot5e:spell:remote-access": {
+      "sourceDigest": "sha256:d415bd5638f182edb71ec24ec10e47f77066adcfea962f06456c8e85ec451673",
+      "effectSummary": "For 10 minutes, operate one electronic device within 120 feet as though it were in your hands by electronically simulating its ordinary mechanical controls. You can access only functions a manual user could normally access, and can control only one device at a time."
     }
   }
 }
