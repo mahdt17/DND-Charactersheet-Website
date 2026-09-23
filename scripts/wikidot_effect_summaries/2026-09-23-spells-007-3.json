@@ -3,10 +3,6 @@
   "source": "https://dnd5e.wikidot.com",
   "batch": "2026-09-23-spells-007-3",
   "records": {
-    "wikidot5e:spell:mind-thrust-ua": {
-      "sourceDigest": "sha256:53d9817f63191af022d50948c4dcddd58e03194d6166bd2010332f49e1a9ed1d",
-      "effectSummary": "One visible creature within 60 feet makes an Intelligence save. On a failure it takes 3d6 psychic damage, cannot take reactions until the end of its next turn, and on that next turn may use only one of movement, an action, or a bonus action. On a success it takes half damage and suffers no other effect. Each slot level above 2nd adds one target, with all targets within 30 feet of one another."
-    },
     "wikidot5e:spell:minor-illusion": {
       "sourceDigest": "sha256:78f666179c527e849caf5beeea4d99522b73da4e4aa00bd36dd3837569abf4e4",
       "effectSummary": "Create either a sound or an image of an object within 30 feet for 1 minute; it ends early if dismissed or you cast the spell again. A sound may range from a whisper to a scream and may be continuous or intermittent. An image must fit within a 5-foot cube and cannot produce sound, light, smell, or other sensory effects; physical interaction reveals it as insubstantial. A creature can use an action for an Intelligence (Investigation) check against your spell save DC to identify the illusion, after which it becomes faint to that creature."
@@ -42,6 +38,10 @@
     "wikidot5e:spell:mordenkainens-magnificent-mansion": {
       "sourceDigest": "sha256:4faefde046c1e3e0b0aaa6cc8fd9df5ea5a621bd8a8b69bc6c0adcee3e0340d9",
       "effectSummary": "Create a 5-by-10-foot portal within 300 feet leading to a warm extradimensional mansion for 24 hours. You choose who may enter and can open or close the portal while within 30 feet; when closed it is invisible. The interior may use any floor plan totaling no more than fifty 10-foot cubes, is furnished as you choose, contains a nine-course banquet for up to 100 people, and has 100 obedient noncombatant servants that cannot leave. Conjured furnishings vanish if removed. When the spell ends, creatures and objects inside are expelled to the nearest open spaces by the entrance."
+    },
+    "wikidot5e:spell:mind-thrust": {
+      "sourceDigest": "sha256:53d9817f63191af022d50948c4dcddd58e03194d6166bd2010332f49e1a9ed1d",
+      "effectSummary": "One visible creature within 60 feet makes an Intelligence save. On a failure it takes 3d6 psychic damage, cannot take reactions until the end of its next turn, and on that next turn may use only one of movement, an action, or a bonus action. On a success it takes half damage and suffers no other effect. Each slot level above 2nd adds one target, with all targets within 30 feet of one another."
     }
   }
 }
