@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-006-3",
+  "records": {
+    "wikidot5e:spell:investiture-of-flame": {
+      "sourceDigest": "sha256:1832a39a5df75305adaa4a1a3607d0ac1bf109b44c4cba07c25af015ac1afb47",
+      "effectSummary": "For up to 10 minutes, flames surround you and shed bright light for 30 feet and dim light for another 30. You are immune to fire damage and resistant to cold. A creature moving within 5 feet of you for the first time on a turn or ending its turn there takes 1d10 fire damage. As an action, create a 15-foot-long, 5-foot-wide line of fire; creatures there make Dexterity saves for 4d8 fire damage, half on success."
+    },
+    "wikidot5e:spell:investiture-of-ice": {
+      "sourceDigest": "sha256:11de9448914e414634bbefd76de982906d521f53957be5014d30700d1bd8dcd3",
+      "effectSummary": "For up to 10 minutes, you are immune to cold damage and resistant to fire, ignore extra movement from ice- or snow-created difficult terrain, and make ground within 10 feet of you difficult terrain for other creatures. As an action, exhale a 15-foot cone of freezing wind; creatures there make Constitution saves for 4d6 cold damage, half on success, and a failed save also halves the creature's speed until the start of your next turn."
+    },
+    "wikidot5e:spell:investiture-of-stone": {
+      "sourceDigest": "sha256:459fadbf43415c7d566427b77ac9f04a3f9523e694343bb0e5d8398bcc65f795",
+      "effectSummary": "For up to 10 minutes, you have resistance to nonmagical bludgeoning, piercing, and slashing damage; ignore extra movement from earth- or stone-based difficult terrain; and can move through solid earth or stone as though it were air without destabilizing it. You cannot end movement inside solid material; doing so ejects you to the nearest unoccupied space, ends the spell, and stuns you until the end of your next turn. As an action, create a 15-foot-radius tremor on the ground around you; other creatures standing there make Dexterity saves or fall prone."
+    },
+    "wikidot5e:spell:investiture-of-wind": {
+      "sourceDigest": "sha256:5c7ac3f104342e94917c2dc7daa29a00d7e7f56b9b5d2ed26f5cc0eb820b92f4",
+      "effectSummary": "For up to 10 minutes, ranged weapon attacks against you have disadvantage and you gain a 60-foot flying speed; if still airborne when the spell ends, you fall unless another effect prevents it. As an action, create a 15-foot cube of wind centered within 60 feet; creatures there make Constitution saves for 2d10 bludgeoning damage, half on success, and a Large-or-smaller creature that fails is pushed up to 10 feet from the cube's center."
+    },
+    "wikidot5e:spell:invisibility": {
+      "sourceDigest": "sha256:1f8c9583aca7d239e39ad8e36c6f6f9633da23b7798904cb5e5c03541b6798b3",
+      "effectSummary": "A creature you touch, along with everything it wears or carries, becomes invisible for up to 1 hour. The spell ends for that target if it attacks or casts a spell. Each slot level above 2nd lets you target one additional creature."
+    },
+    "wikidot5e:spell:jims-glowing-coin": {
+      "sourceDigest": "sha256:58b51542572bca789b08c0c7c10eb7f5b670265455bd18598939ef58b0c60633",
+      "effectSummary": "Throw the spell's coin to a point within 60 feet; it glows as under light for 1 minute. Chosen visible creatures within 30 feet of the coin make Wisdom saves or are distracted for the duration, giving them disadvantage on Wisdom (Perception) checks and initiative rolls."
+    },
+    "wikidot5e:spell:jims-magic-missile": {
+      "sourceDigest": "sha256:7f74c98d4bf2f2d4e6a42b8f31e968b3dc3132f8229e15dcfd634f85e9f781a9",
+      "effectSummary": "Create three force darts and make a separate ranged spell attack for each against visible creatures within 120 feet. A hit deals 2d4 force damage; a critical hit deals 5d4 instead. If any missile's attack roll is a natural 1, all missiles reverse and hit you for 1 force damage each. Each slot level above 1st creates one additional dart and increases the consumed gold-piece tax by 1 gp."
+    },
+    "wikidot5e:spell:kinetic-jaunt": {
+      "sourceDigest": "sha256:599980cb470a627e8120a8e6e359dc5cdc51c81d1705307034f35548b5c16b40",
+      "effectSummary": "For up to 1 minute, your walking speed increases by 10 feet, your movement does not provoke opportunity attacks, and you can move through another creature's space without treating it as difficult terrain. If you end your turn in another creature's space, you are shunted back to the last unoccupied space you occupied and take 1d8 force damage."
+    },
+    "wikidot5e:spell:knock": {
+      "sourceDigest": "sha256:055f3f4cc723d2dfee05e493eabbba68ed156bf80901fe81b11d64dce6aa54ca",
+      "effectSummary": "Choose a visible door, box, chest, manacles, padlock, or other object secured against access within 60 feet. One mundane lock is unlocked, or a stuck or barred target becomes unstuck or unbarred. If arcane lock secures it, that spell is suppressed for 10 minutes. Casting produces a loud knock audible up to 300 feet away."
+    },
+    "wikidot5e:spell:legend-lore": {
+      "sourceDigest": "sha256:1df15914313e3f8a7bacc0168a6813fadbaddaa69d40981d0bb1991b014a386e",
+      "effectSummary": "Name or describe a legendary person, place, or object. You receive a brief, accurate summary of significant lore about it, which may include current tales, forgotten stories, or secret information and may be phrased figuratively. If the subject is not of legendary importance, you learn nothing. Greater prior knowledge makes the result more precise and detailed."
+    }
+  }
+}
