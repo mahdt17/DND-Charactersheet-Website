@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-6",
+  "records": {
+    "wikidot5e:wondrous-items:battle-standard-of-infernal-power": {
+      "sourceDigest": "sha256:a1a643304cfadb7a6643cfe239b4d2332d51cd7d90dd77319f719e4b310d26e0",
+      "effectSummary": "The banner contains an incapacitated quasit in an unopenable cage (AC 19, 10 HP, immune to all damage except force); if killed or released, it vanishes and a replacement appears if the cage remains intact. While you hold the banner, your weapon attacks and those of allied creatures within 300 feet count as magical for overcoming resistance and immunity."
+    },
+    "wikidot5e:wondrous-items:bead-of-force": {
+      "sourceDigest": "sha256:09d113e21f81b43e3ee5e53ac5bd57f18d9f24ab4e2791dd5e0704cfab8b1a56",
+      "effectSummary": "Usually found in groups of 1d4+4. As an action, throw one up to 60 feet; it explodes and is destroyed. Creatures within 10 feet make DC 15 Dexterity saves or take 5d4 force damage. A transparent force sphere then encloses the area for 1 minute: failed creatures wholly inside are trapped, while successful or partially overlapping creatures are pushed outside. Only breathable air passes through; attacks and other effects cannot. A trapped creature may use an action to push the sphere up to half its walking speed. The sphere can be picked up and magically weighs 1 pound regardless of contents."
+    },
+    "wikidot5e:wondrous-items:belashyrras-beholder-crown": {
+      "sourceDigest": "sha256:a83dd634a44c012a960d75766ddb98443231dd1b12f0518e1998562008130703",
+      "effectSummary": "Attuning causes tendrils to bond the crown to your skull. While worn, see normally through magical and nonmagical darkness to 120 feet. It has 10 charges, regaining 1d6+3 daily at dawn; as an action cast with save DC 16: charm person 1, sleep 1, hold person 2, ray of enfeeblement 2, fear 3, slow 3, telekinesis 5, disintegrate 6, flesh to stone 6, finger of death 7. The crown cannot be removed and attunement cannot be ended voluntarily; curse-ending magic ends attunement and detaches it. While on the same plane, Belashyrra can see through the crown's eyestalks."
+    },
+    "wikidot5e:wondrous-items:bell-branch": {
+      "sourceDigest": "sha256:e91ba8c857083be28e119ffd428ff790b4e287a056067f44d5856916b135e129",
+      "effectSummary": "Functions as a spellcasting focus while held. It has 3 charges and regains 1d3 daily at dawn. Spend 1 charge as a bonus action to detect aberrations, celestials, constructs, elementals, fey, fiends, or undead within 60 feet that lack total cover, with bell tones identifying creature types present. Spend 1 charge as an action to cast protection from evil and good."
+    },
+    "wikidot5e:wondrous-items:belt-of-dwarvenkind": {
+      "sourceDigest": "sha256:14f9967a30c03ae68ccb2681fe928b59a15bcee780d82c43a90e7223e1b19bfa",
+      "effectSummary": "While worn, Constitution increases by 2 to a maximum of 20 and you have advantage on Charisma (Persuasion) checks with dwarves. Each dawn there is a 50% chance to grow or thicken a full beard if physiologically possible. A nondwarf wearer additionally gains advantage on saves against poison, poison resistance, darkvision 60 feet, and Dwarvish language proficiency."
+    },
+    "wikidot5e:wondrous-items:belt-of-giant-strength": {
+      "sourceDigest": "sha256:177ee7614bc8a78100b8c77825f159204f0d9c0478c90825350cbd2a5a26465a",
+      "effectSummary": "While worn, set your Strength to the belt's score unless your Strength is already equal or higher. Hill giant: 21, rare. Stone or frost giant: 23, very rare. Fire giant: 25, very rare. Cloud giant: 27, legendary. Storm giant: 29, legendary."
+    },
+    "wikidot5e:wondrous-items:berserker-axe": {
+      "sourceDigest": "sha256:b3021e05e8a8eb770b71b5bb776e33e673f89aab6d0b27119c073e6710be1ba7",
+      "effectSummary": "Magic axe grants +1 attack and damage and increases your HP maximum by your character level while attuned. It is cursed: you are unwilling to part with it and keep it within reach, and you have disadvantage with other weapons while you can see or hear a foe within 60 feet. Whenever a hostile creature damages you while the axe is in your possession, make DC 15 Wisdom or go berserk. While berserk, each round use your action to attack the nearest creature with the axe, using all Extra Attacks and moving to the next nearest target after dropping one; choose randomly among ties. Berserk ends when you start a turn with no creatures within 60 feet that you can see or hear."
+    },
+    "wikidot5e:wondrous-items:bigbys-beneficent-bracelet": {
+      "sourceDigest": "sha256:b00941db22cdb55325a5d8c6486601fcbee3feedd4749ee2044f9b595d6086b6",
+      "effectSummary": "Artifact with 1 random minor beneficial, 1 major beneficial, and 1 minor detrimental property. While worn, cast mage hand. Up to three times per dawn, spend 1 minute focusing to create a tangible translucent force copy of a Large-or-smaller nonmagical object in an unoccupied space within 10 feet on a supporting surface; it mimics size, weight, and other properties, is immune to damage and dispel magic, is destroyed by disintegrate, and lasts 8 hours or until dismissed as an action. Once per dawn, use an action to cast bigby's hand as a 9th-level spell with +13 spell attack, requiring no concentration."
+    },
+    "wikidot5e:wondrous-items:black-crystal-tablet": {
+      "sourceDigest": "sha256:f5d4e6e30047e831d53316971a268a617be23b5f6621655f241f0103fde89b8e",
+      "effectSummary": "A creature attuning to the tablet makes a DC 20 Wisdom save at the end of its next long rest; on failure it gains a random long-term madness. Once per dawn, as an action, cast either eyebite or gate; gate created this way can link only to the Far Realm."
+    },
+    "wikidot5e:wondrous-items:blackrazor": {
+      "sourceDigest": "sha256:9caae9116cc797ef4b8a4cf0659de8237075792d046239119adf0bd9e642ce69",
+      "effectSummary": "Sentient chaotic-neutral +3 greatsword. When it reduces a non-construct, non-undead creature to 0 HP, it kills the creature, devours its soul, and grants you temporary HP equal to the creature's HP maximum for 24 hours; while those temporary HP remain and you hold Blackrazor, you have advantage on attacks, saves, and ability checks. A devoured soul can be restored only by wish. Hitting an undead makes you take 1d10 necrotic and heals the undead 1d10; if this drops you to 0, the sword devours your soul. While held, you sense Tiny-or-larger non-construct/non-undead creatures within 60 feet and cannot be charmed or frightened. Once per day, Blackrazor may cast haste on you at a time it chooses and maintains concentration itself. Intelligence 17, Wisdom 10, Charisma 19; hearing/darkvision 120 feet; telepathic, speaks/reads/understands Common and understands your languages. If unfed for 3 days, a wielder conflict occurs at next sunset."
+    }
+  }
+}
