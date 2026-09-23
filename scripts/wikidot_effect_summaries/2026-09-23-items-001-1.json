@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-1",
+  "records": {
+    "wikidot5e:wondrous-items:abracadabrus": {
+      "sourceDigest": "sha256:03c642e7936a27c87ddd2705ec2c84478c260870f1b55c1d2af21064ef707d46",
+      "effectSummary": "This 25-pound chest has a 1.5-foot-cube interior and 20 charges. As an action while touching the closed lid, spend 1 charge and name nonmagical objects worth a total of 1 gp or less; if they all fit and the chest is otherwise empty, they appear inside. Conjured food and drink spoil after 24 hours, and conjured gems or precious metals disappear after 1 minute. The chest regains 1d20 charges daily at dawn. If its last charge is spent, roll d20; on a 1 it permanently becomes mundane and its gemstones turn to dust."
+    },
+    "wikidot5e:wondrous-items:absorbing-tattoo": {
+      "sourceDigest": "sha256:95e21a5072a2629a7f7dded74e913338b6f002e80aaba809073c846f6da7df47",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes the tattoo vanish and the needle reappear. The tattoo grants resistance to one damage type determined by its color: d10 1 acid/green, 2 cold/blue, 3 fire/red, 4 force/white, 5 lightning/yellow, 6 necrotic/black, 7 poison/violet, 8 psychic/silver, 9 radiant/gold, 10 thunder/orange. When you take that chosen damage type, use your reaction to become immune to that instance and regain HP equal to half the damage you otherwise would have taken. Recharge at the next dawn."
+    },
+    "wikidot5e:wondrous-items:acheron-blade": {
+      "sourceDigest": "sha256:d849c13dbd4580c3985c88a19cc9a0a83bd14719ef0eb00524bbd32725e78708",
+      "effectSummary": "This magic sword grants +1 to attack and damage rolls and makes you immune to effects that turn undead while it is on your person. While holding it, once per dusk you may use an action to gain 1d4+4 temporary HP. Once per dusk when you hit a creature with it, you may give that creature disadvantage on its next saving throw before the end of your next turn; creatures immune to frightened ignore this property."
+    },
+    "wikidot5e:wondrous-items:adze-of-annam": {
+      "sourceDigest": "sha256:c73785229975f89dc0fd02b976b5643467e9b6f5e3c5c311f981efec6f3d491f",
+      "effectSummary": "Artifact with 2 random minor beneficial properties, 1 major beneficial property, and 2 minor detrimental properties. On attunement it resizes to function as a greataxe for you. It is a +3 magic weapon; hits deal an extra 3d12 force damage, and it deals double damage to objects and structures. Once per dawn, as an action, cast move earth or fabricate from the adze."
+    },
+    "wikidot5e:wondrous-items:akmon": {
+      "sourceDigest": "sha256:9441d873508a1b4c1f1a1767114b3a770c25710ccf0af23087e7d985e3784493",
+      "effectSummary": "Akmon is a +3 magic warhammer whose hits deal an extra 3d10 fire damage. A worshiper of Purphoros gains random artifact benefits by piety: 10+ one minor beneficial property; 25+ one major beneficial property; 50+ one additional major beneficial property. A non-worshiper instead has 2 random minor detrimental properties. While holding it, you have fire resistance, immunity to exhaustion, smith's-tools proficiency, and advantage on checks with those tools. While it is on your person, once per dusk for each spell, use an action to cast animate objects, heat metal, fabricate, magic weapon, mending, or shatter with save DC 18. To destroy it, coat it in Mire of Punishment clay in Tizerus for one month until hardened, then have a kraken swallow and digest it."
+    },
+    "wikidot5e:wondrous-items:alchemical-compendium": {
+      "sourceDigest": "sha256:80b22e2b491122aecfae716c0abb9640a2c972722ffe613f776a469dbf2bc90b",
+      "effectSummary": "Wizard spellbook containing enlarge/reduce, feather fall, flesh to stone, gaseous form, magic weapon, and polymorph, and usable as a wizard spellcasting focus. It has 3 charges and regains 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with a different Transmutation spell in the book. As an action, touch an unattended nonmagical object and spend charges to transform it into another object of equal or lower value: 1 charge allows up to 1 foot on a side, and each additional charge increases maximum dimensions by 2 feet."
+    },
+    "wikidot5e:wondrous-items:alchemy-jug": {
+      "sourceDigest": "sha256:ce49bbeb2416efcf749034de57b2eeea63d5f8f6b0e62f6bf061a5fa8f84d672",
+      "effectSummary": "As an action, name one liquid; the jug then produces only that liquid until the next dawn or until its daily maximum is reached. Uncorking it is an action, and it pours up to 2 gallons per minute. Daily maximums: acid 8 oz; basic poison 1/2 oz; beer 4 gal; honey 1 gal; mayonnaise 2 gal; oil 1 quart; vinegar 2 gal; fresh water 8 gal; salt water 12 gal; wine 1 gal."
+    },
+    "wikidot5e:wondrous-items:alchemy-jug-blue": {
+      "sourceDigest": "sha256:1a6474bf01e53e03370dfaeacca218057beeb7ef25b1f58e83c4ea36ce899185",
+      "effectSummary": "Functions like an alchemy jug but cannot make acid or poison and can make boiling hot tea. As an action, choose one liquid; it produces only that liquid until the next dawn or its maximum is reached, and uncorking it is an action with up to 2 gallons per minute poured. Daily maximums: boiling hot tea 1 quart; beer 4 gal; honey 1 gal; mayonnaise 2 gal; oil 1 quart; vinegar 2 gal; fresh water 8 gal; salt water 12 gal; wine 1 gal."
+    },
+    "wikidot5e:wondrous-items:alchemy-jug-orange": {
+      "sourceDigest": "sha256:b17da8992a5a347bdc47514a984641cf9f7949eaebb2899060d0f14c8e3dad32",
+      "effectSummary": "Functions like an alchemy jug but cannot make acid or poison and can make soy sauce. As an action, choose one liquid; it produces only that liquid until the next dawn or its maximum is reached, and uncorking it is an action with up to 2 gallons per minute poured. Daily maximums: soy sauce 1 gal; beer 4 gal; honey 1 gal; mayonnaise 2 gal; oil 1 quart; vinegar 2 gal; fresh water 8 gal; salt water 12 gal; wine 1 gal."
+    },
+    "wikidot5e:wondrous-items:all-purpose-tool": {
+      "sourceDigest": "sha256:512a557774179f4e3baaf2e00731d29b4ada0bde2a2e48d19aa32500c000dfcd",
+      "effectSummary": "As an action, transform the screwdriver into any artisan's tool; you are proficient with whatever form it takes. While holding it, gain a bonus to artificer spell attack rolls and artificer spell save DCs equal to its rarity bonus: uncommon +1, rare +2, very rare +3. Once per dawn, as an action, choose any cantrip you do not know; for 8 hours you can cast it and it counts as an artificer cantrip for you."
+    }
+  }
+}
