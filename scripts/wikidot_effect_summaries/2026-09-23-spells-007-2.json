@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-007-2",
+  "records": {
+    "wikidot5e:spell:melfs-acid-arrow": {
+      "sourceDigest": "sha256:caaacb5b0d7b75d8f72f6112410c280ac3ccbf04dfd0762019fa87709d877908",
+      "effectSummary": "Make a ranged spell attack against one target within 90 feet. On a hit it takes 4d4 acid damage immediately and 2d4 at the end of its next turn. On a miss it takes half the initial damage and no delayed damage. Each slot level above 2nd adds 1d4 to both the initial and delayed damage."
+    },
+    "wikidot5e:spell:melfs-minute-meteors": {
+      "sourceDigest": "sha256:c603c96e81fee403c1ba2f3b8fb25ae3e4db3fc6b8da358d8ba327f0792fc3f4",
+      "effectSummary": "Create six tiny meteors orbiting you for up to 10 minutes. When cast and as a bonus action on later turns, expend one or two meteors and send each to a point within 120 feet. A meteor explodes on arrival or impact; creatures within 5 feet make Dexterity saves for 2d6 fire damage, half on success. Each slot level above 3rd creates two additional meteors."
+    },
+    "wikidot5e:spell:mending": {
+      "sourceDigest": "sha256:e26303fc872d6c921f99efc5892a87872f379cbf40a307c6ac167c13b181b2d7",
+      "effectSummary": "Repair one break or tear no larger than 1 foot in any dimension in an object you touch, restoring it without a visible trace of the damage. The spell can physically repair a magic item or construct but cannot restore lost magic."
+    },
+    "wikidot5e:spell:mental-prison": {
+      "sourceDigest": "sha256:736bb16f3098116fb7e3a88bf739fae8750f14f2ce161b1c118e633dd789f7da",
+      "effectSummary": "One visible creature within 60 feet makes an Intelligence save; a creature immune to charm succeeds automatically. On a success it takes 5d10 psychic damage and the spell ends. On a failure it takes 5d10 psychic damage, becomes restrained, and perceives a dangerous illusory prison immediately around its space that blocks its sight and hearing beyond it. If the target is moved out of the illusion, makes a melee attack through it, or reaches any part of its body through it, it takes 10d10 psychic damage and the spell ends."
+    },
+    "wikidot5e:spell:message": {
+      "sourceDigest": "sha256:af9990880ea88b1ca0ac4e096aa3b5c1659a9ffa17e8089d386dcf2f2d4e871c",
+      "effectSummary": "Whisper a message to one creature within 120 feet; only it hears you, and it can whisper a reply only you hear. The spell can pass through barriers if you know the target and know it is beyond them, but magical silence, 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood blocks it. It can travel around corners and through openings."
+    },
+    "wikidot5e:spell:meteor-swarm": {
+      "sourceDigest": "sha256:4f324fe29bd55ad2b70e2ebc1854dbb5a99fcb41b9b5082a5495d50f9c038a53",
+      "effectSummary": "Choose four visible points within 1 mile. Each point erupts in a 40-foot-radius sphere that spreads around corners. Creatures in a sphere make Dexterity saves, taking 20d6 fire plus 20d6 bludgeoning damage on a failure or half on a success; a creature in overlapping spheres is affected only once. The spell damages objects and ignites unattended flammable objects."
+    },
+    "wikidot5e:spell:mighty-fortress": {
+      "sourceDigest": "sha256:0a8b93a3b3e93823bb58bc5285bb9eb2150345b60d042f0f792975b350404f38",
+      "effectSummary": "Raise a stone fortress from an empty 120-foot square of visible ground within 1 mile, harmlessly lifting creatures in the area. It has four 20-by-20-foot, 30-foot-tall corner turrets linked by 80-foot walls, up to four outer doors, and a furnished three-story 50-foot-square keep whose rooms are at least 5 feet wide. It supplies a daily nine-course banquet for up to 100 people and 100 invisible servants that obey designated creatures like unseen servants. Conjured furnishings and food crumble if removed. Stone sections have AC 15, 30 HP per inch of thickness, and immunity to poison and psychic damage; destroyed sections can destabilize nearby construction at the DM's discretion. After 7 days, or if you cast the spell elsewhere, the fortress safely sinks away. Casting on the same spot every 7 days for one year makes it permanent."
+    },
+    "wikidot5e:spell:mind-blank": {
+      "sourceDigest": "sha256:4a11e2d4371e18b5917f7d22a43169ca3357d106c85706abb4bb13f31f951c10",
+      "effectSummary": "For 24 hours, one willing creature you touch is immune to psychic damage, charm, emotional sensing, thought reading, and divination spells. The protection also defeats wish and similarly powerful effects used to affect the target's mind or obtain information about it."
+    },
+    "wikidot5e:spell:mind-sliver": {
+      "sourceDigest": "sha256:29784542a8129c6af368429317f23ff060d4514ab373ac89d7158e15ba2c433a",
+      "effectSummary": "One visible creature within 60 feet makes an Intelligence save. On a failure it takes 1d6 psychic damage and subtracts 1d4 from the next saving throw it makes before the end of your next turn. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17."
+    },
+    "wikidot5e:spell:mind-spike": {
+      "sourceDigest": "sha256:a054d02736edbee04af17071ceed2ac6120e28dae57493f5349bc7b9fc35259c",
+      "effectSummary": "One visible creature within 60 feet makes a Wisdom save, taking 3d8 psychic damage on a failure or half on a success. On a failed save, while you remain on the same plane you always know its location for up to 1 hour; it cannot hide from you, and invisibility gives it no benefit against you. Each slot level above 2nd adds 1d8 damage."
+    }
+  }
+}
