@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-9",
+  "records": {
+    "wikidot5e:wondrous-items:boots-of-striding-and-springing": {
+      "sourceDigest": "sha256:7e0deac5cafc1c5cef26feb96daff8ac81f4587f2698196bbbfa354f72a742f4",
+      "effectSummary": "While worn, your walking speed becomes 30 feet unless already higher and is not reduced by encumbrance or heavy armor. Your jump distance is tripled, but cannot exceed your remaining movement."
+    },
+    "wikidot5e:wondrous-items:boots-of-the-winterlands": {
+      "sourceDigest": "sha256:89515e35e6e9935f04afd3565031924bd088c5e6050c1ff885495041dae4cfac",
+      "effectSummary": "While worn, gain cold resistance and ignore difficult terrain from ice or snow. You can tolerate temperatures down to -50°F without extra protection, or -100°F while wearing heavy clothes."
+    },
+    "wikidot5e:wondrous-items:bottle-of-boundless-coffee": {
+      "sourceDigest": "sha256:13fc56d5cb6146e14bd4a654dfcbb1922ad7ea8635d08debd43d3a569fd0d13d",
+      "effectSummary": "The bottle always contains comfortably warm coffee and accepts no other liquid. Each time you drink from it, roll d20; on a 1 it dispenses no coffee for 1 hour. Coffee poured out rather than drunk directly vanishes immediately after leaving the bottle."
+    },
+    "wikidot5e:wondrous-items:bottled-breath": {
+      "sourceDigest": "sha256:a036e50634e7db59b7a73f1a30f8406f4b2b35fbd2241de1c1f9a306f20a2aa4",
+      "effectSummary": "Inhale the bottled elemental breath and choose to exhale or hold it. Exhaling gives the effect of gust of wind. Holding it removes your need to breathe for 1 hour; you may end this early, such as to speak, but doing so does not grant the gust effect."
+    },
+    "wikidot5e:wondrous-items:bow-of-conflagration": {
+      "sourceDigest": "sha256:9c6f61bf2bf8ad3e528779dccb9d0f4c56151ddf7e873a03aef9bfda0fc98192",
+      "effectSummary": "Ammunition fired from the bow deals an extra 1d6 fire damage on a hit. A flammable nonmagical object hit also catches fire and takes 1d6 fire damage at the start of each of your turns until a creature uses an action to extinguish it."
+    },
+    "wikidot5e:wondrous-items:bow-of-melodies": {
+      "sourceDigest": "sha256:93d9fded9bf2e63e37275bd356f742f01f5e2cf2d95fe7a7fe67003e7b339abc",
+      "effectSummary": "Before each ranged attack with the bow, choose at most one melody. Precision: if proficient in Performance, add +1 to the attack roll, or +2 if you have expertise. Reverberation: on a hit, deal extra thunder damage equal to your Charisma modifier."
+    },
+    "wikidot5e:wondrous-items:bowl-of-commanding-water-elementals": {
+      "sourceDigest": "sha256:b1b06bf2e8a5aaad82d38e29c1d7ff6e494023b081d4acd3d8450beec755164f",
+      "effectSummary": "When the bowl is filled with water, once per dawn use an action and command word to summon a water elemental as though casting conjure elemental."
+    },
+    "wikidot5e:wondrous-items:bracelet-of-rock-magic": {
+      "sourceDigest": "sha256:e6a922dfb0c08918c01c796e4c1754cdaf177ef7d9c9fa5b5e88b8d606860523",
+      "effectSummary": "While worn, you are immune to petrification. As an action cast flesh to stone with save DC 15; after the third casting, this property is exhausted and you can instead cast stone shape as an action. After 13 stone shape castings, the bracelet permanently loses its magic and turns to lead. Curse: flesh-and-blood creatures strongly tied to earth or stone, such as dwarves and stone giants, have advantage on saves against its flesh to stone. If such a creature succeeds, your attunement breaks and the bracelet casts flesh to stone on you; you save with disadvantage and are instantly petrified on failure."
+    },
+    "wikidot5e:wondrous-items:bracer-of-flying-daggers": {
+      "sourceDigest": "sha256:f07571a86c105b44b4d3939590e3f358a1a95a49414362e932d463fc8e3bc5f7",
+      "effectSummary": "As an action, pull up to two magic daggers from the bracer and immediately make a ranged attack with each. A dagger vanishes if not thrown immediately and disappears after it hits or misses. The bracer never runs out of daggers."
+    },
+    "wikidot5e:wondrous-items:bracers-of-celerity": {
+      "sourceDigest": "sha256:bbd5d20d939937ce988dfbcd93a0e8e83c5247c9d6fa321d038db11d5f0b88f9",
+      "effectSummary": "While worn, all of your speeds increase by 10 feet and you have advantage on saving throws to avoid or end paralyzed or restrained on yourself."
+    }
+  }
+}
