@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-007-5",
+  "records": {
+    "wikidot5e:wondrous-items:wand-of-enemy-detection": {
+      "sourceDigest": "sha256:e8162f658357f9a0a42b005b2fb14a60f70195efcf6bc21658e08d91fcf792",
+      "effectSummary": "Has 7 charges, regaining 1d6+1 daily at dawn. While holding it, use an action and 1 charge; for 1 minute know the direction, but not distance, of the nearest creature hostile to you within 60 feet, including ethereal, invisible, disguised, or hidden creatures. The effect ends if you stop holding the wand. If the last charge is spent, roll d20; on 1 it crumbles to ashes."
+    },
+    "wikidot5e:wondrous-items:wand-of-entangle": {
+      "sourceDigest": "sha256:61768a2f6cc7f89ef8e4ddaa151a4a99d55c7fe92e892637ec3520c7b9ca7b1d",
+      "effectSummary": "Spellcaster wand with 7 charges, regaining 1d6+1 daily at dawn. As an action while holding it, spend 1 charge to cast entangle at save DC 13. If the last charge is spent, roll d20; on 1 it crumbles to ashes."
+    },
+    "wikidot5e:wondrous-items:wand-of-fear": {
+      "sourceDigest": "sha256:bc17d0fb5e200d0b2edee2f32235c751feba1e4ebd19a06e8d34eabac0256747",
+      "effectSummary": "Has 7 charges, regaining 1d6+1 daily at dawn. Command: action, 1 charge, cast command at save DC 15 limited to flee or grovel. Cone of Fear: action, 2 charges, 60-foot cone; DC 15 Wisdom or frightened for 1 minute. While frightened this way, creature must move as far from you as possible, cannot willingly move within 30 feet or take reactions, and may use its action only to Dash or escape movement-preventing effects, Dodging if unable to move; repeat save at turn end. If the last charge is spent, roll d20; on 1 it crumbles to ashes."
+    },
+    "wikidot5e:wondrous-items:wand-of-fireballs": {
+      "sourceDigest": "sha256:eba4ee837daa8bd578d914e63370b02b02c805185478310efd82faa7e852c8e2",
+      "effectSummary": "Spellcaster wand with 7 charges, regaining 1d6+1 daily at dawn. As an action, spend at least 1 charge to cast fireball at save DC 15: 1 charge casts 3rd level and each additional charge increases the spell level by 1. If the last charge is spent, roll d20; on 1 it crumbles to ashes."
+    },
+    "wikidot5e:wondrous-items:wand-of-lightning-bolts": {
+      "sourceDigest": "sha256:9fea619306cee0b0fe50b46d539ac4e58ae4ea48a3f2828477ca617991dfcd08",
+      "effectSummary": "Spellcaster wand with 7 charges, regaining 1d6+1 daily at dawn. As an action, spend at least 1 charge to cast lightning bolt at save DC 15: 1 charge casts 3rd level and each additional charge increases the spell level by 1. If the last charge is spent, roll d20; on 1 it crumbles to ashes."
+    },
+    "wikidot5e:wondrous-items:wand-of-magic-missiles": {
+      "sourceDigest": "sha256:14ba174af65c450637fadd296b6948c7a3793597f8799735d6c77e3d61f880c5",
+      "effectSummary": "Has 7 charges, regaining 1d6+1 daily at dawn. As an action, spend at least 1 charge to cast magic missile: 1 charge casts 1st level and each additional charge increases the spell level by 1. If the last charge is spent, roll d20; on 1 it crumbles to ashes."
+    },
+    "wikidot5e:wondrous-items:wand-of-orcus": {
+      "sourceDigest": "sha256:ca3dfc8b59f5bd46818c06f4732a7fe2b3e0917336ccc6d7cb78e9685094eb41",
+      "effectSummary": "Sentient chaotic-evil artifact of Orcus. A non-Orcus creature attempting attunement makes DC 17 Constitution: success takes 10d6 necrotic, failure dies and rises as zombie. Attuned, it is a +3 magic mace dealing +2d12 necrotic and grants +3 AC while held. Random properties: 2 minor beneficial, 1 major beneficial, 2 minor detrimental, 1 major detrimental; detrimental properties are suppressed for Orcus. It has 7 charges, regaining 1d4+3 daily at dawn; as an action cast at save DC 18: animate dead 1, blight 2, circle of death 3, finger of death 3, power word kill 4, speak with dead 1. Orcus or his blessed follower spends 2 fewer charges, minimum 0. Once per dawn while holding it, summon skeletons/zombies within 300 feet totaling up to 500 average HP; they obey until destroyed or next dawn, while Orcus may summon any undead that persist until dismissed. Sentience: Intelligence 16, Wisdom 12, Charisma 16, hearing/darkvision 120 feet, telepathic, speaks/reads/understands Abyssal/Common; cold, cruel, nihilistic, deceitfully promises aid while pursuing universal death. Permanently destroy only by having the ancient hero whose skull crowns it restored to life and bring it to the Positive Energy Plane for destruction; otherwise positive-energy destruction makes it reform on Orcus's Abyssal layer."
+    },
+    "wikidot5e:wondrous-items:wand-of-paralysis": {
+      "sourceDigest": "sha256:765774d97429d1c258632baa26ea0b04deb7e511a4e0e589a6b7adb7c662dca6",
+      "effectSummary": "Spellcaster wand with 7 charges, regaining 1d6+1 daily at dawn. As an action while holding it, spend 1 charge and target a visible creature within 60 feet; DC 15 Constitution or paralyzed for 1 minute, repeating at each turn end to end. If the last charge is spent, roll d20; on 1 it crumbles to ashes."
+    },
+    "wikidot5e:wondrous-items:wand-of-polymorph": {
+      "sourceDigest": "sha256:b6ac46ac5090891694434244e57fa42f15798349f5233536dbb58b0a66ee704c",
+      "effectSummary": "Spellcaster wand with 7 charges, regaining 1d6+1 daily at dawn. As an action while holding it, spend 1 charge to cast polymorph at save DC 15. If the last charge is spent, roll d20; on 1 it crumbles to ashes."
+    },
+    "wikidot5e:wondrous-items:wand-of-pyrotechnics": {
+      "sourceDigest": "sha256:b7ad709d0c2c894c58f57add087dd62bed03f1fb278a1c3df702ffc75d8d0ce1",
+      "effectSummary": "Has 7 charges, regaining 1d6+1 daily at dawn. As an action while holding it, spend 1 charge to create a harmless one-second burst of multicolored torch-bright light at a visible point within 60 feet, accompanied by crackling audible 300 feet. If the last charge is spent, roll d20; on 1 it erupts harmlessly and is destroyed."
+    }
+  }
+}
