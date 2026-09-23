@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-9",
+  "records": {
+    "wikidot5e:wondrous-items:staff-of-the-python": {
+      "sourceDigest": "sha256:4afda8f9696957b33d82bf01611ff6b956c66dd10fdc032c887f971b2e24b01e",
+      "effectSummary": "As an action, speak the command word and throw the staff to ground within 10 feet to transform it into a giant constrictor snake under your control on its own initiative. On your turn, mentally command it within 60 feet while not incapacitated or give a general command. As a bonus action, repeat the command to return it to staff form in the snake's space. If reduced to 0 HP as a snake, it dies, reverts, and the staff shatters permanently; if reverted before 0 HP, it regains all HP."
+    },
+    "wikidot5e:wondrous-items:staff-of-the-rooted-hills": {
+      "sourceDigest": "sha256:a6d7d30d0945be2a3b0ce3a3ef1e995c5d2d033ad1f6cc9c16dec9a2bfd84dc0",
+      "effectSummary": "Resizes to its attuned wielder and functions as a +1 magic quarterstaff. The first creature you hit with it on each of your turns makes DC 12 Strength or is restrained by spectral vines until the start of your next turn. Once per dawn as an action, invoke the rune to cast either hold person at save DC 12 or speak with plants."
+    },
+    "wikidot5e:wondrous-items:staff-of-the-woodlands": {
+      "sourceDigest": "sha256:8388f360c7b9727d57394f4543b39cf46479474907cb3d53ec69d59b483d053b",
+      "effectSummary": "Druid-only +2 magic quarterstaff granting +2 spell attacks while held. It has 10 charges, regaining 1d6+4 daily at dawn; if the last charge is spent, roll d20 and on 1 it becomes nonmagical. As an action cast using your spell save DC: animal friendship 1, awaken 5, barkskin 2, locate animals or plants 2, speak with animals 1, speak with plants 3, wall of thorns 6; cast pass without trace at will without charges. Tree Form: as an action plant it in fertile earth and spend 1 charge to become a healthy 60-foot-tall tree with 5-foot trunk and 20-foot-radius crown; while touching the tree, use an action and command word to revert it, causing creatures in the tree to fall."
+    },
+    "wikidot5e:wondrous-items:staff-of-thunder-and-lightning": {
+      "sourceDigest": "sha256:75406486b9c75967f6397a6a8fe26dd99657b87d1c3f949b86619dda52a85cef",
+      "effectSummary": "Functions as a +2 magic quarterstaff. Each special property is usable once per dawn. Lightning: on melee hit deal +2d6 lightning. Thunder: on melee hit, target makes DC 17 Constitution or is stunned until end of your next turn; crack audible 300 feet. Lightning Strike: action, 120-by-5-foot line, DC 17 Dexterity, 9d6 lightning or half. Thunderclap: action, creatures other than you within 60 feet make DC 17 Constitution, taking 2d6 thunder and deafened 1 minute on failure, half/no deafness on success; audible 600 feet. Thunder and Lightning: action use Lightning Strike and Thunderclap together without expending their separate daily uses, only this combined use."
+    },
+    "wikidot5e:wondrous-items:staff-of-withering": {
+      "sourceDigest": "sha256:38fedac28ab0661b94b28cd148e942484037ff5f27829e1a8ed6070198889c5d",
+      "effectSummary": "Magic quarterstaff with 3 charges, regaining 1d3 daily at dawn. On a hit, spend 1 charge to deal +2d10 necrotic; target also makes DC 15 Constitution or has disadvantage for 1 hour on all Strength- or Constitution-based ability checks and saving throws."
+    },
+    "wikidot5e:wondrous-items:starshot-crossbow": {
+      "sourceDigest": "sha256:a7638a671fed737aee50688986044c51ae7f1f1fa93a177e53291d8880ff9cad",
+      "effectSummary": "Ignores loading and creates one magic piece of ammunition for each ranged attack if unloaded; created ammunition vanishes immediately after hit or miss. It has 3 charges, regaining 1d3 daily at dawn. As a bonus action, tap a constellation and spend 1 charge. Balance: the next crossbow hit before end of next turn lets you or another chosen creature within 30 feet regain 1d8 + proficiency bonus HP. Flames: until end of next turn, crossbow hits deal +2d8 fire. Rogue: until end of next turn, you and worn/carried items are invisible."
+    },
+    "wikidot5e:wondrous-items:steel": {
+      "sourceDigest": "sha256:02183c02cfedc5532aadeabac324af9b698e44eeb1d779b64dacf0299ef64900",
+      "effectSummary": "Sentient lawful-good +2 longsword attunable by a good creature. Once per dawn as an action, cast revivify by touching the target with the sword. Sentience: Intelligence 8, Wisdom 11, Charisma 15, sight/hearing 60 feet, speaks/reads/understands Common and Draconic; it worries over its wielder's well-being but dislikes retreating from a fight."
+    },
+    "wikidot5e:wondrous-items:stone-of-golorr": {
+      "sourceDigest": "sha256:512d36c2c7cdef2d2cf92e3387457c8e11ee6e4130c6f35398f261af4f69f7f6",
+      "effectSummary": "Artifact aboleth Golorr transformed into a stone, with 1 random minor beneficial and 1 minor detrimental property. It has 3 charges, regaining 1d3 daily at dawn; while holding it, spend 1 charge to cast legend lore by directly consulting Golorr, which cannot lie but often answers cryptically. Ending attunement forces DC 16 Wisdom; failure erases all memory of possessing the stone and all knowledge it gave. Remove curse has 20% chance to restore those memories; greater restoration automatically restores them. Sentient lawful evil: Intelligence 18, Wisdom 15, Charisma 18, hearing/darkvision 120 feet, telepathic with attuned creature and learns the greatest desires of telepathic contacts; it is domineering, hungry for information, and may seek a new owner through item conflict. The stone is immune to all damage; antipathy/sympathy cast with antipathy directed against aberrations destroys the stone, turning it to mucus and releasing hostile Golorr in an open space within 30 feet."
+    },
+    "wikidot5e:wondrous-items:stone-of-ill-luck": {
+      "sourceDigest": "sha256:6a8c7537936e2f22174355c738333eb383163dc1135c980d6c95d871235a29fa",
+      "effectSummary": "Appears to be a stone of good luck even to identify and grants that item's apparent property, but is cursed. While on your person, you actually take -2 to ability checks and saving throws; until the curse is discovered, the DM secretly applies the penalty while you believe you are adding the apparent bonus. You are unwilling to part with it until remove curse or similar magic ends the curse."
+    },
+    "wikidot5e:wondrous-items:stonebreakers-breastplate": {
+      "sourceDigest": "sha256:562feeba46c51de5a7043ab9da2e5ddb879b3db1ee87270e904a0b22bac41371",
+      "effectSummary": "While wearing the granite breastplate, resist bludgeoning, piercing, and slashing and are immune to prone. Once per dawn as an action, invoke its rune to cast wall of stone at save DC 14; when cast this way, you have advantage on saving throws to maintain concentration on the spell."
+    }
+  }
+}
