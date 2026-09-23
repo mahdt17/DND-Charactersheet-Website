@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-008-3",
+  "records": {
+    "wikidot5e:spell:psychic-scream": {
+      "sourceDigest": "sha256:fd42ef91de30d245cc7f11f70d15d1242361bffaa527ec525f23b2be5669e10e",
+      "effectSummary": "Choose up to ten visible creatures within 90 feet; creatures with Intelligence 2 or lower are unaffected. Each target makes an Intelligence save, taking 14d6 psychic damage and becoming stunned on a failure, or half damage without stun on a success. A target killed by the damage has its head explode if it has one. A stunned target repeats the Intelligence save at the end of each of its turns, ending the stun on a success."
+    },
+    "wikidot5e:spell:pulse-wave": {
+      "sourceDigest": "sha256:9db6302be108c9cdddfe7152eeec89b4655d8b37ce9e2611a3cd579a110270ce",
+      "effectSummary": "Choose push or pull, then unleash a 30-foot cone. Creatures there make Constitution saves, taking 6d6 force damage on a failure or half on a success; a failed target is also moved 15 feet directly away from or toward you according to your choice. Unsecured objects fully in the cone move the same distance. Each slot level above 3rd adds 1d6 damage and 5 feet to the movement."
+    },
+    "wikidot5e:spell:puppet-ua": {
+      "sourceDigest": "sha256:9163167ff6eb3c0dc323acc9cbc0f7ed4f344cfe1c86686d035392f4e18f17c9",
+      "effectSummary": "One visible humanoid within 120 feet that is not immune to charm makes a Constitution save. On a failure, it must move up to its speed in a direction you choose, and you may also make it drop whatever it is holding."
+    },
+    "wikidot5e:spell:pyrotechnics": {
+      "sourceDigest": "sha256:1a8671bd8f4c2f2b1ae2cfb0b18987369e20d19a620a45a2f5645c1c7a074de3",
+      "effectSummary": "Choose a visible flame within 60 feet that fits in a 5-foot cube, extinguish it, and choose one effect. Fireworks force creatures within 10 feet to make Constitution saves or be blinded until the end of your next turn. Smoke creates a 20-foot-radius, heavily obscuring cloud that spreads around corners and lasts 1 minute or until strong wind disperses it."
+    },
+    "wikidot5e:spell:raise-dead": {
+      "sourceDigest": "sha256:f81a70065a357947e836048f1398ab2df12e67a4ecddfc2e44e2ee562c8396db",
+      "effectSummary": "Return a touched non-undead creature dead no more than 10 days to life with 1 HP if its soul is free and willing. Neutralize poisons and cure nonmagical diseases present at death, but magical diseases, curses, and similar effects remain unless removed first. Mortal wounds close, but missing vital body parts are not restored and make the spell fail. The revived creature has -4 to attack rolls, saves, and ability checks; each long rest reduces this penalty by 1 until gone."
+    },
+    "wikidot5e:spell:rarys-telepathic-bond": {
+      "sourceDigest": "sha256:ac4e135f5f88608613ce182816d49f7eaec3cf30acb1ce53adffa439a0dd38fd",
+      "effectSummary": "Telepathically link up to eight willing creatures within 30 feet for 1 hour; creatures with Intelligence 2 or lower are unaffected. Linked creatures can communicate mentally with one another over any distance regardless of shared language, but the bond cannot cross planar boundaries."
+    },
+    "wikidot5e:spell:raulothims-psychic-lance": {
+      "sourceDigest": "sha256:527da02f2197e575870c767a932eec70199b508b6079926302b5096c1daeb029",
+      "effectSummary": "Target a visible creature within 120 feet, or speak a creature's name to target it within range even if unseen; if the named creature is not within range, the spell has no effect. The target makes an Intelligence save, taking 7d6 psychic damage and becoming incapacitated until the start of your next turn on a failure, or half damage without incapacitation on a success. Each slot level above 4th adds 1d6 damage."
+    },
+    "wikidot5e:spell:raulothims-psychic-lance-ua": {
+      "sourceDigest": "sha256:a70ac7d1d24d778fcf74470fd1575ed2ddcec82eddc123cc72bc17274fb2597f",
+      "effectSummary": "Target a visible creature within 120 feet, or speak a creature's name; if that named creature is within range, cover and invisibility do not protect it, while if it is out of range the spell dissipates and the slot is not expended. The target makes an Intelligence save; on a failure it takes 10d6 psychic damage and is incapacitated until the start of your next turn. Each slot level above 4th adds 1d6 damage."
+    },
+    "wikidot5e:spell:ravenous-void": {
+      "sourceDigest": "sha256:4581f3ff433b6aada8c7c25f18d55439c3715cffc6e77d97f28f25260d63a2c3",
+      "effectSummary": "Create a 20-foot-radius gravitational sphere centered within 1,000 feet for up to 1 minute. The sphere and all space within 100 feet are difficult terrain, and unattended nonmagical objects fully inside the sphere are destroyed. When it appears and at the start of each of your turns, unsecured objects within 100 feet are pulled as close to the center as possible. A creature starting its turn within 100 feet makes a Strength save or is pulled likewise. A creature entering the sphere for the first time on a turn or starting there takes 5d10 force damage and is restrained while inside; if the sphere is airborne, restrained creatures hover. A creature can use an action for a Strength check against your spell save DC to free itself or a reachable creature. A creature reduced to 0 HP by the spell is annihilated along with worn or carried nonmagical items."
+    },
+    "wikidot5e:spell:ray-of-enfeeblement": {
+      "sourceDigest": "sha256:4269d056bee1600e605aa9a3149950e6a76084c18d2a3aa1373a84810c304464",
+      "effectSummary": "Make a ranged spell attack against one creature within 60 feet. On a hit, for up to 1 minute its weapon attacks that use Strength deal only half damage. At the end of each of its turns it makes a Constitution save, ending the spell on a success."
+    }
+  }
+}
