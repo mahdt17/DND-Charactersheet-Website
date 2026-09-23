@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-2",
+  "records": {
+    "wikidot5e:wondrous-items:amethyst-lodestone": {
+      "sourceDigest": "sha256:28d9fa6545a353e1dfedb576f2808b6ce09f38c21dec1a1e0186b3152edd8425",
+      "effectSummary": "While carrying the lodestone, you have advantage on Strength saving throws. It has 6 charges and regains 1d6 daily at dawn. While holding it: spend 1 charge as a bonus action to gain a flying speed equal to your walking speed and hover for 10 minutes; spend 1 charge as an action to force a visible creature within 60 feet to make a DC 18 Strength save or be pushed up to 20 feet in a direction you choose; or spend 3 charges as an action to cast reverse gravity with save DC 18."
+    },
+    "wikidot5e:wondrous-items:amulet-of-protection-from-turning": {
+      "sourceDigest": "sha256:4cf78dc733f256af32a3e49f6dbd44d5610c34d594c54818a77844115fae5bc3",
+      "effectSummary": "While worn, gain advantage on saving throws against effects that turn undead. If you fail such a save, you may choose to succeed instead; this override has 3 uses, all restored daily at dawn."
+    },
+    "wikidot5e:wondrous-items:amulet-of-the-black-skull": {
+      "sourceDigest": "sha256:708a49d845ccf263285f82c21509fe4097d7c6071aa41e864dd3e165a0224c73",
+      "effectSummary": "The amulet has 6 charges and regains 1d6 daily at dawn. While wearing it, spend 1 charge as an action to teleport yourself and worn/carried gear to a familiar location within 100 feet on the same plane, even through the Tomb of the Nine Gods' usual magic restrictions. If you are not undead, make a DC 16 Constitution save each use; on failure roll d100: 01–20 gain Acererak's cursed symbol, preventing magical HP recovery until remove curse or similar; 21–35 enlarged for 1 hour; 36–50 reduced for 1 hour; 51–70 arrive with only the amulet while all other gear appears in a random unoccupied space within 100 feet; 71–95 paralyzed for 1 minute or until lesser restoration or similar; 96–00 petrified until greater restoration or similar."
+    },
+    "wikidot5e:wondrous-items:amulet-of-the-devout": {
+      "sourceDigest": "sha256:68ed08110d1272b172e0db3587919c3e9873ef4ab0c81d7eb5866ba86a62addc",
+      "effectSummary": "While worn, gain a bonus to spell attack rolls and spell save DCs equal to the amulet's rarity bonus: uncommon +1, rare +2, very rare +3. Once per dawn, use Channel Divinity without expending one of its normal uses."
+    },
+    "wikidot5e:wondrous-items:amulet-of-the-planes": {
+      "sourceDigest": "sha256:19f506e44c4b9f5b565b464a6b1f570dc06e01eea1109f13759745793613e774",
+      "effectSummary": "While wearing the amulet, use an action to name a familiar location on another plane and make a DC 15 Intelligence check. On success, cast plane shift to that location. On failure, you and each creature and object within 15 feet are transported randomly: d100 01–60 to a random location on the named plane, 61–100 to a randomly determined plane."
+    },
+    "wikidot5e:wondrous-items:animated-shield": {
+      "sourceDigest": "sha256:addddb8b2114760ec1f90a5d7f6e373c7ac540000b942d8ce863b17221bcfdaf",
+      "effectSummary": "While holding the shield, speak its command word as a bonus action to animate it for 1 minute. It hovers in your space and protects you as though wielded while leaving your hands free. End it early as a bonus action; it also ends if you are incapacitated or die, when the shield falls or returns to a free hand."
+    },
+    "wikidot5e:wondrous-items:antimagic-armor": {
+      "sourceDigest": "sha256:ce44250803f7add83c5fcd999a927ca28b5a0cbb3d8be3ec004b503490067940",
+      "effectSummary": "While wearing the armor, once per dawn use your reaction to gain advantage on a saving throw against a spell. Separately, once per dawn cast antimagic field from the armor without spell components."
+    },
+    "wikidot5e:wondrous-items:apparatus-of-kwalish": {
+      "sourceDigest": "sha256:00944d1d55142b7f00875d039fc58608fe43208f93754d7d315d7c874c850888",
+      "effectSummary": "Large 500-pound two-person vehicle; hidden hatch requires DC 20 Intelligence (Investigation) to find. AC 20, 200 HP, speed 30 ft. and swim 30 ft. when legs/tail extended, immune to poison and psychic damage. Closed compartment is airtight/watertight with 10 creature-hours of air, floats, and can dive to 900 feet; below that it takes 2d6 bludgeoning per minute. One pilot operates up to two levers per action: 1 extend/retract legs/tail, setting speed 30/30 or 0; 2 open/close forward shutter; 3 open/close side shutters; 4 extend/retract two claws; 5 each extended claw attacks at +8, reach 5 ft., either 2d6 bludgeoning or grapple escape DC 15 depending lever direction; 6 move forward/backward; 7 turn 90° left/right; 8 lights on/off, bright 30 ft. and dim another 30; 9 sink/rise up to 20 ft.; 10 open/close and seal rear hatch."
+    },
+    "wikidot5e:wondrous-items:arcane-cannon": {
+      "sourceDigest": "sha256:7fff3a8b682b30c2381d66345c2749227e0151cca211c644df05795e62d278e6",
+      "effectSummary": "Large magic cannon requiring one action to aim and one to fire, no ammunition or loading; after firing it recharges for 5 minutes. Choose an effect: Acid Jet—300-by-5-foot line, DC 15 Dexterity, 4d10 acid or half; failed targets also take 2d10 acid at each turn start until using an action and at least a pint of water to wash it off. Fire Jet—same line, DC 15 Dexterity, 6d10 fire or half, igniting unattended flammables. Frost Shot—point within 1,200 feet, 30-foot-radius sphere, DC 15 Constitution, 4d10 cold and speed -10 feet for 1 minute on failure, half/no slow on success; repeat save each turn to end slow. Lightning Shot—point within 1,200 feet, 20-foot-radius sphere, DC 15 Dexterity, 6d10 lightning or half, with metal-armored creatures disadvantaged. Poison Spray—60-foot cone, DC 15 Constitution, 4d10 poison and poisoned 1 minute on failure, half/no poison on success; repeat save each turn to end poison."
+    },
+    "wikidot5e:wondrous-items:arcane-grimoire": {
+      "sourceDigest": "sha256:8369a9fdcd2d1c217e1a82748354afe2d70c0a732c4e4688bb4177907396d3e8",
+      "effectSummary": "Functions as a wizard spellbook and spellcasting focus. While holding it, gain a bonus to wizard spell attack rolls and wizard spell save DCs equal to rarity: uncommon +1, rare +2, very rare +3. When using Arcane Recovery, increase the total spell-slot levels regained by 1."
+    }
+  }
+}
