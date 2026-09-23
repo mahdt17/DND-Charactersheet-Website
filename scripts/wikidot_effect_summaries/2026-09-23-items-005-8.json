@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-8",
+  "records": {
+    "wikidot5e:wondrous-items:ring-of-spell-storing": {
+      "sourceDigest": "sha256:631dbd955121df93c4a550d4e3dad8f148737525fc5c116af80334b4c2be6627",
+      "effectSummary": "Stores up to 5 spell levels at once and is found with 1d6-1 stored levels chosen by the DM. Any creature can store a 1st–5th-level spell by touching the ring while casting it; the spell has no immediate effect, but its expended slot level determines storage used, and a spell that does not fit is expended without being stored. While wearing the ring, cast any stored spell using the original caster's slot level, spell save DC, spell attack bonus, and spellcasting ability; otherwise treat it as your casting. The spell then leaves the ring, freeing capacity."
+    },
+    "wikidot5e:wondrous-items:ring-of-spell-turning": {
+      "sourceDigest": "sha256:dce71474a7a7df62566f48f9045b8638f27002a7d28c7bd01d710fd28aa51bd9",
+      "effectSummary": "While worn, gain advantage on saving throws against spells that target only you rather than an area. If you roll a natural 20 on such a save against a 7th-level-or-lower spell, it has no effect on you and instead targets its caster using that caster's slot level, save DC, attack bonus, and spellcasting ability."
+    },
+    "wikidot5e:wondrous-items:ring-of-temporal-salvation": {
+      "sourceDigest": "sha256:106ebe7fa6fae7fe7bf70403f299489ddb6eecf7a170f720e9780e35c46fd717",
+      "effectSummary": "If you die while wearing the ring, immediately vanish and reappear in an open space within 5 feet of where you died, or nearest available space, with 3d6 + Constitution modifier HP. If your normal HP maximum is lower than the HP restored, raise the maximum to that amount. Reduce exhaustion by 1 level. The ring then turns to dust and is destroyed."
+    },
+    "wikidot5e:wondrous-items:ring-of-the-orator": {
+      "sourceDigest": "sha256:d114f7ed762cdef297c121997bbd7ea5c20029796cc344661dde39af3835b781",
+      "effectSummary": "The ring has 6 charges and regains 1d6 daily at dawn. While wearing it, spend 1 charge to project your voice clearly to all creatures within 1 mile for 1 minute regardless of intervening noise. Magical silence, 1 foot of stone, 1 inch of common metal, thin lead, or 3 feet of wood blocks it. If speaking a language listeners do not understand, you may make visible listeners understand your meaning."
+    },
+    "wikidot5e:wondrous-items:ring-of-the-ram": {
+      "sourceDigest": "sha256:65bdcf95a4ea1bcabc0c5fa7d052856c67cdb83f4b36f5bb67a54e5b44826de2",
+      "effectSummary": "The ring has 3 charges and regains 1d3 daily at dawn. As an action spend 1–3 charges to make a +7 ranged spell attack against one visible creature within 60 feet; on hit, each charge deals 2d10 force and pushes the target 5 feet away. Alternatively, spend 1–3 charges as an action to break one visible unattended object within 60 feet; the ring makes a Strength check with +5 per charge spent."
+    },
+    "wikidot5e:wondrous-items:ring-of-winter": {
+      "sourceDigest": "sha256:3d14deea80573d35bd8d55b513287f0796fd3a2bf70af3a4385d9849fb8a7e30",
+      "effectSummary": "Sentient chaotic-evil artifact, Intelligence 14, Wisdom 14, Charisma 17, hearing/normal vision 60 feet, communicating by emotion and trying to control its wearer into destructive behavior. Neither ring nor wearer can be magically located, targeted by divination, or perceived by magical scrying sensors. While worn you do not age naturally and, while attuned, are immune to cold and extreme-cold effects. It has 12 charges, all restored daily at dawn. Spend 1 charge as an action to lower temperature in a 120-foot-radius sphere centered within 300 feet by 20°F per minute to minimum -30°F; the change is permanent until ended as an action, then normalizes by 10°F/minute. Cast at save DC 17: sleet storm 1; spike growth with ice spikes 1; Bigby's hand 2 with an ice hand immune to cold and clenched-fist damage bludgeoning instead of force; cone of cold 2; ice storm 2; wall of ice 2; flesh to ice 3, functioning as flesh to stone except solid ice; Otiluke's freezing sphere 3. As an action create an inanimate ice object for 2 charges, fitting a 10-foot cube with no moving parts and stone/metal durability, or an ice beast CR 2 or lower for 4 charges; the beast becomes a construct vulnerable to fire, immune to cold/poison and charmed, exhaustion, frightened, paralyzed, petrified, poisoned, and obeys only its creator. Creations appear within 60 feet and melt after 24 hours or at 0 HP, losing 1d10 HP/minute in extreme heat. Rumored extra powers may be available to an evil wielder the ring cannot dominate. Only placing it on the Summer Queen's finger permanently destroys it."
+    },
+    "wikidot5e:wondrous-items:ring-of-x-ray-vision": {
+      "sourceDigest": "sha256:7abba64a98ccaac8b26d04f89492c75ee29b1e611c9e365c7cc745f9b182d48b",
+      "effectSummary": "As an action while wearing it, speak the command word to gain 30-foot X-ray vision for 1 minute. Solid matter appears transparent and does not block light, penetrating up to 1 foot stone, 1 inch common metal, or 3 feet wood/dirt; thicker barriers and any thin lead block it. Each use after the first before a long rest requires DC 15 Constitution or gain 1 exhaustion."
+    },
+    "wikidot5e:wondrous-items:rings-of-shared-suffering": {
+      "sourceDigest": "sha256:749f3924ebdd92b4f05aed3a6b0edf28a9c21960e6e2ed06273c17412cd91442",
+      "effectSummary": "Linked pair. If you have the Mark of Sentinel, use a bonus action to link to the creature attuned to the other ring. Thereafter, whenever that creature takes damage, it takes half and you take the remainder. Range is unlimited. End the link as a bonus action or when either ring is removed. A creature cannot attune to more than one Ring of Shared Suffering."
+    },
+    "wikidot5e:wondrous-items:robe-of-eyes": {
+      "sourceDigest": "sha256:f1ad31c70f76382250c4c1ab42cce79ee6afe1c3828ca95c82765633777479c1",
+      "effectSummary": "While worn, see in all directions, gain advantage on sight-based Wisdom (Perception), darkvision 120 feet, and see invisible creatures/objects and into the Ethereal Plane to 120 feet. The robe's eyes cannot be closed or averted, so you are never considered to avert your gaze while wearing it. Light cast on the robe or daylight cast within 5 feet blinds you for 1 minute; at each turn end make Constitution to end it, DC 11 for light or DC 15 for daylight."
+    },
+    "wikidot5e:wondrous-items:robe-of-scintillating-colors": {
+      "sourceDigest": "sha256:ad6293b8382c3e878f037628087104e1fab94c5e69fa44030001c68d93e2745a",
+      "effectSummary": "The robe has 3 charges and regains 1d3 daily at dawn. As an action spend 1 charge to display dazzling colors until the end of your next turn, shedding bright light 30 feet and dim another 30. Creatures that can see you have disadvantage on attacks against you. When activated, every creature in the bright light that can see you makes DC 15 Wisdom or is stunned until the effect ends."
+    }
+  }
+}
