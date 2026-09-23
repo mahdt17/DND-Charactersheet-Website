@@ -4,6 +4,16 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## 3.5 equipment category — COMPLETE under both independent gates
+
+- Final verification head: `72bd4cf61d87c07bfb36abbdea390be8a33d8b69`.
+- Category Enrichment Audit #96 (run `35813780606`) passed all 25/50/100/250 strict samples, all **16 / 16** full source shards, source aggregation, all **16 / 16** dry-run candidate shards, and final output audit.
+- Exact full source gate: **65 / 65 passed**, **0 failed**, **100.00%**, `criticalMissingCount: 0`, `coverageErrors: []`. Source artifact `10731002646`, ZIP SHA-256 `8e4c348dec490b917ed10bdb28ee137415d355126b8243bae4200278d3c35534`.
+- Exact final-output gate: **65 / 65 passed**, **0 failed**, **100.00%**, `outputCompletenessVerified: true`, `criticalMissingCount: 0`, `errors: []`. Output artifact `10730307914`, ZIP SHA-256 `43b68509ac70dc38d3f3040efcae2d1f189685b6c9796ba67b969847ae00c842`.
+- Validate modernization #1022 (run `35813783923`) passed end-to-end on the same verification head.
+- This closes all five required 3.5 categories individually. The next proof is the full nine-category read-only release audit across all required 3.5 and 5e categories.
+- Live/catalog writes remain **LOCKED**, Supabase remains untouched, and PR #4 remains open/unmerged until the global full audit is independently green.
+
 ## 3.5 item category — COMPLETE under both independent gates
 
 - Final category-audit head: `56a6811f02000dd590ea2f81d9095a6b5c2a30d6`; final content-fix head: `61a880e39e4a680130a93dc57ac7943f0c72a70c`.
