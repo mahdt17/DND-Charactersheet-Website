@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-3",
+  "records": {
+    "wikidot5e:wondrous-items:flying-citadel-helm": {
+      "sourceDigest": "sha256:3ed813bfe04ee0a709626fb71dfbee312dea92dde66692bdd3b1033151c82717",
+      "effectSummary": "Installed chair, AC 15, 18 HP, immune to poison and psychic damage, destroyed at 0 HP. While attuned, seated, and concentrating as on a spell, move the citadel through the air up to 80 feet per round or 8 mph, steer it, and see/hear from the citadel's highest exterior point. Without an attuned concentrating pilot, the citadel remains motionless. As an action or bonus action, touch a willing spellcaster to transfer attunement immediately to them, ending yours. If the helm is destroyed, the citadel loses power and crumbles; if airborne it descends 30 feet per round/300 feet per minute, and creatures on it or on the ground within 120 feet when it lands make DC 20 Dexterity for 6d12 bludgeoning, half on success."
+    },
+    "wikidot5e:wondrous-items:folding-boat": {
+      "sourceDigest": "sha256:672348d23317a16a0378ac81f0d4dacaafbfd9259bf66d78e34745adef2a00aa",
+      "effectSummary": "A 12×6×6-inch, 4-pound floating box with three action command words. First unfolds it into a 10×4×2-foot boat with oars, anchor, mast, lateen sail, and comfortable capacity for four Medium creatures. Second unfolds it into a 24×8×6-foot ship with deck, rowing seats, five oar sets, steering oar, anchor, deck cabin, square sail, and capacity for fifteen Medium creatures. In vessel form it weighs as a normal vessel and retains stored contents. Third folds it back into a box only if no creatures are aboard; objects that fit remain inside, and objects too large remain outside."
+    },
+    "wikidot5e:wondrous-items:fools-blade": {
+      "sourceDigest": "sha256:d70cf1371ddf483f5ada0f706c9ee2c963c898d9ff124b8111b187d9eed4efc0",
+      "effectSummary": "This +2 magic sword grants two once-per-dawn tricks. Fool's Feint: bonus action, choose a creature within 5 feet; until the start of your next turn, your attacks against it have advantage. Misdirect: when a creature within 60 feet targets you with an attack, use your reaction to force DC 15 Intelligence; on failure, the attack instead targets another creature of your choice within the attacker's reach."
+    },
+    "wikidot5e:wondrous-items:forcebreaker-weapon": {
+      "sourceDigest": "sha256:fbdc4185b1974d4bdb48e781a7dffbaa0cb5ab5504972fabc8709cd3c474c1c4",
+      "effectSummary": "This +2 magic bludgeoning weapon automatically shatters a Large-or-smaller structure made of magical force when struck, including effects such as forcecage or wall of force. Against a Huge-or-larger magical-force structure, one hit shatters a 20-foot-cube section."
+    },
+    "wikidot5e:wondrous-items:frost-brand": {
+      "sourceDigest": "sha256:75fb832783b170c475d836ea4fb6c90eacc563450f7d06561ba6125a1f1d8510",
+      "effectSummary": "Hits with this magic sword deal +1d6 cold. While holding it, gain fire resistance. In freezing temperatures, it sheds bright light 10 feet and dim another 10. When you draw it, you may extinguish all nonmagical flames within 30 feet; this property can be used once per hour."
+    },
+    "wikidot5e:wondrous-items:fulminating-treatise": {
+      "sourceDigest": "sha256:bb10d9fa16bcb9c020909a6d2e865e9cabf0aea18f6a2142afa5889bf2f084b2",
+      "effectSummary": "Wizard spellbook/focus containing contingency, fireball, gust of wind, Leomund's tiny hut, magic missile, thunderwave, and wall of force. It has 3 charges, regaining 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with a different Evocation spell in the book. When one visible creature takes damage from an Evocation spell you cast, use your reaction and 1 charge to deal +2d6 force and knock it prone if Large or smaller."
+    },
+    "wikidot5e:wondrous-items:galders-bubble-pipe": {
+      "sourceDigest": "sha256:7fc77426d53e0eb995e0d329801605dbaa4dbb78d1c675b0bae163a3269ed56d",
+      "effectSummary": "The pipe has 3 charges and regains all daily at dawn. While holding it, spend 1 charge as an action to cast fog cloud; 2 charges as a bonus action to cast misty step; or 3 charges as an action to summon a friendly steam mephit that obeys verbal commands, acts on its own initiative turn, and disappears after 1 minute or if it ends a turn more than 60 feet from the pipe."
+    },
+    "wikidot5e:wondrous-items:gamblers-blade": {
+      "sourceDigest": "sha256:bc55d04045bfdbb3fe7c1f9a01d176abb259b5a1308f7b13965f039d48268752",
+      "effectSummary": "At each dawn choose +1, +2, or +3 for this magic sword's attack and damage rolls. You take the same numerical penalty to death saving throws. Curse: attunement makes you unwilling to part with the weapon until remove curse or similar magic ends the curse."
+    },
+    "wikidot5e:wondrous-items:gauntlets-of-flaming-fury": {
+      "sourceDigest": "sha256:7a289be236b6abe97df6d55c4fe35ebd7ce5af48049de1e4fd99025f366c773d",
+      "effectSummary": "While wearing both gauntlets, any nonmagical weapon held in either gauntlet counts as magical. Once per dawn as a bonus action, ignite one or two melee weapons you are holding; each deals +1d6 fire on a hit until you sheath or release either weapon."
+    },
+    "wikidot5e:wondrous-items:gavel-of-the-venn-rune": {
+      "sourceDigest": "sha256:02bd7981b4f5c4126209a55a7ff5b98361ae4d9323fbd8f6688a00518fa384c4",
+      "effectSummary": "While the gavel is on your person, attacks against you have disadvantage from the start of combat until the start of your first turn. Once per long rest as an action, strike a hard surface; for 1 minute, the first creature within 60 feet of that point that hits and damages another creature takes psychic damage equal to half the damage it dealt. You may permanently transfer its magic to a location by tracing the venn rune on the ground for 8 hours with the gavel within 5 feet; the gavel is destroyed and creates a fixed 30-foot-radius sphere where any creature that utters a lie takes 5 psychic damage and visibly flinches."
+    }
+  }
+}
