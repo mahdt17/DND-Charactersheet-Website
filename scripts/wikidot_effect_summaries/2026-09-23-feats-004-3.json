@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-004-3",
+  "records": {
+    "wikidot5e:feat:strike-of-the-giants-ua": {
+      "sourceDigest": "sha256:158f1bec7f8b3cabfac196737a8aac5a26420cc2524a2fad08d95a0a7b363519",
+      "effectSummary": "Choose Hill, Stone, Frost, Fire, Cloud, or Storm giant magic. As a bonus action, empower your attacks for 1 minute; the next melee or thrown-weapon hit gains the chosen effect, then the empowerment ends. Hill: +1d6 weapon-type damage and Strength save or prone. Stone: +1d6 force and Strength save or pushed 10 feet. Frost: +1d6 cold and Constitution save or speed 0 until your next turn. Fire: +1d8 fire. Cloud: +1d4 thunder and Wisdom save or you become invisible to the target until your next turn. Storm: +1d6 lightning and Constitution save or disadvantage on attacks until your next turn. Save DC is 8 + proficiency bonus + Strength or Constitution modifier. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:strixhaven-initiate": {
+      "sourceDigest": "sha256:a1ac666894ea30953d7eeb2f06aa06fac74446e480fa53ed8e463fe49a6e6db0",
+      "effectSummary": "Choose a Strixhaven college, learn its two selected cantrips and one selected 1st-level spell, and choose Intelligence, Wisdom, or Charisma as the feat's spellcasting ability. Lorehold: choose two from light, sacred flame, thaumaturgy; choose one 1st-level cleric or wizard spell. Prismari: choose two from fire bolt, prestidigitation, ray of frost; choose one 1st-level bard or sorcerer spell. Quandrix: choose two from druidcraft, guidance, mage hand; choose one 1st-level druid or wizard spell. Silverquill: choose two from sacred flame, thaumaturgy, vicious mockery; choose one 1st-level bard or cleric spell. Witherbloom: choose two from chill touch, druidcraft, spare the dying; choose one 1st-level druid or wizard spell. Cast the chosen 1st-level spell once without a slot per long rest and also with appropriate slots."
+    },
+    "wikidot5e:feat:strixhaven-mascot": {
+      "sourceDigest": "sha256:fcf9d473bba2565ae8d7361ca710617e3fe1ccaeb4f8ae8acb22804983032fa4",
+      "effectSummary": "Cast find familiar as a ritual, with your familiar able to take your Strixhaven college's mascot form: spirit statue for Lorehold, art elemental for Prismari, fractal for Quandrix, inkling for Silverquill, or pest for Witherbloom. When you take the Attack action, you may forgo one attack to let the mascot make one attack with its reaction. If the mascot is within 60 feet, use an action to swap places with it; if the destination cannot fit you, the teleport fails and is wasted. Recharge this teleport on a long rest, or expend a spell slot of 2nd level or higher to use it again."
+    },
+    "wikidot5e:feat:survivalist": {
+      "sourceDigest": "sha256:0ccc6a493ec8b6559a221815a6c35a6e2768e42326deade82ae5ad6da2646f04",
+      "effectSummary": "Increase Wisdom by 1, maximum 20. Gain Survival proficiency, or expertise if already proficient. Learn alarm and cast it once without a slot per long rest."
+    },
+    "wikidot5e:feat:svirfneblin-magic": {
+      "sourceDigest": "sha256:34d339e07f82e80e014ee77d791fc74a3cb8e8e26a8869354709a5918f8ec393",
+      "effectSummary": "Cast nondetection on yourself at will without material components. Cast blindness/deafness, blur, and disguise self once each per long rest. Intelligence is your spellcasting ability for these spells."
+    },
+    "wikidot5e:feat:tandem-tactician": {
+      "sourceDigest": "sha256:a3e92a62387fb1fb2520d21ea65a878163586c701192003582c375f5d5c5bc0b",
+      "effectSummary": "Use Help as a bonus action. When using Help to aid an ally's attack, increase its range by 10 feet and you may help two allies targeting the same creature within range."
+    },
+    "wikidot5e:feat:tavern-brawler": {
+      "sourceDigest": "sha256:49d9e807a6c5b266f65d8513911eb6e503fa1c06258ef0e184a37882bbbf2682",
+      "effectSummary": "Increase Strength or Constitution by 1, maximum 20. Gain proficiency with improvised weapons. Your unarmed strike uses a d4 damage die. After hitting a creature on your turn with an unarmed strike or improvised weapon, use a bonus action to attempt to grapple it."
+    },
+    "wikidot5e:feat:telekinetic": {
+      "sourceDigest": "sha256:72d009bc426eb8c2584ab74421ab8210b1dadc4c20476f751f9e6e7421c84cbb",
+      "effectSummary": "Increase Intelligence, Wisdom, or Charisma by 1, maximum 20. Learn mage hand using the increased ability; cast it without verbal or somatic components and make the hand invisible. If you already know it, its range increases by 30 feet. As a bonus action, choose a visible creature within 30 feet; it makes or willingly fails a Strength save against DC 8 + proficiency bonus + the modifier of the increased ability, and on failure moves 5 feet toward or away from you."
+    },
+    "wikidot5e:feat:telepathic": {
+      "sourceDigest": "sha256:29d6d4193e5f104af04a3718933eba8835ecd060756db4b1266f5e43d86eed55",
+      "effectSummary": "Increase Intelligence, Wisdom, or Charisma by 1, maximum 20. Telepathically speak to a visible creature within 60 feet in a language you know; it understands only if it knows that language and cannot reply telepathically through this feature. Cast detect thoughts once without a spell slot or components per long rest and also with 2nd-level-or-higher slots; its spellcasting ability is the one increased by this feat."
+    },
+    "wikidot5e:feat:theologian": {
+      "sourceDigest": "sha256:aed06a3b1408e020172c16119ba67fc47903ea7f272eabc171872ff6b9c62cda",
+      "effectSummary": "Increase Intelligence by 1, maximum 20. Gain Religion proficiency, or expertise if already proficient. Learn thaumaturgy and detect evil and good; cast detect evil and good once without a slot per long rest."
+    }
+  }
+}
