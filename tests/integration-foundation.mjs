@@ -12,7 +12,7 @@ const [one,two]=await Promise.all([service.load('5e/classes'),service.load('2014
 const spells=await service.load('3.5/spells');assert(spells[0].description.includes('Wisdom damage'));assert.equal(spells[0].referenceOnly,false);
 const names=new Map();for(const s of spells)names.set(s.name,(names.get(s.name)||[]).concat(s.catalogId));assert([...names.values()].some(v=>v.length>1&&new Set(v).size===v.length));
 assert.throws(()=>spells[0].level=99,TypeError);
-const damaged=await service.load('5e/spells');assert.equal(damaged.filter(s=>s.integrityIssues.length).length,574);assert(!damaged.some(s=>s.description.includes('logged in')));
+for(const key of ['5e/spells','5e/feats','5e/items']){const repaired=await service.load(key);assert.equal(repaired.filter(row=>row.integrityIssues.length).length,0);assert(!repaired.some(row=>/logged in to clone a site/i.test(row.description)));}
 const bad=createCatalogService({fetcher:async url=>({ok:true,json:async()=>url.includes('manifest')?{complete:true,categories:[{id:'classes',count:2}]}:[{id:'x'}]})});await assert.rejects(bad.load('3.5/classes'),/count mismatch/);
 const dup=createCatalogService({fetcher:async url=>({ok:true,json:async()=>url.includes('manifest')?{complete:true,categories:[{id:'classes',count:2}]}:[{id:'x'},{id:'x'}]})});await assert.rejects(dup.load('3.5/classes'),/duplicate source/);
 const classes=await service.load('3.5/classes'),archivist=classes.find(c=>c.name==='Archivist'),prestige=classes.find(c=>c.name==='Abjurant Champion');
