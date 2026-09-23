@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-4",
+  "records": {
+    "wikidot5e:wondrous-items:gem-of-brightness": {
+      "sourceDigest": "sha256:0f583cce24898b8158ef4df64d59d8fb1bc708fbc07f1c722c2265ac7e6dac2c",
+      "effectSummary": "This prism has 50 charges. First command word, no charge: bright light 30 feet and dim another 30 until ended as a bonus action or another function is used. Second command word, 1 charge: one visible creature within 60 feet makes DC 15 Constitution or is blinded for 1 minute, repeating the save at each turn end to end. Third command word, 5 charges: a 30-foot cone; each creature saves as against the beam. At 0 charges, it becomes a nonmagical 50-gp jewel."
+    },
+    "wikidot5e:wondrous-items:gem-of-seeing": {
+      "sourceDigest": "sha256:606affc2c1f6f8feddaedc3013ac4a85b6cd0917a5b30dafe12fbc640c96a17c",
+      "effectSummary": "The gem has 3 charges and regains 1d3 daily at dawn. As an action, speak the command word and spend 1 charge; for 10 minutes you have truesight 120 feet while peering through it."
+    },
+    "wikidot5e:wondrous-items:ghost-lantern": {
+      "sourceDigest": "sha256:2ec3dfc690d8ea14f84019d2c33fc554497e4f7b93106bfe1935c456a857a515",
+      "effectSummary": "While holding the lantern, use a bonus action to command its bound spirit to shed bright light 30 feet and dim another 30. As an action, order the spirit out to duplicate mage hand; it returns when the spell ends. If you fall unconscious within 10 feet, the spirit automatically emerges, stabilizes you, and returns. The spirit cannot be harmed, turned, or raised. Dispel evil and good cast on the lantern releases the spirit to the afterlife and makes the lantern nonmagical."
+    },
+    "wikidot5e:wondrous-items:ghost-step-tattoo": {
+      "sourceDigest": "sha256:4bcf1717b2727e30a9df5c8d05bf647063770acb9f649151b39d098f790fb477",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes the tattoo vanish and needle reappear. It has 3 charges, all restored daily at dawn. As a bonus action, spend 1 charge to become incorporeal until the end of your next turn: resist bludgeoning, piercing, and slashing from nonmagical attacks; cannot be grappled or restrained; move through creatures and solid objects as difficult terrain. Ending a turn inside a solid object deals 1d10 force; if the effect ends while inside, you are shunted to the nearest open space and take 1d10 force per 5 feet traveled."
+    },
+    "wikidot5e:wondrous-items:giant-slayer": {
+      "sourceDigest": "sha256:aed6b5cf0a4f47464f01598154bc2673d1889737a875e93fc6de4cbf9d0ef9a7",
+      "effectSummary": "This +1 magic axe or sword deals +2d6 of its normal damage type when it hits a creature of the giant type, including ettins and trolls. That giant also makes DC 15 Strength or falls prone."
+    },
+    "wikidot5e:wondrous-items:glamerweave": {
+      "sourceDigest": "sha256:d8d2f6a5e5e88431a5194932300259f843738907b0b4f37f41b5e43981bd9760",
+      "effectSummary": "Common glamerweave clothing lets you use a bonus action to create a moving illusory pattern in the fabric. Uncommon glamerweave can extend its harmless illusion beyond the cloth, such as flames or butterflies; while wearing the uncommon version, once per dawn when making Charisma (Performance) or Charisma (Persuasion), add 1d4 to the check."
+    },
+    "wikidot5e:wondrous-items:glamoured-studded-leather": {
+      "sourceDigest": "sha256:0a1bbbda1d052eea52c23d6286b4b1fa132767fd2f678c1da5e8687f793569e2",
+      "effectSummary": "This studded leather grants +1 AC. As a bonus action, speak its command word to make it look like normal clothing or another kind of armor, choosing color, style, and accessories; its actual bulk and weight remain. The illusion lasts until changed again or the armor is removed."
+    },
+    "wikidot5e:wondrous-items:glimmering-moonbow": {
+      "sourceDigest": "sha256:73977e8e31e8653e8a0b81f8ebe553371f030c26f72e9f41f187a780e9730cf2",
+      "effectSummary": "This +1 magic bow deals +1d6 radiant on hits. If fired without ammunition, it creates one piece of magic ammunition for the attack; the ammunition vanishes immediately after hit or miss. Once per dawn as a bonus action while wielding it, become semi-incorporeal until the start of your next turn, gaining resistance to bludgeoning, piercing, and slashing damage."
+    },
+    "wikidot5e:wondrous-items:gloomwrought-armor": {
+      "sourceDigest": "sha256:da1955be40e6f5761440c450dca4c669d146f9d1f77078dbf9f89bad57089991",
+      "effectSummary": "While wearing this armor, gain advantage on saves to avoid or end frightened. It has 3 charges, regains 1d3 daily at dawn, and lets you spend 1 charge to cast calm emotions at save DC 15."
+    },
+    "wikidot5e:wondrous-items:gloves-of-missile-snaring": {
+      "sourceDigest": "sha256:7d7068adcf3a7ee87b33b56b15f2db40f0aa6aa18b27579af5d5425ade2e1213",
+      "effectSummary": "When a ranged weapon attack hits you while wearing the gloves and you have a free hand, use your reaction to reduce the damage by 1d10 + Dexterity modifier. If this reduces the damage to 0, you may catch the missile if it is small enough to hold in that hand."
+    }
+  }
+}
