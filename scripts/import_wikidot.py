@@ -29,7 +29,7 @@ from urllib.request import Request, urlopen
 BASE = "https://dnd5e.wikidot.com"
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "public" / "catalogs" / "wikidot5e"
-AGENT = "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)"
+AGENT = "AdventurersLedger-5eReferenceIndexer/1.0 (+https://github.com/mahdt17/DND-Charactersheet-Website)"\nFALLBACK_AGENT = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 AdventurersLedger-5eReferenceIndexer/1.0"
 SOURCE_CACHE_DIR = None
 SOURCE_FETCH_META = {}
 SUMMARY_PATH = ROOT / "scripts" / "wikidot_effect_summaries.json"
@@ -216,7 +216,7 @@ def _cache_paths(url):
     return root/f"{key}.html",root/f"{key}.json"
 
 
-def fetch(url: str, delay: float = 0.25, force_refresh: bool = False) -> str:
+def fetch(url: str, delay: float = 0.25, force_refresh: bool = False, fallback_agent: bool = False) -> str:
     if urlparse(url).netloc != urlparse(BASE).netloc:
         raise ValueError("Refusing external URL: " + url)
     html_path,meta_path=_cache_paths(url)
@@ -231,7 +231,7 @@ def fetch(url: str, delay: float = 0.25, force_refresh: bool = False) -> str:
         try:
             if delay:
                 time.sleep(delay)
-            with urlopen(Request(url,headers={"User-Agent":AGENT,"Cache-Control":"no-cache"}),timeout=45) as response:
+            agent=FALLBACK_AGENT if fallback_agent else AGENT\n            with urlopen(Request(url,headers={"User-Agent":agent,"Cache-Control":"no-cache","Pragma":"no-cache","Accept":"text/html,application/xhtml+xml"}),timeout=45) as response:
                 final=response.geturl()
                 if urlparse(final).netloc != urlparse(BASE).netloc:
                     raise ValueError("Unexpected redirect: " + final)
@@ -240,7 +240,7 @@ def fetch(url: str, delay: float = 0.25, force_refresh: bool = False) -> str:
                 meta={
                     "url":url,"finalUrl":final,"sha256":digest,
                     "retrievedAt":time.strftime("%Y-%m-%dT%H:%M:%SZ",time.gmtime()),
-                    "userAgent":AGENT,"cacheHit":False,
+                    "userAgent":agent,"cacheHit":False,
                 }
                 SOURCE_FETCH_META[url]=meta
                 if html_path:
@@ -257,9 +257,9 @@ def fetch(url: str, delay: float = 0.25, force_refresh: bool = False) -> str:
             time.sleep(3*(attempt+1))
 
 
-def parse(url: str, delay: float, force_refresh: bool = False) -> Page:
+def parse(url: str, delay: float, force_refresh: bool = False, fallback_agent: bool = False) -> Page:
     p=Page()
-    p.feed(fetch(url,delay,force_refresh=force_refresh))
+    p.feed(fetch(url,delay,force_refresh=force_refresh,fallback_agent=fallback_agent))
     p.close()
     p.sourceFetch=SOURCE_FETCH_META.get(url,{})
     return p
@@ -871,7 +871,7 @@ def parse_detail_with_retry(row, delay, attempts=5):
     for attempt in range(max(1,attempts)):
         if attempt:
             time.sleep(min(8.0,2 ** (attempt-1)))
-        page=parse(row["url"],delay,force_refresh=attempt>0)
+        page=parse(row["url"],delay,force_refresh=attempt>0,fallback_agent=attempt>0)
         result=DETAIL_PARSERS[row["category"]](row,page)
         last_page,last_result=page,result
         if not pinned or not result.get("effectNeedsSummary"):
