@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-009-2",
+  "records": {
+    "wikidot5e:spell:silence": {
+      "sourceDigest": "sha256:980de4abc2fbff473249971eadfc4d679c21ab64652373ea2371abc5fcb7dc4c",
+      "effectSummary": "For up to 10 minutes, no sound can be created within or pass through a 20-foot-radius sphere centered within 120 feet. Creatures and objects entirely inside are immune to thunder damage, creatures entirely inside are deafened, and spells with verbal components cannot be cast there."
+    },
+    "wikidot5e:spell:silent-image": {
+      "sourceDigest": "sha256:67b8e1b17f9082426ba508e5bc396f5b8c4d222db29efb051e94beccb1d1083c",
+      "effectSummary": "Create a purely visual illusion no larger than a 15-foot cube at a point within 60 feet for up to 10 minutes. As an action, move it anywhere within range and alter its appearance so the motion looks natural. Physical interaction reveals it as insubstantial. A creature can use an action for an Intelligence (Investigation) check against your spell save DC to recognize the illusion; on a success it can see through it."
+    },
+    "wikidot5e:spell:silvery-barbs": {
+      "sourceDigest": "sha256:f4a75a940221e0e32fb1c794d2ad71df8571d030ac6cdf7e28805c44c81d8127",
+      "effectSummary": "As a reaction when a visible creature within 60 feet succeeds on an attack roll, ability check, or saving throw, force it to reroll the d20 and use the lower result. Then choose a different visible creature in range, possibly yourself; it gains advantage on its next attack roll, ability check, or saving throw made within 1 minute. A creature can benefit from only one use of this spell at a time."
+    },
+    "wikidot5e:spell:simulacrum": {
+      "sourceDigest": "sha256:2342838fa9d8a36a6655b67203787ca264f29be5317c84223566f7cf78b468ae",
+      "effectSummary": "Over 12 hours, create an ice-and-snow duplicate of one beast or humanoid that remains within touch range throughout the casting. The simulacrum is a construct that otherwise uses the original's statistics, appears identical, has half the original's hit point maximum, and starts with no equipment. It is friendly to you and designated creatures, obeys spoken commands, and acts on your turn. It cannot learn, gain levels or other abilities, or recover expended spell slots. Damage can be repaired in an alchemical laboratory for 100 gp of rare materials per HP restored. At 0 HP it melts into snow. Casting simulacrum again destroys any active duplicate you previously created with this spell."
+    },
+    "wikidot5e:spell:skill-empowerment": {
+      "sourceDigest": "sha256:89f74580d04b0b4a3eb162ce29656b7e343d9b16d36648a36540e9d13e75346d",
+      "effectSummary": "Touch a willing creature and choose a skill in which it is proficient and is not already benefiting from an effect that doubles proficiency. For up to 1 hour, it doubles its proficiency bonus on ability checks using that skill."
+    },
+    "wikidot5e:spell:sleep": {
+      "sourceDigest": "sha256:6cd1cafcc7bec98874a04e8d4f4a14e98b208a90a5f4476995967c20939ac37b",
+      "effectSummary": "Roll 5d8 for a hit-point pool. Starting with the conscious creature with the lowest current HP within 20 feet of a point in range, a creature falls unconscious for 1 minute if its current HP is no greater than the remaining pool; subtract its HP and continue upward. The sleep ends for a creature if it takes damage or someone uses an action to shake or slap it awake. Undead and creatures immune to charm are unaffected. Each slot level above 1st adds 2d8 to the pool."
+    },
+    "wikidot5e:spell:sleet-storm": {
+      "sourceDigest": "sha256:cde8ea4435ff372fe85cf373de7dcbfc8d0324ab7a5965c4c29542fe0bf7c3d1",
+      "effectSummary": "Freezing rain fills a 40-foot-radius, 20-foot-high cylinder centered within 150 feet for up to 1 minute. The area is heavily obscured, exposed flames are extinguished, and the icy ground is difficult terrain. A creature entering for the first time on a turn or starting there makes a Dexterity save or falls prone. A creature that starts its turn there while concentrating on a spell must also succeed on a Constitution save against your spell save DC or lose concentration."
+    },
+    "wikidot5e:spell:slow": {
+      "sourceDigest": "sha256:9c73cd658db4c6c67b6812babfc0f93af57c21a92a2ebd0f3f783ba83c4d2331",
+      "effectSummary": "Up to six creatures of your choice in a 40-foot cube within 120 feet make Wisdom saves. On a failure, for up to 1 minute a target's speed is halved, it has -2 AC and Dexterity saves, cannot take reactions, may use either an action or bonus action on its turn but not both, and cannot make more than one weapon attack on its turn. If it casts a 1-action spell, roll d20; on 11+ the spell is delayed until its next turn, when it must spend its action completing it or the spell is wasted. An affected creature repeats the Wisdom save at the end of each turn, ending the effect on itself on a success."
+    },
+    "wikidot5e:spell:snare": {
+      "sourceDigest": "sha256:f6f864daed33ddd3f2e4a8f5376e84f5c0b304e29869867c0c196f946e49e008",
+      "effectSummary": "Consume 25 feet of rope to make a nearly invisible 5-foot-radius ground trap lasting 8 hours; discerning it requires an Intelligence (Investigation) check against your spell save DC. When a Small, Medium, or Large creature enters, it makes a Dexterity save or is hoisted upside down 3 feet above the surface and restrained. It repeats the Dexterity save at the end of each turn, ending the restraint on a success. The restrained creature or another creature that can reach it can instead use an action for an Intelligence (Arcana) check against your spell save DC to end the restraint. After triggering, the spell ends once no creature remains restrained."
+    },
+    "wikidot5e:spell:snillocs-snowball-swarm": {
+      "sourceDigest": "sha256:dde59786d3ef85f2003bda43a9e9b564e71d174f4bd2640ebbec9d825840ad7d",
+      "effectSummary": "Creatures in a 5-foot-radius sphere centered within 90 feet make Dexterity saves, taking 3d6 cold damage on a failure or half on a success. Each slot level above 2nd adds 1d6 damage."
+    }
+  }
+}
