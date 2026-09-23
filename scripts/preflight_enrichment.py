@@ -72,7 +72,7 @@ def dndtools_preflight(sample_size, delay, strict=True, only=None, shard_count=1
             continue
         rows = json.loads((DND_CATALOG / f"{category}.json").read_text(encoding="utf-8"))
         sample = list(rows) if sample_size is None else even_sample(rows, sample_size)
-        if sample_size is None and shard_count > 1:
+        if shard_count > 1:
             sample = shard_rows(sample, shard_count, shard_index)
         passed = failed = 0
         failures = []
@@ -145,7 +145,7 @@ def wikidot_preflight(sample_size, delay, strict=True, only=None, shard_count=1,
             continue
         discovered_ids=[row.get("id") for row in rows]
         sample = rows if category == "classes" or sample_size is None else even_sample(rows, sample_size)
-        if sample_size is None and shard_count > 1:
+        if shard_count > 1:
             sample = shard_rows(sample, shard_count, shard_index)
         for row in sample:
             page = None
@@ -197,7 +197,7 @@ def main():
     ap.add_argument("--full", action="store_true",
                     help="Audit every discovered record instead of sampling.")
     ap.add_argument("--shard-count", type=int, default=1,
-                    help="Split a full selected category into deterministic read-only shards.")
+                    help="Split the selected sample or full category into deterministic read-only shards.")
     ap.add_argument("--shard-index", type=int, default=0,
                     help="Zero-based shard index used with --shard-count.")
     ap.add_argument("--report", type=Path,
@@ -210,9 +210,7 @@ def main():
 
     if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
         ap.error("--shard-index must be within 0..--shard-count-1")
-    if args.shard_count > 1 and not args.full:
-        ap.error("Sharding is only valid with --full")
-    selected = set(args.only or [])
+        selected = set(args.only or [])
     if args.shard_count > 1 and len(selected) != 1:
         ap.error("Sharded preflight requires exactly one explicit --only category")
     dnd_sample = None if args.full else args.dnd_sample
