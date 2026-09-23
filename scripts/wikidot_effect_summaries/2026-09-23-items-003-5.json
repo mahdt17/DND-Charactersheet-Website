@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-5",
+  "records": {
+    "wikidot5e:wondrous-items:gloves-of-soul-catching": {
+      "sourceDigest": "sha256:650b55be6e4373f591946789f5396e9d5339d05d55fb4340f18a39f6ab242539",
+      "effectSummary": "While worn, your Constitution becomes 20 unless already higher. After a successful unarmed strike, you may deal +2d10 force damage; then either regain HP equal to that force damage or instead gain advantage on one attack roll, ability check, or saving throw made before the end of your next turn."
+    },
+    "wikidot5e:wondrous-items:glowrune-pigment": {
+      "sourceDigest": "sha256:0593e8c19e149ba26a5ffc2ad638b05243ee937e82a7fa2acde0bac66bbcac37",
+      "effectSummary": "Contains 1d4+2 paint pots, each enough for one rune. Spend 10 minutes painting one rune on yourself or another creature; a creature can benefit from only one at a time, and the effect lasts 8 hours or until wiped away as an action. Journey: difficult terrain costs no extra movement. Life: gain 10 temporary HP and advantage on death saves. Light: gain darkvision 30 feet or extend existing darkvision by 30 feet. Mountain: immune to prone and advantage on Strength and Constitution saves. Shield: advantage on Dexterity saves against effects that deal damage."
+    },
+    "wikidot5e:wondrous-items:gnomengarde-grenade": {
+      "sourceDigest": "sha256:c07806613abfa095f638b11b5f9d643f03a22362b7573dea03952f5bb0da6629",
+      "effectSummary": "As a bonus action, arm the grenade; as an action, throw it up to 120 feet. It explodes at the end of your turn. Creatures within 60 feet make DC 15 Dexterity for 8d6 fire, half on success, and separately DC 15 Constitution for 8d6 thunder and stunned until the end of their next turn on failure, half thunder and no stun on success. Also roll three times on the Wand of Wonder table, rerolling duplicates; target-specific results affect all creatures in range, and effects that would target the wand wielder instead affect the closest creature to the grenade. Placing it in an extradimensional space or teleporting while carrying it detonates it immediately at both origin and destination, affecting creatures within 30 feet of either location."
+    },
+    "wikidot5e:wondrous-items:goggles-of-object-reading": {
+      "sourceDigest": "sha256:fa2df8e618ec1c48c6158a178fe323b03466c962d35085dfc7106ed1f3e0f88c",
+      "effectSummary": "While worn, gain advantage on Intelligence (Arcana) checks made to reveal information about a visible creature or object. Once per dawn, cast identify using the goggles."
+    },
+    "wikidot5e:wondrous-items:grasping-whip": {
+      "sourceDigest": "sha256:e46435034fbbbe3c8f90541e109a6c5d096a47be04e0880864f59c789f52f7e1",
+      "effectSummary": "This +1 magic whip can pull instead of damage. When it hits a Large-or-smaller creature or object, you may deal no damage and pull the target 5 feet toward you."
+    },
+    "wikidot5e:wondrous-items:grimoire-infinitus": {
+      "sourceDigest": "sha256:6c17c7969580e1b26148e55362a5940b2845d06c06b57512cc60d5d5840c5ccf",
+      "effectSummary": "Legendary evolving wizard spellbook with infinite pages. Dormant: contains alarm, antimagic field, Bigby's hand, blight, charm person, confusion, control weather, create undead, detect thoughts, enlarge/reduce, fear, foresight, gaseous form, glyph of warding, legend lore, Leomund's tiny hut, mass suggestion, mislead, misty step, Mordenkainen's faithful hound, prismatic spray, ray of enfeeblement, silent image, teleport, and thunderwave; functions as your spellbook, accepts new spells normally, and increases the number of wizard spells you can prepare by 1. Awakened: while carrying it, advantage on saves against spells and magical effects, and preparation capacity increases by another 1. Exalted: Arcane Recovery can be used twice between long rests instead of once, and preparation capacity increases by another 1."
+    },
+    "wikidot5e:wondrous-items:grovelthrash": {
+      "sourceDigest": "sha256:c100d0104a077934dceed0580a4691fb976c9c3a1f0b31f337f5230b51018072",
+      "effectSummary": "Sentient neutral-evil warhammer: Intelligence 18, Wisdom 15, Charisma 19; hearing/darkvision 120 feet; telepathic; speaks/reads/understands Abyssal, Common, Infernal; houses covetous ultroloth Ciria. Dormant: learn Abyssal and Infernal; +1 attack/damage; on a hit you may deal +2d6 bludgeoning and take 1d6 psychic; double damage to objects/structures; advantage on Wisdom (Insight) to discern lies in languages you understand. Awakened: bonus rises to +2; gain burrow speed equal to walking through sand, loose earth, mud, or ice; once per dawn when a visible creature within 30 feet hits you, use reaction to deal it psychic damage equal to damage you took. Exalted: bonus +3; while below half HP, hits deal +2d6 bludgeoning; burrow through solid rock at half speed leaving a 5-foot tunnel; once per dawn for each spell, cast earthquake, meld into stone, or stone shape from the hammer at save DC 17."
+    },
+    "wikidot5e:wondrous-items:guardian-emblem": {
+      "sourceDigest": "sha256:96ccba24f4ddd207cc57d8e90df82ecafb67a359e8c8e3d95d7abd3f93eefdd0",
+      "effectSummary": "As an action, attach or remove this holy symbol from armor or a shield. It has 3 charges, all restored daily at dawn. When you or a visible creature within 30 feet suffers a critical hit while you wear the armor or wield the shield bearing it, use your reaction and 1 charge to turn the critical hit into a normal hit."
+    },
+    "wikidot5e:wondrous-items:guild-keyrune": {
+      "sourceDigest": "sha256:b2bddfc5798072bfbf08279be949e24e7272668034b6209201be243688e315b1",
+      "effectSummary": "A guild member can attune to a guild-specific keyrune. As an action, speak its command word and place it on open ground within 5 feet; if space permits it transforms into its creature, friendly to you, companions, and nonhostile guild members, understanding your languages and obeying commands; without commands it Dodges and avoids danger. It reverts at listed duration, at 0 HP, or when touched and commanded as an action, then cannot transform again for 36 hours. Azorius (rare): giant eagle up to 1 hour, telepathy with you within 1 mile; as an action see/hear through it until your next turn, gaining Keen Sight while blind/deaf to own senses. Boros (rare): human veteran up to 8 hours and gives sound tactical advice. Dimir (very rare): intellect devourer up to 24 hours for one mission, typically body takeover or secret extraction, then reports and reverts. Golgari (very rare): giant scorpion up to 6 hours, Intelligence 4, telepathy within 60 feet limited mainly to prey observations. Gruul (rare): rhinoceros-stat ceratok up to 1 hour. Izzet (rare): galvanice weird up to 3 hours, serving as bodyguard, labor, test subject, or other suitable aid. Orzhov (rare): winged thrull up to 2 hours, grudging and mocking if you are not from an oligarch family. Rakdos (uncommon): cackler up to 1 hour. Selesnya (rare): dire wolf up to 8 hours, Intelligence 6, understands Elvish and Sylvan, telepathy within 1 mile. Simic (uncommon): category 1 krasis with Grabber and Stabilizing Legs up to 5 hours."
+    },
+    "wikidot5e:wondrous-items:guild-signet": {
+      "sourceDigest": "sha256:08bf214f43bc9e101d7bdd51c9459c610fbf0ebaaadd0a802d631e31779b8e58",
+      "effectSummary": "The ring has 3 charges and regains 1d3 daily at dawn. While wearing it, spend 1 charge to cast the guild's spell at save DC 13: Azorius ensnaring strike; Boros heroism; Dimir disguise self; Golgari entangle; Gruul compelled duel; Izzet chaos bolt; Orzhov command; Rakdos hellish rebuke; Selesnya charm person; Simic expeditious retreat."
+    }
+  }
+}
