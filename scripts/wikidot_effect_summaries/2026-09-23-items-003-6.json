@@ -23,10 +23,6 @@
       "sourceDigest": "sha256:94e8adfe853a68604edda79736199a648164fdccac74491996f0675fb25a5dd6",
       "effectSummary": "Usable only by a Green Doctor. As an action, unfold it on a solid surface to create a two-way portal to either the Ghost Orchid Tepui in the Feywild or the Drought Elder in the Far Realm, your choice. As an action, fold the hammock to close an open portal. After opening a portal, it cannot do so again for 1d8 hours."
     },
-    "wikidot5e:wondrous-items:harkons-bite": {
-      "sourceDigest": "sha256:6510c995c443269d5ca1a1e2bea4a0b2d3f46641287e9f24f7ddf4211ea55b01",
-      "effectSummary": "While worn, gain +1 to ability checks and saving throws. Curse: attunement prevents removing the necklace until Harkon Lukas removes it or remove curse/similar magic ends the curse. Whenever the necklace is donned or removed, whether attuned or not, you gain werewolf lycanthropy until the dawn after the next full moon; if still wearing it then, the lycanthropy is inflicted again."
-    },
     "wikidot5e:wondrous-items:harp-of-gilded-plenty": {
       "sourceDigest": "sha256:bc69e55b5ce5da9eaa94c5331bedcb5761b4ee47fb8207bdd44883a5010e7766",
       "effectSummary": "Sentient chaotic-good golden harp: Int 13, Wis 15, Cha 20; hearing/darkvision 120 feet; speaks, reads, and understands Common and Giant; telepathic with its attuned user. To attune, first succeed on DC 15 Charisma (Performance) or DC 20 Charisma (Persuasion); failure prevents another attempt until next dawn. Once attuned, it resizes to fit you. Stalwart Song: on Charisma checks, treat d20 results of 9 or lower as 10. Feast of Plenty: after playing 10 minutes, cast heroes' feast; recharge 1d10+10 days. Soothing Melody: as an action cast calm emotions at save DC 19 with duration increased to 1 hour while concentration is maintained; 5 uses, all restored at dawn."
@@ -42,6 +38,10 @@
     "wikidot5e:wondrous-items:hazirawn": {
       "sourceDigest": "sha256:49d35a218b7a21c5efcdb3974e9f1d072b904b65700fdedc53e630703667b7ca",
       "effectSummary": "Sentient neutral-evil greatsword that speaks Common and Netherese. Even unattuned, grants +1 attack/damage and deals +1d6 necrotic on hits. While attuned, bonus becomes +2 and extra necrotic becomes 2d6. It has 4 charges, regains 1d4 nightly at midnight, and while attuned/held casts as an action: detect magic 1, detect evil and good 1, detect thoughts 2. While attuned, creatures you hit cannot regain HP for 1 minute; affected creatures make DC 15 Constitution at each turn end, ending this restriction on success."
+    },
+    "wikidot5e:wondrous-items:harkon-s-bite": {
+      "sourceDigest": "sha256:6510c995c443269d5ca1a1e2bea4a0b2d3f46641287e9f24f7ddf4211ea55b01",
+      "effectSummary": "While worn, gain +1 to ability checks and saving throws. Curse: attunement prevents removing the necklace until Harkon Lukas removes it or remove curse/similar magic ends the curse. Whenever the necklace is donned or removed, whether attuned or not, you gain werewolf lycanthropy until the dawn after the next full moon; if still wearing it then, the lycanthropy is inflicted again."
     }
   }
 }
