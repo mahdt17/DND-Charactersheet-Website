@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-002-8",
+  "records": {
+    "wikidot5e:wondrous-items:dragon-scale-mail": {
+      "sourceDigest": "sha256:3f866dcef3c8d32fedf712abf90cafc80a805594c8e1ec92e760d2253e2ec7c1",
+      "effectSummary": "While wearing this +1 scale mail, gain advantage on saving throws against dragons' Frightful Presence and breath weapons, and resistance based on the dragon scales: black/copper acid; blue/bronze lightning; brass/gold/red fire; green poison; silver/white cold. Once per dawn, use an action to sense the distance and direction of the nearest dragon within 30 miles whose type matches the armor."
+    },
+    "wikidot5e:wondrous-items:dragon-slayer": {
+      "sourceDigest": "sha256:2a139244e63859f2b44cea608a05704fa3bf3774da09de6c1464aabd9de2903c",
+      "effectSummary": "This magic sword grants +1 to attack and damage rolls. When it hits a creature of the dragon type, including dragon turtles and wyverns, it deals an extra 3d6 damage of the weapon's normal damage type."
+    },
+    "wikidot5e:wondrous-items:dragon-touched-focus": {
+      "sourceDigest": "sha256:decbcce72fb3a886300e09cd39f2ac8cd7eefc97b946b325ed0ee174714504ca",
+      "effectSummary": "Rarity scales with state. Slumbering (uncommon): while held, functions as a spellcasting focus for all your spells and gives advantage on initiative. Stirring (rare) adds a dragon-family property: Chromatic—when you spend a spell slot on a spell dealing acid, cold, fire, lightning, or poison, roll d6 and add it to one damage roll; Gem—after casting a spell with a slot, teleport to a visible unoccupied space within 15 feet; Metallic—when a visible creature within 30 feet makes a save, use your reaction to grant it advantage. Wakened (very rare) includes prior properties and can cast each listed spell once per dawn: Chromatic hold monster and Rime's binding ice; Gem Rary's telepathic bond and Raulothim's psychic lance; Metallic Fizban's platinum shield and legend lore. Ascendant (legendary) includes all prior properties and once per dawn lets a 1st-level-or-higher spell you cast while holding it be treated as cast with a 9th-level slot."
+    },
+    "wikidot5e:wondrous-items:dragon-vessel": {
+      "sourceDigest": "sha256:35acfbbc70af5db36a48d815cbbcc3a94d70005fb0c7cf6283094f05a46a968d",
+      "effectSummary": "If empty, use a bonus action once per dawn to fill the vessel with one allowed liquid or potion; magically created potions lose magic after 24 hours if not consumed. Slumbering (uncommon): ale, olive oil, potion of healing, or potion of climbing. Stirring (rare) adds mead, potion of fire breath, or greater potion of healing. Wakened (very rare) adds wine, potion of flying, or superior potion of healing. Ascendant (legendary) adds whiskey, supreme potion of healing, or potion of dragon's majesty."
+    },
+    "wikidot5e:wondrous-items:dragon-wing-bow": {
+      "sourceDigest": "sha256:8f5035fe094562bbe9f9c7150d810c2cc3b2ddb1458cd5671a46ec3d774496e0",
+      "effectSummary": "This magic bow is infused with a dragon breath damage type. Each hit deals +1d6 of that type: acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder. If fired without ammunition, it creates one piece of magical ammunition when the string is drawn; the created ammunition vanishes immediately after it hits or misses."
+    },
+    "wikidot5e:wondrous-items:dragonhide-belt": {
+      "sourceDigest": "sha256:9cfbb40cf6cac4e329332cd49787e5966c8416647da7389813f8edcdd31f9c91",
+      "effectSummary": "While worn by a monk, increase the saving throw DCs of your ki features by the belt's rarity bonus: uncommon +1, rare +2, very rare +3. Once per dawn, use an action to regain ki points equal to one roll of your Martial Arts die."
+    },
+    "wikidot5e:wondrous-items:dragonlance": {
+      "sourceDigest": "sha256:6bb4095b5f34fba96f89e4c76643fce81abe343d2cddf26ef4398a4ed43526fa",
+      "effectSummary": "This legendary lance or pike grants +3 to attack and damage rolls. When it hits a Dragon, deal +3d6 force damage, and one Dragon of your choice that you can see within 30 feet may immediately use its reaction to make one melee attack."
+    },
+    "wikidot5e:wondrous-items:dragons-wrath-weapon": {
+      "sourceDigest": "sha256:def12699762ec18204dadfece24e5e18ae7d44bfc7b96a9841a2c3e22bfed964",
+      "effectSummary": "Rarity scales with state and uses the breath damage type of the dragon hoard that empowered it. Slumbering (uncommon): on an attack-roll 20, chosen creatures within 5 feet of the target take 5 damage of that type. Stirring (rare) adds +1 attack/damage and +1d6 on each hit. Wakened (very rare) raises those to +2 and +2d6; once per dawn, as an action, emit a 30-foot cone, DC 16 Dexterity, 8d6 of the infused type on failure or half on success. Ascendant (legendary) raises attack/damage to +3, extra hit damage to +3d6, and the cone to 60 feet, DC 18, 12d6."
+    },
+    "wikidot5e:wondrous-items:dragonstaff-of-ahghairon": {
+      "sourceDigest": "sha256:a891a557dc9ad132efa11d923ccae3f5e29e2c2922816b6a4bdf3a1cfb96c661",
+      "effectSummary": "While holding the staff, gain advantage on saves against dragon spells and against breath weapons of dragons and other dragon-type creatures. Touching a dragon with the staff lets it ignore Ahghairon's dragonward in Waterdeep until touched again by the staff or until a time you state when granting the benefit. The staff has 10 charges, regains 1d10 daily at dawn, and lets you spend 1 charge as an action to cast command; a dragon target has disadvantage on its save."
+    },
+    "wikidot5e:wondrous-items:dragontooth-dagger": {
+      "sourceDigest": "sha256:852446fb6a0fb867754460806c906cf23e7922554229541bf9c09f81c48a17fc",
+      "effectSummary": "This magic dagger grants +1 to attack and damage and deals +1d6 acid on a hit. Against enemies of the Cult of the Dragon, its attack and damage bonus becomes +2 and the extra acid damage becomes 2d6."
+    }
+  }
+}
