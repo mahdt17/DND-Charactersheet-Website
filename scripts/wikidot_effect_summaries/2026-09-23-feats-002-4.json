@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-002-4",
+  "records": {
+    "wikidot5e:feat:heavy-armor-master": {
+      "sourceDigest": "sha256:41b0a98bb84079394a2cc372db9003652d944c4d333a3103b4c1c37b89f030f2",
+      "effectSummary": "Increase Strength by 1, maximum 20. While wearing heavy armor, reduce bludgeoning, piercing, and slashing damage from nonmagical attacks by 3."
+    },
+    "wikidot5e:feat:historian": {
+      "sourceDigest": "sha256:24337c1a2e706a2dc4db4f14b6dea645c3fb5c59ec179163c6090aa35bdd8440",
+      "effectSummary": "Increase Intelligence by 1, maximum 20. Gain History proficiency, or expertise if already proficient. When you use Help on another creature's ability check, you may make a DC 15 Intelligence (History) check; on success, if the creature can understand you, its check gains an additional bonus equal to your proficiency bonus."
+    },
+    "wikidot5e:feat:human-determination": {
+      "sourceDigest": "sha256:c42d3e67ff7178831f9b8b29152b72ac2accf17225edca00b56cd13837b3603c",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Before making an attack roll, ability check, or saving throw, you may give yourself advantage. Recharge on a short or long rest."
+    },
+    "wikidot5e:feat:infernal-constitution": {
+      "sourceDigest": "sha256:58870d1264dd2e448082d3c57e84f006100f99e7d4fae609a76c46cdac4036da",
+      "effectSummary": "Increase Constitution by 1, maximum 20. Gain resistance to cold and poison damage and advantage on saving throws against being poisoned."
+    },
+    "wikidot5e:feat:initiate-of-high-sorcery": {
+      "sourceDigest": "sha256:03b03b89dcee2cc4ffaa0e21103d2f6938690e6e51774373b60db8e50ce10041",
+      "effectSummary": "Choose Nuitari, Lunitari, or Solinari. Learn one wizard cantrip and two 1st-level spells from the chosen moon's list: Nuitari chooses two of dissonant whispers, false life, hex, ray of sickness; Lunitari chooses two of color spray, disguise self, feather fall, longstrider; Solinari chooses two of comprehend languages, detect evil and good, protection from evil and good, shield. Each chosen 1st-level spell can be cast once without a slot per long rest and also with appropriate slots. Choose Intelligence, Wisdom, or Charisma as the feat's spellcasting ability."
+    },
+    "wikidot5e:feat:initiate-of-high-sorcery-ua": {
+      "sourceDigest": "sha256:998a40e7f91d387868e001b6615ec42a653cfb90fb4b37762af33813d5bbd86e",
+      "effectSummary": "Choose Nuitari, Lunitari, or Solinari. Nuitari grants one of chill touch, mage hand, vicious mockery plus one 1st-level wizard Evocation or Necromancy spell. Lunitari grants one of guidance, message, prestidigitation plus one 1st-level wizard Divination or Transmutation spell. Solinari grants one of produce flame, resistance, spare the dying plus one 1st-level wizard Abjuration or Conjuration spell. Cast the chosen 1st-level spell once without a slot per long rest and also with appropriate slots. Choose Intelligence, Wisdom, or Charisma as the feat's spellcasting ability."
+    },
+    "wikidot5e:feat:inspiring-leader": {
+      "sourceDigest": "sha256:dea68c8ff4f21ffc1a22ed9ea998d1414dfb53001fea0ae6514c4c102058459b",
+      "effectSummary": "Spend 10 minutes inspiring up to six friendly creatures, including yourself, within 30 feet that can see or hear and understand you. Each gains temporary HP equal to your character level + Charisma modifier. A creature cannot benefit from this feat again until finishing a short or long rest."
+    },
+    "wikidot5e:feat:investigator": {
+      "sourceDigest": "sha256:4d8b721fe5568e62672856530d81fdb6470d9b00ed68eb802995344cd19dd769",
+      "effectSummary": "Increase Intelligence by 1, maximum 20. Gain Investigation proficiency, or expertise if already proficient. You may take the Search action as a bonus action."
+    },
+    "wikidot5e:feat:keen-mind": {
+      "sourceDigest": "sha256:c8ff8a96e84623200cf82028692090839c88475250a505ee415394acb9514219",
+      "effectSummary": "Increase Intelligence by 1, maximum 20. You always know north, always know the number of hours until the next sunrise or sunset, and can accurately recall anything seen or heard within the past month."
+    },
+    "wikidot5e:feat:keenness-of-the-stone-giant": {
+      "sourceDigest": "sha256:9f346b0e4b383bb9530d8e87df2c7a3e3b017c3efa7c24012b79f6e35cd262e6",
+      "effectSummary": "Increase Strength, Constitution, or Wisdom by 1, maximum 20. Gain darkvision 60 feet, or add 60 feet to existing darkvision. As a bonus action, make a magical rock attack as a ranged spell attack to 60 feet using the ability increased by this feat; on a hit it deals 1d10 force damage and the target makes a Strength save against DC 8 + proficiency bonus + that ability modifier or falls prone. Uses equal proficiency bonus per long rest."
+    }
+  }
+}
