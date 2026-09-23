@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-007-1",
+  "records": {
+    "wikidot5e:spell:magnify-gravity": {
+      "sourceDigest": "sha256:6ba27f6ca7079af23b929b32a8ee3133c1da78608398326470c56bd90b2a5dde",
+      "effectSummary": "Increase gravity in a 10-foot-radius sphere centered within 60 feet until the start of your next turn. Creatures in the sphere when cast make Constitution saves, taking 2d8 force damage and having their speed halved until the end of their next turn on a failure, or half damage with no speed reduction on a success. Until your next turn, moving or picking up an unattended object in the sphere requires a Strength check against your spell save DC. Each slot level above 1st adds 1d8 damage."
+    },
+    "wikidot5e:spell:major-image": {
+      "sourceDigest": "sha256:dfd040b52ce2d37c547e25d1e2b00f661c89201f8efba98f00039ecec540809b",
+      "effectSummary": "Create an illusory object, creature, or visible phenomenon no larger than a 20-foot cube at a visible point within 120 feet. It can include convincing sound, smell, and safe temperature, but cannot deal damage or impose harmful sensory effects. While within range, you can use an action to move and naturally animate the image and alter its sounds. Physical interaction reveals its insubstantial nature. A creature can use an action for an Intelligence (Investigation) check against your spell save DC; on success it recognizes the illusion, sees through it, and perceives its other sensory traits as faint. With a 6th-level-or-higher slot, the illusion lasts until dispelled without concentration."
+    },
+    "wikidot5e:spell:mass-cure-wounds": {
+      "sourceDigest": "sha256:7d1053083923f407b2f7d88c6c4174a7323429fb14df2ed7a95ae562d8b9bf2f",
+      "effectSummary": "Choose up to six creatures in a 30-foot-radius sphere centered within 60 feet. Each regains 3d8 + your spellcasting ability modifier HP; undead and constructs are unaffected. Each slot level above 5th adds 1d8 healing."
+    },
+    "wikidot5e:spell:mass-heal": {
+      "sourceDigest": "sha256:f4b022f4c8f4130441b7420e2607067ca78a5a2a7025829869167bc80a5fb97b",
+      "effectSummary": "Distribute up to 700 HP of healing among any number of visible creatures within 60 feet. Each healed creature is also cured of all diseases and any effect making it blinded or deafened. Undead and constructs are unaffected."
+    },
+    "wikidot5e:spell:mass-healing-word": {
+      "sourceDigest": "sha256:0cd88c493219a835ef88b58311e91dd1b17fb57aa87234a4f9ae2c327d4067ae",
+      "effectSummary": "Up to six visible creatures within 60 feet each regain 1d4 + your spellcasting ability modifier HP. Undead and constructs are unaffected. Each slot level above 3rd adds 1d4 healing."
+    },
+    "wikidot5e:spell:mass-polymorph": {
+      "sourceDigest": "sha256:fe09d43627bfef3b0286e5f22a5a3dec6c7991c17aa81d139eddfb1f195fdef8",
+      "effectSummary": "Transform up to ten visible creatures for up to 1 hour. An unwilling target makes a Wisdom save; an unwilling shapechanger succeeds automatically. Each target becomes a beast you have seen whose CR is no greater than that target's CR, or half its level if it has no CR. The beast form replaces its game statistics, including mental ability scores, but it retains its own HP, alignment, and personality and gains temporary HP equal to the beast's HP. It reverts when those temporary HP are gone, when it dies, or when the spell ends. While transformed, it is limited by the beast's body, cannot speak or cast spells, and its gear melds into the form and cannot be used."
+    },
+    "wikidot5e:spell:mass-suggestion": {
+      "sourceDigest": "sha256:39a95f6bc5897ade8a38900e24db71beb7ed732c2e0aa2efe9ca8230e95ad350",
+      "effectSummary": "Give a reasonable sentence-or-two suggestion to up to twelve visible creatures within 60 feet that can hear and understand you; creatures immune to charm are unaffected. Each target makes a Wisdom save or follows the suggested course for up to 24 hours, ending early when its task is completed or if you or your companions damage it. You may include a triggering condition for a later action during the duration. An obviously harmful suggestion negates the spell for that target. A 7th-level slot lasts 10 days, 8th lasts 30 days, and 9th lasts 1 year and 1 day."
+    },
+    "wikidot5e:spell:maximillians-earthen-grasp": {
+      "sourceDigest": "sha256:6cc67a3a09282884200c1fb1ae4d2b9a179aae21a48f9c38d64e167fe750b718",
+      "effectSummary": "Create a Medium earthen hand in a visible unoccupied ground space within 30 feet. It reaches for one visible creature within 5 feet; on a failed Strength save, the target takes 2d6 bludgeoning damage and is restrained. As an action, make the hand crush its restrained target for another Strength save and 2d6 bludgeoning damage, half on success. A restrained creature can use an action for a Strength check against your spell save DC to escape. As an action, you can move the hand or make it reach for a different creature, releasing any current target."
+    },
+    "wikidot5e:spell:maze": {
+      "sourceDigest": "sha256:47c7ce477e1638cc6db3dcfe546a208a4be38b4f81238d09c451f658811d8340",
+      "effectSummary": "Banish one visible creature within 60 feet into a labyrinthine demiplane for up to 10 minutes. It can use its action to make a DC 20 Intelligence check to escape; a minotaur or goristro succeeds automatically. When the spell ends or it escapes, it returns to its former space or the nearest unoccupied space."
+    },
+    "wikidot5e:spell:meld-into-stone": {
+      "sourceDigest": "sha256:428c3897fdef195fe1dbba45d1ac53d34c389922e5c331ce889ef9e2da521e44",
+      "effectSummary": "Use your movement to merge yourself and carried gear into a stone object or surface large enough to contain you for up to 8 hours. You leave no nonmagical sensory trace, cannot see outside, have disadvantage on Wisdom (Perception) checks to hear outside, remain aware of time, and can cast spells on yourself. You can leave only through the entry point using movement. Minor damage to the stone does not harm you; partial destruction or reshaping that no longer contains you expels you for 6d6 bludgeoning damage, while complete destruction or transmutation expels you for 50 bludgeoning damage. An expelled creature falls prone in the nearest unoccupied space to the entry point."
+    }
+  }
+}
