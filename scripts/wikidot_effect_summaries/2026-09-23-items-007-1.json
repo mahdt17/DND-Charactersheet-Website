@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-007-1",
+  "records": {
+    "wikidot5e:wondrous-items:sword-of-answering": {
+      "sourceDigest": "sha256:81c939fb128fc82571b37cabe2266aa59df0edd1e7eac97427d1e3f1f80aad5c",
+      "effectSummary": "One of nine alignment-keyed +3 longswords: Answerer CG emerald; Back Talker CE jet; Concluder LN amethyst; Last Quip CN tourmaline; Rebutter NG topaz; Replier N peridot; Retorter LG aquamarine; Scather LE garnet; Squelcher NE spinel. While holding it, when a creature in your reach damages you, use your reaction to make one advantaged melee attack with the sword against that creature; damage from this special attack ignores the target's damage resistance and immunity."
+    },
+    "wikidot5e:wondrous-items:sword-of-kas": {
+      "sourceDigest": "sha256:787b4124f2371220c40c3d887a34d2d3f3a446b5fa742b9c6067017624d73924",
+      "effectSummary": "Sentient chaotic-evil artifact +3 longsword; crits on 19–20 and deals +2d10 slashing to undead. If not bathed in blood within 1 minute of being drawn, DC 15 Charisma: success deals 3d6 psychic to you; failure lets the sword dominate you as dominate monster until its demand for blood is met. Random properties: 1 minor beneficial, 1 major beneficial, 1 minor detrimental, 1 major detrimental. While on your person, add d10 to initiative; when taking the Attack action with the sword, transfer any amount of its +3 attack bonus to AC until your next turn. Once per dawn for each spell, cast call lightning, divine word, or finger of death at save DC 18. Sentience: Intelligence 15, Wisdom 13, Charisma 16, hearing/darkvision 120 feet, telepathic, Common; obsessed with ruining Vecna and destroying anyone corrupted by the Eye/Hand of Vecna. Destroy only when a creature attuned to both Eye and Hand uses their wish within 30 feet and wins a Charisma contest against the sword; if the sword wins, wish is wasted."
+    },
+    "wikidot5e:wondrous-items:sword-of-sharpness": {
+      "sourceDigest": "sha256:0d65866f6fe5b49bfdaa012633da0fe08aee9ac825892dd192175a935eec7b60",
+      "effectSummary": "When this magic slashing sword hits an object, maximize its weapon damage dice. On an attack-roll 20 against a creature, deal +14 slashing, then roll d20; on another 20 sever one limb, or another body portion if no limb, with effects determined by the DM. Its command word toggles bright light 10 feet and dim another 10; sheathing it also extinguishes the light."
+    },
+    "wikidot5e:wondrous-items:sword-of-the-paruns": {
+      "sourceDigest": "sha256:96cbef0ba45c7f58e41498f66bb1e871ba2f531db1ca95f022ee806248c7cac8",
+      "effectSummary": "This +1 magic longsword can grant one reaction to an ally once per each of your turns: immediately after you take the Attack action and attack with the sword, one creature within 60 feet may make one weapon attack; immediately after you Dash, one creature within 60 feet may move up to its speed; immediately after you Dodge, one creature within 60 feet may gain Dodge's benefits."
+    },
+    "wikidot5e:wondrous-items:sword-of-the-planes": {
+      "sourceDigest": "sha256:4e7944597a02c34309a2f632934376aedb069767b3f0d61eb4c52b794c72c675",
+      "effectSummary": "This +3 magic sword can once per dawn use an action to cut a temporary rift in an open space within 5 feet, up to 10 by 10 feet, linking to a different plane for 1 minute. Specify a destination; the rift opens in or near it at the DM's discretion. Anything entering is instantly transported to the nearest open space on the destination side."
+    },
+    "wikidot5e:wondrous-items:sword-of-vengeance": {
+      "sourceDigest": "sha256:e4b4a2147507eb6025fd71a278237409e8243327c81c01540596d1104edda1f3",
+      "effectSummary": "This cursed +1 magic sword makes an attuned wielder unwilling to part with it and imposes disadvantage on attacks with other weapons. Whenever you take combat damage while it is on your person, DC 15 Wisdom or you must attack the creature that damaged you until one of you reaches 0 HP or you cannot reach it for a melee attack. Remove curse or similar magic breaks the curse; alternatively banishment cast on the sword expels its vengeful spirit, leaving an ordinary +1 weapon."
+    },
+    "wikidot5e:wondrous-items:sword-of-wounding": {
+      "sourceDigest": "sha256:e3c637d12219dc87a7cb8a9a11af86683363d7f7f904a9a928db2543bbc7e8d0",
+      "effectSummary": "HP lost to this weapon's damage can be regained only through short or long rests, not regeneration, magic, or other means. Once per turn on a hit, wound the target; at the start of each of its turns it takes 1d4 necrotic per accumulated wound, then may make DC 15 Constitution to end all wounds. Alternatively, it or a creature within 5 feet may use an action and DC 15 Wisdom (Medicine) to end all wounds."
+    },
+    "wikidot5e:wondrous-items:sword-of-zariel": {
+      "sourceDigest": "sha256:d66df9596a6db55d7a55b18a36aad8a8a622eacb8f6b225bbd3e8b7686a951d5",
+      "effectSummary": "Artifact longsword that chooses a worthy wielder and permits immediate attunement. First attunement permanently transforms you into an idealized lawful-good heavenly version: speak/read/write Celestial; resist necrotic and radiant; Charisma becomes 20 if lower; gain 90-foot flying speed with hover from feathered wings replacing existing wings; gain truesight 60 feet including magical darkness, invisibility, automatic visual-illusion detection/saves, shapechanger/transform true-form sight, and Ethereal sight; and gain new overriding personality trait, ideal, bond, and flaw from its tables. The sword has 2 random minor beneficial properties. It sheds bright light 5 feet/dim another 5, intensifiable as a bonus action to 15/15 or reduced again; fiends have disadvantage on attacks while within its bright light. Hits deal +2d8 radiant one-handed or +3d10 two-handed; an evil creature damaged this way makes DC 17 Constitution or is blinded until the end of its next turn. While holding it, gain advantage on Wisdom (Insight). Sentient lawful good: Intelligence 10, Wisdom 20, Charisma 18, hearing/vision 30 feet, emotional communication. Zariel can destroy it by grasping it; it is also destroyed if used to shatter the Companion unless wielded by CR 15+ angel or good cleric/paladin level 10+, and if Zariel permanently dies in the Hells it becomes only as durable as a normal longsword."
+    },
+    "wikidot5e:wondrous-items:talarith": {
+      "sourceDigest": "sha256:d986fa550c2c307d10b89531d9f714be8cefa76467cca90372dbedb5b0426dcf",
+      "effectSummary": "Usable only by its reigar creator. While worn, any weapon wielded by that reigar deals +1d6 force on hits. Once per short or long rest as an action, summon a golem resembling the reigar; it uses the reigar's statistics except it is a Construct and lacks its own talarith, obeys commands, and vanishes after 1 hour or at 0 HP."
+    },
+    "wikidot5e:wondrous-items:talisman-of-pure-good": {
+      "sourceDigest": "sha256:a4219b91d03a05991f44e605b17e5d7970fbd72108799fb892b260e6ee07f679",
+      "effectSummary": "A neutral creature touching it takes 6d6 radiant; an evil creature takes 8d6 radiant; such creatures take that damage again at the end of each turn holding/carrying it. A good cleric or paladin may use it as a holy symbol and gains +2 spell attacks while wearing/holding it. It has 7 charges; while wearing/holding it, as an action spend 1 charge and target a visible evil creature on the ground within 120 feet: DC 20 Dexterity or a flaming fissure destroys it without remains, then closes. Spending the last charge destroys the talisman in golden motes."
+    }
+  }
+}
