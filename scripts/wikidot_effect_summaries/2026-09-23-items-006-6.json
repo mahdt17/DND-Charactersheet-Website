@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-6",
+  "records": {
+    "wikidot5e:wondrous-items:sovereign-glue": {
+      "sourceDigest": "sha256:f8315686e09b7b84b86b78ad1605ddb4bb48c51305b65de360a0a5b083fcf559",
+      "effectSummary": "Usually found with 1d6+1 ounces. One ounce covers a 1-foot-square surface; after 1 minute it permanently bonds two objects. The bond can be broken only with universal solvent, oil of etherealness, or wish. The glue must be stored in a container internally coated with oil of slipperiness."
+    },
+    "wikidot5e:wondrous-items:speaking-stone": {
+      "sourceDigest": "sha256:0f19c403576eb4e4192ac5ee8007d67efee1a39b13df0016202d3fe8d59cbe92",
+      "effectSummary": "A gnome with the Mark of Scribing can touch the stone and use an action to cast sending, targeting another speaking stone whose location or unique sigil sequence is known. Any creature within 5 feet of the destination stone hears the message as though it were the target."
+    },
+    "wikidot5e:wondrous-items:spear-of-backbiting": {
+      "sourceDigest": "sha256:4ec0d8fb3095e0982b6637adfb0f00b3460f9b9b7ab8776fcfea41857a6316b9",
+      "effectSummary": "This cursed +2 magic spear or javelin increases both normal and long thrown ranges by 30 feet and deals one extra weapon damage die on a hit when thrown; after a thrown attack hits or misses, it immediately returns to your hand. Curse: attunement makes you unwilling to part with it and gives disadvantage with other weapons until remove curse or similar magic. Whenever you roll a natural 1 attacking with it, make a new advantaged attack roll against your own AC; on a hit, take damage as though you attacked yourself with the spear."
+    },
+    "wikidot5e:wondrous-items:spell-bottle": {
+      "sourceDigest": "sha256:4962807e1174116267206536fda8ff075e9f36f566028e0d6734976342b02b21",
+      "effectSummary": "Stores one spell of up to 5th level. A found bottle contains a DM-chosen spell of level d6-1, where 0 is empty. Any creature can store a 1st–5th-level spell by touching an empty bottle while casting it; the spell has no immediate effect. While holding the bottle, cast the stored spell using the original caster's slot level, save DC, attack bonus, and spellcasting ability, after which the bottle empties. While holding an empty bottle, when you see a creature within 60 feet casting a spell, use your reaction to try to capture it: a 3rd-level-or-lower spell is automatically canceled and stored; for a 4th-level-or-higher spell, make Intelligence DC 10 + spell level, storing and canceling it on success."
+    },
+    "wikidot5e:wondrous-items:spell-gem": {
+      "sourceDigest": "sha256:a5c33c16606ff4bd1b5dee2c9ab31e2ccaa67e0281f7352c79c697fc1131ffad",
+      "effectSummary": "Stores one spell from any class. While holding it, cast the stored spell as an action without components if you know the spell or it is on your class list; if above the highest level you can normally cast, make a spellcasting-ability check DC 10 + spell level or the spell vanishes without effect. If attuned to an empty gem, store a spell by casting it into the gem; casting time must be 1 action or at least 1 minute and spell level cannot exceed gem maximum. Consumed material components are required only for Abjuration spells, at half normal value. Once imbued, it cannot be imbued again until next dawn. Gem table: Obsidian cantrip, uncommon, DC 13/+5; Lapis lazuli 1st, uncommon, DC 13/+5; Quartz 2nd, rare, DC 13/+5; Bloodstone 3rd, rare, DC 15/+7; Amber 4th, very rare, DC 15/+9; Jade 5th, very rare, DC 17/+9; Topaz 6th, very rare, DC 17/+10; Star ruby 7th, legendary, DC 18/+10; Ruby 8th, legendary, DC 18/+10; Diamond 9th, legendary, DC 19/+11."
+    },
+    "wikidot5e:wondrous-items:spell-scroll": {
+      "sourceDigest": "sha256:75c650dc0df8d91f8920d62c613ac0cad00e22929d0c7c1aa2447625268f6754",
+      "effectSummary": "Contains one spell. If the spell is on your class list, read the scroll using the spell's normal casting time and no material components; otherwise it is unintelligible. If the spell is above the highest level you can normally cast, make a spellcasting-ability check DC 10 + spell level; failure destroys the spell with no effect. Once successfully cast, the words fade and the scroll crumbles; interrupted casting does not destroy it. Table: cantrip common DC 13/+5; 1st common 13/+5; 2nd uncommon 13/+5; 3rd uncommon 15/+7; 4th rare 15/+7; 5th rare 17/+9; 6th very rare 17/+9; 7th very rare 18/+10; 8th very rare 18/+10; 9th legendary 19/+11. A wizard may copy a wizard spell from it by succeeding on Intelligence (Arcana) DC 10 + spell level; whether success or failure, the scroll is destroyed after the copying attempt."
+    },
+    "wikidot5e:wondrous-items:spelljamming-helm": {
+      "sourceDigest": "sha256:df7d18c6887708ee52922326fb595db8201d540a6beeb58dd2b3d54def3910e3",
+      "effectSummary": "Rare chair attunable by a spellcaster and installed on a vessel weighing at least 1 ton. While attuned, seated, and concentrating as on a spell, move the ship through space, air, water, or underwater up to its speed; in space with no other object of at least 1 ton within 1 mile, travel 100 million miles per 24 hours. You steer it and can see/hear around the vessel as though standing at any chosen location aboard. As an action, touch a willing spellcaster to transfer attunement immediately, ending yours."
+    },
+    "wikidot5e:wondrous-items:spellshard": {
+      "sourceDigest": "sha256:17fd8d5c7a5d5da3da0d375f4f44957eb5f6e84bfddf7c8ee440fdc61ecfbcf8",
+      "effectSummary": "Stores the equivalent of one book up to 320 pages, optionally protected by a creator-set passphrase. While holding it, use an action to open its contents in your mind; reading or writing on later rounds requires concentration and takes normal reading/writing time. Thinking of a phrase or topic jumps to its first relevant section. A wizard may use a spellshard as a spellbook, with normal gold and time costs for scribing spells."
+    },
+    "wikidot5e:wondrous-items:spellwrought-tattoo": {
+      "sourceDigest": "sha256:3f2c4e26a37ca529e3802d5deee7ae2656bc47425016359dfbe806c9a7a1a2a7",
+      "effectSummary": "The needle contains one spell up to 5th level. Hold it to your skin and speak the command word to transform it into a tattoo; then cast the stored spell once without material components, after which the tattoo vanishes when the spell ends. Spell level determines statistics: cantrip common, ability +3, DC 13, attack +5; 1st common +3/13/+5; 2nd uncommon +3/13/+5; 3rd uncommon +4/15/+7; 4th rare +4/15/+7; 5th rare +5/17/+9."
+    },
+    "wikidot5e:wondrous-items:sphere-of-annihilation": {
+      "sourceDigest": "sha256:f06dce637463609c53de75f357bed7be2aba07b3de38b50dfb38bd938f562c7f",
+      "effectSummary": "A 2-foot black void that obliterates matter passing through it except artifacts not specifically susceptible; anything touching but not wholly engulfed takes 4d10 force. It remains stationary until controlled. Within 60 feet of an uncontrolled sphere, use an action and DC 25 Intelligence (Arcana): success moves it in one chosen direction up to 5 × Intelligence modifier feet, minimum 5; failure moves it 10 feet toward you. A creature whose space it enters makes DC 13 Dexterity or takes 4d10 force. To seize a controlled sphere, contest Intelligence (Arcana) with its controller; winner controls and moves it. If it contacts a planar portal or extradimensional space, roll d100: 01–50 sphere destroyed; 51–85 it passes through; 86–00 a rift sends the sphere and every creature/object within 180 feet to random planes."
+    }
+  }
+}
