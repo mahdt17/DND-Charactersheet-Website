@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-2",
+  "records": {
+    "wikidot5e:wondrous-items:fedifensor": {
+      "sourceDigest": "sha256:3de0c333dafe4fb48c9c9d40fb72c77156ee8008c8fb6363dc5f082eebfe3e0c",
+      "effectSummary": "Sentient lawful-good greatsword attunable by lawful-good creatures. For any lawful-good wielder it grants +1 attack/damage. For a lawful-good paladin it instead grants +3 and additional powers: while held, advantage on saves against spells and other magical effects; as an action cast dispel magic on yourself or the sword, automatically ending 3rd-level-or-lower spells and checking higher-level effects with the higher of your Charisma modifier or Fedifensor's +4 against DC 10 + spell level; use Divine Sense without expending normal uses; while unsheathed it glows bright red if a fiend or undead is within 60 feet; hits against demons deal +1d8 radiant, and Divine Smite against a demon adds one extra d8 beyond its normal bonus. Sentience: Intelligence 17, Wisdom 15, Charisma 19, hearing/darkvision 120 feet, communicates through emotions and through visions/dreams while you trance or sleep. A non-lawful-good creature cannot touch or carry it unless it is in its special scabbard; willingly touching it for the first time on a turn deals 3d6 psychic and gives 1 exhaustion level."
+    },
+    "wikidot5e:wondrous-items:feywild-shard": {
+      "sourceDigest": "sha256:2bebeefe15efdd4910172835c4007b21cb43cde64055faadc40a3ad250830fa7",
+      "effectSummary": "Attach or detach the shard from a Tiny object as an action; it detaches if attunement ends, and while held or worn it functions as a spellcasting focus. Whenever you use Metamagic on a spell, you may roll on the Wild Magic Surge table. If the result is a spell, that surge spell is not affected by the Metamagic and, if it normally requires concentration, it instead lasts its full duration without concentration. A sorcerer without the Wild Magic origin can trigger this property only once per dawn."
+    },
+    "wikidot5e:wondrous-items:feywrought-armor": {
+      "sourceDigest": "sha256:dd5009c0031bd48c1bed310736b60182b993ae424571c94b650d5f98081ccefe",
+      "effectSummary": "While wearing this armor, gain advantage on saving throws to avoid or end charmed. It has 3 charges, regains 1d3 daily at dawn, and lets you spend 1 charge as an action to cast compulsion at save DC 15."
+    },
+    "wikidot5e:wondrous-items:figurine-of-wondrous-power": {
+      "sourceDigest": "sha256:6cbaa4a2eff830983b15a80089cb58e7cde137919460a40629e1fb60879190c9",
+      "effectSummary": "As an action, speak the command word and throw a figurine to an open ground point within 60 feet; it becomes its living creature if enough space exists. The creature is friendly, understands your languages, obeys spoken commands, and otherwise only defends itself. It reverts when its listed duration ends, at 0 HP, or when you touch it and use an action to repeat the command; each form then has its listed recharge. Bronze Griffon (rare): griffon up to 6 hours, recharge 5 days. Ebony Fly (rare): giant fly up to 12 hours, usable as a mount, recharge 2 days. Golden Lions (rare, pair): each can become a lion up to 1 hour, recharge 7 days. Ivory Goats (rare, set of 3): Traveling becomes a Large goat using riding-horse statistics and has 24 charges, spending 1 per hour or part-hour in beast form; when empty it reverts and regains all charges after 7 days. Travail becomes a giant goat up to 3 hours, recharge 30 days. Terror becomes a nonattacking giant goat up to 3 hours; its horns can be removed as an action to become a +1 lance and +2 longsword until reversion, and while ridden it has a 30-foot fear aura—hostile creatures starting there make DC 15 Wisdom or are frightened for 1 minute/until reversion, repeating each turn; a successful save grants 24-hour immunity; recharge 15 days. Marble Elephant (rare): elephant up to 24 hours, recharge 7 days. Obsidian Steed (very rare): nightmare up to 24 hours, fights only in self-defense, recharge 5 days; for a good-aligned user each activation has 10% chance to ignore orders, and if mounted while disobedient it transports rider and itself to random Hades before reverting. Onyx Dog (rare): mastiff up to 6 hours, Intelligence 8, speaks Common, darkvision 60 feet and sees invisible creatures/objects there, recharge 7 days. Serpentine Owl (rare): giant owl up to 8 hours, recharge 2 days, telepathic with you at any distance on the same plane. Silver Raven (uncommon): raven up to 12 hours, recharge 2 days, and while in raven form lets you cast animal messenger on it at will. Gold Canary (legendary): giant canary up to 8 hours and usable as a mount, recharge next dawn; while you have half or fewer HP, a different command instead turns it into an adult gold dragon for up to 1 hour without legendary or lair actions, recharge 1 year. Giant canary statistics: Large beast, AC 12, 26 HP (4d10+4), speed 30 ft., fly 60 ft.; Str 10, Dex 14, Con 12, Int 2, Wis 10, Cha 6; passive Perception 10; Peck +4, reach 5 ft., 1d10+2 piercing."
+    },
+    "wikidot5e:wondrous-items:finders-goggles": {
+      "sourceDigest": "sha256:ffcdb72c8b97150a4a4e3e9f6b9dde63249dea253c823e84887242d590cc251e",
+      "effectSummary": "While worn by a creature with the Mark of Finding, add 1d4 to Wisdom (Insight) checks. Once per dawn, as an action, examine an object and make Wisdom (Insight) against DC 13 + days since it was last touched; on success learn the last toucher’s creature type and immediately cast locate creature to find that creature."
+    },
+    "wikidot5e:wondrous-items:fish-suit": {
+      "sourceDigest": "sha256:581f68b6dc5675511690040c66a8403de13c3c5cebbed420d0e6485d95c6c543",
+      "effectSummary": "Takes 1 minute to don or doff and fully encloses you. While worn, lets you breathe in airless environments, makes you immune to harmful surrounding gases, grants a swim speed equal to walking speed underwater, and grants a flying speed equal to walking speed in zero gravity."
+    },
+    "wikidot5e:wondrous-items:flail-of-tiamat": {
+      "sourceDigest": "sha256:d59c47b396800412489067975a30f5c5917c9d6b0e6cc376023559a604aee78f",
+      "effectSummary": "This legendary +3 flail deals +5d4 on each hit, choosing acid, cold, fire, lightning, or poison. Once per dawn while holding it, use an action and command word to breathe a 90-foot cone; creatures make DC 18 Dexterity, taking 14d6 of one chosen listed damage type on failure or half on success."
+    },
+    "wikidot5e:wondrous-items:flame-tongue": {
+      "sourceDigest": "sha256:d5dde204346cc62ed075e19196db552aff16accd83d0fd4486c0f2e7d2fc6634",
+      "effectSummary": "As a bonus action, speak the command word to ignite the blade. While ablaze, it sheds bright light 40 feet and dim another 40 and deals +2d6 fire on each hit. The flames end when you use a bonus action to repeat the command or when you drop or sheathe the sword."
+    },
+    "wikidot5e:wondrous-items:flayer-slayer": {
+      "sourceDigest": "sha256:2c14c14305c085a48fd9b57f77e87ee405ac2333446f44eb82c5c38bedfb6af9",
+      "effectSummary": "This +1 magic greataxe deals +1d12 slashing when it hits an Aberration. If that Aberration is grappling any creatures, it makes DC 15 Strength or releases every creature it is grappling."
+    },
+    "wikidot5e:wondrous-items:flying-chariot": {
+      "sourceDigest": "sha256:e8fbe0701b4214459ed47e424c49996303676fd188fce9ca74a831711553ae1d",
+      "effectSummary": "Riders and creatures pulling this magic chariot gain +1 AC. If pulled by one or more flying creatures, the chariot can fly. Chariot rules: mounting or dismounting costs 5 feet of movement; riders have half cover; chariot speed equals the slowest pulling creature's speed; if multiple creatures pull it, they share initiative and must take the same action on their turn."
+    }
+  }
+}
