@@ -50,6 +50,17 @@ artifacts. Canonical catalogs remain unchanged until fresh source/output gates p
 - PR #4 remains open and unmerged pending post-promotion validation.
 - Post-promotion validation trigger recorded after static catalog promotion.
 
+## Global nine-category release audit — COMPLETE and PROMOTED
+
+- Audited head: \`f8262eec1c127b664938d9d3a955ff50a1291ebb\`.
+- Full enrichment audit run: \`35924997579\`.
+- Final candidate-output artifact: \`10780021992\`, digest \`sha256:8e5203350981d6f72f1dc2530c58296593b7f88764b3d69ee1c378e68f27fc8f\`.
+- Exact final release gate: **12,891 / 12,891 passed**, **0 failed**, **100.00%** across all nine required 3.5e/5e categories.
+- \`sourceExtractionVerified: true\`, \`outputCompletenessVerified: true\`, \`releaseReady: true\`, \`criticalMissingCount: 0\`, \`errors: []\`.
+- The exact audited candidate files were promoted into \`public/catalogs/dndtools\` and \`public/catalogs/wikidot5e\`; no re-scrape was used for promotion.
+- Supabase was not modified. Catalog reference data remains repository/static-file backed.
+- PR #4 remains open and unmerged pending post-promotion validation.
+
 ## 3.5 equipment category — COMPLETE under both independent gates
 
 - Final verification head: `72bd4cf61d87c07bfb36abbdea390be8a33d8b69`.
@@ -370,7 +381,7 @@ The first complete class-catalog audit checked **all 1,054 class records** and i
 - Source-extraction gate: **PASSED**
 - Final-output completeness gate: **PASSED FOR 3.5 CLASSES**
 - Release ready: **NO**
-- Live/catalog writes: **LOCKED**
+- Live/catalog writes: **VERIFIED RELEASE PROMOTED TO REPOSITORY STATIC CATALOGS**
 
 The permanent focused regression corpus also passes **67 / 67**, including all 30 records from the original full-catalog failure set.
 
