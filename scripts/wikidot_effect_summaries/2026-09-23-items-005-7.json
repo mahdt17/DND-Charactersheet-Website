@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-7",
+  "records": {
+    "wikidot5e:wondrous-items:ring-of-animal-influence": {
+      "sourceDigest": "sha256:8a12319a5e8f5ff0baf5f936c36fa53d10d46cf591e9bf2434e0a67612423f4a",
+      "effectSummary": "The ring has 3 charges and regains 1d3 daily at dawn. While wearing it, use an action and 1 charge to cast animal friendship at save DC 13, fear at save DC 13 targeting only beasts with Intelligence 3 or lower, or speak with animals."
+    },
+    "wikidot5e:wondrous-items:ring-of-djinni-summoning": {
+      "sourceDigest": "sha256:8bff685aa98ee0809d8c6a562a199064d4f4971fb4e66f114c90cd40b58042e1",
+      "effectSummary": "Once per 24 hours while wearing the ring, use an action and command word to summon its particular djinni to an open space within 120 feet. It remains while you concentrate, up to 1 hour, or until 0 HP, then returns home. It is friendly to you and companions, obeys commands in any language, and without commands only defends itself. If the djinni dies, the ring permanently becomes nonmagical."
+    },
+    "wikidot5e:wondrous-items:ring-of-elemental-command": {
+      "sourceDigest": "sha256:97d1664deaea1e6815dff6b06463603f69a9853416599e9fb62deb321c746e39",
+      "effectSummary": "Linked to Air, Earth, Fire, or Water. While worn, you have advantage on attacks against elementals of the linked plane and those elementals have disadvantage attacking you. The ring has 5 charges, regains 1d4+1 daily at dawn, and its spells use save DC 17. Air: spend 2 to dominate monster an air elemental; descend 60 feet/round and take no falling damage; speak Auran. After helping slay an air elemental, gain lightning resistance, flying speed equal to walking plus hover, and cast chain lightning 3, gust of wind 2, wind wall 1. Earth: spend 2 to dominate an earth elemental; ignore rubble/rock/dirt difficult terrain; speak Terran. After helping slay one, gain acid resistance, move through solid earth/rock as difficult terrain and be shunted out if ending there, and cast stone shape 2, stoneskin 3, wall of stone 3. Fire: spend 2 to dominate a fire elemental, gain fire resistance, speak Ignan. After helping slay one, gain fire immunity and cast burning hands 1, fireball 2, wall of fire 3. Water: spend 2 to dominate a water elemental; walk on liquids as solid ground; speak Aquan. After helping slay one, breathe underwater, gain swim speed equal to walking, and cast create or destroy water 1, ice storm 2, control water 3, wall of ice 3."
+    },
+    "wikidot5e:wondrous-items:ring-of-mind-shielding": {
+      "sourceDigest": "sha256:fc99e11d42f904dc518d89e686e8e6008adbb5942abf575174e88462341389d0",
+      "effectSummary": "While worn, you are immune to magic that reads thoughts, determines truthfulness, reveals alignment, or reveals creature type, and telepathy reaches you only with permission. As an action, make the ring invisible until another action makes it visible, it is removed, or you die. If you die while wearing it and it contains no soul, your soul enters the ring; you may remain or depart for the afterlife. A soul in the ring can telepathically communicate with any wearer, who cannot block that communication."
+    },
+    "wikidot5e:wondrous-items:ring-of-obscuring": {
+      "sourceDigest": "sha256:bd243f363506096577a5eb80951ce67d7abc0cf50d4d7bf3f273faccd84fcac4",
+      "effectSummary": "The ring has 3 charges and regains 1d3 daily at dawn. As an action while wearing it, spend 1 charge to cast fog cloud centered on yourself; it lasts 1 minute without concentration."
+    },
+    "wikidot5e:wondrous-items:ring-of-puzzlers-wit": {
+      "sourceDigest": "sha256:218062f0f9c75a21829abf9fc9b2c3b03d1bcd2b985f6e1a249f2381da50b03f",
+      "effectSummary": "The ring has 3 charges and regains 1d4-1 daily at dawn. When making an Intelligence check, spend 1 charge to give yourself advantage."
+    },
+    "wikidot5e:wondrous-items:ring-of-red-fury": {
+      "sourceDigest": "sha256:c46d55006fed78df34caba4dc79a110c78c97bfd91d34ce91e1e2f0b44a83e5b",
+      "effectSummary": "While worn, breathe water and gain swim speed equal to walking. Once per long rest as a bonus action, enter Ruidium Rage for 1 minute or until incapacitated: advantage on Strength checks/saves, add proficiency bonus to damage when you hit with an attack, ignore difficult terrain, and become immune to paralyzed and restrained. Each use forces DC 20 Charisma; on failure gain 1 exhaustion and, if not already suffering ruidium corruption, become corrupted. If the Apotheon is killed or redeemed and all ruidium is destroyed, this item becomes a ring of free action."
+    },
+    "wikidot5e:wondrous-items:ring-of-regeneration": {
+      "sourceDigest": "sha256:de21bde7c2df3fc56c1292ce81a747e45ea6d272739f6a796b468fb7ee301c84",
+      "effectSummary": "While worn and at 1+ HP, regain 1d6 HP every 10 minutes. A missing body part regrows and becomes fully functional after 1d6+1 days provided you remain at 1+ HP throughout that time."
+    },
+    "wikidot5e:wondrous-items:ring-of-resistance": {
+      "sourceDigest": "sha256:6565c57dc57b9522a7a707f841a87c7cc25cdc7cd9ff4b572085fcbe3900a3f1",
+      "effectSummary": "While worn, gain resistance determined by its gem: d10 1 acid/pearl, 2 cold/tourmaline, 3 fire/garnet, 4 force/sapphire, 5 lightning/citrine, 6 necrotic/jet, 7 poison/amethyst, 8 psychic/jade, 9 radiant/topaz, 10 thunder/spinel."
+    },
+    "wikidot5e:wondrous-items:ring-of-shooting-stars": {
+      "sourceDigest": "sha256:c5cc0650493928d99a63a23cfc439841587a0ff75970ec63115cc0a7cedf2e94",
+      "effectSummary": "While wearing it in dim light or darkness, cast dancing lights or light at will as an action. It has 6 charges and regains 1d6 daily at dawn. Faerie Fire: action, 1 charge. Ball Lightning: action, 2 charges to create 1–4 lightning spheres at visible open spaces within 120 feet for concentration up to 1 minute; each sheds dim light 30 feet, and as a bonus action move each up to 30 feet while keeping within 120 feet. When another creature comes within 5 feet, the sphere discharges and vanishes; DC 15 Dexterity, damage based on initial sphere count: 4 spheres 2d4 each, 3 spheres 2d6, 2 spheres 5d4, 1 sphere 4d12. Shooting Stars: action, spend 1–3 charges; per charge choose a visible point within 60 feet, and creatures in a 15-foot cube from that point make DC 15 Dexterity for 5d4 fire or half."
+    }
+  }
+}
