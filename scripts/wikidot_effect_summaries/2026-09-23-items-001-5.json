@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-5",
+  "records": {
+    "wikidot5e:wondrous-items:bag-of-bounty": {
+      "sourceDigest": "sha256:69cbd906b911efb27765180437c93870c3329f6bd9705bc4ef70fc3ea025412c",
+      "effectSummary": "If you have the Mark of Hospitality, use an action up to three times per day to cast create food and water from the bag, choosing the meal. Bland poor food requires no check; finer quality requires Charisma, adding cook's-utensils proficiency if applicable: modest DC 10, comfortable 13, wealthy 15, aristocratic 18. A failed check produces a sour, squalid meal. All uses reset at dawn."
+    },
+    "wikidot5e:wondrous-items:bag-of-devouring": {
+      "sourceDigest": "sha256:e28032572c57c250e6a4a5368829499d768d6bb862b4fb0c875eacb99550d06e",
+      "effectSummary": "This bag is an extradimensional creature's feeding orifice; turning it inside out closes it. Animal or vegetable matter fully placed inside is permanently devoured. When a living creature puts part of itself inside, there is a 50% chance it is pulled in. A trapped creature may use an action and DC 15 Strength to escape; another creature may use an action and DC 20 Strength to pull it out, subject to first being pulled in itself. A creature starting its turn inside is devoured and its body destroyed. It can store 1 cubic foot of inanimate objects, but once daily swallows them and spits them onto a DM-chosen other plane. If pierced or torn, the bag is destroyed and contents go to a random Astral Plane location."
+    },
+    "wikidot5e:wondrous-items:bag-of-holding": {
+      "sourceDigest": "sha256:ec1be3a2968a21b22ee4acc038a7bd3bc1fae3140eef93d1c34096361f6491ce",
+      "effectSummary": "Interior capacity 500 pounds and 64 cubic feet; the bag always weighs 15 pounds. Retrieving an item requires an action. Overloading, piercing, or tearing destroys it and scatters contents into the Astral Plane. Turning it inside out safely empties it but prevents further use until restored. Breathing creatures inside have 10 divided by number of creatures minutes of air, minimum 1 minute, then suffocate. Placing it inside a handy haversack, portable hole, or similar extradimensional space destroys both items and opens a one-way Astral gate; creatures within 10 feet are sucked to random Astral locations before it closes."
+    },
+    "wikidot5e:wondrous-items:bag-of-tricks": {
+      "sourceDigest": "sha256:a5b4acbc4cf191d456f3ad4c493fc3a1843fb849c05dd1fae3eafe3da7a9e0a6",
+      "effectSummary": "Up to three times per dawn, use an action to pull and throw a fuzzy object up to 20 feet; it becomes a friendly creature until next dawn or 0 HP, acts on your turn, and follows bonus-action commands or otherwise behaves naturally. Roll d8 by bag color. Gray: 1 weasel, 2 giant rat, 3 badger, 4 boar, 5 panther, 6 giant badger, 7 dire wolf, 8 giant elk. Rust: 1 rat, 2 owl, 3 mastiff, 4 goat, 5 giant goat, 6 giant boar, 7 lion, 8 brown bear. Tan: 1 jackal, 2 ape, 3 baboon, 4 axe beak, 5 black bear, 6 giant weasel, 7 giant hyena, 8 tiger."
+    },
+    "wikidot5e:wondrous-items:balance-of-harmony": {
+      "sourceDigest": "sha256:c44221cfa786c5a4403a606c8f3cf2a9dd221f3c80af16dd2174104ea35d7001",
+      "effectSummary": "Use the scale to cast detect evil and good as a ritual by placing it on a solid surface and either sprinkling holy water on its pans or placing a transparent 100-gp gem in each. The scale remains still for no detection, tips toward celestial or fiendish markings for consecrated/good or desecrated/evil, and fluctuates for other detectable creatures. Touching it after the ritual instantly gives all information the spell normally conveys and ends the effect."
+    },
+    "wikidot5e:wondrous-items:baleful-talon": {
+      "sourceDigest": "sha256:dca3bd78084e033393e3eccc35048ebb5fb9e566d8bb0b6e5cfc3496f2335cdb",
+      "effectSummary": "This magic dagger grants +1 to attack and damage rolls. When you hit with an attack roll of 19 or 20, the target makes a DC 15 Constitution save, taking 6d6 necrotic damage on a failure or half on a success. If this necrotic damage reduces it to 0 HP, it disintegrates into dust."
+    },
+    "wikidot5e:wondrous-items:balloon-pack": {
+      "sourceDigest": "sha256:3ce02068cf0ce4c716c41eeac2343fcaf9353eb1e1d093a02957f4230e1423c1",
+      "effectSummary": "While wearing the pack, use an action to deploy the balloon and gain levitate on yourself for 10 minutes without concentration, or use a reaction while falling to gain feather fall on yourself. When either spell ends, the balloon deflates and you descend gently up to 60 feet, then fall if still airborne without other support. After use, the pack cannot function again until recharged for 1 hour in an elemental air node."
+    },
+    "wikidot5e:wondrous-items:banner-of-the-krig-rune": {
+      "sourceDigest": "sha256:b2ed78494b629a214bcae3ba9198139b4d2f050dd48929d1132bd584da118c51",
+      "effectSummary": "Furl or unfurl the banner as an action. Once per short or long rest, touch the unfurled banner as a bonus action to grant you and allies within 20 feet immunity to frightened for 10 minutes or until furled. While unfurled, you can see invisible creatures within 20 feet and line of sight. Separately once per short or long rest, touch it as a bonus action to impose disadvantage for 1 minute on ranged attacks targeting you or an ally within 20 feet, ending if furled. You may permanently transfer its magic to a location by tracing its rune for 8 hours while the banner stays within 5 feet, choosing beneficiary creatures/types; the banner is destroyed and a fixed 500-foot-radius sphere thereafter grants those beneficiaries immunity to frightened, +1 attack rolls, and +1 AC."
+    },
+    "wikidot5e:wondrous-items:barrier-tattoo": {
+      "sourceDigest": "sha256:3e4f8043219c4a40daa4009b433ebb442df57dd9f5c385b8c12e2514612d7310",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes the tattoo vanish and needle reappear. While not wearing armor, your AC becomes based on rarity and still permits a shield: uncommon 12 + full Dexterity modifier; rare 15 + Dexterity modifier capped at +2; very rare 18."
+    },
+    "wikidot5e:wondrous-items:battering-shield": {
+      "sourceDigest": "sha256:d751e2e77459bcc9de82997b2ed20489911173ab33d285475cea2b6ec50829b8",
+      "effectSummary": "While holding the shield, gain an additional +1 AC beyond its normal shield bonus. It has 3 charges and regains 1d3 daily at dawn. When you push a creature within reach at least 5 feet away while holding it, spend 1 charge to push it an additional 10 feet, knock it prone, or both."
+    }
+  }
+}
