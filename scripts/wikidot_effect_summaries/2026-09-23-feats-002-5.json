@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-002-5",
+  "records": {
+    "wikidot5e:feat:keenness-of-the-stone-giant-revised-ua": {
+      "sourceDigest": "sha256:1304f4c07f0795a8ec6fb8ce5706a59d204c77151c13ef92db7ea1f0ad5e6559",
+      "effectSummary": "Increase Strength, Constitution, or Wisdom by 1, maximum 20. As a bonus action, imbue a palm-sized rock; while you wield it, it is a magic ranged weapon you are proficient with, thrown 60/180, dealing 1d10 bludgeoning on a hit. A creature hit makes a Strength save against DC 8 + proficiency bonus + the modifier of the ability increased by this feat or falls prone. The magic lasts until the rock hits or you finish a long rest. You can imbue a number of rocks equal to proficiency bonus per long rest. Gain darkvision 60 feet, or add 60 feet to existing darkvision."
+    },
+    "wikidot5e:feat:keenness-of-the-stone-giant-ua": {
+      "sourceDigest": "sha256:ed1339caae05d86ab7aaaaa6d110a841d8d703cb56cc1b4f39aa229bda62987e",
+      "effectSummary": "Learn detect thoughts and one 1st-level Abjuration or Divination spell, choosing Intelligence, Wisdom, or Charisma as spellcasting ability. Each can be cast once without a slot per long rest and also with appropriate spell slots. Gain darkvision 60 feet, or increase existing darkvision by 30 feet."
+    },
+    "wikidot5e:feat:knight-of-the-crown": {
+      "sourceDigest": "sha256:923e5f95819740dea8701456f24e417da36915c7ae96ccb2873ab58f84fcafe2",
+      "effectSummary": "Increase Strength, Dexterity, or Constitution by 1, maximum 20. As a bonus action, command one ally within 30 feet that can see or hear you to make one weapon attack as a reaction; on a hit, the ally adds 1d8 damage. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:knight-of-the-crown-ua": {
+      "sourceDigest": "sha256:1439f59df78fcea2b84ac5f0355872560d943d29cd96410f57b9c20d8fcb523c",
+      "effectSummary": "Increase Strength or Dexterity by 1, maximum 20. When a visible creature within 30 feet attacks another creature within 5 feet of you, use your reaction to grant advantage on that attack. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:knight-of-the-rose": {
+      "sourceDigest": "sha256:271118d6b7eb2b6b90be6f7f89d6f47a02bdcd172e8a8d395b911996a0278a79",
+      "effectSummary": "Increase Constitution, Wisdom, or Charisma by 1, maximum 20. As a bonus action, encourage yourself or one visible creature within 30 feet; if it can see or hear you, it gains temporary HP equal to 1d8 + proficiency bonus + the modifier of the ability increased by this feat. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:knight-of-the-rose-ua": {
+      "sourceDigest": "sha256:155362b38350a081bd95611ce4b1b47b997e7804cf79dd2a936d8d3339debba6",
+      "effectSummary": "Increase Constitution or Charisma by 1, maximum 20. When you roll initiative, choose up to three other visible creatures within 30 feet; each may gain temporary HP equal to one roll of your Hit Die + proficiency bonus + the modifier of the ability increased by this feat. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:knight-of-the-sword": {
+      "sourceDigest": "sha256:3e24d64eee230755f23d17752fdccf908a8ff40ec0e37c321b8f390c3c2b7c06",
+      "effectSummary": "Increase Intelligence, Wisdom, or Charisma by 1, maximum 20. Once per turn when you hit with a weapon attack, force the target to make a Wisdom save against DC 8 + proficiency bonus + the modifier of the ability increased by this feat. On a failure it is frightened of you until the end of your next turn; on a success it has disadvantage on its next attack before the end of its next turn. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:knight-of-the-sword-ua": {
+      "sourceDigest": "sha256:d83356b097ede155cefc0691078b80a2d4a9e0edd6840d1e561fc180172fd7c9",
+      "effectSummary": "Gain proficiency in Intelligence, Wisdom, or Charisma saving throws. Immediately after you or a visible creature within 30 feet fails an Intelligence, Wisdom, or Charisma save, you may expend and roll one Hit Die and add it to the save. Once this turns a failure into a success, you cannot do so again until a long rest."
+    },
+    "wikidot5e:feat:lightly-armored": {
+      "sourceDigest": "sha256:8042a4a10744bb9ce38e57c76613c0e775c0be728b361ad7f1021be6e0b1ed88",
+      "effectSummary": "Increase Strength or Dexterity by 1, maximum 20, and gain proficiency with light armor."
+    },
+    "wikidot5e:feat:linguist": {
+      "sourceDigest": "sha256:8d2b92428850a267ca3f7f17bf0a5e042f261baa4c7a6ae87a76f5136dcc1a66",
+      "effectSummary": "Increase Intelligence by 1, maximum 20. Learn three languages. You can create written ciphers that others cannot decipher unless you teach them, they succeed on an Intelligence check against DC equal to your Intelligence score + proficiency bonus, or they use magic to decipher it."
+    }
+  }
+}
