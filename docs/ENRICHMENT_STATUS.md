@@ -4,6 +4,24 @@ Branch: `codex/content-foundation`
 PR: #4 — Add canonical content foundation  
 Live/catalog writes: **LOCKED**
 
+## 3.5 item category — COMPLETE under both independent gates
+
+- Final category-audit head: `56a6811f02000dd590ea2f81d9095a6b5c2a30d6`; final content-fix head: `61a880e39e4a680130a93dc57ac7943f0c72a70c`.
+- Item effect review #36 (run `35812603860`) completed successfully. Merged artifact `10729434524`, ZIP SHA-256 `47cf52120f77d0719a1ed858ace2f60da3b36dba23ba33908e5d55c9c6e276f3`, reports **0 remaining review entries / 0 errors**.
+- Category Enrichment Audit #94 (run `35813039932`) passed all 25/50/100/250 strict samples, all **16 / 16** full source shards, source aggregation, all **16 / 16** dry-run candidate shards, and final output audit.
+- Exact full source gate: **1,455 / 1,455 passed**, **0 failed**, **100.00%**, `criticalMissingCount: 0`, `coverageErrors: []`. Source artifact `10730361679`, ZIP SHA-256 `13deb06b5da83c8cde5232825db0bd5c430d09c12d5986c42d077e5f353422d6`.
+- Exact final-output gate: **1,455 / 1,455 passed**, **0 failed**, **100.00%**, `outputCompletenessVerified: true`, `criticalMissingCount: 0`, `errors: []`. Output artifact `10730038135`, ZIP SHA-256 `cd70e260c6bf7f0f3f84ffc3d51fb0102d60e4e34a4eb786f1cee842899301c1`.
+- Permanent focused item regression corpus: **18** records. Final closure repair models the nine Power Stone level variants as one provenance-backed `power-stone` rule family with a shared concise SRD rule summary rather than eight fabricated per-level effects.
+- Validate modernization #1019 (run `35812607084`) passed end-to-end on the content-fix head, including full class/feat/spell/item regressions, build, and browser suites.
+- This is a scoped category completion only. Global `releaseReady` remains **false**, live/catalog writes remain **LOCKED**, Supabase remains untouched, and PR #4 remains open/unmerged.
+
+## Current 3.5 spell closure checkpoint
+
+- Spell effect review #401 (run `35812603861`) completed successfully on `61a880e39e4a680130a93dc57ac7943f0c72a70c`.
+- Merged spell-review artifact `10730736193`, ZIP SHA-256 `88ffb22cd3239c80f6771ac441e69ce689f03170b74cc211d4a04a1b70ee0753`, reports **0 remaining review entries / 0 errors**.
+- The spell source gate had already reached full-catalog integrity; the next required proof is a fresh scoped `3.5/spells` category audit on the zero-review-queue state.
+- Live/catalog writes remain locked; no Supabase changes; PR #4 remains open/unmerged.
+
 ## 3.5 feat category — COMPLETE under both independent gates
 
 - Final verification head: `881580495080356d4daa16fdde445417e1b15918`.
