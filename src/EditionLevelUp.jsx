@@ -14,7 +14,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[]}) {
   const [step,setStep]=useState(0),[mode,setMode]=useState('scores'),[first,setFirst]=useState(''),[second,setSecond]=useState(''),[feat,setFeat]=useState(''),[notes,setNotes]=useState(''),[subclass,setSubclass]=useState(char.subclass||'');
   const [abilities,setAbilities]=useState({...char.abilities}),[hpGain,setHpGain]=useState(Math.floor(Number(char.hitDie?.slice(1)||8)/2)+1);
   const [added,setAdded]=useState([]);
-  const reference=useReferenceIndex();
+  const reference=useReferenceIndex(['spells'],char.ruleset||'2014');
   const needsSubclass=!manual&&target>=3&&!char.subclass;
   const nextAbilities={...abilities};
   if(asi&&mode==='scores'){if(first)nextAbilities[first]++;if(second)nextAbilities[second]++;}
@@ -22,7 +22,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[]}) {
   const counts=spellCounts(draft,effective[castingKey(draft)]||10),current=char.spells||[];
   const candidates=permittedSpells(draft,[...homebrew,...reference.entries]).filter(s=>!current.some(c=>keyOf(c)===keyOf(s)));
   const cantripGain=manual?Infinity:Math.max(0,counts.cantrips-current.filter(s=>s.level===0&&!s.auto).length);
-  const spellGain=manual?Infinity:Math.max(0,(counts.mode==='spellbook'?counts.known:counts.prepared||0)-current.filter(s=>s.level>0&&!s.auto).length);
+  const spellGain=manual?Infinity:Math.max(0,(counts.mode==='spellbook'||counts.mode==='known'?counts.known:counts.prepared||0)-current.filter(s=>s.level>0&&!s.auto).length);
   const selectedCantrips=added.filter(s=>s.level===0),selectedSpells=added.filter(s=>s.level!==0);
   const hp=Math.max(1,hpGain+modifier(effective.con))+(mechanics(char)==='2024'&&char.race==='Dwarf'?1:0)+(modifier(effective.con)-modifier(effectiveAbilities(char).con))*char.level;
   function toggle(s){setAdded(list=>list.some(x=>keyOf(x)===keyOf(s))?list.filter(x=>keyOf(x)!==keyOf(s)):[...list,s]);}

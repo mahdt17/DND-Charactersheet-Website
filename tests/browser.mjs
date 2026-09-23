@@ -45,7 +45,7 @@ try {
   await page.getByRole('button',{name:'Close dice roller'}).click();
  });
  await check('Wizard level 4 ASI and new spells',async()=>{
-  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
   await continueWizard();
   await page.getByLabel('Ability to increase by 2').selectOption('con');
   // Legacy/demo character has no subclass; level-up must repair that missing choice.

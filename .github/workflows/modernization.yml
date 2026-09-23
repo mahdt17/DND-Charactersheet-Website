@@ -50,6 +50,7 @@ jobs:
       - run: python scripts/audit_srd2024.py
       - run: python tests/enrichment_gate.py
       - run: node tests/setup-choices.mjs
+      - run: node tests/integration-foundation.mjs
       - name: Run targeted live spell regressions
         if: steps.scope.outputs.mode == 'targeted' && steps.scope.outputs.added_count != '0'
         run: >-
@@ -85,6 +86,9 @@ jobs:
       - name: Run casting/setup browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-casting-setup.mjs
+      - name: Run catalog and advancement browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-integration.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
