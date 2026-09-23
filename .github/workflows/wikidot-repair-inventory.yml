@@ -1,0 +1,67 @@
+name: Wikidot repair inventory
+
+on:
+  push:
+    branches: [codex/content-foundation]
+    paths:
+      - ".github/wikidot-repair.request"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wikidot-repair-inventory
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { category: spells, shards: 8, shard: 0 }
+          - { category: spells, shards: 8, shard: 1 }
+          - { category: spells, shards: 8, shard: 2 }
+          - { category: spells, shards: 8, shard: 3 }
+          - { category: spells, shards: 8, shard: 4 }
+          - { category: spells, shards: 8, shard: 5 }
+          - { category: spells, shards: 8, shard: 6 }
+          - { category: spells, shards: 8, shard: 7 }
+          - { category: feats, shards: 4, shard: 0 }
+          - { category: feats, shards: 4, shard: 1 }
+          - { category: feats, shards: 4, shard: 2 }
+          - { category: feats, shards: 4, shard: 3 }
+          - { category: items, shards: 12, shard: 0 }
+          - { category: items, shards: 12, shard: 1 }
+          - { category: items, shards: 12, shard: 2 }
+          - { category: items, shards: 12, shard: 3 }
+          - { category: items, shards: 12, shard: 4 }
+          - { category: items, shards: 12, shard: 5 }
+          - { category: items, shards: 12, shard: 6 }
+          - { category: items, shards: 12, shard: 7 }
+          - { category: items, shards: 12, shard: 8 }
+          - { category: items, shards: 12, shard: 9 }
+          - { category: items, shards: 12, shard: 10 }
+          - { category: items, shards: 12, shard: 11 }
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache and classify repair batch
+        run: |
+          python scripts/import_wikidot.py \
+            --categories "${{ matrix.category }}" \
+            --delay 0.12 \
+            --candidate-dir test-results/candidates \
+            --source-cache-dir test-results/source-cache \
+            --repair-manifest "test-results/repair-${{ matrix.category }}-${{ matrix.shard }}.json" \
+            --shard-count "${{ matrix.shards }}" \
+            --shard-index "${{ matrix.shard }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wikidot-repair-${{ matrix.category }}-${{ matrix.shard }}
+          path: |
+            test-results/repair-${{ matrix.category }}-${{ matrix.shard }}.json
+            test-results/candidates/wikidot5e/${{ matrix.category }}-shard-${{ matrix.shard }}.json
+            test-results/source-cache/
