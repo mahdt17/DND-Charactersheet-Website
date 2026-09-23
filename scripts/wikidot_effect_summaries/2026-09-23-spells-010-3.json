@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-010-3",
+  "records": {
+    "wikidot5e:spell:tensers-floating-disk": {
+      "sourceDigest": "sha256:fd2b0131f51201810a5ae5845eb6c1e524a7b26c88afabe3d544a40754a5d78e",
+      "effectSummary": "Create a 3-foot-diameter horizontal force disk that floats 3 feet above the ground in a visible unoccupied space within 30 feet for 1 hour. It carries up to 500 pounds; exceeding that ends the spell and drops its load. While you are within 20 feet it stays still; beyond 20 feet it follows to remain within 20 feet, navigating normal uneven terrain, stairs, and slopes but not elevation changes of 10 feet or more. The spell ends if you move more than 100 feet from it."
+    },
+    "wikidot5e:spell:tensers-transformation": {
+      "sourceDigest": "sha256:2cf958dfeb1f336657883101958422760d3099d330f78547c32af0ff7b67f6b5",
+      "effectSummary": "For up to 10 minutes, you cannot cast spells but gain 50 temporary HP; advantage on attacks with simple and martial weapons; +2d12 force damage on weapon hits; proficiency with all armor, shields, simple weapons, martial weapons, and Strength and Constitution saves; and two attacks instead of one when you take the Attack action unless you already have a feature granting extra attacks. When the spell ends, make a DC 15 Constitution save or gain one level of exhaustion."
+    },
+    "wikidot5e:spell:tether-essence": {
+      "sourceDigest": "sha256:46c9cf4be162769db507c344435e41cfdb0c88c14fbc55717f55ecf05defaf71",
+      "effectSummary": "Choose two visible creatures within 60 feet. Each makes a Constitution save, with disadvantage if they are within 30 feet of one another; either may fail willingly. If either succeeds, the spell has no effect. If both fail, they remain linked for up to 1 hour regardless of distance: damage dealt to one is also dealt to the other, and HP restored to one is restored equally to the other. If either reaches 0 HP or the spell ends for one, it ends for both."
+    },
+    "wikidot5e:spell:thaumaturgy": {
+      "sourceDigest": "sha256:6176d23f06904f2bbe3e77c46420c2a290f4c66f6065c3e26884ba6cfec7ea9a",
+      "effectSummary": "Create one minor supernatural effect within 30 feet: make your voice up to three times louder for 1 minute; alter flames for 1 minute; cause harmless ground tremors for 1 minute; create an instantaneous sound from a point in range; instantly open or slam shut an unlocked door or window; or alter your eyes for 1 minute. You may have up to three 1-minute effects active at once and can dismiss one as an action."
+    },
+    "wikidot5e:spell:thorn-whip": {
+      "sourceDigest": "sha256:0b0c5510a9a4ab58b473dd5ac8ca60a01797853929f5789a53863b37233d2043",
+      "effectSummary": "Make a melee spell attack against one creature within 30 feet. On a hit it takes 1d6 piercing damage, and if Large or smaller you may pull it up to 10 feet toward you. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17."
+    },
+    "wikidot5e:spell:thought-shield": {
+      "sourceDigest": "sha256:71bfb3f9ec9b8c191ba938ba79a4f34a7b79c94c023defa01ca94aa9acb52f9f",
+      "effectSummary": "Touch one creature. For 8 hours, its mind cannot be read or detected, telepathic communication with it fails unless it allows the contact, and it has advantage on saves against effects that determine whether it is telling the truth."
+    },
+    "wikidot5e:spell:thunder-step": {
+      "sourceDigest": "sha256:b1a1ab92a654c477e1130fb7ca2893048e35ed180cd028d2a295f35de9f00b13",
+      "effectSummary": "Teleport to a visible unoccupied space within 90 feet. Creatures within 10 feet of the space you left make Constitution saves, taking 3d10 thunder damage on a failure or half on a success; the boom is audible 300 feet away. You may bring carried objects within your capacity and one willing creature of your size or smaller within 5 feet, provided an open space exists within 5 feet of your destination. Each slot level above 3rd adds 1d10 damage."
+    },
+    "wikidot5e:spell:thunderclap": {
+      "sourceDigest": "sha256:13c06984baa6a1341e55412d7eb1a04a929b79902e7d66974837512419804c98",
+      "effectSummary": "Each creature other than you within 5 feet makes a Constitution save or takes 1d6 thunder damage; the sound is audible 100 feet away. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17."
+    },
+    "wikidot5e:spell:thunderous-smite": {
+      "sourceDigest": "sha256:0d74eeda37244350b659600accbb1ef8db9288356d9abf70d73e4441ea8893d0",
+      "effectSummary": "The first melee weapon hit you make before the spell ends deals an extra 2d6 thunder damage and is audible within 300 feet. If the target is a creature, it makes a Strength save or is pushed 10 feet away and knocked prone."
+    },
+    "wikidot5e:spell:thunderwave": {
+      "sourceDigest": "sha256:969244148b9ea854c98ee3e9d8448b1a97150beb72090231c37fceda7ec2b864",
+      "effectSummary": "Creatures in a 15-foot cube originating from you make Constitution saves, taking 2d8 thunder damage and being pushed 10 feet away on a failure, or half damage without the push on a success. Unsecured objects entirely in the area are automatically pushed 10 feet away. The boom is audible 300 feet away. Each slot level above 1st adds 1d8 damage."
+    }
+  }
+}
