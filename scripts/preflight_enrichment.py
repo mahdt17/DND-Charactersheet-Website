@@ -210,7 +210,7 @@ def main():
 
     if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
         ap.error("--shard-index must be within 0..--shard-count-1")
-        selected = set(args.only or [])
+    selected = set(args.only or [])
     if args.shard_count > 1 and len(selected) != 1:
         ap.error("Sharded preflight requires exactly one explicit --only category")
     dnd_sample = None if args.full else args.dnd_sample
