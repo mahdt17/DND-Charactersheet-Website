@@ -864,11 +864,13 @@ def candidate_summary(row,result):
     return f"{name} is a D&D 5e reference entry. Source: {source}."
 
 
-def parse_detail_with_retry(row, delay, attempts=3):
+def parse_detail_with_retry(row, delay, attempts=5):
     """Retry only transient pinned-effect digest mismatches; persistent source changes still fail."""
     pinned=(load_effect_summaries().get(row.get("id")) or {})
     last_page=last_result=None
     for attempt in range(max(1,attempts)):
+        if attempt:
+            time.sleep(min(8.0,2 ** (attempt-1)))
         page=parse(row["url"],delay,force_refresh=attempt>0)
         result=DETAIL_PARSERS[row["category"]](row,page)
         last_page,last_result=page,result
