@@ -1,5 +1,6 @@
 import {normalizeEdition} from './content.js';
 import {setSpentHitDice} from './hitDice.js';
+import {applyMulticlassTraining} from './training.js';
 export const contentKey=r=>r.catalogId||`${normalizeEdition(r.edition)}:${r.index||r.id||r.name}`;
 export const prestige=r=>Boolean(r?.prestige||r?.stats?.prestige);
 const norm=s=>String(s||'').trim().replace(/[’]/g,"'").toLowerCase();
@@ -122,7 +123,7 @@ export function eligibleClass(c,record,flow,confirmations={}) {
   if(existing&&maximum.length&&existing.level>=Math.max(...maximum))checks.push({id:'class-cap',text:'This class has no further levels in its progression.',status:'unmet'});
   return {checks,allowed:qualified(checks)};
 }
-export function advanceClass(c,record,{flow='normal',confirmations={},hpGain=1,subclass}={}) {
+export function advanceClass(c,record,{flow='normal',confirmations={},hpGain=1,subclass,trainingChoices={}}={}) {
   if(totalLevel(c)>=20)throw Error('The supported character-level limit is 20.');
   const eligibility=eligibleClass(c,record,flow,confirmations);
   if(!eligibility.allowed)throw Error('Resolve all class prerequisites before leveling up.');
@@ -131,7 +132,7 @@ export function advanceClass(c,record,{flow='normal',confirmations={},hpGain=1,s
   const classLevels=old?rows.map(r=>r.catalogId===key?row:r):[...rows,row];
   const gain=Math.trunc(Number(hpGain));if(!Number.isFinite(gain))throw Error('HP gain must be a finite number.');
   const max=Math.max(1,c.hp.max+gain);
-  const next={...c,classLevels,level:classLevels.reduce((n,r)=>n+r.level,0),hp:{...c.hp,max,current:Math.min(max,Math.max(0,c.hp.current+gain))},prerequisiteConfirmations:{...c.prerequisiteConfirmations,...confirmations}};
+  const next={...c,...applyMulticlassTraining(c,record,trainingChoices),classLevels,level:classLevels.reduce((n,r)=>n+r.level,0),hp:{...c.hp,max,current:Math.min(max,Math.max(0,c.hp.current+gain))},prerequisiteConfirmations:{...c.prerequisiteConfirmations,...confirmations}};
   // Preserve already assigned expenditure when gaining a die or a new class.
   // Ambiguous old multiclass totals remain for explicit review in the rest UI.
   if((c.ruleset==='custom'?c.mechanics:c.ruleset)!=='3.5'&&(rows.length===1||c.hitDiceUsedByClass))Object.assign(next,setSpentHitDice(c,{}));

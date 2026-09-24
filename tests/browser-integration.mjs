@@ -54,11 +54,17 @@ try {
   await page.getByText('Spell slots and homebrew adjustments',{exact:true}).click();await page.getByLabel('Level 1 slots',{exact:true}).fill('7');assert.equal((await waitSaved(name,{slotOverride:[0,7,2,0,0,0,0,0,0,0]})).slotOverride[1],7);await page.getByRole('button',{name:'Use calculated spell slots'}).click();assert.equal(await page.getByLabel('Level 1 slots',{exact:true}).inputValue(),'4');
   console.log(`PASS ${edition} independent casting abilities, ordinary/Pact slots, correct rest recovery and override/revert`);
   const branchName=`Fighter to Rogue ${edition}`;
-  await importChar({...base,name:branchName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',5).definition,classLevels:[row('Fighter',5)],level:5,subclass:'Champion',abilityBonuses:{}});
-  await branch('normal','Rogue');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();await page.getByRole('button',{name:'Continue to level choices'}).click();
+  await importChar({...base,name:branchName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',5).definition,classLevels:[row('Fighter',5)],level:5,subclass:'Champion',abilityBonuses:{},skillProf:{Athletics:true}});
+  await branch('normal','Rogue');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();
+  assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
+  assert.equal(await page.getByLabel('Multiclass skill',{exact:true}).locator('option').filter({hasText:/^Athletics$/}).count(),0);
+  assert.equal(await page.getByLabel('Multiclass skill',{exact:true}).locator('option').filter({hasText:/^Performance$/}).count(),edition==='2014'?1:0);
+  await page.getByLabel('Multiclass skill',{exact:true}).selectOption(edition==='2014'?'Performance':'Stealth');await page.getByRole('button',{name:'Continue to level choices'}).click();
   for(let step=0;step<4&&!await page.getByRole('button',{name:'Apply level up',exact:true}).isVisible();step++)await next();
   await page.getByRole('button',{name:'Apply level up',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();c=await saved(branchName);assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.classLevels[1].name,'Rogue');
-  console.log(`PASS ${edition} normal multiclass creation, prerequisites and separate class/character levels`);
+  assert.equal(c.skillProf[edition==='2014'?'Performance':'Stealth'],true);assert.equal(c.skillProf.Athletics,true);assert.equal(c.trainingGrants.length,1);
+  await page.getByRole('tab',{name:'Traits',exact:true}).click();assert.match(await page.getByRole('region',{name:'Training and proficiencies'}).innerText(),/Thieves’ tools/);
+  console.log(`PASS ${edition} normal multiclass creation, required proficiency choices and saved skill/tool grants`);
   const restName=`Mixed hit dice ${edition}`;
   await importChar({...base,name:restName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',3).definition,classLevels:[row('Fighter',3),row('Wizard',2)],level:5,hitDie:'d10',hitDiceUsed:0,hp:{current:10,max:100,temp:3},abilityBonuses:{}});
   await page.getByRole('button',{name:'Rest',exact:true}).click();
@@ -82,6 +88,27 @@ try {
   await page.getByRole('button',{name:'All characters',exact:true}).click();await page.locator('.character-card').filter({hasText:restName}).getByRole('button',{name:'Open character'}).click();
   await page.getByRole('button',{name:'Rest',exact:true}).click();assert.match(await page.getByLabel(/^Hit dice to spend — Fighter/).getAttribute('max'),edition==='2014'?/^2$/:/^3$/);await page.getByRole('button',{name:'Close dialog'}).click();
   console.log(`PASS ${edition} mixed dice sizes, sequential rolls, bounded spending, chosen/full recovery and saved counters`);
+  const weaponName=`Wizard to Fighter training ${edition}`,swordItem={id:'training-sword',name:'Longsword',equipmentIndex:'longsword',equipped:true,qty:1};
+  await importChar({...base,name:weaponName,ruleset:edition,className:'Wizard',classDefinition:row('Wizard',5).definition,classLevels:[row('Wizard',5)],level:5,hitDie:'d6',abilityBonuses:{},saveProf:{int:true,wis:true},inventory:[swordItem]});
+  const swordAction=()=>page.locator('.action-row').filter({hasText:'Longsword'});
+  assert.match(await swordAction().innerText(),/no proficiency bonus/);assert(await swordAction().getByRole('button',{name:'+2 to hit',exact:true}).isVisible());
+  await branch('normal','Fighter');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();
+  assert.match(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Martial weapons/);assert.doesNotMatch(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Heavy armor/);
+  await page.getByRole('button',{name:'Continue to level choices'}).click();
+  for(let step=0;step<4&&!await page.getByRole('button',{name:'Apply level up',exact:true}).isVisible();step++)await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();
+  c=await waitSaved(weaponName,{level:6});assert.deepEqual(c.saveProf,{int:true,wis:true});assert.equal(c.inventory.length,1);assert(await swordAction().getByRole('button',{name:'+5 to hit',exact:true}).isVisible());
+  await page.getByRole('tab',{name:'Traits',exact:true}).click();await page.getByLabel('Longsword proficiency',{exact:true}).uncheck();await page.getByRole('tab',{name:'Actions',exact:true}).click();assert(await swordAction().getByRole('button',{name:'+2 to hit',exact:true}).isVisible());
+  await page.getByRole('tab',{name:'Traits',exact:true}).click();await page.getByRole('button',{name:'Use class weapon proficiencies'}).click();await page.getByRole('tab',{name:'Actions',exact:true}).click();assert(await swordAction().getByRole('button',{name:'+5 to hit',exact:true}).isVisible());
+  console.log(`PASS ${edition} multiclass weapon attack bonus, preserved saves/equipment and personal proficiency override/revert`);
+  if(edition==='2024') {
+   await branch('normal','Bard');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();
+   await page.getByLabel('Multiclass skill',{exact:true}).selectOption('Perception');assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
+   await page.getByLabel('Multiclass musical instrument',{exact:true}).selectOption('Flute');assert(!await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
+   await page.getByRole('button',{name:'Cancel',exact:true}).click();assert.equal((await saved(weaponName)).trainingGrants.length,1);
+   console.log('PASS Bard requires both choices and canceled advancement grants nothing');
+  }
+
   if(edition==='2014') {
    const oldName='Older mixed hit dice';
    await importChar({...base,name:oldName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',3).definition,classLevels:[row('Fighter',3),row('Wizard',2)],level:5,hitDie:'d10',hitDiceUsed:4,abilityBonuses:{}});

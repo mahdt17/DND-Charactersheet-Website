@@ -15,6 +15,7 @@ import {useReferenceIndex} from './lib/referenceIndex';
 import {prestige,normalizeAdvancement,requirements,qualified} from './lib/advancement';
 import FeatChoices from './FeatChoices';
 import CatalogItems from './CatalogItems';
+import {coreClassSkillOptions} from './lib/training';
 const uid=()=>crypto.randomUUID();
 const basicScores={str:15,dex:14,con:13,int:12,wis:10,cha:8};
 const cost={8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
@@ -46,7 +47,7 @@ export default function GuidedSetup({onCancel,onFinish,homebrew:customEntries=[]
  const counts=spellCounts(draft,totals[draft.castingAbility||({Bard:'cha',Cleric:'wis',Druid:'wis',Paladin:'cha',Ranger:'wis',Sorcerer:'cha',Warlock:'cha',Wizard:'int'}[draft.className])]||10);
  const spells=permittedSpells(draft,homebrew),manual=is35(draft)||draft.ruleset==='custom',spellLimit=manual?Infinity:counts.mode==='spellbook'?counts.known:counts.mode==='known'?counts.known:counts.prepared;
  const cantripLimit=manual?Infinity:counts.cantrips;
- const skillOptions=c?.proficiency_choices?.[0]?.from?.options?.map(x=>(x.item?.name||'').replace('Skill: ','')).filter(Boolean)||SKILLS.map(x=>x[0]);
+ const skillOptions=coreClassSkillOptions(c)||c?.proficiency_choices?.[0]?.from?.options?.map(x=>(x.item?.name||'').replace('Skill: ','')).filter(Boolean)||SKILLS.map(x=>x[0]);
  const skillLimit=c?.proficiency_choices?.[0]?.choose||0;
  const bgSkills=rules==='2024'?(bg?.proficiencies||[]).filter(x=>x.index.startsWith('skill-')).map(x=>x.name.replace('Skill: ','')):(bg?.skills||'').split(',').map(x=>x.trim()).filter(Boolean);
  const languageRules=languagePlan(draft,totals.int),languages=chosenLanguages(languageRules,draft.languageChoices);

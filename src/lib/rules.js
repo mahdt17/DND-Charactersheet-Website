@@ -4,6 +4,7 @@ import classes from '../data/classes.json';
 import features from '../data/features.json';
 import subclasses from '../data/subclasses.json';
 import equipment from '../data/equipment.json';
+import {hasWeaponTraining,startingProficiencies} from './training.js';
 
 export { classes, features, subclasses };
 export const castingAbility = { Bard:'cha', Cleric:'wis', Druid:'wis', Paladin:'cha', Ranger:'wis', Sorcerer:'cha', Warlock:'cha', Wizard:'int' };
@@ -60,14 +61,14 @@ export function armorFor(char, abilities) {
   return base+(shield?2:0);
 }
 export function weaponAttacks(char, abilities) {
-  const proficiencies=classes.find(c=>c.name===char.className)?.proficiencies?.map(p=>p.index)||[];
+  const proficiencies=startingProficiencies(char,classes.find(c=>c.name===(char.classLevels?.[0]?.name||char.className))?.proficiencies||[]);
   return (char.inventory||[]).filter(i=>i.equipped).map(i=>{
     const data=equipment.find(e=>e.index===i.equipmentIndex);
     if(!data?.damage?.damage_dice)return null;
     const dex=modifier(abilities.dex),str=modifier(abilities.str);
     const finesse=data.properties?.some(p=>p.index==='finesse');
     const ability=finesse?Math.max(dex,str):data.weapon_range==='Ranged'?dex:str;
-    const trained=proficiencies.includes(`${data.weapon_category?.toLowerCase()}-weapons`)||proficiencies.some(p=>p===`${data.index}s`||p===data.index||p===data.index.split('-').reverse().join('-')+'s');
-    return {id:i.id,name:i.name,attack:ability+(trained?2+Math.floor((char.level-1)/4):0),damage:`${data.damage.damage_dice}${signed(ability)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
+    const trained=hasWeaponTraining(char,data,proficiencies);
+    return {id:i.id,name:i.name,equipmentIndex:data.index,trained,attack:ability+(trained?2+Math.floor((char.level-1)/4):0),damage:`${data.damage.damage_dice}${signed(ability)}`,description:`${data.weapon_range} · ${data.damage.damage_type.name}${trained?'':' · no proficiency bonus'}`};
   }).filter(Boolean);
 }

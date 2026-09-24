@@ -59,6 +59,47 @@ performed in this integration pass.
 
 ## Validation and remaining work
 
+### Multiclass proficiency follow-up
+
+Adding a core class within 2014 or 2024 rules now grants that edition's listed
+multiclass armor, weapon and tool training. Bard, Ranger and Rogue require an
+untrained skill choice; Bard also requires a musical instrument. These choices
+must be complete before continuing. Continuing an existing class grants no
+additional entry proficiencies. Saving-throw proficiency and equipment are
+preserved.
+
+`src/lib/training.js` contains the reviewed core profiles and class skill lists.
+This avoids imported multiclass choice omissions: 2014 Ranger must include
+Investigation, 2014 Rogue must include Performance, and 2024 Bard can choose any
+skill. Revised Rogue excludes Performance. Guided setup uses the same corrected
+class skill lists. The source catalogs are unchanged.
+Unsupported, Homebrew, prestige and Custom combinations retain explicit manual
+review rather than inheriting a named core class's entry package.
+
+`trainingGrants` stores class attribution and selected proficiencies. New skills
+merge into `skillProf`; existing skills, expertise and notes survive. Fixed core
+grants can also be derived for older multiclass saves; missing historical skill
+or instrument choices are not invented. If all listed choices are already
+trained, the player can continue without receiving a duplicate benefit.
+
+Weapon attacks now include multiclass weapon training and edition-specific
+starting weapon traits. On the Traits tab, players can inspect multiclass
+grants, record training notes, and override or restore proficiency for equipped
+weapons. These overrides use `weaponTrainingOverrides` and persist with the
+character. Armor-use penalties, tool-roll automation, subclass grants and
+Expertise choices remain outside this entry-proficiency step.
+
+Rules references:
+- [2014 multiclass proficiency table](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/customization-options#Proficiencies)
+- [2014 class skill lists](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes)
+- [2024 class traits and multiclass grants](https://www.dndbeyond.com/sources/dnd/br-2024/character-classes)
+
+`tests/multiclass-training.mjs` covers all 24 core entry profiles, choice bounds,
+class-specific lists, repeat prevention, preservation of existing training,
+weapon eligibility and manual combinations. Browser integration tests cover
+required choices, saved skill/tool grants, weapon attack bonuses, overrides and
+canceling a partially completed Bard choice.
+
 ### Multiclass hit-die follow-up
 
 The rest dialog tracks hit dice by class, using each class's die size and level.
@@ -131,9 +172,9 @@ application limitations are separate from that repaired data release:
 
 - Prestige caster advancement, Artificer, unsupported spellcasting subclasses
   and cross-edition conversions still need explicit manual slot configuration.
-- Class-specific multiclass proficiencies/resources and choice-dependent feat
-  benefits require source review and sheet edits. Full mechanical automation is
-  not complete.
+- Class resources, subclass training, Expertise choices and choice-dependent
+  feat benefits require source review and sheet edits. Unsupported multiclass
+  proficiency packages remain manual. Full mechanical automation is not complete.
 - Subclass-specific automation and initial bundle-size improvements still need
   work before final application acceptance.
 - Retain manual review for unsupported complex prestige prerequisites.
