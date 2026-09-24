@@ -32,7 +32,7 @@ button:focus-visible,a:focus-visible { outline:2px solid var(--accent); outline-
 .edition-tag strong { display:block; font-size:12px; color:#8f99af; font-weight:400; margin-top:3px; }
 .ledger-workspace { flex:1; min-width:0; }
 .ledger-top { height:76px; display:flex; justify-content:space-between; gap:20px; align-items:center; border-bottom:1px solid var(--border); padding:0 36px; }
-.ledger-top>div:first-child>button { display:none; }
+.ledger-top>div:first-child>button { display:flex; padding:8px; }
 .ledger-top>div:first-child>span { display:flex; align-items:center; gap:14px; color:var(--muted); font-size:13px; }
 .ledger-top strong { font-weight:500; color:var(--text); }
 .save-status { color:var(--muted); font-size:12px; }
@@ -324,3 +324,14 @@ button:focus-visible,a:focus-visible { outline:2px solid var(--accent); outline-
 .resource-controls { flex-wrap:wrap; gap:8px; }
 .resource-controls .l-field { margin:0; width:72px; }
 .resource-controls .l-field span { font-size:11px; }
+
+.temp-hp-current { align-items:end; }
+.temp-hp-current .l-field { flex:1; min-width:90px; }
+.temp-hp-controls .l-field { margin:8px 0; }
+.temp-hp-controls .l-toolbar { flex-wrap:wrap; }
+.temp-hp-controls input { width:100%; }
+
+.feature-choice-group { border:1px solid var(--border); border-radius:8px; padding:16px; margin:16px 0; min-width:0; }
+.feature-choice-group legend { font-weight:600; padding:0 6px; }
+
+@media(min-width:701px) { .ledger-app.nav-collapsed>.ledger-nav { display:none; } }

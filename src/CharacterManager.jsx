@@ -797,7 +797,7 @@ function useWizardFocus(onCancel) {
     const overlay=document.querySelector('.creation-overlay');
     const getFocusable=()=>Array.from(overlay?.querySelectorAll('button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea:not(:disabled)')||[]).filter(e=>e.getClientRects().length);
     getFocusable()[0]?.focus();
-    const handle=e=>{if(e.key==='Escape'){e.preventDefault();close.current();}if(e.key==='Tab'){const list=getFocusable();const first=list[0],last=list[list.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}};
+    const handle=e=>{if(!overlay?.getClientRects().length||document.querySelector('dialog[open]'))return;if(e.key==='Escape'){e.preventDefault();close.current();}if(e.key==='Tab'){const list=getFocusable();const first=list[0],last=list[list.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}}};
     document.addEventListener('keydown',handle);
     return()=>{document.body.style.overflow=overflow;document.removeEventListener('keydown',handle);previous?.focus();};
   },[]);

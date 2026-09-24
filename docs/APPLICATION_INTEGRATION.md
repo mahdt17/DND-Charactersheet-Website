@@ -10,9 +10,10 @@ retain separate catalog identities. Legacy SRD data remains available.
 
 The compendium, creation flow, spell and feat pickers, progression viewer,
 inventory and level-up use the shared loader. Lists are paginated. Published
-catalogs are not requested at application startup. Existing bundled SRD data
-still makes the initial JavaScript bundle large; this work does not claim to
-have completed bundle optimization.
+catalogs are not requested at application startup. The ledger and bundled rule engine now load only after entering the app; the
+sign-in screen no longer downloads the character catalogs first. Bundled SRD
+data still makes the ledger chunk large; further per-category splitting remains
+an optimization opportunity. A loading state and reload action cover entry failures.
 
 Site-shell contamination is still rejected defensively and remains covered by
 fixtures, but the production Wikidot catalogs have now been source-grounded,
@@ -49,7 +50,8 @@ ID, and can be reverted. Image bytes are not embedded or uploaded. Table edits
 are display overrides and do not recalculate rules automatically.
 
 Inventory stores an owned copy with its canonical identity, quantity, equipped
-state and notes. Temp HP supports grant (non-stacking), direct set, reduction and
+state and notes. Temp HP controls are always visible beside HP, with their own
+adjustment amount. They support grant (non-stacking), direct set, reduction and
 clear. Damage consumes temp HP first; healing does not replenish it.
 
 These fields use the existing character JSON storage and local/cloud adapter.
@@ -86,8 +88,8 @@ Weapon attacks now include multiclass weapon training and edition-specific
 starting weapon traits. On the Traits tab, players can inspect multiclass
 grants, record training notes, and override or restore proficiency for equipped
 weapons. These overrides use `weaponTrainingOverrides` and persist with the
-character. Armor-use penalties, tool-roll automation, subclass grants and
-Expertise choices remain outside this entry-proficiency step.
+character. Armor-use penalties and general tool-roll automation remain manual.
+Supported subclass and Expertise choices are covered below.
 
 Rules references:
 - [2014 multiclass proficiency table](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/customization-options#Proficiencies)
@@ -172,11 +174,11 @@ application limitations are separate from that repaired data release:
 
 - Prestige caster advancement, Artificer, unsupported spellcasting subclasses
   and cross-edition conversions still need explicit manual slot configuration.
-- Unsupported class resources, subclass training, Expertise choices and choice-dependent
+- Unsupported class resources, subclass training and choice-dependent
   feat benefits require source review and sheet edits. Unsupported multiclass
   proficiency packages remain manual. Full mechanical automation is not complete.
-- Subclass-specific automation and initial bundle-size improvements still need
-  work before final application acceptance.
+- Broader subclass/feat automation remains source-specific. The deferred ledger
+  chunk can be split further to improve loading after sign-in.
 - Retain manual review for unsupported complex prestige prerequisites.
 
 PR #4 remains open and unmerged by project instruction. The repair workflow did
@@ -218,3 +220,41 @@ Rules references:
 uses, recovery, legacy manual counters, overrides and expenditure preservation.
 `tests/browser-resources.mjs` checks both editions through visible controls, saved
 state, adoption, custom counters, rest dialogs and mobile layout. Both run in CI.
+
+
+## Guided class feature choices
+
+Creation review and level-up now collect supported feature choices before saving:
+2014/2024 Rogue and Bard Expertise, 2024 Ranger Expertise/Deft Explorer, and 2024
+Wizard Scholar. Only eligible proficiencies appear; already expert selections and
+duplicates are excluded. 2014 Rogue can choose thieves' tools. Existing skills,
+expertise and manual adjustments survive, and past choices are never invented for
+older saves. Only newly reached class milestones are prompted during advancement.
+
+College of Lore grants three chosen skills in both editions, available before
+same-level Expertise selection. 2014 Life Domain grants heavy-armor training.
+Multiclass Rogue/Druid languages, the 2024 Rogue language choice, Ranger Deft
+Explorer languages, and 2014 Draconic Bloodline's language are also recorded.
+Other subclass features still use their source descriptions and manual controls.
+Selections retain class/level attribution in `featureChoices`, visible on Traits;
+thieves' tools Expertise is stored separately in `toolExpertise`.
+
+Level-up remains uncommitted until its final feature review is accepted. Returning
+to the level review retains its earlier choices. Creation blocks incomplete or
+invalid feature selections and allows correction before the character is saved.
+
+The desktop navigation can now be collapsed using the same visible menu button
+that opens mobile navigation. Temporary HP is directly editable on desktop and
+mobile; its independent adjustment does not change the damage/healing amount.
+
+Validation: `tests/feature-choices.mjs`, `tests/browser-feature-choices.mjs`, and
+updated integration/edition browser suites cover milestones, invalid/duplicate
+choices, grants, saving, skill bonuses, desktop navigation and temp HP persistence.
+Rules sources: the 2014 and 2024 Basic Rules class pages linked above.
+
+
+`tests/browser-loading.mjs` validates the built production site, keeps the entry
+script below 500 kB, confirms deferred ledger/catalog requests, checks demo
+exit/re-entry, and simulates a failed ledger chunk to verify visible recovery.
+The measured entry script is approximately 381 kB (109 kB compressed), down from
+5.5 MB (1.06 MB compressed). The deferred ledger chunk is still about 5.1 MB.
