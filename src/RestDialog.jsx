@@ -1,3 +1,4 @@
+import {characterResources,restResources} from './lib/resources';
 import React, {useState} from 'react';
 import Modal from './Dialog';
 import {mechanics,is35} from './lib/editions';
@@ -9,7 +10,9 @@ import {hitDicePools,needsHitDiceReview,recoveryLimit,defaultRecovery,setSpentHi
 function Count({label,value=0,max,onChange,disabled=false}) {
   return <label className="l-field"><span>{label}</span><input type="number" min="0" max={max} step="1" disabled={disabled} value={value} onChange={e=>onChange(Math.max(0,Math.min(max,Math.floor(Number(e.target.value)||0))))}/></label>;
 }
-export default function RestDialog({char,patch,roll,constitution,onClose}) {
+export default function RestDialog({char,patch,roll,constitution,abilities,onClose}) {
+  const [meditated,setMeditated]=useState(false),[restoreSorcery,setRestoreSorcery]=useState(false);
+  const resources=characterResources(char,abilities);
   const [rest,setRest]=useState(is35(char)?'long':'short');
   const [spending,setSpending]=useState({}),[recovery,setRecovery]=useState(()=>defaultRecovery(char));
   const [recoverExhaustion,setRecoverExhaustion]=useState(false),[error,setError]=useState(''),[lastRoll,setLastRoll]=useState(null);
@@ -39,9 +42,9 @@ export default function RestDialog({char,patch,roll,constitution,onClose}) {
         hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
         ...restSpellSlots(char,'long'),...recoverHitDice(char,recovery),
         concentration:null,deathSaves:{success:0,failure:0},
-        resources:(char.resources||[]).map(r=>({...r,used:r.reset==='long'||r.reset==='short'?0:r.used}))
+        ...restResources(char,'long',{meditated},abilities)
       });
-      else patch({...spend(),...restSpellSlots(char,'short'),resources:(char.resources||[]).map(r=>({...r,used:r.reset==='short'?0:r.used}))});
+      else patch({...spend(),...restSpellSlots(char,'short'),...restResources(char,'short',{meditated,restoreSorcery},abilities)});
       onClose();
     }catch(e){setError(e.message);}
   }
@@ -54,8 +57,10 @@ export default function RestDialog({char,patch,roll,constitution,onClose}) {
       {!legacy&&<button className={`l-button ${rest==='short'?'primary':''}`} onClick={()=>{setRest('short');setError('');}}>Short rest</button>}
       <button className={`l-button ${rest==='long'?'primary':''}`} onClick={()=>{setRest('long');setRecovery(defaultRecovery(char));setError('');}}>Long rest</button>
     </div>
-    <p>{legacy?'After a full night of qualifying rest, recover your level in hit points and reset prepared slots. Apply ability damage recovery and other specific rules manually.':rest==='long'?'After a qualifying long rest, restore HP and spell slots, recover hit dice according to your edition, and reset rest resources. Temporary HP and concentration are cleared.':'Spend available hit dice to heal. Pact Magic slots and short-rest resources reset when you complete the rest.'}</p>
+    <p>{legacy?'After a full night of qualifying rest, recover your level in hit points and reset prepared slots. Apply ability damage recovery and other specific rules manually.':rest==='long'?'After a qualifying long rest, restore HP and spell slots, recover hit dice according to your edition, and reset rest resources. Temporary HP and concentration are cleared.':'Spend available hit dice to heal. Pact Magic slots recover fully. Each resource recovers the amount shown on its counter.'}</p>
     {!legacy&&<>
+      {resources.some(r=>r.meditation&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={meditated} onChange={e=>setMeditated(e.target.checked)}/>Meditated for at least 30 minutes (recover Ki Points)</label>}
+      {rest==='short'&&resources.some(r=>r.restoration&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={restoreSorcery} disabled={!!char.sorcerousRestorationUsed} onChange={e=>setRestoreSorcery(e.target.checked)}/>Use Sorcerous Restoration{char.sorcerousRestorationUsed?' (already used until a long rest)':''}</label>}
       {needsReview&&<p className="l-notice">This older save recorded only a total of {char.hitDiceUsed} spent hit dice. They are provisionally assigned in class order. Review the spent dice below before resting.</p>}
       <details className="feature-detail" open={needsReview||undefined}>
         <summary>Review spent hit dice</summary>

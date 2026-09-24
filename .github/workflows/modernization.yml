@@ -56,6 +56,7 @@ jobs:
       - run: node tests/multiclass-casting.mjs
       - run: node tests/hit-dice.mjs
       - run: node tests/multiclass-training.mjs
+      - run: node tests/resources.mjs
       - name: Run targeted live spell regressions
         if: steps.scope.outputs.mode == 'targeted' && steps.scope.outputs.added_count != '0'
         run: >-
@@ -94,6 +95,9 @@ jobs:
       - name: Run catalog and advancement browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-integration.mjs
+      - name: Run class resource browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-resources.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

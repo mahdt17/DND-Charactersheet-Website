@@ -317,3 +317,10 @@ button:focus-visible,a:focus-visible { outline:2px solid var(--accent); outline-
 .progression-image{max-width:100%;height:auto}.requirements li{margin:0.7rem 0}.requirements .l-check{display:flex;gap:.5rem;margin-top:.4rem}.temp-hp-controls{margin-top:.8rem}.temp-hp-controls p{font-size:.8rem;line-height:1.5}.creation-field input[aria-invalid="true"]{border-color:#c95151}.progression-scroll{max-width:100%;overflow:auto}
 
 .inventory-row{flex-wrap:wrap}.inventory-row input[type=number]{flex:0 0 65px;min-width:65px}.inventory-row input[placeholder="Item notes"]{flex:1 1 160px;min-width:100px}
+
+.resource-entry { border-bottom:1px solid var(--border); padding-bottom:12px; }
+.resource-entry .resource-row { border-bottom:0; align-items:flex-start; }
+.resource-count { white-space:nowrap; }
+.resource-controls { flex-wrap:wrap; gap:8px; }
+.resource-controls .l-field { margin:0; width:72px; }
+.resource-controls .l-field span { font-size:11px; }

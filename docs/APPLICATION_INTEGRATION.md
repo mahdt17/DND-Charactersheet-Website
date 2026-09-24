@@ -172,7 +172,7 @@ application limitations are separate from that repaired data release:
 
 - Prestige caster advancement, Artificer, unsupported spellcasting subclasses
   and cross-edition conversions still need explicit manual slot configuration.
-- Class resources, subclass training, Expertise choices and choice-dependent
+- Unsupported class resources, subclass training, Expertise choices and choice-dependent
   feat benefits require source review and sheet edits. Unsupported multiclass
   proficiency packages remain manual. Full mechanical automation is not complete.
 - Subclass-specific automation and initial bundle-size improvements still need
@@ -181,3 +181,40 @@ application limitations are separate from that repaired data release:
 
 PR #4 remains open and unmerged by project instruction. The repair workflow did
 not deploy automatically and did not modify Supabase.
+
+
+## Class resources and recovery
+
+Supported 2014/2024 core counters derive capacity from each class's level:
+Rage, Bardic Inspiration (effective Charisma), Wild Shape, Second Wind,
+Action Surge, Indomitable, Ki/Focus Points, Lay on Hands, Sorcery Points,
+Channel Divinity, and 2024 Ranger free Hunter's Mark casts. The 2014 Cleric/
+Paladin Channel Divinity pool is shared; the 2024 class pools are separate.
+Level-20 2014 Rage/Wild Shape display unlimited uses.
+
+Counters retain expenditure through progression, ability changes, import and
+reopening. Existing named manual counters retain their values and recovery rules
+until explicitly adopted. Editing an automatic counter makes a personal override;
+reverting restores class progression without refunding spent uses. Removal persists
+and removed class counters can be restored. Custom counters support full, partial,
+or manual recovery and spending/restoring several points at once.
+
+Rest recovery respects the edition, including partial short-rest recovery in 2024.
+2014 Ki requires the meditation checkbox on either rest. 2024 Sorcerous Restoration
+is optional and tracked once per long rest; 2014 Sorcerer 20 recovers four points per
+short rest. Long rests re-enable the optional restoration. Unsupported classes receive no inferred counters. Homebrew, Custom and
+cross-edition class combinations receive no inferred new counters.
+
+This automates counters, not feature effects. Subclass counters, Arcane Recovery,
+initiative triggers, spell-slot conversions and other unlisted features remain
+manual. Ranger free-cast counters do not automatically cast or prepare the spell.
+
+Rules references:
+- [2014 Basic Rules: Classes](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes)
+- [2014 Basic Rules: Multiclassing](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/customization-options)
+- [2024 Basic Rules: Character Classes](https://www.dndbeyond.com/sources/dnd/br-2024/character-classes)
+
+`tests/resources.mjs` checks progression levels, shared/separate pools, unlimited
+uses, recovery, legacy manual counters, overrides and expenditure preservation.
+`tests/browser-resources.mjs` checks both editions through visible controls, saved
+state, adoption, custom counters, rest dialogs and mobile layout. Both run in CI.
