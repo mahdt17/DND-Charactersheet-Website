@@ -10,6 +10,7 @@ const sourceClass=name=>{const r=published.find(x=>x.name===name&&!x.prestige);r
 const base={name:'Branching Archivist',className:'Archivist',classDefinition:sourceClass('Archivist'),race:'Human',ruleset:'3.5',level:5,hitDie:'d6',abilities:{str:14,dex:14,con:14,int:16,wis:14,cha:14},hp:{current:20,max:30,temp:0},spells:[],inventory:[],actions:[],feats:[],skillRanks:{},bab:2,save35:{fort:4,ref:1,will:4},notes:''};
 const importChar=async c=>{await page.locator('input[type=file]').setInputFiles({name:'character.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(c))});await page.locator('.sheet-identity').filter({hasText:c.name}).waitFor();};
 const saved=async name=>page.evaluate(async name=>{const rows=JSON.parse((await window.storage.get('char-index')).value);const row=rows.find(x=>x.name===name);return JSON.parse((await window.storage.get('char-detail:'+row.id)).value);},name);
+const waitSaved=async (name,expected)=>{for(let i=0;i<100;i++){const c=await saved(name);if(Object.entries(expected).every(([k,v])=>JSON.stringify(c[k])===JSON.stringify(v)))return c;await new Promise(r=>setTimeout(r,50));}assert.fail('Saved character did not reach expected state: '+JSON.stringify(expected));};
 const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
 async function branch(flow,name){await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByLabel('Advancement path').selectOption(flow);await page.getByLabel('Search level-up classes').fill(name);await page.getByLabel('Class to advance').selectOption(await page.getByLabel('Class to advance').locator('option').filter({hasText:new RegExp(`^${name} ·`)}).first().getAttribute('value'));}
 try {
@@ -26,5 +27,38 @@ try {
  await page.getByRole('button',{name:'Class level table',exact:true}).click();await page.getByRole('button',{name:'Edit personal progression'}).click();await page.getByLabel('Progression table (tab-separated columns)').fill('Level\tFeatures\n1\tPersonal feature');await page.getByLabel('Source attribution / notes').fill('Table-approved homebrew');await page.getByRole('button',{name:'Save personal progression'}).click();assert.match(await page.getByRole('dialog').innerText(),/Personal feature/);await page.getByRole('button',{name:'Close dialog'}).click();await page.getByRole('button',{name:'Class level table',exact:true}).click();assert.match(await page.getByRole('dialog').innerText(),/Personal feature/);await page.getByRole('button',{name:'Revert to canonical'}).click();assert.doesNotMatch(await page.getByRole('dialog').innerText(),/Personal feature/);await page.getByRole('button',{name:'Close dialog'}).click();
  await page.getByRole('tab',{name:'Inventory',exact:true}).click();await page.getByRole('button',{name:'Browse published items'}).click();await page.getByLabel('Search published items').fill('Aberrant Sphere');const item=page.locator('.feature-detail').filter({hasText:'Aberrant Sphere'});await item.locator('summary').click();await item.getByRole('button',{name:'Add Aberrant Sphere'}).click();await page.getByLabel('Aberrant Sphere quantity').fill('2');await page.getByLabel('Aberrant Sphere notes').fill('Found in the vault');
  console.log('PASS personal progression editing/reverting and mutable item instances');
+ const srd=JSON.parse(await fs.readFile('src/data/classes.json','utf8'));
+ const revised=JSON.parse(await fs.readFile('src/data/srd2024.json','utf8'));
+ const spells14=JSON.parse(await fs.readFile('src/data/spells.json','utf8'));
+ for(const edition of ['2014','2024']) {
+  const definitions=edition==='2014'?srd:revised.classes;
+  const row=(name,level)=>({name,level,edition,catalogId:`${edition}:${name}`,definition:{...definitions.find(c=>c.name===name),edition}});
+  const name=`Pact and Wizard ${edition}`,spell={...(edition==='2014'?spells14:revised.spells).find(s=>s.name==='Magic Missile'),id:`missile-${edition}`,edition,castingClassId:`${edition}:Wizard`,prepared:true};
+  await importChar({...base,name,ruleset:edition,className:'Warlock',classDefinition:row('Warlock',3).definition,classLevels:[row('Warlock',3),row('Wizard',3)],level:6,abilities:{...base.abilities,cha:18},abilityBonuses:{},castingAbility:'cha',slotsUsed:{2:1},spells:[spell]});
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  assert.equal(await page.getByLabel('Casting ability',{exact:true}).inputValue(),'cha');
+  await page.getByLabel('Spellcasting class').selectOption(`${edition}:Wizard`);
+  assert.equal(await page.getByLabel('Casting ability',{exact:true}).inputValue(),'int');
+  await page.getByLabel('Casting ability',{exact:true}).selectOption('wis');
+  await page.getByLabel('Spellcasting class').selectOption(`${edition}:Warlock`);assert.equal(await page.getByLabel('Casting ability',{exact:true}).inputValue(),'cha');
+  await page.getByLabel('Spellcasting class').selectOption(`${edition}:Wizard`);assert.equal(await page.getByLabel('Casting ability',{exact:true}).inputValue(),'wis');
+  await page.getByRole('button',{name:'Cast',exact:true}).click();await page.getByLabel('Spell slot',{exact:true}).selectOption('pact:2');await page.getByRole('button',{name:'Cast & spend slot',exact:true}).click();await page.getByRole('button',{name:'Close dice roller'}).click();
+  assert.match(await page.getByRole('button',{name:'Pact Magic level 2 slot 1',exact:true}).getAttribute('class'),/used/);
+  c=await waitSaved(name,{pactSlotsUsed:{2:1}});assert.equal(c.pactSlotsUsed[2],1);assert.equal(c.slotsUsed[2],1);
+  await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Short rest',exact:true}).click();await page.getByLabel(/^Hit dice to spend/).fill('0');await page.getByRole('button',{name:'Complete short rest'}).click();
+  c=await waitSaved(name,{pactSlotsUsed:{}});assert.equal(c.slotsUsed[2],1);assert.deepEqual(c.pactSlotsUsed,{});
+  await page.getByRole('button',{name:'Cast',exact:true}).click();await page.getByLabel('Spell slot',{exact:true}).selectOption('2');await page.getByRole('button',{name:'Cast & spend slot',exact:true}).click();await page.getByRole('button',{name:'Close dice roller'}).click();
+  c=await waitSaved(name,{slotsUsed:{2:2}});assert.equal(c.slotsUsed[2],2);assert.deepEqual(c.pactSlotsUsed,{});
+  await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Long rest',exact:true}).click();await page.getByRole('button',{name:'Complete long rest'}).click();
+  c=await waitSaved(name,{slotsUsed:{},pactSlotsUsed:{}});assert.deepEqual(c.slotsUsed,{});assert.deepEqual(c.pactSlotsUsed,{});
+  await page.getByText('Spell slots and homebrew adjustments',{exact:true}).click();await page.getByLabel('Level 1 slots',{exact:true}).fill('7');assert.equal((await waitSaved(name,{slotOverride:[0,7,2,0,0,0,0,0,0,0]})).slotOverride[1],7);await page.getByRole('button',{name:'Use calculated spell slots'}).click();assert.equal(await page.getByLabel('Level 1 slots',{exact:true}).inputValue(),'4');
+  console.log(`PASS ${edition} independent casting abilities, ordinary/Pact slots, correct rest recovery and override/revert`);
+  const branchName=`Fighter to Rogue ${edition}`;
+  await importChar({...base,name:branchName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',5).definition,classLevels:[row('Fighter',5)],level:5,subclass:'Champion',abilityBonuses:{}});
+  await branch('normal','Rogue');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();await page.getByRole('button',{name:'Continue to level choices'}).click();
+  for(let step=0;step<4&&!await page.getByRole('button',{name:'Apply level up',exact:true}).isVisible();step++)await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();c=await saved(branchName);assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.classLevels[1].name,'Rogue');
+  console.log(`PASS ${edition} normal multiclass creation, prerequisites and separate class/character levels`);
+ }
  await page.setViewportSize({width:390,height:844});await page.screenshot({path:'test-results/integration-mobile.png',fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);console.log('PASS mobile integrated character UI and no browser errors');
 } catch(e){await page.screenshot({path:'test-results/integration-failure.png',fullPage:true});throw e;} finally {await browser.close();await server.close();}

@@ -1,4 +1,5 @@
 import {characterClasses,classCharacter,baseProgression,progressionRow} from './advancement';
+import {multiclassPools,slotArray} from './multiclassCasting';
 import modern from '../data/srd2024.json';
 import legacy from '../data/srd35.json';
 import { spellCatalog, classes, slotsFor, countsFor, classLevel, modifier, castingAbility, grantedClassFeatures } from './rules';
@@ -14,11 +15,16 @@ export function catalogSpells(edition,homebrew=[]){return [...allSpells,...homeb
 export function resolveSpell(s,char){return allSpells.find(x=>keyOf(x)===keyOf(s))||(!s.edition&&!s.catalogId?allSpells.find(x=>x.edition===(char?.ruleset||'2014')&&x.name===s.name):null)||s;}
 export function classRecord(c){return c.classDefinition|| (mechanics(c)==='2024'?modern.classes:is35(c)?legacy.classes:classes).find(x=>x.name===c.className);}
 export function levelRecord(c,level=c.level){if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return {};return (mechanics(c)==='2024'?modern.levels:[]).find(l=>l.class.name===c.className&&l.level===level&&!l.subclass)|| (mechanics(c)==='2014'?classLevel(c.className,level):{});}
-export function characterSlots(c){if(Array.isArray(c.slotOverride))return Array.from({length:10},(_,i)=>Math.max(0,Math.min(30,Number(c.slotOverride[i])||0)));
- if(characterClasses(c).length>1)return Array(10).fill(0);
+function singleClassSlots(c){
  if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return Array(10).fill(0);
  if(mechanics(c)==='2024'){const p=levelRecord(c).spellcasting||{};return [0,...Array.from({length:9},(_,i)=>p[`spell_slots_level_${i+1}`]||0)];}
  return [0,...slotsFor(c.className,c.level)];}
+export function spellSlotPools(c){
+ if(Array.isArray(c.slotOverride))return {standard:slotArray(c.slotOverride),pact:Array(10).fill(0),mode:'override',reason:'Personal slot totals are active.'};
+ if(characterClasses(c).length>1)return multiclassPools(c,singleClassSlots);
+ return {standard:singleClassSlots(c),pact:Array(10).fill(0),mode:is35(c)||c.ruleset==='custom'?'manual':'automatic'};
+}
+export const characterSlots=c=>spellSlotPools(c).standard;
 export const castingKey=c=>c.castingAbility||castingAbility[c.className]||'';
 export function spellCounts(c,score=10){if(is35(c)||c.ruleset==='custom')return {cantrips:99,known:99,prepared:99,mode:'custom'};
  if(mechanics(c)==='2024'){const p=levelRecord(c).spellcasting||{};return {cantrips:p.cantrips_known||0,known:c.className==='Wizard'?6+2*(c.level-1):p.prepared_spells||0,prepared:p.prepared_spells||0,mode:c.className==='Wizard'?'spellbook':'prepared'};}

@@ -18,7 +18,7 @@ export function normalizeAdvancement(c) {
   const classLevels=characterClasses(c);
   return {...c,classLevels,level:classLevels.reduce((n,x)=>n+x.level,0)||c.level||1};
 }
-export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined};}
+export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
 export function progressionTables(record) {
   const p=record?.progression;
   if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [p];
@@ -43,6 +43,12 @@ export function baseProgression(record,level) {
 function evaluateOne(p,c) {
   const text=String(p.text||p.description||p.name||'').trim(),kind=p.kind||p.type||'text';
   const score=k=>Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0);
+  if(kind==='ability_choice') {
+    const options=p.options?.from?.options,choose=p.options?.choose;
+    if(Number.isInteger(choose)&&choose>0&&Array.isArray(options)&&options.length>=choose&&options.every(o=>scores[o.ability_score?.index]&&Number.isFinite(o.minimum_score)))
+      return options.filter(o=>score(o.ability_score.index)>=o.minimum_score).length>=choose;
+    return null;
+  }
   if(p.ability_score?.index&&Number.isFinite(p.minimum_score))return score(p.ability_score.index)>=p.minimum_score;
   if(kind==='ability'&&scores[norm(p.ability)]&&Number.isFinite(p.minimum))return score(scores[norm(p.ability)])>=p.minimum;
   if((kind==='base_attack_bonus'||kind==='bab')&&/^\+?\s*\d+\.?$/.test(text))return Number(c.bab||0)>=parseInt(text.replace(/\s/g,''));
@@ -80,7 +86,7 @@ export function requirements(record,c,confirmations={}, {multiclass=false}={}) {
   if(multiclass&&record?.multi_classing) {
     const m=record.multi_classing;
     source=[...source,...(m.prerequisites||[])];
-    if(m.prerequisite_options)source.push({kind:'ability_choice',text:m.prerequisite_options.desc||'Meet one listed multiclass ability requirement',options:m.prerequisite_options});
+    if(m.prerequisite_options)source.push({kind:'ability_choice',text:m.prerequisite_options.desc||`Meet ${m.prerequisite_options.choose||1} of: ${(m.prerequisite_options.from?.options||[]).map(o=>`${o.ability_score?.name||'Ability'} ${o.minimum_score??'?'}`).join(', ')}`,options:m.prerequisite_options});
   }
   if(multiclass&&record?.multiclassRequirement&&!source.some(p=>p.kind==='multiclass'))source.push({kind:'multiclass',text:record.multiclassRequirement});
   if(multiclass&&normalizeEdition(record?.edition)!=='3.5'&&!source.length)source.push({kind:'text',text:'Multiclass entry and exit requirements are not structured. Verify the source requirements.'});
@@ -125,6 +131,11 @@ export function advanceClass(c,record,{flow='normal',confirmations={},hpGain=1,s
   const gain=Math.trunc(Number(hpGain));if(!Number.isFinite(gain))throw Error('HP gain must be a finite number.');
   const max=Math.max(1,c.hp.max+gain);
   const next={...c,classLevels,level:classLevels.reduce((n,r)=>n+r.level,0),hp:{...c.hp,max,current:Math.min(max,Math.max(0,c.hp.current+gain))},prerequisiteConfirmations:{...c.prerequisiteConfirmations,...confirmations}};
+  // Single-class Warlock saves previously tracked Pact Magic in slotsUsed.
+  // Move, rather than replenish, that expenditure when a second class is added.
+  if(rows.length===1&&classLevels.length===2&&rows[0].name==='Warlock'&&['2014','2024'].includes(c.ruleset||'2014')&&!Array.isArray(c.slotOverride)) {
+    next.pactSlotsUsed={...c.slotsUsed,...c.pactSlotsUsed};next.slotsUsed={};
+  }
   if(row.edition==='3.5'&&(c.ruleset==='3.5'||c.mechanics==='3.5')) {
     const before=baseProgression(record,old?.level||0),after=baseProgression(record,nextLevel);
     if([before.bab,after.bab].every(Number.isFinite))next.bab=Number(c.bab||0)+after.bab-before.bab;

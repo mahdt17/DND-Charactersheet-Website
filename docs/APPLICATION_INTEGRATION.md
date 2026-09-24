@@ -59,6 +59,36 @@ performed in this integration pass.
 
 ## Validation and remaining work
 
+### Multiclass casting follow-up
+
+Core 2014/2024 multiclass characters now calculate shared Spellcasting slots from
+individual class levels. A character with only one Spellcasting class retains
+that class's normal slot progression. Paladin/Ranger contributions use the
+edition's rounding rule; higher shared slots do not grant higher-level spells
+to an individual class. See `src/lib/multiclassCasting.js`.
+
+Pact Magic remains a separate pool, tracked by `pactSlotsUsed`. The cast dialog
+can spend either an ordinary or Pact slot of sufficient level. Short rests reset
+Pact expenditure while retaining ordinary expenditure; long rests reset both.
+Adding a second class to an old single-class Warlock moves existing expenditure
+to the Pact pool rather than granting unused slots. Each class may store its own
+casting-ability override without affecting other classes.
+
+Existing `slotOverride` arrays keep their meaning as a manually managed combined
+pool. Users may revert to calculated slots without clearing expenditure. Custom,
+prestige, Artificer and unsupported spellcasting subclass combinations continue
+to require explicit source-based configuration.
+
+Rules references:
+- [2014 Basic Rules: Multiclassing](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/customization-options)
+- [2024 Basic Rules: Creating a Character / Multiclassing](https://www.dndbeyond.com/sources/dnd/br-2024/creating-a-character)
+
+`tests/multiclass-casting.mjs` checks slot progression, per-class selection limits,
+Pact spending/recovery, legacy migration, ability overrides and alternative ability
+prerequisites. The integration browser suite exercises both editions, including
+Fighter-to-Rogue advancement, independent casting abilities, both slot pools,
+rest recovery and personal slot overrides.
+
 `tests/integration-foundation.mjs` covers all 12,891 promoted records, caching,
 counts, identities, immutability, contamination, legacy migration, class branching,
 prerequisites, overrides, owned items and temp HP. `tests/browser-integration.mjs`
@@ -70,13 +100,13 @@ strict even while application tests pass.
 The Wikidot integrity-repair release gate is complete. Remaining broader
 application limitations are separate from that repaired data release:
 
-- Multiclass shared spell slots, Pact Magic, prestige caster advancement and
-  cross-edition conversions currently need explicit manual slot configuration.
+- Prestige caster advancement, Artificer, unsupported spellcasting subclasses
+  and cross-edition conversions still need explicit manual slot configuration.
 - Class-specific multiclass proficiencies/resources and choice-dependent feat
   benefits require source review and sheet edits. Full mechanical automation is
   not complete.
-- Add deeper 5e/2024 multiclass browser coverage and performance improvements
-  before final application acceptance.
+- Mixed hit-die spending, subclass-specific automation and initial bundle-size
+  improvements still need work before final application acceptance.
 - Retain manual review for unsupported complex prestige prerequisites.
 
 PR #4 remains open and unmerged by project instruction. The repair workflow did

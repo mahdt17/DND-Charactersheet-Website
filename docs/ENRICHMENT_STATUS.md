@@ -2,9 +2,31 @@
 
 Branch: `codex/content-foundation`  
 PR: #4 — Add canonical content foundation  
-Release status: **BLOCKED — post-promotion integrity defect confirmed**
+Catalog repair status: **VALIDATED — application integration continues; PR stays unmerged**
 
-## 2026-09-23 — Wikidot effect integrity reopened
+## 2026-09-24 — independent post-repair verification
+
+- Verified branch checkpoint: `97e8ef82b52330fd2ca2fc2ff705a5d3a1bc2d66`.
+- Modernization run `35934029985` passed every applicable step, including all live
+  regression suites, build and all four browser suites.
+- Full nine-category audit run `35924997579` passed all nine source jobs, merge
+  and candidate-output jobs. Artifact `10780021992` has SHA-256
+  `8e5203350981d6f72f1dc2530c58296593b7f88764b3d69ee1c378e68f27fc8f`.
+- Independently reran the output auditors against all 12,891 promoted records:
+  zero structural failures. The loader reports zero contaminated production
+  effects across all 1,603 repaired Wikidot records.
+- Checked every repaired summary against its committed text and source digest:
+  1,407 exact digest-pinned summary matches and 196 direct effects. Source/output
+  provenance checks and structural tests do not establish universal semantic
+  correctness; the previously confirmed footer defect is resolved.
+- Retained a synthetic frontend contamination regression so a production repair
+  cannot remove protection against the original defect.
+- Canonical catalogs and Supabase were not modified by this verification pass.
+
+The reopened-defect notes below describe the historical incident, not a current
+release blocker. Remaining application work is in `APPLICATION_INTEGRATION.md`.
+
+## Historical incident: 2026-09-23 — Wikidot effect integrity reopened
 
 The previous release audit is historical evidence, not current release approval.
 Post-promotion inspection found the identical site footer, "You should be logged in
