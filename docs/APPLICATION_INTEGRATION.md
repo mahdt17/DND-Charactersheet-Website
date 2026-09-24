@@ -59,6 +59,35 @@ performed in this integration pass.
 
 ## Validation and remaining work
 
+### Multiclass hit-die follow-up
+
+The rest dialog tracks hit dice by class, using each class's die size and level.
+Players can roll one die at a time, spend a selected batch, or rest without
+spending any. Constitution applies to each successful die roll, with a minimum
+of zero healing; a failed roll never consumes a die. The total is mirrored in
+`hitDiceUsed` for older consumers, while `hitDiceUsedByClass` preserves the pool
+allocation across saves and level advancement.
+
+2014 long rests let players choose which spent dice to recover, up to half their
+total dice rounded down (minimum one). Revised 2024 long rests recover all spent
+dice. Ordinary/Pact slot recovery is unchanged. The 3.5 rest path still uses its
+existing natural-healing rules.
+
+Old single-class saves migrate automatically. Older mixed-die saves recorded
+only a total, so the rest dialog shows a provisional assignment in class order
+and requires review before spending or recovering dice. Players can correct the
+spent counts directly. Missing source die sizes never inherit the primary
+class's die and cannot be rolled automatically.
+
+Rules references:
+- [2014 Basic Rules: Resting](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/adventuring#Resting)
+- [2014 Basic Rules: Multiclass Hit Dice](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/customization-options#HitPointsandHitDice)
+- [2024 Basic Rules: Long Rest](https://www.dndbeyond.com/sources/dnd/br-2024/rules-glossary#LongRest)
+
+`tests/hit-dice.mjs` covers mixed pools, expenditure bounds, healing, recovery
+choices, failed rolls, old saves and advancement. Browser tests exercise both
+editions, sequential rolls, saves, recovery limits and the older-save review.
+
 ### Multiclass casting follow-up
 
 Core 2014/2024 multiclass characters now calculate shared Spellcasting slots from
@@ -105,8 +134,8 @@ application limitations are separate from that repaired data release:
 - Class-specific multiclass proficiencies/resources and choice-dependent feat
   benefits require source review and sheet edits. Full mechanical automation is
   not complete.
-- Mixed hit-die spending, subclass-specific automation and initial bundle-size
-  improvements still need work before final application acceptance.
+- Subclass-specific automation and initial bundle-size improvements still need
+  work before final application acceptance.
 - Retain manual review for unsupported complex prestige prerequisites.
 
 PR #4 remains open and unmerged by project instruction. The repair workflow did

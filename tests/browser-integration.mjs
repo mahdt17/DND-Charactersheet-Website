@@ -45,7 +45,7 @@ try {
   await page.getByRole('button',{name:'Cast',exact:true}).click();await page.getByLabel('Spell slot',{exact:true}).selectOption('pact:2');await page.getByRole('button',{name:'Cast & spend slot',exact:true}).click();await page.getByRole('button',{name:'Close dice roller'}).click();
   assert.match(await page.getByRole('button',{name:'Pact Magic level 2 slot 1',exact:true}).getAttribute('class'),/used/);
   c=await waitSaved(name,{pactSlotsUsed:{2:1}});assert.equal(c.pactSlotsUsed[2],1);assert.equal(c.slotsUsed[2],1);
-  await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Short rest',exact:true}).click();await page.getByLabel(/^Hit dice to spend/).fill('0');await page.getByRole('button',{name:'Complete short rest'}).click();
+  await page.getByRole('button',{name:'Rest',exact:true}).click();await page.getByRole('button',{name:'Short rest',exact:true}).click();await page.getByLabel(/^Hit dice to spend/).first().fill('0');await page.getByRole('button',{name:'Complete short rest'}).click();
   c=await waitSaved(name,{pactSlotsUsed:{}});assert.equal(c.slotsUsed[2],1);assert.deepEqual(c.pactSlotsUsed,{});
   await page.getByRole('button',{name:'Cast',exact:true}).click();await page.getByLabel('Spell slot',{exact:true}).selectOption('2');await page.getByRole('button',{name:'Cast & spend slot',exact:true}).click();await page.getByRole('button',{name:'Close dice roller'}).click();
   c=await waitSaved(name,{slotsUsed:{2:2}});assert.equal(c.slotsUsed[2],2);assert.deepEqual(c.pactSlotsUsed,{});
@@ -59,6 +59,38 @@ try {
   for(let step=0;step<4&&!await page.getByRole('button',{name:'Apply level up',exact:true}).isVisible();step++)await next();
   await page.getByRole('button',{name:'Apply level up',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();c=await saved(branchName);assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.classLevels[1].name,'Rogue');
   console.log(`PASS ${edition} normal multiclass creation, prerequisites and separate class/character levels`);
+  const restName=`Mixed hit dice ${edition}`;
+  await importChar({...base,name:restName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',3).definition,classLevels:[row('Fighter',3),row('Wizard',2)],level:5,hitDie:'d10',hitDiceUsed:0,hp:{current:10,max:100,temp:3},abilityBonuses:{}});
+  await page.getByRole('button',{name:'Rest',exact:true}).click();
+  await page.getByLabel(/^Hit dice to spend — Fighter/).fill('1');await page.getByLabel(/^Hit dice to spend — Wizard/).fill('1');
+  await page.getByRole('button',{name:'Roll & spend selected hit dice',exact:true}).click();
+  const diceResult=await page.getByRole('dialog',{name:'Take a rest'}).getByRole('status').innerText();
+  assert.match(diceResult,/Fighter hit die · 1d10/);assert.match(diceResult,/Wizard hit die · 1d6/);
+  const healing=Number(diceResult.match(/1d10: (\d+)/)[1])+Number(diceResult.match(/1d6: (\d+)/)[1])+4;
+  c=await waitSaved(restName,{hitDiceUsed:2});assert.equal(c.hp.current,10+healing);assert.equal(c.hp.temp,3);
+  assert.match(await page.getByRole('dialog',{name:'Take a rest'}).getByRole('status').innerText(),new RegExp(`Hit dice healing: ${healing} HP`));assert(await page.getByRole('dialog',{name:'Take a rest'}).isVisible());
+  assert.equal(await page.getByLabel(/^Hit dice to spend — Wizard/).inputValue(),'0');
+  await page.getByLabel(/^Hit dice to spend — Wizard/).fill('1');await page.getByRole('button',{name:'Complete short rest'}).click();await page.getByRole('button',{name:'Close dice roller'}).click();
+  c=await waitSaved(restName,{hitDiceUsed:3});assert.deepEqual(c.hitDiceUsedByClass,{[`${edition}:Fighter`]:1,[`${edition}:Wizard`]:2});
+  await page.getByRole('button',{name:'Rest',exact:true}).click();assert.match(await page.getByLabel(/^Hit dice to spend — Wizard/).getAttribute('max'),/^0$/);
+  await page.getByRole('button',{name:'Long rest',exact:true}).click();
+  if(edition==='2014') {
+   await page.getByLabel(/^Recover hit dice — Wizard/).fill('2');assert(await page.getByRole('button',{name:'Complete long rest'}).isDisabled());
+   await page.getByLabel(/^Recover hit dice — Fighter/).fill('0');assert(!await page.getByRole('button',{name:'Complete long rest'}).isDisabled());
+  }
+  await page.getByRole('button',{name:'Complete long rest'}).click();c=await waitSaved(restName,{hitDiceUsed:edition==='2014'?1:0});assert.equal(c.hp.current,100);assert.equal(c.hp.temp,0);assert.equal(c.hitDiceUsedByClass[`${edition}:Wizard`],0);
+  await page.getByRole('button',{name:'All characters',exact:true}).click();await page.locator('.character-card').filter({hasText:restName}).getByRole('button',{name:'Open character'}).click();
+  await page.getByRole('button',{name:'Rest',exact:true}).click();assert.match(await page.getByLabel(/^Hit dice to spend — Fighter/).getAttribute('max'),edition==='2014'?/^2$/:/^3$/);await page.getByRole('button',{name:'Close dialog'}).click();
+  console.log(`PASS ${edition} mixed dice sizes, sequential rolls, bounded spending, chosen/full recovery and saved counters`);
+  if(edition==='2014') {
+   const oldName='Older mixed hit dice';
+   await importChar({...base,name:oldName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',3).definition,classLevels:[row('Fighter',3),row('Wizard',2)],level:5,hitDie:'d10',hitDiceUsed:4,abilityBonuses:{}});
+   await page.getByRole('button',{name:'Rest',exact:true}).click();assert(await page.getByRole('button',{name:'Complete short rest'}).isDisabled());assert.match(await page.getByRole('dialog').innerText(),/older save recorded only a total of 4/);
+   await page.getByRole('button',{name:'Confirm spent dice'}).click();assert(!await page.getByRole('button',{name:'Complete short rest'}).isDisabled());
+   c=await waitSaved(oldName,{hitDiceUsedByClass:{'2014:Fighter':3,'2014:Wizard':1}});assert.equal(c.hitDiceUsed,4);await page.getByRole('button',{name:'Complete short rest'}).click();
+   console.log('PASS older mixed save requires review and preserves total expenditure');
+  }
+
  }
- await page.setViewportSize({width:390,height:844});await page.screenshot({path:'test-results/integration-mobile.png',fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);assert.deepEqual(errors,[]);console.log('PASS mobile integrated character UI and no browser errors');
+ await page.setViewportSize({width:390,height:844});await page.screenshot({path:'test-results/integration-mobile.png',fullPage:true});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await page.getByRole('button',{name:'Rest',exact:true}).click();await page.screenshot({path:'test-results/integration-rest-mobile.png',fullPage:true});assert.equal(await page.getByRole('dialog',{name:'Take a rest'}).evaluate(el=>el.scrollWidth>el.clientWidth),false);await page.getByRole('button',{name:'Close dialog'}).click();assert.deepEqual(errors,[]);console.log('PASS mobile integrated character/rest UI and no browser errors');
 } catch(e){await page.screenshot({path:'test-results/integration-failure.png',fullPage:true});throw e;} finally {await browser.close();await server.close();}

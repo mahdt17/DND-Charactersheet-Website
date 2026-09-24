@@ -1,4 +1,5 @@
 import {normalizeEdition} from './content.js';
+import {setSpentHitDice} from './hitDice.js';
 export const contentKey=r=>r.catalogId||`${normalizeEdition(r.edition)}:${r.index||r.id||r.name}`;
 export const prestige=r=>Boolean(r?.prestige||r?.stats?.prestige);
 const norm=s=>String(s||'').trim().replace(/[’]/g,"'").toLowerCase();
@@ -131,6 +132,9 @@ export function advanceClass(c,record,{flow='normal',confirmations={},hpGain=1,s
   const gain=Math.trunc(Number(hpGain));if(!Number.isFinite(gain))throw Error('HP gain must be a finite number.');
   const max=Math.max(1,c.hp.max+gain);
   const next={...c,classLevels,level:classLevels.reduce((n,r)=>n+r.level,0),hp:{...c.hp,max,current:Math.min(max,Math.max(0,c.hp.current+gain))},prerequisiteConfirmations:{...c.prerequisiteConfirmations,...confirmations}};
+  // Preserve already assigned expenditure when gaining a die or a new class.
+  // Ambiguous old multiclass totals remain for explicit review in the rest UI.
+  if((c.ruleset==='custom'?c.mechanics:c.ruleset)!=='3.5'&&(rows.length===1||c.hitDiceUsedByClass))Object.assign(next,setSpentHitDice(c,{}));
   // Single-class Warlock saves previously tracked Pact Magic in slotsUsed.
   // Move, rather than replenish, that expenditure when a second class is added.
   if(rows.length===1&&classLevels.length===2&&rows[0].name==='Warlock'&&['2014','2024'].includes(c.ruleset||'2014')&&!Array.isArray(c.slotOverride)) {

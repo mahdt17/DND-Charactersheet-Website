@@ -54,6 +54,7 @@ jobs:
       - run: node tests/setup-choices.mjs
       - run: node tests/integration-foundation.mjs
       - run: node tests/multiclass-casting.mjs
+      - run: node tests/hit-dice.mjs
       - name: Run targeted live spell regressions
         if: steps.scope.outputs.mode == 'targeted' && steps.scope.outputs.added_count != '0'
         run: >-
