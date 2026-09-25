@@ -358,6 +358,44 @@ body{
 }
 .sheet-heading>.l-toolbar{position:relative;z-index:1}
 
+/* Compact inline Temporary HP editor: keeps the existing HP meter and controls intact. */
+.temp-hp-inline{
+  margin-left:auto;
+  display:inline-flex;
+  align-items:baseline;
+  gap:5px;
+  color:var(--muted);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:12px;
+  font-weight:500;
+  white-space:nowrap;
+  cursor:text;
+}
+.temp-hp-inline input{
+  width:3.4ch!important;
+  min-width:0!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:0 2px 1px!important;
+  border:0!important;
+  border-bottom:1px solid transparent!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:var(--text)!important;
+  box-shadow:none!important;
+  text-align:right;
+  font:600 13px/1.2 'IBM Plex Mono',monospace!important;
+  appearance:textfield;
+}
+.temp-hp-inline input::-webkit-inner-spin-button,
+.temp-hp-inline input::-webkit-outer-spin-button{appearance:none;margin:0}
+.temp-hp-inline input:hover{border-bottom-color:var(--border)!important}
+.temp-hp-inline input:focus{
+  outline:none!important;
+  border-bottom-color:var(--accent)!important;
+  box-shadow:none!important;
+}
+
 /* Always-visible combat essentials. */
 .sheet-vitals{
   grid-template-columns:minmax(300px,2.2fr) repeat(5,minmax(98px,1fr));
