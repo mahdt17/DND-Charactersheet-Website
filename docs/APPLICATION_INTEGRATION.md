@@ -258,3 +258,28 @@ script below 500 kB, confirms deferred ledger/catalog requests, checks demo
 exit/re-entry, and simulates a failed ledger chunk to verify visible recovery.
 The measured entry script is approximately 381 kB (109 kB compressed), down from
 5.5 MB (1.06 MB compressed). The deferred ledger chunk is still about 5.1 MB.
+
+
+## Level-up feat selection
+
+Both 2014 and revised level-up wizards use the edition-filtered feat catalog,
+including source descriptions, prerequisites and explicit review of unresolved
+requirements. A feat choice holds one new selection; it can be removed or replaced
+before final review while existing feats remain untouched. Source identity,
+prerequisites, confirmations and total character level are retained on the saved
+feat. Returning from review preserves the selection; cancelling saves nothing.
+3.5 and Custom advancement retain optional, table-reviewed feat selection.
+
+Revised structured minimum levels and alternative ability requirements are now
+checked directly. Known unmet requirements cannot be overridden by confirmation;
+named features and other unsupported requirements remain explicit source review.
+Final saving revalidates eligibility against the character without the new feat.
+Custom free-text feats require an eligibility review in level-up. Ability increases
+and other choice-dependent feat benefits still require manual sheet adjustments.
+
+`tests/feat-selection.mjs` covers eligibility and prerequisite immutability.
+`tests/browser-feat-selection.mjs` checks both 5e editions, rejection, replacement,
+review/back navigation, preserved existing feats, source metadata, total acquired
+level, saved/reopened characters and mobile layout. The production loading test
+reuses its browser context to support CI Chromium's single-process mode while
+retaining the failed-chunk recovery assertion.

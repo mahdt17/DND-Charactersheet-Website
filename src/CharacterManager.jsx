@@ -1,3 +1,5 @@
+import LevelUpFeatChoice from './LevelUpFeatChoice';
+import {validFeatSelection} from './lib/featSelection';
 import ClassProgression from './ClassProgression';
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { Plus, Trash2, Heart, Shield, Sparkles, ScrollText, Swords, ChevronUp, ChevronDown, ChevronLeft, ChevronRight, Loader2, BookOpen, X } from "lucide-react";
@@ -907,7 +909,7 @@ function CreationWizard({ onCancel, onFinish }) {
 }
 
 
-function LevelUpWizard({ char, onCancel, onFinish }) {
+function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=char.level+1 }) {
   useWizardFocus(onCancel);
   const targetLevel = Math.min(20, char.level + 1);
   const classData = CLASS_DATA[char.className];
@@ -930,8 +932,9 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
   const [step, setStep] = useState(0);
   const [abilityPlan, setAbilityPlan] = useState({ mode: "plus-two", first: "str", second: "str" });
   const [subclass, setSubclass] = useState(char.subclass || "");
-  const [featName,setFeatName]=useState("");
-  const [featNotes,setFeatNotes]=useState("");
+  const [feat,setFeat]=useState(null);
+  const featCharacter={...char,level:characterLevel};
+  const featValid=!hasASI||abilityPlan.mode!=="feat"||validFeatSelection(feat,featCharacter);
   const [newSpells, setNewSpells] = useState([]);
   const [newCantrips, setNewCantrips] = useState([]);
   const [preparedSpells, setPreparedSpells] = useState((char.spells || []).filter((s) => s.prepared).map((s) => s.name));
@@ -967,10 +970,11 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
   const isChoices = steps[step] === "Level choices" || steps[step] === "Ability improvement" || steps[step] === "Subclass";
 
   const valid = () => {
+    if (isReview && !featValid) return false;
     if (steps[step] === "Ability improvement" || steps[step] === "Level choices") {
       if (needsSubclass && subclass.trim().length<2) return false;
       if (hasASI) {
-        if (abilityPlan.mode==="feat") return featName.trim().length>=2;
+        if (abilityPlan.mode==="feat") return featValid;
         if (abilityPlan.mode === "plus-two") return effectiveAbilities(char)[abilityPlan.first] <= 18;
         return abilityPlan.first !== abilityPlan.second && effectiveAbilities(char)[abilityPlan.first] <= 19 && effectiveAbilities(char)[abilityPlan.second] <= 19;
       }
@@ -986,6 +990,7 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
   };
 
   function finish() {
+    if(!valid()||!featValid)return;
     const oldConMod = abilityMod(effectiveAbilities(char).con);
     const nextAbilities = abilityChanges();
     const nextDraft = { ...char, level: targetLevel, abilities: nextAbilities };
@@ -993,7 +998,7 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
     const gain = Math.max(1, avgHitDie(char.hitDie) + nextConMod)+(char.subrace==="Hill Dwarf"?1:0);
     let next = syncProgression({ ...nextDraft, hp: { ...char.hp, max: char.hp.max + gain + (nextConMod-oldConMod)*char.level, current: char.hp.current + gain + (nextConMod-oldConMod)*char.level } }, targetLevel);
     if (hasASI) next = { ...next, abilityImprovement: { level: targetLevel, mode: abilityPlan.mode, first: abilityPlan.first, second: abilityPlan.mode === "plus-one-two" ? abilityPlan.second : null } };
-    if (hasASI && abilityPlan.mode==="feat") next={...next,feats:[...(char.feats||[]),{id:uid(),name:featName.trim(),description:featNotes,level:targetLevel}]};
+    if (hasASI && abilityPlan.mode==="feat") next={...next,feats:[...(char.feats||[]),{...feat,level:characterLevel}]};
     if (needsSubclass) next = { ...next, subclass: subclass.trim() };
     if (spellcasting) {
       const existing = Array.isArray(char.spells) ? char.spells.filter((s) => !(s._levelUpPending)) : [];
@@ -1025,7 +1030,7 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
             <CreationStepHeader eyebrow="Advance" title={`Level ${targetLevel} is available`} description={`Your ${char.className} gains everything listed for level ${targetLevel}. Choices that require your input are collected next.`}/>
             <div className="review-sections">
               <div><span>New class features</span><strong>{newFeatures.length ? newFeatures.join(" · ") : "No named class feature at this level."}</strong></div>
-              <div><span>New proficiency bonus</span><strong>{fmtMod(profBonus(targetLevel))}</strong></div>
+              <div><span>New proficiency bonus</span><strong>{fmtMod(profBonus(characterLevel))}</strong></div>
               <div><span>Hit point increase</span><strong>At least {Math.max(1, avgHitDie(char.hitDie) + abilityMod(effectiveAbilities(char).con))} HP before any Constitution change.</strong></div>
               <div><span>New subclass / ASI choices</span><strong>{hasASI || needsSubclass ? "You'll be prompted next." : "None required at this level."}</strong></div>
             </div>
@@ -1036,7 +1041,7 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
               <div className="creation-methods">
                 {[ ["plus-two","+2 to one ability","Increase one score by 2"], ["plus-one-two","+1 to two abilities","Split the increase between two different scores"], ["feat","Take a feat","Optional rule · DM approval"] ].map(([id,t,m]) => <button type="button" key={id} className={`creation-method ${abilityPlan.mode===id?"is-selected":""}`} onClick={()=>setAbilityPlan(x=>({...x,mode:id}))}><strong>{t}</strong><span>{m}</span></button>)}
               </div>
-              {abilityPlan.mode==='feat'?<><label className="creation-field"><span>Feat name</span><input value={featName} onChange={e=>setFeatName(e.target.value)}/></label><label className="creation-field"><span>Feat effects and prerequisites</span><textarea rows={4} value={featNotes} onChange={e=>setFeatNotes(e.target.value)}/><small>Confirm eligibility with your DM. Record any ability bonuses or other effects manually on the sheet.</small></label></>:<><div className="creation-section-grid two"><label className="creation-field"><span>{abilityPlan.mode==='plus-two'?'Ability to increase by 2':'First ability (+1)'}</span><select value={abilityPlan.first} onChange={e=>setAbilityPlan(x=>({...x,first:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>{abilityPlan.mode==='plus-one-two'&&<label className="creation-field"><span>Second ability (+1)</span><select value={abilityPlan.second} onChange={e=>setAbilityPlan(x=>({...x,second:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>}</div><div className="review-grid">{ABILITIES.map(a=><div key={a.key} className="review-stat"><span>{a.label}</span><strong>{effectiveAbilities(char)[a.key]} → {effectiveNextAbilities[a.key]}</strong></div>)}</div></>}
+              {abilityPlan.mode==='feat'?<LevelUpFeatChoice char={featCharacter} feat={feat} onChange={setFeat} homebrew={homebrew}/>:<><div className="creation-section-grid two"><label className="creation-field"><span>{abilityPlan.mode==='plus-two'?'Ability to increase by 2':'First ability (+1)'}</span><select value={abilityPlan.first} onChange={e=>setAbilityPlan(x=>({...x,first:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>{abilityPlan.mode==='plus-one-two'&&<label className="creation-field"><span>Second ability (+1)</span><select value={abilityPlan.second} onChange={e=>setAbilityPlan(x=>({...x,second:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>}</div><div className="review-grid">{ABILITIES.map(a=><div key={a.key} className="review-stat"><span>{a.label}</span><strong>{effectiveAbilities(char)[a.key]} → {effectiveNextAbilities[a.key]}</strong></div>)}</div></>}
               <div className="creation-auto-note"><strong>Automatically recalculated</strong><span>Ability modifiers, saving throws, skills, spell attacks, and Constitution-based HP update automatically. Review custom attacks and feat effects manually.</span></div>
             </div>}
             {needsSubclass && <div className="creation-section"><div className="creation-section-title">{subclassFeature}</div><label className="creation-field"><span>Subclass name</span><input list="level-subclasses" value={subclass} onChange={e=>setSubclass(e.target.value)} placeholder="Choose an SRD subclass or enter your own"/><datalist id="level-subclasses">{subclasses.filter(s=>s.class.name===char.className).map(s=><option key={s.index} value={s.name}/>)}</datalist><small>SRD subclass features appear on your sheet. Custom subclass effects require manual input.</small></label></div>}
@@ -1052,15 +1057,15 @@ function LevelUpWizard({ char, onCancel, onFinish }) {
             <div className="review-grid">{ABILITIES.map(a=><div className="review-stat" key={a.key}><span>{a.label}</span><strong>{effectiveNextAbilities[a.key]}</strong><small>{fmtMod(abilityMod(effectiveNextAbilities[a.key]))}</small></div>)}</div>
             <div className="review-sections">
               <div><span>Class features</span><strong>{newFeatures.length?newFeatures.join(" · "):"No named features"}</strong></div>
-              <div><span>Proficiency bonus</span><strong>{fmtMod(profBonus(targetLevel))}</strong></div>
+              <div><span>Proficiency bonus</span><strong>{fmtMod(profBonus(characterLevel))}</strong></div>
               <div><span>Hit points</span><strong>{char.hp.max} → {char.hp.max + Math.max(1, avgHitDie(char.hitDie) + abilityMod(effectiveNextAbilities.con)) + (char.subrace==="Hill Dwarf"?1:0) + (abilityMod(effectiveNextAbilities.con)-abilityMod(effectiveAbilities(char).con))*char.level}</strong></div>
               <div><span>Subclass</span><strong>{subclass || char.subclass || "No change"}</strong></div>
-              {hasASI && <div className="wide"><span>Ability improvement</span><strong>{abilityPlan.mode==="feat"?featName:abilityPlan.mode==="plus-two"?`+2 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label}`:`+1 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label} and +1 ${ABILITIES.find(a=>a.key===abilityPlan.second)?.label}`}</strong></div>}
+              {hasASI && <div className="wide"><span>Ability improvement</span><strong>{abilityPlan.mode==="feat"?feat?.name:abilityPlan.mode==="plus-two"?`+2 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label}`:`+1 ${ABILITIES.find(a=>a.key===abilityPlan.first)?.label} and +1 ${ABILITIES.find(a=>a.key===abilityPlan.second)?.label}`}</strong></div>}
               {spellcasting && <div className="wide"><span>Spell choices</span><strong>{[...newCantrips,...newSpells].length?([...newCantrips,...newSpells].join(" · ")):`No new known spells selected this level.`}</strong></div>}
             </div>
           </>}
         </div>
-        <div className="creation-footer"><button type="button" className="creation-secondary" onClick={step===0?onCancel:()=>setStep(s=>s-1)}>{step===0?"Cancel":"Back"}</button><div className="creation-footer-status">{!valid()?"Complete this step before continuing.":""}</div>{!isReview?<button type="button" className="creation-primary" disabled={!valid()} onClick={()=>setStep(s=>Math.min(steps.length-1,s+1))}>Continue <ChevronRight size={17}/></button>:<button type="button" className="creation-primary" onClick={finish}>Apply level up <ChevronUp size={17}/></button>}</div>
+        <div className="creation-footer"><button type="button" className="creation-secondary" onClick={step===0?onCancel:()=>setStep(s=>s-1)}>{step===0?"Cancel":"Back"}</button><div className="creation-footer-status">{!valid()?"Complete this step before continuing.":""}</div>{!isReview?<button type="button" className="creation-primary" disabled={!valid()} onClick={()=>setStep(s=>Math.min(steps.length-1,s+1))}>Continue <ChevronRight size={17}/></button>:<button type="button" className="creation-primary" disabled={!valid()} onClick={finish}>Apply level up <ChevronUp size={17}/></button>}</div>
       </section>
     </div>
   </div>;

@@ -45,6 +45,7 @@ export function baseProgression(record,level) {
 function evaluateOne(p,c) {
   const text=String(p.text||p.description||p.name||'').trim(),kind=p.kind||p.type||'text';
   const score=k=>Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0);
+  if(kind==='level'&&Number.isInteger(p.minimum)&&p.minimum>0)return totalLevel(c)>=p.minimum;
   if(kind==='ability_choice') {
     const options=p.options?.from?.options,choose=p.options?.choose;
     if(Number.isInteger(choose)&&choose>0&&Array.isArray(options)&&options.length>=choose&&options.every(o=>scores[o.ability_score?.index]&&Number.isFinite(o.minimum_score)))
@@ -82,7 +83,13 @@ function evaluateOne(p,c) {
   return null;
 }
 export function requirements(record,c,confirmations={}, {multiclass=false}={}) {
-  let source=Array.isArray(record?.prerequisites)?record.prerequisites:record?.prerequisites?[{kind:'text',text:String(record.prerequisites)}]:[];
+  const prerequisites=record?.prerequisites;
+  let source=Array.isArray(prerequisites)?[...prerequisites]:prerequisites&&typeof prerequisites==='object'
+    ?prerequisites.kind||prerequisites.type||prerequisites.ability_score?[prerequisites]:Object.entries(prerequisites).map(([kind,value])=>kind==='minimum_level'
+      ?{kind:'level',minimum:value,text:`Character level ${value} or higher`}
+      :{kind,text:kind==='feature_named'?`Requires the ${value} feature`:JSON.stringify({[kind]:value})})
+    :prerequisites?[{kind:'text',text:String(prerequisites)}]:[];
+  if(record?.prerequisite_options)source.push({kind:'ability_choice',text:record.prerequisite_options.desc||'Review the prerequisite choices in the source.',options:record.prerequisite_options});
   source=source.filter(p=>multiclass||p.kind!=='multiclass');
   if(record?.minBab)source=[{kind:'base_attack_bonus',text:record.minBab,label:'Base attack bonus'},...source];
   if(multiclass&&record?.multi_classing) {
