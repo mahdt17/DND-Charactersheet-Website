@@ -26,7 +26,7 @@ export default function TemporaryHPControl({hp,onChange}) {
       onBlur={commit}
       onKeyDown={e=>{
         if(e.key==='Enter')e.currentTarget.blur();
-        if(e.key==='Escape'){setDraft(String(current));e.currentTarget.blur();}
+        if(e.key==='Escape'){e.preventDefault();setDraft(String(current));}
       }}
     />
     <span>Temporary</span>
