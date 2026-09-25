@@ -629,16 +629,16 @@ body{
   .ledger-top{padding:10px 12px;min-height:64px}
   .ledger-top>.l-toolbar:last-child .appearance-control>summary span{display:none}
   .ledger-nav{
-    top:0;
+    top:64px;
     z-index:80;
     width:min(286px,84vw);
-    height:100dvh;
+    height:calc(100dvh - 64px);
     padding-top:26px;
   }
   .nav-scrim{
     display:block;
     position:fixed;
-    inset:0;
+    inset:64px 0 0;
     z-index:70;
     border:0;
     background:#06090bb8;
