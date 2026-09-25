@@ -100,6 +100,7 @@ try {
   await page.getByRole('button',{name:'Add Goblin',exact:true}).click();
   await page.getByRole('button',{name:'Add Goblin',exact:true}).click();
   await page.getByRole('button',{name:'Roll initiative',exact:true}).click();
+  await page.locator('.dice-canvas[data-phase="settled"]').waitFor();const initiativeDice=(await page.locator('.dice-canvas').getAttribute('data-values')).split(',').map(Number);assert.equal(initiativeDice.length,2);const initiativeTotals=await page.getByLabel('Initiative',{exact:true}).evaluateAll(inputs=>inputs.map(input=>Number(input.value)));assert.deepEqual(initiativeTotals.sort((a,b)=>a-b),initiativeDice.map(n=>n+2).sort((a,b)=>a-b));
   await page.getByRole('button',{name:'Start combat'}).click();
   await page.getByRole('button',{name:'Next turn'}).click();
   await page.getByRole('button',{name:'Next turn'}).click();

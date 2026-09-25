@@ -59,6 +59,7 @@ jobs:
       - run: node tests/resources.mjs
       - run: node tests/feature-choices.mjs
       - run: node tests/feat-selection.mjs
+      - run: node tests/presentation.mjs
       - name: Run targeted live spell regressions
         if: steps.scope.outputs.mode == 'targeted' && steps.scope.outputs.added_count != '0'
         run: >-
@@ -106,6 +107,9 @@ jobs:
       - name: Run level-up feat browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-feat-selection.mjs
+      - name: Run fantasy presentation and dice browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-presentation.mjs
       - name: Run production loading browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-loading.mjs

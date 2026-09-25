@@ -1,3 +1,4 @@
+import PresentationSettings,{usePresentation} from "./PresentationSettings";
 import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
 import LedgerLoadingBoundary from "./LedgerLoadingBoundary";
 const LedgerEntry=lazy(()=>import("./LedgerEntry"));
@@ -27,6 +28,7 @@ function ThemeToggle({ theme, onToggle }) {
 }
 
 function AuthScreen({ theme, onToggleTheme, onDemo }) {
+  const {preferences}=usePresentation();
   const [mode, setMode] = useState("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -55,8 +57,8 @@ function AuthScreen({ theme, onToggleTheme, onDemo }) {
   }
 
   return (
-    <div className={`auth-page theme-${theme}`}>
-      <div className="auth-theme-control"><ThemeToggle theme={theme} onToggle={onToggleTheme} /></div>
+    <div className={`auth-page theme-${theme}`} data-backgrounds={preferences.backgrounds?"on":"off"}>
+      <div className="auth-theme-control"><PresentationSettings/><ThemeToggle theme={theme} onToggle={onToggleTheme} /></div>
       <div className="auth-atmosphere" />
       <form onSubmit={submit} className="auth-card">
         <div className="auth-emblem"><ScrollText size={24} /></div>
