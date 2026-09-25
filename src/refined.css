@@ -358,6 +358,44 @@ body{
 }
 .sheet-heading>.l-toolbar{position:relative;z-index:1}
 
+/* Compact inline Temporary HP editor: keeps the existing HP meter and controls intact. */
+.temp-hp-inline{
+  margin-left:auto;
+  display:inline-flex;
+  align-items:baseline;
+  gap:5px;
+  color:var(--muted);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:12px;
+  font-weight:500;
+  white-space:nowrap;
+  cursor:text;
+}
+.temp-hp-inline input{
+  width:3.4ch!important;
+  min-width:0!important;
+  min-height:0!important;
+  height:auto!important;
+  padding:0 2px 1px!important;
+  border:0!important;
+  border-bottom:1px solid transparent!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:var(--text)!important;
+  box-shadow:none!important;
+  text-align:right;
+  font:600 13px/1.2 'IBM Plex Mono',monospace!important;
+  appearance:textfield;
+}
+.temp-hp-inline input::-webkit-inner-spin-button,
+.temp-hp-inline input::-webkit-outer-spin-button{appearance:none;margin:0}
+.temp-hp-inline input:hover{border-bottom-color:var(--border)!important}
+.temp-hp-inline input:focus{
+  outline:none!important;
+  border-bottom-color:var(--accent)!important;
+  box-shadow:none!important;
+}
+
 /* Always-visible combat essentials. */
 .sheet-vitals{
   grid-template-columns:minmax(300px,2.2fr) repeat(5,minmax(98px,1fr));
@@ -591,16 +629,16 @@ body{
   .ledger-top{padding:10px 12px;min-height:64px}
   .ledger-top>.l-toolbar:last-child .appearance-control>summary span{display:none}
   .ledger-nav{
-    top:0;
+    top:64px;
     z-index:80;
     width:min(286px,84vw);
-    height:100dvh;
+    height:calc(100dvh - 64px);
     padding-top:26px;
   }
   .nav-scrim{
     display:block;
     position:fixed;
-    inset:0;
+    inset:64px 0 0;
     z-index:70;
     border:0;
     background:#06090bb8;
@@ -631,11 +669,9 @@ body{
   .sheet-vitals .hp-panel{grid-column:1/-1}
   .vital-tile{min-height:104px}
   .sheet-tabs{
-    position:sticky;
-    top:64px;
-    z-index:12;
+    position:static;
     padding:0 4px;
-    box-shadow:0 5px 14px #0001;
+    box-shadow:none;
   }
   .sheet-tabs>button{
     min-width:78px;
@@ -643,24 +679,7 @@ body{
     letter-spacing:.02em;
   }
   .sheet-tab-content{padding:18px 14px 22px}
-  .floating-dice{
-    display:flex;
-    position:fixed;
-    right:16px;
-    bottom:max(16px,env(safe-area-inset-bottom));
-    z-index:45;
-    align-items:center;
-    gap:7px;
-    min-height:48px;
-    padding:0 16px;
-    border:1px solid #d29a6a;
-    border-radius:999px;
-    color:#fff5e4;
-    background:linear-gradient(180deg,#a64839,#7d2926);
-    box-shadow:0 12px 30px #0006,inset 0 1px #ffffff28;
-    font-weight:800;
-  }
-  .floating-dice:focus-visible{outline:2px solid #f4c47f;outline-offset:3px}
+  .floating-dice{display:none}
   .dice-tray{z-index:90}
 }
 @media(max-width:430px){
