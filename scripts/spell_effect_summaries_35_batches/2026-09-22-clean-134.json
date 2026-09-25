@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 30-record batch 134 from the 51-record difficult reference-dependent tail. This batch contains every untouched non-table-driven record that could be source-completely reconstructed in the current pass, including repaired PHB 3.5 text, recovered PHB II stat-block data, edition-correct 3.0 inheritance, and original Ghostwalk/Magic of Faerûn summon-undead lists. Existing regression/supplement locks and the remaining table-driven tail are deliberately excluded.",
+  "entries": {
+    "spells/holy-sword-2622": {
+      "name": "Holy Sword",
+      "sourceSha256": "b1d717409ac420e9de620b6773556c383b65fb566b486a8c06cb1f943e4141b1",
+      "effectSummary": "For 1 round per caster level, one touched melee weapon becomes a +5 holy weapon: it has a +5 enhancement bonus on attack and damage rolls and deals +2d6 damage against evil creatures. While wielded, the weapon also projects magic circle against evil; if that circle is dispelled, it recreates the circle on your next turn as a free action. The spell ends 1 round after the weapon leaves your hand, and you cannot have more than one Holy Sword active at a time. On a magic weapon, this spell supersedes the weapon's normal enhancement bonus and special abilities for the duration; its effects are not cumulative with Bless Weapon or other weapon-modifying spells. It does not work on artifacts. Casting time 1 standard action; range Touch; no save; no spell resistance.",
+      "notes": "Primary catalog text is truncated/corrupted, so the full Player's Handbook v.3.5 effect was independently cross-checked against the 3.5 SRD before locking.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/holy-sword-2622",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/holySword.htm",
+          "role": "3.5 SRD effect-text repair cross-check"
+        }
+      ]
+    },
+    "spells/luminous-assassin-lesser-4363": {
+      "name": "Luminous Assassin, Lesser",
+      "sourceSha256": "2861353dc9703b5ca2205c77facdc04ce37d632db8c455c49c35adf8a2d0e6da",
+      "effectSummary": "Summons a CR 1 neutral Medium human rogue 1 composed of yellow light above one creature within Medium range. It makes an initial falling attack while that target is treated as flat-footed, then is placed in an adjacent square that can hold it. Thereafter it acts after your turn each round, intelligently attacks and pursues the original target, needs no direction, and can only be commanded to attack creatures or wait; you can redirect it as a free action only after the original target dies or escapes. It and all possessions vanish when the spell ends. Its printed stat block is Init +6; Listen +4, Spot +4; Common, Dwarven, Elven; AC 15, touch 12, flat-footed 13; 7 hp; Fort +1, Ref +4, Will +0; speed 30 ft.; masterwork rapier +2 (1d6+1, 18-20) and masterwork shortbow +4 (1d6, x3); BAB +0, grapple +1; sneak attack +1d6; potion of cure light wounds; Str 12, Dex 15, Con 13, Int 14, Wis 10, Cha 8; feats Dodge and Improved Initiative; Appraise +6, Balance +6, Disable Device +6, Escape Artist +6, Hide +6, Listen +4, Move Silently +6, Open Lock +6, Search +6, Spot +4, Tumble +6; possessions masterwork studded leather, masterwork rapier, masterwork shortbow, and 50 gp. Focus: a serrated dagger.",
+      "notes": "The catalog preserves the spell behavior but omits the inline PHB II assassin stat block; the original PHB II spell block was independently cross-checked before locking.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-assassin-lesser-4363",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsphb2.html",
+          "role": "Player's Handbook II spell-block cross-check for the CR 1 assassin statistics"
+        }
+      ]
+    },
+    "spells/mirror-walking-1870": {
+      "name": "Mirror Walking",
+      "sourceSha256": "6c2b3542a235597dec52b1e7efbe3a9bf9a5bda21bd8adbd503abbac3d1fb249",
+      "effectSummary": "You or one touched creature can pass through a mirror or reflective surface large enough to fit through and enter the Plane of Mirrors. The spell lasts for that subject until it passes through a second mirror. On the Plane of Mirrors, linked mirrors act as windows; the subject can look through them without being seen, reach through to take nearby objects, or grapple a creature within arm's reach. A grappled creature pulled through becomes a new subject, with its own effect ending after it passes through a second mirror. Other mirrorwalkers are unaffected. Entering the Plane of Mirrors creates a hostile mirror-self that attempts to kill the original and escape to take over the original's life, using the Plane of Mirrors rules. Casting time 1 full round; range Touch; variable duration; no save; spell resistance yes. Focus: a sufficiently large mirror or other reflective surface.",
+      "notes": "The mirror-self and linked-mirror details remain explicit Manual of the Planes subsystem references; no external stat block was invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mirror-walking-1870",
+          "role": "primary Manual of the Planes catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mordenkainens-capable-caravel-3334": {
+      "name": "Mordenkainen's Capable Caravel",
+      "sourceSha256": "201877cdfcb4c781f9b668aef499b073a974c638cb15f0bdf2326d10bbce9125",
+      "effectSummary": "Conjures a seaworthy caravel for 1 day per 2 caster levels with an extradimensional passenger/cargo space of up to three 10-foot cubes per caster level. A hatch on the aft upper deck leads to a portal that only creatures you designate can enter; unauthorized creatures descend into an ordinary cargo hold. From inside, you can reopen the portal at will. The extradimensional area has clean warm air, a configurable deck plan and furnished staterooms, and a galley able to serve three full meals per day per person per caster level. Up to two visible pursers per caster level function as Unseen Servants but can move anywhere inside the extradimensional space. The vessel also has a minimum spectral deck crew that likewise functions as Unseen Servants anywhere aboard; they obey the helmsman, reducing required living crew to one. Without a living helmsman, the ship continues its last course but cannot avoid hazards or adapt. Outside conditions do not affect the extradimensional passenger space; even if the ship sinks, that space remains safe, though exiting can be difficult. Focus: a 500 gp miniature mahogany ship with silk sails and gold thread.",
+      "notes": "The servant behavior was cross-checked against the 3.5 Unseen Servant rules; the ship's own spell-specific behavior is fully explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mordenkainens-capable-caravel-3334",
+          "role": "primary Stormwrack catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/unseenServant.htm",
+          "role": "3.5 SRD cross-check for referenced Unseen Servant behavior"
+        }
+      ]
+    },
+    "spells/polymorph-other-3421": {
+      "name": "Polymorph Other",
+      "sourceSha256": "1c49898bdfb2f2836e462faaf964ffe490c8cbb50b458ee8dff9332980f8d663",
+      "effectSummary": "Permanently transforms the subject into another creature form from Diminutive up to one size larger than its normal form, with no more Hit Dice than the caster or subject (whichever is greater) and never more than 15 HD. Constructs, elementals, outsiders, and undead can be assumed only if the subject already has that type; incorporeal or gaseous forms cannot be assumed and such creatures are immune. The first transformation heals hit points as a day's rest but does not restore temporary ability damage or grant other rest benefits; reversion does not heal, and death causes reversion without restoring life. The subject gains the new form's average Strength, Dexterity, Constitution, size, natural armor, natural weapons, gross anatomy, ordinary movement, and other nonmagical natural qualities, but not its supernatural, extraordinary, or spell-like abilities or magical/exceptionally high-speed movement. It retains Intelligence, Wisdom, Charisma, type, level/class, hit points despite Constitution changes, alignment, BAB, base saves, its own extraordinary abilities, spells, and spell-like abilities, but loses its own supernatural abilities. Spellcasting requires suitable speech and hands. Equipment either melds and becomes nonfunctional if the new form does not use equipment or resizes/adapts and retains properties if it does. The caster can choose normal cosmetic traits, granting +10 Disguise when used as a disguise, but cannot choose variant forms. A natural shapeshifter can return to natural form as a standard action. Material component: an empty cocoon.",
+      "notes": "This is the Tome and Blood 3.0 replacement text, preserved as its own edition-specific rules rather than normalized to 3.5 Polymorph.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-other-3421",
+          "role": "primary Tome and Blood 3.0 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/polymorph-self-3422": {
+      "name": "Polymorph Self",
+      "sourceSha256": "a7750bf43792f7c784f067f42a1304442ff07942a88f30a02ab7d5cde848ba41",
+      "effectSummary": "Functions as the Tome and Blood version of Polymorph Other, except you are the subject and the spell uses Polymorph Self's Personal range, verbal-only component, and 1 hour per caster level dismissible duration. The Tome and Blood text explicitly supersedes the older Player's Handbook descriptive text, so all transformation limits, retained/lost abilities, equipment behavior, healing on the transformation, and form restrictions come from that revised 3.0 Polymorph Other effect.",
+      "notes": "Edition-specific 3.0 inheritance is preserved; this record is not silently replaced by 3.5 Polymorph mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-self-3422",
+          "role": "primary Tome and Blood 3.0 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-other-3421",
+          "role": "explicit same-source inherited base spell"
+        }
+      ]
+    },
+    "spells/polymorph-self-5024": {
+      "name": "Polymorph Self",
+      "sourceSha256": "a67758634d866c35c7e36c7a8b32f834c4cb1d6b0c7d524651b15350ea49f5cc",
+      "effectSummary": "Functions as the original Player's Handbook 3.0 Polymorph Other, except you are the subject. During the 1-hour-per-level dismissible duration you can change form as often as desired by willing it, with each change taking a full-round action. Only the initial transformation restores hit points as though you had rested for a day. Casting time is 1 action; range Personal; component V. The source notes that this version was later replaced by Tome and Blood and ultimately made obsolete by the 3.5 Polymorph rules.",
+      "notes": "This is the original Player's Handbook 3.0 printing; its repeated-change rule is preserved rather than normalized to later versions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-self-5024",
+          "role": "primary Player's Handbook 3.0 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/precipitate-breach-2163": {
+      "name": "Precipitate Breach",
+      "sourceSha256": "4b3305ca8b0434a5facc8424ada5a86bc4db6a9d2065096c9af91a05967cf564",
+      "effectSummary": "After a 10-minute casting, destabilizes planar boundaries at the touched location. If no breach already exists there, a minor breach automatically forms with a 10d10-foot radius after 1d4 rounds; roll the Planar Handbook random breaching table to determine which planar trait leaks through. It functions as a minor breach for 1d6 days minus 12 hours, minimum 12 hours. If cast where a minor breach already exists, it instead upgrades the site to a severe breach and rerolls the breach size, onset time, and leaking trait, possibly changing the breaching plane; the severe breach lasts 1d6 days minus 48 hours, minimum 1 hour. It has no effect on a site already containing a severe or complete breach. Range Touch; no saving throw; spell resistance yes. Material component: 250 gp of jade dust.",
+      "notes": "The exact leaking-trait table and general minor/severe breach consequences remain explicit Planar Handbook Planar Breaching references.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/precipitate-breach-2163",
+          "role": "primary Planar Handbook catalog record and digest source"
+        }
+      ]
+    },
+    "spells/precipitate-complete-breach-2164": {
+      "name": "Precipitate Complete Breach",
+      "sourceSha256": "ae56f4f936807fa7e6aff1116d77c6465977177377ec3258950d5a81aa7fc37b",
+      "effectSummary": "Functions as Precipitate Breach except it creates a complete planar breach as defined by the Planar Handbook's Planar Breaching rules rather than a minor or severe breach. Casting time 10 minutes; range Touch; no saving throw; spell resistance yes. Material component: 1,000 gp of jade dust. XP cost: 1,000 XP.",
+      "notes": "Complete-breach environmental mechanics remain a named Planar Handbook subsystem dependency rather than being reconstructed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/precipitate-complete-breach-2164",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/precipitate-breach-2163",
+          "role": "explicit inherited base spell"
+        }
+      ]
+    },
+    "spells/prismatic-eye-1685": {
+      "name": "Prismatic Eye",
+      "sourceSha256": "f340d6a093cd0fa7fbfda6e0e97b53162e85b8d83e219afdf9eed8cfd05249db",
+      "effectSummary": "Creates a visible orb that can move up to your speed as a move-equivalent action but cannot leave Long range. Starting in the round it appears, you can command it once per round as a free action to fire a 50-foot ray using a flat +6 ranged touch attack. A hit produces one random Prismatic Spray beam, rerolling 8: red 20 fire damage (Reflex half), orange 40 acid (Reflex half), yellow 80 electricity (Reflex half), green poison that kills with Fortitude partial/1d6 Constitution on a successful save, blue petrification (Fortitude negates), indigo insanity (Will negates), or violet transport to another plane (Will negates). Each color can be fired only once; after all seven are used the eye remains movable but cannot fire. This Magic of Faerûn printing does not state a separate fixed save DC, so applicable saves remain those of the referenced beam effect. The eye has AC 18 (+8 size), 9 hp, and uses your saving-throw bonuses. Focus: a polished rainbow-hued abalone shell.",
+      "notes": "Prismatic Spray beam effects were independently cross-checked; the printing's lack of a fixed DC override is preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-eye-1685",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://palikhov.github.io/srd-v3.5/spells/spells-p-r.html",
+          "role": "Prismatic Spray beam-effect cross-check"
+        }
+      ]
+    },
+    "spells/prismatic-eye-2261": {
+      "name": "Prismatic Eye",
+      "sourceSha256": "191043fa98b3da6b96b8fe2170fcc93e3062d0f823c9aff891bb6578b4855bf7",
+      "effectSummary": "Creates a Fine visible orb that can move up to your speed as a move-equivalent action but cannot leave Medium range. Starting in the round it appears, you can command it once per round as a free action to fire a 50-foot ray using a flat +6 ranged touch attack. A hit duplicates one random Prismatic Spray beam, rerolling 8, with save DC 19 when a save applies: red 20 fire damage (Reflex half), orange 40 acid (Reflex half), yellow 80 electricity (Reflex half), green poison that kills with Fortitude partial/1d6 Constitution on success, blue petrification (Fortitude negates), indigo insanity (Will negates), or violet transport to another plane (Will negates). Each color can be fired only once; after all seven are used the eye remains movable but cannot fire. The eye has AC 18 (+8 size), 9 hp, and uses your saving-throw bonuses. Focus: a polished rainbow-hued abalone shell.",
+      "notes": "The Player's Guide to Faerûn printing's fixed save DC 19 is preserved rather than backported to other printings.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-eye-2261",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://palikhov.github.io/srd-v3.5/spells/spells-p-r.html",
+          "role": "Prismatic Spray beam-effect cross-check"
+        }
+      ]
+    },
+    "spells/prismatic-eye-4659": {
+      "name": "Prismatic Eye",
+      "sourceSha256": "c40d2b94c7933c5b72c3566d1b9fcbb378eb46d80a8cc3e960edd1c4b746ebb1",
+      "effectSummary": "Creates an apple-sized Fine visible eye that can move up to your speed as a move action but cannot leave Medium range. Starting in the round it appears, you can command it once per round as a free action to fire a 50-foot ray using a flat +6 ranged touch attack. A hit duplicates one random Prismatic Spray beam, rerolling 8, with save DC 19 when applicable: red 20 fire damage (Reflex half), orange 40 acid (Reflex half), yellow 80 electricity (Reflex half), green poison that kills with Fortitude partial/1d6 Constitution on success, blue petrification (Fortitude negates), indigo insanity (Will negates), or violet transport to another plane (Will negates). After a color has been used, later rolls of that color are rerolled. After all seven rays have been fired, the eye remains until duration expires but cannot fire again. It has AC 18 (+8 size), 9 hp, and uses your saving-throw bonuses. Focus: a polished rainbow-hued abalone shell.",
+      "notes": "The Spell Compendium reprint's fixed DC 19 and explicit reroll of already-used colors are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-eye-4659",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://palikhov.github.io/srd-v3.5/spells/spells-p-r.html",
+          "role": "Prismatic Spray beam-effect cross-check"
+        }
+      ]
+    },
+    "spells/proper-state-1376": {
+      "name": "Proper State",
+      "sourceSha256": "ae183ea2e3737a040eb32b08fcffeaf082a6e65100a9e0ad38683b3f934bf437",
+      "effectSummary": "Transforms one willing, vaguely humanoid incorporeal undead creature into a ghost. If its former race, class, and level are unknown, it becomes a ghost of the caster's race with warrior levels equal to its undead Hit Dice. If those former details are known, it becomes a ghost of its former self. In all cases its resulting character level cannot exceed its former undead Hit Dice; any lost levels are handled as level loss from an undead energy-drain attack. It retains the alignment it had as undead, though it is not strongly attached to that alignment and can change naturally over time or through Atonement. Because the Ghost template is humanoid-only in this source, nonhumanoid-shaped incorporeal undead such as spectral steeds and nightshades are ineligible.",
+      "notes": "Ghost-template and level-loss details remain explicit Ghostwalk/Monster Manual dependencies where not restated by the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/proper-state-1376",
+          "role": "primary Ghostwalk catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sandstorm-3136": {
+      "name": "Sandstorm",
+      "sourceSha256": "ce2d50a34533b6d19386ca499c0bfc2e46b63f24c9157953d3d89109068d6e25",
+      "effectSummary": "Creates both sand and wind in a cylinder with radius 40 feet per caster level and height 40 feet, using Control Winds as the base effect but with a 10-minute-per-level duration and the printed Sandstorm changes. For every three caster levels you can increase or decrease wind strength by one category. Winds weaker than severe cannot keep sand suspended. Each round, creatures in the area make Fortitude saves against both the wind and suspended grit. Severe wind causes minor ship/building damage and a duststorm that reduces visibility and smothers unprotected flames and can choke protected flames. Windstorm force drives most flyers down, uproots small trees, damages light structures/roofs and ships, and produces a sandstorm that badly reduces visibility and deals 1d3 nonlethal damage per round to exposed creatures. Hurricane force can destroy wooden buildings, uproot large trees and founder ships, and produces a flensing sandstorm that severely reduces visibility and deals 1d3 lethal damage per round to exposed creatures. Tornado force destroys nonfortified buildings, often uproots large trees, and also produces a flensing sandstorm. Fortitude negates; no spell resistance.",
+      "notes": "The standard Control Winds and Sandstorm wind-category details remain named rule references; the spell's conjured sand and strength adjustments are explicit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sandstorm-3136",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-landscape-4145": {
+      "name": "Shadow Landscape",
+      "sourceSha256": "21c5d94febb7cdc6fa97351dc91ee248608b1ebce9dc9be9c7dc354b571b4cfa",
+      "effectSummary": "After a 1-hour casting, corrupts a 1-mile-radius landscape for 1 day per caster level. Desert/tundra temperature shifts by 30 degrees and sandstorms/snowstorms occur hourly. In forests, light undergrowth becomes heavy and heavy undergrowth entangles at the spell's save DC. Hills gain heavier undergrowth, cost 2 squares per gradual uphill square and 4 per steep uphill square, and cliffs require DC 25 Climb. In marshes, half of undergrowth spaces become quicksand. Mountains require DC 25 Climb on cliffs/chasms; failed Climb checks or loud noise have a 10% avalanche chance, and altitude danger is one category worse. On natural plains, half of undergrowth entangles and severe storms/tornadoes become common. Natural caverns require 4 squares of movement per natural-floor square and have stalagmites covering 10% of floor; ordinary dungeons are unaffected. Random weather is rolled twice and the higher result used, three times on plains; underground is exempt. The caster ignores terrain-specific effects and can designate one traveler per four caster levels to do likewise, though bad weather still affects them. The caster can also designate up to 1 HD per caster level of native animals, plants, or magical beasts as guardians; while in the area they are friendly to the caster/designated travelers and gain cold resistance 10, darkvision 60 ft., DR 5/magic, evasion, and low-light vision, using better existing values. Long range; Reflex partial; spell resistance yes.",
+      "notes": "Terrain hazards such as quicksand, avalanche, altitude, weather, and Entangle remain named DMG/PH references rather than being silently rewritten.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-landscape-4145",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spider-shapes-1224": {
+      "name": "Spider Shapes",
+      "sourceSha256": "a1ab71954868968c7e4c0b99ecda65fcaf74f392e569b4871ac50792e42d9e90",
+      "effectSummary": "Functions as the edition-appropriate Polymorph Other effect, except it transforms up to one willing creature per caster level, all within 30 feet of each other, into monstrous spiders of one size chosen for the whole group from Tiny through Huge. It has no effect on unwilling creatures. Subjects remain spiders for 1 hour per caster level unless you dismiss the spell for everyone; an individual subject can instead return to normal as a full-round action, ending the spell only for itself. Separated spider parts do not revert, so transformed creatures retain poisonous bites. Subjects do not suffer Polymorph Other's disorientation penalty and regain hit points as though they had rested for a day. Range Close; no save; spell resistance yes (harmless).",
+      "notes": "This Forgotten Realms Campaign Setting record inherits the 3.0-era Polymorph Other rules rather than 3.5 Polymorph.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-shapes-1224",
+          "role": "primary Forgotten Realms Campaign Setting catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-other-3421",
+          "role": "edition-appropriate inherited Polymorph Other cross-check"
+        }
+      ]
+    },
+    "spells/stone-body-3055": {
+      "name": "Stone Body",
+      "sourceSha256": "c125d51cf0aff49eef33a970e9c81c38c559616cccb6d131df94488cc0b525c7",
+      "effectSummary": "Functions as Iron Body from the source's rules era except for the following explicit changes: damage reduction becomes 20/+2; you are vulnerable to every special attack that affects stone golems; you gain +4 enhancement Strength and -4 Dexterity to a minimum of 1; your speed is halved; and your weight triples. Duration is 1 minute per caster level (D). Arcane material component: a piece of stone that was once part of a stone golem, a greater earth elemental, or a castle's outer wall.",
+      "notes": "The source's 3.0-era Iron Body inheritance is intentionally preserved by name instead of expanding it with later 3.5 mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-body-3055",
+          "role": "primary Races of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/summon-undead-ii-1344": {
+      "name": "Summon Undead II",
+      "sourceSha256": "adb3bd78fbccc2ee506bc5edb1ffa3a45734fa778565b38b0bc432306ef621a2",
+      "effectSummary": "Functions as Ghostwalk Summon Undead I, except you summon either one creature from the 2nd-level list or 1d3 creatures of one type from the 1st-level list. Ghostwalk lists 1st-level Medium skeleton or Small zombie, and 2nd-level Medium zombie or Large skeleton. The base spell functions like Summon Monster I except it summons undead; summoned undead do not count against undead-control Hit Dice limits, and the Ghostwalk version is always Evil and can also gain other alignment descriptors from the summoned creature. Casting time 1 full round; Close range; creatures must appear within 30 feet of each other; duration 1 round per level; no save or spell resistance. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Original Ghostwalk 3.0 summon-undead lists were independently recovered; later Spell Compendium lists were not substituted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-ii-1344",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/myubd/pbed/basic/51-100",
+          "role": "Ghostwalk source-list cross-check"
+        }
+      ]
+    },
+    "spells/summon-undead-ii-1626": {
+      "name": "Summon Undead II",
+      "sourceSha256": "adb3bd78fbccc2ee506bc5edb1ffa3a45734fa778565b38b0bc432306ef621a2",
+      "effectSummary": "Functions as Magic of Faerûn Summon Undead I, except you summon either one creature from the 2nd-level list or 1d3 creatures of one type from the 1st-level list. Magic of Faerûn lists 1st-level Medium skeleton or Small zombie, and 2nd-level Medium zombie or Large skeleton. The base spell functions like Summon Monster I except it summons undead; summoned undead do not count against undead-control Hit Dice limits, and the spell can take alignment descriptors from the creature summoned. Casting time 1 full round; Close range; creatures must appear within 30 feet of each other; duration 1 round per level; no save or spell resistance. Focus: a tiny bag, a small unlit candle, and a carved humanoid bone.",
+      "notes": "Original Magic of Faerûn 3.0 summon-undead lists were independently recovered; later Spell Compendium lists were not substituted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-ii-1626",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/101-150",
+          "role": "Magic of Faerûn source-list cross-check"
+        }
+      ]
+    },
+    "spells/summon-undead-iii-1345": {
+      "name": "Summon Undead III",
+      "sourceSha256": "3429c1e98f6a40a1142e0e1f295351d582b6a680890a2d396cc9372a12cb0dd7",
+      "effectSummary": "Functions as Ghostwalk Summon Undead I, summoning one creature from the 3rd-level list, 1d3 of one type from the 2nd-level list, or 1d4+1 of one type from the 1st-level list. Ghostwalk lists 1st: Medium skeleton, Small zombie; 2nd: Medium zombie, Large skeleton; 3rd: Large zombie, ghoul, Huge skeleton. The base spell otherwise follows Summon Monster I for summoned-undead behavior, does not count the creatures against undead-control Hit Dice limits, and is Evil with any additional alignment descriptors supplied by the summoned creature. Casting time 1 full round; Close range; duration 1 round per level; no save or spell resistance. Focus: tiny bag, small unlit candle, carved humanoid bone.",
+      "notes": "Original Ghostwalk 3.0 lists were independently recovered and preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iii-1345",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/myubd/pbed/basic/51-100",
+          "role": "Ghostwalk source-list cross-check"
+        }
+      ]
+    },
+    "spells/summon-undead-iii-1627": {
+      "name": "Summon Undead III",
+      "sourceSha256": "3429c1e98f6a40a1142e0e1f295351d582b6a680890a2d396cc9372a12cb0dd7",
+      "effectSummary": "Functions as Magic of Faerûn Summon Undead I, summoning one creature from the 3rd-level list, 1d3 of one type from the 2nd-level list, or 1d4+1 of one type from the 1st-level list. Magic of Faerûn lists 1st: Medium skeleton, Small zombie; 2nd: Medium zombie, Large skeleton; 3rd: Large zombie, ghoul, Huge skeleton. The base spell otherwise follows Summon Monster I for summoned-undead behavior, does not count the creatures against undead-control Hit Dice limits, and can take alignment descriptors supplied by the summoned creature. Casting time 1 full round; Close range; duration 1 round per level; no save or spell resistance. Focus: tiny bag, small unlit candle, carved humanoid bone.",
+      "notes": "Original Magic of Faerûn 3.0 lists were independently recovered and preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iii-1627",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/101-150",
+          "role": "Magic of Faerûn source-list cross-check"
+        }
+      ]
+    },
+    "spells/summon-undead-iv-1346": {
+      "name": "Summon Undead IV",
+      "sourceSha256": "b6827d55cb085600a648fb3872a89a5e4cd3ef56925a30eeb69218ad4221a038",
+      "effectSummary": "Functions as Ghostwalk Summon Undead I, summoning one creature from the 4th-level list, 1d3 of one type from the 3rd-level list, or 1d4+1 of one type from any lower-level list. Ghostwalk lists 1st: Medium skeleton, Small zombie; 2nd: Medium zombie, Large skeleton; 3rd: Large zombie, ghoul, Huge skeleton; 4th: allip, bonesinger using the sample 3rd-level bard base, ghast, Huge zombie. The base spell otherwise follows Summon Monster I for summoned-undead behavior, does not count creatures against undead-control Hit Dice limits, and is Evil with possible additional alignment descriptors. Duration 1 round per level; no save or spell resistance. Focus: tiny bag, small unlit candle, carved humanoid bone.",
+      "notes": "Ghostwalk's unique bonesinger option is preserved and not replaced by the Magic of Faerûn or Spell Compendium list.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iv-1346",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/myubd/pbed/basic/51-100",
+          "role": "Ghostwalk source-list cross-check"
+        }
+      ]
+    },
+    "spells/summon-undead-iv-1628": {
+      "name": "Summon Undead IV",
+      "sourceSha256": "b6827d55cb085600a648fb3872a89a5e4cd3ef56925a30eeb69218ad4221a038",
+      "effectSummary": "Functions as Magic of Faerûn Summon Undead I, summoning one creature from the 4th-level list, 1d3 of one type from the 3rd-level list, or 1d4+1 of one type from any lower-level list. Magic of Faerûn lists 1st: Medium skeleton, Small zombie; 2nd: Medium zombie, Large skeleton; 3rd: Large zombie, ghoul, Huge skeleton; 4th: allip, ghast, Huge zombie. The base spell otherwise follows Summon Monster I for summoned-undead behavior, does not count creatures against undead-control Hit Dice limits, and can take alignment descriptors from the summoned creature. Duration 1 round per level; no save or spell resistance. Focus: tiny bag, small unlit candle, carved humanoid bone.",
+      "notes": "The original Magic of Faerûn 3.0 list is preserved, including its difference from Ghostwalk.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-iv-1628",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/101-150",
+          "role": "Magic of Faerûn source-list cross-check"
+        }
+      ]
+    },
+    "spells/summon-undead-v-1347": {
+      "name": "Summon Undead V",
+      "sourceSha256": "bed8785ce65c5380d3897ad9d31135c5aef867443451983d13fb13985d62582c",
+      "effectSummary": "Functions as Ghostwalk Summon Undead I, summoning one creature from the 5th-level list, 1d3 of one type from the 4th-level list, or 1d4+1 of one type from any lower-level list. Ghostwalk lists 1st: Medium skeleton, Small zombie; 2nd: Medium zombie, Large skeleton; 3rd: Large zombie, ghoul, Huge skeleton; 4th: allip, bonesinger, ghast, Huge zombie; 5th: dread ram, mummy, necroplasm, shadow, spectral steed, wight, vampire spawn. The base spell otherwise follows Summon Monster I for summoned-undead behavior, does not count the creatures against undead-control Hit Dice limits, and is Evil with possible additional alignment descriptors. Duration 1 round per level; no save or spell resistance. Focus: tiny bag, small unlit candle, carved humanoid bone.",
+      "notes": "Ghostwalk's unique 5th-level options are preserved; later revised lists were not substituted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-v-1347",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/myubd/pbed/basic/51-100",
+          "role": "Ghostwalk source-list cross-check"
+        }
+      ]
+    },
+    "spells/summon-undead-v-1629": {
+      "name": "Summon Undead V",
+      "sourceSha256": "bed8785ce65c5380d3897ad9d31135c5aef867443451983d13fb13985d62582c",
+      "effectSummary": "Functions as Magic of Faerûn Summon Undead I, summoning one creature from the 5th-level list, 1d3 of one type from the 4th-level list, or 1d4+1 of one type from any lower-level list. Magic of Faerûn lists 1st: Medium skeleton, Small zombie; 2nd: Medium zombie, Large skeleton; 3rd: Large zombie, ghoul, Huge skeleton; 4th: allip, ghast, Huge zombie; 5th: mummy, shadow, wight, vampire spawn. The base spell otherwise follows Summon Monster I for summoned-undead behavior, does not count creatures against undead-control Hit Dice limits, and can take alignment descriptors from the summoned creature. Duration 1 round per level; no save or spell resistance. Focus: tiny bag, small unlit candle, carved humanoid bone.",
+      "notes": "The original Magic of Faerûn 3.0 list is preserved rather than replaced by Ghostwalk or Spell Compendium options.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-v-1629",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/foyp/basic/101-150",
+          "role": "Magic of Faerûn source-list cross-check"
+        }
+      ]
+    },
+    "spells/symbol-1808": {
+      "name": "Symbol",
+      "sourceSha256": "99ac799f07efb23b96e2be3408744e1e0f8f724bf94ddf24308bf27a6d25b5ba",
+      "effectSummary": "Uses the standard 3.0 Symbol framework but adds two variants. Death Symbol of Bane is always carefully engraved and uses normal Symbol trigger rules, except a creature wearing Bane's holy symbol never triggers it. It otherwise functions as Symbol of Death; every creature within 60 feet that survives must also make one Fortitude save to avoid 1d12 cold damage and a second Fortitude save to avoid Doom. It has Death and Evil descriptors. Its material paste uses normal Symbol materials plus blood from intelligent sacrificed creatures (Int 3+) totaling at least 30 HD, killed within the past year; a creature's blood can be used only once for this component. Symbol of Spell Loss attacks spellcasters within 60 feet after triggering; each round, every caster makes a Will save or loses its highest-level prepared spell or highest-level unused spell slot. It continues until it has erased 30 spell levels and treats spell-like abilities as spells for this purpose; creatures without spells or spell-like abilities are unaffected. Casting time 10 minutes; range Touch; spell resistance yes.",
+      "notes": "The two Magic of Faerûn variants are preserved on top of the contemporary 3.0 Symbol framework rather than rewritten as 3.5 Symbol mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-1808",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-5032",
+          "role": "contemporary Player's Handbook 3.0 base Symbol cross-check"
+        }
+      ]
+    },
+    "spells/symbol-5032": {
+      "name": "Symbol",
+      "sourceSha256": "d70ee11a718d9a7079196e4dd37cde3caba07dd117b1eef9517b69bceea4c02d",
+      "effectSummary": "Scribes one potent rune using either a quick 1-action form or a carefully engraved 10-minute form. A quick rune activates immediately, glows faintly, and lasts 10 minutes per caster level; only fear, hopelessness, pain, or persuasion can be quick. A careful rune remains inactive until triggered, must be visible/prominent, and uses configurable triggers such as reading, touching, passing over/through, looking at it, or special conditions based on name, identity, alignment, or observable qualities, never level/class/HD/hit points; triggering requires being within 60 feet. The caster is immune and can attune creatures/passwords as the source allows. Variants are: Death, killing the closest creatures whose combined current hp fit within a 150-hp total, Fortitude negates; Discord, causing Int 3+ creatures to bicker and potentially fight, Will negates; Fear, a powerful fear effect, Will negates, with careful engraving raising the DC by 4; Hopelessness, Will negates, leaving victims hopeless for 3d4x10 minutes and compliant/withdrawn; Insanity, affecting up to 150 combined hp as Insanity, Will negates; Pain, imposing -2 Dexterity and -4 on attacks, skills, and ability checks for 2d10x10 minutes, Fortitude negates, careful engraving +4 DC; Persuasion, Will negates, changing alignment to the caster's and making the subject friendly as Charm Person for 1d20x10 minutes, careful engraving +4 DC; Sleep, affecting creatures of 8 HD or less with catatonic sleep for 3d6x10 minutes, Will negates; and Stunning, affecting up to 250 combined hp, Fortitude negates, stunning victims so they lose Dexterity to AC, attackers gain +2, and held items drop. Read Magic plus Spellcraft DC 19 identifies a rune, potentially triggering it; targeted Dispel Magic removes it, Erase does not, and destroying the inscribed surface triggers and destroys it. Material components are mercury and phosphorus; careful engraving additionally uses diamond and opal worth at least 5,000 gp each.",
+      "notes": "This is the original Player's Handbook 3.0 Symbol ruleset, preserved as printed rather than normalized to the 3.5 split Symbol spells.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-5032",
+          "role": "primary Player's Handbook 3.0 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mass-teleport-1774": {
+      "name": "Teleport, Mass",
+      "sourceSha256": "bbf2b42fb6c9633ed1eefe745818d65e883badd765bd3c3542de0d3d159ec44c",
+      "effectSummary": "Functions as the Player's Handbook 3.0 Teleport spell except it can transport one or more objects or willing creatures totaling up to 100 pounds per caster level, and you do not have to teleport yourself. It inherits the 3.0 Teleport destination-familiarity, on-target/off-target/similar-area/mishap rules and cannot provide interplanar travel. Casting time 1 full round; range Personal and Touch; duration instantaneous; creatures receive no save or spell resistance, while objects receive Will negates and spell resistance yes.",
+      "notes": "Because this is a 3.0 Magic of Faerûn printing, the inherited Teleport rules were resolved against the 3.0 Player's Handbook rather than 3.5 Teleport.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mass-teleport-1774",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/players-handbook-30--106/teleport--5026/index.html",
+          "role": "Player's Handbook 3.0 Teleport inheritance cross-check"
+        }
+      ]
+    },
+    "spells/mass-teleport-3419": {
+      "name": "Teleport, Mass",
+      "sourceSha256": "a23ace5e88ea0cd81017ab3471c0099fd913a91d19c7653824edca24fcf0b652",
+      "effectSummary": "Functions as the Player's Handbook 3.0 Teleport spell except it can transport one or more objects or willing creatures totaling up to 100 pounds per caster level, and you do not have to teleport yourself. It inherits the 3.0 Teleport destination-familiarity, on-target/off-target/similar-area/mishap rules and cannot provide interplanar travel. Casting time 1 full round; range Personal and Touch; duration instantaneous; creatures receive no save or spell resistance, while objects receive Will negates and spell resistance yes.",
+      "notes": "Because this is a 3.0 Tome and Blood printing, the inherited Teleport rules were resolved against the 3.0 Player's Handbook rather than 3.5 Teleport.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mass-teleport-3419",
+          "role": "primary Tome and Blood catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/players-handbook-30--106/teleport--5026/index.html",
+          "role": "Player's Handbook 3.0 Teleport inheritance cross-check"
+        }
+      ]
+    },
+    "spells/web-2472": {
+      "name": "Web",
+      "sourceSha256": "82b565260ab3ed172485e6e3be4b9d31183509e5260c294168ad997e27959f01",
+      "effectSummary": "Creates a 20-foot-radius mass of sticky webs for 10 minutes per caster level; the web must be anchored between at least two opposed solid points or it collapses and disappears. Creatures in the area make Reflex saves. Success leaves a creature entangled but able to move; failure leaves it entangled and unable to move until it spends 1 round and succeeds on Strength DC 20 or Escape Artist DC 25. Once mobile, it remains entangled and each round devoted to movement allows a new check; it moves 5 feet for every full 5 points by which the check exceeds 10. Five feet of web provides cover and 20 feet provides total cover. The webs are flammable; ordinary fire burns away a 5-foot section in 1 round and creatures in burning webs take 2d4 fire damage. Permanency can make the spell permanent; a damaged but not destroyed permanent web regrows in 10 minutes. Casting time 1 standard action; Medium range; no spell resistance. Material component: a bit of spider web.",
+      "notes": "The primary catalog text is truncated near the fire/permanency section; the complete Player's Handbook v.3.5 effect was independently cross-checked against the 3.5 SRD.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/web-2472",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/web.htm",
+          "role": "3.5 SRD effect-text repair cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "cf8ca1416b44574090af00160327cf0acfedf5be",
+    "workflowRun": 35775082201,
+    "validationRun": 35775086757,
+    "classificationArtifact": 10715299855,
+    "classificationArtifactSha256": "3e0bd3bce546e9870c1c922ec8548e982fa4241fcbce9d18342a9321fb84077f",
+    "queueCountBefore": 51,
+    "referenceQueueCountBefore": 51,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

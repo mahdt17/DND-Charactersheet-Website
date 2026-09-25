@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 10-record batch 128 from the 151-record difficult reference-dependent tail. This is the largest currently safe batch: each spell's own creation/summoning/control mechanics are explicit, while referenced monster/stat blocks are deliberately left external rather than reconstructed.",
+  "entries": {
+    "spells/plague-rats-5013": {
+      "name": "Plague of Rats",
+      "sourceSha256": "d36c3917f3d03566c548c2dadfbb255e1b4eb9f3aec0c1299fe757c09e49dc7e",
+      "effectSummary": "Summons twelve rat swarms. You choose each swarm's occupied squares, but all twelve must be contiguous. Each swarm attacks any creature occupying its space. Once summoned, the swarms remain stationary and do not pursue creatures that flee. Casting time is 1 round; range Long; duration 1 minute per caster level; saving throw none; spell resistance is listed as Yes (see text).",
+      "notes": "Manually source-reviewed and digest-locked. The spell's placement and behavior are explicit; rat swarm statistics remain an external Monster Manual reference and are not expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-rats-5013",
+          "role": "primary Dragonlance Campaign Setting catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sticks-and-stones-3284": {
+      "name": "Sticks and Stones",
+      "sourceSha256": "4b95a9a951847f389da55a525b7dee02268e541ec75101cb7680411fe1032ed8",
+      "effectSummary": "Animates a small pile of debris into a crude Medium skeletal creature that immediately attacks the foe you designate. You can change its designated target as a move action. Its combat statistics are those of a 2 HD humanoid skeleton, except it also has a wight's energy drain supernatural ability. Casting time is 1 standard action; range Close; target one small pile of debris; duration 1 round per caster level; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. The 2 HD humanoid skeleton and wight energy-drain mechanics remain named Monster Manual references rather than being reconstructed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sticks-and-stones-3284",
+          "role": "primary Shining South catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tongue-serpents-260": {
+      "name": "Tongue Serpents",
+      "sourceSha256": "d579fca8e217f4598c6a8da58eba88bf6ff767190e206d422189ec417253f8d9",
+      "effectSummary": "Transforms your tongue into small serpents that you can spit up to 30 feet. You create one serpent for every four caster levels and can spit each serpent as a standard action. Each serpent makes a bite attack using your melee attack bonus and deals damage as a Tiny viper. At the end of the spell's duration, the serpents become bloody organic matter. Range Personal; duration 1 hour per caster level or until discharged. Material component: a serpent's tongue.",
+      "notes": "Manually source-reviewed and digest-locked. The Tiny viper's underlying statistics and bite damage remain a Monster Manual reference and are intentionally not invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tongue-serpents-260",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spider-hand-257": {
+      "name": "Spider Hand",
+      "sourceSha256": "c76f454f4b7f365eeff015c46903b29d141e04a8ef132cd1b281a895bf2f7fbb",
+      "effectSummary": "Detaches your hand and transforms it into a Small monstrous spider under your control. You can see through its eyes, and it can travel up to 20 feet per caster level away from you. If the spider is killed or cannot return before the spell ends, your hand is restored but you take 1d6 damage. If you direct it back to your arm as a move-equivalent action and then end the spell, you take no damage. Range Personal; duration concentration up to 1 minute per caster level.",
+      "notes": "Manually source-reviewed and digest-locked. The spell's transformation/control consequences are explicit; the Small monstrous spider stat block remains an external Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-hand-257",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/grim-revenge-208": {
+      "name": "Grim Revenge",
+      "sourceSha256": "2e255695833e234ca08668d65cc96529ab8a399c90b3d741b88f9ece9c422aeb",
+      "effectSummary": "Tears one hand from a living humanoid target, dealing 6d6 damage and leaving a bloody stump. The severed hand animates and attacks its former owner using a wight's statistics, special attacks, and special qualities, except that it is Tiny and gains +4 AC and +4 on attack rolls. It can be turned or rebuked as a wight. If the hand is defeated, only regenerate can restore the victim to normal. Casting time is 1 standard action; range Medium; Fortitude negates; spell resistance applies.",
+      "notes": "Manually source-reviewed and digest-locked. Wight statistics and abilities remain an external Monster Manual reference; only the spell's explicit Tiny-size and +4 modifications are recorded.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/grim-revenge-208",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/summon-devoted-roc-3110": {
+      "name": "Summon Devoted Roc",
+      "sourceSha256": "c98355b35387e80f010ceeb50b1871e56d09525cce807c1cec7c9f691281a8bb",
+      "effectSummary": "Summons one particularly powerful roc into a space large enough for a Gargantuan creature. It appears where designated and acts immediately on your turn. You can command it telepathically as a free action and direct its actions as desired. It uses normal roc statistics plus a +5 enhancement bonus on attack rolls, damage rolls, and saving throws; its natural weapons count as magic for overcoming damage reduction. Casting time is 1 full round; range Close; duration 1 hour per caster level (D); saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. The spell's explicit +5 and magic-natural-weapon modifications are preserved; base roc statistics remain a Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-devoted-roc-3110",
+          "role": "primary Races of the Wild catalog record and digest source"
+        }
+      ]
+    },
+    "spells/summon-pest-swarm-356": {
+      "name": "Summon Pest Swarm",
+      "sourceSha256": "4c9a48f8b353e3680a03718c7d6b8d22ea424974120d20fa71b5b8320c3e26e5",
+      "effectSummary": "Creates one pest swarm of small mammals, birds, and vermin. The swarm remains in place unless you actively direct it, which costs you a move action. If it moves beyond the spell's range, it disappears. It acts at the beginning of your turn and attacks any creature other than you that occupies all or part of its space. Casting time is 1 full round; range Long; duration 1 round per caster level (D); saving throw none; spell resistance no. Arcane material component: teeth, claws, and mandibles from urban pests.",
+      "notes": "Manually source-reviewed and digest-locked. The swarm's spell-specific movement/control behavior is explicit; the external pest-swarm stat block remains a Cityscape reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-pest-swarm-356",
+          "role": "primary Cityscape catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mephit-mob-3135": {
+      "name": "Mephit Mob",
+      "sourceSha256": "12e5f274d326d776f6d4e203f07b8bb170be69b0c9dabecaab5c923294b0c70b",
+      "effectSummary": "Summons 2d6 mephits of one kind you designate. They appear where chosen and act immediately on your turn, attacking opponents to the best of their ability; if you can communicate with them, you can redirect them or give other instructions. You can dismiss them singly or in groups. Summoned mephits cannot summon or conjure other creatures, cannot use teleportation or planar-travel abilities, and cannot be summoned into an environment that cannot support them. Summoning an air, earth, fire, or water mephit gives the spell the corresponding descriptor. Casting time is 1 minute; range Medium; summoned creatures must be within 30 feet of each other; duration 10 minutes per caster level (D); no save; no spell resistance.",
+      "notes": "Manually source-reviewed and digest-locked. Mephit statistics remain external Monster Manual/Sandstorm references; the spell's control, dismissal, travel restrictions, and descriptor behavior are fully preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mephit-mob-3135",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shambler-2435": {
+      "name": "Shambler",
+      "sourceSha256": "0a9197d7f33ae53831b89bc98973bf57cc3de618215a9a0462ac2ed4ce3f0d10",
+      "effectSummary": "Creates 1d4+2 shambling mounds with 11 HD each. They willingly aid you in battle, perform a specific mission, or serve as bodyguards and normally remain for seven days unless dismissed. If created only for guard duty, they remain for seven months, can only guard a specific site or location, and cannot move outside the spell's range measured from where each first appeared. They have their normal fire resistance only in rainy, marshy, or damp terrain. Casting time is 1 standard action; range Medium; the shamblers appear within 30 feet of each other; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. The spell fixes creature count, HD, service options, guard restrictions, and terrain-dependent fire resistance; all other shambling-mound statistics remain an external Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shambler-2435",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/otyugh-swarm-4618": {
+      "name": "Otyugh Swarm",
+      "sourceSha256": "9c05ad501ac0a261642dac288929b048b33ca4dfaf048fd0609b9091a83f8f41",
+      "effectSummary": "Creates otyughs from at least 6,000 pounds of sewage, refuse, or offal. You choose either 3d4 ordinary otyughs or 1d3+1 Huge 15-HD otyughs. They willingly aid you in battle, perform a specific mission, or serve as bodyguards and normally remain for seven days unless dismissed. If created only for guard duty, they remain for seven months, must guard a specific site or location, and cannot move outside the spell's range. Non-guard otyughs can leave the refuse area at your command. Casting time is 1 standard action; range Medium; no two created otyughs can be more than 30 feet apart; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. Creature counts, 15-HD Huge option, service modes, duration, and refuse requirement are explicit; underlying otyugh statistics remain Monster Manual references.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otyugh-swarm-4618",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "16512a63992629c0b125446091429e93aac96823",
+    "workflowRun": 35770674492,
+    "validationRun": 35770680036,
+    "classificationArtifact": 10713499897,
+    "classificationArtifactSha256": "ecfe637c4965288a75ee2df4ac54a66aed092aa52576764b3e6b0cce40d375ca",
+    "queueCountBefore": 151,
+    "referenceQueueCountBefore": 151,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

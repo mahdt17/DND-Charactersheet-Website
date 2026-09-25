@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-1",
+  "records": {
+    "wikidot5e:wondrous-items:insignia-of-claws": {
+      "sourceDigest": "sha256:50c40e4c36ff66c4ea2e66aaccb456fbecbabaa55eb592c7870ac81688e33b4e",
+      "effectSummary": "While worn, your unarmed strikes and natural weapons gain +1 to attack and damage rolls and count as magical for overcoming resistance and immunity to nonmagical attacks."
+    },
+    "wikidot5e:wondrous-items:instrument-of-illusions": {
+      "sourceDigest": "sha256:04920dae1077fd2a1a451dd3610f22eef795091634ff96ef229ffee52e83e002",
+      "effectSummary": "While playing the instrument, create harmless, obviously illusory visual effects in a 5-foot-radius sphere centered on it, or 15 feet if you are a bard. The effects have no substance or sound and end when you stop playing."
+    },
+    "wikidot5e:wondrous-items:instrument-of-scribing": {
+      "sourceDigest": "sha256:76213ba701d8fb81fda20cd6fa3de6494ee5b58e87c5c645be7b9d0708ea37f4",
+      "effectSummary": "The instrument has 3 charges, all restored daily at dawn. While playing, use an action and 1 charge to inscribe a magical message of up to six words on a visible nonmagical object or surface within 30 feet, in a language you know. If you are a bard, the message can contain seven additional words and may glow faintly so it is visible in nonmagical darkness. Dispel magic erases it; otherwise it fades after 24 hours."
+    },
+    "wikidot5e:wondrous-items:instrument-of-the-bards": {
+      "sourceDigest": "sha256:99ca8abe87ee0652703901c3f7dfad993ccfcd8cca961a0fa7a5db52e667e84c",
+      "effectSummary": "Bard-only attunement. A non-attuned creature attempting to play makes DC 15 Wisdom or takes 2d4 psychic. As an action, cast one listed spell; each spell is usable once per dawn and uses your spellcasting ability/save DC. While playing the instrument as part of casting a spell that can charm on a failed save and has somatic or material components, targets have disadvantage on that save. Every instrument casts fly, invisibility, levitate, and protection from evil and good, plus type-specific spells: Anstruth harp (very rare) control weather, cure wounds 5th level, wall of thorns; Canaith mandolin (rare) cure wounds 3rd, dispel magic, protection from energy (lightning only); Cli lyre (rare) stone shape, wall of fire, wind wall; Doss lute (uncommon) animal friendship, protection from energy (fire only), protection from poison; Fochlucan bandore (uncommon) entangle, faerie fire, shillelagh, speak with animals; Mac-Fuirmidh cittern (uncommon) barkskin, cure wounds, fog cloud; Ollamh harp (legendary) confusion, control weather, fire storm."
+    },
+    "wikidot5e:wondrous-items:ioun-stone": {
+      "sourceDigest": "sha256:d94c2d8969d11373464a9a5e14fd91809cd2b0e8c1212e0be60f2c624181ab98",
+      "effectSummary": "As an action, toss an Ioun stone to orbit 1d3 feet from your head; another creature can remove it only with an action and either an attack against AC 24 or DC 24 Dexterity (Acrobatics). You may seize and stow it as an action. While orbiting it is worn; each stone has AC 24, 10 HP, resistance to all damage. Types: Absorption (very rare), reaction cancels visible caster's spell level 4 or lower targeting only you, burns out after 20 cumulative spell levels; Agility +2 Dexterity max 20; Awareness cannot be surprised; Fortitude +2 Constitution max 20; Greater Absorption (legendary) same as Absorption for level 8 or lower, 50 total levels; Insight +2 Wisdom max 20; Intellect +2 Intelligence max 20; Leadership +2 Charisma max 20; Mastery +1 proficiency bonus; Protection +1 AC; Regeneration regain 15 HP each hour if at 1+ HP; Reserve stores up to 3 spell levels, found with 1d4-1 levels, any creature can store 1st–3rd-level spells by touching it during casting, and while orbiting you may cast stored spells using original caster's slot level, DC, attack bonus, and ability; Strength +2 Strength max 20; Sustenance no need to eat or drink; Historical Knowledge gain History proficiency or +1 if already proficient; Language Knowledge gain one DM-chosen language; Natural Knowledge gain Nature proficiency or +1 if already; Religious Knowledge gain Religion proficiency or +1 if already; Self-Preservation +1 Intelligence saves; Supreme Intellect +1 Intelligence checks."
+    },
+    "wikidot5e:wondrous-items:iron-bands-of-bilarro": {
+      "sourceDigest": "sha256:d52bad9c4c3bafbdc0229105323f83b0930fc8c78e64a880daae9b8a26662a73",
+      "effectSummary": "Once per dawn as an action, speak the command word and throw the sphere at a visible Huge-or-smaller creature within 60 feet, making a ranged attack with Dexterity modifier + proficiency. On hit, it becomes metal bands that restrain the target until you use a bonus action to repeat the command; on miss or release it reforms as a sphere. Any creature may use an action to make DC 20 Strength to break the bands; success destroys them and frees the target. If that creature fails, all its further break attempts automatically fail for 24 hours."
+    },
+    "wikidot5e:wondrous-items:iron-flask": {
+      "sourceDigest": "sha256:7a5aa52d42ec838a420a4ad20999acb38602639087dd37c2925fdb4aa5dc6d0a",
+      "effectSummary": "As an action, speak the command word and target a visible creature within 60 feet that is native to another plane; DC 17 Wisdom or it is trapped in the flask, with advantage if it has previously been trapped by this flask. The flask holds one creature, which while trapped need not breathe/eat/drink and does not age. As an action, remove the stopper to release it; for 1 hour it is friendly, obeys non-suicidal commands, and otherwise defends itself, after which it resumes normal disposition. Identify reveals whether something is inside but not its type. A newly found flask may contain, by d100: 01–50 empty; 51 arcanaloth; 52 cambion; 53–54 dao; 55–57 type 1 demon; 58–60 type 2; 61–62 type 3; 63–64 type 4; 65 type 5; 66 type 6; 67 deva; 68–69 greater devil; 70–72 lesser devil; 73–74 djinni; 75–76 efreeti; 77–78 elemental; 79 githyanki knight; 80 githzerai zerth; 81–82 invisible stalker; 83–84 marid; 85–86 mezzoloth; 87–88 night hag; 89–90 nycaloth; 91 planetar; 92–93 salamander; 94–95 slaad; 96 solar; 97–98 succubus/incubus; 99 ultroloth; 00 xorn."
+    },
+    "wikidot5e:wondrous-items:ironfang": {
+      "sourceDigest": "sha256:1ce7b8c1cf03b0f3b7c137e7eeae277f22f1c7664ee5635422ab63a670afddf1",
+      "effectSummary": "Legendary +2 war pick immune to rust, acid, and corrosion; hits deal +1d8 thunder. While held: speak Terran, gain acid resistance and 60-foot tremorsense, and sense presence—but not exact location—of precious metals/stones within 60 feet. Once per dawn, cast dominate monster at save DC 17 targeting an earth elemental. It has 3 charges, regains 1d3 daily at dawn, and as an action spends 1 to cast shatter at 2nd level, DC 17. While inside an earth node, once per dawn perform the Rumbling ritual to create an earth devastation orb using normal time/cost. Flaw while attuned: you enjoy breaking things and causing ruin."
+    },
+    "wikidot5e:wondrous-items:javelin-of-lightning": {
+      "sourceDigest": "sha256:b9ddf2ebeb8206034ba51a9a6ba09b7718e7f2e65186ba4aaf8b50049aae1994",
+      "effectSummary": "Once per dawn when you throw the magic javelin and speak its command word, it becomes a 5-foot-wide lightning line from you to a target within 120 feet. Other creatures in the line make DC 13 Dexterity, taking 4d6 lightning on failure or half on success. At the target it becomes a javelin again; make the ranged weapon attack normally, and on hit the target takes normal javelin damage +4d6 lightning. Between uses it remains a magic weapon."
+    },
+    "wikidot5e:wondrous-items:jesters-mask": {
+      "sourceDigest": "sha256:2d21c30496ce7b581e0dd1698bba7e41686b048020860fda4245e8fc0b1bdcf7",
+      "effectSummary": "While worn by an attuned bard, sorcerer, or warlock, use it as a spellcasting focus and gain +3 to spell attack rolls and spell save DCs that use Charisma. Once per dawn when an attack hits you, use your reaction to take no damage and teleport with worn/carried gear to a visible unoccupied space within 30 feet. Separately once per dawn, when you roll a natural 1 on a d20, treat it as a natural 20 instead."
+    }
+  }
+}

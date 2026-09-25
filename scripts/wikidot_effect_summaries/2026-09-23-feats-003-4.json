@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-003-4",
+  "records": {
+    "wikidot5e:feat:quicksmithing": {
+      "sourceDigest": "sha256:c435fe89969d4efa852114ccbad43a96eed95db90ddd0be941f7c13bb2302c21",
+      "effectSummary": "Master two magical effects, each reproducing a 1st-level ritual-tag spell from any class list, using Intelligence as the spellcasting ability. You can learn additional ritual-tag spells from quicksmithing schematics or another quicksmith if their level is no higher than half your level rounded up, spending 2 hours and 50 gp per spell level. Gain proficiency with quicksmith's tools. With 1 hour and 10 gp of materials, create a Tiny clockwork device with AC 5 and 1 HP that functions for 24 hours unless maintained; you may have up to three active and dismantle one as an action to recover its materials. Choose each device as a random-moving noisy clockwork toy, an action-operated fire starter, or a music box that plays one song."
+    },
+    "wikidot5e:feat:remarkable-recovery": {
+      "sourceDigest": "sha256:f25562c4178d03316af9f6ce0ed63ac564b7f46262df9393190c53567c82f5dd",
+      "effectSummary": "Increase Constitution by 1, maximum 20. When successfully stabilized while dying, regain HP equal to your Constitution modifier, minimum 1. Whenever you regain HP from a spell, potion, or class feature other than this feat, regain additional HP equal to your Constitution modifier, minimum 1."
+    },
+    "wikidot5e:feat:resilient": {
+      "sourceDigest": "sha256:16cfee05e0bc15b0dc4f515285af5224b140a6b89b0b3013622bf8e5124f75fa",
+      "effectSummary": "Choose one ability score. Increase it by 1, maximum 20, and gain proficiency in saving throws using that ability."
+    },
+    "wikidot5e:feat:revenant-blade": {
+      "sourceDigest": "sha256:c2e318beb79f63fb1222f92f09691bcc843696dfaeb5d8ba5394e279652f9c74",
+      "effectSummary": "Increase Dexterity or Strength by 1, maximum 20. While holding a double-bladed scimitar in two hands, gain +1 AC. A double-bladed scimitar gains the finesse property for you."
+    },
+    "wikidot5e:feat:righteous-heritor": {
+      "sourceDigest": "sha256:b07bcf562caeb7a476d622933efbbccbb2fbadd6ef3e56bc0dce00f36f75e70e",
+      "effectSummary": "Increase one ability score by 1, maximum 20. When you or a creature within 30 feet takes damage, use your reaction to reduce the damage by 1d10 + proficiency bonus. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:righteous-heritor-ua": {
+      "sourceDigest": "sha256:6cc8a0590b1c45ad1bcfbe20a1c2389481e81bd393b4983a3c28f66a6ed7dede",
+      "effectSummary": "Increase one ability score by 1, maximum 20. When you or a visible creature within 30 feet takes damage, use your reaction to reduce the damage by 1d10 + proficiency bonus. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:ritual-caster": {
+      "sourceDigest": "sha256:f8404150f406a56b21d21a330e02416c8805b42b46a478a9dffabf8c28bbda25",
+      "effectSummary": "Choose bard, cleric, druid, sorcerer, warlock, or wizard and gain a ritual book containing two 1st-level ritual-tag spells from that class list. The chosen class sets the spellcasting ability: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; Intelligence for wizard. You may copy additional written ritual spells from that list if the spell level is no higher than half your level rounded up, spending 2 hours and 50 gp per spell level."
+    },
+    "wikidot5e:feat:rune-carver-adept-revised-ua": {
+      "sourceDigest": "sha256:9d6201926014bee65bd9beff7b5349a2f362b89d3241e5b504d852340908e408",
+      "effectSummary": "Increase by 1, maximum 20, the spellcasting ability chosen for Rune Carver Apprentice. When you cast a Rune Spells-table spell or a spell whose school matches the spell marked on your Rune Carver Apprentice object, you may invoke one runic benefit: give a visible creature within 30 feet advantage on its next attack before the end of its next turn; give a visible creature temporary HP equal to your level; or give a visible creature +10 feet walking speed and no opportunity attacks from its movement until the end of its turn. Uses equal proficiency bonus per long rest, no more than once per spell cast."
+    },
+    "wikidot5e:feat:rune-carver-adept-ua": {
+      "sourceDigest": "sha256:a5900bc8a8af0619e64b16b25e2b2fdedd97b168a1a8c6c45fd6b23902a96665",
+      "effectSummary": "After each long rest, you may mark a number of objects equal to proficiency bonus with different runes from Rune Carver Apprentice. An object can bear only one rune at a time, and each marked object must use a different rune."
+    },
+    "wikidot5e:feat:rune-carver-apprentice-revised-ua": {
+      "sourceDigest": "sha256:f6ac2b0c3c011312e6134ddf4bbc6e786173bdac825ddca9d6f751f7fec44e07",
+      "effectSummary": "Learn comprehend languages and cast it once without a slot per long rest and also with slots. Learn two runes, replaceable one at a time whenever you gain a level. After each long rest, mark one nonmagical object with a known rune and temporarily learn its 1st-level spell until the next long rest: Death—ray of sickness; Dragon—chromatic orb; Enemy—disguise self; Friend—speak with animals; Journey—longstrider; King—command; Mountain—entangle; Sacred—sanctuary. While wearing or carrying the marked object, cast that rune spell once without a slot or material components and also with appropriate slots. Choose Intelligence, Wisdom, or Charisma as the feat's spellcasting ability."
+    }
+  }
+}

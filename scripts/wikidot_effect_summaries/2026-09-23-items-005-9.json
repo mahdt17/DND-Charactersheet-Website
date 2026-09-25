@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-9",
+  "records": {
+    "wikidot5e:wondrous-items:robe-of-serpents": {
+      "sourceDigest": "sha256:78bdce120decb3ea3650abf636f5e7774c65ea92be63197918faf55834517f87",
+      "effectSummary": "The robe has 1d4+3 embroidered serpents. As a bonus action, detach one to become a giant poisonous snake in an open space next to you. It acts on your initiative, distinguishes friends from foes and attacks hostile creatures. It disappears after 1 hour, at 0 HP, or when dismissed without an action. A detached snake never returns; when all are gone, the robe becomes nonmagical."
+    },
+    "wikidot5e:wondrous-items:robe-of-stars": {
+      "sourceDigest": "sha256:a4fdd975674df0385aeb7cb0e1ad4d9c7943c37b8bb74400d9a473cb45150615",
+      "effectSummary": "While worn, gain +1 to saving throws. Six large stars can each be pulled off as an action to cast magic missile at 5th level; 1d6 removed stars reappear each dusk. As an action while wearing it, enter the Astral Plane with worn/carried gear; remain until using an action to return to your last occupied space or nearest open space."
+    },
+    "wikidot5e:wondrous-items:robe-of-summer": {
+      "sourceDigest": "sha256:2f6079f1d3b5d3c826a0958bdf5572440db7e601928218de8a2ee40607fa09dd",
+      "effectSummary": "While worn, gain cold resistance and remain comfortable in temperature extremes as though in balmy weather, suffering no harmful effects from ambient hot or cold weather."
+    },
+    "wikidot5e:wondrous-items:robe-of-the-archmagi": {
+      "sourceDigest": "sha256:1752065c9d5ea651926622b3a000142f180d1820ce07c52a5e301b17399854af",
+      "effectSummary": "Attunable by sorcerer, warlock, or wizard only if alignment matches robe color: white good, gray neutral, black evil. While worn, if unarmored your base AC is 15 + Dexterity modifier; gain advantage on saves against spells and other magical effects; increase spell save DC and spell attack bonus by 2."
+    },
+    "wikidot5e:wondrous-items:robe-of-useful-items": {
+      "sourceDigest": "sha256:575c9857206f317d44e991d5760bf5e022db4e4a2725081ef037897c76946703",
+      "effectSummary": "While wearing it, use an action to detach a patch and permanently turn it into the depicted object/creature; after the last patch the robe becomes ordinary. It has two each: dagger, filled/lit bullseye lantern, steel mirror, 10-foot pole, 50-foot hemp rope, sack. It also has 4d4 random patches: d100 01–08 bag 100 gp; 09–15 silver coffer worth 500 gp; 16–22 iron door up to 10×10 feet placed into a reachable opening, barred on a chosen side; 23–30 ten 100-gp gems; 31–44 24-foot wooden ladder; 45–51 saddled riding horse; 52–59 10-foot-cube pit placed on ground within 10 feet; 60–68 four potions of healing; 69–75 12-foot rowboat; 76–83 1st–3rd-level spell scroll; 84–90 two mastiffs; 91–96 2-by-4-foot window up to 2 feet deep placed on reachable vertical surface; 97–00 portable ram."
+    },
+    "wikidot5e:wondrous-items:rod-of-absorption": {
+      "sourceDigest": "sha256:84449e21f28dbab8aa32e06098da3bc6f9903ef6c0922719715427ab8ded71e6",
+      "effectSummary": "While holding it, use your reaction to absorb a spell targeting only you rather than an area; the spell is canceled and its cast level becomes stored energy. The rod can absorb at most 50 spell levels over its entire existence and cannot absorb a spell that would exceed this lifetime limit. On attunement, you know lifetime absorbed and currently stored levels. A spellcaster holding it may spend stored levels as spell slots to cast known/prepared spells, only at levels you normally have and maximum 5th level. A newly found rod has 1d10 stored levels. Once it has absorbed 50 lifetime levels and later has no stored energy, it becomes nonmagical."
+    },
+    "wikidot5e:wondrous-items:rod-of-alertness": {
+      "sourceDigest": "sha256:c677196c92d67b3bfd265c2829b824380a3ba01be91f5caedd497a4b6095ee5b",
+      "effectSummary": "While holding it, gain advantage on Wisdom (Perception) and initiative. As an action while holding it, cast detect evil and good, detect magic, detect poison and disease, or see invisibility. Once per dawn as an action, plant it in the ground to shed bright light 60 feet/dim another 60 for up to 10 minutes; within bright light, you and friendly creatures gain +1 AC and saves and sense the locations of invisible hostile creatures also in the bright light. The effect ends after 10 minutes or when anyone uses an action to pull up the rod."
+    },
+    "wikidot5e:wondrous-items:rod-of-hellish-flames": {
+      "sourceDigest": "sha256:4f364c3e997bff7446d950514b87a8bd45d23ff4ad687f46b8e6806ee09970fa",
+      "effectSummary": "Functions as an arcane focus. While holding it, gain fire and necrotic resistance. Once per dawn, cast hellish rebuke at 4th level, save DC 16. Separately once per dawn, when you cast a spell dealing fire or necrotic damage, use the rod to deal maximum damage instead of rolling."
+    },
+    "wikidot5e:wondrous-items:rod-of-lordly-might": {
+      "sourceDigest": "sha256:002cf81cd1dd78559e7d2275ab8034deda71494c4ea5c329aa7f53ee659c232e",
+      "effectSummary": "Legendary +3 magic mace with six bonus-action forms until another button or the same button is pressed: 1 becomes a flame tongue of a chosen sword type; 2 +3 battleaxe; 3 +3 spear with 6-foot haft; 4 climbing pole up to 50 feet with granite-capable anchors, ladder rungs, and 4,000-pound capacity; 5 handheld battering ram granting +10 Strength checks to break barriers; 6 normal rod that indicates magnetic north and approximate depth/height. Once per dawn on a melee hit, force DC 17 Constitution; failure deals +4d6 necrotic and heals you for half that necrotic. Separately once per dawn on a melee hit, force DC 17 Strength; failure paralyzes 1 minute, repeating save each turn end. Separately once per dawn as an action, creatures you can see within 30 feet make DC 17 Wisdom or are frightened of you 1 minute, repeating at each turn end."
+    },
+    "wikidot5e:wondrous-items:rod-of-resurrection": {
+      "sourceDigest": "sha256:fae98b2e310923cc0105317368b03f399cff4449aa0e37c1fb934a778803bfda",
+      "effectSummary": "Attunable by cleric, druid, or paladin. Has 5 charges and regains 1 daily at dawn. While holding it, use an action to cast heal for 1 charge or resurrection for 5 charges. If reduced to 0 charges, roll d20; on 1 it vanishes in radiance."
+    }
+  }
+}

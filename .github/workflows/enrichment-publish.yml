@@ -1,0 +1,245 @@
+name: Promote verified enrichment catalog
+
+on:
+  push:
+    branches: [codex/content-foundation]
+    paths:
+      - ".github/enrichment-publish.request"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: enrichment-publish
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Parse promotion request
+        id: request
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          request=json.load(open(".github/enrichment-publish.request",encoding="utf-8"))
+          required=("auditRunId","artifactId","artifactDigest","auditHeadSha")
+          missing=[key for key in required if not request.get(key)]
+          if missing:
+              raise SystemExit("Missing promotion request keys: "+", ".join(missing))
+          with open(os.environ["GITHUB_OUTPUT"],"a",encoding="utf-8") as out:
+              print(f"run_id={request['auditRunId']}",file=out)
+              print(f"artifact_id={request['artifactId']}",file=out)
+              print(f"artifact_digest={request['artifactDigest']}",file=out)
+              print(f"audit_head={request['auditHeadSha']}",file=out)
+          PY
+
+      - name: Verify branch only advanced by promotion control files
+        shell: bash
+        env:
+          AUDIT_HEAD: ${{ steps.request.outputs.audit_head }}
+        run: |
+          git cat-file -e "$AUDIT_HEAD^{commit}"
+          mapfile -t changed < <(git diff --name-only "$AUDIT_HEAD"..HEAD)
+          for path in "${changed[@]}"; do
+            case "$path" in
+              .github/workflows/enrichment-publish.yml|.github/enrichment-publish.request) ;;
+              *)
+                echo "Refusing promotion: unaudited path changed after audited head: $path"
+                exit 1
+                ;;
+            esac
+          done
+
+      - name: Verify artifact identity
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_ARTIFACT_ID: ${{ steps.request.outputs.artifact_id }}
+          EXPECTED_DIGEST: ${{ steps.request.outputs.artifact_digest }}
+          EXPECTED_RUN_ID: ${{ steps.request.outputs.run_id }}
+          EXPECTED_HEAD: ${{ steps.request.outputs.audit_head }}
+        run: |
+          python - <<'PY'
+          import json, os, subprocess
+          artifact_id=os.environ["EXPECTED_ARTIFACT_ID"]
+          raw=subprocess.check_output([
+              "gh","api",f"repos/{os.environ['GITHUB_REPOSITORY']}/actions/artifacts/{artifact_id}"
+          ],text=True)
+          artifact=json.loads(raw)
+          if artifact.get("name")!="enrichment-candidate-output":
+              raise SystemExit("Unexpected artifact name")
+          if artifact.get("expired"):
+              raise SystemExit("Artifact is expired")
+          if artifact.get("digest")!=os.environ["EXPECTED_DIGEST"]:
+              raise SystemExit(f"Artifact digest mismatch: {artifact.get('digest')}")
+          workflow=artifact.get("workflow_run") or {}
+          if str(workflow.get("id"))!=os.environ["EXPECTED_RUN_ID"]:
+              raise SystemExit("Artifact workflow run mismatch")
+          if workflow.get("head_sha")!=os.environ["EXPECTED_HEAD"]:
+              raise SystemExit("Artifact audited-head mismatch")
+          print("Artifact identity verified:",artifact_id,artifact["digest"])
+          PY
+
+      - name: Download exact audited candidate artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: enrichment-candidate-output
+          path: verified-release
+          repository: ${{ github.repository }}
+          run-id: ${{ steps.request.outputs.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Verify audited release and candidate contents
+        shell: bash
+        env:
+          AUDIT_HEAD: ${{ steps.request.outputs.audit_head }}
+          AUDIT_RUN_ID: ${{ steps.request.outputs.run_id }}
+          ARTIFACT_ID: ${{ steps.request.outputs.artifact_id }}
+          ARTIFACT_DIGEST: ${{ steps.request.outputs.artifact_digest }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+
+          root=Path("verified-release")
+          report=json.loads((root/"enrichment-release-audit.json").read_text(encoding="utf-8"))
+          expected={
+              "3.5/classes":1054,
+              "3.5/feats":3666,
+              "3.5/spells":5035,
+              "3.5/items":1455,
+              "3.5/equipment":65,
+              "5e/classes":13,
+              "5e/spells":574,
+              "5e/feats":199,
+              "5e/items":830,
+          }
+          required_flags={
+              "readOnly":True,
+              "fullCatalog":True,
+              "fullScopeForSelectedCategories":True,
+              "strictGameplayCompleteness":True,
+              "sourceExtractionVerified":True,
+              "outputCompletenessVerified":True,
+              "releaseReady":True,
+              "passed":True,
+          }
+          for key,value in required_flags.items():
+              if report.get(key) is not value:
+                  raise SystemExit(f"Release audit flag failed: {key}={report.get(key)!r}")
+          if report.get("criticalMissingCount")!=0 or report.get("errors") not in ([],None):
+              raise SystemExit("Release audit contains critical gaps/errors")
+          if float(report.get("minimumRate",0)) < 1.0:
+              raise SystemExit("Release audit minimum rate is below 100%")
+
+          rows_by_category={row["category"]:row for row in report.get("categories",[])}
+          if set(rows_by_category)!=set(expected):
+              raise SystemExit("Release audit category set mismatch")
+          for category,count in expected.items():
+              row=rows_by_category[category]
+              if row.get("total")!=count or row.get("passed")!=count or row.get("failed")!=0 or float(row.get("successRate",0))!=1.0:
+                  raise SystemExit(f"Release audit failed exact count check for {category}: {row}")
+
+          files={
+              "3.5/classes":root/"candidates/dndtools/classes.json",
+              "3.5/feats":root/"candidates/dndtools/feats.json",
+              "3.5/spells":root/"candidates/dndtools/spells.json",
+              "3.5/items":root/"candidates/dndtools/items.json",
+              "3.5/equipment":root/"candidates/dndtools/equipment.json",
+              "5e/classes":root/"candidates/wikidot5e/classes.json",
+              "5e/spells":root/"candidates/wikidot5e/spells.json",
+              "5e/feats":root/"candidates/wikidot5e/feats.json",
+              "5e/items":root/"candidates/wikidot5e/items.json",
+          }
+          for category,path in files.items():
+              data=json.loads(path.read_text(encoding="utf-8"))
+              if not isinstance(data,list) or len(data)!=expected[category]:
+                  raise SystemExit(f"Candidate count mismatch for {category}")
+              ids=[row.get("id") for row in data]
+              if any(not value for value in ids) or len(ids)!=len(set(ids)):
+                  raise SystemExit(f"Candidate IDs missing/duplicated for {category}")
+
+          if sum(expected.values())!=12891:
+              raise SystemExit("Unexpected release total")
+          print("Verified release: 12,891 / 12,891 records, 0 failures.")
+          PY
+
+      - name: Promote exact verified files into repository catalogs
+        shell: bash
+        env:
+          AUDIT_HEAD: ${{ steps.request.outputs.audit_head }}
+          AUDIT_RUN_ID: ${{ steps.request.outputs.run_id }}
+          ARTIFACT_ID: ${{ steps.request.outputs.artifact_id }}
+          ARTIFACT_DIGEST: ${{ steps.request.outputs.artifact_digest }}
+        run: |
+          set -euo pipefail
+          mkdir -p public/catalogs/dndtools public/catalogs/wikidot5e
+          cp verified-release/candidates/dndtools/{classes,feats,spells,items,equipment}.json public/catalogs/dndtools/
+          cp verified-release/candidates/wikidot5e/{classes,spells,feats,items}.json public/catalogs/wikidot5e/
+          cp verified-release/enrichment-release-audit.json public/catalogs/enrichment-release-audit.json
+
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+
+          evidence={
+              "verified":True,
+              "releaseReady":True,
+              "auditHeadSha":os.environ["AUDIT_HEAD"],
+              "auditRunId":int(os.environ["AUDIT_RUN_ID"]),
+              "artifactId":int(os.environ["ARTIFACT_ID"]),
+              "artifactDigest":os.environ["ARTIFACT_DIGEST"],
+              "totalRecords":12891,
+              "criticalMissingCount":0,
+          }
+
+          dnd_manifest_path=Path("public/catalogs/dndtools/manifest.json")
+          dnd=json.loads(dnd_manifest_path.read_text(encoding="utf-8"))
+          dnd["enrichmentAudit"]=evidence
+          dnd_manifest_path.write_text(json.dumps(dnd,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+
+          wikidot_counts={"classes":13,"spells":574,"feats":199,"items":830}
+          wikidot={
+              "source":"https://dnd5e.wikidot.com",
+              "kind":"structured-reference-index",
+              "complete":True,
+              "categories":[{"id":key,"count":value} for key,value in wikidot_counts.items()],
+              "enrichmentAudit":evidence,
+          }
+          Path("public/catalogs/wikidot5e/manifest.json").write_text(
+              json.dumps(wikidot,indent=2,ensure_ascii=False)+"\n",encoding="utf-8"
+          )
+
+          status=Path("docs/ENRICHMENT_STATUS.md")
+          current=status.read_text(encoding="utf-8")
+          current=current.replace(
+              "Live/catalog writes: **LOCKED**",
+              "Live/catalog writes: **VERIFIED RELEASE PROMOTED TO REPOSITORY STATIC CATALOGS**",
+              1,
+          )
+          section=f"""## Global nine-category release audit — COMPLETE and PROMOTED\n\n- Audited head: \`{evidence['auditHeadSha']}\`.\n- Full enrichment audit run: \`{evidence['auditRunId']}\`.\n- Final candidate-output artifact: \`{evidence['artifactId']}\`, digest \`{evidence['artifactDigest']}\`.\n- Exact final release gate: **12,891 / 12,891 passed**, **0 failed**, **100.00%** across all nine required 3.5e/5e categories.\n- \`sourceExtractionVerified: true\`, \`outputCompletenessVerified: true\`, \`releaseReady: true\`, \`criticalMissingCount: 0\`, \`errors: []\`.\n- The exact audited candidate files were promoted into \`public/catalogs/dndtools\` and \`public/catalogs/wikidot5e\`; no re-scrape was used for promotion.\n- Supabase was not modified. Catalog reference data remains repository/static-file backed.\n- PR #4 remains open and unmerged pending post-promotion validation.\n\n"""
+          anchor="## 3.5 equipment category — COMPLETE under both independent gates"
+          if "## Global nine-category release audit — COMPLETE and PROMOTED" not in current:
+              current=current.replace(anchor,section+anchor,1)
+          status.write_text(current,encoding="utf-8")
+          PY
+
+      - name: Commit promoted catalogs
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/catalogs docs/ENRICHMENT_STATUS.md
+          git diff --cached --stat
+          git diff --cached --quiet && { echo "No catalog changes to commit."; exit 0; }
+          git commit -m "Promote verified enrichment catalogs"
+          git push origin HEAD:codex/content-foundation

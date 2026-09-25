@@ -1,0 +1,614 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record item effect batch 003. Source-damaged, inherited-with-missing-context, and structurally ambiguous records remain deferred.",
+  "reviewCheckpoint": {
+    "head": "1d5a64c86886d092d4f54fbacca70775c26cceef",
+    "run": 35791739766,
+    "artifact": 10722157065,
+    "artifactSha256": "c930bbb0b37538233529d53f8bb423779d43198fb0d8ca6b90c575af1cb3074b",
+    "remainingBefore": 1103,
+    "errors": []
+  },
+  "entries": {
+    "items/lantern-of-brightness": {
+      "name": "Lantern of Brightness",
+      "sourceSha256": "81f32f4542702cb6436228d4ff13d9bfea568e1b6b1d0a1eb014574557990b75",
+      "effectSummary": "The lantern is continuously illuminated by a light effect. Twice per day it can emit a sunbeam as the spell from a 13th-level caster.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/lantern-of-brightness",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boots-of-tracklessness": {
+      "name": "Boots of Tracklessness",
+      "sourceSha256": "3a49c2c93c277099b781984ef1e2605fb142fee54a14b99d2e822b8c7545e6d5",
+      "effectSummary": "The wearer benefits from pass without trace and can use improved invisibility on themself three times per day.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-of-tracklessness",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/winged-shield-103": {
+      "name": "Winged Shield",
+      "sourceSha256": "aedd015b0c6edbf79c0b39d049445ebb130bdfbd5bccaff84c1f5e61ef9807fc",
+      "effectSummary": "This +3 heavy wooden shield can be commanded once per day to fly while carrying its wielder. It moves 60 feet per round with up to 133 pounds or 40 feet per round with up to 266 pounds.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/winged-shield-103",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/rapier-489": {
+      "name": "Rapier",
+      "sourceSha256": "26a5467016547fd2859d6188f7d9537480c4e97a711380f86b87628f580d9aa3",
+      "effectSummary": "Weapon Finesse can apply Dexterity instead of Strength to attack rolls with a correctly sized rapier even though it is not a light weapon. A rapier cannot be wielded in two hands to gain 1-1/2 times Strength bonus to damage.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/rapier-489",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/shirt-of-the-angels": {
+      "name": "Shirt of the Angels",
+      "sourceSha256": "e6bc362f8272330223178cc7460d666eb1dd66cf26af1eb751110ffab68b6c8e",
+      "effectSummary": "Grants the wearer damage reduction 5/evil.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shirt-of-the-angels",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/aporter-644": {
+      "name": "Aporter",
+      "sourceSha256": "31c50a5118054a8bb5d4b237ac7abe6cfd05e909c08ae6c9da69982c92306dcd",
+      "effectSummary": "Twice per day as a standard action, aporter armor or an aporter shield transports the wearer and their equipment to a visualized or specified location within 800 feet, as psionic dimension door.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/aporter-644",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/burnoose-of-1-001-thorns": {
+      "name": "Burnoose of 1,001 Thorns",
+      "sourceSha256": "c8ad5853017d960c30d3581d7afb7d3c937ff02bca4c1d70ebda6b1640d60b78",
+      "effectSummary": "Once per day by command word, the robe hardens and sprouts thorns, subjecting the wearer to skin of the cactus for 70 minutes.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/burnoose-of-1-001-thorns",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/collision-664": {
+      "name": "Collision",
+      "sourceSha256": "7ce3744f8c5b4e63a3210e32e374c7b1d11d1752e6d9ca479823d0f8203a0fc1",
+      "effectSummary": "A collision weapon deals +5 damage on every successful hit. Bows, crossbows, and slings transfer the extra damage to their ammunition.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/collision-664",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/incense-consecration-429": {
+      "name": "Incense of Consecration",
+      "sourceSha256": "bc9082e732cc2d8d1ea15f9e13158d87f206ede2a88a94bb7b1018d879586398",
+      "effectSummary": "Burning the incense in a censer or thurible creates a movable 20-foot emanation with a consecrate effect. The incense burns for 6 hours and is then exhausted.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/incense-consecration-429",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/medallion-of-thoughts": {
+      "name": "Medallion of Thoughts",
+      "sourceSha256": "2c88d6b0d518ec2300d0cef8fc4029487840a93d3547df61be9b140a0ab46969",
+      "effectSummary": "The wearer can read the thoughts of others as with detect thoughts.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/medallion-of-thoughts",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/armband-of-reduction": {
+      "name": "Armband of Reduction",
+      "sourceSha256": "0f80bf5d710429ef37a1c42ec07a22e2d42ca4115f59dfb972af8f68321f57b5",
+      "effectSummary": "Once per day, the wearer can reduce to one-half normal height as if affected by a reduce spell. The effect lasts 2 hours and can be dismissed at will.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/armband-of-reduction",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bolas-573": {
+      "name": "Bolas",
+      "sourceSha256": "724f995bf2bf6f14b78519358334ac7c104aa8f8c7316ad99c5d25bc3c395259",
+      "effectSummary": "Bolas can be used to make a ranged trip attack. The wielder cannot be tripped during their own trip attempt when using bolas.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bolas-573",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/catseye-brooch": {
+      "name": "Catseye Brooch",
+      "sourceSha256": "8aed929941f21a8643b94ca8f4319394fc78127bc6817053d3a51289d4caea6d",
+      "effectSummary": "Grants a +1 luck bonus on all saving throws and a +4 resistance bonus on saving throws against disease.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/catseye-brooch",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/brooch-shielding-256": {
+      "name": "Brooch of Shielding",
+      "sourceSha256": "e66b2d8e829c19520dc8c91a963f1780c3feb6ac1a8250b03429cdc2dd5302f8",
+      "effectSummary": "The brooch absorbs damage from magic missile effects. It can absorb up to 101 points of such damage in total, after which it melts and becomes useless.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/brooch-shielding-256",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/rope-of-stone": {
+      "name": "Rope of Stone",
+      "sourceSha256": "08bb524f63f8870cc44fcbbd09849091c20df06cc80e0eaca5c8642af152d822",
+      "effectSummary": "By command word, the rope hardens into stone with hardness 8 and 15 hp while retaining its current shape. If broken in either form, it permanently becomes ordinary rope.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/rope-of-stone",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/winged-vest-201": {
+      "name": "Winged Vest",
+      "sourceSha256": "f524a24a1a45b057f83a7774348dbf1f0a039d02078d18dd6d2b638aa2d35617",
+      "effectSummary": "Five times per day, activating the vest grants a fly speed of 60 feet with good maneuverability for 5 rounds.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/winged-vest-201",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/hat-of-anonymity": {
+      "name": "Hat of Anonymity",
+      "sourceSha256": "0d684f8ca27413d49204e7b88f91fcd43de6f5f9cb0d7a05d126f3785871d000",
+      "effectSummary": "While worn, the hat provides continuous nondetection and a +10 bonus on Hide checks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/hat-of-anonymity",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/anchoring-9": {
+      "name": "Anchoring",
+      "sourceSha256": "0c7f754c3d99f273157f413ef9516cd537ad4f29ac505a808899044f95996a90",
+      "effectSummary": "Armor or a shield with this property grants a +5 enhancement bonus on ability checks made to resist bull rush, overrun, or trip attempts.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/anchoring-9",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sunite-sash": {
+      "name": "Sunite Sash",
+      "sourceSha256": "465142bcb6290c84cc81981208d2affaef1c442a7ec76beff7e01d8c3d320b77",
+      "effectSummary": "The wearer gains +2 enhancement to Charisma, +2 deflection to AC, and can create handfire once per day.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sunite-sash",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/trident-550": {
+      "name": "Trident",
+      "sourceSha256": "80ebd4c076f7e69a088afc3f64250882c652efbd8a69699371d04500d112ac5f",
+      "effectSummary": "A trident can be thrown, though with a shorter range increment than a shortspear or spear. If readied against a charge, a successful hit deals double damage to the charging creature.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/trident-550",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/everfresh-bottle": {
+      "name": "Everfresh Bottle",
+      "sourceSha256": "3971e3789dcc526a399723e0439511d4d9ca36e7c21a4a901f042ac0ca373c43",
+      "effectSummary": "Water placed in the bottle becomes pure drinking water; poisons and holy or unholy water also become ordinary drinking water. Magic potions are unaffected.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/everfresh-bottle",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/lurker-cloak": {
+      "name": "Lurker Cloak",
+      "sourceSha256": "f90e93bd816a45ce7665e5faf970c93fef92c9b87290e25ac7f0c0f85048dd7f",
+      "effectSummary": "Twice per day by command word, the wearer transforms into a lurker as though by polymorph for 7 minutes.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/lurker-cloak",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/replenishing-skin": {
+      "name": "Replenishing Skin",
+      "sourceSha256": "dcd060858097d960fb085d40b44eb9cc8a66fc4b1df7be7fc8977270732d90a0",
+      "effectSummary": "When emptied, the waterskin refills itself with pure water over 1d4 hours; smaller quantities can be drawn after proportionally shorter periods.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/replenishing-skin",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-endurance": {
+      "name": "Belt of Endurance",
+      "sourceSha256": "d5c609bcf2b5a15c05b70d3ff889a070abc55f44dab23cdbb20339859cad2910",
+      "effectSummary": "The wearer gains a +2 enhancement bonus to Constitution and the Great Fortitude feat while the belt is worn.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-endurance",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cape-of-winter": {
+      "name": "Cape of Winter",
+      "sourceSha256": "365dc15582f70602c4b22c8895674ea08bfede4a4d35cf6f0786c94d305d77e1",
+      "effectSummary": "This cloak of resistance +2 also protects the wearer from cold weather and cold damage as though affected by endure elements against cold.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cape-of-winter",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/flaming-145": {
+      "name": "Flaming",
+      "sourceSha256": "49f8de323c154c5f537857397a7c44a3ac398a03f02292ef7880fc803d214ecf",
+      "effectSummary": "On command, the weapon ignites without harming its wielder and deals +1d6 fire damage on each successful hit until commanded off. Bows, crossbows, and slings transfer the fire damage to their ammunition.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/flaming-145",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/frost-147": {
+      "name": "Frost",
+      "sourceSha256": "43dfef1daf481cebc7e7db7b356a5c02f881ddf3dcd96b6fcc476d7229b23f8e",
+      "effectSummary": "On command, the weapon becomes icy without harming its wielder and deals +1d6 cold damage on each successful hit until commanded off. Bows, crossbows, and slings transfer the cold damage to their ammunition.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/frost-147",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/shirt-of-the-fey": {
+      "name": "Shirt of the Fey",
+      "sourceSha256": "e0818211b8f02a2414a20478f6ab0750a5cb213a7d6d74aab93fbab4a781a35a",
+      "effectSummary": "Grants the wearer damage reduction 5/cold iron.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/shirt-of-the-fey",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-of-the-salamander": {
+      "name": "Cloak of the Salamander",
+      "sourceSha256": "a753602ed63d501a4eefb8ef2bd09d25af60acad411e800ec371039c01ed9648",
+      "effectSummary": "A creature that strikes the wearer with a natural attack or melee weapon takes 1d6+7 fire damage after dealing its normal damage.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-of-the-salamander",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gloves-of-kinetic-manipulation-756": {
+      "name": "Gloves of Kinetic Manipulation",
+      "sourceSha256": "54de6e8b896b86156862f944f91dbded9b0b8d9ac14226c235dc160f184e2105",
+      "effectSummary": "The gloves can be activated either to grant far hand while the wearer maintains concentration normally, or to manifest far punch.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gloves-of-kinetic-manipulation-756",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cape-of-the-fire-bath": {
+      "name": "Cape of the Fire Bath",
+      "sourceSha256": "d46d096e58eebb4bdc533207b095280fd56cc81b4c3885bb21bde9c321be64b1",
+      "effectSummary": "This cloak of resistance +2 also protects the wearer from hot weather and fire damage as though affected by endure elements against fire.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cape-of-the-fire-bath",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/drilbu-of-destruction-712": {
+      "name": "Drilbu of Destruction",
+      "sourceSha256": "b86bfc10bdd9f72e71a6e075e727394f762e03d43716b798ed55fc8f69a97c84",
+      "effectSummary": "The drilbu functions as a masterwork club in combat and can manifest detonation for 1 charge or dissolution for 1 charge. Activation requires a savant or Constitution 19.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/drilbu-of-destruction-712",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/slashing-sand": {
+      "name": "Slashing Sand",
+      "sourceSha256": "4650b00018320d66fed3e59a1a3fccbd031f46da1c48d5daf05de70c22b0a290",
+      "effectSummary": "When thrown onto the ground, the sand covers up to 200 square feet with razor-sharp shards that create a spike stones effect lasting 10 hours.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/slashing-sand",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-proof-against-detection-and-location-118": {
+      "name": "Amulet of Proof against Detection and Location",
+      "sourceSha256": "a0aaa90ab50b843e5dddca1e352fca747c28c751416ef413e138fb2676fb1a4f",
+      "effectSummary": "The wearer is protected from scrying and magical location as by nondetection. A divination targeting the wearer requires a caster-level check against DC 19.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-proof-against-detection-and-location-118",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/dwarven-waraxe-566": {
+      "name": "Dwarven Waraxe",
+      "sourceSha256": "98a5ee6e5428e13cbde3ebd53161e2184643ddd53bbfbd56a8f519c01fa88e79",
+      "effectSummary": "A Medium creature normally needs exotic-weapon proficiency to use a dwarven waraxe one-handed, but can use it two-handed as a martial weapon; a Large creature can use it one-handed as a martial weapon, and dwarves treat it as martial even one-handed.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dwarven-waraxe-566",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/elixir-fire-breath-493": {
+      "name": "Elixir of Fire Breath",
+      "sourceSha256": "7846f0ba2be889ef3fc0a2d0d75e83ff99018b15314e4caaf6386a38fbf077ec",
+      "effectSummary": "After drinking the elixir, the user can breathe fire up to three times within 1 hour. Each blast targets one creature within 25 feet for 4d6 fire damage, with a DC 13 Reflex save for half.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/elixir-fire-breath-493",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/elixir-flaming-fists-389": {
+      "name": "Elixir of Flaming Fists",
+      "sourceSha256": "8a2a6432d9aa90723dfe3718b6a4036efc5b6c6c05c66ced4395d9c05a026a5b",
+      "effectSummary": "For 3 minutes after drinking the elixir, the user's unarmed attacks deal +1d6 fire damage; the flames do not harm the user.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/elixir-flaming-fists-389",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/axeblock-13": {
+      "name": "Axeblock",
+      "sourceSha256": "efb778e5191224ce910abc85cd4cde06f515781a990bb33afb578073746708a9",
+      "effectSummary": "Armor or a shield with this property grants damage reduction 5/bludgeoning or piercing, protecting against slashing attacks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/axeblock-13",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sling-bullets-of-the-construct-724": {
+      "name": "Sling Bullets of the Construct",
+      "sourceSha256": "57c105305b94ab028cc03dbf195e9888ad8cd97cfc7227bacdedb305e39df457",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-724",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/telempathic-ring-771": {
+      "name": "Telempathic Ring",
+      "sourceSha256": "8f18a8ec2da2db0b56ed6b696938d9d925631db6950df921664c82cee2464a14",
+      "effectSummary": "Once activated, touching a creature alters its mood for 1 minute as telempathic projection. The user chooses the intended mood change immediately before the target makes its Will save.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/telempathic-ring-771",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-of-stone": {
+      "name": "Cloak of Stone",
+      "sourceSha256": "0683d85cec43054c73b1fff3b0d894fa64adb70327482a8e04d669c1039ac1f4",
+      "effectSummary": "The wearer gains +5 circumstance on Hide and Move Silently checks. Twice per day by command word, the wearer can meld into stone as the spell.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-of-stone",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-of-health": {
+      "name": "Amulet of Health",
+      "sourceSha256": "a901251105c4be082bbbbe3e6429e361651bd3b9937a3739001a92e78e418a57",
+      "effectSummary": "The amulet grants a +2, +4, or +6 enhancement bonus to Constitution, depending on the version.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-of-health",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/standard-of-courage": {
+      "name": "Standard of Courage",
+      "sourceSha256": "cca7dc7a7df02f2d16977299135d3ce13620013828227b5cdd8d9ff6a3a12ca3",
+      "effectSummary": "To function, the standard must be affixed to a two-handed hafted weapon such as a halberd or lance. The bearer and allies within 30 feet gain a +4 morale bonus against fear effects.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/standard-of-courage",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/trinket-tool-777": {
+      "name": "Trinket Tool",
+      "sourceSha256": "830e83a00ad9333ee78846c04f4d747f001a0784a4eecf4b749333b363e3b62f",
+      "effectSummary": "When activated, the sphere becomes any tool or implement the user knows, up to 10 cubic inches in size, as the trinket power. It retains that form for 1 hour.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/trinket-tool-777",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ring-friend-shield-79": {
+      "name": "Ring of Friend Shield",
+      "sourceSha256": "ac9d099f9425d0439e95d66492cbf303d51c79b368f458c7d46ab2742b01c9f2",
+      "effectSummary": "These rings function only as a matched pair. Either wearer can command their ring at any time to cast shield other on the wearer of the mate, with no range limit.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-friend-shield-79",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/spined-shield-102": {
+      "name": "Spined Shield",
+      "sourceSha256": "e7fbbc0a768868550aab27bf6f996128d11438355d1b8d88d4caf0bf284da6d9",
+      "effectSummary": "This +1 heavy steel spiked shield can fire a spine on command up to three times per day. A fired spine is +1, has a 120-foot range increment, deals 1d10 damage, threatens on 19-20, and has ×2 critical damage; fired spines regenerate daily.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/spined-shield-102",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/vest-of-resistance": {
+      "name": "Vest of Resistance",
+      "sourceSha256": "ab0fc62ec8a5c5d965c6871f7c02051893a737c7feae4f9a5cc298e008751566",
+      "effectSummary": "The vest grants a +1 to +5 resistance bonus on all saving throws, depending on the version.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/vest-of-resistance",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/phylactery-of-change": {
+      "name": "Phylactery of Change",
+      "sourceSha256": "ba5c7c48551e4a0c748ef40028a4faefcce957de11cf894866463d529f92ad73",
+      "effectSummary": "The wearer can polymorph into a new form once per day with indefinite duration, ending if the item is removed, destroyed, or dispelled. The wearer can return to their natural form without limit.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/phylactery-of-change",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gloves-of-force-755": {
+      "name": "Gloves of Force",
+      "sourceSha256": "91f2d9c1a659b1feb276dd135e8d7ec5dbb7957a0545a1f8843489f09450724c",
+      "effectSummary": "Activating the gloves is a standard action; they then grant the effects of the force power as a free-action benefit, like a quickened power, and count toward the normal limit of one quickened power per round.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gloves-of-force-755",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sling-bullets-of-the-construct-i-725": {
+      "name": "Sling Bullets of the Construct I",
+      "sourceSha256": "7b482d3e801914c7b85d646f7bb6b83e139118863f54dc23a67bb1f65a98caf0",
+      "effectSummary": "These crystal sling bullets deal normal sling-bullet damage and have a +1 enhancement bonus on attacks. On a hit, a bullet summons one manifester-level-1 astral construct that immediately attacks the target; they are typically found in groups of 2-5.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 002 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sling-bullets-of-the-construct-i-725",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    }
+  }
+}

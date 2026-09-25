@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Adaptive maximum-safe printing-aware reference batch 097: four True Creation printings verified independently and preserved without cross-edition normalization.",
+  "entries": {
+    "spells/true-creation-4890": {
+      "name": "True Creation",
+      "sourceSha256": "335fd0c9e25d2a2006235a48e144bd6a1ceed6c4ee8fe29a4b62c47aecd05fbf",
+      "effectSummary": "Functions as the Player's Handbook v.3.5 major creation spell, including its inherited object-volume, Craft-check, material-category, cold-iron, and material-component-use restrictions, except the created item is permanent and cannot be negated by dispelling magic or negating powers; for all intents and purposes the item is real. XP cost is the item's gold piece value, with a minimum cost of 1 XP.",
+      "notes": "Eberron Campaign Setting printing, digest-locked. This printing is intentionally not normalized to the later self-contained Complete Divine / Spell Compendium text: it explicitly says 'as major creation' and therefore inherits that reviewed printing except for its stated permanence/reality changes and XP cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/true-creation-4890",
+          "role": "primary Eberron Campaign Setting catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/major-creation-2406",
+          "role": "reviewed and regression-locked Player's Handbook v.3.5 base spell for inherited mechanics"
+        }
+      ]
+    },
+    "spells/true-creation-664": {
+      "name": "True Creation",
+      "sourceSha256": "bb17d7de1ab28e1901967148a2c22dcd9e60e79ebd1be700aac539c82bd1f31b",
+      "effectSummary": "Creates one unattended, nonmagical object of any sort of nonliving matter, up to 1 cubic foot per caster level. Complex objects require an appropriate Craft check. The created item is permanent, cannot be negated by dispelling magic or negating powers, is completely real, and unlike objects from minor creation or major creation can be used as a material component. Material component: a small sample of the same type of matter as the object to be created. XP cost is the item's gold piece value in XP, or 1 XP minimum, whichever is greater.",
+      "notes": "Complete Divine printing, digest-locked. Its rules are self-contained; mentions of minor creation, major creation, and Player's Handbook item costs are comparisons/cost references rather than unresolved inherited effect mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/true-creation-664",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-divine--56/true-creation--664/index.html",
+          "role": "independent same-printing cross-check of the complete effect and XP text"
+        }
+      ]
+    },
+    "spells/true-creation-940": {
+      "name": "True Creation",
+      "sourceSha256": "e7824d403d04dbf516d2d14ffccdb5d92047d31babe3717d2b070c79423968bb",
+      "effectSummary": "Creates one unattended, nonmagical object of any sort of nonliving matter, up to 1 cubic foot per caster level. Complex objects require an appropriate Craft check. The created item is permanent, cannot be negated by dispelling magic or negating powers, is completely real, and unlike objects from minor creation or major creation can be used as a material component. Material component: a small sample of the same type of matter as the object to be created. XP cost is the item's gold piece value in XP, or 1 XP minimum, whichever is greater.",
+      "notes": "Defenders of the Faith 3.0 printing, digest-locked and intentionally retained as its own printing. Its effect is explicitly stated in full, so no Player's Handbook v.3.5 creation mechanics are substituted into this older source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/true-creation-940",
+          "role": "primary Defenders of the Faith catalog record and digest source"
+        },
+        {
+          "url": "https://www.dndtools.org/spells/defenders-of-the-faith-a-guidebook-to-clerics-and-paladins--38/true-creation--940/",
+          "role": "independent same-printing cross-check"
+        }
+      ]
+    },
+    "spells/true-creation-983": {
+      "name": "True Creation",
+      "sourceSha256": "7b1ad7684ac1fe47b8090cc2b89b7af4aeda6ac18f1e7c3d18907a87f5ad6e3f",
+      "effectSummary": "Creates one unattended, nonmagical object of any sort of nonliving matter, up to 1 cubic foot per caster level. Complex objects require an appropriate Craft check. The created item is permanent, cannot be negated by dispelling magic or negating powers, is completely real, and unlike objects from minor creation or major creation can be used as a material component. Material component: a small sample of the same type of matter as the object to be created. XP cost is the item's gold piece value in XP, or 1 XP minimum, whichever is greater.",
+      "notes": "Deities and Demigods 3.0-era printing, digest-locked and preserved independently. Its effect is explicitly self-contained; no later 3.5 wording or mechanics are substituted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/true-creation-983",
+          "role": "primary Deities and Demigods catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/deities-and-demigods--39/true-creation--983/index.html",
+          "role": "independent same-printing cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "8d60e291149feb1b01aa7ede7636fd9baa88358a",
+    "workflowRun": 35694066692,
+    "validationRun": 35694070295,
+    "classificationArtifact": 10678738832,
+    "classificationArtifactSha256": "c046c60bf99374aaf03d66168c7a89caf197c4a7e4595112b845d9be98b03177",
+    "queueCountBefore": 853,
+    "referenceQueueCountBefore": 853,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

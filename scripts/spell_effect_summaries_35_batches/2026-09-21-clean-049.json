@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summary; clean batch 049.",
+  "entries": {
+    "spells/tvash-prulls-bonefiddle-286": {
+      "name": "Tvash-prull's Bonefiddle",
+      "sourceSha256": "7efeea36493552ff289a3b88a45f295a620a8aa29bbdb27c655e76df29883152",
+      "effectSummary": "Summons a ghostly fiddle bow that enters one creature with a skeleton or exoskeleton and saws against its bones. Each round the target takes 1d6 sonic damage and suffers a -20 penalty on Move Silently checks; the sonic damage counts as continuous damage for disrupting spellcasting. As a standard action, you can move the bonefiddle to another creature in range, which receives its own saving throw. If any target succeeds on its save, the bonefiddle vanishes and the spell ends. The effect continues if the current target leaves your line of sight or line of effect, but shifting it requires line of sight and line of effect to both the current and intended targets. The material component is a miniature silver fiddle worth at least 30 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tvash-prulls-bonefiddle-286",
+          "role": "Champions of Ruin primary effect and header reviewed; recurring sonic damage, Move Silently penalty, spellcasting disruption, standard-action retargeting, save-ending condition, line-of-sight/effect exception and material component preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "070f1d37b21cfaaf5c02667a6c7d8615bc1ae01c",
+    "workflowRun": 35661405122,
+    "validationRun": 35661412580,
+    "classificationArtifact": 10666954044,
+    "classificationArtifactSha256": "c8576af83f517516d9f733ea987aac1f8581fa68ac4afb73e216a1e67df3a6e3",
+    "eligibleCount": 1
+  }
+}

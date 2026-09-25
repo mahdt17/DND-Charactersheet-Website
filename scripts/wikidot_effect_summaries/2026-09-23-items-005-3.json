@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-3",
+  "records": {
+    "wikidot5e:wondrous-items:potion-of-advantage": {
+      "sourceDigest": "sha256:de9c7b969c12f794567e355b904b7a05287d33183a3822497cf4c980bd11e726",
+      "effectSummary": "After drinking, gain advantage on one ability check, attack roll, or saving throw of your choice made within the next hour."
+    },
+    "wikidot5e:wondrous-items:potion-of-aqueous-form": {
+      "sourceDigest": "sha256:fac622c20955ff77b314337f278b72fe4be1bff340ba640a2a7350f897d84c89",
+      "effectSummary": "For 10 minutes, until incapacitated, or until death, transform into a pool of water. In this form: swim speed 30 feet; move through other liquids and occupy another creature's space; rise up to normal height and pass through Tiny openings; extinguish nonmagical flames in spaces you enter; resist nonmagical damage; gain advantage on Strength, Dexterity, and Constitution saves. You cannot speak, attack, cast spells, or activate magic items. Worn/carried objects meld into the form and are inaccessible, though their ongoing effects still apply."
+    },
+    "wikidot5e:wondrous-items:potion-of-climbing": {
+      "sourceDigest": "sha256:e4c2f9e1ea8839d334a6c3b3dcbe43f4f981adda04cace04eb2198055d021d0e",
+      "effectSummary": "For 1 hour after drinking, gain a climbing speed equal to walking speed and advantage on Strength (Athletics) checks made to climb."
+    },
+    "wikidot5e:wondrous-items:potion-of-diminution": {
+      "sourceDigest": "sha256:4739ba3029159e54c24ac8f2a70c289a3e6db5d7b93a531fbebe8dbd5fcfebe5",
+      "effectSummary": "After drinking, gain the reduce effect of enlarge/reduce for 1d4 hours without concentration."
+    },
+    "wikidot5e:wondrous-items:potion-of-dragons-majesty": {
+      "sourceDigest": "sha256:27bbd08716d603dcf29037901fcd8b95ffdd3a2f56db39c07d8cce0243417baf",
+      "effectSummary": "After drinking, transform for 1 hour into an adult dragon matching the chromatic, gem, or metallic dragon whose scale is suspended in the potion. Worn/carried equipment either melds into the form or falls to the ground, your choice. Use the adult dragon's game statistics instead of your own, but retain languages, personality, and memories. You cannot use Change Shape or the dragon's legendary or lair actions."
+    },
+    "wikidot5e:wondrous-items:potion-of-fire-breath": {
+      "sourceDigest": "sha256:9b4da3b686102085ecef9904e46653a93ff933b7bfc2f9cfd26be80b524f6167",
+      "effectSummary": "For 1 hour after drinking or until used three times, use a bonus action to breathe fire at one target within 30 feet; DC 13 Dexterity, 4d6 fire on failure or half on success."
+    },
+    "wikidot5e:wondrous-items:potion-of-flying": {
+      "sourceDigest": "sha256:1cc1b34a56c3c393e2852c9d76592f08706480548c08265f6cdecd223ccfa8bc",
+      "effectSummary": "For 1 hour after drinking, gain a flying speed equal to walking speed and hover. When the effect ends while airborne, you fall unless another effect keeps you aloft."
+    },
+    "wikidot5e:wondrous-items:potion-of-giant-size": {
+      "sourceDigest": "sha256:4976bced586c266cbe5bd8274e15193cbd803e034a747c8a506aed9daf4a3033",
+      "effectSummary": "If Medium or smaller, drinking makes you Huge for 24 hours; otherwise it has no effect. For the duration, Strength becomes 25 if lower, maximum and current HP double, melee reach increases by 5 feet, and worn/carried gear enlarges. Enlarged weapon damage rolls use three times the normal number of weapon dice. When the effect ends, HP above your normal maximum becomes temporary HP."
+    },
+    "wikidot5e:wondrous-items:potion-of-giant-strength": {
+      "sourceDigest": "sha256:5fe6b542f565c2dec153317f3d95438d1ac372d4b476f418e33bf2b088eebfad",
+      "effectSummary": "For 1 hour after drinking, set Strength to the potion's score unless already equal or higher. Hill giant: 21, uncommon. Frost or stone giant: 23, rare. Fire giant: 25, rare. Cloud giant: 27, very rare. Storm giant: 29, legendary."
+    },
+    "wikidot5e:wondrous-items:potion-of-growth": {
+      "sourceDigest": "sha256:463d30d4162968a92a6ff79c26320cbfd9421d44293610ec3cf3c9345e18e55a",
+      "effectSummary": "After drinking, gain the enlarge effect of enlarge/reduce for 1d4 hours without concentration."
+    }
+  }
+}

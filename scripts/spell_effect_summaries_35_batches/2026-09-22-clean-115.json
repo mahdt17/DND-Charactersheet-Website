@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 16-record batch 115 from the clean 261-record reference-dependent queue. The batch combines source-complete standalone effects with the complete remaining Sword of Deception/Sword of Darkness printing family and avoids unresolved stat-block, table, and damaged-source dependencies.",
+  "entries": {
+    "spells/spellsong-lesser-330": {
+      "name": "Spellsong, Lesser",
+      "sourceSha256": "09d017c1a3af69db5ea53b7986f0f54c39f0f4be068177f082b46910104749ce",
+      "effectSummary": "Functions as spellsong but can prepare only one spell of 1st level or lower in this spell's slot. The chosen spell must otherwise satisfy spellsong's normal preparation and component rules, including the mandatory verbal component when it is cast.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spellsong-lesser-330",
+          "role": "primary Champions of Valor catalog record and digest source"
+        }
+      ]
+    },
+    "spells/infernal-threnody-3312": {
+      "name": "Infernal Threnody",
+      "sourceSha256": "dc3f407a6ec9a6aa87ac93bc168766155c6a71d89b1883d652fde4f6156094a5",
+      "effectSummary": "For 1 round per caster level, evil-aligned divine spellcasters in the emanation gain +1 effective caster level for level-dependent spell effects without gaining additional spells. They also gain +4 profane on Charisma checks to rebuke undead, while good-aligned divine spellcasters take -4 profane on Charisma checks to turn undead. Focus: the caster's instrument.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/infernal-threnody-3312",
+          "role": "primary Song and Silence: A Guidebook to Bards and Rogues catalog record and digest source"
+        }
+      ]
+    },
+    "spells/hymn-of-praise-3311": {
+      "name": "Hymn of Praise",
+      "sourceSha256": "e22f9a0f3ee27e715cd9ce5b40d58dae003d5801c2ddda0f807a11a6f55a1b89",
+      "effectSummary": "For 1 round per caster level, good-aligned divine spellcasters in the emanation gain +1 effective caster level for level-dependent spell effects without gaining additional spells. They also gain +4 sacred on Charisma checks to turn undead, while evil-aligned divine spellcasters take -4 sacred on Charisma checks to rebuke undead. Focus: the caster's instrument.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hymn-of-praise-3311",
+          "role": "primary Song and Silence: A Guidebook to Bards and Rogues catalog record and digest source"
+        }
+      ]
+    },
+    "spells/slow-consumption-218": {
+      "name": "Slow Consumption",
+      "sourceSha256": "17907f6932daf1cfe3170233f305f8db087bc559cf40380cf6ec82fc1a77f202",
+      "effectSummary": "Cast on a helpless living creature in a desecrated or unhallowed area. For each day you touch the subject, you heal naturally at twice the normal rate and need not eat, while the subject does not heal naturally and takes 1 Constitution damage. If more than 24 hours pass without the daily touch, the spell ends.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/slow-consumption-218",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/soul-shackles-219": {
+      "name": "Soul Shackles",
+      "sourceSha256": "55e01b4522e9683f2b086af5999688ff7ab5570073ae5a163031768956f05594",
+      "effectSummary": "Draws the soul of a dead creature into a talisman the subject possessed when it died. While you possess the talisman, you can call forth the soul for up to 1 round per caster level each day and ask one question per round; answers are clear, complete, and precise. A hostile soul, or one asked an important secret, gets a Will save; success ends the spell and releases the soul. Focus: the talisman. Location component: a desecrated or unhallowed area.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/soul-shackles-219",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/identify-transgressor-157": {
+      "name": "Identify Transgressor",
+      "sourceSha256": "0df0d9b2a7b7812cc62e1f705d6f7fb7b0774e9ce71acc7167b64bcd11c572c4",
+      "effectSummary": "Answers one 'who?' question whose answer can be a single person's name. The base chance of a correct answer is 70% +1% per caster level, subject to DM adjustment for unusual circumstances or anti-divination precautions. You normally know if the result is incorrect unless false-information magic intervenes. Repeated castings by the same caster about the same question use the same die result. Drug component: vodare; location component: a desecrated or unhallowed area.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/identify-transgressor-157",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/zealot-pact-713": {
+      "name": "Zealot Pact",
+      "sourceSha256": "06a62f37a66a0d16fc6d2b1d48ba2746388f9ea2a474b352aab5bd144be541d4",
+      "effectSummary": "Creates a permanent-until-triggered pact on one willing living creature. It activates when the target successfully hits a foe whose alignment is exactly opposite the deity's, then for 1 round per caster level grants +4 on melee attacks, double melee damage, automatic confirmation of critical hits, and alignment descriptors matching the deity. The target is compelled to attack opposite-aligned foes if able and knows which creatures within 60 feet qualify. Only one zealot pact can affect a creature. XP cost: 500.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/zealot-pact-713",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sphere-of-ultimate-destruction-476": {
+      "name": "Sphere of Ultimate Destruction",
+      "sourceSha256": "1ed7a839a32a1852947e3d6692d00f83a7a0c129fe78e722a15227b1a7247372",
+      "effectSummary": "Creates a 2-foot-radius black sphere for 1 round per caster level that flies up to 30 feet per round. You direct it to a target; in this printing it requires a ranged touch attack. A hit deals 2d6 damage per caster level, maximum 40d6, and a successful Fortitude save reduces this to 5d6. A creature reduced to 0 or fewer hp is disintegrated; against objects it can disintegrate up to one 10-foot cube of nonliving matter. Its effect counts as disintegrate against wall of force and similar effects. Material component: dust from a disintegrated creature.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sphere-of-ultimate-destruction-476",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sphere-of-ultimate-destruction-4212": {
+      "name": "Sphere of Ultimate Destruction",
+      "sourceSha256": "3234cf11e9610d696ec066b9768702df02c1baf7168da1ae94ef08e1eaf6565c",
+      "effectSummary": "Creates a 2-foot-radius black sphere for 1 round per caster level that flies up to 30 feet per round and stops when it enters a creature's space, automatically striking it. A hit deals 2d6 damage per caster level, maximum 40d6; a successful Fortitude save reduces this to 5d6. Creatures reduced to 0 or fewer hp are disintegrated, and objects can lose up to one 10-foot cube of nonliving matter. The sphere counts as disintegrate against wall of force and similar effects and vanishes if it exceeds range. Material component: dust from a disintegrated creature.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sphere-of-ultimate-destruction-4212",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/steal-life-220": {
+      "name": "Steal Life",
+      "sourceSha256": "3990c7e41b06db827316d030490bf933e88a303c172b5c6a2464947031c2bc90",
+      "effectSummary": "While you concentrate, drains 1 point from one ability score of the subject each round, rotating among all six abilities before the same score can be drained again. On the night of a full moon, each point drained makes you effectively one week younger; otherwise only the subject suffers the drain. When the subject's Constitution reaches 0 it becomes a dry husk and cannot be drained further. If you die while concentrating, all ability points lost to the spell immediately return. Location component: a desecrated or unhallowed area.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/steal-life-220",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sword-of-deception-2078": {
+      "name": "Sword of Deception",
+      "sourceSha256": "534183d752412ecec7b50215f7398906f6df7e9caca57a494dd2e330b292d73f",
+      "effectSummary": "Creates a pale green force blade for 1 round per caster level. It attacks a designated foe using the BAB of a fighter whose level equals your caster level, deals 1d4 damage, threatens on 19–20, and can make multiple attacks on later rounds when that BAB permits. Each hit imposes -1 luck on the target's next dangerous saving throw, or -2 on a critical hit, cumulative to -5; remove curse or similar magic can end the penalty. Switching targets is a standard action. The blade cannot be attacked or damaged and checks spell resistance only on its first strike against a creature. Focus: a miniature sword and loaded dice.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-of-deception-2078",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sword-of-darkness-2095": {
+      "name": "Sword of Darkness",
+      "sourceSha256": "656d19f1626f122e52f3632539aa598baa49e002a71c743d404f4ad58a06552c",
+      "effectSummary": "Creates a blade of negative energy for 1 round per caster level. It attacks at your base attack bonus and otherwise follows the source printing's autonomous sword behavior: it can make later full attacks against the same target, switches targets when directed, cannot be attacked or damaged, and checks spell resistance on first contact. Each hit bestows one negative level; a 19–20 critical bestows two. A living creature with negative levels at least equal to its HD dies; surviving negative levels fade after hours equal to caster level. Against undead, a hit instead grants 5 temporary hp per two caster levels, maximum 25, for 1 hour. Material component: a katana or longsword worth at least 100 gp, shattered during casting.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-of-darkness-2095",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sword-of-deception-511": {
+      "name": "Sword of Deception",
+      "sourceSha256": "5696fc56c820dd14a7f21cbed6131907fe8077d334a43ea70989896395f270cb",
+      "effectSummary": "Creates a pale green force blade for 1 round per caster level. It attacks with BAB equal to caster level, deals 1d4 damage, threatens on 19–20, and can make multiple attacks on later rounds when its BAB permits. Each hit imposes -1 on the target's next dangerous saving throw, or -2 on a critical hit, cumulative to -5, lasting until that save occurs or remove curse ends it. Switching targets is a standard action. The blade cannot be attacked or damaged, checks spell resistance on first attack against a creature, and returns to hover near you if the target leaves range or sight. Focus: a miniature sword and loaded dice.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-of-deception-511",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sword-of-darkness-530": {
+      "name": "Sword of Darkness",
+      "sourceSha256": "c155f863bca954ea4c8687a6799373e0856f3512cd0602c7ddb16c40b55a94d0",
+      "effectSummary": "Functions as Complete Arcane's sword of deception but replaces damage and save penalties with negative energy. Each successful hit on a living creature bestows one negative level, a 19–20 critical bestows one additional negative level, and a creature with negative levels at least equal to its HD dies. These negative levels expire before they can become permanent. Against undead, each hit instead grants 5 temporary hp per two caster levels, maximum 25, for up to 1 hour. Material component: a katana, bastard sword, or longsword shattered during casting.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-of-darkness-530",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sword-of-deception-4293": {
+      "name": "Sword of Deception",
+      "sourceSha256": "bbbdae21f9b1ca23100a4e51b6ca859d18bf9576326f9ee368bf3dbf1aaf628a",
+      "effectSummary": "Creates a pale green force blade for 1 round per caster level. It attacks with BAB equal to caster level, deals 1d8 damage, threatens on 19–20, and can make multiple attacks on later rounds when its BAB permits. Each hit imposes -2 on the target's next dangerous saving throw, or -4 on a critical hit, cumulative to -5, until that save occurs or remove curse ends it. Switching targets is a standard action. The blade cannot be attacked or damaged, checks spell resistance on its first attack against a creature, and returns to hover near you if the target leaves range or sight. Focus: a miniature sword and loaded dice.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-of-deception-4293",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sword-of-darkness-4294": {
+      "name": "Sword of Darkness",
+      "sourceSha256": "a84d4a6ac5bf7b0db71e8618ba8e1382930159cb12e907f3e18558c35e440c10",
+      "effectSummary": "Functions as Spell Compendium's sword of deception but replaces normal damage and save penalties with negative energy. Each hit on a living creature bestows one negative level, a 19–20 critical bestows two negative levels, and a creature with negative levels at least equal to its HD dies. The negative levels expire before they can become permanent. Against undead, each hit instead grants 5 temporary hp per two caster levels, maximum 25, for up to 1 hour. Material component: a bastard sword or longsword shattered during casting.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 115 stays deliberately small and groups related printing families so inheritance is closed within the review boundary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-of-darkness-4294",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "cf7fdf23613c31da914465de62a22e449f869d30",
+    "workflowRun": 35708813871,
+    "validationRun": 35708820280,
+    "classificationArtifact": 10685028410,
+    "classificationArtifactSha256": "eb997fe13a0eb4bba7121da565e3ee14883d852c22531e7925a7482b8e57ea0b",
+    "queueCountBefore": 261,
+    "referenceQueueCountBefore": 261,
+    "automaticReferenceEligibleCountBefore": 2
+  }
+}

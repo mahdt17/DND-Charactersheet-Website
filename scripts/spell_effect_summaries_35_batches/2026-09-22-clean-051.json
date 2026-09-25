@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5 spell summary resolving a repair-lane punctuation false positive; clean batch 051.",
+  "entries": {
+    "spells/vision-of-punishment-311": {
+      "name": "Vision of Punishment",
+      "sourceSha256": "d6e04175ad6d0d3b5636e9745ca96631378c312fa66d5084faa9f932d658a144",
+      "effectSummary": "Shows one evil living creature a vision of its likely punishment in the afterlife. The target is nauseated for the spell's duration; on a successful Will save it is sickened instead. The sacrifice component is 1d2 points of Strength damage. The Champions of Valor text's condition-reference parenthetical is missing its closing punctuation in the available same-printing renderings, but the spell's gameplay mechanics are otherwise complete.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vision-of-punishment-311",
+          "role": "primary Champions of Valor record reviewed; unmatched citation parenthesis does not omit a gameplay mechanic"
+        },
+        {
+          "url": "https://dndtools.net/spells/champions-of-valor--28/vision-of-punishment--311/",
+          "role": "matching Champions of Valor rendering reproduces the same condition citation and complete save/effect/sacrifice mechanics"
+        },
+        {
+          "url": "https://spiralworlds.com/magic/spell-vision-of-punishment/",
+          "role": "independent rendering corroborates nauseated, successful-save sickened, and 1d2 Strength sacrifice mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "1c9027ced26b2132edb0e9a444a054ac9e8932ae",
+    "workflowRun": 35673682045,
+    "validationRun": 35673684874,
+    "classificationArtifact": 10672630699,
+    "classificationArtifactSha256": "bca6caedd80c0c6ac272c492ea3cfd34ef13345ef9f0dbb42343b327c9ce1603",
+    "repairQueueCountBefore": 26
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified cross-sourcebook reference spells whose uniquely resolved 3.5 base mechanics are already locked; clean batch 076.",
+  "entries": {
+    "spells/resist-energy-mass-447": {
+      "name": "Resist Energy, Mass",
+      "sourceSha256": "fe4347c7e79a1fa017bedca45f13b817bde645da11d3fc666102f42c5179ef16",
+      "effectSummary": "Functions as resist energy for every target: choose acid, cold, electricity, fire, or sonic, and each targeted creature plus its equipment gains resistance 10 to that energy, increasing to 20 at caster level 7 and 30 at caster level 11. The resistance prevents energy damage but not secondary consequences and overlaps rather than stacks with protection from energy, which absorbs damage first while active. This mass version affects one creature per caster level within 30 feet of the others at Close range.",
+      "notes": "Source-locked to Complete Arcane. The cross-book Resist Energy reference is uniquely resolved to the Player's Handbook v.3.5 spell and all inherited mechanics are already regression-locked; only the multi-target header differs.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/resist-energy-mass-447",
+          "role": "primary Complete Arcane record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/resist-energy-2357",
+          "role": "uniquely resolved Player's Handbook v.3.5 Resist Energy reference supplying inherited resistance scaling and interaction with protection from energy"
+        }
+      ]
+    },
+    "spells/shield-faith-legions-4932": {
+      "name": "Shield of Faith, Legion's",
+      "sourceSha256": "e49e5e438e0613fcef586f593019f7dc13d567112f8e1e0e7b4a116467384a8e",
+      "effectSummary": "Functions as shield of faith for multiple allies at a distance. Every ally in the spell's 20-foot-radius burst gains a +2 deflection bonus to AC, increasing by +1 for every six caster levels to a maximum of +5 at 18th level, for 1 minute per caster level. The spell is cast at Medium range and retains shield of faith's harmless Will save/spell-resistance handling and material component.",
+      "notes": "Source-locked to Eberron Campaign Setting. The Shield of Faith reference is uniquely resolved to Player's Handbook v.3.5; this printing changes the spell from one touched creature to all allies in the 20-foot burst at Medium range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shield-faith-legions-4932",
+          "role": "primary Eberron Campaign Setting record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/shield-of-faith-2361",
+          "role": "uniquely resolved Player's Handbook v.3.5 Shield of Faith reference supplying the deflection-bonus progression"
+        }
+      ]
+    },
+    "spells/sanctuary-mass-3481": {
+      "name": "Sanctuary, Mass",
+      "sourceSha256": "6902308375db064e41829ff3083d75ec39f4d4646811be36dbcbce27c9c9c8f0",
+      "effectSummary": "Functions as sanctuary on multiple creatures, affecting one creature per two caster levels by touch for 1 round per level. Anyone attempting to directly attack a warded subject, including with a targeted spell, must make the normal sanctuary Will save; on failure the attack is lost and that opponent cannot directly attack that subject for the spell's duration, while success makes that opponent unaffected by that ward. Area and effect spells can still affect a warded creature. If a warded creature attacks, its sanctuary protection ends; nonattack actions and spells do not break it.",
+      "notes": "Source-locked to Underdark. The cross-book Sanctuary reference is uniquely resolved to Player's Handbook v.3.5 and supplies the attack/save/cancellation mechanics; this version changes only the number of warded creatures.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sanctuary-mass-3481",
+          "role": "primary Underdark record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/sanctuary-2359",
+          "role": "uniquely resolved Player's Handbook v.3.5 Sanctuary reference supplying the ward, Will-save, and cancellation rules"
+        }
+      ]
+    },
+    "spells/plane-shift-greater-2161": {
+      "name": "Plane Shift, Greater",
+      "sourceSha256": "0295652a0d1503c403550d8c55c5484d6ff2225d58692189197fe82af5a265d3",
+      "effectSummary": "Functions as plane shift, instantly moving you or another creature to another plane or alternate dimension; up to eight willing creatures can travel together by linking hands, the spell provides no return trip, and it uses the keyed forked-metal-rod focus. If you have previously visited the desired destination, this greater version arrives at that precise location instead of the normal 5–500-mile offset. If you have not visited the destination, the normal plane shift imprecision applies.",
+      "notes": "Source-locked to Planar Handbook. The Plane Shift reference is uniquely resolved to Player's Handbook v.3.5; the only printed override is precise arrival at a previously visited destination.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plane-shift-greater-2161",
+          "role": "primary Planar Handbook record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/plane-shift-2423",
+          "role": "uniquely resolved Player's Handbook v.3.5 Plane Shift reference supplying group transport, normal imprecision, no-return rule, and focus"
+        }
+      ]
+    },
+    "spells/rarys-interplanar-telepathic-bond-2178": {
+      "name": "Rary's Interplanar Telepathic Bond",
+      "sourceSha256": "3198a66e51786874de7f203c35ba0a459091fd93485c21971f5fde7c139f4ed8",
+      "effectSummary": "Functions as Rary's telepathic bond, linking willing creatures with Intelligence 3 or higher so every linked creature can communicate telepathically with every other regardless of language. You may exclude yourself when casting. Unlike the base spell, the bond functions both across any distance on the same plane and across planar boundaries. Permanency retains the base spell's limitation of making the bond permanent for only two creatures per permanency casting.",
+      "notes": "Source-locked to Planar Handbook. The Rary's Telepathic Bond reference is uniquely resolved to Player's Handbook v.3.5; this version changes only the communication restriction so the link works across planes as well as within one plane.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rarys-interplanar-telepathic-bond-2178",
+          "role": "primary Planar Handbook record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/rarys-telepathic-bond-2510",
+          "role": "uniquely resolved Player's Handbook v.3.5 Rary's Telepathic Bond reference supplying subject eligibility, language independence, exclusion option, and permanency rule"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "6a35c57fbd4ada5dc09735d48b4295b3a607cb02",
+    "workflowRun": 35683475855,
+    "validationRun": 35683478529,
+    "classificationArtifact": 10675442736,
+    "classificationArtifactSha256": "6633ba211081ade2276932e1eb5525b941d5ec498c67f04283f6e744f6354191",
+    "queueCountBefore": 957,
+    "referenceQueueCountBefore": 957,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

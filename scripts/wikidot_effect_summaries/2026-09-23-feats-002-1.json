@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-002-1",
+  "records": {
+    "wikidot5e:feat:ember-of-the-fire-giant": {
+      "sourceDigest": "sha256:f8feb556013ea73e2642ff7872f9dd2e294f8de7f7e57bebe3741fa89c926081",
+      "effectSummary": "Increase Strength, Constitution, or Wisdom by 1, maximum 20, and gain fire resistance. When you take the Attack action, you may replace one attack with Searing Ignition: chosen creatures in a 15-foot-radius sphere centered on you make Dexterity saves against DC 8 + proficiency bonus + the modifier of the ability increased by this feat. On a failure, a creature takes 1d8 + proficiency bonus fire damage and is blinded until the start of your next turn; on a success it takes half damage only. Uses equal proficiency bonus per long rest, no more than once per turn."
+    },
+    "wikidot5e:feat:ember-of-the-fire-giant-revised-ua": {
+      "sourceDigest": "sha256:9fadb919500ba7816aab30b0f467510ecfa5257f3441b145bcf5bc65b8e45090",
+      "effectSummary": "Increase Strength, Constitution, or Wisdom by 1, maximum 20, and gain fire resistance. When you take the Attack action, replace one attack with Searing Ignition: chosen creatures within 15 feet that can see you make Dexterity saves against DC 8 + proficiency bonus + the modifier of the ability increased by this feat. On a failure they take 1d8 + proficiency bonus fire damage and are blinded until the start of your next turn; on success they take half damage without blindness. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:ember-of-the-fire-giant-ua": {
+      "sourceDigest": "sha256:922eafc4e2b7c10e7714e793b2a499299fa59817a9208fabea1dcad3b1761336",
+      "effectSummary": "Gain fire resistance. When you take the Attack action, replace one attack with Searing Ignition: chosen creatures within 15 feet that can see you make Dexterity saves against DC 8 + proficiency bonus + Constitution modifier. On a failure they take 2d6 + proficiency bonus fire damage and are blinded until the start of your next turn; on success they take half damage without blindness. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:empathic": {
+      "sourceDigest": "sha256:351699d51d77e7a6cf3981b72915e9ed95a0441d3a524978758d202c69b94e3b",
+      "effectSummary": "Increase Wisdom by 1, maximum 20. Gain Insight proficiency, or expertise if already proficient. As an action, choose a visible humanoid within 30 feet and contest your Wisdom (Insight) against its Charisma (Deception); on a success, you have advantage on attack rolls and ability checks against it until the end of your next turn."
+    },
+    "wikidot5e:feat:everybodys-friend": {
+      "sourceDigest": "sha256:55fecc92f31010753d7a3defa82ba43b4d05a6f81d684c2b413b2c8e620eef2f",
+      "effectSummary": "Increase Charisma by 1, maximum 20. Gain proficiency in Deception and Persuasion; for either skill in which you are already proficient, instead gain expertise."
+    },
+    "wikidot5e:feat:fade-away": {
+      "sourceDigest": "sha256:85dbd15f2531689a170d0599e54b993d3dda8cc697d95d21a09ddcfae13c031a",
+      "effectSummary": "Increase Dexterity or Intelligence by 1, maximum 20. Immediately after taking damage, use your reaction to become invisible until the end of your next turn or until you attack, deal damage, or force a saving throw. Recharge on a short or long rest."
+    },
+    "wikidot5e:feat:fell-handed": {
+      "sourceDigest": "sha256:e692c2063bd27b3438f00c7d384e03b9f3a863344cb1481fd5c4ddd23112267d",
+      "effectSummary": "While using a handaxe, battleaxe, greataxe, warhammer, or maul, gain +1 to attack rolls. On an advantaged melee attack that hits, if the lower d20 would also hit, you may knock the target prone. On a disadvantaged melee attack that misses, if the higher d20 would have hit, the target takes bludgeoning damage equal to your Strength modifier, minimum 0. If you use Help to aid an ally's melee attack while wielding one of these weapons, the ally gains the normal advantage plus +2 to the attack roll if the target uses a shield."
+    },
+    "wikidot5e:feat:fey-teleportation": {
+      "sourceDigest": "sha256:0192853a10824b2e07f8308bac81ed106e4091836e6c68257d5369e07375d091",
+      "effectSummary": "Increase Intelligence or Charisma by 1, maximum 20. Learn to speak, read, and write Sylvan. Learn misty step and cast it once without a slot per short or long rest, using Intelligence as your spellcasting ability."
+    },
+    "wikidot5e:feat:fey-touched": {
+      "sourceDigest": "sha256:606355832d2b6e0a353cd2c4932cb1b434a660248d68710aecb9ce10ae8ac209",
+      "effectSummary": "Increase Intelligence, Wisdom, or Charisma by 1, maximum 20. Learn misty step and one 1st-level Divination or Enchantment spell. Each can be cast once without a slot per long rest and also with appropriate spell slots. Both use the ability increased by this feat as their spellcasting ability."
+    },
+    "wikidot5e:feat:fighting-initiate": {
+      "sourceDigest": "sha256:fad2b2df31d31e2a7483d5b93aa88a458f191a6183f6758e50f904c8f5397a11",
+      "effectSummary": "Learn one fighter Fighting Style you do not already have. Whenever you reach a level that grants Ability Score Improvement, you may replace this feat's style with another fighter Fighting Style you do not have."
+    }
+  }
+}

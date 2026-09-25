@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-002-10",
+  "records": {
+    "wikidot5e:wondrous-items:dwarven-thrower": {
+      "sourceDigest": "sha256:bf54a75af5bdf0ebef37a30777426be350b9c0094831a5be0e497b4e1e578ff3",
+      "effectSummary": "This +3 magic warhammer has thrown 20/60. When you hit with a ranged attack using it, deal an extra 1d8 damage, or 2d8 if the target is a giant. Immediately after the attack, the weapon flies back to your hand."
+    },
+    "wikidot5e:wondrous-items:dyrrns-tentacle-whip": {
+      "sourceDigest": "sha256:716e82eced0f50c5e80c9f93cf7ad72d4e6cb51af853cb339289ef4e831322ed",
+      "effectSummary": "This symbiotic +2 magic whip embeds tendrils into your arm during attunement. Its hits deal +1d6 psychic damage, but attacks against aberrations have disadvantage. On an attack-roll 20, the target is stunned until the end of its next turn. As a bonus action, retract the whip into your arm or draw it out again. While attuned it cannot be removed and you cannot voluntarily end attunement; curse-ending magic ends attunement and detaches it."
+    },
+    "wikidot5e:wondrous-items:eagle-whistle": {
+      "sourceDigest": "sha256:a45a7867bce51f8f014d366116b0907462c711d0e784ea6bd2e26e3085201cdf",
+      "effectSummary": "While blowing the whistle continuously, gain a flying speed equal to twice your walking speed. One use lasts up to 5 + five times your Constitution modifier rounds, minimum 1, and ends early if you speak, hold your breath, begin suffocating, or land. If airborne when you stop, you fall. The whistle has 3 uses and regains all expended uses daily at dawn."
+    },
+    "wikidot5e:wondrous-items:earworm": {
+      "sourceDigest": "sha256:26b945655312fd773cf068eece2aade4fd78715b60e4abebfe39028ba0891580",
+      "effectSummary": "This symbiont burrows behind your ear during attunement. While bonded, you can speak, read, and write Deep Speech. It has 4 charges, regaining 1d4 daily at dawn, and casts with save DC 15: dissonant whispers for 1 charge or detect thoughts for 2. Each detect thoughts casting transmits the gathered information toward the nearest daelkyr, or through the nearest earworm until it reaches one. It cannot be removed and attunement cannot be ended voluntarily; curse-ending magic ends attunement and causes it to exit your body."
+    },
+    "wikidot5e:wondrous-items:efreeti-bottle": {
+      "sourceDigest": "sha256:132bc0820975bfd1e32167808dedc6c83b95d5b5ee5b3105a484a876ca580e17",
+      "effectSummary": "As an action, remove the stopper; at the end of your turn an efreeti appears within 30 feet. The first opening determines the bottle's permanent behavior by d100: 01–10 the efreeti attacks you for 5 rounds, then vanishes and the bottle becomes nonmagical; 11–90 it serves you for 1 hour, returns to the bottle for 24 hours, repeats this on the next two openings, and on the fourth opening escapes permanently and the bottle becomes nonmagical; 91–00 it can cast wish three times for you and disappears after the third wish or after 1 hour, ending the bottle's magic."
+    },
+    "wikidot5e:wondrous-items:eldritch-claw-tattoo": {
+      "sourceDigest": "sha256:d0e6fc87b25f0c44ee0f56fd551f81626233404ac0e116efde56623fdfab9eab",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes the tattoo vanish and needle reappear. Your unarmed strikes become magical and gain +1 to attack and damage. Once per dawn, use a bonus action to empower the tattoo for 1 minute: your melee weapon attacks and unarmed strikes can reach targets up to 15 feet away and deal +1d6 force damage on a hit."
+    },
+    "wikidot5e:wondrous-items:eldritch-staff": {
+      "sourceDigest": "sha256:b67e23e49d50bc39bbf68ab7e78eafa233136f6f965e9c1a799e382087db602f",
+      "effectSummary": "Functions as a +1 magic quarterstaff. It has 10 charges, regains 1d6+4 daily at dawn, and if the last charge is spent roll d20; on 1 it is destroyed. When you hit with a melee attack using it, spend up to 3 charges to deal +1d8 lightning per charge. When you take damage while holding it, use your reaction and 3 charges to become invisible and teleport with worn/carried gear up to 60 feet to a visible open space; invisibility lasts until the start of your next turn or until you attack, cast a spell, or deal damage."
+    },
+    "wikidot5e:wondrous-items:elemental-essence-shard": {
+      "sourceDigest": "sha256:9f2aae1dfec5186f5c657b6a3520f59b49510d9f1311a4a193bcd675aa7440ea",
+      "effectSummary": "Attach or detach the shard from a Tiny object as an action; it detaches if attunement ends, and while held or worn it functions as a spellcasting focus. Its d4-determined elemental property triggers whenever you use Metamagic on a spell: 1 Air—immediately fly up to 60 feet without provoking opportunity attacks; 2 Earth—gain resistance to one damage type of your choice until the start of your next turn; 3 Fire—one visible target of the spell catches fire and takes 2d10 fire at the start of its next turn, then flames end; 4 Water—chosen visible creatures within 10 feet take 2d6 cold and make Strength against your spell save DC or are pushed 10 feet away and knocked prone."
+    },
+    "wikidot5e:wondrous-items:elemental-gem": {
+      "sourceDigest": "sha256:7c05e9b86d1e948fe6aeaf6e6dd85ae89bbf3da26972e18f66050cdf415b1d8c",
+      "effectSummary": "As an action, break the gem to summon an elemental as though casting conjure elemental; the gem is consumed. Blue sapphire summons air, yellow diamond earth, red corundum fire, and emerald water."
+    },
+    "wikidot5e:wondrous-items:ephixis": {
+      "sourceDigest": "sha256:3453c5da9956dd636a46785281d9c3d9ba2405b843e432c7ce73a2dca8267cda",
+      "effectSummary": "Artifact +3 shortbow that ignores disadvantage at long range and critically hits on 19–20. A worshiper of Nylea gains one random minor beneficial property at piety 10+ and one random major beneficial property at 25+; a non-worshiper instead has one random major detrimental property. The quiver holds four seasonal arrows, each usable once and reappearing at next dusk; spell save DC 18. Spring: action, fire at a visible beast or plant within 320 feet; on hit deal no damage and grant awaken for 8 hours. Summer: action, fire at an open ground space within 320 feet to summon a Nyxborn lynx using tiger statistics plus Nyxborn traits; it obeys you, acts immediately after you, and lasts 1 hour. Autumn: action, fire at a ground space within 320 feet to cast wall of thorns. Winter: action, fire at a visible space within 320 feet to cast ice storm. To destroy the bow, first destroy all arrows in sequence: feed winter to a cerberus on the winter solstice; plant spring at a Black Oak of Asphodel on the spring equinox; have a sea giant break summer on the summer solstice; shoot autumn into a hydra carcass on the autumnal equinox. Then bow and quiver dissolve into dust."
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-4",
+  "records": {
+    "wikidot5e:wondrous-items:potion-of-healing": {
+      "sourceDigest": "sha256:b9312a1cf1c480dc44d233aefbd2b9a5709544867cac03a3d625d4cc4ad11760",
+      "effectSummary": "Drinking restores HP by rarity: Healing (common) 2d4+2; Greater Healing (uncommon) 4d4+4; Superior Healing (rare) 8d4+8; Supreme Healing (very rare) 10d4+20."
+    },
+    "wikidot5e:wondrous-items:potion-of-longevity": {
+      "sourceDigest": "sha256:ec683b68a428189410b17a4c098489431bfcb71b1fcf0def6038f25598b98803",
+      "effectSummary": "Drinking reduces physical age by 1d6+6 years, minimum age 13. Each later potion of longevity you drink carries a cumulative 10% chance to instead increase your age by 1d6+6 years."
+    },
+    "wikidot5e:wondrous-items:potion-of-maximum-power": {
+      "sourceDigest": "sha256:a39291f73c9e9bccff0ebeb0e0d3ec93bed3b4148950b7aa904d439b78a9066c",
+      "effectSummary": "Within 1 minute after drinking, the first time you cast a damage-dealing spell of 4th level or lower you may use the maximum possible result for every damage die instead of rolling."
+    },
+    "wikidot5e:wondrous-items:potion-of-mind-control": {
+      "sourceDigest": "sha256:950db85ff3b6b3f5dbeeb9564dbd71dc1550edd47ca238050a5155ed60605a9e",
+      "effectSummary": "Before the end of your next turn after drinking, cast the potion's specified dominate spell at save DC 15 or the potion is wasted. Beast or humanoid versions are rare and cast dominate beast or dominate person; monster version is very rare and casts dominate monster. If the initial save fails, domination lasts 1 hour without concentration and the charmed creature has disadvantage on later saves to break the effect."
+    },
+    "wikidot5e:wondrous-items:potion-of-poison": {
+      "sourceDigest": "sha256:8ca8261a042c1933cdd5cf442c289216f85030005328705b7dd30fce9b82d44e",
+      "effectSummary": "Appears, smells, and tastes like a beneficial potion; identify reveals the poison. Drinking deals 3d6 poison and forces DC 13 Constitution or poisoned. At the start of each turn while poisoned, take 3d6 poison; at each turn end repeat the save. On each success, subsequent recurring damage decreases by 1d6; the poison ends when that damage reaches 0."
+    },
+    "wikidot5e:wondrous-items:potion-of-polychromy": {
+      "sourceDigest": "sha256:dc8b504dae35d82c46c004dbf9e8abee5496ab3a2e192c403d662af9ed81fbf0",
+      "effectSummary": "For 1 hour after drinking, you and worn/carried gear become rainbow-hued. As a bonus action, change to any color combination. If you choose to mimic your surroundings, your hues continually match them and you gain advantage on Dexterity (Stealth) checks until you change colors again or the potion expires."
+    },
+    "wikidot5e:wondrous-items:potion-of-possibility": {
+      "sourceDigest": "sha256:26299bd53881200684dbdd2e5ec93f8b43729b7912e56c61ef74723a5cb30609",
+      "effectSummary": "Drinking grants two Fragments of Possibility lasting 8 hours or until spent. For an attack, ability check, or save, expend one after the original roll to roll another d20 and choose which result to use. When an attack is made against you, expend one to roll a d20 and choose between your roll and the attacker's. If the original roll had advantage/disadvantage, resolve that first, then roll the fragment die. While you retain any fragment from this potion, you cannot gain another Fragment of Possibility from any source."
+    },
+    "wikidot5e:wondrous-items:potion-of-psionic-fortitude": {
+      "sourceDigest": "sha256:9a6bc0c11de2eea8300b8a43b6fe87279e8af08ceafc2730f7ecc708632bfc1c",
+      "effectSummary": "For 1 hour after drinking, gain advantage on saving throws to avoid or end charmed or stunned on yourself."
+    },
+    "wikidot5e:wondrous-items:potion-of-resistance": {
+      "sourceDigest": "sha256:c6e6cbe97cdadff6b26fa9709f54db76daeb788a01e5dbfd0889b4ef16695417",
+      "effectSummary": "For 1 hour after drinking, gain resistance to one DM-chosen or d10 damage type: 1 acid, 2 cold, 3 fire, 4 force, 5 lightning, 6 necrotic, 7 poison, 8 psychic, 9 radiant, 10 thunder."
+    },
+    "wikidot5e:wondrous-items:potion-of-vitality": {
+      "sourceDigest": "sha256:2be7467471e56076a8a0358171efc8e085e88e864646335be7f9485e70d8f4be",
+      "effectSummary": "Drinking removes all exhaustion and cures every disease and poison affecting you. For the next 24 hours, whenever you spend a Hit Die to regain HP, use that die's maximum possible result instead of rolling it."
+    }
+  }
+}

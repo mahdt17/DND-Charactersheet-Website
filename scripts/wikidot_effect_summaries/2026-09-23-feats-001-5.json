@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-001-5",
+  "records": {
+    "wikidot5e:feat:dragonmark-ua": {
+      "sourceDigest": "sha256:a066b013d6b3dabb2409a4f8039a1c97caffe093a1b25005a25171b7994038e5",
+      "effectSummary": "Choose one dragonmark and use its listed ability as the spellcasting ability. At feat acquisition, gain the Least spells; at character level 5 gain the Lesser spell; at level 9 gain the Greater spell. Each listed spell is cast at its lowest level and can be cast innately once per long rest, still requiring material components. Marks grant: Detection—detect magic and mage hand; detect thoughts; clairvoyance. Finding—detect magic and mage hand; locate object; clairvoyance. Handling—druidcraft and speak with animals; beast sense; conjure animals. Healing—cure wounds and spare the dying; lesser restoration; revivify. Hospitality—friends and unseen servant; rope trick; Leomund's tiny hut. Making—identify and mending; magic weapon; fabricate. Passage—expeditious retreat and light; misty step; teleportation circle. Scribing—comprehend languages and message; sending; tongues. Sentinel—blade ward and compelled duel; blur; protection from energy. Shadow—dancing lights and disguise self; darkness; nondetection. Storm—fog cloud and shocking grasp; gust of wind; sleet storm. Warding—alarm and resistance; arcane lock; magic circle."
+    },
+    "wikidot5e:feat:drow-high-magic": {
+      "sourceDigest": "sha256:3356522e9a155fb2d453cde371d3d4e73e285cca14a7d4a0b990fd3951dbb393",
+      "effectSummary": "Learn detect magic and cast it at will without a slot. Learn levitate and dispel magic and cast each once without a slot per long rest. Charisma is your spellcasting ability for these spells."
+    },
+    "wikidot5e:feat:dual-wielder": {
+      "sourceDigest": "sha256:7e8da25b37c2597135c5df2f4133af6db1c1b05853b3fe97aa16b861c25d8368",
+      "effectSummary": "While wielding a separate melee weapon in each hand, gain +1 AC. You may use two-weapon fighting with one-handed melee weapons even if they are not light, and may draw or stow two one-handed weapons whenever you could normally draw or stow one."
+    },
+    "wikidot5e:feat:dungeon-delver": {
+      "sourceDigest": "sha256:8b76fc89e5f9737c36d480ac3a49ffc911be6b02f7e35e64d094a554306ce768",
+      "effectSummary": "Gain advantage on Wisdom (Perception) and Intelligence (Investigation) checks to detect secret doors, advantage on saves to avoid or resist traps, and resistance to damage dealt by traps. Traveling at a fast pace does not impose the normal -5 penalty on passive Wisdom (Perception)."
+    },
+    "wikidot5e:feat:durable": {
+      "sourceDigest": "sha256:e3f82e432672e69320bcae8fb43ab366b0658c95427239c746d70ee91f6d1156",
+      "effectSummary": "Increase Constitution by 1, maximum 20. Whenever you roll a Hit Die to regain HP, the minimum HP regained from that die equals twice your Constitution modifier, with a minimum of 2."
+    },
+    "wikidot5e:feat:dwarven-resilience": {
+      "sourceDigest": "sha256:bcd31efbc6562ae7848019e1707a0b644b4665e8427a2a3f1e4fab099bb3d4bf",
+      "effectSummary": "Increase Constitution by 1, maximum 20. Whenever you take the Dodge action in combat, you may spend one Hit Die, roll it, add your Constitution modifier, and regain that many HP, minimum 1."
+    },
+    "wikidot5e:feat:eldritch-adept": {
+      "sourceDigest": "sha256:7ebfbec5384136af019cb2ca7fe7aefdfa718c25a4c529f7daa16e14875732ba",
+      "effectSummary": "Learn one warlock Eldritch Invocation. Choose Intelligence, Wisdom, or Charisma as the invocation's spellcasting ability. You may select an invocation with a prerequisite only if you are a warlock who meets that prerequisite. Whenever you gain a level, you may replace the invocation with another warlock invocation."
+    },
+    "wikidot5e:feat:elemental-adept": {
+      "sourceDigest": "sha256:132f0c656d12aa2a818f1622754a36cedbb368b5eac16386df568c7a073e5af4",
+      "effectSummary": "Choose acid, cold, fire, lightning, or thunder. Your spells ignore resistance to the chosen damage type, and when rolling spell damage of that type you may treat each damage-die result of 1 as 2. You may take this feat multiple times, choosing a different damage type each time."
+    },
+    "wikidot5e:feat:elemental-touched-ua": {
+      "sourceDigest": "sha256:286824410670f7cb7a34d511c18858c54c9b21680081d78375f89639a788c05f",
+      "effectSummary": "Learn either druidcraft or thaumaturgy, choosing Intelligence, Wisdom, or Charisma as its spellcasting ability. After each long rest, attune to Air, Earth, Fire, or Water; a bonus action creates the corresponding effect, with total uses equal to proficiency bonus per long rest. Air gives a flying speed equal to walking speed until turn end, after which you fall if unsupported. Earth makes ground within 30 feet difficult terrain for 1 minute, while you ignore extra movement from ground difficult terrain. Fire prevents your movement from provoking opportunity attacks until turn end. Water forces a visible creature within 15 feet to make or willingly fail a Strength save against DC 8 + proficiency bonus + your chosen spellcasting modifier; on failure it is pushed up to 10 feet away."
+    },
+    "wikidot5e:feat:elven-accuracy": {
+      "sourceDigest": "sha256:d179ba3984d5e96755fc83c3ec834eb5ceb0ab34074b2a59bbdcf3ab4c1266c3",
+      "effectSummary": "Increase Dexterity, Intelligence, Wisdom, or Charisma by 1, maximum 20. Whenever you have advantage on an attack roll using one of those abilities, you may reroll one of the advantage dice once."
+    }
+  }
+}

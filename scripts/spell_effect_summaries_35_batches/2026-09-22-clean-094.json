@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Adaptive maximum-safe manual reference batch 094: source-verified 3.5-era records with a single stable reviewed base; ambiguous multi-reference and legacy-lineage records excluded.",
+  "entries": {
+    "spells/glory-martyr-2212": {
+      "name": "Glory of the Martyr",
+      "sourceSha256": "f8ee232dede2562082cff21d1ffb5d265e00ebd2eda184c8810d8783c4e284c0",
+      "effectSummary": "Wards up to one creature per caster level with a Shield Other-style bond: each subject gains +1 deflection AC and +1 resistance on saves, takes only half of hit-point damage from attacks and wounds, and you take the remainder. Non-hit-point harm such as charm effects, ability damage, level drain, disintegration, and hit-point loss from reduced Constitution is not split. Damage already transferred stays with you after the spell ends. If you die, the spell ends in a burst that heals each subject 1d8 hit points. A subject that dies or moves out of range is severed from the bond while the spell continues for the others; if all connections are severed, the spell ends. Focus: a platinum ring worth at least 50 gp worn by you and by each subject.",
+      "notes": "Player's Guide to Faerûn printing, digest-locked. The source restates the Shield Other damage-splitting rules and adds multi-target handling, caster-death healing, per-subject severing, and the per-creature ring focus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/glory-martyr-2212",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/shield-other-2363",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited Shield Other mechanics"
+        }
+      ]
+    },
+    "spells/glory-martyr-6": {
+      "name": "Glory of the Martyr",
+      "sourceSha256": "95a3f49d6accbf724b627c261063638dd1e69107d1be230ef2d4effded5e90ff",
+      "effectSummary": "Wards up to one creature per caster level with a Shield Other-style bond: each subject gains +1 deflection AC and +1 resistance on saves, takes only half of hit-point damage from attacks and wounds, and you take the remainder. Non-hit-point harm such as charm effects, temporary ability damage, level drain, disintegration, and hit-point loss from reduced Constitution is not split. Damage already transferred stays with you after the spell ends. If you die, the spell ends in a burst that heals each subject 1d8 hit points. A subject that moves out of range is severed from the bond, but the spell continues while at least one subject remains and you are alive. Focus: a platinum ring worth at least 50 gp worn by you and by each subject.",
+      "notes": "Book of Exalted Deeds printing, digest-locked. This source explicitly reprints the Shield Other-style split across multiple subjects and its own caster-death and range-severing rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/glory-martyr-6",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/shield-other-2363",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited Shield Other mechanics"
+        }
+      ]
+    },
+    "spells/heros-blade-4887": {
+      "name": "Hero's Blade",
+      "sourceSha256": "1e3108aa30c0212cc902aae91bc80cde1d83948fd15cac103ce03e4059a7e11b",
+      "effectSummary": "Imbues one melee weapon for 1 minute/level. It deals +2d6 damage to evil creatures or +2d8 to evil outsiders and undead; on a critical hit those bonuses become +2d10 or +2d12 respectively, with undead still taking the listed extra critical-hit damage even though their normal weapon damage is not multiplied. The weapon becomes good-aligned and its threat range doubles as with keen edge; that increase does not stack with keen or keen edge but does stack with Improved Critical. A critical hit against an evil foe blinds and deafens it for 1d4 rounds, with a Will save negating the blindness and spell resistance applying. A critical hit against an evil extraplanar creature also forces a Will save or banishes it to its home plane for at least 24 hours; spell resistance applies to that effect.",
+      "notes": "Eberron Campaign Setting printing, digest-locked. Keen Edge is used only for the printed threat-range inheritance; all other weapon, critical-hit, alignment, sensory, and banishment effects come directly from this source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heros-blade-4887",
+          "role": "primary Eberron Campaign Setting catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/keen-edge-2828",
+          "role": "reviewed Player's Handbook v.3.5 base spell for the inherited threat-range mechanic"
+        }
+      ]
+    },
+    "spells/investiture-of-the-narzugon-1184": {
+      "name": "Investiture of the Narzugon",
+      "sourceSha256": "ea4e54666a4863530ff581c09da6abcb8af6aff6d37e17af765f80ac098f4edd",
+      "effectSummary": "The subject gains a baleful gaze usable as a standard action against one creature within 20 feet; a failed Will save against the spell DC immobilizes the target for 1 round as with hold monster, including the hold-monster paralysis consequences. Baatezu are immune, and a creature that successfully resists this gaze cannot be affected by the same subject's gaze for 24 hours. The subject also gains fire resistance 10, stacking with other evil investiture spells but not with multiple castings of this spell. Evil-outsider-bane weapons have full effect against the subject. When the spell ends for any reason, the subject is fatigued for 1 minute. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Fiendish Codex II printing, digest-locked. Hold Monster supplies only the one-round immobilization/paralysis behavior explicitly invoked by the gaze; immunity, resistance, bane interaction, fatigue, and component are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-narzugon-1184",
+          "role": "primary Fiendish Codex II catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/hold-monster-2556",
+          "role": "reviewed Player's Handbook v.3.5 base spell for the inherited hold-monster effect"
+        }
+      ]
+    },
+    "spells/languor-746": {
+      "name": "Languor",
+      "sourceSha256": "9442ae9d3a9817e7a171bea90d56e06d12767ad1441cff645d4a3af73917073c",
+      "effectSummary": "A creature struck by the ray that fails its Will save is slowed: it can take only one standard or move action each turn, cannot take full-round actions, takes -1 on attack rolls, AC, and Reflex saves, and moves at half speed. It also suffers a cumulative enhancement penalty to Strength each round as printed by the spell, with no additional penalty below 0 and a maximum penalty of -10; if Strength falls below 1, the subject is helpless. The slow portion counters and is countered by haste, but haste does not remove or counter the Strength penalty.",
+      "notes": "Complete Divine printing, digest-locked. Slow's reviewed mechanics are expanded, while the cumulative Strength penalty, helpless threshold, and haste exception are preserved from the source text without normalizing the printed penalty formula beyond its stated bounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/languor-746",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/slow-2873",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited slow mechanics"
+        }
+      ]
+    },
+    "spells/lightning-fog-3268": {
+      "name": "Lightning Fog",
+      "sourceSha256": "6af367ff23d51dedf77ee4cd6664a11bb68ceca8e33504eb66a02363b3ae2b95",
+      "effectSummary": "Creates a 20-foot-radius, 20-foot-high fog that blocks sight as fog cloud does: creatures within 5 feet have concealment and those farther apart have total concealment. In addition, on your turn each round every creature or object in the cloud takes 1d4 electricity damage +1 per caster level, maximum +15, with Reflex half. Wind disperses the smoke under the same rules as fog cloud, and the spell cannot be cast underwater.",
+      "notes": "Shining South printing, digest-locked. The reviewed Fog Cloud visibility, wind, and underwater restrictions are inherited; the electrical damage and cylindrical area come directly from this source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lightning-fog-3268",
+          "role": "primary Shining South catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fog-cloud-2393",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited fog behavior"
+        }
+      ]
+    },
+    "spells/monstrous-thrall-1013": {
+      "name": "Monstrous Thrall",
+      "sourceSha256": "a74e1f47fa45dc8d9400d6dfffcada0c4d566a0fae373bb34ea07a3623336779",
+      "effectSummary": "Permanently dominates one creature using dominate monster's telepathic control: detailed commands are possible with a shared language, otherwise only basic commands; changing instructions is a move action; concentrating as a standard action gives interpreted sensory input; control works at unlimited range on the same plane and does not require sight; daily concentration is required to prevent a new escape save; protection from evil or similar magic suppresses control without dispelling it. When ordered to act against its nature, the thrall instead makes a Will save at -4 for that specific action. Success refuses that action but does not end the domination, and future saves against that same specific action are made without the -4 penalty. XP cost: 500 XP per Hit Die or level of the subject.",
+      "notes": "Draconomicon printing, digest-locked. Dominate Monster supplies the general control chassis; permanence, the -4 against-nature resistance rule, persistence after a successful mutiny, and XP cost are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/monstrous-thrall-1013",
+          "role": "primary Draconomicon catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dominate-monster-2546",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited domination mechanics"
+        }
+      ]
+    },
+    "spells/necrotic-domination-1489": {
+      "name": "Necrotic Domination",
+      "sourceSha256": "160c26534c531c243b74030ebfed4ff61ea853d81858d011a2bad3f6e599b5e1",
+      "effectSummary": "Functions as dominate person against a humanoid that harbors a necrotic cyst: you control the subject through a telepathic link, can issue detailed or basic commands depending on shared language, can change orders as a move action, and can concentrate as a standard action for interpreted sensory input. Against-nature commands normally grant a new save, control otherwise works at unlimited range on the same plane, daily concentration is required to prevent an escape save, and protection from evil or similar magic suppresses control without dispelling it. Focus: the caster must possess a mother cyst.",
+      "notes": "Libris Mortis printing, digest-locked. The source explicitly imports Dominate Person and changes subject eligibility to a humanoid harboring a necrotic cyst, with a mother cyst as focus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-domination-1489",
+          "role": "primary Libris Mortis catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dominate-person-2547",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited domination mechanics"
+        }
+      ]
+    },
+    "spells/pebble-wind-1108": {
+      "name": "Pebble Wind",
+      "sourceSha256": "1b7a9552dc8ccc33435aa53fa3eb56e2a5b79e8ab5a498369230b572ea31f2f2",
+      "effectSummary": "Creates a 20-foot-radius whirling spread of air and loose debris instead of gust of wind's linear blast. The debris forms an opaque cloud. Creatures use gust of wind's Fortitude-save rules to avoid being checked or moved; a creature blown over or moved is pushed in a random direction. Normal debris deals 1d4 bludgeoning damage per caster level, maximum 10d4, subject to damage reduction, with Reflex half. If the debris is mainly soft or very small material such as loose soil, damage is 1d4 per two caster levels, maximum 5d4. Objects in the spread are also damaged, though hardness usually negates it.",
+      "notes": "Dragons of Faerûn printing, digest-locked. Gust of Wind supplies the printed Fortitude/movement chassis; the radial spread, random direction, debris opacity, damage, Reflex save, damage reduction, and object-hardness interactions are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/pebble-wind-1108",
+          "role": "primary Dragons of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/gust-of-wind-2618",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited wind movement rules"
+        }
+      ]
+    },
+    "spells/retributive-image-846": {
+      "name": "Retributive Image",
+      "sourceSha256": "eaf86cfe61fdaa29d64629f6972d4d284cb30fb9532dba0b4ac88488ee4eba58",
+      "effectSummary": "Creates a major-image-style illusion with visual, sound, smell, and thermal components and no texture; while concentrating you can move it within range, and it otherwise follows major image interaction behavior. Unlike major image, it is a mind-affecting pattern. A creature that successfully disbelieves it suffers a mental backlash for 1d6 +1 per caster level damage, maximum +15, and is dazed for 1 round; a second successful Will save halves that damage and negates the daze.",
+      "notes": "Complete Mage printing, digest-locked. Major Image supplies the general multisensory illusion behavior; pattern/mind-affecting classification and the post-disbelief backlash are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/retributive-image-846",
+          "role": "primary Complete Mage catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/major-image-2681",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited illusion behavior"
+        }
+      ]
+    },
+    "spells/scalding-mud-3177": {
+      "name": "Scalding Mud",
+      "sourceSha256": "c876a9a57eed4437c4c949ad52d3d606931b7ee41147bc831e6dd421745a28e5",
+      "effectSummary": "Functions as transmute rock to mud but can affect sand, earth, and unworked nonmagical rock within the normal transmutation restrictions, producing boiling mud. Creatures mired in it take 5d6 fire damage per round, fully submerged creatures take 10d6, and creatures atop it take 1d6 per round from steam. After exposure ends, the victim continues taking 1d6 fire damage per round for 1d3 rounds. The material cools after 1 round per caster level; after that point its damage dice are halved each round. The transmuted material remains mud after cooling and eventually dries into soil as transmute rock to mud does. Arcane material component: clay, sulfur, and water.",
+      "notes": "Sandstorm printing, digest-locked. Transmute Rock to Mud supplies the underlying terrain conversion, sinking/movement, ceiling-collapse, restoration, and eventual drying mechanics; this source broadens eligible material and adds the full heat/damage lifecycle.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scalding-mud-3177",
+          "role": "primary Sandstorm catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/transmute-rock-to-mud-2889",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited terrain-conversion mechanics"
+        }
+      ]
+    },
+    "spells/shield-faith-legions-1945": {
+      "name": "Shield of Faith, Legion's",
+      "sourceSha256": "aeb7e5bb09a43f286c07a6c24cc87e6b5d1763105d12c799ffde30d068ca3ac2",
+      "effectSummary": "Applies shield of faith to all allies within 20 feet of the target at medium range. Each affected ally gains a +2 deflection bonus to AC, increasing by +1 for every six caster levels to a maximum of +5 at 18th level, for 1 minute/level.",
+      "notes": "Miniatures Handbook printing, digest-locked. The source changes Shield of Faith from a touched single creature to multiple allies at range while preserving the reviewed scaling deflection bonus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shield-faith-legions-1945",
+          "role": "primary Miniatures Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/shield-of-faith-2361",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited AC-bonus mechanics"
+        }
+      ]
+    },
+    "spells/spiritual-chariot-662": {
+      "name": "Spiritual Chariot",
+      "sourceSha256": "8bba2ae659a70e2b70ba8e87a9f4dd16e5289ca4a0cb2ebb379e0a3cbfe7a87b",
+      "effectSummary": "Creates a transparent force chariot harnessed to one special mount for 1 hour/level. It carries one Medium creature or two Small creatures plus the driver, and the chariot and occupants add no weight to the mount's load; unhitching it makes it disappear. The driver gains +4 sacred on Handle Animal checks. The force chariot is immune to damage and interacts with other magic as wall of force does: most spells and damage cannot harm it, while disintegrate, a rod of cancellation, sphere of annihilation, or Mordenkainen's disjunction can destroy the force effect; teleportation can bypass it. Occupants receive cover according to size and attack direction; in most situations a Medium occupant gains +4 AC and +2 on Reflex saves.",
+      "notes": "Complete Divine printing, digest-locked. Wall of Force supplies the explicitly inherited force-interaction rules; capacity, load treatment, hitching, Handle Animal bonus, and cover are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spiritual-chariot-662",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-force-2659",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited force interactions"
+        }
+      ]
+    },
+    "spells/tigers-tooth-2002": {
+      "name": "Tiger's Tooth",
+      "sourceSha256": "be07293850db8e4c27c015e9646a24147d88a622ee41b8fd6e054a8405e0c6e0",
+      "effectSummary": "For 1 round, as a swift personal spell, applies greater magic fang to the caster under the spell's modified header. You can give one of your natural weapons an enhancement bonus on attack and damage rolls of +1 per four caster levels, maximum +5, or give all of your natural weapons a +1 enhancement bonus. It can affect a slam, fist, bite, or other natural weapon and does not turn an unarmed strike's nonlethal damage into lethal damage.",
+      "notes": "Miniatures Handbook printing, digest-locked. Greater Magic Fang supplies the enhancement choices; Tiger's Tooth changes the casting to a swift, personal, one-round effect as printed in its header.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tigers-tooth-2002",
+          "role": "primary Miniatures Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/magic-fang-greater-2835",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited natural-weapon enhancement mechanics"
+        }
+      ]
+    },
+    "spells/true-domination-1015": {
+      "name": "True Domination",
+      "sourceSha256": "a50c82b416c430a480276e30fcf941e2e964821f01fc872d173f30fe27ba202a",
+      "effectSummary": "Permanently controls one Medium-or-smaller humanoid as dominate person: commands are transmitted through a telepathic link, detailed commands require a shared language, changing instructions is a move action, concentrating as a standard action yields interpreted sensory input, and control works at unlimited range while caster and subject remain on the same plane. The spell requires daily concentration to prevent a new escape save, and protection from evil or similar magic suppresses control without dispelling it. Unlike dominate person, a subject ordered to act against its nature receives the new saving throw with a -4 penalty rather than a +2 bonus.",
+      "notes": "Draconomicon printing, digest-locked. Dominate Person supplies the general control chassis; permanence, Medium-or-smaller targeting, and the -4 against-nature save are preserved from this printing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/true-domination-1015",
+          "role": "primary Draconomicon catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dominate-person-2547",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited domination mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "a99beb0f9585ca237ec47b8c63502da2470a14c5",
+    "workflowRun": 35692572403,
+    "validationRun": 35692576226,
+    "classificationArtifact": 10678923050,
+    "classificationArtifactSha256": "d525e497f2a3dfccdbc7998ebef3ee8da8ddfec10073b6d9ce1c1caafcd41be6",
+    "queueCountBefore": 873,
+    "referenceQueueCountBefore": 873,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

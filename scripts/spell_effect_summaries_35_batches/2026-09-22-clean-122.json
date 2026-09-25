@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 3-record batch 122 from the clean 188-record reference-dependent queue. Unhallow, Wish, and Symbol of Death are source-complete enough for independent manual verification. Remaining prismatic/polymorph tables, summon/stat-block dependencies, source-damaged records, and ambiguous cross-edition inheritance remain deferred.",
+  "entries": {
+    "spells/unhallow-2656": {
+      "name": "Unhallow",
+      "sourceSha256": "5921900af8d8d9241e7ccfa925ab50629b725714802fb8b166877291e8df50f9",
+      "effectSummary": "After a 1-day casting, makes a 40-foot-radius site unholy. The area is protected by magic circle against good; attempts to turn undead take -4 while attempts to rebuke undead gain +4 profane, except for the druid version; and you can bind one spell effect to the site for 1 year, choosing whether it applies to all creatures, creatures sharing your faith or alignment, or creatures of another faith or alignment. Eligible bound effects are aid, bane, bless, cause fear, darkness, daylight, death ward, deeper darkness, detect magic, detect good, dimensional anchor, discern lies, dispel magic, endure elements, freedom of movement, invisibility purge, protection from energy, remove fear, resist energy, silence, tongues, or zone of truth, with their normal saves and spell resistance where applicable. Only one Unhallow can affect an area at a time. It counters but does not dispel Hallow. Material cost is at least 1,000 gp plus 1,000 gp per level of the bound spell.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 122 is deliberately limited to three source-complete Player's Handbook v.3.5 records; unresolved table, stat-block, source-damage, and cross-edition inheritance cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unhallow-2656",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wish-2902": {
+      "name": "Wish",
+      "sourceSha256": "ee8dc6f396c2f289f6d86b1755f3f64031370bcf74e2d5e04eb69bbe549fc9f8",
+      "effectSummary": "Can duplicate a nonprohibited sorcerer/wizard spell of 8th level or lower, a nonprohibited spell from another list of 6th level or lower, a prohibited-school sorcerer/wizard spell of 7th level or lower, or a prohibited-school spell from another list of 5th level or lower. It can instead undo many harmful spells; create a nonmagical item worth up to 25,000 gp; create or improve a magic item; grant inherent ability bonuses up to +5 through consecutive wishes; remove one kind of injury or affliction from up to one creature per caster level; revive the dead as resurrection, with two wishes required if the body was destroyed; transport up to one creature per caster level anywhere on any plane, allowing unwilling targets Will and spell resistance; or undo one roll from the previous round by forcing a reroll, again allowing an unwilling target Will and spell resistance. Greater custom effects are possible but subject to hazardous interpretation. Duplicated spells retain their normal saves and spell resistance but use a 9th-level spell save DC. Material components costing over 10,000 gp must still be supplied. Minimum XP cost is 5,000 XP; higher duplicated-spell XP costs supersede it, and magic-item creation costs twice the normal crafting XP plus 5,000 XP.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 122 is deliberately limited to three source-complete Player's Handbook v.3.5 records; unresolved table, stat-block, source-damage, and cross-edition inheritance cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wish-2902",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/symbol-of-death-2762": {
+      "name": "Symbol of Death",
+      "sourceSha256": "60ae80a7ae76dc2038d6ce127b73743a9d5b4c6b9b5fb2720db1cfcc1b886cc6",
+      "effectSummary": "Scribes a visible rune with configurable trigger conditions. When triggered, it becomes a 60-foot burst that attempts to slay the closest creatures whose combined current hit points do not exceed 150; creatures too healthy to fit the remaining total are skipped. Fortitude negates and spell resistance applies. The active rune lasts 10 minutes per caster level or until it has affected 150 hit points of creatures. A creature saves only once while continuously inside, but must save again after leaving and re-entering. Default triggers can include looking at, reading, touching, passing over, or passing through a portal bearing the rune, and no trigger can occur from more than 60 feet away. Special limits can use observable qualities, name, identity, or alignment, but not class, Hit Dice, level, or hit points. A password grants immunity while within 60 feet, and creatures can be attuned during casting; the caster is automatically attuned. Read magic plus Spellcraft DC 19 identifies it, potentially triggering a read-triggered rune. A targeted dispel magic can remove it; erase cannot; destroying the inscribed surface destroys and triggers it. Permanency can make it permanent, in which case a disabled or exhausted rune resets after 10 minutes. A rogue can find and disable it at DC 33. Material components are mercury and phosphorus plus powdered diamond and opal at the source-listed value of at least 5,000 gp each.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 122 is deliberately limited to three source-complete Player's Handbook v.3.5 records; unresolved table, stat-block, source-damage, and cross-edition inheritance cases remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "8dc659a373ae28c5e45959224c826df5b6947f22",
+    "workflowRun": 35712123112,
+    "validationRun": 35712126904,
+    "classificationArtifact": 10687212383,
+    "classificationArtifactSha256": "650ed05dbf9a3ac0e71e5453a4f78d06a85124aad0716f2e216fa7b6b6443438",
+    "queueCountBefore": 188,
+    "referenceQueueCountBefore": 188,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

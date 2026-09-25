@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5 spell summaries resolving structural repair-lane false positives and official-source ambiguities; clean batch 050.",
+  "entries": {
+    "spells/stone-body-4235": {
+      "name": "Stone Body",
+      "sourceSha256": "587df346806849650b977f9ff14f8dae83abacf74632ea1d1716e2a0fff2d2b0",
+      "effectSummary": "Transforms your body into living stone for 1 minute per level. You gain damage reduction 10/adamantine; immunity to blindness, critical-hit extra damage, ability score damage, deafness, disease, drowning, poison, stunning, and effects that depend on physiology or respiration; and a +4 enhancement bonus to Strength. You take a -4 Dexterity penalty (minimum Dexterity 1), move at half speed, and weigh three times as much. Transmute rock to mud slows you for 2d6 rounds with no saving throw, transmute mud to rock heals all your lost hit points, and stone to flesh automatically ends the spell.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-body-4235",
+          "role": "Spell Compendium primary effect reviewed; 'slowed for 2d6 rounds' is intentional printed rules text, not source corruption"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/stone-body--4235/",
+          "role": "matching Spell Compendium rendering confirms the 2d6-round slowed interaction"
+        }
+      ]
+    },
+    "spells/vulnerability-4756": {
+      "name": "Vulnerability",
+      "sourceSha256": "b15c201cf788db1ea623515954fb5ade8904041210bc82646d7514afb3a81e20",
+      "effectSummary": "On a failed Will save, lowers the touched creature's damage reduction by 5, to a minimum DR of 5. The Spell Compendium printing then says that every four caster levels beyond 9th lowers DR by another 5, while its examples give a total reduction of 10 at caster level 15th and 15 at caster level 19th. Those examples do not align exactly with the stated four-level progression, so the printed discrepancy is preserved for DM adjudication rather than silently corrected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vulnerability-4756",
+          "role": "primary Spell Compendium record reviewed; internally inconsistent scaling wording preserved rather than normalized"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/vulnerability--4756/",
+          "role": "independent Spell Compendium rendering confirms the same beyond-9th wording and 15th/19th examples"
+        }
+      ]
+    },
+    "spells/undead-torch-1378": {
+      "name": "Undead Torch",
+      "sourceSha256": "8e1fc958f5a9c84d6e53c7d1703372215aed8c5a919723aa4b74cb3705db57c3",
+      "effectSummary": "Causes one corporeal undead to radiate cold blue energy and deal an extra 2d4 damage with melee attacks against living creatures. Spell resistance is checked the first time the subject attacks a creature; on a successful resistance, that creature is unaffected by this casting. If the undead subject is destroyed, the torch remains at that location for the rest of the duration and creatures passing through the area take damage, but the Ghostwalk/Magic of Faerûn wording does not specify that residual damage amount. If the subject becomes noncorporeal, such as by assuming gaseous form, the spell disperses harmlessly. The later Spell Compendium revision changes multiple mechanics, including using 2d6 damage, so that later value is not silently substituted into this Ghostwalk record.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undead-torch-1378",
+          "role": "primary Ghostwalk record reviewed; residual-area damage is unspecified in this printing"
+        },
+        {
+          "url": "https://dndtools.net/spells/magic-of-faerun--20/undead-torch--1725/",
+          "role": "earlier Magic of Faerûn printing independently has the same unspecified residual-damage wording"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/undead-torch--4645/",
+          "role": "later Spell Compendium revision checked and deliberately not back-ported because it changes the spell to 2d6 and multiple targets"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "a8f20a1b63c50cc74c1b344f6ad662d798efe292",
+    "workflowRun": 35671143926,
+    "validationRun": 35671148695,
+    "classificationArtifact": 10671186220,
+    "classificationArtifactSha256": "99ddd2b5a9619433d3437d406f4009c4051341829c450d2aba6a08f5993e9787",
+    "repairQueueCountBefore": 41
+  }
+}

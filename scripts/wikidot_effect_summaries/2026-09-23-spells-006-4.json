@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-006-4",
+  "records": {
+    "wikidot5e:spell:leomunds-secret-chest": {
+      "sourceDigest": "sha256:932926723d4e4ddff5283e2a60ced8aba0842f9bc992770633615695adea204c",
+      "effectSummary": "Send the spell's large chest and up to 12 cubic feet of nonliving contents to the Ethereal Plane while retaining its miniature replica. While it remains there, you can use an action while touching the replica to recall it to an unoccupied ground space within 5 feet; touching both chest and replica lets you send it back as an action. After 60 days, there is a cumulative 5% chance each day that the effect ends. It also ends if you cast this spell again, destroy the replica, or dismiss it as an action. If the effect ends while the large chest is on the Ethereal Plane, the chest is irretrievably lost."
+    },
+    "wikidot5e:spell:leomunds-tiny-hut": {
+      "sourceDigest": "sha256:cac950cab5ad6236d1b3eab0f620018abdd1c567049ab7a6cbe9bb21c9599617",
+      "effectSummary": "Create an immobile 10-foot-radius dome around yourself for 8 hours; it ends if you leave. Up to nine other Medium-or-smaller creatures can fit, and the spell fails if a larger creature or more than nine others are inside at casting. Creatures and objects inside when cast can pass through freely; all others are blocked. Spells and magical effects cannot extend or be cast through the dome. The interior remains comfortable and dry and can be dim or dark at your command. From outside the dome is opaque in a color you choose; from inside it is transparent."
+    },
+    "wikidot5e:spell:levitate": {
+      "sourceDigest": "sha256:1963367fe4dd8382713296497b9b3ab6364fe5491feaa669060437ff2dcb51c6",
+      "effectSummary": "Choose a visible creature or loose object weighing up to 500 pounds within 60 feet. An unwilling creature can make a Constitution save to resist. The target rises up to 20 feet and remains suspended for up to 10 minutes. It can move horizontally only by pushing or pulling against fixed surfaces. On your turn you can change its altitude by up to 20 feet; if you are the target this is part of your movement, otherwise it costs your action and the target must remain in range. When the spell ends, an airborne target floats gently to the ground."
+    },
+    "wikidot5e:spell:life-transference": {
+      "sourceDigest": "sha256:e5f99e2c5bc30b9a2da45f3fea09df8a6fa40f12e5148cd3342b79c0e9e8beb8",
+      "effectSummary": "Take 4d8 necrotic damage that cannot be reduced, then heal one visible creature within 30 feet for twice the damage you took. Each slot level above 3rd adds 1d8 to the self-damage and therefore to the healing calculation."
+    },
+    "wikidot5e:spell:light": {
+      "sourceDigest": "sha256:2f6ab561b082916c3dfbe0008020029bca23a14b415f0c4c33275048ff32b849",
+      "effectSummary": "Touch an object no larger than 10 feet in any dimension. For 1 hour it sheds colored bright light for 20 feet and dim light for another 20; completely covering it with opaque material blocks the light. The spell ends if you cast it again or dismiss it as an action. A hostile creature holding or wearing the object can make a Dexterity save to avoid the spell."
+    },
+    "wikidot5e:spell:lightning-arrow": {
+      "sourceDigest": "sha256:10eaa5a68a0d6844efd588b1379dd5f29a91f8d8c55a198188051381d9368808",
+      "effectSummary": "The next ranged weapon attack you make before the spell ends transforms its ammunition or thrown weapon into lightning. The target takes 4d8 lightning damage on a hit or half on a miss instead of the weapon's normal damage. Hit or miss, every creature within 10 feet of the target makes a Dexterity save, taking 2d8 lightning damage on a failure or half on a success. The weapon or ammunition then returns to normal. Each slot level above 3rd adds 1d8 to both damage effects."
+    },
+    "wikidot5e:spell:lightning-bolt": {
+      "sourceDigest": "sha256:5d30b56a792074b240cbd437f12ac7fe84c61d8d68fca0471220f87c04ab6822",
+      "effectSummary": "A 100-foot-long, 5-foot-wide line of lightning extends from you. Creatures in the line make Dexterity saves, taking 8d6 lightning damage on a failure or half on a success. It ignites unattended flammable objects in the area. Each slot level above 3rd adds 1d6 damage."
+    },
+    "wikidot5e:spell:lightning-lure": {
+      "sourceDigest": "sha256:6e9179d328ac8959eb51041af1ae297191ecd3fc563914cac382fbae6acc4e5a",
+      "effectSummary": "Choose one visible creature within 15 feet. It makes a Strength save or is pulled up to 10 feet straight toward you and then, if it ends within 5 feet of you, takes 1d8 lightning damage. Damage becomes 2d8 at character level 5, 3d8 at 11, and 4d8 at 17."
+    },
+    "wikidot5e:spell:locate-creature": {
+      "sourceDigest": "sha256:9251cf0d9df74e57ceb43cdaf6aaddef8ef99a7e40428c5e09802d3c1f8901a2",
+      "effectSummary": "Describe or name a familiar creature. For up to 1 hour, if it is within 1,000 feet you know the direction to it and, if moving, its direction of movement. You may instead locate the nearest creature of a specific kind if you have seen such a creature from within 30 feet at least once. The spell fails to find a specific creature currently in a different form, such as from polymorph, and cannot locate any target if running water at least 10 feet wide blocks a direct path."
+    },
+    "wikidot5e:spell:locate-object": {
+      "sourceDigest": "sha256:94a254d1c97cb31a36cccd21847c32dbc7bdb2afce94dc043832a31c9f9cb602",
+      "effectSummary": "Describe or name a familiar object. For up to 10 minutes, if it is within 1,000 feet you know the direction to it and, if moving, its direction of movement. You may instead locate the nearest object of a particular kind. The spell cannot locate a target if any thickness of lead blocks the direct path between you and it."
+    }
+  }
+}

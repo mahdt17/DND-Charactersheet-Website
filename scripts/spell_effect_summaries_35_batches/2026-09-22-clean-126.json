@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 10-record batch 126 from the 171-record difficult reference-dependent tail. Five Planar Handbook / Spell Compendium summon families were pairwise reviewed. All explicit timing, control, descriptor, grouping, and printing-specific text differences are preserved; external creature/stat-block mechanics remain named source references.",
+  "entries": {
+    "spells/summon-greater-elemental-2170": {
+      "name": "Summon Greater Elemental",
+      "sourceSha256": "7b7609942274c5c465f9b5946f7902d059b7a89adefa34df0181b0d7802b61ac",
+      "effectSummary": "Summons one greater air, earth, fire, or water elemental from the appropriate Elemental Plane. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows commands to the best of its ability. You must concentrate to maintain the spell, but commanding it is a free action. This Planar Handbook printing explicitly states that the summoned creature cannot summon/conjure another creature and cannot use teleportation or planar-travel abilities. The spell gains the corresponding air, earth, fire, or water descriptor based on the elemental chosen. Casting time is 1 full round; range Close; duration concentration up to 1 round/level + 1 round; no save; no spell resistance.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Spell Compendium reprint. The external greater-elemental stat block remains a Monster Manual reference; the Planar Handbook's explicit no-summoning/no-teleport sentence is preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-greater-elemental-2170",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-greater-elemental-4272",
+          "role": "Spell Compendium reprint comparison"
+        }
+      ]
+    },
+    "spells/summon-greater-elemental-4272": {
+      "name": "Summon Greater Elemental",
+      "sourceSha256": "dc14730e585e916073495217a8ab0a556015a7e697edfcefa5b4545aa736273e",
+      "effectSummary": "Summons one greater air, earth, fire, or water elemental from the appropriate Elemental Plane. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows commands to the best of its ability. You must concentrate to maintain the spell, but commanding it is a free action. The spell gains the corresponding air, earth, fire, or water descriptor based on the elemental chosen. Casting time is 1 full round; range Close; duration concentration up to 1 round/level + 1 round; no save; no spell resistance. This Spell Compendium text does not itself restate the Planar Handbook sentence barring summoned creatures from summoning/conjuring or using teleportation and planar travel.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Planar Handbook printing and intentionally not normalized across the textual difference. The external greater-elemental stat block remains a Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-greater-elemental-4272",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-greater-elemental-2170",
+          "role": "Planar Handbook printing comparison"
+        }
+      ]
+    },
+    "spells/summon-elementite-swarm-2168": {
+      "name": "Summon Elementite Swarm",
+      "sourceSha256": "ec197de12b24dcf13fe96e55e4157df16f96eb2497f70992b65b3207ad50ef2f",
+      "effectSummary": "Summons one air, earth, fire, or water elementite swarm from the appropriate Elemental Plane. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows commands to the best of its ability. You must concentrate to maintain the spell, but commanding it is a free action. This Planar Handbook printing explicitly states that the summoned creature cannot summon/conjure another creature and cannot use teleportation or planar-travel abilities. The spell gains the corresponding air, earth, fire, or water descriptor based on the swarm chosen. Casting time is 1 full round; range Close; duration concentration up to 1 round/level + 1 round; no save; no spell resistance.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Spell Compendium reprint. The elementite swarm stat block remains a Planar Handbook reference; the printing's explicit no-summoning/no-teleport sentence is preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-elementite-swarm-2168",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-elementite-swarm-4268",
+          "role": "Spell Compendium reprint comparison"
+        }
+      ]
+    },
+    "spells/summon-elementite-swarm-4268": {
+      "name": "Summon Elementite Swarm",
+      "sourceSha256": "08f3a67475b7162008fafaa5f535f46c790097e62958cd17142aae58bcf083ba",
+      "effectSummary": "Summons one air, earth, fire, or water elementite swarm from the appropriate Elemental Plane. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows commands to the best of its ability. You must concentrate to maintain the spell, but commanding it is a free action. The spell gains the corresponding air, earth, fire, or water descriptor based on the swarm chosen. Casting time is 1 full round; range Close; duration concentration up to 1 round/level + 1 round; no save; no spell resistance. This Spell Compendium text does not itself restate the Planar Handbook sentence barring summoned creatures from summoning/conjuring or using teleportation and planar travel.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Planar Handbook printing and intentionally not normalized across the textual difference. The elementite swarm stat block remains a Planar Handbook reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-elementite-swarm-4268",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-elementite-swarm-2168",
+          "role": "Planar Handbook printing comparison"
+        }
+      ]
+    },
+    "spells/summon-elysian-thrush-2169": {
+      "name": "Summon Elysian Thrush",
+      "sourceSha256": "911e8e1da5daea388dedc872bf5ffe92a83f63dd376b4798bfeb0fcae20f83cd",
+      "effectSummary": "Summons an Elysian thrush from the Blessed Fields of Elysium for 8 hours. The bird has no significant combat utility; living creatures within 30 feet that listen to its song while resting recover at twice the normal natural-healing rate. Casting time is 10 minutes; range Close; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Spell Compendium reprint. The Planar Handbook header labels the effect as one called Elysian thrush while the reprint labels it summoned; that printing-specific header distinction is left intact in catalog data.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-elysian-thrush-2169",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-elysian-thrush-4270",
+          "role": "Spell Compendium reprint cross-check"
+        }
+      ]
+    },
+    "spells/summon-elysian-thrush-4270": {
+      "name": "Summon Elysian Thrush",
+      "sourceSha256": "7a90f49afa0eafbb6d3e366559ae4d1725bf8a96a888d9c621242be0032ab5ff",
+      "effectSummary": "Summons an Elysian thrush from the Blessed Fields of Elysium for 8 hours. The bird has no significant combat utility; living creatures within 30 feet that listen to its song while resting recover at twice the normal natural-healing rate. Casting time is 10 minutes; range Close; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Planar Handbook printing. The external Elysian thrush creature entry remains a Planar Handbook reference; no unquoted creature statistics were invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-elysian-thrush-4270",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-elysian-thrush-2169",
+          "role": "Planar Handbook printing cross-check"
+        }
+      ]
+    },
+    "spells/heavenly-host-2154": {
+      "name": "Heavenly Host",
+      "sourceSha256": "a405771bdbfce761ccd79166f79c771b7821641e9737b200bf7e07698eaf2928",
+      "effectSummary": "Summons a host of archons from Celestia. When casting finishes, 2d4 lantern archons appear; 10 minutes later, 1d4 hound archons appear. Each arrives with maximum hit points per Hit Die and serves for the spell's duration. They obey you explicitly, never attack you even if another creature gains control over them, require no concentration to maintain control, and can be dismissed singly or in groups. Casting time is 10 minutes; range Medium; the creatures must be within the spell's 30-foot grouping limit; duration 10 minutes/level (D); no save; no spell resistance.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Spell Compendium reprint. Lantern- and hound-archon stat blocks remain external Monster Manual references rather than being expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heavenly-host-2154",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heavenly-host-4698",
+          "role": "Spell Compendium reprint cross-check"
+        }
+      ]
+    },
+    "spells/heavenly-host-4698": {
+      "name": "Heavenly Host",
+      "sourceSha256": "d9d7bf935633388b1463c0f4214d1dcc58e4c1ae00ff75cacf64e47ed2574b77",
+      "effectSummary": "Summons a host of archons from Celestia. When casting finishes, 2d4 lantern archons appear; 10 minutes later, 1d4 hound archons appear. Each arrives with maximum hit points per Hit Die and serves for the spell's duration. They obey you explicitly, never attack you even if another creature gains control over them, require no concentration to maintain control, and can be dismissed singly or in groups. Casting time is 10 minutes; range Medium; no two summoned creatures can be more than 30 feet apart; duration 10 minutes/level (D); no save; no spell resistance.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Planar Handbook printing. Lantern- and hound-archon stat blocks remain external Monster Manual references rather than being expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heavenly-host-4698",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heavenly-host-2154",
+          "role": "Planar Handbook printing cross-check"
+        }
+      ]
+    },
+    "spells/hellish-horde-2155": {
+      "name": "Hellish Horde",
+      "sourceSha256": "999659bd396c8d81880acf0679fdb3a3548ad2f84f78948042576f91906044d3",
+      "effectSummary": "Summons a horde of devils from the Nine Hells. When casting finishes, 2d4 bearded devils appear; 10 minutes later, 1d4 chain devils appear; 10 minutes after that, one bone devil appears. Each arrives with maximum hit points per Hit Die and serves for the spell's duration. The devils obey you explicitly, never attack you even if another creature gains control over them, require no concentration to maintain control, and can be dismissed singly or in groups. Casting time is 10 minutes; range Medium; the creatures must be within the spell's 30-foot grouping limit; duration 10 minutes/level (D); no save; no spell resistance.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Spell Compendium reprint. The three devil stat blocks remain external Monster Manual references rather than being expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hellish-horde-2155",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/hellish-horde-4699",
+          "role": "Spell Compendium reprint cross-check"
+        }
+      ]
+    },
+    "spells/hellish-horde-4699": {
+      "name": "Hellish Horde",
+      "sourceSha256": "3c065bad50d36358682e428c9c557b8112de87bcaa41b9093b56b095708f2266",
+      "effectSummary": "Summons a horde of devils from the Nine Hells. When casting finishes, 2d4 bearded devils appear; 10 minutes later, 1d4 chain devils appear; 10 minutes after that, one bone devil appears. Each arrives with maximum hit points per Hit Die and serves for the spell's duration. The devils obey you explicitly, never attack you even if another creature gains control over them, require no concentration to maintain control, and can be dismissed singly or in groups. Casting time is 10 minutes; range Medium; no two summoned creatures can be more than 30 feet apart; duration 10 minutes/level (D); no save; no spell resistance.",
+      "notes": "Manually source-reviewed and digest-locked. Pairwise checked against the Planar Handbook printing. The three devil stat blocks remain external Monster Manual references rather than being expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hellish-horde-4699",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/hellish-horde-2155",
+          "role": "Planar Handbook printing cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "9c5e5d7f864ee592945059136c39c9d7e498f649",
+    "workflowRun": 35769347235,
+    "validationRun": 35769352025,
+    "classificationArtifact": 10713900367,
+    "classificationArtifactSha256": "2e2568e05d31979441843ce48076fecffd2d6f1d34768f5e68e8462d05b4258b",
+    "queueCountBefore": 171,
+    "referenceQueueCountBefore": 171,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

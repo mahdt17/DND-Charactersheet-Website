@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified cross-sourcebook reference spells with explicit descriptor, rider, or residual-effect overrides; clean batch 078.",
+  "entries": {
+    "spells/glacial-globe-of-invulnerability-1230": {
+      "name": "Glacial Globe of Invulnerability",
+      "sourceSha256": "30280c7bcb01c4bdae1eda152b215cfc0ddda0ebf413120671234eb715ada97e",
+      "effectSummary": "Creates an immobile 10-foot-radius frosty globe for 1 round per level that functions like globe of invulnerability but excludes only spells and spell-like abilities with the fire descriptor of 3rd level or lower. Qualifying fire effects that enter the globe are suppressed there rather than dispelled and resume when no longer suppressed; higher-level fire effects, nonfire effects, and effects already active when the globe is cast are not excluded. Spells can still be cast through or out of the globe, and you can leave and reenter it. The frosty opacity also gives creatures inside concealment (20% miss chance) against attacks from outside and gives outside targets the same concealment against attacks from inside. The globe can be ended by targeted dispel magic but not an area dispel. The arcane material component is a tiny sphere of ice that shatters when the spell expires.",
+      "notes": "Source-locked to Frostburn. The Globe of Invulnerability reference is uniquely resolved to Player's Handbook v.3.5, but Frostburn explicitly narrows both the descriptor and threshold to fire effects of 3rd level or lower and adds bidirectional concealment.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/glacial-globe-of-invulnerability-1230",
+          "role": "primary Frostburn record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/globe-of-invulnerability-2324",
+          "role": "uniquely resolved Player's Handbook v.3.5 Globe of Invulnerability reference supplying suppression, casting-through, reentry, and dispel behavior"
+        }
+      ]
+    },
+    "spells/protection-from-winged-flyers-3264": {
+      "name": "Protection from Winged Flyers",
+      "sourceSha256": "76027cd6062641f76c50a4b7698049201e127c3eceb34f1ed71f4c32ee2ffcd8",
+      "effectSummary": "Functions as protection from evil for 1 minute per level, but the +2 deflection bonus to AC and +2 resistance bonus on saves apply against attacks and effects from creatures that have both wings and a fly speed rather than against evil creatures. The inherited ward against possession and suppression of ongoing charm or compulsion effects that grant mental control still applies. Summoned creatures that fly with wings cannot make bodily contact or natural-weapon attacks against the subject until the subject attacks or presses the barrier against them; spell resistance can let such a summoned creature overcome that contact protection. The arcane material component is a feather or bat wing.",
+      "notes": "Source-locked to Shining South. The Protection from Evil reference is uniquely resolved to Player's Handbook v.3.5; this printing retargets the alignment-based bonuses and summoned-creature contact ward to winged flying creatures while retaining the base mental-control protection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/protection-from-winged-flyers-3264",
+          "role": "primary Shining South record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/protection-from-evil-2348",
+          "role": "uniquely resolved Player's Handbook v.3.5 Protection from Evil reference supplying deflection/resistance, mental-control, and summoned-contact mechanics"
+        }
+      ]
+    },
+    "spells/mace-of-odo-2256": {
+      "name": "Mace of Odo",
+      "sourceSha256": "e5dd490b2cc4e1009b4a145a8fd7e5eefe33ecc1387e1e1900fd7bef455a5e51",
+      "effectSummary": "Creates a glowing force mace in your hand for up to 1 round per level. You can make a melee touch attack with it on the same round it is summoned; on a hit it deals 1d6 force damage per caster level, maximum 10d6, plus an extra 1 point per caster level against undead, maximum +10. Any creature hit must make a Fortitude save or be paralyzed for 1 round. The mace remains while you cast other spells, but if you are targeted by a spell you can instead have the mace absorb that spell. The mace vanishes when it hits a creature, absorbs a spell, or leaves your grasp. Where it vanishes, the point in space sheds bright light in a 20-foot radius and dim light for another 20 feet for the rest of the spell's duration, as the light spell; that glow does not function in magical darkness.",
+      "notes": "Source-locked to Player's Guide to Faerûn. The Light reference is uniquely resolved to Player's Handbook v.3.5 and applies only to the residual glow after the mace vanishes; the force damage, undead bonus, paralysis, spell absorption, and disappearance rules are printed directly here.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mace-of-odo-2256",
+          "role": "primary Player's Guide to Faerûn record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/light-2629",
+          "role": "uniquely resolved Player's Handbook v.3.5 Light reference supplying the residual glow's illumination behavior"
+        }
+      ]
+    },
+    "spells/nezrams-sapphire-screen-of-shielding-1552": {
+      "name": "Nezram's Sapphire Screen of Shielding",
+      "sourceSha256": "4a9a59959a062ec4e155425ba2da3e6692519d154852992ad41e6e3622f25852",
+      "effectSummary": "Creates a roughly 5-foot-square, 1-inch-thick levitating screen of fluid blue force that moves with you and responds to attacks. It provides all effects of shield: a +4 shield bonus to AC including against incorporeal touch attacks, immunity to magic missile, no armor check penalty or arcane spell failure chance, and no tower-shield-style cover. In addition, you gain damage reduction 10/magic. The arcane focus is a sapphire worth at least 250 gp.",
+      "notes": "Source-locked to Lost Empires of Faerûn. The Shield reference is uniquely resolved to Player's Handbook v.3.5 and supplies the force-shield mechanics; this spell adds DR 10/magic and its sapphire focus.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nezrams-sapphire-screen-of-shielding-1552",
+          "role": "primary Lost Empires of Faerûn record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/shield-2364",
+          "role": "uniquely resolved Player's Handbook v.3.5 Shield reference supplying the inherited AC and magic-missile protection"
+        }
+      ]
+    },
+    "spells/radiant-fog-29": {
+      "name": "Radiant Fog",
+      "sourceSha256": "e7baec57e2d98aa5e0a1b8b748f051fbf1833dfea3afbb73262a0250789d69aa",
+      "effectSummary": "Functions as solid fog, creating dense fog that blocks sight beyond 5 feet, grants 20% concealment within 5 feet and total concealment beyond that, reduces movement to 5 feet, prevents 5-foot steps, imposes -2 on melee attacks and melee damage, blocks ordinary ranged weapon attacks, reduces falling damage by 1d6 per 10 feet fallen through it, is dispersed by severe wind, and does not function underwater. The celestial radiance adds a Fortitude save: a creature that fails is dazzled for as long as it remains in the fog and for 1 minute afterward; a light-sensitive or otherwise bright-light-vulnerable creature is blinded instead, while sightless creatures ignore the radiance. Spell resistance applies to the movement reduction, melee penalties, and dazzling/blinding effects, but not to concealment or the prevention of ranged weapon attacks. Casting requires that you have cast neither a darkness spell nor a Necromancy spell during the previous 24 hours.",
+      "notes": "Source-locked to Book of Exalted Deeds. The Solid Fog reference is uniquely resolved to Player's Handbook v.3.5; Radiant Fog adds its saving throw, radiant conditions, selective spell-resistance handling, and abstinence component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/radiant-fog-29",
+          "role": "primary Book of Exalted Deeds record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/solid-fog-2437",
+          "role": "uniquely resolved Player's Handbook v.3.5 Solid Fog reference supplying inherited concealment, movement, ranged-attack, falling, wind, and underwater mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "447791d6f20e20c17b922146266fcafbaddb6d42",
+    "workflowRun": 35683979523,
+    "validationRun": 35683981860,
+    "classificationArtifact": 10675513593,
+    "classificationArtifactSha256": "239bdd5144189b2ce874a37738468b4769c83d2db051b2e87dcd7e78ad35fb59",
+    "queueCountBefore": 947,
+    "referenceQueueCountBefore": 947,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

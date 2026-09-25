@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-007-3",
+  "records": {
+    "wikidot5e:wondrous-items:the-bloody-end": {
+      "sourceDigest": "sha256:c3c2aabace1fbbc41ea8acd7ee172f0feba4d661c0109323595ca14bd4a86bc4",
+      "effectSummary": "Sentient lawful-evil evolving morningstar housing pit fiend Izeelzee; Intelligence 22, Wisdom 18, Charisma 24, hearing/darkvision 120 feet, telepathic, speaks/reads/understands Common and Infernal; urges domination and never backing down. Dormant: learn Infernal; +1 attack/damage; once per dawn for each spell cast charm person, dominate person, or fear at save DC 13; advantage on Charisma (Intimidation). Awakened: bonus +2, spell DC 15; once per dawn when you reduce a creature to 0 HP, chosen creatures within 15 feet make DC 15 Wisdom or are frightened until end of your next turn; when a creature hits you in melee, reaction deals 1d6 psychic. Exalted: bonus +3; add dominate monster to spells; spell/fear DC 17; retaliatory psychic becomes 2d6."
+    },
+    "wikidot5e:wondrous-items:thunderbuss": {
+      "sourceDigest": "sha256:8d9e172fb765822e07fa090bc004d98a4412efe8be264c750e891394fbaebe44",
+      "effectSummary": "This +1 magic pistol needs no ammunition, deals thunder instead of piercing, and lacks loading. Once per dawn as a bonus action, launch an energy ball to a visible point within 30 feet; creatures in a 10-foot-radius sphere make DC 14 Constitution, taking 3d6 thunder and losing reactions until end of your next turn on failure, or half damage only on success."
+    },
+    "wikidot5e:wondrous-items:tidecaller-trident": {
+      "sourceDigest": "sha256:ea7569edfbc654a92899260ce1933266544b7051bc2fed7e522aacdee9eb57a6",
+      "effectSummary": "This +2 magic trident grants advantage on attacks made underwater. It has 3 charges and regains 1d3 daily at dawn; spend 1 to cast control water at save DC 15 or 3 to cast tsunami at save DC 15."
+    },
+    "wikidot5e:wondrous-items:timepiece-of-travel": {
+      "sourceDigest": "sha256:29900cb11a9bb5d4d9ea4967ae96e769b73a3324fd16a8b00bf8268f5084e419",
+      "effectSummary": "While attuned, gain +1 Dexterity saves, always know north, and cast longstrider on yourself at will. Once per dawn, name a location within 10 miles that is known to at least one creature also within 10 miles of it; a private voice gives the safest, most direct directions, avoiding natural hazards but not monsters, traps, enemies, or locked doors. It cannot find wholly secret/unknown locations. Separately once per dawn as an action, cast teleport. When not installed in the Orrery of the Wanderer, its magic may work sporadically or unpredictably at the DM's discretion."
+    },
+    "wikidot5e:wondrous-items:tinderstrike": {
+      "sourceDigest": "sha256:fd6e3dfcc419acacabad3ee2367f54a4ff823badd4679d3b1a890ee16d99ba0e",
+      "effectSummary": "Legendary +2 dagger containing a spark of Imix; hits deal +2d6 fire. While held, speak Ignan, gain fire resistance, and once per dawn cast dominate monster at save DC 17 targeting only a fire elemental. While inside a fire node, once per dawn perform the Dance of the All-Consuming Fire ritual to create a fire devastation orb using the normal ritual time and cost. Flaw while attuned: you become impatient and rash, acting without thinking and taking risks without weighing consequences."
+    },
+    "wikidot5e:wondrous-items:tome-of-clear-thought": {
+      "sourceDigest": "sha256:4359c305b163a93acdf2fd4be1d09d63e976151e1d32e6c7ac1935ff3d56f34f",
+      "effectSummary": "Spend 48 hours over no more than 6 days studying and practicing the tome's exercises to increase Intelligence by 2 and its maximum by 2. The tome then loses its magic for 100 years."
+    },
+    "wikidot5e:wondrous-items:tome-of-leadership-and-influence": {
+      "sourceDigest": "sha256:3086e3770ef550a8cfc20cda23f20dac9f7fa3622a7ab8d08cff396bb30bb133",
+      "effectSummary": "Spend 48 hours over no more than 6 days studying and practicing the tome's guidance to increase Charisma by 2 and its maximum by 2. The tome then loses its magic for 100 years."
+    },
+    "wikidot5e:wondrous-items:tome-of-the-stilled-tongue": {
+      "sourceDigest": "sha256:360f8a11b094fd58af7469219f80a6b859a25ba070cf4dc33acc15198e3a63de",
+      "effectSummary": "Wizard-only legendary spellbook and arcane focus. Once per dawn while holding it, use a bonus action to cast one spell written in it without expending a spell slot and without verbal or somatic components. While attuned, you may remove the desiccated tongue from the cover; doing so permanently erases every spell written in the book. Vecna watches anyone using the tome and may write cryptic messages in it at midnight; those messages fade after being read."
+    },
+    "wikidot5e:wondrous-items:tome-of-understanding": {
+      "sourceDigest": "sha256:14afb44bae6a20d89d46cb6521776edaacbf278b3420f18e957f9d00ad39651c",
+      "effectSummary": "Spend 48 hours over no more than 6 days studying and practicing the tome's exercises to increase Wisdom by 2 and its maximum by 2. The tome then loses its magic for 100 years."
+    }
+  }
+}

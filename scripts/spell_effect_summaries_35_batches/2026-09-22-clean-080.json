@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified reference spells whose printed mechanics are self-contained or have a single narrow, already-reviewed inheritance point; clean batch 080.",
+  "entries": {
+    "spells/panacea-1957": {
+      "name": "Panacea",
+      "sourceSha256": "c4d447e7aa42d74a4ee8ea90e1d15a311ad110e913ce75154279112da46a457e",
+      "effectSummary": "Channels positive energy through one touched creature to immediately end blindness, confusion, dazing, dazzling, deafness, disease, exhaustion, fatigue, fright, nausea, panic, paralysis, shaking, sickness, and stunning. It also ends sleep effects and feeblemind, neutralizes ongoing poison effects as neutralize poison does, and cures 1d8 hit points +1 per caster level to a maximum +20. It does not remove ability damage, negative levels, permanently drained levels, conditions caused by spells of 7th level or higher, or conditions from effects that cannot be dispelled. Against an undead creature it deals the listed hit-point amount as positive-energy damage instead of healing; a successful Will save halves that damage, and none of the condition-removal effects apply.",
+      "notes": "Source-locked to Miniatures Handbook. The Feeblemind reference is uniquely resolved to the already-reviewed Player's Handbook v.3.5 spell; the Neutralize Poison wording is used only for its printed poison-cleanup behavior. No later Spell Compendium revision is substituted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/panacea-1957",
+          "role": "primary Miniatures Handbook record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/feeblemind-2549",
+          "role": "uniquely resolved Player's Handbook v.3.5 Feeblemind reference"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/neutralizePoison.htm",
+          "role": "3.5 SRD cross-check for the printed Neutralize Poison inheritance"
+        }
+      ]
+    },
+    "spells/suspension-3292": {
+      "name": "Suspension",
+      "sourceSha256": "4f5cfbf426c896636074e5e526544e407d11fcda0c6623d2ea5a5240461c8e30",
+      "effectSummary": "Functions as levitate on one nonliving object weighing up to 1,000 pounds per caster level, except the duration is 1d4 days + 1 day per caster level and the object can be mentally directed up or down by as much as 45 feet each round as a move action. The inherited levitate mechanics provide suspension rather than flight and no magical horizontal movement. When you stop actively directing the object, it remains suspended in its current position for the rest of the spell. The material component is a small leather loop suspended from a bent wire of gold.",
+      "notes": "Source-locked to Shining South. The Levitate reference is uniquely resolved to Player's Handbook v.3.5; the spell's own header and text replace the base target-weight limit, duration, vertical speed, and component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/suspension-3292",
+          "role": "primary Shining South record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/levitate.htm",
+          "role": "3.5 SRD cross-check for inherited levitation and lack of magical horizontal propulsion"
+        }
+      ]
+    },
+    "spells/unyielding-roots-755": {
+      "name": "Unyielding Roots",
+      "sourceSha256": "67267180d155bcd8a74224654c8690900c85c5c1fddf65cf56de2324e75e6f94",
+      "effectSummary": "For 1 minute per caster level, a willing creature touching the ground grows thick roots and cannot leave its current space or be moved by bull rushes, overruns, Bigby's forceful hand, or any effect short of a massive earthquake. An overrun against it must be blocked; the rooted creature automatically wins the check to stop the overrun and may make a Strength check opposed by the overrunning creature's Strength or Dexterity to knock that creature prone. Each round the roots can heal up to 30 hit points, automatically neutralize poisons, and remove negative levels as restoration does. While rooted, the creature gains +4 on Fortitude and Will saves and takes -4 on Reflex saves. If the subject is not touching the ground when cast, the spell has no effect.",
+      "notes": "Source-locked specifically to Complete Divine p.185. The Restoration reference is limited to the printed negative-level cleanup. The later Spell Compendium version has a shorter duration and lower spell level and is not substituted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unyielding-roots-755",
+          "role": "primary Complete Divine record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-divine--56/unyielding-roots--755/index.html",
+          "role": "matching Complete Divine rendering used to verify immobilization, healing, poison, save modifiers, and duration"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/restoration.htm",
+          "role": "3.5 SRD cross-check for the explicitly referenced negative-level restoration mechanic"
+        }
+      ]
+    },
+    "spells/stormrage-751": {
+      "name": "Stormrage",
+      "sourceSha256": "24e44947c98a7fce65e8a159c7921b230883585b1dee7c6d3b6a774a1a7b3423",
+      "effectSummary": "For 1 minute per caster level, you gain the benefits of fly and are protected from every direction as though surrounded by wind wall. The inherited fly effect gives a 60-foot fly speed with good maneuverability, reduced to 40 feet in medium or heavy armor or with a medium or heavy load, with the normal fly ascent, descent, attack, charge, carrying, and safe-descent rules. The surrounding wind protection deflects arrows and bolts, gives other ordinary ranged weapons a 30% miss chance, and blocks Tiny or Small flying creatures, gases, most gaseous breath weapons, and gaseous creatures from crossing it. You are also completely unaffected by natural or magical wind. Finally, you have a pool of electricity dice equal to your caster level, maximum 20d6, which you can fire from your eyes in one or more bolts over the spell's duration. Firing a bolt is a standard action that does not provoke attacks of opportunity, has a 100-foot range, requires a ranged touch attack, and gains +3 on the attack roll against a target wearing metal armor, made of metal, or carrying substantial metal.",
+      "notes": "Source-locked to Complete Divine p.182. Fly and Wind Wall are uniquely resolved Player's Handbook v.3.5 references and their inherited movement/projectile/gas defenses are expanded explicitly. The separate earlier Magic of Faerûn printing remains a distinct record.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stormrage-751",
+          "role": "primary Complete Divine record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-divine--56/stormrage--751/",
+          "role": "matching Complete Divine rendering used to verify wind immunity and electricity-pool behavior"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/fly.htm",
+          "role": "3.5 SRD cross-check for inherited Fly movement and safe-descent rules"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/windWall.htm",
+          "role": "3.5 SRD cross-check for inherited projectile, flyer, and gas protection"
+        }
+      ]
+    },
+    "spells/spread-of-contentment-53": {
+      "name": "Spread of Contentment",
+      "sourceSha256": "0d1e0726c8375871b69e4d61f6997423061f05d5a5d3c0b0815ff80fbc1564b7",
+      "effectSummary": "For 1 hour per caster level, creatures in the spell's area become more favorably disposed: hostile and unfriendly creatures become indifferent, indifferent creatures become friendly, and friendly creatures become helpful. The spell also calms creatures that have been magically enraged and forced to attack. It directly counters spread of savagery. Summoned creatures are unaffected and retain their normal dispositions. The material component is a lammasu feather.",
+      "notes": "Source-locked to Book of Exalted Deeds. The cross-book Spread of Savagery reference is only a direct-counter relationship; no mechanics are inherited from that spell beyond the printed countering interaction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spread-of-contentment-53",
+          "role": "primary Book of Exalted Deeds record and digest source"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/meta/books/3.5/BookofExaltedDeeds.html",
+          "role": "Book of Exalted Deeds SRD cross-check for the spell's calming purpose and source identity"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/spread-of-savagery-172",
+          "role": "cross-book spell named by the source solely for the direct-counter interaction"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "4596b64b2aa84b69e704d9548ad8aeeb29389315",
+    "workflowRun": 35684532223,
+    "validationRun": 35684533881,
+    "classificationArtifact": 10675933939,
+    "classificationArtifactSha256": "51ec9c9d814f0200ed48e70253556d99c36db988c89a2a31d284238bf2d7f679",
+    "queueCountBefore": 937,
+    "referenceQueueCountBefore": 937,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

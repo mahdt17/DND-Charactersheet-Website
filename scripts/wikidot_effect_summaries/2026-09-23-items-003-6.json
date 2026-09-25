@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-6",
+  "records": {
+    "wikidot5e:wondrous-items:gulthias-staff": {
+      "sourceDigest": "sha256:eba85a8cf78423346b39fca9c8549dd41bc5a3d5a18a2a4f78460990b7ddeea7",
+      "effectSummary": "The staff has 10 charges and regains 1d6+4 daily at dusk. It functions as a magic quarterstaff; on a hit, spend 1 charge to regain HP equal to the weapon damage dealt, then make DC 12 Wisdom or suffer short-term madness. While attuned, blights and other evil plant creatures do not regard you as hostile unless you harm them. Breaking or burning the staff releases a scream audible 300 feet; every blight that hears it immediately withers and dies."
+    },
+    "wikidot5e:wondrous-items:gurts-greataxe": {
+      "sourceDigest": "sha256:bb4b615a7526c6c14b1e43921bf74affd22f2f52faf5e879350e40ac5a0a3732",
+      "effectSummary": "This giant-sized 325-pound +1 greataxe deals 3d12 slashing on a hit, plus +2d12 slashing against humans. Below 0°F it sheds torchlight and cannot be extinguished. Once per dawn as an action, cast heat metal at save DC 13, except it deals cold damage instead of fire."
+    },
+    "wikidot5e:wondrous-items:hammer-of-runic-focus": {
+      "sourceDigest": "sha256:82e934403a7c19973d15517f2e59a227a3012387b7e6fe3085ab21eef36dd847",
+      "effectSummary": "The hammer has 3 charges and regains 1d3 daily at dawn. As a bonus action, spend 1 charge and strike the ground to create a 15-foot-radius glowing rune circle centered there. While inside that circle, gain +3 to attack and damage rolls with the hammer. The circle lasts 1 minute, until you create another, or until dismissed as a bonus action."
+    },
+    "wikidot5e:wondrous-items:hammer-of-thunderbolts": {
+      "sourceDigest": "sha256:14e9daba6a13d7b8c071156fd638e45d854b2ebb47b2ed13392cbe4ce87d94c8",
+      "effectSummary": "This +1 maul can be attuned only while wearing any belt of giant strength and gauntlets of ogre power; attunement ends if either is removed. While attuned and holding it, Strength increases by 4 to a maximum of 30. On an attack-roll 20 against a giant, that giant makes DC 17 Constitution or dies. It has 5 charges, regaining 1d4+1 daily at dawn. Spend 1 charge to make a ranged attack as thrown 20/60; on a hit, the target and every creature within 30 feet make DC 17 Constitution or are stunned until the end of your next turn, and the thunderclap is audible 300 feet."
+    },
+    "wikidot5e:wondrous-items:hammock-of-worlds": {
+      "sourceDigest": "sha256:94e8adfe853a68604edda79736199a648164fdccac74491996f0675fb25a5dd6",
+      "effectSummary": "Usable only by a Green Doctor. As an action, unfold it on a solid surface to create a two-way portal to either the Ghost Orchid Tepui in the Feywild or the Drought Elder in the Far Realm, your choice. As an action, fold the hammock to close an open portal. After opening a portal, it cannot do so again for 1d8 hours."
+    },
+    "wikidot5e:wondrous-items:harp-of-gilded-plenty": {
+      "sourceDigest": "sha256:bc69e55b5ce5da9eaa94c5331bedcb5761b4ee47fb8207bdd44883a5010e7766",
+      "effectSummary": "Sentient chaotic-good golden harp: Int 13, Wis 15, Cha 20; hearing/darkvision 120 feet; speaks, reads, and understands Common and Giant; telepathic with its attuned user. To attune, first succeed on DC 15 Charisma (Performance) or DC 20 Charisma (Persuasion); failure prevents another attempt until next dawn. Once attuned, it resizes to fit you. Stalwart Song: on Charisma checks, treat d20 results of 9 or lower as 10. Feast of Plenty: after playing 10 minutes, cast heroes' feast; recharge 1d10+10 days. Soothing Melody: as an action cast calm emotions at save DC 19 with duration increased to 1 hour while concentration is maintained; 5 uses, all restored at dawn."
+    },
+    "wikidot5e:wondrous-items:hat-of-vermin": {
+      "sourceDigest": "sha256:30d0af644c855003c6c48171211ef62cb3fa2fa69a3f43440cc92dae38e64dce",
+      "effectSummary": "The hat has 3 charges and regains all daily at dawn. While holding it, use an action and 1 charge to summon a bat, frog, or rat into the hat. The creature is ordinary, neither friendly nor hostile, uncontrolled, tries to get away, and disappears after 1 hour or at 0 HP."
+    },
+    "wikidot5e:wondrous-items:hat-of-wizardry": {
+      "sourceDigest": "sha256:32fcfd0c1fa19f404508958012f62a4de246bc5da07eebbdc41a8819b1b78a5f",
+      "effectSummary": "While worn by a wizard, functions as a spellcasting focus. Once per long rest, attempt to cast a wizard-list cantrip you do not know; make DC 10 Intelligence (Arcana). On success cast it; on failure the spell and action are wasted. Either result expends the use."
+    },
+    "wikidot5e:wondrous-items:hazirawn": {
+      "sourceDigest": "sha256:49d35a218b7a21c5efcdb3974e9f1d072b904b65700fdedc53e630703667b7ca",
+      "effectSummary": "Sentient neutral-evil greatsword that speaks Common and Netherese. Even unattuned, grants +1 attack/damage and deals +1d6 necrotic on hits. While attuned, bonus becomes +2 and extra necrotic becomes 2d6. It has 4 charges, regains 1d4 nightly at midnight, and while attuned/held casts as an action: detect magic 1, detect evil and good 1, detect thoughts 2. While attuned, creatures you hit cannot regain HP for 1 minute; affected creatures make DC 15 Constitution at each turn end, ending this restriction on success."
+    },
+    "wikidot5e:wondrous-items:harkon-s-bite": {
+      "sourceDigest": "sha256:6510c995c443269d5ca1a1e2bea4a0b2d3f46641287e9f24f7ddf4211ea55b01",
+      "effectSummary": "While worn, gain +1 to ability checks and saving throws. Curse: attunement prevents removing the necklace until Harkon Lukas removes it or remove curse/similar magic ends the curse. Whenever the necklace is donned or removed, whether attuned or not, you gain werewolf lycanthropy until the dawn after the next full moon; if still wearing it then, the lycanthropy is inflicted again."
+    }
+  }
+}

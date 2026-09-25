@@ -1,0 +1,315 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest- and table-digest-locked source-verified self-contained table reviews; clean batch 065.",
+  "entries": {
+    "spells/girallon-windmill-flesh-rip-3738": {
+      "name": "Girallon Windmill Flesh Rip",
+      "sourceSha256": "67005fd97dcf33bbf00d8c1fa47c48838691e541c994315198a5eada72958151",
+      "tablesSha256": "9175ba5afe0919197cbc4d8dd6704560e2df78f59c2e6feaf39fac5ec5801a52",
+      "effectSummary": "Tiger Claw boost used before making any attacks in the round while wielding at least two weapons. At the end of your turn, each opponent you hit at least twice takes extra rend damage based only on how many of your attacks hit that creature: 2 hits 8d6, 3 hits 10d6, 4 hits 12d6, 5 hits 14d6, 6 hits 16d6, 7 hits 18d6, and 8 or more hits 20d6. If you attack multiple opponents, determine the rend damage separately for each target from the number of hits that target received.",
+      "tables": [
+        [
+          [
+            "Successful Attacks",
+            "Rend Damage"
+          ],
+          [
+            "2",
+            "8d6"
+          ],
+          [
+            "3",
+            "10d6"
+          ],
+          [
+            "4",
+            "12d6"
+          ],
+          [
+            "5",
+            "14d6"
+          ],
+          [
+            "6",
+            "16d6"
+          ],
+          [
+            "7",
+            "18d6"
+          ],
+          [
+            "8+",
+            "20d6"
+          ]
+        ]
+      ],
+      "notes": "Tome of Battle p.87 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/girallon-windmill-flesh-rip-3738",
+          "role": "primary Tome of Battle catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/tome-of-battle-the-book-of-nine-swords--88/girallon-windmill-flesh-rip--3738/",
+          "role": "matching Tome of Battle rendering used to verify initiation timing, per-target hit counting, and the complete rend-damage table"
+        }
+      ]
+    },
+    "spells/jaws-of-the-moray-3360": {
+      "name": "Jaws of the Moray",
+      "sourceSha256": "30c14f615c5939711a433914aa024ba0e1499686146da65686252b9683e99d5c",
+      "tablesSha256": "da5417db162183276363732e8e602238c782f1babc841bd18dc0eb18ca378b4a",
+      "effectSummary": "Grants the touched creature a bite attack whose base damage depends on size: Fine 1d2, Diminutive 1d3, Tiny 1d4, Small 1d6, Medium 1d8, Large 2d6, Huge 2d8, Gargantuan 4d6, Colossal 4d8. Used as a primary attack, the bite adds the creature's Strength modifier; used as a secondary natural attack with manufactured weapons, it takes the normal -5 attack penalty or -2 with Multiattack. On a bite hit, the subject can attach to the foe without a grapple check or attack of opportunity and automatically deals bite damage each round it remains attached. While attached it loses its Dexterity bonus to AC and cannot use other weapons; attacks by the grappled foe require a successful grapple check, and removing the attacker by grappling requires achieving a pin. A creature whose existing natural bite deals more damage uses that damage instead and still gains the attachment ability.",
+      "tables": [
+        [
+          [
+            "Size",
+            "Damage"
+          ],
+          [
+            "Fine",
+            "1d2"
+          ],
+          [
+            "Diminutive",
+            "1d3"
+          ],
+          [
+            "Tiny",
+            "1d4"
+          ],
+          [
+            "Small",
+            "1d6"
+          ],
+          [
+            "Medium",
+            "1d8"
+          ],
+          [
+            "Large",
+            "2d6"
+          ],
+          [
+            "Huge",
+            "2d8"
+          ],
+          [
+            "Gargantuan",
+            "4d6"
+          ],
+          [
+            "Colossal",
+            "4d8"
+          ]
+        ]
+      ],
+      "notes": "Stormwrack p.117 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/jaws-of-the-moray-3360",
+          "role": "primary Stormwrack catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/stormwrack--87/jaws-of-the-moray--3360/index.html",
+          "role": "matching Stormwrack rendering used to verify bite damage, secondary-attack penalties, attachment, and the complete size table"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsstorm.html",
+          "role": "independent Stormwrack SRD cross-check"
+        }
+      ]
+    },
+    "spells/stone-fist-3073": {
+      "name": "Stone Fist",
+      "sourceSha256": "b7486a29f70f63b139a42058cbcbba411ee31c4db8c4e76f0c870862ea73a12d",
+      "tablesSha256": "02ef04adbf9665b0cd4eadf54554817bb0d46a58ec307d8604e6847d9ce85cb9",
+      "effectSummary": "For 1 round per level, your unarmed attacks do not provoke attacks of opportunity and deal lethal bludgeoning damage. Their base damage becomes the table value for your size unless your existing unarmed strike already deals more: Fine 1d3, Diminutive 1d4, Tiny 1d6, Small 1d8, Medium 2d6, Large 3d6, Huge 4d6, Gargantuan 6d6, Colossal 8d6. If you are a dwarf or goliath, your unarmed attacks also overcome damage reduction as though they were cold iron weapons.",
+      "tables": [
+        [
+          [
+            "Size",
+            "Unarmed Damage"
+          ],
+          [
+            "Fine",
+            "1d3"
+          ],
+          [
+            "Diminutive",
+            "1d4"
+          ],
+          [
+            "Tiny",
+            "1d6"
+          ],
+          [
+            "Small",
+            "1d8"
+          ],
+          [
+            "Medium",
+            "2d6"
+          ],
+          [
+            "Large",
+            "3d6"
+          ],
+          [
+            "Huge",
+            "4d6"
+          ],
+          [
+            "Gargantuan",
+            "6d6"
+          ],
+          [
+            "Colossal",
+            "8d6"
+          ]
+        ]
+      ],
+      "notes": "Races of Stone p.163 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-fist-3073",
+          "role": "primary Races of Stone catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/races-of-stone--82/stone-fist--3073/index.html",
+          "role": "matching Races of Stone rendering used to verify the complete size/damage table and dwarf/goliath cold-iron rule"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsros.html",
+          "role": "independent Races of Stone SRD cross-check"
+        }
+      ]
+    },
+    "spells/quill-blast-656": {
+      "name": "Quill Blast",
+      "sourceSha256": "6923a6126174828fc555716803f9f43a0143b0420ad805b514087817b1f1eb4f",
+      "tablesSha256": "739a5c0e985be64a7680dd5def441252c02a0053d33cf96f8df856c60a9066a0",
+      "effectSummary": "Fires quills throughout the 20-foot-radius spread. On a failed Reflex save, the number striking a creature depends on size: Tiny or smaller 1, Small 1d4, Medium 2d6, Large 3d6, Huge or larger 4d6. A successful save halves the number of quills, except Tiny or smaller creatures avoid them completely. Each quill deals 1d6 piercing damage and lodges in a living target, imposing a cumulative -1 penalty on attacks, saves, and checks per lodged quill. One quill can be removed safely as a standard action with a DC 20 Heal check; otherwise removing a quill deals another 1d6 damage. The material component is a porcupine quill.",
+      "tables": [
+        [
+          [
+            "Creature Size",
+            "Number of Quills"
+          ],
+          [
+            "Tiny or smaller",
+            "1"
+          ],
+          [
+            "Small",
+            "1d4"
+          ],
+          [
+            "Medium",
+            "2d6"
+          ],
+          [
+            "Large",
+            "3d6"
+          ],
+          [
+            "Huge or larger",
+            "4d6"
+          ]
+        ]
+      ],
+      "notes": "Source-locked specifically to Complete Divine. Its random quill counts and cumulative -1-per-quill penalty are preserved; the later Spell Compendium revision uses fixed counts and a noncumulative penalty and is not substituted.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/quill-blast-656",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.one/quill-blast-656",
+          "role": "matching Complete Divine p.176 rendering used to verify the complete size/quill table, save behavior, cumulative penalties, removal, and component"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCDiv.html",
+          "role": "independent Complete Divine SRD cross-check"
+        }
+      ]
+    },
+    "spells/rainbow-beam-4056": {
+      "name": "Rainbow Beam",
+      "sourceSha256": "2ddd82d37342fe3f2b4946f7356160a9a3115adee3751dc460337046d2f97030",
+      "tablesSha256": "aa61b4058e47c951af1696f1f389619bb9ec3ebd3a9df0e5b4747115b81ecb71",
+      "effectSummary": "Fires a ray requiring a ranged touch attack. On a hit, the target is dazzled for 1 minute and takes 1d12 damage per three caster levels, maximum 5d12. Roll 1d8 for the damage type: 1 fire, 2 acid, 3 electricity, 4 poison, 5 cold, 6 sonic, 7 force, or 8 multihued. On an 8, roll twice more while ignoring further 8 results; the spell then deals half its damage as each of the two rolled energy types, and energy resistance applies separately to each half. The arcane focus is a small clear gem or crystal prism worth at least 10 gp.",
+      "tables": [
+        [
+          [
+            "1d8",
+            "Color",
+            "Damage Type"
+          ],
+          [
+            "1",
+            "red",
+            "fire"
+          ],
+          [
+            "2",
+            "orange",
+            "acid"
+          ],
+          [
+            "3",
+            "yellow",
+            "electricity"
+          ],
+          [
+            "4",
+            "green",
+            "poison"
+          ],
+          [
+            "5",
+            "blue",
+            "cold"
+          ],
+          [
+            "6",
+            "indigo",
+            "sonic"
+          ],
+          [
+            "7",
+            "violet",
+            "force"
+          ],
+          [
+            "8",
+            "multihued",
+            "roll twice (ignore further results of 8)"
+          ]
+        ]
+      ],
+      "notes": "Spell Compendium p.165 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rainbow-beam-4056",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/rainbow-beam--4056/",
+          "role": "matching Spell Compendium rendering used to verify attack, dazzle duration, damage scaling, split-energy rule, focus, and complete d8 table"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "bbca2401920d038509e205ba43592e52a8446ad0",
+    "workflowRun": 35680471188,
+    "validationRun": 35680474332,
+    "classificationArtifact": 10674566754,
+    "classificationArtifactSha256": "56ef404431751ae0c16d58b7a74b64c1806188f59d3544f02fc59b68061a4e32",
+    "queueCountBefore": 1006,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 0,
+    "tableQueueCountBefore": 29
+  }
+}

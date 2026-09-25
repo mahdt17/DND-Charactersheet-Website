@@ -1,0 +1,672 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 50-record batch 105 from the clean 661-record reference-dependent queue. The batch favors self-contained 3.5-era mechanics and same-batch dependency chains (Heal, resurrection, Mending/Make Whole, Prying Eyes, Planar Exchange, Manifest Dragon Heritage, Grease/Incendiary Slime, and the four Primal spells). Summon/stat-block-heavy candidates and unresolved cross-edition inheritance were deferred rather than forced.",
+  "entries": {
+    "spells/languor-4335": {
+      "name": "Languor",
+      "sourceSha256": "f3837875a1668e8f7ce44a2f50c7e2377fa690e5dbd60c9beef845f6bb4253b8",
+      "effectSummary": "Requires a ranged touch attack. On a hit, the target takes a Strength penalty of 1d6 +1 per two caster levels, to a maximum of 1d6+10, for 1 round per caster level. A failed Will save also slows the target for the duration; this slow effect counters and is countered by haste.",
+      "notes": "Digest-locked after manual review of the self-contained Spell Compendium printing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/languor-4335",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/miasma-4451": {
+      "name": "Miasma",
+      "sourceSha256": "8eeb7e66e8f9cf18874ad1973e50e54bb64137c10e2516e221cb89d479db9fc5",
+      "effectSummary": "One living creature that fails its Fortitude save is filled with unbreathable gas for 3 rounds per caster level. It cannot speak, cast spells with verbal components, use breath weapons, or speak command words, though it can otherwise act normally. It can hold its breath for 2 rounds per point of Constitution, then must make Constitution checks each round at DC 10 +1 per previous success; failure or voluntarily breathing drops it unconscious at 0 hp, then to -1 hp and dying the next round, and causes suffocation on the third round.",
+      "notes": "Spell Compendium printing kept distinct; it explicitly suppresses breath weapons and command-word activation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/miasma-4451",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/miasma-704": {
+      "name": "Miasma",
+      "sourceSha256": "52007434eb4a7570082325aeb9c661ca2dac75d5d1ac49fc215d4e531ab76161",
+      "effectSummary": "One living creature that fails its Fortitude save is unable to speak for 3 rounds per caster level: conversation, verbal-component spellcasting, bardic music, and other noise except coughing and spitting are impossible. It can hold its breath for 2 rounds per point of Constitution, then must make Constitution checks each round at DC 10 +1 per previous success; failure or voluntarily breathing drops it unconscious at 0 hp, then to -1 hp and dying the next round, and causes suffocation on the third round.",
+      "notes": "Complete Divine printing kept separate from the later Spell Compendium wording.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/miasma-704",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/naturewatch-4588": {
+      "name": "Naturewatch",
+      "sourceSha256": "e633246d3aa556ca7d4fe34c3a484d3b4d7af0d4f7dc441f1a3e69399e7289f7",
+      "effectSummary": "For 10 minutes per caster level, a 30-foot cone reveals the general life and health condition of animals and plants in the manner of deathwatch. It also reveals ordinary husbandry information such as whether a plant is dehydrated or an animal is malnourished.",
+      "notes": "Digest-locked; the record is source-complete apart from the general deathwatch condition scale.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/naturewatch-4588",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/deathwatch-2728",
+          "role": "Player's Handbook v.3.5 source for inherited Deathwatch mechanics"
+        }
+      ]
+    },
+    "spells/planar-exchange-lesser-4634": {
+      "name": "Planar Exchange, Lesser",
+      "sourceSha256": "d30eaf3de53922e5cc69290907c9396f98fe4b5ed067403aeac53200160b7991",
+      "effectSummary": "Calls a celestial brown bear, celestial griffon, fiendish dire ape, or fiendish tiger to your exact location while sending you to its home plane in stasis for 1 round per caster level. The spell fails if the creature cannot fit where you stood. You fully control the called creature and perceive through its senses; while in stasis you can act only to control it or dismiss the spell and cannot be affected on its plane. If the creature is slain, you take 2d6 damage and return to its last space. Celestial choices gain DR 5/magic, acid/cold/electricity resistance 5, SR equal to HD+5, and a once-per-day smite evil bonus equal to HD on one damage roll; fiendish choices gain DR 5/magic, acid/fire resistance 5, SR HD+5, and the corresponding smite good. Dismissing the spell returns you to the creature's location and sends it home.",
+      "notes": "Self-contained root of the Spell Compendium Planar Exchange chain.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-lesser-4634",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/planar-exchange-4635": {
+      "name": "Planar Exchange",
+      "sourceSha256": "434093cc345bfd4696d1b7373f980f64bce5b3aaa1cfc29e2b7800bb08d18fe9",
+      "effectSummary": "Functions as lesser planar exchange, including the caster's stasis, control, sensory link, dismissal behavior, and return on the called creature's death, but trades places with an avoral guardinal, bone devil, or babau demon. The called creature has all of its abilities except that a demon or devil cannot summon other creatures. If it is slain, you take 3d6 damage and the spell ends.",
+      "notes": "Lesser Planar Exchange is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-4635",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-lesser-4634",
+          "role": "Spell Compendium source for inherited Planar Exchange, Lesser mechanics"
+        }
+      ]
+    },
+    "spells/planar-exchange-greater-4636": {
+      "name": "Planar Exchange, Greater",
+      "sourceSha256": "ee8ccea753900a424487a076785ace51b378f9d4a41cb8742f8e802e299dfd8b",
+      "effectSummary": "Functions as lesser planar exchange, including the caster's stasis, control, sensory link, dismissal behavior, and return on the called creature's death, but trades places with a leonal guardinal, barbed devil, or hezrou demon. The called creature has all of its abilities except that a demon or devil cannot summon other creatures. If it is slain, you take 4d6 damage and the spell ends.",
+      "notes": "Lesser Planar Exchange is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-greater-4636",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/planar-exchange-lesser-4634",
+          "role": "Spell Compendium source for inherited Planar Exchange, Lesser mechanics"
+        }
+      ]
+    },
+    "spells/skeletal-guard-1721": {
+      "name": "Skeletal Guard",
+      "sourceSha256": "6a2edd2f4e74e4d81aba5ab3afe1ec50fec894c25aede8c58316a45deb5c7441",
+      "effectSummary": "Instantly creates up to one loyal Medium skeleton per caster level from finger bones. Each uses the normal skeleton statistics for its kind, but its effective Hit Dice for turning equal your class level. The skeletons count against your controlled-undead Hit Dice limit and try to remain within 60 feet; a skeleton farther away becomes inert until you return within range. Each skeleton requires one finger bone and a 50 gp onyx gem; a finger bone from a Medium creature produces that creature's skeleton type.",
+      "notes": "Printing preserved separately from the later Spell Compendium rewrite.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/skeletal-guard-1721",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/skeletal-guard-4173": {
+      "name": "Skeletal Guard",
+      "sourceSha256": "a4349130a36b3460d75b706f5e6826641ff481be9eb06f9360535b7cb22d3ed7",
+      "effectSummary": "Instantly creates up to one loyal human warrior skeleton per caster level from humanoid fingerbones. Each skeleton has turn resistance equal to your caster level -1 and counts against the normal animate-dead control limit of 4 HD per caster level. Material component: one humanoid fingerbone and a 50 gp onyx gem for each skeleton.",
+      "notes": "Later Spell Compendium printing kept distinct from earlier source versions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/skeletal-guard-4173",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stone-spiders-4239": {
+      "name": "Stone Spiders",
+      "sourceSha256": "07fcf8976b844f68c56f7e117e2c08ea33623e60e24621f1041aa7c0337c3ea0",
+      "effectSummary": "Transforms three pebbles into stone spider constructs, all the same chosen size from Tiny through Huge, for 1 round per caster level. Each uses monstrous-spider statistics of the chosen size with +6 additional natural armor, DR 10/magic, and poison whose Fortitude DC is 10 + half your caster level + your Wisdom modifier and whose initial and secondary damage are 1d3 Strength. If they can hear you, you can direct their actions; otherwise they attack your enemies to the best of their ability.",
+      "notes": "Spell Compendium printing manually verified against its complete source effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-spiders-4239",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/triple-mask-2268": {
+      "name": "Triple Mask",
+      "sourceSha256": "eb8f63328fc8ca4dfdde63396f31377dbdd4449dc55f296f4f6af00ba6e51429",
+      "effectSummary": "Creates three intangible shadow duplicates that look, sound, and smell like you for 1 round per caster level. As a free action on your turn you can shift your perceptions between yourself and any shadow. A controlled shadow normally mimics you, but while you concentrate it can act differently, perform simple unseen-servant-like tasks, or follow a programmed route at your speed; uncontrolled shadows are motionless. Any touch-or-greater-range spell you cast can originate from a controlled shadow, though a shadow can target itself only with spells that affect shadows. Leaving the shadows' plane even momentarily by dimension door, teleport, plane shift, or similar magic ends the spell.",
+      "notes": "Later printing manually reconciled with the already reviewed Triple Mask lineage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/triple-mask-2268",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/superior-invisibility-517": {
+      "name": "Superior Invisibility",
+      "sourceSha256": "ef130cee776eb1a8d5719214fded3fe6ceb654da81963a09385d28f82c17b797",
+      "effectSummary": "Functions as invisibility but masks image, scent, and sound, does not end when the subject attacks, and conceals the subject from every sense except touch and taste. The subject emits no scent and creates a 5-foot-radius silence that blocks sound and vibration, defeating tremorsense-like detection and preventing speech; this printing also states that the silence prevents spells with somatic components. See invisibility, faerie fire, glitterdust, invisibility purge, true seeing, and blindsight do not reveal the subject, though mundane evidence such as footprints can.",
+      "notes": "Printing-specific wording is preserved verbatim in substance rather than silently correcting the source's stated component restriction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/superior-invisibility-517",
+          "role": "primary Complete Arcane catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "Player's Handbook v.3.5 source for inherited Invisibility mechanics"
+        }
+      ]
+    },
+    "spells/manifest-dragon-heritage-3079": {
+      "name": "Manifest Dragon Heritage",
+      "sourceSha256": "7b33f01296f01634d9c5c975331d163cdccef0eeac2b1ab61e811e416e2b959c",
+      "effectSummary": "Creates a wyvern for 1 round per caster level. It appears where you designate, acts immediately on your turn, and attacks your opponents by default. If you can communicate in Draconic or by language-independent telepathy, you can direct it not to attack, to attack particular enemies, or to take other actions. It gains bonus hit points equal to twice your caster level; if it is killed, you take 2d6 damage.",
+      "notes": "Self-contained root of the Manifest Dragon Heritage pair.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/manifest-dragon-heritage-3079",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        }
+      ]
+    },
+    "spells/manifest-dragon-heritage-greater-3080": {
+      "name": "Manifest Dragon Heritage, Greater",
+      "sourceSha256": "801ccae8da2ae789456ecf17a4d565778fae086806bbda9a2c5eea1bfefd12fc",
+      "effectSummary": "Functions as manifest dragon heritage, including immediate action on your turn, command rules, bonus hit points equal to twice your caster level, and 2d6 backlash damage if the creature is killed, but creates a dragon turtle instead of a wyvern.",
+      "notes": "Manifest Dragon Heritage is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/manifest-dragon-heritage-greater-3080",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/manifest-dragon-heritage-3079",
+          "role": "Races of the Dragon source for inherited Manifest Dragon Heritage mechanics"
+        }
+      ]
+    },
+    "spells/seed-of-undeath-greater-861": {
+      "name": "Seed of Undeath, Greater",
+      "sourceSha256": "15b12806fb176566dd1d24824cb4f207db30f0986c9a32a81145224c4004d280",
+      "effectSummary": "For 1 day per caster level, any humanoid or animal that dies inside the 40-foot-radius area after the spell is cast and fails the spell's Fortitude save rises as a zombie 1 round after death, provided enough corpse remains. Those zombies are automatically under your control; the total Hit Dice animated through seed of undeath effects cannot exceed your own Hit Dice and they also count against your animate-dead control limit. Corpses already dead when cast, or creatures that died outside the area and were later brought in, are unaffected. Material component: a black onyx worth at least 5,000 gp.",
+      "notes": "The resolved Seed of Undeath source record was manually inspected to expand the inherited zombie/control mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/seed-of-undeath-greater-861",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/heal-2398": {
+      "name": "Heal",
+      "sourceSha256": "6d4b59e2064a85582887a7db8c8f1e353b076523dbb4cfeb65deefe05571f341",
+      "effectSummary": "Channels positive energy into one creature, curing 10 hit points per caster level to a maximum of 150 and immediately ending ability damage, blindness, confusion, daze, dazzle, deafness, disease, exhaustion, fatigue, feeblemind, insanity, nausea, sickness, stunning, and poison. It does not remove negative levels, restore permanently drained levels, or restore permanently drained ability-score points. Against undead, it instead functions as harm.",
+      "notes": "Self-contained root for the Heal variants in this batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/heal-mount-2397": {
+      "name": "Heal Mount",
+      "sourceSha256": "1730d0b5d980361c39f8cd4ad1c09bf3d74715e86ce2cf13e4a88fae9cf0f863",
+      "effectSummary": "Functions as heal, curing 10 hit points per caster level to a maximum of 150 and removing heal's listed adverse conditions, but can affect only the paladin's special mount.",
+      "notes": "Heal is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heal-mount-2397",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "Player's Handbook v.3.5 source for inherited Heal mechanics"
+        }
+      ]
+    },
+    "spells/heal-mass-2399": {
+      "name": "Heal, Mass",
+      "sourceSha256": "1da9bb4bb4236d6f6a9abe9e5995773a3dad782417a7622c8e76255ebc561dc2",
+      "effectSummary": "Applies heal to one or more creatures within 30 feet of one another at close range: each subject has heal's listed adverse conditions ended and recovers 10 hit points per caster level, but the per-creature healing cap is 250 instead of 150. As inherited from heal, the effect works as harm against undead.",
+      "notes": "Heal is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heal-mass-2399",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "Player's Handbook v.3.5 source for inherited Heal mechanics"
+        }
+      ]
+    },
+    "spells/heal-animal-companion-4688": {
+      "name": "Heal Animal Companion",
+      "sourceSha256": "ae868b32dc0c6796e4422bfa64403e044d6be6973c25cdf0602181280a96fe14",
+      "effectSummary": "Functions as heal, curing 10 hit points per caster level to a maximum of 150 and ending heal's listed adverse conditions, but can affect only your animal companion.",
+      "notes": "Heal is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heal-animal-companion-4688",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "Player's Handbook v.3.5 source for inherited Heal mechanics"
+        }
+      ]
+    },
+    "spells/raise-dead-2424": {
+      "name": "Raise Dead",
+      "sourceSha256": "16a6375687b6320ca85df3581c1ddb7cbca1cf04467db11314b5943539da481e",
+      "effectSummary": "Restores life to a willing creature dead no longer than 1 day per caster level, provided the body is sufficiently whole. The subject loses one level or Hit Die permanently; a 1st-level subject instead loses 2 Constitution and cannot be raised if that would reduce Constitution to 0 or less. Prepared casters have a 50% chance to lose each prepared spell and spontaneous casters a 50% chance to lose each unused slot, in addition to losses from the level reduction. The subject returns with hit points equal to its current Hit Dice; ability scores at 0 rise to 1; normal poison and disease are cured, but magical disease and curses remain. Missing body parts stay missing. Death effects, prior transformation into undead, old age, and the creature types construct, elemental, outsider, and undead prevent use. Material component: diamonds worth at least 5,000 gp.",
+      "notes": "Self-contained root for Resurrection and True Resurrection.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/resurrection-2433": {
+      "name": "Resurrection",
+      "sourceSha256": "a880164454e8227b09ebf5641f94cd02487f967aa8f68961600c3227f2db6b87",
+      "effectSummary": "Restores a willing dead creature that has been dead no more than 10 years per caster level, requiring only a small portion of its body and restoring it to full hit points, vigor, and health with prepared spells intact. The subject still permanently loses one level, or 2 Constitution if 1st level. It can restore victims of death effects and creatures that were turned into undead and then destroyed, but not creatures dead of old age, constructs, elementals, outsiders, or undead. Material component: holy water and diamonds worth at least 10,000 gp.",
+      "notes": "Raise Dead is locked in this same batch and supplies the willingness/soul-return framework.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/resurrection-2433",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "Player's Handbook v.3.5 source for inherited Raise Dead mechanics"
+        }
+      ]
+    },
+    "spells/true-resurrection-2467": {
+      "name": "True Resurrection",
+      "sourceSha256": "d6583d3ac6cbf9d22d7c4018a9604a2e13662d0bcbc477ecc8639fa38dd1fb25",
+      "effectSummary": "Restores a willing creature dead no more than 10 years per caster level even if its body has been destroyed, provided the deceased is unambiguously identified. The creature returns at full hit points, vigor, and health with no level or Constitution loss and no loss of prepared spells. It can restore victims of death effects, creatures turned into undead and then destroyed, elementals, and outsiders; it cannot restore constructs, undead, or anyone who died of old age. Material component: holy water and diamonds worth at least 25,000 gp.",
+      "notes": "Raise Dead is locked in this same batch and supplies the willingness/soul-return framework.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/true-resurrection-2467",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "Player's Handbook v.3.5 source for inherited Raise Dead mechanics"
+        }
+      ]
+    },
+    "spells/mending-2842": {
+      "name": "Mending",
+      "sourceSha256": "5d717dae12d1670fdfe131b8ef60f2c4735cc6f0a659bedb9e24af96afc7324f",
+      "effectSummary": "Instantly repairs small breaks or tears in one object weighing up to 1 pound, including a single break in a metal item or multiple breaks in ceramic or wood, and can close holes in leather containers. It does not repair warping, creatures or constructs, broken magic rods, staffs, or wands, and although it can repair a broken magic item's physical form it does not restore lost magical abilities.",
+      "notes": "Self-contained root for Make Whole.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mending-2842",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/make-whole-2840": {
+      "name": "Make Whole",
+      "sourceSha256": "860c0573f8b516ad8777b1b65139ceb6046817a9907b77d51126afd9fb2ee59c",
+      "effectSummary": "Functions as mending but completely repairs one object of any substance, up to 10 cubic feet per caster level, even with multiple breaks, restoring its physical strength. It does not restore a broken magic item's magical abilities; cannot repair broken rods, staffs, or wands; cannot fix objects that were warped, burned, disintegrated, powdered, melted, or vaporized; and does not affect creatures or constructs.",
+      "notes": "Mending is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/make-whole-2840",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/mending-2842",
+          "role": "Player's Handbook v.3.5 source for inherited Mending mechanics"
+        }
+      ]
+    },
+    "spells/prying-eyes-2508": {
+      "name": "Prying Eyes",
+      "sourceSha256": "ef27d7e86fcae20c228886f0d8700c5441b1f84fb7d1ff2eef05cc8d1e5801c8",
+      "effectSummary": "Creates 1d4 + caster level semitangible scouting eyes for up to 1 hour per caster level. Each Fine construct has 1 hp, AC 18, fly speed 30 feet with perfect maneuverability, Hide +16, Spot equal to caster level up to +15, and normal 120-foot vision; darkness and other visual obstructions affect it normally. You give the eyes a command of no more than 25 words, and they share your relevant knowledge when interpreting it. They must return to your hand to report, replaying 1 hour of recorded images per round, then disappear. An eye vanishes if it goes more than 1 mile away, can be destroyed or dispelled independently, and otherwise lasts until it reports or the duration expires.",
+      "notes": "Self-contained root for Greater Prying Eyes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prying-eyes-2508",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/prying-eyes-greater-2509": {
+      "name": "Prying Eyes, Greater",
+      "sourceSha256": "88b10dceab7c93462223293ddf21467878aaf0229c128365b67f7c58eadcd2e8",
+      "effectSummary": "Functions as prying eyes, but each eye sees as true seeing out to 120 feet, can navigate darkness at full normal speed, and has a maximum Spot modifier of +25 instead of +15.",
+      "notes": "Prying Eyes is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prying-eyes-greater-2509",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/prying-eyes-2508",
+          "role": "Player's Handbook v.3.5 source for inherited Prying Eyes mechanics"
+        }
+      ]
+    },
+    "spells/train-animal-395": {
+      "name": "Train Animal",
+      "sourceSha256": "b0f8142899b2a5bb0dbd4dc523e7ab6dd726a3115bd940234053f0c88cda2bf7",
+      "effectSummary": "For 1 hour per caster level, the touched animal temporarily knows a number of additional tricks equal to half your caster level, maximum five. The spell does not change the animal's attitude toward you and does not guarantee that it will cooperate when told to perform the temporary tricks.",
+      "notes": "Self-contained effect; Handle Animal is only the rules reference for what a trick means.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/train-animal-395",
+          "role": "primary Complete Adventurer catalog record and digest source"
+        }
+      ]
+    },
+    "spells/listening-coin-380": {
+      "name": "Listening Coin",
+      "sourceSha256": "7211e56cd4c67bf4ef02ffd8b1035c58cb8daed684d97f3d2962c1ef2372ed58",
+      "effectSummary": "Turns a pair of ordinary coins into a remote audio sensor and receiver for 1 hour per caster level. Hearing through the receiver lets you listen to the sensor's surroundings as if present there; if the sensor is inside a pocket, pouch, or sack, Listen checks are made at +5 DC. The coins work at any distance on the same plane but fall silent if separated across planes.",
+      "notes": "Self-contained divination effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/listening-coin-380",
+          "role": "primary Complete Adventurer catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spectral-weapon-406": {
+      "name": "Spectral Weapon",
+      "sourceSha256": "1f74be559297020d6e86e295226a486b83e94e7293406e4620340fd024363099",
+      "effectSummary": "Creates one quasi-real weapon of any type with which you are proficient for 1 round per caster level. Only you can wield it, attacks with it are resolved as melee touch attacks, and a creature hit can make a Will save to recognize its shadow nature. A creature that succeeds takes only one-fifth normal damage from that attack and later attacks with the same weapon and has only a 20% chance to suffer special attack effects delivered through it. The weapon disappears if you let go or the duration ends.",
+      "notes": "Self-contained shadow-weapon mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spectral-weapon-406",
+          "role": "primary Complete Adventurer catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ice-knife-459": {
+      "name": "Ice Knife",
+      "sourceSha256": "e08cc669898af38008b9f733db3da13e423324a48e4be34cebb81eb45197aee7",
+      "effectSummary": "Launches one icy missile at long range using a normal ranged attack with +2 on the attack roll per two caster levels. A hit deals 2d8 cold damage plus 2 Dexterity damage; a successful Fortitude save negates the Dexterity damage, and cold-immune creatures are automatically immune to that Dexterity damage. If the attack misses, the knife bursts where it lands in a 10-foot radius for 1d8 cold damage, Reflex half. Material component: a drop of water or piece of ice.",
+      "notes": "Self-contained Complete Arcane printing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-knife-459",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/terra-cotta-warrior-571": {
+      "name": "Terra Cotta Warrior",
+      "sourceSha256": "259003b790c4776ecbf6acf4125658a00b1c09d65cb35e4b65903581f6c1f1f1",
+      "effectSummary": "Transforms a small terra-cotta warrior statuette into a Medium animated construct for 1 round per caster level. It has 35 hp, AC 14, hardness 6, speed 40 feet, a +2 slam attack dealing 1d6+1 damage, and attacks the target you designate; changing its target is a move action. If it remains above 0 hp when the spell ends, the statuette can be reused; if reduced to 0 hp or less it crumbles to powder and is lost.",
+      "notes": "The source supplies the combat statistics needed to use the created warrior directly.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/terra-cotta-warrior-571",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/metal-fang-626": {
+      "name": "Metal Fang",
+      "sourceSha256": "137587630a287416b09034c23a1ea95bd8d368d3d9d61dd72cdf01702591c4fe",
+      "effectSummary": "For 1 minute per caster level, one natural weapon of the touched living creature counts as either cold iron or silvered, chosen when cast, and also counts as magical for overcoming damage reduction. A silvered natural weapon suffers no damage reduction of its own, and the spell grants no enhancement bonus to attack or damage. Casting it twice on the same natural weapon can make it count as both cold iron and silvered.",
+      "notes": "Self-contained damage-reduction interaction.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/metal-fang-626",
+          "role": "primary Complete Champion catalog record and digest source"
+        }
+      ]
+    },
+    "spells/war-mount-631": {
+      "name": "War-mount",
+      "sourceSha256": "992568d6070dd84908b5aad296c2f1826e98de1128b9c2a92fad912ded677e83",
+      "effectSummary": "For 1 minute per caster level, a special mount or fiendish companion gains a +2 enhancement bonus on attack and damage rolls with its natural weapons. Those natural weapons also count as magic and, for overcoming damage reduction, good-aligned for a paladin's mount or evil-aligned for a blackguard's companion.",
+      "notes": "The separate Master Cavalier synergy is not expanded because that spell is not part of this lock.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/war-mount-631",
+          "role": "primary Complete Champion catalog record and digest source"
+        }
+      ]
+    },
+    "spells/substitute-domain-629": {
+      "name": "Substitute Domain",
+      "sourceSha256": "05dbea5f179ceab3d5198efb4633526f7bb81d6d2e837e46a9392764bf14c684",
+      "effectSummary": "For 1 day per caster level, swaps one of your current cleric domains for another domain your deity normally grants. You gain the replacement domain's granted power and access to any of its spells you are high enough level to cast, though they must still be prepared normally. While the spell lasts, you lose the granted power and spell access of the domain you gave up.",
+      "notes": "Self-contained domain-swap mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/substitute-domain-629",
+          "role": "primary Complete Champion catalog record and digest source"
+        }
+      ]
+    },
+    "spells/phantom-charge-598": {
+      "name": "Phantom Charge",
+      "sourceSha256": "59523a72838dc37f2477150c62981abf3dff741642aea71aaaaa2c1a0cd33bd6",
+      "effectSummary": "Cast as a swift action while mounted on your special mount or mount-sized fiendish companion, teleports you and the mount directly forward up to 5 feet per two caster levels. It can be cast while the mount is moving, allowing part of the mount's movement before and after the teleport, and is commonly used to bypass rough terrain during a charge.",
+      "notes": "The separate three-spell Master Cavalier synergy is not expanded because that spell is outside this batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantom-charge-598",
+          "role": "primary Complete Champion catalog record and digest source"
+        }
+      ]
+    },
+    "spells/incendiary-slime-784": {
+      "name": "Incendiary Slime",
+      "sourceSha256": "2e1e33b1dc98a4d7fb024e7a89832287519a18d7246dc28b0c9f5499c29ab025",
+      "effectSummary": "Functions as grease on one object or a 10-foot square, including the falling, Balance, dropped-item, and grapple/Escape Artist effects, but the grease is highly flammable. If fire damage occurs in the affected area or is dealt to the affected object, the grease ignites for 4d6 fire damage to creatures in the area or the holder of the object, Reflex half, and the spell immediately ends.",
+      "notes": "Grease is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/incendiary-slime-784",
+          "role": "primary Complete Mage catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/grease-2396",
+          "role": "Player's Handbook v.3.5 source for inherited Grease mechanics"
+        }
+      ]
+    },
+    "spells/grease-2396": {
+      "name": "Grease",
+      "sourceSha256": "15da646049b0c5a4c72b06489896b9e334dfe788713e73042fc3233ee90672e9",
+      "effectSummary": "Coats a 10-foot square or one object in slippery grease for 1 round per caster level. Creatures in the area save Reflex or fall and repeat the save each round they remain; moving through costs half speed and requires DC 10 Balance, with failure preventing movement and triggering a Reflex save to avoid falling, while failure by 5 or more causes a fall. A wielded or used greased object gets a Reflex save; failure makes it drop immediately and further saves are required each round to pick up or use it. Greased armor or clothing grants +10 on Escape Artist checks and on grapple checks to resist or escape a grapple or pin.",
+      "notes": "Self-contained root for Incendiary Slime.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/grease-2396",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/storm-of-fire-and-ice-834": {
+      "name": "Storm of Fire and Ice",
+      "sourceSha256": "e957e307ae3f4b30c8c5100d6386598110043594d17eddc0a71e9616e76b7177",
+      "effectSummary": "For 1 round, a 20-foot-radius, 40-foot-high cylinder deals 6d6 cold damage plus 6d6 fire damage to everything inside, Reflex half. The storm provides concealment, imposes -4 on Listen checks made within it, and doubles movement costs. All lava and ice vanish when the round ends, leaving no lingering effect beyond damage.",
+      "notes": "Self-contained mixed-energy area effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/storm-of-fire-and-ice-834",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/lightning-leap-880": {
+      "name": "Lightning Leap",
+      "sourceSha256": "7ca75a9390320245500afcd9790233effb6c7e5b97ce81df4efcaa66d482d2dc",
+      "effectSummary": "Transforms you into a 10- to 60-foot line of lightning, in 5-foot increments, then rematerializes you in a square adjacent to the line's final square with worn or carried gear up to your heavy-load limit; only your familiar can accompany you. The line deals 1d6 electricity damage per caster level, maximum 15d6, to creatures in its path, Reflex half, with spell resistance applying.",
+      "notes": "Self-contained movement-and-damage effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lightning-leap-880",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/rusted-blade-882": {
+      "name": "Rusted Blade",
+      "sourceSha256": "10968b2b031b74f43a6469584990a62551bc003a92c00b025500e90330b78598",
+      "effectSummary": "For 1 round per caster level, one weapon of any material appears rusted but is not harmed. Each living creature damaged by it must make a Fortitude save or contract filth fever. The spell's save DC is used for the initial infection; subsequent disease saves use the normal filth fever DC 12. Repeated hits do not stack multiple copies of the disease, but a creature that has resisted infection must save again each time it is damaged by the weapon.",
+      "notes": "Self-contained weapon/disease effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rusted-blade-882",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/painful-echoes-829": {
+      "name": "Painful Echoes",
+      "sourceSha256": "780958e9f61052d907ba3961637532da775d4b53ace31ee818966e0f93e02c3b",
+      "effectSummary": "For 1 round per caster level, up to one living creature per four caster levels within 30 feet of one another must save each round. On a failed Fortitude save that round, a subject takes 1d4 sonic damage and is sickened for 1 round; success negates both for that round but does not end the spell. Creatures immune to extra damage from critical hits are immune to the sickened effect.",
+      "notes": "The separate Deafening Blast/Resonating Agony combination is intentionally left to those spells' own records.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/painful-echoes-829",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/towering-thunderhead-793": {
+      "name": "Towering Thunderhead",
+      "sourceSha256": "109796107c103b6e87f1271330dd5aee441939eace93012fb29819d7b68be8ca",
+      "effectSummary": "Creates a 40-foot-radius, 60-foot-high cloud cylinder for 3 rounds. It provides concealment, creates wind-wall effects throughout the cylinder, and makes each entered square cost 2 squares of movement. You can see and move normally inside your own thunderhead, though your ranged attacks remain hindered. Any sonic or electricity spell of 7th level or lower cast inside is automatically empowered without changing spell level or casting time; a spell already empowered gains no additional benefit.",
+      "notes": "Digest-locked; Wind Wall is already reviewed and the Empower interaction is fully stated by the source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/towering-thunderhead-793",
+          "role": "primary Complete Mage catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/wind-wall-2662",
+          "role": "Player's Handbook v.3.5 source for inherited Wind Wall mechanics"
+        }
+      ]
+    },
+    "spells/primal-hunter-1084": {
+      "name": "Primal Hunter",
+      "sourceSha256": "69a546ad93aead9861bab327eb9646ab2281436e7f45ff2b0021d96d101fe881",
+      "effectSummary": "For 1 day, grants +5 competence on Climb, Jump, and Swim. If any one of primal instinct, primal senses, or primal speed is also active, you gain uncanny dodge; if all four primal spells are active, you gain improved uncanny dodge and treat your caster level as barbarian level for resisting flanking. A dragonblood caster can cast primal hunter as a swift action.",
+      "notes": "Family mechanics locked together in this batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/primal-hunter-1084",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/primal-senses-1086": {
+      "name": "Primal Senses",
+      "sourceSha256": "1da799318b710c4ae0dc450ebd5630131fe4bbfa585047061ec9ac4efd1ab04b",
+      "effectSummary": "For 1 day, grants low-light vision and +5 competence on Listen and Spot. If any one of primal hunter, primal instinct, or primal speed is also active, you gain uncanny dodge; if all four primal spells are active, you gain improved uncanny dodge and treat caster level as barbarian level for resisting flanking. A dragonblood caster also gains blindsense 10 feet.",
+      "notes": "Family mechanics locked together in this batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/primal-senses-1086",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/primal-speed-1087": {
+      "name": "Primal Speed",
+      "sourceSha256": "3eaf6977a2cfdc1c4b3b0b39e68c786f0547bde0b6822f46ba222f5136bf21cc",
+      "effectSummary": "For 1 day, grants +5 resistance on Reflex saves and a +10-foot enhancement bonus to all speeds. If any one of primal hunter, primal instinct, or primal senses is also active, you gain uncanny dodge; if all four primal spells are active, you gain improved uncanny dodge and treat caster level as barbarian level for resisting flanking. A dragonblood caster can cast primal speed as an immediate action.",
+      "notes": "Family mechanics locked together in this batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/primal-speed-1087",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/primal-instinct-1085": {
+      "name": "Primal Instinct",
+      "sourceSha256": "a92015c4c296a404820af9f6b0ffb18d30656b9a99c193f77315e3e8fc7c1651",
+      "effectSummary": "For 1 day, grants +5 competence on initiative and Survival. If any one of primal hunter, primal senses, or primal speed is also active, you gain uncanny dodge; if all four primal spells are active, you gain improved uncanny dodge and treat caster level as barbarian level for resisting flanking. A dragonblood caster also chooses one Knowledge skill, gains +5 competence with it, and is treated as trained in that skill.",
+      "notes": "Family mechanics locked together in this batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/primal-instinct-1085",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undying-vigor-of-the-dragonlords-1055": {
+      "name": "Undying Vigor of the Dragonlords",
+      "sourceSha256": "d7987fcb442d5e63c1e78289eb06768bf634d00c36f8daf9895c48797c1f09a2",
+      "effectSummary": "Immediately heals you for 5d6 damage. As part of casting, you can sacrifice one sorcerer spell slot of up to 9th level to add 1d6 healing per level of the sacrificed slot. This healing is not positive energy, so it works the same for undead and living spellcasters. A dragonblood caster heals 1 additional hit point per die rolled.",
+      "notes": "Self-contained personal healing conversion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undying-vigor-of-the-dragonlords-1055",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wingblast-1072": {
+      "name": "Wingblast",
+      "sourceSha256": "067b7174ab2f95ed59ee2abd0c2f40bdc88b207cabce9856bf34db66775e802c",
+      "effectSummary": "Creates misty wings for 1 round per caster level, granting flight at your base land speed, maximum 60 feet, with good maneuverability even in medium or heavy armor or with a medium or heavy load. As a swift action you can expend the wings, ending the spell and causing you to fall if airborne, to create either a 60-foot line of severe wind as gust of wind, with Fortitude negating and spell resistance applying, or a 20-foot-radius obscuring-mist cloud centered on you that lasts 1 minute with no save or spell resistance.",
+      "notes": "Source states both expendable wingblast options explicitly.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wingblast-1072",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/thin-air-1293": {
+      "name": "Thin Air",
+      "sourceSha256": "d91fbab70de99422beac7f27846a0ff3554a94330aa8c5670b478ce98ccfc05f",
+      "effectSummary": "For 1 minute per caster level, creatures in a 30-foot-radius emanation that fail Fortitude saves suffer altitude sickness and take 1 point of damage to every ability score. Creatures acclimated to high altitude gain +4 competence on the save, and creatures that do not breathe are immune.",
+      "notes": "Self-contained altitude-sickness effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/thin-air-1293",
+          "role": "primary Frostburn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/scattering-trap-2935": {
+      "name": "Scattering Trap",
+      "sourceSha256": "c8c36c89f4cc6df22f186bc55198cbe5b4d0722cd7185d841695be6428ee732a",
+      "effectSummary": "For 1 round per caster level, wards one 5-foot square per two caster levels, with all chosen squares within 30 feet of one another. A creature entering a warded square and failing its Reflex save is teleported 1d6 squares in a random direction. If that destination would be inside a solid space, it is shunted to the nearest open space and takes 1d6 damage. Material component: a pinch of dandelion seeds.",
+      "notes": "Self-contained teleportation trap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scattering-trap-2935",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "0a8adc41414af20a7c9457257c82db21f44458fc",
+    "workflowRun": 35700740219,
+    "validationRun": 35700743823,
+    "classificationArtifact": 10682172912,
+    "classificationArtifactSha256": "9ebf523f66f29b709cda5814588b34323e942b3bb8decadf72e389c6344fdafc",
+    "queueCountBefore": 661,
+    "referenceQueueCountBefore": 661,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

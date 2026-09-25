@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-006-5",
+  "records": {
+    "wikidot5e:spell:longstrider": {
+      "sourceDigest": "sha256:929bfcf48ef979e8bd418b3c4998edab965dcb20b0d3e4918992142e61547ac1",
+      "effectSummary": "Touch one creature; its speed increases by 10 feet for 1 hour. Each slot level above 1st lets you target one additional creature."
+    },
+    "wikidot5e:spell:maddening-darkness": {
+      "sourceDigest": "sha256:5dd2c4a4314bb4b01df4b3d165246f90d1fd5b7c43199b6f6338b8161b869052",
+      "effectSummary": "Create magical darkness in a 60-foot-radius sphere centered within 150 feet for up to 10 minutes. It spreads around corners, cannot be seen through with darkvision, and cannot be illuminated by nonmagical light or light from spells of 8th level or lower. A creature starting its turn inside makes a Wisdom save, taking 8d8 psychic damage on a failure or half on a success."
+    },
+    "wikidot5e:spell:maelstrom": {
+      "sourceDigest": "sha256:2879672e199a683275b6dcae99e39ac4b352eb80fe8a7343f33703db1a946a5d",
+      "effectSummary": "Create a 5-foot-deep, 30-foot-radius swirling mass of water centered on ground or water within 120 feet for up to 1 minute. The area is difficult terrain. A creature starting its turn there makes a Strength save or takes 6d6 bludgeoning damage and is pulled 10 feet toward the center."
+    },
+    "wikidot5e:spell:mage-hand": {
+      "sourceDigest": "sha256:656aafa5318b20ce5f10dbe8180aeee0940c89a647cbe66892b3a09726b25ba7",
+      "effectSummary": "Create a spectral hand at a point within 30 feet for 1 minute. It disappears if more than 30 feet from you or if you cast the spell again. As an action, you can move it up to 30 feet and use it to manipulate objects, open unlocked doors or containers, stow or retrieve items from open containers, or pour out a vial. It cannot attack, activate magic items, or carry more than 10 pounds."
+    },
+    "wikidot5e:spell:magic-circle": {
+      "sourceDigest": "sha256:db02a689805c2f19d1c9299ff8e20fd238b988f9a8451bc20d348801cfc57de4",
+      "effectSummary": "Create a 10-foot-radius, 20-foot-high cylinder for 1 hour and choose one or more of celestials, elementals, fey, fiends, or undead. Chosen creatures cannot willingly enter by nonmagical means, must make a Charisma save to enter by teleportation or planar travel, have disadvantage on attacks against targets inside, and cannot charm, frighten, or possess targets inside. You may reverse the circle so chosen creatures cannot leave and creatures outside receive the protection instead. Each slot level above 3rd adds 1 hour to the duration."
+    },
+    "wikidot5e:spell:magic-jar": {
+      "sourceDigest": "sha256:fbe9e98a5349667131328817945fb7194acf2833a67b1c878d6370fde20fe81e",
+      "effectSummary": "Your body becomes catatonic while your soul enters the spell's container. From the container you perceive normally but cannot move or react; your only action is to project your soul up to 100 feet either back to your body, ending the spell, or into a visible humanoid not protected from possession. That target makes a Charisma save; on a failure you possess its body and its soul is trapped in the container, while on a success it resists and is immune to your possession attempts for 24 hours. While possessing, use the host's statistics but retain your alignment, Intelligence, Wisdom, Charisma, and your own class features; you cannot use the host's class features. You can return to the container as an action if within 100 feet. If the host dies, make a Charisma save against your own spell DC to return to the nearby container or die. If the container is destroyed or the spell ends, your soul returns to your living body only if it is within 100 feet; otherwise you die. Any trapped host soul likewise returns only if its body is alive and within 100 feet. The container is destroyed when the spell ends."
+    },
+    "wikidot5e:spell:magic-missile": {
+      "sourceDigest": "sha256:23ac918bdf82ced4f4b953c9933a9dbbb05f27adc1aecee21f42dcfd10eeb581",
+      "effectSummary": "Create three force darts that automatically and simultaneously hit visible creatures within 120 feet. Each dart deals 1d4+1 force damage, and you may divide the darts among targets. Each slot level above 1st creates one additional dart."
+    },
+    "wikidot5e:spell:magic-mouth": {
+      "sourceDigest": "sha256:95c7d3c4e0b80487c46d32058fe43ad1550e43d734e04acb4fd41189886e9d96",
+      "effectSummary": "Implant a spoken message of up to 25 words, taking up to 10 minutes to deliver, into a visible unattended object within 30 feet. Define a visual or audible trigger condition that occurs within 30 feet of the object. When triggered, a magical mouth appears and speaks the message in your voice and volume; you decide whether the spell then ends or remains to repeat whenever the trigger recurs. The trigger can be as general or detailed as you like so long as it relies on observable visual or audible conditions."
+    },
+    "wikidot5e:spell:magic-stone": {
+      "sourceDigest": "sha256:274faf046440099c814d7d3364213f10f9be62943ebdf5bbb0f7fdcec498ab96",
+      "effectSummary": "Imbue one to three pebbles for 1 minute. You or another creature can throw one or fire it from a sling as a ranged spell attack; a thrown stone has 60-foot range. A different attacker uses your spellcasting ability modifier for the attack instead of its own. On a hit the stone deals 1d6 + your spellcasting ability modifier bludgeoning damage, then loses the spell whether the attack hit or missed. Recasting ends the spell on any previously affected stones."
+    },
+    "wikidot5e:spell:magic-weapon": {
+      "sourceDigest": "sha256:c0615a45fe616d1862110b4ec063147961d8e5b00a44cdedda8da85388244e23",
+      "effectSummary": "Touch a nonmagical weapon; for up to 1 hour it becomes magical and gains +1 to attack and damage rolls. A 4th- or 5th-level slot increases the bonus to +2; a 6th-level-or-higher slot increases it to +3."
+    }
+  }
+}

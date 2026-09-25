@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified direct-inheritance reference spells with their single core base fully expanded; clean batch 085.",
+  "entries": {
+    "spells/align-weapon-legions-1984": {
+      "name": "Align Weapon, Legion's",
+      "sourceSha256": "7f438c268b9feb4a86737a67eae9556f2db54c9c8beb4a2484f5f563785f4c1d",
+      "effectSummary": "Functions as align weapon for all allies' weapons in a 20-foot-radius burst at Medium range. Choose good, evil, lawful, or chaotic; each affected weapon takes that alignment for 1 minute per caster level and can bypass damage reduction vulnerable to it. A weapon that already has an alignment is unaffected, and natural weapons such as unarmed strikes cannot be affected. The spell gains the descriptor matching the chosen alignment. The mass version can also affect qualifying projectiles at a distance rather than requiring the base spell's touched weapon or group of touching projectiles.",
+      "notes": "Source-locked to Miniatures Handbook. The cross-book Align Weapon reference is uniquely resolved to Player's Handbook v.3.5; the Miniatures Handbook spell changes only range/targeting to affect multiple allied weapons or projectiles in the burst.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/miniatures-handbook--75/align-weapon-legions--1984/",
+          "role": "matching Miniatures Handbook rendering used to verify the mass-range override"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsmh.html",
+          "role": "Miniatures Handbook SRD cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/alignWeapon.htm",
+          "role": "3.5 SRD source for inherited alignment, damage-reduction, descriptor, and target restrictions"
+        }
+      ]
+    },
+    "spells/bless-weapon-swift-1985": {
+      "name": "Bless Weapon, Swift",
+      "sourceSha256": "4fd5939b3cefb72e5a29e66acf466f7343e88179781e4b96a520f2345b4d0425",
+      "effectSummary": "Functions as bless weapon on one touched weapon, but is cast as a swift action with only a verbal component and lasts 1 round. For that round the weapon counts as +1 for bypassing the damage reduction of evil creatures and for striking evil incorporeal creatures, without gaining an actual enhancement bonus; it becomes good-aligned, suppressing another alignment while the spell lasts. Against evil foes, every critical threat automatically confirms unless the weapon already has a magical critical-hit property such as keen or vorpal. A single arrow or bolt can be blessed, but blessing a projectile weapon does not transfer the effect to its ammunition.",
+      "notes": "Source-locked to Miniatures Handbook. Bless Weapon is uniquely resolved to Player's Handbook v.3.5; this swift version explicitly replaces casting time, components, and duration while retaining the base weapon effect.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/miniatures-handbook--75/bless-weapon-swift--1985/",
+          "role": "matching Miniatures Handbook rendering used to verify the swift-action and one-round overrides"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsmh.html",
+          "role": "Miniatures Handbook SRD cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/blessWeapon.htm",
+          "role": "3.5 SRD source for inherited bless-weapon mechanics"
+        }
+      ]
+    },
+    "spells/death-ward-mass-1474": {
+      "name": "Death Ward, Mass",
+      "sourceSha256": "2faccc2d01721f2d27fab491ca34b626f56116d6a494d04141a7d61b9aec7ce2",
+      "effectSummary": "Functions as death ward for one creature per caster level within Close range, with no two targets more than 30 feet apart, for 1 minute per caster level. Each subject is immune to death spells, magical death effects, energy drain, and negative-energy effects such as inflict spells or chill touch. It does not remove negative levels already gained or alter the saving throw required 24 hours after gaining one, and it does not protect against otherwise lethal effects such as ordinary hit point loss, poison, or petrification.",
+      "notes": "Source-locked to Libris Mortis. The cross-book Death Ward reference is uniquely resolved to Player's Handbook v.3.5; this printing changes only the target count/range geometry from the single-target base spell.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/libris-mortis-the-book-of-the-dead--71/death-ward-mass--1474/",
+          "role": "matching Libris Mortis rendering used to verify the multi-target override"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellslm.html",
+          "role": "Libris Mortis SRD cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/deathWard.htm",
+          "role": "3.5 SRD source for inherited death-ward protections and limits"
+        }
+      ]
+    },
+    "spells/dispel-cold-1228": {
+      "name": "Dispel Cold",
+      "sourceSha256": "8af8f14d7a51de4c53daef7bb71a70799581270143c507e13c82e1cfdeb9634a",
+      "effectSummary": "Functions as dispel evil, but against cold creatures and cold magic rather than evil creatures and evil magic. For 1 round per caster level or until discharged, blue-white cold energy surrounds you and grants a +4 deflection bonus to AC against attacks by cold creatures. With a successful melee touch attack against a cold creature from another plane, you can discharge the spell to send that creature to its home plane; a Will save negates and spell resistance applies. Alternatively, a touch can discharge the spell to automatically dispel one enchantment cast by a cold creature or one cold spell; no saving throw or spell resistance applies to that use, and effects that dispel magic cannot dispel are likewise immune. The spell has the Fire descriptor.",
+      "notes": "Source-locked to Frostburn. The Player's Handbook v.3.5 Dispel Evil mechanics are expanded explicitly with every evil-specific element replaced by Frostburn's printed cold-specific version.",
+      "provenance": [
+        {
+          "url": "https://dndtools.org/spells/frostburn--68/dispel-cold--1228/",
+          "role": "matching Frostburn rendering used to verify the cold-specific override"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsfrost.html",
+          "role": "Frostburn SRD cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/dispelEvil.htm",
+          "role": "3.5 SRD source for inherited three-part Dispel Evil behavior"
+        }
+      ]
+    },
+    "spells/dispel-fire-1229": {
+      "name": "Dispel Fire",
+      "sourceSha256": "2d61279f8e4b258405f26753d67975d8177cf004f47036d25945746a16a5369b",
+      "effectSummary": "Functions as dispel evil, but against fire creatures and fire magic rather than evil creatures and evil magic. For 1 round per caster level or until discharged, red, orange, and yellow flames surround you and grant a +4 deflection bonus to AC against attacks by fire creatures. With a successful melee touch attack against a fire creature from another plane, you can discharge the spell to send that creature to its home plane; a Will save negates and spell resistance applies. Alternatively, a touch can discharge the spell to automatically dispel one enchantment cast by a fire creature or one fire spell; no saving throw or spell resistance applies to that use, and effects that dispel magic cannot dispel are likewise immune. The spell has the Cold descriptor.",
+      "notes": "Source-locked to Frostburn. The Player's Handbook v.3.5 Dispel Evil mechanics are expanded explicitly with every evil-specific element replaced by Frostburn's printed fire-specific version.",
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/spells/frostburn--68/dispel-fire--1229/index.html",
+          "role": "matching Frostburn rendering used to verify the fire-specific override"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsfrost.html",
+          "role": "Frostburn SRD cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/dispelEvil.htm",
+          "role": "3.5 SRD source for inherited three-part Dispel Evil behavior"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "7ae99b5c554208b73da1dc5dbc01a6f7cf66e26c",
+    "workflowRun": 35686689879,
+    "validationRun": 35686692154,
+    "classificationArtifact": 10676184586,
+    "classificationArtifactSha256": "27bcdca9947b656cc5194c5b25e63ec35b51df9fa8871b57f4792748046636b6",
+    "queueCountBefore": 913,
+    "referenceQueueCountBefore": 913,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

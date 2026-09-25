@@ -1,0 +1,728 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 50-record batch 103: fifty independently reviewed 3.5-era spell records selected from the 761-record reference-dependent queue. Truncated Summon Desert Ally IX, table-driven Polymorph Any Object, older 3.0/transition printings, ambiguous references, and source-damaged candidates were deliberately skipped. Family roots are reviewed in the same batch where needed; all other inherited spell mechanics resolve to already reviewed records.",
+  "entries": {
+    "spells/summon-desert-ally-i-3137": {
+      "name": "Summon Desert Ally I",
+      "sourceSha256": "09dfa2035197275021659ad1a0ca9d1ed1422ee14ffdb17e5284a5fa453f4135",
+      "effectSummary": "Summons one dustform creature from the spell's 1st-level Summon Desert Ally list as dustform creatures for 1 round per caster level. Each creature appears where you designate and acts immediately on your turn, attacking your opponents by default; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the Summon Desert Ally lists are neutral unless otherwise noted.",
+      "notes": "Sandstorm printing, digest-locked after manual review of the self-contained root effect. The classifier's generic external-reference hit is not an inherited spell dependency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-i-3137",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/summon-desert-ally-ii-3138": {
+      "name": "Summon Desert Ally II",
+      "sourceSha256": "610120dd002d02364f6fc95a7f5ebe21a816c4a72916076eccce159b2b35fd64",
+      "effectSummary": "Summons one 2nd-level creature or 1d3 1st-level creatures of the same kind as dustform creatures for 1 round per caster level. Each creature appears where you designate and acts immediately on your turn, attacking your opponents by default; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the Summon Desert Ally lists are neutral unless otherwise noted. When multiple creatures are called, they must appear within 30 feet of one another.",
+      "notes": "Sandstorm printing, digest-locked. Summon Desert Ally I is reviewed in this same batch and supplies the shared dustform summoning chassis; this record preserves its own level-list and quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-ii-3138",
+          "role": "primary Sandstorm catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-i-3137",
+          "role": "Sandstorm source for inherited Summon Desert Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-desert-ally-iii-3139": {
+      "name": "Summon Desert Ally III",
+      "sourceSha256": "79acad0ab02716971987cd0926f577f68edc2d68355fcf79caf853ce86503688",
+      "effectSummary": "Summons one 3rd-level creature, 1d3 2nd-level creatures of the same kind, or 1d4+1 1st-level creatures of the same kind as dustform creatures for 1 round per caster level. Each creature appears where you designate and acts immediately on your turn, attacking your opponents by default; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the Summon Desert Ally lists are neutral unless otherwise noted. When multiple creatures are called, they must appear within 30 feet of one another.",
+      "notes": "Sandstorm printing, digest-locked. Summon Desert Ally I is reviewed in this same batch and supplies the shared dustform summoning chassis; this record preserves its own level-list and quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-iii-3139",
+          "role": "primary Sandstorm catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-i-3137",
+          "role": "Sandstorm source for inherited Summon Desert Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-desert-ally-iv-3140": {
+      "name": "Summon Desert Ally IV",
+      "sourceSha256": "6a8d60b0362b65b01986da664bf927caa09a42b6b74add8b0a4aaa2f1617b765",
+      "effectSummary": "Summons one 4th-level creature, 1d3 3rd-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind as dustform creatures for 1 round per caster level. Each creature appears where you designate and acts immediately on your turn, attacking your opponents by default; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the Summon Desert Ally lists are neutral unless otherwise noted. When multiple creatures are called, they must appear within 30 feet of one another.",
+      "notes": "Sandstorm printing, digest-locked. Summon Desert Ally I is reviewed in this same batch and supplies the shared dustform summoning chassis; this record preserves its own level-list and quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-iv-3140",
+          "role": "primary Sandstorm catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-i-3137",
+          "role": "Sandstorm source for inherited Summon Desert Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-desert-ally-v-3141": {
+      "name": "Summon Desert Ally V",
+      "sourceSha256": "7c4fdac129dc866ef5b21ce6a391d0d83266aa8fc1e219dcd185af2647142fd4",
+      "effectSummary": "Summons one 5th-level creature, 1d3 4th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind as dustform creatures for 1 round per caster level. Each creature appears where you designate and acts immediately on your turn, attacking your opponents by default; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the Summon Desert Ally lists are neutral unless otherwise noted. When multiple creatures are called, they must appear within 30 feet of one another.",
+      "notes": "Sandstorm printing, digest-locked. Summon Desert Ally I is reviewed in this same batch and supplies the shared dustform summoning chassis; this record preserves its own level-list and quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-v-3141",
+          "role": "primary Sandstorm catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-i-3137",
+          "role": "Sandstorm source for inherited Summon Desert Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-desert-ally-vi-3142": {
+      "name": "Summon Desert Ally VI",
+      "sourceSha256": "fff49b4dded661616bc72be75a0d3e6184bfe168fac02b8defe2553acf98b544",
+      "effectSummary": "Summons one 6th-level creature, 1d3 5th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind as dustform creatures for 1 round per caster level. Each creature appears where you designate and acts immediately on your turn, attacking your opponents by default; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the Summon Desert Ally lists are neutral unless otherwise noted. When multiple creatures are called, they must appear within 30 feet of one another.",
+      "notes": "Sandstorm printing, digest-locked. Summon Desert Ally I is reviewed in this same batch and supplies the shared dustform summoning chassis; this record preserves its own level-list and quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-vi-3142",
+          "role": "primary Sandstorm catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-i-3137",
+          "role": "Sandstorm source for inherited Summon Desert Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-desert-ally-vii-3143": {
+      "name": "Summon Desert Ally VII",
+      "sourceSha256": "e084089a1eb84eb7d6203579d1774313cfc205fe030f87c6e43d1d343bed3619",
+      "effectSummary": "Summons one 7th-level creature, 1d3 6th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind as dustform creatures for 1 round per caster level. Each creature appears where you designate and acts immediately on your turn, attacking your opponents by default; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the Summon Desert Ally lists are neutral unless otherwise noted. When multiple creatures are called, they must appear within 30 feet of one another.",
+      "notes": "Sandstorm printing, digest-locked. Summon Desert Ally I is reviewed in this same batch and supplies the shared dustform summoning chassis; this record preserves its own level-list and quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-vii-3143",
+          "role": "primary Sandstorm catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-i-3137",
+          "role": "Sandstorm source for inherited Summon Desert Ally I mechanics"
+        }
+      ]
+    },
+    "spells/summon-desert-ally-viii-3144": {
+      "name": "Summon Desert Ally VIII",
+      "sourceSha256": "48edf9e449d57a3844de1dcf777e4ab1a1434a2a9f141cc68b4ef64dc6e79727",
+      "effectSummary": "Summons one 8th-level creature, 1d3 7th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind as dustform creatures for 1 round per caster level. Each creature appears where you designate and acts immediately on your turn, attacking your opponents by default; if you can communicate with it, you can direct it not to attack, to attack particular enemies, or to take other actions. A summoned creature cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and it cannot be summoned into an environment that cannot support it. Creatures on the Summon Desert Ally lists are neutral unless otherwise noted. When multiple creatures are called, they must appear within 30 feet of one another.",
+      "notes": "Sandstorm printing, digest-locked. Summon Desert Ally I is reviewed in this same batch and supplies the shared dustform summoning chassis; this record preserves its own level-list and quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-viii-3144",
+          "role": "primary Sandstorm catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-i-3137",
+          "role": "Sandstorm source for inherited Summon Desert Ally I mechanics"
+        }
+      ]
+    },
+    "spells/conjure-ice-beast-ii-1239": {
+      "name": "Conjure Ice Beast II",
+      "sourceSha256": "f57d00936030ef32e8a8f8bd41a11cc6bcec9190a528a0e361e6fa1d5cb435d8",
+      "effectSummary": "Creates one creature from the 2nd-level list or two creatures of the same kind from the 1st-level list using the summon monster or summon nature's ally lists, excluding creatures with the fire subtype. Each creature is a construct made of magical ice with the ice beast template, appears where you designate, and acts immediately on your turn, attacking opponents by default or following other directions if you can communicate with it. The creatures cannot summon or otherwise conjure another creature, cannot use teleportation or planar-travel abilities, and cannot be created in an environment that cannot support them. Multiple creatures must be within 30 feet of one another.",
+      "notes": "Frostburn printing, digest-locked. The already reviewed Conjure Ice Beast I record supplies the ice-beast construction and summoning chassis; this record preserves its own level-list and fixed quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-ii-1239",
+          "role": "primary Frostburn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-i-1238",
+          "role": "Frostburn source for inherited Conjure Ice Beast I mechanics"
+        }
+      ]
+    },
+    "spells/conjure-ice-beast-iii-1240": {
+      "name": "Conjure Ice Beast III",
+      "sourceSha256": "dcc18380ea179be112a89c8f21fb28250b60b93b95dda0d991d4b2c4ccbafa34",
+      "effectSummary": "Creates one creature from the 3rd-level list, two creatures of the same kind from the 2nd-level list, or four creatures of the same kind from the 1st-level list using the summon monster or summon nature's ally lists, excluding creatures with the fire subtype. Each creature is a construct made of magical ice with the ice beast template, appears where you designate, and acts immediately on your turn, attacking opponents by default or following other directions if you can communicate with it. The creatures cannot summon or otherwise conjure another creature, cannot use teleportation or planar-travel abilities, and cannot be created in an environment that cannot support them. Multiple creatures must be within 30 feet of one another.",
+      "notes": "Frostburn printing, digest-locked. The already reviewed Conjure Ice Beast I record supplies the ice-beast construction and summoning chassis; this record preserves its own level-list and fixed quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-iii-1240",
+          "role": "primary Frostburn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-i-1238",
+          "role": "Frostburn source for inherited Conjure Ice Beast I mechanics"
+        }
+      ]
+    },
+    "spells/conjure-ice-beast-iv-1241": {
+      "name": "Conjure Ice Beast IV",
+      "sourceSha256": "42a586b2199a95a8876146d85e14b6fbd835907bafb3fd9aac212cf65011d951",
+      "effectSummary": "Creates one creature from the 4th-level list, two creatures of the same kind from the 3rd-level list, or four creatures of the same kind from a lower-level list using the summon monster or summon nature's ally lists, excluding creatures with the fire subtype. Each creature is a construct made of magical ice with the ice beast template, appears where you designate, and acts immediately on your turn, attacking opponents by default or following other directions if you can communicate with it. The creatures cannot summon or otherwise conjure another creature, cannot use teleportation or planar-travel abilities, and cannot be created in an environment that cannot support them. Multiple creatures must be within 30 feet of one another.",
+      "notes": "Frostburn printing, digest-locked. The already reviewed Conjure Ice Beast I record supplies the ice-beast construction and summoning chassis; this record preserves its own level-list and fixed quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-iv-1241",
+          "role": "primary Frostburn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-i-1238",
+          "role": "Frostburn source for inherited Conjure Ice Beast I mechanics"
+        }
+      ]
+    },
+    "spells/conjure-ice-beast-v-1242": {
+      "name": "Conjure Ice Beast V",
+      "sourceSha256": "fdcf30a5369b914c59cb8ab2d57823df015c3632633a307c5057cf1f0ec3cdd1",
+      "effectSummary": "Creates one creature from the 5th-level list, two creatures of the same kind from the 4th-level list, or four creatures of the same kind from a lower-level list using the summon monster or summon nature's ally lists, excluding creatures with the fire subtype. Each creature is a construct made of magical ice with the ice beast template, appears where you designate, and acts immediately on your turn, attacking opponents by default or following other directions if you can communicate with it. The creatures cannot summon or otherwise conjure another creature, cannot use teleportation or planar-travel abilities, and cannot be created in an environment that cannot support them. Multiple creatures must be within 30 feet of one another.",
+      "notes": "Frostburn printing, digest-locked. The already reviewed Conjure Ice Beast I record supplies the ice-beast construction and summoning chassis; this record preserves its own level-list and fixed quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-v-1242",
+          "role": "primary Frostburn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-i-1238",
+          "role": "Frostburn source for inherited Conjure Ice Beast I mechanics"
+        }
+      ]
+    },
+    "spells/conjure-ice-beast-vi-1243": {
+      "name": "Conjure Ice Beast VI",
+      "sourceSha256": "e71101c521cca08d93f2512753a60caa3abb357751caec999967e4fdffd20b0f",
+      "effectSummary": "Creates one creature from the 6th-level list, two creatures of the same kind from the 5th-level list, or four creatures of the same kind from a lower-level list using the summon monster or summon nature's ally lists, excluding creatures with the fire subtype. Each creature is a construct made of magical ice with the ice beast template, appears where you designate, and acts immediately on your turn, attacking opponents by default or following other directions if you can communicate with it. The creatures cannot summon or otherwise conjure another creature, cannot use teleportation or planar-travel abilities, and cannot be created in an environment that cannot support them. Multiple creatures must be within 30 feet of one another.",
+      "notes": "Frostburn printing, digest-locked. The already reviewed Conjure Ice Beast I record supplies the ice-beast construction and summoning chassis; this record preserves its own level-list and fixed quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-vi-1243",
+          "role": "primary Frostburn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-i-1238",
+          "role": "Frostburn source for inherited Conjure Ice Beast I mechanics"
+        }
+      ]
+    },
+    "spells/conjure-ice-beast-vii-1244": {
+      "name": "Conjure Ice Beast VII",
+      "sourceSha256": "1e8dbed51496c82899e90880ee088b040d7602cb1f75d4bf278b730763d3fbad",
+      "effectSummary": "Creates one creature from the 7th-level list, two creatures of the same kind from the 6th-level list, or four creatures of the same kind from a lower-level list using the summon monster or summon nature's ally lists, excluding creatures with the fire subtype. Each creature is a construct made of magical ice with the ice beast template, appears where you designate, and acts immediately on your turn, attacking opponents by default or following other directions if you can communicate with it. The creatures cannot summon or otherwise conjure another creature, cannot use teleportation or planar-travel abilities, and cannot be created in an environment that cannot support them. Multiple creatures must be within 30 feet of one another.",
+      "notes": "Frostburn printing, digest-locked. The already reviewed Conjure Ice Beast I record supplies the ice-beast construction and summoning chassis; this record preserves its own level-list and fixed quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-vii-1244",
+          "role": "primary Frostburn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-i-1238",
+          "role": "Frostburn source for inherited Conjure Ice Beast I mechanics"
+        }
+      ]
+    },
+    "spells/conjure-ice-beast-viii-1245": {
+      "name": "Conjure Ice Beast VIII",
+      "sourceSha256": "076f902623da079bbe61088c41fbf3c0c0d0531659fbf2745e82aa0de02c460d",
+      "effectSummary": "Creates one creature from the 8th-level list, two creatures of the same kind from the 7th-level list, or four creatures of the same kind from a lower-level list using the summon monster or summon nature's ally lists, excluding creatures with the fire subtype. Each creature is a construct made of magical ice with the ice beast template, appears where you designate, and acts immediately on your turn, attacking opponents by default or following other directions if you can communicate with it. The creatures cannot summon or otherwise conjure another creature, cannot use teleportation or planar-travel abilities, and cannot be created in an environment that cannot support them. Multiple creatures must be within 30 feet of one another.",
+      "notes": "Frostburn printing, digest-locked. The already reviewed Conjure Ice Beast I record supplies the ice-beast construction and summoning chassis; this record preserves its own level-list and fixed quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-viii-1245",
+          "role": "primary Frostburn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-i-1238",
+          "role": "Frostburn source for inherited Conjure Ice Beast I mechanics"
+        }
+      ]
+    },
+    "spells/conjure-ice-beast-ix-1246": {
+      "name": "Conjure Ice Beast IX",
+      "sourceSha256": "c49cab116415995914525bb4c3ae8cdbd038cab71b5efc3247b4ff4baf47810e",
+      "effectSummary": "Creates one creature from the 9th-level list, two creatures of the same kind from the 8th-level list, or four creatures of the same kind from a lower-level list using the summon monster or summon nature's ally lists, excluding creatures with the fire subtype. Each creature is a construct made of magical ice with the ice beast template, appears where you designate, and acts immediately on your turn, attacking opponents by default or following other directions if you can communicate with it. The creatures cannot summon or otherwise conjure another creature, cannot use teleportation or planar-travel abilities, and cannot be created in an environment that cannot support them. Multiple creatures must be within 30 feet of one another.",
+      "notes": "Frostburn printing, digest-locked. The already reviewed Conjure Ice Beast I record supplies the ice-beast construction and summoning chassis; this record preserves its own level-list and fixed quantity choices.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-ix-1246",
+          "role": "primary Frostburn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/conjure-ice-beast-i-1238",
+          "role": "Frostburn source for inherited Conjure Ice Beast I mechanics"
+        }
+      ]
+    },
+    "spells/halasters-fetch-ii-335": {
+      "name": "Halaster's Fetch II",
+      "sourceSha256": "7ecfa1b233bb9128c8cb4e11782064763917950f881a59dd0f24bfdd7f1fe850",
+      "effectSummary": "Calls one creature from the 2nd-level list or 1d3 creatures of the same kind from the 1st-level list using the corresponding Summon Monster rules: each creature appears where designated and acts immediately, attacking opponents by default or following directions if you can communicate with it; it cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must support it. Unlike a normal summon, the called creatures do not disappear when the spell's duration ends. At that point they remain present but become free-willed and are no longer under the caller's control.",
+      "notes": "City of Splendors: Waterdeep printing, digest-locked. The corresponding Player's Handbook v.3.5 Summon Monster record supplies the summoning behavior; the persistent called-creature and post-duration free-will rules are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-fetch-ii-335",
+          "role": "primary City of Splendors: Waterdeep catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-ii-2442",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster II mechanics"
+        }
+      ]
+    },
+    "spells/halasters-fetch-iii-336": {
+      "name": "Halaster's Fetch III",
+      "sourceSha256": "59392abdcc23a0da1f7cba308f25b41e0ccae8947cd0181bdbefd26283c1c4ed",
+      "effectSummary": "Calls one creature from the 3rd-level list, 1d3 creatures of the same kind from the 2nd-level list, or 1d4+1 creatures of the same kind from the 1st-level list using the corresponding Summon Monster rules: each creature appears where designated and acts immediately, attacking opponents by default or following directions if you can communicate with it; it cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must support it. Unlike a normal summon, the called creatures do not disappear when the spell's duration ends. At that point they remain present but become free-willed and are no longer under the caller's control.",
+      "notes": "City of Splendors: Waterdeep printing, digest-locked. The corresponding Player's Handbook v.3.5 Summon Monster record supplies the summoning behavior; the persistent called-creature and post-duration free-will rules are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-fetch-iii-336",
+          "role": "primary City of Splendors: Waterdeep catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-iii-2443",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster III mechanics"
+        }
+      ]
+    },
+    "spells/halasters-fetch-iv-337": {
+      "name": "Halaster's Fetch IV",
+      "sourceSha256": "0986edc9b0def84172ea19906382cd3a0061e0355d44a27f2a626c105f156f15",
+      "effectSummary": "Calls one creature from the 4th-level list, 1d3 creatures of the same kind from the 3rd-level list, or 1d4+1 creatures of the same kind from a lower-level list using the corresponding Summon Monster rules: each creature appears where designated and acts immediately, attacking opponents by default or following directions if you can communicate with it; it cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must support it. Unlike a normal summon, the called creatures do not disappear when the spell's duration ends. At that point they remain present but become free-willed and are no longer under the caller's control.",
+      "notes": "City of Splendors: Waterdeep printing, digest-locked. The corresponding Player's Handbook v.3.5 Summon Monster record supplies the summoning behavior; the persistent called-creature and post-duration free-will rules are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-fetch-iv-337",
+          "role": "primary City of Splendors: Waterdeep catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-iv-2444",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster IV mechanics"
+        }
+      ]
+    },
+    "spells/halasters-fetch-v-338": {
+      "name": "Halaster's Fetch V",
+      "sourceSha256": "dc170bf722be92881ba4e55a20b4af375220b4d34f149fd27da1491658d26082",
+      "effectSummary": "Calls one creature from the 5th-level list, 1d3 creatures of the same kind from the 4th-level list, or 1d4+1 creatures of the same kind from a lower-level list using the corresponding Summon Monster rules: each creature appears where designated and acts immediately, attacking opponents by default or following directions if you can communicate with it; it cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must support it. Unlike a normal summon, the called creatures do not disappear when the spell's duration ends. At that point they remain present but become free-willed and are no longer under the caller's control.",
+      "notes": "City of Splendors: Waterdeep printing, digest-locked. The corresponding Player's Handbook v.3.5 Summon Monster record supplies the summoning behavior; the persistent called-creature and post-duration free-will rules are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-fetch-v-338",
+          "role": "primary City of Splendors: Waterdeep catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-v-2445",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster V mechanics"
+        }
+      ]
+    },
+    "spells/halasters-fetch-vi-339": {
+      "name": "Halaster's Fetch VI",
+      "sourceSha256": "d26fb38d221714ca2242f9314847430cb16501c3b385d7794fd8de1ed5356c58",
+      "effectSummary": "Calls one creature from the 6th-level list, 1d3 creatures of the same kind from the 5th-level list, or 1d4+1 creatures of the same kind from a lower-level list using the corresponding Summon Monster rules: each creature appears where designated and acts immediately, attacking opponents by default or following directions if you can communicate with it; it cannot summon or otherwise conjure another creature or use teleportation or planar-travel abilities, and the environment must support it. Unlike a normal summon, the called creatures do not disappear when the spell's duration ends. At that point they remain present but become free-willed and are no longer under the caller's control.",
+      "notes": "City of Splendors: Waterdeep printing, digest-locked. The corresponding Player's Handbook v.3.5 Summon Monster record supplies the summoning behavior; the persistent called-creature and post-duration free-will rules are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-fetch-vi-339",
+          "role": "primary City of Splendors: Waterdeep catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-vi-2446",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster VI mechanics"
+        }
+      ]
+    },
+    "spells/invest-light-protection-2927": {
+      "name": "Invest Light Protection",
+      "sourceSha256": "3f8da52ea506fe8bb80280fc1144f559d28afd20c0db98e01288f317d0bd4387",
+      "effectSummary": "Touching one creature heals a living target for 1d4 hit points +1 per two caster levels, maximum +3, and grants it damage reduction 1/evil for 1 minute. Used on an undead creature, the healing instead becomes positive-energy damage; on a failed save, that undead also takes 1 extra point of damage from each weapon or physical attack capable of overcoming good damage reduction for 1 minute.",
+      "notes": "Player's Handbook II printing, digest-locked after manual review of the self-contained root effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invest-light-protection-2927",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        }
+      ]
+    },
+    "spells/invest-moderate-protection-2928": {
+      "name": "Invest Moderate Protection",
+      "sourceSha256": "1502cbe05161fa968e10a5e598ec79bce5406139b78b8fcc77b7650a807e7658",
+      "effectSummary": "Functions as Invest Light Protection, but heals a living target for 3d4 hit points +1 per two caster levels, maximum +6, and grants damage reduction 3/evil for 1 minute. Against undead, the same positive-energy amount is damaging instead of healing, and a failed save also causes the undead to take 3 extra points of damage from each weapon or physical attack capable of overcoming good damage reduction for 1 minute.",
+      "notes": "Player's Handbook II printing, digest-locked. Invest Light Protection is reviewed in this same batch and supplies the shared positive-energy and one-minute protection chassis.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invest-moderate-protection-2928",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invest-light-protection-2927",
+          "role": "Player's Handbook II source for inherited Invest Light Protection mechanics"
+        }
+      ]
+    },
+    "spells/invest-heavy-protection-2926": {
+      "name": "Invest Heavy Protection",
+      "sourceSha256": "08750f87282f429d134cb471acc6486255ef66da3f87dcfa42f6a831e254cd08",
+      "effectSummary": "Functions as Invest Light Protection, but heals a living target for 5d4 hit points +1 per two caster levels, maximum +12, and grants damage reduction 5/evil for 1 minute. Against undead, the same positive-energy amount is damaging instead of healing, and a failed save also causes the undead to take 5 extra points of damage from each weapon or physical attack capable of overcoming good damage reduction for 1 minute.",
+      "notes": "Player's Handbook II printing, digest-locked. Invest Light Protection is reviewed in this same batch and supplies the shared positive-energy and one-minute protection chassis.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invest-heavy-protection-2926",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invest-light-protection-2927",
+          "role": "Player's Handbook II source for inherited Invest Light Protection mechanics"
+        }
+      ]
+    },
+    "spells/weather-eye-682": {
+      "name": "Weather Eye",
+      "sourceSha256": "784068b9545149763ec1a0c6977a302aa116dbf401c95d170d400f3334423334",
+      "effectSummary": "After a 1-hour casting, accurately predicts the natural weather in the spell's large surrounding area for up to one week into the future. If unnatural forces are currently altering the weather, the spell instead provides Detect Magic-style information about the magical influence, including aura presence and progressively more detail about number, strength, location, and school where applicable. Material component: incense. Divine focus: a scrying device such as a bowl, mirror, or crystal ball.",
+      "notes": "Complete Divine printing, digest-locked. Detect Magic is expanded only for the explicitly inherited analysis of unnatural weather.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weather-eye-682",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/detect-magic-2489",
+          "role": "Player's Handbook v.3.5 source for inherited Detect Magic aura-analysis mechanics"
+        }
+      ]
+    },
+    "spells/spikes-749": {
+      "name": "Spikes",
+      "sourceSha256": "8d6d9720cdb288605a28e63e0f052bc7f53b0cf67747ad86bbc94e60b3b79c57",
+      "effectSummary": "For 1 hour per caster level, one melee weapon with a wooden striking surface grows magical spikes. It deals both piercing and bludgeoning damage, gains a +2 enhancement bonus on attack rolls, deals +1 additional damage per caster level to a maximum +10, and has its threat range doubled. It does not work on bows, arrows, or weapons without a wooden striking surface.",
+      "notes": "Complete Divine printing, digest-locked. Brambles supplies the wooden-weapon and bonus-damage chassis; this spell increases the enhancement bonus, extends the duration, and doubles threat range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spikes-749",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/brambles-732",
+          "role": "Complete Divine source for inherited Brambles mechanics"
+        }
+      ]
+    },
+    "spells/scrying-greater-2513": {
+      "name": "Scrying, Greater",
+      "sourceSha256": "03f2912010ddc5a752fd8b5d002ffe3c98d7affd7b877a7f9c616ced909233d5",
+      "effectSummary": "As Scrying, you create a remote sensor that can see and hear a creature at any distance if it fails the familiarity-modified Will save; the sensor follows the subject at up to 150 feet and uses your visual acuity, while a successful save prevents another attempt on that subject for 24 hours. Greater Scrying is cast as a standard action and lasts 1 hour per caster level. Detect chaos, detect evil, detect good, detect law, detect magic, message, read magic, and tongues function reliably through its sensor rather than using ordinary Scrying's percentage chance.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Scrying supplies the sensor, familiarity-save, tracking, and retry rules; the standard-action casting, extended duration, and reliable through-sensor spell list are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scrying-greater-2513",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/scrying-2512",
+          "role": "Player's Handbook v.3.5 source for inherited Scrying mechanics"
+        }
+      ]
+    },
+    "spells/teleport-object-2460": {
+      "name": "Teleport Object",
+      "sourceSha256": "eda25f8774703a997fbfa9d9f6ea0b8e929c1c64901b2d811fba0c0d7dbb38b1",
+      "effectSummary": "Teleports one touched object weighing up to 50 pounds per caster level and occupying up to 3 cubic feet per caster level using Teleport's same-plane range, familiarity, off-target, similar-area, and mishap rules. Creatures and magical forces cannot be targets. Instead of a normal destination, the object can be sent to a distant point on the Ethereal Plane; the departure point then remains faintly magical, and a successful targeted dispel magic on that point returns the object.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Teleport supplies the destination range and accuracy/mishap mechanics; the object-only target and Ethereal-storage option are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/teleport-object-2460",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/teleport-2461",
+          "role": "Player's Handbook v.3.5 source for inherited Teleport mechanics"
+        }
+      ]
+    },
+    "spells/summon-warforged-champion-4906": {
+      "name": "Summon Warforged Champion",
+      "sourceSha256": "865bf553e150b48a5ade191a9406195d550dc6c974d52a7c870624d1066b29cc",
+      "effectSummary": "Summons a single advanced warforged titan using the normal Summon Monster IX timing and control rules. The titan has 24 HD and 172 hp; BAB +18; grapple +35; axe +25 melee (2d8+9/×3) or maul +25 melee (2d8+9/×3); Fort +8, Ref +7, Will +8; Jump +44; Great Cleave; Greater Powerful Charge, raising its extra charge damage to +4d6; and Improved Damage Reduction twice, raising its DR to 12/adamantine. While it is active, controlled, and within 15 feet of you, it grants you a +5 shield bonus to AC.",
+      "notes": "Faiths of Eberron printing, digest-locked. Summon Monster IX supplies the basic summoning behavior; the unique advanced titan statistics and protective shield bonus are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-warforged-champion-4906",
+          "role": "primary Faiths of Eberron catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-ix-2449",
+          "role": "Player's Handbook v.3.5 source for inherited Summon Monster IX mechanics"
+        }
+      ]
+    },
+    "spells/surefooted-stride-4286": {
+      "name": "Surefooted Stride",
+      "sourceSha256": "4bcfebb6ce1a188bbacbecd7ddc1d8b45af246f30b6778f35136c24902a343ae",
+      "effectSummary": "For 1 minute per caster level, you move through difficult terrain at full speed and can run, charge, and tumble through it as though it were clear terrain. You also gain a +2 competence bonus on Climb checks.",
+      "notes": "Spell Compendium printing, digest-locked after manual review of the self-contained effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/surefooted-stride-4286",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/insightful-feint-377": {
+      "name": "Insightful Feint",
+      "sourceSha256": "b8461adbbac0e182fb9dabfe705a75852a253755158199130da47cc3be369afa",
+      "effectSummary": "Cast as a swift action, grants a +10 insight bonus on the next single Bluff check you make to feint in combat before the start of your next turn.",
+      "notes": "Complete Adventurer printing, digest-locked after manual review; the page reference is only to the general Bluff/feint rule, not an inherited spell effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/insightful-feint-377",
+          "role": "primary Complete Adventurer catalog record and digest source"
+        }
+      ]
+    },
+    "spells/healthful-rest-4692": {
+      "name": "Healthful Rest",
+      "sourceSha256": "cf2e18a01e7a30810e9e090816f3251000e4d747babee2e4df9794d4a86a411e",
+      "effectSummary": "For 1 day, up to one creature per caster level within 30 feet of one another recovers at twice its normal natural-healing rate. Each subject regains twice the hit points and ability damage it otherwise would regain during that day based on its activity level.",
+      "notes": "Spell Compendium printing, digest-locked after manual review; the Player's Handbook citation supplies only the general natural-healing baseline.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/healthful-rest-4692",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wind-at-back-4771": {
+      "name": "Wind At Back",
+      "sourceSha256": "93444770a76a02b83467c677c7198722fe951bfe48ecf0c5da64bc29fc19b4bd",
+      "effectSummary": "For 12 hours, doubles the overland travel speed of up to one creature per caster level, provided the affected group travels together in the same direction. Pack animals and mounts can benefit; nonliving material cannot. The spell does not change tactical speed.",
+      "notes": "Spell Compendium printing, digest-locked after manual review; the Player's Handbook citation is only to the general overland-speed rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wind-at-back-4771",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/identify-2502": {
+      "name": "Identify",
+      "sourceSha256": "9b6f21f1ef73859d0716927edc9d679fa96ae788bae07c5f8ad9e00e9f6eb19e",
+      "effectSummary": "Determines all magical properties of one magic item, including how to activate its functions when applicable and how many charges remain. It does not function on artifacts. Arcane material component: a pearl worth at least 100 gp, crushed into wine with an owl feather and drunk before casting.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked after manual review of the self-contained effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/identify-2502",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sleet-storm-2436": {
+      "name": "Sleet Storm",
+      "sourceSha256": "d20a5d002fc68a90d54032b437b17886bf8a9bdf340fff0c9ccdb02a557b0676",
+      "effectSummary": "Creates driving sleet that blocks all sight, including darkvision, and makes the ground icy. Movement through the area is at half speed and requires a DC 10 Balance check each round; failure prevents movement that round, and failure by 5 or more causes a fall. The sleet extinguishes torches and other small fires.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked after manual review; the Balance citation is only a general skill reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sleet-storm-2436",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/remove-scent-4088": {
+      "name": "Remove Scent",
+      "sourceSha256": "bb1d1b10b01bd8a120f8abb91e5bb7bfe503747dbbf40d8853defd6bcfbab1ff",
+      "effectSummary": "For 10 minutes per caster level, hides the scent of the touched creature so the scent ability cannot detect it. The spell also suppresses harmful noxious-stench effects produced by creatures such as ghasts for the duration. Material component: a pinch of unscented candle wax.",
+      "notes": "Spell Compendium printing, digest-locked after manual review; the Monster Manual citation is only to the general scent ability.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/remove-scent-4088",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/webfoot-3373": {
+      "name": "Webfoot",
+      "sourceSha256": "14d7a2dc2179738fcdfa69f988c006921c9e57502d12fe1664daf39ebfe8ce84",
+      "effectSummary": "For 10 minutes per caster level, the touched creature gains +4 on Swim checks, moves through shallow bog without being hindered, and treats deep bog as shallow bog for movement and Tumble checks.",
+      "notes": "Stormwrack printing, digest-locked after manual review; the terrain citation supplies only the general bog definitions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/webfoot-3373",
+          "role": "primary Stormwrack catalog record and digest source"
+        }
+      ]
+    },
+    "spells/trip-vine-1420": {
+      "name": "Trip Vine",
+      "sourceSha256": "05031ba11fe2dc7c962ec823d9f7719fd94bdc251563705cb60309edf22e00fe",
+      "effectSummary": "For 1 hour per caster level, plants in the selected 10-foot squares grow into a tangle. A creature entering an affected square must make a Reflex save or fall prone. A charging creature takes -2 on that save, and if the spell is placed in existing undergrowth, all saves against it take an additional -2 penalty.",
+      "notes": "Heroes of Battle printing, digest-locked after manual review; the Dungeon Master's Guide citation is only to the terrain definition for undergrowth.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/trip-vine-1420",
+          "role": "primary Heroes of Battle catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sunstroke-3168": {
+      "name": "Sunstroke",
+      "sourceSha256": "89eab2feb0c5d54ecef1aa86a2fb3b6d31152f952bd584b3152c8d2a0a460fe9",
+      "effectSummary": "One living creature takes 2d6 nonlethal damage. On a failed Fortitude save it also becomes fatigued, or exhausted if it was already fatigued. Because the effect is heatstroke, the damage and fatigue cannot be healed until the underlying heatstroke condition is properly treated.",
+      "notes": "Sandstorm printing, digest-locked after manual review; the page citation supplies only the setting's heatstroke-treatment rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sunstroke-3168",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wither-3169": {
+      "name": "Wither",
+      "sourceSha256": "25e8e8fb1b94505dd361130be317c5b2d72f96c97b582e9a1edc7baf33b02fb7",
+      "effectSummary": "Drains moisture from one living creature, dealing 1d6 desiccation damage per caster level, maximum 10d6, and leaving it dehydrated. A successful Fortitude save halves the damage and prevents dehydration. Plants and water-subtype elementals instead take 1d8 desiccation damage per caster level, maximum 15d8. Material component: a pinch of powdered bone.",
+      "notes": "Sandstorm printing, digest-locked after manual review; the dehydration citation is a general condition reference, not inherited spell mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wither-3169",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/molten-strike-1412": {
+      "name": "Molten Strike",
+      "sourceSha256": "dfb9d63bf3ce004c0ec19172fd8ad2ec7e3f145e3f475df7d1f325cd5507a62e",
+      "effectSummary": "A 5-foot-radius burst deals 2d6 fire damage to every creature in the area. A creature that fails its Reflex save also catches fire and takes 1d6 additional fire damage each round until it succeeds on a DC 15 Reflex save to put the flames out. Material component: a stone marble.",
+      "notes": "Heroes of Battle printing, digest-locked after manual review; the Dungeon Master's Guide citation supplies only the general catching-fire rule that the source restates with its DC.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/molten-strike-1412",
+          "role": "primary Heroes of Battle catalog record and digest source"
+        }
+      ]
+    },
+    "spells/walk-the-mountains-path-3074": {
+      "name": "Walk the Mountain's Path",
+      "sourceSha256": "3798f296df24093a0ef516d02fa67ab2bce312e0ae82e74bf1f7da0533041302",
+      "effectSummary": "For 10 minutes per caster level, the touched creature is not slowed by slopes, gains a climb speed equal to its base land speed, and gains +10 enhancement bonuses on Jump and Balance checks. Material component: a small rock or pebble taken from a mountaintop.",
+      "notes": "Races of Stone printing, digest-locked after manual review; the terrain citation supplies only the general slope rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/walk-the-mountains-path-3074",
+          "role": "primary Races of Stone catalog record and digest source"
+        }
+      ]
+    },
+    "spells/remove-addiction-31": {
+      "name": "Remove Addiction",
+      "sourceSha256": "3a773c2c95a6d153bf47040cf04d0e8c8e1731642aeee07c71447b2ac460ccac",
+      "effectSummary": "Instantly cures every addiction currently affecting the touched creature. Because the spell is instantaneous, it does not protect the creature from becoming addicted again later.",
+      "notes": "Book of Exalted Deeds printing, digest-locked after manual review; the Book of Vile Darkness citation is only background for the addiction subsystem.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/remove-addiction-31",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    },
+    "spells/reachwalkers-wariness-4825": {
+      "name": "Reachwalker's Wariness",
+      "sourceSha256": "aca725cfc2a211730062cd7479a7549027610852a8265130f151242c1b5a96b6",
+      "effectSummary": "For 10 minutes per caster level, you are instantly aware of the exact position of every aberration within 30 feet, functioning like blindsense against aberrations only. Shifter spellcasters cast this spell at +1 caster level.",
+      "notes": "Races of Eberron printing, digest-locked after manual review; the Monster Manual citation is only to the general blindsense definition.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reachwalkers-wariness-4825",
+          "role": "primary Races of Eberron catalog record and digest source"
+        }
+      ]
+    },
+    "spells/vision-of-heaven-55": {
+      "name": "Vision of Heaven",
+      "sourceSha256": "2d0b0392254dba157baf2c499f4328f911b8e0dd9b80d63219c19845c759d8fa",
+      "effectSummary": "One evil creature that fails its Will save is dazed for 1 round. For the next 24 hours it also takes a -1 penalty on Will saves connected to redemption attempts.",
+      "notes": "Book of Exalted Deeds printing, digest-locked after manual review; the chapter citation is only to the broader redemption subsystem.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vision-of-heaven-55",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stone-metamorphosis-3518": {
+      "name": "Stone Metamorphosis",
+      "sourceSha256": "337dd8b457a318b9df11812b07b3bae78a2c91dfbc8aabe8385cc24f0be3ffed",
+      "effectSummary": "Instantly changes an existing stone or stone object into another type of stone, affecting up to 10 cubic feet plus 1 cubic foot per caster level. It cannot manufacture precious or semiprecious gems, and changing the stone type does not change the object's monetary value. Arcane material component: a grain of talc and a chip of obsidian.",
+      "notes": "Underdark printing, digest-locked after manual review; the chapter citation is only to the setting's stone-type descriptions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-metamorphosis-3518",
+          "role": "primary Underdark catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stone-metamorphosis-greater-3519": {
+      "name": "Stone Metamorphosis, Greater",
+      "sourceSha256": "d4878661ec925f717e13268776c82c53681e1ebd1dba4b84b9d5751c940ee6b5",
+      "effectSummary": "Functions as Stone Metamorphosis, instantly changing ordinary stone to another stone type without creating gems or changing value, but affects up to 10 cubic feet plus 10 cubic feet per caster level.",
+      "notes": "Underdark printing, digest-locked. Stone Metamorphosis is reviewed in this same batch; the greater spell's increased target volume is the source-specific change.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-metamorphosis-greater-3519",
+          "role": "primary Underdark catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/stone-metamorphosis-3518",
+          "role": "Underdark source for inherited Stone Metamorphosis mechanics"
+        }
+      ]
+    },
+    "spells/halt-deathless-4913": {
+      "name": "Halt Deathless",
+      "sourceSha256": "8b7bb24ec4c66cbe09df19e784df1c52b705d57c2b30d7baf961cc31ec4f6b62",
+      "effectSummary": "Up to three deathless creatures within 30 feet of one another that fail their Will saves become paralyzed and immobile for 1 round per caster level. The effect on a creature ends if it is attacked or takes damage.",
+      "notes": "Eberron Campaign Setting printing, digest-locked after manual review; the comparison to Hold Person only describes the paralyzed state already stated by the source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halt-deathless-4913",
+          "role": "primary Eberron Campaign Setting catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ice-dagger-3880": {
+      "name": "Ice Dagger",
+      "sourceSha256": "60e609c76a5e450b2ca06c89f1ddc1756e663f0fc06a8f4c5187eda469e8d310",
+      "effectSummary": "Launches a shard of ice at one target with a ranged touch attack. On a hit, it deals 1d4 cold damage per caster level, maximum 5d4; every creature adjacent to the target takes 1 point of cold splash damage. Material component: a few drops of water from melted ice.",
+      "notes": "Spell Compendium printing, digest-locked after manual review; the Player's Handbook citation supplies only the general thrown-splash-weapon attack procedure.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-dagger-3880",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/halt-undead-2740": {
+      "name": "Halt Undead",
+      "sourceSha256": "64d07db50e66aaaf030d7e2668dc00a92afe8d777352f3d68b60dd80ff2a5a90",
+      "effectSummary": "Renders up to three undead creatures within 30 feet of one another immobile for 1 round per caster level. Nonintelligent undead receive no saving throw; intelligent undead can negate the spell with a Will save. Affected undead are effectively paralyzed, and the effect on a creature ends if it is attacked or takes damage. Material component: a pinch of sulfur and powdered garlic.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked after manual review; the Hold Person comparison only describes the immobilized state already stated by the source.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halt-undead-2740",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "dbeaeb64cbe0ea68a997febed22eae2df5e56a10",
+    "workflowRun": 35698543608,
+    "validationRun": 35698546596,
+    "classificationArtifact": 10680873907,
+    "classificationArtifactSha256": "06c5c33e4303c352364633ced909243b2014f308a09d771643d6aa35fec63c90",
+    "queueCountBefore": 761,
+    "referenceQueueCountBefore": 761,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-7",
+  "records": {
+    "wikidot5e:wondrous-items:blackstaff": {
+      "sourceDigest": "sha256:f409295f87e0cb758edfcc320e2d6dd0384a84d706b32a7b045bbec0970cbc26",
+      "effectSummary": "Has all properties of a staff of power plus the following. In Waterdeep, spend charges as an action to animate or deactivate one walking statue per charge; animated statues obey Khelben Arunsun's spirit in the staff and become inert if deactivated or the staff breaks. Spend 1 charge as a bonus action to cast dispel magic on a touched creature, object, or effect; an unwilling creature or its held object must first be hit by a Blackstaff melee attack. After hitting a spell-slot user, spend 1 charge as a bonus action to force it to expend one slot of its highest available spell level. When casting a 1st-level-or-higher Enchantment while holding it, make Intelligence (Arcana) DC 10 + spell level; on success the spell uses no slot. Sentient neutral staff: Int 22, Wis 15, Cha 18, hearing/darkvision 120 feet, telepathy with holder. It contains all former Blackstaff spirits, prioritizes Waterdeep's protection, can cease functioning for an unworthy officeholder, and traps each Blackstaff's soul on death. Destroying it releases the spirits, but Khelben can inhabit a surviving fragment with only Sentience and later rebuild the staff."
+    },
+    "wikidot5e:wondrous-items:blade-of-avernus": {
+      "sourceDigest": "sha256:14290eca85e47baaab7aab1d5af60d68233de32e73d5835058250d1a8023b733",
+      "effectSummary": "Artifact longsword functioning as a vorpal sword, with 2 random minor beneficial, 1 major beneficial, and 1 major detrimental property; the detrimental property is suppressed while attuned to an archdevil. As an action, target a visible devil within 60 feet; DC 22 Charisma or charmed by you for 1 hour and follows orders, but the effect ends and cannot be used on that devil again if ordered to do something it perceives as suicidal. As an action, cast word of recall; transported creatures arrive within 30 feet of Avernus's current ruler, or at your designated sanctuary if you rule Avernus. Destroy by casting into the River Styx or melting in its original forge."
+    },
+    "wikidot5e:wondrous-items:blade-of-broken-mirrors": {
+      "sourceDigest": "sha256:344ba987d9f0d054f255048f4d541d28e8cde78104872c2abc559ded58de58ff",
+      "effectSummary": "Sentient chaotic-evil dagger housing Ragazuu; Int 21, Wis 24, Cha 24, hearing/darkvision 120 feet, telepathy, speaks/reads Abyssal and Common. Dormant: learn Abyssal, gain +1 attack/damage, and ranged attacks make the dagger return immediately. Each humanoid killed by it is remembered; as an action while holding it, assume any remembered humanoid's appearance, changing size but not statistics or gear, reverting as an action or on death; remembered forms reset for a new wielder. Awakened: bonus becomes +2 and, once each per dawn, cast fabricate, hallucinatory terrain, major image, or phantasmal killer with save DC 15. Exalted: bonus +3, spell save DC 17, and as an action become invisible with worn/carried gear until you release the dagger, attack, cast a spell forcing a save, or use a bonus action to become visible."
+    },
+    "wikidot5e:wondrous-items:blade-of-the-medusa": {
+      "sourceDigest": "sha256:f09ca40ae21d3755a746f1697bb7be83fffdad5222f6f2a69ee72d00bcb9847d",
+      "effectSummary": "On an attack roll of 20 with this magic sword, the target also makes DC 15 Constitution. On failure it is restrained and repeats the save at each turn end; three successes end the effect, while three failures petrify it for 1 hour. Creatures immune to the weapon's damage type, without flesh bodies, or with legendary actions are immune. The sword is cursed: attunement makes you unwilling to part with it until remove curse or similar magic. On an attack roll of 1, you make DC 15 Constitution or suffer the same restrained-and-three-saves petrification sequence."
+    },
+    "wikidot5e:wondrous-items:blast-scepter": {
+      "sourceDigest": "sha256:5a997a7ec8b2645e03f3f32f7bf9fc16c6b20f238b0c2108c4f6c7d89a5f31b5",
+      "effectSummary": "Functions as an arcane focus. While attuned, gain fire and lightning resistance. As an action, cast thunderwave as a 4th-level spell with save DC 16 without expending a spell slot."
+    },
+    "wikidot5e:wondrous-items:blasted-goggles": {
+      "sourceDigest": "sha256:e1ba7727460b15da030bd2f4a074206e99cbfe9796926cb421a9a16c737a9ac0",
+      "effectSummary": "The goggles have 3 charges and regain 1d3 daily at dawn. As an action, spend 1 charge and target a visible creature within 120 feet; DC 15 Dexterity or 3d6 fire damage. They are cursed: attunement prevents removing them or ending attunement until remove curse or similar magic. Whenever you fire the beam and the target rolls a natural 20 on its save, you become blinded for 24 hours."
+    },
+    "wikidot5e:wondrous-items:blod-stone": {
+      "sourceDigest": "sha256:3d0849fce3b4c870033e6c149f50895f18bb13964bfd310e49af9e2b91806117",
+      "effectSummary": "While the blood-bearing diamond is on your person, use an action to sense the distance and direction of the nearest non-undead creature related to the stored blood—either the donor or a blood relative. The item requires a diamond worth at least 5,000 gp; destroying it causes the stored blood to evaporate permanently."
+    },
+    "wikidot5e:wondrous-items:blood-fury-tattoo": {
+      "sourceDigest": "sha256:2efa33b3c2be673dd7a1ea6377fc432248b1b706f206cb91d85f3c735cc09d86",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes the tattoo vanish and needle reappear. It has 10 charges, all restored daily at dawn. On a weapon hit, spend 1 charge to deal +4d6 necrotic damage and regain HP equal to the necrotic damage dealt. When a visible creature damages you, spend 1 charge and use your reaction to make a melee attack against it with advantage."
+    },
+    "wikidot5e:wondrous-items:blood-spear": {
+      "sourceDigest": "sha256:599128d26dcced4cc1d2fc48871ad1ded5b70ecdcf7df9561f0d10077b073716",
+      "effectSummary": "When a melee attack with this magic spear reduces a target to 0 HP, gain 2d6 temporary HP."
+    },
+    "wikidot5e:wondrous-items:bloodaxe": {
+      "sourceDigest": "sha256:77ac6d094dbe8c541acbb1b6355efd2e43546473ed10603bd71b8612a85811ad",
+      "effectSummary": "This magic greataxe grants +2 to attack and damage rolls. Hits against creatures other than constructs or undead deal +1d6 necrotic damage. When such a creature is reduced to 0 HP by an attack with the axe, gain 10 temporary HP."
+    }
+  }
+}

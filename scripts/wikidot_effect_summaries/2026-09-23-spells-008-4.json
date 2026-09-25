@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-008-4",
+  "records": {
+    "wikidot5e:spell:ray-of-frost": {
+      "sourceDigest": "sha256:c01feb73875eb5781543be2b1727fa5e68bba4d18c1bf3660dbabfd7fbebad36",
+      "effectSummary": "Make a ranged spell attack against one creature within 60 feet. On a hit it takes 1d8 cold damage and its speed is reduced by 10 feet until the start of your next turn. Damage becomes 2d8 at character level 5, 3d8 at 11, and 4d8 at 17."
+    },
+    "wikidot5e:spell:ray-of-sickness": {
+      "sourceDigest": "sha256:252a6e424c8119cfa23b14cfa84566a7234269867909a8e99c6bb82926b386c8",
+      "effectSummary": "Make a ranged spell attack against one creature within 60 feet. On a hit it takes 2d8 poison damage and makes a Constitution save; on a failure it is poisoned until the end of your next turn. Each slot level above 1st adds 1d8 damage."
+    },
+    "wikidot5e:spell:reality-break": {
+      "sourceDigest": "sha256:00f20bbd015ce7e59b67699a40cfecac2865ddce3419b6fbb6db18368606e0eb",
+      "effectSummary": "One visible creature within 60 feet makes a Wisdom save or, for up to 1 minute, cannot take reactions and rolls 1d10 at the start of each turn for a random reality fracture. 1–2: take 6d12 psychic damage and be stunned until the end of the turn. 3–5: make a Dexterity save for 8d12 force damage, half on success. 6–8: teleport with worn and carried gear up to 30 feet to a visible unoccupied space you choose, take 10d12 force damage, and fall prone. 9–10: take 10d12 cold damage and be blinded until the end of the turn. At the end of each turn, the target repeats the Wisdom save, ending the spell on a success."
+    },
+    "wikidot5e:spell:regenerate": {
+      "sourceDigest": "sha256:f62a13cb392f3cdb30d1e7e8cdf254203e3d4b5a5a46f401c7d62052ff41ab37",
+      "effectSummary": "Touch one creature. It immediately regains 4d8+15 HP and, for 1 hour, regains 1 HP at the start of each of its turns. Missing body parts regrow after 2 minutes; if a severed part is held to its stump, it reattaches instantly."
+    },
+    "wikidot5e:spell:reincarnate": {
+      "sourceDigest": "sha256:b51273f9576245af7d9ee149929a45e53bbc796f1db82da96721b984aa5afd53",
+      "effectSummary": "Touch a dead humanoid or a piece of one that died no more than 10 days ago. If its soul is free and willing, create a new adult body and return the creature to life in a new race chosen by the DM or rolled on the spell's table: dragonborn 01–04; hill dwarf 05–13; mountain dwarf 14–21; drow 22–25; high elf 26–34; wood elf 35–42; forest gnome 43–46; rock gnome 47–52; half-elf 53–56; half-orc 57–60; lightfoot halfling 61–68; stout halfling 69–76; human 77–96; tiefling 97–00. The creature remembers its former life and retains its prior capabilities except that its original race and racial traits are replaced by the new ones."
+    },
+    "wikidot5e:spell:resurrection": {
+      "sourceDigest": "sha256:2ff32917909a10417356299b7ed01588c99c2d39264c380af8621b8440c711d5",
+      "effectSummary": "Return a touched non-undead creature dead no more than 100 years and not dead of old age to life with full HP if its soul is free and willing. Neutralize poisons, cure normal diseases, close mortal wounds, and restore missing body parts, but magical diseases, curses, and similar effects remain unless removed first. The revived creature has -4 to attacks, saves, and ability checks, reduced by 1 after each long rest. If the creature was dead for at least 1 year, after casting you cannot cast spells and have disadvantage on attacks, ability checks, and saves until you finish a long rest."
+    },
+    "wikidot5e:spell:reverse-gravity": {
+      "sourceDigest": "sha256:c5e8aa9a3dac4f62da3a9aecb5a050c559bce271e7706d2a5b31d996fd7e5b11",
+      "effectSummary": "Reverse gravity in a 50-foot-radius, 100-foot-high cylinder centered within 100 feet for up to 1 minute. Unanchored creatures and objects fall upward when cast; a creature can make a Dexterity save to grab a reachable fixed object and avoid the fall. Anything that hits a solid surface takes normal falling consequences; otherwise it reaches the top and remains there, gently oscillating, until the spell ends, when affected creatures and objects fall downward normally."
+    },
+    "wikidot5e:spell:rimes-binding-ice": {
+      "sourceDigest": "sha256:389ef5f676e5cf0c61921ac080065cca33a7141276c91420bfd7c2b5dbac2353",
+      "effectSummary": "Creatures in a 30-foot cone make Constitution saves. On a failure, a creature takes 3d8 cold damage and is bound by ice for up to 1 minute, reducing its speed to 0 until it or another creature within reach uses an action to break the ice away. On a success it takes half damage and is not bound. Each slot level above 2nd adds 1d8 cold damage."
+    },
+    "wikidot5e:spell:rope-trick": {
+      "sourceDigest": "sha256:a22d1af7407457bbfbd0619df7d8d9867f796fff6a0f283f3f06d1cdd91d56a3",
+      "effectSummary": "Touch a rope up to 60 feet long; it rises vertically and opens an invisible extradimensional entrance at its top for 1 hour. Up to eight Medium-or-smaller creatures can enter by climbing, and the rope can be pulled inside and hidden. Attacks and spells cannot cross the entrance in either direction, while occupants can see out through a 3-by-5-foot window centered on the rope. Anything still inside falls out when the spell ends."
+    },
+    "wikidot5e:spell:remote-access": {
+      "sourceDigest": "sha256:d415bd5638f182edb71ec24ec10e47f77066adcfea962f06456c8e85ec451673",
+      "effectSummary": "For 10 minutes, operate one electronic device within 120 feet as though it were in your hands by electronically simulating its ordinary mechanical controls. You can access only functions a manual user could normally access, and can control only one device at a time."
+    }
+  }
+}

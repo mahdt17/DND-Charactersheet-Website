@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 10-record batch 127 from the 161-record difficult reference-dependent tail. The batch uses the largest currently safe size: four printing-paired spell families plus two source-complete summons whose external creature statistics remain named references. Printing-specific mechanical differences are preserved rather than normalized.",
+  "entries": {
+    "spells/hunters-of-hades-2157": {
+      "name": "Hunters of Hades",
+      "sourceSha256": "a61336959c482a31f0baeece576e324aa93fd1b24cba40b3c69d18b314ebaecb",
+      "effectSummary": "Summons two pack fiends from the Gray Waste of Hades to serve you. They magically understand your spoken commands regardless of language and are treated as trained hunting beasts, so you can command them to track. Casting time is 1 minute; range Medium; the two summoned pack fiends can be no more than 30 feet apart; duration 10 minutes per caster level (D); saving throw none; spell resistance no. This Planar Handbook printing does not include the Spell Compendium reprint's retriever option, extra control language, material component, or 500 gp bloodstone cost.",
+      "notes": "Manually source-reviewed and digest-locked. Printing-specific differences against the later Spell Compendium version are preserved. Pack fiend statistics remain an external Planar Handbook reference rather than being expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hunters-of-hades-2157",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/hunters-of-hades-4716",
+          "role": "Spell Compendium reprint comparison"
+        }
+      ]
+    },
+    "spells/hunters-of-hades-4716": {
+      "name": "Hunters of Hades",
+      "sourceSha256": "85aeba80362bafadf10e8dea875e70f229ca98c2a2ed590190c7953f438a6a9a",
+      "effectSummary": "Summons either one retriever or two pack fiends from the Gray Waste of Hades to serve you. The creatures magically understand your spoken commands regardless of language, are treated as trained hunting beasts, and can be commanded to track. They obey you explicitly, never attack you even if another creature gains control of them, require no concentration to maintain control, and can be dismissed singly or in groups at any time. Casting time is 1 minute; range Medium; duration 10 minutes per caster level (D); saving throw none; spell resistance no. Material component: a pinch of ash; if a retriever is summoned, a 500 gp bloodstone is also required.",
+      "notes": "Manually source-reviewed and digest-locked. This Spell Compendium reprint materially expands the Planar Handbook version, so its retriever option, control clauses, and material costs are preserved separately. Retriever and pack fiend statistics remain external references.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hunters-of-hades-4716",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/hunters-of-hades-2157",
+          "role": "Planar Handbook printing comparison"
+        }
+      ]
+    },
+    "spells/summon-elemental-monolith-480": {
+      "name": "Summon Elemental Monolith",
+      "sourceSha256": "e85075f2ada0c72d61bfae987e0a05e0b0d7738f2f9a4d7eb70534aa3381095f",
+      "effectSummary": "Summons one elemental monolith at a designated spot. It acts immediately on your turn and attacks opponents to the best of its ability. If you can communicate with it in its language, you can direct it not to attack, to attack particular enemies, or to perform other actions. It cannot be summoned into an environment hostile to it. Summoning an air, earth, fire, or water monolith gives the spell the corresponding descriptor. Casting time is 1 full round; range Medium; duration concentration up to 1 round per caster level (D); saving throw none; spell resistance no. Arcane material component: a 100 gp gem—an aquamarine for air, tourmaline for earth, garnet for fire, or pearl for water.",
+      "notes": "Manually source-reviewed and digest-locked. This Complete Arcane printing keeps its own component and dismissibility header differences rather than being normalized to the Spell Compendium reprint. The elemental monolith stat block remains an external Complete Arcane reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-elemental-monolith-480",
+          "role": "primary Complete Arcane catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-elemental-monolith-4266",
+          "role": "Spell Compendium reprint cross-check"
+        }
+      ]
+    },
+    "spells/summon-elemental-monolith-4266": {
+      "name": "Summon Elemental Monolith",
+      "sourceSha256": "5e7ca09fd4939f0c61c190728f5ebc95f31ad28544380e2b4a3cf6498d0709d1",
+      "effectSummary": "Summons one elemental monolith at a designated spot. It acts immediately on your turn and attacks opponents to the best of its ability. You must concentrate to maintain the spell, but commanding the creature is a free action. If you can communicate with it in its language, you can direct it not to attack, to attack particular enemies, or to perform other actions. It cannot be summoned into an environment hostile to it. Summoning an air, earth, fire, or water monolith gives the spell the corresponding descriptor. Casting time is 1 full round; range Medium; duration concentration up to 1 round per caster level; saving throw none; spell resistance no. Material component: a 100 gp gem—an aquamarine for air, tourmaline for earth, garnet for fire, or pearl for water.",
+      "notes": "Manually source-reviewed and digest-locked. The Spell Compendium text explicitly states that commanding the monolith is a free action and its header differs from Complete Arcane; those printing distinctions are preserved. The monolith stat block remains an external Complete Arcane reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-elemental-monolith-4266",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-elemental-monolith-480",
+          "role": "Complete Arcane printing cross-check"
+        }
+      ]
+    },
+    "spells/gutsnake-1762": {
+      "name": "Gutsnake",
+      "sourceSha256": "9ed96e2119a9174e72f546cd40097e11845e2de762ba0534381cfbd4c1ee02e1",
+      "effectSummary": "Creates a 15-foot-long snakelike tentacle from your stomach. It is equivalent to a giant constrictor snake except that it is completely obedient and moves as you command. Damage to the tentacle does not harm or distract you, and if it is killed it disappears harmlessly. As a free action on your turn you can have it attack; on a successful hit it can constrict. While it is constricting a target, you cannot move more than 5 feet away unless you are strong enough to drag the target with you. While the gutsnake is present, you can use its Balance and Climb skill modifiers in place of your own. Casting time is 1 standard action; range Personal; duration 1 round per caster level (D). Focus: a fang from any reptile.",
+      "notes": "Manually source-reviewed and digest-locked. This Magic of Faerûn printing is preserved separately from its revised Spell Compendium mechanics. The referenced giant constrictor statistics are intentionally not invented or expanded.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gutsnake-1762",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/gutsnake-4563",
+          "role": "Spell Compendium reprint comparison"
+        }
+      ]
+    },
+    "spells/gutsnake-4563": {
+      "name": "Gutsnake",
+      "sourceSha256": "def7b181cb39eba980bd2ee439aef15045783717609a15608ac679f3f6470444",
+      "effectSummary": "Creates a 15-foot-long snakelike tentacle equivalent to a giant constrictor snake except that it is completely obedient and moves as you command. The tentacle has hit points equal to your full normal hit point total; attacks against it do not harm or distract you, and if killed it disappears harmlessly. Once each round as a free action, it can bite a creature up to 10 feet away and, on a hit, use improved grab to deal constriction damage. While constricting a target, you cannot move more than 5 feet away unless the gutsnake succeeds on a grapple check to carry that opponent with you. While present, it lets you use the snake's Balance and Climb skill modifiers and grants you a 20-foot climb speed. Casting time is 1 standard action; range Personal; duration 1 round per caster level (D). Focus: a fang from any reptile.",
+      "notes": "Manually source-reviewed and digest-locked. Revised Spell Compendium mechanics—including hit points equal to the caster's normal total, 10-foot bite reach, grapple-based carrying, and a 20-foot climb speed—are preserved rather than backported to the Magic of Faerûn printing. External giant constrictor statistics remain a Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/gutsnake-4563",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/gutsnake-1762",
+          "role": "Magic of Faerûn printing comparison"
+        }
+      ]
+    },
+    "spells/jaws-of-the-wolf-1766": {
+      "name": "Jaws of the Wolf",
+      "sourceSha256": "9aec063486e062ca00abaf0cdae051155f0faeaa54b97e9b45e84f9b0be7b7df",
+      "effectSummary": "Transforms small wooden wolf carvings into one normal wolf for every two caster levels. The wolves appear between you and your opponents, act on their own, and obey your mental commands. They are normal wolves except that each has spell resistance 13 and frightful presence. At the end of the spell they become carvings again. Casting time is 1 standard action; range Close; duration 1 round per caster level (D); saving throw none; spell resistance no. Focus: one wolf carving for each wolf created.",
+      "notes": "Manually source-reviewed and digest-locked. This Magic of Faerûn printing creates wolves with spell resistance 13 and frightful presence; the later Spell Compendium printing instead creates worgs and changes the focus rules. Frightful presence remains a named Monster Manual ability rather than being expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/jaws-of-the-wolf-1766",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/jaws-of-the-wolf-4670",
+          "role": "Spell Compendium reprint comparison"
+        }
+      ]
+    },
+    "spells/jaws-of-the-wolf-4670": {
+      "name": "Jaws of the Wolf",
+      "sourceSha256": "f5e0842c1c0f5a497e88144191a77848c6fb56646392fd9cfd44d18b64272a24",
+      "effectSummary": "Transforms small wooden carvings into a number of adult worgs equal to one for every two caster levels. They appear between you and your opponents, act on their own, and obey your mental commands. If a worg moves beyond the spell's range, or when the spell ends, it becomes a carving again. Killing a worg destroys its focus item. Casting time is 1 standard action; range Close; duration 1 round per caster level (D); saving throw none; spell resistance no. Focus: one 25 gp worg carving for each worg created.",
+      "notes": "Manually source-reviewed and digest-locked. This Spell Compendium version materially differs from the Magic of Faerûn printing by creating worgs rather than wolves, omitting the old SR/frightful-presence modifications, adding range reversion, and pricing the focus. Worg statistics remain an external Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/jaws-of-the-wolf-4670",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/jaws-of-the-wolf-1766",
+          "role": "Magic of Faerûn printing comparison"
+        }
+      ]
+    },
+    "spells/summon-golem-2937": {
+      "name": "Summon Golem",
+      "sourceSha256": "1cc2cb78ebcef8cafbac80bc40f1bc7fac2764d93862dc77872bb678b6a5995e",
+      "effectSummary": "Summons one flesh, clay, stone, or iron golem. The golem appears in a flash of light, begins acting at the start of your next turn, and follows your simple commands. It disappears when destroyed or when the spell's duration expires. Casting time is 1 full round; range Close; duration 1 minute per caster level; saving throw none; spell resistance no. Focus: a small lump matching the desired golem's substance—preserved flesh, dried clay, unworked stone, or iron ore.",
+      "notes": "Manually source-reviewed and digest-locked. The spell's summon/control behavior is fully explicit; individual golem statistics and abilities remain external Monster Manual references rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-golem-2937",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        }
+      ]
+    },
+    "spells/summon-aspect-of-bahamut-3082": {
+      "name": "Summon Aspect of Bahamut",
+      "sourceSha256": "532996d53782110115b065664672e170b392c58508a50eb46b2cdd054b8f4628",
+      "effectSummary": "Requests Bahamut to send one of his aspects; a nongood spellcaster cannot cast this spell. The aspect appears where designated and acts immediately on your turn, attacking opponents to the best of its ability. It understands Celestial, Common, and Draconic, and if you communicate with it you can direct it not to attack, to attack particular enemies, or to perform other actions before the duration ends. Casting time is 1 full round; range Close; duration concentration up to 1 round per caster level plus 1 round; saving throw none; spell resistance no. Arcane focus: a silver dragon scale.",
+      "notes": "Manually source-reviewed and digest-locked. The aspect's external creature information is deliberately left as a Races of the Dragon reference rather than expanding its statistics from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-aspect-of-bahamut-3082",
+          "role": "primary Races of the Dragon catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "1aca7396fddfeba8a77bd669ddc6482f040402a9",
+    "workflowRun": 35769870753,
+    "validationRun": 35769876412,
+    "classificationArtifact": 10713448559,
+    "classificationArtifactSha256": "7b6733bdced87ad0054e981861bc67fc7426b721586f020bbba979d33920a9ba",
+    "queueCountBefore": 161,
+    "referenceQueueCountBefore": 161,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

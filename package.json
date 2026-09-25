@@ -8,6 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "node tests/rules.mjs",
+    "test:content": "node tests/content.mjs",
+    "test:editions": "node tests/editions.mjs",
     "test:browser": "node tests/browser.mjs"
   },
   "dependencies": {

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-1",
+  "records": {
+    "wikidot5e:wondrous-items:orrery-of-the-wanderer": {
+      "sourceDigest": "sha256:f15832fc568d9c94a7adb79c6cd49ca81bf913f8d2931cacde95fd57740d49f7",
+      "effectSummary": "Artifact with 2 random minor beneficial, 1 major beneficial, and 1 major detrimental property; those random properties may depend on whether all components are installed. Its six components are the Chronolometer, Dimensional Loop, Far Gear, Rotor of Return, Timepiece of Travel, and Wheel of Stars. A creature may attune to components individually and must hold an uninstalled component to use it; a creature attuned to the orrery can also attune to all installed components without those installed-component attunements counting against normal limits. Uninstalled components may function sporadically or unpredictably at the DM's discretion. While the orrery is within 30 feet, gain +1 AC from future warnings. Attunement gradually changes your alignment to chaotic neutral and compels exploration of dangerous planar realms. With all six components installed, it has 7 charges, regains 1d4+4 daily at dawn, and while touching it use an action to cast at save DC 17: contact other plane 3, teleportation circle 3, plane shift 5, demiplane 6, gate 7."
+    },
+    "wikidot5e:wondrous-items:outer-essence-shard": {
+      "sourceDigest": "sha256:bc9944592b5b34f96db57fe399ecce0b0f8933dc78b26bb1094fbba697574c63",
+      "effectSummary": "Attach or detach the shard from a Tiny object as an action; it detaches if attunement ends, and while held or worn it functions as a spellcasting focus. Whenever you use Metamagic on a spell, apply the shard's d4-determined Outer Plane property: 1 Lawful—end charmed, blinded, deafened, frightened, poisoned, or stunned on yourself or one visible creature within 30 feet; 2 Chaotic—choose one creature damaged by the spell, which has disadvantage on attacks and ability checks until the start of your next turn; 3 Good—you or one visible creature within 30 feet gains 3d6 temporary HP; 4 Evil—choose one creature damaged by the spell to take +3d6 necrotic."
+    },
+    "wikidot5e:wondrous-items:paper-bird": {
+      "sourceDigest": "sha256:f05a25b7f8ab2159db12cb8cbc7519360b9656e304037a6691657569c67681be",
+      "effectSummary": "Write up to 50 words on the parchment and speak a creature's name; it folds into a Tiny paper bird and flies by the most direct route to that named recipient on the same plane. If the recipient is on another plane, it immediately becomes ash. The bird has AC 13, 1 HP, fly 60 feet, Dexterity 16 (+3), all other abilities 1 (-5), and immunity to poison and psychic. On reaching within 5 feet of the recipient it becomes nonmagical parchment that only the intended recipient can unfold. If reduced to 0 HP or speed 0, or otherwise immobilized, it becomes ash. Usually found in boxes of 1d6+3 sheets."
+    },
+    "wikidot5e:wondrous-items:pariahs-shield": {
+      "sourceDigest": "sha256:5affd6e72f6ffd94a214ec10a3d3b6936453cc116a104509c81a91e72e7c6db2",
+      "effectSummary": "While wielding the shield, gain an additional +1 AC for every two allies within 5 feet, maximum +3, beyond its normal shield bonus. When a visible creature within 5 feet takes damage, use your reaction to take that damage instead; its type becomes force."
+    },
+    "wikidot5e:wondrous-items:pennant-of-the-vind-rune": {
+      "sourceDigest": "sha256:f9c397a1d7ddea10d29980f4e9b26c31ce7a4310e85a1fc7869e4dd04b0db974",
+      "effectSummary": "While the pennant is on your person, as an action fly up to 20 feet, falling if you do not land and lack another way to stay aloft; you cannot suffocate; once per short or long rest use your reaction when falling to take no fall damage; and once per short or long rest cast levitate as a bonus action. You may permanently transfer its rune over 8 hours, destroying the pennant. Armor: uncommon attunement, +5 feet speed and removes normal Stealth disadvantage from the armor. Boots or cloak: rare attunement, each turn convert up to 20 feet of movement into flight, falling if not landed by turn end, and cast feather fall once per short or long rest."
+    },
+    "wikidot5e:wondrous-items:perfume-of-bewitching": {
+      "sourceDigest": "sha256:834c869dff0e30cf6efbbf763a01c376d72662434d7d983eba5026367bf2ffcb",
+      "effectSummary": "One use. As an action apply it to yourself; for 1 hour gain advantage on all Charisma checks directed at humanoids of CR 1 or lower. Affected humanoids do not realize magic influenced them."
+    },
+    "wikidot5e:wondrous-items:philter-of-love": {
+      "sourceDigest": "sha256:9d643346703a300f8bbaf29b5c7b2d9731f9a606294c5f738cf7461811dbc94a",
+      "effectSummary": "For 10 minutes after drinking, the next creature you see charms you for 1 hour. If that creature is of a species and gender you are normally attracted to, you regard it as your true love while charmed."
+    },
+    "wikidot5e:wondrous-items:pipe-of-remembrance": {
+      "sourceDigest": "sha256:88cfd01e7d5236cb00f1769997dbde2877c181099117871afc1118e43a4ce716",
+      "effectSummary": "When lit, exhaled smoke lingers around the bearer. After 10 minutes it forms realistic moving images reenacting the bearer's most impressive and heroic achievements for 5 minutes, then dissipates. Recharge at the next dawn."
+    },
+    "wikidot5e:wondrous-items:pipe-of-smoke-monsters": {
+      "sourceDigest": "sha256:af9a119f5fa0c20aaa9f8912642daa06ae03b0fa71134f858f92eba59a37f922",
+      "effectSummary": "While smoking the pipe, use an action to exhale smoke shaped like one creature small enough to fit within a 1-foot cube. The harmless smoke-form holds shape for a few seconds before dissipating."
+    },
+    "wikidot5e:wondrous-items:pipes-of-haunting": {
+      "sourceDigest": "sha256:9562d4b2e8fd99168291607f7a56ba41e88b09f0ff7a4fd87d485453c774dfde",
+      "effectSummary": "Requires wind-instrument proficiency. The pipes have 3 charges and regain 1d3 daily at dawn. As an action spend 1 charge to play; creatures within 30 feet that hear you make DC 15 Wisdom or are frightened of you for 1 minute. You may make nonhostile creatures automatically succeed. A frightened creature repeats the save at each turn end; a creature that succeeds is immune to these pipes for 24 hours."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summary; clean batch 047.",
+  "entries": {
+    "spells/wall-of-water-4747": {
+      "name": "Wall of Water",
+      "sourceSha256": "83640cfd2580c651025bf7aac739d3bb367238a37cc5b0ab0dec9609a4da61cb",
+      "effectSummary": "Creates a transparent, 10-foot-thick vertical wall of calm fresh water or seawater, chosen by you, with an area of up to one 10-foot square per caster level and a duration of 10 minutes per caster level. The wall forms around creatures and objects in its area, submerging them. A creature in the forming area can make a Reflex save to move to a random side on its next turn; otherwise it suffers the full effects of being within the wall. Creatures can swim through it normally or walk along the bottom at half speed. Open flames in the area are extinguished, and creatures with the fire subtype take 2d6 damage plus 1 point per caster level each round they remain partly or wholly within the wall. The wall is transparent but grants cover to targets inside against attacks from outside, cannot be destroyed by physical damage or drained elsewhere, and any water removed in a container immediately evaporates while the wall replaces it. The material component is a sponge.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-water-4747",
+          "role": "Spell Compendium primary effect and header reviewed; caster-selected water type, dimensions, Reflex displacement option, movement, fire interactions, cover, indestructibility/drain behavior, replacement/evaporation and material component preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "6c27248005dd4332c16a342a7fe92c76ebc52f75",
+    "workflowRun": 35658467656,
+    "validationRun": 35658471269,
+    "classificationArtifact": 10665058926,
+    "classificationArtifactSha256": "6c93eed790cad23f22658c8bedeaf3f28af7bdc92922886d4dba17852b64e269",
+    "eligibleCount": 1
+  }
+}

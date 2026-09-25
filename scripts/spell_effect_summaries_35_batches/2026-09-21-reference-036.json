@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked reviewed DnD Tools spell effects; resolved Races of Eberron Mass Repair reference batch 036.",
+  "entries": {
+    "spells/repair-moderate-damage-mass-4962": {
+      "name": "Repair Moderate Damage, Mass",
+      "sourceSha256": "fd7c55c37735b9481b1cc567dacb69257a70469c66b8e4eb9390a5966a9a8def",
+      "effectSummary": "Repairs 2d8 points of damage +1 point per caster level, maximum +30, to each selected construct.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-moderate-damage-mass-4962",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-mass-4961",
+          "role": "same-book inherited Repair Light Damage, Mass mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    }
+  }
+}

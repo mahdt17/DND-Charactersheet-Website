@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-004-4",
+  "records": {
+    "wikidot5e:feat:thrown-arms-master": {
+      "sourceDigest": "sha256:02c5b9d2c89f7324a2fd49882f5362777851b34e23d918fb6aec2cf4f5d99fe2",
+      "effectSummary": "Increase Strength or Dexterity by 1, maximum 20. Simple and martial melee weapons without thrown gain thrown for you: one-handed range 20/60, two-handed 15/30. Weapons already thrown increase normal range by 20 feet and long range by 40 feet. When you miss with a thrown light weapon, it returns to your grasp at the end of your turn unless prevented; you can catch and stow all such returning weapons."
+    },
+    "wikidot5e:feat:tracker": {
+      "sourceDigest": "sha256:28f49fad0a3f63ffcba20b6232c263d8ca78d463bbcb81f1161990ac51ebffd5",
+      "effectSummary": "Increase Wisdom by 1, maximum 20. Learn hunter's mark, using Wisdom as spellcasting ability; cast it once without a slot per long rest and also with appropriate spell slots. Gain advantage on Wisdom (Survival) checks to track creatures."
+    },
+    "wikidot5e:feat:vampiric-exultation": {
+      "sourceDigest": "sha256:9ec335bccac67d9ea4e12cc97d262baad4abd6a1eeecc62653c4b95634f4db3b",
+      "effectSummary": "As an action, transform your lower body into vapor for up to 10 minutes, gaining a 30-foot flying speed. Recharge on a short or long rest."
+    },
+    "wikidot5e:feat:vigor-of-the-hill-giant": {
+      "sourceDigest": "sha256:5346b25cac5dc02d6b33052e171d67288f8adaecaa8e1b7931cb935788f04cbd",
+      "effectSummary": "Increase Strength, Constitution, or Wisdom by 1, maximum 20. When an effect would move you at least 5 feet or make you prone, use your reaction to prevent both the movement and prone condition. During a short rest, whenever you eat food and spend one or more Hit Dice to regain HP, regain additional HP equal to Constitution modifier + proficiency bonus."
+    },
+    "wikidot5e:feat:vigor-of-the-hill-giant-revised-ua": {
+      "sourceDigest": "sha256:475f957dcb5625f3a4ed19ca9dc2f2fbed336c09eb1a1e6fa255a620c087f393",
+      "effectSummary": "Increase Constitution by 1, maximum 20. When an effect would move you at least 5 feet or knock you prone, use your reaction to prevent both the movement and prone condition."
+    },
+    "wikidot5e:feat:vigor-of-the-hill-giant-ua": {
+      "sourceDigest": "sha256:4df404a560be7137e543ab33042884a364cc814492169be405edf4725ccd156e",
+      "effectSummary": "When an effect would move you at least 5 feet or knock you prone, use your reaction to prevent both. When a spell restores your HP, you may regain additional HP equal to your Constitution modifier; uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:vital-sacrifice": {
+      "sourceDigest": "sha256:ece7e0e75836cbfe4ff45bd8a5586b966e5a471731442df92d180db43b391db4",
+      "effectSummary": "As a bonus action, take 1d6 necrotic damage that cannot be reduced to gain a blood boon lasting 1 hour or until spent. Spend it to add 1d6 to one attack roll; add 2d6 necrotic damage when you hit with an attack or spell; or, when you cause a Strength, Dexterity, or Constitution save, roll 1d4 and subtract it from that save."
+    },
+    "wikidot5e:feat:war-caster": {
+      "sourceDigest": "sha256:750c35221f53c6b9647d454dab1bd1fed4438c9fe5379a02f90c43149297d8be",
+      "effectSummary": "Gain advantage on Constitution saves to maintain concentration when you take damage. You can perform somatic spell components even with weapons or a shield in one or both hands. When hostile movement would provoke an opportunity attack, use your reaction to cast a spell instead; it must have a casting time of 1 action and target only that creature."
+    },
+    "wikidot5e:feat:weapon-master": {
+      "sourceDigest": "sha256:708b10f9fd045b1c7c54b1cb3f27d15c75fb67000e050da933d36fd4d583af35",
+      "effectSummary": "Increase Strength or Dexterity by 1, maximum 20. Gain proficiency with four simple or martial weapons of your choice."
+    },
+    "wikidot5e:feat:wild-talent": {
+      "sourceDigest": "sha256:4149fab8ff76427b18010a73e385658684f782f1367df680d4e548feea76f84e",
+      "effectSummary": "Increase one ability score by 1, maximum 20, and gain a Psionic Talent die starting at d6. When making an ability check with the increased ability, roll the Psionic Talent die and add it before knowing success or failure. Once per turn when an attack using that ability hits, after rolling damage you may roll the Psionic Talent die and replace one attack damage die with that result. Rolling the die's maximum lowers it one die size after the roll; rolling 1 raises it one size up to its starting size. If reduced below d4 it becomes unusable until a long rest. Its starting size becomes d8 at level 5, d10 at 11, and d12 at 17; if another source grants a Psionic Talent die, use only the one with the largest starting size. Once per long rest as a bonus action, restore the die to its starting size."
+    }
+  }
+}

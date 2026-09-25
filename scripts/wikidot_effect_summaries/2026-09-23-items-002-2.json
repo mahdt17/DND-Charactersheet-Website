@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-002-2",
+  "records": {
+    "wikidot5e:wondrous-items:chronolometer": {
+      "sourceDigest": "sha256:9face5335ffbc6e6b054d95bf77b3ffa65c7956b80ccbfca62669a40ae9ee952",
+      "effectSummary": "While attuned, gain +1 to Intelligence saves and know one chosen language you did not know when first attuning. Once per dawn, at the start of your turn roll d6: 1–3 gives an additional action and doubles speed for that turn; 4–6 stores a temporal warning so the next failed save, attack, or ability check can be rerolled using either result. Separately once per dawn, when a visible creature within 30 feet takes damage, use your reaction to let it gain an extra action on its turn or take an action immediately if it is not its turn. When not installed in the Orrery of the Wanderer, the DM may make its magic sporadic or unpredictable."
+    },
+    "wikidot5e:wondrous-items:circlet-of-human-perfection": {
+      "sourceDigest": "sha256:3a8f98c0dbd2051535169fccb04202a1759010de539f02b260989d81a28a7d6b",
+      "effectSummary": "While worn by its attuned humanoid, transform into an attractive human of average height and weight with physical traits chosen by the circlet. Except for size, statistics and racial traits do not change, and worn/carried items are unchanged. Removing the circlet ends the transformation."
+    },
+    "wikidot5e:wondrous-items:claw-of-the-wyrm-rune": {
+      "sourceDigest": "sha256:5f7beefeb23d94f6b944051eb6f793655c7cae890ddcb772550876887a0d083c",
+      "effectSummary": "Three times per dawn, use an action to point at a dragon within 30 feet; DC 15 Constitution or it gains vulnerability to all damage until the end of your next turn. While the claw is displayed on your person, you have resistance to damage from dragon breath weapons. You may permanently transfer its magic to a location by tracing the rune for 8 hours with the claw within 5 feet; the claw is destroyed and a fixed 100-foot-radius sphere thereafter gives dragons disadvantage on saves and caps their flying speed at 10 feet."
+    },
+    "wikidot5e:wondrous-items:claws-of-the-umber-hulk": {
+      "sourceDigest": "sha256:938b38f1f01655cf5c027da4d999ffd50e0980c259145268257e61f645e95e82",
+      "effectSummary": "While wearing both gauntlets, gain burrow speed 20 feet and tunnel through solid rock at 1 foot per round. Each claw is a melee weapon you are proficient with, using Strength and dealing 1d8 slashing. While wearing them, you cannot manipulate objects or cast spells with somatic components."
+    },
+    "wikidot5e:wondrous-items:cleansing-stone": {
+      "sourceDigest": "sha256:ad2889e6ca531a3b3c8682db1a331e0e5230569c4510ca25a5c1ae62d025f0e5",
+      "effectSummary": "While touching the stone, use an action to remove dirt and grime from your body and clothing."
+    },
+    "wikidot5e:wondrous-items:cloak-of-arachnida": {
+      "sourceDigest": "sha256:5d8b48df2786decfdc1dbe2092a682f52a586988aa266e1bb1ede0b71deb32f4",
+      "effectSummary": "While worn, gain poison resistance; a climbing speed equal to walking speed; the ability to climb vertical surfaces and ceilings hands-free; immunity to being caught in webs, treating webs as difficult terrain instead. Once per dawn, use an action to cast web with save DC 13; this web fills twice the spell's normal area."
+    },
+    "wikidot5e:wondrous-items:cloak-of-displacement": {
+      "sourceDigest": "sha256:bca4eac29179db174deda3188841d5df034fa1c7b9f05b33d907a4a7bba4f409",
+      "effectSummary": "While worn, attacks against you have disadvantage because of a displacement illusion. Taking damage suppresses the effect until the start of your next turn. It is also suppressed while incapacitated, restrained, or otherwise unable to move."
+    },
+    "wikidot5e:wondrous-items:cloak-of-invisibility": {
+      "sourceDigest": "sha256:a4fda24d24a68f843a5663c094c1079b01c3ce4e11b02601c14d3c03171d117c",
+      "effectSummary": "As an action while wearing the cloak, pull up the hood to become invisible along with worn/carried items; lower the hood as an action to become visible. The cloak provides 2 total hours of invisibility, tracked in 1-minute increments. For every uninterrupted 12 hours it goes unused, it recovers 1 hour of available duration."
+    },
+    "wikidot5e:wondrous-items:cloak-of-many-fashions": {
+      "sourceDigest": "sha256:3cd2095aaf5ed5bd156b009a13267bf92f14b0e1b31f734d258edb9272478cc0",
+      "effectSummary": "While worn, use a bonus action to alter the cloak's style, color, and apparent quality. Its weight and basic nature as a cloak never change; copying the appearance of another magic cloak does not copy its properties."
+    },
+    "wikidot5e:wondrous-items:cloak-of-the-bat": {
+      "sourceDigest": "sha256:bd0605aaa6dcdff549b6f65dd247ed5000e8538d8662e53f40b34cf177b2bd08",
+      "effectSummary": "While worn, gain advantage on Dexterity (Stealth). In dim light or darkness, while gripping both cloak edges, gain a 40-foot flying speed; releasing an edge or leaving dim light/darkness removes that speed. Once per dawn while in dim light or darkness, use an action to cast polymorph on yourself into a bat, retaining your Intelligence, Wisdom, and Charisma."
+    }
+  }
+}

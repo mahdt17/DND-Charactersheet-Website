@@ -1,0 +1,616 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 50-record batch 110 from the clean 411-record reference-dependent queue. Twenty carried-forward candidates were reconciled after concurrent batch 109, then three already-locked records were replaced. Rejection and the parser-corrupted Web source were deliberately excluded. The final batch contains only new regression IDs and favors source-complete effects, reviewed inheritance, and explicit printing-specific mechanics.",
+  "entries": {
+    "spells/infernal-transformation-3906": {
+      "name": "Infernal Transformation",
+      "sourceSha256": "d85eca695d02da080296fc9a10832fde04868cdaabc2b65fd32251c4df906be3",
+      "effectSummary": "For 1 round per caster level, transforms you into a Large bone-devil-like outsider with the baatezu, evil, and lawful subtypes, 10-foot space and reach, +4 profane Strength and Constitution, darkvision 60 feet, DR 5/good, and Infernal speech. During a full attack you gain one tail attack at your highest attack bonus for 3d4 + Strength damage; it counts as evil and forces Fortitude or delivers poison dealing 1d6 Strength initially and 2d6 Strength secondarily. Your equipment resizes with you.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/infernal-transformation-3906",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/perinarch-planar-4622": {
+      "name": "Perinarch, Planar",
+      "sourceSha256": "5950c8ef9eb73a727ac846ea099dacd2c6daa0e1812cd2d57e69e3cc0531d21d",
+      "effectSummary": "Functions as perinarch, but can be cast on any highly morphic or divinely morphic plane, allowing you to impose and maintain local order over mutable planar substance for 1 round per caster level.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/perinarch-planar-4622",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/terra-cotta-lion-2127": {
+      "name": "Terra Cotta Lion",
+      "sourceSha256": "5c761db03f4b5ed0fb98bd59c03801157a130c5d3db5eb5748d2479bb46a0803",
+      "effectSummary": "For 1 round per caster level, animates a terra-cotta foo-lion statuette as a Huge animated construct using Terra Cotta Warrior's control behavior, with speed 30 feet and hardness 6 and without ordinary animated-object special attack forms. The statuette is reusable if intact when the spell ends. Focus: a 10 gp foo-lion statuette.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/terra-cotta-lion-2127",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sacrificial-skill-168": {
+      "name": "Sacrificial Skill",
+      "sourceSha256": "6035842a41b5ebf8dfe67e8de145557ab17dbd410d1e55021f91d9293b0d6a7d",
+      "effectSummary": "For 1 minute per caster level, grants +5 on Knowledge (religion) checks specifically involving sacrifices to evil gods. Material component: a lock of hair from an unwilling humanoid.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sacrificial-skill-168",
+          "role": "primary Book of Vile Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/palins-pyre-5012": {
+      "name": "Palin's Pyre",
+      "sourceSha256": "dcc20235c7b7ba7cd68134f5b8023e9d121f65c251b0948e17a11569e8917e2c",
+      "effectSummary": "Causes gouts of flame to erupt from selected 5-foot squares, dealing 3d6 fire damage to creatures in the area. A creature that fails Reflex also catches fire. Material component: an oil-soaked cylinder of sulfur.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/palins-pyre-5012",
+          "role": "primary Dragonlance Campaign Setting catalog record and digest source"
+        }
+      ]
+    },
+    "spells/pacification-1104": {
+      "name": "Pacification",
+      "sourceSha256": "a48eafef111661b39f468672b26b4c24ce85968aab94e2d362749042f7eaa6dc",
+      "effectSummary": "While you concentrate, up to 1 minute per caster level, one living creature with no more Hit Dice than your caster level is affected as calm emotions. Adding 50 gp of blue spinel dust when casting increases the maximum duration to 2 minutes per caster level.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/pacification-1104",
+          "role": "primary Dragons of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/revelation-1099": {
+      "name": "Revelation",
+      "sourceSha256": "78168899700a67570a22d6e971be0748a403d47b06ece9f36225c37ec28557f3",
+      "effectSummary": "For 1 round, a 20-foot-radius burst reveals creatures and objects as they truly are in the manner of true seeing. Everyone with line of sight can perceive the revealed state. It dispels nothing, and a creature leaving the area becomes concealed again. Material component: dandelion fluff and herbs worth 50 gp.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/revelation-1099",
+          "role": "primary Dragons of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/runic-marker-309": {
+      "name": "Runic Marker",
+      "sourceSha256": "8d7ca6ddd1377b604a0d7e890bdbe774dac197efcf188ce28b19f23266fed979",
+      "effectSummary": "Permanently creates a solid stone pillar about 2 feet across and 6 feet tall, optionally bearing a message of up to 25 words. It also carries a blast-only glyph of warding that can use normal glyph triggers and can additionally trigger when magical damage harms the pillar. Triggering the glyph destroys the marker. Material component: one vial of holy water.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/runic-marker-309",
+          "role": "primary Champions of Valor catalog record and digest source"
+        }
+      ]
+    },
+    "spells/prismatic-bow-830": {
+      "name": "Prismatic Bow",
+      "sourceSha256": "5da3a21c219267466d89d85b2bbe82c3389b1d68ef25b35e2cb750c3c0edc108",
+      "effectSummary": "Creates a personal +1 prismatic longbow you are automatically proficient with. Each fired arrow can invoke one of the seven prismatic-spray colors; once a color is used it disappears and cannot be selected again during that casting. The bow vanishes when all seven colors have been expended or the duration ends, and a second casting ends the first.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-bow-830",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sakkratars-triple-strike-1570": {
+      "name": "Sakkratar's Triple Strike",
+      "sourceSha256": "7d745c20aa3290b0ca8017685afa96667352b0e6cab8e39b018dce1d09a933e2",
+      "effectSummary": "For 1 round, each affected creature can make two extra attacks at full base attack bonus during a full attack with a held melee weapon. Its melee weapon also gains keen and flaming burst for the round. The extra attacks do not stack with similar extra-attack effects such as haste or speed and grant no extra action. Material component: a three-faceted prism.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sakkratars-triple-strike-1570",
+          "role": "primary Lost Empires of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/silver-dragonmail-310": {
+      "name": "Silver Dragonmail",
+      "sourceSha256": "d9143cc2e80a4b82eb89697972fdf5f92ad4e587ad9de736368a8a1c8d155811",
+      "effectSummary": "Creates +1 mithral breastplate around you for 1 hour per caster level; you are treated as proficient with it and it has normal mithral breastplate properties. Removing or destroying it ends the spell, and the spell fails if you already wear armor. A sorcerer also gains cold resistance 5.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/silver-dragonmail-310",
+          "role": "primary Champions of Valor catalog record and digest source"
+        }
+      ]
+    },
+    "spells/nybors-stern-reproof-3463": {
+      "name": "Nybor's Stern Reproof",
+      "sourceSha256": "0e5f7c9677b298f278c5025116f3d826e98dfd8d552660e962af081248128762",
+      "effectSummary": "One living creature first makes Fortitude; failure kills it instantly. A survivor then makes Will or is dazed for 1d4 rounds. Whether or not the Will save succeeds, it takes -2 on attacks, saving throws, and checks for the duration, and spellcasting requires Concentration. Focus: a gold-chased adamantine rod worth at least 1,000 gp.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nybors-stern-reproof-3463",
+          "role": "primary Unapproachable East catalog record and digest source"
+        }
+      ]
+    },
+    "spells/nybors-gentle-reminder-3462": {
+      "name": "Nybor's Gentle Reminder",
+      "sourceSha256": "f2037ad5a559c212f37de45a0b2b0f1417c336996ef3381ec8b5392e6cbcbacc",
+      "effectSummary": "A living creature that fails Fortitude is dazed for 1 round, then takes -2 on attacks, saves, and checks for the remaining duration; spellcasting while affected requires Concentration. Focus: a slender wooden rod at least 1 foot long.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nybors-gentle-reminder-3462",
+          "role": "primary Unapproachable East catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-scrying-1492": {
+      "name": "Necrotic Scrying",
+      "sourceSha256": "255a02c454baf937e83552c39c3334fd1ba748ae97463ff92fa89f06e9da6129",
+      "effectSummary": "For 1 minute per caster level, lets you hear or see through a specific same-plane creature you believe bears a necrotic cyst. The effect fails if the cyst is absent, while lead, antimagic field, mind blank, or nondetection blocks it. Comprehend languages, magic mouth, message, read magic, tongues, and darkvision can be cast through the sensor. Focus: a mother cyst.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-scrying-1492",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-bloat-1486": {
+      "name": "Necrotic Bloat",
+      "sourceSha256": "9067c7fb0cd035a6fe5c62001571b8eab1b3468ea88825e89857799352bec081",
+      "effectSummary": "Instantly causes an existing necrotic cyst to swell, dealing 1d6 damage per caster level, maximum 10d6, with half counted as vile damage. The cyst returns to normal size when the vile damage is healed; vile damage can be repaired only by magic cast in a consecrated or hallowed area. Focus: a mother cyst.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-bloat-1486",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/pavilion-grandeur-650": {
+      "name": "Pavilion of Grandeur",
+      "sourceSha256": "6c417362fb618ee752bccd54614cfbc25a2fd9a54ac65a4db18a49fe6d326f32",
+      "effectSummary": "Creates a private extradimensional pavilion accessible only to creatures you designate. You choose lighting from darkness to daylight and temperature from 40–90°F. It includes a full meal for twelve people per caster level; spending a full hour dining grants heroes' feast benefits. Creatures inside also heal naturally at twice the normal rate.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/pavilion-grandeur-650",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mystic-lash-1513": {
+      "name": "Mystic Lash",
+      "sourceSha256": "4c0a34a6058bc943631d783a366ef51a1cd3229e109669566d503f08fb86f5f0",
+      "effectSummary": "Creates a ghostly electric whip for 1 round per caster level. You are proficient with it; attacks are ranged touch attacks dealing 1d8 electricity +1 per two caster levels, maximum +5, and a hit forces Fortitude or stuns for 1 round. After a hit you can release the lash so it attacks that target once per round using your base attack bonus until the target falls, then returns to you.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mystic-lash-1513",
+          "role": "primary Lords of Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/moon-blade-4575": {
+      "name": "Moon Blade",
+      "sourceSha256": "3a998c58c6c31a66071891a0db469b50bb291769abaa645c285c067e9186a442",
+      "effectSummary": "Creates a swordlike beam of moonlight for 1 minute per caster level. Attacks are melee touch attacks; most targets take 1d8 +1 per two caster levels, maximum +10, while undead take 2d8 +1 per caster level, maximum +20. Strength does not add to damage. A creature hit must make a Concentration check on its next turn to use any spell or spell-like ability, DC 10 + damage dealt + spell level.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/moon-blade-4575",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tomb-of-light-118": {
+      "name": "Tomb of Light",
+      "sourceSha256": "6da1a6373504243a7a1cacd8a2ce2f621854a5064de25a1e033cc87a1ea4e55d",
+      "effectSummary": "On a failed Fortitude save, one evil outsider becomes immobilized and helpless while remaining conscious and able to take purely mental actions. Each round you maintain concentration, it makes another Fortitude save; failure deals 1d6 permanent Constitution drain, while success ends the spell. You take 1d6 nonlethal damage each maintained round. Material component: a pure crystal or clear gemstone worth at least 50 gp.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tomb-of-light-118",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        }
+      ]
+    },
+    "spells/reanimation-473": {
+      "name": "Reanimation",
+      "sourceSha256": "cbf17ef2305374c84bbab6bef6aee570adef845f6a2338ac03cdd3a226c07193",
+      "effectSummary": "Restores a willing creature dead no more than 1 day per caster level to a half-living state for 1 day per caster level. It has 1 hp, can take only one move action per round, cannot attack, cast spells, or activate magic items, and cannot be healed above 1 hp except with temporary hp. It is not undead. Time spent reanimated does not count against later raise-dead time limits and the body does not decay. A normal life-restoring spell can fully restore it; greater restoration restores its memory but not its physical state. Material component: a white shawl and incense. Focus: a golden phoenix-shaped amulet.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reanimation-473",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/simbuls-spell-sequencer-2290": {
+      "name": "Simbul's Spell Sequencer",
+      "sourceSha256": "a5c18270f5c9fa59e55af6db269213ddcc46c97c605aa108821ad6ee75a13310",
+      "effectSummary": "For 10 minutes per caster level, creates a matrix that can hold up to two spells of 3rd level or lower, dealing 2d6 damage to you when cast. The matrix closes after 2 rounds. If both stored spells are 2nd level or lower, they can be linked and discharged together as a single free action. Dispel magic removes the matrix and stored spells; antimagic pauses it; death dissipates it. Focus: a sapphire worth at least 1,000 gp.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/simbuls-spell-sequencer-2290",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/simbuls-spell-trigger-2291": {
+      "name": "Simbul's Spell Trigger",
+      "sourceSha256": "04e438bd4e3074ddacab0238621cf10c38d3be57fb8741f29161f8ec32911a07",
+      "effectSummary": "For 10 minutes per caster level, creates a matrix holding up to three spells of 3rd level or lower and deals 3d6 damage to you when cast. The matrix closes after 3 rounds. One stored spell or linked sequence that affects your own person can be assigned a clear triggering condition and is cast instantaneously when that condition occurs, without an option to suppress the trigger. Focus: a diamond worth at least 1,500 gp.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/simbuls-spell-trigger-2291",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/last-breath-4336": {
+      "name": "Last Breath",
+      "sourceSha256": "26bceef3bfad9546a7ab7abd62979a3ff63e387349ab22f94326f7ad3cec1f31",
+      "effectSummary": "Restores a creature that died no more than 1 round ago by creating a reincarnated body. Unlike normal reincarnate, the subject suffers no level loss, Constitution loss, or spell loss and returns stable at -1 hp. Material components: rare oils and unguents worth at least 500 gp.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/last-breath-4336",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/hymn-of-praise-400": {
+      "name": "Hymn of Praise",
+      "sourceSha256": "f597057242394d6154590049fd947d37a69cd4154ef466398a71bf1c25dad731",
+      "effectSummary": "For 1 round per caster level, good-aligned divine spellcasters in the emanation gain +2 effective caster level for level-dependent spell effects without gaining extra spells. They also gain +4 sacred on Charisma checks to turn undead, while evil-aligned divine spellcasters take -4 sacred on Charisma checks to rebuke undead.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hymn-of-praise-400",
+          "role": "primary Complete Adventurer catalog record and digest source"
+        }
+      ]
+    },
+    "spells/infernal-threnody-401": {
+      "name": "Infernal Threnody",
+      "sourceSha256": "b1afe24b6ae60b3ab3cee7f0569bb74d82f589438c2ed5262a17012df865f035",
+      "effectSummary": "For 1 round per caster level, evil-aligned divine spellcasters in the emanation gain +2 effective caster level for level-dependent spell effects without gaining extra spells. They also gain +4 profane on Charisma checks to rebuke undead, while good-aligned divine spellcasters take -4 profane on Charisma checks to turn undead.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/infernal-threnody-401",
+          "role": "primary Complete Adventurer catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wolf-fang-strike-3751": {
+      "name": "Wolf Fang Strike",
+      "sourceSha256": "742cbcc4bd3fba6396aebdc1119c6a7c6f87e1e05c1f803e8ef24978ad870950",
+      "effectSummary": "As a standard action while fighting with two weapons, make one attack with each weapon against the same creature, taking -2 on both attack rolls. If you carry only one weapon, the off hand can make an unarmed strike. If the first attack drops the foe to -1 hp or lower, the second attack is not made.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wolf-fang-strike-3751",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-burst-1487": {
+      "name": "Necrotic Burst",
+      "sourceSha256": "b9eb24a99e3bbf52e940609a0159ae3b2fc809e1ad86982acc581eeccad9c3d7",
+      "effectSummary": "Targets a creature already bearing a necrotic cyst. On a successful Fortitude save it takes 1d6 damage per caster level, maximum 15d6, half as vile damage. On a failed save the cyst kills the subject; on the following round the cyst emerges from the corpse as a free-willed skulking cyst. Focus: a mother cyst.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-burst-1487",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-termination-1493": {
+      "name": "Necrotic Termination",
+      "sourceSha256": "3e182fa55d940321b13dcb7bda959a344a2dc5caddb8c3a62ed4f06ddb3837c1",
+      "effectSummary": "Targets a creature already bearing a necrotic cyst. A successful Fortitude save causes 1d6 damage per caster level, maximum 25d6, half as vile damage. Failure kills the subject and digests its soul, preventing raise dead, resurrection, true resurrection, wish, and miracle from restoring it; a free-willed skulking cyst emerges the next round. Focus: a mother cyst. XP cost: 1,000.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-termination-1493",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mighty-throw-3673": {
+      "name": "Mighty Throw",
+      "sourceSha256": "8cb7bdcba528ca83d2bdbd5dbaaf15f9c18cc4d6cb08c27f113bbc33f0fbf49f",
+      "effectSummary": "Make a melee touch attack, then resolve a trip without provoking and without allowing a counter-trip. Use Strength or Dexterity, whichever is higher, with +4 on the opposed check. Success throws the target up to 10 feet into an empty space you choose and leaves it prone; passing through threatened squares during the throw provokes no attacks of opportunity.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mighty-throw-3673",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ruby-nightmare-blade-3636": {
+      "name": "Ruby Nightmare Blade",
+      "sourceSha256": "59a7d3bc33fec2f69bece7e37fc3fababc40f6cf557eb6f2d3fdb73e16b584eb",
+      "effectSummary": "As part of the maneuver, make a Concentration check against the target's AC and then one melee attack. If the Concentration check succeeds, the attack deals double normal melee damage; if it fails, the attack takes -2 and deals normal damage. Critical-hit multipliers stack normally.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ruby-nightmare-blade-3636",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/rage-2570": {
+      "name": "Rage",
+      "sourceSha256": "350e2b73e5dad46d0941ddecc38b35ee461c84f9120e58d92797432609d5ef6e",
+      "effectSummary": "While you concentrate and for 1 round per caster level afterward, each willing subject gains +2 morale Strength, +2 morale Constitution, +1 morale on Will saves, and -2 AC, otherwise following barbarian rage behavior. Unlike a barbarian's rage, subjects are not fatigued afterward.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rage-2570",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undeath-after-death-2277": {
+      "name": "Undeath After Death",
+      "sourceSha256": "af481db951f308541b472bceaed3edf0dd2ac67a3fd00f763399d55cffdcb1a7",
+      "effectSummary": "Permanently corrupts one willing living creature's life force, immediately costing it 2 Constitution. If it later dies with remains intact, it rises as a crypt spawn at the next sunset. Dispelling the spell before death does not restore the lost Constitution. Material components: an obsidian heart and black onyx worth at least 50 gp per HD.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undeath-after-death-2277",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/touchstone-lightning-2209": {
+      "name": "Touchstone Lightning",
+      "sourceSha256": "980782f912b061db6b7944e2d67eb7599b022d5b90c1ab636b1126ffcb8b84f4",
+      "effectSummary": "Converts unused higher-order Planar Touchstone uses into electricity rays. Each ray spends one such use, requires a ranged touch attack, and deals 5d6 electricity damage. You can fire one ray at 7th level, a second at 12th, and a third at 17th.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/touchstone-lightning-2209",
+          "role": "primary Planar Handbook catalog record and digest source"
+        }
+      ]
+    },
+    "spells/unname-3448": {
+      "name": "Unname",
+      "sourceSha256": "e81e1653c4d01146c4666f61667774dadbb34a9f62da7c6fc7ade479a975d99f",
+      "effectSummary": "After correctly speaking the personal truename of one Intelligence 3+ creature, a failed Fortitude save erases the creature from existence; worn, held, and carried items are also obliterated with no separate save. Creatures destroyed this way are exceptionally difficult to restore to life.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unname-3448",
+          "role": "primary Tome of Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/darkvision-mass-3417": {
+      "name": "Darkvision, Mass",
+      "sourceSha256": "1230a9f82251aeced91e33f5805a7db200525cfdfe4ffbf26ec891ab0de1f91f",
+      "effectSummary": "Grants every creature within 10 feet when cast the benefits of darkvision for 1 hour per caster level: black-and-white sight to 60 feet in total darkness, otherwise like normal sight, but not through magical darkness.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/darkvision-mass-3417",
+          "role": "primary Tome and Blood: A Guidebook to Wizards and Sorcerers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/unbinding-932": {
+      "name": "Unbinding",
+      "sourceSha256": "21d8fc46ba493f548ad668ce793c905abba5f42746e1c6400e80d991daff22c7",
+      "effectSummary": "Instantly releases or destroys most magical restraints, closures, barriers, holds, charms, slow effects, temporal stasis, magic jars, and spells that store other magic throughout the 180-foot burst. It can dispel imprisoning magic circles and can remove curses or geas/quest effects only when your caster level is at least the original caster's. It does not remove protective spells, petrification, service bindings, or antimagic fields and does not penetrate antimagic. Effects on you or carried/worn by you remain undisturbed. Opened closures still trigger attached alarms or traps. Material components: a lodestone and saltpeter.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unbinding-932",
+          "role": "primary Defenders of the Faith: A Guidebook to Clerics and Paladins catalog record and digest source"
+        }
+      ]
+    },
+    "spells/transference-5087": {
+      "name": "Transference",
+      "sourceSha256": "d5c7e458519d432d77a7f84615b40e8733321e1afebf8f73d208f2bcb8f74566",
+      "effectSummary": "Over 10 minutes, stores voluntary XP contributions from up to five creatures solely for constructing one agreed-upon magic item. Contributors choose how much to transfer, and you cannot accept more than the item requires. The stored XP does not count toward leveling. If the item changes to require less XP, excess is returned proportionally; if you violate any contributor's agreed item, all transferred XP returns. Once at least one day of crafting is spent, the contributed XP is consumed even if the item is never completed. Focus: the raw material for the agreed item.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/transference-5087",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mark-of-sin-610": {
+      "name": "Mark of Sin",
+      "sourceSha256": "f965813a91839ec8a90f4532941875f4515575930e7e34401545d1b4b8f1fcaa",
+      "effectSummary": "After a successful touch attack, marks one creature. After a number of rounds equal to your divine caster level, it makes a Will save; success ends the spell, failure makes the mark permanent. Living creatures sense and react more hostilely to the marked subject, which takes -10 on Diplomacy checks to improve attitudes and a deity-determined -4 sacred or profane penalty to one ability score. The mark cannot be dispelled but can be removed by break enchantment, limited wish, miracle, remove curse, or wish, with remove curse requiring adequate caster level.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mark-of-sin-610",
+          "role": "primary Complete Champion catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stone-walk-2230": {
+      "name": "Stone Walk",
+      "sourceSha256": "3803a4f4f47d666b2666a4d15517696f1638464b496826a017c95e1980847c25",
+      "effectSummary": "Permanently links two prepared 5-foot stone areas with a command word. A creature standing on either stone and speaking the word teleports to the other as greater teleport. The link functions once per four caster levels, carrying one willing Medium-or-smaller creature plus one additional such creature per three caster levels, with larger creatures counting as multiple Medium creatures. Dimensional lock and forbiddance do not block it, while gate seal suppresses it. Preparing each endpoint costs 2,500 gp in ruby/amber paste and casting requires a 2,500 gp diamond.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-walk-2230",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/plague-undead-1496": {
+      "name": "Plague of Undead",
+      "sourceSha256": "79808e3c14aa120c6c206f89e92e7d4ae3448286bbcbe15f596275b24e9f5d00",
+      "effectSummary": "Instantly animates corpses within range as skeletons or zombies that obey spoken commands. A single casting can create at most 4 HD of undead per caster level, and your total animate-dead/plague-of-undead control limit is likewise 4 HD per caster level. Newly created undead take precedence if the limit is exceeded, releasing older controlled undead as needed. Material component: one or more black sapphires worth a total of 100 gp.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-undead-1496",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/scent-748": {
+      "name": "Scent",
+      "sourceSha256": "5fbeecf4562519d8fb100ebd4726a43182283acf2255791c0361b6ac27d72e7f",
+      "effectSummary": "For 10 minutes per caster level, grants the scent ability: normally detect creatures within 30 feet, 60 feet upwind, or 15 feet downwind; strong and overpowering odors extend detection farther. Detection initially reveals only presence, a move action reveals direction, and being within 5 feet pinpoints location. With Track, the subject can follow trails by smell, typically DC 10 for a fresh trail with +2 DC per hour of age, ignoring surface conditions and poor visibility. Arcane material components: mustard, pepper, and sweat.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scent-748",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/imbue-familiar-with-spell-ability-580": {
+      "name": "Imbue Familiar With Spell Ability",
+      "sourceSha256": "850a461b8143954792eae1ad1cf3b955a8438b3b1bed5e41830994ec947667b2",
+      "effectSummary": "Transfers spells into your familiar: one spell per three caster levels, with each transferred spell no higher than one-third your caster level rounded down, maximum 5th. Prepared casters transfer prepared spells; spontaneous casters transfer known spells. Your original casting slot and the transferred spell slots remain unavailable until the familiar casts the spells or the effect ends. The familiar uses your level for variable spell values. Dispel loses transferred spells as though cast; antimagic suppresses but does not erase them. You provide material/focus components and pay XP costs when the familiar casts.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/imbue-familiar-with-spell-ability-580",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spirit-self-2094": {
+      "name": "Spirit Self",
+      "sourceSha256": "376d3593776b988cd4ce41c289e9dd1c923dfb8919279426ff2d7ed108198a90",
+      "effectSummary": "For up to 1 minute, projects your spirit as an incorporeal form with speed 90 feet, limited to 200 feet from your body. The spirit can cast verbal-only spells but cannot otherwise affect the physical world. Your body remains half-awake, can take only simple partial actions, loses Dexterity AC, and is easier to hit. Damage to either form reduces the same hit-point total; destruction of either form, forced separation beyond 200 feet, or inability to reunite when the spell ends kills you. Material component: a small prayer wheel.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-self-2094",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/leomunds-secure-shelter-2404": {
+      "name": "Leomund's Secure Shelter",
+      "sourceSha256": "31b935c768fb5a318b48308db3f89862ded4e82b878fb9e4971775968c9aa8f7",
+      "effectSummary": "Conjures a sturdy cottage with a door, two shuttered windows, fireplace, eight bunks, table, stools, and desk. Regardless of local materials it is as strong and fire-resistant as stone, impervious to ordinary missiles, and has an arcane-locked door and shutters plus a grated chimney; those openings can also carry alarm if its focus is supplied. An unseen servant is included if its components are supplied. The shelter has normal insulation but no magical heating or cooling.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/leomunds-secure-shelter-2404",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/last-breath-723": {
+      "name": "Last Breath",
+      "sourceSha256": "8c9bd3211591523ef782ebaeaee947128b2d1a0542bd590c26de7d7444799eb6",
+      "effectSummary": "Returns a willing creature that died within the last round to 0 hp. You take 1d4 damage per subject Hit Die, unpreventable by spell resistance. Ability scores at 0 or lower rise to 1; normal poison and disease are cured, while magical disease, curses, and missing body parts remain. The subject loses one level, or 1 Constitution if previously 1st level, and may lose prepared spells or unused slots accordingly. It cannot restore death-effect victims, constructs, elementals, outsiders, undead, or creatures that died of old age.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/last-breath-723",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-double-1123": {
+      "name": "Shadow Double",
+      "sourceSha256": "db1f56fc704fbc7ab1e0e10deab3fb5799d58ad83564c166d538760c573e71ca",
+      "effectSummary": "Creates a shadow duplicate occupying a legal space within range. It attacks once per round on your turn with attack bonus equal to your BAB + spell-save-DC ability modifier, dealing 1 Strength damage on a hit. The first hit lets the target Will-save to disbelieve, negating that damage and making it immune to later attacks. The duplicate can flank, can strike incorporeal but not ethereal creatures, and can teleport up to 30 feet to a new target when you spend a standard action. It has AC 10 + your size modifier + the same spell-save modifier and one-fifth your normal maximum hp.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-double-1123",
+          "role": "primary Drow of the Underdark catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tornado-throw-3681": {
+      "name": "Tornado Throw",
+      "sourceSha256": "f3cdf7fcf94d7df574a13fe8c1ec2ca3f402ea3b72d6c5f870c11bc0b9188fd9",
+      "effectSummary": "As a full-round maneuver, move up to double speed and, after each 10 feet moved, attempt a throw against a target after succeeding on a melee touch attack. Resolve each throw as a trip without provoking or permitting a counter-trip, using Strength or Dexterity and gaining +2 on the check per 5 feet moved that turn. Success throws the target 10 feet, leaves it prone, and deals 2d6 damage; every 5 points of check margin adds 5 feet of throw distance and 1d6 damage. Thrown movement provokes no attacks of opportunity.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tornado-throw-3681",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/last-breath-1911": {
+      "name": "Last Breath",
+      "sourceSha256": "9f5ae1d599756191834e5d62e7ad4db4b8b9d5bca0f78d5568a94dae11298434",
+      "effectSummary": "Returns a willing creature that died within the last round to 0 hp. You take 1d4 damage per subject Hit Die that spell resistance cannot prevent. Ability scores at 0 or lower rise to 1; normal poison and disease are cured, while magical disease, curses, and missing body parts remain. The subject loses one level, or 1 Constitution if previously 1st level, and may lose prepared spells or unused slots accordingly. It cannot restore death-effect victims, constructs, elementals, outsiders, undead, or creatures that died of old age.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/last-breath-1911",
+          "role": "primary Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/obedient-avalanche-648": {
+      "name": "Obedient Avalanche",
+      "sourceSha256": "889606d17979121716bbcc3dc8c047a7de5f4f188e4a3172e706bea8873e04b3",
+      "effectSummary": "Creates an avalanche centered at range. Creatures within 20 feet take 1d8 damage per two caster levels, maximum 10d8, plus 1d6 cold per two caster levels; Reflex halves and failure also buries them. From 20 to 40 feet, creatures take half the inner-ring impact damage, Reflex negates, and on failure are bull-rushed away by the snow with a +13 check bonus. The inner area becomes heavy snow, the outer ring light snow, small vegetation is uprooted, rubble remains after melting, structures take 1d6×10 damage, and all touched flames are extinguished.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/obedient-avalanche-648",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-flower-3242": {
+      "name": "Spell Flower",
+      "sourceSha256": "965cbb7c3cdfe10a8b76c5bcbda7304771463b2ebafbd7f07c8f9a3a19f3b707",
+      "effectSummary": "For 1 round per caster level, lets you hold one touch-spell charge in each forelimb. A held spell remains until that limb casts another spell or touches something; another touch spell cast with that limb can replace the lost charge. You can deliver different held touch spells with different limbs, including off-hand touch attacks with normal two-weapon penalties. When Spell Flower ends, only the most recently cast held touch spell remains; all others dissipate.",
+      "notes": "Manually source-reviewed and digest-locked; source-printing distinctions are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-flower-3242",
+          "role": "primary Savage Species catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "8d350a0d685e2c5161bdcaeb5e4568c526029cfe",
+    "workflowRun": 35704621034,
+    "validationRun": 35704626382,
+    "classificationArtifact": 10683414491,
+    "classificationArtifactSha256": "42ff4203f1cb27c31e3e8ba54235c5e3f5fc5a48bdb4c561ba508ea132df14b8",
+    "queueCountBefore": 411,
+    "referenceQueueCountBefore": 411,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

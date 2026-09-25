@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summary; clean batch 043.",
+  "entries": {
+    "spells/leap-into-animal-4841": {
+      "name": "Leap Into Animal",
+      "sourceSha256": "bcd595313671144a93b3e88f216066ebbfec17aa12b27009cfe3c259078cb194",
+      "effectSummary": "Melds you and up to 100 pounds of nonliving gear into one willing animal of your size category or larger. While merged, you effectively cease to exist, cannot be detected or affected, mentally direct the animal using your own intelligence, receive its sensory input using its normal senses and skill modifiers, and are unaffected by injuries it suffers. The animal can perform actions beyond its normal instincts when physically capable, but ignores suicidal or self-destructive commands, including orders to attack a creature two or more size categories larger. You cannot take mental actions other than directing the animal or dismissing the spell, including casting spells or manifesting powers. If the animal dies or the effect is dispelled, dismissed, or expires, you appear in an open space of your choice within 10 feet; if none exists, you are shunted to the nearest open space and take 1d6 damage per 10 feet moved. A character with any Mark of Handling dragonmark or the Favored in House (Vadalis) feat can use the spell on an unwilling animal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/leap-into-animal-4841",
+          "role": "Magic of Eberron primary effect and header reviewed; merge capacity and target size, existence/detection state, directed actions and command limits, sensory/mental-action restrictions, injury immunity, exit/shunting mechanics and Vadalis unwilling-target exception preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "cc4ba17bef32a7320f4621093184f7575e6fcc5b",
+    "workflowRun": 35653396315,
+    "validationRun": 35653400015,
+    "classificationArtifact": 10663062969,
+    "classificationArtifactSha256": "68279ff240d6cc1412edf62c4e994e3faeb69235b869bd1fc1a7f207cf8b5faf",
+    "eligibleCount": 1
+  }
+}

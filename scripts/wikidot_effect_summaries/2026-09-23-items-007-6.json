@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-007-6",
+  "records": {
+    "wikidot5e:wondrous-items:wand-of-scowls": {
+      "sourceDigest": "sha256:7e3a532f73443522b500e0bf79f4b415cceb425e2c035bae29c50f620235bf11",
+      "effectSummary": "Has 3 charges, all restored daily at dawn. As an action while holding it, spend 1 charge and target a visible humanoid within 30 feet; DC 10 Charisma or it is forced to scowl for 1 minute. If the last charge is spent, roll d20; on 1 the wand transforms into a Wand of Smiles."
+    },
+    "wikidot5e:wondrous-items:wand-of-smiles": {
+      "sourceDigest": "sha256:28ef3b8f0899ac2ca8cb7351e487c232c96651df64a6efe5552997e67a7af8bd",
+      "effectSummary": "Has 3 charges, all restored daily at dawn. As an action while holding it, spend 1 charge and target a visible humanoid within 30 feet; DC 10 Charisma or it is forced to smile for 1 minute. If the last charge is spent, roll d20; on 1 the wand transforms into a Wand of Scowls."
+    },
+    "wikidot5e:wondrous-items:wand-of-viscid-globs": {
+      "sourceDigest": "sha256:5374f90545ef56fc5d4a3db6532bbf39924906a803f945226f87b7da6d29a57c",
+      "effectSummary": "Drow wand with 7 charges, regaining 1d6+1 daily at midnight. As an action spend 1 charge and make a ranged attack against one creature within 60 feet using proficiency bonus + spellcasting modifier, or Intelligence if no spellcasting ability. On hit, a glob expands and restrains it for 1 hour. At least a pint of alcohol, oil of etherealness, universal solvent, or sunlight dissolves the glob instantly; otherwise no nonmagical process removes it early. If the last charge is spent, roll d20; on 1 it melts into harmless slime. One uninterrupted hour in sunlight also destroys the wand."
+    },
+    "wikidot5e:wondrous-items:wand-of-web": {
+      "sourceDigest": "sha256:44a28dbfa92b2984d1f699072cac44d9d628d02488d43720f65d9ee319a6b044",
+      "effectSummary": "Spellcaster wand with 7 charges, regaining 1d6+1 daily at dawn. As an action while holding it, spend 1 charge to cast web at save DC 15. If the last charge is spent, roll d20; on 1 it crumbles to ashes."
+    },
+    "wikidot5e:wondrous-items:wand-of-winter": {
+      "sourceDigest": "sha256:da61aed99cf1166366c679cfec88fb36f42fa7c249eed1794ca93e3dbbe064e5",
+      "effectSummary": "Has 7 charges, regaining 1d6+1 daily at dawn. While holding it, cast ray of frost without charges at +5 spell attack, or spend 1 charge to cast ray of frost at 5th level; cast sleet storm for 3 charges at save DC 15 or ice storm for 4 charges at save DC 15, all without other components. If the last charge is spent, roll d20; on 20 it melts away and is destroyed."
+    },
+    "wikidot5e:wondrous-items:wand-of-wonder": {
+      "sourceDigest": "sha256:e4ddbf762778c3f9dafd09b5a1b4eaa728063eb5eb66bde2a359b6e6d1e3038a",
+      "effectSummary": "Spellcaster wand with 7 charges, regaining 1d6+1 daily at dawn; if last charge is spent, d20 1 destroys it. As an action spend 1 charge, choose creature/object/point within 120 feet, and roll d100; spell effects use save DC 15, ranges in feet become 120 if shorter, areas center on/include target, and DM randomly chooses among multiple possible subjects. d100: 01–05 slow; 06–10 faerie fire; 11–15 you are stunned until start of next turn; 16–20 gust of wind; 21–25 detect thoughts on target, or you take 1d6 psychic if not a creature; 26–30 stinking cloud; 31–33 heavy rain 60-foot radius, lightly obscured until next turn; 34–36 nearest open space gets rhinoceros 01–25, elephant 26–50, rat 51–100, uncontrolled; 37–46 lightning bolt; 47–49 600 oversized butterflies heavily obscure 30-foot radius for 10 minutes; 50–53 enlarge target as enlarge/reduce, or yourself if invalid/no creature; 54–58 darkness; 59–62 grass grows/overgrows in 60-foot radius for 1 minute; 63–65 DM-chosen unattended object within 120 feet of target and no larger than 10 feet disappears to Ethereal Plane; 66–69 shrink yourself; 70–79 fireball; 80–84 invisibility on yourself; 85–87 leaves grow from target or nearest creature for 24 hours; 88–90 line 30 by 5 feet of 1d4×10 one-gp gems, each dealing 1 bludgeoning divided equally among creatures in line; 91–95 30-foot-radius dazzling burst, you and visible creatures DC 15 Constitution or blinded 1 minute, repeat each turn; 96–97 target/nearest creature skin turns bright blue 1d10 days; 98–00 target creature, or you if no creature target, DC 15 Constitution—failure by 5+ petrifies immediately, other failure restrains and repeats next turn, failure then petrifies, success ends; petrification lasts until greater restoration or similar."
+    },
+    "wikidot5e:wondrous-items:wand-sheath": {
+      "sourceDigest": "sha256:287c7db8f426659e2accb54d66352e39cf073519b875e33c3f71cb1e0c336276",
+      "effectSummary": "Warforged-only arm sheath that cannot be removed while attuned. Insert one wand as an action; extend/retract it as a bonus action. While extended, use it as if held while keeping the hand free. A wand requiring attunement must also be attuned, but sheath plus inserted wand count as one attuned magic item; removing the wand ends attunement to that wand."
+    },
+    "wikidot5e:wondrous-items:war-horn-of-valor": {
+      "sourceDigest": "sha256:9a9315d47886a8527aeea3ccbf6e8e0bc3c77de80ccdabde7358547a9cfbe962",
+      "effectSummary": "Blow the horn as a bonus action; if frightened, immediately end frightened on yourself and gain advantage on saves against frightened until start of next turn. Once per dawn when blowing it, invoke the rune to give yourself and chosen creatures within 30 feet +1 AC until start of your next turn."
+    },
+    "wikidot5e:wondrous-items:warriors-passkey": {
+      "sourceDigest": "sha256:5c799dd79d5455edff06d9b098103bfce67ef38a9611ad1da336431806098806",
+      "effectSummary": "In key form, use an action to cast knock. As a bonus action while holding it, transform it into a +1 magic longsword you are proficient with that deals 1d10 force on hit; it remains sword until leaving your grasp or another bonus action returns it to key form. Ending attunement automatically returns key form."
+    },
+    "wikidot5e:wondrous-items:watchful-helm": {
+      "sourceDigest": "sha256:cf059a9a28c5830337cb25097be5759316b7d9212c9ab1d8188a844da4cb6581",
+      "effectSummary": "While worn, gain +1 AC, remain aware of surroundings while asleep, and have advantage on sight-based Wisdom (Perception). Once per dawn as a bonus action, cast see invisibility."
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 11-record batch 118 from the clean 220-record reference-dependent queue. The batch covers source-complete Player's Handbook effects, the Oriental Adventures Possess and Spirit Ally chains, and Sandblast. It deliberately avoids external creature-stat dependencies, source-damaged records, and unresolved table-driven mechanics.",
+  "entries": {
+    "spells/mordenkainens-disjunction-2339": {
+      "name": "Mordenkainen's Disjunction",
+      "sourceSha256": "8b111ff0971344e27ccf5ec7114d1ab9de333ab8cbb8221b9645ec3b3b2bfcfe",
+      "effectSummary": "Instantly ends all spells and spell-like effects in a 40-foot-radius burst except those you carry or touch, as though their component magic were disjoined. Each permanent magic item in the area must make a Will save or become a normal nonmagical item, using its own save bonus or its possessor's, whichever is higher. You have a 1% chance per caster level to destroy an antimagic field; if it survives, items inside it are protected. Artifacts also face a 1% per-caster-level chance of destruction; destroying one forces DC 25 Will or permanently removes your spellcasting ability and is highly likely to attract a powerful interested being.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mordenkainens-disjunction-2339",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spike-stones-2879": {
+      "name": "Spike Stones",
+      "sourceSha256": "3305c2afa5001160bf7b2780f86ac5763d6152589728bd62259100fda31cec4e",
+      "effectSummary": "For 1 hour per caster level, transforms rocky ground or stone floors in one 20-foot square per caster level into camouflaged spikes. Foot movement through the area is at half speed and deals 1d8 piercing damage for every 5 feet moved. Any creature damaged must Reflex-save or have speed reduced to half for 24 hours or until a cure spell or 10-minute Heal check against the spell DC removes the injury. Spike stones is a magical trap detectable by a rogue with Search DC 29 and cannot be disabled with Disable Device.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spike-stones-2879",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-evocation-2701": {
+      "name": "Shadow Evocation",
+      "sourceSha256": "3663f2936c4b71734345825d0d50c911abe9e069635b4c79add275dfd02a9c33",
+      "effectSummary": "Creates a quasi-real shadow version of a sorcerer or wizard evocation spell of 4th level or lower. A creature that disbelieves a damaging imitation takes only 20% of its normal damage and receives only 20% of applicable nondamage secondary effects; a disbeliever is unaffected by a purely nondamaging imitation. Regardless of disbelief, the target still receives any save or spell resistance allowed by the simulated spell, using Shadow Evocation's 5th-level save DC. Objects automatically succeed on the disbelief save.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-evocation-2701",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/speak-with-anything-1892": {
+      "name": "Speak With Anything",
+      "sourceSha256": "1a8c83632095d6e80bfcca8105fed7731583775270b11d51b2c44deb2e1e99ea",
+      "effectSummary": "For 1 minute per caster level after a 10-minute casting, combines the communication benefits of speak with animals, speak with plants, tongues, and stone tell. You can communicate with any living creature, including unintelligent plants, without making it more cooperative, and can converse with stone, metal, earth, water, or other solid or semisolid objects or terrain features to learn what touched them and what lies behind or beneath them, subject to their limited perspective. It does not include speak with dead, and although you understand all such creatures and objects, you can speak only one language or equivalent at a time.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/speak-with-anything-1892",
+          "role": "primary Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/teleportation-circle-2463": {
+      "name": "Teleportation Circle",
+      "sourceSha256": "b0c62ffa525de324d864e72e124a6e457eeabe89b0342e3fa0333f51cd9822d3",
+      "effectSummary": "After 10 minutes of casting, creates a subtle 5-foot-radius horizontal circle for 10 minutes per caster level. Any creature standing on it is transported as greater teleport to the fixed destination chosen at casting. The spell fails if the destination is inside a solid object, on another plane, or is a place with which you are unfamiliar and lack a clear description. The destination cannot later be changed. The circle can be made permanent; a permanent circle that is disabled becomes inactive for 10 minutes and then functions again. A rogue can find and disable the circle at DC 34. Material component: 1,000 gp of amber dust.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/teleportation-circle-2463",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/possess-animal-2092": {
+      "name": "Possess Animal",
+      "sourceSha256": "7bbe20bbab87923ebcfa9c2a1e951a41ec92cd4a48702a10511477917db98c10",
+      "effectSummary": "For 1 round per caster level, projects your spirit into one normal animal with fewer Hit Dice than your level. Your own body lies lifeless while you retain your Intelligence, Wisdom, Charisma, level, class, base attack bonus, base saves, alignment, and mental abilities in the animal body; the animal retains its physical scores, hit points, natural abilities, and automatic abilities, but you cannot activate its extraordinary or supernatural abilities. For every 2 damage the animal takes, you take 1 damage. If the animal dies, Fortitude DC 10 failure also kills you; if your own body is destroyed, you die when the spell ends. Material components: incense and food appealing to the animal.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/possess-animal-2092",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/possess-2093": {
+      "name": "Possess",
+      "sourceSha256": "d93b52e30e3608d00c738c86ffd6c693935372b26080a2d0ab3b99427517ec1a",
+      "effectSummary": "Functions as possess animal for 1 round per caster level, including the spirit projection, retained mental statistics, shared-damage risk, and danger to your unattended body, but can possess a creature of any type rather than only a normal animal. The possessed creature remembers neither what occurred during the possession nor who possessed it. Material component: a bowl of incense.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/possess-2093",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/lesser-spirit-ally-2035": {
+      "name": "Spirit Ally, Lesser",
+      "sourceSha256": "f4f8ce5da95735ba25bbe3dd7118743734daedf8271eb5b8af77bc90791dd392",
+      "effectSummary": "Calls a spirit of up to 8 Hit Dice that shares your philosophical alignment and requests one task. You can name a specific spirit, though another may arrive. Bargaining takes at least 1 round; the more demanding your request, the greater favor or payment the spirit asks in return. If you agree, it performs the task, reports back if possible, and returns home, and you are honor-bound to fulfill the return favor. Calling an air, chaotic, earth, evil, fire, good, lawful, or water spirit gives the spell the corresponding descriptor.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lesser-spirit-ally-2035",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spirit-ally-2040": {
+      "name": "Spirit Ally",
+      "sourceSha256": "ebe8d38e159b9515e0e4ebf80f7a8d705b89a1e8c99615b6a6d82e0599bd8c8b",
+      "effectSummary": "Functions as lesser spirit ally, but can call one spirit of up to 16 Hit Dice or multiple spirits of the same type whose total Hit Dice do not exceed 16. The group agrees to perform one task and requests one return favor as a group.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-ally-2040",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/greater-spirit-ally-2031": {
+      "name": "Spirit Ally, Greater",
+      "sourceSha256": "cfa282cdca05c6108b65c46f5b23a6007d66ee884c3b5e38492521d32b1820af",
+      "effectSummary": "Functions as lesser spirit ally, but can call one spirit of up to 24 Hit Dice or multiple spirits of the same type whose total Hit Dice do not exceed 24. The spirits agree to help you and request their return favor together.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/greater-spirit-ally-2031",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sandblast-1903": {
+      "name": "Sandblast",
+      "sourceSha256": "25ee229b7a016950a1135bd5555a177631fd06d389fbd47f74a7f5292134a1ab",
+      "effectSummary": "Instantly fires a 10-foot semicircular burst of hot sand from your hands. Creatures in the arc take 1d6 subdual damage, Reflex half; a creature that fails its Reflex save is also stunned for 1 round.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 118 is intentionally compact and favors source-complete mechanics or inheritance chains fully reconstructed in the batch; summon/stat-block, damaged-source, and table-heavy records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sandblast-1903",
+          "role": "primary Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "402472e1f86f462934a1631136b31b273d5cb141",
+    "workflowRun": 35710303196,
+    "validationRun": 35710307296,
+    "classificationArtifact": 10685269968,
+    "classificationArtifactSha256": "97e0d1f074a56aaac70be6e2f7604cd2fd0c11cce7e3ecca4e88f636acb8a72f",
+    "queueCountBefore": 220,
+    "referenceQueueCountBefore": 220,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

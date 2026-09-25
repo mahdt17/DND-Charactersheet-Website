@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summary; clean batch 046.",
+  "entries": {
+    "spells/project-image-2693": {
+      "name": "Project Image",
+      "sourceSha256": "ffbb60fe8dbc7f75fac3a022ea4fa17bb2f811373a28ecd582024c342ac5be85",
+      "effectSummary": "Creates one quasi-real shadow duplicate of you that looks, sounds, and smells like you but is intangible. It normally mimics your actions and speech, but you can direct it to act differently as a move action. You can see and hear through it and switch between its senses and your own as a free action; while using its senses, your body is blinded and deafened. Any spell you cast with a range of touch or greater can originate from the image instead of you, though the image can cast only illusion spells on itself. Other targets are affected normally, while objects interact with the image as though they had succeeded on their Will save. You must maintain line of effect to the image at all times; if line of effect is blocked, including by teleportation effects such as dimension door, teleport, plane shift, or a similar spell, Project Image ends. The material component is a small replica of you costing 5 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/project-image-2693",
+          "role": "Player's Handbook v.3.5 primary effect and header reviewed; duplicate properties, mimic/direction action economy, sensory switching and penalties, spell origination, object interaction, line-of-effect termination and material component preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "511c9014ed581cfc12bb45021f270499b3f45c01",
+    "workflowRun": 35657105507,
+    "validationRun": 35657111063,
+    "classificationArtifact": 10666051250,
+    "classificationArtifactSha256": "e6f3cce68c727108af06e6a1a5efcc9ca559b939d781cbc0bb66bbc2d7f8a719",
+    "eligibleCount": 1
+  }
+}

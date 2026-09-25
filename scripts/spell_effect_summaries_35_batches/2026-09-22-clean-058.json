@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5 dependent summary for Races of Eberron Natural Weapon Augmentation, Lesser; clean batch 058.",
+  "entries": {
+    "spells/natural-weapon-augmentation-lesser-4958": {
+      "name": "Natural Weapon Augmentation, Lesser",
+      "sourceSha256": "f6b714bd9d425cc7517bb79391e417aaecd1fd7907aaaad632aeef4c4046da44",
+      "effectSummary": "For 10 minutes per caster level, you can imbue one natural weapon of a creature you touch with one magic-weapon special ability whose market price is equivalent to a +1 bonus or whose flat market-price addition is no more than 10,000 gp. The natural weapon need not already have an enhancement bonus, and this infusion does not grant one. The referenced Dungeon Master's Guide 3.5 melee-weapon table includes the +1-equivalent abilities listed below; keen applies only to a piercing or slashing natural weapon. The printed choice remains open to any other special ability that independently satisfies the +1-equivalent or 10,000-gp-or-less criterion and is compatible with the natural weapon. The material component is an ointment made from rare spices and minerals costing 20 gp. Warforged spellcasters cast this infusion at +1 caster level.",
+      "tables": [
+        [
+          [
+            "DMG 3.5 +1-equivalent melee weapon ability",
+            "Restriction noted by the table"
+          ],
+          [
+            "Bane",
+            "—"
+          ],
+          [
+            "Defending",
+            "—"
+          ],
+          [
+            "Flaming",
+            "—"
+          ],
+          [
+            "Frost",
+            "—"
+          ],
+          [
+            "Shock",
+            "—"
+          ],
+          [
+            "Ghost touch",
+            "—"
+          ],
+          [
+            "Keen",
+            "Piercing or slashing weapon only"
+          ],
+          [
+            "Ki Focus",
+            "—"
+          ],
+          [
+            "Merciful",
+            "—"
+          ],
+          [
+            "Mighty cleaving",
+            "—"
+          ],
+          [
+            "Spell storing",
+            "—"
+          ],
+          [
+            "Throwing",
+            "—"
+          ],
+          [
+            "Thundering",
+            "—"
+          ],
+          [
+            "Vicious",
+            "—"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to Races of Eberron p. 189. This infusion inherits the Personal version's weapon-property mechanics but explicitly changes the target to one natural weapon of any creature and prints a 10 minutes/level duration. The current imported header reports 1 minute/level; the same-printing book text independently confirms 10 minutes/level, so the reviewed summary preserves the printed override rather than propagating the imported-header discrepancy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/natural-weapon-augmentation-lesser-4958",
+          "role": "primary imported Races of Eberron record and digest source"
+        },
+        {
+          "url": "https://www.dndtools.one/natural-weapon-augmentation-lesser-4958",
+          "role": "matching Races of Eberron rendering used to verify inherited wording, target, component and warforged caster-level bonus"
+        },
+        {
+          "url": "https://anyflip.com/ithax/tsea/basic/151-194",
+          "role": "same-printing Races of Eberron page rendering used to verify the explicit 10 minutes/level duration"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/magicItems/magicWeapons.htm",
+          "role": "3.5 core melee-weapon special-ability table cross-check inherited from the reviewed Personal root"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "dc35bad3905568583b1009b9812336e5a2638916",
+    "workflowRun": 35677398601,
+    "validationRun": 35677401692,
+    "classificationArtifact": 10674056742,
+    "classificationArtifactSha256": "3af66e4335513869039483db923bf93da561e3daae604a1fb96884b1252fa79d",
+    "queueCountBefore": 1025,
+    "repairQueueCountBefore": 4,
+    "referenceEligibleCountBefore": 1
+  }
+}

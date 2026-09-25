@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-002-1",
+  "records": {
+    "wikidot5e:wondrous-items:card-sharps-deck": {
+      "sourceDigest": "sha256:b5129b1b6273cfd1b78e8cac2621a5aee967ed35c5ed5d3dfb058eddf87c80b6",
+      "effectSummary": "While holding the deck, as an action make a ranged spell attack to 120 feet using Dexterity; on a hit the spectral card deals 1d8 force damage. Once per dawn, as an action shuffle the deck to cast spray of cards at 3rd level with save DC 15."
+    },
+    "wikidot5e:wondrous-items:carpet-of-flying": {
+      "sourceDigest": "sha256:74a32fd0919a1cab2f025d7d17d2c551467be1f2d7bb41ec26d78a5c759fe7bf",
+      "effectSummary": "Use an action and command word to make the carpet hover and fly according to spoken directions while you are within 30 feet. Size/capacity/speed by d100: 01–20 3×5 ft., 200 lb., 80 ft.; 21–55 4×6 ft., 400 lb., 60 ft.; 56–80 5×7 ft., 600 lb., 40 ft.; 81–100 6×9 ft., 800 lb., 30 ft. It can carry up to twice listed capacity, but flies at half speed above normal capacity."
+    },
+    "wikidot5e:wondrous-items:cauldron-of-plenty": {
+      "sourceDigest": "sha256:cdd33f20d1fa4c93d2dc91d8eb07aa0be0c340e6e0c14abf2fd941f15f0c18a0",
+      "effectSummary": "The 30-gallon cauldron can create stew three times per dawn. Pour in water and stir for 1 minute to turn it into hot, nourishing stew; each gallon provides one meal for up to four people. The stew stays hot while inside the cauldron and cools normally after removal, while the cauldron exterior remains safe to touch."
+    },
+    "wikidot5e:wondrous-items:cauldron-of-rebirth": {
+      "sourceDigest": "sha256:d9ec03c824b10d836c4de787bcaad91cbf234dd939d79e2aea313c7b9100b6fd",
+      "effectSummary": "Functions as a spellcasting focus and as the required component for scrying. After each long rest, create one potion of greater healing that loses magic after 24 hours if unused. As an action, enlarge the cauldron to fit a crouching Medium creature and reverse it as an action, safely shunting excess contents nearby. Once every 7 days, place a humanoid corpse inside under 200 pounds of salt worth 10 gp for at least 8 hours; the salt is consumed and at next dawn the creature returns to life as though by raise dead."
+    },
+    "wikidot5e:wondrous-items:censer-of-controlling-air-elementals": {
+      "sourceDigest": "sha256:0022c9d73c77d804a9f2c2cd6b3ed344c7139964cb1cd20d09dd1176e3f39be0",
+      "effectSummary": "While incense burns in the censer, once per dawn use an action and command word to summon an air elemental as though casting conjure elemental."
+    },
+    "wikidot5e:wondrous-items:charm-of-plant-command": {
+      "sourceDigest": "sha256:66d14421c559f9d3e23e3f46b52496cbb783b1a2620304c37943fff3e95d0d98",
+      "effectSummary": "The charm has 3 charges, all restored daily at dawn. While carrying it, spend 1 charge as an action to cast speak with plants; for that spell's duration, you also have advantage on Charisma checks to influence plant behavior, demeanor, or attitude."
+    },
+    "wikidot5e:wondrous-items:chest-of-preserving": {
+      "sourceDigest": "sha256:55aea27a530d14583889c6c551a0c9d4d9c497f8fe1c2acecb633de6ef95b2de",
+      "effectSummary": "Food and other perishable items do not age or decay while stored inside this chest."
+    },
+    "wikidot5e:wondrous-items:chime-of-exile": {
+      "sourceDigest": "sha256:72e63fddf327f7ae81ea1f7da39cf577a650d7dde6e060e050282ff32aea85cc",
+      "effectSummary": "Once per dawn while holding the chime, use an action to cast banishment with save DC 20. A target with 50 HP or fewer automatically fails the saving throw."
+    },
+    "wikidot5e:wondrous-items:chime-of-opening": {
+      "sourceDigest": "sha256:626bbfa8803a2e4c554a5e67b72afea310973b609676366f02da15d427a007dc",
+      "effectSummary": "As an action, strike and point the chime at an openable object within 120 feet. If sound can reach it, one lock or latch opens; if none remain, the object itself opens. The chime has 10 total uses, then cracks and becomes useless."
+    },
+    "wikidot5e:wondrous-items:chromatic-rose": {
+      "sourceDigest": "sha256:9ad8f6677f26ede73ebeee84fc83061d87bb3a64d4381a0266df8eb0e72d7f4f",
+      "effectSummary": "A rose's color sets its damage type and appearance: black acid/dripping, blue lightning/crackling, green poison/gas, red fire/flames, white cold/frost. While holding the stem, gain resistance to that type. If one source would deal more than 10 damage of that type after resistance, the rose disintegrates and you take no damage instead. As an action, destroy the rose to create a 20-foot cone of its type; creatures make DC 15 Constitution saves for 3d10 damage, half on success."
+    }
+  }
+}

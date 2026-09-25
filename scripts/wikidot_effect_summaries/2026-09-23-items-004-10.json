@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-10",
+  "records": {
+    "wikidot5e:wondrous-items:opal-of-the-ild-rune": {
+      "sourceDigest": "sha256:bceba1de6a88f0c6505af1f0bb25994354df3ce9095ed0074aadffb9c20a5ac7",
+      "effectSummary": "While the opal is on your person, as an action ignite one flammable object within 10 feet in an area no larger than a 1-foot-diameter circle; gain cold resistance; and as an action extinguish any amount of open flame within 10 feet. You may permanently transfer its magic over 8 hours by tracing the ild rune onto one nonmagical weapon or suit of armor while both remain within 5 feet, destroying the opal. Weapon: becomes an uncommon magic weapon dealing +1d6 fire on hits. Armor: becomes a rare attunement item granting cold resistance while worn."
+    },
+    "wikidot5e:wondrous-items:orb-of-dragonkind": {
+      "sourceDigest": "sha256:dd0a2265bfe795694edb4ede1c22ab5c40cab56a9dbc56597e78920b49531b97",
+      "effectSummary": "Artifact containing an evil dragon essence, with 2 random minor beneficial, 1 minor detrimental, and 1 major detrimental property. When first using it while attuned, use an action, speak its command word, and make DC 15 Charisma. Success gives you control for as long as attunement lasts; failure charms you for the entire attunement, prevents voluntary unattunement, and lets the orb cast suggestion on you at will at save DC 18 to pursue its evil goals. It has 7 charges, regaining 1d4+3 daily at dawn. If you control it, cast detect magic without charges or spend charges as an action at save DC 18: daylight 1, death ward 2, cure wounds at 5th level 3, scrying 3. Once per hour while in control, use an action to telepathically call evil dragons within 40 miles; they feel compelled to approach by the most direct route, though may be hostile for being compelled, and dragon deities are unaffected. The orb is immune to most damage including dragon attacks/breath, but disintegrate or one hit from a +3 magic weapon destroys it."
+    },
+    "wikidot5e:wondrous-items:orb-of-gonging": {
+      "sourceDigest": "sha256:ba911bb63250b506bdac76cd3b35b4b448d4abc3a9b78c7afd8746b87dbbf014",
+      "effectSummary": "As an action, turn its notched bronze rings so the notches align. While aligned, the 5-pound orb gongs every 6 seconds, audible 600 feet away, until the notches are moved out of alignment."
+    },
+    "wikidot5e:wondrous-items:orb-of-shielding": {
+      "sourceDigest": "sha256:cda62d9bda6c3f10dd593387dd7d8aa632f299084eaa48226747fd9391ea5e3c",
+      "effectSummary": "A spellcaster may use the orb as a focus. While holding it, when you take its associated damage type, use your reaction to reduce that damage by 1d4, minimum 0. Planar material/type: Fernian basalt fire; Irian quartz radiant; Kythrian skarn acid and poison; Lamannian flint lightning and thunder; Mabaran obsidian necrotic; Risian shale cold; Shavarran chert force; Xorian marble psychic."
+    },
+    "wikidot5e:wondrous-items:orb-of-skoraeus": {
+      "sourceDigest": "sha256:47847d4485e82c0cb973853d42aba7650b75ed71a5b2f4124affc99b535a4650",
+      "effectSummary": "Legendary spellcaster focus. While holding it, gain +2 to Constitution saves to maintain concentration and see normally through magical and nonmagical darkness to 120 feet. It has 3 charges, all restored at dawn. When casting a spell while holding it, spend up to 3 charges to ignore costly material components up to 300 gp per charge spent."
+    },
+    "wikidot5e:wondrous-items:orb-of-the-stein-rune": {
+      "sourceDigest": "sha256:de08fc0e7b65e52813c0277a6df1b910b5c2c3ea7415b03b69d054d8c46ddcf5",
+      "effectSummary": "While the orb is on your person, you cannot be petrified. As an action, hold your ground for 1 minute or until you move: gain advantage on checks and saves to resist forced movement, and an enemy entering within 10 feet makes DC 12 Strength or cannot move farther that turn. Once per short or long rest, cast meld into stone as a bonus action. You may permanently transfer its magic over 8 hours, destroying the orb. Shield: rare attunement, grants resistance to all ranged-weapon-attack damage while wielded. Boots: uncommon attunement, grant advantage on Strength saves and a reaction to avoid being knocked prone."
+    },
+    "wikidot5e:wondrous-items:orb-of-the-veil": {
+      "sourceDigest": "sha256:29421975fda4bfb81efd813f5212cdbea370477e21b0ffb6b126d21b307fc8d5",
+      "effectSummary": "While the orb is on your person, Wisdom increases by 2 and its maximum by 2; gain darkvision 60 feet or extend existing darkvision by 60 feet; and gain advantage on Wisdom checks to find hidden doors and paths. Curse: attunement makes you unwilling to part with it. While cursed, every nonmagical flame within 30 feet automatically extinguishes and all fire damage you deal is halved."
+    },
+    "wikidot5e:wondrous-items:orcsplitter": {
+      "sourceDigest": "sha256:12ea174caa1e9c1b1748cadf955b71486de99e36f434c4b8d1d5349921f888a4",
+      "effectSummary": "Sentient lawful-good +2 greataxe attunable by a good-aligned dwarf, fighter, or paladin. On an attack-roll 20 against an orc, the orc makes DC 17 Constitution or drops to 0 HP. While not incapacitated, you cannot be surprised by orcs and sense when orcs are within 120 feet and not behind total cover, though not their locations. You and friends within 30 feet cannot be frightened while you are not incapacitated. Sentience: Intelligence 6, Wisdom 15, Charisma 10; sight/hearing/darkvision 120 feet; communicates mainly by emotions and occasionally Dwarvish verse. It values courage, loyalty, dwarven defense, and fighting traditional dwarven foes, especially orcs."
+    },
+    "wikidot5e:wondrous-items:orcus-figurine": {
+      "sourceDigest": "sha256:771f316d48fd0392f415a36311446ed573f7ac8bd4b32403ec15a46ed7b31329",
+      "effectSummary": "Tiny desecrated object, AC 17, 3 HP, immune to all damage except radiant; detect evil and good or similar magic reveals its desecration. While it has at least 1 HP, undead within 30 feet cannot be turned and dead creatures within 30 feet cannot be returned to life. A creature that holds it and prays to Orcus for at least 1 hour has a 10% chance to summon a smoky avatar; once summoned, no new avatar can be summoned for 30 days. The avatar uses wraith statistics except chaotic evil, attacks all non-undead creatures it encounters, and disappears after 1 hour or at 0 HP."
+    },
+    "wikidot5e:wondrous-items:ornithopter-of-flying": {
+      "sourceDigest": "sha256:43e0cdd9004bdc10701f53b15a07f8c5a7982278ab13f7e8302fef23b5f1657d",
+      "effectSummary": "While riding and total carried weight does not exceed 300 pounds, the ornithopter flies 30 feet according to your spoken directions but cannot hover. If it loses its rider while airborne, it falls and cannot fly again for 1d6+4 days. The device is 8 feet long, has a 14-foot wingspan, and weighs 25 pounds."
+    }
+  }
+}

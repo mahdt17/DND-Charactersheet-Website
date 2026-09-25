@@ -1,0 +1,157 @@
+name: Spell effect review
+on:
+  push:
+    branches: [codex/content-foundation]
+    paths:
+      - ".github/spell-effect-review.request"
+      - ".github/workflows/spell-effect-review.yml"
+      - "public/catalogs/dndtools/spells.json"
+      - "scripts/classify_spell_review_queue.py"
+      - "scripts/enrich_dndtools.py"
+      - "scripts/export_spell_effect_review.py"
+      - "scripts/merge_spell_effect_review.py"
+      - "scripts/select_spell_*"
+      - "scripts/verify_spell_classification_delta.py"
+      - "scripts/spell_effect_summaries_35.json"
+      - "scripts/spell_effect_summaries_35_batches/**"
+      - "scripts/spell_regression_cases.json"
+      - "scripts/spell_supplements_35.json"
+permissions:
+  contents: read
+concurrency:
+  group: spell-effect-review-bulk-v3
+  cancel-in-progress: true
+jobs:
+  review-shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    steps:
+      - uses: actions/checkout@v4
+      - id: review-cache
+        uses: actions/cache@v4
+        with:
+          path: test-results/review/shard-${{ matrix.shard }}.json
+          key: spell-review-v4-${{ runner.os }}-${{ matrix.shard }}-${{ hashFiles('public/catalogs/dndtools/spells.json', 'scripts/enrich_dndtools.py', 'scripts/export_spell_effect_review.py', 'scripts/spell_effect_summaries_35.json', 'scripts/spell_effect_summaries_35_batches/**', 'scripts/spell_regression_cases.json', 'scripts/spell_supplements_35.json') }}
+      - name: Export long spell effects shard ${{ matrix.shard }}
+        if: steps.review-cache.outputs.cache-hit != 'true'
+        run: >-
+          python scripts/export_spell_effect_review.py
+          --shard-count 16 --shard-index ${{ matrix.shard }} --delay 0.08
+          --output test-results/review/shard-${{ matrix.shard }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spell-effect-review-shard-${{ matrix.shard }}
+          path: test-results/review/shard-${{ matrix.shard }}.json
+          retention-days: 1
+  merge:
+    needs: review-shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: spell-effect-review-shard-*
+          path: test-results/review-shards
+          merge-multiple: true
+      - name: Merge review queue
+        run: >-
+          python scripts/merge_spell_effect_review.py
+          --input-dir test-results/review-shards --shard-count 16
+          --output test-results/spell-effect-review.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spell-effect-review
+          path: test-results/spell-effect-review.json
+          retention-days: 1
+  classify:
+    needs: merge
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: spell-effect-review
+          path: test-results/review
+      - name: Validate spell review tooling
+        run: |
+          python scripts/classify_spell_review_queue.py --self-test
+          python scripts/select_spell_review_batch.py --self-test
+          python scripts/select_spell_reference_batch.py --self-test
+          python scripts/select_spell_prerequisite_wave.py --self-test
+          python scripts/select_spell_exact_duplicate_batch.py --self-test
+          python scripts/select_spell_near_duplicate_batch.py --self-test
+          python scripts/verify_spell_classification_delta.py --self-test
+          python scripts/select_spell_parser_candidate_manifest.py --self-test
+          python scripts/select_spell_repair_candidate_manifest.py --self-test
+      - name: Classify remaining review queue
+        run: >-
+          python scripts/classify_spell_review_queue.py
+          --input test-results/review/spell-effect-review.json
+          --output test-results/spell-review-classification.json
+          --reference-output test-results/spell-reference-review-packets.json
+          --delay 0.08
+      - name: Select review batches and prerequisite wave
+        run: |
+          STRICT_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("count", 0)))')"
+          REFERENCE_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("referenceCount", 0)))')"
+          PREREQUISITE_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("prerequisiteCount", 0)))')"
+          DUPLICATE_FAMILY_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("duplicateFamilyCount", 0)))')"
+          NEAR_DUPLICATE_FAMILY_COUNT="$(python -c 'import json; payload=json.load(open(".github/spell-effect-review.request", encoding="utf-8")); print(int(payload.get("nearDuplicateFamilyCount", 0)))')"
+          python scripts/select_spell_review_batch.py \
+            --classification test-results/spell-review-classification.json \
+            --review test-results/review/spell-effect-review.json \
+            --count "$STRICT_COUNT" \
+            --output test-results/spell-review-strict-batch.json
+          python scripts/select_spell_reference_batch.py \
+            --classification test-results/spell-review-classification.json \
+            --references test-results/spell-reference-review-packets.json \
+            --count "$REFERENCE_COUNT" \
+            --output test-results/spell-review-reference-batch.json
+          python scripts/select_spell_prerequisite_wave.py \
+            --reference-batch test-results/spell-review-reference-batch.json \
+            --count "$PREREQUISITE_COUNT" \
+            --output test-results/spell-review-prerequisite-wave.json
+          python scripts/select_spell_exact_duplicate_batch.py \
+            --classification test-results/spell-review-classification.json \
+            --review test-results/review/spell-effect-review.json \
+            --family-count "$DUPLICATE_FAMILY_COUNT" \
+            --output test-results/spell-review-exact-duplicate-batch.json
+          python scripts/select_spell_near_duplicate_batch.py \
+            --classification test-results/spell-review-classification.json \
+            --review test-results/review/spell-effect-review.json \
+            --family-count "$NEAR_DUPLICATE_FAMILY_COUNT" \
+            --output test-results/spell-review-near-duplicate-batch.json
+          python scripts/select_spell_parser_candidate_manifest.py \
+            --classification test-results/spell-review-classification.json \
+            --review test-results/review/spell-effect-review.json \
+            --count 25 \
+            --output test-results/spell-parser-candidate-manifest.json
+          python scripts/select_spell_repair_candidate_manifest.py \
+            --classification test-results/spell-review-classification.json \
+            --review test-results/review/spell-effect-review.json \
+            --count 25 \
+            --output test-results/spell-repair-candidate-manifest.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spell-effect-review-classification
+          path: |
+            test-results/spell-review-classification.json
+            test-results/spell-reference-review-packets.json
+            test-results/spell-review-strict-batch.json
+            test-results/spell-review-reference-batch.json
+            test-results/spell-review-prerequisite-wave.json
+            test-results/spell-review-exact-duplicate-batch.json
+            test-results/spell-review-near-duplicate-batch.json
+            test-results/spell-parser-candidate-manifest.json
+            test-results/spell-repair-candidate-manifest.json
+          retention-days: 1

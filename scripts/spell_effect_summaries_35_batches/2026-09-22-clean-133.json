@@ -1,0 +1,616 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record batch 133 from the 101-record difficult reference-dependent tail. This larger batch was assembled only from source-complete direct records and tightly reviewable printing families. It deliberately excludes known damaged source text, table-driven records, unresolved Luminous Assassin/stat-block work, prismatic/table families, and cross-edition inheritance cases that could not be verified safely.",
+  "entries": {
+    "spells/rejection-3193": {
+      "name": "Rejection",
+      "sourceSha256": "7bf308466bc1fc3a486c393cf0e27f3a05db7850cc94654a50f2680eb9a7f4eb",
+      "effectSummary": "Functions as Repulsion except for Rejection's printed parameters: standard-action casting, Close range, a cone 25 feet + 5 feet per 2 caster levels long, instantaneous duration, Reflex negates, and spell resistance yes. The inherited Repulsion effect prevents affected creatures from approaching the caster rather than physically pushing them and otherwise leaves their actions unrestricted; Rejection's own header overrides the base spell wherever the two differ. The focus requirement is inherited from Repulsion.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rejection-3193",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/lutzaens-frequent-jaunt-1772": {
+      "name": "Lutzaen's Frequent Jaunt",
+      "sourceSha256": "fd36e4a218a72f7d04e18aabb71e16d6c2277ba66238371ac4a67cb0ad4dadd0",
+      "effectSummary": "Functions as Dimension Door except for its printed Close range and duration of 1 round per 2 caster levels. Once each round during that duration, you can transfer yourself as a move-equivalent action that does not provoke an attack of opportunity. The inherited Dimension Door rules govern exact arrival, willing passengers and carried gear, required contact among travelers, and shunting/damage when the destination is occupied. Saving throw is none for creatures and Will negates for objects; spell resistance is no for creatures and yes for objects.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lutzaens-frequent-jaunt-1772",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mineralize-warrior-3511": {
+      "name": "Mineralize Warrior",
+      "sourceSha256": "147fccbd480b05c129d688d42946540afeaa2ec65ff9c4ce6dec8b36d42a110d",
+      "effectSummary": "After a 1-hour casting, transforms one willing humanoid with no more Hit Dice than you into a mineral warrior. The subject must remain restrained in a coffinlike stone enclosure during the casting, so you cannot target yourself. The subject permanently gains the Mineral Warrior template and is compelled to serve you for one year and one day, after which it is free. Across this spell and other effects that give you control of earth-subtype creatures, you can control at most 2 Hit Dice of mineral warriors per caster level; if a new casting exceeds that limit, the new creature is controlled and you choose enough previously controlled mineral warriors to release. Material cost is gems and expensive minerals worth at least 500 gp per Hit Die created; XP cost is 250 XP per Hit Die. The template's detailed statistics remain an external reference.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mineralize-warrior-3511",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/phantom-bear-4626": {
+      "name": "Phantom Bear",
+      "sourceSha256": "2c4dfe58f39edd72b08a95e993b742b719ebc791ff6ed51cb363702f7e1e5e91",
+      "effectSummary": "Functions as the Spell Compendium Phantom Wolf's concentration-based, mentally commanded summon, but conjures a CR 14 neutral Huge incorporeal magical bear. The printed stat block gives Init +9; darkvision 60 ft.; Listen +20, Spot +20; AC 25, touch 25, flat-footed 16; 147 hp (14 HD); Fort +13, Ref +17, Will +7; fly 60 ft. (good); two claws +23 incorporeal touch for 2d6 plus 3d6 cold each and bite +22 incorporeal touch for 2d8 plus 3d6 cold; space/reach 15 ft.; BAB +14; Dex 29, Con 20, Int 11, Wis 17, Cha 28; incorporeal traits; Combat Reflexes, Dodge, Mobility, Multiattack, and Weapon Focus (bite). Its fearsome roar works once every 1d4 rounds in a 120-foot radius; Will DC 26 negates, failure panics creatures within 30 feet and frightens creatures farther away for 3d6 rounds. Casting time 1 full round; Medium range; duration concentration up to 1 round per caster level.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantom-bear-4626",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/phantom-bear-651": {
+      "name": "Phantom Bear",
+      "sourceSha256": "75bd364c8c6194404a2da177599103d0a183477b4cec10f017c2c8ce5381918c",
+      "effectSummary": "Functions as the Complete Divine Phantom Wolf, but conjures a Huge incorporeal bear. The printed stat block has 14d10+48 HD and 113 hp; Init +9; fly 60 ft. (good); AC 25, touch 25, flat-footed 16; BAB +14; claws +23 melee touch for 2d6 plus 3d6 cold and bite +21 in the full attack for 2d8 plus 3d6 cold; Fort +13, Ref +17, Will +7; Dex 29, Con 20, Int 11, Wis 17, Cha 28; Listen +20, Spot +20; Dodge, Combat Reflexes, Mobility, Multiattack, Weapon Focus (bite); darkvision 60 ft.; and the source's incorporeal traits. Its fearsome roar can be used every 1d4 rounds; creatures other than the caster within 120 feet make Will DC 26 or become frightened for 3d6 rounds, or panicked instead if within 30 feet. It inherits Phantom Wolf's mental-command, range, and concentration rules.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantom-bear-651",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/phantom-wolf-4630": {
+      "name": "Phantom Wolf",
+      "sourceSha256": "aa2f73fe282a19b0c036818509870dde4b09cc79326a85c98ef600132cb8c95c",
+      "effectSummary": "Conjures a CR 12 neutral Large incorporeal magical wolf that appears where designated, follows your mental commands, acts as you direct on your turn, and remains only while you concentrate and it stays within Medium range; line of effect need not be maintained after casting. Its Spell Compendium stat block gives Init +9; darkvision 60 ft.; Listen +20, Spot +20; AC 25, touch 25, flat-footed 16; 113 hp (12 HD); Fort +12, Ref +17, Will +7; fly 60 ft. (good); bite +22 incorporeal touch for 2d6 plus 3d6 cold; space/reach 15 ft.; BAB +14; Dex 29, Con 18, Int 11, Wis 17, Cha 26; incorporeal traits; Alertness, Combat Reflexes, Dodge, Mobility, and Weapon Focus (bite). Its frightful presence affects creatures with fewer than 12 HD within 30 feet: Will DC 24 negates, failure frightens for 3d6 rounds, and success grants 24-hour immunity to that wolf's presence.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantom-wolf-4630",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/phantom-wolf-653": {
+      "name": "Phantom Wolf",
+      "sourceSha256": "53f2aad10439e110035b710fadf674e153d64b522e77755472800ed9f2a7fc9e",
+      "effectSummary": "Conjures a Large incorporeal white wolf that appears where designated, follows your mental commands, acts as you direct on your turn, and lasts only while you concentrate and it remains within Medium range; line of effect need not be maintained. The Complete Divine stat block has 12d10+48 HD and 113 hp; Init +9; fly 60 ft. (good); AC 25, touch 25, flat-footed 16; BAB +12; attack +21 melee touch and full attack +22 melee touch, each bite dealing 2d6 plus 3d6 cold; Fort +12, Ref +17, Will +7; Dex 29, Con 18, Int 11, Wis 17, Cha 26; Listen +20, Spot +20; Alertness, Dodge, Combat Reflexes, Mobility, Weapon Focus (bite); darkvision 60 ft.; and the printed incorporeal traits. Creatures with fewer than 12 HD within 30 feet when it attacks must make Will DC 24 or be frightened for 3d6 rounds; success grants 24-hour immunity to that wolf's frightful presence.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantom-wolf-653",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/incarnate-construct-3233": {
+      "name": "Incarnate Construct",
+      "sourceSha256": "9f0560bd05a425784a2785cc2123f8d6ac5f6c2d77a9b0f210dad714e27ffa65",
+      "effectSummary": "After an 8-hour casting, turns one humanoid-shaped construct into a living creature by applying the Incarnate Construct template. It cannot affect a creature or object that is only temporarily a construct, such as an object animated by Animate Objects. The new creature is independent of both the caster and its original creator but begins friendly toward both. Range Touch; duration instantaneous; Will negates (harmless); spell resistance yes (harmless). Material component: the heart of a humanoid dead for less than 8 hours. XP cost: 5,000 XP. The template's detailed statistics remain a Savage Species reference.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/incarnate-construct-3233",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/invisibility-animals-3788": {
+      "name": "Invisibility to Animals",
+      "sourceSha256": "657ec93c7af88662467a3cd3d68a1a7be82261cc9e1c03101265ce1a71db1fc6",
+      "effectSummary": "Wards one creature per caster level so that creatures of the animal type cannot perceive them and act as though the warded creatures are absent. If any warded creature touches an animal or attacks any creature, even with a spell, the effect ends for all recipients. The source explicitly excludes beasts, magical beasts, and vermin from the animals affected by this printing. Casting time 1 standard action; range Touch; duration 10 minutes per caster level (D); no saving throw; spell resistance yes.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-animals-3788",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-flower-4205": {
+      "name": "Spell Flower",
+      "sourceSha256": "6341c74f8e1c8afa085f4163a930cfd7d4b8f0a8afde769c7b42024c97554fc5",
+      "effectSummary": "For 1 round per caster level, you can hold the charge of one touch spell in each arm or forelimb. Each touch spell occupies a different limb and is discharged only if that limb touches something or is used to cast another spell. Casting a spell with somatic components forces you to use a limb and lose one held touch spell of your choice, though if the new spell is itself a touch spell its charge can immediately occupy the freed limb. You can deliver touch spells normally and, because multiple limbs count as armed, can make an off-hand touch-spell attack in the same round using normal two-weapon fighting penalties. Spell-like and supernatural abilities do not interfere with held charges. When Spell Flower ends, the most recently cast touch spell remains held and all other held charges dissipate.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-flower-4205",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spider-curse-1223": {
+      "name": "Spider Curse",
+      "sourceSha256": "958b125b4077ac38e3352485f405ea5fd230bde55895e7f1db3c852d2a845b0f",
+      "effectSummary": "Transforms one Medium or smaller humanoid into a driderlike creature under your mental control for 1 day per caster level. The subject gains a drider's speed, natural armor, bite attack, and poison, plus +4 Strength, Dexterity, and Constitution. It retains Intelligence, Wisdom, Charisma, level/class, hit points despite Constitution changes, alignment, base attack bonus, and base saves; the new physical scores can alter final AC, attacks, and saves. Equipment that fits the drider body continues to function: upper-body items are retained, while leg, foot, and whole-body items are subsumed and stop functioning. Its bite poison has Fortitude DC 16 + your Wisdom bonus and deals 1d6 temporary Strength damage as both initial and secondary damage. Your control functions like Dominate Person and remains telepathic while the subject stays within range. Unlike Polymorph Other, this printing does not heal damage or cause disorientation.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-curse-1223",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spiderbind-331": {
+      "name": "Spiderbind",
+      "sourceSha256": "fd675a2e002323967dabb1eae55705faa85c7f0d9706436b011170c337dd5005",
+      "effectSummary": "Slows one spider or spiderlike creature per caster level, all within 30 feet of each other, for 1 round per caster level. A failed Fortitude save limits the creature to a single move or standard action each turn, prevents full-round actions, imposes -1 on attacks, AC, and Reflex saves, and halves speed. In addition, any attack that would normally deliver poison no longer delivers poison, while its other effects still occur. While you merely have Spiderbind prepared, you gain a +2 circumstance bonus on saves against poison. The source explicitly includes araneas, bebiliths, chitines, choldriths, driders, ettercaps, myrlochars, phase spiders, retrievers, and yochlols and points to Underdark for a broader spiderkind list. Range Close; spell resistance yes.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spiderbind-331",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spiderform-1225": {
+      "name": "Spiderform",
+      "sourceSha256": "49a351f88b04f950b1d2cc08e787aaa198e30eb3dd53f965a5470de111b4f62a",
+      "effectSummary": "Transforms you into a drider or a Tiny, Small, Medium, or Large monstrous spider for up to 1 hour per caster level (D). On the initial transformation you regain hit points as though you had rested for a day. You gain the chosen form's physical and natural abilities, including size, Strength, Dexterity, Constitution, armor, attacks, movement, poisonous bite, and web-spinning, without disorientation. You retain Intelligence, Wisdom, Charisma, level/class, hit points despite Constitution changes, alignment, base attack bonus, and base saves. In drider form you can cast spells and use magic items; other spider forms cannot cast or manipulate devices. In drider form, upper-body equipment that fits continues to function; other equipment is subsumed and stops functioning.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spiderform-1225",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spiderform-4216": {
+      "name": "Spiderform",
+      "sourceSha256": "d4e97c2eaae10d7cfa48ead97c86361ba8d98f3874b6176e5e44d3f6235b7545",
+      "effectSummary": "For up to 1 hour per caster level (D), lets you polymorph into a drider or a Tiny, Small, Medium, or Large monstrous spider. The initial transformation restores hit points as though you rested for a day. You gain the form's physical and natural abilities, including size, Strength, Dexterity, Constitution, armor, attacks, movement, poisonous bite, and web-spinning, while retaining Intelligence, Wisdom, Charisma, level/class, hit points despite Constitution changes, alignment, base attack bonus, and base saves. Drider form can cast spells and use magic items; other spider forms cannot. Equipment that fits a drider's upper body continues functioning in drider form; otherwise equipment is subsumed and nonfunctional. The drider and monstrous-spider base statistics remain Monster Manual references.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spiderform-4216",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tirumaels-energy-spheres-1691": {
+      "name": "Tirumael's Energy Spheres",
+      "sourceSha256": "96df1e5c33acec2fe2e6ce755338c4b6275ef6e1f2e91a8e11cdfe5e8011a928",
+      "effectSummary": "Creates five orbiting spheres corresponding to acid, cold, electricity, fire, and sonic energy and shedding light as Dancing Lights. On your turn you can send one or more remaining spheres at targets in range, with no two targets more than 30 feet apart. Each sphere deals 1d4 damage of its energy type per four caster levels, maximum 4d4, with a separate Reflex save for half. Alternatively, when you would take energy damage of a type whose sphere remains, you can destroy that sphere to absorb an amount of that damage equal to the damage it would have dealt that round. This defensive absorption overlaps rather than stacks with Endure Elements, Resist Elements, and Protection from Elements. Duration 1 round per caster level. Material component: five glass marbles.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tirumaels-energy-spheres-1691",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tomb-of-jade-2130": {
+      "name": "Tomb of Jade",
+      "sourceSha256": "04ce484e0bc65cc3a4ab00e2d55651796e99d750ab0565f51debf6249dec3a40",
+      "effectSummary": "Can target only a Shadowlands creature, meaning a creature with the Shadowlands subtype or a Taint score. On the initial touch, a successful Fortitude save ends the effect; on failure the creature's skin becomes jade and it is immobilized and helpless, though still conscious, breathing, and able to take purely mental actions. Each round you maintain concentration, the target makes another Fortitude save; each failed save causes 1d6 permanent Constitution drain, while you take 1d6 subdual damage each round you maintain the spell. The spell ends if the target succeeds on a save or you fall unconscious. Casting time 1 full round; range Touch; spell resistance yes. Material component: a jade finger worth at least 50 gp.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tomb-of-jade-2130",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/transcribe-symbol-1597": {
+      "name": "Transcribe Symbol",
+      "sourceSha256": "8ceecbd8df9cf309f6ef78359fcd38997cf8ef47137ca316858578df14205e3b",
+      "effectSummary": "Protects your hand so you can touch and remove one untriggered magical symbol such as Glyph of Warding or Symbol and hold it like a touch spell. Picking it up requires a caster-level check DC 20 + the stored spell's level; failure triggers the symbol. On success, you can place it on an appropriate surface, not a creature, as a standard action; it then functions normally with its original trigger conditions. You can hold the symbol while concentrating, up to the spell's 10-minute duration. If concentration lapses while it is stored, it triggers on you alone even if you would not normally satisfy its trigger. The original symbol's saving throw and spell resistance apply. The only safe way to remove the stored symbol from yourself is to place it on a suitable surface. Focus: a smooth piece of slate.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/transcribe-symbol-1597",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/transcribe-symbol-3128": {
+      "name": "Transcribe Symbol",
+      "sourceSha256": "3c70d6f120475d6441d40819e9d0be50e5a2f1e90331b13bb1281e2906f8dbf1",
+      "effectSummary": "Lets you safely touch and move one untriggered magical sigil such as Glyph of Warding or Symbol of Death. A caster-level check DC 20 + spell level is required to transfer it to your hand; failure triggers it. On success, you can place it on a normally valid surface as a standard action, after which it retains its original trigger conditions. You can keep it stored while concentrating for up to 10 minutes. If concentration lapses or the duration expires while it is stored, it triggers on you alone even if you would not normally meet its trigger conditions. The transferred effect uses the original sigil's saving throw and spell resistance. Focus: a piece of slate smooth on one side.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/transcribe-symbol-3128",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/transcribe-symbol-4312": {
+      "name": "Transcribe Symbol",
+      "sourceSha256": "d2b1482fd4403096de51b953eb924896ad0d9418f8e5d9e7ad11c5514d048fa0",
+      "effectSummary": "Lets you touch and remove one untriggered magical sigil such as Glyph of Warding or Symbol of Death without setting it off. A caster-level check DC 20 + the target glyph's spell level is required; failure triggers the glyph or symbol. On success, the sigil is held as magical potential on your hand and can be placed on a valid surface, not a creature, as a standard action; it then works normally with its original trigger conditions. You can maintain it while concentrating for up to 10 minutes. If concentration lapses or the duration expires while it is stored, it triggers on you alone, using the original spell's saving throw and spell resistance. The only safe way to rid yourself of it is to place it on a suitable surface. Focus: a piece of slate scoured bare and smooth on one side.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/transcribe-symbol-4312",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undermaster-3522": {
+      "name": "Undermaster",
+      "sourceSha256": "501a83fb69598336c21be55da5632052b45ac64e9e7eb4e0dc6e58b019ba8a23",
+      "effectSummary": "For 1 round per caster level while standing on or beneath the earth's surface, you can once per round use one of the following as a spell-like ability, always as a standard action even if its normal casting time is longer: Burrow, Earthquake, Excavate, Flesh to Stone, Meld into Stone, Move Earth, Reverse Gravity, Soften Earth and Stone, Statue, Stone Shape, Stone Sphere, Stone Tell, Stone to Flesh, Transmute Mud to Rock, Transmute Rock to Mud, or Wall of Stone. XP cost: 1,000 XP. The listed spells retain their own mechanics except for the standard-action activation granted by Undermaster.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undermaster-3522",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undermaster-4648": {
+      "name": "Undermaster",
+      "sourceSha256": "56c6cf48a595c452875c531e4ef48032d38f9fee9ce45c48d0d340e8d0d7dffd",
+      "effectSummary": "For 5 rounds while standing on or beneath the earth's surface, you can once per round use one of the following as a spell-like ability, always as a standard action even if its normal casting time is longer: Earth Lock, Earthquake, Excavate, Flesh to Stone, Meld into Stone, Move Earth, Reverse Gravity, Soften Earth and Stone, Statue, Stone Shape, Stone Tell, Stone to Flesh, Transmute Mud to Rock, Transmute Rock to Mud, Tunnel Swallow, Wall of Stone, or Xorn Movement. Material component: a deep blue spinel worth 500 gp. This Spell Compendium printing deliberately differs from the earlier Underdark version in duration, component cost, and available spell list.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undermaster-4648",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/vipergout-1631": {
+      "name": "Vipergout",
+      "sourceSha256": "d2ea81c76408dce136d1bd06d67bfd337f6c7ad8e6e884c0f96e28368ab7d66b",
+      "effectSummary": "Summons 1d4+3 fiendish chaotic-evil or celestial chaotic-good Medium vipers that emerge from your mouth. Starting on the casting round, you can spit three vipers as a standard action or one as a move-equivalent action until all are released. They land at your feet and act on your turn as summoned monsters. Until all summoned snakes have been brought forth, you cannot speak, cast spells with verbal components, or activate items requiring speech; the snakes do not interfere with breathing. All vipers disappear when the spell ends and any unspat vipers are lost. Summoning evil or good vipers gives the spell the corresponding descriptor. Range Personal; duration 1 round per caster level; spell resistance yes. Material component: a snakeskin.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vipergout-1631",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/vipergout-2237": {
+      "name": "Vipergout",
+      "sourceSha256": "084c54810f4df30af150e86732b9cebee67e48abd37aebc4aa42f60f49e4a667",
+      "effectSummary": "Summons 1d4+3 fiendish chaotic-evil or celestial chaotic-good Medium vipers. Starting in the round you cast, you can spit three as a standard action or one as a move action; a viper lands in an adjacent square you choose and acts that same round on your turn as a summoned monster. Until all summoned vipers are released, you cannot speak, cast verbal-component spells, or activate speech-dependent items, though breathing is unaffected. All vipers disappear when the duration ends and unreleased vipers are lost. A good or evil summoned creature gives the spell that descriptor. Range Close; duration 1 round per caster level; spell resistance yes. Material component: a snakeskin.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vipergout-2237",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/vipergout-3201": {
+      "name": "Vipergout",
+      "sourceSha256": "9b806e22bd31744c90a50e77a605985b6be5d1b5099491530a8de901d22c751b",
+      "effectSummary": "Summons 1d4+3 fiendish chaotic-evil or celestial chaotic-good Medium vipers from your location; if you can communicate with them, you can direct them not to attack, to attack chosen enemies, or to take other actions. The Savage Species printing supplies the viper stat blocks: each is CR 1, 2d8 HD, 9 hp, Init +3, speed/climb/swim 20 ft., AC 16 (touch 13, flat-footed 13), bite +4 for 1d4-1 plus poison, Fort +3, Ref +6, Will +1, Str 8, Dex 17, Con 11, Int 3, Wis 12, Cha 2, and poison Fort DC 11 for 1d6 Constitution initial and secondary damage. Fiendish vipers have darkvision 60 ft., cold/fire resistance 5, SR 4, and smite good for +2 damage once/day; celestial vipers have darkvision 60 ft., acid/cold/electricity resistance 5, SR 4, and smite evil for +2 damage once/day. Duration 1 round per caster level; spell resistance no. Material component: a snakeskin.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vipergout-3201",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/vipergout-4735": {
+      "name": "Vipergout",
+      "sourceSha256": "4678cb8a8b5455946f55bd81bfac9a1fbf627e87c59efe5b163ec2670ea696d4",
+      "effectSummary": "Summons 1d4+1 celestial or fiendish Medium vipers. A celestial viper has acid, cold, and electricity resistance 5, spell resistance 7, and one smite evil that adds +2 to a damage roll; a fiendish viper has acid and fire resistance 5, spell resistance 7, and one smite good that adds +2 to a damage roll. Starting in the casting round, you can spit three vipers as a standard action or one as a move action; each lands in an adjacent square you choose and acts that same round on your turn as a summoned monster. Until all are released, you cannot speak, cast verbal spells, or activate speech-dependent items, but breathing is unaffected. All disappear when the spell ends and unreleased vipers are lost. Summoning good or evil creatures gives the spell that descriptor. Range Close; duration 1 round per caster level; spell resistance yes. Material component: a snakeskin.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vipergout-4735",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wand-modulation-919": {
+      "name": "Wand Modulation",
+      "sourceSha256": "6122ed83ffb3d3cd1c6b851cecf1128385053a2bedbd17f349d4551c4f1e95ea",
+      "effectSummary": "Temporarily alters a touched wand so that the next spell you cast on it replaces the wand's normal spell for the remaining duration. The replacement spell must be lower level than the wand's original spell and cannot have a costly material component or focus or an XP component. The modified wand casts the replacement at that spell's minimum caster level, and each activation consumes 2 charges instead of 1; it cannot activate if fewer than 2 charges remain. After 1 minute per caster level, the wand reverts to its original spell. Casting time is a swift action; range Touch; Will negates and spell resistance yes, both harmless/object.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wand-modulation-919",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/weapon-of-the-deity-4764": {
+      "name": "Weapon of the Deity",
+      "sourceSha256": "d68338c88d07c86c5c896657832dd7e2cd342464fb87d98dc5c7a0f1e30d8ee8",
+      "effectSummary": "You must hold your deity's favored weapon; for 1 round per caster level you can use it as though proficient, it gains a +1 enhancement bonus to attacks and damage, and it gains one deity/alignment-specific ability. The enhancement rises to +2 at caster level 9, +3 at 12, +4 at 15, and +5 at 18. A double weapon receives the bonus and special ability on only one chosen end. Printed pairings are: Bahamut frost heavy pick; Boccob spell storing quarterstaff; Corellon Larethian keen longsword; Ehlonna frost longsword; Erythnul mighty cleaving morningstar; Fharlanghn defending quarterstaff; Garl Glittergold throwing battleaxe; Gruumsh returning shortspear; Heironeous shock longsword; Hextor mighty cleaving heavy flail; Kord mighty cleaving greatsword; Kurtulmak shock shortspear; Lolth keen whip; Moradin throwing warhammer; Nerull keen scythe; Obad-Hai defending quarterstaff; Olidammara keen rapier; Pelor flaming heavy mace; St. Cuthbert mighty cleaving heavy mace; Vecna frost dagger; Wee Jas dagger of venom; Tiamat flaming heavy pick; Yondalla defending short sword. Alignment defaults are Good frost warhammer, Evil mighty cleaving light flail, Neutral defending heavy mace, Law flaming longsword, and Chaos shock battleaxe. A different deity receives a DM-assigned equivalent ability.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-of-the-deity-4764",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/serpent-arrow-293": {
+      "name": "Serpent Arrow",
+      "sourceSha256": "0cca999231ba8a8e6a423a49f432aae6af75eeb59d0dcce652970f6f7d8ede68",
+      "effectSummary": "Transforms up to eight wooden arrows, darts, or twigs into latent Tiny vipers for up to 10 minutes per caster level. The projectiles stay rigid and harmless until fired or hurled. A projectile that hits automatically bites for 1 damage plus poison (injury; Fortitude DC 11; 1d6 Constitution initial and secondary damage). The resulting snake remains for the spell's duration and attacks the creature first struck using its normal attack bonus. If the missile missed or the original target becomes unreachable, it attacks the nearest creature other than you. If a target dies and no other creature is in range, the spell ends even if duration remains. When the spell expires the vipers melt away. Material components: up to eight qualifying projectiles plus a snake scale.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/serpent-arrow-293",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spectral-stag-1623": {
+      "name": "Spectral Stag",
+      "sourceSha256": "9b312a14ade86761e0353a97354797475002f6c6e399fc8d333677ea98d7bff7",
+      "effectSummary": "Creates a quasi-real Large stag for 1 round per caster level that can carry you or attack. It appears beside or underneath you, acts immediately, has speed 60 feet, and is directed as a free action. It can move through the air as though on solid ground using Phantom Steed's 12th-level air-movement ability and carries its rider plus 10 pounds per caster level. It has AC 18 and 7 hp + 1 per caster level; at 0 hp it vanishes. When ordered to attack it charges and bull rushes as Strength 18. If you ride during the bull rush, the defender can use its attack of opportunity against you instead of the stag. A failed bull rush moves stag and rider 5 feet back; success pushes the defender the maximum possible distance and forces a Fortitude save or stuns for 1 round. The source also states the stag cannot be attacked or damaged; when the spell ends, it vanishes and a rider lands safely. This Magic of Faerûn printing lists spell resistance Yes.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spectral-stag-1623",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spectral-stag-2229": {
+      "name": "Spectral Stag",
+      "sourceSha256": "a2f7ca31539c63d3fdda95985cc32b93bd927c247b7beb75fef9178d250ebf7d",
+      "effectSummary": "Creates a quasi-real Large stag for 1 round per caster level that can carry you or attack. It appears beside or underneath you, acts immediately, moves 60 feet, and is controlled as a free action. It moves through the air as though on firm ground using Phantom Steed's caster-level-12 movement and carries its rider plus 10 pounds per caster level. It has AC 18 and 7 hp + 1 per caster level and vanishes at 0 hp. When ordered to attack it charges and bull rushes with effective Strength 18; if you are riding it, the defender can use the bull-rush attack of opportunity against you instead. On a failed bull rush stag and rider move 5 feet back; on success the target is pushed the maximum distance and must make a Fortitude save or be stunned for 1 round. The source also states the stag cannot be attacked or damaged. When the spell ends it vanishes and a rider lands safely. This Player's Guide to Faerûn printing lists spell resistance No.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spectral-stag-2229",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-engine-1590": {
+      "name": "Spell Engine",
+      "sourceSha256": "c8ea8a5259373e008cb420385dd1e2d533873a1683438572b6f57e1c810fe4cb",
+      "effectSummary": "Creates an incorporeal, initially invisible disk 10 feet in diameter and 2 feet thick. A spell cast or spell-like ability used within its 10-foot diameter, or most spell effects targeted at it, activates the engine, which absorbs the magic as an unlimited-capacity Rod of Absorption and begins glowing like a torch. It gradually slows and dims at a rate of 1 hour per absorbed spell level but remains able to absorb magic indefinitely. Contact with a permanent, noncharged/non-single-use magic item destroys that item and makes the engine explode for 1d6 force damage per caster level, maximum 20d6, to all creatures in range, destroying the engine. Magic already present when it is created or merely carried into its area is not absorbed unless directed against it. It absorbs Dispel Magic; Disintegrate makes it explode; Detect Magic from outside detects it. Preparing spells by its light takes half normal time. Casting time 10 minutes. Material components: polished bone disk, one of your tears, and a silver wheel worth 1,000 gp. XP cost: 250 XP.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-engine-1590",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-phylactery-1796": {
+      "name": "Spell Phylactery",
+      "sourceSha256": "2c1c5257497c88b0b34d424e34d4e581add027bebe791fb652c74071c1f671dd",
+      "effectSummary": "Places a permanent-until-triggered contingency on one scroll you bind to your arm or forehead. You define clear trigger conditions; when they occur, the scroll's spell is cast on you as though you spent a standard action reading it. The scroll spell must be on your spell list, affect your person, and be no higher than one-third your caster level rounded down, maximum 5th. Normal scroll-use requirements such as ability score and caster-level checks still apply; failure to qualify dissipates the phylactery without casting. The trigger operates automatically regardless of your wishes, and complicated conditions can fail. The worn scroll occupies the bracer or headband body slot. Another wearer ends the magic. You can remove and rewear it, but leaving it unworn for 24 hours ends the phylactery. Ending the phylactery does not harm the scroll's underlying spell.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-phylactery-1796",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/srinshees-spell-shift-1553": {
+      "name": "Srinshee's Spell Shift",
+      "sourceSha256": "ae9800aaf4f5a8338ba027070c948ee9d16e645c1c97ed6eb08500219913c166",
+      "effectSummary": "For 1 round per caster level, grants +4 insight on Spellcraft checks to identify spells for counterspelling and expands what you can do after a successful counterspell. Aid applies Empower, Enlarge, Extend, Maximize, or Widen Spell to an ally's spell by expending a spell slot or prepared spell whose level equals or exceeds the ally spell after that metamagic adjustment. Manipulate lets you seize control of one caster-designated property—range, area, or targets as appropriate—and redefine it, but you cannot alter a property the original caster does not choose. Backlash counters normally and forces the opposing caster to make a Fortitude save or be stunned for 1d6 rounds. Casting time 1 standard action; range Personal; duration 1 round per caster level (D).",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/srinshees-spell-shift-1553",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spellmantle-1592": {
+      "name": "Spellmantle",
+      "sourceSha256": "4d8af50b77ad6379b5598adfcb67fef38815325d3c6263549e11f4f84bdeb424",
+      "effectSummary": "For 10 minutes per caster level, protects one creature against one designated spell of 4th level or lower per four caster levels; touch-delivered spells cannot be selected. When a designated spell targets the subject or includes it in its area, the mantle completely absorbs it. The subject can convert the absorbed energy into healing equal to a Cure spell of the absorbed spell's level, automatic if unconscious, or immediately trigger one 4th-level-or-lower spell you designated when casting the mantle and had prepared at that time; designating it does not expend the prepared spell, but the absorbed spell must be at least as high level as the triggered spell. The triggered spell functions as though you cast it and can outlast the mantle. The mantle can absorb a total of 1d4 spell levels + 1 per four caster levels, maximum 1d4+5; if insufficient capacity remains, it does not absorb the incoming spell, and it dissipates after reaching capacity.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spellmantle-1592",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spellmantle-2221": {
+      "name": "Spellmantle",
+      "sourceSha256": "9ac43383695a89ff6201839d71c5c10f450b603b12c1e025cb77394128e89e49",
+      "effectSummary": "For 10 minutes per caster level, protects one creature against one designated spell of 4th level or lower per four caster levels; touch-delivered spells cannot be chosen. A designated spell that targets the subject or includes it in its area is completely absorbed. The subject can convert the absorbed energy into a Cure Wounds spell of the same level, automatic if unconscious, or immediately trigger one 4th-level-or-lower prepared spell you designated at casting that affects the subject's person; the prepared spell is not expended, and the incoming spell must be at least as high level as the triggered spell. The triggered spell functions as though you cast it and may outlast the mantle. Total absorption capacity is 1d4 spell levels + 1 per four caster levels, described by the source as three to nine levels depending on caster level; an incoming spell that exceeds remaining capacity is not absorbed, and the mantle dissipates once its capacity is used.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spellmantle-2221",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undeaths-eternal-foe-2224": {
+      "name": "Undeath's Eternal Foe",
+      "sourceSha256": "4e4f765f5c22e747b907472cca9fcd5e1f1257d734b61c972f1285fc91628203",
+      "effectSummary": "For 1 round per caster level, affects one creature per five caster levels. Each subject functions as though protected by Negative Energy Protection, but gains a +10 sacred bonus on the resistance roll against such attacks. It also gains +4 deflection AC against attacks by undead; immunity to undead special attacks that deal ability damage, ability drain, disease, or poison; the ability to make melee and ranged attacks against ethereal or incorporeal undead as though using ghost touch weapons; and the ability to ignore any damage reduction an undead opponent has. Range Close; no saving throw; spell resistance yes (harmless).",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undeaths-eternal-foe-2224",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/kiss-vampire-1484": {
+      "name": "Kiss of the Vampire",
+      "sourceSha256": "a8787415b65c385fd6134436cd3e1e82f1c993ccc23b0a095a72f1274c707c0d",
+      "effectSummary": "For 1 round per caster level, gives you vampirelike powers: Enervation as a melee touch attack, Vampiric Touch as a melee touch attack, Charm Person, Gaseous Form on yourself, and damage reduction 10/magic. Inflict spells heal you and Cure spells harm you, and all spells and effects treat you as undead. A turning or rebuking result that would affect an undead of your Hit Dice forces a Will save DC 10 + the cleric's Charisma modifier or you become panicked (turn) or cowering (rebuke) for 10 rounds. A result that would destroy or command such undead instead forces Will DC 15 + Charisma modifier or you become stunned (destroy) or charmed as Charm Monster (command) for 10 rounds. Charm effects you create through this spell end when the spell ends; other created effects keep their normal durations. Material component: a fang-faced black onyx worth at least 50 gp.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/kiss-vampire-1484",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/kiss-vampire-1716": {
+      "name": "Kiss of the Vampire",
+      "sourceSha256": "d23d86a93b76f369571c8852596dda05fdd6a66041cb8cd5b324d7b9dc4e7a8c",
+      "effectSummary": "For 1 round per caster level, grants Enervation as a melee touch attack, Vampiric Touch as a melee touch attack, Charm Person, self-only Gaseous Form, and the Magic of Faerûn printing's damage reduction 10/+1. Inflict spells heal you and Cure spells harm you, and you count as undead for all spells and effects. A turn/rebuke result that would affect undead of your Hit Dice requires Will DC 10 + the cleric's Charisma modifier or causes panic/cowering for 10 rounds; a result that would destroy/command such undead requires Will DC 15 + Charisma modifier or causes stunning/Charm Monster-style control for 10 rounds. Charm effects created through this spell end with it, while other effects keep their normal durations. Material component: a fang-faced black onyx worth at least 50 gp.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/kiss-vampire-1716",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/kiss-vampire-4329": {
+      "name": "Kiss of the Vampire",
+      "sourceSha256": "2a5b7ee596d5254eff55da07daaf84dabc06a994b950b51e7daf9d74b2ad5863",
+      "effectSummary": "For 1 round per caster level, grants damage reduction 10/magic and lets you use one of the following each round as a standard action: Enervation as a melee touch attack, Vampiric Touch as a melee touch attack, Charm Person, or self-only Gaseous Form. Inflict spells heal you and Cure spells harm you, and you count as undead for all spells and effects. A turn/rebuke result that would affect undead of your Hit Dice requires Will DC 10 + the turning character's Charisma modifier or causes panic/cowering for 10 rounds; a result that would destroy/command such undead requires Will DC 15 + Charisma modifier or causes stunning/Charm Monster-style control for 10 rounds. Charm effects created through this spell end with it; other effects keep normal duration. Material component: a fang-mouthed black onyx worth at least 50 gp.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/kiss-vampire-4329",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/phantasmal-thief-143": {
+      "name": "Phantasmal Thief",
+      "sourceSha256": "babd6698a1abc5e25290c737a231157fdc37492c19e9fa5d658656a876ef4be6",
+      "effectSummary": "Creates an invisible force you direct silently as a free action for 1 round per caster level. It can steal only from creatures, not unattended items or locked containers. It has Hide +20 and Move Silently +20 and, if undetected, can take any possessed object that is not carried or worn, including an item inside a Bag of Holding. Its only actions are stealing an object, bringing it to you, or returning it; stealing takes 1 round and delivery another, and it can hold only one object, which becomes invisible while carried. If detected by the victim it cannot take the item that round but can retry later. It cannot be harmed, though it can be dispelled. It can also disarm an object from a creature's hand as though it had Improved Disarm and a +20 Strength bonus; if used this way, it disappears after delivering the item. Material component: a spool of green thread.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantasmal-thief-143",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/return-to-nature-4914": {
+      "name": "Return to Nature",
+      "sourceSha256": "1fb9dfea684fb4be27ad1b6b888805db1a2027c8cf991e87eb5a4a3fa5018125",
+      "effectSummary": "Instantaneously forces one living creature toward a more natural state, with effects based on type. Animals, elementals, fey, oozes, plants, vermin, and outsiders with an air, earth, fire, or water subtype are unaffected. Humanoid arcane spellcasters and all monstrous humanoids gain 1d4 negative levels. Giants are reduced as Reduce Person; Fortitude negates. Dragons and magical beasts take 1d6 Intelligence damage and lose 1d4 randomly selected supernatural or spell-like abilities; Fortitude halves the Intelligence damage and prevents the ability loss. Outsiders without an elemental subtype take 1d8 damage per two caster levels, maximum 10d8, and lose 2d4 random supernatural or spell-like abilities; Fortitude halves damage and prevents the loss. Aberrations take 1d6 damage per caster level, maximum 20d6, and lose all supernatural and spell-like abilities; Fortitude halves damage and prevents ability loss. Lost abilities return after 24 hours. Range Close; spell resistance yes.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/return-to-nature-4914",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/safety-4121": {
+      "name": "Safety",
+      "sourceSha256": "984a5d52020db0fe66a9e7e4fb6016bf94c388040421803adc50b303f8f63074",
+      "effectSummary": "For 10 minutes per caster level, the touched creature always knows the shortest, most direct direction to a place of safety, defined as a location where environmental damage is neither occurring nor immediately imminent. The spell supplies direction only, not a means of travel, and does not reveal or protect against creatures in the safe location. It can point out escape from hazards such as poisonous clouds or burial, but does not help against Maze because that spell causes no physical environmental damage. The source gives planar examples such as air pockets on the Elemental Plane of Water, windproof shelter on Air, stable areas in Limbo, and protection from specific planar weather/hazards. If Safety is followed by Plane Shift, the subject is sent to a place of relative safety on the destination plane. Range Touch; no or harmless Will save and no or harmless spell resistance as printed.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/safety-4121",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/scramble-true-position-3439": {
+      "name": "Scramble True Position",
+      "sourceSha256": "ad745caebd213fb5651d469a9ad9affc6e15fd92621675c1d324da568c00dc36",
+      "effectSummary": "Teleports creatures in a 10-foot-radius spread by a short random distance. Make one Truespeak check when casting and compare it against DC 15 + twice each creature's CR, resolving creatures from highest CR to lowest; ties are ordered by the caster. Each creature whose DC you meet is moved 2 squares in a random direction using the targeted-on-square scatter pattern. A creature cannot be placed in solid matter or another creature's square, but it can be moved into hazards such as lava or off a cliff. If 2 squares are impossible, move it 1; if even that is impossible, it vanishes and reappears in its original square. Every creature successfully affected must also make a Reflex save or fall prone, even if it reappears in the same square. If the Truespeak check is below the DC of the lowest-CR creature in the area, the spell has no effect at all. Casting time 1 standard action; range Close; instantaneous; spell resistance yes.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scramble-true-position-3439",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tidal-wave-3281": {
+      "name": "Tidal Wave",
+      "sourceSha256": "5672eaf521f73b70b7262c949626376963b682608c16a28847b14deac391c499",
+      "effectSummary": "Creates a 75-foot-high, 500-foot-wide moving wall of water that travels 150 feet per round in the direction you choose for up to 1 minute per caster level or until it hits land. Swimmers struck by it make Swim DC 30 each round to remain afloat; success carries them forward with the wave, while failure drags them 8d10 feet below the surface and deals 4d6 nonlethal damage, after which normal drowning rules can apply. Medium or smaller ships take 6d10 damage, and each size category above Medium adds another 6d10; a ship is carried 5 feet per point of damage taken, with collisions causing additional damage. Unsecured creatures and equipment are swept overboard. When the wave reaches shore, it deals 6d10 damage within 200 feet, 3d10 from 200–400 feet, and 1d10 from 400–1,000 feet. Ships in port or carried ashore take another 6d10 and come to rest 5d10×10 feet inland. Casting time 10 minutes; Long range; no save or spell resistance. Material component: a plank struck on the water. XP cost: 500 XP.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tidal-wave-3281",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/vitrify-3184": {
+      "name": "Vitrify",
+      "sourceSha256": "93fc9dd9719feaa3d663cc2685f7cb1e721d7fe8e14514494b4efbc0dab410bb",
+      "effectSummary": "Permanently transforms normal sand, up to one 10-foot cube per five caster levels, into crude glass. Creatures on or in the sand can make the spell's Reflex save to escape before the sand melts. A creature that fails and cannot fly, levitate, or otherwise escape sinks partway into molten glass, reducing speed to 5 feet and imposing -2 on attacks and AC; earth-subtype creatures instead lose 10 feet of speed, while a creature only partly in the area has speed halved. Molten glass deals 10d6 fire damage in the first round, then one fewer die each round as it cools for 10 rounds. It becomes solid enough to trap creatures by round 6. Trapped creatures can be broken out: glass has hardness 1, 1 hp per inch of thickness, and break DC 12 + 1 per inch; successful self-breaking Strength checks deal 1d6 damage, and being broken free by others also deals 1d6. A partially trapped creature has -2 attacks, -4 Dexterity, and cannot move; fully submerged creatures may suffocate. Arcane material component: a small glass marble.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vitrify-3184",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/weapon-of-the-deity-4907": {
+      "name": "Weapon of the Deity",
+      "sourceSha256": "57304ff24b554b09ee274a0e1ec922940f9d55ee9ca8149457f0e60fc4168ae5",
+      "effectSummary": "For 1 round per caster level, a held favored weapon of your deity can be used as though you were proficient, gains +1 enhancement to attacks and damage, and gains the printed deity/alignment special ability; enhancement rises to +2 at caster level 9, +3 at 12, +4 at 15, and +5 at 18. Only one end of a double weapon is enhanced. Eberron pairings are: Arawai thundering morningstar; Aureon spell-storing quarterstaff; Balinor earthbound battleaxe; Becoming God defending spiked gauntlet or battlefist; Blood of Vol keen dagger; Cults of the Dragon Below vicious heavy pick; Boldrei defending spear; Dark Six keen kama; Devourer waterborn trident; Dol Arrah merciful halberd; Dol Dorn mighty-cleaving longsword; Fury vicious rapier; Keeper frost scythe; Kol Korran defending heavy mace; Lord of Blades shock greatsword; Mockery keen kama; Olladra lucky sickle; Onatar flaming warhammer; Path of Light flaming gauntlet/unarmed strike; Shadow spell-storing quarterstaff; Sovereign Host defending longsword; Silver Flame seeking longbow; Spirits of the Past keen double scimitar; Traveler lucky scimitar; Undying Court undead-bane scimitar. Alignment defaults are Chaos shock battleaxe, Evil mighty-cleaving light flail, Good frost warhammer, Law flaming longsword, Neutral defending heavy mace. The Lucky property allows one reroll of a failed attack roll per day as a free action using the same modifiers.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-of-the-deity-4907",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/undeaths-eternal-foe-1598": {
+      "name": "Undeath's Eternal Foe",
+      "sourceSha256": "3789b50684f36353d11e2b6f147d0cc30775f4682a497d6ea2e27a52160f6d6d",
+      "effectSummary": "For 1 round per caster level, affects one creature per five caster levels and grants anti-undead defenses. Each subject receives the source printing's Negative Energy Protection effect, except its resistance roll against a negative-energy attack gains a +10 sacred bonus. Subjects are immune to undead special attacks that deal ability damage, ability drain, disease, or poison; can make melee and ranged attacks against ethereal or incorporeal undead as though using ghost touch weapons; and gain +4 deflection AC against attacks by undead. Range Close; no saving throw (harmless); spell resistance yes (harmless). This Magic of Faerûn printing does not include the later reprint's explicit clause allowing attacks to ignore undead damage reduction.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/undeaths-eternal-foe-1598",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stored-lightning-bolt-4802": {
+      "name": "Stored Lightning Bolt",
+      "sourceSha256": "b72800d3f5e80a3cb3656596b0ebf0125510a3fe7ca7f8267a419dc610350c17",
+      "effectSummary": "Deals 1d6 electricity damage per caster level, maximum 20d6, and lets you divide those dice between an initial 120-foot lightning-bolt line and a delayed stored blast in a 5-foot-square metal or stone surface within range. You choose the split and a delay up to 5 rounds. The initial portion works as Lightning Bolt. The stored portion later explodes in a 60-foot-radius spread centered on the impact point; an unbroken wall produces a semicircle, while the blast can pass through openings and wrap around freestanding surfaces. Touching the storage surface before the delay discharges it immediately: a single touching creature takes double stored damage while everyone else takes half; if two or more creatures are already touching when it discharges, all targets take normal stored damage. A creature touching the surface when the spell is cast can trigger immediate discharge under the same rules. Every affected creature gets Reflex half for the strike it suffers. The bolt ignites combustibles and damages objects as normal Lightning Bolt. Material component: a small vial of acid set in a lead ring.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stored-lightning-bolt-4802",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/thunderswarm-1904": {
+      "name": "Thunderswarm",
+      "sourceSha256": "907ce93dd8c0b2754627cbdb03bbbb337118c72f876eb80a9439d928773d6909",
+      "effectSummary": "Creates either four large or eight small lightning spheres that streak in a straight line to a chosen point. Any creature in the spheres' direct flight path is struck by all of them for 16d6 electricity damage with no save, and the spheres then dissipate. If they reach their destination, they burst in patterns based on Meteor Swarm. Four large spheres each produce a 15-foot-radius burst for 4d8 electricity damage, arranged as a large diamond or box with overlapping areas. Eight small spheres each produce a 7.5-foot-radius burst for 2d6 electricity damage, arranged as a box-within-diamond or diamond-within-box pattern; overlaps can expose a creature to multiple bursts. Each burst allows its own Reflex save for half. A creature that fails any such save is also stunned for 1d4 rounds. Casting time 1 standard action; Long range; instantaneous; spell resistance yes.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/thunderswarm-1904",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spider-plague-3199": {
+      "name": "Spider Plague",
+      "sourceSha256": "528e733359ae0ab5b14f53be6fec5de4a8d0ce049d181e549aa38805313fbcb9",
+      "effectSummary": "Summons 1d4+1 celestial good or fiendish evil Huge monstrous hunting spiders for 1 round per caster level. They appear where designated, act immediately on your turn, attack opponents to the best of their ability, and can be redirected or given other instructions if you can communicate with them; summoning good or evil creatures gives the spell that descriptor. Each printed Huge spider is CR 6, 10d8+10 HD, 55 hp, Init +3, speed 40 ft./climb 30 ft., AC 16 (touch 11, flat-footed 13), bite +9 for 2d6+6 plus poison, Fort +8, Ref +6, Will +3, Str 19, Dex 17, Con 12, Int 3, Wis 10, Cha 2, with Climb +16, Hide +2, Jump +10, Spot +15; poison Fort DC 22 deals 1d8 Strength initial and secondary. Celestial spiders have darkvision 60 ft., acid/cold/electricity resistance 15, DR 5/+2, SR 20, and smite evil once/day for +10 damage. Fiendish spiders have darkvision 60 ft., cold/fire resistance 15, DR 5/+2, SR 20, and smite good once/day for +10 damage. Casting time 1 full round; Close range; no save or spell resistance.",
+      "notes": "Manually source-reviewed and digest-locked in batch 133. Printing-specific mechanics are preserved. Any named external spell, template, stat block, feat, hazard, or subsystem not fully printed in this record remains an explicit dependency rather than being invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-plague-3199",
+          "role": "primary catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "b4bc9bb4b9beb69a3e02adb94db7663904fbb957",
+    "workflowRun": 35773776513,
+    "validationRun": 35773781373,
+    "classificationArtifact": 10715452381,
+    "classificationArtifactSha256": "7a155bcccfda765da40fc32062127600f39f4d23ab5d40527201e2f97bee2663",
+    "queueCountBefore": 101,
+    "referenceQueueCountBefore": 101,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

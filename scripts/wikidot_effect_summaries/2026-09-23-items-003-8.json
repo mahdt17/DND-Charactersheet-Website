@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-8",
+  "records": {
+    "wikidot5e:wondrous-items:heretic": {
+      "sourceDigest": "sha256:23b76e88c17b501a86b77e3f7613a13528d83c2c4599a012052638e40872786d",
+      "effectSummary": "Sentient chaotic-evil +3 longsword attunable by a non-good creature. It has 6 charges and regains 1d4+1 daily at dawn. Once per turn on a hit, spend 1 charge; target makes DC 17 Constitution or is paralyzed until the start of your next turn, with Celestials at disadvantage. While holding it, spend charges as an action to cast detect evil and good 1, fly 2, or true seeing 3. Sentience: Intelligence 17, Wisdom 17, Charisma 15, hearing/darkvision 120 feet, telepathic, speaks/reads/understands Common and Giant, and while attuned understands every language you know. It aggressively seeks the destruction of good-aligned gods and their supporters."
+    },
+    "wikidot5e:wondrous-items:hide-of-the-feral-guardian": {
+      "sourceDigest": "sha256:1dcbfffae814fec7bf8a3787e9f7a4e1c569590966325b95e1ca2a6c1751ab93",
+      "effectSummary": "Evolving legendary studded leather. Dormant: +1 AC; while transformed by an effect replacing any game statistics, retain this armor and gain +1 melee attack/damage; once per dawn as an action cast polymorph on yourself into a giant owl while retaining Intelligence, Wisdom, and Charisma. Awakened: AC bonus +2, transformed melee bonus +2, and the armor's polymorph may instead make you a cave bear using polar bear statistics. Exalted: AC bonus +3, transformed melee bonus +3, and the armor's polymorph may instead make you a guardian wolf."
+    },
+    "wikidot5e:wondrous-items:hither-thither-staff": {
+      "sourceDigest": "sha256:9f7f550e2de8ce5db22d4108780f93dce8f7de3433e754eaf1d720c5edb16cf7",
+      "effectSummary": "The staff has 4 charges and regains 1d4 daily at dawn. As an action, spend 1 charge to create two linked portals on visible flat surfaces within 1,500 feet, each forming an open doorway up to 6 feet high and 4 feet wide; creatures and objects entering either emerge from the other as though the surfaces were adjacent. Spend 1 charge as an action to relocate one or both portals. Portals may be on moving surfaces but end if separated by more than 1 mile and otherwise last 24 hours. As a bonus action while holding the staff, close both portals or suppress one until it is relocated; the unsuppressed portal cannot be used while its pair is suppressed."
+    },
+    "wikidot5e:wondrous-items:holy-avenger": {
+      "sourceDigest": "sha256:dd0977fa0c5566263f77a16893d3cad64a099d54631000f700e8f1ff0fe6228f",
+      "effectSummary": "This legendary +3 sword deals +2d10 radiant when it hits a fiend or undead. While a paladin holds the drawn sword, you and friendly creatures within 10 feet have advantage on saves against spells and other magical effects; at paladin level 17+, the aura radius becomes 30 feet."
+    },
+    "wikidot5e:wondrous-items:holy-symbol-of-ravenkind": {
+      "sourceDigest": "sha256:d66e6718e391fd25fca8d52af702ee695a8d7fa07f015dbdcff82a3cea7c86cc",
+      "effectSummary": "Legendary holy symbol with 10 charges, regaining 1d6+4 daily at dawn. Hold Vampires: as an action spend 1 charge; vampires and vampire spawn within 30 feet make DC 15 Wisdom or are paralyzed for 1 minute, repeating at each turn end. Turn Undead: if you have Turn Undead or Turn the Unholy, spend 3 charges when using it to give undead disadvantage on their saves. Sunlight: as an action spend 5 charges to shed sunlight as bright light 30 feet and dim another 30 for 10 minutes or until you end it without an action."
+    },
+    "wikidot5e:wondrous-items:hook-of-fishers-delight": {
+      "sourceDigest": "sha256:93844f3ea7ea09a9cb34f5fe7e029c305b71b86f9a9f37bf7d7f81ef9566b206",
+      "effectSummary": "Tie the hook to fishing line and immerse it in at least a 10-foot cube of water. At the end of each uninterrupted hour, roll d6; on 6 it conjures a 6-inch magical fish, then cannot conjure another until next dawn. Roll d20 for fish: 1–10 green/copper—feeds one creature for a day, spoils after 24 hours; 11–14 yellow/black—after removal can be thrown up to 120 feet at a visible creature, DC 15 Strength or prone, then disappears; 15–18 blue/white—on release gains wings, follows you singing in Aquan for 2d4 hours or until 0 HP, using quipper statistics except breathing air and fly 30 feet; 19–20 gold/silver—feeds one creature for a day and grants 2d10 temporary HP, spoils after 24 hours."
+    },
+    "wikidot5e:wondrous-items:horn-of-beckoning-death": {
+      "sourceDigest": "sha256:0519afd0862f569d9f3578b4b600948725e22801dc6790c58b5ed162da1e58b8",
+      "effectSummary": "Once per year, as an action while holding the horn, invoke Beckoning Death. At the start of your next turn a fixed 30-foot-radius crimson smoke cloud appears centered on the horn; at the start of each of your turns its radius increases by 30 feet. It lasts 10 minutes or until concentration ends. Any creature, including you, that ends its turn in the cloud with 9 HP or fewer is slain. A Humanoid killed this way instantly becomes a zombie that obeys the horn's creator, Szass Tam."
+    },
+    "wikidot5e:wondrous-items:hewards-handy-haversack": {
+      "sourceDigest": "sha256:fc27ed8f126cf0c3d24e0a65cefa0663f1bbeb19d7f3ede8e261cd05ea89e3ec",
+      "effectSummary": "This 5-pound backpack has two 2-cubic-foot/20-pound side extradimensional pouches and one 8-cubic-foot/80-pound central pouch. Retrieving a specific item takes an action and that item is always magically on top. Overloading or piercing/tearing destroys the haversack and loses contents forever, except artifacts reappear elsewhere. Turning it inside out safely spills contents and disables it until righted. A breathing creature inside has 10 minutes of air before suffocating. Placing it inside a bag of holding, portable hole, or similar extradimensional space destroys both items and opens a one-way Astral gate; creatures within 10 feet are pulled to random Astral locations before it closes."
+    },
+    "wikidot5e:wondrous-items:hewards-handy-spice-pouch": {
+      "sourceDigest": "sha256:79d1d1713404b1186a0b022f56599df6031f871b986c5c498660c1c478339a75",
+      "effectSummary": "The apparently empty pouch has 10 charges and regains 1d6+4 daily at dawn. While holding it, spend 1 charge as an action, name any nonmagical food seasoning, and remove one pinch—enough to season one meal."
+    },
+    "wikidot5e:wondrous-items:hewards-hireling-armor": {
+      "sourceDigest": "sha256:d871ddecf2011f4d4f90d6bf4443c348f6ae3f40da1b4afb0978518a7f438e96",
+      "effectSummary": "This +1 leather armor lets you draw or stow two one-handed weapons whenever you could normally draw or stow one. It has six extradimensional pockets, each holding up to 20 pounds/2 cubic feet; the armor always weighs 10 pounds. Placing items follows normal object interaction; retrieving a specific item takes an action and that item is always magically on top. Placing the armor inside a bag of holding, handy haversack, or similar extradimensional space destroys both and opens a one-way Astral gate, pulling creatures within 10 feet to random Astral locations before closing."
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest- and table-digest-locked final two table-driven spell reviews; clean batch 071.",
+  "entries": {
+    "spells/giant-vermin-2820": {
+      "name": "Giant Vermin",
+      "sourceSha256": "6c6e0bfaefc44ecff5d6b3f9aea392968086642f4383a971c15f4f887d71a45a",
+      "tablesSha256": "9ddf6d5f13c4df01c5194493a2bf02c3caa7ae7081e8dfa934a658143e8a70f2",
+      "effectSummary": "For 1 minute per caster level, transforms either three normal-sized centipedes, two normal-sized spiders, or one normal-sized scorpion into larger forms; a single casting can affect only one vermin type and all affected vermin grow to the same size. Maximum size depends on caster level: 9th or lower Medium, 10th–13th Large, 14th–17th Huge, 18th–19th Gargantuan, 20th or higher Colossal. The resulting vermin do not try to harm you and can follow simple commands such as attack, defend, or stop, but cannot understand conditional or complex orders; unless directed otherwise they attack nearby creatures or objects. Their combat statistics are those of the corresponding giant centipede, giant spider, or giant scorpion form in the Monster Manual rather than statistics created by this spell text. At the DM's option, the spell can be extended to other insects, arachnids, or vermin such as ants, bees, beetles, mantises, or wasps.",
+      "tables": [
+        [
+          [
+            "Caster Level",
+            "Vermin Size"
+          ],
+          [
+            "9th or lower",
+            "Medium"
+          ],
+          [
+            "10th—13th",
+            "Large"
+          ],
+          [
+            "14th—17th",
+            "Huge"
+          ],
+          [
+            "18th—19th",
+            "Gargantuan"
+          ],
+          [
+            "20th or higher",
+            "Colossal"
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked. The spell explicitly delegates the enlarged creatures' combat statistics to the Monster Manual; this review preserves that dependency instead of inventing replacement stat blocks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/giant-vermin-2820",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/giantVermin.htm",
+          "role": "3.5 SRD cross-check for affected vermin counts, caster-level size table, command limits, and Monster Manual stat-block dependency"
+        }
+      ]
+    },
+    "spells/sword-of-conscience-54": {
+      "name": "Sword of Conscience",
+      "sourceSha256": "82bb87a80bb65845a4be06f19a18105d6814fdbe7b8c630ab4e8667e0a6488e9",
+      "tablesSha256": "d1fe10dba500d21aab7f240e37c052203bc2c5355a748791fa5bab6a830ed245",
+      "effectSummary": "One evil creature that fails its Will save instantly takes both Wisdom and Charisma damage according to the magnitude of its evil. For an ordinary evil creature other than an evil elemental, undead, or outsider: 10 HD or lower takes 1d6 to each ability, 11–25 HD takes 1d8, 26–50 HD takes 2d6, and 51+ HD takes 2d8. For an evil elemental or undead creature: 2 HD or lower takes 1d6, 3–8 HD takes 1d8, 9–20 HD takes 2d6, and 21+ HD takes 2d8. For an evil outsider: 1 HD or lower takes 1d6, 2–4 HD takes 1d8, 5–10 HD takes 2d6, and 11+ HD takes 2d8. For a cleric of an evil deity, use evil-cleric class levels instead: 1 level takes 1d6, 2–4 levels 1d8, 5–10 levels 2d6, and 11+ levels 2d8; a noncleric class whose description says it radiates an equivalent aura uses the corresponding class-level rule. Lost Wisdom and Charisma recover normally and do not automatically return after the spell; the effect is not language-dependent. Spell resistance applies.",
+      "tables": [
+        [
+          [
+            "Creature/Object",
+            "Wisdom and Charisma Damage"
+          ],
+          [
+            "1d6",
+            "1d8",
+            "2d6",
+            "2d8"
+          ],
+          [
+            "Evil creature 1 (HD)",
+            "10 or lower",
+            "11—25",
+            "26—50",
+            "51+"
+          ],
+          [
+            "Evil elemental",
+            "2 or lower or undead (HD)",
+            "3—8",
+            "9—20",
+            "21+"
+          ],
+          [
+            "Evil outsider (HD)",
+            "1 or lower",
+            "2—4",
+            "5—10",
+            "11+"
+          ],
+          [
+            "Cleric of an evil deity 2",
+            "1 (class levels)",
+            "2—4",
+            "5—10",
+            "11+"
+          ]
+        ]
+      ],
+      "notes": "Book of Exalted Deeds p.109 is source-verified. The current imported HTML flattens the table's spanning header and line break, making the raw row/column structure look transposed; the tablesSha256 intentionally locks that current parse, while the effect summary reconstructs the printed column mapping and both footnotes explicitly. No source mechanics are invented.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-of-conscience-54",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/book-of-exalted-deeds--52/sword-of-conscience--54/index.html",
+          "role": "matching Book of Exalted Deeds rendering used to verify the complete damage matrix and footnotes"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsboed.html",
+          "role": "independent Book of Exalted Deeds SRD cross-check"
+        },
+        {
+          "url": "https://anyflip.com/myubd/nlbq/basic/101-150",
+          "role": "same-printing Book of Exalted Deeds page rendering used to verify the original table layout"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "b2348994e076b023db7d88b22479cddb09c33e3b",
+    "workflowRun": 35682236158,
+    "validationRun": 35682239278,
+    "classificationArtifact": 10675550482,
+    "classificationArtifactSha256": "744591f9c424c34d075073f868b7eb2780105607798a6895b8bf0d4e52847684",
+    "queueCountBefore": 979,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 0,
+    "tableQueueCountBefore": 2
+  }
+}

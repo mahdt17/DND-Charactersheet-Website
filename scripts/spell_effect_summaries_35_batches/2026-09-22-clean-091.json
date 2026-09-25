@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified 3.5 reference spells with explicit inheritance expanded without weakening classifier policy; clean batch 091.",
+  "entries": {
+    "spells/imprisonment-2333": {
+      "name": "Imprisonment",
+      "sourceSha256": "2dee6f8eef05199c4a0692a6ddcb4328577d4012e7d4a3e2229320ca1ca1a9a5",
+      "effectSummary": "On a failed Will save against this touch spell (spell resistance applies), the target is entombed in a small sphere far beneath the earth in suspended animation. As in temporal stasis, time effectively ceases for the subject: it does not age, its bodily functions virtually stop, and it cannot be harmed while suspended. Imprisonment's own removal rule supersedes temporal stasis's general removal methods: the subject remains imprisoned until a freedom spell is cast at the place where the imprisonment occurred. A miracle used to search does not free the subject but reveals the place of entombment. If you know the target's name and facts about its life, it takes a -4 penalty on the saving throw.",
+      "notes": "Player's Handbook v.3.5 source-locked. The temporal stasis reference is used only to expand the suspended-animation state; Imprisonment's explicit freedom-at-the-locale removal rule is preserved instead of inheriting temporal stasis's dispel/removal wording.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/imprisonment-2333",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/temporal-stasis-2884",
+          "role": "same-edition referenced spell supplying suspended-animation mechanics"
+        }
+      ]
+    },
+    "spells/insignia-of-healing-3031": {
+      "name": "Insignia of Healing",
+      "sourceSha256": "46cc70e558b05ff789f1141f67d7b420eca9f3a753893681d39a63cea57ced1c",
+      "effectSummary": "Instantly channels positive energy to every wearer of your specially prepared matching insignia within Long range (400 ft. + 40 ft./level), curing each living wearer of 1d8 damage +1 per caster level (maximum +10). Undead wearers are damaged by the positive energy instead; each undead creature can apply spell resistance and attempt a Will save for half damage. As with insignia of alarm, the qualifying insignias must be matching specially prepared amulets, badges, rings, or similar items bearing the same symbol, each costing 10 gp, and a specially prepared insignia serves as the spell's focus.",
+      "notes": "Races of Destiny source-locked. The inherited insignia preparation/focus and matching-wearer targeting are expanded from the already reviewed Insignia of Alarm; the healing/damage effect and undead save/SR exception come directly from this printing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/insignia-of-healing-3031",
+          "role": "primary Races of Destiny catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/insignia-of-alarm-3027",
+          "role": "same-book referenced spell supplying insignia preparation, focus, and wearer-targeting mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/races-of-destiny--81/insignia-of-healing--3031/index.html",
+          "role": "matching Races of Destiny reproduction cross-check"
+        }
+      ]
+    },
+    "spells/visage-deity-756": {
+      "name": "Visage of the Deity",
+      "sourceSha256": "1551ca3e4648be08e1b4602251109c0a75c899e110eed5b145c55a1224428cba",
+      "effectSummary": "For 1 round/level, you retain lesser visage of the deity's +4 enhancement bonus to Charisma while taking on celestial qualities if good or fiendish qualities if evil. Once during the spell you can smite the opposite alignment, adding your Charisma modifier to the attack roll and your character level to the damage roll. You gain darkvision 60 ft., damage reduction 10/magic, and spell resistance 20. A good caster has resistance 20 to acid, cold, and electricity; an evil caster has resistance 20 to cold and fire. These resistance values replace the lesser spell's resistance 10 values. Your creature type does not change, so you do not become an outsider.",
+      "notes": "Complete Divine source-locked. The source explicitly says 'as lesser visage of the deity' and then raises/replaces the listed energy-resistance values while adding celestial/fiendish qualities; the inherited +4 enhancement Charisma is therefore retained.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/visage-deity-756",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/visage-deity-lesser-758",
+          "role": "same-book referenced spell supplying the inherited +4 enhancement Charisma baseline"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCDiv.html",
+          "role": "Complete Divine spell reproduction cross-check"
+        }
+      ]
+    },
+    "spells/visage-deity-greater-757": {
+      "name": "Visage of the Deity, Greater",
+      "sourceSha256": "58cbcacaa30f2c3f47f99d7900f33cf8f2d8e8d1242e184beb239aea87f8d219",
+      "effectSummary": "For 1 round/level, you function as under lesser visage of the deity, including its +4 enhancement bonus to Charisma, and additionally take on half-celestial qualities if good or half-fiend qualities if evil; you gain no spell-like abilities. Your type becomes outsider for the duration, but you can still be brought back from the dead if killed in this form. Good casters gain feathered wings and fly at twice normal speed (good maneuverability), +1 natural armor, low-light vision, resistance 10 to acid/cold/electricity, immunity to disease, +4 racial on saves against poison, damage reduction 10/magic, spell resistance 25, and ability-score bonuses +4 Str, +2 Dex, +4 Con, +2 Int, +4 Wis, +4 Cha. Evil casters gain batlike wings and fly at normal speed (average maneuverability), +1 natural armor, bite and claw attacks (Medium or larger: bite 1d6 and claws 1d4 each; Small: bite 1d3 and claws 1d3 each), darkvision 60 ft., immunity to poison, resistance 10 to acid/cold/electricity/fire, damage reduction 10/magic, spell resistance 25, and ability-score bonuses +4 Str, +4 Dex, +2 Con, +4 Int, +2 Cha. The source separately lists these transformation ability bonuses in addition to functioning as the lesser spell, so they are not silently collapsed into the lesser spell's +4 enhancement Charisma.",
+      "notes": "Complete Divine source-locked. The inherited lesser-spell benefit and the separately enumerated half-celestial/half-fiend transformation bonuses are both preserved exactly as printed; no Monster Manual spell-like abilities are imported because the spell explicitly excludes them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/visage-deity-greater-757",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/visage-deity-lesser-758",
+          "role": "same-book referenced spell supplying the inherited +4 enhancement Charisma baseline"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCDiv.html",
+          "role": "Complete Divine spell reproduction cross-check"
+        }
+      ]
+    },
+    "spells/wingbind-4773": {
+      "name": "Wingbind",
+      "sourceSha256": "bcd5cd5e7a83fd5681d216ee193b96fe33ba5e85e7f9588f30e9dd960f51c4a0",
+      "effectSummary": "On a failed Reflex save (spell resistance applies), a flying creature is entangled in a force web for 1 round/level. As with earthbind, its natural or magical fly speed is suppressed for the duration and new effects that would grant a fly speed are also suppressed; movement that does not grant a fly speed, such as jumping, levitate, or air walk, is not suppressed. Unlike earthbind's feather-fall-like descent, Wingbind makes the ensnared creature fall immediately and take normal falling damage. The creature can escape with an Escape Artist check against the spell's save DC. The force web is immune to all damage, cannot be burst with a Strength check, and is unaffected by most spells including dispel magic; disintegrate, a rod of cancellation, a sphere of annihilation, or Mordenkainen's disjunction destroys it immediately.",
+      "notes": "Spell Compendium source-locked. Earthbind's flight-suppression rules are inherited, but its controlled descent is explicitly replaced by an immediate damaging fall. The web's force defenses and escape rule are printed directly in Wingbind.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wingbind-4773",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/earthbind-4426",
+          "role": "same-book referenced spell supplying flight-suppression mechanics"
+        },
+        {
+          "url": "https://dtdnd.neocities.org/books/player/Spell%20Compendium.pdf",
+          "role": "same-printing Spell Compendium cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "6a5690dce45ce155a0ebf70ddddda51628da2239",
+    "workflowRun": 35688430128,
+    "validationRun": 35688432421,
+    "classificationArtifact": 10677726399,
+    "classificationArtifactSha256": "10f26db9775138a14c2d74185966193fa29c0112b7d4d97340d032db224ad227",
+    "queueCountBefore": 884,
+    "referenceQueueCountBefore": 884,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

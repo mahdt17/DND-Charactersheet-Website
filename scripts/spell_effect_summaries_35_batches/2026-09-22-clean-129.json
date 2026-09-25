@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 10-record batch 129 from the 141-record difficult reference-dependent tail. This is the largest currently safe batch: a three-spell inheritance family, three printing-distinct Vile Death records, and four source-complete creation/summoning spells with external stat blocks intentionally left as references.",
+  "entries": {
+    "spells/spider-form-lesser-1131": {
+      "name": "Spider Form, Lesser",
+      "sourceSha256": "fe7240b9135c9c22101b43ea6d47c9157813c64c20b52e8f73e32eb819020d25",
+      "effectSummary": "Transforms you into the form and abilities of a Medium fiendish monstrous spider under the polymorph subschool rules. For adjudicating special abilities gained from the fiendish template, you are treated as having the spider's 2 Hit Dice. You gain 5 temporary hit points that disappear when the spell ends. Casting time is 1 swift action; range Personal; duration 1 round per caster level (D).",
+      "notes": "Manually source-reviewed and digest-locked. The spell's form size, effective Hit Dice, and temporary hit points are explicit. The fiendish monstrous spider statistics, fiendish-template details, and general polymorph-subschoool rules remain external source references rather than being reconstructed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-form-lesser-1131",
+          "role": "primary Drow of the Underdark catalog record and digest source"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsdotu.html",
+          "role": "Drow of the Underdark spell-family cross-check"
+        }
+      ]
+    },
+    "spells/spider-form-1129": {
+      "name": "Spider Form",
+      "sourceSha256": "d91ee3a60cad2c6e9cc079575cfcdc684872bab9927574015e4f1fa1787bd7d2",
+      "effectSummary": "Functions as Lesser Spider Form except that you take the form and abilities of a Large fiendish monstrous spider and are treated as having the spider's 4 Hit Dice for adjudicating special abilities gained from the fiendish template. It therefore inherits Lesser Spider Form's polymorph-subschool transformation behavior and 5 temporary hit points. Casting time is 1 swift action; range Personal; duration 1 round per caster level (D).",
+      "notes": "Manually source-reviewed and digest-locked. Inheritance from Lesser Spider Form is preserved exactly; the external Large fiendish monstrous spider statistics and fiendish-template mechanics are not expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-form-1129",
+          "role": "primary Drow of the Underdark catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/spider-form-lesser-1131",
+          "role": "explicit inherited base spell"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsdotu.html",
+          "role": "Drow of the Underdark spell-family cross-check"
+        }
+      ]
+    },
+    "spells/spider-form-greater-1130": {
+      "name": "Spider Form, Greater",
+      "sourceSha256": "83b4d749cea809f67406e55bb5907ed87f62a67e0f1348e17444825d596460a1",
+      "effectSummary": "Functions as Lesser Spider Form except that you take the form and abilities of a Huge fiendish monstrous spider and are treated as having the spider's 8 Hit Dice for adjudicating special abilities gained from the fiendish template. It therefore inherits Lesser Spider Form's polymorph-subschool transformation behavior and 5 temporary hit points. Duration is 1 round per caster level (D).",
+      "notes": "Manually source-reviewed and digest-locked. Inheritance from Lesser Spider Form is preserved exactly; the external Huge fiendish monstrous spider statistics and fiendish-template mechanics are not expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spider-form-greater-1130",
+          "role": "primary Drow of the Underdark catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/spider-form-lesser-1131",
+          "role": "explicit inherited base spell"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsdotu.html",
+          "role": "Drow of the Underdark spell-family cross-check"
+        }
+      ]
+    },
+    "spells/vile-death-3200": {
+      "name": "Vile Death",
+      "sourceSha256": "39cb64fcd26f816a820ef77cefce42958b235c658203bc1d38936c5a3c0e77c7",
+      "effectSummary": "Calls a fiend from Hell or the Abyss and binds it into a corporeal undead creature, applying the fiendish template to the undead. Both the undead creature and the fiend receive Will saves to negate the effect; either can voluntarily fail under the circumstances described by the source. The resulting creature is independent and initially indifferent toward you. Casting time is 1 hour; range Touch; duration permanent (D); spell resistance applies. Arcane material component: a bit of brimstone.",
+      "notes": "Manually source-reviewed and digest-locked. This Savage Species printing is 3.0 material and is intentionally kept distinct from the later no-save Heroes of Horror/Spell Compendium versions. The fiendish template itself remains a Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vile-death-3200",
+          "role": "primary Savage Species catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/vile-death-1428",
+          "role": "later Heroes of Horror printing comparison"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/vile-death-4731",
+          "role": "later Spell Compendium printing comparison"
+        }
+      ]
+    },
+    "spells/vile-death-1428": {
+      "name": "Vile Death",
+      "sourceSha256": "c8d6da64739f70612c8f799b5c15c8451cc19f46729aea7a202f995c3cb8f1d3",
+      "effectSummary": "Calls a fiend from Hell or the Abyss and binds it into a corporeal undead creature, applying the fiendish template to the undead. The resulting creature is independent, can act on its own, and is initially indifferent toward you. Casting time is 1 hour; range Touch; duration permanent (D); saving throw none; spell resistance applies. Material component: brimstone and a bloodstone worth at least 500 gp. XP cost: 100 XP.",
+      "notes": "Manually source-reviewed and digest-locked. This Heroes of Horror printing removes the Savage Species dual Will saves and adds the 500 gp bloodstone and 100 XP cost. The fiendish template remains an external Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vile-death-1428",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/vile-death-3200",
+          "role": "Savage Species printing comparison"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/vile-death-4731",
+          "role": "Spell Compendium reprint comparison"
+        }
+      ]
+    },
+    "spells/vile-death-4731": {
+      "name": "Vile Death",
+      "sourceSha256": "199c2562400866714dbeb26297a9a2813936a93e28b678fa2d189baa3ebe976b",
+      "effectSummary": "Calls a fiend from the Nine Hells or the Abyss and binds it into one corporeal undead creature chosen from bodak, devourer, ghast, ghoul, mohrg, mummy, nightshade, skeleton, vampire, vampire spawn, wight, or zombie. Binding applies the fiendish template. The resulting creature is independent, can act on its own, and is initially indifferent toward you. Casting time is 1 hour; range Touch; duration permanent (D); saving throw none; spell resistance applies. Material component: brimstone and a bloodstone worth at least 500 gp. XP cost: 100 XP.",
+      "notes": "Manually source-reviewed and digest-locked. The Spell Compendium reprint's explicit eligible-undead list is preserved rather than generalized to the broader wording of earlier printings. The fiendish template remains an external Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vile-death-4731",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/vile-death-1428",
+          "role": "Heroes of Horror printing comparison"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/vile-death-3200",
+          "role": "Savage Species printing comparison"
+        }
+      ]
+    },
+    "spells/minor-servitor-3237": {
+      "name": "Minor Servitor",
+      "sourceSha256": "8543ac4ee06cc8df7e048494991db68c948fbc63439d7321bf3ec97e9c85be38",
+      "effectSummary": "Imbues one nonmagical inanimate object or mass of raw matter with mobility and a semblance of life, up to 1 cubic foot per caster level. The animated object is friendly toward you and serves specific tasks if you communicate your desires, but you gain no special empathy or connection to it. It gains 1 Hit Die per cubic foot of volume, Intelligence 3d6, and Charisma 1d3; its other animated-object statistics come from the Monster Manual. Casting time is 1 day; range Touch; duration permanent (D). Material component: material matching the animated object. XP cost: 250 XP per cubic foot affected.",
+      "notes": "Manually source-reviewed and digest-locked. All spell-created HD, Intelligence, Charisma, friendliness, volume, material, and XP mechanics are explicit; only generic animated-object statistics remain external.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/minor-servitor-3237",
+          "role": "primary Savage Species catalog record and digest source"
+        }
+      ]
+    },
+    "spells/liveoak-2831": {
+      "name": "Liveoak",
+      "sourceSha256": "6e30766ba4bf8e5aa54b5bd7b0cf05ed942e20544f18976f7a9a114c9346ec21",
+      "effectSummary": "Turns one healthy Huge oak into a guardian treant. Only one Liveoak can be active from you at a time. The tree must be within 10 feet of your dwelling, in a place sacred to you, or within 300 feet of something you want guarded. You set a triggering phrase of up to one word per caster level; when triggered, the oak animates as a treant. If dispelled, it immediately takes root wherever it is; if you release the spell, it tries to return to its original location before rooting. Casting time is 10 minutes; range Touch; duration 1 day per caster level (D); no save; no spell resistance.",
+      "notes": "Manually source-reviewed and digest-locked. Triggering, location, exclusivity, and rooting behavior are explicit. Treant statistics remain an external Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/liveoak-2831",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/liveoak.htm",
+          "role": "3.5 SRD cross-check"
+        }
+      ]
+    },
+    "spells/summon-swarm-2459": {
+      "name": "Summon Swarm",
+      "sourceSha256": "c7d85e5a36765f00277f7e5c676284fa204e4cafe15118a43411aad3a3d9eb3f",
+      "effectSummary": "Summons one swarm of bats, rats, or spiders, chosen when cast. The swarm attacks all other creatures in its area and can be summoned into an occupied area. If no living creature is in its area, it attacks or pursues the nearest creature as best it can. You have no control over its target or direction of travel. Casting time is 1 full round; range Close; duration concentration plus 2 rounds; saving throw none; spell resistance no. Arcane material component: a square of red cloth.",
+      "notes": "Manually source-reviewed and digest-locked. The spell's lack of control and targeting behavior are explicit; bat, rat, and spider swarm statistics remain external Monster Manual references.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-swarm-2459",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/summon-marked-homunculus-4871": {
+      "name": "Summon Marked Homunculus",
+      "sourceSha256": "49199964b40fedc90ac0ee5f4e06f177b1a6d6b206b8b1fbceabf280b7f1982a",
+      "effectSummary": "Allows a caster with the Mark of Making to summon one special homunculus for 1 hour per caster level (D). With a least Mark of Making, the choices are dedicated wright, expeditions messenger, furtive filcher, or arbalester. With a more powerful Mark of Making, you can instead summon a true homunculus, iron defender, packmate, or persistent harrier. A glyph resembling your dragonmark appears on the summoned creature. If it is reduced to 0 hit points, it explodes for 1d6 damage to all adjacent creatures except you. Casting time is 1 full round; range Close; no save; no spell resistance. Material component: a pinch of dragonshard dust; dragonmark requirement: any Mark of Making.",
+      "notes": "Manually source-reviewed and digest-locked. Eligibility tiers, summon choices, glyph, and 0-hit-point explosion are explicit. The individual homunculus stat blocks remain external ECS/Magic of Eberron/Monster Manual references.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-marked-homunculus-4871",
+          "role": "primary Dragonmarked catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "0a57de38ffcc8737287172aba991b3dc766e6ec8",
+    "workflowRun": 35771163644,
+    "validationRun": 35771168877,
+    "classificationArtifact": 10713973098,
+    "classificationArtifactSha256": "862ebff57752ec71b8c6cc3da2970000f1b0b373ea580db006f7ffd4680efcb0",
+    "queueCountBefore": 141,
+    "referenceQueueCountBefore": 141,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

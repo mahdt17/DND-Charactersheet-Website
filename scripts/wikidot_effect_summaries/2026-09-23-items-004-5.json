@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-5",
+  "records": {
+    "wikidot5e:wondrous-items:mace-of-smiting": {
+      "sourceDigest": "sha256:3b6f3b0cb508f4d4f0dde56fa466f4991d18b9c2e5a0ed59670a29ca2a5f13e7",
+      "effectSummary": "This magic mace grants +1 to attack and damage, increasing to +3 against constructs. On an attack-roll 20, the target takes +7 bludgeoning, or +14 if it is a construct. If a construct has 25 HP or fewer after taking this extra damage, it is destroyed."
+    },
+    "wikidot5e:wondrous-items:mace-of-terror": {
+      "sourceDigest": "sha256:71e37756bfd36f84854d137b94a264ccf5fc53ab6a5bc76c12b65871b0a02daa",
+      "effectSummary": "The mace has 3 charges and regains 1d3 daily at dawn. While holding it, use an action and 1 charge to force chosen creatures within 30 feet to make DC 15 Wisdom or become frightened of you for 1 minute. While frightened this way, a creature must spend its turns moving as far from you as possible, cannot willingly move within 30 feet of you, cannot take reactions, and may use its action only to Dash or escape an effect preventing movement; if unable to move, it may Dodge. It repeats the save at the end of each turn, ending the effect on success."
+    },
+    "wikidot5e:wondrous-items:mace-of-the-black-crown": {
+      "sourceDigest": "sha256:e789a333e1948d3a42084c5a1190d1bbe7d7102bf80fe907bda876abb7df2328",
+      "effectSummary": "Sentient lawful-evil evolving mace housing the erinyes Xartaza; Intelligence 20, Wisdom 12, Charisma 18, hearing/darkvision 120 feet, telepathic, speaks/reads/understands Common and Infernal, and urges lawful-evil actions and opposition to demons. Dormant: learn Infernal; +1 attack/damage; as a bonus action ignite or extinguish the mace, with flames shedding bright 40 feet/dim another 40 and dealing +1d6 fire on hits while lit; once per dawn as an action summon a friendly imp for 10 minutes that obeys verbal commands. Awakened: attack/damage +2, flame damage +2d6, Summon Devil can instead summon a bearded devil, and you gain poison resistance while holding it. Exalted: attack/damage +3, flame damage +3d6 and ignores fire resistance, Summon Devil can instead summon a barbed devil, and you gain fire resistance while holding it."
+    },
+    "wikidot5e:wondrous-items:manual-of-bodily-health": {
+      "sourceDigest": "sha256:cd1bd59055fdd0645a0469ff3c4f4e85986145dd6f97dc00836b3d25e8d8b162",
+      "effectSummary": "Spend 48 hours over no more than 6 days studying and practicing the manual's guidance to increase Constitution by 2 and increase its maximum by 2. The manual then loses its magic for 100 years."
+    },
+    "wikidot5e:wondrous-items:manual-of-gainful-exercise": {
+      "sourceDigest": "sha256:6448cc005aabc247efb1f5f40da4834abdf7f13f535330196915099b3698a839",
+      "effectSummary": "Spend 48 hours over no more than 6 days studying and practicing the manual's guidance to increase Strength by 2 and increase its maximum by 2. The manual then loses its magic for 100 years."
+    },
+    "wikidot5e:wondrous-items:manual-of-golems": {
+      "sourceDigest": "sha256:09880e72a8559a186e5b316862443525ee056eb6b8b43c1c23493ab6d26f002d",
+      "effectSummary": "A spellcaster with at least two 5th-level spell slots can use the manual to create one golem; anyone else reading it takes 6d6 psychic damage. Golem type and requirements by d20: 1–5 clay—30 days, 65,000 gp; 6–17 flesh—60 days, 50,000 gp; 18 iron—120 days, 100,000 gp; 19–20 stone—90 days, 80,000 gp. Work must be uninterrupted except for no more than 8 hours rest per day, the manual must remain at hand, and the listed cost is consumed. When complete, the manual burns to ash and the finished golem animates under your control, understanding and obeying your spoken commands."
+    },
+    "wikidot5e:wondrous-items:manual-of-quickness-of-action": {
+      "sourceDigest": "sha256:06ad1521f042a341355ee529a18bf9cf5f4ac7c5ee2aa22a69f9e65867696f50",
+      "effectSummary": "Spend 48 hours over no more than 6 days studying and practicing the manual's guidance to increase Dexterity by 2 and increase its maximum by 2. The manual then loses its magic for 100 years."
+    },
+    "wikidot5e:wondrous-items:mask-of-the-dragon-queen": {
+      "sourceDigest": "sha256:d183dd67ce28d6fa48fe9acebaed0ae950f484bdd364a1432d91980a9f512236",
+      "effectSummary": "This artifact is created by combining two or more chromatic Dragon Masks. While wearing and attuned to it, choose one component mask at a time and gain all properties of that mask. In addition, you gain the Damage Absorption property from each of the five chromatic masks incorporated in it and have five uses of Legendary Resistance."
+    },
+    "wikidot5e:wondrous-items:masque-charm": {
+      "sourceDigest": "sha256:401799dd5c457434ea83d25e2d35eff70011d345e5289976a4dca9177c697b64",
+      "effectSummary": "Once per sunset as an action while wearing the charm, cast disguise self with DC 13 for a creature inspecting the illusion. Choose either the normal 1-hour duration or a 6-hour duration; if you choose 6 hours, the charm permanently becomes nonmagical when the spell ends. The spell also ends if the charm is removed."
+    },
+    "wikidot5e:wondrous-items:masquerade-tattoo": {
+      "sourceDigest": "sha256:458d4892b99958a6189c402cd67ee045e2f46fcf0e928bbb2bca1045c2fd9a2b",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes the tattoo vanish and needle reappear. As a bonus action, reshape, recolor, or move the tattoo anywhere on your skin, from the size of a copper piece to covering your entire skin, though it remains obviously a tattoo. Once per dawn as an action, cast disguise self with save DC 13."
+    }
+  }
+}

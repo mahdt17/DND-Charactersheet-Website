@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked same-printing source repair for Player's Handbook 3.0 Polymorph Other; clean batch 061.",
+  "entries": {
+    "spells/polymorph-other-5025": {
+      "name": "Polymorph Other",
+      "sourceSha256": "a039405ad8fee3b9af85d5a9f11f5165de085e2b0e169db3d5c8b8a639206ca0",
+      "effectSummary": "On a failed Fortitude save, permanently changes one creature into another creature form from Diminutive size up to one size category larger than the subject's normal form. On changing, the subject recovers lost hit points as though it had rested for a day, but this does not restore temporary ability damage or provide other rest benefits, and changing back does not heal it again; if slain, it reverts to its original form but remains dead. The subject takes the chosen form's average natural size, Strength, Dexterity, Constitution, natural armor, natural attack routines and other gross physical qualities, plus mundane movement capabilities such as walking, swimming, or winged flight and other nonmagical natural abilities such as low-light vision. It does not gain magical movement or the new form's spell-like, supernatural, or extraordinary abilities. The subject keeps its Intelligence, Wisdom, Charisma, level and class, hit points despite any Constitution change, alignment, base attack bonus, base saves, original creature type, its own extraordinary abilities, spells, and spell-like abilities, but not its own supernatural abilities. It can cast spells only when the new form can supply the required components, including a humanlike voice for verbal components and humanlike hands for somatic components. Any separated body part or piece of equipment returns to its original form. In stressful or demanding situations such as combat, the subject must succeed on a DC 19 Will save or take a -2 penalty on attack rolls, saves, skill checks, and ability checks until the situation passes; a creature kept polymorphed for years may overcome some of this disorientation at the DM's discretion. Equipment changes to match the form: for forms that do not use equipment, gear melds into the body and becomes nonfunctional, including material components and focuses; for forms that use equipment, the gear changes to fit and retains its properties, with the chosen creature's entry deciding doubtful cases. You can choose cosmetic and significant physical traits within the normal range for the species, including changing the subject into its own species or itself; changing it into itself avoids the disorientation penalty, and using the spell as a disguise grants a +10 bonus on Disguise checks. Incorporeal or gaseous forms cannot be assumed, incorporeal or gaseous creatures are immune to the spell, and a natural shapeshifter can resume its natural form as a standard action. The material component is an empty cocoon.",
+      "notes": "The primary imported Player's Handbook 3.0 record ends in corrupted embedded markup before the final rules paragraphs. This lock restores the same printing only. It does not substitute the later Tome and Blood revision or the 3.5 polymorph rules; chosen-form statistics remain sourced from the selected creature's stat block.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-other-5025",
+          "role": "primary Player's Handbook 3.0 catalog record and digest source; imported effect tail is corrupted/truncated with embedded HTML"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/players-handbook-30--106/polymorph-other--5025/index.html",
+          "role": "complete same-printing Player's Handbook 3.0 rendering used to restore the omitted appearance, disguise, incorporeal/gaseous, shapeshifter, and material-component rules"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/355/polymorph-other",
+          "role": "independent 3e rendering cross-check for the Player's Handbook version"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "8177af9a976ce7ebb904195df9a1e3d050edd518",
+    "workflowRun": 35678641463,
+    "validationRun": 35678644039,
+    "classificationArtifact": 10673744108,
+    "classificationArtifactSha256": "7bab2da32f4fc9fe2311061b0d190c23b39bbf38456788bbc4b1082f0703c2d9",
+    "queueCountBefore": 1021,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 3,
+    "tableQueueCountBefore": 41
+  }
+}

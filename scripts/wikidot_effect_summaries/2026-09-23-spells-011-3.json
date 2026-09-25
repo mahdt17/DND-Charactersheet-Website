@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-011-3",
+  "records": {
+    "wikidot5e:spell:word-of-recall": {
+      "sourceDigest": "sha256:283052d211367159722479f94692cc2ccd4b510f890c7b8818c61d6e68d78050",
+      "effectSummary": "Instantly teleport yourself and up to five willing creatures within 5 feet to a sanctuary you previously designated. You and accompanying creatures appear in the nearest unoccupied spaces to the designated point. To designate a sanctuary, cast this spell in a place dedicated to or strongly linked with your deity; attempting to designate an unsuitable location has no effect. Casting without first establishing a sanctuary also has no effect."
+    },
+    "wikidot5e:spell:wrath-of-nature": {
+      "sourceDigest": "sha256:e17f3cd062a2a9ab358be7d6a74f785f53d4b86e95a0be0a581322862003e0bc",
+      "effectSummary": "Animate nature in a 60-foot cube centered within 120 feet for up to 1 minute. Grass and undergrowth become difficult terrain for your enemies. At the start of each of your turns, each enemy within 10 feet of a tree makes a Dexterity save or takes 4d6 slashing damage. At the end of each of your turns, one grounded creature you choose in the cube makes a Strength save or is restrained until the spell ends; it can use an action for a Strength (Athletics) check against your spell save DC to escape. As a bonus action, launch one loose rock in the cube with a ranged spell attack; on a hit it deals 3d8 nonmagical bludgeoning damage and the target makes a Strength save or falls prone."
+    },
+    "wikidot5e:spell:wrathful-smite": {
+      "sourceDigest": "sha256:c47e1214f1f353c86f5f1fd1539dc4502be6b366e94cb72646de9e87a65452f6",
+      "effectSummary": "The next melee weapon hit you make before the spell ends deals an extra 1d6 psychic damage. If the target is a creature, it makes a Wisdom save or is frightened of you for up to 1 minute. As an action, the frightened creature can make a Wisdom check against your spell save DC, ending the spell on a success."
+    },
+    "wikidot5e:spell:wristpocket": {
+      "sourceDigest": "sha256:e0c4588edd07a8f64eee754330b6758e82b5a869b4d57f1437c80af1159130f4",
+      "effectSummary": "Send one object you alone are holding, weighing no more than 5 pounds, into an extradimensional space for up to 1 hour. While concentrating, you can use an action to summon it to your free hand and an action to return it to the pocket space. If it remains stored when the spell ends, it appears at your feet."
+    },
+    "wikidot5e:spell:zephyr-strike": {
+      "sourceDigest": "sha256:f036ed2934b306a8417392d4a7233d5899b245da0bdb12e06d5bf0546843511d",
+      "effectSummary": "For up to 1 minute, your movement does not provoke opportunity attacks. Once before the spell ends, you can give yourself advantage on one weapon attack on your turn; on a hit it deals an extra 1d8 force damage. Hit or miss, after making that empowered attack your walking speed increases by 30 feet until the end of the turn."
+    },
+    "wikidot5e:spell:zone-of-truth": {
+      "sourceDigest": "sha256:3c9f0b12345c74ea2a358727f00433bce13367e73ac1eed7848f09fe6f24f068",
+      "effectSummary": "Create a 15-foot-radius sphere centered within 60 feet for 10 minutes. A creature entering for the first time on a turn or starting its turn there makes a Charisma save. On a failure, it cannot knowingly speak a deliberate lie while in the area. You know whether each creature succeeds or fails. Affected creatures know they are constrained and may remain silent or answer evasively as long as they do not deliberately lie."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summary; clean batch 041.",
+  "entries": {
+    "spells/rebirth-of-iron-881": {
+      "name": "Rebirth of Iron",
+      "sourceSha256": "dbc763fb2654e80a2a706648d8bf0de21795e323d98518c8063667573bf2184a",
+      "effectSummary": "Instantly restores a single metal object damaged or destroyed by rust, even if it has been reduced to powder. If part of the object is missing, at least one-quarter of it must remain. The spell restores only physical form: it does not restore the magical properties of a magic item or construct, and a destroyed metallic creature is restored physically but remains dead and without its magical qualities.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rebirth-of-iron-881",
+          "role": "Complete Mage primary effect and header reviewed; rust restoration, powder recovery, one-quarter remainder threshold, non-restoration of magic and physical-only metallic-creature restoration preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "b1e9d16e1aab12c23fd08d9a608cc2aacaf3f94f",
+    "workflowRun": 35650528593,
+    "validationRun": 35650535129,
+    "classificationArtifact": 10661938149,
+    "classificationArtifactSha256": "ca7e78edc3a903fbc4f645bb5a08cf202355bcb4327843588797a8c656a2187c",
+    "eligibleCount": 1
+  }
+}

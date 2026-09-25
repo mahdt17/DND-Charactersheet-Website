@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified reference spells with fully expanded inherited mechanics; Halaster's Image Swap deferred for component-metadata reconciliation; clean batch 084.",
+  "entries": {
+    "spells/anyspell-greater-3841": {
+      "name": "Anyspell, Greater",
+      "sourceSha256": "2792089bc0458c4b03cc5c0b6854962694109d967079f315f47a560faae682d4",
+      "effectSummary": "Functions as anyspell, except it can prepare any arcane spell of up to 5th level and the chosen spell occupies your 6th-level domain spell slot. Casting takes 15 minutes and requires access to arcane magical writing such as a spellbook or scroll. You choose and prepare one eligible arcane spell you can understand; preparing it from a spellbook leaves the book unharmed, while using a scroll erases that scroll as normal. You later cast the prepared arcane spell as though you were a wizard of your cleric caster level, using Wisdom to determine its saving throw DC and requiring Wisdom at least 10 + the spell's level. Your divine focus can substitute for any noncostly material component, but costly material components, other required focuses, and XP costs must still be supplied or paid. Once the prepared arcane spell is cast, the occupied 6th-level domain slot is empty again.",
+      "notes": "Source-locked to Spell Compendium. The base Anyspell record is already reviewed but not yet regression-locked, so this review expands its complete preparation/casting mechanics rather than depending on that lock. Greater Anyspell changes only the maximum arcane spell level and domain-slot level.",
+      "provenance": [
+        {
+          "url": "https://www.dndtools.org/spells/spell-compendium--86/anyspell-greater--3841/",
+          "role": "matching Spell Compendium rendering used to verify the greater spell's 5th-level ceiling and 6th-level domain slot"
+        },
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/anyspell--3840/",
+          "role": "matching Spell Compendium Anyspell rendering supplying the inherited preparation, writing, Wisdom, component, and casting rules"
+        }
+      ]
+    },
+    "spells/detect-chaos-2485": {
+      "name": "Detect Chaos",
+      "sourceSha256": "c737973e7b1520e0a521b6c326c977b09c1147b5309be33444cd39ae6b9753c7",
+      "effectSummary": "For up to 10 minutes per caster level while concentrating, detects chaotic auras in a 60-foot cone. First round reveals whether any chaotic aura is present; second round reveals the number of auras and the strength of the strongest; third and later rounds reveal each aura's strength and location, or only its direction if it is outside line of sight. Aura strength is determined exactly as detect evil, but for chaos: chaotic creatures are faint through 10 HD, moderate 11–25, strong 26–50, overwhelming 51+; chaotic undead use 2/3–8/9–20/21+ HD; chaotic outsiders use 1/2–4/5–10/11+ HD; clerics of chaotic deities use 1/2–4/5–10/11+ class levels; chaotic spells and magic items use caster level 2 or lower/3–8/9–20/21+. Lingering chaotic auras persist after their source ends for 1d6 rounds if faint, 1d6 minutes if moderate, 1d6×10 minutes if strong, or 1d6 days if overwhelming. If you are lawful and the strongest chaotic aura is overwhelming from a source whose HD or level is at least twice your character level, you are stunned for 1 round and the spell ends. The effect is blocked by 1 foot of stone, 1 inch of common metal, any thin sheet of lead, or 3 feet of wood or dirt.",
+      "notes": "Player's Handbook v.3.5 core spell. Detect Evil supplies the shared detection cadence, aura-strength matrix, lingering-aura durations, overwhelming-aura backlash, and barrier rules; this spell substitutes chaotic alignment at every point.",
+      "provenance": [
+        {
+          "url": "https://www.d20srd.org/srd/spells/detectChaos.htm",
+          "role": "3.5 SRD source for the chaos-specific version"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/detectEvil.htm",
+          "role": "3.5 SRD source for the inherited detection procedure, aura matrix, lingering durations, backlash, and barriers"
+        }
+      ]
+    },
+    "spells/detect-law-2488": {
+      "name": "Detect Law",
+      "sourceSha256": "2802120972f30f8a20273403a024a8fc6d8a396f4302872eb19098599fabc14d",
+      "effectSummary": "For up to 10 minutes per caster level while concentrating, detects lawful auras in a 60-foot cone. First round reveals whether any lawful aura is present; second round reveals the number of auras and the strength of the strongest; third and later rounds reveal each aura's strength and location, or only its direction if it is outside line of sight. Aura strength is determined exactly as detect evil, but for law: lawful creatures are faint through 10 HD, moderate 11–25, strong 26–50, overwhelming 51+; lawful undead use 2/3–8/9–20/21+ HD; lawful outsiders use 1/2–4/5–10/11+ HD; clerics of lawful deities use 1/2–4/5–10/11+ class levels; lawful spells and magic items use caster level 2 or lower/3–8/9–20/21+. Lingering lawful auras persist after their source ends for 1d6 rounds if faint, 1d6 minutes if moderate, 1d6×10 minutes if strong, or 1d6 days if overwhelming. If you are chaotic and the strongest lawful aura is overwhelming from a source whose HD or level is at least twice your character level, you are stunned for 1 round and the spell ends. The effect is blocked by 1 foot of stone, 1 inch of common metal, any thin sheet of lead, or 3 feet of wood or dirt.",
+      "notes": "Player's Handbook v.3.5 core spell. Detect Evil supplies the shared detection cadence, aura-strength matrix, lingering-aura durations, overwhelming-aura backlash, and barrier rules; this spell substitutes lawful alignment at every point.",
+      "provenance": [
+        {
+          "url": "https://www.d20srd.org/srd/spells/detectLaw.htm",
+          "role": "3.5 SRD source for the law-specific version"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/detectEvil.htm",
+          "role": "3.5 SRD source for the inherited detection procedure, aura matrix, lingering durations, backlash, and barriers"
+        }
+      ]
+    },
+    "spells/transcend-mortality-885": {
+      "name": "Transcend Mortality",
+      "sourceSha256": "f3ceb73e201c43262878631c2920aaac9d8951024502c4e0bdd4922344fbc6df",
+      "effectSummary": "As an immediate action, for 1 round per caster level you gain damage reduction 30/epic, spell resistance equal to 21 + your caster level, resistance 50 to acid, cold, electricity, fire, and sonic damage, immunity to ability damage, disease, energy drain, poison, and death effects, and a +10 enhancement bonus on all saving throws. You no longer need to eat, drink, or breathe during the spell. When the spell ends for any reason, you are instantly slain and your body is reduced to dust as with disintegrate; there is no saving throw and this death cannot be prevented, though you can thereafter be returned to life by effects that can restore a creature from remains in that state.",
+      "notes": "Source-locked to Complete Mage p.120. The Disintegrate reference describes only the final dust-like aftermath; no ray, damage dice, or disintegration save mechanics are inherited.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/complete-mage--58/transcend-mortality--885/",
+          "role": "matching Complete Mage rendering used to verify every defensive benefit, duration, and unavoidable death rider"
+        },
+        {
+          "url": "https://www.dndtools.one/transcend-mortality-885",
+          "role": "independent Complete Mage rendering cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "5b0c2f1fdf1d0e31171f21735e0b7f106da4ccc1",
+    "workflowRun": 35686384880,
+    "validationRun": 35686387168,
+    "classificationArtifact": 10676548608,
+    "classificationArtifactSha256": "abef08f000542c4e53cc2a84d0c7dbae8c64412794343fe07778e196aa6b5840",
+    "queueCountBefore": 917,
+    "referenceQueueCountBefore": 917,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

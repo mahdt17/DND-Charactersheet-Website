@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 9-record batch 116 from the clean 245-record reference-dependent queue. It closes the Player's Handbook v.3.5 Planar Binding family and the first two Truename Binding tiers, plus five independently source-reviewed records. Greater Truename Binding and Suppress Magic were deliberately deferred because their current source wording warrants separate investigation.",
+  "entries": {
+    "spells/planar-binding-lesser-2422": {
+      "name": "Planar Binding, Lesser",
+      "sourceSha256": "99a4e08f7d8bb9bc72bcc802f144ae879fc4bea0131eb8a2dc3e3f542b908570",
+      "effectSummary": "Calls one elemental or outsider of up to 6 HD into an inward-focused magic-circle trap. The called creature gets a Will save to resist being called; spell resistance does not prevent the initial calling. While trapped, it can try once per day to escape by overcoming your caster level with spell resistance, by dimensional travel, or with a Charisma check against DC 15 + half caster level + your Charisma modifier; dimensional anchor blocks the dimensional-travel route and a calling diagram can strengthen the trap. If it remains bound, you bargain for one service using opposed Charisma checks, with a DM-assigned +0 to +6 modifier based on the service and offered reward. A natural 1 on your check lets it break free. Open-ended service lasts at most 1 day per caster level and gives an immediate escape chance. When the agreed service is complete, the creature can report completion and is sent home.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 116 intentionally excludes records with anomalous inheritance wording or ambiguous source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-binding-lesser-2422",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/planar-binding-2420": {
+      "name": "Planar Binding",
+      "sourceSha256": "44ca9049152244e45ffa18dc6d2d884131c666179ea947d089d1d3830f49fdb2",
+      "effectSummary": "Uses lesser planar binding's calling trap, escape methods, bargaining, and service rules, but can call one creature of 12 HD or less or up to three creatures of the same kind whose total HD do not exceed 12. Each called creature receives its own save, makes its own escape attempts, and must be persuaded individually.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 116 intentionally excludes records with anomalous inheritance wording or ambiguous source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-binding-2420",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/planar-binding-greater-2421": {
+      "name": "Planar Binding, Greater",
+      "sourceSha256": "c951b3edbe0e81d00190e87d333bdae77862410e9cb5e89f2391dac494440ea6",
+      "effectSummary": "Uses lesser planar binding's calling trap, escape methods, bargaining, and service rules, but can call one creature of 18 HD or less or up to three creatures of the same kind whose total HD do not exceed 18. Each called creature receives its own save, makes its own escape attempts, and must be persuaded individually.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 116 intentionally excludes records with anomalous inheritance wording or ambiguous source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/planar-binding-greater-2421",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/truename-binding-lesser-3442": {
+      "name": "Truename Binding, Lesser",
+      "sourceSha256": "ad5f09c395154abdb7f46da967989fb9efbdbac263c73e8951afee63e15a7eef",
+      "effectSummary": "Calls one elemental or outsider of CR 6 or less using lesser planar binding's trap, Will save, spell resistance, and escape framework, but you must correctly speak the creature's personal truename. Your casting Truespeak check replaces the normal bargaining Charisma check; the creature opposes it with its own Truespeak check or Charisma check. Rolling a natural 1 on the required Truespeak check lets the creature break free. An open-ended service normally lasts 1 day, plus 1 additional day for every 5 points by which your Truespeak result exceeds the creature's opposing result. XP cost: 100.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 116 intentionally excludes records with anomalous inheritance wording or ambiguous source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/truename-binding-lesser-3442",
+          "role": "primary Tome of Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/truename-binding-3440": {
+      "name": "Truename Binding",
+      "sourceSha256": "c30b5932ad00d1f5841ee2496b86aa059d8d4111cd91ad66cc4326250a5aba3f",
+      "effectSummary": "Functions as lesser truename binding, including the personal-truename requirement, planar-binding trap and escape framework, and Truespeak-based service compulsion, but can call one elemental or outsider of CR 10 or less. XP cost: 200.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 116 intentionally excludes records with anomalous inheritance wording or ambiguous source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/truename-binding-3440",
+          "role": "primary Tome of Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ice-assassin-1279": {
+      "name": "Ice Assassin",
+      "sourceSha256": "12a1486de08737ec52541929b42fe0e46eda5cd3f93736b36f38f9687c5625d7",
+      "effectSummary": "Creates a living ice duplicate of an existing creature with the original's skills, abilities, and memories, but a compulsive drive to kill the original and the cold subtype. It continuously locates the original at your caster level, obeys you absolutely, and within 1 mile gives you a telepathic link, a scry-like view when you concentrate, and can share spells you cast on yourself. Beyond 1 mile it continues functioning but is outside your direct control. It cannot gain levels or improve abilities. Repair requires 1 day, a laboratory, and 100 gp per hit point. If reduced to 0 hp by nonfire damage it explodes in a 20-foot burst for 1d6 cold damage per two caster levels, Reflex half; fire destruction instead melts it. Its resemblance uses a Disguise check with +10 circumstance bonus. Material component: an ice statue containing a piece of the original plus 20,000 gp powdered diamond. XP cost: 5,000.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 116 intentionally excludes records with anomalous inheritance wording or ambiguous source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-assassin-1279",
+          "role": "primary Frostburn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/summon-desert-ally-ix-3145": {
+      "name": "Summon Desert Ally IX",
+      "sourceSha256": "3c76e5220f299fad7977734471c1cea5d6241e585fbe118d9c5ab7d80a8b2ad7",
+      "effectSummary": "Functions as summon desert ally I, summoning dustform creatures that appear where designated, act immediately, attack by default, can follow communicated directions, cannot summon or conjure other creatures or use teleportation or planar travel, and require a supporting environment. This 9th-level version summons one 9th-level creature, 1d3 8th-level creatures of the same kind, or 1d4+1 lower-level creatures of the same kind.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 116 intentionally excludes records with anomalous inheritance wording or ambiguous source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-desert-ally-ix-3145",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/snipers-eye-3327": {
+      "name": "Sniper's Eye",
+      "sourceSha256": "f8471fd690bbf7570d3c0ea292a592a81df17491e2788c9826752d6bcf13b1f0",
+      "effectSummary": "For 1 round per caster level, grants darkvision, extends ranged sneak-attack range to 60 feet, allows a ranged death attack within 30 feet, and grants +15 competence on Spot checks. The benefits are tied to the vantage point where the spell was cast: moving more than 5 feet from that point suppresses them until you return before the spell expires. Material component: a magnifying-glass lens.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 116 intentionally excludes records with anomalous inheritance wording or ambiguous source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/snipers-eye-3327",
+          "role": "primary Song and Silence: A Guidebook to Bards and Rogues catalog record and digest source"
+        }
+      ]
+    },
+    "spells/viscid-glob-4751": {
+      "name": "Viscid Glob",
+      "sourceSha256": "9fbed38d090f076e9e857d982c31ac060a82943c73f265cf792a5baf447ac845",
+      "effectSummary": "Launches a 5-foot-wide sticky glob with a ranged touch attack. A Medium-or-smaller creature struck and failing Reflex is stuck in place, can speak but is otherwise limited to purely mental actions, and can escape only with a full-round Strength or Escape Artist check against the spell DC. A Large-or-larger creature that fails the save cannot move from its space but can otherwise act normally. A missed glob can land in a nearby square. The glob remains sticky for 1 hour per caster level; creatures touching it must save or become stuck by secondary contact, but their escape DC is 5 lower. Material component: a tiny ball of spider silk.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 116 intentionally excludes records with anomalous inheritance wording or ambiguous source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/viscid-glob-4751",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "ebc6b28c2ee64b05aba129d10206980a758b6ead",
+    "workflowRun": 35709219950,
+    "validationRun": 35709224288,
+    "classificationArtifact": 10685888074,
+    "classificationArtifactSha256": "b68205dae4d730fbffc1b7d7220db9ffb4babec9712a1f5b246cd576356334dd",
+    "queueCountBefore": 245,
+    "referenceQueueCountBefore": 245,
+    "automaticReferenceEligibleCountBefore": 1
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 3-record batch 123 from the clean 185-record reference-dependent queue. Miracle, Telekinesis, and Guards and Wards are fully described in their primary source text and do not require omitted random tables or creature stat blocks.",
+  "entries": {
+    "spells/miracle-2633": {
+      "name": "Miracle",
+      "sourceSha256": "fae752f5919e3368001fd60761ab80de01375a685419c883448cca4c27d28453",
+      "effectSummary": "Requests divine intervention. Without an XP cost, it can duplicate any cleric spell of 8th level or lower, including domain spells; duplicate any other spell of 7th level or lower; undo harmful effects such as feeblemind or insanity; or create another effect of comparable power. A more powerful request, such as restoring fallen allies to battle, moving you and allies with gear to a precise location on another plane, or protecting a city from a major natural disaster, costs 5,000 XP and can be refused if contrary to the deity or alignment's nature. Duplicated spells keep their normal saving throws and spell resistance but use a 9th-level spell save DC. If the duplicated spell has an XP cost, that cost must be paid; if it has a material component costing more than 100 gp, that component must be supplied.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 123 is restricted to three source-complete Player's Handbook v.3.5 mechanics; table-dependent transformations, monster/stat-block inheritance, and source-damaged records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/miracle-2633",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/telekinesis-2883": {
+      "name": "Telekinesis",
+      "sourceSha256": "9f1d6a9d45912b4ada5748c2e44256f2e43868cd3a04a50c375912a9503ac19d",
+      "effectSummary": "Choose one of three modes. Sustained force moves an object weighing up to 25 pounds per caster level, maximum 375 pounds, up to 20 feet per round while you concentrate for up to 1 round per caster level; attended objects can resist with Will or spell resistance, and the force can perform simple one-handed manipulation. Combat maneuver lets you once per round make a bull rush, disarm, grapple including pin, or trip at range without provoking; use caster level in place of base attack bonus where applicable and your spellcasting ability modifier in place of Strength or Dexterity, failed attempts do not allow reactive counters, no save applies, and spell resistance does. Violent thrust is instantaneous and hurls up to one object or creature per caster level, maximum 15, all within 10 feet of each other, with total weight no more than 25 pounds per caster level, maximum 375 pounds. Make an attack roll for each thrown object or creature using base attack bonus plus your spellcasting ability modifier. Weapons deal normal damage without Strength; other objects deal from 1 point to 1d6 per 25 pounds depending on hardness and density. Creatures and attended possessions can negate being hurled with Will and spell resistance, and a creature hurled into a solid surface takes 1d6 damage.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 123 is restricted to three source-complete Player's Handbook v.3.5 mechanics; table-dependent transformations, monster/stat-block inheritance, and source-damaged records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/telekinesis-2883",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/guards-and-wards-2328": {
+      "name": "Guards and Wards",
+      "sourceSha256": "87e44ae9257de3d650b1a46244ddbf85b24af44a91fc8c11d76349861ea5bd90",
+      "effectSummary": "For 2 hours per caster level after a 30-minute casting, wards up to 200 square feet per caster level and up to 20 feet high, divided among stronghold areas as desired. Corridors fill with fog that limits vision beyond 5 feet; all doors are arcane locked; stairs fill with web strands that regrow 10 minutes after being destroyed; intersections and side passages impose a 50% chance that intruders believe they chose the opposite direction; and one door per caster level is hidden behind a silent-image wall. In addition, choose one extra package: dancing lights in four corridors with a repeating program, magic mouth in two places, stinking cloud in two places that reforms after 10 minutes if dispersed, gust of wind in one corridor or room, or a suggestion zone up to 5 feet square. Each component uses the saving throw and spell-resistance rules specified by the source. Dispel magic can remove one chosen component at a time, while Mordenkainen's Disjunction destroys the entire ward. Material components are incense, brimstone, oil, knotted string, and blood; focus is a small silver rod.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 123 is restricted to three source-complete Player's Handbook v.3.5 mechanics; table-dependent transformations, monster/stat-block inheritance, and source-damaged records remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/guards-and-wards-2328",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "0b74539ec3d5e7731a14bd3b2cfe8cb9d7c90919",
+    "workflowRun": 35712518815,
+    "validationRun": 35712522976,
+    "classificationArtifact": 10686819443,
+    "classificationArtifactSha256": "43cb9e4ab92ed8ceb89ed75c74d2b28f8fdc4e69ee672c699a335cb637516f3a",
+    "queueCountBefore": 185,
+    "referenceQueueCountBefore": 185,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-005-3",
+  "records": {
+    "wikidot5e:spell:green-flame-blade": {
+      "sourceDigest": "sha256:94f0a1847f872c90d9c463435c052327b5bd2008ce4bf8c3d4a2d0b76c443378",
+      "effectSummary": "Make a melee attack with the weapon used to cast the spell against a creature within 5 feet. On a hit, apply the weapon attack normally and you may make green fire leap to a different visible creature within 5 feet of the first target, dealing fire damage equal to your spellcasting ability modifier. At character level 5 the initial hit gains 1d8 fire and the second target takes 1d8 plus your modifier; both fire damage rolls increase by 1d8 at levels 11 and 17."
+    },
+    "wikidot5e:spell:guardian-of-faith": {
+      "sourceDigest": "sha256:52a03f370c210ea742064bb0006badf46f47d87ae19b35e505195f01f5c3456f",
+      "effectSummary": "Create a Large spectral guardian in a visible unoccupied space within 30 feet for up to 8 hours. A hostile creature that moves to a space within 10 feet of it for the first time on a turn makes a Dexterity save, taking 20 radiant damage on a failure or 10 on a success. The guardian disappears after dealing a total of 60 damage."
+    },
+    "wikidot5e:spell:guardian-of-nature": {
+      "sourceDigest": "sha256:89ff4c61e95ccfceb13ba5e84104f0f0fd89e605b009028e373e7f01d2101628",
+      "effectSummary": "Transform yourself for up to 1 minute as either a Primal Beast or Great Tree. Primal Beast gives +10 feet walking speed, 120-foot darkvision, advantage on Strength-based attack rolls, and +1d6 force damage on melee weapon hits. Great Tree gives 10 temporary hit points, advantage on Constitution saves and Dexterity- and Wisdom-based attack rolls, and makes ground within 15 feet of you difficult terrain for your enemies while you stand on the ground."
+    },
+    "wikidot5e:spell:guards-and-wards": {
+      "sourceDigest": "sha256:c8789ed4c8f59c90662675d4f248237b8d39117947e9803940b6b7a30cffcbd7",
+      "effectSummary": "Ward up to 2,500 square feet of contiguous floor space, up to 20 feet high, for 24 hours; designate creatures or passwords that ignore chosen effects. Warded corridors are heavily obscured by fog and branching passages have a 50% chance to make others believe they chose the opposite direction. Doors are arcane locked and up to ten can appear as plain wall sections via minor-illusion-like images. Stairs are filled with web that regrows 10 minutes after removal. Also choose one additional effect: programmed dancing lights in four corridors, magic mouth in two locations, stinking cloud in two locations that returns 10 minutes after dispersal, constant gust of wind in one corridor or room, or a suggestion in one 5-foot-square location. Dispel magic removes only the specific effect it successfully targets. Casting daily in the same structure for one year makes the ward permanent."
+    },
+    "wikidot5e:spell:guiding-bolt": {
+      "sourceDigest": "sha256:ba2fce31d37d393fb94a68507dac266e85ab3ed0c159756e75824d5f0a241636",
+      "effectSummary": "Make a ranged spell attack against one creature within 120 feet. On a hit it takes 4d6 radiant damage, and the next attack roll made against it before the end of your next turn has advantage. Each slot level above 1st adds 1d6 damage."
+    },
+    "wikidot5e:spell:guiding-hand-ua": {
+      "sourceDigest": "sha256:2fa2a00bee82503d5f27e96b23994e44ac6ae13b1bd0631bcaab6a3c59c4693b",
+      "effectSummary": "Create a Tiny incorporeal hand of light within 5 feet for up to 8 hours; it vanishes if you teleport or change planes. Name a major landmark on your plane that someone in history visited and mapped; if it appears on no existing map, the spell fails. Whenever you move toward the hand, it moves away at the same speed in the direction of the landmark while remaining 5 feet from you. If you stop following, it waits and beckons every 1d4 minutes."
+    },
+    "wikidot5e:spell:gust": {
+      "sourceDigest": "sha256:bbfc8f043310b479b657c337dc308750aca380b3c4c14e7305524088b3f7155f",
+      "effectSummary": "Create one air effect at a visible point within 30 feet: force a Medium-or-smaller creature to make a Strength save or be pushed up to 5 feet away from you; push one unattended object of 5 pounds or less up to 10 feet away without damaging force; or create a harmless air-based sensory effect such as rustling leaves or slamming shutters."
+    },
+    "wikidot5e:spell:gust-of-wind": {
+      "sourceDigest": "sha256:de31a91cdae28611d7928794806e7aa63c1ae1a5e33970014c2f8e43ae36db2b",
+      "effectSummary": "A 60-foot-long, 10-foot-wide line of strong wind blasts from you for up to 1 minute. A creature starting its turn in the line makes a Strength save or is pushed 15 feet away from you. Moving toward you through the line costs 2 feet per foot traveled. The wind disperses gas and vapor, extinguishes unprotected flames, and gives protected flames a 50% chance to go out. As a bonus action each turn, you can change the line's direction."
+    },
+    "wikidot5e:spell:hail-of-thorns": {
+      "sourceDigest": "sha256:518f38959e10cdff2208e9cd3cf6ba6d8ddbf620f93e75349c341d8f13c4e191",
+      "effectSummary": "The next time you hit with a ranged weapon attack before the spell ends, the attack also bursts into thorns. The target and every creature within 5 feet of it make Dexterity saves, taking 1d10 piercing damage on a failure or half on a success. Each slot level above 1st adds 1d10 damage, to a maximum of 6d10."
+    },
+    "wikidot5e:spell:hallow": {
+      "sourceDigest": "sha256:0f9f9a1d38292684201846e8db17f08c1bb67df0440f5ca219947bfd4ce63790",
+      "effectSummary": "Consecrate or desecrate an area up to a 60-foot radius until dispelled; the spell fails if it overlaps another hallow. By default, celestials, elementals, fey, fiends, and undead cannot enter, charm, frighten, or possess creatures there, and existing such charm, fright, or possession ends on entry; you may exempt chosen creature types. Also bind one extra effect, optionally restricted by creature category or allegiance; an affected creature can make a Charisma save when it first enters on a turn or starts there, ignoring the extra effect until it leaves on a success. Extra effects are: immunity to fear; magical darkness; magical daylight; resistance or vulnerability to one non-physical damage type; preventing interred corpses from becoming undead; blocking teleportation and extradimensional or planar travel; causing fear; total silence; or universal communication among affected creatures in the area."
+    }
+  }
+}

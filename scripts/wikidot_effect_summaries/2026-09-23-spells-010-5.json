@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-010-5",
+  "records": {
+    "wikidot5e:spell:tsunami": {
+      "sourceDigest": "sha256:af5a80aafe0c40a30a7cd11791415384a05b37d026c9c53fe61d6479425dc122",
+      "effectSummary": "Create a wall of water at a visible point, up to 300 feet long, 300 feet high, and 50 feet thick, for up to 6 rounds. When it appears, creatures in it make Strength saves, taking 6d10 bludgeoning damage on a failure or half on a success. At the start of each of your later turns, the wall and creatures in it move 50 feet away from you; Huge-or-smaller creatures inside or entered by the moving wall make Strength saves or take 5d10 bludgeoning damage, at most once per round. After each such turn the wall loses 50 feet of height and its later damage drops by 1d10; at 0 height the spell ends. A creature caught in the wall must succeed on a Strength (Athletics) check against your spell save DC to swim at all, and falls to the ground upon leaving the area."
+    },
+    "wikidot5e:spell:unearthly-chorus": {
+      "sourceDigest": "sha256:5ff8817a02e95d9ad2076a7b93475a79e633750feb916443aee4b3ff8d29ad07",
+      "effectSummary": "For up to 10 minutes, music fills a 30-foot radius around you, moves with you, spreads around corners, and can be heard 100 feet away. You have advantage on Charisma (Performance) checks. As a bonus action each turn, choose one creature within 30 feet that can see you and hear the music; it makes a Charisma save, automatically succeeding if you or your companions are attacking it. On a failure it becomes friendly to you while it can hear the music and for 1 hour afterward, and you have advantage on Charisma (Deception) and Charisma (Persuasion) checks against it."
+    },
+    "wikidot5e:spell:unseen-servant": {
+      "sourceDigest": "sha256:4dc2f4c26237c5fe55a4ccbe3d21784d317cd69b24fa0d637ced68b31a67b18d",
+      "effectSummary": "Create an invisible, mindless, shapeless Medium force in an unoccupied ground space within 60 feet for 1 hour. It has AC 10, 1 HP, Strength 2, and cannot attack. Once per turn as a bonus action, mentally command it to move up to 15 feet and interact with an object; it can perform simple servant tasks until finished, then waits. If a commanded task would move it more than 60 feet from you, or it reaches 0 HP, the spell ends."
+    },
+    "wikidot5e:spell:vampiric-touch": {
+      "sourceDigest": "sha256:7470333658408c6b5c913e7f65df9de8fcb2e83dc673ec7ba20b926532f4c021",
+      "effectSummary": "Make a melee spell attack against a creature in reach; on a hit it takes 3d6 necrotic damage and you regain HP equal to half the necrotic damage dealt. For up to 1 minute, you can repeat this attack as your action on each turn. Each slot level above 3rd adds 1d6 damage."
+    },
+    "wikidot5e:spell:vicious-mockery": {
+      "sourceDigest": "sha256:165d81e9a032a76774ace88b20eb389512c2641d24fa604932945ee9c1a48bf3",
+      "effectSummary": "One visible creature within 60 feet that can hear you makes a Wisdom save. On a failure it takes 1d4 psychic damage and has disadvantage on the next attack roll it makes before the end of its next turn. Damage becomes 2d4 at character level 5, 3d4 at 11, and 4d4 at 17."
+    },
+    "wikidot5e:spell:vitriolic-sphere": {
+      "sourceDigest": "sha256:d433c90318e84a03b0df608b3b747c4163b20df26987dde60fcb26984cafab5f",
+      "effectSummary": "Create a 20-foot-radius acid explosion centered within 150 feet. Creatures there make Dexterity saves. On a failure, a target takes 10d4 acid damage immediately and 5d4 acid damage at the end of its next turn; on a success it takes half the initial damage and no delayed damage. Each slot level above 4th adds 2d4 to the initial damage."
+    },
+    "wikidot5e:spell:vortex-warp": {
+      "sourceDigest": "sha256:fd3e8243e719411d9127a8fc483b70f400121122e89db9083fa92f5011ca5b84",
+      "effectSummary": "One visible creature within 90 feet makes a Constitution save, which it may choose to fail. On a failure, teleport it to a visible unoccupied space within range that is on a surface or in liquid able to support it without squeezing. Each slot level above 2nd increases the spell's range by 30 feet."
+    },
+    "wikidot5e:spell:wall-of-fire": {
+      "sourceDigest": "sha256:b8a2b06fef58ba29e9377a89eeb65506c3eb8eed650bec4842afe954d772bad7",
+      "effectSummary": "Create an opaque wall of fire on a solid surface within 120 feet for up to 1 minute, either up to 60 feet long, 20 feet high, and 1 foot thick or a ring up to 20 feet in diameter with the same height and thickness. Creatures in the wall when it appears make Dexterity saves for 5d8 fire damage, half on success. Choose one side when casting; a creature ending its turn within 10 feet of that side or inside the wall, or entering the wall for the first time on a turn, takes 5d8 fire damage. The other side deals no damage. Each slot level above 4th adds 1d8 damage."
+    },
+    "wikidot5e:spell:wall-of-force": {
+      "sourceDigest": "sha256:a68644679cfaac7d95f61feb2db98de7c153013640b6b5ae92ca00e7a8f1b18b",
+      "effectSummary": "Create an invisible 1/4-inch-thick force barrier within 120 feet for up to 10 minutes as a hemisphere or sphere up to 10-foot radius, or as ten contiguous 10-foot-square panels in any orientation. A creature whose space is cut by the wall is pushed to a side you choose. Nothing physical can pass through; the wall is immune to damage, cannot be dispelled by dispel magic, extends into the Ethereal Plane to block ethereal travel, and is destroyed instantly by disintegrate."
+    },
+    "wikidot5e:spell:wall-of-ice": {
+      "sourceDigest": "sha256:4b685752bf1f4f845aa2af542361afa2529c4550503a2ae0281d81ba9724d245",
+      "effectSummary": "Create a 1-foot-thick ice wall on a solid surface within 120 feet for up to 10 minutes, as a hemisphere or sphere up to 10-foot radius or ten contiguous 10-foot-square panels. A creature whose space is cut by the wall is pushed to one side and makes a Dexterity save, taking 10d6 cold damage on a failure or half on a success. Each 10-foot section has AC 12, 30 HP, and vulnerability to fire. Destroying a section leaves frigid air; a creature moving through that space for the first time on a turn makes a Constitution save for 5d6 cold damage, half on success. Each slot level above 6th adds 2d6 to the initial damage and 1d6 to the frigid-air damage."
+    }
+  }
+}

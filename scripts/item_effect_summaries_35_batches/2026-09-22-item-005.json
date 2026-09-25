@@ -1,0 +1,614 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record item effect batch 005, bringing the ordinary digest-locked review corpus to 250 records. Source-damaged/table/inheritance cases remain deferred unless inherited mechanics were already independently verified.",
+  "reviewCheckpoint": {
+    "head": "ddde9a197b41fc4b298ae21c865219150cd6ef72",
+    "run": 35792242258,
+    "artifact": 10722767066,
+    "artifactSha256": "634a9f595aca6ec72cbff10badbfe35fd3dce3814f025276e1e5ae54eca182e8",
+    "remainingBefore": 1003,
+    "errors": []
+  },
+  "entries": {
+    "items/gauntlet-of-disintegration": {
+      "name": "Gauntlet of Disintegration",
+      "sourceSha256": "8f219908058ef8ea837fa32e1dbe0b7d132eda9ab4cd99709a897ad3f4ebdec2",
+      "effectSummary": "Once per day, the gauntlet can affect a target as disintegrate with save DC 19. The wearer also gains a +2 luck bonus on saving throws against disintegration spells or effects.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gauntlet-of-disintegration",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/seeing-660": {
+      "name": "Seeing",
+      "sourceSha256": "1bf350820f429b3b732c33df4df25534ce1c843edc080836b9c728524aaa496c",
+      "effectSummary": "While wearing this armor, enemies flanking you gain only +1 on their attack rolls instead of +2, although you are still considered flanked for abilities such as sneak attack. You gain +1 enhancement on Spot checks and take -2 on saves against gaze attacks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/seeing-660",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/moonstone-mask": {
+      "name": "Moonstone Mask",
+      "sourceSha256": "871ce3927a3903dad1706db11db7279eebb1eeb9db080df07980b131f3ddb4bb",
+      "effectSummary": "The wearer gains darkvision and a +5 circumstance bonus on Listen and Spot checks. The mask occupies the same magic-item slot as a pair of lenses.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/moonstone-mask",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sai-563": {
+      "name": "Sai",
+      "sourceSha256": "c970105437e595d748425f060d14a7a74e1c28a6b860207cef9e288cc3034b44",
+      "effectSummary": "A sai grants +4 on opposed attack rolls to disarm, including the roll to avoid being disarmed after a failed attempt. It is also a special monk weapon.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sai-563",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/helm-hunter-199": {
+      "name": "Helm of the Hunter",
+      "sourceSha256": "ba73ab949b6d093ebe12b9e87fc316f225597a270078577e2a9433e1b9744303",
+      "effectSummary": "The helm continuously grants +5 competence on Spot checks and the Far Shot feat. Once per day it can also grant low-light vision and darkvision 60 feet for 4 hours.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/helm-hunter-199",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/winged-mask": {
+      "name": "Winged Mask",
+      "sourceSha256": "791e12bfcae62da852549ffe6f8a60915be735458637e9511fbc87e00877d8ba",
+      "effectSummary": "The wearer can use fly at will; while flying this way, the wearer glows with white light as the light spell. The mask occupies the same magic-item slot as lenses.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/winged-mask",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/aporter-11": {
+      "name": "Aporter",
+      "sourceSha256": "3cb9bcdf0fc0e603032aa61f208e28d3fb74a52f427ca70c1dc5840243f57546",
+      "effectSummary": "Twice per day, activating aporter armor or a shield transports the wearer and their equipment to a visualized or specified point within 800 feet, as dimension door.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/aporter-11",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/hook-of-dissolution": {
+      "name": "Hook of Dissolution",
+      "sourceSha256": "2d2f406859b5aa99c408cef377153c4a58887778a6b1e6bfe50387d56b4dbf25",
+      "effectSummary": "Up to three times per day, thrusting the hook into a helpless creature or organic object causes it to disintegrate over 3 rounds; a creature can negate the effect with a DC 22 Fortitude save.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/hook-of-dissolution",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/scabbard-of-keen-edges": {
+      "name": "Scabbard of Keen Edges",
+      "sourceSha256": "2122ee34ebaab905070aa3e6696cdcfe17f2871d91b678e29ae0f7ae56f2bcc4",
+      "effectSummary": "The scabbard resizes to hold a knife, dagger, sword, or similar blade through greatsword size. Up to three times per day, a command word casts keen edge on a blade placed inside.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/scabbard-of-keen-edges",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/roaring-48": {
+      "name": "Roaring",
+      "sourceSha256": "1216808c851da45a28c0f3e166a9dcd81fc2c17fe0a0e708d64090dea9f98508",
+      "effectSummary": "An evil creature hit by this weapon must make a DC 22 Will save or become shaken. On a critical hit it also deals +2d6 sonic damage. Roaring and thundering cannot be placed on the same weapon.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/roaring-48",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/testing-chalice": {
+      "name": "Testing Chalice",
+      "sourceSha256": "5fda1586a02b22920b720e7e1223cfb8bacab6a7c06afd78f8b8add8e7a9b86c",
+      "effectSummary": "The chalice immediately identifies properties of a liquid poured into it; its color changes with the liquid and its opacity changes with the liquid's strength.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/testing-chalice",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/crystal-ball-true-seeing-303": {
+      "name": "Crystal ball with True Seeing",
+      "sourceSha256": "2a52cf0f5887d18996d0b2b8d66f442ce74588d6a9da845d2055f1c55a235533",
+      "effectSummary": "Functions as a crystal ball for scrying across great distances or planes, with Will DC 16 to resist, and also allows true seeing to be used through the crystal ball on the viewed target.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/crystal-ball-true-seeing-303",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/quicksilver-cloak": {
+      "name": "Quicksilver Cloak",
+      "sourceSha256": "a7d374810409c13da162eaefd009bc63b2174ad349d438c8df079296879bb9ab",
+      "effectSummary": "The wearer is immune to paralysis and gains a +10 competence bonus on Escape Artist checks.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/quicksilver-cloak",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gauntlet-of-rust": {
+      "name": "Gauntlet of Rust",
+      "sourceSha256": "04e7d3fc78dbde44479c35555abc0e276ab94ec2a39425562beb23eced8b5ab0",
+      "effectSummary": "Once per day, the gauntlet can affect an object as rusting grasp. It also completely protects the wearer and the wearer's gear from magical and nonmagical rust, including a rust monster's attack.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gauntlet-of-rust",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gloves-of-dexterity": {
+      "name": "Gloves of Dexterity",
+      "sourceSha256": "d9ec1946cff48358b1c77ce6c426e001a29ad0ba7bdb99e67b2f03fc6123abaa",
+      "effectSummary": "When both gloves are worn, they grant a +2, +4, or +6 enhancement bonus to Dexterity, depending on the version.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gloves-of-dexterity",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/quiver-of-lies": {
+      "name": "Quiver of Lies",
+      "sourceSha256": "e54428cad33a6c7cfb86294827c5b7177507c19e67aecb7977685d9260ccb102",
+      "effectSummary": "If the wearer is holding a bow or crossbow and speaks a lie, the quiver creates one appropriate arrow or bolt in the wearer's hand. The created ammunition lasts for 10 rounds.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/quiver-of-lies",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/sandals-of-the-shifting-sands": {
+      "name": "Sandals of the Shifting Sands",
+      "sourceSha256": "124208058928499a2a3bf44fe8b9f20c68745aec6b3db835771a28a218491766",
+      "effectSummary": "The wearer moves across sand and sand crust at normal speed without breaking through the crust or leaving tracks, and is protected from environmental heat as by endure elements.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/sandals-of-the-shifting-sands",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gloves-of-the-balanced-hands": {
+      "name": "Gloves of the Balanced Hands",
+      "sourceSha256": "e84029a0aa312dbe865cc96d6f1f4a2c217918b2b05a239887b401cee8e56f1a",
+      "effectSummary": "The wearer gains the benefit of Two-Weapon Fighting; if the wearer already has that feat, the gloves instead provide the extra off-hand attack of Improved Two-Weapon Fighting.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gloves-of-the-balanced-hands",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/seeking-157": {
+      "name": "Seeking",
+      "sourceSha256": "0aff36784819c12448cf932502b5e5669f12d76367721010eec666d8f64860db",
+      "effectSummary": "Only ranged weapons can have this property. A seeking weapon ignores miss chances such as concealment, but the wielder must still aim at the correct square; shots aimed at empty space do not home in on nearby invisible creatures.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/seeking-157",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ankh-of-ascension": {
+      "name": "Ankh of Ascension",
+      "sourceSha256": "ebc18f7f19ba564abbb12cd909c5905ceae731076aa8675935ae3a991a6070c6",
+      "effectSummary": "The bearer casts divine spells at +4 caster level for range, duration, and other numeric spell effects. This does not improve checks to overcome spell resistance and does not otherwise raise the bearer's effective class level.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ankh-of-ascension",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/mirror-of-secrets-revealed": {
+      "name": "Mirror of Secrets Revealed",
+      "sourceSha256": "177b0a805e1d5f9fc69dd58e3786fcc0ef499c6b79935fc75a216fc955dc9379",
+      "effectSummary": "The wielder can use analyze dweomer once per day and true seeing twice per day; both abilities function at caster level 11.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/mirror-of-secrets-revealed",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/vestment-druids": {
+      "name": "Vestment, Druid's",
+      "sourceSha256": "d1037c6faf68c867151b851c9c13c536b1feb1d37be02a232e57e4c64c00e9b3",
+      "effectSummary": "A druid who has wild shape can use wild shape one additional time per day while wearing this vestment.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/vestment-druids",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/nithanalors-harp": {
+      "name": "Nithanalor's Harp",
+      "sourceSha256": "e38d103d105ec0ac14560718aed744b23fb71aaa00cb8da235917e0b0665c7a6",
+      "effectSummary": "This masterwork harp grants +2 circumstance on Perform (harp) checks. Once per day, a character with at least 1 rank in Perform can play it to gain stoneskin.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/nithanalors-harp",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/crystal-ball-see-invisibility-301": {
+      "name": "Crystal ball with See Invisibility",
+      "sourceSha256": "292c5b965a0ae932057cff50cf5336679cc11de78cb2af3d0c20bc12baca6e84",
+      "effectSummary": "Functions as a crystal ball for scrying across great distances or planes, with Will DC 16 to resist, and also allows see invisibility to be used through the crystal ball on the viewed target.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/crystal-ball-see-invisibility-301",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/manifester-653": {
+      "name": "Manifester",
+      "sourceSha256": "a578ad09f2ebdb076834e16af1f09418aa62f9d6b2521824d8808e96ce6c536f",
+      "effectSummary": "Once per day, this shield provides 3 power points that must all be spent on one manifestation of a power the wearer knows; they cannot be combined with power points from another source for that manifestation.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/manifester-653",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/manifester-670": {
+      "name": "Manifester",
+      "sourceSha256": "c96f1612535cc6fce720cf4cf6b9a52ce37fcd9f677d51509cc480fc44ff7b91",
+      "effectSummary": "Once per day, this weapon provides 5 power points that must all be spent on one manifestation of a power the wielder knows; they cannot be combined with power points from another source for that manifestation.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/manifester-670",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/pegasus-helm-of-kloeth-ironstar": {
+      "name": "Pegasus Helm of Kloeth Ironstar",
+      "sourceSha256": "6eed99450d99be0611c8e92083db1f6ba1e71d0bda7f696d1c4f288e00cc4aa8",
+      "effectSummary": "Twice per day by command word, the helm summons a celestial pegasus to serve as a mount or aid in battle for up to 3 hours; the wearer can dismiss it earlier.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/pegasus-helm-of-kloeth-ironstar",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/arrow-biting-5": {
+      "name": "Arrow of Biting",
+      "sourceSha256": "53deef8ec996eec8234861e9c550daaab45e30a0613372dcf8ed2f36d0dab885",
+      "effectSummary": "This +1 arrow poisons a creature it hits: injury poison, Fortitude DC 16, 1d6 Constitution initial and secondary damage. It can also be made as a crossbow bolt for the same price.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/arrow-biting-5",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-of-thorns": {
+      "name": "Cloak of Thorns",
+      "sourceSha256": "cbb158c68adb86ba256ab907c95800e4387f5d2251626f572cf7d0301c03ac00",
+      "effectSummary": "The wearer gains +2 natural armor. A creature that hits the wearer with a natural attack or melee weapon deals normal damage but also takes 1d4+3 piercing damage.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-of-thorns",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/jug-of-whirlwinds": {
+      "name": "Jug of Whirlwinds",
+      "sourceSha256": "aa9b31078afc6874973560bf0cea5ca1c0b4b0135ba6a3d63cbf4c203f0e6895",
+      "effectSummary": "Once per day, a command word and opening the jug releases a whirlwind as the spell. The user directs it for up to 15 rounds and can dismiss it early.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/jug-of-whirlwinds",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/medal-stead-fast-honor-204": {
+      "name": "Medal of stead fast honor",
+      "sourceSha256": "c5c98e85a38792164d0ee98f0487f25d8098e45256cad72dea7d6d73fbda8a84",
+      "effectSummary": "When knocked prone, the wearer can activate the medal to stand immediately in the same space. It works once per day, or can be activated again by expending a daily use of knight's challenge if the wearer has that class feature.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/medal-stead-fast-honor-204",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ring-of-minor-psionic-energy-763": {
+      "name": "Ring of Minor Psionic Energy",
+      "sourceSha256": "142469c5e4e87a284cdd3082ce390b3a76ca74be3cfc7c15cab9b535c470cac0",
+      "effectSummary": "On activation, the ring manifests one chosen power from acid splash, chilling mist, deafening burst, electric jolt, or finger of fire, with the wearer selecting and targeting the power normally.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-of-minor-psionic-energy-763",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/stone-of-alarm": {
+      "name": "Stone of Alarm",
+      "sourceSha256": "2ad59c3c9a6fb6e5a8db422e2712b1559efdb561637f28822f2594349b7852d2",
+      "effectSummary": "A command word affixes the stone to an object. If someone touches that object without first speaking the same command word, the stone screeches for 1 hour and can be heard up to one-quarter mile away, barring intervening barriers.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/stone-of-alarm",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/suppression-681": {
+      "name": "Suppression",
+      "sourceSha256": "a88814774c56222557690dd919cf92b78613aef674d41714f6aea14e0f75211a",
+      "effectSummary": "A struck creature or object is subject to targeted dispel psionics; the wielder makes a power check of 1d20 + 5 + manifester level, maximum +15, against DC 11 + the target power's manifester level. Ranged weapons transfer this ability to ammunition up to three times per day.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/suppression-681",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-of-light": {
+      "name": "Amulet of Light",
+      "sourceSha256": "1c6b3bb48b0e38e192842839edf985fce4b6b3604db542bb74a4fc3c0c2b41f3",
+      "effectSummary": "The pendant continually radiates a consecrate effect.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-of-light",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gem-of-psychic-poison": {
+      "name": "Gem of Psychic Poison",
+      "sourceSha256": "0ada9494eff1fbaea53748c106d220ebb0a38e6d3dd15855d25b888a8b698024",
+      "effectSummary": "While a creature possesses the gem, anyone targeting that creature with a mind-affecting or divination spell is exposed to a psychic poison that deals 1d6 Intelligence damage as both initial and secondary damage.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gem-of-psychic-poison",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/soulbreaker-679": {
+      "name": "Soulbreaker",
+      "sourceSha256": "c7b52adef27aaf47a1d07b645175442590b99561145319d6ab1443799f9368c0",
+      "effectSummary": "On a successful critical hit, the weapon gives the target one negative level. One day later, each unremoved negative level requires a DC 18 Fortitude save or becomes permanent level loss.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/soulbreaker-679",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/necklace-of-copper-dragon-scales": {
+      "name": "Necklace of Copper Dragon Scales",
+      "sourceSha256": "c551638c5673e5edf74ae695f8bb28ba028facaf0d466ec3295c3e6779cf1ae1",
+      "effectSummary": "The necklace has six usable scales. Touching one and speaking the command word grants endure elements against acid for 24 hours; after all six scales are used, the necklace loses its magic.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/necklace-of-copper-dragon-scales",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/drums-panic-263": {
+      "name": "Drums of Panic",
+      "sourceSha256": "1601be10118dc4dd72c063a618abdcf80c290e135b42927246a7af6cdcd160b5",
+      "effectSummary": "Once per day, sounding both drums affects creatures within 120 feet as fear, Will DC 16 partial, except creatures within a 20-foot-radius safe zone around the drums.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/drums-panic-263",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/third-eye-of-third-eye-774": {
+      "name": "Third Eye of Third Eye",
+      "sourceSha256": "0b7c9794a77fcf425e65e2d96bbdd65ad16bc1af36eb5bde65244eafe8668a8f",
+      "effectSummary": "On activation, the crystal is absorbed into the skin and becomes a functioning eye, granting the third eye power for 1 hour. It uses the headband/helmet slot and does not interfere with a standard third-eye item.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/third-eye-of-third-eye-774",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-aquatic-salvation-510": {
+      "name": "Amulet of Aquatic Salvation",
+      "sourceSha256": "61cd83336ea33687d3aa1093efbecdbe9008ebbfb05ec60d9ca7526c0329f40a",
+      "effectSummary": "Once per day, activation grants water breathing for 5 rounds.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-aquatic-salvation-510",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ynloeths-bracer": {
+      "name": "Ynloeth's Bracer",
+      "sourceSha256": "15d6a3d36638b3f38000d3c7536f288f7ca2ef15e8bd871b9d88036d1349be2b",
+      "effectSummary": "The single bracer functions as bracers of armor +8, granting a +8 armor bonus, and also makes its wearer immune to the death effect of the shattering swords of Coronal Tuloeth.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ynloeths-bracer",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/everlasting-feedbag-397": {
+      "name": "Everlasting Feedbag",
+      "sourceSha256": "95938fd0d0c02c74baac7eddd7738871404fd87aa0584122de593b3f680a5ce7",
+      "effectSummary": "Once per day when placed around the muzzle of a horse, donkey, or other equine, the bag fills with suitable feed and continuously replenishes it until removed; any uneaten feed then disappears.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/everlasting-feedbag-397",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/weightless-scabbard": {
+      "name": "Weightless Scabbard",
+      "sourceSha256": "9d1a2aead938517d84af52cd5d3d0b0c764771a1dc165f0de602c90898dc00cb",
+      "effectSummary": "The scabbard resizes to fit any Tiny through Large bladed weapon of the listed sword/dagger families. A weapon inside weighs zero, though the scabbard itself keeps its normal weight.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/weightless-scabbard",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/glove-of-venom": {
+      "name": "Glove of Venom",
+      "sourceSha256": "70be033d1bb0bd11e37c4a5b04106e74d9fc22381de1c4e8f4b8908c30a62252",
+      "effectSummary": "Up to three times per day, a command word envenoms the glove. A successful touch attack then delivers poison, Fortitude DC 16, dealing 1d10 Constitution damage as both initial and secondary damage.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/glove-of-venom",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/magebane-manacles": {
+      "name": "Magebane Manacles",
+      "sourceSha256": "52ef68ee88fdeb7ec452e1c1cd358c2a8d0832e7d00a2fffcde174e190bfc25e",
+      "effectSummary": "A creature locked in these masterwork manacles is surrounded by an antimagic field that also encompasses magic items the captive carries.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/magebane-manacles",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/oracle-beads": {
+      "name": "Oracle Beads",
+      "sourceSha256": "014fc32122f0740bd994cc672d5f7b64f1a1c90fb787adab5cfa6212ed99640f",
+      "effectSummary": "The wearer gains +5 on Will saves against scrying and can cast divination once per day; a wearer able to cast divine spells can use divination twice per day instead.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/oracle-beads",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/potion-of-altered-senses-761": {
+      "name": "Potion of Altered Senses",
+      "sourceSha256": "49792585d064aaeab7c39eaff7c80f826382979f230fa90c6fb9e313ec8f24e1",
+      "effectSummary": "Once activated and poured onto food or drink, the potion changes its taste and smell for anyone who consumes it as alter smell/taste. The positive or negative alteration is fixed when brewed, lasts 3 hours after activation, and the potion is single-use.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/potion-of-altered-senses-761",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/skull-of-fear": {
+      "name": "Skull of Fear",
+      "sourceSha256": "3a44d4c294037ae31321f099c949a9e665b6415db72dce4e41684582f2a8deb9",
+      "effectSummary": "The mounted skull creates a controllable 10-foot fear aura. A creature entering the aura is affected as fear unless it succeeds on a DC 16 Will save; the wearer or wielder can raise or lower the aura by command word.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/skull-of-fear",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/psychokinetic-677": {
+      "name": "Psychokinetic",
+      "sourceSha256": "3e59c5193f5dc20c99bb21165c9b934170ebec62e3e74841244d623bc39f570d",
+      "effectSummary": "On command, the weapon deals +1d4 ectoplasmic damage on successful hits; this extra damage is not reduced by damage reduction. Bows, crossbows, and slings transfer the property to their ammunition.",
+      "notes": "Manually reviewed against the verified remaining item-effect queue after batch 004 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/psychokinetic-677",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    }
+  }
+}

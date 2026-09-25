@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-010-4",
+  "records": {
+    "wikidot5e:spell:tidal-wave": {
+      "sourceDigest": "sha256:da26112ee1b38e352617a363cdd3af43cc49b95ccad6704862e124424c000f76",
+      "effectSummary": "Conjure a wave occupying an area up to 30 feet long, 10 feet wide, and 10 feet tall within 120 feet. Creatures there make Dexterity saves, taking 4d8 bludgeoning damage and falling prone on a failure, or half damage without falling prone on a success. The water then spreads across the ground and extinguishes unprotected flames in the area and within 30 feet of it."
+    },
+    "wikidot5e:spell:time-ravage": {
+      "sourceDigest": "sha256:80eb204705d1f742a096f0d4f5bb1d8ca1b03a06215587de0f64d77e84e607db",
+      "effectSummary": "One visible creature within 90 feet makes a Constitution save, taking 10d12 necrotic damage on a failure or half on a success. On a failed save it also rapidly ages until it has only 30 days left before dying of old age; while aged it has disadvantage on attack rolls, ability checks, and saving throws, and its walking speed is halved. Only wish or greater restoration cast with a 9th-level slot can end the aging effects and restore its prior age."
+    },
+    "wikidot5e:spell:time-stop": {
+      "sourceDigest": "sha256:1e4261bf0d6c99aa71265b660574c6618b5dbec627ed3669c2bb81c654066428",
+      "effectSummary": "Stop time for everyone but yourself and take 1d4+1 turns in succession. The spell ends early if an action you take or an effect you create during those turns affects another creature or an object worn or carried by another creature, or if you move more than 1,000 feet from where you cast the spell."
+    },
+    "wikidot5e:spell:tiny-servant": {
+      "sourceDigest": "sha256:00556800382613906796367462ab2e828570ad071996b18f042a733388e1afb0",
+      "effectSummary": "Animate one Tiny nonmagical unattached, unattended object for 8 hours as a Tiny Construct under your control. As a bonus action while it is within 120 feet, mentally command it; multiple servants can receive the same command together. Without commands it only defends itself, and a command persists until complete. At 0 HP it reverts to the original object and excess damage carries over. Tiny Servant has AC 15, 10 HP, speed 30 ft. and climb 30 ft.; Str 4, Dex 16, Con 10, Int 2, Wis 10, Cha 1; immunity to poison and psychic damage and to blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, and poisoned; blindsight 60 ft. and blindness beyond it; and a Slam at +5 to hit for 1d4+3 bludgeoning. Each slot level above 3rd animates two additional objects."
+    },
+    "wikidot5e:spell:toll-the-dead": {
+      "sourceDigest": "sha256:d752ce184391dcb9156ddcd2ca5b8ad328bd24522821d144592bf5fdfbe85a2c",
+      "effectSummary": "One visible creature within 60 feet makes a Wisdom save. On a failure it takes 1d8 necrotic damage, or 1d12 if it is missing any HP. The damage becomes 2 dice at character level 5, 3 dice at 11, and 4 dice at 17."
+    },
+    "wikidot5e:spell:transmute-rock": {
+      "sourceDigest": "sha256:64d222cfed9ecc8aebc20afd214e299470dc833e3e8e0def954ecb63f900f4e2",
+      "effectSummary": "Choose a visible area of stone or mud fitting within a 40-foot cube and transform it until dispelled. Rock to Mud: nonmagical rock becomes deep flowing mud; each foot of movement costs 4 feet, and creatures on the ground when cast, first entering on a turn, or ending a turn there make Strength saves or become restrained until using an action to pull free. If cast on a ceiling, the mud falls; creatures beneath make Dexterity saves for 4d8 bludgeoning damage, half on success. Mud to Rock: nonmagical mud or quicksand up to 10 feet deep becomes soft stone; creatures in it make Dexterity saves, becoming restrained on a failure or being shunted safely to the surface on a success. A restrained creature can use an action to escape with a DC 20 Strength check or by dealing 25 damage to the surrounding rock."
+    },
+    "wikidot5e:spell:transport-via-plants": {
+      "sourceDigest": "sha256:5be2a7ebbb7aa0e7d8f99d00d64558090c062e56574c44dd5733a6e029790927",
+      "effectSummary": "For 1 round, link a Large-or-larger inanimate plant within 10 feet to another plant on the same plane that you have previously seen or touched. Any creature can spend 5 feet of movement to step into the first plant and emerge from the destination plant."
+    },
+    "wikidot5e:spell:tree-stride": {
+      "sourceDigest": "sha256:a6d1826301cb8143343e144e1a1dda32012deb2eb63abcd373d88ef9f4872f03",
+      "effectSummary": "For up to 1 minute, spend 5 feet of movement to enter a living tree at least your size and instantly learn the location of all same-kind trees within 500 feet. As part of that movement, either step out of the same tree or emerge from one of those trees, spending another 5 feet of movement and appearing within 5 feet of it. If no movement remains, you appear within 5 feet of the tree you entered. You can use this transportation once per round and must end each turn outside a tree."
+    },
+    "wikidot5e:spell:true-polymorph": {
+      "sourceDigest": "sha256:e9dfd760374f3ed85e6dd30dd650d32cd6202ce6a5d3cb1607ef77b0d9196259",
+      "effectSummary": "Transform one visible creature with more than 0 HP or one unattended nonmagical object within 30 feet into another creature, a nonmagical object, or a creature respectively. Shapechangers are unaffected; an unwilling creature can make a Wisdom save. Creature to Creature: the new form's CR cannot exceed the target's CR or level; its game statistics, including mental abilities, become the new form's while alignment and personality remain. It uses the form's HP, reverts on 0 HP with excess damage carrying over, is limited by the form's capabilities, and its gear melds and cannot be used. Object to Creature: choose a creature no larger than the object and CR 9 or lower; it is friendly and follows your directions while the spell remains temporary, but if made permanent you no longer control it. Creature to Object: the target and its gear become an object no larger than its original size and it has no memory of time spent transformed. The transformation lasts up to 1 hour and becomes permanent if you maintain concentration for the full duration."
+    },
+    "wikidot5e:spell:true-resurrection": {
+      "sourceDigest": "sha256:5b91ba0fc96cb04b56d6e5e4debd2517bebe32506189d99b26d11fa6c42b56cc",
+      "effectSummary": "After a 1-hour casting, touch a creature dead no more than 200 years that did not die of old age. If its soul is free and willing, return it to life with full HP, close all wounds, neutralize poison, cure all diseases, remove curses present at death, replace missing or damaged organs and limbs, and restore an undead creature to its non-undead form. If no body remains, the spell creates a new one and the creature appears in an unoccupied space within 10 feet."
+    }
+  }
+}

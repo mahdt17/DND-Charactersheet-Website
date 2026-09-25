@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5 spell summaries resolving two Monster Manual/core-rule repair-lane dependencies; clean batch 056.",
+  "entries": {
+    "spells/megalodon-empowerment-3362": {
+      "name": "Megalodon Empowerment",
+      "sourceSha256": "7312b79254278c264de891a50a8380ed1372212ffb7b8c32ef4ebcb72ce19235",
+      "effectSummary": "You begin in the Form of the Hunter for up to 1 hour per caster level. You gain scent, a +10 racial bonus on Survival checks to track by scent, +10 feet to an existing swim speed or a swim speed equal to your land speed if you had none, and the ability to breathe water. As a standard action you can irreversibly switch this casting to the Form of the Killer; its remaining duration becomes 1 round per caster level. In Killer form you increase by one size category and apply the restored Monster Manual size-change adjustments below. You keep the Hunter scent and swim benefits, and any creature striking you with an unarmed or natural attack must make a Reflex save or take 1d4 damage. You gain one bite and two claw natural attacks with base damage for your new size as shown below; the spell grants Multiattack, so secondary natural attacks take a -2 penalty instead of -5. Your base attack bonus becomes equal to your character level, you gain +4 natural armor in addition to any natural armor from the size increase, and you gain a +3 competence bonus on Fortitude and Reflex saves. You cannot cast spells in Killer form but can still use spell-like abilities. If you have wild shape, you can assume animal forms one size category larger than normally allowed. Once you enter Killer form you cannot return to Hunter form without recasting the spell. The material component is a potion of water breathing and three teeth from a shark of at least Large size.",
+      "tables": [
+        [
+          [
+            "Old Size",
+            "New Size",
+            "Str",
+            "Dex",
+            "Con",
+            "Natural Armor",
+            "AC/Attack"
+          ],
+          [
+            "Fine",
+            "Diminutive",
+            "Same",
+            "-2",
+            "Same",
+            "Same",
+            "-4"
+          ],
+          [
+            "Diminutive",
+            "Tiny",
+            "+2",
+            "-2",
+            "Same",
+            "Same",
+            "-2"
+          ],
+          [
+            "Tiny",
+            "Small",
+            "+4",
+            "-2",
+            "Same",
+            "Same",
+            "-1"
+          ],
+          [
+            "Small",
+            "Medium",
+            "+4",
+            "-2",
+            "+2",
+            "Same",
+            "-1"
+          ],
+          [
+            "Medium",
+            "Large",
+            "+8",
+            "-2",
+            "+4",
+            "+2",
+            "-1"
+          ],
+          [
+            "Large",
+            "Huge",
+            "+8",
+            "-2",
+            "+4",
+            "+3",
+            "-1"
+          ],
+          [
+            "Huge",
+            "Gargantuan",
+            "+8",
+            "Same",
+            "+4",
+            "+4",
+            "-2"
+          ],
+          [
+            "Gargantuan",
+            "Colossal",
+            "+8",
+            "Same",
+            "+4",
+            "+5",
+            "-4"
+          ]
+        ],
+        [
+          [
+            "Size",
+            "Bite",
+            "Claw"
+          ],
+          [
+            "Fine",
+            "1",
+            "—"
+          ],
+          [
+            "Diminutive",
+            "1d2",
+            "1"
+          ],
+          [
+            "Tiny",
+            "1d3",
+            "1d2"
+          ],
+          [
+            "Small",
+            "1d4",
+            "1d3"
+          ],
+          [
+            "Medium",
+            "1d6",
+            "1d4"
+          ],
+          [
+            "Large",
+            "1d8",
+            "1d6"
+          ],
+          [
+            "Huge",
+            "2d6",
+            "1d8"
+          ],
+          [
+            "Gargantuan",
+            "2d8",
+            "2d6"
+          ],
+          [
+            "Colossal",
+            "4d6",
+            "2d8"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to Stormwrack. The Medium-caster example becomes Large and therefore has bite 1d8 and two claws 1d6, matching the source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/megalodon-empowerment-3362",
+          "role": "primary Stormwrack record; source is mechanically complete despite an unmatched parenthesis and delegated Monster Manual rules"
+        },
+        {
+          "url": "https://dndtools.net/spells/stormwrack--87/megalodon-empowerment--3362/",
+          "role": "matching Stormwrack rendering used to verify Hunter/Killer transitions, bonuses, attacks, wild shape and material component"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/improvingMonsters.htm",
+          "role": "3.5 SRD size-increase adjustments expanded from the Monster Manual reference"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/monsterFeats.htm",
+          "role": "3.5 SRD Multiattack benefit expanded so the granted feat is self-contained"
+        },
+        {
+          "url": "https://anyflip.com/myubd/fiou/basic/251-300",
+          "role": "Monster Manual 3.5 natural-attack-by-size table used for bite and claw damage"
+        }
+      ]
+    },
+    "spells/warp-truename-3454": {
+      "name": "Warp Truename",
+      "sourceSha256": "fdbeb138ae38fb98a64bf8a3c52aaae81e9011005886f8d67a39a304a753090d",
+      "effectSummary": "On a failed Fortitude save, the subject is polymorphed into a bloblike aberration for 1 round per level. The warped form has Strength 10, Dexterity 10, Constitution 10, speed 20 feet, and one slam attack with base damage determined by the subject's size using the restored table below. It gains no other extraordinary or supernatural abilities from the new form. As with polymorph, the subject keeps its mind, class and level or Hit Dice, hit points, base attack bonus, base save bonuses, and other statistics not specifically replaced; the transformation restores lost hit points as though the subject had rested for a night, without restoring temporary ability damage or granting other rest benefits. The subject keeps the same limbs, can still manipulate objects and equipment, and can speak in a gurgling voice. After the Fortitude save fails, the subject makes a second Will save. If that Will save also fails, it loses its own extraordinary, supernatural, and spell-like abilities and loses spellcasting for the duration; regardless of that second save, it retains class features that are not extraordinary, supernatural, spell-like, or spellcasting. Incorporeal and gaseous creatures are immune. A creature with the shapechanger subtype can return to its natural form as a standard action. Casting requires correctly speaking the target's personal truename.",
+      "tables": [
+        [
+          [
+            "Size",
+            "Slam Damage"
+          ],
+          [
+            "Fine",
+            "1"
+          ],
+          [
+            "Diminutive",
+            "1d2"
+          ],
+          [
+            "Tiny",
+            "1d3"
+          ],
+          [
+            "Small",
+            "1d4"
+          ],
+          [
+            "Medium",
+            "1d6"
+          ],
+          [
+            "Large",
+            "1d8"
+          ],
+          [
+            "Huge",
+            "2d6"
+          ],
+          [
+            "Gargantuan",
+            "2d8"
+          ],
+          [
+            "Colossal",
+            "4d6"
+          ]
+        ]
+      ],
+      "notes": "Warp Truename overrides polymorph's normal physical-form package with fixed Str/Dex/Con 10, speed 20 feet, aberration type, the size-based slam, and the spell's explicit ability-retention/loss rules. The slam table is the Monster Manual 3.5 base slam progression.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/warp-truename-3454",
+          "role": "primary Tome of Magic record; mechanically complete but delegates to polymorph and Monster Manual Table 5-1"
+        },
+        {
+          "url": "https://dndtools.net/spells/tome-of-magic--89/warp-truename--3454/",
+          "role": "matching Tome of Magic rendering used to verify all explicit Warp Truename exceptions and saves"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/polymorph.htm",
+          "role": "3.5 SRD polymorph rules used only where Warp Truename does not override them"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/specialAbilities.htm",
+          "role": "3.5 SRD polymorph special-ability inheritance rules cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/monsters/vampire.htm",
+          "role": "3.5 SRD size-based slam progression used to make the Monster Manual slam reference explicit"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "3c74d071fc9a8ab8189132164f53abc80a65fc1f",
+    "workflowRun": 35676344121,
+    "validationRun": 35676347917,
+    "classificationArtifact": 10673940147,
+    "classificationArtifactSha256": "39dc3045a5ae490c42b8ce6729472cc07a1addc19d5e986af709dbd8630309b1",
+    "queueCountBefore": 1028,
+    "repairQueueCountBefore": 7
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-003-3",
+  "records": {
+    "wikidot5e:feat:perceptive": {
+      "sourceDigest": "sha256:116c935fbc55ea439a83c5df4cc6575a329a562bff77d41014db9b9dae9aabae",
+      "effectSummary": "Increase Wisdom by 1, maximum 20. Gain Perception proficiency, or expertise if already proficient. If you can both see and hear, being in a lightly obscured area does not impose disadvantage on your Wisdom (Perception) checks."
+    },
+    "wikidot5e:feat:performer": {
+      "sourceDigest": "sha256:9966a1943a548722f34fae657ce922cf0c0713ce5ecf9415bd4f0d6c5132632a",
+      "effectSummary": "Increase Charisma by 1, maximum 20. Gain Performance proficiency, or expertise if already proficient. While performing, choose a visible humanoid that can see and hear you and contest Charisma (Performance) against its Wisdom (Insight); on a success, it has disadvantage on Wisdom (Perception) and Intelligence (Investigation) checks until you stop performing."
+    },
+    "wikidot5e:feat:piercer": {
+      "sourceDigest": "sha256:24174a42d45c53ff365f0513b0faaa7fb8856ef8e5a5bbc7b19c80e4973210ec",
+      "effectSummary": "Increase Strength or Dexterity by 1, maximum 20. Once per turn when an attack deals piercing damage, reroll one of that attack's damage dice and use the new roll. When you score a critical hit that deals piercing damage, roll one additional damage die when determining the extra piercing damage."
+    },
+    "wikidot5e:feat:planar-wanderer": {
+      "sourceDigest": "sha256:0fb0c006fd31398f96aafca31f1287db823d017bd8d29da032bf6600a3020d03",
+      "effectSummary": "After each long rest, choose acid, cold, or fire resistance until your next long rest. As an action, make a DC 20 Intelligence (Arcana) check to operate a known portal within 5 feet without its key; on failure take 3d8 psychic damage and cannot retry that portal until a long rest, while on success force it open or closed for 1 hour, during which a creature using its normal key must succeed on a DC 20 Intelligence (Arcana) check to override it. You always know the direction to the last planar portal you used while on the same plane. Once per long rest, as an action detect portals within 30 feet that are not behind total cover."
+    },
+    "wikidot5e:feat:planar-wanderer-ua": {
+      "sourceDigest": "sha256:d2a5d296955cd77a3b1f303549aa2e4d1125868da547796527766277d6717da7",
+      "effectSummary": "After each long rest, choose acid, cold, or fire resistance until your next long rest. As an action, make a DC 20 Wisdom (Survival) check to operate a known portal within 5 feet without its key; on failure take 3d8 force damage and cannot retry that portal until a long rest, while on success force it open or closed for 1 hour, during which a closed portal's normal key works only if its user succeeds on a DC 20 Intelligence (Arcana) check. You always know the direction to the last planar portal you used while on the same plane. Once per long rest, as an action detect portals within 30 feet that are not behind total cover."
+    },
+    "wikidot5e:feat:poisoner": {
+      "sourceDigest": "sha256:49aa0100a9eb93ed42792969bb7f78456376abe4fd3f0c7cf839ab97544776c3",
+      "effectSummary": "Ignore resistance to poison damage. You can apply poison to a weapon as a bonus action. Gain poisoner's-kit proficiency. With 1 hour of work, a poisoner's kit, and 50 gp of materials, create doses equal to proficiency bonus. A dose applied to a weapon or ammunition lasts 1 minute or until a hit; a creature damaged by it makes a DC 14 Constitution save or takes 2d8 poison damage and is poisoned until the end of your next turn."
+    },
+    "wikidot5e:feat:polearm-master": {
+      "sourceDigest": "sha256:585cf6ba55749ccec061cde6fc6c86fb4c51c6603c24eec2f85c27739e041fe7",
+      "effectSummary": "After taking the Attack action and attacking only with a glaive, halberd, quarterstaff, or spear, use a bonus action to make a melee attack with the weapon's opposite end, using the same ability modifier and dealing 1d4 bludgeoning damage. While wielding a glaive, halberd, pike, quarterstaff, or spear, creatures also provoke opportunity attacks from you when they enter that weapon's reach."
+    },
+    "wikidot5e:feat:practiced-expert": {
+      "sourceDigest": "sha256:2b2d7fa15f22e65448590f9a5327b74fa6dc718bf85ad8e142c9f29069e3ea6d",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Gain proficiency with one skill or tool. Choose one skill or tool proficiency you have; double your proficiency bonus on ability checks using it."
+    },
+    "wikidot5e:feat:prodigy": {
+      "sourceDigest": "sha256:0687caf1d41d0c2cfff40211e4ffc6e8aaf7b3e762bd80efa872df35d270620c",
+      "effectSummary": "Gain proficiency in one skill and one tool, plus fluency in one language. Choose one skill proficiency not already benefiting from doubled proficiency and gain expertise with it."
+    },
+    "wikidot5e:feat:quick-fingered": {
+      "sourceDigest": "sha256:0d047afdf2c75919b75479db0f6e1e2abda73517018186d34cced7a6390775c3",
+      "effectSummary": "Increase Dexterity by 1, maximum 20. Gain Sleight of Hand proficiency, or expertise if already proficient. As a bonus action, make a Dexterity (Sleight of Hand) check to plant or conceal an object on a creature, lift a purse, or take something from a pocket."
+    }
+  }
+}

@@ -1,0 +1,617 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record feat long-rule batch 003 using the next untouched slice of the fresh 321-record review artifact after batch 002. All selected records have a single long Benefit field; same-name printing differences are preserved independently and exact benefit SHA-256 digests are locked.",
+  "entries": {
+    "feats/craft-aboleth-glyph-446": {
+      "name": "Craft Aboleth Glyph",
+      "benefitSha256": "5f2463594d527c4f0a875dd04ed6ef8eba61aa02cbae272989987efd55e12ff2",
+      "effectSummary": "Create a permanent glyph of warding effect that automatically reforms 1 minute after it is discharged or dispelled. Crafting takes 1 day per 1,000 gp of base price; base price is caster level × spell level × 1,000 gp. You pay 1/25 of base price in XP and half the base price in raw materials. The glyph otherwise functions as glyph of warding and can be permanently destroyed only by effects or damage that can destroy a magic item. You can instead create unique master glyphs using their own listed effects and base costs.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-aboleth-glyph-446",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-crystal-capacitor-454": {
+      "name": "Craft Crystal Capacitor",
+      "benefitSha256": "232987062ee56bcbc4ae2a32a54870a705915f0a8aa5a88cfe36d4fdf706c9a1",
+      "effectSummary": "Create a crystal capacitor whose maximum stored power points do not exceed your base power points for your highest manifester level. Its maximum capacity is always an odd number and can never exceed 17 power points, though its current charge can be even. Crafting takes 1 day per 1,000 gp of base price. Base price equals the square of the highest-level power that could be manifested using the capacitor's full stored points, × 1,000 gp. You pay 1/25 of base price in XP and half in raw materials.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-crystal-capacitor-454",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-magic-arms-and-armor-462": {
+      "name": "Craft Magic Arms and Armor",
+      "benefitSha256": "452224a3cb6769c08f8a07ca0e04d80c3d7233631da93e7943b4c7863a0c1d44",
+      "effectSummary": "Create any magic weapon, armor, or shield whose prerequisites you meet. The base item must be masterwork and is supplied separately. Enhancing takes 1 day per 1,000 gp of the magical features' price, costs XP equal to 1/25 of that feature price, and consumes raw materials costing half that price. You can repair an eligible broken magic weapon, armor, or shield for half the normal crafting time, XP, and raw-material cost.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-magic-arms-and-armor-462",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-psionic-arms-and-armor-467": {
+      "name": "Craft Psionic Arms and Armor",
+      "benefitSha256": "0cc41d293ef34e113a241cb574251f9c209841525c361cc2e8aba67f5cfcebe6",
+      "effectSummary": "Create any psionic weapon, armor, or shield whose prerequisites you meet. The item to be enhanced must be masterwork and provided separately. Enhancing takes 1 day per 1,000 gp of the psionic features' price, costs XP equal to 1/25 of that feature price, and consumes raw materials costing half that price. You can repair an eligible broken psionic weapon, armor, or shield for half the normal time, XP, and materials.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-psionic-arms-and-armor-467",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-psionic-arms-and-armor-468": {
+      "name": "Craft Psionic Arms and Armor",
+      "benefitSha256": "d0f7d4f0cb5a8ff1e7015719ffe96977420ef05b91a337c005d12540ff12bb72",
+      "effectSummary": "Create any psionic weapon, armor, or shield whose prerequisites you meet. The item to be enhanced must be masterwork and provided separately. Enhancing takes 1 day per 1,000 gp of the psionic features' price, costs XP equal to 1/25 of that feature price, and consumes raw materials costing half that price. You can repair an eligible broken psionic weapon, armor, or shield for half the normal crafting time, XP, and materials.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-psionic-arms-and-armor-468",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-psionic-seal-470": {
+      "name": "Craft Psionic Seal",
+      "benefitSha256": "09fecd24c94f98275143b6804cea156667f5bdecce5fed29ce47f1ef2debac2c",
+      "effectSummary": "Create a psionic seal from any arcane spell or psionic power you can access. An arcane spell must be prepared, and required material components, focuses, and XP costs are supplied as when creating the seal; focuses are not consumed. A Medium-or-smaller object can hold one seal, a larger object one per 100 square feet, and a willing creature only one seal at a time. Price is spell/power level × caster/manifester level × 50 gp, treating a 0-level effect as 1/2 level. Creation costs 1/25 of that price in XP and half in raw materials.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-psionic-seal-470",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-rune-circle-473": {
+      "name": "Craft Rune Circle",
+      "benefitSha256": "48a38dc3fae1fb0f72a8e1162b87e0f703997320f19477819a5c0a945e6ef1c1",
+      "effectSummary": "Create any rune circle whose prerequisites you meet. Crafting takes 1 day per 1,000 gp of its price, costs XP equal to 1/25 of the price, and consumes raw materials equal to half the price. You can repair a rune circle you could create for half the normal time, XP, and materials. Any additional material-component or XP costs in a rune circle's description are paid in addition to the base-price costs.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-rune-circle-473",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-scepter-474": {
+      "name": "Craft Scepter",
+      "benefitSha256": "01b8a7b32acdbfad7cddb4f0cd3c18be8f90be3fddbd2dfc3b9fc0558a2a16fa",
+      "effectSummary": "Create a scepter containing one or two spells you know of 7th level or lower. Both effects draw from one 50-charge pool. Crafting takes 1 day per 1,000 gp of base price. Base price is caster level × spell level × 750 gp for the highest-level spell, plus caster level × spell level × 375 gp for a second spell. Creation costs 1/25 of base price in XP and half in raw materials. For a stored spell with a costly material component or XP cost, also provide fifty uses of that component or fifty times that XP cost.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-scepter-474",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-skull-talisman-475": {
+      "name": "Craft Skull Talisman",
+      "benefitSha256": "7292d36cfd1e61e58050811ae70ad4e9904bc9ce0bc703b197b871d3c68dd761",
+      "effectSummary": "Create a skull talisman from any spell you know that targets one or more creatures. Crafting takes 1 day; choose a caster level high enough to cast the spell and no higher than your own. Base price is spell level × caster level × 100 gp; creation costs 1/25 of that price in XP and half in raw materials, plus any costly component or XP cost of the stored spell. Choices normally made while casting are fixed at creation, and the creature that destroys the skull becomes the spell's target. A Small skull holds up to a 3rd-level spell, Medium up to 6th, and Large up to 9th.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-skull-talisman-475",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-universal-item-478": {
+      "name": "Craft Universal Item",
+      "benefitSha256": "c949fd493b79f530aad0fc28ab3e37a16b9b6a0690b88563f95d8dc51e92b90e",
+      "effectSummary": "Create any miscellaneous psionic item whose prerequisites you meet. Crafting takes 1 day per 1,000 gp of price, costs XP equal to 1/25 of the price, and consumes raw materials equal to half the price. You can repair an item you could create for half the normal time, XP, and materials. Any extra material-component or XP costs listed for the item are paid in addition to these base costs, including when repairing it.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-universal-item-478",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-universal-item-479": {
+      "name": "Craft Universal Item",
+      "benefitSha256": "a568954bf339f22add01afa9637769043f47a675a99753e2f88587e4e3172180",
+      "effectSummary": "Create any universal psionic item whose prerequisites you meet. Crafting takes 1 day per 1,000 gp of base price, costs XP equal to 1/25 of the price, and consumes raw materials equal to half the price. You can repair an item you could create for half the normal time, XP, and materials. Extra XP costs listed in an item's description are paid in addition to the base-price costs for both creation and repair.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-universal-item-479",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/craft-wondrous-item-483": {
+      "name": "Craft Wondrous Item",
+      "benefitSha256": "46951cfa54f19d44188ed4098449d53bb243625d8adb57cf8e84ab96be24dd1e",
+      "effectSummary": "Create any wondrous item whose prerequisites you meet. Enchanting takes 1 day per 1,000 gp of item price, costs XP equal to 1/25 of the price, and consumes raw materials equal to half the price. You can repair an item you could create for half the normal time, XP, and materials. Any additional material-component or XP costs in the item's description must also be paid when creating or repairing it.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-wondrous-item-483",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/create-infusion-485": {
+      "name": "Create Infusion",
+      "benefitSha256": "9d8c1373eb2d4e80992660767ad5750acd3b0deb922814d49140b217d04dfd3d",
+      "effectSummary": "Create an herbal infusion of any divine spell available to you. Creation takes 1 day. Choose a caster level sufficient to cast the spell and no higher than your own. Base price is spell level × caster level × 50 gp; creation costs 1/25 of that price in XP and half in raw materials. If the stored spell has a costly material component or XP cost, pay that additional cost when making the infusion.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/create-infusion-485",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/crush-489": {
+      "name": "Crush",
+      "benefitSha256": "bd7214cec20280509c7935c6f530ed698e82b7665fb1232b0227e690f154f779",
+      "effectSummary": "As a standard action, jump or fall onto creatures at least three size categories smaller than you and crush every creature that fits beneath your body. Base crush damage is determined by your size using the feat's referenced table, plus 1-1/2 times your Strength bonus, as bludgeoning damage. Each creature in the affected area makes Reflex DC 10 + your Strength modifier + your grapple-size modifier; on a failure it is pinned and automatically takes crush damage each round the pin is maintained.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/crush-489",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/darguun-mauler-507": {
+      "name": "Darguun Mauler",
+      "benefitSha256": "b2bb4cc73e4023421d935a0e263965809b3aeed7f914eff2887a19c3ab8528e6",
+      "effectSummary": "Treat the dire flail and spiked chain as martial weapons. If you do not move during the round, attacks with a flail, heavy flail, dire flail, or spiked chain gain +1 damage. Improved Critical, Weapon Focus, Weapon Specialization, Greater Weapon Focus, and Greater Weapon Specialization taken for a weapon in this group can apply across the feat's weapon group as described by the source. When you spend an action point to improve an attack roll with one of these weapons, also add the action-point result to that attack's damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/darguun-mauler-507",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/death-frenzy-536": {
+      "name": "Death Frenzy",
+      "benefitSha256": "15e7d49d82085de90ad1ec9665bc2e1ae677ca81eba00bb9d25e2b636a3f6c95",
+      "effectSummary": "An aboleth automatically enters a death frenzy as an immediate action whenever its hit points fall below its total Hit Dice. During the frenzy it cannot cast spells, use spell-like abilities, or use supernatural special attacks; it gains +4 morale Strength and Dexterity, doubles the threat range of all natural attacks, gains one extra attack at its highest base attack bonus during a full attack, increases land speed by 10 feet and swim speed by 20 feet, and gains fast healing 2. The frenzy lasts until death or until hit points again equal or exceed total Hit Dice; when it ends, the aboleth immediately takes 1d4 Strength damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/death-frenzy-536",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/debilitating-spell-540": {
+      "name": "Debilitating Spell",
+      "benefitSha256": "04a057cbe6495616e1e80a0e7be070538fb47a6a2128cd4705bfe2f8d32c21de",
+      "effectSummary": "Adds the evil descriptor to a spell. If that spell deals physical damage, one affected target of your choice also takes 2 Constitution damage when your corruption exceeds your depravity, or 4 Wisdom damage when depravity exceeds corruption; if they are equal, choose either damage type. Only one target takes this ability damage even if the spell affects multiple creatures or an area. You can use this feat twice per day with moderate taint and four times per day with severe taint.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/debilitating-spell-540",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/delay-power-576": {
+      "name": "Delay Power",
+      "benefitSha256": "2a87b45eab28ade076c3415564fac3989841933da9f097752746a2d1e6f422b2",
+      "effectSummary": "Manifest an area, personal, or touch power with a fixed delay of 1–5 rounds; it activates just before your turn on the chosen round. Choices you control, such as targets, attack rolls, and area shape, are fixed when manifested, while saving throws and other target-resolved effects are resolved when it triggers. The delayed power can be detected and negated normally during the delay. Its power-point cost is its normal cost +6.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/delay-power-576",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/delay-power-577": {
+      "name": "Delay Power",
+      "benefitSha256": "5cf9eb7128c6811710e6bb9662e1adfd61c608400062e196dc8b3ce5f13fb0a5",
+      "effectSummary": "Expend psionic focus to delay an area or personal power. When manifested, choose one trigger: your later standard action, a creature entering the affected area, or your turn after 5 rounds; the first two also auto-trigger on the fifth round if not triggered sooner. Choices you control are fixed when manifested, while saving throws and other target-resolved effects occur when the delay ends. The power can be dispelled and detected normally during the delay. Increase its power-point cost by 2, and total cost cannot exceed your manifester level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/delay-power-577",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/delay-spell-578": {
+      "name": "Delay Spell",
+      "benefitSha256": "6aef581b36cbf2535d74f8825c998b8a20f4b7142bd37f8c00e5d2eb0ef046a4",
+      "effectSummary": "Apply a fixed 1–5 round delay to an area, personal, or touch spell; it activates just before your turn on the chosen round. Attack rolls, targets, and area choices are fixed when cast, while damage, saving throws, and other resolved effects occur when it triggers. If changed conditions make the spell impossible, it fails. It remains detectable and dispellable during the delay. A delayed spell uses a slot three levels higher than normal.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/delay-spell-578",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/delay-spell-579": {
+      "name": "Delay Spell",
+      "benefitSha256": "5db033b8ce3f05523483de9021a6165a563b9190843c972ef1e992864fc3a92c",
+      "effectSummary": "Apply a fixed 1–5 round delay to an area, personal, or touch spell; it activates just before your turn on the chosen round. Attack rolls, targets, and area choices are fixed when cast, while saving throws and other target-resolved effects occur when it triggers. If changed conditions make the spell impossible, it fails. It remains detectable and dispellable during the delay. A delayed spell uses a slot three levels higher than normal.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/delay-spell-579",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/delay-spell-580": {
+      "name": "Delay Spell",
+      "benefitSha256": "249206c9a35b564d33e08171b7dd0423250ce24b19efa3cd503f5ae388497b77",
+      "effectSummary": "Apply a fixed 1–5 round delay to a personal or touch-range spell or a spell with an area; it activates just before your turn on the chosen round. Attack rolls, targets, and area choices are fixed when cast, while saving throws and other subject-resolved effects occur when it triggers. If changed conditions make the spell impossible, it fails. It remains detectable and dispellable during the delay. A delayed spell uses a slot three levels higher than normal.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/delay-spell-580",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/delay-spell-581": {
+      "name": "Delay Spell",
+      "benefitSha256": "8b7f7c669faa49c6137ef0205b15262938df11506c0afa6c8357fc36d717fb50",
+      "effectSummary": "Apply a fixed 1–5 round delay to an area, personal, or touch spell; it activates just before your turn on the chosen round. Attack rolls, targets, and area choices are fixed when cast, while saving throws and other target-resolved effects occur when it triggers. If changed conditions make the spell impossible, it fails. It remains detectable and dispellable during the delay. A delayed spell uses a slot three levels higher than normal.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/delay-spell-581",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/destruction-devotion-590": {
+      "name": "Destruction Devotion",
+      "benefitSha256": "595970285cc20c7cd4e956ffd43ea499d4d1c16efae5fb7458e432a4342531d4",
+      "effectSummary": "Once per day as an immediate action, activate this ability for 1 minute. Each damaging melee attack you make during that minute, excluding melee touch attacks, reduces the target's armor bonus or natural armor bonus by 1, stacking to a minimum of +0; if it has both, the target chooses which is reduced until one reaches +0, after which the other is reduced. At 10th level, each successful hit reduces the chosen bonus by 2 instead.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/destruction-devotion-590",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/devoted-performer-3188": {
+      "name": "Devoted Performer",
+      "benefitSha256": "8e7b5cd7d002512118b5244d903340ec43bbc0c4f2024a2d5c378eca6f500e3b",
+      "effectSummary": "If you have paladin and bard levels, those levels stack to determine your smite evil bonus damage and your number of daily bardic music uses. They do not grant extra daily smite evil uses beyond your class levels. You can multiclass freely between paladin and bard and can gain bard levels despite a lawful alignment, but must remain lawful good to retain paladin abilities and take further paladin levels. Normal multiclass XP penalties still apply.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/devoted-performer-3188",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/diehard-610": {
+      "name": "Diehard",
+      "benefitSha256": "d6a0e51fe3710b9111d37b312ed6f8bc132fad8f6f4322ee0629307aa5b3ff58",
+      "effectSummary": "At -1 to -9 hit points you automatically stabilize. When reduced to negative hit points, immediately choose either to fall unconscious or to keep acting as though disabled. If you keep acting, each turn you can take one move action or one standard action, but not both and not a full-round action. Moving does not cost additional hit points, but any standard action or other strenuous action costs 1 hit point after completion. You die immediately at -10 hit points.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/diehard-610",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/disguise-spell-633": {
+      "name": "Disguise Spell",
+      "benefitSha256": "a51a65533402a828201ebd0e3843158d6e9c206a2e05112f7d4bdd1992ac31ca",
+      "effectSummary": "When casting, fold verbal and somatic components into a performance and make a Perform check as part of the casting action. An observer must meet or beat that result with Spot to notice that you are casting; the performance itself remains obvious. Unless the spell visibly comes from you or another clue reveals its source, observers do not know where the effect originated. Even an observer who notices the casting cannot identify the disguised spell with Spellcraft. Casting still provokes attacks of opportunity normally.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/disguise-spell-633",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/disturbing-visage-644": {
+      "name": "Disturbing Visage",
+      "benefitSha256": "84600ca3a93108d1561e57e6603862052727228ea4578376a5113d3e36ce8851",
+      "effectSummary": "Grants three minor-change-shape tactical maneuvers; mind-affecting-immune creatures are immune, and a creature can be affected by each maneuver only once per 24 hours regardless of the opposed-check result. Cringe: use minor change shape and total defense in the same turn, then Bluff as a free action; until your next turn, melee attackers that fail Sense Motive versus your Bluff take -5 weapon damage (minimum 1) against you for 1 minute. Taunt: mimic a humanoid, monstrous humanoid, or giant within 10 feet that missed you last round; a successful Bluff versus Sense Motive gives it -2 attacks for 1 minute. Unnerve: hit a creature in melee and use minor change shape in the same round; a successful Bluff versus Sense Motive gives it -2 AC for 1 minute.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/disturbing-visage-644",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/divine-conduit-3349": {
+      "name": "Divine Conduit",
+      "benefitSha256": "7aa953a3bca7d05b2b6b0962b6fb62858cdfaa3e6260826c527c7983ee85c6d6",
+      "effectSummary": "As a standard action, touch a divine spellcaster who worships your deity and expend one or more daily turn-undead uses. The recipient can apply a metamagic feat it knows to its next spell as a free action without preparing that spell with the feat, provided the metamagic level adjustment is no greater than the turn uses you spent. Unused transferred energy disappears after 1 round and has no other effect.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/divine-conduit-3349",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/divine-justice-658": {
+      "name": "Divine Justice",
+      "benefitSha256": "4f7069817c6e03fe165d3af34dbda1ad591c4b647d68d242490fd92f60d091ad",
+      "effectSummary": "As a swift action, expend a turn or rebuke undead attempt to mark one opponent. If that opponent hits you with an armed melee attack or natural weapon within 1 minute, record the damage dealt. The next time you hit that foe in melee within the following minute, deal either your weapon's normal damage or the recorded damage, whichever is greater; your weapon's qualities still determine whether damage reduction applies. Only one opponent can be marked, and until the stored retaliation is used or lost you cannot mark another opponent.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/divine-justice-658",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/divine-spell-power-669": {
+      "name": "Divine Spell Power",
+      "benefitSha256": "37d61c6570c0bafe5b3f9b2c114f0fc6c85bc318faac2349d3fce0d187046210",
+      "effectSummary": "As a free action, spend one turn or rebuke attempt and make a turning check with a special +3 bonus plus your normal turning-check modifiers. Use the turning-check result as the caster-level modifier specified by the turning table for the next divine spell you cast that round; the modifier can be positive or negative. If you do not cast a divine spell before your next turn, the result is lost. This feat does not affect arcane spellcasting.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/divine-spell-power-669",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/draconic-heritage-704": {
+      "name": "Draconic Heritage",
+      "benefitSha256": "3942680b504b994e665ddaa39f7638930a10056c15f248f7f07e3c3559963b0c",
+      "effectSummary": "Gain the dragonblood subtype and choose one dragon kind from the feat's heritage table; that choice is permanent except through the Rite of Draconic Affinity, and a half-dragon must choose its dragon parent's kind. The table's associated skill becomes a sorcerer class skill for you. You also gain a saving-throw bonus equal to your number of draconic feats against magic sleep and paralysis and against spells or abilities whose descriptor, effect, or subschool matches your chosen heritage entry.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/draconic-heritage-704",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/draconic-knowledge-3217": {
+      "name": "Draconic Knowledge",
+      "benefitSha256": "4fe02b22ed757f8db8f31174a3044ab49cdc8467c9e3c408c5ac4c560e54870f",
+      "effectSummary": "Make a special Draconic Knowledge check, d20 + your age category + Intelligence modifier, to recall information about an item, event, or locale based on its historical scale and impact. It cannot directly reveal a magic item's powers, though it can hint at general function. You cannot take 10 or 20. For every 5 ranks you have in a Knowledge skill relevant to the subject, gain +1 on the Draconic Knowledge check.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/draconic-knowledge-3217",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/dragons-insight-745": {
+      "name": "Dragon's Insight",
+      "benefitSha256": "5f3e2179c8c944004b65e33f09e6d09b699f1391d9b6a407812b8d564ac762ef",
+      "effectSummary": "As a free action, expend one daily use of a dragonmark power to gain +4 insight on the skill tied to that mark: Detection—Spot; Finding—Search; Handling—Handle Animal; Healing—Heal; Hospitality—Diplomacy; Making—any Craft; Passage—Survival; Scribing—Decipher Script; Sentinel—Sense Motive; Shadow—Gather Information; Storm—Balance; Warding—Search. Duration is 1 minute for a least mark, 10 minutes for lesser, 1 hour for greater, and 24 hours for Siberys. The bonus always applies to at least one check begun before the duration expires, even if the check finishes later.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/dragons-insight-745",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/draw-from-the-land-749": {
+      "name": "Draw From The Land",
+      "benefitSha256": "376c4d02116160eec00f1f32a932995e6257df6f164ed7424e88b2dff41133f4",
+      "effectSummary": "Before resting, draw on the land to improve natural recovery: 2 hit points per day of light activity or 4 hit points per level for a day of complete rest, and 2 ability-score points per day or 4 with complete rest. These benefits stack with long-term care from Heal. You also gain +10 on Constitution checks against hunger and thirst and need only half as much sleep, though spell preparation or slot recovery still requires the normal 8 hours of rest. Outside Rashemen, activation requires Concentration DC 10 + 2 per 100 miles from its border; on failure you cannot retry for 1 day.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/draw-from-the-land-749",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/dreamtelling-759": {
+      "name": "Dreamtelling",
+      "benefitSha256": "9dacc0828b3456a6171f2d77f6179f0cdb88c79b21207b7d5e74002e90d34b69",
+      "effectSummary": "Use Knowledge (the planes) to interpret dreams. Base DCs are 10 for obvious symbolism, 15 for unfamiliar cultural details, 20 for unfamiliar past-event memories, and 25 when both unfamiliar conditions apply; prophetic insight adds +10 to +20 depending on obscurity. Meeting the needed DC can provide augury-like information, exceeding it by 10 gives divination-like information, and by 20 gives commune-like information. Dreamscape injury consequences are DC 15 and identifying whether an item or place is native to a dream is DC 20. In dreamscapes, Knowledge (the planes) can replace Survival for navigation and tracking. Interpreting your own dream takes 30 minus your Intelligence modifier minutes; another person's detailed account adds 10+1d10 minutes. You get only one interpretation attempt per dream.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/dreamtelling-759",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/dromite-barrier-762": {
+      "name": "Dromite Barrier",
+      "benefitSha256": "670a9332b2cb6048166e8f709802ba53b32a929ab43c53125b0c9d377b3949f2",
+      "effectSummary": "Spend one or more daily energy-ray uses to create a 10-by-10-foot vertical wall of your chosen energy type when triggering energy ray as a psi-like ability. Its near endpoint begins at a corner of your space and it extends in a straight line up to 10 feet, limited by available space. The wall lasts 1d4 rounds. A creature that passes through it, or is in its space when it appears, takes the damage your energy ray would normally deal; Reflex DC 10 + half your Hit Dice + Constitution modifier halves the damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/dromite-barrier-762",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/drow-skirmisher-766": {
+      "name": "Drow Skirmisher",
+      "benefitSha256": "522759c7597599f82148d7928e03c3f019734eaaa05eb9f1faf03d3976b8a25d",
+      "effectSummary": "Treat the Xen'drik boomerang, drow scorpion chain, and drow long knife as martial weapons. You gain +1 damage with a drow long knife or scorpion chain in a round when you moved more than 5 feet under your own power. Improved Critical, Weapon Focus, Weapon Specialization, Greater Weapon Focus, and Greater Weapon Specialization for dagger or short sword can apply to the long knife, and the same feats for spiked chain can apply to the scorpion chain. When you spend an action point to improve an attack roll with any of the three weapons, also add the action-point result to that attack's damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/drow-skirmisher-766",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/drow-skirmisher-767": {
+      "name": "Drow Skirmisher",
+      "benefitSha256": "7c2340e97a1603aea074bfc5ae3dba3c55318879bbadecad8350784a5a4b0dc1",
+      "effectSummary": "Treat the Xen'drik boomerang, drow scorpion chain, and drow long knife as martial weapons. You gain +1 damage with a drow long knife or scorpion chain in a round when you moved more than 10 feet under your own power. Improved Critical, Weapon Focus, Weapon Specialization, Greater Weapon Focus, and Greater Weapon Specialization for dagger or short sword can apply to the long knife, and the same feats for spiked chain can apply to the scorpion chain. When you spend an action point to improve an attack roll with any of the three weapons, also add the action-point result to that attack's damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/drow-skirmisher-767",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/earth-devotion-792": {
+      "name": "Earth Devotion",
+      "benefitSha256": "025aa2346ed41550a23698c4d6a3e425c758c40a14a075a6b21d3f91160c7536",
+      "effectSummary": "Once per day as an immediate action, either ignore difficult terrain for 1 minute and gain +5 sacred (good or neutral deity) or profane (evil deity) on Balance, Climb, and Jump checks, or turn nearby earth/stone into difficult terrain for 1 minute. The terrain option affects one 5-foot square per three character levels, minimum 1 and maximum 6; the first must be within 30 feet and all later squares must form a connected line. At 10th level, affected squares also grow caltrop-like stone spikes whose attack bonus equals your base attack bonus, cannot be swept away, and immediately attack a creature already standing there. You can take this feat multiple times, gaining one extra daily use each time.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/earth-devotion-792",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/earthbound-spell-799": {
+      "name": "Earthbound Spell",
+      "benefitSha256": "23abc202b5227214f6379a91e8c60cbab5f7b08c651b3199f1bebee5f881fe5b",
+      "effectSummary": "Place a non-personal spell into a square adjacent to you, fixing all choices and variables at casting. The next creature to enter triggers it; area spells use that square as the center or origin with any direction fixed at casting, while non-area spells target the triggering creature. The trap lasts 1 hour or until triggered. Search DC 25 + spell level finds it; detect magic and similar effects also reveal it. A character with trapfinding can disable it at the same DC, and dispel magic can remove it. An earthbound spell uses a slot two levels higher than normal.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/earthbound-spell-799",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/eldritch-corruption-820": {
+      "name": "Eldritch Corruption",
+      "benefitSha256": "5ef4793a7077b3f4ae5bd77497a0aa99a5d7a2892c97ca062904ba20ab4bf945",
+      "effectSummary": "Up to three times per day, apply Enlarge Spell, Extend Spell, Heighten Spell, or Widen Spell to a spell without increasing spell level or spontaneous-casting time; you can combine any number of these, and Heighten can raise the spell by at most two levels. For each level of metamagic adjustment applied, one eligible ally of your choice takes 2 Constitution damage. The ally must knowingly and willingly fight beside you or otherwise regard you as a trusted companion, cannot be immune to Constitution damage or lack Constitution, and cannot be a summoned or charmed creature.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/eldritch-corruption-820",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/elemental-smite-832": {
+      "name": "Elemental Smite",
+      "benefitSha256": "b6d41f35e1797e345b8dd2a0aae489e4c47a137ccaebe6a780a965982bfea843",
+      "effectSummary": "Make a normal melee attack as an elemental smite, dealing +1 energy damage per character level. The energy type comes from an elemental graft donor: air—electricity, earth—acid, fire—fire, water—cold; if you have multiple qualifying grafts, choose among their energy types. A miss or a target immune to the chosen energy still expends the attempt. You can use the smite once per day plus one additional time per five character levels.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/elemental-smite-832",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/elven-spell-lore-842": {
+      "name": "Elven Spell Lore",
+      "benefitSha256": "07bf64b25efb7e876f13c6b774899c5b879588000f47542efce628314bd1c899",
+      "effectSummary": "Gain +2 on caster-level checks for dispel magic and greater dispel magic. Also choose one spell in your spellbook; each time you prepare that spell, you can choose the damage type it will deal, and different preparations can use different damage types. Characters who do not prepare spells cannot use this second benefit. You can take the feat multiple times; the dispel bonus does not stack, and each additional selection must choose a different spell.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/elven-spell-lore-842",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/empower-power-846": {
+      "name": "Empower Power",
+      "benefitSha256": "0459ae24e81802f6006d113ac4fe6a6eb7ed8b7f4bc264098c02795826a03e93",
+      "effectSummary": "Expend psionic focus to increase all variable numeric effects of a power by one-half, including an augmented power's resulting variable totals. Saving throws, opposed checks, and effects without random variables are unchanged. Increase the power's cost by 2 power points, and its total cost cannot exceed your manifester level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/empower-power-846",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/empower-spell-like-ability-849": {
+      "name": "Empower Spell-Like Ability",
+      "benefitSha256": "31612a940293dd4151bee7ce1bd093c5a35419be20a63d651404e390a143f28d",
+      "effectSummary": "Increase all variable numeric effects of an empowered spell-like ability by one-half; saving throws, opposed rolls, and abilities without random variables are unchanged. Each of your spell-like abilities can be empowered up to twice per day, but this does not let you exceed that ability's normal daily use limit.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/empower-spell-like-ability-849",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/empower-spell-like-ability-850": {
+      "name": "Empower Spell-Like Ability",
+      "benefitSha256": "045efe48c8637806e05c296080d355cb7cc4a3639ccfc7462a4451e37c9c24ff",
+      "effectSummary": "Choose a spell-like ability that duplicates a spell whose level is no higher than floor(caster level/2) - 2. You can use that ability empowered up to three times per day, or fewer if the ability itself has fewer daily uses. Empowering increases all variable numeric effects by one-half; saving throws, opposed rolls, and effects without random variables are unchanged.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/empower-spell-like-ability-850",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/empower-spell-like-ability-851": {
+      "name": "Empower Spell-Like Ability",
+      "benefitSha256": "045efe48c8637806e05c296080d355cb7cc4a3639ccfc7462a4451e37c9c24ff",
+      "effectSummary": "Choose a spell-like ability that duplicates a spell whose level is no higher than floor(caster level/2) - 2. You can use that ability empowered up to three times per day, or fewer if the ability itself has fewer daily uses. Empowering increases all variable numeric effects by one-half; saving throws, opposed rolls, and effects without random variables are unchanged.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/empower-spell-like-ability-851",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/empower-spell-like-ability-852": {
+      "name": "Empower Spell-Like Ability",
+      "benefitSha256": "b6913f637e74702a131e1291af7f7c5629e3e19f29dd1cb30eecf0d491c11e6c",
+      "effectSummary": "Choose one spell-like ability that duplicates a spell whose level is no higher than floor(caster level/2) - 2. You can use that ability empowered up to three times per day, or fewer if the ability normally has fewer daily uses. Empowering increases all variable numeric effects by one-half; saving throws, opposed rolls, and effects without random variables are unchanged.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/empower-spell-like-ability-852",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/empower-supernatural-ability-853": {
+      "name": "Empower Supernatural Ability",
+      "benefitSha256": "4fba42b2acbfa8941a9ba6aaa68616e713cabde4c471a8e0e07f28dedfa805ef",
+      "effectSummary": "Once per day, declare before use that a supernatural ability is empowered. Increase all of its variable numeric effects by one-half; saving throws, opposed rolls, and abilities without random variables are unchanged. A continuous supernatural ability can be empowered for only 1 round. Empowering requires no separate action, and an empowered supernatural ability cannot also be maximized.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source benefit field. The summary preserves gameplay mechanics and leaves named external spells, items, tables, templates, skills, and general subsystems as references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/empower-supernatural-ability-853",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "ddd7de986e5fe19594658a2f6b9cd84e82faaf14",
+    "featReviewRun": 35781227811,
+    "featReviewArtifact": 10718635433,
+    "featReviewArtifactSha256": "ebab66aeaad83fb49b41e87c26cd621632a05f2981b926748788b0f0ba33aa62",
+    "sourceArtifactEntryCount": 321,
+    "reviewQueueCountBefore": 271,
+    "reviewedByPriorBatch": 50,
+    "fullFeatAuditRun": 35780589058,
+    "catalogCount": 3666
+  }
+}

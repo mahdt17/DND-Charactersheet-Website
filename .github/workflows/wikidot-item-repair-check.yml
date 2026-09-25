@@ -1,0 +1,77 @@
+name: Wikidot item repair check
+
+on:
+  push:
+    branches: [codex/content-foundation]
+    paths:
+      - ".github/wikidot-item-repair-check.request"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wikidot-item-repair-check
+  cancel-in-progress: true
+
+jobs:
+  shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify item repair shard
+        run: |
+          python scripts/import_wikidot.py \
+            --categories items \
+            --delay 0.12 \
+            --source-cache-dir test-results/source-cache \
+            --repair-manifest "test-results/repair-items-${{ matrix.shard }}.json" \
+            --shard-count 12 \
+            --shard-index "${{ matrix.shard }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wikidot-item-check-${{ matrix.shard }}
+          path: test-results/repair-items-${{ matrix.shard }}.json
+
+  aggregate:
+    needs: shard
+    if: always() && needs.shard.result == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: wikidot-item-check-*
+          path: test-results/manifests
+          merge-multiple: true
+      - name: Aggregate exact item repair state
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          rows=[]
+          for path in sorted(Path("test-results/manifests").glob("repair-items-*.json")):
+              rows.extend(json.loads(path.read_text(encoding="utf-8"))["records"])
+          ids=[row["id"] for row in rows]
+          if len(rows)!=830 or len(set(ids))!=830:
+              raise SystemExit(f"Expected 830 unique item records, got {len(rows)} / {len(set(ids))} unique")
+          if any(not row.get("sourceDigest") for row in rows):
+              raise SystemExit("Missing source digest in item repair manifest")
+          counts={
+              "summaryApplied":sum(row["status"]=="summary-applied" for row in rows),
+              "directComplete":sum(row["status"]=="direct-complete" for row in rows),
+              "needsSummary":sum(row["status"]=="needs-summary" for row in rows),
+          }
+          report={"source":"https://dnd5e.wikidot.com","category":"items","total":len(rows),"counts":counts,"records":sorted(rows,key=lambda row:row["id"])}
+          Path("test-results/wikidot-item-repair-status.json").write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+          print(json.dumps({"total":len(rows),"counts":counts},indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wikidot-item-repair-status
+          path: test-results/wikidot-item-repair-status.json

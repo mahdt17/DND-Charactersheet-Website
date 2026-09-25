@@ -1,5 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import ModernLedger, { demoStorage } from "./ModernLedger";
+import PresentationSettings,{usePresentation} from "./PresentationSettings";
+import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
+import LedgerLoadingBoundary from "./LedgerLoadingBoundary";
+const LedgerEntry=lazy(()=>import("./LedgerEntry"));
 import { ScrollText, Sun, Moon } from "lucide-react";
 import { supabase, supabaseConfigured } from "./lib/supabase";
 import { createCloudStorage } from "./lib/storage";
@@ -26,6 +28,7 @@ function ThemeToggle({ theme, onToggle }) {
 }
 
 function AuthScreen({ theme, onToggleTheme, onDemo }) {
+  const {preferences}=usePresentation();
   const [mode, setMode] = useState("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,8 +57,8 @@ function AuthScreen({ theme, onToggleTheme, onDemo }) {
   }
 
   return (
-    <div className={`auth-page theme-${theme}`}>
-      <div className="auth-theme-control"><ThemeToggle theme={theme} onToggle={onToggleTheme} /></div>
+    <div className={`auth-page theme-${theme}`} data-backgrounds={preferences.backgrounds?"on":"off"}>
+      <div className="auth-theme-control"><PresentationSettings/><ThemeToggle theme={theme} onToggle={onToggleTheme} /></div>
       <div className="auth-atmosphere" />
       <form onSubmit={submit} className="auth-card">
         <div className="auth-emblem"><ScrollText size={24} /></div>
@@ -130,7 +133,6 @@ export default function App() {
     return <div className={`auth-page theme-${theme}`}><div className="auth-theme-control"><ThemeToggle theme={theme} onToggle={toggleTheme} /></div><div className="auth-loading">Opening your ledger…</div></div>;
   }
 
-  if (!session && !demo) return <AuthScreen theme={theme} onToggleTheme={toggleTheme} onDemo={()=>{demoRef.current=demoStorage();setDemo(true);}} />;
-  window.storage = demo ? demoRef.current : createCloudStorage(supabase, session.user.id);
-  return <div className={`app-theme theme-${theme}`}><ModernLedger key={demo?'demo':session.user.id} demo={demo} theme={theme} onToggleTheme={toggleTheme} onSignOut={async()=>{if(demo){setDemo(false);demoRef.current=null;}else{await supabase.auth.signOut();}}}/></div>;
+  if (!session && !demo) return <AuthScreen theme={theme} onToggleTheme={toggleTheme} onDemo={()=>setDemo(true)} />;
+  return <div className={`app-theme theme-${theme}`}><LedgerLoadingBoundary><Suspense fallback={<div className="auth-loading" role="status">Opening your ledger…</div>}><LedgerEntry demoRef={demoRef} storage={demo?null:createCloudStorage(supabase,session.user.id)} key={demo?'demo':session.user.id} demo={demo} theme={theme} onToggleTheme={toggleTheme} onSignOut={async()=>{if(demo){setDemo(false);demoRef.current=null;}else{await supabase.auth.signOut();}}}/></Suspense></LedgerLoadingBoundary></div>;
 }

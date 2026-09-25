@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-007-7",
+  "records": {
+    "wikidot5e:wondrous-items:wave": {
+      "sourceDigest": "sha256:10066d2d78849e8deacc7507ed267e97da8d030b7059d903f312b975c232f609",
+      "effectSummary": "Legendary +3 trident attunable by a worshiper of a sea god. On a critical hit, target takes extra necrotic equal to half its HP maximum. It also functions as a trident of fish command and weapon of warning, grants cap of water breathing benefits while held, and can function as a cube of force by directly choosing the desired effect instead of pressing faces. Sentient neutral: Intelligence 14, Wisdom 10, Charisma 18, hearing/darkvision 120 feet, telepathic, speaks/reads/understands Aquan and can telepathically speak with aquatic animals while including its wielder. It zealously seeks converts to sea-god worship and death for the faithless, longs for its Thunderforge origin, and secretly fears it may be destined to kill a sea god."
+    },
+    "wikidot5e:wondrous-items:wayfarers-boots": {
+      "sourceDigest": "sha256:28bda0bb65389cc8b408d7e63aae6f1a0ba0cca73988203dad6022b284a37e39",
+      "effectSummary": "While worn, walking speed increases by 10 feet and you have advantage on Wisdom (Survival). Once per dawn as a bonus action, invoke the journey runes to cast expeditious retreat."
+    },
+    "wikidot5e:wondrous-items:waythe": {
+      "sourceDigest": "sha256:6314b1b1e27b9f7718882f7ec3e90f1ac3b8832eb65e40119320fbe9c66dea55",
+      "effectSummary": "Sentient neutral-good +1 greatsword. Against giants, hits deal +2d6 slashing and target makes DC 15 Strength or falls prone. It also functions as a Wand of Enemy Detection, regaining all charges at dawn and never risking crumbling when its last charge is used. Sentience: Intelligence 12, Wisdom 2, Charisma 14, hearing/darkvision 120 feet, speaks/understands Giant/Common and communicates telepathically. A good creature can attune in 1 minute. It values freedom and friendship, encourages bold action, and may conflict with an evil or timid wielder."
+    },
+    "wikidot5e:wondrous-items:weapon-of-thrones-command": {
+      "sourceDigest": "sha256:9438d5b19a5df7fcd266a32e7b2a7d10e9ceb17ce1760880600cd30aec5a8eb8",
+      "effectSummary": "This +1 magic martial weapon grants proficiency in Intimidation and Persuasion if needed. It has 5 charges and regains 1d4 daily at dawn. As a bonus action cast at save DC 16: command 1 charge, zone of truth 2, compulsion 4, banishment 4, dominate person 5."
+    },
+    "wikidot5e:wondrous-items:weapon-of-warning": {
+      "sourceDigest": "sha256:1f75a50174ab938c39146bddb52607886cb3d725349e39a86ea4ecb808fc8ce6",
+      "effectSummary": "While the magic weapon is on your person, gain advantage on initiative. You and companions within 30 feet cannot be surprised unless incapacitated by something other than natural sleep; if combat begins while any of you are naturally sleeping, the weapon magically awakens them."
+    },
+    "wikidot5e:wondrous-items:weird-tank": {
+      "sourceDigest": "sha256:de4513329f4c373dbba610c10773518c14e5e83b051bc119d4bd39b2e8b82670",
+      "effectSummary": "Backpack tank containing a bound water weird. As an action open it to release the weird, which acts immediately after you in initiative. While wearing the tank, command it telepathically without an action. Close the tank as an action only after commanding the weird to retract or if it is dead. If killed, the tank cannot contain a weird again until spending 24 hours in an elemental water node, which creates a new weird. Tank: AC 15, 50 HP, vulnerable bludgeoning, immune poison/psychic; at 0 HP it and its contained weird are destroyed."
+    },
+    "wikidot5e:wondrous-items:well-of-many-worlds": {
+      "sourceDigest": "sha256:921660f02078e4ebd28f4312993b55be5a1ccfb719d3681abdb08420d4954170",
+      "effectSummary": "As an action, unfold the 6-foot circular cloth on a solid surface to create a two-way portal to a DM-chosen world or plane. As an action, close the portal by grasping and folding the cloth. After opening a portal, it cannot open another for 1d8 hours."
+    },
+    "wikidot5e:wondrous-items:wheel-of-stars": {
+      "sourceDigest": "sha256:36e1fc0ad09d9872f35dbef3ac834db7bd46bd521ae777ac94673a658f44bb98",
+      "effectSummary": "While attuned, gain +1 Wisdom saves and use an action to cast dancing lights, guidance, or message. Once per dawn, when a visible creature within 60 feet makes an attack, save, or ability check, use your reaction to roll d10 and add or subtract it from the roll. Separately once per dawn as an action, cast fly on yourself or levitate at save DC 15. When not installed in the Orrery of the Wanderer, its magic may work sporadically or unpredictably at the DM's discretion."
+    },
+    "wikidot5e:wondrous-items:wheel-of-wind-and-water": {
+      "sourceDigest": "sha256:095dd1ceaf454b0e4cc5b8b62e5307fe5a4149508b2a855bb5f67e3b7165128f",
+      "effectSummary": "Mounted at an elemental galleon or airship helm, lets a creature with the Mark of Storm telepathically control the bound elemental. Mounted on a mundane sailing ship and operated by a creature with the Mark of Storm, creates ideal local conditions that increase vessel speed by 5 mph."
+    },
+    "wikidot5e:wondrous-items:whelm": {
+      "sourceDigest": "sha256:a942b8cc8837b1698ae9c196efb26b2c57fa1842dc3cf4af43117689365ec46d",
+      "effectSummary": "Sentient lawful-neutral +3 warhammer for a dwarf. Starting at dawn after first attacking with it, while attuned you fear being outdoors and have disadvantage on attacks, saves, and checks whenever you can see the daytime sky. Thrown 20/60; ranged hits deal +1d8 bludgeoning, or +2d8 against giants, and it returns to your hand or feet. Once per dawn as an action strike ground; chosen grounded creatures within 60 feet make DC 15 Constitution or are stunned 1 minute, repeating each turn end. While held, know locations of secret/concealed doors within 30 feet and once per dawn for each spell cast detect evil and good or locate object. Sentience: Intelligence 15, Wisdom 12, Charisma 15, hearing/darkvision 120 feet, telepathic, speaks/reads/understands Dwarvish/Giant/Goblin; seeks destruction of giants/goblinoids, protection of dwarves, and return to its creator clan."
+    }
+  }
+}

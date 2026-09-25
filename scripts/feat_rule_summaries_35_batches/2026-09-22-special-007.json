@@ -1,0 +1,623 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record feat long-rule batch 007 from the final 71-record tail. The batch consumes artifact entries 252–301. Reaping Talons remains deliberately deferred because its exported Benefit field is visibly truncated; the final pass will handle the remaining 20 clean records plus that damaged-source repair separately.",
+  "entries": {
+    "feats/shadow-weave-magic-2568": {
+      "name": "Shadow Weave Magic",
+      "benefitSha256": "40545a509cf1d594fa1c0603ccf81001e4975744f43241106c61f046c32dd989",
+      "effectSummary": "Your spells use the Shadow Weave instead of the Weave, and you can activate Shadow Weave magic items without damage. Enchantment, Illusion, Necromancy, and darkness-descriptor spells gain +1 save DC and +1 on caster-level checks to overcome spell resistance. Evocation and Transmutation spells other than darkness spells use an effective caster level 1 lower, affecting all level-dependent variables and dispel checks; a 1st-level Shadow Weave user therefore cannot cast those schools. You cannot cast light-descriptor spells, and cannot invoke a light-producing item's power through spell-trigger or spell-completion activation. Magic items you create are Shadow Weave items. Taking the feat immediately reduces Wisdom by 2; this loss does not remove the feat if Wisdom drops below 13 and cannot be restored normally. Atonement from a cleric of Shar after the required quest can restore the Wisdom if you adopt Shar as patron; changing patrons causes the loss again.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/shadow-weave-magic-2568",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/shield-of-thought-2589": {
+      "name": "Shield of Thought",
+      "benefitSha256": "270403be3e62210c3930d4349cc17529bbd9f3f8c8d85cb3cf4f596840ce2ec9",
+      "effectSummary": "As a move action, manifest a psychic shield functioning as a light shield sized to your current form: +1 shield bonus to AC, -1 armor check penalty, hardness 10, and 10 hp. It vanishes if it leaves your hand. A mind blade and shield of thought can coexist, but each must be manifested separately. If you have mind blade enhancement, you can allocate any or all enhancement points to the shield instead; each point adds +1 enhancement to its shield bonus and reduces its armor check penalty to 0, but cannot add armor special abilities. You are always proficient with your own shield of thought.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/shield-of-thought-2589",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/shocking-fist-2615": {
+      "name": "Shocking Fist",
+      "benefitSha256": "6b5eec05d6fad3628535b31965a04c4e25f4534f04deb966cc35d58c108b0875",
+      "effectSummary": "Before making a slam attack, as a free action you may deal yourself any amount of damage up to your base attack bonus. If the attack hits, it deals an extra 1d4 electricity damage per point of self-damage. The self-damage is paid even if the attack misses. You can attempt this any number of times per day, but no more than once per round.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/shocking-fist-2615",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/slayer-of-dragons-2645": {
+      "name": "Slayer of Dragons",
+      "benefitSha256": "ff8dfc772d035efed71cb85ae1da653cc3f83a5b58155b514797866802ad1cf5",
+      "effectSummary": "You gain three 1-minute dragon-defense ceremonies based on Knowledge (religion) ranks; each can affect up to five participants, requires everyone to hold a specially prepared torch, lasts 24 hours, and consumes the listed herbs/incense. Stand Together (4 ranks, 20 gp): against frightful presence, each participant treats Hit Dice as 1 higher for each other participant within 60 feet. Stand Apart (8 ranks, 100 gp): each participant gains +2 on saves against breath weapons while at least one other participant is within 60 feet but outside that same breath weapon's area. Stand Alone (13 ranks, 500 gp): if a participant is reduced to -1 hp or lower by a dragon's attack, breath weapon, spell, or other ability, the other participants gain +2 morale on attacks and damage against dragons and on saves against dragon attacks for 10 rounds or until the fallen participant returns to 0+ hp; if at least half the participants have been defeated this way, the bonus rises to +5.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/slayer-of-dragons-2645",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/smite-fiery-foe-2651": {
+      "name": "Smite Fiery Foe",
+      "benefitSha256": "2d8d144b6725d2102d1454b4bb11870f698e621f2e33ded2e51368870c0cd9c9",
+      "effectSummary": "Once per day, make a normal melee smite against a creature with the fire subtype, adding Charisma to the attack roll and +1 cold damage per character level. If the target lacks the fire subtype, the attempt is expended with no special effect. The extra damage is cold, so fire-subtype vulnerability to cold applies. You may substitute any daily smite use granted by a class or cleric domain for a use of Smite Fiery Foe.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/smite-fiery-foe-2651",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/smiting-power-2652": {
+      "name": "Smiting Power",
+      "benefitSha256": "b0e97ba271ba0e6cf0ff22b021a74ca3a55b4643e1a69c949497d8e9a1c49320",
+      "effectSummary": "You can expend a smite use on a bull rush or overrun. Announce the smite before the attempt. If the smite would grant an attack-roll bonus against that target, add that bonus to your Strength check instead. If you win the opposed check, deal extra damage equal to the smite's normal damage bonus against that creature. If the smite would not apply to the target, the smite attempt is wasted.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/smiting-power-2652",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/smiting-spell-2653": {
+      "name": "Smiting Spell",
+      "benefitSha256": "7c039040d693da0b9f998ded207d4425fb59787e9024309ab5633684a2bd3178",
+      "effectSummary": "Apply this metamagic feat to a touch-range spell to store it in a weapon you hold. The next successful attack with that weapon discharges the spell in addition to normal weapon effects. The charge must be discharged within 1 minute or is lost. It can be stored in ammunition or a projectile, but dissipates on a miss; it cannot be stored in the bow, crossbow, sling, or similar launcher itself. A smiting spell uses a slot 1 level higher than normal.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/smiting-spell-2653",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/snatch-2659": {
+      "name": "Snatch",
+      "benefitSha256": "fd4059aa4cf42deb021e5989e0988e88fcb32537ef64a5a48d7174f1c1aaac16",
+      "effectSummary": "On a successful claw or bite, you may start a grapple as a free action without provoking. A claw hold on a creature at least four size categories smaller deals automatic claw damage each round. A bite hold on a creature at least three size categories smaller deals automatic bite damage each round, or double bite damage if you do not move or take another combat action. You may drop a snatched creature as a free action or fling it as a standard action; it travels 10 feet and takes 1d6 damage for each size category you are larger than Small. If flung while you are flying, it takes either flinging or falling damage, whichever is greater.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/snatch-2659",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/snatch-2662": {
+      "name": "Snatch",
+      "benefitSha256": "fd4059aa4cf42deb021e5989e0988e88fcb32537ef64a5a48d7174f1c1aaac16",
+      "effectSummary": "On a successful claw or bite, you may start a grapple as a free action without provoking. A claw hold on a creature at least four size categories smaller deals automatic claw damage each round. A bite hold on a creature at least three size categories smaller deals automatic bite damage each round, or double bite damage if you do not move or take another combat action. You may drop a snatched creature as a free action or fling it as a standard action; it travels 10 feet and takes 1d6 damage for each size category you are larger than Small. If flung while you are flying, it takes either flinging or falling damage, whichever is greater.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/snatch-2662",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/snatch-2663": {
+      "name": "Snatch",
+      "benefitSha256": "fd4059aa4cf42deb021e5989e0988e88fcb32537ef64a5a48d7174f1c1aaac16",
+      "effectSummary": "On a successful claw or bite, you may start a grapple as a free action without provoking. A claw hold on a creature at least four size categories smaller deals automatic claw damage each round. A bite hold on a creature at least three size categories smaller deals automatic bite damage each round, or double bite damage if you do not move or take another combat action. You may drop a snatched creature as a free action or fling it as a standard action; it travels 10 feet and takes 1d6 damage for each size category you are larger than Small. If flung while you are flying, it takes either flinging or falling damage, whichever is greater.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/snatch-2663",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/snatch-and-swallow-3240": {
+      "name": "Snatch and Swallow",
+      "benefitSha256": "736b2f4542520facd06072144eb328e58580042f117e199678d5285ceb053ba4",
+      "effectSummary": "If you begin your turn with a foe held in your mouth, make another grapple check as though pinning. On success, deal bite damage and swallow the foe. A swallowed creature is grappled while you are not; it may cut free with a light piercing or slashing weapon or attempt to escape the grapple. A successful grapple escape returns it to your mouth. Damage dealt from inside is deducted from your hp. Cutting free closes the opening afterward, so a later swallowed creature must cut out again. The feat's source table supplies the damage required to cut free and the recurring damage taken while swallowed.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/snatch-and-swallow-3240",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/snatch-trophy-2666": {
+      "name": "Snatch Trophy",
+      "benefitSha256": "d60cadb10ddc0bd18bdc4119a4df5ddd9625db276252460d1aaa610849c72ecb",
+      "effectSummary": "After dealing enough damage to drop a creature to negative hp, you may take a trophy from it as a free action while adjacent and with a free hand. With a light piercing or slashing weapon, you can sever a small body part, dealing 1d6 damage; regeneration can regrow it. Alternatively, take a small worn or carried item such as jewelry, a pouch, potion, light weapon, or helmet without dealing damage. A taken item can weigh no more than 2 pounds.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/snatch-trophy-2666",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/snowcasting-2670": {
+      "name": "Snowcasting",
+      "benefitSha256": "f64773add5df24164949e37e833fe90673ff34e395f5dc1cc52fca16e3115d14",
+      "effectSummary": "Immediately before casting, spend a move action gathering fresh snow or ice and add it as an extra material component. A spell without the cold descriptor gains the cold descriptor without changing its actual damage or other effects. If the spell already has the cold descriptor, its effective spell level increases by 1. The snow or ice may be naturally present or created by a conjuration spell; other magically manifested ice does not qualify. You may take no action between gathering the component and casting.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/snowcasting-2670",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/snowflake-wardance-2671": {
+      "name": "Snowflake Wardance",
+      "benefitSha256": "c76d77f348cf2c6a4575bc7d7c78b779ec361e81e73a0d370a3d6a7791078ef3",
+      "effectSummary": "Expend one daily bardic music use as a free action to begin a snowflake wardance. For a number of rounds equal to your Perform (dance) ranks, add Charisma to attack rolls with one-handed slashing melee weapons; this stacks with Strength, or Dexterity when Weapon Finesse applies. You cannot use it while carrying a shield, wearing medium or heavy armor, or carrying a medium or heavy load. When it ends, you are fatigued for 10 minutes.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/snowflake-wardance-2671",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/song-of-the-heart-2675": {
+      "name": "Song of the Heart",
+      "benefitSha256": "65e5c297c8b249403446ef705936afb29dcf068ba18fcb38962acddeb3213fd4",
+      "effectSummary": "Increase every numeric bonus granted by inspire courage, inspire competence, inspire greatness, or inspire heroics by 1. Increase the save DC of fascinate, suggestion, mass suggestion, and Haunting Melody by 1. Music of Growth's bonus becomes +6, Music of Making's Craft bonus becomes +6, and Soothe the Beast gains a +2 circumstance bonus on the Perform check to improve an animal or magical beast's attitude.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/song-of-the-heart-2675",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/southern-magician-2683": {
+      "name": "Southern Magician",
+      "benefitSha256": "f1edf0c437afc9c9cc27821d39c911d5f6ca9293b3c074bbf77a949b458dd436",
+      "effectSummary": "Once per day per two spellcaster levels, cast a divine spell as arcane or an arcane spell as divine. This can change interactions such as arcane spell failure or effects that differ by caster type, but does not change the spell's actual power source or preparation method. Casters without this feat take -4 on attempts to counterspell or dispel such a spell and must succeed on a caster-level check DC 11 + spell level to identify it with detect magic.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/southern-magician-2683",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/spell-thematics-2713": {
+      "name": "Spell Thematics",
+      "benefitSha256": "4b11bf3893f39a23930b2636079f466395e18711b7243e1f56803f313416122a",
+      "effectSummary": "Choose a visual/auditory theme for your magic. You may make any spell you cast manifest according to that theme without changing its actual school, descriptor, damage type, damage, or other mechanics; you may also cast without the theme. The theming cannot make spell manifestations invisible. Spellcraft checks to identify a spell cast with the thematic manifestation have their DC increased by 5.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/spell-thematics-2713",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/split-breath-3242": {
+      "name": "Split Breath",
+      "benefitSha256": "248e04efaa60f7edd7dac71dfa6f7f39ff3281b2fe23d68dea3e8f967d3bab95",
+      "effectSummary": "Split one breath weapon into two separately aimed areas, each retaining the original size and shape. Each half deals half normal damage or, for non-damaging effects, lasts half the normal duration. The two areas may overlap; creatures in the overlap are affected by both, subject to normal stacking rules. Using Split Breath increases the recharge wait by 1 round.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/split-breath-3242",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/stalwart-planar-ally-2756": {
+      "name": "Stalwart Planar Ally",
+      "benefitSha256": "2f16e6172efe41db6c32f9d460a90172a0b14fc0942aa863e4700ae07661c7d5",
+      "effectSummary": "When a spell or spell-like ability summons a creature native to a plane containing a planar touchstone site to which you are linked, that summoned creature gains +4 AC and +4 on saving throws for the summoning's duration, and the summoning duration is doubled. Concentration, instantaneous, and permanent durations are not doubled.",
+      "specialSha256": "2c0336fb464b50402c5c6fe67df228a8746c2485dd524f773fe861fe6bc33cd1",
+      "specialSummary": "If a creature's environment lists a group of related planes rather than one specific home plane, you may treat that creature as native to your chosen linked plane and apply the feat, provided no component of the creature's alignment opposes an alignment trait of that plane.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/stalwart-planar-ally-2756",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/stand-still-2758": {
+      "name": "Stand Still",
+      "benefitSha256": "1517ba4b3d8b36ec03907ab84582038bfa9b453201a1f85e1a2ba1e6d1788475",
+      "effectSummary": "When an opponent's movement would provoke an attack of opportunity from you, give up that attack of opportunity to attack before the movement occurs. If you deal damage, the foe must make Fortitude DC 10 + damage dealt; failure prevents it from moving into or out of your threatened area and ends that movement. This substitution does not change initiative or consume a readied action. You can use it only as many times per round as you could normally make attacks of opportunity.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/stand-still-2758",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/stigmata-2768": {
+      "name": "Stigmata",
+      "benefitSha256": "8d8b741cd317ffd95492c4e8851b6f719754294fcf0cbf6182cb6e154fa21caa",
+      "effectSummary": "As a free action, take at least 2 points of temporary Constitution damage, up to any amount that leaves you alive and conscious. For every 2 points taken, each touched ally can be healed 1 hp per character level; an ally with disease may also immediately save again with a sacred bonus equal to the Constitution damage you took, curing the disease on success. You can touch one ally per point of Constitution damage and up to six allies as a full-round action. Each ally can benefit only once per activation, but unused touches remain available for 1 hour. Your wounds bleed for 1 hour, during which this Constitution damage cannot be restored. Once the bleeding ends you can activate the feat again if you have enough Constitution to survive.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/stigmata-2768",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/stitched-flesh-familiar-2772": {
+      "name": "Stitched Flesh Familiar",
+      "benefitSha256": "e148f5bed4c799cd819dd27f25297d25db874f4e037f2cdbed33eee06602cde3",
+      "effectSummary": "You may choose an undead stitched-flesh version of a standard familiar. It uses the base creature's statistics except: d12 Hit Die with no Constitution bonus; for HD-dependent effects use master's character level or familiar's normal HD, whichever is higher; hp are half the master's total or the familiar's normal total, whichever is higher; use master's BAB or familiar's, whichever is higher; and for each save use the better of the familiar's base save or the master's base save from character level. It gains normal familiar special abilities from the Player's Handbook familiar progression, but does not grant the usual familiar benefit to the master; instead it increases by 4 HD the amount of undead the master can control through rebuking and spells such as animate dead.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/stitched-flesh-familiar-2772",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/stunning-fist-2802": {
+      "name": "Stunning Fist",
+      "benefitSha256": "7bde1d12e11d0ae49b0cc7a4ac3bbe26348c243b36c181ec521a5334e95129bf",
+      "effectSummary": "Declare before an unarmed attack; a miss wastes the attempt. On a hit, the target takes normal damage and must make Fortitude DC 10 + half your character level + Wisdom modifier or be stunned until just before your next action. A stunned creature cannot act, loses Dexterity to AC, and takes -2 AC. You normally get one attempt per day per four character levels and may use it at most once per round. Constructs, oozes, plants, undead, incorporeal creatures, and creatures immune to critical hits cannot be stunned.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/stunning-fist-2802",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/summon-earth-elemental-2832": {
+      "name": "Summon Earth Elemental",
+      "benefitSha256": "192d45bea096e408c1377b6dc85e76db99a230338eb8aa54fd70097002e540dc",
+      "effectSummary": "Once per day, summon an earth elemental. Alone you can summon only Small. Each additional deep gnome using this feat together with you increases the maximum size by one step according to the Monster Manual elemental table; all participating gnomes expend their daily use. Treat the ability as a summon monster spell of the appropriate level, except it can summon only one earth elemental rather than multiple creatures.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/summon-earth-elemental-2832",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/summon-elemental-2833": {
+      "name": "Summon Elemental",
+      "benefitSha256": "a48074310d090de75a652656b54f823dd4a86406c4000c74882706d08b3c896a",
+      "effectSummary": "While you have a 4th-level or higher conjuration (summoning) spell available, you can summon a Small air, earth, fire, or water elemental within 30 feet as though with summon monster. Its duration is 1 round per level of your highest available conjuration (summoning) spell. You can have only one elemental from this feat at once; using it again dismisses the first, and it also disappears if you end your turn more than 30 feet away. A 6th-level or higher available summoning spell allows Medium; 8th-level or higher allows Large. You also gain +1 competence caster level when casting conjuration (summoning) spells.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/summon-elemental-2833",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/sun-school-2835": {
+      "name": "Sun School",
+      "benefitSha256": "41ce793f02e0bab03175f8bb23dca2e1c3eb5ff2c293a644e6d5ee8bee01dda3",
+      "effectSummary": "Grants three tactical maneuvers. Inexorable Progress of Dawn: if the first two unarmed attacks of your flurry hit the same foe, that foe moves 5 feet back and you may move 5 feet forward; neither movement provokes. Blinding Sun of Noon: if you successfully stun the same foe with an unarmed attack in two consecutive rounds, it is also confused for 1d4 rounds after the second stun. Flash of Sunset: when you move adjacent to a foe instantaneously, such as via dimension door or abundant step, immediately make one attack at your highest attack bonus against that foe.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/sun-school-2835",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/sun-soul-monk-2836": {
+      "name": "Sun Soul Monk",
+      "benefitSha256": "a4f3672c0a9aa681944cf629d7c1cf49cd4196512cf0d803e8c0c96f49c3e091",
+      "effectSummary": "Benefit depends on your monastery's patron. Lathander: once/day before an unarmed attack, imbue it with ki; an undead hit must make Will DC 10 + half your HD + Wisdom modifier or be turned, adding turn resistance to its save. You may alternatively expend a Stunning Fist use or turn-undead attempt to power it if you have those abilities. Selûne: unarmed strikes deal +1 cold damage and count as silver for damage reduction; in moonlight or starlight, treat monk level as 3 higher for unarmored speed. Sune: once/day as a standard action, fascinate one creature within 30 feet that can see you for 1 round, Will DC 10 + half your HD + Charisma modifier; creatures of a different type gain +4 on the save. You may alternatively expend a Stunning Fist use.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/sun-soul-monk-2836",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/swift-hunter-2868": {
+      "name": "Swift Hunter",
+      "benefitSha256": "b0348a6f8e114d86f57e43626184e76806f2efc31377e4b9563eccbffdc8b24d",
+      "effectSummary": "Ranger and scout levels stack for skirmish extra damage and AC, for when you gain additional favored enemies, and for the total favored-enemy bonus. In addition, your skirmish extra damage applies to any creature you selected as a favored enemy even if it is normally immune to critical-hit or skirmish extra damage.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/swift-hunter-2868",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/sword-of-the-arcane-order-2875": {
+      "name": "Sword of the Arcane Order",
+      "benefitSha256": "b5821664f4782b3051e20da6808aacb4dc7d2db75cae4528a3eedbbc6cd568e3",
+      "effectSummary": "You may prepare wizard spells in paladin and ranger spell slots. You need Intelligence 10 + spell level, and those spells use save DC 10 + Intelligence modifier. You may prepare them from your own spellbook or a borrowed spellbook using the normal deciphering and Spellcraft rules. If you also have wizard levels, your wizard caster level equals the sum of wizard, paladin, and ranger class levels.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/sword-of-the-arcane-order-2875",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/tainted-fury-2880": {
+      "name": "Tainted Fury",
+      "benefitSha256": "1821251bf05620bde510f8e119725e8639a9c7ed2d6584061ee44683e01c7e7e",
+      "effectSummary": "Enter tainted fury for a number of rounds equal to your corruption score. You gain hp equal to your corruption score; these are not temporary hp and are subtracted from your current hp when the fury ends. During the fury, you may designate one melee attack as a tainted smite for bonus damage equal to half your corruption score; if the target is immune to taint, the smite is expended with no bonus. When the fury ends, make Fortitude DC 10 + corruption score; failure causes 1d6 Constitution damage and sickens you for 1 minute.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/tainted-fury-2880",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/talenta-warrior-2883": {
+      "name": "Talenta Warrior",
+      "benefitSha256": "6b3249c3e10696d824460d8eadc7a58426992380e9b6d3b0fcd78bb913fac0d6",
+      "effectSummary": "Treat the Talenta sharrash, tangat, and boomerang as martial weapons and gain +1 damage with them while mounted. If you have Improved Critical, Weapon Focus, Weapon Specialization, Greater Weapon Focus, or Greater Weapon Specialization for any one of those three weapons, its effect applies to all three. When you spend an action point on an attack roll with one of those weapons, add the action-point result to that attack's damage as well.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/talenta-warrior-2883",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/tattoo-magic-2893": {
+      "name": "Tattoo Magic",
+      "benefitSha256": "f6a1f1e987cf5cda7b2674ec49b2a0e08f5723ed4ac3af3b9467ba1e2a49d0bb",
+      "effectSummary": "Create single-use magic tattoos containing a known spell of 3rd level or lower that targets one or more creatures. Creation takes 1 hour on a corporeal creature; choose a caster level high enough to cast the spell and no higher than your own. Base price is spell level × caster level × 50 gp; crafting costs 1/25 base price in XP and half base price in materials, plus any costly material or XP component of the stored spell. Choices for the spell are fixed at creation. Only the bearer can activate it, always targeting itself, by touching the tattoo as a standard action that does not provoke. A normal tattoo occupies a magic-item body slot and suppresses other items in that slot; a slotless tattoo doubles base price. Erase can remove it as magic writing without triggering it on a failed attempt. Activation makes the tattoo vanish.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/tattoo-magic-2893",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/touch-of-taint-2943": {
+      "name": "Touch of Taint",
+      "benefitSha256": "cbf848320347dd2fcdef766d2e0637c52b93aee7654b52346d7acc070f80a0bb",
+      "effectSummary": "Choose one natural attack that deals ability damage, ability drain, or negative levels. Physical ability damage/drain also increases corruption by 1; mental ability damage/drain also increases depravity by 1. An attack that bestows one negative level increases either corruption or depravity by 1, chosen per target. If it bestows more than one negative level, instead increase taint by 2 points allocated as +2 corruption, +2 depravity, or +1 to each.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/touch-of-taint-2943",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/transdimensional-power-2956": {
+      "name": "Transdimensional Power",
+      "benefitSha256": "11ba4e2525d8e02a60bced734e1c42cbae5e617613e4ed1ca014d330eed9655a",
+      "effectSummary": "Expend psionic focus when manifesting. The power has full normal effect on incorporeal creatures, creatures on the Ethereal Plane or Plane of Shadow, and creatures inside extradimensional spaces within its area, including blinking or shadow-walking creatures and manifested ghosts. You must perceive a creature to target it directly, but need not perceive creatures caught in a burst, cone, emanation, or spread. The feat does not increase power-point cost.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/transdimensional-power-2956",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/transdimensional-spell-2957": {
+      "name": "Transdimensional Spell",
+      "benefitSha256": "aa6ced70fb5b2e906911486d0c778927dff193efa7d224a455e552a42752c48e",
+      "effectSummary": "A transdimensional spell fully affects incorporeal creatures, creatures on the Ethereal Plane or Plane of Shadow, and creatures inside extradimensional spaces in its area, including blinking or shadow-walking creatures and manifested ghosts. You must perceive a creature to target it directly, but not to catch it in a burst, cone, emanation, or spread. The spell uses a slot 1 level higher than normal.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/transdimensional-spell-2957",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/trickery-devotion-2970": {
+      "name": "Trickery Devotion",
+      "benefitSha256": "19e9ea9d3b29285b3d009a02e3c9460a697f1f6eb8e3bb91f0fbd052e08615d7",
+      "effectSummary": "Once per day as a standard action, create an exact duplicate of yourself within 30 feet for up to 1 minute per character level per day. Control its movement as a free action. The simulacrum combines silent image and unseen servant traits, has hp equal to 6 + your character level, ignores terrain effects, moves silently like an unseen servant while making normal-looking motions, and can perform anything an unseen servant could under the same limits. If you have a fly speed it appears to fly when off the ground; otherwise it walks on open air.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/trickery-devotion-2970",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/trigger-power-2971": {
+      "name": "Trigger Power",
+      "benefitSha256": "1ffee263c541635c22a18fd3c0340ac8f07ea045e19f8275579ee3b19fe7ec5c",
+      "effectSummary": "Choose one known 0th- through 3rd-level power. To trigger it without paying power points, you must first have a reserve at least equal to its normal cost, then make the ability check appropriate to its discipline. DCs are 11 for 0-level, 13 for 1st, 15 for 2nd, and 17 for 3rd. Success manifests it normally for no power-point cost; failure still manifests it normally but forces you to pay its cost. Trigger Power cannot be combined with psionic attack or defense modes.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/trigger-power-2971",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/trophy-collector-2973": {
+      "name": "Trophy Collector",
+      "benefitSha256": "0dbbce8cc2194d55d71fc1f92dad1c95039b32e09e254cf0f73fa5e9ee06e410",
+      "effectSummary": "After defeating a foe with CR greater than your level, you can use Craft (taxidermy) to create a wearable trophy worth CR × 100 gp. Design it for the amulet, belt, boots, or cloak slot; it conflicts with magic items in that slot, with the last donned object functioning. Each worn trophy grants +2 Intimidate per trophy against creatures of the same type, or same subtype for humanoids/outsiders, and imposes -4 Diplomacy against matching type/subtype creatures. Each trophy also grants +1 on saves against fear. Once per day, add a morale bonus to one Will save equal to the number of trophies worn; if used against fear it stacks with the per-trophy fear bonus.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/trophy-collector-2973",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/tumbling-feint-2981": {
+      "name": "Tumbling Feint",
+      "benefitSha256": "1834c0e0526ca854aa80a7c77a7b29177209d632363305f552eb37574931e690",
+      "effectSummary": "As a swift action at the start of your turn, designate one opponent. If you successfully Tumble to avoid provoking an attack of opportunity from that opponent, gain +5 on your next Bluff check to feint against that opponent. You must use the bonus by the end of your next turn.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/tumbling-feint-2981",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/twin-power-2987": {
+      "name": "Twin Power",
+      "benefitSha256": "3962a3fac70878b866d06b859c6ff0e8396abb21425af089a4f82723f0427ef0",
+      "effectSummary": "A twinned power takes effect twice simultaneously on the same target or location. Choices and variables apply to both instances; targets suffer both effects separately and receive a separate saving throw for each. Nonstacking effects can be redundant, and removing such an effect can require two negation attempts. This Psionics Handbook 3.0 printing increases the power's cost by 8 power points.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/twin-power-2987",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/twin-power-2988": {
+      "name": "Twin Power",
+      "benefitSha256": "e4545706c2464c4a2f2754b5078e33fa0207d1529c79374de7571132082f4f77",
+      "effectSummary": "Expend psionic focus to twin a power. It takes effect twice simultaneously on the same area or target; all variables are identical for both instances, targets experience both separately, and each instance grants its own saving throw where applicable. Redundant nonstacking effects remain separate for dispelling. This Expanded Psionics Handbook printing increases cost by 6 power points, and the total power-point cost cannot exceed your manifester level.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/twin-power-2988",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/twin-spell-2989": {
+      "name": "Twin Spell",
+      "benefitSha256": "7ac192904aae6fc853a8e7a3ae8fd59d449299850dc285167694144012775c25",
+      "effectSummary": "A twinned spell resolves twice simultaneously in the same area or on the same target. All variable characteristics, attack rolls, and choices are shared between both instances; affected creatures suffer both separately and make separate saving throws. Normally nonstacking effects are redundant but still exist as separate effects for dispelling. One successful counterspell negates both instances. The spell uses a slot 4 levels higher than normal.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/twin-spell-2989",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/twin-spell-2990": {
+      "name": "Twin Spell",
+      "benefitSha256": "afcfd7a0c254938f09a7670108a0a58a41080bc24f171d00782ad723fd74d674",
+      "effectSummary": "A twinned spell takes effect twice simultaneously on the same location or target. Spell variables and choices apply to both instances; the target suffers both effects separately and gets a saving throw for each. Effects that would not normally stack can be redundant, and removing such effects can require two dispel successes. A normal counterspell still counters the entire twinned spell. The spell uses a slot 4 levels higher than normal.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/twin-spell-2990",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/twin-spell-2991": {
+      "name": "Twin Spell",
+      "benefitSha256": "01ecdd8e8261b2c75bf621c7ea464625be6b52bfe043adf96d997704340faa27",
+      "effectSummary": "A twinned spell takes effect twice simultaneously on the same location or target. Spell variables and choices apply to both instances; the target suffers both effects separately and gets a saving throw for each. Effects that would not normally stack can be redundant, and removing such effects can require two dispel checks. An untwinned counterspell still counters the entire twinned spell. The spell uses a slot 4 levels higher than normal.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/twin-spell-2991",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/umbral-shroud-3003": {
+      "name": "Umbral Shroud",
+      "benefitSha256": "ac9c8adc53e7a1e182906bb42e229f926d4b2b49a1acd62fc4a21195fc329f13",
+      "effectSummary": "While you have a 3rd-level or higher darkness spell available, as a standard action choose one foe within 30 feet. On a failed Will save, that foe's attacks have a miss chance equal to 5% per level of your highest-level available darkness spell until the start of your next action. Creatures that do not rely on sight are unaffected; Blind-Fight and similar abilities work normally. You also gain darkvision 10 feet, or increase existing darkvision by 10 feet.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/umbral-shroud-3003",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/undead-empathy-3013": {
+      "name": "Undead Empathy",
+      "benefitSha256": "9f07bd0c4d0ed587d59ac9586d856e43869a39506f1a15b5b76a0175c781d957",
+      "effectSummary": "Gain +4 on Diplomacy checks to influence intelligent undead. You may also use Diplomacy on mindless undead, without the +4 bonus. A normally hostile mindless undead can usually be made indifferent to halt attack; one specifically commanded to guard something must be made friendly to stop fighting and helpful to abandon its post. You and a mindless undead must be within 30 feet, and influencing it normally takes 1 minute, subject to the usual Diplomacy timing adjustments.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/undead-empathy-3013",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/undermountain-tactics-3019": {
+      "name": "Undermountain Tactics",
+      "benefitSha256": "48cedddb5c7d6e6a543739c1ca7dfd290715bfae3fe047031b2feca7c9e2fd58",
+      "effectSummary": "Grants three tactical maneuvers. Stair King: while benefiting from high ground, if you hit one foe with at least two melee attacks in your turn, it makes Balance DC 10 + Strength modifier or falls prone; it may instead choose automatic success before rolling, losing its next move action but automatically resisting this maneuver until its next turn, and you can target a creature only once per round. Tunnel Fighter: when targeted by a melee attack while walls are adjacent on at least two sides, gain +2 cover AC; this does not stack with other cover, you block opponents' line of sight through your space, but allies can fire through normally. Door Sentinel: after fighting defensively while occupying or adjacent to every square across a doorway/gate-like opening, for 1 round gain +4 Strength or Dexterity checks against bull rush/trip; enemies take -5 Tumble to avoid your AoO and -10 Tumble to move through your space.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/undermountain-tactics-3019",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/up-the-walls-3034": {
+      "name": "Up the Walls",
+      "benefitSha256": "684c63324282abf3829619ba713098d66f0889a8f99b2151640b6b3bc62eb01f",
+      "effectSummary": "During a move, you may traverse a wall if the move begins and ends on a horizontal surface. Treat the wall as normal floor for movement distance; crossing between horizontal and vertical costs 5 feet of movement in this Psionics Handbook 3.0 printing. If you fail to end on a horizontal surface, you fall prone and take appropriate falling damage. Normal attacks of opportunity can occur as you move through threatened wall squares.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/up-the-walls-3034",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/up-the-walls-3035": {
+      "name": "Up the Walls",
+      "benefitSha256": "e68bded1bd06cdf91837bfd3a05985d6ccf8d18de439e04bb2777ebe4f96294d",
+      "effectSummary": "While psionically focused, you may use part of a move to traverse a relatively smooth vertical surface if you begin and end the move on a horizontal surface. Treat the wall as normal floor for movement distance; changing from floor to wall or wall to floor costs no extra movement in this Expanded Psionics Handbook printing. If you do not end on a horizontal surface, you fall prone and take appropriate falling damage. Opponents can make normal attacks of opportunity as you move through threatened wall squares.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/up-the-walls-3035",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/upgrade-power-3812": {
+      "name": "Upgrade Power",
+      "benefitSha256": "8a382611acebb4883df47f52e71fe6f3d0bf6dde3f671332757c54a729a74cc0",
+      "effectSummary": "Choose one recognized power chain in which you know a power. Whenever you learn a higher-level power in that chain, you may forget one or more known lower-level powers in the same chain and replace each with a different power of the same level. If a forgotten power was your only discipline power at that level, the replacement must also come from your discipline. You may choose not to replace lower-level powers. The DM can recognize additional chains or alter the listed chains.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/upgrade-power-3812",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "13abcb5713a8ab1203f38e44ca779f20d16442e4",
+    "validationRun": 35784975234,
+    "featReviewRun": 35781227811,
+    "featReviewArtifact": 10718635433,
+    "featReviewArtifactSha256": "ebab66aeaad83fb49b41e87c26cd621632a05f2981b926748788b0f0ba33aa62",
+    "sourceArtifactEntryCount": 321,
+    "reviewQueueCountBefore": 71,
+    "reviewedByPriorBatches": 250,
+    "deferredSourceDamaged": [
+      "feats/reaping-talons-2400"
+    ],
+    "fullFeatAuditRun": 35780589058,
+    "catalogCount": 3666
+  }
+}

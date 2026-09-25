@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record feat long-rule batch 004 from the fresh 321-record review artifact. This is the next untouched 50-record slice after batches 002 and 003. Benefit and Special fields are independently digest-locked where present, and printing-specific differences among same-name feat records are preserved.",
+  "entries": {
+    "feats/endurance-863": {
+      "name": "Endurance",
+      "benefitSha256": "5b1500127143540debe5ed31b16789f1f260228774ae0adc59c94c24badba582",
+      "effectSummary": "Gain +4 on Swim checks to resist nonlethal damage; Constitution checks to keep running, resist forced-march damage, hold your breath, or resist starvation/thirst; Fortitude saves against nonlethal hot/cold damage; and Fortitude saves against suffocation damage. You may also sleep in light or medium armor without becoming fatigued.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/endurance-863",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/energy-admixture-871": {
+      "name": "Energy Admixture",
+      "benefitSha256": "50433b06d7e69084ccd8d81f923e3c070e4969e5a1c866a36b49c77a044261f7",
+      "effectSummary": "Choose acid, cold, electricity, or fire matching an energy type you selected with Energy Substitution. You can add an equal amount of that energy damage to any spell with an energy descriptor; the original and added energy damage are rolled separately and each observes the base spell's damage cap independently. Opposed energy types can be combined. The spell gains both energy descriptors and uses a slot four levels higher than normal.",
+      "specialSha256": "f6a84bb7bb83c02a019e6eb7df46d381bcf082e0a1fbe98b62b29ca9a6b9f2f1",
+      "specialSummary": "You can take Energy Admixture multiple times, choosing a different energy type each time, and every chosen type must also be one you selected for Energy Substitution. You may use Energy Admixture on a spell already altered by Energy Substitution, and you may admix the same energy type a spell already uses, effectively doubling its normal damage dice.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/energy-admixture-871",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/energy-admixture-872": {
+      "name": "Energy Admixture",
+      "benefitSha256": "509558ef5b93316d78f6c33f74bb99ee73e4b62e7dc0b43fafef553c19a104a2",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic. You can add an equal amount of the chosen energy damage to a spell with an energy designator. The original and added damage types are rolled separately and each observes the base spell's damage cap independently, even when the two types oppose each other. An admixed spell uses a slot four levels higher than normal.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/energy-admixture-872",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/energy-gestalt-874": {
+      "name": "Energy Gestalt",
+      "benefitSha256": "bbcd5c553a1cfdf7e07475e23c1c2fbc821d036d6921bde1cf4894627f7b8722",
+      "effectSummary": "Enables three two-round energy combinations against creatures damaged by both spells. Acid then fire: living targets become nauseated for 1 round, or sickened for 1 round on a Fortitude save using the second spell's DC; this counts as a poison effect. Cold then sonic: an object or construct takes +50% damage from the sonic spell. Cold then electricity: living targets are slowed for 1 round, or merely fatigued for 1 round on a Fortitude save using the second spell's DC.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/energy-gestalt-874",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/energy-substitution-881": {
+      "name": "Energy Substitution",
+      "benefitSha256": "592391a430fbe9bf1a2c9fe7fc8dc209f42ee4511be41d4275083b5234be0c11",
+      "effectSummary": "Choose acid, cold, electricity, fire, or sonic. You can change a spell with an energy designator to deal the chosen energy type instead, without increasing spell level. Secondary effects not directly tied to the original energy remain; effects specifically dependent on the original energy can change appropriately. Any nonenergy portion of a spell's damage is unaffected.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/energy-substitution-881",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/enhance-effect-886": {
+      "name": "Enhance Effect",
+      "benefitSha256": "20f0b95df5b73245e2dfd5a36f427542d05bf642ee1db2c609f91d77b29b63dd",
+      "effectSummary": "As a full-round action that provokes attacks of opportunity, alter variables of an existing persistent spell effect as though you cast it, except you cannot change its point of origin or center. You may substitute your caster level for the original caster level and reshape the effect within that spell's normal parameters. You must be adjacent to or within the effect and succeed on Spellcraft DC 30 + three times the spell level. Uses of Enhance Effect and your metamagic-effect ability share a daily pool of 5 + your Intelligence modifier.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/enhance-effect-886",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/enhance-spell-887": {
+      "name": "Enhance Spell",
+      "benefitSha256": "4d3756d184265285626b8dc568482bb276dd40ecd14c06fc381d359d2f0ebfeb",
+      "effectSummary": "Increase a spell's damage cap by 10 dice when its damage dice normally scale one die per caster level, or by 5 dice when they scale one die per two caster levels. The feat does not affect other level-dependent damage or effects that do not use those scaling patterns. An enhanced spell uses a slot four levels higher than its actual level after other metamagic adjustments.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/enhance-spell-887",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/enhance-spell-888": {
+      "name": "Enhance Spell",
+      "benefitSha256": "3556e41caf4e8666f2201681c942454bb083e62dbb09368fd1f49426a7f37bec",
+      "effectSummary": "Increase a spell's damage cap by 10 dice when its damage dice normally scale one die per caster level, or by 5 dice when they scale one die per two caster levels. It does not affect spells whose level scaling works in another way. An enhanced spell uses a slot four levels higher than the spell's actual level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/enhance-spell-888",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/exhaled-barrier-975": {
+      "name": "Exhaled Barrier",
+      "benefitSha256": "ef3d311eefc0542b453cac2e02b89e50b28ad406fa2af766a6de7e8203e60934",
+      "effectSummary": "Instead of the normal breath-weapon effect, create an opaque 10-by-10-foot vertical plane beginning at a corner of your space and extending in a straight line up to 10 feet or until a solid surface. The wall lasts 1d4 rounds. A creature passing through it or caught where it appears takes your breath weapon's normal damage, Reflex DC 10 + half your Hit Dice + Constitution modifier for half. If your breath weapon deals nonenergy damage, the wall deals fire damage; if it normally deals no damage, the wall deals 2d6 fire damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/exhaled-barrier-975",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/explosive-spell-998": {
+      "name": "Explosive Spell",
+      "benefitSha256": "1d252e4803027cdbd278629039c015df107f758ea2b3da3d2e80d4a9da76aeea",
+      "effectSummary": "Apply only to an area spell that allows Reflex saves and has a cone, cylinder, line, or burst area. A creature that fails its Reflex save is pushed to the nearest edge outside the spell's area, takes +1d6 damage per 10 feet moved, and falls prone; movement under 10 feet adds no distance damage. If an obstacle stops the movement, the creature also takes 1d6 collision damage. This forced movement does not provoke attacks of opportunity. The spell uses a slot two levels higher.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/explosive-spell-998",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/explosive-spell-999": {
+      "name": "Explosive Spell",
+      "benefitSha256": "2d553028f1beb19f263a112ed0cfa231a56314c0c57895c8a9f7e7187f421132",
+      "effectSummary": "Apply only to an area spell that allows Reflex saves and has a cone, line, or burst area. A creature that fails its save is ejected to the nearest edge of the effect, takes +1d6 damage per 10 feet moved, and falls prone. If an obstacle stops it before the edge, it also takes 1d6 collision damage. The movement does not provoke attacks of opportunity. An explosive spell uses a slot two levels higher.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/explosive-spell-999",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/extra-favored-enemy-1019": {
+      "name": "Extra favored Enemy",
+      "benefitSha256": "96de8cfc70cef42263c65aae5c2c462beb13b6459f18d542fdb6071d6602693d",
+      "effectSummary": "Add one favored enemy beyond your normal allotment. It begins with the standard +1 favored-enemy bonus on damage and the usual relevant skill checks, then increases in step with your other favored-enemy bonuses as you advance beyond the level at which you gained this feat.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/extra-favored-enemy-1019",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/extra-favored-enemy-3493": {
+      "name": "Extra Favored Enemy",
+      "benefitSha256": "a20a070e03ef072d3c24ed5c2cdba7cae0b0a69c05d0a3753b50c8ffedd320e7",
+      "effectSummary": "Add one new favored enemy. It begins with the normal +1 bonus on the relevant skill checks and damage rolls, then increases like your other favored-enemy bonuses, explicitly gaining another +1 at ranger levels 5, 10, 15, and 20 after the normal favored-enemy progression is applied.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/extra-favored-enemy-3493",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/extract-demonic-essence-1054": {
+      "name": "Extract Demonic Essence",
+      "benefitSha256": "f8787a9c035f00dd1c56756a9e8484801545ccc359c194685c38f3bccac3b628",
+      "effectSummary": "When paying an XP cost for a spell or magic item, use a demon with Hit Dice at least equal to the spell/item caster level to halve your XP cost. The demon must stay within 30 feet and line of effect for the full casting or crafting period. You and the demon each take 1d6 Constitution damage when essence is drawn. An unwilling demon can resist with Fortitude DC 10 + half your character level + Charisma modifier; success forces you to pay the full XP cost or abort. For a spell, you must also make Concentration DC 20 + the demon's Hit Dice; for an item, the borrowed essence creates a 10% chance the item gains a curse.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/extract-demonic-essence-1054",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/fade-into-violence-1067": {
+      "name": "Fade into Violence",
+      "benefitSha256": "40791f65b88753ec306d5685dec51f722e8808ffac73217ed0086d1a05cc79e5",
+      "effectSummary": "While unarmored or in light armor and holding nothing, use an immediate action to choose one opponent for the encounter. If that foe threatens both you and an ally, it chooses the ally for melee attacks instead of you unless it succeeds on Sense Motive opposed by your Bluff; you gain +4 Bluff if the foe is larger. The benefit ends if you attack any opponent or target an opponent with a spell. It does not protect against ranged attacks or attacks of opportunity you provoke, and you cannot switch targets during the encounter.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/fade-into-violence-1067",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/favored-in-house-1088": {
+      "name": "Favored in House",
+      "benefitSha256": "810b29dba4851dfa6bf78e8d9c442f26260f207f84b5ed711860eda98d28ba3e",
+      "effectSummary": "Call in information, equipment loans, documents, or similar family favors with a favor check: d20 plus +1 at levels 1–2, +2 at 3–6, +3 at 7–11, +4 at 12–15, or +5 at 16+. The DM sets DC 10 for simple favors up to about 25 for highly dangerous, expensive, or illegal favors. You cannot take 10/20 or retry the same favor. You may attempt favors per week equal to half your character level rounded down, minimum one, and never more than one favor from the same contact in a week. Favors cannot bypass an adventure and remain subject to DM campaign limits.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/favored-in-house-1088",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/favored-magic-foe-1089": {
+      "name": "Favored Magic Foe",
+      "benefitSha256": "a5c33eab49db0935ee57544aef7d11c327cc4d738471c83cc2314033b37ad40c",
+      "effectSummary": "Choose a favored-enemy creature type, or a creature type tied to a Knowledge skill in which you have at least 6 ranks; humanoid and outsider choices also require a subtype. Against that type, gain +1 on caster-level checks to overcome spell resistance, and those creatures take -1 on saves against your spells and spell-like abilities. Knowledge associations are: aberration/ooze—Dungeoneering; animal/fey/monstrous humanoid/plant/vermin—Nature; construct/dragon/magical beast—Arcana; elemental/outsider—The planes; giant—Nature; humanoid—Local; undead—Religion. You can take the feat multiple times for different types or subtypes.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/favored-magic-foe-1089",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/flensing-strike-1142": {
+      "name": "Flensing Strike",
+      "benefitSha256": "7b63cbfac292f28c722c357bd5bc27a4995b18d6d5db7bea05f041f8919877be",
+      "effectSummary": "As a full-round action, make a kama attack. On a hit against a living corporeal target, it also makes Fortitude DC 10 + half your character level + Wisdom modifier; the DC increases by 2 if you wield two kamas, with no extra increase for more. The target adds its natural armor bonus to this save. Failure imposes -4 on attacks, saves, and checks for 1 minute. Constructs, oozes, plants, undead, incorporeal creatures, creatures immune to critical-hit extra damage, and creatures specifically immune to pain are unaffected.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/flensing-strike-1142",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/fling-ally-1146": {
+      "name": "Fling Ally",
+      "benefitSha256": "ca7a3931d41957a43a4ce881f7a90ddc28a9177d3e89631b50126d98e67b4a79",
+      "effectSummary": "Pick up an ally at least one size smaller as a move action and throw it as a standard action up to five range increments. Make a ranged touch attack against AC 5; success lands the ally in the chosen square, while a miss scatters it using the thrown-weapon miss diagram. Landing in an occupied square leaves the ally prone, and the movement never provokes attacks of opportunity. Range increment is 5 feet for an ally one size smaller and 15 feet for an ally at least two sizes smaller; Improved Rock Hurling or a racial rock-throwing ability improves these to 20 and 40 feet. Goliaths count as Large. The ally's weight cannot exceed your maximum load.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/fling-ally-1146",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/fling-enemy-1147": {
+      "name": "Fling Enemy",
+      "benefitSha256": "1358b8b86200375a3f7e2fdcbfbcb3344d2bc9bf3288bd84fcc36df6c62e22fa",
+      "effectSummary": "While grappling a foe, use a standard action and an opposed grapple check to throw it. For every 5 points by which your check exceeds the foe's grapple check or Escape Artist check, throw it 10 feet, up to the maximum distance you could throw an ally with Fling Ally. The foe lands prone in a square you choose, cannot weigh more than your maximum load, and does not provoke attacks of opportunity from this movement.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/fling-enemy-1147",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/fling-enemy-1148": {
+      "name": "Fling Enemy",
+      "benefitSha256": "edccab17dcd2e53ca1b2d62d4f1df08a565ee4245ece52ef22a421c667eb73f8",
+      "effectSummary": "Make a grapple check at -20 against a foe at least two size categories smaller. On success, your next action can be an attack action to fling the held creature with a 120-foot range increment. A vertical throw causes normal falling damage; a horizontal throw deals falling damage as though the creature fell half the thrown distance. You can instead throw it at another creature with an attack roll at -4 plus range penalties; on a hit, both creatures take the damage the thrown creature would otherwise suffer.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/fling-enemy-1148",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/forge-ring-1182": {
+      "name": "Forge Ring",
+      "benefitSha256": "8d3d54bea23fff3880777265c675643623d2fc9b12479c07303791e98005ed7a",
+      "effectSummary": "Create any magic ring whose prerequisites you meet. Crafting takes 1 day per 1,000 gp of base price, costs XP equal to 1/25 of base price, and consumes raw materials equal to half that price. You can repair a ring you could make for half the normal time, XP, and materials. Any additional material-component or XP costs listed for the ring are paid in addition to the base-price costs for both creation and repair.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/forge-ring-1182",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/formation-expert-1185": {
+      "name": "Formation Expert",
+      "benefitSha256": "af1fd625fcf7435822e4f7872f1aefe2c8e21f0663b14cdeea3f092a108e7802",
+      "effectSummary": "Grants three formation maneuvers even if adjacent allies lack this feat. Lock Shields: with a ready shield and allies on both adjacent sides also holding ready shields, gain +1 AC. Step into the Breach: if a fallen ally is within one move and every square between you is occupied by an ally, immediately take one move action as though readied to enter the fallen ally's square. Wall of Polearms: while wielding a shortspear, longspear, trident, glaive, guisarme, halberd, or ranseur with allies on both sides wielding the identical weapon, gain +2 on attack rolls.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/formation-expert-1185",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/frightful-presence-3539": {
+      "name": "Frightful Presence",
+      "benefitSha256": "90c143e39b975369a0de54828f3da9a6d6d5e81ee019948681dc78438f4f2dc3",
+      "effectSummary": "Gain frightful presence as an extraordinary ability, activated as a free action when you attack, charge, or fly overhead. Creatures within 30 feet with fewer Hit Dice than you make Will DC 10 + half your Hit Dice + Charisma modifier. On failure, creatures with less than half your Hit Dice are panicked for 2d4 rounds; other eligible creatures are shaken for 2d4 rounds. This is mind-affecting fear. A successful save grants 1-day immunity to your presence. Each activation deals 2 Charisma damage to you.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/frightful-presence-3539",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/frozen-wild-shape-1199": {
+      "name": "Frozen Wild Shape",
+      "benefitSha256": "6f0bc9d5074586a2d5a54647f25621696f1c0dd8b14e4554cbb794a46cd32e62",
+      "effectSummary": "Use wild shape to assume the form of any magical beast with the cold subtype that fits your normal wild-shape size limits. As with standard wild shape, you do not gain the form's extraordinary special qualities or supernatural abilities except for the cold subtype itself. The cold subtype grants cold immunity and fire vulnerability, causing +50% fire damage regardless of whether a save is allowed or succeeds.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/frozen-wild-shape-1199",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/ghost-ride-3471": {
+      "name": "Ghost Ride",
+      "benefitSha256": "58d188c66de147650a14925fadaba7ccfa2ea3393bb677551dea993f3d8f4a09",
+      "effectSummary": "As a standard action, enter a living target's space, provoking an attack of opportunity, and attempt to inhabit its body. The target resists with Will DC 10 + half your Hit Dice + Charisma modifier; success makes it immune to all your Path of the Dominator feat attempts for 1 day. On failure, your ghost body and ghost-touch gear vanish into the target, while non-ghost-touch items fall in its square. The target makes another Will save every 10 minutes to eject you into an adjacent square. This is mind-affecting. Uses per day equal your Charisma modifier, minimum 1.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/ghost-ride-3471",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/ghost-touch-spell-3546": {
+      "name": "Ghost-Touch Spell",
+      "benefitSha256": "ce86478c80bf82f91cf40be215ed084325b3fed539e63f803b92a181086e97d7",
+      "effectSummary": "Apply only to a damaging spell. The spell's damage affects only ghosts, whether incorporeal or fully manifested, and ignores their incorporeal miss chance; nonghosts take no damage. Nondamage effects unrelated to the damage can still affect nonghosts, such as a wall of ice remaining a physical barrier. A ghost-touch spell uses a slot of the spell's normal level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/ghost-touch-spell-3546",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/giant-banemagic-1215": {
+      "name": "Giant Banemagic",
+      "benefitSha256": "5a2fbe585b83b16627ac4b709b6cc3098cb08751d360886d04f94b5cb338629a",
+      "effectSummary": "When a spell damages giants, it deals +2d6 damage and its save DC against them increases by 2. A single casting gains the bonus damage only once per target/casting pattern as described by the source; ongoing damaging spells apply the bonus each round. A successful save halves or negates the extra damage the same way it affects the spell's normal damage. Scrolls you scribe or activate, wands, potions, and most other items do not gain this benefit, but staffs you activate do because they use your caster level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/giant-banemagic-1215",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/gnome-tunnel-acrobatics-1236": {
+      "name": "Gnome Tunnel Acrobatics",
+      "benefitSha256": "30fa764e93f832b743be4781a11ebe690d0edfc4d134269b3f9d42a7397502de",
+      "effectSummary": "Grants three tactical maneuvers. Combat Puppeteer: after using Tumble to avoid a foe's attack of opportunity, on the next round double-move and Tumble at -5; success makes that foe's attack of opportunity target another creature of your choice within its reach, once per round. Tunnel Scrambler: after hitting a foe whose space has walls adjacent on at least two sides, on your next turn use a full-round Tumble through its space; success lets you stop there and attack, and if that attack hits move the foe 5 feet and occupy its former space; failure provokes and wastes the action, while a miss returns you to your starting square. Wall Leaper: drop from a wall while climbing and land adjacent to a creature to make a standard-action attack that counts as a charge and adds damage equal to the falling damage you take.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/gnome-tunnel-acrobatics-1236",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/goad-1237": {
+      "name": "Goad",
+      "benefitSha256": "edd287ba9d6f707296afd13669dca166a8e6eff18745401607ff7d1b7ba73ce7",
+      "effectSummary": "As a move action, goad a creature that threatens you, can see and hear you, and has Intelligence 3+. At the start of its next turn, if it still threatens and sees you, it makes Will DC 10 + half your character level + Charisma modifier. On failure, it can make melee attacks only against you that turn unless you become unavailable; it can still cast spells, make ranged attacks, move, and take other actions normally. This is mind-affecting.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/goad-1237",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/goad-1238": {
+      "name": "Goad",
+      "benefitSha256": "48c2f47168ad8a00128e58038ef0c4cf66869246eedc9db65f6a9a39eb42c1cb",
+      "effectSummary": "As a move action, goad a creature that threatens you, can see and hear you, and has Intelligence 3+. At the start of its next turn, if it still threatens and sees you, it makes Will DC 10 + half your character level + Charisma modifier. On failure, it can make melee attacks only against you that turn unless you become unavailable; it can still cast spells, make ranged attacks, move, and take other actions normally. This is mind-affecting.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/goad-1238",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/goad-1239": {
+      "name": "Goad",
+      "benefitSha256": "8c3ed369d0429d4c656143b6ea60a1cdece7fa71bcffb1c7b19ca6ae27d6c137",
+      "effectSummary": "As a move action, goad a creature that threatens you, can see and hear you, and has Intelligence 3+. At the start of its next turn, if it still threatens and sees you, it makes Will DC 10 + half your character level + Charisma modifier. On failure, it can make melee attacks only against you that turn unless you become unavailable; it can still cast spells, make ranged attacks, move, and take other actions normally. This is mind-affecting.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/goad-1239",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/gold-dragon-lineage-1241": {
+      "name": "Gold Dragon Lineage",
+      "benefitSha256": "9f565c5fdd811472dd2f770ff0efd9b2ff7f0170615071b08401b56fe06f541f",
+      "effectSummary": "As a swift action, expend an arcane spell slot to give every ally within 30 feet, including you, a luck bonus equal to that slot's level that can be applied to one saving throw as an immediate action. The bonus expires after a number of rounds equal to your Charisma bonus, minimum 1, but an ally need not remain in range to use it. A creature cannot hold more than one such bonus; a later use replaces the duration unless that creature chooses to keep the previous duration.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/gold-dragon-lineage-1241",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/gold-dwarf-dweomersmith-1242": {
+      "name": "Gold Dwarf Dweomersmith",
+      "benefitSha256": "a6fa9f30af9d7f867c4f07fa12f4638947b0d680d8418db511e147e731940657",
+      "effectSummary": "Gain +1 caster level when casting a spell that creates a weapon or enhances an existing weapon, and this caster-level increase can exceed that spell's normal maximum effect. The listed tradition includes bless weapon, magic stone, magic weapon, shillelagh, flame blade, Melf's acid arrow, spiritual weapon, flame arrow, keen edge, greater magic weapon, holy sword, blade barrier, spellstaff, changestaff, and Mordenkainen's sword; other spells qualify if they target a weapon. Magic weapons you craft also cost 5% less gold to make, with no reduction to XP cost.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/gold-dwarf-dweomersmith-1242",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/graft-flesh-1248": {
+      "name": "Graft Flesh",
+      "benefitSha256": "7ca4653bb66e9883d4468df4c477f530de5686026ff69cf9a32ad794df89a59b",
+      "effectSummary": "Choose one graft category: aboleth, beholder, fiendish, illithid, undead, or yuan-ti. Aboleth, fiendish, illithid, and yuan-ti grafts require you to be that creature type; beholder and undead graft choices have no extra creature-type requirement. You can create grafts of the chosen type and apply them to living creatures or yourself. Creation takes 24 hours per 1,000 gp of graft price, costs XP equal to 1/25 of the price, and consumes raw materials equal to half the price.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/graft-flesh-1248",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/grappling-block-3689": {
+      "name": "Grappling Block",
+      "benefitSha256": "74272284fd310600e35e83d5657dc243f504ed65ab6526fd9325cd9b0afef1cc",
+      "effectSummary": "With both hands free or while holding weapon-catching weapons such as sai or jitte, once per round when a melee weapon attack would hit you, spend one of your attacks of opportunity to make a special disarm attempt. Roll an attack with your unarmed strike, sai, or jitte opposed by the attack roll that hit you; the opponent does not modify that roll for weapon size. On success, an unarmed defender grabs the weapon, while an armed defender knocks it to the ground. You can use this only against weapons up to two size categories larger than you.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/grappling-block-3689",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/great-flyby-attack-1261": {
+      "name": "Great Flyby Attack",
+      "benefitSha256": "bf5cc70b54a473b82971b607d11c40d08397926bfc531610545bf7b9191983c4",
+      "effectSummary": "As a full-round action while flying, move in a straight line up to your fly speed and attack a number of opponents up to your Dexterity bonus, each within your reach along the route. Make one attack roll and compare it with every chosen target's AC, then make one damage roll and apply the full result to every target hit. The targets of these attacks do not get attacks of opportunity against you, though other creatures that normally would can still take them.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/great-flyby-attack-1261",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/guided-spell-3364": {
+      "name": "Guided Spell",
+      "benefitSha256": "01fc7059f34281574a49ce6f790cef3b3b8c52313267577ec56e5ab5f5b0e491",
+      "effectSummary": "Apply only to a spell delivered by ranged touch attack. Choose its target before casting; the projectile can curve around barriers, ignores miss chance from concealment, and denies cover AC bonuses up to the limits described by the source. If the initial attack misses, it persists for floor(one-third your level) rounds and makes another ranged touch attack against the same target on each of your turns until it hits or expires. It ends immediately if you or the target moves outside spell range, the target gains total cover or concealment from your position, or line of effect becomes blocked. You need not concentrate on it. A guided spell uses a slot three levels higher.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/guided-spell-3364",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/haft-strike-3365": {
+      "name": "Haft Strike",
+      "benefitSha256": "3ed49fb036ef5b0fb7e8b8d82bad7c6e9bf6d4925ba3dda01bcc41058ba30a1c",
+      "effectSummary": "While wielding a polearm two-handed, during a full attack you can add one haft attack at your highest attack bonus. It deals damage as a club of the polearm's size, uses only half your Strength bonus to damage, and does not gain the weapon's special properties, though it counts as magic for overcoming damage reduction if the polearm is enchanted. Every attack you make that round, including the haft attack, takes -2. This feat cannot be used with a double weapon.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/haft-strike-3365",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/hammer-and-piton-1333": {
+      "name": "Hammer and Piton",
+      "benefitSha256": "d48c0cb5337db80ae37cdb991a972b96b3d690f427d02324a1666e2bca2997e2",
+      "effectSummary": "While holding a one-handed bludgeoning weapon and a climbing piton or spike, make a standard-action touch attack with the piton against a Large-or-larger target for 1d4 + Strength damage. If the target is at least one size larger than you, on the same turn use a move action and Climb against DC equal to its AC to enter its space without provoking from it. While attached you lose Dexterity to AC and move with the target. Whenever an attack deals you at least 10 damage, make Climb DC equal to that damage or fall out into the nearest clear square.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/hammer-and-piton-1333",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/hand-of-tyr-1338": {
+      "name": "Hand of Tyr",
+      "benefitSha256": "2e0f4c4b9b2756f95b586816ae9334a2ccd7d58fd2afadb2f84b531db361d707",
+      "effectSummary": "As long as you refrain from using your right hand, gain +1 sacred on attack rolls, damage rolls, and Will saves. You cannot use two weapons, a two-handed weapon, or a one-handed weapon with a heavy shield; a light shield is allowed, but its hand cannot hold other objects. You take -4 on Climb, Disable Device, Open Lock, and Tumble, and can benefit from only one magic ring. If you previously treated yourself as right-handed, using the left as your primary hand causes no additional penalty.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/hand-of-tyr-1338",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/hear-the-unseen-1359": {
+      "name": "Hear The Unseen",
+      "benefitSha256": "8ab16da3fa05317a9c08802d3a9b27b55f9fc640b55e95b16ce7f3cbc1481820",
+      "effectSummary": "As a move action that does not provoke attacks of opportunity, make Listen DC 25 to pinpoint every foe within 30 feet to which you have line of effect. This identifies the correct squares but does not remove concealment miss chances. You cannot use it while deafened or in silence. Against an invisible or hidden foe moving silently, oppose its Move Silently check instead, with that foe gaining +15. It does not detect perfectly silent creatures such as incorporeal creatures.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/hear-the-unseen-1359",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/heart-of-dragons-1360": {
+      "name": "Heart of Dragons",
+      "benefitSha256": "30dbae82618d899f4dc32ddf150a55462baac3a094a234f902861b40a6109501",
+      "effectSummary": "Gain dragon-themed ceremonies based on Knowledge (religion) ranks. Each takes 10 minutes, affects up to four participants, and lasts 24 hours. Blood of Dragons (3 ranks) makes each participant count as having one additional draconic feat solely for determining the power of their draconic feats and costs 50 gp of diamond dust. Soul of Dragons (8 ranks) grants each participant the benefit of one draconic feat whose prerequisites they meet, without letting that temporary benefit satisfy other requirements or prerequisites, and costs 500 gp of diamond dust.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/heart-of-dragons-1360",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/heighten-spell-like-ability-1372": {
+      "name": "Heighten Spell-like ability",
+      "benefitSha256": "fb1fae36c5070b03bbcfe4d5ada8057a8793a837b6a26aff7084c28c63818636",
+      "effectSummary": "Choose one spell-like ability that duplicates a spell whose level is no higher than floor(caster level/2) - 2. You can use it at a spell level two higher than normal, maximum 9th level, up to three times per day or its normal use limit, whichever is lower. All effects dependent on spell level, including saving-throw DC, use the heightened level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/heighten-spell-like-ability-1372",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/heretic-of-the-faith-1379": {
+      "name": "Heretic of the Faith",
+      "benefitSha256": "a84b2ad5b0957ba736a16c3085efaea42b56f5ca8aa4f9d0dcd0969785276b31",
+      "effectSummary": "You may grossly violate your deity's code of conduct without losing spells or class abilities, but still must obey your class alignment restriction. A cleric may be up to two alignment steps from the deity and can gain levels without atonement, though excommunication and divine retaliation still apply. If you have domains, you may exchange one for an otherwise unavailable domain consistent with the heresy, and may similarly exchange your favored weapon and Weapon of the Deity effect, subject to DM approval. Taking the feat triggers a Leadership check: followers/cohorts of your faith either accept the heresy or are lost. On death you are judged among the False unless your deity intervenes; absent miracle or wish, such intervention normally requires the heresy eventually to be adopted by the faith.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/heretic-of-the-faith-1379",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/hin-wandermage-1392": {
+      "name": "Hin Wandermage",
+      "benefitSha256": "cbffd1fe1da53f66d1ddb1ee046a7b2d07396b0fcaa6a16558cfd1f50ebaa30b",
+      "effectSummary": "Gain +1 caster level on spells that help you travel. A wizard also adds each spell in the Hin wandermage tradition to the spellbook for free when becoming able to cast it, without using the normal two free wizard spells per level. The tradition is: 0—open/close; 1st—expeditious retreat, mount; 2nd—endurance; 3rd—fly, phantom steed, water breathing; 4th—air walk, freedom of movement; 5th—ethereal jaunt, plane shift, teleport; 6th—find the path, transport via plants, wind walk, word of recall; 7th—refuge, shadow walk, teleport without error; 8th—etherealness; 9th—gate, teleportation circle.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/hin-wandermage-1392",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/holy-potency-1400": {
+      "name": "Holy Potency",
+      "benefitSha256": "0fb4404bff59461a34bd9155ed5979276b77dd80c1c3b50ad70b25d284383c4c",
+      "effectSummary": "Grants two tactical maneuvers based on whether you channel positive or negative energy. Positive: Balance of Life—after casting a cure spell, on the next round gain a bonus equal to its level on one melee attack or Strength-based check. Conduit of Life—after attempting to turn undead, on the next round a cure or other positive-energy attack against undead gains damage equal to half the turning-check result and save DC + your Charisma bonus; if its attack roll is a natural 20 and the target fails its save, it deals double damage. Negative: Conduit of Death—after rebuking undead, on the next round an inflict or other negative-energy attack against a living creature gains damage equal to half the turning-check result, save DC + Charisma bonus, and +1 to the attack's critical threat range. Touch of Death—after casting an inflict spell, a melee hit against a living creature on the next round deals extra damage equal to twice that spell's level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/holy-potency-1400",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/hover-1414": {
+      "name": "Hover",
+      "benefitSha256": "9da993b2c96e956e32e399e0e26e05645e11c103fd0a1b5defb5de4659c34822",
+      "effectSummary": "While flying, halt and hover as a move action, then move in any direction, including straight up or down, at half speed regardless of maneuverability. If you begin your turn hovering, you can remain in place and take a full-round action. You cannot make wing attacks while hovering but can use other full-attack limbs, a breath weapon, or spells normally. A Large-or-larger creature hovering within 20 feet of loose ground creates a 60-foot-radius hemispherical debris cloud that can extinguish small nonmagical open flames, limits clear vision to 10 feet, grants 20% concealment at 15–20 feet and total concealment at 25+ feet, and requires Concentration DC 10 + half the hovering creature's Hit Dice to cast spells inside.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/hover-1414",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/hover-1415": {
+      "name": "Hover",
+      "benefitSha256": "bc34201aaf544968d2f793d52b6fdafe43c026a0cd7c316589f7154092a9b3d6",
+      "effectSummary": "While flying, halt and hover as a move action, then move in any direction, including straight up or down, at half speed regardless of maneuverability. If you begin your turn hovering, you can remain in place and take a full-round action. You cannot make wing attacks while hovering but can use other full-attack limbs, a breath weapon, or spells normally. A Large-or-larger creature hovering within 20 feet of loose ground creates a 60-foot-radius hemispherical debris cloud that can extinguish small nonmagical open flames, limits clear vision to 10 feet, grants 20% concealment at 15–20 feet and total concealment at 25+ feet, and requires Concentration DC 10 + half the hovering creature's Hit Dice to cast spells inside.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/hover-1415",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/hurling-charge-3488": {
+      "name": "Hurling Charge",
+      "benefitSha256": "b426daee9032a825e4adcff80cd01f5cf591de54742ac6482274d9c7340827e6",
+      "effectSummary": "If you begin your turn holding a thrown weapon and charge an opponent, you can make one thrown-weapon ranged attack during the charge and one melee attack with a different weapon you draw during the charge. Both attacks must target the charged opponent and both gain the charge attack bonus. If the thrown attack kills the target, you still complete the charge but make no melee attack. All normal charge requirements and the -2 AC penalty still apply; even if you otherwise gain multiple attacks on a charge, you can make only one melee attack in addition to the thrown attack.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/hurling-charge-3488",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "eea29d1af5a3105d3cb7a62254d79f220ea00fd5",
+    "featReviewRun": 35781227811,
+    "featReviewArtifact": 10718635433,
+    "featReviewArtifactSha256": "ebab66aeaad83fb49b41e87c26cd621632a05f2981b926748788b0f0ba33aa62",
+    "sourceArtifactEntryCount": 321,
+    "reviewQueueCountBefore": 221,
+    "reviewedByPriorBatches": 100,
+    "fullFeatAuditRun": 35780589058,
+    "catalogCount": 3666
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-010-2",
+  "records": {
+    "wikidot5e:spell:tashas-caustic-brew": {
+      "sourceDigest": "sha256:01028aa60884ea825cdf17fafdde6f520f0bfcf429cc73266e821819d1154d49",
+      "effectSummary": "Creatures in a 30-foot-long, 5-foot-wide line make Dexterity saves. On a failure they are covered in acid for up to 1 minute and take 2d4 acid damage at the start of each of their turns until they or another creature uses an action to scrape or wash the acid away. Each slot level above 1st adds 2d4 damage."
+    },
+    "wikidot5e:spell:tashas-hideous-laughter": {
+      "sourceDigest": "sha256:62893e1675e1a7b15455a7d0c001d22d0ac748011b94e9a7d223d3a521413eff",
+      "effectSummary": "One visible creature within 30 feet with Intelligence 5 or higher makes a Wisdom save. On a failure it falls prone, becomes incapacitated, and cannot stand for up to 1 minute. It repeats the save at the end of each turn and whenever it takes damage; a damage-triggered save has advantage. A success ends the spell."
+    },
+    "wikidot5e:spell:tashas-mind-whip": {
+      "sourceDigest": "sha256:6f38e435e0c243535a4a97cc8a73c139f8839c6e8a29c26ff040c30fb8da7e9a",
+      "effectSummary": "One visible creature within 90 feet makes an Intelligence save. On a failure it takes 3d6 psychic damage, cannot take reactions until the end of its next turn, and on that next turn may use only one of movement, an action, or a bonus action. On a success it takes half damage with no other effect. Each slot level above 2nd adds one target, with all targets within 30 feet of one another."
+    },
+    "wikidot5e:spell:tashas-otherworldly-guise": {
+      "sourceDigest": "sha256:74ec72804a819b5d7f801b8f7ab022ac813a73ec1cb5c839523e9077a0ffd55b",
+      "effectSummary": "For up to 1 minute, transform using Lower or Upper Planes power. Lower Planes grants immunity to fire and poison damage and the poisoned condition; Upper Planes grants immunity to radiant and necrotic damage and the charmed condition. Either form gives a 40-foot flying speed, +2 AC, makes weapon attacks magical, lets you use your spellcasting ability instead of Strength or Dexterity for weapon attack and damage rolls, and lets you attack twice when taking the Attack action unless another feature already grants multiple attacks."
+    },
+    "wikidot5e:spell:telekinesis": {
+      "sourceDigest": "sha256:771c8493d63c5cfe9ee0a7519a79a6d97b9601d8eccdca82d05f3025ed82004b",
+      "effectSummary": "When cast and as your action each round for up to 10 minutes, manipulate one visible creature or object within 60 feet. Creature: target a Huge-or-smaller creature and contest your spellcasting-ability check against its Strength check; on a win, move it up to 30 feet in any direction within range and restrain it until the end of your next turn, with later actions repeating the contest to maintain the grip. Object: move an unattended object up to 1,000 pounds automatically up to 30 feet, or contest a carrier's Strength check to pull away and move a worn or carried object. You can also use fine control for simple manipulation such as tools, doors, containers, or pouring a vial. Switching targets ends the previous effect."
+    },
+    "wikidot5e:spell:telepathy": {
+      "sourceDigest": "sha256:65aa18a164fa8e9bd2848aff6bac05ef83cb36392fe54591e0e8f07d8d864732",
+      "effectSummary": "For 24 hours, form an unlimited-range telepathic link with one willing familiar creature on the same plane. You can instantly exchange words, images, sounds, and other sensory messages, and a target with Intelligence 1 or higher understands the meaning of your words and sensory messages. The spell ends if either of you leaves the plane."
+    },
+    "wikidot5e:spell:teleport": {
+      "sourceDigest": "sha256:abf85aa69a767b65800886b6b6acf31b41bc9bef59ca720e2095476135b9fc82",
+      "effectSummary": "Instantly transport yourself and up to eight willing visible creatures within 10 feet, or one visible object fitting in a 10-foot cube and not held by an unwilling creature, to a known destination on the same plane. A permanent teleportation circle whose sigil you know or an object taken from the destination within six months arrives on target automatically. Otherwise the DM rolls d100 based on familiarity: Very familiar—mishap 01–05, similar area 06–13, off target 14–24, on target 25–100; Seen casually—01–33, 34–43, 44–53, 54–100; Viewed once or Description—01–43, 44–53, 54–73, 74–100; False destination—mishap 01–50, similar area 51–100. Off target moves the group a random direction by 1d10×1d10 percent of the intended distance. Similar area sends it to a thematically or visually similar location. Mishap deals 3d10 force damage to each transported creature or the object, then rerolls and can repeat."
+    },
+    "wikidot5e:spell:teleportation-circle": {
+      "sourceDigest": "sha256:e65241aafc4cd0d7677d28f3fd369a35fc9a06931f2a05f1326e783df37cc052",
+      "effectSummary": "Over 1 minute, draw a 10-foot-diameter portal circle linked to a permanent teleportation circle on the same plane whose sigil sequence you know. The portal remains until the end of your next turn; creatures entering appear within 5 feet of the destination circle or the nearest open space. When you first gain the spell you learn two Material Plane circle sequences and may learn others by studying them for 1 minute. Casting in the same place every day for one year creates a permanent teleportation circle."
+    },
+    "wikidot5e:spell:temple-of-the-gods": {
+      "sourceDigest": "sha256:1eee8558953a769640631b472851998234812dfe6bd148310e12f947bfe532ad",
+      "effectSummary": "After 1 hour, create a temple fitting within an unoccupied cube up to 120 feet per side for 24 hours, dedicated to the faith represented by the holy symbol used. You choose its appearance, windows, lighting, and designated creatures who can operate its single door. Choose one or more of celestials, elementals, fey, fiends, or undead as opposed types; an opposed creature attempting entry makes a Charisma save or cannot enter for 24 hours, and even if inside subtracts 1d4 from attack rolls, ability checks, and saves. Divination sensors cannot appear inside and occupants cannot be targeted by divination. Healing from a spell of 1st level or higher restores extra HP equal to your Wisdom modifier, minimum 1. Its opaque magical-force exterior extends into the Ethereal Plane, blocks physical and ethereal entry, ignores dispel magic and antimagic field, but disintegrate destroys it. Casting on the same spot daily for one year makes it permanent."
+    },
+    "wikidot5e:spell:temporal-shunt": {
+      "sourceDigest": "sha256:05f1b35a200913afaf9d4f63ab4fc2e077b77a892eb43b8b1de4bfcf23e16e2b",
+      "effectSummary": "As a reaction when a visible creature within 120 feet makes an attack roll or starts casting a spell, force it to make a Wisdom save. On a failure it vanishes until the start of its next turn, causing the attack to miss or the spell to be wasted; it then reappears in its former space or the nearest unoccupied space and does not remember being affected. Each slot level above 5th adds one target, with all targets within 30 feet of one another."
+    }
+  }
+}

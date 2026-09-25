@@ -1,0 +1,9 @@
+{
+  "category": "spells",
+  "expectedTotal": 574,
+  "expected": {
+    "needsSummary": 0
+  },
+  "checkpoint": "full-evidence-pinned",
+  "nonce": "2026-09-23-full-evidence-pinned-spells"
+}

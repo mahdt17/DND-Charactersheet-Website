@@ -1,0 +1,648 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 50-record batch 106 from the clean 611-record reference-dependent queue. The batch preserves source-specific alternate printings and locks several same-batch dependency chains (Snowshoes, Silence, Vine Mine, Make Manifest, and Tormenting Thirst/Symbol of Thirst). Every selected record was manually source-inspected; ambiguous cross-edition inheritance, truncated sources, and unresolved summon/stat-block-heavy records were deferred rather than forced.",
+  "entries": {
+    "spells/ice-knife-3883": {
+      "name": "Ice Knife",
+      "sourceSha256": "9fb05bcac2cbbb6eea4c1fe79fe2b7ccb4c45502c8d53a4a79b0c640261e50ad",
+      "effectSummary": "Launches one icy missile at long range with a normal ranged attack and a +2 bonus on the attack roll per two caster levels. A hit deals 2d8 cold damage plus 2 Dexterity damage; a successful Fortitude save negates the Dexterity damage, and creatures immune to cold are automatically immune to that Dexterity damage. If the attack misses, the knife bursts where it lands in a 10-foot radius for 1d8 cold damage, Reflex half. Material component: a drop of water or piece of ice.",
+      "notes": "Spell Compendium printing kept source-distinct from the Complete Arcane and Oriental Adventures/Tome and Blood versions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-knife-3883",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/listening-coin-4377": {
+      "name": "Listening Coin",
+      "sourceSha256": "c6951a53cda4e5e5d69f1f0c39d2a94f367ab13200550dfe0ae7e8042b917c57",
+      "effectSummary": "Turns a pair of coins into a remote audio sensor and receiver for 1 hour per caster level. Hearing through the receiver lets you listen to the sensor's surroundings as if present there; if the sensor is inside a pocket, pouch, or sack, Listen checks are made at +5 DC. The coins function at any distance on the same plane but fall silent if separated across planes.",
+      "notes": "Spell Compendium printing kept source-distinct.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/listening-coin-4377",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spectral-weapon-4202": {
+      "name": "Spectral Weapon",
+      "sourceSha256": "3d0ef15f3f4643117fb03c0c484acb21182ed630e1288467364f2792b3fd8856",
+      "effectSummary": "Creates one quasi-real melee weapon of any type with which you are proficient for 1 round per caster level. Only you can wield it, and attacks with it are resolved as melee touch attacks. A creature hit can make a Will save to disbelieve; success reduces normal weapon damage to one-half and gives only a 50% chance that special attack effects delivered through that hit or later hits from the same weapon affect it. The weapon disappears if you release it or the duration ends.",
+      "notes": "Spell Compendium printing intentionally preserves its one-half damage/50% disbelief rules rather than importing the Complete Adventurer printing's different fractions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spectral-weapon-4202",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/terra-cotta-warrior-2128": {
+      "name": "Terra Cotta Warrior",
+      "sourceSha256": "d37dbc7e36e7285a50ed5052fd8e829d360d1efded1fdfaff3698350050170ed",
+      "effectSummary": "Transforms a small terra-cotta warrior statuette into a Medium animated object for 1 round per caster level. The construct has speed 40 feet, hardness 6, and none of the animated-object special attack forms. You direct it as the spell allows. If the statuette remains intact when the spell ends it can be reused; if destroyed, it must be repaired or replaced. Focus: a terra-cotta warrior statuette worth at least 1 gp.",
+      "notes": "Older Oriental Adventures printing kept source-distinct; unlike the later Complete Arcane version, its source delegates the remaining animated-object statistics rather than restating them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/terra-cotta-warrior-2128",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ice-knife-2034": {
+      "name": "Ice Knife",
+      "sourceSha256": "7338ffd3995528d0f6bea34160f3363c02ae604484caf78f0c817a584ad3cf27",
+      "effectSummary": "Launches an icy missile at long range. On a hit it deals 1d8 piercing damage plus 1d8 cold damage and 2 Dexterity damage; a successful Fortitude save halves the cold damage and negates the Dexterity damage, and cold-immune creatures are immune to the Dexterity damage. If the attack misses, the knife bursts where it lands in a 10-foot radius for 1d8 cold splash damage, Reflex half.",
+      "notes": "Oriental Adventures printing kept source-distinct.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-knife-2034",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ice-knife-3388": {
+      "name": "Ice Knife",
+      "sourceSha256": "b36939864e27db5f3d0e079e1da3de5fd4729552a7f8b6a3be21f233b5f664bc",
+      "effectSummary": "Launches an icy missile at long range. On a hit it deals 1d8 piercing damage plus 1d8 cold damage and 2 Dexterity damage; a successful Fortitude save halves the cold damage and negates the Dexterity damage, and cold-immune creatures are immune to the Dexterity damage. If the attack misses, the knife bursts where it lands in a 10-foot radius for 1d8 cold splash damage, Reflex half.",
+      "notes": "Tome and Blood printing kept source-distinct.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-knife-3388",
+          "role": "primary Tome and Blood catalog record and digest source"
+        }
+      ]
+    },
+    "spells/scent-1784": {
+      "name": "Scent",
+      "sourceSha256": "73323c8fc2de752714964c4879cd148c01d723666bc96c6b30101c23795611b7",
+      "effectSummary": "For 1 hour per caster level, grants the scent ability: detect nearby creatures by smell at 30 feet, 60 feet upwind, or 15 feet downwind; strong odors double those ranges and overpowering odors triple them. You can determine direction with an action and pinpoint a source within 5 feet. You can also track by scent, using Wisdom against DC 10 for a fresh trail with +2 DC per hour of age and other odor/number modifiers, while ignoring surface and visibility conditions.",
+      "notes": "Full source printing preserved, including its 1 hour/level duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scent-1784",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/scent-3256": {
+      "name": "Scent",
+      "sourceSha256": "b742181a538e123f2cb1d7f78d025aa01db0dfdf0f3f404c36129b273c8899ad",
+      "effectSummary": "For 10 minutes per caster level, grants the scent ability: detect nearby creatures by smell at 30 feet, 60 feet upwind, or 15 feet downwind; strong odors double those ranges and overpowering odors triple them. You can determine direction with an action and pinpoint a source within 5 feet. You can also track by scent, using Wisdom against DC 10 for a fresh trail with +2 DC per hour of age and other odor/number modifiers, while ignoring surface and visibility conditions.",
+      "notes": "Full source printing preserved, including its shorter 10 minutes/level duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scent-3256",
+          "role": "primary Serpent Kingdoms catalog record and digest source"
+        }
+      ]
+    },
+    "spells/otyugh-swarm-649": {
+      "name": "Otyugh Swarm",
+      "sourceSha256": "2cb20f23450a210b9e2ffd12e074c3e6e5b4451a8a62fa20ed46c5a009b1d751",
+      "effectSummary": "Requires at least 6,000 pounds of sewage, refuse, or offal and creates either 3d4 ordinary otyughs or 1d3+1 Huge 15-HD otyughs. The otyughs willingly fight, perform a mission, or serve as bodyguards for 7 days. If created for guard duty, they instead remain for 7 months, must guard a fixed site, and cannot move beyond the spell's range from that site. Otyughs not assigned guard duty can leave the refuse area when commanded.",
+      "notes": "Complete Divine printing manually verified and kept distinct.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otyugh-swarm-649",
+          "role": "primary Complete Divine catalog record and digest source"
+        }
+      ]
+    },
+    "spells/otyugh-swarm-936": {
+      "name": "Otyugh Swarm",
+      "sourceSha256": "1c77a28ed51570067b48bd73f12988bb3ede1143eb902a2371d8dbaf4af96ac5",
+      "effectSummary": "Requires at least 6,000 pounds of sewage, refuse, or offal and creates either 3d4 ordinary otyughs or 1d3+1 Huge 15-HD otyughs. The otyughs willingly fight, perform a mission, or serve as bodyguards for 7 days. If created for guard duty, they instead remain for 7 months, must guard a fixed site, and cannot move beyond the spell's range from that site. Otyughs not assigned guard duty can leave the refuse area when commanded.",
+      "notes": "Defenders of the Faith printing manually verified and kept source-distinct.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otyugh-swarm-936",
+          "role": "primary Defenders of the Faith: A Guidebook to Clerics and Paladins catalog record and digest source"
+        }
+      ]
+    },
+    "spells/snowshoes-4188": {
+      "name": "Snowshoes",
+      "sourceSha256": "2b7396221494631a982355beac1c7df7e7aba80819177744e9a1309e126efa51",
+      "effectSummary": "For 1 hour per caster level, the subject moves over snow and ice without speed reduction, gains a +10-foot enhancement bonus to speed, and need not make Balance or Reflex checks to avoid slipping, falling through cracked ice, or similar ice hazards. The spell does not make the subject's trail through snow or ice easier to follow.",
+      "notes": "Self-contained root for Mass Snowshoes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/snowshoes-4188",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/snowshoes-mass-4189": {
+      "name": "Snowshoes, Mass",
+      "sourceSha256": "071dda2ca1c7e23b45e4982861115b0dfa8421a611b38752af8eb475aae56ba2",
+      "effectSummary": "Functions as snowshoes for up to one creature per caster level within 30 feet of one another: each subject ignores snow- and ice-based speed reduction, gains +10 feet enhancement to speed, and avoids the normal Balance or Reflex checks for slipping or falling through ice without leaving an easier trail.",
+      "notes": "Snowshoes is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/snowshoes-mass-4189",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/snowshoes-4188",
+          "role": "Spell Compendium source for inherited Snowshoes mechanics"
+        }
+      ]
+    },
+    "spells/warning-shout-4750": {
+      "name": "Warning Shout",
+      "sourceSha256": "6eeddf2cbc45cafa0591057f3e02c360bfd796bc4830649f1d6908463f15563d",
+      "effectSummary": "Cast as an immediate action, causes all allies within 30 feet to stop being flat-footed even if they have not yet acted in the encounter. It also wakes allies sleeping naturally, but does not end magical sleep.",
+      "notes": "Self-contained immediate-action effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/warning-shout-4750",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/silence-2704": {
+      "name": "Silence",
+      "sourceSha256": "91adff4444a49da49ffebe4747a83107c7553a5e2c85c1e754b7fc323caa6657",
+      "effectSummary": "Creates a 20-foot-radius area of complete silence for 1 minute per caster level. No sound enters, leaves, or passes through the area, blocking conversation and verbal spell components and protecting creatures inside from sonic or language-dependent attacks. Cast on a point, the area is stationary; cast on an object or creature, it moves with that target. An unwilling creature can negate it with a Will save and spell resistance, and an attended sound-producing object receives its holder's protections.",
+      "notes": "Self-contained root for Suspended Silence.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/silence-2704",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/suspended-silence-4288": {
+      "name": "Suspended Silence",
+      "sourceSha256": "322713a78b45eacb97d5173c238442723f3528169f9a7518691bfa5a107619fa",
+      "effectSummary": "Stores a command-triggered silence effect in one touched object for up to 1 day. Speaking the chosen command discharges the spell, making that object the mobile center of a silence effect for 6 rounds. Material component: a feather and 50 gp of gem dust.",
+      "notes": "Silence is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/suspended-silence-4288",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/silence-2704",
+          "role": "Player's Handbook v.3.5 source for inherited Silence mechanics"
+        }
+      ]
+    },
+    "spells/vine-mine-4641": {
+      "name": "Vine Mine",
+      "sourceSha256": "bf877beada68dbc7e2bd50056bfef76a4d0b066a77b66846e89b40a8b1a6412f",
+      "effectSummary": "For 10 minutes per caster level, alters plants in a 10-foot-per-caster-level-radius area. When cast, and later as a standard action, you can choose among four effects: make the plants serve as knotted climbing aids, bind helpless creatures with Escape Artist DC 25, hamper movement like heavy undergrowth, or provide a +4 competence bonus on Hide checks through camouflage.",
+      "notes": "Self-contained root for Poison Vines.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vine-mine-4641",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/poison-vines-4646": {
+      "name": "Poison Vines",
+      "sourceSha256": "adb541f6b7b3fb864dfba8383d037be18dbca48fa20838b132ad1bca71a4b554",
+      "effectSummary": "Functions as vine mine, allowing the same climbing-aid, binding, hampering, or camouflage configurations, but the plants also carry contact poison. A creature entering the area makes a Fortitude save against 1d6 Dexterity damage and another save 1 minute later against 2d6 Dexterity damage; merely moving through the vines does not force repeated saves every round. You are immune and can designate up to one other immune creature per caster level.",
+      "notes": "Vine Mine is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/poison-vines-4646",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/vine-mine-4641",
+          "role": "Spell Compendium source for inherited Vine Mine mechanics"
+        }
+      ]
+    },
+    "spells/launch-bolt-4337": {
+      "name": "Launch Bolt",
+      "sourceSha256": "ce8d7cfffea9873cec419a990f042fe733c8a7dcf25036b6f8fc0e73e4a1fd56",
+      "effectSummary": "Fires a held crossbow bolt as though from a light crossbow, using an 80-foot range increment. The bolt's own magical or special-material properties apply, as do feats and other modifiers that would apply to the attack. Drawing the bolt used as the spell's material component is a free action.",
+      "notes": "Self-contained projectile effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/launch-bolt-4337",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/revive-outsider-4107": {
+      "name": "Revive Outsider",
+      "sourceSha256": "65f147ea920b9234512b619b0ea2d942b5da7e1532cb89d0bf318ce69aa25579",
+      "effectSummary": "Functions as raise dead but can affect only an outsider with no more Hit Dice than your caster level and can revive that outsider regardless of how long it has been dead, subject to raise dead's remaining return-to-life restrictions. Material components: a bit of material native to the outsider's home plane and a diamond worth at least 5,000 gp.",
+      "notes": "Raise Dead was locked in batch 105 and supplies the inherited return-to-life chassis.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/revive-outsider-4107",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "Player's Handbook v.3.5 source for inherited Raise Dead mechanics"
+        }
+      ]
+    },
+    "spells/ice-gauntlet-3882": {
+      "name": "Ice Gauntlet",
+      "sourceSha256": "5f07b766c68a831d833a2fa62a21d472c2df044d9db8df05cbc07a4c3378ca3f",
+      "effectSummary": "For 1 minute per caster level, creates a +1 spiked gauntlet of ice sized for you. It deals the normal weapon damage for its size plus 1d4 cold damage; damage reduction applies to the normal weapon damage but not the cold damage. If you fail a saving throw against a fire effect, the gauntlet melts and the spell ends.",
+      "notes": "Self-contained weapon effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-gauntlet-3882",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/make-manifest-4516": {
+      "name": "Make Manifest",
+      "sourceSha256": "9768c1ce53056bb9bc5a25168a905692504917e5ad48a45d331d34e5b2abd377",
+      "effectSummary": "For 1 round per caster level, pulls one creature on a coexistent plane, along with its possessions, into the analogous location on your plane. The spell does not locate an unseen ethereal target. The creature retains its abilities except those used specifically to enter other planes; when the spell ends, it returns to its original plane at the location corresponding to wherever it then stands.",
+      "notes": "Self-contained root for Mass Make Manifest.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/make-manifest-4516",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/make-manifest-mass-4518": {
+      "name": "Make Manifest, Mass",
+      "sourceSha256": "9fb0268dbb475d1e80b1f67a691efe7c1b6df81aea4a7008bcd2ddc51bd664eb",
+      "effectSummary": "For 1 round per caster level, pulls all creatures and unattended objects in a 25-foot-radius area on coterminous or coexistent planes into the corresponding area on your plane. Affected creatures lose abilities used specifically to enter other planes while present and return to their originating planes at the end. Material component: copper dust.",
+      "notes": "Mass area version of Make Manifest; the source fully states the altered area and object inclusion.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/make-manifest-mass-4518",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/slime-wave-4179": {
+      "name": "Slime Wave",
+      "sourceSha256": "c6019542f160ec1c95eb971ea119cbd42ae6aba79bc4a2a9e4d4f6be9203842b",
+      "effectSummary": "Spreads green slime throughout a 15-foot-radius area, placing a patch on every creature and coating surfaces the slime can cling to, including walls and ceilings. The slime attacks organic material and corrodes wood and metal using the normal green-slime rules. Unlike ordinary green slime, all slime created by this spell evaporates harmlessly when the spell's duration ends.",
+      "notes": "The spell source deliberately delegates ordinary green-slime damage/removal details to the core hazard rules; the summary does not invent additional mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/slime-wave-4179",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ruin-delvers-fortune-4115": {
+      "name": "Ruin Delver's Fortune",
+      "sourceSha256": "247e87ea3bf1e68fcbcf55a8a22ea614be5859a9a255a69e596fea3caedea46a",
+      "effectSummary": "Cast as an immediate action and lasting 1d4 rounds, grants one chosen benefit: a luck bonus equal to your Charisma modifier on Fortitude saves plus poison immunity; the same luck bonus on Reflex saves plus evasion; the same luck bonus on Will saves plus fear immunity; or 4d8 + your Charisma modifier temporary hit points. Multiple castings can provide different benefits simultaneously.",
+      "notes": "Self-contained defensive choice effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ruin-delvers-fortune-4115",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/revivify-4109": {
+      "name": "Revivify",
+      "sourceSha256": "b15868b39526f5c28c5a382074462c8ab73f1a9ac81016a6e053c070d050ff96",
+      "effectSummary": "Functions as raise dead but must be cast within 1 round of the target's death. The creature suffers no level loss, Constitution loss, or prepared-spell/slot loss and returns at -1 hit point, stable. Material component: diamonds worth at least 1,000 gp.",
+      "notes": "Raise Dead was locked in batch 105 and supplies the inherited return-to-life restrictions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/revivify-4109",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "Player's Handbook v.3.5 source for inherited Raise Dead mechanics"
+        }
+      ]
+    },
+    "spells/revenance-4105": {
+      "name": "Revenance",
+      "sourceSha256": "44c2d787e141cff861e7c331191233c0c6615299e54b2bc15d3729cb927f25aa",
+      "effectSummary": "Temporarily returns a creature dead no longer than 1 round per caster level to life for 1 minute per caster level. It otherwise functions as raise dead except the subject suffers no level loss and returns with half its normal hit points. It can be healed normally while alive, cannot be affected by other raise-dead effects during the spell, gains a +1 morale bonus on attacks, damage, saves, and checks against its killer, and dies again when the duration ends.",
+      "notes": "Raise Dead was locked in batch 105 and supplies the inherited return-to-life restrictions.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/revenance-4105",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/raise-dead-2424",
+          "role": "Player's Handbook v.3.5 source for inherited Raise Dead mechanics"
+        }
+      ]
+    },
+    "spells/swamp-lung-4289": {
+      "name": "Swamp Lung",
+      "sourceSha256": "f27fb3b23ef7b2456a803b820d21f9b942805d82c6d01aaa69b74ab7c1fcde44",
+      "effectSummary": "Fills a living target's lungs with stagnant water. A non-water-breathing creature that fails its Fortitude save falls prone, coughs helplessly for 1d6 rounds, and contracts filth fever; on a successful save it expels the water harmlessly. A creature able to breathe water is otherwise unaffected and saves only against the disease.",
+      "notes": "Self-contained disease/breathing effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/swamp-lung-4289",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/voice-dragon-4754": {
+      "name": "Voice of the Dragon",
+      "sourceSha256": "4e676b83717034b2f5ea160519bbb6a4f29799e7ccc4b6f193f47db0b59c22d3",
+      "effectSummary": "For 10 minutes per caster level, grants +10 enhancement bonuses on Bluff, Diplomacy, and Intimidate and lets you speak and understand, but not read, Draconic. Before the spell ends, you can use a standard action to produce a suggestion as the spell; doing so ends Voice of the Dragon immediately, although the suggestion continues normally. Sorcerers cast Voice of the Dragon at +1 caster level.",
+      "notes": "Self-contained social/language effect with a fully specified Suggestion discharge.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/voice-dragon-4754",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/zone-revelation-4487": {
+      "name": "Zone of Revelation",
+      "sourceSha256": "075816c203b8ed5642f93939ba475f5f48d1de4c484e8c756abcf724f04ac3ea",
+      "effectSummary": "For 1 minute per caster level, creates a 5-foot-per-caster-level-radius emanation in which all creatures and objects are visible, including invisible beings and natives of coexistent planes. Invisibility and etherealness are suppressed rather than dispelled. Ethereal creatures inside become nonethereal and revert when they leave.",
+      "notes": "Self-contained planar-revelation effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/zone-revelation-4487",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/starvation-4228": {
+      "name": "Starvation",
+      "sourceSha256": "d4149aaaffe08658650339b6d364a0d707b5168e323f115fd202f3aedd3aec27",
+      "effectSummary": "One living creature takes 1d6 nonlethal damage per caster level, maximum 10d6. On a failed Fortitude save it is also fatigued, or exhausted if it was already fatigued; a successful save halves the damage and prevents fatigue. Material component: a morsel of spoiled food.",
+      "notes": "Self-contained fatigue/nonlethal-damage effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/starvation-4228",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/storm-tower-4249": {
+      "name": "Storm Tower",
+      "sourceSha256": "3cfd4a6a0d60cb620fe0188bdda8d384437a0227a71a6ec925c43d6aa206dbc0",
+      "effectSummary": "Creates a 20-foot-radius, 100-foot-high tower of dark storm clouds and wind for 1 round per caster level. The tower absorbs electricity damage dealt to creatures inside it, and magic missile cannot be cast into, out of, or within it. Its windstorm-strength winds make ranged attacks impossible inside, though they do not reduce movement there. Only Gargantuan or Colossal creatures can cross the outer edge freely; smaller creatures must make a Fortitude save or be checked at the edge. Creatures inside have concealment from those outside, and the howling winds impose -10 on Listen checks within 50 feet.",
+      "notes": "Self-contained source effect; the windstorm citation supplies only the named wind-strength category.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/storm-tower-4249",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sonic-whip-4196": {
+      "name": "Sonic Whip",
+      "sourceSha256": "2e25b6d92a55f1580bad54f660c5a017a0b2b761f0b2b9d7e8f9f232ebd1da71",
+      "effectSummary": "For 1 round per caster level, creates a sonic-energy whip that you wield as though proficient. Cracking it as a free action forces normal animals, but not dire animals, magical beasts, or vermin, to make a Will save or remain at least 30 feet away while space permits. A normal animal struck by a successful ranged attack with the whip must save or become frightened. Against other creature types, the sonic whip functions in combat as a normal whip. Material component: a miniature silk whip.",
+      "notes": "Self-contained source effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sonic-whip-4196",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/righteous-aura-4111": {
+      "name": "Righteous Aura",
+      "sourceSha256": "f49d239997b308d8372673ddba83549b5dc179a1760842832af59d3bddc7b72a",
+      "effectSummary": "For 1 hour per caster level, you glow as though affected by daylight and gain a +4 sacred bonus to Charisma. If you die while the spell is active, your body explodes in a 20-foot-radius burst: evil creatures take 2d6 damage per caster level, maximum 20d6, Reflex half; good creatures are healed by the same amount; undead take double damage. Spell resistance does not stop the burst. Your body is disintegrated, preventing raise dead but still allowing effects such as true resurrection that do not require an intact body.",
+      "notes": "Self-contained source effect; Daylight and resurrection references merely identify already-defined subeffects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/righteous-aura-4111",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/weapon-shift-4765": {
+      "name": "Weapon Shift",
+      "sourceSha256": "5ac89b5e014baeff7ee253a4f6e910e1314a1348f07e5ac571c903509ed157c9",
+      "effectSummary": "For 1 minute per caster level, transforms one melee weapon weighing up to 15 pounds into another melee weapon type. Improvised and double weapons cannot be either the target or result. A transformed magic weapon retains special abilities only if the new form can legally possess them, and special-material weapons retain their material. Material component: parchment folded into the desired weapon's shape.",
+      "notes": "Self-contained transformation rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-shift-4765",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ooze-puppet-4605": {
+      "name": "Ooze Puppet",
+      "sourceSha256": "3c3900c8a7aed3ffada3db0f63b8a3d8204aa96614fbfabc08264d9fbed6552e",
+      "effectSummary": "For 1 day per caster level, telekinetically controls one ooze that fails its Fortitude save. Directing all of the ooze's actions for a round costs you a move action; when not directed, telekinetic force holds it motionless. After control is established, you need line of sight but distance otherwise does not matter unless you and the ooze are on different planes, which ends the spell. If the ooze splits, you retain control of only one randomly determined resulting ooze.",
+      "notes": "Self-contained ooze-control mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ooze-puppet-4605",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/snakebite-4184": {
+      "name": "Snakebite",
+      "sourceSha256": "c9dc495085cc78046e56bb833caaca53ccae49f173c55060cf21fef48dbbde68",
+      "effectSummary": "For 1 round per caster level, transforms one arm into a venomous serpent. As an attack action, a successful melee attack with that arm deals 1d3 + Strength modifier damage and injects poison dealing 2 Constitution damage initially and 2 Constitution damage secondarily, each negated by a Fortitude save against the spell DC. The transformed hand cannot hold a weapon, although the other hand remains usable; attacking with both the snake arm and another weapon uses normal two-weapon penalties. Only one Snakebite spell can affect you at a time.",
+      "notes": "Self-contained personal transformation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/snakebite-4184",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadowfade-4152": {
+      "name": "Shadowfade",
+      "sourceSha256": "74b220410a99ac1b3fb28f8ece09b4b36acd0cd046cc69ca88f1c1b699216278",
+      "effectSummary": "Opens a 10-foot-diameter portal to the Plane of Shadow for 1 minute per caster level. You and creatures you designate within range can pass freely; other creatures can cross in either direction only if they succeed on a Will save. The portal is invisible from the Material Plane and appears as a white opening from the Plane of Shadow. It must be cast in heavy shadow on a plane coexistent with the Plane of Shadow and cannot be cast on the Plane of Shadow itself.",
+      "notes": "Self-contained planar portal effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadowfade-4152",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/zone-respite-4488": {
+      "name": "Zone of Respite",
+      "sourceSha256": "41f37cbabb93f59a51e870333136f09a2f156028b1abdbc2498403deb95cf14c",
+      "effectSummary": "For 1 minute per caster level, creates a 20-foot-radius emanation protected against interplanar intrusion. Dimension door, teleport, plane shift, and travel through the Astral, Ethereal, Shadow, or similar planes do not function from within the zone. Summoning and calling spells cannot be cast inside, though already summoned or called creatures can enter. Gates and other portals cannot be created inside, but existing portals remain. Creatures on coterminous or coexistent planes are forced to the corresponding edge and cannot enter the warded region. Material component: a small amount of gorgon blood.",
+      "notes": "Self-contained planar ward.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/zone-respite-4488",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tortoise-shell-4308": {
+      "name": "Tortoise Shell",
+      "sourceSha256": "09658fe8780369c29b8430dffe05adb75fcdf72503b249dfc1154fe60fae0ae0",
+      "effectSummary": "For 10 minutes per caster level, grants a +6 enhancement bonus to the subject's existing natural armor, increasing by +1 per three caster levels above 11th to a maximum +9 at 20th level. A creature without natural armor is treated as having +0 natural armor for this purpose. The spell slows movement as though the subject wore heavy armor, but causes no armor check penalty or arcane spell failure chance.",
+      "notes": "Self-contained natural-armor effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tortoise-shell-4308",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/master-air-4544": {
+      "name": "Master Air",
+      "sourceSha256": "34f1a7c4bd7d2be47e625e2b51d253d603c17e34a9a2cc0768dc18dae79be326",
+      "effectSummary": "For 1 round per caster level, grants flight speed 90 feet with good maneuverability, reduced to 60 feet in medium or heavy armor. Flying requires no more concentration than walking; you can attack, cast spells, and charge but cannot run, and cannot carry more than your maximum load plus worn armor. If the spell ends or is dispelled while you are aloft, you descend 60 feet per round for 1d6 rounds and land safely if you reach the ground during that time; otherwise you fall the remaining distance. Focus: a bird feather or bat wing bone.",
+      "notes": "Self-contained flight effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/master-air-4544",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-immunity-lesser-4206": {
+      "name": "Spell Immunity, Lesser",
+      "sourceSha256": "8d49e60bba8cb19101ee13683196e57737f9eb536548e4f181277fc66703f677",
+      "effectSummary": "For 10 minutes per caster level, gives one creature effectively unbeatable spell resistance against one specific 1st- or 2nd-level spell chosen when cast. It cannot block a spell to which spell resistance does not apply. It works against spells, spell-like effects, and innate spell-like abilities but not supernatural or extraordinary abilities. The immunity applies only to the exact named spell, and a creature can have only one lesser spell immunity or spell immunity active at once.",
+      "notes": "Self-contained immunity rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-immunity-lesser-4206",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/safe-clearing-4120": {
+      "name": "Safe Clearing",
+      "sourceSha256": "a49b987c886283c5b02a9bb625769a5645b27546d5b567f0ecdaa33c55e351dd",
+      "effectSummary": "For 1 hour per caster level, creates an immobile 30-foot-radius protected area. A creature trying to enter or directly attack someone inside must make a Will save; success lets it act normally and makes it unaffected by this casting, while failure prevents both entry and direct attacks for the duration. Area effects can still affect creatures inside. A protected creature that makes an attack loses the spell's protection and can thereafter be targeted normally.",
+      "notes": "The source compares the benefit to Sanctuary but fully states the altered area mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/safe-clearing-4120",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/scourge-4132": {
+      "name": "Scourge",
+      "sourceSha256": "0fd231955472b351e8847b94a8d050a000cda981fe80d833f6b9c47c823d3d42",
+      "effectSummary": "Infects up to one creature per two caster levels, all within 50 feet of one another, with a magical disease unless each succeeds on a Fortitude save. An infected creature immediately takes 1d6 Strength and 1d6 Dexterity damage and repeats that damage each subsequent day, with a new save each day to avoid that day's damage; successful saves do not produce recovery. The disease persists until break enchantment or remove curse first succeeds with a DC 20 caster-level check, after which remove disease, heal, or similar magic can cure it. Focus: a black whip or riding crop.",
+      "notes": "Self-contained disease/removal mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/scourge-4132",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shroud-undeath-4165": {
+      "name": "Shroud of Undeath",
+      "sourceSha256": "bbc99dcf3bbce0f72f045fa91ce960344f8138c26be406b01af46d920cbf1ae1",
+      "effectSummary": "For 10 minutes per caster level, shrouds you in negative energy so nonintelligent undead perceive you as undead and ignore you. Intelligent undead do not automatically identify you as living, and using an undead disguise or illusion gains +5 on the Disguise check. Inflict spells heal you and cure spells damage you, and you count as undead for spells and effects that specifically affect undead. A successful turning or rebuking attempt against you, treating you as an undead creature of your Hit Dice, ends the spell without other effect. Attacking an undead creature also ends it.",
+      "notes": "Self-contained undead-masquerade mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shroud-undeath-4165",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/marked-object-4543": {
+      "name": "Marked Object",
+      "sourceSha256": "65b01950f7cf804c4031c92b5087556d1fc4b6d3a6b5558e113143199c538617",
+      "effectSummary": "For 1 day per caster level, attunes you to the creature that owns the focus item, defined as the last creature other than you to have carried it on its person for at least 24 hours. You gain +10 on Search and Survival checks to track that creature or find evidence of its passage. The spell does not reveal the creature's identity or destination, create a trail that does not exist, or grant the Track feat. Arcane focus: an owned object or a physical piece of the creature such as hair or a fingernail.",
+      "notes": "Self-contained tracking aid.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/marked-object-4543",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/impede-suns-brilliance-3124": {
+      "name": "Impede Sun's Brilliance",
+      "sourceSha256": "628c64cb2d0e0778c7f8a17ca2cd1d561efa604255d9c4d0cc3677fb379b3a0e",
+      "effectSummary": "For 10 minutes per caster level, creates a stationary 10-foot-radius, 20-foot-high cylinder in which natural sunlight is reduced to a dim glow and the apparent temperature falls by 20°F. The area provides one step of protection against heat, prevents sunburn, and allows recovery from glare and heat-based nonlethal damage as appropriate. It does not suppress magical light and does not protect creatures harmed by sunlight from sunlight-based damage.",
+      "notes": "Self-contained environmental protection effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/impede-suns-brilliance-3124",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/unearthly-heat-3183": {
+      "name": "Unearthly Heat",
+      "sourceSha256": "84bcde8694b8e794fe9ab2642ec205b8a26520335300ed04fa8ff405eb141e3e",
+      "effectSummary": "For 1 round per caster level, a touched living creature must make a Fortitude save each round. On a failed save it takes 1d6 lethal plus 1d4 nonlethal damage and becomes fatigued, or exhausted if already fatigued; a successful save negates that round's damage. Heat-protection effects can mitigate the spell, while heavy clothing or armor imposes -4 on the save.",
+      "notes": "Self-contained extreme-heat effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/unearthly-heat-3183",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/tormenting-thirst-3154": {
+      "name": "Tormenting Thirst",
+      "sourceSha256": "b8d1311a46cf2a26ce58b20377f72fdd7ae7cb5bf268a8d6f0e7575eac2ffc25",
+      "effectSummary": "A living creature that fails its Will save is overwhelmed by unquenchable thirst and compelled to seek and drink the nearest source of water it can see or knows about. Drinking does not satisfy the compulsion. If prevented from reaching water, it enters a rage-like state and attacks friend or foe in its effort to reach water, though it need not use lethal force when lesser force suffices.",
+      "notes": "Self-contained compulsion root for Symbol of Thirst.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tormenting-thirst-3154",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    },
+    "spells/symbol-of-thirst-3153": {
+      "name": "Symbol of Thirst",
+      "sourceSha256": "4b6d8f2f6d70e8fee37756db47ac7dd32942d6d80b74bb8d1cc804777969a805",
+      "effectSummary": "Functions as symbol of death's symbol/trap chassis, but when triggered it affects creatures within 60 feet with tormenting thirst for 10 minutes per caster level rather than killing by Hit Dice. A rogue can find and disable it as a magic trap with DC 25 + spell level, or DC 32 for this spell. Material components include mercury and phosphorus plus powdered diamond and opal worth at least 5,000 gp.",
+      "notes": "Symbol of Death was already reviewed; Tormenting Thirst is locked in this same batch.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-thirst-3153",
+          "role": "primary Sandstorm catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2576",
+          "role": "Player's Handbook v.3.5 source for inherited Symbol of Death mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/tormenting-thirst-3154",
+          "role": "Sandstorm source for inherited Tormenting Thirst mechanics"
+        }
+      ]
+    },
+    "spells/searing-exposure-3159": {
+      "name": "Searing Exposure",
+      "sourceSha256": "8fc47547fb410ddc15144799176a2ea3ae764c92eaf5a411142682c9c2428a65",
+      "effectSummary": "Exposes one living creature to supernatural desert heat. On a failed Fortitude save it takes 1d4 nonlethal damage per caster level, maximum 15d4, and becomes dazzled, dehydrated, and sunburned; nonlethal damage beyond its hit points becomes lethal as normal. A successful save halves the damage, still causes dehydration, and dazzles the target for 1d4+1 rounds. Heat-protection gear grants +4 on the save; heavy clothing or armor instead imposes -4 but prevents sunburn. Material component: a shard of glass.",
+      "notes": "Self-contained environmental damage/condition effect.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/searing-exposure-3159",
+          "role": "primary Sandstorm catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "4d613c81f32108234ccb1318b4a27cce58326f1f",
+    "workflowRun": 35701821371,
+    "validationRun": 35701824828,
+    "classificationArtifact": 10682329674,
+    "classificationArtifactSha256": "a0c7131eaf8f352b0b9e9570176e9bfe56582d63cc62e1baa061ee88d03f3333",
+    "queueCountBefore": 611,
+    "referenceQueueCountBefore": 611,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

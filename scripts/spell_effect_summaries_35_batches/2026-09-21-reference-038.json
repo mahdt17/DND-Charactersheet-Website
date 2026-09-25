@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 reference; Dominate Monster reference batch 038.",
+  "entries": {
+    "spells/dominate-monster-2546": {
+      "name": "Dominate Monster",
+      "sourceSha256": "eb730b7c45ab847b0f8cf48f2f3e770fb8ea04cc8e87e62d3f95d75db76dcd6f",
+      "effectSummary": "Controls any one creature through a telepathic link. With a shared language you can issue detailed commands; otherwise only basic commands are possible. The subject pursues its current command except for ordinary survival needs, and a DC 15 Sense Motive check can notice the enchantment influence. Changing instructions is a move action. As a standard action you can concentrate to receive the subject's interpreted sensory impressions, but it cannot telepathically communicate back. A command against the subject's nature grants a new saving throw with a +2 bonus; obviously self-destructive orders are ignored. Once established, control has unlimited range while you and the subject remain on the same plane and does not require sight. If you fail to concentrate on the spell for at least 1 round each day, the subject gains a new saving throw to escape. Protection from evil or similar magic suppresses control and use of the telepathic link while present but does not prevent or dispel the domination. Unlike dominate person, this spell is not restricted by creature type.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dominate-monster-2546",
+          "role": "Player's Handbook v.3.5 child effect and header reviewed; unrestricted creature target exception preserved"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dominate-person-2547",
+          "role": "Same-book Dominate Person dependency; digest ceac0f5f54f390e263fa9e419fb2ef89c6a9ec44ae93d00dd17308a9c8f33283 verified and regression-locked; inherited telepathic control, commands, Sense Motive, action economy, sensory concentration, save exceptions, planar range, daily concentration and protection suppression mechanics expanded"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "2a350083d537d38bb7e5f26cfc640a0808d74c80",
+    "workflowRun": 35664479178,
+    "validationRun": 35664482177,
+    "classificationArtifact": 10667939548,
+    "classificationArtifactSha256": "d422bbc0c556bc9b1553d8a098f90273e5def2c157855ec5d1730630eba81f2d",
+    "selectionSha256": "c463724f3823228fc13b39d5f04ee887d25162baa23bed3ab1d067b6a4e15017",
+    "eligibleCount": 1,
+    "selectedCount": 1
+  }
+}

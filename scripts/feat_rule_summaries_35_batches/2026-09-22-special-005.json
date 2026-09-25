@@ -1,0 +1,620 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record feat long-rule batch 005 from the fresh 321-record review artifact. This is the next untouched slice after batches 002–004. Exact Benefit digests are locked for all 50 records, the separate Illithid Grapple Special field is independently locked, and same-name printing differences are preserved rather than normalized.",
+  "entries": {
+    "feats/illithid-grapple-1431": {
+      "name": "Illithid Grapple",
+      "benefitSha256": "4048b868e60290c9d6557b8d256298a36fdc17ea69be593210277600a81a9ed9",
+      "effectSummary": "Gain a tentacle natural attack dealing 1d4 damage. You can use it as a primary natural attack when unarmed, as either your weapon or tentacle for your primary attack when armed, or as a secondary natural attack during a full attack with a weapon. It does not increase reach. If you have Weapon Finesse, you may use Dexterity instead of Strength on tentacle attack rolls. A tentacle hit also grants improved grab usable only with that tentacle: you can start a grapple as a free action without provoking, but only against creatures within one size category of you.",
+      "specialSha256": "9f41e7141ddb9bafa8d360ef84342fd64c752e37c4d4ea1fce5e8c876519e853",
+      "specialSummary": "You can take the feat up to four times, gaining another tentacle each time. After the fourth, your lower face resembles an illithid. As a full-round action you can give up all other attacks to attack with every tentacle and attempt a separate grapple from each hit, but you do not gain cumulative bonuses for multiple attached tentacles.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/illithid-grapple-1431",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/improved-dragon-wings-1471": {
+      "name": "Improved Dragon Wings",
+      "benefitSha256": "dcfac77c8ed5cf94a68fdaac5ecb2b7ea69a51848ac22048c8fdc3b0777b0769",
+      "effectSummary": "Gain a 30-foot fly speed with average maneuverability. You cannot fly with a medium/heavy load or while fatigued/exhausted. Before 12 HD, safe continuous flight lasts a number of rounds equal to Constitution modifier, minimum 1; you can push to twice that duration but become fatigued, and spending more than 10 total minutes flying in a day also fatigues you. Gliding can extend time aloft. At 12 HD, flight requires no more exertion than walking/running; you can run in a straight line while flying and make a dive charge after flying at least 30 feet and descending at least 10 feet, dealing double damage with a piercing weapon on a hit.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-dragon-wings-1471",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/improved-familiar-1483": {
+      "name": "Improved Familiar",
+      "benefitSha256": "fc0cb2172b18cdf97e51b33f2764ae80c8ccb3efaa71ba3905929df49123dbc1",
+      "effectSummary": "Expands your familiar choices to the feat's listed improved creatures, subject to the alignment rule that the familiar can be at most one step away on each alignment axis. The familiar remains magically linked like a normal familiar and uses its base creature statistics with the printed exceptions: hit points are the higher of its normal total or half your total; attacks use the better of your base attack bonus or its own, and its better Strength/Dexterity modifier for unarmed melee attacks; damage remains normal for its kind; and it retains all special attacks and special qualities of its creature type.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1483",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/improved-flight-item-1498": {
+      "name": "Improved Flight Item",
+      "benefitSha256": "1dd6582c12aa46915a8896b46c6c7286b41e41f831e5bc17f1cddf90f3591984",
+      "effectSummary": "When you craft an item granting a fly speed, its flight is enhanced in a Syrania manifest zone, including Sharn: granted fly speed increases by 50%, and the item gains two extra daily uses or becomes continuous if it normally works at least three times per day. Market price is unchanged. The feat is also a prerequisite for certain Sharn-specific items. If you also have Craft Construct or can craft a homunculus, any construct you create with a fly speed gains Manifest Flight as a bonus feat.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-flight-item-1498",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/improved-levitation-1514": {
+      "name": "Improved Levitation",
+      "benefitSha256": "6b81d8f10771523dec76031c823e3d116a9b0ad93538b9537c385ddfeefdc8e5",
+      "effectSummary": "Split your levitate spell-like ability into uses lasting up to 10 minutes each instead of consuming its whole normal duration at once. The number of these shorter uses per day equals the ability's caster level multiplied by its normal number of daily uses.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-levitation-1514",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/improved-smiting-1563": {
+      "name": "Improved Smiting",
+      "benefitSha256": "552bba20984bdfad8b6eba96e070c488eefedb03f835b14af987bffd2d3d210d",
+      "effectSummary": "Your smite attack counts as an alignment for overcoming damage reduction and deals +1d6 damage to creatures of the opposed alignment. If the smite already has an alignment association, use the opposite alignment for overcoming DR and add damage against the smite's normal aligned foes. If it has no alignment association, permanently choose one alignment component you possess; the smite counts as that alignment and gains +1d6 against the opposite alignment. You cannot choose a component outside your own alignment, and if you later lose that component you lose this feat's benefits.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-smiting-1563",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/improved-spell-capacity-1567": {
+      "name": "Improved Spell Capacity",
+      "benefitSha256": "9926de164475930c3abfd41c0ccd6b160c20c97ee8d587961e0911342faa65bb",
+      "effectSummary": "Gain one daily spell slot in one spellcasting class at any level up to one higher than the highest spell level you can already cast in that class. You still need ability score 10 + spell level and gain normal bonus spells for the new level if your ability modifier qualifies. The feat cannot grant spellcasting to a noncasting class and can be used only for a class in which you already cast that class's normal maximum spell level. This printing explicitly allows taking the feat multiple times.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-spell-capacity-1567",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/improved-spell-capacity-1568": {
+      "name": "Improved Spell Capacity",
+      "benefitSha256": "76b34fda08b35cc3364eb7febc2fc1623ea60f177120dda50ced2d73d217ca5d",
+      "effectSummary": "Gain one daily spell slot in one spellcasting class at any level up to one higher than the highest spell level you can already cast in that class. You still need ability score 10 + spell level and receive normal bonus spells for the new spell level if your ability modifier qualifies. The slot must belong to a class in which you can already cast that class's normal maximum spell level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-spell-capacity-1568",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/improved-spell-capacity-3230": {
+      "name": "Improved Spell Capacity",
+      "benefitSha256": "d69d6a9fa9f7f2dfc09fee7285cbebd0e5958035bbc0d67c56d502c8c1b27290",
+      "effectSummary": "Gain one daily spell slot in one spellcasting class at any level up to one higher than the highest spell level you can already cast in that class. You still need ability score 10 + spell level and receive normal bonus spells for the new level if your ability modifier qualifies. You can apply the slot only to a class in which you already cast that class's normal maximum spell level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-spell-capacity-3230",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/innate-spell-1649": {
+      "name": "Innate Spell",
+      "benefitSha256": "9e713c52b3e5a3f1f96e0edf7408f9b91c702be25d2e2565431b2b3a6d336b00",
+      "effectSummary": "Choose a spell you can cast and permanently dedicate a spell slot eight levels higher to use it at will as a spell-like ability, once per round. Pay any XP cost every time you use it. You must possess its normal focus; if it has a costly material component, instead use an item worth 50 times that component cost as a focus. Because it is now a spell-like ability, it cannot be converted into a cleric cure/inflict spell. If you lose the ability to cast spells of the level of the dedicated slot, you also lose access to the innate ability.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/innate-spell-1649",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/innate-spell-1650": {
+      "name": "Innate Spell",
+      "benefitSha256": "fa86689fdce4853647f282b7db11aea594b666b7945f51ae86452b412e5ee900",
+      "effectSummary": "Choose a spell you can cast and permanently dedicate a spell slot eight levels higher to use it at will as a spell-like ability, once per round without preparation. Pay any XP cost each use. This printing says a normal focus is not required; a costly material component is replaced by an item worth 50 times that cost as a focus, while negligible-cost materials are unnecessary. The ability cannot be converted to cure/inflict or Signature Spell, and a divine caster who loses divine spellcasting cannot use a divine innate spell.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/innate-spell-1650",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/innate-spell-1651": {
+      "name": "Innate Spell",
+      "benefitSha256": "aa0724150d4aafc7f84135c667a0baf77ff604850ec668e28f261fc0cbb2ceab",
+      "effectSummary": "Choose a spell you know and permanently dedicate one spell slot of that spell's normal level. You can use the chosen spell three times per day as a spell-like ability. Pay any XP cost each use, keep any required focus, and replace a costly material component with an item worth 50 times that cost used as a focus; otherwise no components are needed. The dedicated slot can no longer be used for other spells.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/innate-spell-1651",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/innate-spell-1652": {
+      "name": "Innate Spell",
+      "benefitSha256": "b965ba6774b5e73da923da407aac3714128186cd86bb2f7e1c2fe55605f9c63f",
+      "effectSummary": "Choose a spell you can cast and permanently dedicate a spell slot eight levels higher to use it at will as a spell-like ability, once per round without preparation. Pay any XP cost each use, possess any required focus, and replace a costly material component with an item worth 50 times that cost used as a focus. Because the result is a spell-like ability, a cleric cannot convert it to cure/inflict, and divine innate spells become unusable if the caster loses divine spellcasting.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/innate-spell-1652",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/inscribe-rune-1656": {
+      "name": "Inscribe Rune",
+      "benefitSha256": "379c223ca65a9f2e6a2dbeff7054b4dfb2dcab95795bed8ca31462efdaf5e8a3",
+      "effectSummary": "Inscribe any prepared divine spell as a rune, providing and consuming its normal material components and paying its XP cost when inscription begins; focuses are required but not consumed. A Medium-or-smaller object can hold one rune, larger objects one rune per 25 square feet, and creatures cannot bear runes. In this printing, rune market price is spell level × caster level × 100 gp, treating a 0-level spell as 1/2 level. Creation costs 1/25 of market price in XP and half the market price in raw materials.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/inscribe-rune-1656",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/inscribe-rune-1657": {
+      "name": "Inscribe Rune",
+      "benefitSha256": "bf19f6cb3fa85c84117c05b3d021a76b32cd844936f3970369ed8774881b5dc5",
+      "effectSummary": "Inscribe any divine spell you can access as a rune, after preparing it and supplying its normal material components, focuses, and XP costs; components and XP are paid when writing begins, focuses are not consumed. A Medium-or-smaller object holds one rune, larger objects one per 25 square feet; runes cannot be placed directly on creatures but can be placed on carried equipment. This printing sets rune price to spell level × caster level × 50 gp, treating a 0-level spell as 1/2 level, explicitly superseding the earlier 100 gp multiplier. Creation costs 1/25 of price in XP and half in raw materials.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/inscribe-rune-1657",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/insidious-magic-1659": {
+      "name": "Insidious Magic",
+      "benefitSha256": "18cbb7b8e3160c8b659e312833619c073f3d0a59b47c7942c35c95047605fc32",
+      "effectSummary": "A Weave user trying to detect the aura or reveal the effect of one of your spells with divination must succeed on a level check DC 11 + your caster level; one check is allowed per divination spell, regardless of how many of your effects are present. This protection does not apply to your Evocation or Transmutation spells. In exchange, your own divinations used against Weave effects require a level check DC 9 + the opposing caster's level, except against Enchantment, Illusion, or Necromancy effects, which you detect normally.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/insidious-magic-1659",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/intensify-spell-1673": {
+      "name": "Intensify Spell",
+      "benefitSha256": "6900df63ebeeecd06762058be40f2918978fe68f6b8081d3c0d1561884056863",
+      "effectSummary": "Maximize every variable numeric effect of the spell and then double that maximum: twice maximum damage, healing, targets, and other applicable random numeric results. Saving throws and opposed rolls are unchanged. An intensified spell uses a slot seven levels higher than normal and cannot be combined with another feat that changes variable numeric effects, such as Empower Spell or Maximize Spell.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/intensify-spell-1673",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/invisible-spell-1684": {
+      "name": "Invisible Spell",
+      "benefitSha256": "30277708681f38945358e49c21224f798ed8c8884a3ad239158929b8e6b5115a",
+      "effectSummary": "Remove a spell's visual manifestation without changing its range, area, targets, damage, or other mechanics. Casting components remain visible/audible as normal, and nonmagical consequences such as ignited flames remain visible. Creatures using detect magic, see invisibility, true seeing, or equivalent effects can perceive the spell's normal magical visual manifestations. Invisible Spell does not increase the spell-slot level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/invisible-spell-1684",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/jesters-magic-1701": {
+      "name": "Jester's Magic",
+      "benefitSha256": "8c2537db0c07783ebdedfce1b0adec728db686c3383278298f23842e1c9296ca",
+      "effectSummary": "Choose either the bardic jester tradition or jester mage tradition when taking the feat. Gain +1 caster level when casting a spell from that tradition's listed spell progression. Bardic: prestidigitation; remove fear/hypnotism/Tasha's hideous laughter; calm emotions/enthrall; confusion/glibness; modify memory; mass suggestion; Otto's irresistible dance. Mage: prestidigitation; grease/hypnotism; Tasha's hideous laughter/rope trick; deep slumber/suggestion; confusion; seeming; mass suggestion; project image; Otto's irresistible dance; weird.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/jesters-magic-1701",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/kalashtar-thoughtshifter-1707": {
+      "name": "Kalashtar Thoughtshifter",
+      "benefitSha256": "8b5989a7ceabaf20bfe21889ade3e9ab6361537a45eac7e69456491fe79c8b1e",
+      "effectSummary": "Gain three mind-blade tactical maneuvers. Burrowing Blade: after a full attack against a shield user, next round spend 1 power point as a swift action so your next mind-blade attack ignores that shield's AC bonus. Nemesis: after attacking the same foe with your mind blade in two consecutive rounds, next round spend 1 power point and a move action for +1 insight on mind-blade attacks/damage against that foe but -1 against all others until you reset the blade as a move action. Shifting Blade: after a mind-blade melee attack, next round spend 1 power point as a swift action before attacking the same foe to choose piercing, bludgeoning, or slashing damage until your next turn.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/kalashtar-thoughtshifter-1707",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/karmic-strike-3711": {
+      "name": "Karmic Strike",
+      "benefitSha256": "b9f62e96ddf26470f0a5c9acedbb1ee5738c026d69c2da5b45e1668b2c387e44",
+      "effectSummary": "On your turn, activate the feat until your next turn: take -4 AC, and whenever a creature in your threatened area successfully hits you with a melee or melee touch attack, you may make an attack of opportunity against it. The feat grants no extra attacks of opportunity beyond your normal limit. If your attack of opportunity hits, your damage and the triggering opponent's damage are treated as simultaneous.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/karmic-strike-3711",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/knight-of-the-risen-scepter-1720": {
+      "name": "Knight of the Risen Scepter",
+      "benefitSha256": "4665f61c2ea963ce5f2c1a37102932179adebade5d963142e21c9d0be291a2a7",
+      "effectSummary": "Gain +4 sacred on saves against death effects, energy drain, and ability drain. If slain by a follower of Set, return to life 1 hour later as though resurrected, gaining one negative level instead of losing a level. Likewise, if a follower of Osiris restores you with raise dead, resurrection, or a similar level-loss effect, gain one negative level instead of losing a level. These negative levels can affect normally immune creatures, cannot be removed normally or become actual lost levels, and persist until you gain a class level or kill/destroy the Set follower who killed you. While such a negative level remains, you lose all feat benefits except the +4 sacred saves.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/knight-of-the-risen-scepter-1720",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/knight-of-tyrs-holy-judgment-1721": {
+      "name": "Knight of Tyr's Holy Judgment",
+      "benefitSha256": "7b2c0eb0731b3cd4ebd987a7a6561820e35d76c4ededd158329474447f586afd",
+      "effectSummary": "Add your paladin level to Knowledge or Intelligence checks concerning laws, even when unfamiliar with the place, letting you identify legal restrictions and loopholes as supported by the check. When using detect evil, its second round also reveals whether any creatures in the area are devils, though not their locations. You also gain +1 sacred AC against devils.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/knight-of-tyrs-holy-judgment-1721",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/knockdown-power-1726": {
+      "name": "Knockdown Power",
+      "benefitSha256": "75c1b772eb58c55b014664faf4fb9eb76f14cf007aee2148034b08756c38018b",
+      "effectSummary": "Expend psionic focus to modify an area power that allows a Reflex save. A creature that fails its save against any/all of the power's damage is knocked prone; evasion does not prevent the knockdown on a failed save, while improved evasion does. A flying creature that fails is forced 10 feet downward instead. Powers without saves gain no benefit. The modification costs +2 power points, and total power cost cannot exceed your manifester level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/knockdown-power-1726",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/lingering-breath-1774": {
+      "name": "Lingering Breath",
+      "benefitSha256": "e14be8ffce7de9129005bd084355155443a98ac6f3366684d3356e85d84b1c13",
+      "effectSummary": "Your breath weapon produces its normal effect and leaves a cloud of identical shape/size for 1 round. A creature initially caught by the breath takes no additional effect if it leaves by the shortest available route on its next turn. Anyone entering or touching the lingering cloud otherwise suffers half the normal breath effect; normal saves still apply. Damage is halved, and timed nondamage effects last half their normal duration; repeated identical nondamage effects do not stack. Using the feat adds 2 rounds to the normal wait before you can use the breath weapon again.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/lingering-breath-1774",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/linked-power-1779": {
+      "name": "Linked Power",
+      "benefitSha256": "9c9aefbd8645a3f1a0c7a0478e5e051c12e14fc75df21d2a5692a39aa3ab0ca8",
+      "effectSummary": "Expend psionic focus and choose a power to manifest now plus a second linked power to manifest automatically next round without spending actions or additional power points then. The linked power uses the same target or area as the first, or you choose its future target/area now if the first has none. Each power resolves independently, including separate saves, and the linked effect may become irrelevant if circumstances change before next round. The current power's cost increases by the full power-point cost of the linked power; total power points spent cannot exceed your manifester level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/linked-power-1779",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/magic-of-the-land-1825": {
+      "name": "Magic of the Land",
+      "benefitSha256": "06498db69f54b2ddec8195bbd757c1b8703ac9478eb00a1730e01c8ebecca43c",
+      "effectSummary": "In a natural, noncommunity and nonconstructed setting, make Knowledge (nature) DC 15 + spell level as a free action while casting a spell; you cannot take 10. On success, each target is also healed 2 hit points per spell level by positive energy; undead instead take that much damage and unwilling creatures can use the spell's normal Will save DC to negate this extra effect. A spell without a target entry gains no benefit. On a failed skill check, the prepared spell or slot is lost. The feat cannot modify alignment-descriptor spells or Necromancy spells.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/magic-of-the-land-1825",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/magical-training-1834": {
+      "name": "Magical Training",
+      "benefitSha256": "047075fc487ed4e3e6b13e748431d6ba56593e9d8a961ff1d5e616b3373a1d98",
+      "effectSummary": "Choose sorcerer-style or wizard-style casting when taking the feat, requiring at least 10 in the corresponding casting ability. You can cast three 0-level arcane spells per day and are subject to arcane spell failure in armor; treat yourself as a sorcerer or wizard of your arcane spellcaster level, minimum 1st, for level-based variables. Sorcerer option: Charisma sets save DCs and you know two chosen sorcerer/wizard cantrips. Wizard option: Intelligence sets save DCs and you receive a spellbook with three chosen sorcerer/wizard cantrips, prepared exactly like a wizard.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/magical-training-1834",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/mark-of-maladomini-1854": {
+      "name": "Mark of Maladomini",
+      "benefitSha256": "ccb817368798d698f43f62e9153aef193e4a5e2a411e6e90951583a79e0cd150",
+      "effectSummary": "Your body continuously exudes slippery, foul slime. Any creature entering or leaving a square adjacent to you must make Balance DC 10 + half your Hit Dice + Constitution modifier or stop moving immediately; if it fails and tries to continue, it falls prone. Living creatures within 10 feet must make Fortitude against the same DC or become sickened for 10 rounds. Regardless of save result, a creature cannot be affected by your stench again for 24 hours.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/mark-of-maladomini-1854",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/martial-throw-1880": {
+      "name": "Martial Throw",
+      "benefitSha256": "f88eb350d770f7c940fd159d8bf1734c6a80a4c8e33b05b7dc67f5af2784cfc4",
+      "effectSummary": "Once per round after hitting an adjacent opponent of your size or smaller with an unarmed strike, immediately make a special opposed grapple check using Dexterity instead of Strength; the target uses Strength normally. On success you are not grappling, but switch positions without provoking, subject to both creatures fitting legal adjacent spaces and each occupying at least one square formerly occupied by the other when larger than one square. You can use this on an ally; a willing ally makes the attack and grapple checks automatically succeed, though the unarmed strike still deals normal damage.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/martial-throw-1880",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/master-spellthief-1891": {
+      "name": "Master Spellthief",
+      "benefitSha256": "1e4dd10b38e9517d6c1863dc3e99ecb9a18cad196eaee7d9b66380daf5ce06e0",
+      "effectSummary": "Your spellthief levels and levels in other arcane spellcasting classes stack to determine the maximum spell level you can steal. They also stack for caster level of all your arcane spells. You ignore arcane spell failure for arcane spells cast or stolen from other classes while wearing light armor, but medium/heavy armor and shields impose their normal arcane spell failure.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/master-spellthief-1891",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/master-staff-1892": {
+      "name": "Master Staff",
+      "benefitSha256": "116bff213db27b45732ee920820969ebbb7c0367e64ff5240366a117401eb1ef",
+      "effectSummary": "When activating a staff, expend an unused spell slot instead of a charge; a prepared caster can sacrifice a prepared spell, except this printing prohibits sacrificing prepared spells from a specialty school. The slot must be at least the level of the specific staff spell being activated, including metamagic level increases. You cannot substitute a slot for a staff function that does not correspond to a specific spell.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/master-staff-1892",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/master-staff-1893": {
+      "name": "Master Staff",
+      "benefitSha256": "30b5aaff38ca2f80b43dd60dbe111cea158b4b489d2209ac7aaa1e49b2f3a9c8",
+      "effectSummary": "When activating a staff, substitute an unused spell slot for a charge; a prepared caster may lose a prepared spell, except this printing says prepared spells from a specialty school cannot be sacrificed. The slot must be at least the level of the specific stored spell being activated, including metamagic increases. The substitution cannot emulate a charge spent on a staff function that does not match a specific spell.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/master-staff-1893",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/mastery-of-chaos-and-order-1896": {
+      "name": "Mastery of Chaos and Order",
+      "benefitSha256": "3578bb55edd6f9ac30dee73dcf54fbf12848a3970422587a9d96794f377bfe89",
+      "effectSummary": "When casting, choose either or both effects. Chaos: add 1d6-3 to the spell's save DC, allowing a negative modifier; one roll applies to all creatures and does nothing for a spell without a save. Order: set any variable numeric effect of the spell to exactly half its maximum possible result. The ordered value can still interact with effects such as Empower Spell that require a variable numeric effect, treating the fixed half-maximum result as the variable result.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/mastery-of-chaos-and-order-1896",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/mastery-of-madness-1901": {
+      "name": "Mastery of Madness",
+      "benefitSha256": "4fadc67196852eaf8dc1a7655d9b7082927aea1fa9d8236350cddc3491be755e",
+      "effectSummary": "Whenever you summon a celestial or fiendish creature by spell, spell-like ability, or magic item, you may summon a pseudonatural version instead. Doing so requires caster-level check DC 15 + spell level; failure opens a temporary Xoriat rift and the summoning spell is resolved as though under the wild-magic planar trait. The source also supplies an abbreviated pseudonatural template: type becomes outsider; true strike 1/day; alternate grotesque form; DR 5/magic at 4–11 HD or 10/magic at 12+ HD; acid/electricity resistance 5 at 1–7 HD, 10 at 8–11, 15 at 12+; SR 10 + HD, maximum 25; Intelligence minimum 3.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/mastery-of-madness-1901",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/mastery-of-the-dead-1904": {
+      "name": "Mastery of the Dead",
+      "benefitSha256": "e979f08164ae82cc86bb704a665fdbda625f4764772c1cbe8366d878bdb3727d",
+      "effectSummary": "When you kill a creature with a death-descriptor spell, as a free action make caster-level check DC 10 + the slain creature's Hit Dice. On success its spirit becomes a ghost under your control at the start of your next turn, acts immediately, and follows your spoken commands regardless of language. It remains for rounds equal to your caster level or until you die; while present, its corpse cannot be restored to life. You can control only one ghost from this feat at a time; creating another forces you to choose which remains. Ghost template details remain the Monster Manual reference.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/mastery-of-the-dead-1904",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/maximize-power-1911": {
+      "name": "Maximize Power",
+      "benefitSha256": "390a4fa4512004d84be2922e59800eee2ac2338c5f420aba3888d7d06b8a2f0d",
+      "effectSummary": "Expend psionic focus to maximize every variable numeric effect of a power, including the final variables of an augmented power. Saving throws, opposed checks, and effects without random variables are unchanged. If a power is both empowered and maximized, add the maximum result plus one-half the normally rolled result. Maximize Power increases cost by 4 power points, and total power cost cannot exceed your manifester level.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/maximize-power-1911",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/metamorphic-transfer-1935": {
+      "name": "Metamorphic Transfer",
+      "benefitSha256": "323f1423bc9039120d8c805055bf2dfeee1d1d5d89c81ec2ce0c331f54bb3443",
+      "effectSummary": "Each time you change form, you may gain one supernatural ability of the new form. You can make only three supernatural-ability transfers per day total, regardless of how often you transform, and a transferred ability can be used at most three times per day even if the source creature allows more, while still obeying any recharge or other restrictions. Save DC for an offensive transferred supernatural ability is 10 + Charisma modifier + half your Hit Dice.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/metamorphic-transfer-1935",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/metaray-1938": {
+      "name": "Metaray",
+      "benefitSha256": "b5ee331cdc2c92b84c17bbce177a475a6cd099d18733102c71fc943d9f553ad2",
+      "effectSummary": "Once per round as a standard action, apply a metamagic feat you possess to one eye ray. That eyestalk becomes unusable for a number of rounds equal to the spell-level increase that metamagic normally causes. Other unmodified eye rays remain usable normally that round.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/metaray-1938",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/midnight-metamagic-1941": {
+      "name": "Midnight Metamagic",
+      "benefitSha256": "dd99969d01b696c7f278c13c67eb24974fcd079c121e9f4afb9ab596dcee144e",
+      "effectSummary": "Once per day, invest essentia into one or more spells you know, and have prepared if applicable, to preassign metamagic feats you know without changing spell level or spontaneous casting time. Each affected spell requires essentia equal to the metamagic's normal level adjustment, minimum 1. Essentia remains invested until that spell is cast, then returns to your pool. You may assign different metamagic feats to different spells as long as your essentia capacity and pool cover all investments. The feat also grants 1 essentia.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/midnight-metamagic-1941",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/mindsight-1960": {
+      "name": "Mindsight",
+      "benefitSha256": "853bf7903af77e898f29b659daacb26f1b0d65cc4c28b38c80ef8f482f4b83b7",
+      "effectSummary": "Within the range of your telepathy, automatically detect and pinpoint every creature with Intelligence 1 or higher, similar to blindsense. You know each thinking creature's square, type, and Intelligence score without taking an action. Mindsight does not let you see the creature, so it still has total concealment unless another sense reveals it.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/mindsight-1960",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/minor-shapeshift-1961": {
+      "name": "Minor Shapeshift",
+      "benefitSha256": "d8e26c2d241c1efcf546df64332c274f1dce3b773c36b12bfc619cc5b2052e0c",
+      "effectSummary": "While you have a 4th-level-or-higher polymorph spell available, spend a swift action to gain one benefit for rounds equal to the highest-level polymorph spell available: Might +2 melee damage; Mobility +2 competence on Balance, Climb, Jump, and Swim; Savagery a primary claw dealing 1d6 for Medium size; Speed +5-foot enhancement to one movement mode you already have; or Vigor temporary hit points equal to Hit Dice. Activating again ends the previous benefit. You also gain +1 competence caster level when casting polymorph spells.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/minor-shapeshift-1961",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/mitigate-suffering-1971": {
+      "name": "Mitigate Suffering",
+      "benefitSha256": "a017a4ac0b5a71d69a81580107b887167e021faf6b107ca671019e9670a17818",
+      "effectSummary": "While you have restoration or another conjuration (healing) spell that cures ability damage available, use a standard action to grant yourself or an ally temporary ability points equal to 2 + the level of the highest such spell available. Apply them to one damaged ability, not above its starting score. They last 10 minutes, after which the original damage returns unless actually restored first. You can use the effect repeatedly on the same creature. You also gain +1 competence caster level for conjuration (healing) spells.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/mitigate-suffering-1971",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/mortalbane-1982": {
+      "name": "Mortalbane",
+      "benefitSha256": "9d17773f32c1305fc71fe58b7f9ec1d3d8218e98fdbc4aa160423766e22b8520",
+      "effectSummary": "Apply Mortalbane to a damaging spell-like ability to deal +2d6 damage against living nonoutsiders, but only half normal damage against outsiders, undead, and constructs. Ordinary damage immunities still apply. Each individual spell-like ability can be used in Mortalbane form up to five times per day, subject to that ability's normal daily use limit; further uses can still be made normally if the ability itself remains available.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/mortalbane-1982",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/mother-cyst-1984": {
+      "name": "Mother Cyst",
+      "benefitSha256": "cdc4413355e912c20b6ecfd5e346bfa8ba049ebca1caef1b750fccac9ec16856",
+      "effectSummary": "Grow an internal mother cyst that grants access to the necrotic-cyst spell progression: 1st necrotic awareness; 2nd necrotic cyst and necrotic scrying; 3rd necrotic bloat; 4th necrotic domination; 5th necrotic burst; 6th necrotic eruption; 7th necrotic tumor; 8th necrotic empowerment; 9th necrotic termination. You cast these like other spells you can cast; a prepared caster can prepare them without a spellbook as though each were mastered with Spell Mastery.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/mother-cyst-1984",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/multivoice-2012": {
+      "name": "Multivoice",
+      "benefitSha256": "aae89887200a6194bb3c2368ae95ba597e91b050b06e8af530076496e924a443",
+      "effectSummary": "As a full-round action, use two spell/spell-like effects in the same round, with each spell having casting time 1 action and each spell-like ability taking no more than a standard action. This provokes an attack of opportunity. If concentration is interrupted, make a separate Concentration check for each effect; failure of either check negates both. You can alternatively use one head to cast/use a spell-like ability while another head makes a head-based special attack such as a breath weapon or eye ray.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/multivoice-2012",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/music-of-the-outer-spheres-2023": {
+      "name": "Music of the Outer Spheres",
+      "benefitSha256": "c6a88be7e57d65c4bab6824af6f12a36bcd6fe72cc9db8124a97a70fc56e39aa",
+      "effectSummary": "Gain three aberration-focused bardic music abilities. Lull Aberration targets one aberration within 30 feet plus one extra per three bard levels above 9th; Will DC 10 + half bard level + Charisma modifier or slowed. Sicken Aberration affects aberrations in a 30-foot spread; Fortitude at the same DC or sickened while you continue, and a successful save protects until you reactivate it. Vitalize Aberration grants aberrations in a 30-foot spread +2 morale to special-attack and spell-like-ability save DCs and +1 dodge AC.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/music-of-the-outer-spheres-2023",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/mystic-backlash-2027": {
+      "name": "Mystic Backlash",
+      "benefitSha256": "e91e888937932d4d773db5a7706e1285ac373e6826b1f215de5470488e1ff227",
+      "effectSummary": "While you have a 5th-level-or-higher abjuration spell available, make a melee touch attack as a standard action without provoking. On a hit, the target is cursed for rounds equal to the level of your highest available abjuration spell; a successful Will save reduces this to 1 round. Each time it completes casting a spell during that duration, it takes damage equal to the abjuration spell level that set the duration. You also gain +1 competence caster level for abjuration spells.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/mystic-backlash-2027",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/necrotic-reserve-2045": {
+      "name": "Necrotic Reserve",
+      "benefitSha256": "4eac3143b02ded718b0ccb2fb9a04024c171e65779345f86220e0716eb68af3e",
+      "effectSummary": "On a day when you feed by draining/damaging a living creature's ability score or life force, gain a necrotic reserve. Once that day, damage that would reduce you to 0 or fewer hit points leaves you weakened instead of destroyed. While weakened, each round you can take only one move or one standard action and move at half speed. A move action is safe; a standard or other strenuous action immediately spends the reserve and destroys you unless that action raises your hit points. Any additional damage while weakened also destroys you. The reserve can save you only once per day.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/necrotic-reserve-2045",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/neraph-charge-2050": {
+      "name": "Neraph Charge",
+      "benefitSha256": "91aee75734e290ac91be702bce4b84975aa1ebb969a6d40b97283b0d529aaa33",
+      "effectSummary": "When you charge, use deceptive movement so the target cannot apply its Dexterity bonus to AC against that charge attack; all consequences of losing Dexterity to AC, such as qualifying for sneak attack, also apply. After you use Neraph Charge against a particular foe once in an encounter, whether the attack succeeds or not, any later Neraph Charge attempt against that foe in the same encounter automatically fails.",
+      "notes": "Manually reviewed against the fresh 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, templates, creatures, tables, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/neraph-charge-2050",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "28592f0925d3c127ebb7c78f5568927d2c72d05d",
+    "validationRun": 35783822126,
+    "featReviewRun": 35781227811,
+    "featReviewArtifact": 10718635433,
+    "featReviewArtifactSha256": "ebab66aeaad83fb49b41e87c26cd621632a05f2981b926748788b0f0ba33aa62",
+    "sourceArtifactEntryCount": 321,
+    "reviewQueueCountBefore": 171,
+    "reviewedByPriorBatches": 150,
+    "fullFeatAuditRun": 35780589058,
+    "catalogCount": 3666
+  }
+}

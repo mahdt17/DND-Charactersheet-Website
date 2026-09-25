@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-9",
+  "records": {
+    "wikidot5e:wondrous-items:horn-of-blasting": {
+      "sourceDigest": "sha256:33c2f413a513a1a71320e1091c0afed99afe965cb5fe55375d6a1a7d61ccfb6c",
+      "effectSummary": "As an action, speak the command word and blow the horn to create a 30-foot cone audible 600 feet away. Creatures make DC 15 Constitution, taking 5d6 thunder and becoming deafened for 1 minute on failure, or half damage without deafness on success. Creatures and objects made of glass or crystal have disadvantage and take 10d6 instead of 5d6. Each use has a 20% chance to explode, dealing 10d6 fire to the blower and destroying the horn."
+    },
+    "wikidot5e:wondrous-items:horn-of-silent-alarm": {
+      "sourceDigest": "sha256:0a219efcbc8cbaba882f462159979ed2e5b517f0b20a732537ef7c9e9040f4b9",
+      "effectSummary": "The horn has 4 charges and regains 1d4 daily at dawn. As an action, spend 1 charge to blow it; exactly one creature you choose within 600 feet hears the blast if not deafened, and no other creature hears the horn."
+    },
+    "wikidot5e:wondrous-items:horn-of-the-endless-maze": {
+      "sourceDigest": "sha256:e0336c10d34d16fe7dcb21d4c6303a216c6619bcf6e8734f533ac9c12b1fae77",
+      "effectSummary": "Once every 7 days, use an action to blow the horn and summon 3d4+3 Abyssal warrior spirits within 60 feet. They look like minotaurs but use berserker statistics and disappear after 1 hour or at 0 HP. If you lack proficiency with all simple weapons, they attack you; if you meet the requirement, they are friendly to you and companions and follow your commands."
+    },
+    "wikidot5e:wondrous-items:horn-of-valhalla": {
+      "sourceDigest": "sha256:e6f449d383f77d8f2d94e2b72fbdd2b285559761726f90df92ecb5748c8fca50",
+      "effectSummary": "Once every 7 days, use an action to blow the horn and summon Ysgard berserker spirits within 60 feet for up to 1 hour or until 0 HP. Horn type determines number and user requirement: d100 01–40 Silver, 2d4+2, no requirement; 41–75 Brass, 3d4+3, proficiency with all simple weapons; 76–90 Bronze, 4d4+4, proficiency with all medium armor; 91–00 Iron, 5d4+5, proficiency with all martial weapons. If you fail the requirement, summoned berserkers attack you; otherwise they are friendly to you and companions and follow commands."
+    },
+    "wikidot5e:wondrous-items:horned-ring": {
+      "sourceDigest": "sha256:61f4cafe63cab3108c6b2306f487d38ceeaec07f91f541a32b2f6570d025d599",
+      "effectSummary": "While attuned, this ring lets you ignore Undermountain's special magical restrictions described under Alterations to Magic in its source adventure."
+    },
+    "wikidot5e:wondrous-items:horseshoes-of-a-zephyr": {
+      "sourceDigest": "sha256:355b882011be99ef58c1e5f3c7fd2decd41102168bee5d714fd17df3d35fe5f5",
+      "effectSummary": "When all four are worn by a horse or similar creature, it floats 4 inches above ground and moves normally over unstable or nonsolid surfaces such as water or lava, leaves no tracks, ignores difficult terrain, and can travel at normal speed for up to 12 hours per day without forced-march exhaustion."
+    },
+    "wikidot5e:wondrous-items:house-of-cards": {
+      "sourceDigest": "sha256:f0420e08c3458f2437513c2723298b655b77acfd0fef81e8faf922f48a01d95c",
+      "effectSummary": "Once per dawn while holding the deck, use an action to shuffle it into a card shelter of any shape fitting within a 40-foot cube centered on a point within 30 feet. It has one door and up to four windows that only you can open/close, plus floor, roof, and comfortable interior temperature. The shelter has AC 15, 50 HP, immunity to poison and psychic damage, and lasts 24 hours, until dismissed as an action, or until 0 HP; it then returns to deck form in your hand."
+    },
+    "wikidot5e:wondrous-items:hunters-coat": {
+      "sourceDigest": "sha256:5be3bae88ec8bbd32bde1237101bc81e15083dab98c14980165110f1971febc2",
+      "effectSummary": "This leather armor grants +1 AC. It has 3 charges and regains 1d3 daily at dawn. When you hit a creature that is below its HP maximum, spend 1 charge to deal +1d10 necrotic damage."
+    },
+    "wikidot5e:wondrous-items:icon-of-ravenloft": {
+      "sourceDigest": "sha256:463890abf1e977e4a0e50bf9816620898adb9bbac3207cac961fa8931458713c",
+      "effectSummary": "All creatures within 30 feet are affected by protection from evil and good against fiends and undead. An attuned good-aligned creature gains additional powers: once per dawn as an action cast augury without material components; use the icon as a holy symbol for Turn Undead or Turn the Unholy and increase that feature's save DC by 2; once per dawn while holding it, use an action to heal one visible creature within 30 feet for 3d8+3 HP, but undead, constructs, and fiends cannot be healed this way."
+    },
+    "wikidot5e:wondrous-items:iggwilv-s-cauldron": {
+      "sourceDigest": "sha256:70b4146bbdf5b94b60df2ce20f157b12e1c60cb19cc24b145a48e3cc3a9b6a8f",
+      "effectSummary": "Artifact cauldron with Gold and Iron forms changeable only by Iggwilv or Baba Yaga. It weighs 80 pounds empty, holds 100 gallons, and has 1 random minor beneficial and 1 minor detrimental property. Humanoids attuning make DC 15 Constitution or rapidly age to decrepitude: speed halved, sight/hearing limited to 30 feet, disadvantage on all checks/attacks/saves, and natural death in 3d8 days; only wish or divine intervention reverses this. A hag coven's three hags may attune simultaneously, ending for all if the coven disbands. Gold form: water stirred 1 minute becomes hot stew, one meal for four per gallon; wine stirred 10 minutes becomes elixir, four servings per gallon, each granting 10 temporary HP, unused elixir vanishes after 1 hour, once per dawn; 90 gallons water + 10 wine lets it serve as a scrying focus that automatically defeats the target's save and works across planes, consuming all liquid when the spell ends; dipping an ordinary broom into a water-filled cauldron makes it a broom of flying for 3 days, once per dawn. Iron form: once per dawn as an action scream into the empty cauldron to summon an obedient bat swarm for 1 minute; stirring at least 1 gallon of blood for 1 minute turns it to smoke and makes Humanoids within 100 feet per gallon unconscious for 1 hour unless attuned or charm-immune, waking on damage or an action to shake/slap them, once per dawn; once every 8 days, dip a branch with a dead frog/toad tied to it into water to create a wand of polymorph with 3 nonrecharging charges that crumbles after its last charge. Time Freeze: spend 1 minute touching the cauldron with a unicorn horn while reciting 'The Witch Queen's Cauldron' to freeze all non-attuned creatures within 1,000 feet in time: incapacitated, immobile, mute, nonaging, unaware, cannot be moved/harmed/affected by magic, with other effects suppressed. It ends globally if the cauldron is destroyed/sent to another plane or touched with a unicorn horn for 1 minute while reciting the poem, and ends for an individual exposed to antimagic field or touched by a unicorn horn. Destruction: Medium object, AC 19, 80 HP, immune to all damage except flame tongue or frost brand; reducing it to 0 with either shatters it into eight pieces and ends its effects, also causing every hag coven in the multiverse to lose Shared Spellcasting. If all eight pieces are within 5 feet, wish restores the cauldron and restores hag-coven Shared Spellcasting."
+    }
+  }
+}

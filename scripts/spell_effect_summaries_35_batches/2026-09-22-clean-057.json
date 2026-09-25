@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5 summary resolving the Races of Eberron natural-weapon augmentation root's delegated Dungeon Master's Guide weapon-ability table; clean batch 057.",
+  "entries": {
+    "spells/natural-weapon-augmentation-personal-4957": {
+      "name": "Natural Weapon Augmentation, Personal",
+      "sourceSha256": "b014e29794a212c55c322e29e3752380efe83d2212cad28dbb6448754975435d",
+      "effectSummary": "For 1 minute per caster level, one of your natural weapons gains one magic-weapon special ability whose market price is equivalent to a +1 bonus or whose flat market-price addition is no more than 10,000 gp. The natural weapon need not already have an enhancement bonus, and this infusion does not grant one. The referenced Dungeon Master's Guide 3.5 melee-weapon table includes the +1-equivalent abilities listed below; keen applies only to a piercing or slashing natural weapon. The spell's printed choice remains open to any other special ability that independently satisfies its +1-equivalent or 10,000-gp-or-less criterion and that is compatible with the natural weapon. The material component is a cinder from a fire put out by rain. Warforged spellcasters cast this infusion at +1 caster level.",
+      "tables": [
+        [
+          [
+            "DMG 3.5 +1-equivalent melee weapon ability",
+            "Restriction noted by the table"
+          ],
+          [
+            "Bane",
+            "—"
+          ],
+          [
+            "Defending",
+            "—"
+          ],
+          [
+            "Flaming",
+            "—"
+          ],
+          [
+            "Frost",
+            "—"
+          ],
+          [
+            "Shock",
+            "—"
+          ],
+          [
+            "Ghost touch",
+            "—"
+          ],
+          [
+            "Keen",
+            "Piercing or slashing weapon only"
+          ],
+          [
+            "Ki Focus",
+            "—"
+          ],
+          [
+            "Merciful",
+            "—"
+          ],
+          [
+            "Mighty cleaving",
+            "—"
+          ],
+          [
+            "Spell storing",
+            "—"
+          ],
+          [
+            "Throwing",
+            "—"
+          ],
+          [
+            "Thundering",
+            "—"
+          ],
+          [
+            "Vicious",
+            "—"
+          ]
+        ]
+      ],
+      "notes": "Source-locked to Races of Eberron p. 189. The primary spell text is not truncated; the repair-lane signal comes from its explicit delegation to DMG Table 7-14. The restored table is limited to the core +1-equivalent entries and does not narrow the spell's separate printed allowance for qualifying flat-price abilities.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/natural-weapon-augmentation-personal-4957",
+          "role": "primary Races of Eberron record and digest source"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/races-of-eberron--10/natural-weapon-augmentation-personal--4957/index.html",
+          "role": "matching Races of Eberron rendering used to verify duration, choice rule, enhancement-bonus exception, component and warforged caster-level bonus"
+        },
+        {
+          "url": "https://files.spawningpool.net/docs/Vault2.0.-.TTRPG-Gamebooks/Dungeons%20%26%20Dragons%20%5Bmulti%5D/D%26D%203.5/Eberron%20Setting/Races%20Of%20Eberron.pdf",
+          "role": "same-printing Races of Eberron text cross-check"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/magicItems/magicWeapons.htm",
+          "role": "3.5 core melee-weapon special-ability table cross-check for the +1-equivalent entries and keen restriction"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "9a1045a0d525b6d7bfa3c484a7013010159e8c67",
+    "workflowRun": 35676651984,
+    "validationRun": 35676654966,
+    "classificationArtifact": 10672917522,
+    "classificationArtifactSha256": "d7438097efbc8bc60b8c9e825fd5fd3321d85fbc31846167e51e91fa96f46fc1",
+    "queueCountBefore": 1026,
+    "repairQueueCountBefore": 5
+  }
+}

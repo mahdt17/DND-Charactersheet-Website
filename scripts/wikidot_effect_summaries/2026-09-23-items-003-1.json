@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-003-1",
+  "records": {
+    "wikidot5e:wondrous-items:euryales-aegis": {
+      "sourceDigest": "sha256:b78dd9f589d8d88c7b9e0f0b4dc31abd5ec99614d4b72924ae385050b479aa99",
+      "effectSummary": "While wielding this legendary shield, gain poison resistance and immunity to petrified. Once per dawn as a bonus action, target one visible creature within 30 feet; DC 20 Constitution or it becomes restrained as it turns to stone, then at the start of its next turn repeats DC 20 Constitution—failure petrifies it for 24 hours, success ends restrained. While wielding the shield, use an action to cast lesser restoration, locate creature, or transport via plants; each spell can be cast from the shield once per dawn."
+    },
+    "wikidot5e:wondrous-items:eversmoking-bottle": {
+      "sourceDigest": "sha256:86a69c84b63a8c91c090b26097d308c2bb553bdeba155420ec9603bcc68d84a6",
+      "effectSummary": "As an action, remove the stopper to create a heavily obscuring smoke cloud in a 60-foot radius around the bottle. Each minute the bottle stays open and within the cloud, the radius expands by 10 feet to a maximum of 120 feet. The cloud persists while open. As an action, speak the command word to close it; after closing, the smoke disperses in 10 minutes, or in 1 minute in moderate wind or 1 round in strong wind."
+    },
+    "wikidot5e:wondrous-items:eye-and-hand-of-vecna": {
+      "sourceDigest": "sha256:6437facfed6bcbb3f722c240533b6ee7d8472a00a837585eecb3a0a2fc691d45",
+      "effectSummary": "Artifact pair that can be found separately. Attuning to the Eye requires removing one eye and grafting it into the socket; attuning to the Hand requires severing the left hand and grafting it to the wrist. Removing either graft kills you. Each artifact has 1 random minor beneficial, 1 major beneficial, and 1 minor detrimental property and changes alignment to neutral evil. Eye: grants truesight; as an action gain ring-of-X-ray-vision sight until ended as a bonus action. It has 8 charges, regains 1d4+4 daily at dawn, and casts at save DC 18: crown of madness 1, clairvoyance 2, disintegrate 4, eyebite 4, dominate monster 5. Each Eye spell has a 5% chance Vecna devours your soul and permanently controls your body as an NPC. Hand: sets Strength to 20 if lower, adds +2d8 cold to melee spell attacks made with it and melee weapon attacks with weapons it holds, has 8 charges regaining 1d4+4 daily, and casts at save DC 18: sleep 1, slow 2, teleport 3, finger of death 5. Each Hand spell also casts suggestion on you at DC 18 demanding an evil act. If attuned to both: immune to disease and poison; Eye X-ray causes no exhaustion; cannot be surprised while not incapacitated; regain 1d10 HP at start of turn if at 1+ HP; as an action make a melee attack against a creature with a skeleton, and on hit DC 18 Constitution or it drops to 0 HP; once every 30 days cast wish. If a creature bearing both is slain by the Sword of Kas, both artifacts burn to ash and are destroyed forever; other destruction attempts only cause them to reappear in Vecna's hidden vaults."
+    },
+    "wikidot5e:wondrous-items:eyes-of-charming": {
+      "sourceDigest": "sha256:fbd279bf417a64efccb1842a5a47a6d7145240ae12d40f2425b9ac9be8b53ca2",
+      "effectSummary": "The lenses have 3 charges, all restored daily at dawn. While wearing them, spend 1 charge as an action to cast charm person at save DC 13 on a humanoid within 30 feet, provided you and the target can see each other."
+    },
+    "wikidot5e:wondrous-items:fabulist-gem": {
+      "sourceDigest": "sha256:db5d0dfa2dbd60d68d1e6ea8ea822309ae15fe704060bc59380032d3c9f56608",
+      "effectSummary": "While wearing the gem, once per dawn use an action to create a pile of counterfeit coins worth up to 100 gp total in an unoccupied space within 10 feet on a supporting surface; the coins vanish after 1 hour wherever they are. As a bonus action, magically change the style, color, and apparent quality of your clothing and armor or make them look like entirely different garments; the illusion fails physical inspection."
+    },
+    "wikidot5e:wondrous-items:far-gear": {
+      "sourceDigest": "sha256:78f59aa6c5eb27254eab501b723a6dff3314b633999f0d0a0b4093296920a3dc",
+      "effectSummary": "While attuned, gain +1 to Charisma saves and advantage on Charisma (Intimidation). Once per dawn, conjure a CR 4-or-lower aberration without concentration as though casting conjure celestial. Separately once per dawn, cast bane at save DC 15 affecting any number of creatures within range for 1 minute. When not installed in the Orrery of the Wanderer, the DM may make its magic sporadic or unpredictable."
+    },
+    "wikidot5e:wondrous-items:far-realm-shard": {
+      "sourceDigest": "sha256:fa2c2d8ffd07096bcf186e4437a45cf84f91c09645000fa20cf7135579c5fe24",
+      "effectSummary": "Attach or detach the shard from a Tiny object as an action; it detaches if attunement ends, and while held or worn it functions as a spellcasting focus. Whenever you use Metamagic on a spell, you may cause a tentacle to strike one visible creature within 30 feet; it makes Charisma against your spell save DC or takes 3d6 psychic damage and is frightened of you until the start of your next turn."
+    },
+    "wikidot5e:wondrous-items:fate-cutter-shears": {
+      "sourceDigest": "sha256:e57aa01e3a40e7ad45958991b16462b28f4db6f405fb8b07365b1795def1477f",
+      "effectSummary": "These shears function as a magic dagger. Every hit deals +1d6 force. Once per dawn when you hit a creature, sever its fate; until it finishes a long rest, attack rolls against it score critical hits on d20 results of 19 or 20."
+    },
+    "wikidot5e:wondrous-items:fate-dealers-deck": {
+      "sourceDigest": "sha256:fb3c794113b2364f673d98c2fbb4d8a71582773de031ed3867b4d824f2080977",
+      "effectSummary": "While holding this cleric/paladin focus, gain a bonus to spell attack rolls and spell save DCs by rarity: rare +1, very rare +2, legendary +3. As an action, draw a card, expend and roll one Hit Die, and add the deck's rarity bonus; one visible creature within 30 feet either takes that total as radiant damage or regains that many HP, your choice."
+    },
+    "wikidot5e:wondrous-items:feather-of-diatryma-summoning": {
+      "sourceDigest": "sha256:dd4470b48e2ef43f3ae34d8f1ad3ada1b2e9f7df826dd59656dceadc32f4a228",
+      "effectSummary": "As an action, speak the command word and throw the feather into a Large open ground space within 5 feet to turn it into a diatryma for up to 6 hours. It uses axe beak statistics except its beak deals piercing damage, is friendly to you and companions, understands your languages, obeys spoken commands, can serve as a mount, and otherwise only defends itself. It reverts early at 0 HP or when you touch it and use an action to repeat the command. After reverting, it cannot be used again for 7 days."
+    }
+  }
+}

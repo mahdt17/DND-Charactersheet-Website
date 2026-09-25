@@ -1,0 +1,376 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 30-record batch 111 from the clean 361-record reference-dependent queue. Batch size was intentionally reduced below the 50-record ceiling because the remaining pool contains more deep spell inheritance, source tables, and creature/stat-block dependencies. These thirty records were selected for self-contained source mechanics or already-reviewed lineage and were individually source/digest checked.",
+  "entries": {
+    "spells/hidden-lodge-4702": {
+      "name": "Hidden Lodge",
+      "sourceSha256": "18d6d374da7cc859b886213c247a71e0ef120faaeb28684a3e571ee9a057ab94",
+      "effectSummary": "Functions as Leomund's secure shelter, but the lodge is perfectly camouflaged to resemble appropriate natural terrain and suppresses signs of habitation such as smoke, light, and sound. Beyond 30 feet it is indistinguishable from natural terrain; within 30 feet, a DC 30 Survival check can identify it as an artificial dwelling.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hidden-lodge-4702",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ice-castle-1253": {
+      "name": "Ice Castle",
+      "sourceSha256": "cc3f45ac2687bc3090951ca0ce8086a9f456ab6f89ef43d81f86c2e2984fcb81",
+      "effectSummary": "Creates a large fortified castle of snow and ice with walls, towers, gates, battlements, a blue-ice central tower, and one extra tower per six caster levels, up to a 20-foot-per-level perimeter. You can place two icicle wards, ice-slick stair traps, and obscuring snow. On level ground it gains a 20-foot moat; on steep ground, a 20-foot-wide 50-foot-deep crevasse. Ordinary sections have 200 hp per 5 feet and hardness 0; blue ice has 300 hp and hardness 10. Above-freezing heat deals 1d6 damage per round, fire deals full damage, and sudden melting creates 10 minutes of steam fog. Focus: a 2,000 gp blue-ice castle model.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-castle-1253",
+          "role": "primary Frostburn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ice-rift-1273": {
+      "name": "Ice Rift",
+      "sourceSha256": "1d17ab9475d1fead30c199eade934e509974529a2a171fde3b0f6e581de964cb",
+      "effectSummary": "For 1 round, violently fractures ice and snow terrain so creatures in the area cannot move or attack and spellcasters must make Concentration DC 20 + spell level. In ice caves it collapses roofs for 8d6 bludgeoning, Reflex DC 15 half, and burial. At glacier edges it creates a landslide with the same damage and pinning. On open glaciers it knocks creatures down and can drop them into fissures; on frozen water it can drop them into freezing water for 2d6 cold. Open fissures close at the end, potentially killing or trapping creatures still inside.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-rift-1273",
+          "role": "primary Frostburn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/improved-blink-3475": {
+      "name": "Improved Blink",
+      "sourceSha256": "beb5d8ae7cd469a3b0c5b6ae646dc64a7dfa0501635ebd9de9c0fe3e9e3fda7b",
+      "effectSummary": "Lets you consciously control blinking between the Material and Ethereal planes. Physical and individually targeted magical attacks against you normally have 50% miss chance, reduced when they can affect ethereal targets; you suffer no miss chance on your own attacks or spells. Area damage is halved unless it extends to the Ethereal Plane. You attack as invisible, take half falling damage, can ready a blink to automatically avoid one attack that cannot affect ethereal targets, move at three-quarters speed, can pass through solid objects with shunting damage if you stop inside one, and can see and attack ethereal creatures.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/improved-blink-3475",
+          "role": "primary Unapproachable East catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ironwood-2826": {
+      "name": "Ironwood",
+      "sourceSha256": "537bf3c5889f60a5cc3cb9d3592cd00030bcab2929b66b5f8512a9d06d3a45d9",
+      "effectSummary": "Transforms normal wood into ironwood: still natural wood for wood-affecting magic, but as strong, heavy, and fire-resistant as steel and unaffected by metal-only effects such as heat metal. With wood shape or Craft, it can form steel-equivalent wooden gear usable by druids. If you create only half the normal amount, a weapon, shield, or suit of armor made from it gains a +1 enhancement bonus. Material component: wood shaped like the intended item.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ironwood-2826",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/kiss-of-draconic-defiance-1053": {
+      "name": "Kiss of Draconic Defiance",
+      "sourceSha256": "e402962bb41474df3c36fbd66edb1e6954f5013298bc5c771eeb57c75e7c613a",
+      "effectSummary": "Creates an interference aura. Each enemy trying to cast a spell inside must make Fortitude; failure wastes the spell with no effect. A creature that succeeds becomes immune to this aura for 24 hours; spell resistance is checked on its first casting attempt. Once during the spell, as an immediate action, you can automatically counter one spell of 5th level or lower cast within the area without expending a spell slot or identifying it first; doing so ends the spell.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/kiss-of-draconic-defiance-1053",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/lawful-sword-3061": {
+      "name": "Lawful Sword",
+      "sourceSha256": "f2557991b2efd0b7a02c06b8094fce99a2b535d540a9218c1ad564b42e7e4ec5",
+      "effectSummary": "Imbues one held weapon so it functions as a +5 magic weapon, deals double damage against chaotic opponents, and continuously emits magic circle against chaos; if the circle is broken, it reforms on your next turn. The spell ends 1 round after the weapon leaves your hand. It suppresses the weapon's normal magical enhancement and powers for the duration, does not stack with other weapon-modifying spells, and cannot affect artifacts.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lawful-sword-3061",
+          "role": "primary Races of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/leomunds-spacious-carriage-355": {
+      "name": "Leomund's Spacious Carriage",
+      "sourceSha256": "5bf2152d8776bc87658e60611c2b808e377e45b5045004089d50283aa6725cd2",
+      "effectSummary": "Conjures an ornate carriage seating four comfortably or six cramped, plus four phantom-like horses that obey your thoughts and pull it at up to 50 feet. The carriage resists fire as stone and ordinary missiles cannot penetrate it. Opening the side windows allows attacks and spellcasting; occupants then have cover but lose the carriage's ordinary-missile immunity. Material components: gold-painted oak splinters, horse hair, and leather.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/leomunds-spacious-carriage-355",
+          "role": "primary CityScape catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mace-of-odo-1681": {
+      "name": "Mace of Odo",
+      "sourceSha256": "f2f749fa1387d39ec4aec25b9a30717cf69ee64deae7393bd1d384cd00e4cb02",
+      "effectSummary": "Creates a glowing force mace held in your hand. A melee touch hit deals 1d6 force damage per caster level, maximum 10d6; undead take an additional +1 per caster level, maximum +10. A hit also forces Fortitude or paralyzes for 1 round. While holding it, you can instead expend the mace to absorb a spell targeting you. It also vanishes after a successful strike or if removed from your grasp, leaving light at that point for the remaining duration.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mace-of-odo-1681",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/master-air-1775": {
+      "name": "Master Air",
+      "sourceSha256": "ffacd7459870e8d52df2273e739872009a7a4e3e4357040b3a4cfa3b5dcb85c1",
+      "effectSummary": "Grants wings and fly speed 90 feet with good maneuverability, or 60 feet in medium/heavy armor. You can attack and cast normally, charge but not run, and carry no more than maximum load plus armor. If the spell ends or is dispelled while aloft, you descend 60 feet per round for 1d6 rounds and land safely if you reach ground; otherwise you then fall normally. Focus: a bird feather or bat wing bone.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/master-air-1775",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/magnetism-553": {
+      "name": "Magnetism",
+      "sourceSha256": "3a687a8229df0c670fa8b41ff86a9b39695194a19672e4690848fe63cb54fce4",
+      "effectSummary": "Once per round, a successful ranged touch with the magnetic ray pulls an iron or steel object toward you with effective Strength 30, supporting up to 8,000 pounds. Unattended unsecured objects fly to your hand or space. Held items require a disarm using the ray's +10 Strength modifier without provoking; worn or attended-but-unheld items allow Reflex to grab them, otherwise they fly to you. Secured objects can be torn free with a Strength check using the ray's +10. Material component: lodestone.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magnetism-553",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/moon-blade-1205": {
+      "name": "Moon Blade",
+      "sourceSha256": "949a50e36b625cd071e1ad15f0a13b2621140d78d26fddd444d33433916bdec6",
+      "effectSummary": "Creates a 3-foot beam of moonlight wielded as a melee touch weapon. Against non-undead it deals 1d8 +1 per two caster levels, maximum +15; against undead it deals 2d8 +1 per caster level, maximum +30. Strength does not add. A successful hit also forces the target, on its next turn, to make a Concentration check to use a spell or spell-like ability, DC 10 + damage dealt + spell level.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/moon-blade-1205",
+          "role": "primary Forgotten Realms Campaign Setting catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mordenkainens-magnificent-mansion-2411": {
+      "name": "Mordenkainen's Magnificent Mansion",
+      "sourceSha256": "97b50d68c60c2cbc4a1610999dafd32654842c36b92b044a233e4ab034e6e819",
+      "effectSummary": "Creates an extradimensional mansion with one portal accessible only to creatures you designate. You choose its floor plan within the spell's limits; it is warm, furnished, and stocked with a nine-course banquet for twelve creatures per caster level. Up to two visible, obedient servants per caster level function like unseen servants anywhere inside. Outside conditions do not affect the mansion and inside conditions do not pass out. Focus: miniature ivory portal, polished marble, and silver spoon, each worth 5 gp.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mordenkainens-magnificent-mansion-2411",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mystic-lash-1684": {
+      "name": "Mystic Lash",
+      "sourceSha256": "0bd79bb4cb77411e082714dbb4daf333ef0b70302701879a7a99530acf904c83",
+      "effectSummary": "Creates an immaterial whip of red energy you wield with proficiency. Attacks are ranged touch attacks dealing 1d8 electricity +1 per two caster levels, maximum +5; Strength does not add. A hit forces Fortitude or stuns for 1 round. After a hit you can release the lash so it attacks that target automatically once per round using your base attack bonus; when the target falls it returns, and if you fail to catch it that round it dissipates.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mystic-lash-1684",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/mystic-lash-2258": {
+      "name": "Mystic Lash",
+      "sourceSha256": "cc9c16ca4c6ae56e3b31a4b0b7af151b6d667357866f4cf32283dbea03a09dcc",
+      "effectSummary": "Creates an immaterial whip of red energy. Ranged touch attacks deal 1d6 electricity per three caster levels, maximum 4d6, plus your Charisma modifier; Strength does not add. A hit forces Fortitude or stuns for 1 round. You can release it after a hit so it continues attacking that target automatically, returning when the target falls. While actually wielding it you can also make trip and disarm attempts as with a normal whip.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mystic-lash-2258",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-cyst-1488": {
+      "name": "Necrotic Cyst",
+      "sourceSha256": "395d307a9cf3c2fbc206ca4486ebadecfcb8ad99fc8846a327021f5f3c118a0c",
+      "effectSummary": "Implants a necrotic cyst in the target. Thereafter it takes -2 on saves against necromancy and +1d6 damage whenever damaged by an undead creature's natural weapon. Surgical removal requires 1 hour and a DC 20 Heal check; failure kills the subject. Protection from evil or similar magic prevents initial implantation, but after implantation it no longer blocks cyst-manipulating spells. Focus: a mother cyst.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-cyst-1488",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-eruption-1491": {
+      "name": "Necrotic Eruption",
+      "sourceSha256": "0d4e9e51c1637ff9699d16f0d6a1c28d03c5c62e70a6019e9462bfae6cdb381a",
+      "effectSummary": "Targets a creature with a necrotic cyst. On a successful Fortitude save it takes 1d6 damage per caster level, maximum 15d6, half vile. On failure the cyst kills the subject; all creatures within 20 feet take the same damage, Reflex half, half vile, and creatures damaged by the secondary burst are also exposed to the base necrotic cyst effect. The next round a free-willed skulking cyst emerges from the corpse. Focus: a mother cyst.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-eruption-1491",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/necrotic-tumor-1494": {
+      "name": "Necrotic Tumor",
+      "sourceSha256": "db05253c047c8668e38ee08cb6c19a766d99b5e73e185306d6a5b9430c1a5d38",
+      "effectSummary": "Targets a creature already bearing a necrotic cyst. A successful save still lets you implant one reasonable suggestion for the duration. On a failed save, the cyst envelops the higher brain and gives you permanent control of the subject's actions, using shared language for detailed orders or basic commands otherwise. Protection from evil and similar effects do not block this control because the tumor is already inside the victim. Focus: a mother cyst.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/necrotic-tumor-1494",
+          "role": "primary Libris Mortis: The Book of Undead catalog record and digest source"
+        }
+      ]
+    },
+    "spells/obedient-avalanche-4599": {
+      "name": "Obedient Avalanche",
+      "sourceSha256": "a207c5d16a435d9dd9dd1c29e9be94689b839efa0f54babec5ab390918c45537",
+      "effectSummary": "Creates an avalanche centered at range. Within 20 feet creatures take 1d8 damage per two caster levels, maximum 10d8, plus 1d6 cold per two caster levels; Reflex halves and failure also buries them. From 20 to 40 feet creatures take half the inner impact damage, Reflex negates, and failure also subjects them to a +13 bull rush away from the center. It leaves heavy/light snow, uproots small vegetation, leaves rubble, deals 1d6×10 damage to structures, and extinguishes touched flames.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/obedient-avalanche-4599",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/otilukes-dispelling-screen-3384": {
+      "name": "Otiluke's Dispelling Screen",
+      "sourceSha256": "374b57413f8425f4f2f525c15cb839158539f0ef9470cf876c04d9a70ebc9dbf",
+      "effectSummary": "Creates an opaque immobile screen. A creature or unattended object passing through is subjected to a targeted dispel at your caster level, maximum +10. Attended carried items are unaffected; an unattended magic item successfully dispelled has all magical properties suppressed for 1d4 rounds. Spell effects not operating on creatures or objects cannot pass through. Disintegrate or a successful dispel magic removes the screen; antimagic suppresses it. Material component: fine lead crystal.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/otilukes-dispelling-screen-3384",
+          "role": "primary Tome and Blood: A Guidebook to Wizards and Sorcerers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/pavilion-grandeur-4620": {
+      "name": "Pavilion of Grandeur",
+      "sourceSha256": "0716d6b0cdc3898804faa748738a52e6fb062b2143c47cf236e34658e254452b",
+      "effectSummary": "Creates an extradimensional grand pavilion with a single entrance usable only by designated creatures. You set illumination from darkness to daylight and temperature from 40–90°F. It includes a full meal for twelve creatures per caster level; spending 1 hour dining grants heroes' feast benefits. Creatures inside recover naturally at twice the normal rate.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/pavilion-grandeur-4620",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/plague-undead-1445": {
+      "name": "Plague of Undead",
+      "sourceSha256": "d0325f0b53a6f237a1b427a6222ccce53b36c236e113987fc1565fef0f14cdae",
+      "effectSummary": "Instantly animates corpses in range as skeletons or zombies with maximum hit points for their Hit Dice. A single casting can create at most 4 HD per caster level, and your total plague-of-undead/animate-dead control limit is also 4 HD per caster level. Newly created undead take precedence if the limit is exceeded. Material component: one or more black sapphires worth a total of 100 gp.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/plague-undead-1445",
+          "role": "primary Heroes of Horror catalog record and digest source"
+        }
+      ]
+    },
+    "spells/reanimation-2037": {
+      "name": "Reanimation",
+      "sourceSha256": "bcc56f61079126b78f7d8a202af216c6ca072fb763b3e11e730a0390806bd453",
+      "effectSummary": "Restores a willing creature dead up to 1 day per caster level to a half-living state for 1 day per caster level. It has 1 hp, can take only one move-equivalent action per round, cannot attack, cast spells, or activate magic items, and cannot be healed above 1 hp though it can gain temporary hp. It is not undead; time reanimated does not count against later resurrection time limits and the body does not decay. A normal life-restoring spell can fully restore it; greater restoration restores memory but not physical state.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reanimation-2037",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/righteous-fury-1783": {
+      "name": "Righteous Fury",
+      "sourceSha256": "abbb40418eeda0e2aa310e62575bd1b98aea2eccdf572dd870c4b4fbbd61aae7",
+      "effectSummary": "Grants 1d4 temporary hit points per caster level, maximum 10d4, +2 natural armor, +2 enhancement Strength, +2 enhancement Dexterity, and +2 sacred Fortitude. An undead creature that strikes you with its body takes 1 point of positive-energy damage in addition to dealing its normal damage.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/righteous-fury-1783",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/ritual-of-renaming-3451": {
+      "name": "Ritual of Renaming",
+      "sourceSha256": "2020c0f33e2b2e0fba11b4f08f67856a0033a391fa816ccd03b76b79e1a22cb1",
+      "effectSummary": "After a successful Truespeak check correctly pronouncing both old and new personal truenames, permanently replaces the subject's personal truename. The new name is known to you, the subject, and everyone attending; people who previously researched the old truename find it no longer works. Failure wastes the spell and XP. XP cost: 500.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ritual-of-renaming-3451",
+          "role": "primary Tome of Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-walk-2703": {
+      "name": "Shadow Walk",
+      "sourceSha256": "d8545e90c3500af8644ccec39b6026970cccc18c93ba1b8727084b3c5a538ac0",
+      "effectSummary": "From shadowy illumination, transports you and touching companions to the border of the Plane of Shadow, where you travel at a rate equivalent to about 50 miles per hour relative to the Material Plane. The route is imprecise: returning shunts you 1d10×100 feet from the intended endpoint, or farther if that would place you in solid matter. It can also reach other planes bordering Shadow, requiring 1d4 hours. Companions can follow, wander off, or return to the Material Plane; unwilling creatures get a Will save.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-walk-2703",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shroud-undeath-1377": {
+      "name": "Shroud of Undeath",
+      "sourceSha256": "20d207efb5e1cae4e5d91a9ff3a971c8c3979f213d9d1afd97dee582347bae94",
+      "effectSummary": "Shrouds you in negative energy so nonintelligent undead ignore you as one of their own; a matching disguise or illusion gains +5 Disguise. Attacking undead ends the spell. Inflict spells heal you and cure spells hurt you, and you count as undead for effects that specifically affect undead. Turning/rebuking attempts against your Hit Dice can panic/cower you for 10 rounds, and attempts strong enough to destroy/command such undead can stun/charm you for 10 rounds. Material component: dust or bone fragments from destroyed undead.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shroud-undeath-1377",
+          "role": "primary Ghostwalk catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shroud-undeath-1720": {
+      "name": "Shroud of Undeath",
+      "sourceSha256": "eeca6ef4d684a7a4a1417b38e82dff1d1675b7d96c85a4b953067d1284ef481c",
+      "effectSummary": "Shrouds you in negative energy so nonintelligent undead ignore you and grants +5 Disguise when paired with an undead appearance. Attacking undead ends it. Inflict spells heal you, cure spells hurt you, and you count as undead for spells and effects. Turning/rebuking attempts against your Hit Dice can panic/cower you for 10 rounds; attempts strong enough to destroy/command such undead can instead stun/charm you for 10 rounds. Material component: dust or bone fragments from destroyed undead.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shroud-undeath-1720",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/skull-secrets-1516": {
+      "name": "Skull of Secrets",
+      "sourceSha256": "223c720a9c12baf516e78ad3d637de305021939cddb615545da5682b9c62768c",
+      "effectSummary": "Creates an intangible flying skull that stays within 20 feet of its origin and has two one-use triggers. The first delivers a magic-mouth-style message. The second fires a 5-foot-wide, 10-foot-long flame dealing 1d8 damage per two caster levels, maximum 5d8, Reflex half. The triggers can be identical or different; after both functions have fired, the skull disappears.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/skull-secrets-1516",
+          "role": "primary Lords of Darkness catalog record and digest source"
+        }
+      ]
+    },
+    "spells/skull-secrets-1705": {
+      "name": "Skull of Secrets",
+      "sourceSha256": "cdc4dc373a800a461bfd53f7c987d373b12dafa020dc0d5cf0a28fe4989057c7",
+      "effectSummary": "Creates an intangible flying skull that remains within 20 feet of its origin and has two one-use triggers. The first delivers a magic-mouth-style message. The second spits a 5-foot-wide, 10-foot-long flame dealing 1d8 damage per two caster levels, maximum 5d8, Reflex half. The triggers may be the same or different; the skull vanishes after both have been used.",
+      "notes": "Manually source-reviewed and digest-locked; batch 111 deliberately uses a smaller high-confidence set as the remaining queue becomes more dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/skull-secrets-1705",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "0e4494031aa4ad8d3e17ae9c090b049ff29306a2",
+    "workflowRun": 35706457456,
+    "validationRun": 35706461812,
+    "classificationArtifact": 10684910235,
+    "classificationArtifactSha256": "12e5183f43f7257f1247fc5268e5b9777fb938c11fd82195d62c046759222014",
+    "queueCountBefore": 361,
+    "referenceQueueCountBefore": 361,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

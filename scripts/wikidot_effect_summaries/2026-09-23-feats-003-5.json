@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-003-5",
+  "records": {
+    "wikidot5e:feat:rune-carver-apprentice-ua": {
+      "sourceDigest": "sha256:c4fea0a176b05fe7aaddbc6374db37f8026efb1c3dfe7ff7d752af8a4eee4d38",
+      "effectSummary": "After each long rest, mark one nonmagical object with a chosen rune and temporarily learn its associated 1st-level spell until the next long rest. While wearing or carrying the object, cast that spell once without a slot or material components and also with appropriate slots. Rune spells: Blood—false life; Cloud—fog cloud; Death—ray of sickness; Dragon—chromatic orb; Enemy—bane; Fire—burning hands; Friend—bless; Frost—armor of Agathys; Hill—goodberry; Journey—longstrider; King—command; Light—guiding bolt; Life—cure wounds; Mountain—jump; Shield—shield; Stone—sanctuary; Storm—thunderwave; War—heroism; Wind—feather fall. Choose Intelligence, Wisdom, or Charisma as the feat's spellcasting ability."
+    },
+    "wikidot5e:feat:rune-shaper": {
+      "sourceDigest": "sha256:fe489ae41357b97994e411c8787ec3b058ad1434e03da4fbce89691343ad40c4",
+      "effectSummary": "Learn comprehend languages and cast it once without a slot per long rest and also with slots. Know a number of runes equal to half your proficiency bonus rounded down; after each long rest, inscribe each known rune on a nonmagical object and temporarily learn its associated 1st-level spell until your next long rest. While carrying or wearing rune-marked objects, cast their spells with appropriate slots, and once per long rest invoke one inscribed rune to cast its associated spell without a slot or material components. Rune spells: Cloud—fog cloud; Death—inflict wounds; Dragon—chromatic orb; Enemy—disguise self; Fire—burning hands; Friend—speak with animals; Frost—armor of Agathys; Hill—goodberry; Journey—longstrider; King—command; Mountain—entangle; Stone—sanctuary; Storm—thunderwave. Choose Intelligence, Wisdom, or Charisma as spellcasting ability and may replace one known rune whenever you gain a level."
+    },
+    "wikidot5e:feat:scion-of-elemental-air-ua": {
+      "sourceDigest": "sha256:74cca869fcf984f2bdd06114f579e2d3dd4fb3d4309273225c06055cf5645b62",
+      "effectSummary": "Learn minor illusion, choosing Intelligence, Wisdom, or Charisma as its spellcasting ability. As a bonus action, gain a flying speed equal to your walking speed until the end of the turn; if still airborne afterward without another means of support, you fall. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:scion-of-elemental-earth-ua": {
+      "sourceDigest": "sha256:758a56fcf14056136b52ccfcc5c78a0c078d665587153f08ec383dce60e262e3",
+      "effectSummary": "Learn druidcraft, choosing Intelligence, Wisdom, or Charisma as its spellcasting ability. As a bonus action, give yourself or one creature within 30 feet half cover until the start of your next turn by conjuring an earthen bulwark. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:scion-of-elemental-fire-ua": {
+      "sourceDigest": "sha256:58086cf51d9f34430e0a0e46127d8bc474ae70fbc0f22fa8f7651e0670b36f9c",
+      "effectSummary": "Learn dancing lights, choosing Intelligence, Wisdom, or Charisma as its spellcasting ability. Learn produce flame using the same ability; cast it normally, and may also cast it as a bonus action a number of times equal to proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:scion-of-elemental-water-ua": {
+      "sourceDigest": "sha256:a7429a6ec606fcc7dd53990e584cc7a06fe67c7db627f981a3e998bcb8b2c551",
+      "effectSummary": "Learn thaumaturgy, choosing Intelligence, Wisdom, or Charisma as its spellcasting ability. As a bonus action, target a visible creature within 15 feet; it makes a Strength save against DC 8 + proficiency bonus + your chosen spellcasting modifier, which it may willingly fail. On a failure, push it up to 10 feet away or pull it up to 10 feet toward you. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:scion-of-the-outer-planes": {
+      "sourceDigest": "sha256:fc24c0b340782b86cd7f48470f8023d23a5d59044f12952615505eb28f688eee",
+      "effectSummary": "Choose one planar infusion and choose Intelligence, Wisdom, or Charisma as the associated cantrip's spellcasting ability; the cantrip needs no material components. Chaotic Outer Plane grants poison resistance and minor illusion. Evil Outer Plane grants necrotic resistance and chill touch. Good Outer Plane grants radiant resistance and sacred flame. Lawful Outer Plane grants force resistance and guidance. The Outlands grants psychic resistance and mage hand."
+    },
+    "wikidot5e:feat:scion-of-the-outer-planes-ua": {
+      "sourceDigest": "sha256:d13582cd6cfda1667a0e22375e71998730b30169939d9a5dbcddf1abb4162cb6",
+      "effectSummary": "Choose one planar infusion and choose Intelligence, Wisdom, or Charisma as the associated cantrip's spellcasting ability; the cantrip needs no material components. Astral Plane grants psychic resistance and message. Chaotic Outer Plane grants necrotic resistance and minor illusion. Evil Outer Plane grants necrotic resistance and chill touch. Good Outer Plane grants radiant resistance and sacred flame. Lawful Outer Plane grants radiant resistance and guidance. The Outlands grants psychic resistance and mage hand."
+    },
+    "wikidot5e:feat:second-chance": {
+      "sourceDigest": "sha256:dcda5d288905dc574c47b210823cd0d962819a2b2b9c6584e3ccece759107707",
+      "effectSummary": "Increase Dexterity, Constitution, or Charisma by 1, maximum 20. When a visible creature hits you with an attack, use your reaction to force it to reroll the attack. Recharge when you roll initiative or finish a short or long rest."
+    },
+    "wikidot5e:feat:sentinel": {
+      "sourceDigest": "sha256:a899b6e0145577c33004845000b89d78445258eb4098a6d8d7f43ae022e1a05c",
+      "effectSummary": "When your opportunity attack hits, the target's speed becomes 0 for the rest of the turn. Creatures provoke your opportunity attacks even after taking Disengage. When a creature within 5 feet attacks someone other than you and that target does not also have Sentinel, use your reaction to make one melee weapon attack against the attacker."
+    }
+  }
+}

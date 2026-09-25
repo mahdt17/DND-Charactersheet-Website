@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Adaptive maximum-safe manual reference batch 095: three source-verified 3.5-era spells whose inherited bases are already reviewed and regression-locked; table-driven, hidden-multi-reference, and legacy-lineage candidates excluded.",
+  "entries": {
+    "spells/sacred-haven-4119": {
+      "name": "Sacred Haven",
+      "sourceSha256": "e3713e0553c5eed0b01e84395bbeb137809834295f8d6a15d5871dc4bd878661",
+      "effectSummary": "You and all allies within 30 feet gain a +2 sacred bonus to AC for 1 minute/level and retain Dexterity bonuses to AC while flat-footed or when attacked by invisible creatures. For the duration, you continuously know each affected creature's direction, distance, and general condition as with status while it remains alive and on the same plane. You can also use lay on hands on any affected creature at any range on the same plane without touching it; doing so still takes the normal standard action.",
+      "notes": "Spell Compendium printing, digest-locked. The source explicitly invokes Status only for the health-awareness portion; the AC bonus, flat-footed/invisible-attacker protection, and remote lay-on-hands rule are printed directly in Sacred Haven.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sacred-haven-4119",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/status-2517",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited health-awareness mechanics"
+        }
+      ]
+    },
+    "spells/restoration-mass-1459": {
+      "name": "Restoration, Mass",
+      "sourceSha256": "b25d7c50e95a25f38e75e77f7c4d815b2591574a6530ce2a1be5b2f88e634ab8",
+      "effectSummary": "Applies restoration to one creature per caster level within 30 feet of each other at close range. For each subject it dispels magical effects reducing one ability score, cures all temporary ability damage, restores all points permanently drained from one chosen ability score, eliminates fatigue or exhaustion, dispels negative levels, and can restore one experience level lost to level drain if the loss occurred no more than one day per caster level ago. It does not restore levels or Constitution points lost because of death. Material component: diamond dust worth 100 gp tossed into the air.",
+      "notes": "Libris Mortis printing, digest-locked. The source states that the spell functions like Restoration except for the listed mass-target header and its 100 gp diamond-dust material component; the reviewed Restoration mechanics are expanded without adding unprinted effects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/restoration-mass-1459",
+          "role": "primary Libris Mortis catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/restoration-2430",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited restoration mechanics"
+        }
+      ]
+    },
+    "spells/true-seeing-mass-4830": {
+      "name": "True Seeing, Mass",
+      "sourceSha256": "51745a876a4ef3b66e07a67543e32c3ad8efcdea5102dc6406326481683956c0",
+      "effectSummary": "Grants true seeing for 1 minute/level to one creature per caster level within 30 feet of each other at close range. Each subject gains 120-foot true sight, seeing through normal and magical darkness, magical secret doors, blur and displacement, invisibility, illusions, and polymorph or other form-changing effects, and can focus to see into the Ethereal Plane. The effect does not see through solid objects, grant X-ray vision, negate ordinary concealment such as fog, defeat mundane disguises or hiding, reveal mundane secret doors, or extend through crystal balls or clairaudience/clairvoyance. Material component: eye ointment costing 1,000 gp made from mushroom powder, saffron, and fat.",
+      "notes": "Races of Eberron printing, digest-locked. The source explicitly functions like True Seeing except that it affects multiple creatures and uses the printed 1,000 gp ointment component; all inherited sight limits come from the reviewed Player's Handbook v.3.5 base.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/true-seeing-mass-4830",
+          "role": "primary Races of Eberron catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/true-seeing-2520",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited true-seeing mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "916efcc8e187cfd77bdf060ca1974229c4c388e4",
+    "workflowRun": 35693424491,
+    "validationRun": 35693427860,
+    "classificationArtifact": 10679214310,
+    "classificationArtifactSha256": "c277e22c0bf01ca9d791e4ea0cfc0e5e05dd2f87022a09ff76aaa796588107d5",
+    "queueCountBefore": 858,
+    "referenceQueueCountBefore": 858,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

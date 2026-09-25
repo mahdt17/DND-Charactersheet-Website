@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-002-2",
+  "records": {
+    "wikidot5e:feat:flail-mastery": {
+      "sourceDigest": "sha256:aeffec8219778212a4aa42bdc62afb0ef793ff9a6b70a4fb61fc6be6f7a3ff6b",
+      "effectSummary": "Gain +1 to attack rolls with flails. As a bonus action, prepare a shield-sweeping stance that gives your flail attacks +2 against shield-using targets until the end of the turn. When you hit with a flail opportunity attack, the target makes a Strength save against DC 8 + proficiency bonus + Strength modifier or falls prone."
+    },
+    "wikidot5e:feat:flames-of-phlegethos": {
+      "sourceDigest": "sha256:ab84d90f5a1b6465bac530c70d3d932006f35bf3acd3db5924ed2b99d07dc136",
+      "effectSummary": "Increase Intelligence or Charisma by 1, maximum 20. When you roll fire damage for a spell, reroll any damage-die result of 1 and use the new result. When you cast a spell dealing fire damage, you may wreathe yourself in flames until the end of your next turn; they shed bright light 30 feet and dim light another 30, and a creature within 5 feet that hits you with a melee attack takes 1d4 fire damage."
+    },
+    "wikidot5e:feat:flash-recall": {
+      "sourceDigest": "sha256:b4bc358e2f35211ba2bfb171cb4469b2c84643811eafc9a77641a3039962d29f",
+      "effectSummary": "As a bonus action, prepare one 1st-level-or-higher spell from your spellbook if a wizard or from your class spell list otherwise. The spell must be of a level for which you have slots and replaces one currently prepared spell of equal or higher level. Recharge on a short or long rest."
+    },
+    "wikidot5e:feat:fury-of-the-frost-giant": {
+      "sourceDigest": "sha256:fd96b35bf648e55f2997dd4e23422bfcbc3778f2f16813a79df717684386ac4c",
+      "effectSummary": "Increase Strength, Constitution, or Wisdom by 1, maximum 20, and gain cold resistance. Immediately after a visible creature within 30 feet hits you and deals damage, use your reaction to force a Constitution save against DC 8 + proficiency bonus + the modifier of the ability increased by this feat. On a failure it takes 1d8 + proficiency bonus cold damage and its speed becomes 0 until the end of its next turn. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:fury-of-the-frost-giant-revised-ua": {
+      "sourceDigest": "sha256:e9c5a70c96bcf168271d98b005bda5b2a02f3141f5388492966687a9fe8e085e",
+      "effectSummary": "Increase Strength, Constitution, or Wisdom by 1, maximum 20, and gain cold resistance. Immediately after a visible creature within 30 feet hits you and deals damage, use your reaction to force a Constitution save against DC 8 + proficiency bonus + the modifier of the ability increased by this feat. On a failure it takes 1d8 + proficiency bonus cold damage and its speed is halved until the end of its next turn. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:fury-of-the-frost-giant-ua": {
+      "sourceDigest": "sha256:ce733078ce09b179e5e6539471f9d6de23f0d4ebc051900d65b1f037bcbe7529",
+      "effectSummary": "Gain cold resistance. When a creature hits you, use your reaction to force a Wisdom save against DC 8 + proficiency bonus + Constitution modifier. On a failure, it is frightened of you until the start of its next turn. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:gift-of-the-chromatic-dragon": {
+      "sourceDigest": "sha256:035d560752e41d428326c7998dc21773dd1549af5ddf88cc79d0e75b0db3db4d",
+      "effectSummary": "As a bonus action once per long rest, touch a simple or martial weapon and choose acid, cold, fire, lightning, or poison; for 1 minute its hits deal an extra 1d4 of that type. When you take one of those five damage types, use your reaction to gain resistance to that instance of damage. Reactive-resistance uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:gift-of-the-gem-dragon": {
+      "sourceDigest": "sha256:6cde4e86eb050c39f303b11a38a551f04d89d51d4feabce5e6578e657b9606a6",
+      "effectSummary": "Increase Intelligence, Wisdom, or Charisma by 1, maximum 20. When a creature within 10 feet damages you, use your reaction to force a Strength save against DC 8 + proficiency bonus + the modifier of the ability increased by this feat. On a failure it takes 2d8 force damage and is pushed up to 10 feet away; on a success it takes half damage without the push. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:gift-of-the-metallic-dragon": {
+      "sourceDigest": "sha256:f1d275c095bf125391f0648fbcf5010d8d9c1376c0b3cdeb19b454478094b70f",
+      "effectSummary": "Learn cure wounds, choosing Intelligence, Wisdom, or Charisma as its spellcasting ability; cast it once without a slot per long rest and also with appropriate spell slots. When you or a visible creature within 5 feet is hit by an attack, use your reaction to grant that target an AC bonus equal to your proficiency bonus against the triggering attack, potentially causing it to miss. Protective-wing uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:gourmand": {
+      "sourceDigest": "sha256:4e30a411363e19485136486041e2aa68c8bc40b0c89155286735cdfe9386bc31",
+      "effectSummary": "Increase Constitution by 1, maximum 20. Gain cook's-utensils proficiency, or expertise if already proficient. As an action, inspect visible food or drink within 5 feet and determine whether it is poisoned if you can see and smell it. During a long rest, with suitable supplies, prepare a meal for up to six creatures; each eater regains two additional Hit Dice at the end of the rest and has advantage on Constitution saves against disease for 24 hours."
+    }
+  }
+}

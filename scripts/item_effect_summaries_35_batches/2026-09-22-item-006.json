@@ -1,0 +1,616 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record item effect batch 006. Only self-contained, non-table records were included; damaged, truncated, inherited, or ambiguous entries remain deferred.",
+  "reviewCheckpoint": {
+    "head": "c71970044816ae5a675de59f71ad7b8e2af49c5d",
+    "auditRun": 35792739687,
+    "outputArtifact": 10722930874,
+    "outputArtifactSha256": "6f78cced91106d00e3fe65b98aae3ce0091abe1d7bee72e770af0245cbb6abcc",
+    "ordinaryReviewRemainingBefore": 953,
+    "totalOutputIncompleteBefore": 961,
+    "outputCompleteBefore": 494,
+    "totalItems": 1455
+  },
+  "entries": {
+    "items/elixir-of-horus-re": {
+      "name": "Elixir of Horus-Re",
+      "sourceSha256": "ee4ad6bac42687757718a9f28daea9873d54198e3b8237e894432d8afd3d8ffb",
+      "effectSummary": "Drinking the elixir surrounds the imbiber with a daylight effect. Before that effect expires, the imbiber can discharge it once as sunbeam; doing so ends the daylight.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/elixir-of-horus-re",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/tongue-studs-of-hell-breath": {
+      "name": "Tongue Studs of Hell Breath",
+      "sourceSha256": "608caf24f8e067b61889269410025a4259d76941d726c6a3f780fb48a28aaab6",
+      "effectSummary": "Three times per day, the wearer can breathe a 50-foot line of hellfire that deals 3d6 unholy damage with no saving throw; the damage is not fire damage.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/tongue-studs-of-hell-breath",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/messenger-medallion": {
+      "name": "Messenger Medallion",
+      "sourceSha256": "41fbc790665a23ca743a0da128c823257ac80e3e9fd5bb28b394a9fde23ab323",
+      "effectSummary": "Once per day, the wearer can speak the command word to send a message and receive a brief reply, using the item's sending effect.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/messenger-medallion",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gauntlet-529": {
+      "name": "Gauntlet",
+      "sourceSha256": "d1e0ec64286011fcc677b98e084f7eba4c02b711cd102147efa1ee2aa15876c7",
+      "effectSummary": "A gauntlet lets the wearer deal lethal damage with unarmed strikes; attacks with it otherwise count as unarmed attacks.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gauntlet-529",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/silver-skis": {
+      "name": "Silver Skis",
+      "sourceSha256": "56601a7941f264f353d1be4a138353ba34bd699a4a9b2dfc59a040636040b9bf",
+      "effectSummary": "The skis allow free downhill movement in snow or ice and automatically avoid obstacles while doing so.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/silver-skis",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-of-sandswimming": {
+      "name": "Cloak of Sandswimming",
+      "sourceSha256": "1c2bb55c442fc01bcba232caa25dc11cea5a2fd3b787a97c76d62ab55f6bb407",
+      "effectSummary": "The wearer gains a +2 enhancement bonus to natural armor and can use the asherati sandswim ability.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-of-sandswimming",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/headband-of-the-binder": {
+      "name": "Headband of the Binder",
+      "sourceSha256": "a801981172432850582f2d367e7943ee156bc3b0e588a144162852368bea7ac6",
+      "effectSummary": "The wearer can use read magic three times per day; a bard wearer also gains a +4 sacred bonus on bardic knowledge checks.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/headband-of-the-binder",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bagpipes-of-the-damned": {
+      "name": "Bagpipes of the Damned",
+      "sourceSha256": "d668d28fb4d088da83c97fb2310c472fb5c8f7593d2047bf097e69a554fab4d7",
+      "effectSummary": "Playing the bagpipes requires a DC 15 Perform (wind instruments) check; on success, undead within 60 feet gain +4 turn resistance for 10 rounds.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bagpipes-of-the-damned",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ring-force-shield-77": {
+      "name": "Ring of Force Shield",
+      "sourceSha256": "1f6eba933976a7d74a74d73a40c903f7777614787a4b33ad40038fb13267a66b",
+      "effectSummary": "As a free action, the ring can create or dismiss a weightless force shield that functions as a heavy shield for +2 AC with no armor check penalty or arcane spell failure chance.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-force-shield-77",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/battle-bridle-216": {
+      "name": "Battle Bridle",
+      "sourceSha256": "b630ec788987f2aad674517ffe89c5bbd17d481cf8b6bd82d32ac84021d84a85",
+      "effectSummary": "While mounted on a creature wearing the bridle, the rider gains +5 competence on Ride checks and the benefit of Mounted Combat; if the rider already has Mounted Combat, the bridle instead grants Ride-By Attack.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/battle-bridle-216",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/piercing-needles-of-pain": {
+      "name": "Piercing Needles of Pain",
+      "sourceSha256": "d86a1ef4743c040bf4fd4d736a82cc60aa118884f9e58276dcf0c4e47e90b1b4",
+      "effectSummary": "All three needles must pierce a creature, each dealing 1 damage that cannot heal until the needle is removed. The pierced creature can then deliver a wrack effect by touch, negated by Fortitude DC 15.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/piercing-needles-of-pain",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-toxin-delay-520": {
+      "name": "Amulet of Toxin Delay",
+      "sourceSha256": "2e910ec38050ef033cdc2f93adce82baf4b7642cb0c0ad52e0ca298119a9239c",
+      "effectSummary": "Once per day, when the wearer would make a saving throw against poison and before rolling it, the amulet can create a delay poison effect on the wearer for 2 rounds.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-toxin-delay-520",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/halberd-555": {
+      "name": "Halberd",
+      "sourceSha256": "26a923dcc8488d340709425835c4ef65767f9516e131d4a75d7585be3e8c4635",
+      "effectSummary": "If readied against a charge, a halberd deals double damage on a successful hit against the charger. It can also make trip attacks, and the wielder can drop it to avoid being tripped after a failed trip attempt.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/halberd-555",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/pelt-of-animal-senses": {
+      "name": "Pelt of Animal Senses",
+      "sourceSha256": "35ce1ea83ccb0123b8670c378719be70154f7c17b73946cbaecc37bc0db2444e",
+      "effectSummary": "The wearer gains low-light vision, scent, and +2 circumstance on Listen checks; herbivores generally become nervous and flee, while carnivores generally become aggressive toward the wearer.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/pelt-of-animal-senses",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/hair-shirt-of-ilmater": {
+      "name": "Hair Shirt of Ilmater",
+      "sourceSha256": "3281fdb3aa5f349d6323baeb5106c9f4b726bee116eb26cd0d0a3d359706e372",
+      "effectSummary": "While worn, the shirt imposes -2 Dexterity and grants +3 natural armor. Once per day the wearer can use cure serious wounds, but only on another creature.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/hair-shirt-of-ilmater",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/forge-of-the-weaponsmith": {
+      "name": "Forge of the Weaponsmith",
+      "sourceSha256": "a3ecb541565bd497dde7a17e2b8ca23d75f115175eed8828cee6903dbbcf2a71",
+      "effectSummary": "A dwarf using this forge gains a +20 competence bonus on Craft (weaponsmithing) checks made with it.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/forge-of-the-weaponsmith",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/helm-of-glorious-recovery": {
+      "name": "Helm of Glorious Recovery",
+      "sourceSha256": "ec6bf7c046043519034bbab79669c4595ab6ce2a437499850a528a993f86cacb",
+      "effectSummary": "Once per day, the helm heals its wearer for 4d8+7 damage. It functions only after being worn continuously for 24 hours; removing it resets that requirement.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/helm-of-glorious-recovery",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/stylus-of-the-masterful-hand": {
+      "name": "Stylus of the Masterful Hand",
+      "sourceSha256": "b8815dc09346f4212aef05086bab032579386c1e434ed6385f0ef0b4177b10f8",
+      "effectSummary": "The stylus grants +5 competence on Forgery checks and can remember up to three handwriting styles; a remembered style can later be reproduced without a new Forgery roll, using the original result as its fixed DC.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/stylus-of-the-masterful-hand",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/tanglepatch": {
+      "name": "Tanglepatch",
+      "sourceSha256": "d646f7c96976c16dd534a27e61ad6d6a7b2a642145ce6a8967b6161cf18a91bc",
+      "effectSummary": "This single-use ball has a 20-foot range increment; when it hits or lands, it creates an entangle effect centered on the impact point.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/tanglepatch",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boots-steadfast": {
+      "name": "Boots, Steadfast",
+      "sourceSha256": "c16723ce27edfd0bc4574c74f9a7a92dcb68d0089b882056e0888f0b0f8502e6",
+      "effectSummary": "The wearer cannot be tripped or pushed back by a bull rush. While carrying a Medium or larger melee weapon, the wearer also counts as being set against a charge.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-steadfast",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gwaerons-boots": {
+      "name": "Gwaeron's Boots",
+      "sourceSha256": "cc26f03d07a768e715928f239cd5d7d6d80e50753620cacfe4e05f35bd5f5e80",
+      "effectSummary": "The wearer continuously benefits from pass without trace and leaves no scent, preventing tracking by scent.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gwaerons-boots",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/stalwart-eye": {
+      "name": "Stalwart Eye",
+      "sourceSha256": "0b4960eca6b0f495cd4bc9bab7812f431a76464640897776be264b9f881c368a",
+      "effectSummary": "By command word, the owner can see through the Tiny eye from anywhere on the same plane. The eye can turn its head but cannot move; it has AC 18, hardness 8, and 5 hp.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/stalwart-eye",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/banner-of-the-goblins-bane": {
+      "name": "Banner of the Goblin's Bane",
+      "sourceSha256": "32c371d93d8e8451183dc82b351347c7ead30ad8c2a60d530860c69e35451c42",
+      "effectSummary": "Allies within 30 feet gain +2 on damage rolls against goblinoids; analogous banners can be made for other creature types or subtypes.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/banner-of-the-goblins-bane",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/drilbu-of-movement-715": {
+      "name": "Drilbu of Movement",
+      "sourceSha256": "61cc86f7774fbc53ee17483c1b6ce8f18281b8a68bdc55d01b973a45275155d0",
+      "effectSummary": "The drilbu can manifest dimension door, feather fall, fly, or spider climb for 1 charge, and ethereal jaunt or teleport without error for 2 charges. Activation requires a nomad or Dexterity 17.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/drilbu-of-movement-715",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/horned-helm": {
+      "name": "Horned Helm",
+      "sourceSha256": "0e0d845606f9cd001d20eb56f93ee3234e7069d44f205528b432479a0466ca5e",
+      "effectSummary": "The helm doubles the wearer's base speed and grants +2 enhancement on melee attacks with its horns, which deal 1d8 damage.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/horned-helm",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/healing-salve-412": {
+      "name": "Healing Salve",
+      "sourceSha256": "d4a9429274c3ff9ea8ab0c2585e3d55f9baac388dd40fd51b89e298349d72375",
+      "effectSummary": "A standard-action application heals 1d8+1; using two applications at once heals 2d8+3, and three heal 3d8+5. A jar contains ten single applications.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/healing-salve-412",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/symbol-of-demogorgon": {
+      "name": "Symbol of Demogorgon",
+      "sourceSha256": "abda0269a4163f3e61d0c2c3a0cd718e9cc49920b321e56dfde4b10a4b9d76ad",
+      "effectSummary": "The wearer gains +2 enhancement to Wisdom and can cast rotting curse of Urfestra without its corruption cost, but must still prepare the spell normally.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/symbol-of-demogorgon",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-lions": {
+      "name": "Belt of Lions",
+      "sourceSha256": "f2d36c8164c0d39a7a3268345c78ef8528d47d5717b38e3ef6d0122c26f21c6b",
+      "effectSummary": "The wearer can communicate with feline animals as speak with animals, gains low-light vision, +4 competence on Charisma checks and Charisma-based skill checks involving felines, and +10 competence on Move Silently and Tumble checks.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-lions",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/saddle-of-growth": {
+      "name": "Saddle of Growth",
+      "sourceSha256": "8ff3f321078bbce34ffe011d054d787369af943a7a546a2f737afb701b528e00",
+      "effectSummary": "Three times per day, a command word makes a horse, mule, or donkey wearing the saddle grow by one size category; another command word returns it to normal size.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/saddle-of-growth",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/skull-plaque": {
+      "name": "Skull Plaque",
+      "sourceSha256": "c78282cff893685b1f511e4c63ce0b13a5dc637b736adec495bcac6c0fb9e0cd",
+      "effectSummary": "The wearer can cast death knell and detect undead once per day each. Undead take a -2 penalty on attack rolls against the wearer.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/skull-plaque",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/beetle-elixir-218": {
+      "name": "Beetle Elixir",
+      "sourceSha256": "e1ae49bce2b5cecd2062d7b0370d677453e50503559caa458d74e17d930bbc61",
+      "effectSummary": "For 12 hours after drinking the elixir, the user gains darkvision 60 feet and a +2 enhancement bonus to existing natural armor, treating a creature with none as having +0 natural armor.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/beetle-elixir-218",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boccobs-blessed-book-234": {
+      "name": "Boccob's Blessed Book",
+      "sourceSha256": "c8e116715d1a98d7a1f779f8612bc4fb75b53c630bf2c67878486a1ec2482515",
+      "effectSummary": "This durable, waterproof, locked spellbook has 1,000 pages that a wizard can fill with spells without paying the normal 25 gp-per-page material cost.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boccobs-blessed-book-234",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/goggles-of-the-desert": {
+      "name": "Goggles of the Desert",
+      "sourceSha256": "ee82f4efb2c3282447b1c6872397b0b7934e1ad46c89d2369f6ad488f4c08c7b",
+      "effectSummary": "The goggles protect against glare, grant +4 on saves against dazzling effects, and let the wearer see up to 60 feet without penalty in duststorm conditions.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/goggles-of-the-desert",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ring-vengeance-425": {
+      "name": "Ring of Vengeance",
+      "sourceSha256": "3a848259180ecac32d016adf70cb77811f2a0cf7f6b522ed9d2c9645247dd3de",
+      "effectSummary": "If its good-aligned wearer is killed, the ring deals 15d6 divine, nonspecific-energy damage to the creature that dealt the killing blow, Reflex DC 19 half, then turns to dust.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-vengeance-425",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/silent-portal-disk": {
+      "name": "Silent Portal Disk",
+      "sourceSha256": "785523f7c94be90c71ece92c6b21b1daa3ad74cd0b6af14db50e0a074a8e41b2",
+      "effectSummary": "The disk can be affixed to or removed from a surface by command word. Once per day, if attached to a portal, it silences the sound of opening that portal as silent portal.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/silent-portal-disk",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/banishing-42": {
+      "name": "Banishing",
+      "sourceSha256": "6e894c469fdc062ef969d6d1f7582db458b31e51f08efee86282ff1f9feb01a9",
+      "effectSummary": "An extraplanar creature of 25 Hit Dice or fewer struck by the weapon must make a DC 24 Will save or be banished to its home plane for at least 24 hours; spell resistance applies. The property can be deactivated as a free action, and ranged weapons pass it to their ammunition.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/banishing-42",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/greatdislocator-668": {
+      "name": "Great Dislocator",
+      "sourceSha256": "cedb6f85c0265c6c17c16751cc54249bf5d70c586b4b28354fe1e47d0366a9f5",
+      "effectSummary": "Up to three times per day, a hit can force the target to make a DC 20 Will save or be sent to a random alternate plane; a miss wastes the use. Bows, crossbows, and slings pass the effect to their ammunition.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/greatdislocator-668",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ring-major-energy-resistance-73": {
+      "name": "Ring of Major Energy Resistance",
+      "sourceSha256": "db942bfcd82fa759ada0840a6a997ac239844dda7424f972d27952a8ca1b2643",
+      "effectSummary": "Continuously grants resistance 20 against one energy type chosen when the ring is created: acid, cold, electricity, fire, or sonic.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-major-energy-resistance-73",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ring-minor-energy-resistance-72": {
+      "name": "Ring of Minor Energy Resistance",
+      "sourceSha256": "1f8593c5dcad1490b1aad7649796515c134c5f910acd4ceb8d79c126bc493186",
+      "effectSummary": "Continuously grants resistance 10 against one energy type chosen when the ring is created: acid, cold, electricity, fire, or sonic.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-minor-energy-resistance-72",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ioun-stone-of-resistance": {
+      "name": "Ioun Stone of Resistance",
+      "sourceSha256": "f27eca35c26d9a7ef8f440d8c6edaf75513bc790a8bab49f6f8917287a98503c",
+      "effectSummary": "Grants a +1 to +5 resistance bonus on all saving throws, depending on the stone's version.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ioun-stone-of-resistance",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/white-cloak-of-the-spider": {
+      "name": "White Cloak of the Spider",
+      "sourceSha256": "0202ab48d6c4510de93172f9d9874fb000a85a6cc07effc4059182908e8f2c22",
+      "effectSummary": "The wearer can use spider climb at will and hold person once per day, and gains +2 luck on Fortitude saves against spider poison and drow sleep poison.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/white-cloak-of-the-spider",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-of-natural-armor": {
+      "name": "Amulet of Natural Armor",
+      "sourceSha256": "5dc6ab1ec756ba9e0bb0c59a67e5cac249d9936d942a3c0d07e7dc037070e74b",
+      "effectSummary": "Grants a +1 to +5 natural armor bonus to AC, depending on the amulet's version.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-of-natural-armor",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/crystal-anchor-alertness-366": {
+      "name": "Crystal Anchor of Alertness",
+      "sourceSha256": "e881a5ba8ab3bdd6054ad00da0754bf407f59171444afa0bc95b8659b5b08b75",
+      "effectSummary": "When planted and activated, the anchor shines like a lantern and gives allies within 30 feet +5 on Listen and Spot checks for 1 hour. It functions three times per day.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/crystal-anchor-alertness-366",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/golden-chalice-of-lathander": {
+      "name": "Golden Chalice of Lathander",
+      "sourceSha256": "2d3bcd37cd949558f9cee3730be19db13a9b2cc22a0e618c0711535a5f6c4ae7",
+      "effectSummary": "On command, the chalice sheds daylight. It also has three charges that can each produce its healing circle effect; after all charges are spent, the daylight ability remains.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/golden-chalice-of-lathander",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/rhingalades-harp": {
+      "name": "Rhingalade's Harp",
+      "sourceSha256": "2243a0fdf36e9395dd772cb981cb644c24e6f9a2ec788601d12c784e89bcf1f1",
+      "effectSummary": "This masterwork harp grants +2 circumstance on Perform (harp). Once per day, a user with at least 1 rank in Perform (harp) can gain blink and mirror image simultaneously for 6 rounds.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/rhingalades-harp",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/ring-greater-energy-resistance-74": {
+      "name": "Ring of Greater Energy Resistance",
+      "sourceSha256": "50e3daf9cbf8f34e749e1bc8fc7e487a08115108a3112fa113eb2090d3c8be60",
+      "effectSummary": "Continuously grants resistance 30 against one energy type chosen when the ring is created: acid, cold, electricity, fire, or sonic.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/ring-greater-energy-resistance-74",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/troll-gut-rope": {
+      "name": "Troll Gut Rope",
+      "sourceSha256": "090b361468cc9d85c25f8ffcc907c5112454f717c46394a92afb72386841465b",
+      "effectSummary": "Once per day, the 50-foot rope can grow to as much as 350 feet; any added length vanishes after 7 hours. Untying or cutting open its large knot permanently destroys the rope's magic.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/troll-gut-rope",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/heart-of-the-beast": {
+      "name": "Heart of the Beast",
+      "sourceSha256": "e686a5c99bdd929975944e181868158156153bc1969f87372c413330507a7ebd",
+      "effectSummary": "Eating the heart grants the effects of divine power; a creature with base attack bonus +10 or higher also gains +1 on attack rolls.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/heart-of-the-beast",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bag-endless-caltrops-213": {
+      "name": "Bag of Endless Caltrops",
+      "sourceSha256": "6c6cb81db7ed86ae994379364f6b62642e4d1c28e0f5b2c5a363c8046ca281af",
+      "effectSummary": "Five times per day, the pouch produces enough ordinary, nonmagical caltrops to cover one 5-foot square; spreading them by hand takes a standard action in addition to the item's activation.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bag-endless-caltrops-213",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/goggles-of-minute-seeing": {
+      "name": "Goggles of Minute Seeing",
+      "sourceSha256": "182656a70c61728c7d58858fe0872f6f86894a17e488ed0f2957d0813817cff0",
+      "effectSummary": "When both lenses are worn, the goggles grant +5 on Search checks to find or identify tiny features at distances of 1 foot or less.",
+      "notes": "Manually reviewed against the verified 953-record item-effect queue after the 250-review milestone and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/goggles-of-minute-seeing",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    }
+  }
+}

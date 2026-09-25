@@ -1,0 +1,9 @@
+import React,{useState} from 'react';
+import {useReferenceIndex} from './lib/referenceIndex';
+import {ownedItem} from './lib/catalog';
+export default function CatalogItems({char,onAdd}) {
+ const [open,setOpen]=useState(false),[query,setQuery]=useState(''),[page,setPage]=useState(0);
+ const catalog=useReferenceIndex(open?['items','equipment']:[],char.ruleset||'2014');
+ const entries=catalog.entries.filter(e=>e.name.toLowerCase().includes(query.toLowerCase()));
+ return <section aria-label="Published item catalog"><button className="l-button" onClick={()=>setOpen(!open)}>{open?'Close published items':'Browse published items'}</button>{open&&<><label className="l-field"><span>Search published items</span><input value={query} onChange={e=>{setQuery(e.target.value);setPage(0);}}/></label>{catalog.loading&&<p role="status">Loading items…</p>}{catalog.error&&<p role="alert">{catalog.error}<button className="l-button" onClick={catalog.retry}>Retry catalog</button></p>}{entries.slice(page*20,page*20+20).map(item=><details className="feature-detail" key={item.catalogId}><summary>{item.name} · {item.sourceBook||item.source}</summary><p>{item.description}</p><p>{item.price||''} · {item.weight||'Weight not recorded'}</p>{item.integrityIssues.length>0&&<p role="alert">Effect extract is invalid. Consult the source and add a custom item until this entry is repaired.</p>}<a href={item.sourceUrl} target="_blank" rel="noreferrer">Read item source</a><button className="l-button" disabled={!!item.integrityIssues.length} onClick={()=>onAdd(ownedItem(item))}>Add {item.name}</button></details>)}<div className="l-toolbar"><button className="l-button" disabled={!page} onClick={()=>setPage(page-1)}>Previous</button><span>{entries.length} items · Page {page+1}</span><button className="l-button" disabled={(page+1)*20>=entries.length} onClick={()=>setPage(page+1)}>Next</button></div></>}</section>;
+}

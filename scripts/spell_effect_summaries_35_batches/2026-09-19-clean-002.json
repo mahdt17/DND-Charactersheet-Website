@@ -1,0 +1,556 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked reviewed D&D 3.5 spell effects; clean standalone bulk review batch 002 (records 51-100).",
+  "entries": {
+    "spells/inflict-light-wounds-2745": {
+      "name": "Inflict Light Wounds",
+      "sourceSha256": "226810992c661e70f990ad9f981ef78a632785e7b45321bb3ed31c392e55bc6a",
+      "effectSummary": "A touch channels negative energy for 1d8 damage +1 per caster level, maximum +5. Undead are healed by the same amount instead of being harmed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-2745",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/shocking-grasp-2647": {
+      "name": "Shocking Grasp",
+      "sourceSha256": "4b53388ed8b9b74e44cec7030e06878a51253b459987deb78f6977640cdad68a",
+      "effectSummary": "A successful melee touch deals 1d6 electricity damage per caster level, maximum 5d6. You gain +3 on the attack roll if the target wears metal armor, is made of metal, or carries a large amount of metal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shocking-grasp-2647",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/prayer-2569": {
+      "name": "Prayer",
+      "sourceSha256": "317972969394e3bfd0bba9b8e0cbf19e43808e82be06a16115e881fef607de89",
+      "effectSummary": "You and your allies gain a +1 luck bonus on attack rolls, weapon damage rolls, saves, and skill checks, while foes take a -1 penalty on the same rolls.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prayer-2569",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/rage-986": {
+      "name": "Rage",
+      "sourceSha256": "87a31d03cdd011cdac4df60ed3f35bbc4c593c1ced987550c7e204190b8a5e26",
+      "effectSummary": "Grants the creature +4 Strength, +4 Constitution, and a +2 morale bonus on Will saves, without an AC penalty or fatigue after the rage ends.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rage-986",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/repair-light-damage-4892": {
+      "name": "Repair Light Damage",
+      "sourceSha256": "f2fa163ebe714000686c1a89a1d5c5dc2f7d7222ed82389fd84d9107f26056bf",
+      "effectSummary": "Repairs 1d8 damage +1 per caster level, maximum +5, to a construct with at least 1 hit point remaining or to a living construct with -9 or more hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-light-damage-4892",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/manifest-desire-1436": {
+      "name": "Manifest Desire",
+      "sourceSha256": "b7b5c1a87524e3e4ef994ebe70b4505a777f27b1bfe404b113ad314a3f0cf829",
+      "effectSummary": "Creates a visible illusion of the target's greatest desire. Interacting with the image allows a Will save to disbelieve it, and the spell can be used simply to reveal what the subject most desires.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/manifest-desire-1436",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/twilight-luck-17": {
+      "name": "Twilight Luck",
+      "sourceSha256": "d60a3e12b4efff0de9187797101e3323f754dc6ee7cefd4b135ab9009dd8e2df",
+      "effectSummary": "Grants one nonevil target a +1 luck bonus on all saving throws for the duration. The caster must have abstained from alcohol for 3 days before casting.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/twilight-luck-17",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/interminable-echo-840": {
+      "name": "Interminable Echo",
+      "sourceSha256": "d571f653a46d9cfdbd9b064e70077e719fd63bc3ac4896ac8ebf4ccbfe3d5975",
+      "effectSummary": "The target takes a -10 penalty on Listen checks and 2d6 sonic damage each round. A successful Will save reduces the spell's duration to 1 round.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/interminable-echo-840",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/smite-heretic-33": {
+      "name": "Smite Heretic",
+      "sourceSha256": "3ce59da5ca7c441d7245bdfca3c4506e48b56085ade522a6d5b0f9f32c3ff8f7",
+      "effectSummary": "While the spell lasts, using smite evil against an evil divine spellcaster gives a +2 sacred bonus on the attack roll and makes the smite deal 2 extra damage per paladin level instead of 1.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/smite-heretic-33",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/spell-enhancer-1795": {
+      "name": "Spell Enhancer",
+      "sourceSha256": "cd4b1c9c2e6eb3bc3f2b140d1f6eba85b228ea1d31d377112d9076668105bb10",
+      "effectSummary": "Cast as a free action; the next spell you cast in the same round has its saving throw DC increased by +2.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-enhancer-1795",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/stretch-weapon-3023": {
+      "name": "Stretch Weapon",
+      "sourceSha256": "cb396ee52fbb37b1216e5abbbdcf7c87044735a276a73a1b8b21e963ec9a64e9",
+      "effectSummary": "For one attack, increases a melee weapon's reach by 5 feet while allowing it to be wielded normally.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stretch-weapon-3023",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/sure-strike-2945": {
+      "name": "Sure Strike",
+      "sourceSha256": "cc2ab014aebb662fcdd1dd0df45ea5e22717fd0769864d469b307990027a1f61",
+      "effectSummary": "Cast immediately before an attack roll; your next attack gains an insight bonus of +1 per three caster levels.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sure-strike-2945",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ray-light-4068": {
+      "name": "Ray of Light",
+      "sourceSha256": "36238e1fecb8911cbf0f1325f39c39a1bc6712cbef678c2a697c245a44d42bbd",
+      "effectSummary": "On a successful ranged touch attack, blinds the target for 1d4 rounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ray-light-4068",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/instant-locksmith-3915": {
+      "name": "Instant Locksmith",
+      "sourceSha256": "8e83c6a999462f53dbfeadb1ac2903db72da7682a8d895e0011060607740de6b",
+      "effectSummary": "During the current round, lets you make one Disable Device or Open Lock check as a free action and grants a +2 insight bonus on that check.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/instant-locksmith-3915",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/rhinos-rush-4110": {
+      "name": "Rhino's Rush",
+      "sourceSha256": "55a5e3c8a4b21b0e3878443f88315cd783fed5554d4899ad4935e0d87617f38d",
+      "effectSummary": "The first charge attack you make before the end of the round deals double damage on a successful hit.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rhinos-rush-4110",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/phierans-resolve-10": {
+      "name": "Phieran's Resolve",
+      "sourceSha256": "3fa8c843a68fff19db4685cdf94813f774299a4a379f974da9ae6ebf4d337f89",
+      "effectSummary": "Grants targets a +4 sacred bonus on saving throws against spells with the evil descriptor. Casting requires a sacrifice of 1d3 points of Strength damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phierans-resolve-10",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/waste-strider-3185": {
+      "name": "Waste Strider",
+      "sourceSha256": "661d7e5d54f459c1a2bb66ca1c55d6877c53796ca284e34b32407a64491d723d",
+      "effectSummary": "Lets the subject move through desert and waste terrain without movement or skill-check penalties from the terrain itself. It does not protect against other waste hazards such as heat or sun.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/waste-strider-3185",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/sound-burst-2650": {
+      "name": "Sound Burst",
+      "sourceSha256": "6a274705e231dceafd12b7d1f37b89ef9e57d4702fe9997007e9957cd62a8736",
+      "effectSummary": "Every creature in the area takes 1d8 sonic damage and must make a Fortitude save or be stunned for 1 round. Creatures unable to hear cannot be stunned by the spell but still take the damage. The arcane focus is a musical instrument.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sound-burst-2650",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/wind-stride-3590": {
+      "name": "Wind Stride",
+      "sourceSha256": "c5c231aa10a44580b642d4aaa847e46ee5e5c555c4107b8394109333e52529a2",
+      "effectSummary": "Until the end of your turn, grants a +10-foot enhancement bonus to your land speed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wind-stride-3590",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/understand-device-1643": {
+      "name": "Understand Device",
+      "sourceSha256": "a38f80fe29ffa365f88aa419426de36c3c54582772f1439b33468aa488c3d271",
+      "effectSummary": "Lets you make untrained Disable Device checks as though you had 1/2 rank. If you already have ranks in Disable Device, you instead gain a +4 competence bonus on those checks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/understand-device-1643",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/heralds-call-1649": {
+      "name": "Herald's Call",
+      "sourceSha256": "c6d20b7120002d2895b6b99ed5cfc5b083812261d153efe14d3f59349a13c3fb",
+      "effectSummary": "Creatures in the burst with 5 Hit Dice or fewer are dazed for 1 round. Creatures outside the burst may hear the shout but are not dazed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heralds-call-1649",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/shivering-touch-lesser-1292": {
+      "name": "Shivering Touch, Lesser",
+      "sourceSha256": "52ce4326a4d40a87d25e31a6939de25963fe3a69d84f80c01314fadbe590fbd0",
+      "effectSummary": "A successful melee touch deals 1d6 Dexterity damage. Creatures with the cold subtype are immune.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shivering-touch-lesser-1292",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/mindburn-4845": {
+      "name": "Mindburn",
+      "sourceSha256": "dbc49c2a201f78af0278dfd027e807a7bc313384bfbb48a251cea9e5a377fa03",
+      "effectSummary": "Each round, the target loses its highest-level remaining spell, spell slot, or infusion slot unless it succeeds on that round's save. The spell ends on the target's first successful save. The material component is an empty crystal vial.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mindburn-4845",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/righteous-fury-4112": {
+      "name": "Righteous Fury",
+      "sourceSha256": "469b748e8b274b453c034b2445624caca3f1f88837fe060f147ec9cd3c433d0b",
+      "effectSummary": "Grants 5 temporary hit points per caster level, maximum 50, and a +4 sacred bonus to Strength. The temporary hit points last for up to 1 hour.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/righteous-fury-4112",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/phantasmal-wasting-4968": {
+      "name": "Phantasmal Wasting",
+      "sourceSha256": "21a8083b57384ebb01b2d2640b11211f6e897839f197f6cb5761d47b470b6414",
+      "effectSummary": "On a touch, causes the target to believe its vitality has failed; for the duration it takes a -6 penalty to Strength, Dexterity, and Constitution.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantasmal-wasting-4968",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ray-sickness-4069": {
+      "name": "Ray of Sickness",
+      "sourceSha256": "3a00320d6954da43eda92b1b20392f81c98a442ae6ae367e06507ca3c2be1b44",
+      "effectSummary": "On a successful ranged touch attack, the target becomes sickened.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ray-sickness-4069",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/remove-fear-2353": {
+      "name": "Remove Fear",
+      "sourceSha256": "dc484b41af885654c4870975e7d1e5d6087446822c302559f4d24532b8a65528",
+      "effectSummary": "Grants a +4 morale bonus against fear effects for 10 minutes. If the subject is already under a fear effect, that effect is suppressed for the spell's duration. The spell counters and dispels cause fear.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/remove-fear-2353",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/torrent-of-tears-814": {
+      "name": "Torrent of Tears",
+      "sourceSha256": "2e59c9c9ed8ac52f3b67540b64915c605cf4127d078fe4ac5c46bedbe9a98172",
+      "effectSummary": "A target that fails its Will save is sickened and blinded for the duration. A successful Will save negates the effect. The material component is a single tear.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/torrent-of-tears-814",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/understand-device-2239": {
+      "name": "Understand Device",
+      "sourceSha256": "13456b78f7981d0bf612190edaa6bd3e241f670c8a95bdf044dcab776e01944c",
+      "effectSummary": "Lets you make untrained Disable Device and Open Lock checks as though you had 1/2 rank in each, and grants an insight bonus equal to caster level, maximum +15, on both skills.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/understand-device-2239",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/nightshield-4595": {
+      "name": "Nightshield",
+      "sourceSha256": "f6ee3082e982dd9493539d2d8321443950a6b8a76abdaeb67534f5766a2aaa74",
+      "effectSummary": "Grants a +1 resistance bonus on saves, increasing to +2 at caster level 6 and +3 at caster level 9, and negates magic missile attacks directed at you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nightshield-4595",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/storm-of-needles-789": {
+      "name": "Storm of Needles",
+      "sourceSha256": "1a1236182c01cd5e1400d7c54a87cd896d50fae671dfba2a774dfa5384a0ad72",
+      "effectSummary": "Creatures in the cone take 1d4 damage per caster level, maximum 15d4. The material component is a 1-inch-long metal needle.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/storm-of-needles-789",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/hells-power-141": {
+      "name": "Hell's Power",
+      "sourceSha256": "61e0ed7da64ba990355364ebf57789f252ec3c259a0115d980cf41e55b9af946",
+      "effectSummary": "Grants a +2 deflection bonus to AC and improves the bonus portion of your existing damage reduction by +1, such as changing DR 10/+1 to DR 10/+2. The material component is the heart of an elf child.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/hells-power-141",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ice-darts-1254": {
+      "name": "Ice Darts",
+      "sourceSha256": "d3effd8f047623bb3e862f62d5c6cc37856fd0f898d5b591c8d3809b5c91f02e",
+      "effectSummary": "Fires one dart plus one additional dart for every two caster levels beyond 3rd, to a maximum of five darts at 11th level. Each dart requires a ranged touch attack and deals 2d4 damage, half of it cold damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-darts-1254",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/remove-blindnessdeafness-2427": {
+      "name": "Remove Blindness/deafness",
+      "sourceSha256": "3751c3a8711305c9aee1683a9e681d861ce65ee4ac46910f518eb8f296272ebd",
+      "effectSummary": "Cures either blindness or deafness, whether normal or magical. It repairs damaged eyes or ears but does not replace missing ones, and it counters and dispels blindness/deafness.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/remove-blindnessdeafness-2427",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/winter-chill-4778": {
+      "name": "Winter Chill",
+      "sourceSha256": "b33b5a2bd789aa9e433185673392f5520bb28123e3f5ead9a589aaadefa29dcb",
+      "effectSummary": "A target that fails its Fortitude save takes 1d6 cold damage and becomes fatigued. Creatures immune to cold are unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/winter-chill-4778",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/heat-leech-1288": {
+      "name": "Heat Leech",
+      "sourceSha256": "19fa4faf73b88040cfaf5a4ab8f64647adbfdfacacbe6bb53625bdd9528b6b35",
+      "effectSummary": "Each round on your turn, including the casting round, the target must make a Fortitude save or take 1d8 cold damage. The material component is a leech and a pinch of snow.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heat-leech-1288",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/mesmerizing-glare-3777": {
+      "name": "Mesmerizing Glare",
+      "sourceSha256": "218bc09b194c6186b8fddf3f739afc6dc71e351dea48fc615c8b108aaa9c96f6",
+      "effectSummary": "Creatures that fail their saving throws become fascinated as they stare at you.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mesmerizing-glare-3777",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/power-word-petrify-3091": {
+      "name": "Power Word Petrify",
+      "sourceSha256": "d385e4e022675b64dd3f2ccbafe62202fb848b9710e9038f1d5e8b1d8a934c18",
+      "effectSummary": "Instantly petrifies one chosen creature whether or not it can hear the word. A creature with 101 or more current hit points is unaffected.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/power-word-petrify-3091",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/rend-shadow-weave-302": {
+      "name": "Rend Shadow Weave",
+      "sourceSha256": "b6663a9a468688729999336d46626d0a7adc7ab38083d23a1990a45144ac8f2f",
+      "effectSummary": "Creates an area of dead magic that affects the Shadow Weave rather than the Weave. While this spell is prepared, you gain a +2 competence bonus on caster level checks to dispel Shadow Weave effects. The material component is a moonstone worth at least 50 gp.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rend-shadow-weave-302",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/regroup-2934": {
+      "name": "Regroup",
+      "sourceSha256": "c3f71b30595194541189256e489c5e2d69714b5d4fe10576046eec1926e05e17",
+      "effectSummary": "Teleports each subject to an unoccupied square adjacent to you. If no adjacent square is available or suitable, the subject appears in the nearest unoccupied square with a surface able to support it.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/regroup-2934",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/internal-fire-2072": {
+      "name": "Internal Fire",
+      "sourceSha256": "52d06d5e1bb5c5503cc2d37276d9406103ea69d08b7a5fc66b86902b7f267f66",
+      "effectSummary": "Targets die instantly unless they succeed on a Fortitude save; a successful save instead causes 6d6 damage +1 per caster level. The focus is an iron brazier filled with red-hot charcoal.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/internal-fire-2072",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/knife-spray-962": {
+      "name": "Knife Spray",
+      "sourceSha256": "d18aeff2b86d58305575349ec3ee86c10c0fbb030a20dad2b393b1226a6ff6d2",
+      "effectSummary": "Creatures in the cone take 1d6 damage +1 per caster level, maximum +5; a successful Reflex save halves the damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/knife-spray-962",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/rebuking-breath-1023": {
+      "name": "Rebuking Breath",
+      "sourceSha256": "4a87cc6e8439fdefd5486541f31805717818977d8a5ef1af821a4d1abb7f9e50",
+      "effectSummary": "For the breath weapon used as part of casting, undead in its area that fail their saves against the breath are rebuked and cower in awe for 10 rounds.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rebuking-breath-1023",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/rams-might-1782": {
+      "name": "Ram's Might",
+      "sourceSha256": "3c88bbc2f0363bdd818737255e625e41beff897ae7505cee820c42062c405d4b",
+      "effectSummary": "Your unarmed attacks deal normal rather than nonlethal damage, and you are considered armed. Your hardened hands otherwise do not interfere with spellcasting or manipulating objects.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/rams-might-1782",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/low-light-vision-552": {
+      "name": "Low-light Vision",
+      "sourceSha256": "4a6a6cb9a4ceaab3d8a1bcbed7c3445040681531a015d5b6eac3363a437ae649",
+      "effectSummary": "Grants low-light vision, allowing the target to see twice as far as a human in starlight, moonlight, torchlight, and similar dim conditions while retaining color and detail. The arcane material component is a small candle.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/low-light-vision-552",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/mystic-surge-3025": {
+      "name": "Mystic Surge",
+      "sourceSha256": "8db006583031005a8fb7e547125e1fdf16387e77f029aed3df87a3184ce9bf74",
+      "effectSummary": "The subject's next spell cast before this spell expires gains +2 to its save DC and +1 effective caster level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mystic-surge-3025",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/near-horizon-803": {
+      "name": "Near Horizon",
+      "sourceSha256": "dcf7f0a9de7aa198b930da55ab8c08bc2ffb01d9704d4ffe889133e92a1c7bf9",
+      "effectSummary": "For the duration, you take no range penalties with ranged weapons, though each weapon remains limited to its normal maximum range.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/near-horizon-803",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/ice-burst-3397": {
+      "name": "Ice Burst",
+      "sourceSha256": "0810d542f2c411e775d467a423fe2b5cfd26eea2cd1154c87da54fe57fe15444",
+      "effectSummary": "Deals 1d4 cold damage plus 1 point of bludgeoning damage per caster level, to a maximum of 10d4+10 total damage. The material component is a chunk of ice or a single pearl.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ice-burst-3397",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/magic-fang-superior-4511": {
+      "name": "Magic Fang, Superior",
+      "sourceSha256": "7ae1307370d5e44baf485a9e8d80c451eb2b7c1871aaba698b14f3f7c8ee1903",
+      "effectSummary": "Every natural weapon you possess gains an enhancement bonus on attack and damage rolls equal to +1 per four caster levels, maximum +5 at 20th level.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-fang-superior-4511",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    },
+    "spells/quick-march-1992": {
+      "name": "Quick March",
+      "sourceSha256": "573613f0bfe4a221fef943b26d2bbd17f326d5ea192591407ab2870807f3fc22",
+      "effectSummary": "Increases allies' base land speed by 30 feet as an enhancement bonus. It does not affect other movement modes and increases maximum jumping distance as normal for increased speed.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/quick-march-1992",
+          "role": "primary DnD Tools effect text reviewed and paraphrased for concise gameplay mechanics"
+        }
+      ]
+    }
+  }
+}

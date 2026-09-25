@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked edition-corrected reviews for the final two Savage Species repair-lane records; clean batch 062.",
+  "entries": {
+    "spells/improved-enlarge-3231": {
+      "name": "Improved Enlarge",
+      "sourceSha256": "e730c544baf58e9820c902a3020d8e5431fc23df970118967b972bdcd765a7b1",
+      "effectSummary": "Functions as the D&D 3.0 enlarge spell, except its range is Touch and its duration is 10 minutes per caster level. It can affect one creature or one object of up to 10 cubic feet per caster level. The subject can grow by up to 10% per caster level in height, width, and depth, to a maximum 50% increase; at +10%, +20%, +30%, +40%, and +50% height, weight is approximately multiplied by 1.3, 1.7, 2.2, 2.7, and 3.4 respectively. A creature's worn and carried equipment grows with it. If insufficient space is available, weak enclosures can burst, while stronger materials constrain the growth without harming the subject. Magical properties are not increased. A creature's hit points, Armor Class, and base attack bonus do not change, but it gains a +1 enlargement bonus to Strength for every full 20% of enlargement. Multiple magical effects that increase size do not stack, and enlarge counters and dispels reduce. The material component is a pinch of powdered iron. Savage Species also allows improved enlarge to be made permanent on yourself, another creature, or an appropriate object with permanency at caster level 17 for 2,500 XP.",
+      "tables": [
+        [
+          [
+            "Height increase",
+            "Approximate weight multiplier"
+          ],
+          [
+            "+10%",
+            "×1.3"
+          ],
+          [
+            "+20%",
+            "×1.7"
+          ],
+          [
+            "+30%",
+            "×2.2"
+          ],
+          [
+            "+40%",
+            "×2.7"
+          ],
+          [
+            "+50%",
+            "×3.4"
+          ]
+        ]
+      ],
+      "notes": "Savage Species is 3.0 material and its p. 67 entry says 'As enlarge, except as noted above.' The rebuilt catalog has cross-edition-expanded this into 3.5 enlarge person mechanics (humanoid-only target, size-category change, and DMG 3.5 weapon-size table). This review restores the actual 3.0 inheritance while preserving Savage Species' Touch range and 10 minutes/level duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/improved-enlarge-3231",
+          "role": "primary rebuilt catalog family used for current record identity/digest; its inherited long-form mechanics are a cross-edition 3.5 expansion and are not treated as the Savage Species source text"
+        },
+        {
+          "url": "https://anyflip.com/myubd/uyos/basic/51-100",
+          "role": "Savage Species pp. 60 and 67 source rendering: permanency entry plus the original 'As enlarge/reduce, except as noted above' spell definitions"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/153/enlarge",
+          "role": "3e SRD Enlarge mechanics and header inherited by Improved Enlarge"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/387/reduce",
+          "role": "3e SRD Reduce mechanics and header inherited by Improved Reduce"
+        }
+      ]
+    },
+    "spells/improved-reduce-3232": {
+      "name": "Improved Reduce",
+      "sourceSha256": "807be8cd1e5223e6cfde14a533b0aa93e7b81fed544766b65ba9e206c5ad8293",
+      "effectSummary": "Functions as the D&D 3.0 reduce spell, except its range is Touch and its duration is 10 minutes per caster level. It can affect one creature or one object of up to 10 cubic feet per caster level. The subject can shrink by up to 10% per caster level in height, to a maximum 50% reduction; at -10%, -20%, -30%, -40%, and -50% height, weight is approximately multiplied by 0.7, 0.5, 0.4, 0.2, and 0.1 respectively. A creature's worn and carried equipment shrinks with it, while magical properties are not reduced. A creature's hit points, Armor Class, and attack rolls do not change, but its Strength takes a -1 enlargement penalty for every 10% reduction, to a minimum Strength of 1. A shrinking object can damage weaker attached material, but it stops shrinking before the object itself would be damaged. Multiple magical effects that reduce size do not stack, and reduce counters and dispels enlarge. The material component is a pinch of powdered iron. Savage Species also allows improved reduce to be made permanent on yourself, another creature, or an appropriate object with permanency at caster level 17 for 2,500 XP.",
+      "tables": [
+        [
+          [
+            "Height decrease",
+            "Approximate weight multiplier"
+          ],
+          [
+            "-10%",
+            "×0.7"
+          ],
+          [
+            "-20%",
+            "×0.5"
+          ],
+          [
+            "-30%",
+            "×0.4"
+          ],
+          [
+            "-40%",
+            "×0.2"
+          ],
+          [
+            "-50%",
+            "×0.1"
+          ]
+        ]
+      ],
+      "notes": "Savage Species is 3.0 material and its p. 67 entry says 'As reduce, except as noted above.' The rebuilt catalog has cross-edition-expanded this into 3.5 reduce person mechanics (humanoid-only target, size-category change, and DMG 3.5 weapon-size table). This review restores the actual 3.0 inheritance while preserving Savage Species' Touch range and 10 minutes/level duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/improved-enlarge-3231",
+          "role": "primary rebuilt catalog family used for current record identity/digest; its inherited long-form mechanics are a cross-edition 3.5 expansion and are not treated as the Savage Species source text"
+        },
+        {
+          "url": "https://anyflip.com/myubd/uyos/basic/51-100",
+          "role": "Savage Species pp. 60 and 67 source rendering: permanency entry plus the original 'As enlarge/reduce, except as noted above' spell definitions"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/153/enlarge",
+          "role": "3e SRD Enlarge mechanics and header inherited by Improved Enlarge"
+        },
+        {
+          "url": "https://rpg20.com/index.php/spells/view/3e/387/reduce",
+          "role": "3e SRD Reduce mechanics and header inherited by Improved Reduce"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "630b8a4d9e393b482afc0d939aa209e723cba363",
+    "workflowRun": 35678936133,
+    "validationRun": 35678939331,
+    "classificationArtifact": 10673999465,
+    "classificationArtifactSha256": "0a4bbe48100a391751ef6b6259f099d726213700ec1c36399bc5dfde4554869b",
+    "repairManifestSelectionSha256": "0b8e7c4e21ba9af1fa3fb3ab3bc67635a07d8c60afa5a19b6e3eb03ad5173b54",
+    "queueCountBefore": 1020,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 2,
+    "tableQueueCountBefore": 41
+  }
+}

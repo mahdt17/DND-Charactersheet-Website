@@ -1,0 +1,253 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 18-record feat long-rule batch 008 from the final 21-record tail. Records remain digest-locked to exact exported source fields. A post-closure review corrected three field mappings: Urban Tracking now summarizes its long Special table rather than mislabeling it as Benefit text, and Vow of Nonviolence / Vow of Peace now include their separately digest-locked long Special clauses.",
+  "entries": {
+    "feats/urban-tracking-3037": {
+      "name": "Urban Tracking",
+      "benefitSha256": "e77f53fd0078454620eac604a053bab9e08a011c2876018b8ce503f351abf99b",
+      "effectSummary": "Use Gather Information to find or follow a person's trail through a community. Finding the trail or following it for 1 hour requires a check; make another check each hour and whenever the trail becomes harder to follow, such as entering a different part of town. The DC and number of checks depend on community size and conditions. On failure, retry after 1 hour of questioning. You may halve the interval between checks to 30 minutes by taking a -5 penalty. This feat cannot locate someone outside the community, though it can reveal that the quarry has left.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/urban-tracking-3037",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/urban-tracking-3039": {
+      "name": "Urban Tracking",
+      "benefitSha256": "b59cb90f5a97ee4adae0298d12e778638ac6feba03c9afa4dafdaf150b952120",
+      "effectSummary": "Use Gather Information to locate or follow an individual's trail in a settlement. Each hour of searching, and each time the trail becomes harder to follow, requires another check. Base DC/checks required by community are: thorp/hamlet/village DC 5, 1d3 checks; small/large town DC 10, 1d4+1; small/large city DC 15, 2d4; metropolis DC 20, 2d4+2. Modifiers include -1 per three creatures sought, +1 per 24 hours missing, +5 if the quarry lies low, -2 if matching the community's primary racial demographic, and +2 if matching neither its primary nor secondary demographic. On failure, retry after 1 hour.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/urban-tracking-3039",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/urban-tracking-3040": {
+      "name": "Urban Tracking",
+      "specialSha256": "b9d89b94efc3b6fc56ca598ea0cd5e7e566a2c46899d168a88b802e87291704a",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/urban-tracking-3040",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ],
+      "specialSummary": "With 5 ranks in Knowledge (local), gain +2 on the Gather Information check used for Urban Tracking. Community DC/checks required are thorp, hamlet, or village: DC 5 and 1d3 checks; small or large town: DC 10 and 1d4+1; small or large city: DC 15 and 2d4; metropolis: DC 20 and 2d4+2. Apply -1 per three creatures sought, +1 per 24 hours the quarry has been missing or sought, +5 if the quarry lies low, +2 if the quarry matches the community's primary racial demographic, and -2 if it matches neither the primary nor secondary demographic. You may halve the normal interval between checks from 1 hour to 30 minutes by taking -5 on the check."
+    },
+    "feats/vermin-companion-3052": {
+      "name": "Vermin Companion",
+      "benefitSha256": "67671560df207cd339ab7645112a9d9f50138d1f11acb03c4f1f3998c0439b03",
+      "effectSummary": "When selecting an animal companion, you may choose a listed vermin instead. Treat the vermin as an animal for spells you cast on it; it gains Intelligence 1 but no skills or feats. Determine companion abilities using your effective druid level with the printed adjustment: level 3+ at -0 for giant ant worker, giant fire beetle, giant ant soldier, Medium monstrous centipede, giant bee, Small monstrous scorpion, giant bombardier beetle, or Small monstrous spider; level 4+ at -3 for giant praying mantis or giant wasp; level 7+ at -6 for giant stag beetle. It otherwise retains the normal abilities of its kind plus the standard animal-companion characteristics.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/vermin-companion-3052",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/versatile-performer-3056": {
+      "name": "Versatile Performer",
+      "benefitSha256": "ba2071f6ae37698bb9e119412d0db62e9785494e358cf8a62318e966467c1c40",
+      "effectSummary": "Choose a number of Perform categories equal to your Intelligence bonus, minimum one. For Perform checks in those categories, treat your ranks as equal to your highest-ranked Perform category. The chosen categories cannot later be changed, but their effective ranks rise automatically when your highest Perform ranks increase, and a permanent Intelligence-bonus increase grants additional categories. When using two or more performance forms at once, gain +2 on the combined Perform check, applied to the higher Perform modifier.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/versatile-performer-3056",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/violate-spell-like-ability-3070": {
+      "name": "Violate Spell-Like Ability",
+      "benefitSha256": "8b6b07792c5464f9ae16b706f291258f9d5a55e7770a1da5b4f4c3c0d0bceafb",
+      "effectSummary": "A violated spell-like ability gains the evil descriptor. If it deals damage, half the damage (rounded down) becomes vile damage and the remainder retains its normal type; immunity to the original damage type can still negate the whole attack as described by the source example. Each spell-like ability a creature has may be violated up to twice per day, but this does not increase that ability's normal daily use limit.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/violate-spell-like-ability-3070",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/vow-of-nonviolence-3078": {
+      "name": "Vow of Nonviolence",
+      "benefitSha256": "045096cff2b8f06820bdfbe474828ce78da4a30027ce3e6fe4132c786642f74e",
+      "effectSummary": "Against humanoids and monstrous humanoids, increase by +4 the save DC of your spells and special abilities that do not deal hit point or ability damage, bestow negative levels, or cause death; nonlethal damage is allowed. The bonus applies only to save DCs, not caster-level checks or other spell elements, and does not stack with Spell Focus. It can apply to nonspell abilities that allow saves if their effect is not damage-based; for example, Stunning Fist can qualify when the attack deals nonlethal damage.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/vow-of-nonviolence-3078",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ],
+      "specialSha256": "208acb618eb97294359e4bf2480f99d389c5f53dcfd5d583dee3bcf5af1a9e39",
+      "specialSummary": "To maintain the vow, do not cause harm or suffering to humanoid or monstrous humanoid foes: you may deal nonlethal damage, but not real hit point damage, ability damage, death effects, disintegrate, pain effects, or other effects with immediate potential to cause death, suffering, or great harm. If an ally kills a helpless or defenseless foe within 120 feet, that ally takes a cumulative -1 morale penalty on attack rolls for 1 hour per your character level, up to a penalty equal to your character level; the duration resets from the latest slaying. You may bind allies or defeated foes with oaths as described by the source, but leaving a helpless foe for allies to kill breaks the vow. An intentional breach irrevocably removes the feat and cannot be replaced; a breach caused by magical compulsion suspends the benefit until suitable penance and atonement."
+    },
+    "feats/vow-of-peace-3080": {
+      "name": "Vow of Peace",
+      "benefitSha256": "5645bfbfbdcf67f6c2f30f1e941fdc3002d2475920df851b353261f375777966",
+      "effectSummary": "Gain a 20-foot calming aura; creatures entering it make Will DC 10 + half your character level + Charisma modifier or are affected as calm emotions, with a new save after leaving and reentering. Also gain +2 natural armor, +2 deflection, and +2 exalted AC; the exalted bonus does not apply to touch attacks, does not stop incorporeal touches, is not ignored by brilliant energy, and does not stack with an armor bonus. If you also have Vow of Poverty, its natural armor, deflection, and exalted AC bonuses each increase by +2. Manufactured weapons that hit you must make Fortitude DC 10 + half your character level + Constitution modifier or shatter without harming you. You also gain +4 exalted on Diplomacy checks.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/vow-of-peace-3080",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ],
+      "specialSha256": "64528c4fd7a71fb8db7dccd98a3a5984c0554aaba07ac65846f0744ab03be0f4",
+      "specialSummary": "To maintain the vow, do not cause harm to living creatures other than constructs and undead. You may deal nonlethal damage, but not real hit point damage, ability damage, death effects, disintegrate, or other effects with immediate potential to cause death or great harm. You also may not use nondamaging effects to incapacitate or weaken living foes so allies can kill them; an incapacitated foe must be taken prisoner. An intentional breach immediately and irrevocably removes the feat and cannot be replaced. A breach caused by magical compulsion or otherwise committed unwittingly suspends the benefit until suitable penance and atonement."
+    },
+    "feats/wandstrike-3088": {
+      "name": "Wandstrike",
+      "benefitSha256": "4b1e373ecbce38caaed669ab96cc69911259e9d351d6f6e44f00e969bdc23f2b",
+      "effectSummary": "As a standard action, make a melee touch attack with a wand and spend one charge; on a hit, deal 1d6 damage with no extra damage from sneak attack, favored enemy, smite, or similar sources, and you may activate the wand as part of the attack. A ray or targeted spell from the wand targets the struck creature, with rays hitting automatically. For area or spread spells, choose any grid intersection in the creature's space as the origin. Effects that do not cover an area, such as summon monster spells, cannot be used with Wandstrike.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/wandstrike-3088",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/weapon-group-double-weapons-3111": {
+      "name": "Weapon Group (Double Weapons)",
+      "benefitSha256": "570a650b625fa270501fa86539ebe9e98e29c987a31e32740245a1ee2697f250",
+      "effectSummary": "Whenever you gain a Weapon Group proficiency feat, this feat also grants proficiency with the exotic double weapons associated with that group; on taking this feat, it immediately applies to weapon groups you already know. Some weapons require proficiency with two groups. The source lists: Axes—orc double axe and dwarven urgrosh (also Spears and Lances); Flails and Chains—dire flail and gyrspike (also Heavy Blades); Heavy Blades—double scimitar, gyrspike (also Flails and Chains), and two-bladed sword; Maces and Clubs—double mace; Picks and Hammers—double hammer and gnome hooked hammer; Spears and Lances—dwarven urgrosh (also Axes).",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/weapon-group-double-weapons-3111",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/weapon-group-exotic-weapons-3113": {
+      "name": "Weapon Group (Exotic Weapons)",
+      "benefitSha256": "f2782f0cbd91bae95cc2fbfad92d51545394f0e11a0efcd4806ef47f08d5e9a3",
+      "effectSummary": "Gain proficiency with the exotic, non-double weapons associated with every Weapon Group you already know, and whenever you later gain another Weapon Group proficiency you also gain its associated exotic weapons. The printed group lists include dwarven waraxe for Axes; elven double bow, greatbow, and composite greatbow for Bows; multiple claw weapons; warmace and tonfa for Clubs and Maces; great crossbow and hand crossbow for Crossbows; greatspear for Druid Weapons; chain-and-dagger, scourge, spiked chain, three-section staff, whip, and whip-dagger for Flails and Chains; bastard sword, khopesh, and mercurial blades for Heavy Blades; and the source's corresponding exotic weapons for Light Blades, Monk Weapons, Picks and Hammers, Polearms, Slings and Thrown Weapons, and Spears and Lances.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/weapon-group-exotic-weapons-3113",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/wildhunt-3143": {
+      "name": "Wildhunt",
+      "benefitSha256": "e6485ae85c2281faee5a0849912a6672da4481878257a1890650cd8fd9f051f2",
+      "effectSummary": "While shifting, gain +2 Constitution and scent. Scent detects creatures within 30 feet, 60 feet upwind, or 15 feet downwind; strong scents double those ranges and overpowering scents triple them. Detection reveals presence but not exact location; a move action gives direction, and within 5 feet you pinpoint the source. Stronger scents can mask weaker ones. While shifting and with Track, follow trails by smell using Survival, normally DC 10 for a fresh trail, modified for odor strength, group size, and age (+2 per hour); surface conditions and poor visibility are ignored. When not shifting, gain +2 on Survival checks from the lingering scent ability.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/wildhunt-3143",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/wind-guided-arrows-3148": {
+      "name": "Wind-Guided Arrows",
+      "benefitSha256": "002c079388cb2fb14e83d131fd2db497f5b56484149acfc4c032866110170a39",
+      "effectSummary": "While you have an air spell of 3rd level or higher available, spend an immediate action to adjust a thrown or projectile weapon already in flight, applying +2 or -2 to its attack roll without changing its target. You and the target must be within 10 feet per level of your highest-level available air spell. This cannot affect spells, powers, energy attacks, or similar effects. As a secondary benefit, gain +1 competence to caster level for air spells.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/wind-guided-arrows-3148",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/winged-warrior-3150": {
+      "name": "Winged Warrior",
+      "benefitSha256": "fca7bf5479e27aeab958051612d8cc5a73a6f1e8b6b6d75ff3025f9093b6b480",
+      "effectSummary": "Grants three tactical maneuvers. Dustup: while standing in or flying no more than 10 feet over loose debris, spend a move action flapping your wings to make a 20-foot-radius hemispherical cloud; vision is clear to 10 feet, creatures 11–20 feet away have concealment, beyond 20 feet total concealment, and casters inside make Concentration DC 10 + half your character level. Flying Leap: after moving farther than your base land speed in the round, gain +4 on Jump, Balance, and Climb checks. Shroud of Feathers: while not flying, spend a move action wrapping your wings around yourself, then feint as part of your attack by suddenly opening them; this works only once per foe per combat.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/winged-warrior-3150",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/wise-your-ways-3584": {
+      "name": "Wise to Your Ways",
+      "benefitSha256": "8404961ed2f5e143ac07662249395544f4e0d6d73fa6f2caa16d2c2c1988bd6c",
+      "effectSummary": "Choose one favored-enemy type. Add your favored-enemy bonus against that type to saving throws against that enemy's standard extraordinary, spell-like, and supernatural abilities, but not unrelated attacks or class-based spells. The bonus also applies to secondary saving throws caused by those abilities, such as the Fortitude save to remove a negative level inflicted by a favored enemy's energy drain.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/wise-your-ways-3584",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/woodland-archer-3165": {
+      "name": "Woodland Archer",
+      "benefitSha256": "6c464e9d4a18d10c8eb63cad119585657d0a1a3a05c89636959053eb2449509e",
+      "effectSummary": "Grants three tactical maneuvers. Adjust for Range: after missing a foe with a projectile weapon, subsequent shots against that foe in the same round gain +4. Pierce the Foliage: after hitting despite concealment miss chance, your shots against that foe in the next round ignore that miss chance. Moving Sniper: after a successful sniping attack in which you hit and remain hidden, if no enemy sees you, on the following round you may make another sniping attack and take one move after the shot before hiding; repeat each round while you keep hitting and remain undetected.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/woodland-archer-3165",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/words-of-draconic-power-3169": {
+      "name": "Words of Draconic Power",
+      "benefitSha256": "4788e332774ffc3b8f13ad0e99c7d3ec567a841c211d245d7435a20fb212fede",
+      "effectSummary": "Gain three 5-minute ceremonies, each affecting up to six participants for 24 hours. Ancient Tongue (Knowledge religion 4 ranks): burn draconic runes onto bread with a tindertwig; consuming it grants spoken and understood Draconic. Potent Words (8 ranks): inscribe alchemist's fire and drink it safely; participants cast language-dependent spells at +1 caster level and gain +1 on saves against them. Arcane Syllables (14 ranks): each participant consumes a draconic rune scribed on a pearl worth at least 1,000 gp and may once during the next 24 hours use an immediate action either to count current hp as double against a power word spell or, if capable of casting a power word spell, cast one with no additional action while expending it normally.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/words-of-draconic-power-3169",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    },
+    "feats/wrest-possession-3173": {
+      "name": "Wrest Possession",
+      "benefitSha256": "c3e8015e6b2d879912a6052eb978d12f5d69c9d223730c16a3c7ee8dbfff58f4",
+      "effectSummary": "You can communicate telepathically with a fiend possessing you, though you cannot read its thoughts. After resisting three consecutive attempts by that fiend to control your body, make a special level check: 1d20 + character level + Charisma modifier against DC 10 + the fiend's Hit Dice + its Charisma modifier. On success, the fiend loses access to your senses; if your level is at least its Hit Dice, you also control its extraordinary, supernatural, and spell-like abilities that do not depend on its physical form, using them as your own for a number of rounds equal to your Charisma bonus. Afterward, you must again resist three consecutive control attempts before trying again.",
+      "notes": "Manually reviewed against the 3.5 feat long-rule export and digest-locked to the exact source field(s). Printing-specific differences are preserved; named external spells, tables, templates, skills, and general subsystems remain references where appropriate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/wrest-possession-3173",
+          "role": "primary new.dndtools.org feat record exported by feat-rule-review #4"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "092bdfde08c9c94c2bcedad8e3423984a19d0f7f",
+    "validationRun": 35785869835,
+    "featReviewRun": 35781227811,
+    "featReviewArtifact": 10718635433,
+    "featReviewArtifactSha256": "ebab66aeaad83fb49b41e87c26cd621632a05f2981b926748788b0f0ba33aa62",
+    "sourceArtifactEntryCount": 321,
+    "reviewQueueCountBefore": 21,
+    "reviewedByPriorBatches": 300,
+    "deferredSourceDamaged": [
+      "feats/reaping-talons-2400"
+    ],
+    "deferredMissingDigest": [
+      "feats/vow-of-poverty-3081",
+      "feats/vow-of-purity-3082"
+    ],
+    "fullFeatAuditRun": 35780589058,
+    "catalogCount": 3666,
+    "postClosureReviewRun": 35788835085,
+    "postClosureReviewArtifact": 10720998113,
+    "postClosureReviewArtifactSha256": "c95bc1f3ee97a44dbbdb327b4030eb074f2c9427e8cb007d4728656addf8083e",
+    "postClosureRemainingBeforeCorrection": [
+      "feats/urban-tracking-3040",
+      "feats/vow-of-nonviolence-3078",
+      "feats/vow-of-peace-3080"
+    ]
+  }
+}

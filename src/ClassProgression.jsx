@@ -1,20 +1,31 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Dialog from './Dialog';
-import {classRecord,levelRecord,characterSlots,spellCounts,editionName} from './lib/editions';
-
-export default function ClassProgression({char,score=10}) {
-  const [open,setOpen]=useState(false),record=classRecord(char);
-  const edition=record?.edition||char.ruleset||'2014';
-  const model={...char,ruleset:edition,slotOverride:undefined};
+import {classRecord,levelRecord,characterSlots,spellCounts,editionName,keyOf} from './lib/editions';
+import {characterClasses,classCharacter,progressionTables} from './lib/advancement';
+import {layerOverride} from './lib/catalog';
+import {useReferenceIndex} from './lib/referenceIndex';
+export default function ClassProgression({char,score=10,onChange}) {
+  const [open,setOpen]=useState(false),[choice,setChoice]=useState(''),[editing,setEditing]=useState(false),[text,setText]=useState(''),[image,setImage]=useState(''),[title,setTitle]=useState(''),[source,setSource]=useState(''),[error,setError]=useState('');
+  const rows=characterClasses(char),selected=rows.find(r=>r.catalogId===choice)||rows[0],model=selected?classCharacter(char,selected):char;
+  const catalog=useReferenceIndex(open?['classes']:[],model.ruleset||'2014');
+  const base=catalog.entries.find(r=>r.catalogId===selected?.catalogId)||classRecord(model)||{name:char.className};
+  const id=base.catalogId||selected?.catalogId||keyOf(base),override=char.contentOverrides?.[id],record=layerOverride(base,override);
+  const tables=progressionTables(record),name=`${model.className} level progression`;
   const levels=Array.from({length:20},(_,i)=>({...levelRecord(model,i+1),level:i+1}));
-  const hasLevels=edition!=='3.5'&&levels.some(l=>l.features?.length);
-  const casting=levels.some(l=>l.spellcasting),resources=[...new Set(levels.flatMap(l=>Object.entries(l.class_specific||{}).filter(([,v])=>typeof v==='number'||typeof v==='string').map(([k])=>k)))];
-  const title=`${char.className} level progression`;
-  return <><button type="button" className="l-button" disabled={!record} onClick={()=>setOpen(true)}>Class level table</button>{open&&<Dialog title={title} wide onClose={()=>setOpen(false)}>
-    <p>{editionName(edition)} · Current level {char.level||1}. Use this reference before or during a level up.</p>
-    {hasLevels?<><p className="l-muted">Spell slots are shown as level: count. Preparation limits use your current casting ability score ({score}); future ability increases can change them. Subclass features depend on your chosen subclass.</p>
-      <div className="progression-scroll" tabIndex="0" role="region" aria-label={`${title} table`}><table className="progression-table"><caption>{char.className} · levels 1–20</caption><thead><tr><th scope="col">Level</th><th scope="col">Proficiency</th><th scope="col">Features</th>{resources.map(k=><th scope="col" key={k}>{k.replaceAll('_',' ')}</th>)}{casting&&<><th scope="col">Cantrips</th><th scope="col">Known / book</th><th scope="col">Prepared</th><th scope="col">Spell slots</th></>}</tr></thead><tbody>{levels.map(l=>{const c={...model,level:l.level},counts=spellCounts(c,score);return <tr key={l.level} aria-current={l.level===char.level?'step':undefined}><th scope="row">{l.level}{l.level===char.level?' · Current':''}</th><td>+{l.prof_bonus||2+Math.floor((l.level-1)/4)}</td><td>{l.features?.map(f=>f.name).join(', ')||'—'}</td>{resources.map(k=><td key={k}>{l.class_specific?.[k]??'—'}</td>)}{casting&&<><td>{counts.cantrips||'—'}</td><td>{counts.mode==='known'||counts.mode==='spellbook'?counts.known:'—'}</td><td>{counts.prepared??'—'}</td><td>{characterSlots(c).map((n,i)=>n?`${i}: ${n}`:null).filter(Boolean).join(' · ')||'—'}</td></>}</tr>;})}</tbody></table></div></>:
-      record?.tables?.length?record.tables.map((table,i)=><div className="progression-scroll" tabIndex="0" role="region" aria-label={`${title} table ${i+1}`} key={i}><table className="progression-table"><caption>{char.className} · source table {i+1}</caption><tbody>{table.map((row,j)=><tr key={j} aria-current={/^\d+(st|nd|rd|th)$/.test(row[0])&&parseInt(row[0])===char.level?'step':undefined}>{row.map((cell,k)=>j===0?<th key={k} scope="col">{cell||'—'}</th>:k===0?<th key={k} scope="row">{cell||'—'}</th>:<td key={k}>{cell||'—'}</td>)}</tr>)}</tbody></table></div>):<p>This class’s progression table is in its source reference. {record?.description}</p>}
-    {record?.sourceUrl&&<p><a href={record.sourceUrl} target="_blank" rel="noreferrer">Open {char.className} source and level table ↗</a></p>}
+  const hasLevels=model.ruleset!=='3.5'&&levels.some(l=>l.features?.length);
+  function edit(){setText(tables[0]?.map(r=>r.join('\t')).join('\n')||'Level\tFeatures\n1\t');setImage(override?.progressionImage?.url||'');setTitle(override?.progressionImage?.alt||'');setSource(override?.sourceNotes||'');setError('');setEditing(true);}
+  function save(){try{
+    let matrix=[];if(text.trim()){matrix=text.trim().split('\n').map(r=>r.split('\t'));if(matrix.length<2||matrix.length>101||matrix[0].length<2||matrix[0].length>20||matrix.some(r=>r.length!==matrix[0].length||r.some(cell=>cell.length>2000)))throw Error('Use a header and 1–100 rows with equal tab-separated columns (2–20 columns).');}
+    if(image){const url=new URL(image);if(url.protocol!=='https:'||url.username||url.password||!title.trim())throw Error('Use an HTTPS image URL and descriptive alt text.');}
+    onChange({contentOverrides:{...char.contentOverrides,[id]:{...override,progression:matrix,tables:matrix.length?[matrix]:[],progressionImage:image?{url:image,alt:title}:null,sourceNotes:source}}});setEditing(false);
+  }catch(e){setError(e.message);}}
+  return <><button type="button" className="l-button" onClick={()=>setOpen(true)}>Class level table</button>{open&&<Dialog title={name} wide onClose={()=>setOpen(false)}>
+    {rows.length>1&&<label className="l-field"><span>Progression class</span><select value={selected?.catalogId} onChange={e=>{setChoice(e.target.value);setEditing(false);}}>{rows.map(r=><option key={r.catalogId} value={r.catalogId}>{r.name} {r.level}</option>)}</select></label>}
+    <p>{editionName(model.ruleset)} · Class level {model.level||1} · Character level {char.level||1}</p>{catalog.loading&&<p role="status">Loading published progression…</p>}{catalog.error&&<p role="alert">{catalog.error}</p>}
+    {tables.length?tables.map((table,i)=><div className="progression-scroll" tabIndex="0" role="region" aria-label={`${name} table ${i+1}`} key={i}><table className="progression-table"><caption>{record.name} · {override?'Personal table':'Source table'} {i+1}</caption><thead><tr>{table[0]?.map((v,j)=><th key={j} scope="col">{v||'—'}</th>)}</tr></thead><tbody>{table.slice(1).map((r,j)=><tr key={j} aria-current={parseInt(r[0])===model.level?'step':undefined}>{r.map((v,k)=>k?<td key={k}>{v||'—'}</td>:<th scope="row" key={k}>{v||'—'}</th>)}</tr>)}</tbody></table></div>):hasLevels?<div className="progression-scroll"><table className="progression-table"><thead><tr><th>Level</th><th>Proficiency</th><th>Features</th><th>Known / book</th><th>Prepared</th><th>Spell slots</th></tr></thead><tbody>{levels.map(l=>{const c={...model,level:l.level},counts=spellCounts(c,score);return <tr key={l.level}><th scope="row">{l.level}</th><td>+{l.prof_bonus||2+Math.floor((l.level-1)/4)}</td><td>{l.features?.map(f=>f.name).join(', ')||'—'}</td><td>{counts.known||'—'}</td><td>{counts.prepared||'—'}</td><td>{characterSlots(c).map((n,i)=>n?`${i}: ${n}`:null).filter(Boolean).join(' · ')||'—'}</td></tr>;})}</tbody></table></div>:<p>No structured progression is available. Add a personal table or reference image below.</p>}
+    {record.progressionImage?.url&&<figure><img className="progression-image" src={record.progressionImage.url} alt={record.progressionImage.alt} referrerPolicy="no-referrer"/><figcaption>{record.sourceNotes}</figcaption></figure>}
+    {record.sourceUrl&&<p><a href={record.sourceUrl} target="_blank" rel="noreferrer">Open {record.name} source and level table ↗</a></p>}
+    {onChange&&<div className="l-toolbar"><button className="l-button" onClick={edit}>Edit personal progression</button>{override&&<button className="l-button" onClick={()=>{const next={...char.contentOverrides};delete next[id];onChange({contentOverrides:next});setEditing(false);}}>Revert to canonical</button>}</div>}
+    {editing&&<section><p>Your changes belong to this character. They do not alter the source catalog or automatically recalculate class mechanics.</p><label className="l-field"><span>Progression table (tab-separated columns)</span><textarea rows={9} value={text} onChange={e=>setText(e.target.value)}/></label><label className="l-field"><span>Reference image URL (HTTPS)</span><input type="url" value={image} onChange={e=>setImage(e.target.value)}/></label><p>Use an image you already host. Only the link is saved; image data is not embedded in your character.</p><label className="l-field"><span>Image title / alt text</span><input value={title} onChange={e=>setTitle(e.target.value)}/></label><label className="l-field"><span>Source attribution / notes</span><input value={source} onChange={e=>setSource(e.target.value)}/></label>{error&&<p role="alert">{error}</p>}<button className="l-button primary" onClick={save}>Save personal progression</button><button className="l-button" onClick={()=>setEditing(false)}>Cancel edit</button></section>}
   </Dialog>}</>;
 }

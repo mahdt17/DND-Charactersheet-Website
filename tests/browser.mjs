@@ -45,7 +45,7 @@ try {
   await page.getByRole('button',{name:'Close dice roller'}).click();
  });
  await check('Wizard level 4 ASI and new spells',async()=>{
-  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
   await continueWizard();
   await page.getByLabel('Ability to increase by 2').selectOption('con');
   // Legacy/demo character has no subclass; level-up must repair that missing choice.
@@ -100,6 +100,7 @@ try {
   await page.getByRole('button',{name:'Add Goblin',exact:true}).click();
   await page.getByRole('button',{name:'Add Goblin',exact:true}).click();
   await page.getByRole('button',{name:'Roll initiative',exact:true}).click();
+  await page.locator('.dice-canvas[data-phase="settled"]').waitFor();const initiativeDice=(await page.locator('.dice-canvas').getAttribute('data-values')).split(',').map(Number);assert.equal(initiativeDice.length,2);const initiativeTotals=await page.getByLabel('Initiative',{exact:true}).evaluateAll(inputs=>inputs.map(input=>Number(input.value)));assert.deepEqual(initiativeTotals.sort((a,b)=>a-b),initiativeDice.map(n=>n+2).sort((a,b)=>a-b));
   await page.getByRole('button',{name:'Start combat'}).click();
   await page.getByRole('button',{name:'Next turn'}).click();
   await page.getByRole('button',{name:'Next turn'}).click();

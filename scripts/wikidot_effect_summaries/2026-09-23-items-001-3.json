@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-3",
+  "records": {
+    "wikidot5e:wondrous-items:arcane-propulsion-arm": {
+      "sourceDigest": "sha256:a2955ca517832bbe41db856056fb368bc98e6f44cdac294b1f7ed204a73f1364",
+      "effectSummary": "Attune by attaching the prosthetic at wrist, elbow, or shoulder; it forms a functional replacement limb and cannot be removed against your will, though you may remove it as an action and it detaches when attunement ends. The prosthetic is a magic melee weapon you are proficient with, dealing 1d8 force damage and having thrown 20/60. When thrown, it detaches, flies at the target, then immediately returns and reattaches."
+    },
+    "wikidot5e:wondrous-items:armblade": {
+      "sourceDigest": "sha256:416739df41a597c882d523777461cfe83067f9cbb0178d668286a9fac4958bd3",
+      "effectSummary": "Attunes by holding it against a warforged forearm and remains inseparable while attuned. As a bonus action, extend or retract the one-handed melee weapon from your forearm. While extended, use it as though held normally, but that hand cannot be used for anything else."
+    },
+    "wikidot5e:wondrous-items:armor-of-fungal-spores": {
+      "sourceDigest": "sha256:0451b9e41960499d6a8acd80539f7f1c2d65139ab9b543307cef300574dd88e8",
+      "effectSummary": "While wearing the armor, once per dawn use a bonus action to emit spores in a 10-foot-radius sphere centered on yourself. Each creature there makes a DC 15 Constitution save or is poisoned until the end of your next turn."
+    },
+    "wikidot5e:wondrous-items:armor-of-gleaming": {
+      "sourceDigest": "sha256:ca61f6a80955c5f728bcb8bedcdde6403646175ef92f8f14c4c37c1fb9adb140",
+      "effectSummary": "This medium or heavy armor never becomes dirty."
+    },
+    "wikidot5e:wondrous-items:armor-of-invulnerability": {
+      "sourceDigest": "sha256:763a3ae6c45175490fc6629e7ac5f8cfd68fa448f526158b596932562d1d04d9",
+      "effectSummary": "While worn, you have resistance to all nonmagical damage. Once per dawn, use an action to become immune to nonmagical damage for 10 minutes or until you stop wearing the armor."
+    },
+    "wikidot5e:wondrous-items:armor-of-resistance": {
+      "sourceDigest": "sha256:068e927ae0545d909b2f3927bfecd4e47ce79c63a79142a3c94f4a1bc833e537",
+      "effectSummary": "While worn, gain resistance to one damage type chosen by the DM or rolled d10: 1 acid, 2 cold, 3 fire, 4 force, 5 lightning, 6 necrotic, 7 poison, 8 psychic, 9 radiant, 10 thunder."
+    },
+    "wikidot5e:wondrous-items:armor-of-safeguarding": {
+      "sourceDigest": "sha256:6f136b46b4305744f6429a80b2331f7b8b678c4a8f66063c05b243de8a0d485f",
+      "effectSummary": "While wearing the armor, increase your hit point maximum by 10 + your level. Once per dawn, use an action to invoke its rune and cast beacon of hope for 1 minute without concentration."
+    },
+    "wikidot5e:wondrous-items:armor-of-the-fallen": {
+      "sourceDigest": "sha256:047ef03ff0a4e3d71d0e8568c595c8eee41902e159d6b2e713efc077ec6ceb4b",
+      "effectSummary": "While wearing the armor, cast either speak with dead or animate dead from it; after either spell is cast this way, neither can be cast from it again until the next dawn. If you die while attuned to the armor, it is destroyed."
+    },
+    "wikidot5e:wondrous-items:armor-of-vulnerability": {
+      "sourceDigest": "sha256:66e2712e5d8f34d4eab18a37bfb38b83495918e656b9adce7c9be16c4a3a7e8e",
+      "effectSummary": "While worn, gain resistance to one of bludgeoning, piercing, or slashing, chosen or randomly determined by the DM. The armor is cursed; identify or attunement reveals the curse. Attuning curses you until remove curse or similar magic, and removing the armor does not end it. While cursed, you are vulnerable to the other two physical damage types not granted resistance."
+    },
+    "wikidot5e:wondrous-items:armor-of-weightlessness": {
+      "sourceDigest": "sha256:d78f34b69d187e816052f8c5732c822920b5dcb61731e2c6e177cdb8a7ee4f57",
+      "effectSummary": "The armor has 5 charges and regains 1d4+1 daily at dawn. While wearing it, use a bonus action to cast jump on yourself for 1 charge or levitate on yourself for 2 charges."
+    }
+  }
+}

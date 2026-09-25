@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-4",
+  "records": {
+    "wikidot5e:wondrous-items:arrow-catching-shield": {
+      "sourceDigest": "sha256:5c54bdda5ea81a703c87a2c740e7cb66a09c641eda3e0b9c77051454e390ae77",
+      "effectSummary": "While wielding the shield, gain an additional +2 AC against ranged attacks beyond the shield's normal AC bonus. When a ranged attack targets a creature within 5 feet of you, use your reaction to make yourself the attack's target instead."
+    },
+    "wikidot5e:wondrous-items:arrow-of-slaying": {
+      "sourceDigest": "sha256:4098ff6c8a5ee6b715f854edb624116f58f2b22a82f17510113024f473fa2306",
+      "effectSummary": "This magic ammunition is keyed to a particular creature type, race, or group. If a matching creature takes damage from it, that creature makes a DC 17 Constitution save, taking an extra 6d10 piercing damage on a failure or half on a success. After dealing this extra damage, the ammunition becomes nonmagical."
+    },
+    "wikidot5e:wondrous-items:astral-shard": {
+      "sourceDigest": "sha256:edbb6bb0bc4bb4cfcc868c7df8461c44f698944330506ffa18083667eff37acd",
+      "effectSummary": "As an action, attach the shard to or detach it from a Tiny object; it detaches if attunement ends. While holding or wearing it, use it as a spellcasting focus. Whenever you apply a Metamagic option to a spell while holding or wearing the shard, immediately after casting you may teleport to a visible unoccupied space within 30 feet."
+    },
+    "wikidot5e:wondrous-items:astromancy-archive": {
+      "sourceDigest": "sha256:283a57e966c7cbdf39dc5b8f64b48a6b599a1812f68b10040df10a781d62122a",
+      "effectSummary": "Wizard spellbook/focus containing augury, divination, find the path, foresight, locate creature, and locate object; as a bonus action it folds between disc and armillary-sphere forms. It has 3 charges and regains 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with a Divination spell in the archive. When a visible creature within 30 feet makes an attack, ability check, or save, use your reaction and 1 charge after seeing the roll but before resolution to add or subtract 1d4 from it."
+    },
+    "wikidot5e:wondrous-items:atlas-of-endless-horizons": {
+      "sourceDigest": "sha256:6d794a3c69e2f3aabf3bd69e35b60cb2dcc6cc05d9fe6fcd87b467f591063742",
+      "effectSummary": "Wizard spellbook/focus containing arcane gate, dimension door, gate, misty step, plane shift, teleportation circle, and word of recall. It has 3 charges and regains 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with a Conjuration spell in the book. When an attack hits you, use your reaction and 1 charge to teleport up to 10 feet to a visible unoccupied space; if the new position is outside the attack's range, the attack misses."
+    },
+    "wikidot5e:wondrous-items:axe-of-the-dwarvish-lords": {
+      "sourceDigest": "sha256:3581e1aae0c75053161f56550c01e71b3f791bfb3ed13fe65c6732b26b8c0ac4",
+      "effectSummary": "Artifact +3 battleaxe that also functions as a belt of dwarvenkind, dwarven thrower, and sword of sharpness, with 2 random minor beneficial, 1 major beneficial, and 2 minor detrimental properties. A dwarf attuned to it gains poison immunity, +60 feet darkvision range, and proficiency with blacksmithing-, brewing-, and stonemasonry-related artisan's tools. Once per dawn while holding it, cast conjure elemental to summon an earth elemental. Once every 3 days, touch it to fixed dwarven stonework and cast teleport; if the destination is underground, there is no mishap or unexpected arrival. A nondwarf who attunes is cursed even after attunement ends, becoming progressively dwarflike over 7 days without changing racial traits; remove curse, greater restoration, or similar curse removal reverses it. The axe can be destroyed only by remaining in the Earthheart Forge for 50 years."
+    },
+    "wikidot5e:wondrous-items:azuredge": {
+      "sourceDigest": "sha256:677fbff90db2fed756cd07ef6e961fec8560b28e9e77cce5b354482a62bfcc35",
+      "effectSummary": "Sentient lawful-neutral +3 battleaxe; shield offers no defense against its attacks. Hits against fiends or undead deal +2d6 radiant. It has 3 throwing charges restored daily at dawn; spend 1 to make a ranged attack as thrown 60/180, after which it returns at turn end to your open hand or feet. As an action, turn its blue light on or off, shedding bright 30 feet and dim another 30. Intelligence 12, Wisdom 15, Charisma 15; hearing and darkvision 120 feet; telepathy with wielder; speaks, reads, and understands Common; senses non-lawful creatures within 120 feet. It seeks a law-abiding defender of Waterdeep. If used against its will, it may become ten times heavier and adhere to a Medium-or-larger object or surface, becoming unwieldable; only wish can separate it without destroying one side, unless the axe ends the effect."
+    },
+    "wikidot5e:wondrous-items:baba-yagas-mortar-and-pestle": {
+      "sourceDigest": "sha256:bbf9ddc7e1e7213c9b562d402a060fb48dbd27033a0203da3c290237e59c1250",
+      "effectSummary": "Artifact pair with 2 random minor beneficial, 1 major beneficial, and 1 minor detrimental property; if separated, the pestle reappears by the mortar at next dawn. The mortar expands up to Large to fit contents. Once per turn without an action, the pestle changes between 6-inch tool and +3 magic quarterstaff. It has 12 charges, all restored at dawn; on a melee hit spend up to 3 for +1d8 force per charge. Once per short or long rest, while holding both, use an action to name up to 10 gp of a nonmagical plant, mineral, or fluid and fill the mortar with it. The pair counts as several crafting tools and grants advantage on checks using them. As an action with both within 5 feet, command the pestle to grind for up to 1 minute; at each of your turn starts the contents take 4d10 force, reducing 0-HP nonmagic contents to powder/pulp/paste, with optional separation into constituent piles when grinding stops. While holding the pestle inside the mortar, command travel to a specific place or creature: within 1,000 miles, arrive in 1 hour or 1 minute at night. Instead, throw out material ground from a creature native to a named other plane or world to travel there in 1 minute. Destroyed only by being crushed under Baba Yaga's Dancing Hut or by Baba Yaga herself."
+    },
+    "wikidot5e:wondrous-items:badge-of-the-watch": {
+      "sourceDigest": "sha256:7cf34dca43d31ae7278e87278081d348a887046ab12e07dfdb7ff0d013198499",
+      "effectSummary": "While worn and not using a shield, gain +2 AC. If the badge remains more than 5 feet from you for over 1 minute, it vanishes and reappears within 5 feet of Waterdeep's Open Lord. While the Open Lord holds it, they know your location if on the same plane and your attunement remains; as an action they can end your attunement."
+    },
+    "wikidot5e:wondrous-items:bag-of-beans": {
+      "sourceDigest": "sha256:5765b85fc8d7bf3d8511e6172d1f46072613764b6482c8a4fa4fb1f61de376e7",
+      "effectSummary": "Contains 3d4 beans. Dumping all beans on the ground explodes in a 10-foot radius: DC 15 Dexterity, 5d4 fire or half, igniting unattended flammables. Planting and watering one bean produces an effect after 1 minute, chosen or d100: 01 sprouts 5d4 toadstools; eating one uses an odd/even die—odd requires DC 15 Constitution or 5d6 poison and poisoned 1 hour, even grants 5d6 temporary HP for 1 hour. 02–10 a 30-foot geyser of a DM-chosen liquid for 1d12 rounds. 11–20 a treant, 50% chaotic evil and hostile. 21–30 an immobile talking statue of you that maligns you, knows your same-plane location, and becomes inert after 24 hours. 31–40 blue campfire for 24 hours. 41–50 1d6+6 shriekers. 51–60 1d4+8 pink toads; touching one turns it into a DM-chosen Large-or-smaller monster for 1 minute. 61–70 hostile bulette. 71–80 fruit tree with 1d10+20 fruit; 1d8 are random potions, one is ingested poison, tree vanishes after 1 hour and picked fruit stays magical 30 days. 81–90 1d4+3 eggs; eating one requires DC 20 Constitution—success permanently raises the lowest ability by 1, failure deals 10d6 force. 91–99 a 60-foot-base pyramid containing a mummy lord and DM-chosen treasure, functioning as its lair. 00 a giant beanstalk to a DM-chosen destination."
+    }
+  }
+}

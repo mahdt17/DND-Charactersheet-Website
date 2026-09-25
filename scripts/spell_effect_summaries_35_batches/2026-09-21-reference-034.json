@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked reviewed DnD Tools spell effects; resolved Player's Handbook v.3.5 Cure/Inflict reference batch 034.",
+  "entries": {
+    "spells/cure-critical-wounds-2378": {
+      "name": "Cure Critical Wounds",
+      "sourceSha256": "0c05c423bb5224a36c424d0750cd3788d94d1047a2dbfaf96a5196c53e0d279d",
+      "effectSummary": "A touch channels positive energy to heal a living creature for 4d8 +1 point per caster level, maximum +20. Against undead, it deals the same amount as damage instead; an undead target can apply spell resistance and make a Will save for half damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cure-critical-wounds-2378",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/cure-light-wounds-2380",
+          "role": "same-book inherited Cure Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/cure-moderate-wounds-2383": {
+      "name": "Cure Moderate Wounds",
+      "sourceSha256": "0d1120cf359f3baab56fb1cca0d80560f1a750757bcce04a70528bf6c1f43163",
+      "effectSummary": "A touch channels positive energy to heal a living creature for 2d8 +1 point per caster level, maximum +10. Against undead, it deals the same amount as damage instead; an undead target can apply spell resistance and make a Will save for half damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cure-moderate-wounds-2383",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/cure-light-wounds-2380",
+          "role": "same-book inherited Cure Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/cure-serious-wounds-2385": {
+      "name": "Cure Serious Wounds",
+      "sourceSha256": "fc530debe9ab36f9e244b972fa967c75d62eef98c3d4d19116daafaacabdacde",
+      "effectSummary": "A touch channels positive energy to heal a living creature for 3d8 +1 point per caster level, maximum +15. Against undead, it deals the same amount as damage instead; an undead target can apply spell resistance and make a Will save for half damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cure-serious-wounds-2385",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/cure-light-wounds-2380",
+          "role": "same-book inherited Cure Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/inflict-critical-wounds-2743": {
+      "name": "Inflict Critical Wounds",
+      "sourceSha256": "4c8df9292bfbfa6551d5d698d738e7a2c267955677b6e696926bf833f6a04464",
+      "effectSummary": "A touch channels negative energy to deal 4d8 points of damage +1 point per caster level, maximum +20; a Will save halves the damage and spell resistance applies. Against undead, it heals the same amount instead of harming them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inflict-critical-wounds-2743",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-2745",
+          "role": "same-book inherited Inflict Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/inflict-moderate-wounds-2748": {
+      "name": "Inflict Moderate Wounds",
+      "sourceSha256": "45a1d651ed0846aac9d2be2c7663b334b21c86651cf1771a3ae644107dd57133",
+      "effectSummary": "A touch channels negative energy to deal 2d8 points of damage +1 point per caster level, maximum +10; a Will save halves the damage and spell resistance applies. Against undead, it heals the same amount instead of harming them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inflict-moderate-wounds-2748",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-2745",
+          "role": "same-book inherited Inflict Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/inflict-serious-wounds-2750": {
+      "name": "Inflict Serious Wounds",
+      "sourceSha256": "e1c3d71231eaa8cf45c5d6e04646cbf20b052a39dafca6de779ab7585499c113",
+      "effectSummary": "A touch channels negative energy to deal 3d8 points of damage +1 point per caster level, maximum +15; a Will save halves the damage and spell resistance applies. Against undead, it heals the same amount instead of harming them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inflict-serious-wounds-2750",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-2745",
+          "role": "same-book inherited Inflict Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    }
+  }
+}

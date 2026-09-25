@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5 dependent summaries for the remaining Races of Eberron Natural Weapon Augmentation family; clean batch 059.",
+  "entries": {
+    "spells/natural-weapon-augmentation-4959": {
+      "name": "Natural Weapon Augmentation",
+      "sourceSha256": "e82e175035df8416fce26ce3a8bdb6dd42b389ca6a89ae691db7c97d72ef4811",
+      "effectSummary": "As Natural Weapon Augmentation, Lesser, this infusion lasts 10 minutes per caster level and affects one natural weapon of a creature you touch, but it raises the property ceiling: you can choose any compatible magic-weapon special ability whose market price is equivalent to a bonus of up to +3 or whose flat market-price addition is no more than 70,000 gp; speed is the printed example. The natural weapon need not already have an enhancement bonus, and the infusion does not grant one. The material component is an ointment made from rare spices and minerals costing 100 gp. Warforged spellcasters cast this infusion at +1 caster level.",
+      "notes": "Source-locked to Races of Eberron p. 188. The spell inherits the Lesser version's printed 10 minutes/level duration, touch targeting, harmless save/resistance, and Personal-root weapon-property rules; only the property ceiling, material-component cost, and printed example change.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/natural-weapon-augmentation-4959",
+          "role": "primary Races of Eberron record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/ithax/tsea/basic/151-194",
+          "role": "same-printing Races of Eberron rendering used to verify the inherited Lesser wording and +3/70,000 gp override"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/magicItems/magicWeapons.htm",
+          "role": "3.5 core magic-weapon rules cross-check inherited through the reviewed family root"
+        }
+      ]
+    },
+    "spells/natural-weapon-augmentation-greater-4960": {
+      "name": "Natural Weapon Augmentation, Greater",
+      "sourceSha256": "a7688d3be28015ab55c79e18ff0c53d1c63c60f903acc4e2b8234ff6717b7ea5",
+      "effectSummary": "As Natural Weapon Augmentation, Lesser, this infusion lasts 10 minutes per caster level and affects one natural weapon of a creature you touch, but it raises the property ceiling: you can choose any compatible magic-weapon special ability whose market price is equivalent to a bonus of up to +5 or whose flat market-price addition is no more than 200,000 gp; vorpal is the printed example. The natural weapon need not already have an enhancement bonus, and the infusion does not grant one. The material component is an ointment made from rare spices and minerals costing 200 gp. Warforged spellcasters cast this infusion at +1 caster level.",
+      "notes": "Source-locked to Races of Eberron p. 188. The spell inherits the Lesser version's printed 10 minutes/level duration, touch targeting, harmless save/resistance, and Personal-root weapon-property rules; only the property ceiling, material-component cost, and printed example change.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/natural-weapon-augmentation-greater-4960",
+          "role": "primary Races of Eberron record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/ithax/tsea/basic/151-194",
+          "role": "same-printing Races of Eberron rendering used to verify the inherited Lesser wording and +5/200,000 gp override"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/magicItems/magicWeapons.htm",
+          "role": "3.5 core magic-weapon rules cross-check inherited through the reviewed family root"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "e1482cdf3d3e31cd20f807102416e73bee393743",
+    "workflowRun": 35677645899,
+    "validationRun": 35677648486,
+    "classificationArtifact": 10674017076,
+    "classificationArtifactSha256": "40688236f5ca68df276ab477ba4018602ddf32693381912da528e13af17232cf",
+    "queueCountBefore": 1024,
+    "repairQueueCountBefore": 4,
+    "referenceEligibleCountBefore": 2
+  }
+}

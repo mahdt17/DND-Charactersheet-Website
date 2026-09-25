@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest- and table-digest-locked Dragonmarked table reviews; clean batch 066.",
+  "entries": {
+    "spells/mark-wild-4878": {
+      "name": "Mark of the Wild",
+      "sourceSha256": "0a9edfe3272d0a8fd1d44a652109e688ef60f50553c1052844cd9cf44e803bbd",
+      "tablesSha256": "26b7c58406fb94082f3b77c95b9394abacf968f9feb9ebf7214f1347c716c28f",
+      "effectSummary": "Animals no longer regard you as a threat and do not threaten or attack you unless you attack an animal first, which ends the spell immediately. Duration depends on your dragonmark: Least 1 minute per level, Lesser 10 minutes per level, Greater or Siberys 1 hour per level. Requires any true or aberrant dragonmark.",
+      "tables": [
+        [
+          [
+            "Dragonmark",
+            "Duration"
+          ],
+          [
+            "Least",
+            "1 min./level"
+          ],
+          [
+            "Lesser",
+            "10 min./level"
+          ],
+          [
+            "Greater or Siberys",
+            "1 hour/level"
+          ]
+        ]
+      ],
+      "notes": "Dragonmarked p.152 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/mark-wild-4878",
+          "role": "primary Dragonmarked catalog record and digest source"
+        },
+        {
+          "url": "https://anyflip.com/ogyal/tayk/basic/151-162",
+          "role": "same-printing Dragonmarked rendering used to verify the animal behavior rule and complete duration table"
+        }
+      ]
+    },
+    "spells/marked-pulse-4879": {
+      "name": "Marked Pulse",
+      "sourceSha256": "1923e5677e2eed36f343489d8e0189d608225a02ea376ffd96041ca748b1c561",
+      "tablesSha256": "406c022883bcdf208cdf0aded9df30ac6ed9b12a2e004ff74b8633e8833fa50d",
+      "effectSummary": "As an immediate action, deals force damage to creatures you select within the 20-foot-radius burst, with a Fortitude save for half. Damage depends on your true dragonmark: Least 2d6, Lesser 3d6, Greater 4d6, Siberys 5d6. If you have a Greater or Siberys dragonmark, a creature that fails its Fortitude save is also knocked prone.",
+      "tables": [
+        [
+          [
+            "Dragonmark",
+            "Force Damage"
+          ],
+          [
+            "Least",
+            "2d6"
+          ],
+          [
+            "Lesser",
+            "3d6"
+          ],
+          [
+            "Greater",
+            "4d6"
+          ],
+          [
+            "Siberys",
+            "5d6"
+          ]
+        ]
+      ],
+      "notes": "Dragonmarked p.152 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/marked-pulse-4879",
+          "role": "primary Dragonmarked catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/dragonmarked--7/marked-pulse--4879/",
+          "role": "matching Dragonmarked rendering used to verify selected targets, Fortitude half, prone rider, and complete damage table"
+        },
+        {
+          "url": "https://anyflip.com/ogyal/tayk/basic/151-162",
+          "role": "same-printing Dragonmarked page rendering cross-check"
+        }
+      ]
+    },
+    "spells/ray-retaliation-4881": {
+      "name": "Ray of Retaliation",
+      "sourceSha256": "d0963737435fae3751c8e5d263cc3b46befbff505b9a8c460b16e898ef775328",
+      "tablesSha256": "b7b8ecd1c8b4e3134f738e80837310200a941789aa3702aea575f7ccf10689e8",
+      "effectSummary": "When a ray attack hits you, you can cast this as an immediate action to negate that ray's effect and fire force energy back at its caster, provided you were aware of the attack and not flat-footed. The retaliation does not provoke attacks of opportunity, requires a ranged touch attack, and must penetrate the original caster's spell resistance if any. Damage depends on your dragonmark: Least 1d6 per 2 caster levels (maximum 5d6), Lesser 1d8 per 2 caster levels (maximum 5d8), Greater or Siberys 1d6 per caster level (maximum 10d6). Your ray has the original ray's range and can target only the original caster. Requires any true or aberrant dragonmark.",
+      "tables": [
+        [
+          [
+            "Dragonmark",
+            "Force Damage"
+          ],
+          [
+            "Least",
+            "1d6 per 2 caster levels (max. 5d6)"
+          ],
+          [
+            "Lesser",
+            "1d8 per 2 caster levels (max. 5d8)"
+          ],
+          [
+            "Greater or Siberys",
+            "1d6 per caster level (max. 10d6)"
+          ]
+        ]
+      ],
+      "notes": "Dragonmarked p.153 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ray-retaliation-4881",
+          "role": "primary Dragonmarked catalog record and digest source"
+        },
+        {
+          "url": "https://webmail.dndtools.org/spells/dragonmarked--7/ray-retaliation--4881/",
+          "role": "matching Dragonmarked rendering used to verify trigger, negation, targeting, range, spell resistance, and complete damage table"
+        }
+      ]
+    },
+    "spells/spell-haven-4882": {
+      "name": "Spell Haven",
+      "sourceSha256": "31dbc6b25b0313dda1e39f0ad90f0aafdfd71940f713c2581a172e905e47a367",
+      "tablesSha256": "86e93f83e37bfa3fc2df8e4950a05b1b716022e5ce886de20f4abeb0ffaf4965",
+      "effectSummary": "Stores one spell you can normally cast with a casting time of 1 round or less inside your dragonmark. Only one spell can be stored at a time, and the maximum level depends on the mark: Least 1st, Lesser 3rd, Greater or Siberys 5th. The stored spell can later be cast as an immediate action and does not count against your normal daily spell limit. Required material components are consumed when the spell is stored, and the stored spell cannot be lost or stolen by effects that remove prepared spells or available spell slots. The focus is a Siberys dragonshard for a true mark or Khyber dragonshard for an aberrant mark, worth at least 500 gp per level of the stored spell. Requires any true or aberrant dragonmark.",
+      "tables": [
+        [
+          [
+            "Dragonmark",
+            "Maximum Spell Level"
+          ],
+          [
+            "Least",
+            "1st"
+          ],
+          [
+            "Lesser",
+            "3rd"
+          ],
+          [
+            "Greater or Siberys",
+            "5th"
+          ]
+        ]
+      ],
+      "notes": "Dragonmarked p.153 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-haven-4882",
+          "role": "primary Dragonmarked catalog record and digest source"
+        },
+        {
+          "url": "https://dndtools.net/spells/dragonmarked--7/spell-haven--4882/",
+          "role": "matching Dragonmarked rendering used to verify storage eligibility, immediate release, component timing, focus cost, protection from spell-loss effects, and complete maximum-level table"
+        }
+      ]
+    },
+    "spells/taunt-dragon-4870": {
+      "name": "Taunt Dragon",
+      "sourceSha256": "037091910fd3985291c279328f84bf597672b39e5accf0afc54f5dc482ec5350",
+      "tablesSha256": "451cb2b6f1971f45f467e9121ca6d3e873c85976f733965db9b7fa704e9033a7",
+      "effectSummary": "Targets one dragon that has line of sight to you and can see you. On a failed Will save, whenever it does anything other than attack you or move to attack you, it takes a penalty on attack rolls, skill checks, and saving throws based on your true dragonmark: Least -5, Lesser -10, Greater or Siberys -20. The spell ends if line of sight between you and the dragon is broken or if you become disabled, dying, or dead. If multiple taunt dragon spells affect the same dragon, it takes the penalty only when it fails to attack or move toward the caster who affected it most recently.",
+      "tables": [
+        [
+          [
+            "Dragonmark",
+            "Penalty"
+          ],
+          [
+            "Least",
+            "-5"
+          ],
+          [
+            "Lesser",
+            "-10"
+          ],
+          [
+            "Greater or Siberys",
+            "-20"
+          ]
+        ]
+      ],
+      "notes": "Dragonmarked p.154 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/taunt-dragon-4870",
+          "role": "primary Dragonmarked catalog record and digest source"
+        },
+        {
+          "url": "https://www.dndtools.org/spells/dragonmarked--7/taunt-dragon--4870/",
+          "role": "matching Dragonmarked rendering used to verify compulsion, ending conditions, stacking behavior, and complete penalty table"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "c90cfa2093de4636c02007296f573f3e24710220",
+    "workflowRun": 35680713359,
+    "validationRun": 35680716376,
+    "classificationArtifact": 10674707966,
+    "classificationArtifactSha256": "328d6e2f006aee32feb8d13aa70c14d70b356cee064c9a1a5345a93004f10d04",
+    "queueCountBefore": 1001,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 0,
+    "tableQueueCountBefore": 24
+  }
+}

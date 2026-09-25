@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-005-4",
+  "records": {
+    "wikidot5e:spell:hallucinatory-terrain": {
+      "sourceDigest": "sha256:fbb77dbb25902117a1f1977cada7c00b8db736ccf83c8633cd449d7550ef9609",
+      "effectSummary": "Make natural terrain in a 150-foot cube look, sound, and smell like another kind of natural terrain for 24 hours, without changing creatures, equipment, or manufactured structures. The terrain's tactile properties remain real, so physical contact may reveal the illusion. A creature that carefully examines it can make an Intelligence (Investigation) check against your spell save DC; on a success it sees the illusion as a vague overlay on the true terrain."
+    },
+    "wikidot5e:spell:hand-of-radiance": {
+      "sourceDigest": "sha256:cc58b772f7ebc9d8c2c70f226dfa2e71daf16457c5b303832c78dd9c67cfd16f",
+      "effectSummary": "Each creature of your choice that you can see within 5 feet makes a Constitution save or takes 1d6 radiant damage. Damage becomes 2d6 at character level 5, 3d6 at 11, and 4d6 at 17."
+    },
+    "wikidot5e:spell:harm": {
+      "sourceDigest": "sha256:e51206e0182856cd19d59efe4609d18c70c5443eb95e35e37f935288976ae719",
+      "effectSummary": "One visible creature within 60 feet makes a Constitution save, taking 14d6 necrotic damage on a failure or half on a success; this damage cannot reduce it below 1 HP. On a failed save, its hit point maximum is also reduced by the necrotic damage taken for 1 hour, ending early if an effect removes disease."
+    },
+    "wikidot5e:spell:haste": {
+      "sourceDigest": "sha256:2aca3f53c3380f9230e2926fa4f78257312f963121b3b854a29add685b321ec5",
+      "effectSummary": "For up to 1 minute, one willing visible creature has doubled speed, +2 AC, advantage on Dexterity saves, and one extra action on each turn that can be used only for a single weapon attack, Dash, Disengage, Hide, or Use an Object. When the spell ends, the target cannot move or take actions until after its next turn."
+    },
+    "wikidot5e:spell:haywire": {
+      "sourceDigest": "sha256:5538ae835c8a4c2d1d679d2be9ba8467e706bb5b9e62772bae8164a39821c84d",
+      "effectSummary": "Electronic devices in a 10-foot-radius sphere become erratic for up to 1 minute. Unattended devices are affected automatically; a held device is affected if its holder fails a Wisdom save. At the start of each of your turns, roll 1d6 for each affected device: 1 shuts it down until restarted; 2–4 makes it nonfunctional until your next turn; 5 causes a power surge that forces the wielder, if any, and one random creature within 5 feet to make Dexterity saves for 6d6 lightning damage, half on success; 6 lets it function normally until your next turn. Each slot level above 3rd increases the sphere radius by 5 feet."
+    },
+    "wikidot5e:spell:heal": {
+      "sourceDigest": "sha256:47de503e60d4595eb2eafe482fae97f964782e951e470ae2e49f7c4334bbe491",
+      "effectSummary": "One visible creature within 60 feet regains 70 HP and is cured of blindness, deafness, and all diseases. Constructs and undead are unaffected. Each slot level above 6th adds 10 healing."
+    },
+    "wikidot5e:spell:healing-elixir-ua": {
+      "sourceDigest": "sha256:f6cd38168f03ad3d832179883fe5d0b26f2dc70783d5c9ac3dc7d7cb7ec04156",
+      "effectSummary": "Create a healing elixir in a vial that lasts 24 hours or until consumed. A creature can use an action to drink it or administer it to another creature, restoring 2d4+2 HP; the vial vanishes when the elixir is consumed."
+    },
+    "wikidot5e:spell:healing-spirit": {
+      "sourceDigest": "sha256:ec8858fa3bd57af64b3bad9e451d78316589afd22b39b4ccdb1b5ca9633ef650",
+      "effectSummary": "Create an intangible spirit in a visible 5-foot cube within 60 feet for up to 1 minute. When you or a visible creature first enters its space on a turn or starts a turn there, you may heal that creature 1d6 HP without an action; constructs and undead cannot be healed. As a bonus action, move the spirit up to 30 feet. It can heal a total number of times equal to 1 + your spellcasting ability modifier, minimum 2, then disappears. Each slot level above 2nd adds 1d6 healing each time."
+    },
+    "wikidot5e:spell:healing-word": {
+      "sourceDigest": "sha256:56d00c89b05af5a709dfb893e45bb7e04c9b5e8a43204e4763df24b42f799710",
+      "effectSummary": "One visible creature within 60 feet regains 1d4 + your spellcasting ability modifier HP. Undead and constructs are unaffected. Each slot level above 1st adds 1d4 healing."
+    },
+    "wikidot5e:spell:heat-metal": {
+      "sourceDigest": "sha256:4701d5e02f1d7bdd6111d582217adb1e74e0515967e86cfd1f566fc0007efac1",
+      "effectSummary": "Choose a visible manufactured metal object within 60 feet. A creature in physical contact with it takes 2d8 fire damage when you cast; as a bonus action on later turns, you can deal this damage again. A creature holding or wearing the heated object that takes the damage makes a Constitution save or drops it if possible; if it does not or cannot drop it, it has disadvantage on attack rolls and ability checks until the start of your next turn. Each slot level above 2nd adds 1d8 damage."
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { mechanics, is35, characterSlots } from './editions';
+import { mechanics, is35, spellSlotPools } from './editions';
 export const conditionNames=c=>Array.isArray(c.conditions)?c.conditions.filter(x=>typeof x==='string').map(x=>x.trim()).filter(Boolean):String(c.conditions||'').split(',').map(s=>s.trim()).filter(Boolean);
 export const exhaustionLevel=c=>Math.max(0,Math.min(6,Math.floor(Number(c.exhaustion??(conditionNames(c).some(n=>n.toLowerCase()==='exhaustion')?1:0))||0)));
 export function conditionEffects(c){const e=exhaustionLevel(c),names=conditionNames(c).map(n=>n[0].toUpperCase()+n.slice(1).toLowerCase()),modern=mechanics(c)==='2024';
@@ -29,4 +29,14 @@ export function spellPlan(s,c,slot,mod){
  if(!result.rolls.length)result.notes='This spell has no automatic damage formula. Resolve its effects from the description, or enter a roll below.';
  return result;
 }
-export function availableSlots(c,s){const level=Number(s.level)||0;return characterSlots(c).map((total,i)=>({level:i,remaining:Math.max(0,total-(c.slotsUsed?.[i]||0))})).filter(x=>x.remaining>0&&(is35(c)?x.level===level:x.level>=Math.max(1,level)));}
+export function availableSlots(c,s){
+ const level=Number(s.level)||0,{standard,pact}=spellSlotPools(c);
+ return [...standard.map((total,i)=>({level:i,remaining:Math.max(0,total-(c.slotsUsed?.[i]||0))})),
+  ...pact.map((total,i)=>({level:i,remaining:Math.max(0,total-(c.pactSlotsUsed?.[i]||0)),pool:'pact'}))]
+  .filter(x=>x.remaining>0&&(is35(c)?x.level===level:x.level>=Math.max(1,level)));
+}
+export function spendSpellSlot(c,s,level,pool='standard') {
+ if(!availableSlots(c,s).some(x=>x.level===level&&(x.pool||'standard')===pool))throw Error('Choose an available slot for this spell.');
+ const key=pool==='pact'?'pactSlotsUsed':'slotsUsed';
+ return {[key]:{...c[key],[level]:(c[key]?.[level]||0)+1}};
+}

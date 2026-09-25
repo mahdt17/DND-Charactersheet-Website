@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-009-3",
+  "records": {
+    "wikidot5e:spell:soul-cage": {
+      "sourceDigest": "sha256:f38666f80b0033c146aa59e2c739b868bfb2e702c8ade0c44f7c850a7ad0bbc5",
+      "effectSummary": "As a reaction when a visible humanoid within 60 feet dies, trap its soul in the spell's silver cage for up to 8 hours. While trapped, the corpse cannot be revived. You may exploit the soul up to six times; after the sixth use it is released and the spell ends. Steal Life: bonus action to regain 2d8 HP. Query Soul: ask a question without an action and receive a truthful brief telepathic answer based only on what it knew in life. Borrow Experience: bonus action to gain advantage on your next attack roll, ability check, or save before your next turn. Eyes of the Dead: action to create an invisible sensor at a place the humanoid saw in life on your current plane, seeing and hearing through it while concentrating up to 10 minutes; creatures that can see invisible things perceive a translucent image of the trapped soul."
+    },
+    "wikidot5e:spell:speak-with-animals": {
+      "sourceDigest": "sha256:426624eaa2179078055461da540f5ce80a8aed8f79042c29a4308288cf054a39",
+      "effectSummary": "For 10 minutes, comprehend and verbally communicate with beasts. Their knowledge is limited by intelligence, but they can at least convey information about nearby locations and monsters and what they have perceived within the past day. At the DM's discretion, you may persuade a beast to perform a small favor."
+    },
+    "wikidot5e:spell:speak-with-dead": {
+      "sourceDigest": "sha256:91d5e4ed62bc2aed267875e7afc48238f461c1c73f3fcca68a0d54ba3d8a4424",
+      "effectSummary": "Animate the semblance of life in a corpse within 10 feet that still has a mouth and is not undead. The spell fails if that corpse was targeted by this spell within the last 10 days. For 10 minutes, you may ask up to five questions; it knows only what it knew in life, including its languages, and answers are usually brief, cryptic, or repetitive. It is not compelled to be truthful if hostile to you or if it recognizes you as an enemy. The creature's soul does not return, so it cannot learn new information or speculate about later or future events."
+    },
+    "wikidot5e:spell:speak-with-plants": {
+      "sourceDigest": "sha256:9afe17b8ffd5a6a696ef784502419d82455807414f61cb932be0c43acd9e2af1",
+      "effectSummary": "For 10 minutes, plants within 30 feet gain limited sentience and can communicate with you and follow simple commands. You can ask them about events in the area during the past day. You may turn plant-created difficult terrain into normal terrain for the duration or normal plant-covered terrain into difficult terrain. Plants may perform other suitable tasks at the DM's discretion but cannot uproot themselves. You can communicate with plant creatures as though sharing a language but gain no magical influence over them. The spell can cause plants created by entangle to release a restrained creature."
+    },
+    "wikidot5e:spell:spike-growth": {
+      "sourceDigest": "sha256:c30a188cc978382869386fc5b0ba161b8cf62d135511fc63d8f0688dc3df19af",
+      "effectSummary": "Transform ground in a 20-foot radius centered within 150 feet into camouflaged spikes and thorns for up to 10 minutes. The area is difficult terrain, and a creature moving into or within it takes 2d4 piercing damage for every 5 feet traveled. A creature that could not see the area when the spell was cast must succeed on a Wisdom (Perception) check against your spell save DC to recognize the hazard before entering."
+    },
+    "wikidot5e:spell:spirit-guardians": {
+      "sourceDigest": "sha256:a9034e2e38848609c1d7c8e5ad31fca0eb1f523529e3a26eec2d31db4e7845b2",
+      "effectSummary": "Spirits fill a 15-foot radius around you for up to 10 minutes; when cast, designate any visible creatures to be unaffected. An affected creature's speed is halved in the area, and when it enters for the first time on a turn or starts its turn there it makes a Wisdom save, taking 3d8 radiant damage if you are good or neutral or 3d8 necrotic if you are evil, half on a success. Each slot level above 3rd adds 1d8 damage."
+    },
+    "wikidot5e:spell:spirit-of-death": {
+      "sourceDigest": "sha256:7a64b472ae7600377600e1a9d1fa552204f1a50044cd2d9eda4dfec2d5f68e51",
+      "effectSummary": "Summon a Medium undead Reaper Spirit in a visible unoccupied space within 60 feet for up to 1 hour. It is your ally, shares your initiative and acts immediately after you, obeys verbal commands without requiring your action, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 40 + 10 per spell level above 4th; speed 30 ft., fly 30 ft. hover; all ability scores 16 (+3); immune to necrotic and poison damage and to charmed, exhaustion, frightened, paralyzed, and poisoned; darkvision 60 ft.; understands your languages. It can move through creatures and objects as difficult terrain, taking 1d10 force per 5 feet if it ends inside an object and is shunted out. Multiattack makes a number of Reaping Scythe attacks equal to half the spell level rounded down; each uses your spell attack modifier with advantage and deals 1d8 + 3 + spell level necrotic. As a bonus action it can Haunt a visible creature within 10 feet; you and the spirit know that target's direction and distance on the same plane, and a haunted target starting within 10 feet makes a Wisdom save or is frightened until the start of its next turn. Haunting lasts until the target dies, the spirit disappears, or it haunts another target. Higher-level slots scale all spell-level statistics."
+    },
+    "wikidot5e:spell:spirit-of-death-ua": {
+      "sourceDigest": "sha256:f1b4710de60459b6d3729470e5e3376636b37435c27a910d6c8aaebcccdf2fe7",
+      "effectSummary": "Choose a visible creature within 60 feet and summon a Medium undead Reaper Spirit in an unoccupied space within 10 feet of it for up to 1 minute; that creature is haunted, and the spirit disappears if it or the haunted creature reaches 0 HP. The spirit is your ally, shares your initiative and acts after you, obeys verbal commands but attacks only the haunted creature, and otherwise Dodges and avoids danger. AC is 11 + spell level; HP 40 + 10 per level above 4th; speed 30 ft., fly 30 ft. hover; all abilities 16 (+3); immune to necrotic and poison damage and charmed, frightened, paralyzed, poisoned; darkvision 60 ft.; understands your languages. It can move through creatures and objects as difficult terrain, taking 1d10 force per 5 feet and being shunted out if it ends inside an object. You and the spirit know the haunted target's direction and distance on the same plane. It makes half the spell level rounded down Reaping Scythe attacks, using your spell attack modifier with advantage for 1d10 + 3 + spell level necrotic. Once per day it can force the haunted target within 60 feet to make a Wisdom save or be frightened for 1 minute with speed 0 and no speed bonuses; the target repeats the save at each turn end and immediately after taking damage. Higher-level slots scale spell-level statistics."
+    },
+    "wikidot5e:spell:spirit-shroud": {
+      "sourceDigest": "sha256:5e9dedec6c2a83a674b7c4a2daf7ebc24b553060e9c1b3264b8a41d116b98b90",
+      "effectSummary": "For up to 1 minute, your attacks deal 1d8 extra radiant, necrotic, or cold damage, chosen when cast, when they hit a creature within 10 feet. A creature damaged this way cannot regain HP until the start of your next turn. In addition, each visible creature of your choice that starts its turn within 10 feet has its speed reduced by 10 feet until the start of your next turn. The extra damage increases by 1d8 for every two slot levels above 3rd."
+    },
+    "wikidot5e:spell:spiritual-weapon": {
+      "sourceDigest": "sha256:68077c192c65e4e43d7f0bcdc3f4ffe6764925e7149f257a6e76450bf46caf6e",
+      "effectSummary": "Create a spectral weapon within 60 feet for 1 minute or until you cast this spell again. When cast, make a melee spell attack against a creature within 5 feet of it; a hit deals 1d8 + your spellcasting ability modifier force damage. As a bonus action on later turns, move it up to 20 feet and repeat the attack. Damage increases by 1d8 for every two slot levels above 2nd."
+    }
+  }
+}

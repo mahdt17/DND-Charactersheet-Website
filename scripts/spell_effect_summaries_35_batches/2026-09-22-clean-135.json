@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Final 21-record difficult-tail batch 135. Every remaining reference-dependent spell was manually reviewed, including all table-driven mechanics and printing-specific inheritance. Existing supplement/regression metadata for five records is preserved; only the sixteen previously-unlocked IDs are newly added to the regression list.",
+  "entries": {
+    "spells/giant-size-550": {
+      "name": "Giant Size",
+      "sourceSha256": "a235ff5a8d26b01f30e4f6253027f27b309fa0f3a2449bea22b5e99526f5d4c8",
+      "effectSummary": "For 1 minute, you grow to a chosen size no larger than your caster level permits: Huge at caster levels 1–15 (+16 Str, -2 Dex, +4 Con, +3 natural armor, -2 size AC/attack, 15-ft. space/reach), Gargantuan at 16–18 (+24 Str, -2 Dex, +8 Con, +7 natural armor, -4 size AC/attack, 20-ft. space/reach), or Colossal at 19+ (+32 Str, -2 Dex, +12 Con, +12 natural armor, -8 size AC/attack, 30-ft. space/reach). You may choose a smaller available size. All equipment resizes and remains usable; weapon damage scales by the Dungeon Master's Guide increasing-weapon-damage-by-size table. Material component: a dragon scale or hairs from a giant's head.",
+      "notes": "Manually source-reviewed and table-verified. The Complete Arcane size/stat table was independently checked; the external DMG weapon-size damage table remains a named rules dependency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/giant-size-550",
+          "role": "primary Complete Arcane record and table source"
+        }
+      ]
+    },
+    "spells/luminous-armor-7": {
+      "name": "Luminous Armor",
+      "sourceSha256": "6c29e769cfbd40c44e387e4a0d6770328337cc76d9d85c6c8bf57a6f7921335b",
+      "effectSummary": "Envelops one good creature in weightless luminous armor for 1 hour per caster level. It grants a +5 armor bonus to AC like a breastplate but has no maximum Dexterity limit, armor check penalty, or arcane spell failure chance. It sheds light equivalent to Daylight, counters darkness spells of 2nd level or lower on contact, and its brilliance imposes a -4 penalty on melee attacks made against the subject; this stacks with penalties suffered by creatures sensitive to bright light. Sacrifice: 1d2 Strength damage.",
+      "notes": "Effect text and the previously supplemented Sacrifice component were independently verified. Daylight is retained as the named light-equivalence reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-armor-7",
+          "role": "primary Book of Exalted Deeds record"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/book-of-exalted-deeds--52/luminous-armor--7/index.html",
+          "role": "component cross-check"
+        }
+      ]
+    },
+    "spells/luminous-armor-greater-8": {
+      "name": "Luminous Armor, Greater",
+      "sourceSha256": "26fdf82f38b1a2d58c0daa42eaededbb8a09bc796ca888068d527c2c189c20b5",
+      "effectSummary": "Functions as Luminous Armor, including its weightless unrestricted armor, Daylight-equivalent illumination, countering of darkness spells of 2nd level or lower, and -4 penalty on melee attacks against the subject, except it grants a +8 armor bonus to AC like full plate instead of +5. Duration is 1 hour per caster level. Sacrifice: 1d3 Strength damage.",
+      "notes": "Manually verified against the same-source Luminous Armor base spell and the previously supplemented Sacrifice component.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/luminous-armor-greater-8",
+          "role": "primary Book of Exalted Deeds record"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/luminous-armor-7",
+          "role": "inherited base spell"
+        }
+      ]
+    },
+    "spells/nightmare-2687": {
+      "name": "Nightmare",
+      "sourceSha256": "e92ef2128e14bcfb8f233be3a665f91d89aaceca6fc934b3069a7c09dc766833",
+      "effectSummary": "After a 10-minute casting at unlimited range, sends a phantasmal nightmare to one specifically designated living creature. On a failed Will save it prevents restful sleep, deals 1d10 damage, leaves the subject fatigued, and prevents recovery of arcane spells for 24 hours. The Will-save modifier is +10 with no knowledge (which also requires some physical connection), +5 secondhand, +0 firsthand, or -5 familiar; a likeness/picture gives -2, a possession/garment -4, and a body part/hair/nail -10, with knowledge and connection modifiers combined. Dispel Evil cast on the subject while you are casting dispels Nightmare and stuns you for 10 minutes per caster level of that Dispel Evil. If the target is awake, you may stop or enter a helpless trance until it sleeps; interruption requires the normal in-casting Concentration check. Creatures that do not sleep or dream are immune.",
+      "notes": "PHB 3.5 effect and both save-modifier tables independently cross-checked against the 3.5 SRD.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/nightmare-2687",
+          "role": "primary Player's Handbook v.3.5 record"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/nightmare.htm",
+          "role": "3.5 SRD table cross-check"
+        }
+      ]
+    },
+    "spells/permanency-2900": {
+      "name": "Permanency",
+      "sourceSha256": "99ed9016696670cc8fae77409f0ef1cab6daa4ae86e6722337fba8017d24a2dd",
+      "effectSummary": "Makes eligible spells permanent after you first cast the desired spell, subject to a minimum caster level and XP cost. Personal-only options include Arcane Sight (CL11/1,500 XP), Comprehend Languages (9/500), Darkvision (10/1,000), Detect Magic (9/500), Read Magic (9/500), See Invisibility (10/1,000), Sense of the Dragon (9/1,500), and Tongues (11/1,500); these cannot be placed on others and can be dispelled only by a caster of higher level than you were. Creature/object options include Enlarge Person (9/500), Magic Fang (9/500), Greater Magic Fang (11/1,500), Rary's Telepathic Bond (13/2,500; only two creatures per Permanency), Reduce Person (9/500), and Resistance (9/500). Object/area options include Alarm (9/500), Animate Objects (14/3,000), Dancing Lights (9/500), Ghost Sound (9/500), Gust of Wind (11/1,500), Invisibility (10/1,000), Magic Mouth (10/1,000), Mordenkainen's Private Sanctum (13/2,500), Phase Door (15/3,500), Prismatic Sphere (17/4,500), Prismatic Wall (16/4,000), Shrink Item (11/1,500), Solid Fog (12/2,000), Stinking Cloud (11/1,500), Symbol of Death (16/4,000), Symbol of Fear (14/3,000), Symbol of Insanity (16/4,000), Symbol of Pain (13/2,500), Symbol of Persuasion (14/3,000), Symbol of Sleep (16/4,000), Symbol of Stunning (15/3,500), Symbol of Weakness (15/3,500), Teleportation Circle (17/4,500), Wall of Fire (12/2,000), Wall of Force (13/2,500), and Web (10/1,000). Effects on other creatures, objects, or locations dispel normally. The DM can allow researched additional applications at the normal spell-research cost.",
+      "notes": "All three PHB 3.5 permanency tables were independently verified; this summary preserves their caster-level and XP requirements.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/permanency-2900",
+          "role": "primary Player's Handbook v.3.5 record and tables"
+        }
+      ]
+    },
+    "spells/polymorph-any-object-2853": {
+      "name": "Polymorph Any Object",
+      "sourceSha256": "e31606039a81d4f89b8c051a4263e115185d3b23e57c4dc2d0869c0bd44bf1e6",
+      "effectSummary": "Functions as Polymorph but can change a creature or nonmagical object (up to 100 cubic feet per caster level) into another creature or object. Duration is based on similarity: same kingdom +5, same class +2, same size +2, related +2, same-or-lower Intelligence +2; total factor 0=20 minutes, 2=1 hour, 4=3 hours, 5=12 hours, 6=2 days, 7=1 week, 9+=permanent. Unlike Polymorph, the new form's Intelligence replaces the subject's Intelligence, and a form lacking Wisdom/Charisma gains those scores from the new form. Physical damage to the transformed form can injure or kill the subject. Magic items are unaffected and a nonmagical object cannot become a magic item. The spell cannot create intrinsically valuable materials such as copper, silver, gems, silk, gold, platinum, mithral, or adamantine, nor reproduce cold iron's special DR-bypassing property. It can also duplicate Baleful Polymorph, Polymorph, Flesh to Stone, Stone to Flesh, Transmute Mud to Rock, Transmute Metal to Wood, or Transmute Rock to Mud. Material component: mercury, gum arabic, and smoke.",
+      "notes": "Both duration-factor tables were independently verified. Base Polymorph mechanics and named duplicated spells remain explicit dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-any-object-2853",
+          "role": "primary Player's Handbook v.3.5 record and tables"
+        }
+      ]
+    },
+    "spells/prismatic-sphere-2343": {
+      "name": "Prismatic Sphere",
+      "sourceSha256": "5cb298c59edb4654c66a8a88dd491684a2aae07515f76ecfd8949366f7aac3da",
+      "effectSummary": "Creates an immobile opaque 10-foot-radius sphere centered on you for 10 minutes per caster level, functioning as Prismatic Wall except for its spherical form. You can pass through and remain near it safely; from inside, nothing can be projected through it, including spells. Creatures with fewer than 8 HD that look at it are blinded for 2d4x10 minutes. Creatures attacking or passing through suffer each color in order: red stops nonmagical ranged weapons and deals 20 fire (Reflex half; removed by Cone of Cold); orange stops magical ranged weapons and deals 40 acid (Reflex half; Gust of Wind); yellow stops poison/gas/petrification and deals 80 electricity (Reflex half; Disintegrate); green stops breath weapons and poisons to death, Fortitude partial for 1d6 Con instead (Passwall); blue stops divination/mental attacks and petrifies, Fortitude negates (Magic Missile); indigo stops all spells and causes insanity on failed Will (Daylight); violet destroys objects/effects and sends creatures to another plane on failed Will (Dispel Magic). Layers are removed in order; spell resistance is checked separately per color. Typically only the upper hemisphere exists where the floor intersects the sphere. Permanency can make it permanent.",
+      "notes": "Prismatic Sphere's inherited seven-color Prismatic Wall table was independently verified against 3.5 SRD material.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/prismatic-sphere-2343",
+          "role": "primary Player's Handbook v.3.5 sphere record"
+        },
+        {
+          "url": "https://dndtools.org/spells/players-handbook-v35--6/prismatic-wall--2344/",
+          "role": "inherited Prismatic Wall table cross-check"
+        }
+      ]
+    },
+    "spells/psychic-poison-125": {
+      "name": "Psychic Poison",
+      "sourceSha256": "faf29402f06233e8511cb61b7e6aeec6784591240c4b7ebc17264c85ceaf5e43",
+      "effectSummary": "For 1 hour per caster level, taints a 50-foot-radius area, or one creature or object that fits in that area, so that anyone casting a mind-affecting or divination spell at the creature/object or within the area is exposed to one psychic poison chosen at casting, provided you meet its minimum caster level. Options are Darin-tasith (creature; 1d6 Int/1d6 Int; CL7), Karadrach (creature; 1d6 Wis/1d6 Wis; 7), Estadrach (creature; 1d8 Wis/2d8 Wis; 9), Stradda (creature or object; 1d6 Cha/1d6 Cha; 8), Nishita (object; 1d6 Int/1d6 Int; 7), Vashita (object; 1d6 Wis/1d6 Wis; 7), Lanshita (object; 2d6 Cha/2d6 Cha; 11), Blue Unlyn (area; 1d6 Int/1d6 Int; 8), Red Unlyn (area; 1d6 Wis/1d6 Wis; 8), Amber Unlyn (area; 1d6 Cha/1d6 Cha; 8), Violet Unlyn (area; 1d6 Int/2d6 Int; 10), or Black Unlyn (area; 1d6 Int + 1d6 Wis + 1d6 Cha as both initial and secondary; 13). Material component: humanoid brain tissue.",
+      "notes": "The complete Book of Vile Darkness psychic-poison table was independently recovered and verified.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/psychic-poison-125",
+          "role": "primary Book of Vile Darkness record and table"
+        }
+      ]
+    },
+    "spells/reincarnate-2862": {
+      "name": "Reincarnate",
+      "sourceSha256": "7b22f06966d7dffbfbd8322aec7c519d0ce46aa3448c812a7ea7ef76d1d514df",
+      "effectSummary": "Brings back a willing creature dead no more than one week in a newly created young-adult body, provided some original remains exist; physical ills are repaired and body condition otherwise does not matter. The new body forms over 1 hour. The subject retains class abilities, feats, skills, class, BAB, base saves, and hit points, but remove its old racial physical adjustments and apply the new body's Str/Dex/Con modifiers. It loses one level/HD; a 1st-level subject instead loses 2 Con permanently, failing if that would reduce Con to 0 or less. Humanoid d% forms are: 01 bugbear +4/+2/+2; 02–13 dwarf +0/+0/+2; 14–25 elf +0/+2/-2; 26 gnoll +4/+0/+2; 27–38 gnome -2/+0/+2; 39–42 goblin -2/+2/+0; 43–52 half-elf +0/+0/+0; 53–62 half-orc +2/+0/+0; 63–74 halfling -2/+2/+0; 75–89 human +0/+0/+0; 90–93 kobold -4/+2/-2; 94 lizardfolk +2/+0/+2; 95–98 orc +4/+0/+0; 99 troglodyte +0/-2/+4; 100 other, DM choice. Nonhumanoids use a same-type table or DM-chosen form. The new form grants associated movement, natural armor/attacks, extraordinary abilities, and similar racial traits but not its language automatically. Undead, constructs, elementals, outsiders, creatures killed by death effects, and creatures dead of old age cannot be returned. Wish or Miracle can restore the original form. Material component: rare oils/unguents worth at least 1,000 gp.",
+      "notes": "3.5 SRD effect and full reincarnation table independently verified.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reincarnate-2862",
+          "role": "primary Player's Handbook v.3.5 record"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/reincarnate.htm",
+          "role": "3.5 SRD table cross-check"
+        }
+      ]
+    },
+    "spells/repair-minor-damage-3425": {
+      "name": "Repair Minor Damage",
+      "sourceSha256": "653a07ed785d9b12c438ad133c15b0bc8e4f43866d4c90758056c1d9bfdf06ef",
+      "effectSummary": "Functions as Repair Light Damage except it repairs exactly 1 point of damage to a construct. The inherited Repair Light Damage rule requires touching a construct that has at least 1 hit point remaining and repairs damage rather than using positive-energy healing. Casting time 1 standard action; range Touch; instantaneous; no save; spell resistance yes (harmless).",
+      "notes": "3.0 source edition and previously supplemented Sorcerer 0/Wizard 0 class levels preserved; inherited Repair Light Damage behavior manually checked.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-minor-damage-3425",
+          "role": "primary Tome and Blood record"
+        }
+      ]
+    },
+    "spells/slaying-arrow-4953": {
+      "name": "Slaying Arrow",
+      "sourceSha256": "4663fbc1771573265863275ff5135d370b879ff0c572c25947bdbe6eb56d1ddc",
+      "effectSummary": "For 10 minutes per caster level, imbues one arrow or bolt to be exceptionally deadly against one creature type chosen when cast and gives it +1 enhancement on attack and damage rolls. If it hits a creature of the keyed type, that target must make a Fortitude save or die; an unliving target such as a construct or undead is destroyed instead. Constructs and undead are subject to this Fortitude save despite normally being exempt. On a successful save the target suffers only the projectile's normal damage. When keyed to a living target type, the slaying effect is a death effect. Material component: one drop of viper blood.",
+      "notes": "Effect manually verified while preserving the previously repaired S/M component metadata. The classifier's phrase 'opposed to a construct or undead' was confirmed to be prose, not a spell reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/slaying-arrow-4953",
+          "role": "primary Magic of Eberron record"
+        }
+      ]
+    },
+    "spells/songbird-1793": {
+      "name": "Songbird",
+      "sourceSha256": "0805f7c383516f115df3d9194d4db9e59823e9d0b7c0a28b7b7b899f74daee2b",
+      "effectSummary": "If you begin a performance within 1 hour of casting, anyone who hears or sees that performance becomes favorably inclined toward you, and you gain a +1 competence bonus on your next Charisma check to influence one NPC's attitude or on your next Charisma-based skill check against one person who saw the performance. The benefit lasts through the performance and up to 1 hour afterward, or until discharged by the qualifying check. Casting time 1 full round; range Personal; no save or spell resistance (harmless).",
+      "notes": "3.0 source edition and previously supplemented Bard 0 class level preserved; the NPC Attitudes reference is retained as the standard DMG subsystem.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/songbird-1793",
+          "role": "primary Magic of Faerûn record"
+        }
+      ]
+    },
+    "spells/summon-monster-i-2441": {
+      "name": "Summon Monster I",
+      "sourceSha256": "2f4135a77d30b4c475d58dc2c75ac43c23b5d397013a44ad39fd05114d727c26",
+      "effectSummary": "Summons one extraplanar creature for 1 round per caster level. It appears where designated and acts immediately on your turn, attacking opponents to the best of its ability; if you can communicate, you can direct it not to attack, to attack chosen enemies, or to take other actions. The 1st-level list is celestial dog (LG), celestial owl (LG), celestial giant fire beetle (NG), celestial porpoise (NG; aquatic only), celestial badger (CG), celestial monkey (CG), fiendish dire rat (LE), fiendish raven (LE), fiendish Medium monstrous centipede (NE), fiendish Small monstrous scorpion (NE), fiendish hawk (CE), fiendish Small monstrous spider (CE), fiendish octopus (CE; aquatic only), or fiendish Small viper (CE). Summoned creatures cannot summon/conjure another creature or use teleportation/planar travel and cannot be placed in an unsupported environment. The spell gains air/chaotic/earth/evil/fire/good/lawful/water descriptors matching the summoned creature. Arcane focus: a tiny bag and small candle.",
+      "notes": "PHB 3.5 first-level summon table and all general summoning restrictions independently verified. Individual creature stat blocks remain Monster Manual dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "primary Player's Handbook v.3.5 record and table"
+        }
+      ]
+    },
+    "spells/summon-natures-ally-i-2450": {
+      "name": "Summon Nature's Ally I",
+      "sourceSha256": "dafe933f05b71c30d57803896a5eedf1afafc1a6f3a3580e17b0f64dff1746bd",
+      "effectSummary": "Summons one natural creature for 1 round per caster level. It appears where designated and acts immediately on your turn, attacks opponents to the best of its ability, and can be directed to other actions if you can communicate. Summoned creatures cannot summon/conjure another creature or use teleportation/planar travel and cannot be placed in an environment that cannot support them. The 1st-level list is dire rat, eagle, monkey, octopus (aquatic only), owl, porpoise (aquatic only), Small viper, or wolf; all are neutral unless specifically noted. You choose the creature each casting.",
+      "notes": "PHB 3.5 first-level Nature's Ally list and general summoning restrictions independently verified; creature stat blocks remain Monster Manual dependencies.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-natures-ally-i-2450",
+          "role": "primary Player's Handbook v.3.5 record"
+        },
+        {
+          "url": "https://dnd-wiki.org/wiki/SRD%3ASummon_Nature%27s_Ally_I",
+          "role": "3.5 SRD list cross-check"
+        }
+      ]
+    },
+    "spells/summon-undead-i-1423": {
+      "name": "Summon Undead I",
+      "sourceSha256": "80f8c62f195365970244d3d3bb3aa282b579f07ef1f233d9b08e9048f401d66c",
+      "effectSummary": "Functions as Summon Monster I except it summons one undead creature from the 1st-level Summon Undead list: human warrior skeleton or kobold zombie. It inherits Summon Monster I's appearance, immediate action on your turn, attack/direction rules, ban on further summoning/conjuration and teleportation/planar travel, and environmental-support rule except where undead-specific text supersedes them. Summoned undead do not count toward the Hit Dice you can control with Animate Dead, Plague of Undead, or other command-undead abilities, and no summoned undead can have more Hit Dice than your caster level +1. Duration 1 round per caster level; Evil descriptor. Focus: tiny bag, unlit small candle, and carved humanoid bone. This Heroes of Horror description explicitly supersedes earlier versions.",
+      "notes": "Heroes of Horror table and Summon Monster I inheritance independently verified.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-1423",
+          "role": "primary Heroes of Horror record and list"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "inherited base spell"
+        }
+      ]
+    },
+    "spells/summon-undead-i-3780": {
+      "name": "Summon Undead I",
+      "sourceSha256": "90fc845962a2f2df4d02f3e2e9aa1cdb8f89f7d7411269dc7f3205fcd6d42746",
+      "effectSummary": "In a burst of quickly dissipating smoke and fog, functions as Summon Monster I except it summons one undead creature. The Spell Compendium 1st-level list is human warrior skeleton or kobold zombie; higher-level lists printed in the same sidebar are 2nd: owlbear skeleton, bugbear zombie; 3rd: ghoul, troll skeleton, ogre zombie; 4th: allip, ghast, wyvern zombie; 5th: mummy, shadow, vampire spawn, wight. For this 1st-level spell you choose from the 1st-level entries. Summoned undead do not count toward the Hit Dice controlled by Animate Dead or other command-undead abilities, and no summoned undead can have more Hit Dice than caster level +1. It otherwise inherits Summon Monster I's action, direction, no-summoning/no-planar-travel, and environmental-support rules. Duration 1 round per caster level; Evil descriptor. Focus: tiny bag, unlit small candle, and carved humanoid bone.",
+      "notes": "Spell Compendium sidebar and Summon Monster I inheritance independently verified.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-undead-i-3780",
+          "role": "primary Spell Compendium record and sidebar"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "inherited base spell"
+        }
+      ]
+    },
+    "spells/weapon-of-the-deity-1807": {
+      "name": "Weapon of the Deity",
+      "sourceSha256": "cce1f5778bad0a534f8c3664d7e69291838c0576cd4536ce0796cc850a1e8387",
+      "effectSummary": "For 1 round per caster level, while using your deity's favored weapon, you may use it as if proficient; it gains +1 enhancement on attack and damage and the printing-specific special ability from the Magic of Faerûn deity table, increasing to +2 at caster level 9, +3 at 12, +4 at 15, and +5 at 18. A double weapon applies the enhancement and special ability to only one chosen end. If the favored weapon is unarmed strike, one hand functions as Magic Fang/Greater Magic Fang as appropriate, counts as armed, and can touch without invoking the special ability. The source table was independently checked and includes the full Forgotten Realms deity mapping (for example Abbathor returning dagger, Akadi screaming heavy flail, Corellon keen longsword, Cyric flaming longsword, Ghaunadaur corrosive warhammer, Mystra three returning chakram, Selûne shock heavy mace, Shar returning chakram, Talos shock shortspear, Tiamat keen heavy pick, Tyr keen longsword, Yondalla defending short sword, and the other listed deities exactly as printed).",
+      "notes": "The very large Magic of Faerûn deity-to-weapon table was independently verified and remains authoritative in the catalog; this summary records the governing scaling and special unarmed-strike rule without duplicating every row.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-of-the-deity-1807",
+          "role": "primary Magic of Faerûn record"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/magic-of-faerun--20/weapon-of-the-deity--1807/index.html",
+          "role": "full deity table cross-check"
+        }
+      ]
+    },
+    "spells/weapon-of-the-deity-759": {
+      "name": "Weapon of the Deity",
+      "sourceSha256": "666be4b732987de511e7babcf182f8e116bf0c4ffa5bf714bf05481385325e5e",
+      "effectSummary": "For 1 round per caster level, while using your deity's favored weapon, you may use it as if proficient; it gains +1 enhancement on attack and damage plus the Complete Divine table's special property, rising to +2 at caster level 9, +3 at 12, +4 at 15, and +5 at 18. A double weapon applies the effect to only one chosen end. Core mappings are Bahamut frost heavy pick; Boccob spell-storing quarterstaff; Corellon keen longsword; Ehlonna frost longsword; Erythnul mighty-cleaving morningstar; Fharlanghn defending quarterstaff; Garl throwing battleaxe; Gruumsh returning shortspear; Heironeous shock longsword; Hextor mighty-cleaving heavy flail; Kord mighty-cleaving greatsword; Kurtulmak shock shortspear; Lolth keen whip; Moradin throwing warhammer; Nerull keen scythe; Obad-Hai defending quarterstaff; Olidammara keen rapier; Pelor flaming heavy mace; St. Cuthbert mighty-cleaving heavy mace; Vecna frost dagger; Wee Jas dagger of venom; Tiamat flaming heavy pick; Yondalla defending short sword. Alignment defaults: Good frost warhammer, Evil mighty-cleaving light flail, Neutral defending heavy mace, Law flaming longsword, Chaos shock battleaxe. A different deity receives a DM-assigned property of equivalent power.",
+      "notes": "Complete Divine core/alignment table independently verified.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-of-the-deity-759",
+          "role": "primary Complete Divine record"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/complete-divine--56/weapon-of-the-deity--759/index.html",
+          "role": "deity table cross-check"
+        }
+      ]
+    },
+    "spells/weapon-of-the-deity-979": {
+      "name": "Weapon of the Deity",
+      "sourceSha256": "744db479e869fe66e5057307acef7ee3b44d55ae4ee827b9bdb479e481e8977c",
+      "effectSummary": "For 1 round per caster level, while using your deity's favored weapon, you may use it as if proficient; it gains +1 enhancement on attack and damage plus the Defenders of the Faith table's special property, rising to +2 at caster level 9, +3 at 12, +4 at 15, and +5 at 18. A double weapon applies the effect to one chosen end. The 3.0 printing's table includes Annam unarmed/defending; Blibdoolpoolp shock pincer staff; Boccob spell-storing quarterstaff; Callarduran defending battleaxe; Corellon keen longsword; Deep Sashelas trident of fish command; Diirinka spell-storing dagger of venom; Eadro frost shortspear; Ehlonna frost longsword; Erythnul mighty-cleaving morningstar; Fharlanghn defending quarterstaff; Garl throwing battleaxe; Grolantor mighty-cleaving club; Gruumsh returning shortspear; Heironeous shock longsword; Hextor mighty-cleaving heavy flail; Hiatea distance shortspear; Hruggek mighty-cleaving morningstar; Iallanis unarmed/defending; Iuz mighty-cleaving greatsword; Kaelthiere flaming shortspear; Kord mighty-cleaving greatsword; Kurtulmak shock halfspear; Laduguer defending warhammer; Laogzed mighty-cleaving javelin; Lolth keen whip; Maglubiyet mighty-cleaving battleaxe; Memnor mighty-cleaving morningstar; Merrshaulk longsword of venom; Moradin throwing warhammer; Nerull keen scythe; Obad-Hai defending quarterstaff; Olidammara keen rapier; Panzuriel shock quarterstaff; Pelor flaming heavy mace; Sekolah trident of fish command; Semuanya mighty-cleaving greatclub; Sixin frost short sword; Skerrit flaming shortspear; Skoraeus mighty-cleaving warhammer; St. Cuthbert mighty-cleaving heavy mace; Stronmaus shock warhammer; Surtr flaming greatsword; Thrym frost greataxe; Vaprak mighty-cleaving greatclub; Vecna frost dagger; Wee Jas dagger of venom; Yondalla defending short sword; plus Good frost warhammer, Evil mighty-cleaving light flail, Neutral defending heavy mace, Law flaming longsword, Chaos shock battleaxe.",
+      "notes": "3.0 Defenders of the Faith table independently verified and preserved separately from later printings.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weapon-of-the-deity-979",
+          "role": "primary Defenders of the Faith record"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/defenders-of-the-faith-a-guidebook-to-clerics-and-paladins--38/weapon-of-the-deity--979/index.html",
+          "role": "full table cross-check"
+        }
+      ]
+    },
+    "spells/weight-of-sin-613": {
+      "name": "Weight of Sin",
+      "sourceSha256": "cdf774115baf70b6e62ef9577cfb6a9f6727d3bb02195f0f7de33c33ab5f292e",
+      "effectSummary": "Deals effects based on the target's alignment relative to yours. Same alignment: no effect. Different but with no directly opposed component: 1 damage per caster level (max 15), no secondary effect. One opposed component: 1d4 damage per caster level (max 15d4) plus a minor secondary effect. Diametrically opposed: 1d6 per caster level (max 15d6) plus a moderate effect. Recasting on the same target in the immediately following round increases the secondary effect one step; minor/moderate last 1 round per caster level, major is permanent until dispelled. Fortitude halves damage, then Will negates the secondary effect even where the duplicated spell normally gives no save. Table: Chaotic vs Lawful: minor -1 saves, moderate Confusion, major Baleful Polymorph; Evil vs Good: -1 AC, Crushing Despair, Weakened as Symbol of Weakness; Good vs Evil: -1 attacks, Exhausted as Ray of Exhaustion, Blinded as Power Word Blind; Lawful vs Chaotic: -1 damage, Slow, Flesh to Stone. For exact opposite pairs, CE vs LG gives moderate Confusion/major Weakened; CG vs LE gives Exhausted/Baleful Polymorph; LE vs CG gives Crushing Despair/Flesh to Stone; LG vs CE gives Slow/Blinded. Spell resistance applies.",
+      "notes": "Complete Champion opposed-alignment table independently recovered and verified. The classifier's apparent reference phrase was ordinary prose, not a missing spell name.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weight-of-sin-613",
+          "role": "primary Complete Champion record and table"
+        }
+      ]
+    },
+    "spells/were-doom-189": {
+      "name": "Were-doom",
+      "sourceSha256": "57a4eff91658d9470009d5eac0939909a55c9ef7fa57577f76cd6ee496c17be9",
+      "effectSummary": "Must be cast at night. For 1 day, randomly selects 1d4 humanoids in a 50-foot-per-caster-level-radius area; each can negate with Fortitude and spell resistance. A failed target is infected with lycanthropy, immediately changes into its animal or hybrid form (its choice), and begins savagely attacking nearby creatures. Roll d% for type: 01–25 wererat, 26–60 werewolf, 61–80 wereboar, 81–100 weretiger. The Lycanthrope template governs the resulting condition and cure rules. Material component: a bit of lycanthrope fur or skin.",
+      "notes": "Book of Vile Darkness lycanthrope-type table independently verified; Monster Manual lycanthrope template remains the named external rules dependency.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/were-doom-189",
+          "role": "primary Book of Vile Darkness record"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/spells/book-of-vile-darkness--37/were-doom--189/index.html",
+          "role": "table cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "ed108883b10a1f37210ea7217032f708a10666f1",
+    "workflowRun": 35776655725,
+    "validationRun": 35776661154,
+    "classificationArtifact": 10715639410,
+    "classificationArtifactSha256": "b7d7d48e3b2fa332e1a92bc7dc0660c4dd468651771c9492a950b759bb44c373",
+    "queueCountBefore": 21,
+    "referenceQueueCountBefore": 21,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

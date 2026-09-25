@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-005-5",
+  "records": {
+    "wikidot5e:spell:hellish-rebuke": {
+      "sourceDigest": "sha256:bde7083e644a865da22a3969bf6838bde23685a84c5f1573f98e8baddf90d241",
+      "effectSummary": "As a reaction when a visible creature within 60 feet damages you, force it to make a Dexterity save. It takes 2d10 fire damage on a failure or half on a success. Each slot level above 1st adds 1d10 damage."
+    },
+    "wikidot5e:spell:heroes-feast": {
+      "sourceDigest": "sha256:7b91d2819178adb40f9c256095a5a0069a9899a87e2e7ae4dc0af7275fec08cd",
+      "effectSummary": "Conjure a feast for up to twelve creatures. Eating takes 1 hour, after which each participant is cured of all diseases and poison, becomes immune to poison and fear, has advantage on Wisdom saves, and increases both current and maximum HP by 2d10 for 24 hours."
+    },
+    "wikidot5e:spell:heroism": {
+      "sourceDigest": "sha256:0abe1abc51520e43a1c89b275507c784ab964b4a8d2d918db5ad8c7dda735c85",
+      "effectSummary": "A willing creature you touch is immune to being frightened and gains temporary hit points equal to your spellcasting ability modifier at the start of each of its turns for up to 1 minute. Temporary hit points remaining from this spell disappear when it ends. Each slot level above 1st lets you target one additional creature."
+    },
+    "wikidot5e:spell:hex": {
+      "sourceDigest": "sha256:5e69dadd055e1d70cc9067579bf946023ee938f6d614304ddf027e0b40c73d03",
+      "effectSummary": "Curse one visible creature within 90 feet. Until the spell ends, each time you hit it with an attack it takes an extra 1d6 necrotic damage, and it has disadvantage on ability checks using one ability you choose. If it reaches 0 HP before the spell ends, you can use a bonus action on a later turn to move the curse to a new creature. Remove curse ends the spell. A 3rd- or 4th-level slot extends concentration to up to 8 hours; a 5th-level-or-higher slot extends it to up to 24 hours."
+    },
+    "wikidot5e:spell:hold-monster": {
+      "sourceDigest": "sha256:64acf415fb69ed30ab94373c7515e71c461364e3a26b26e0966132c1f2deee5a",
+      "effectSummary": "One visible non-undead creature within 90 feet makes a Wisdom save or is paralyzed for up to 1 minute. It repeats the save at the end of each of its turns, ending the spell on itself on a success. Each slot level above 5th adds one target, and all targets must be within 30 feet of one another when chosen."
+    },
+    "wikidot5e:spell:hold-person": {
+      "sourceDigest": "sha256:d297c9ec6e50ed8f43d6cc7a11fc563104f7ead53c060f69ea03ba910c124bfa",
+      "effectSummary": "One visible humanoid within 60 feet makes a Wisdom save or is paralyzed for up to 1 minute. It repeats the save at the end of each of its turns, ending the spell on itself on a success. Each slot level above 2nd adds one humanoid target, and all targets must be within 30 feet of one another when chosen."
+    },
+    "wikidot5e:spell:holy-aura": {
+      "sourceDigest": "sha256:79f45f1dbced897c0ca28079357d29d1a92b0a9a0e4128a6c8fd8ca5aa3c1466",
+      "effectSummary": "Choose creatures within 30 feet when you cast. For up to 1 minute, each chosen creature sheds dim light for 5 feet, has advantage on all saving throws, and attacks against it have disadvantage. Whenever a fiend or undead hits an affected creature with a melee attack, the attacker makes a Constitution save or is blinded until the spell ends."
+    },
+    "wikidot5e:spell:holy-weapon": {
+      "sourceDigest": "sha256:97639275938c7c0a0d50c8f4d095099b68e7df544a1ec6db641feb8d4e9d021a",
+      "effectSummary": "Touch a weapon for up to 1 hour. It becomes magical if needed, sheds bright light for 30 feet and dim light for another 30, and its attacks deal an extra 2d8 radiant damage. As a bonus action, you can end the spell in a burst: chosen visible creatures within 30 feet make Constitution saves, taking 4d8 radiant damage and becoming blinded for 1 minute on a failure, or half damage with no blindness on a success. A blinded creature repeats the save at the end of each of its turns, ending the blindness on a success."
+    },
+    "wikidot5e:spell:house-of-cards-ua": {
+      "sourceDigest": "sha256:c06a28245229615cbb944da175ad10dd5186d89b33d72fe57268f7ecbfd769fa",
+      "effectSummary": "Conjure a three-story playing-card structure for 24 hours, centered on you and harmlessly lifting creatures in its area. The bottom floor is 30 feet square, the second 20 feet square, and the top 10 feet square, each with 10-foot ceilings; ramps connect floors and open doorframes connect interior and exterior. Creatures inside or on top have half cover. Each 5-by-10-foot card has AC 10, 1 HP, and immunity to poison and psychic damage. When any card is destroyed, roll 1d6; on 5–6 the house collapses and the spell ends. The whole structure vanishes when the spell ends."
+    },
+    "wikidot5e:spell:hunger-of-hadar": {
+      "sourceDigest": "sha256:ff9bc5cabbd1d794a5e8702189dec074e48801acdd4b53fdf65b6b7edc8f304b",
+      "effectSummary": "Create a 20-foot-radius sphere of magical blackness within 150 feet for up to 1 minute. No light, magical or otherwise, illuminates it; creatures fully inside are blinded, and the area is difficult terrain. A creature starting its turn there takes 2d6 cold damage. A creature ending its turn there makes a Dexterity save or takes 2d6 acid damage."
+    }
+  }
+}

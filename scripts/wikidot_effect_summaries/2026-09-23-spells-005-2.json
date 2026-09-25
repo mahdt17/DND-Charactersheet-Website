@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-005-2",
+  "records": {
+    "wikidot5e:spell:giant-insect": {
+      "sourceDigest": "sha256:af99f4170780184730c669d66b50ef561947795bd1aa0666f4feb24378e98ce8",
+      "effectSummary": "Transform up to ten centipedes, three spiders, five wasps, or one scorpion within range into the corresponding giant creatures for up to 10 minutes. They obey your verbal commands, act on your turn in combat, and use the published giant-creature statistics. A transformed creature returns to normal when the spell ends, it reaches 0 HP, or you dismiss its transformation as an action. The DM may allow analogous insects using an appropriate giant stat block."
+    },
+    "wikidot5e:spell:gift-of-gab": {
+      "sourceDigest": "sha256:3ac203fb115b9b50d5b1c498311146bacf888290c050817005fa3508d3e6a845",
+      "effectSummary": "As a reaction immediately after speaking, choose creatures within 5 feet of you. Each chosen listener forgets everything you said during the previous 6 seconds and instead remembers you saying the words used as this spell's verbal component."
+    },
+    "wikidot5e:spell:globe-of-invulnerability": {
+      "sourceDigest": "sha256:5d34b976c66471730167fac4cd6468e40db4fd905f3d2efa8ac23934895d83f3",
+      "effectSummary": "Create an immobile 10-foot-radius barrier around yourself for up to 1 minute. Spells of 5th level or lower cast from outside cannot affect creatures or objects inside, even if cast using a higher-level slot, and their areas exclude the globe's interior. Each slot level above 6th raises the maximum blocked spell level by 1."
+    },
+    "wikidot5e:spell:glyph-of-warding": {
+      "sourceDigest": "sha256:ab7956674069f6261c12f03b7f2510e307aba4ea542aed9e7f914f00b30d9014",
+      "effectSummary": "Inscribe a nearly invisible glyph on a surface up to 10 feet across or inside a closable object; moving that surface or object more than 10 feet from the casting location breaks the glyph. Set a trigger based on interaction, proximity, observation, physical traits, creature type, alignment, or a password exception. On triggering, choose either explosive runes or a stored spell. Explosive runes fills a 20-foot-radius sphere with 5d8 acid, cold, fire, lightning, or thunder damage, Dexterity save for half. A spell glyph stores a prepared 3rd-level-or-lower spell that targets one creature or an area; when triggered it is cast on the triggering creature or centered there, with summoned hazards appearing as close as possible and concentration spells lasting their full duration without concentration. Each slot level above 3rd adds 1d8 to explosive runes and raises the maximum stored-spell level to the slot used."
+    },
+    "wikidot5e:spell:goodberry": {
+      "sourceDigest": "sha256:684620aef6d7d0d300d1a382cb53093db8a24d9aae2e15e1c40ad34a4c5be1fe",
+      "effectSummary": "Create up to ten magical berries. A creature can use an action to eat one, regaining 1 HP and receiving enough nourishment for one day. Unused berries lose their magic 24 hours after the spell is cast."
+    },
+    "wikidot5e:spell:grasping-vine": {
+      "sourceDigest": "sha256:c8658a03fa7b5a8c9c270cd12639c8966c0b0b1ace3dca8005177d7ab8e5c26c",
+      "effectSummary": "Conjure a vine in a visible unoccupied ground space within 30 feet. When cast, and as a bonus action on each later turn, choose a visible creature within 30 feet of the vine; it makes a Dexterity save or is pulled 20 feet directly toward the vine."
+    },
+    "wikidot5e:spell:gravity-fissure": {
+      "sourceDigest": "sha256:b021b1ac99d58349966537ba29f52c2b8239309a2217713f1d4fe47ebe66c43c",
+      "effectSummary": "Create a 100-foot-long, 5-foot-wide line from yourself. Creatures in the line make Constitution saves, taking 8d8 force damage on a failure or half on a success. Creatures within 10 feet of the line but not inside it also make Constitution saves; on a failure they take 8d8 force damage and are pulled into the line. Each slot level above 6th adds 1d8 damage."
+    },
+    "wikidot5e:spell:gravity-sinkhole": {
+      "sourceDigest": "sha256:8f41376587b9da1e6c0fd51fda55bdfbbf207d1c9d879082a2e2aef12435e131",
+      "effectSummary": "Create a 20-foot-radius sphere of crushing gravity centered within 120 feet. Creatures inside make Constitution saves, taking 5d10 force damage and being pulled in a straight line to the nearest unoccupied space near the center on a failure, or half damage with no pull on a success. Each slot level above 4th adds 1d10 damage."
+    },
+    "wikidot5e:spell:grease": {
+      "sourceDigest": "sha256:0a8dc25e97bd6d4a34309c51b93d8a315c5bbc3a303dc6e3f244af3cf02ed972",
+      "effectSummary": "Cover a 10-foot square of ground within 60 feet with slick grease for 1 minute, making it difficult terrain. Creatures standing there when it appears make Dexterity saves or fall prone. A creature entering the area or ending its turn there also makes the save or falls prone."
+    },
+    "wikidot5e:spell:greater-restoration": {
+      "sourceDigest": "sha256:62ea4da9cce76d27d05cd2d364712e99edf10d50f3530671c874cb95911d7173",
+      "effectSummary": "Touch one creature and choose one benefit: reduce its exhaustion by one level; end one charm or petrification effect; end one curse, including cursed-item attunement; restore one reduced ability score; or end one effect reducing its hit point maximum."
+    }
+  }
+}

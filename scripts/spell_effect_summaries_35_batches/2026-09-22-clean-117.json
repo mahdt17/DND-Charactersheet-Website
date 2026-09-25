@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 16-record batch 117 from the clean 236-record reference-dependent queue. The batch closes the Complete Arcane spirit-binding chain, several reviewed-abjuration inheritance chains, and two older Repair Damage variants. Repair Minor Damage was excluded because it was already regression-locked. Rejection, Lutzaen's Frequent Jaunt, unresolved summons/stat blocks, and source-damaged/table-heavy records remain deferred.",
+  "entries": {
+    "spells/spirit-binding-lesser-479": {
+      "name": "Spirit Binding, Lesser",
+      "sourceSha256": "1da61dce1b2cf90b3484eec79a3e5a468245fe4944cc78307024e8e90eb5401b",
+      "effectSummary": "Functions as lesser planar binding, including its inward magic-circle trap, escape attempts, bargaining, service limits, and dismissal when service is complete, but calls a single spirit creature of up to 8 Hit Dice instead of an elemental or outsider of up to 6 HD. When the called spirit has the air, chaotic, earth, evil, fire, good, lawful, or water nature, the spell gains the corresponding descriptor.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-binding-lesser-479",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spirit-binding-477": {
+      "name": "Spirit Binding",
+      "sourceSha256": "5a9b9d8efa579512a15bc90131ff0aa92c40c45e811b65ffa8c79e6d6f03a9b5",
+      "effectSummary": "Functions as lesser spirit binding, but can call one spirit or multiple spirits of the same type whose total Hit Dice do not exceed 16. Each spirit receives its own saving throw, makes its own escape attempts, and must be bargained with individually for service.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-binding-477",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spirit-binding-greater-478": {
+      "name": "Spirit Binding, Greater",
+      "sourceSha256": "4728fe3cde0453152959dc86d950e9a617f6975ef1bf281f17c95851679b6b6d",
+      "effectSummary": "Functions as lesser spirit binding, but can call one spirit or multiple spirits of the same type whose total Hit Dice do not exceed 24. Each spirit receives its own saving throw, makes its own escape attempts, and must be bargained with individually for service.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spirit-binding-greater-478",
+          "role": "primary Complete Arcane catalog record and digest source"
+        }
+      ]
+    },
+    "spells/investiture-of-the-orthon-1185": {
+      "name": "Investiture of the Orthon",
+      "sourceSha256": "afa7bcd4df0e9b91017209978ea9936fec1274af0eac3633fed81e3fa916cc5b",
+      "effectSummary": "For 1 minute per caster level, infuses one living creature with orthon-like power. As an immediate action the subject can create a 20-foot-radius teleportation-suppression field for 1 round that functions like dimensional lock. The subject also gains a sonic version of fire shield: creatures striking it at normal melee reach take 1d6 sonic damage +1 per caster level, maximum +15; it takes half damage from acid, and an acid attack allowing Reflex half deals no damage on a successful save. The subject gains fire resistance 10, is treated as an evil outsider for evil-outsider-bane weapons, and becomes fatigued for 1 minute when the effect ends. Material component: a fist-sized chunk of brimstone.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/investiture-of-the-orthon-1185",
+          "role": "primary Fiendish Codex II: Tyrants of the Nine Hells catalog record and digest source"
+        }
+      ]
+    },
+    "spells/protection-from-taint-2024": {
+      "name": "Protection from Taint",
+      "sourceSha256": "95abcb63bec265771abe1a54ee6f83b1de09fc586c6ee42fd515baae2bdc4338",
+      "effectSummary": "For 1 minute per caster level, creates a moving 1-foot barrier around one creature. It grants +2 deflection AC and +2 resistance on saves against Shadowlands-subtype creatures and creatures with Taint; blocks possession and suppresses ongoing mental control without expelling an already-present possessing force; and prevents bodily contact and natural-weapon attacks by summoned or conjured creatures, except good elementals and outsiders. The contact protection ends if the warded creature attacks or presses the barrier against the blocked creature, and spell resistance can let a blocked creature overcome that contact protection.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/protection-from-taint-2024",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/magic-circle-against-evil-2335": {
+      "name": "Magic Circle Against Evil",
+      "sourceSha256": "ae755c52641e3f4bf87cf7b2fa6561f60316bfc81b401e82bd96bee22b8d2bc2",
+      "effectSummary": "For 10 minutes per caster level, a 10-foot-radius emanation gives creatures inside the benefits of protection from evil and blocks nongood summoned creatures from entering unless their spell resistance overcomes the barrier. It can instead be focused inward as an immobile trap for a nongood called creature for up to 24 hours per caster level. A simple silver circle can be broken or escaped through spell resistance or dimensional travel; dimensional anchor prevents that travel. A correctly drawn DC 20 Spellcraft diagram, taking at least 10 minutes, can be paired with dimensional anchor to prevent spell-resistance escape, block the creature's attacks and abilities from crossing the diagram, and increase its Charisma escape DC by 5, but disturbing the diagram ends the trap.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-circle-against-evil-2335",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/reaving-dispel-4073": {
+      "name": "Reaving Dispel",
+      "sourceSha256": "f81be19296ef8c9d31bfdd14452603ceda1468b81d8d8f725a6735c0faf9238c",
+      "effectSummary": "Functions as dispel magic with a maximum +20 caster-level bonus and can also remove effects that remove curse can remove. With a targeted dispel, each successfully dispelled ongoing spell can be reaved and transferred to you for its remaining duration as though the original caster had cast it on you; Spellcraft DC 25 + spell level identifies effects, dismissible or concentration effects become yours to control, harmful reaved effects ignore your spell resistance but allow the original target's saving throw. A successfully counterspelled spell can likewise be seized and redirected to legal targets or area after the enemy finishes casting. Area dispels gain the higher +20 cap but cannot reave effects.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reaving-dispel-4073",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/truename-binding-greater-3441": {
+      "name": "Truename Binding, Greater",
+      "sourceSha256": "6cb8009f37edf189bda26ef5785272256c11896949b3f7ff533477534651b167",
+      "effectSummary": "Functions as lesser planar binding, using the same magic-circle trapping, escape, bargaining, and service rules, but can call a single elemental or outsider of CR 14 or less rather than using the lesser spell's 6-HD limit. XP cost: 300 XP.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/truename-binding-greater-3441",
+          "role": "primary Tome of Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/glyph-of-turning-1333": {
+      "name": "Glyph of Turning",
+      "sourceSha256": "8c81b26a352cdd0a598e4d79f85279d219fd5e6499e901f505f464fe4db68c73",
+      "effectSummary": "Functions as glyph of warding for placement, triggers, concealment, and duration, but stores one of your daily turning or rebuking attempts instead of a blast or spell. Feats or abilities that modify your turning check can modify the stored attempt. When triggered, it resolves as though you made the turning or rebuking roll; turned or rebuked undead flee the glyph, while undead that would be commanded instead guard the glyph's area for 24 hours and then are released rather than serving you.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/glyph-of-turning-1333",
+          "role": "primary Ghostwalk catalog record and digest source"
+        }
+      ]
+    },
+    "spells/magic-circle-against-taint-2021": {
+      "name": "Magic Circle Against Taint",
+      "sourceSha256": "5521087af335e9450881f0894cce248520540deefaf043700faf1995d7621e24",
+      "effectSummary": "For 10 minutes per caster level, extends protection from Taint to a 10-foot-radius emanation, granting its AC/save bonuses, mental-control protection, and contact barrier. It can instead be focused inward as an immobile temporary prison for a called creature. Spell resistance must be overcome to keep the called creature from crossing the barrier, while the deflection, resistance, and mental-control protections apply regardless. A creature too large for the circle receives only normal protection from Taint. It does not stack with protection from Taint.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-circle-against-taint-2021",
+          "role": "primary Oriental Adventures catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wall-of-good-1601": {
+      "name": "Wall of Good",
+      "sourceSha256": "b84ba79f5851869cbf28711b4cec0aa790f9f1b1cf9beab325730a47ba28240e",
+      "effectSummary": "Creates an immobile continuous linear, spherical, or hemispherical barrier using magic circle against evil's protection, but only against effects crossing from the chosen hostile side to the nonhostile side. Evil attacks from the protected direction suffer the inherited penalties and summoned or conjured evil creatures cannot cross from hostile to nonhostile unless they overcome the inherited protection; attacks and crossings in the reverse direction are unaffected. The wall must be continuous and unbroken when created or the spell fails.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-good-1601",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wall-of-chaos-1599": {
+      "name": "Wall of Chaos",
+      "sourceSha256": "e2524780ee4a76a66fb2d0e0d248d4e1702195ce02ac4aaed306798ab8f58fd6",
+      "effectSummary": "Functions as wall of good, but its one-way immobile barrier uses the protections of magic circle against law rather than magic circle against evil, protecting against lawful attacks and blocking appropriate summoned or conjured lawful creatures from the hostile side.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-chaos-1599",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wall-of-evil-1600": {
+      "name": "Wall of Evil",
+      "sourceSha256": "a9439fac5fabb68dcb05d17f9da9ac80760e4859498612a5743ea71c909917f0",
+      "effectSummary": "Functions as wall of good, but its one-way immobile barrier uses the protections of magic circle against good rather than magic circle against evil, protecting against good attacks and blocking appropriate summoned or conjured good creatures from the hostile side.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-evil-1600",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/wall-of-law-1602": {
+      "name": "Wall of Law",
+      "sourceSha256": "94fb8f1e4b3d2c53235cdd9c7b8fffe4aab87cf3b0e1538464facb535e508aa8",
+      "effectSummary": "Functions as wall of good, but its one-way immobile barrier uses the protections of magic circle against chaos rather than magic circle against evil, protecting against chaotic attacks and blocking appropriate summoned or conjured chaotic creatures from the hostile side.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-law-1602",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/repair-critical-damage-3423": {
+      "name": "Repair Critical Damage",
+      "sourceSha256": "092e5baf751cdd0251a0ed9e4c09eeebd727f4dd1e7aea6c1069e675ffc19d66",
+      "effectSummary": "Repairs a touched construct that has at least 1 hit point remaining for 4d8 damage +1 per caster level, maximum +20, otherwise using Repair Light Damage's harmless instantaneous construct-repair rules.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-critical-damage-3423",
+          "role": "primary Tome and Blood: A Guidebook to Wizards and Sorcerers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/repair-moderate-damage-3426": {
+      "name": "Repair Moderate Damage",
+      "sourceSha256": "3e4900fc36705c36bd025f56b2cd7cdbdb71fc5fe1dab930354ce6a53419136d",
+      "effectSummary": "Repairs a touched construct that has at least 1 hit point remaining for 2d8 damage +1 per caster level, maximum +10, otherwise using Repair Light Damage's harmless instantaneous construct-repair rules.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 117 uses complete source text, already-reviewed inheritance, or an explicitly reconstructed same-batch inheritance chain; ambiguous source/header conflicts and unresolved stat-block or table dependencies remain deferred.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/repair-moderate-damage-3426",
+          "role": "primary Tome and Blood: A Guidebook to Wizards and Sorcerers catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "02dd0e24e8a43b666e3e4ed997b48d119ab4da9f",
+    "workflowRun": 35709774877,
+    "validationRun": 35709892183,
+    "classificationArtifact": 10685049649,
+    "classificationArtifactSha256": "432257fec387b8f73a858662676cea4391c209acca89c0e43fc397d784d69561",
+    "queueCountBefore": 236,
+    "referenceQueueCountBefore": 236,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

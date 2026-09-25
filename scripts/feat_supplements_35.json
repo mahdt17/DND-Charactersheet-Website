@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Structured factual supplements for D&D 3.5 feat pages whose primary DnD Tools record omits gameplay-critical metadata. Supplements fill missing fields only; conflicts fail validation. Effect summaries must stay short and factual rather than copying long source prose.",
+  "entries": {
+    "feats/psionic-feint-3817": {
+      "name": "Psionic Feint",
+      "featType": "Psionic feat",
+      "prerequisites": [
+        {
+          "kind": "feat",
+          "label": "Prerequisite",
+          "text": "Improved Feint"
+        }
+      ],
+      "effectSummary": "Expend psionic focus to feint as a swift action.",
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/feat/Psionic_Feint",
+          "role": "feat type, prerequisite and benefit cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/psionic-feint-3817",
+          "role": "primary catalog identity, source and benefit; type and prerequisite omitted"
+        }
+      ]
+    },
+    "feats/awesome-blow-154": {
+      "name": "Awesome Blow",
+      "featType": "General feat",
+      "ruleStats": {
+        "fighterBonusFeat": true
+      },
+      "provenance": [
+        {
+          "url": "https://www.d20srd.org/srd/monsterFeats.htm",
+          "role": "SRD feat type and fighter-bonus classification cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/awesome-blow-154",
+          "role": "primary source, prerequisites, benefit and special; feat type omitted"
+        }
+      ]
+    },
+    "feats/spirit-sense-2731": {
+      "name": "Spirit Sense",
+      "featType": "General feat",
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/feat/Spirit_Sense",
+          "role": "General feat classification cross-check"
+        },
+        {
+          "url": "https://dndtools.net/feats/heroes-of-horror--70/spirit-sense--2731/",
+          "role": "same source record with actual prerequisites"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/spirit-sense-2731",
+          "role": "primary source and benefit; feat type omitted and prerequisite field is a template placeholder"
+        }
+      ],
+      "prerequisiteFallback": [
+        {
+          "kind": "ability",
+          "label": "Prerequisite",
+          "text": "Wisdom 12"
+        },
+        {
+          "kind": "special",
+          "label": "Prerequisite",
+          "text": "Must have had a near-death experience (fallen below 0 hit points)."
+        }
+      ]
+    },
+    "feats/backstab": {
+      "name": "Backstab",
+      "sourceBook": "Dragon #340",
+      "sourceAbbr": "DR340",
+      "sourcePage": 86,
+      "ruleStats": {
+        "fighterBonusFeat": true
+      },
+      "provenance": [
+        {
+          "url": "https://www.realmshelps.net/charbuild/feat/Backstab",
+          "role": "source, feat type, prerequisite and benefit cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/backstab",
+          "role": "primary feat type, prerequisite, benefit and special; source metadata omitted"
+        }
+      ]
+    },
+    "feats/verminfriend-3431": {
+      "name": "Verminfriend",
+      "effectSummary": "As an immediate action when a vermin would attack, a successful Charisma check prevents that vermin from attacking you for 24 hours; attacking an affected vermin temporarily ends the protection.",
+      "ruleStats": {
+        "action": "immediate",
+        "check": "Charisma",
+        "dc": "15 + one-quarter vermin Hit Dice",
+        "duration": "24 hours"
+      },
+      "provenance": [
+        {
+          "url": "https://srd.dndtools.org/srd/feats/noncore-featsdotu.html",
+          "role": "Drow of the Underdark prerequisite and benefit cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/verminfriend-3431",
+          "role": "primary catalog identity/source; benefit omitted from rebuilt page"
+        }
+      ]
+    },
+    "feats/kuo-toan-monasticism-1730": {
+      "name": "Kuo-Toan Monasticism",
+      "effectSummary": "As a swift action, prepare sticky hands; during flurry of blows, if the first attack hits, one extra flurry attack automatically hits. Use Hit Dice instead of character level to determine the Stunning Fist save DC.",
+      "ruleStats": {
+        "action": "swift",
+        "requires": "flurry of blows",
+        "trigger": "first flurry attack hits",
+        "effect": "one extra flurry attack automatically hits",
+        "stunningFistDcBasis": "Hit Dice instead of character level"
+      },
+      "provenance": [
+        {
+          "url": "https://srd.dndtools.org/srd/feats/noncore-featsmm5.html",
+          "role": "Monster Manual V prerequisite and complete benefit cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/kuo-toan-monasticism-1730",
+          "role": "primary catalog identity/source; Prerequisite and Benefit markup is corrupted"
+        }
+      ]
+    },
+    "feats/improved-familiar-1484": {
+      "name": "Improved Familiar",
+      "inheritsFromFeat": "feats/improved-familiar-1481",
+      "effectSummary": "Uses the core Improved Familiar rules and adds Forgotten Realms familiar choices from Player's Guide to Faerûn.",
+      "variantOptions": [
+        {
+          "name": "Deathfang",
+          "alignment": "Neutral evil",
+          "minimumArcaneCasterLevel": 9
+        },
+        {
+          "name": "Flying snake",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Lizard, spitting crawler",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Lynx",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3
+        },
+        {
+          "name": "Osquip",
+          "alignment": "Neutral evil",
+          "minimumArcaneCasterLevel": 5
+        },
+        {
+          "name": "Tressym",
+          "alignment": "Neutral good",
+          "minimumArcaneCasterLevel": 5
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/feats/players-guide-to-faerun--22/improved-familiar--1484/index.html",
+          "role": "legacy DnD Tools benefit table and variant choices cross-check"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1484",
+          "role": "primary source and prerequisite; Benefit/table omitted from rebuilt page"
+        }
+      ]
+    },
+    "feats/improved-familiar-1485": {
+      "name": "Improved Familiar",
+      "inheritsFromFeat": "feats/improved-familiar-1481",
+      "effectSummary": "Uses the core Improved Familiar rules and adds familiar choices from Races of Faerûn.",
+      "variantOptions": [
+        {
+          "name": "Flying snake",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3,
+          "special": "Master gains +2 on saves against acid"
+        },
+        {
+          "name": "Deathfang",
+          "alignment": "Neutral evil",
+          "minimumArcaneCasterLevel": 9,
+          "special": "Master must be evil and have Spell Focus (Necromancy)"
+        },
+        {
+          "name": "Lizard, spitting crawler",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3,
+          "special": "Master gains +2 on saves against acid"
+        },
+        {
+          "name": "Lynx",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 3,
+          "special": "Master gains +3 on Move Silently checks"
+        },
+        {
+          "name": "Osquip",
+          "alignment": "Neutral",
+          "minimumArcaneCasterLevel": 5,
+          "special": "Master gains +2 on Hide and Listen checks"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1485",
+          "role": "primary Races of Faerun pointer; referenced Table A-5 omitted from rebuilt page"
+        },
+        {
+          "url": "https://dndtools.net/feats/races-of-faerun--23/improved-familiar--1485/",
+          "role": "same source feat pointer"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/nhbo/basic/151-200",
+          "role": "Races of Faerun Table A-5 option levels and special rules"
+        },
+        {
+          "url": "https://www.realmshelps.net/monsters/block/Snake%2C_Flying",
+          "role": "flying snake alignment cross-check"
+        }
+      ],
+      "sourceEdition": "3.0"
+    },
+    "feats/highborn-drow-3659": {
+      "name": "Highborn Drow",
+      "prerequisiteAdditions": [
+        {
+          "kind": "race",
+          "label": "Prerequisite",
+          "text": "Drow"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/highborn-drow-3659",
+          "role": "primary Shadowdale record; rendered prerequisite omits Drow"
+        },
+        {
+          "url": "https://dndtools.net/feats/shadowdale-scouring-land--114/highborn-drow--3659/",
+          "role": "same source record with Drow and base Will +2 prerequisites"
+        }
+      ]
+    },
+    "feats/advanced-construction-3792": {
+      "name": "Advanced Construction",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/advanced-construction-3792",
+          "role": "primary catalog identity, source and Benefit; Prerequisite field is corrupted by unrelated construct rules"
+        },
+        {
+          "url": "https://realmshelps.net/cgi-bin/feat-box.pl?feat=Advanced_Construction",
+          "role": "prerequisite and Benefit cross-check"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/feats/web-30--160/advanced-construction--3792/index.html",
+          "role": "same source feat cross-check"
+        }
+      ],
+      "prerequisiteFallback": [
+        {
+          "kind": "feat",
+          "label": "Prerequisite",
+          "text": "Augment Construction"
+        }
+      ]
+    },
+    "feats/reaping-talons-2400": {
+      "name": "Reaping Talons",
+      "prerequisiteAdditions": [
+        {
+          "kind": "special",
+          "label": "Prerequisite",
+          "text": "Two Tiger Claw maneuvers"
+        }
+      ],
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/reaping-talons-2400",
+          "role": "primary catalog identity/source; rebuilt Benefit text is visibly truncated and prerequisite omits the Tiger Claw maneuver requirement"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/feats/noncore-featstob.html",
+          "role": "Tome of Battle complete prerequisite and tactical-option cross-check"
+        },
+        {
+          "url": "https://dndtools.net/feats/tome-of-battle-the-book-of-nine-swords--88/reaping-talons--2400/",
+          "role": "legacy same-source feat cross-check"
+        }
+      ]
+    }
+  }
+}

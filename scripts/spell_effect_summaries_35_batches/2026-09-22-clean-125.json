@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 8-record batch 125 from the 179-record difficult reference-dependent tail. Four later-3.5 summon spells are locked across their Planar Handbook and Spell Compendium printings after pairwise source review. External Monster Manual stat blocks remain named references, and printing-specific text differences are preserved rather than normalized.",
+  "entries": {
+    "spells/summon-babau-demon-2165": {
+      "name": "Summon Babau Demon",
+      "sourceSha256": "bccedc36ed650b8604781bf47b44f84e199f341893b8200131f0431cdc315c0c",
+      "effectSummary": "Summons one babau demon from the Infinite Layers of the Abyss. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows your commands to the best of its ability. You must concentrate to maintain the spell, but commanding the demon is a free action. The summoned creature cannot summon or otherwise conjure another creature and cannot use teleportation or planar-travel abilities. Casting time is 1 full round; range is Close; duration is concentration, up to 1 round per caster level, plus 1 round; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. This Planar Handbook printing was cross-checked against its Spell Compendium reprint. The external babau demon stat block is intentionally preserved as a Monster Manual reference rather than expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-babau-demon-2165",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-babau-demon-4262",
+          "role": "Spell Compendium reprint cross-check"
+        }
+      ]
+    },
+    "spells/summon-babau-demon-4262": {
+      "name": "Summon Babau Demon",
+      "sourceSha256": "4d90237577c1074349e460cb36deaa3b28c43a14fbadeaba75f1243bcb023a2b",
+      "effectSummary": "Summons one babau demon from the Infinite Layers of the Abyss. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows your commands to the best of its ability. You must concentrate to maintain the spell, but commanding the demon is a free action. The summoned creature cannot summon or otherwise conjure another creature and cannot use teleportation or planar-travel abilities. Casting time is 1 full round; range is Close; duration is concentration, up to 1 round per caster level, plus 1 round; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. This Spell Compendium reprint was cross-checked against the Planar Handbook printing. The external babau demon stat block is intentionally preserved as a Monster Manual reference rather than expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-babau-demon-4262",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-babau-demon-2165",
+          "role": "Planar Handbook printing cross-check"
+        }
+      ]
+    },
+    "spells/summon-bearded-devil-2166": {
+      "name": "Summon Bearded Devil",
+      "sourceSha256": "ea230cca2b7a57411c1cd6531118b36dcb52ae2dd662702f23e7924aa5ba12cb",
+      "effectSummary": "Summons one bearded devil from the Nine Hells of Baator. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows your commands to the best of its ability. You must concentrate to maintain the spell, but commanding the devil is a free action. The summoned creature cannot summon or otherwise conjure another creature and cannot use teleportation or planar-travel abilities. Casting time is 1 full round; range is Close; duration is concentration, up to 1 round per caster level, plus 1 round; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. This Planar Handbook printing was cross-checked against its Spell Compendium reprint; access-level differences remain catalog metadata and were not normalized. The external bearded devil stat block remains a Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-bearded-devil-2166",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-bearded-devil-4264",
+          "role": "Spell Compendium reprint cross-check"
+        }
+      ]
+    },
+    "spells/summon-bearded-devil-4264": {
+      "name": "Summon Bearded Devil",
+      "sourceSha256": "be4ce065879541c1eea5c551ac08cbbebb0e1c1e84ae28b5605c660e3aee9228",
+      "effectSummary": "Summons one bearded devil from the Nine Hells of Baator. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows your commands to the best of its ability. You must concentrate to maintain the spell, but commanding the devil is a free action. The summoned creature cannot summon or otherwise conjure another creature and cannot use teleportation or planar-travel abilities. Casting time is 1 full round; range is Close; duration is concentration, up to 1 round per caster level, plus 1 round; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. This Spell Compendium reprint was cross-checked against the Planar Handbook printing; access-level differences remain catalog metadata and were not normalized. The external bearded devil stat block remains a Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-bearded-devil-4264",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-bearded-devil-2166",
+          "role": "Planar Handbook printing cross-check"
+        }
+      ]
+    },
+    "spells/summon-bralani-eladrin-2167": {
+      "name": "Summon Bralani Eladrin",
+      "sourceSha256": "e45a81e7683e37fe8988e59ac42c2f0928aae02e4d960277642c5aeb4206c4e7",
+      "effectSummary": "Summons one bralani eladrin from the Olympian Glades of Arborea. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows your commands to the best of its ability. You must concentrate to maintain the spell, but commanding the eladrin is a free action. This Planar Handbook printing explicitly states that the summoned creature cannot summon or otherwise conjure another creature and cannot use teleportation or planar-travel abilities. Casting time is 1 full round; range is Close; duration is concentration, up to 1 round per caster level, plus 1 round; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. The Planar Handbook text explicitly contains the no-summoning/no-teleport restriction; the Spell Compendium reprint does not restate that sentence, so the two summaries deliberately preserve the printing distinction. The external bralani stat block remains a Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-bralani-eladrin-2167",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-bralani-eladrin-4265",
+          "role": "Spell Compendium reprint comparison"
+        }
+      ]
+    },
+    "spells/summon-bralani-eladrin-4265": {
+      "name": "Summon Bralani Eladrin",
+      "sourceSha256": "2ce8b1d52525365fb12d3c026fb858d188040be4615c7247f49e686d8bdb3427",
+      "effectSummary": "Summons one bralani eladrin from the Olympian Glades of Arborea. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows your commands to the best of its ability. You must concentrate to maintain the spell, but commanding the eladrin is a free action. Casting time is 1 full round; range is Close; duration is concentration, up to 1 round per caster level, plus 1 round; saving throw none; spell resistance no. This Spell Compendium record does not itself restate the Planar Handbook sentence prohibiting summoned creatures from summoning/conjuring or using teleportation and planar travel.",
+      "notes": "Manually source-reviewed and digest-locked. The Spell Compendium text was independently cross-checked and intentionally is not normalized to the Planar Handbook wording. The external bralani stat block remains a Monster Manual reference.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-bralani-eladrin-4265",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-bralani-eladrin-2167",
+          "role": "Planar Handbook printing comparison"
+        }
+      ]
+    },
+    "spells/summon-hound-archon-2171": {
+      "name": "Summon Hound Archon",
+      "sourceSha256": "d2209c11fd3ce6879ec6cccf94cb5e328044eb6b4ffdf231fb51a38cf6d17826",
+      "effectSummary": "Summons one hound archon from the Seven Mounting Heavens of Celestia. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows your commands to the best of its ability. You must concentrate to maintain the spell, but commanding the archon is a free action. The summoned creature cannot summon or otherwise conjure another creature and cannot use teleportation or planar-travel abilities. Casting time is 1 full round; range is Close; duration is concentration, up to 1 round per caster level, plus 1 round; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. This Planar Handbook printing was cross-checked against its Spell Compendium reprint. The external hound archon stat block is intentionally preserved as a Monster Manual reference rather than expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-hound-archon-2171",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-hound-archon-4273",
+          "role": "Spell Compendium reprint cross-check"
+        }
+      ]
+    },
+    "spells/summon-hound-archon-4273": {
+      "name": "Summon Hound Archon",
+      "sourceSha256": "b264fe72afde3202114eb8f3d4f6fee9a9d01c846b32b61c2ceae065c011ebe3",
+      "effectSummary": "Summons one hound archon from the Seven Mounting Heavens of Celestia. It appears where designated and acts immediately on your turn, understands your speech regardless of language, and follows your commands to the best of its ability. You must concentrate to maintain the spell, but commanding the archon is a free action. The summoned creature cannot summon or otherwise conjure another creature and cannot use teleportation or planar-travel abilities. Casting time is 1 full round; range is Close; duration is concentration, up to 1 round per caster level, plus 1 round; saving throw none; spell resistance no.",
+      "notes": "Manually source-reviewed and digest-locked. This Spell Compendium reprint was cross-checked against the Planar Handbook printing. The external hound archon stat block is intentionally preserved as a Monster Manual reference rather than expanded from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/summon-hound-archon-4273",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-hound-archon-2171",
+          "role": "Planar Handbook printing cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "c098f7e696ac708a197ac58e1c403ed25df8a0b7",
+    "workflowRun": 35768640426,
+    "validationRun": 35768642316,
+    "classificationArtifact": 10713402048,
+    "classificationArtifactSha256": "296da84c41defb66dbf1943bebffafeb1071558e3b318e9ab281c200df5053f1",
+    "queueCountBefore": 179,
+    "referenceQueueCountBefore": 179,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

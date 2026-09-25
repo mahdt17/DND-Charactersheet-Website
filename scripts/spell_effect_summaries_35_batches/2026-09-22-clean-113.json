@@ -1,0 +1,315 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 25-record batch 113 from the clean 306-record reference-dependent queue. Nineteen high-confidence candidates were carried forward after concurrent batch 112 consumed one overlap, and six additional records were reviewed from the fresh post-112 queue. The set is limited to complete source mechanics or explicit inheritance and avoids unresolved tables, damaged sources, and creature/stat-block-heavy dependencies.",
+  "entries": {
+    "spells/dragon-ally-4415": {
+      "name": "Dragon Ally",
+      "sourceSha256": "ef2c5b0f31801912616b03f9b37bc38466b5dc15979e9ae79a37c62edab951c8",
+      "effectSummary": "Calls one dragon of up to 18 HD and lets you bargain for one task. You must communicate with it and pay before it agrees; bargaining takes at least 1 round, so service begins no earlier than the next round. The lesser-dragon-ally payment schedule applies: 50 gp per HD for up to 1 minute per caster level, 250 gp per HD for up to 1 hour per caster level, or 500 gp per HD for up to 1 day per caster level, with especially hazardous tasks costing up to twice as much. XP cost: 250.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-ally-4415",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/dragon-ally-greater-4416": {
+      "name": "Dragon Ally, Greater",
+      "sourceSha256": "e9b6caef690797de47f22f3368e32409034f06422373d85b424cc82fea85feab",
+      "effectSummary": "Calls one dragon of up to 22 HD and uses lesser dragon ally's bargaining/payment rules: payment is made before service, negotiation takes at least 1 round, and standard prices are 50 gp per HD for tasks up to 1 minute per caster level, 250 gp per HD for up to 1 hour per caster level, or 500 gp per HD for up to 1 day per caster level, with especially hazardous work costing up to twice as much. XP cost: 500.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/dragon-ally-greater-4416",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/heart-of-water-879": {
+      "name": "Heart of Water",
+      "sourceSha256": "9723676b216b100659a83afa9e3d65f5fdc3c6888a673c63a4ef4cb75980a1db",
+      "effectSummary": "For 1 hour per caster level, grants a swim speed equal to land speed, including the normal swim-speed benefits, water breathing, and +5 enhancement on Escape Artist checks. As a swift action you can activate freedom of movement on yourself for 1 round per caster level; when that benefit ends, the entire Heart of Water effect ends. With another Heart spell active you gain light fortification, and with all four Heart spells active you become immune to extra critical-hit and sneak-attack damage.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heart-of-water-879",
+          "role": "primary Complete Mage catalog record and digest source"
+        }
+      ]
+    },
+    "spells/horizikauls-versatile-vibration-1679": {
+      "name": "Horizikaul's Versatile Vibration",
+      "sourceSha256": "62b084d50e9d855b98a648cc869aca3a15f4ce6fe7223d1b78082295ab2e14ff",
+      "effectSummary": "Creates a sustained cone of powerful sound. In damage mode, creatures in the cone take 1 sonic damage per two caster levels each round, Reflex half. In movement mode, it functions like sustained-force telekinesis but can move objects or creatures only away from you; targets inside silence cannot be moved. The sound is as loud as a battle. Focus: a hollow brass-and-gold cone worth 50 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/horizikauls-versatile-vibration-1679",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/improved-blindsight-3230": {
+      "name": "Improved Blindsight",
+      "sourceSha256": "5c75389962b20bfac6528b44e19c0710aa95f06ea874f784d033978c5e951b7b",
+      "effectSummary": "For 1 minute per caster level, the touched creature gains blindsight out to 60 feet, using the normal blindsight ability to perceive nearby creatures and objects without relying on sight.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/improved-blindsight-3230",
+          "role": "primary Savage Species catalog record and digest source"
+        }
+      ]
+    },
+    "spells/iron-body-2825": {
+      "name": "Iron Body",
+      "sourceSha256": "dce485fac8076e1eef52b0a3ae4c016f5f151512056a8620fb00a6eb66b20ebe",
+      "effectSummary": "Transforms you into living iron for 1 minute per caster level. You gain DR 15/adamantine; immunity to blindness, critical hits, ability-score damage, deafness, disease, drowning, electricity, poison, stunning, and physiology/respiration effects; and take half acid and fire damage, while becoming vulnerable to attacks that specially affect iron golems. You gain +6 enhancement Strength, -6 Dexterity to minimum 1, half speed, 50% arcane spell failure, -8 armor-check penalty, armed club-equivalent unarmed attacks, and tenfold weight; you cannot drink or play wind instruments. Material component: iron from an iron golem, hero's armor, or war machine.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/iron-body-2825",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/iron-construct-4910": {
+      "name": "Iron Construct",
+      "sourceSha256": "285c70b66e0b19b3ed6d25f46be8e1198da26c8ba953ff310914fbdf0d971f47",
+      "effectSummary": "For 1 minute per caster level, transforms one construct into hardened iron. It gains DR 15/adamantine, takes half damage from acid and fire, becomes vulnerable to special attacks that affect iron golems, gains +4 enhancement Strength, takes -4 Dexterity to minimum 1, and weighs five times as much. Material component: iron once part of an iron golem, hero's armor, or war machine.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/iron-construct-4910",
+          "role": "primary Eberron Campaign Setting catalog record and digest source"
+        }
+      ]
+    },
+    "spells/lifebound-4800": {
+      "name": "Lifebound",
+      "sourceSha256": "cbdd81468376f4576d35e92c3e110bfc7f253d9534cfaff188f81433ab509be8",
+      "effectSummary": "For a secretly rolled 1d6 rounds, binds a possessing spirit to its host and gives that spirit complete control of the host. The host uses its own attacks and special abilities but can also employ the possessing spirit's spell-like, psi-like, and supernatural abilities in forms appropriate to the host. If the host is slain, the possessing spirit is destroyed as well, though planar spirits can later reform under their normal planar rules. Each round the bound creature can spend a full-round action on the spell's special Will save; success lets the spirit abandon the host as a free action. Material component: a white diamond worth at least 500 gp per Hit Die of the possessing spirit.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lifebound-4800",
+          "role": "primary Secrets of Sarlona catalog record and digest source"
+        }
+      ]
+    },
+    "spells/lord-of-the-sky-1071": {
+      "name": "Lord of the Sky",
+      "sourceSha256": "563e896285c823804a7e290ae16cfcceab1acdc3db42bdbc19d6a5f161278132",
+      "effectSummary": "For 1 minute per caster level, grants fly speed 40 feet with good maneuverability, or 30 feet in medium/heavy armor or load; an existing fly speed of at least 40 feet instead improves by 10 feet and to good maneuverability. While airborne, each round you can use a swift action for a ranged touch lightning attack against an airborne target within 60 feet, dealing 1 electricity damage per caster level, maximum 20, and halving its fly speed for the duration without stacking. Once during the spell you can release a normal lightning bolt as a standard action, ending the spell; dragonblood casters receive the source's improved flight values.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lord-of-the-sky-1071",
+          "role": "primary Dragon Magic catalog record and digest source"
+        }
+      ]
+    },
+    "spells/loyal-vassal-1585": {
+      "name": "Loyal Vassal",
+      "sourceSha256": "6a71b7be8d38be1f292d758818bcbbda1234b4309681a15df03f2076b6b7d49e",
+      "effectSummary": "For 10 minutes per caster level, grants willing subjects +3 sacred on saves against mind-affecting effects and prevents magical compulsion from forcing them to harm you or another affected subject; such an order is treated as suicidal for the controlling effect. A subject that willingly attempts such harm immediately loses the spell. While you remain in sight, subjects also receive bless benefits.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/loyal-vassal-1585",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-matrix-4208": {
+      "name": "Spell Matrix",
+      "sourceSha256": "6d088621fb600185822becce37fdd1f6a9d1528876d50e20ab3765281a7987af",
+      "effectSummary": "Creates a matrix for 10 minutes per caster level that can store up to two Quicken-eligible spells of 3rd level or lower. You take 2d6 damage when creating it; the matrix closes after 2 rounds. Stored spells are treated as prepared and can be cast as swift actions. If both are 2nd level or lower, they can be linked and discharged together as one swift action. Dispel magic removes the matrix and stored spells; antimagic pauses it, and death dissipates it. Focus: a sapphire worth at least 1,000 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-matrix-4208",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/spell-matrix-greater-4209": {
+      "name": "Spell Matrix, Greater",
+      "sourceSha256": "145e3643046d9045b9e3ffccb8074be54c6081c77e505bd67bec7b19e7971937",
+      "effectSummary": "Creates a matrix for 10 minutes per caster level that can store up to three Quicken-eligible spells of 3rd level or lower; you take 3d6 damage and the matrix closes after 3 rounds. Stored spells can be cast as swift actions. You can also designate one self-affecting stored spell or linked sequence to trigger automatically and instantaneously when a clearly stated condition occurs, with no option to suppress the trigger. Dispel magic removes the matrix and contents, antimagic pauses it, and death dissipates it. Focus: a diamond worth at least 1,500 gp.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-matrix-greater-4209",
+          "role": "primary Spell Compendium catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sword-and-hammer-2264": {
+      "name": "Sword and Hammer",
+      "sourceSha256": "b560b839fd42047e8b8d82a2a63e8b44e1acf3363c4b5f6a30aec26eabf4064d",
+      "effectSummary": "For 1 round per caster level, creates both a force longsword and force warhammer using spiritual weapon's remote force-weapon rules. Each receives +1 on attack rolls. If both attack the same opponent, they flank it and each gains the normal +2 flanking attack bonus; they never deal sneak-attack damage.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-and-hammer-2264",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/sword-and-hammer-greater-2265": {
+      "name": "Sword and Hammer, Greater",
+      "sourceSha256": "a234c0794c952704753fd826bed75a79a1bacc73e89eb11932a168847b2ce600",
+      "effectSummary": "Functions as Sword and Hammer but creates Large force weapons. Each deals 2d6 force damage +1 per three caster levels, maximum +10, gains +2 on attack rolls, and threatens criticals as though using Improved Critical: 17–20 for the longsword and 19–20 for the warhammer. The pair retains Sword and Hammer's ability to flank the same target.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/sword-and-hammer-greater-2265",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-blink-3699": {
+      "name": "Shadow Blink",
+      "sourceSha256": "0f8ae10c13d550850da6274b3bb3ad5fbe379d18ff54d9836449d297fb7fc9ab",
+      "effectSummary": "As a swift action, teleports you instantly up to 50 feet, functioning as the Shadow Jaunt maneuver except for its swift-action activation.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-blink-3699",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-stride-3703": {
+      "name": "Shadow Stride",
+      "sourceSha256": "ae2f267aa86e67cc91d6fab1d60e4072b6c5165491429c82326b1f3196d75f79",
+      "effectSummary": "As a move action, teleports you instantly up to 50 feet, functioning as the Shadow Jaunt maneuver except for its move-action activation.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-stride-3703",
+          "role": "primary Tome of Battle: The Book of Nine Swords catalog record and digest source"
+        }
+      ]
+    },
+    "spells/true-reincarnate-1937": {
+      "name": "True Reincarnate",
+      "sourceSha256": "4fd3d898decab2dd778482471f330766336b54065cbde5dca520962f28982606",
+      "effectSummary": "Restores a willing creature dead up to 10 years per caster level in a new reincarnated body, even if the old body is completely destroyed when the creature can be identified unambiguously. Physical ills and afflictions are repaired. Roll twice on the reincarnate form table and the returning creature chooses either result. It suffers no level, Constitution, prepared-spell, or spell-slot loss and can restore victims of death effects or creatures that became undead and were later destroyed. XP cost: 1,000.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/true-reincarnate-1937",
+          "role": "primary Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers catalog record and digest source"
+        }
+      ]
+    },
+    "spells/warning-shout-1805": {
+      "name": "Warning Shout",
+      "sourceSha256": "6a96e1c333343baec9c2e3eafdb2a4ade6e2c5598d8c377141936e021d244972",
+      "effectSummary": "Amplifies up to five spoken words so every hearing creature within half a mile hears them at the volume you used. It causes no sonic damage and cannot itself transmit magical song, sonic, or charm effects, though it can deliver an ordinary trigger word for an existing effect. It awakens creatures sleeping naturally but not creatures in magically induced sleep.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/warning-shout-1805",
+          "role": "primary Magic of Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-conjuration-greater-2700": {
+      "name": "Shadow Conjuration, Greater",
+      "sourceSha256": "23a81098d060c3bb24dd2e8045bd5bc54e6ca3113641c3c95ceae239aa79f7b5",
+      "effectSummary": "Creates a partially real shadow imitation of any sorcerer or wizard conjuration (summoning) or conjuration (creation) spell of 6th level or lower. It follows shadow conjuration's disbelief rules; against a creature that recognizes the illusion, damaging effects deal 60% normal damage and nondamaging effects have a 60% chance to function.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-conjuration-greater-2700",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/magic-circle-against-chaos-2334": {
+      "name": "Magic Circle Against Chaos",
+      "sourceSha256": "b8e1f59ff4b55201bedf43645fc62c0d3f87e720fbae9053ed26d872c8908a50",
+      "effectSummary": "Creates a 10-foot-radius protection-from-chaos effect for 10 minutes per caster level, granting the corresponding defensive benefits to creatures in the emanation. It can instead be focused inward as a temporary magical prison for a called nonlawful creature, using Magic Circle Against Evil's diagram and spell-resistance rules.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-circle-against-chaos-2334",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/magic-circle-against-good-2336": {
+      "name": "Magic Circle Against Good",
+      "sourceSha256": "77b22d54074fca99b2f0afc07423c5f80ae881e3115605623cd62a11c11a8010",
+      "effectSummary": "Creates a 10-foot-radius protection-from-good effect for 10 minutes per caster level, granting the corresponding defensive benefits to creatures in the emanation. It can instead be focused inward as a temporary magical prison for a called nonevil creature, using Magic Circle Against Evil's diagram and spell-resistance rules.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-circle-against-good-2336",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/magic-circle-against-law-2337": {
+      "name": "Magic Circle Against Law",
+      "sourceSha256": "d51d4842e9a8cd1194ca297f3032e862953afec769525f88ce7140591e7e8a97",
+      "effectSummary": "Creates a 10-foot-radius protection-from-law effect for 10 minutes per caster level, granting the corresponding defensive benefits to creatures in the emanation. It can instead be focused inward as a temporary magical prison for a called nonchaotic creature, using Magic Circle Against Evil's diagram and spell-resistance rules.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-circle-against-law-2337",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/stone-body-2295": {
+      "name": "Stone Body",
+      "sourceSha256": "9ef4e82a16f7c719b7fc7507d3f14fb888df90060604a2755f6b8e6f97ebb1c3",
+      "effectSummary": "Functions like Iron Body but with source-specific changes: DR 10/adamantine, +4 enhancement Strength, -4 Dexterity to minimum 1, vulnerability to attacks that specially affect stone golems, half normal speed, and triple normal weight. It retains Iron Body's other transformation immunities/restrictions except where changed. Material component: stone from a stone golem, greater earth elemental, or castle wall.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/stone-body-2295",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shadow-evocation-greater-2702": {
+      "name": "Shadow Evocation, Greater",
+      "sourceSha256": "74e91d4f25226187bbc261a8187d4f55fe2234ea9ee572f41a99656fb14e8d47",
+      "effectSummary": "Creates a partially real illusory version of a sorcerer or wizard evocation spell of 7th level or lower. It follows Shadow Evocation's disbelief and saving-throw rules; a creature that recognizes the illusion takes only 60% normal damage from a damaging copied spell.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-evocation-greater-2702",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    },
+    "spells/shades-2698": {
+      "name": "Shades",
+      "sourceSha256": "901c7cd5272b8e80a5aae3db249b20d0d322406832842b1de8a2829e7155c946",
+      "effectSummary": "Functions as Shadow Conjuration but can mimic sorcerer or wizard conjuration spells of 8th level or lower. Against creatures that disbelieve, damaging effects deal 80% normal damage and nondamaging effects have an 80% chance to function.",
+      "notes": "Manually source-reviewed and digest-locked. Batch 113 keeps a conservative size as the remaining queue becomes increasingly dependency-heavy.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shades-2698",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "3c4c6e88bedac252e19424d42f94ee893071618c",
+    "workflowRun": 35707567396,
+    "validationRun": 35707571506,
+    "classificationArtifact": 10684614969,
+    "classificationArtifactSha256": "6582ff0ca5dc8e01641a69a48ab9c662a8179f0d4b1b6e6039a2b8b8a9a34db9",
+    "queueCountBefore": 306,
+    "referenceQueueCountBefore": 306
+  }
+}

@@ -1,0 +1,614 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 50-record item effect batch 007. Only self-contained, non-table records were included; malformed or incomplete source pages remain deferred.",
+  "reviewCheckpoint": {
+    "head": "9fb632884f24de477a303468948c87c539676ac1",
+    "reviewRun": 35793539662,
+    "reviewArtifact": 10722886750,
+    "reviewArtifactSha256": "1d52cd873b8a67f643b98164b71a56cf68b5acfc9e217dc7dd8e5ebeeda475b8",
+    "ordinaryReviewRemainingBefore": 903,
+    "errors": []
+  },
+  "entries": {
+    "items/trackless-boots": {
+      "name": "Trackless Boots",
+      "sourceSha256": "b47a527f7bdb91cb7a569fc3a939f3a5949ac8b6ea6b9a1ffd999b8fc8baf66d",
+      "effectSummary": "Survival checks made to follow the wearer's trail take a -5 circumstance penalty, and creatures with scent cannot use scent to detect or track the wearer.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/trackless-boots",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/fareye-oil-344": {
+      "name": "Fareye Oil",
+      "sourceSha256": "a777c64de7bbbb35fb95bf39bc109f69f3a8f12ab3eb4a64719a8c0a39cce396",
+      "effectSummary": "Applying the oil to a creature's eyes is a standard action that provokes attacks of opportunity and grants +1 alchemical on Spot checks for 1 minute; the creature must have eyes to benefit.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/fareye-oil-344",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/wings-of-flying": {
+      "name": "Wings of Flying",
+      "sourceSha256": "8dbc004dbf64484c78354c5f2f90b734a0b86da0377aa53c274f4e23f1d6c9a8",
+      "effectSummary": "Speaking the command word transforms the cloak into large wings and lets the wearer fly as with the fly spell.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/wings-of-flying",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/arrow-561": {
+      "name": "Arrow",
+      "sourceSha256": "14c3d95cee3f4e362a18bd1cf19124ec779ae70d5c6ac4c23e85eee1983375e8",
+      "effectSummary": "The listed statistics cover 20 arrows. Used in melee, an arrow is a light improvised weapon with -4 on attack rolls and dagger damage of its size with ×2 critical multiplier. A hit destroys the arrow; a miss has a 50% chance to destroy or lose it.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/arrow-561",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/crystal-ball-detect-thoughts-302": {
+      "name": "Crystal ball with Detect Thoughts",
+      "sourceSha256": "d5899649bf470e86e087363c53d923f3f6159007430f0a5d2929bf1c1f8a6c74",
+      "effectSummary": "Functions as a crystal ball for scrying across great distances or planes, with Will DC 16 to resist, and can also use detect thoughts through the ball on the viewed target, Will DC 13 negates.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/crystal-ball-detect-thoughts-302",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/stone-salve": {
+      "name": "Stone Salve",
+      "sourceSha256": "d1702637451b3c3be2227727e884568a216b466aa4803b9d9085d2af503e89d1",
+      "effectSummary": "One ounce applied to a petrified creature restores it as stone to flesh; one ounce applied to a nonpetrified creature instead protects it as stoneskin.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/stone-salve",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-incarnum-shielding-514": {
+      "name": "Amulet of Incarnum Shielding",
+      "sourceSha256": "092cd2e9696f20c9e037708fac531fd11006b4d9b3997210a2e1a7cb9b83901a",
+      "effectSummary": "The wearer is immune to effects that would drain incarnum or unshape a soulmeld. The amulet starts with 7 charges, expends 1 each time it negates such an effect, and crumbles when the last charge is spent.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-incarnum-shielding-514",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/daylight-pellet-368": {
+      "name": "Daylight Pellet",
+      "sourceSha256": "4b498614f6c96e12b36552b4555e7a7b01bfc540b79e14a7fab56255090b435d",
+      "effectSummary": "The single-use pellet can be thrown up to 50 feet; on landing it shatters and creates daylight-equivalent illumination for 10 rounds.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/daylight-pellet-368",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/harp-charming-455": {
+      "name": "Harp of Charming",
+      "sourceSha256": "b46b78c0c83d7489da9780f3c8bda61c0b1285eaccb2e8b34de8b812f5986cab",
+      "effectSummary": "For each 10 minutes of playing, a DC 14 Perform (string instruments) check lets the performer weave one suggestion into the music, Will DC 14 negates. On a failed Perform check, that audience cannot be affected by the harpist again for 24 hours.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/harp-charming-455",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/eyes-of-charming": {
+      "name": "Eyes of Charming",
+      "sourceSha256": "b8b04dff86b2cb8f66c0ee13ae491ee594fce5a946f1443d66eab089fc185060",
+      "effectSummary": "The wearer can charm person one target per round by meeting its gaze, Will DC 16 negates. If only one lens is worn, the save DC drops to 10.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/eyes-of-charming",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/mask-of-the-feather-queen": {
+      "name": "Mask of the Feather Queen",
+      "sourceSha256": "a4119401a0ee573d28d24bfefa99a2e41943d84bbe7ab5aa24b5fdda80f5b424",
+      "effectSummary": "By command word, the wearer can levitate and charm birds. Once per day, the wearer can cast fly on themself or another creature at caster level 12.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/mask-of-the-feather-queen",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/coupdegrace-665": {
+      "name": "Coup de Grace",
+      "sourceSha256": "9ae06eac4c81873c227252045b815cb72586b10460d0ed777a1b6360ca715d3b",
+      "effectSummary": "On a successful critical hit, the target must make a DC 27 Will save or be paralyzed for 1 round. The effect works even on creatures immune to extra critical-hit damage but not on creatures without an Intelligence score; ranged weapons pass it to their ammunition.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/coupdegrace-665",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/healers-standard": {
+      "name": "Healer's Standard",
+      "sourceSha256": "eeede602f067e77f920286724dcec6db3d3f8f9f486e9d60e693ffe35a466f51",
+      "effectSummary": "The bearer and unarmed allies within 30 feet receive a sanctuary effect; an opponent attempting to attack them must make a DC 16 Will save or be unable to do so.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/healers-standard",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/helm-of-comprehending-languages-and-reading-magic": {
+      "name": "Helm of Comprehending Languages and Reading Magic",
+      "sourceSha256": "5cd7587fd0ae34c8d55cc942a0662d4547371ad0947aa006b51c9d553b138a0b",
+      "effectSummary": "The wearer has a 90% chance to understand any unfamiliar language or writing and an 80% chance to understand magical writing; understanding a magical text does not itself grant the ability to use it.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/helm-of-comprehending-languages-and-reading-magic",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/portable-foxhole": {
+      "name": "Portable Foxhole",
+      "sourceSha256": "9dee9f50f7fed41f6c0fbdea70be9b6ed5348b183c873be1d8866b0dc960cce9",
+      "effectSummary": "Placed on a flat surface, the canvas creates a 5-foot-square, 3-foot-deep pit that provides cover against ranged attacks. It is not extradimensional; items left inside appear on the surface when the foxhole is closed.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/portable-foxhole",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/eyes-of-petrification": {
+      "name": "Eyes of Petrification",
+      "sourceSha256": "28df9afa629e0ea93027a8a949e7698b0ce38cca86b914b17d356d1d78ac716d",
+      "effectSummary": "When both lenses are worn, the wearer can use a petrifying gaze attack with save DC 19 for a total of 10 rounds per day.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/eyes-of-petrification",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/maul-of-the-titans": {
+      "name": "Maul of the Titans",
+      "sourceSha256": "c590f11397ac8cc0edbdbb00b3460d4f6be4164968ff8fbbb74c3003fba73b1a",
+      "effectSummary": "A Huge or larger creature can use the maul to excavate a 10-foot cube of earth in 10 minutes or rock in 1 hour. As a weapon it is a +3 Gargantuan greatclub that deals triple damage to inanimate objects; a wielder with Strength below 18 takes -4 on attack rolls.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/maul-of-the-titans",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/stormrider-cloak": {
+      "name": "Stormrider Cloak",
+      "sourceSha256": "5d6ecf7d8d5ae0ee11e70812718162a8a9f56cbbd336ef53ec3f19d8568db273",
+      "effectSummary": "The wearer gains electricity resistance 10 and can use fly three times per day for up to 5 minutes per use.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/stormrider-cloak",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bracers-archery-greater-245": {
+      "name": "Bracers of Archery, Greater",
+      "sourceSha256": "9f0bb75617056a4a358ad7fd47c47ba13b047f977f2d4816ad9a4f3c15dae1ac",
+      "effectSummary": "When both bracers are worn, the wearer is treated as proficient with any bow except crossbows. If already proficient with a bow type, the wearer gains +2 competence on attack rolls and +1 competence on damage rolls with that type.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bracers-archery-greater-245",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/trumpeters-gift": {
+      "name": "Trumpeter's Gift",
+      "sourceSha256": "cf43e1ee21d1160b7a5377b4ae2e5695717569bbbae3925da3b2f3bbaa3a04b4",
+      "effectSummary": "Attached to a brass instrument, the mouthpiece grants +5 competence on Perform checks with it and can produce shout once per day. A non-masterwork instrument is destroyed after the shout is completed.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/trumpeters-gift",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/angelic-36": {
+      "name": "Angelic",
+      "sourceSha256": "7937fef793afe52b35c4e7547d1f6fec2a1306c5dda87b99df1b4c42e92dab21",
+      "effectSummary": "Against attacks from evil creatures, this armor or shield increases its enhancement bonus to AC by +1 and grants +4 sacred on saves against spells with the evil descriptor. Evil users gain none of these benefits.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/angelic-36",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boots-of-woodland-striding": {
+      "name": "Boots of Woodland Striding",
+      "sourceSha256": "9174a26d91ecf03e3b9566f6692c03a16b7607e1bde7b76c3916dae0b81daece",
+      "effectSummary": "The wearer moves at full speed through forest or jungle terrain despite moderate or heavy obstruction, can use detect snares and pits at will, and can use tree stride once per day.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-of-woodland-striding",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/flash-pellet-345": {
+      "name": "Flash Pellet",
+      "sourceSha256": "ae85cd62df896bda0007236a649d0f2591e650aeb2e387864024a9301a5be1c3",
+      "effectSummary": "The pellet can be thrown with a 5-foot range increment. When it strikes a hard surface, creatures in a 5-foot-radius burst must make Fortitude DC 15 or be blinded for 1 round and dazzled for the following round.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/flash-pellet-345",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/dissipater-667": {
+      "name": "Dissipater",
+      "sourceSha256": "c6a36088302fa7ed9bda100ccaf39b34844d7e900423f21cdaad887d2c854dfc",
+      "effectSummary": "Against creatures or objects made of or originally formed from ectoplasm, the weapon ignores damage reduction and hardness and treats every successful hit as a critical hit.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dissipater-667",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/lions-shield-101": {
+      "name": "Lion's Shield",
+      "sourceSha256": "213612628b9d326b4866e20a8923956a8b51b768898dc87bf848503e1440d8d2",
+      "effectSummary": "This +2 heavy steel shield can, three times per day as a free action, make independent bite attacks using the wielder's base attack bonus and any iterative attacks, dealing 2d6 damage per bite in addition to the wielder's normal actions.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/lions-shield-101",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/gloves-endless-javelins-193": {
+      "name": "Gloves of endless javelins",
+      "sourceSha256": "0415f40ff3d409d5cb8f66f7b068bed0f695abfb78836bced4dc39706ba686b0",
+      "effectSummary": "Activating the gloves creates a +1 force javelin in the wearer's hand. The javelin lasts until an attack with it is resolved or until the end of that turn, whichever comes first.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/gloves-endless-javelins-193",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/thurible-consecration-433": {
+      "name": "Thurible of Consecration",
+      "sourceSha256": "82b22135b32bd3752bf8c1f44439711fea981aafddc5089bdaa652cf7871a2f8",
+      "effectSummary": "When a cleric of the thurible's deity burns incense of consecration in it and carries it, the consecrate effect is treated as though an altar or similar fixture were present, doubling the relevant benefits. Clerics of other deities gain no special effect.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/thurible-consecration-433",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/amulet-of-dark-blessing": {
+      "name": "Amulet of Dark Blessing",
+      "sourceSha256": "5578b97b3ea8c72352b6e12895f8e96dde0b4a1762d377b3d53a8df527c6de6e",
+      "effectSummary": "The amulet grants its wearer 24 temporary hit points. When those temporary hit points are exhausted, the amulet crumbles into worthless dust.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/amulet-of-dark-blessing",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/drilbu-of-the-tasker-(blacksmithing)-719": {
+      "name": "Drilbu of the Tasker (Blacksmithing)",
+      "sourceSha256": "e6559a34c63e7bc7088bebdc40de619c5c9528f340a170cd89d9cc1bc0371ebc",
+      "effectSummary": "This 50-charge drilbu always functions as a +2 staff. It can use major creation for 1 charge or Astral Tasker V for 2 charges; the summoned tasker has 11 ranks in Craft (blacksmithing).",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/drilbu-of-the-tasker-(blacksmithing)-719",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/dust-illusion-259": {
+      "name": "Dust of Illusion",
+      "sourceSha256": "b1515b76d16291e77544de344773a5d485a80b175201765e8f9e0cbdd2022329",
+      "effectSummary": "Sprinkling the dust on a creature creates a disguise self glamer chosen by the user for 2 hours. An unwilling target can avoid the dust with a DC 11 Reflex save.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/dust-illusion-259",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/drilbu-of-the-tasker-(lumberjack)-718": {
+      "name": "Drilbu of the Tasker (Lumberjack)",
+      "sourceSha256": "059441db52fa997b9f359c4be2a7f0afcd98a8988f29665a90eba39e010b95c0",
+      "effectSummary": "This 50-charge drilbu always functions as a +2 staff. It can use major creation for 2 charges or Astral Tasker V for 2 charges; the summoned tasker has 11 ranks in Profession (lumberjack).",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/drilbu-of-the-tasker-(lumberjack)-718",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/helm-of-telepathy": {
+      "name": "Helm of Telepathy",
+      "sourceSha256": "c548f7057c6d1e9c716c115d2204b5795cdcef8d5be66a07dfc5e95f37b21f63",
+      "effectSummary": "The wearer can use detect thoughts at will and exchange telepathic messages with a creature whose surface thoughts are being read. Once per day, the wearer can add a suggestion to such a message, Will DC 14 negates.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/helm-of-telepathy",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/safewing-emblem": {
+      "name": "Safewing Emblem",
+      "sourceSha256": "7241ea85b784b6d93385705f99b6e82c801c74606329d9b150243f5b96f365cf",
+      "effectSummary": "If the owner falls at least 5 feet, the emblem activates automatically to provide feather fall for a descent of up to 180 feet. It disappears when the owner lands.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/safewing-emblem",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/blackstone-rune": {
+      "name": "Blackstone Rune",
+      "sourceSha256": "e067c6f11b770ff3d9a259d5f6595c04a391e85bb55185a1f5af8a4b00ff69b1",
+      "effectSummary": "By command, the bearer can plane shift between the Material Plane and Plane of Shadow in either direction while carrying up to 50 pounds of objects. The rune works three times before losing its magic.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/blackstone-rune",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/planar-helm": {
+      "name": "Planar Helm",
+      "sourceSha256": "0921ac4b71825350119f56fe6d8567a012d64565e5caf3a9315be1cebf3e664c",
+      "effectSummary": "Once mounted as a ship's wheel, the helm functions normally and can produce a planar navigation effect on the ship twice per day when the proper phrase is spoken.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/planar-helm",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/valardes-harp": {
+      "name": "Valarde's Harp",
+      "sourceSha256": "a793a53d5cb1220cf39af4286415523a43b3b4516523c8912e34983ebda27bd4",
+      "effectSummary": "This masterwork harp grants +2 circumstance on Perform (harp). Three times per day, a user with at least 1 rank in Perform (harp) can play for a full round to produce either gust of wind or wind wall.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/valardes-harp",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bolt-repeating-crossbow-578": {
+      "name": "Bolt, repeating crossbow",
+      "sourceSha256": "1cb702ebf8a1e8d5db157cd977156bba7260e733ef0c97a2ab84d4c142214a1e",
+      "effectSummary": "The listed statistics cover 5 repeating-crossbow bolts. Used in melee, a bolt is a light improvised weapon with -4 on attack rolls and dagger damage of its size with ×2 critical multiplier. A hit destroys it; a miss has a 50% chance to destroy or lose it.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bolt-repeating-crossbow-578",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cadgraydians-welcome-embrace": {
+      "name": "Cadgraydian's Welcome Embrace",
+      "sourceSha256": "9bb90483913f4ac3a6f148f238937c59640cb34b8074ec3def8d46daf18e677e",
+      "effectSummary": "This cursed cloak transforms into three viper swarms that immediately attack the wearer when donned; the cloak is destroyed when the swarms are summoned.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cadgraydians-welcome-embrace",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/cloak-of-blackflame": {
+      "name": "Cloak of Blackflame",
+      "sourceSha256": "db56d8eb0cdaf52df6a1219a2fc8c6e78281bccdcdd0c2181456ccd2a181366a",
+      "effectSummary": "The cloak absorbs up to 14 energy-drain attacks before losing its magic; an attack that would bestow two negative levels counts as two absorbed attacks.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/cloak-of-blackflame",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/unicorn-pendant": {
+      "name": "Unicorn Pendant",
+      "sourceSha256": "c431ffa4b9aeb46e0283ab95e6366af4ab8fdab1c3801128f04ed56361c1e501",
+      "effectSummary": "The wearer can use cure moderate wounds and neutralize poison once per day each. A paladin wearer treats Charisma as 4 points higher for determining lay on hands.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/unicorn-pendant",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bolt-crossbow-539": {
+      "name": "Bolt, crossbow",
+      "sourceSha256": "7a20eb897bcb5b3867c13d65b6f13f679a2c29233776da1665381b3f28ec23b9",
+      "effectSummary": "The listed statistics cover 10 crossbow bolts. Used in melee, a bolt is a light improvised weapon with -4 on attack rolls and dagger damage of its size with ×2 critical multiplier. A hit destroys it; a miss has a 50% chance to destroy or lose it.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bolt-crossbow-539",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/bolt-hand-crossbow-575": {
+      "name": "Bolt, hand crossbow",
+      "sourceSha256": "7a20eb897bcb5b3867c13d65b6f13f679a2c29233776da1665381b3f28ec23b9",
+      "effectSummary": "The listed statistics cover 10 hand-crossbow bolts. Used in melee, a bolt is a light improvised weapon with -4 on attack rolls and dagger damage of its size with ×2 critical multiplier. A hit destroys it; a miss has a 50% chance to destroy or lose it.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/bolt-hand-crossbow-575",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/parrying-673": {
+      "name": "Parrying",
+      "sourceSha256": "f101881b695aa54f05677bf219f333364a86f87f9c9ffc53a7c172470cd4e7cb",
+      "effectSummary": "While the weapon is held, it grants +1 insight to AC and +1 insight on saving throws, even while the wielder is flat-footed.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/parrying-673",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/belt-of-magnificence": {
+      "name": "Belt of Magnificence",
+      "sourceSha256": "376d30f51dc9fbeda08012ad936ec8ee304d04f04c323f53a612b2b5850b9a84",
+      "effectSummary": "The belt grants a +2, +4, or +6 enhancement bonus to all six ability scores, depending on the version.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/belt-of-magnificence",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boots-of-big-stepping": {
+      "name": "Boots of Big Stepping",
+      "sourceSha256": "e0d6736665c646740d9d3071f743de984ba246d18d06e5f232925afaa1fba174",
+      "effectSummary": "Once per day, the wearer can use dimension door as a standard action. The boots work only after 24 hours of continuous wear; removing them resets that requirement.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-of-big-stepping",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/horn-of-fog": {
+      "name": "Horn of Fog",
+      "sourceSha256": "68975f541cee1d018a2782f7b48ff3a777f5fb0467df63fb05492a27cf13f036",
+      "effectSummary": "Blowing the horn produces a thick obscuring-mist-like fog that spreads 10 feet farther each round the user continues to blow.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/horn-of-fog",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/maggot-harvester": {
+      "name": "Maggot Harvester",
+      "sourceSha256": "afd74384844c83e16c0fd592a7815b1f153424a8218626526086d293383fcf53",
+      "effectSummary": "Holding the orb over a rotting, maggot-infested corpse for 1 round draws the maggots into it; those maggots can then let the wielder speak and understand the Dark Speech for 1 minute.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/maggot-harvester",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/boots-winterlands-240": {
+      "name": "Boots of the Winterlands",
+      "sourceSha256": "ba5b4d789458bec84acbb4993c47ab24613b4ec5c1d3997768f64d2cc22eea4c",
+      "effectSummary": "The wearer moves across snow at normal speed without leaving tracks, moves normally across slippery horizontal ice without falling or slipping, and is kept warm as by endure elements.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/boots-winterlands-240",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/scythe-488": {
+      "name": "Scythe",
+      "sourceSha256": "95a6eb293aadaf380e84504cb1e0ba0696975e386e30a7732343c12670ebc920",
+      "effectSummary": "A scythe can be used to make trip attacks. If the wielder is tripped during their own trip attempt, they can drop the scythe to avoid being tripped.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/scythe-488",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    },
+    "items/forge-of-the-armorsmith": {
+      "name": "Forge of the Armorsmith",
+      "sourceSha256": "4929ca2eea17b7ed9811470eca0359d481a46c71624a3120b37715578e3dcccb",
+      "effectSummary": "A dwarf using this forge gains a +20 competence bonus on Craft (armorsmithing) checks made with it.",
+      "notes": "Manually reviewed against the verified 903-record item-effect queue after batch 006 and digest-locked to the exact captured primary source text.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/items/forge-of-the-armorsmith",
+          "role": "primary new.dndtools.org item record"
+        }
+      ]
+    }
+  }
+}

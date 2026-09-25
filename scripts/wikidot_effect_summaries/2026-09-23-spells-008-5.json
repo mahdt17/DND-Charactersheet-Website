@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-008-5",
+  "records": {
+    "wikidot5e:spell:sacred-flame": {
+      "sourceDigest": "sha256:49df7cb2d2b92407a1c97ed5dbc99ada0925cc6f3ac6237847fc712ddb2c84be",
+      "effectSummary": "One visible creature within 60 feet makes a Dexterity save, gaining no benefit from cover; on a failure it takes 1d8 radiant damage. Damage becomes 2d8 at character level 5, 3d8 at 11, and 4d8 at 17."
+    },
+    "wikidot5e:spell:sanctuary": {
+      "sourceDigest": "sha256:313bdde1d83b17313af88dd1dde5b03b121590ba58cfd3fe8bf54dba8877b214",
+      "effectSummary": "Ward one creature within 30 feet for 1 minute. A creature trying to target the warded creature with an attack or harmful spell must first make a Wisdom save; on a failure it must choose another target or lose that attack or spell. Area effects still affect the warded creature. The ward ends if the protected creature makes an attack, casts a spell affecting an enemy, or deals damage to another creature."
+    },
+    "wikidot5e:spell:sapping-sting": {
+      "sourceDigest": "sha256:3f38b1d204fbaad9bc121efe955a88e291fb9e135f26268298108000a82ab73d",
+      "effectSummary": "One visible creature within 30 feet makes a Constitution save or takes 1d4 necrotic damage and falls prone. Damage becomes 2d4 at character level 5, 3d4 at 11, and 4d4 at 17."
+    },
+    "wikidot5e:spell:scatter": {
+      "sourceDigest": "sha256:1e0975e6ddee921b8b28448a1a327d1d4416f54706910c0b2ce6e70f07cd658f",
+      "effectSummary": "Choose up to five visible creatures within 30 feet. An unwilling creature can make a Wisdom save to resist. Teleport each affected creature to a visible unoccupied space on the ground or floor within 120 feet of you."
+    },
+    "wikidot5e:spell:scorching-ray": {
+      "sourceDigest": "sha256:70987c32779388ed10573a6651c2ab36aa1d742c3bfbdd5ae234f5da98be4b47",
+      "effectSummary": "Create three rays of fire and make a separate ranged spell attack with each against creatures within 120 feet, dividing them among targets as desired. Each hit deals 2d6 fire damage. Each slot level above 2nd creates one additional ray."
+    },
+    "wikidot5e:spell:scrying": {
+      "sourceDigest": "sha256:c440964d1e69da5fd23444de83044f1e7517dd450b8cc1e49427ca7e4d52f6e9",
+      "effectSummary": "Observe a chosen creature on your plane for up to 10 minutes. It makes a Wisdom save modified by familiarity—secondhand +5, firsthand +0, familiar -5—and physical connections—likeness -2, possession or garment -4, body part or similar -10. It may willingly fail if it knows you are casting. On a success, the spell fails and cannot target that creature again for 24 hours. On a failure, an invisible fist-sized sensor appears within 10 feet of it and moves with it; you see and hear through the sensor as if present. A creature that sees invisible objects can see the sensor. Instead of a creature, you may target a previously seen location; the sensor appears there and remains stationary."
+    },
+    "wikidot5e:spell:searing-smite": {
+      "sourceDigest": "sha256:ee4ccf8de01582fca7f9b5c18a1e39f51462600f9ce85601616f76c513e63b06",
+      "effectSummary": "The next melee weapon hit you make before the spell ends deals an extra 1d6 fire damage and ignites the target. At the start of each of its turns, the burning target makes a Constitution save; on a failure it takes 1d6 fire damage, and on a success the spell ends. The target or a creature within 5 feet can use an action to extinguish the flames, and other effects such as immersion in water can also end them. Each slot level above 1st adds 1d6 to the initial extra damage only."
+    },
+    "wikidot5e:spell:seeming": {
+      "sourceDigest": "sha256:0aadd8d51fe9868e36420ee1531899cac860f327dc36816ddf70833d46be355a",
+      "effectSummary": "Give any number of visible creatures within 30 feet illusory appearances for 8 hours; an unwilling target can make a Charisma save to resist. The illusion alters apparent body, clothing, armor, weapons, and gear and can change apparent height by up to 1 foot, but cannot change basic body type or limb arrangement. Physical inspection can reveal discrepancies. A creature can use an action to inspect a target and make an Intelligence (Investigation) check against your spell save DC, recognizing the disguise on a success. You may dismiss the spell as an action."
+    },
+    "wikidot5e:spell:sending": {
+      "sourceDigest": "sha256:ac0474b5c27e11cf69a66bd35ba932549dcba5193cf8e9a16498aa6d64f49375",
+      "effectSummary": "Send a message of up to 25 words to a familiar creature at any distance. It hears the message mentally, recognizes you if it knows you, understands the meaning if its Intelligence is at least 1, and may immediately reply in the same way. The spell can cross planes, but if the target is on another plane there is a 5% chance the message fails to arrive."
+    },
+    "wikidot5e:spell:sense-emotion": {
+      "sourceDigest": "sha256:0911c8434c10d01a59d348bc2a80528fd30a299cabd7aa51c9ce5ef4ad82ff4b",
+      "effectSummary": "For up to 1 minute, when cast and as an action on later turns, focus on one visible humanoid within 30 feet and learn its prevailing emotion, such as love, anger, pain, fear, or calm. If the target is not actually a humanoid or is immune to charm, you instead sense it as calm."
+    }
+  }
+}

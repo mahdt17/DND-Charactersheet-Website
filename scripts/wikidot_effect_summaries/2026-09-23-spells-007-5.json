@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-007-5",
+  "records": {
+    "wikidot5e:spell:otilukes-freezing-sphere": {
+      "sourceDigest": "sha256:c59aba3d419d682c9ea0178a526fb87854a0f587b87ab8794477da2b0aae921e",
+      "effectSummary": "Launch a frigid globe to a point within 300 feet, where it explodes in a 60-foot-radius sphere. Creatures there make Constitution saves, taking 10d6 cold damage on a failure or half on a success. If the globe hits primarily water, it freezes a 30-foot square to 6 inches deep for 1 minute; surface swimmers are trapped and can use an action for a Strength check against your spell save DC to break free. Instead of firing immediately, you may hold the sling-stone-sized globe; anyone can throw it 40 feet or launch it with a sling, causing the same explosion on impact. If not detonated within 1 minute, it explodes automatically. Each slot level above 6th adds 1d6 damage."
+    },
+    "wikidot5e:spell:otilukes-resilient-sphere": {
+      "sourceDigest": "sha256:f9267ff7884f9398218d2906496efb76d62b5415ecb36444233928e6e2b452ed",
+      "effectSummary": "Enclose a Large-or-smaller creature or object within 30 feet in a weightless, indestructible force sphere for up to 1 minute. An unwilling creature can make a Dexterity save to avoid it. Nothing physical, energetic, or magical can pass through the barrier in either direction, though the enclosed creature can breathe. Nothing inside can harm the outside or be harmed from outside. An enclosed creature can use an action to roll the sphere at up to half its speed, and other creatures can pick it up and move it. Disintegrate destroys the sphere without harming its contents."
+    },
+    "wikidot5e:spell:ottos-irresistible-dance": {
+      "sourceDigest": "sha256:b8601e0309cdfccb6f42f9d9b8f828ece4b81d24afc22079383053fd3b10b930",
+      "effectSummary": "One visible creature within 30 feet that is not immune to charm begins dancing for up to 1 minute. It must use all movement dancing in place, has disadvantage on Dexterity saves and attack rolls, and attacks against it have advantage. As an action, it can make a Wisdom save, ending the spell on a success."
+    },
+    "wikidot5e:spell:pass-without-trace": {
+      "sourceDigest": "sha256:8153f5c820c7ea97ec9109ebc3464d9c678b16eee9ca5102d539f8b04f2192e1",
+      "effectSummary": "For up to 1 hour, creatures you choose within 30 feet of you, including yourself, gain +10 to Dexterity (Stealth) checks, cannot be tracked except by magical means, and leave no tracks or other traces of passage."
+    },
+    "wikidot5e:spell:passwall": {
+      "sourceDigest": "sha256:6217798cb21c3a3a97e32017aae5504c0b284a6fc13e96134e85ad1cf534b7ea",
+      "effectSummary": "Create a passage through a visible wooden, plaster, or stone surface within 30 feet for 1 hour. The opening can be up to 5 feet wide, 8 feet tall, and 20 feet deep and does not destabilize the surrounding structure. When it closes, creatures and objects still inside are safely ejected to the nearest unoccupied space by the surface."
+    },
+    "wikidot5e:spell:phantasmal-force": {
+      "sourceDigest": "sha256:ad68dbec8ae600e854dd5a423597f3e078fde6f8b9b0094fa4920670626c4c39",
+      "effectSummary": "One visible non-undead, non-construct creature within 60 feet makes an Intelligence save. On a failure, for up to 1 minute it alone perceives a chosen phantasmal creature, object, or phenomenon no larger than a 10-foot cube, including appropriate sound, temperature, and other sensations. It treats the phantasm as real and rationalizes contradictions. As an action it can make an Intelligence (Investigation) check against your spell save DC, ending the spell on a success. If the illusion represents a creature or hazard capable of harming it, once each round on your turn it can deal 1d6 psychic damage while the target is in or within 5 feet of the phantasm; the target perceives an appropriate damage type."
+    },
+    "wikidot5e:spell:phantasmal-killer": {
+      "sourceDigest": "sha256:3c3ea79446d4314b4397ea404a521abd58524a099da277c6c578ab424972c89d",
+      "effectSummary": "One visible creature within 120 feet makes a Wisdom save. On a failure it is frightened by an illusion of its deepest fear for up to 1 minute. At the end of each of its turns, it repeats the Wisdom save; on a failure it takes 4d10 psychic damage, and on a success the spell ends. Each slot level above 4th adds 1d10 damage."
+    },
+    "wikidot5e:spell:phantom-steed": {
+      "sourceDigest": "sha256:590ba55416d806c569ad64226264f1380b58d1898ed34b6fb532ba9fc41dd08e",
+      "effectSummary": "Create a Large quasi-real horse with saddle, bit, and bridle in a visible unoccupied ground space within 30 feet for 1 hour. You choose its appearance and its rider. It uses riding-horse statistics except for 100-foot speed and travel of 10 miles per hour, or 13 miles at a fast pace. Conjured tack vanishes if carried more than 10 feet from the steed. Damage, your action to dismiss it, or duration ending causes it to fade over 1 minute, giving the rider time to dismount."
+    },
+    "wikidot5e:spell:planar-ally": {
+      "sourceDigest": "sha256:01bc44b68f5f21f4a4d99d24585e10f80ab8ce266db0dacb106ad0e8d8e5e81c",
+      "effectSummary": "Ask a known cosmic power for aid; it sends a loyal celestial, elemental, or fiend to a visible unoccupied space within 60 feet. You may request a named servant, but the DM chooses what arrives. The creature is not compelled to help; if you can communicate, negotiate payment for a service. Typical guidance is 100 gp per minute, 1,000 gp per hour, or 10,000 gp per day for up to 10 days, adjusted by the DM for ethos, danger, and circumstances; aligned or nonhazardous tasks may cost less, and suicidal tasks are rarely accepted. If no agreement is reached it returns home immediately; otherwise it serves as agreed, then returns after reporting if appropriate. A creature joining your group receives a full share of earned XP."
+    },
+    "wikidot5e:spell:planar-binding": {
+      "sourceDigest": "sha256:14656818ce89e284e7a08aef9e65d1d4de338f64ac46ae1dd145b796d38df8af",
+      "effectSummary": "Keep a celestial, elemental, fey, or fiend within 60 feet throughout the 1-hour casting. At completion it makes a Charisma save; on a failure it is bound to serve you for 24 hours, and any spell that summoned or created it is extended to the same duration. The creature follows your instructions as well as possible, but a hostile creature interprets them literally and tries to twist them to its own aims. If it finishes early, it reports to you if you are on the same plane; otherwise it returns to the binding location until the spell ends. A 6th-level slot lasts 10 days, 7th lasts 30 days, 8th lasts 180 days, and 9th lasts 1 year and 1 day."
+    }
+  }
+}

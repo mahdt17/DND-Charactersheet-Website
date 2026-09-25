@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-spells-007-3",
+  "records": {
+    "wikidot5e:spell:minor-illusion": {
+      "sourceDigest": "sha256:78f666179c527e849caf5beeea4d99522b73da4e4aa00bd36dd3837569abf4e4",
+      "effectSummary": "Create either a sound or an image of an object within 30 feet for 1 minute; it ends early if dismissed or you cast the spell again. A sound may range from a whisper to a scream and may be continuous or intermittent. An image must fit within a 5-foot cube and cannot produce sound, light, smell, or other sensory effects; physical interaction reveals it as insubstantial. A creature can use an action for an Intelligence (Investigation) check against your spell save DC to identify the illusion, after which it becomes faint to that creature."
+    },
+    "wikidot5e:spell:mirage-arcane": {
+      "sourceDigest": "sha256:8a584a8365ad975e202990e64e9307e5cbcb72b05b42d175a7bfd243e2b9b7ea",
+      "effectSummary": "For 10 days, reshape the sensory appearance and physical feel of terrain in an area up to 1 mile square, while preserving its general shape. You can make terrain seem and function as difficult or easy ground and alter or add structures, but cannot disguise, hide, or create creatures. The illusion includes visual, auditory, tactile, and olfactory effects; removed illusory terrain objects disappear outside the area. Truesight reveals the true terrain visually, but the creature remains physically able to interact with the illusion's other properties."
+    },
+    "wikidot5e:spell:mirror-image": {
+      "sourceDigest": "sha256:1edf009544a0a19f299a1b5acb3dd7937415969e71904ad54437a145b2112038",
+      "effectSummary": "Create three illusory duplicates of yourself for 1 minute. When a creature targets you with an attack, roll d20: with three duplicates, 6+ redirects it to a duplicate; with two, 8+; with one, 11+. A duplicate has AC 10 + your Dexterity modifier and is destroyed only by an attack that hits it; all other damage and effects are ignored. The spell ends when all duplicates are gone and can be dismissed as an action. Creatures that cannot see, rely on nonvisual senses such as blindsight, or can perceive illusions as false such as with truesight are unaffected."
+    },
+    "wikidot5e:spell:mislead": {
+      "sourceDigest": "sha256:2ed6d9814394b748bc6fbbb0a852d02614a8a6a177a56c8a173b33bdc6858bc9",
+      "effectSummary": "Become invisible for up to 1 hour while an illusory double appears where you stood. Your invisibility ends if you attack or cast a spell, but the double remains for the spell's duration. As an action, move the double up to twice your speed and make it gesture, speak, and behave as you choose. You can see and hear through it, and as a bonus action switch between its senses and your own; while using the double's senses, you are blind and deaf to your actual surroundings."
+    },
+    "wikidot5e:spell:modify-memory": {
+      "sourceDigest": "sha256:e6f5df74244bdd1f0c2eef88f414c3088f7d1aa861b22ba7058b989d0372d070",
+      "effectSummary": "One visible creature within 30 feet makes a Wisdom save, with advantage if you are fighting it. On a failure it is charmed, incapacitated, and unaware of its surroundings for up to 1 minute, though it can hear you; damage or another spell targeting it ends this spell without altering memory. While the charm lasts, verbally redefine one event from the last 24 hours that lasted no more than 10 minutes: erase it, make it perfectly clear, change details, or replace it with another event. The target must understand your language, and the modification takes hold only if you finish the description before the spell ends. Implausible memories may be dismissed and need not alter behavior. Remove curse or greater restoration restores the true memory. A 6th-level slot reaches 7 days back, 7th reaches 30 days, 8th reaches 1 year, and 9th can alter an event from any time in the target's past."
+    },
+    "wikidot5e:spell:mold-earth": {
+      "sourceDigest": "sha256:6d429c1affe0b063cc40e36c90301d106be8008ed7cfa5411867764464797acb",
+      "effectSummary": "Manipulate visible dirt or stone fitting in a 5-foot cube within 30 feet. Choose one: instantly excavate loose earth and move it along the ground up to 5 feet without damaging force; create words, images, shapes, or colors for 1 hour; or make ground difficult terrain or restore difficult ground to normal for 1 hour. You can have at most two noninstantaneous effects active at once and can dismiss one as an action."
+    },
+    "wikidot5e:spell:moonbeam": {
+      "sourceDigest": "sha256:2be6ce45193e13582cf9ce5b9c987382fbe0a7ad54d7bbe5f0f70240d9212a11",
+      "effectSummary": "Create a 5-foot-radius, 40-foot-high cylinder of dim light centered within 120 feet for up to 1 minute. A creature entering the area for the first time on a turn or starting its turn there makes a Constitution save, taking 2d10 radiant damage on a failure or half on a success. Shapechangers make this save with disadvantage; on a failed save they also revert to their original form and cannot change shape while in the beam. As an action on later turns, move the beam up to 60 feet. Each slot level above 2nd adds 1d10 damage."
+    },
+    "wikidot5e:spell:mordenkainens-faithful-hound": {
+      "sourceDigest": "sha256:8eca1846744410b06eb08219acf90c267ae237e6922b0a446aca22454d531811",
+      "effectSummary": "Conjure an invisible, invulnerable phantom watchdog in a visible unoccupied space within 30 feet for 8 hours, until dismissed, or until you move more than 100 feet away. A Small-or-larger creature entering within 30 feet without speaking your chosen password causes the hound to bark loudly. It sees invisible creatures, sees into the Ethereal Plane, and ignores illusions. At the start of each of your turns, it makes a melee attack against one hostile creature within 5 feet using your spellcasting ability modifier + proficiency bonus to hit; a hit deals 4d8 piercing damage."
+    },
+    "wikidot5e:spell:mordenkainens-magnificent-mansion": {
+      "sourceDigest": "sha256:4faefde046c1e3e0b0aaa6cc8fd9df5ea5a621bd8a8b69bc6c0adcee3e0340d9",
+      "effectSummary": "Create a 5-by-10-foot portal within 300 feet leading to a warm extradimensional mansion for 24 hours. You choose who may enter and can open or close the portal while within 30 feet; when closed it is invisible. The interior may use any floor plan totaling no more than fifty 10-foot cubes, is furnished as you choose, contains a nine-course banquet for up to 100 people, and has 100 obedient noncombatant servants that cannot leave. Conjured furnishings vanish if removed. When the spell ends, creatures and objects inside are expelled to the nearest open spaces by the entrance."
+    },
+    "wikidot5e:spell:mind-thrust": {
+      "sourceDigest": "sha256:53d9817f63191af022d50948c4dcddd58e03194d6166bd2010332f49e1a9ed1d",
+      "effectSummary": "One visible creature within 60 feet makes an Intelligence save. On a failure it takes 3d6 psychic damage, cannot take reactions until the end of its next turn, and on that next turn may use only one of movement, an action, or a bonus action. On a success it takes half damage and suffers no other effect. Each slot level above 2nd adds one target, with all targets within 30 feet of one another."
+    }
+  }
+}

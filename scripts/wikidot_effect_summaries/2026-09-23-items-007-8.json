@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-007-8",
+  "records": {
+    "wikidot5e:wondrous-items:wildspace-orrery": {
+      "sourceDigest": "sha256:239dfffd70541652d4e3aca524ec5f8b29a2ec5c626f5d0c70efc28d6ce477af",
+      "effectSummary": "Within a Wildspace system, automatically tracks the positions and movements of every sun, planet, moon, and comet and projects them above the device. A white pulsing point in the display marks the orrery's own location."
+    },
+    "wikidot5e:wondrous-items:will-of-the-talon": {
+      "sourceDigest": "sha256:a4a02fba63c8eb6ae5e68b3841e27290aaba73f702e4c37c7bd5e38d2d95fa65",
+      "effectSummary": "Sentient lawful-evil evolving +1 war pick housing bone devil Ashtyrlon; Intelligence 14, Wisdom 15, Charisma 19, hearing/darkvision 120 feet, telepathic, speaks/reads/understands Common, Draconic, Infernal, values greed and decisive leadership. Dormant: learn Draconic/Infernal; +1 attack/damage; once per dawn bonus action Frightful Presence, chosen aware creatures within 30 feet DC 13 Wisdom or frightened 1 minute, repeat each turn, 24-hour immunity after success/end; action Breath Weapon, choose a damage type not already used since dawn: acid 30-by-5-foot line Dex, cold 15-foot cone Con, fire 15-foot cone Dex, lightning 30-by-5-foot line Dex, poison 15-foot cone Con; DC 13, 3d6 or half. Awakened: +2 attack/damage, breath 4d6/DC 15, Frightful Presence DC 15, and resistance to acid/cold/fire/lightning/poison while carrying. Exalted: +3 attack/damage, breath 5d6/DC 17, Frightful Presence DC 17."
+    },
+    "wikidot5e:wondrous-items:wind-fan": {
+      "sourceDigest": "sha256:3908339711c296f1024559100beeb678c9614652f113e7aa0a716d5365d1a0b9",
+      "effectSummary": "As an action while holding it, cast gust of wind at save DC 13. It is safely reusable after the next dawn. Each additional use before then has a cumulative 20% chance to fail and tear the fan into permanently nonmagical tatters."
+    },
+    "wikidot5e:wondrous-items:windvane": {
+      "sourceDigest": "sha256:78079e37463c11cfca27a9002b55ea803e49df1b4a28ef030a423385d31ec7d8",
+      "effectSummary": "Legendary finesse +2 spear dealing +1d6 lightning on hits and containing a spark of Yan-C-Bin. While held, speak Auran, gain lightning resistance, and once per dawn cast dominate monster at save DC 17 targeting only an air elemental. While inside an air node, once per dawn perform the Song of the Four Winds ritual to create an air devastation orb using the normal ritual time/cost. Flaw while attuned: mercurial and unreliable; vows, plans, duty, and honor mean nothing to you."
+    },
+    "wikidot5e:wondrous-items:winged-ammunition": {
+      "sourceDigest": "sha256:fc3008ff569512ee55f1fee9a5b2dfd1e4921d31d87866cedbdebca1431e6acb",
+      "effectSummary": "Ranged weapon attacks made with this magic ammunition ignore half and three-quarters cover, and attacking at long range does not impose disadvantage."
+    },
+    "wikidot5e:wondrous-items:winged-boots": {
+      "sourceDigest": "sha256:8661550561b007ad6356e8b8170d61c92cd3da18849a80a367e37e23aec984e2",
+      "effectSummary": "While worn, gain flying speed equal to walking speed for up to 4 total hours, used in increments of at least 1 minute. If airborne when the available duration expires, descend safely 30 feet per round until landing. The boots recover 2 hours of flying time for every 12 hours not used."
+    },
+    "wikidot5e:wondrous-items:wings-of-flying": {
+      "sourceDigest": "sha256:bb7bfeb44c12899685f9907b37c501f8a6affc98ec010b24251bfb8a375c8a68",
+      "effectSummary": "As an action while wearing the cloak, speak its command word to transform it into bat or bird wings for 1 hour or until you repeat the command as an action. While active, gain flying speed 60 feet. After the wings disappear, they cannot be used again for 1d12 hours."
+    },
+    "wikidot5e:wondrous-items:wingwear": {
+      "sourceDigest": "sha256:19bcbfe0df19d58e22f10aa4044ac20ce4bdbcd7617afdd39a9df36d82219259",
+      "effectSummary": "The suit has 3 charges. While wearing it, use a bonus action and 1 charge to gain flying speed 30 feet until landing. At each turn end your altitude drops 5 feet; if you did not fly at least 30 feet horizontally that turn, altitude immediately drops to 0 and you land or fall. At altitude 0 the effect ends and another charge is needed for a new flight. All charges return after the suit spends at least 1 hour in an elemental air node."
+    },
+    "wikidot5e:wondrous-items:witchlight-vane": {
+      "sourceDigest": "sha256:a0384d11d7158584c37c074d7523fca33d1b0c5f8b5368ffe8c632cc7f5a8d0f",
+      "effectSummary": "Legendary sentient chaotic-good rod attunable by Mister Light or chosen successor; Intelligence 11, Wisdom 14, Charisma 14, hearing/vision 30 feet, communicates emotion and seeks carnival happiness. Functions as +3 magic mace dealing +1d8 radiant. Inside Witchlight Carnival, senses mood of every Intelligence 4+ creature; as an action pinpoint the happiest creature, and its butterfly top rotates clockwise for high spirits or counterclockwise for dour mood. Holder has lightning vulnerability; attuned creature is immune to blinded, deafened, petrified, stunned. While carrying it, cast dancing lights, polymorph, or ray of frost as an action without components using Charisma. After casting polymorph, roll d8; on 3 or 8 it cannot cast polymorph again until dawn."
+    },
+    "wikidot5e:wondrous-items:witchlight-watch": {
+      "sourceDigest": "sha256:65da97be334a23d794c6956a44c5b3947c09a39c4336473043eaf4e2e71de554",
+      "effectSummary": "Legendary pocket watch attunable by Mister Witch or chosen successor. As an action while on the same plane as the Witchlight Carnival, initiate magical setup or takedown; over 1 hour all carnival objects pack/unpack safely while creatures are unaffected, and the process cannot stop early. This property then cannot be used for 8 hours. While carrying it, cast fire bolt, invisibility, or message as an action without components using Intelligence; after invisibility, roll d8 and on 3 or 8 it cannot cast invisibility again until dawn. Attunement also adds 30 pounds of body weight and requires eight times normal daily food and drink."
+    }
+  }
+}

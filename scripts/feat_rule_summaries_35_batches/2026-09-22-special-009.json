@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Final 3-record feat long-rule batch 009. Vow of Poverty and Vow of Purity close their exact digest-locked Special-field reviews. Reaping Talons closes the sole damaged-source tail by retaining the exact truncated primary Benefit digest while independently verifying the complete Tome of Battle tactical rules and omitted maneuver prerequisite from source mirrors.",
+  "entries": {
+    "feats/reaping-talons-2400": {
+      "name": "Reaping Talons",
+      "benefitSha256": "3db51f8f99bd300efc2e074266cac748a6a8ae03a342bfd75a24a5d9f78eb0d6",
+      "effectSummary": "Grants three Tiger Claw two-weapon tactical options. Focused Assault: after fighting defensively, using total defense, or using Combat Expertise for at least +3 AC/-3 attack while wielding two Tiger Claw preferred weapons and moving no more than 5 feet, track opponents that attack you; on your next turn, as a full-round action, make one attack at your highest bonus against each such opponent you still threaten. Cornered Predator: after hitting one foe with two attacks using one-handed or light Tiger Claw preferred weapons, on your next turn gain +2 on attacks against that foe for each opponent threatening you. Talon Shield: after hitting one foe with two such attacks, on your next turn if you fight defensively or use total defense, gain +2 shield AC against that foe in addition to the action's normal AC bonus.",
+      "notes": "The primary rebuilt Benefit field is truncated, so the exact primary-field digest is retained while the missing ending and omitted Tiger Claw maneuver prerequisite are independently verified against Tome of Battle mirrors. No mechanics are inferred from memory.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/reaping-talons-2400",
+          "role": "primary catalog record and digest source; Benefit is truncated"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/feats/noncore-featstob.html",
+          "role": "complete Tome of Battle feat text and prerequisite verification"
+        },
+        {
+          "url": "https://dndtools.net/feats/tome-of-battle-the-book-of-nine-swords--88/reaping-talons--2400/",
+          "role": "legacy same-source complete feat cross-check"
+        }
+      ]
+    },
+    "feats/vow-of-poverty-3081": {
+      "name": "Vow of Poverty",
+      "specialSha256": "1dbacd9202561cf667ba6f05cf1ab0e59693b0e0d8cb46dc6187e2f4a81386da",
+      "specialSummary": "To maintain the vow, you may possess and use only ordinary nonmagical, non-masterwork simple weapons; simple nonmagical clothing; one day's food in a simple nonmagical bag; and a spell component pouch. You may benefit from magic items used on your behalf, but may not use or borrow magic items yourself or personally cast from scrolls, wands, or staffs. Breaking the vow causes immediate, irrevocable loss of the feat's benefit, and the feat cannot be replaced.",
+      "notes": "The Benefit is already concise in the primary source; only the long Special clause required a digest-locked review summary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/vow-of-poverty-3081",
+          "role": "primary Book of Exalted Deeds record and Special-field digest source"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/feats/noncore-featsboed.html",
+          "role": "Book of Exalted Deeds rule-text cross-check"
+        }
+      ]
+    },
+    "feats/vow-of-purity-3082": {
+      "name": "Vow of Purity",
+      "specialSha256": "1654c08cedea5ac373cd3305dd88d6c67a1fc340c6cee1c0f5eb543006804249",
+      "specialSummary": "To maintain the vow, avoid contact with dead creatures and dead flesh, including meat, and do not touch fallen foes. You may fight undead and may touch a corpse only to restore it to life. Fighting undead or accidentally touching dead flesh requires a 1-hour purification ritual using a flask of holy water. Intentionally breaking the vow immediately and irrevocably removes the feat's benefit with no replacement; a breach caused by magical compulsion removes the benefit until suitable penance and an atonement spell.",
+      "notes": "The Benefit is already concise in the primary source; only the long Special clause required a digest-locked review summary.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/vow-of-purity-3082",
+          "role": "primary Book of Exalted Deeds record and Special-field digest source"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/feats/noncore-featsboed.html",
+          "role": "Book of Exalted Deeds rule-text cross-check"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "cf2c633d44cb8f223839de59d8215bd78c45848a",
+    "validationRun": 35787520286,
+    "featReviewRun": 35781227811,
+    "featReviewArtifact": 10718635433,
+    "featReviewArtifactSha256": "ebab66aeaad83fb49b41e87c26cd621632a05f2981b926748788b0f0ba33aa62",
+    "sourceArtifactEntryCount": 321,
+    "reviewQueueCountBefore": 3,
+    "reviewedByPriorBatches": 318,
+    "sourceRepair": [
+      "feats/reaping-talons-2400"
+    ],
+    "fullFeatAuditRun": 35780589058,
+    "catalogCount": 3666
+  }
+}

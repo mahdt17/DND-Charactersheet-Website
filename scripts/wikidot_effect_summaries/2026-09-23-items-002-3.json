@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-002-3",
+  "records": {
+    "wikidot5e:wondrous-items:clockwork-amulet": {
+      "sourceDigest": "sha256:d6efb3a8c992418fa82fc29f7f2ed9e2e18684041b54bc2a3af6c9d2eee42ed0",
+      "effectSummary": "Once per dawn while wearing the amulet, when making an attack roll you may forgo rolling the d20 and treat the die result as 10."
+    },
+    "wikidot5e:wondrous-items:clockwork-armor": {
+      "sourceDigest": "sha256:9751e59bd5cfe409a9fa97a677030acb9b2984d82687705761d1304c0fe4493e",
+      "effectSummary": "The armor has 4 charges and regains 1d4 daily at dawn. Whenever you make any d20 roll while wearing it, spend 1 charge to change the rolled number to 10."
+    },
+    "wikidot5e:wondrous-items:coiling-grasp-tattoo": {
+      "sourceDigest": "sha256:5d438cc121513cb4e4e06304fc8b1daeb215e512b589c07b493eb2943d94897a",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes the tattoo vanish and needle reappear. As an action, extend tendrils toward a visible creature within 15 feet; DC 14 Strength or it takes 3d6 force and is grappled by you. It may use an action for DC 14 Strength (Athletics) or Dexterity (Acrobatics) to escape. The grapple also ends if you end it freely, the creature moves more than 15 feet away, or you use the tattoo on another creature."
+    },
+    "wikidot5e:wondrous-items:conch-of-teleportation": {
+      "sourceDigest": "sha256:fb15e0cac1c234539cf6e8760481613f57cee50ee744989058042441ce03927a",
+      "effectSummary": "Once per dawn, use an action to blow the conch and cast teleport to the one fixed destination established when its rune was inscribed. The teleport cannot mishap or arrive off target and cannot be redirected elsewhere."
+    },
+    "wikidot5e:wondrous-items:constantoris-portrait": {
+      "sourceDigest": "sha256:908ebdc6dd08440a4d72de9225814876f83c5da65754dc03ef98bb48b12773ec",
+      "effectSummary": "Sentient lawful-evil Small painting: Int 14, Wis 12, Cha 8; hearing 120 feet, darkvision 60 feet but cannot see behind itself; speaks Common, Draconic, and Elvish and avidly remembers nearby conversations and secrets, with exact knowledge determined by the DM. While attuned, use an action to telepathically contact it across any distance on the same plane, maintaining contact with concentration; it cannot initiate telepathy. You may designate enemies for it to guard against until revoked or attunement ends. It has 3 charges, restored daily at dawn; when a designated enemy starts a turn in sight, it automatically spends 1 charge to cast magic missile with 3 missiles at that creature. Object statistics: AC 12, 20 HP, poison immunity, 15 pounds framed; mending restores 2d6 HP if above 0."
+    },
+    "wikidot5e:wondrous-items:corpse-slayer": {
+      "sourceDigest": "sha256:5af05952ef51294bcb1957b6063735900da546d2c643bca3b6a66343f62bb6c8",
+      "effectSummary": "Magic weapon grants +1 attack and damage. Hits against undead deal +1d8 damage of the weapon's normal type, and that undead has disadvantage on saves against effects that turn undead until the start of your next turn."
+    },
+    "wikidot5e:wondrous-items:crook-of-rao": {
+      "sourceDigest": "sha256:53e98e6a23a2fc917d880125577a6745c837a91b69adbde0b374064c7291f94f",
+      "effectSummary": "Artifact with 2 random minor beneficial, 1 major beneficial, and 1 minor detrimental property. It has 6 charges, regaining 1d6 daily at dawn; as an action cast with save DC 18: banishment 1, beacon of hope 1, aura of life 2, aura of purity 2, mass cure wounds 3. While attuned and holding it, spend 10 minutes to permanently banish every fiend CR 18 or lower within 1 mile to its home plane and bar it from the current plane for 100 years. Whenever Absolute Banishment is used or the last charge is spent, roll d100 Failing Matrix: 01–25 random-planar portal 5 minutes; 26–45 2d4 imps + 2d4 quasits; 46–60 1d8 succubi/incubi; 61–70 1d10 barbed devils + 1d10 vrocks; 71–80 arcanoloth + night hag + rakshasa; 81–85 ice devil + marilith; 86–90 balor + pit fiend or DM-chosen archdevil/demon-lord portal 5 minutes; 91–00 triggers Iggwilv's Curse. That curse destroys the crook into a permanent 50-foot-diameter gate that, initiative count 20 each round, calls every fiend ever banished by name and draws surviving ones through over 18 years, then becomes a permanent portal to Pazunia. A tear of Rao on Mount Celestia can destroy the crook by immersion for a year and a day, or repair it by daily washing for 30 days, removing Failing Matrix."
+    },
+    "wikidot5e:wondrous-items:crown-of-lies": {
+      "sourceDigest": "sha256:00e9b9bbfd3be3920eb4fce0ab07ab3caf25fffc51bf7a3c1df59edc2cf8dbec",
+      "effectSummary": "Artifact with 1 random minor beneficial, 1 major beneficial, and 1 minor detrimental property. Attuning requires wearing it and speaking a true heart's desire. As an action, transform into an exact physical copy of any creature seen at least once whose size is within one category of yours; adopt its size, speed, appearance, and voice but keep all other statistics. The crown melds invisibly into the form, which lasts until death, attunement ends, or another action changes form. The disguise is physically real for interaction and counts as the copied creature for spells, traps, and defenses; your lies always seem true against all mundane and magical detection, sending addressed to you or the copied creature reaches you, and scrying targeting the copied creature targets you. Only wish reveals your true nature. In true form you may choose whether the crown is visible. The crown is destroyed if the creature you are impersonating kills you while you wear that form."
+    },
+    "wikidot5e:wondrous-items:crown-of-the-wrath-bringer": {
+      "sourceDigest": "sha256:054b53ffa73af472783d6798f5017e4d4907d511d62be72efee140ad5e39db3c",
+      "effectSummary": "When you hit a creature while wearing the crown, you may spend and roll one unspent Hit Die to deal that much extra psychic damage. Once per dawn, use an action to invoke its rune and cast fear with save DC 15, duration 1 minute, without concentration."
+    },
+    "wikidot5e:wondrous-items:crown-of-whirling-comets": {
+      "sourceDigest": "sha256:665c036bf50a23723cde1c65370a986addb5f7c991977bc44b96dc5db469d452",
+      "effectSummary": "The crown has 6 charges and regains 1d6 daily at dawn. As a bonus action, spend 1 charge to gain a flying speed equal to walking speed and hover for 10 minutes, glowing faintly. As an action, spend any number of charges to launch that many automatically hitting bolts at visible creatures within 120 feet, each dealing 2d4 cold. As an action, spend 3 charges to cast ice storm with save DC 16."
+    }
+  }
+}

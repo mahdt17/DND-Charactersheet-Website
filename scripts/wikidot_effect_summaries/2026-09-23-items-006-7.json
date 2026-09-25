@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-006-7",
+  "records": {
+    "wikidot5e:wondrous-items:spider-staff": {
+      "sourceDigest": "sha256:ff1238d0d15863a99d82f69901a521b721c72efc26d30621b6f284722f459618",
+      "effectSummary": "This magic quarterstaff deals +1d6 poison on weapon hits. It has 10 charges, regaining 1d6+4 daily at dusk. While holding it, cast spider climb for 1 charge or web for 2 charges at save DC 15. If the last charge is spent, roll d20; on 1 it crumbles to dust and is destroyed."
+    },
+    "wikidot5e:wondrous-items:spies-murmur": {
+      "sourceDigest": "sha256:6161b359cf9314d38e3359f02e5a71d6428729f67361c78346f7dfcdeb0632ca",
+      "effectSummary": "If you know a creature wearing another spies' murmur within 1 mile, you can communicate telepathically with each other. As a bonus action, allow that creature to hear everything you hear for 1 hour; end this as a bonus action, and it ends if you are incapacitated."
+    },
+    "wikidot5e:wondrous-items:spindle-of-fate": {
+      "sourceDigest": "sha256:d71ebc2c36dbf8f0b3450f5d44832d7d9ca2f024326ec36b77ee3e65448cf55c",
+      "effectSummary": "Legendary wand with 6 charges, regaining 1d6 daily at dawn. Battle Foreknowledge: when rolling initiative, spend 1 charge to add or subtract proficiency bonus. Doom Foretold: action, 2 charges, target one creature within 30 feet for 1 hour or until retargeted; while on same plane know its direction and movement direction, and once per turn when you damage it add 1d6 damage. Twist of Fate: when a creature within 60 feet makes a save or attack, use reaction and 3 charges to reverse the outcome: failed save becomes success, successful save becomes failure, missed attack becomes hit, or hit becomes miss."
+    },
+    "wikidot5e:wondrous-items:staff-of-adornment": {
+      "sourceDigest": "sha256:fc883f359ea8a57e7d25d3ac527602a4cdc34ac2008f2435a386f4bd863fca48",
+      "effectSummary": "While holding it, place up to three objects each weighing no more than 1 pound an inch above the tip, where they float until removed or you lose possession. While holding the staff, make any or all of those floating objects slowly spin or turn in place."
+    },
+    "wikidot5e:wondrous-items:staff-of-birdcalls": {
+      "sourceDigest": "sha256:0966ab6f1d3938e073021f55acaa704b2b994ada508689c07753ddd63882b566",
+      "effectSummary": "Has 10 charges, regaining 1d6+4 daily at dawn. While holding it, use an action and 1 charge to create one bird call audible to 60 feet: finch, raven, duck, chicken, goose, loon, turkey, seagull, owl, or eagle. If the last charge is spent, roll d20; on 1 it bursts into harmless feathers and is lost forever."
+    },
+    "wikidot5e:wondrous-items:staff-of-charming": {
+      "sourceDigest": "sha256:bed4a8c3cad5ab4ef7ffa18f97433338a2aecd2fc770307eb6b4f79fe36d1048",
+      "effectSummary": "Magic quarterstaff with 10 charges, regaining 1d8+2 daily at dawn. As an action, spend 1 charge to cast charm person, command, or comprehend languages using your spell save DC. Once per dawn while holding it, turn a failed save against an Enchantment spell targeting only you into a success. Whenever you succeed on a save against such a spell, with or without that property, use your reaction and 1 charge to reflect the spell onto its caster as though you cast it. If the last charge is spent, roll d20; on 1 it becomes a nonmagical quarterstaff."
+    },
+    "wikidot5e:wondrous-items:staff-of-defense": {
+      "sourceDigest": "sha256:2c899d6fcc71ac837145dda743e48a81b123e20586a63fc2f94cd16b4cbdd6ea",
+      "effectSummary": "While holding this glass staff, gain +1 AC. It has 10 charges, regaining 1d6+4 daily at dawn. Cast mage armor for 1 charge or shield for 2 charges. If the last charge is spent, roll d20; on 1 the staff shatters and is destroyed."
+    },
+    "wikidot5e:wondrous-items:staff-of-dunamancy": {
+      "sourceDigest": "sha256:01d5853ac75ad3d0cedd36da8bf6e34fe7966d82834d6425d32a060e1bb8c62f",
+      "effectSummary": "Wizard-only staff with 10 charges, regaining 1d6+4 daily at dawn. As an action while holding it, cast fortune's favor for 2 charges, pulse wave for 3, or gravity sinkhole for 4 using your spell save DC and spell attack bonus. Once per dawn, if you fail a save against a spell targeting only you while holding it, turn that failure into a success. If the last charge is spent, roll d20; on 1 it turns to dust and is destroyed."
+    },
+    "wikidot5e:wondrous-items:staff-of-fate": {
+      "sourceDigest": "sha256:86b8c12c291db28fb06e4e5c23636620b49ad0d7794c8f40fd1260bcafdc0d12",
+      "effectSummary": "Functions as a +3 magic quarterstaff. It has 6 charges. As a bonus action, spend 1 charge to give yourself or one visible creature a d4 usable before the start of your next turn; the recipient may add it to one ability check, attack roll, damage roll, or saving throw. If the last charge is spent, roll d20: 9 or lower makes it a nonmagical quarterstaff that breaks the first time it hits and deals damage; 10 or higher restores 1d6 charges."
+    },
+    "wikidot5e:wondrous-items:staff-of-fire": {
+      "sourceDigest": "sha256:4a42ff9a8815f20953b9a832a9b999964cc58c28843cd74d8e622d14d8364d5c",
+      "effectSummary": "While holding it, gain fire resistance. It has 10 charges, regaining 1d6+4 daily at dawn. As an action cast burning hands for 1 charge, fireball for 3, or wall of fire for 4 using your spell save DC. If the last charge is spent, roll d20; on 1 it crumbles into cinders and is destroyed."
+    }
+  }
+}

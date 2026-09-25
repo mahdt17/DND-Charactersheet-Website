@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-5",
+  "records": {
+    "wikidot5e:wondrous-items:potion-of-watchful-rest": {
+      "sourceDigest": "sha256:d5bbf8a3a9dfc66e77dc9303819ffc412318404bbb02863be43159f34fd30bda",
+      "effectSummary": "For 8 hours after drinking, magic cannot put you to sleep and you may remain awake during a long rest while still gaining its benefits. The potion has no effect on creatures that do not require sleep."
+    },
+    "wikidot5e:wondrous-items:powered-armor": {
+      "sourceDigest": "sha256:196630431a31d1c8e6754df1cf21f29e082c08dee6c871937bd1162c1868db58",
+      "effectSummary": "Legendary plate granting +1 AC, setting Strength to 18 if lower, and advantage on death saves. Its powered abilities can consume 1 energy-cell charge or 5 HP as a bonus action: gain 2d6+5 temporary HP; gain flying speed 15 feet for 1 minute; fire an arm laser at +8 to hit, range 120 feet, for 2d6 radiant; translate up to 1,000 words of visible nonmagical writing over 1 minute; breathe normally in any environment for up to 1 hour; or gain darkvision 60 feet for up to 1 hour. It accepts one energy cell and is found with one containing 2d10 charges. Optional automatic defenses make it function as a shield guardian with a 4th-level magic missile stored until reduced to 0 HP. Optional Battle of Wills: a new wearer makes DC 13 Charisma or is possessed and incapacitated while the armor controls the body, using adjusted statistics but not the wearer's knowledge/features/proficiencies; defeating automatic defenses or a successful DC 20 Charisma save at dawn frees the wearer. Optional Stasis: a wearer reduced to 0 HP becomes stable without death saves, but the armor controls the body and mimics the wearer; this stasis offers no Charisma saves to escape. The DM may allow other energy sources, including willing allies sacrificing HP as a reaction through a magical conduit."
+    },
+    "wikidot5e:wondrous-items:prehistoric-figurines-of-wondrous-power": {
+      "sourceDigest": "sha256:18669a947523b85c4c879c185754d6acb9bd6ef41ba8b9c40cd47890091dcfdb",
+      "effectSummary": "As an action, throw the figurine to open ground within 60 feet and speak its command word to transform it into its creature if space permits. The creature is friendly, understands your languages, obeys spoken commands, and otherwise only defends itself. It reverts at its duration, at 0 HP, or when touched and commanded as an action. Carnelian Triceratops (very rare): triceratops up to 6 hours, mountable, recharge 10 days. Jasper Tyrannosaurus Rex (legendary): tyrannosaurus rex up to 1 hour, recharge 14 days; whenever you command it, including to revert, roll d20—on 1 it becomes hostile to you and companions until reduced to 0 HP. Kyanite Pteranodon (rare): pteranodon up to 8 hours, mountable by Medium-or-smaller rider, recharge 7 days. Pyrite Plesiosaurus (uncommon): plesiosaurus up to 12 hours, mountable, recharge 4 days; while riding it, cast water breathing at will."
+    },
+    "wikidot5e:wondrous-items:prismari-primer": {
+      "sourceDigest": "sha256:e71c30b0fc65e04564b5ae8cb48b6e5ab51a565ed03055f7a01aefb0787536d1",
+      "effectSummary": "The primer has 3 charges and regains 1d3 daily at dawn. While holding it, after rolling Dexterity (Acrobatics) or Charisma (Performance), spend 1 charge to add 1d4. If studied at the end of a long rest, choose one 1st-level bard or sorcerer spell; before your next long rest, while holding the primer, cast it once without a slot using Intelligence, Wisdom, or Charisma chosen for that casting."
+    },
+    "wikidot5e:wondrous-items:professor-orb": {
+      "sourceDigest": "sha256:fc77a965e56d4dad7727d37f4bd5a403a770ed67e88f21460693c4f629d6a0a3",
+      "effectSummary": "Sentient 5-pound scholar orb with Intelligence 18, Wisdom and Charisma each 3d6, a DM-determined alignment, normal sight/hearing 60 feet, and four languages. It has no personal goals and cannot initiate item conflict. It has four narrow academic fields and makes Intelligence checks to recall lore in those specialties at +9. It can cast mage hand at will using Intelligence, only to move itself. Professor Skant is the named lawful-good example: Wisdom 11, Charisma 9, speaks/reads Common, Draconic, Elvish, Loross, and specializes in Netheril history, vampirism, Elverquisst rituals, and the tarrasque."
+    },
+    "wikidot5e:wondrous-items:propeller-helm": {
+      "sourceDigest": "sha256:d7fa00e3a5d0f62fc8e9aa8cabcd59335176aa7de80be021eaae859deba6dae3",
+      "effectSummary": "While worn by an attuned Small humanoid, cast levitate without components. When that casting ends, roll percentile; there is a 50% chance the helm permanently becomes nonmagical."
+    },
+    "wikidot5e:wondrous-items:protective-verses": {
+      "sourceDigest": "sha256:9b05b4361a07d0995a66e4187b2ab96c890affdd440f384bd96fca6d474e5463",
+      "effectSummary": "Wizard spellbook/focus with an iron lock DC 20; as an action touch the cover to lock it as arcane lock. Contains arcane lock, dispel magic, globe of invulnerability, glyph of warding, Mordenkainen's private sanctum, protection from evil and good, and symbol. It has 3 charges, regaining 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with another Abjuration spell in the book. When casting an Abjuration spell, spend 1 charge to grant one visible creature within 30 feet 2d10 temporary HP."
+    },
+    "wikidot5e:wondrous-items:psi-crystal": {
+      "sourceDigest": "sha256:60401b735132136fca585a952e4dc4a6adb1d231eb9208cc8131cc1c5518ef4d",
+      "effectSummary": "While attuned by a creature with Intelligence 3+, gain telepathy and emit purple light based on Intelligence. Intelligence 3–7: telepathy 15 feet, dim light 5 feet. 8–11: telepathy 30 feet, bright 5/dim another 5. 12–15: telepathy 60 feet, bright 10/dim another 10. 16+: telepathy 120 feet, bright 15/dim another 15."
+    },
+    "wikidot5e:wondrous-items:pyroconverger": {
+      "sourceDigest": "sha256:8e1d57fe3d5debeda5fe5a3b95177ff9a20af5b42af2d0b750a9873c826f9eba",
+      "effectSummary": "As an action, project a 10-foot cone of flame; creatures make DC 13 Dexterity, taking 4d6 fire on failure or half on success. After each use, roll d10 and add the number of times used since your last long rest. If total is 11+, it malfunctions: you take 4d6 fire and cannot use it again until finishing a long rest."
+    },
+    "wikidot5e:wondrous-items:pyxis-of-pandemonium": {
+      "sourceDigest": "sha256:179f2f1459aa992991f721e6b3bf1a00fab0b9febd2055c0776afd108c1b240c",
+      "effectSummary": "Touching the sealed vessel for 1 minute grants a short rest and bless until your next short or long rest; a creature can benefit once per long rest. Benefiting forces DC 17 Wisdom: on failure you are charmed by the vessel for 1 hour and do everything possible to open it; on success you are immune to its whispers for 24 hours. Opening it triggers one d8 calamity at save DC 17, then it disappears after 1 minute and reappears sealed at a random same-plane location 24 hours later. 1 Androphagia: creatures within 60 feet make Wisdom or go berserk 1 minute, using each turn's Attack against nearest creature, repeating save each turn end. 2 Bile Blight: harm on every creature within 30 feet. 3 Flood: tsunami at a DM-chosen point within 120 feet. 4 Medusa's Gaze: flesh to stone on every creature within 30 feet. 5 Labyrinth: maze on every creature within 30 feet. 6 Nightmare: summon 1d4 hostile shadow demons within 30 feet. 7 Swarming Insects: insect plague centered on vessel, radius 30 feet. 8 Unbridled Revel: Otto's irresistible dance on every creature within 30 feet."
+    }
+  }
+}

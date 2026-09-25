@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-002-3",
+  "records": {
+    "wikidot5e:feat:grappler": {
+      "sourceDigest": "sha256:7f3cc21ef29b2eaa31280acb8cfa62af7ce770fc8ec9b08d6b57250e33991b18",
+      "effectSummary": "You have advantage on attack rolls against creatures you are grappling. As an action, make another grapple check against a creature you grapple; on a success, both you and the target are restrained until the grapple ends."
+    },
+    "wikidot5e:feat:great-weapon-master": {
+      "sourceDigest": "sha256:a240185b85cbdcfb3474379aa1802e99ce8115996360feb4366d37d9af214dc5",
+      "effectSummary": "On your turn, after scoring a critical hit with a melee weapon or reducing a creature to 0 HP with one, you may make one melee weapon attack as a bonus action. Before making a melee attack with a heavy weapon you are proficient with, you may take -5 to the attack roll; on a hit, add +10 damage."
+    },
+    "wikidot5e:feat:greater-dragonmark": {
+      "sourceDigest": "sha256:81b87b02200c1833df6761fd947e1b130912d6414b7143d9698c0c6e4df49f23",
+      "effectSummary": "Increase your dragonmark's Intuition Die by one die size and increase one ability score allowed by your mark by 1, maximum 20. You also gain mark-specific spells, each cast once without a spell slot or material component and recharged by the listed rest: Detection—see invisibility, true seeing; Int or Cha increase, Int casting, long rest. Finding—locate creature, find the path; Dex/Str/Wis increase, Wis casting, long. Handling—beast sense, dominate beast; Dex/Wis, Wis, long. Healing—mass healing word, greater restoration; Dex/Wis, Wis, long. Hospitality—sanctuary, Mordenkainen's magnificent mansion; Cha/Dex, Cha, long. Making—fabricate, creation; Dex/Int, Int, long. Passage—blink, teleportation circle; Dex/Con, Con, long. Scribing—sending, tongues; Int/Cha, Int, short or long. Sentinel—compelled duel, warding bond; Str/Wis, Wis, short or long. Shadow—nondetection, mislead; Cha/Dex, Cha, long. Storm—control water, control winds; Cha/Dex, Cha, long. Warding—knock, glyph of warding, Leomund's secret chest; Dex/Int, Int, long; secret chest additionally requires a Siberys dragonshard worth at least 100 gp as its focus."
+    },
+    "wikidot5e:feat:grudge-bearer": {
+      "sourceDigest": "sha256:3c2c8e4fc96cfaf850eb50791aabeaac4c9747b32a9c636a78c9e2c557c7b5fd",
+      "effectSummary": "Choose one listed nonhumanoid creature type or two humanoid races as your hated foes. Increase Strength, Constitution, or Wisdom by 1, maximum 20. During the first round of combat against chosen foes, your attacks against them have advantage. Their opportunity attacks against you have disadvantage. When recalling information about them with Intelligence (Arcana, History, Nature, or Religion), add double your proficiency bonus even if not normally proficient."
+    },
+    "wikidot5e:feat:guile-of-the-cloud-giant": {
+      "sourceDigest": "sha256:21201c94f9afd49622fa2ba575817386ff84dbf180acb994e709532bdecddb9d",
+      "effectSummary": "Increase Strength, Constitution, or Charisma by 1, maximum 20. When a visible creature hits you, use your reaction to gain resistance to that attack's damage, then teleport to a visible unoccupied space within 30 feet. Uses equal proficiency bonus per long rest."
+    },
+    "wikidot5e:feat:guile-of-the-cloud-giant-revised-ua": {
+      "sourceDigest": "sha256:0e3f5bc2a5ececf1184c20a08008786422bd954758176cf0ad5a826b9b8e4a69",
+      "effectSummary": "Increase Dexterity, Constitution, or Charisma by 1, maximum 20. When a visible creature hits you, use your reaction to gain resistance to that attack's damage, then teleport to a visible unoccupied space within 30 feet. Uses equal half your proficiency bonus rounded up per long rest."
+    },
+    "wikidot5e:feat:guile-of-the-cloud-giant-ua": {
+      "sourceDigest": "sha256:ffd68d030328f2c79d3603abeb4fb1fdcb4e5a09a3613bf9b961516bbb46f969",
+      "effectSummary": "Learn blur and cast it once per long rest without a slot or material components and without concentration; you may also cast it normally with appropriate slots. Choose Intelligence, Wisdom, or Charisma as its spellcasting ability. Gain proficiency in either Deception or Persuasion and expertise with the chosen skill."
+    },
+    "wikidot5e:feat:gunner": {
+      "sourceDigest": "sha256:9ea23d354a352b6ab0628ed95ecc81145e309d590bf00316ba7a33fccd526e08",
+      "effectSummary": "Increase Dexterity by 1, maximum 20. Gain firearm proficiency, ignore the loading property of firearms, and do not suffer disadvantage on ranged attack rolls solely because a hostile creature is within 5 feet."
+    },
+    "wikidot5e:feat:healer": {
+      "sourceDigest": "sha256:e4dcbe2cc4f5d1af88408db3f4f14105a65d32bd410fd6beeb65665bfd27f981",
+      "effectSummary": "When you use a healer's kit to stabilize a dying creature, it also regains 1 HP. As an action, spend one use of a healer's kit to restore 1d6 + 4 + the creature's maximum number of Hit Dice HP; that creature cannot benefit from this healing again until it finishes a short or long rest."
+    },
+    "wikidot5e:feat:heavily-armored": {
+      "sourceDigest": "sha256:42a0cc479dda448270c3bff3e1a6107fa7f8526a1109e948f97525494eb87839",
+      "effectSummary": "Increase Strength by 1, maximum 20, and gain proficiency with heavy armor."
+    }
+  }
+}

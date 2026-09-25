@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Adaptive maximum-safe manual reference batch 096: two source-verified 3.5-era records whose table/reference mechanics were independently checked; candidates with unresolved secondary references or legacy-lineage risk remain excluded.",
+  "entries": {
+    "spells/major-creation-2406": {
+      "name": "Major Creation",
+      "sourceSha256": "68d62e76f2e41b5a5a4b710e4d091beb62be2179d24093740bb1954e26f00a4c",
+      "effectSummary": "Functions as minor creation, creating one unattended nonmagical object up to 1 cubic foot per caster level and requiring an appropriate Craft check for complex objects; using a created object as a material component causes the spell to fail. Major creation additionally allows mineral objects such as stone, crystal, or metal. Duration depends on material: vegetable matter lasts 2 hours/level; stone, crystal, and base metals 1 hour/level; precious metals 20 minutes/level; gems 10 minutes/level; and rare metals 1 round/level. Rare metals include adamantine, alchemical silver, and mithral. Cold iron cannot be created.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Minor Creation supplies the shared object-volume, Craft-check, and material-component restrictions. The primary catalog omits the visible duration table from parsed effect text, so the table was independently verified against the Revised 3.5 SRD / same-printing references before locking.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/major-creation-2406",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/minor-creation-2409",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited minor-creation mechanics"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/majorCreation.htm",
+          "role": "Revised 3.5 SRD cross-check for the omitted duration table"
+        }
+      ]
+    },
+    "spells/holy-star-2213": {
+      "name": "Holy Star",
+      "sourceSha256": "9eb99597a862940685cd2dcc0a6ac7a25cd76fb25403b31744173759aa9fcd88",
+      "effectSummary": "Creates a candle-bright mote for 1 round/level with one of three functions chosen as a free action on your turn. Spell Turning mode turns a total of 1d4+3 spell levels using spell turning's normal rules: only targeted spells and spell-like effects are turned, not area/effect spells or touch-range spells; a higher-level incoming spell can be partially turned proportionally; if both sides have spell turning active, use the normal resonating-field d% outcomes. Turning capacity spent by Holy Star stays spent for the spell's duration, and this mode stops working when all capacity is used. Protection mode grants a +10 circumstance bonus to AC. Fire Bolt mode makes a ranged touch attack against a creature within 90 feet for 1d6 fire damage per two caster levels, maximum 10d6.",
+      "notes": "Player's Guide to Faerûn printing, digest-locked. The source explicitly sets Holy Star's smaller 1d4+3 turning capacity while importing Spell Turning's targeting, partial-turning, and resonating-field mechanics. The source-specific AC and fire-bolt functions are preserved directly.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/holy-star-2213",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/spell-turning-2368",
+          "role": "reviewed Player's Handbook v.3.5 base spell for inherited spell-turning mechanics and resonating-field table"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "48dcbbd8d483232e13497e31b6a7149d52aed01a",
+    "workflowRun": 35693793433,
+    "validationRun": 35693796770,
+    "classificationArtifact": 10679059929,
+    "classificationArtifactSha256": "5db89e003c9463fa5eed5a358e9d056720bb4667e6bc18c07bbb93e136b697dc",
+    "queueCountBefore": 855,
+    "referenceQueueCountBefore": 855,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

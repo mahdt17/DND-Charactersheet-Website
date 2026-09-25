@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-002-4",
+  "records": {
+    "wikidot5e:wondrous-items:crusaders-shortsword": {
+      "sourceDigest": "sha256:6549f8df7520c87752de0a74c44533285be905ac6a62cac4f42aa6e3a0a8125a",
+      "effectSummary": "Sentient lawful-good +1 shortsword with Intelligence 11, Wisdom 13, Charisma 13, hearing and normal vision 120 feet, communicating through emotion. It permanently sheds bright light 15 feet and dim light another 15, extinguishable only by destroying it. A lawful-good creature can attune in 1 minute; while attuned, once per dawn cast crusader's mantle from the sword."
+    },
+    "wikidot5e:wondrous-items:crystal-ball": {
+      "sourceDigest": "sha256:1b9f0c1fb7ffc872a077ab249b910280685769900c0cf2fa8ac3f9f803a90589",
+      "effectSummary": "While touching the standard very-rare crystal ball, cast scrying with save DC 17. Legendary variants add: Mind Reading—while scrying, use an action to cast detect thoughts, save DC 17, targeting creatures within 30 feet of the sensor; it requires no separate concentration and ends with scrying. Telepathy—while scrying, telepathically communicate with creatures within 30 feet of the sensor; once per dawn cast suggestion through the sensor, save DC 17, with no separate concentration and ending with scrying. True Seeing—while scrying, gain truesight 120 feet centered on the sensor."
+    },
+    "wikidot5e:wondrous-items:crystal-blade": {
+      "sourceDigest": "sha256:cd06dfaffb687f2a91d22701723b5c765614eb83a681f5eb50a3f038a7de8900",
+      "effectSummary": "Hits with this magic sword deal +1d8 radiant damage. It has 3 charges and regains 1d3 daily at dawn; when you hit, spend 1 charge to regain HP equal to the extra radiant damage dealt. While holding it, use a bonus action to set its light to bright 30 feet/dim another 30, dim 10 feet, or off."
+    },
+    "wikidot5e:wondrous-items:crystalline-chronicle": {
+      "sourceDigest": "sha256:702afa49c5a285cd41c2cd8b6005f492e48912bbe911ce3c681f1686f2847537",
+      "effectSummary": "Psychically encoded wizard spellbook/focus containing detect thoughts, intellect fortress, Rary's telepathic bond, sending, telekinesis, Tasha's mind whip, and Tenser's floating disk; while touching it you can read/write stored information at normal speed. While holding it, you also know mage hand, mind sliver, and message if not already known. It has 3 charges and regains 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with another spell in the chronicle. When casting a wizard spell, spend 1 charge to omit verbal, somatic, and material components worth up to 100 gp."
+    },
+    "wikidot5e:wondrous-items:cube-of-force": {
+      "sourceDigest": "sha256:7fefa59c420853cb84a45bdcc2056a09da821cac8aa5912f5462123d328b6c8e",
+      "effectSummary": "Starts with 36 charges and regains 1d20 daily at dawn. As an action press a face to create or change a 15-foot force cube centered on and moving with you for 1 minute, spending: face 1, 1 charge—blocks gases, wind, fog; face 2, 2—blocks nonliving matter, with walls/floors/ceilings allowed at your discretion; face 3, 3—blocks living matter; face 4, 4—blocks spell effects; face 5, 5—blocks everything, again optionally allowing walls/floors/ceilings; face 6, 0—deactivates. A solid object that cannot pass prevents you moving closer. Contact/targeting drains additional charges: disintegrate 1d12, horn of blasting 1d10, passwall 1d6, prismatic spray 1d20, wall of fire 1d4. The barrier ends if the cube runs out of charges."
+    },
+    "wikidot5e:wondrous-items:cubic-gate": {
+      "sourceDigest": "sha256:66091512b5215d00c27a8b9b4aef9b417530583dc867b42b0f3d778b9b6ec4d9",
+      "effectSummary": "Each of the six faces is keyed to a different plane, including the Material Plane and five DM-chosen others. The cube has 3 charges and regains 1d3 daily at dawn. As an action, press a face once and spend 1 charge to cast gate to its plane, or press it twice and spend 1 charge to cast plane shift with save DC 17 to that plane."
+    },
+    "wikidot5e:wondrous-items:cuddly-strixhaven-mascot": {
+      "sourceDigest": "sha256:06c87601c5fa5dcde130a6af3435b77bbf55d3546e584a5070fef4d24184d0c5",
+      "effectSummary": "As an action, press the Tiny toy to an arm, shoulder, or leg to attach it for 1 hour or until removed as an action. While it is on your person, before rolling a save to avoid or end frightened, you may give yourself advantage; after a successful save using this benefit, it cannot grant advantage again until you finish a long rest."
+    },
+    "wikidot5e:wondrous-items:cursed-luckstone": {
+      "sourceDigest": "sha256:bf49b66c488f29fca44019d3e5d4f32b3da37af3d0cb31062fd972c8fb8b1486",
+      "effectSummary": "Once per dawn while carrying the stone, gain advantage on one ability check. It is cursed: attunement prevents discarding it, as it immediately teleports back to your pocket or pack, until remove curse or similar magic. After using its advantage, your next two ability checks have disadvantage."
+    },
+    "wikidot5e:wondrous-items:daerns-instant-fortress": {
+      "sourceDigest": "sha256:de2eeffc310c528de39ccd5c39e519bf00e8aa233c3a1f80f5f6c342e783eb03",
+      "effectSummary": "As an action, place the 1-inch cube and speak its command word to expand it into a 20-by-20-foot, 30-foot-high adamantine tower with two floors, roof battlement, arrow slits, ladder/trapdoor, and a command-controlled small door immune to knock and similar opening magic. Creatures in its footprint make DC 15 Dexterity, taking 10d10 bludgeoning or half and being pushed to adjacent open space; unattended objects take full damage and are pushed. It cannot be tipped. Roof, door, and each wall have 100 HP, immunity to nonmagical-weapon damage except siege weapons, and resistance to all other damage. Only wish can repair it; each wish restores 50 HP to one roof/door/wall section. Dismiss as an action with the command word only while empty."
+    },
+    "wikidot5e:wondrous-items:dagger-of-venom": {
+      "sourceDigest": "sha256:61ccf4bfffd36d9e9fabcaa540bf9ed529fa871fae2948a353f1a44b002bdc24",
+      "effectSummary": "Magic dagger grants +1 attack and damage. Once per dawn, use an action to coat it in poison for 1 minute or until its next hit. The hit target makes DC 15 Constitution or takes 2d10 poison damage and is poisoned for 1 minute."
+    }
+  }
+}

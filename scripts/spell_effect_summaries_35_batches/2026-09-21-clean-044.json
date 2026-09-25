@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked self-contained 3.5 spell summary; clean batch 044.",
+  "entries": {
+    "spells/grazzts-long-grasp-246": {
+      "name": "Graz'zt's Long Grasp",
+      "sourceSha256": "ba8e0c0ea79e441337c6931cace021a8f471591646ff7fafd6e516bf82605d26",
+      "effectSummary": "Detaches one of your hands, dealing 2d4 damage to you, and lets you control the hand by thought as a free action. It flies at 20 feet with perfect maneuverability and can deliver any touch-range spell you can cast; you gain a +2 bonus on melee touch attacks made through it. The hand can flank, make normal unarmed attacks with a +2 attack bonus, grasp and move objects using your normal Strength, and grapple as a Tiny creature. If it leaves the spell's range, leaves your sight, or is not being directed, it attempts to return and reattach. Reattachment heals the same 2d4 damage you took unless the hand is destroyed or otherwise prevented from returning before the spell ends. The hand has improved evasion, your saving throw bonuses, AC 22 plus your Intelligence modifier as though that modifier were its Dexterity modifier, and 2d4 hit points.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/grazzts-long-grasp-246",
+          "role": "Book of Vile Darkness primary effect and header reviewed; detachment cost and healing, free-action control, flight, touch-spell delivery, attack/grapple/object interaction, automatic return, defenses and hit points preserved"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "c3c07f55b154731204c07bcc91d9f645e9aa98f3",
+    "workflowRun": 35655150888,
+    "validationRun": 35655158594,
+    "classificationArtifact": 10663334726,
+    "classificationArtifactSha256": "1a77dd9308ef67f277c751899cf413240ce35032d0a53bfca1005119b705da71",
+    "eligibleCount": 1
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-008-1",
+  "records": {
+    "wikidot5e:wondrous-items:cast-off-armor": {
+      "sourceDigest": "sha256:ab1398e7c97012b7c6fadaff9994282c9e9f19a12a480898081c57960dc77202",
+      "effectSummary": "You can doff this armor as an action."
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-2",
+  "records": {
+    "wikidot5e:wondrous-items:jewel-of-three-prayers": {
+      "sourceDigest": "sha256:8cf86ae4cfc509bc3e833f82d6bd90bb93c7cbdc03089968d66b5354371bcfba",
+      "effectSummary": "Evolving legendary Vestige. Dormant: +1 AC while worn; while worn/held, as an action toggle bright light 15 feet and dim another 15; 3 charges, all restored daily at dawn, spend 1 while holding to cast invisibility. Awakened: AC bonus +2, charges increase to 5; spend 1 charge without an action to end grappled, paralyzed, or restrained on yourself; when another visible creature within 60 feet fails a save, use reaction and 1 charge to make it reroll and use the new result. Exalted: AC bonus +3, charges increase to 7; you breathe water and gain swim speed equal to walking, and allies within 30 feet gain the same; as a bonus action spend 1 charge to teleport yourself or one willing visible creature within 15 feet to an open space within 15 feet of you, carrying equipment. Chosen creatures within 5 feet of the arrival point make DC 18 Constitution, taking 4d10 radiant and blinded until the start of your next turn on failure, or half damage without blindness on success."
+    },
+    "wikidot5e:wondrous-items:kagonesti-forest-shroud": {
+      "sourceDigest": "sha256:c51b7192a10fcf125fc36ebfc3cb06affdb794a651cc335c18714652a3f5c113",
+      "effectSummary": "While worn, gain advantage on Dexterity (Stealth). Once per dawn as a bonus action, teleport with worn/carried equipment to a visible unoccupied space within 30 feet; you then have advantage on the next attack roll you make before the end of that turn."
+    },
+    "wikidot5e:wondrous-items:keoghtoms-ointment": {
+      "sourceDigest": "sha256:2917e8c24e35ef12d20aa619618e08cd80a769f156ede3ddd83d4c776f1d59de",
+      "effectSummary": "The jar contains 1d4+1 doses. As an action, swallow or apply one dose to a creature; it regains 2d8+2 HP, ends poisoned, and is cured of any disease."
+    },
+    "wikidot5e:wondrous-items:keycharm": {
+      "sourceDigest": "sha256:72504d8cab47b9c9ad87e96d9ca141e7e3ff3771c503cdf8839669f64486f617",
+      "effectSummary": "For a creature with the Mark of Warding, when you cast alarm, arcane lock, or glyph of warding, you can tie that spell to the keycharm. Whoever holds it then receives alarm's notification, bypasses the arcane lock, or avoids triggering the glyph. A holder need not be attuned and may use an action plus your chosen command word to end any one spell tied to it. Up to three spells may be tied at once."
+    },
+    "wikidot5e:wondrous-items:khrusor": {
+      "sourceDigest": "sha256:c1eeda6012d5ddf17847b88cf4e2fac1aef94a189017200fb4879b6d79df6921",
+      "effectSummary": "Artifact +3 spear dealing +2d8 radiant on hits and shedding sunlight as bright 30 feet/dim another 30. A worshiper of Heliod gains: piety 3+ 15 temporary HP each dawn; 10+ one random minor beneficial property; 25+ another minor beneficial; 50+ one random major beneficial. A non-worshiper instead has 2 random major detrimental properties. Once per dawn when a creature within 5 feet damages you, use reaction to make a melee spear attack; on hit deal normal damage and blind it until the start of its next turn. The spear has 10 charges, regains 1d6+4 daily at dawn, and casts at save DC 18: guiding bolt 1, daylight 3 targeting the spear tip only, sunbeam 6. Destroy or corrupt it by using it in Erebos's palace in Tizerus to sacrifice a champion of Heliod to Erebos."
+    },
+    "wikidot5e:wondrous-items:knaves-eye-patch": {
+      "sourceDigest": "sha256:c8ddc27e13a18a4fd0a7bebda8f9ec29d694b246bafa3b0be0b454141ff3f4db",
+      "effectSummary": "While worn, gain advantage on sight-based Wisdom (Perception), ignore the Sunlight Sensitivity trait if you have it, and become immune to magic that reads your thoughts or determines whether you are lying. Telepathy can reach you only if you allow it."
+    },
+    "wikidot5e:wondrous-items:korolnor-scepter": {
+      "sourceDigest": "sha256:b053d476fafec180cb6842dc443ab8f2add9766811f9ff9ecd3fd2959e9cb3a6",
+      "effectSummary": "Legendary +3 magic club that also lets you use the properties of the Wyrmskull Throne. It has 10 charges and regains 1d6+4 at dawn. While underground or underwater, spend 1 charge as an action to determine distance to the surface; spend 2 charges as an action to cast sending; spend 3 charges as an action to cast teleport. If the teleport destination is within 60 feet of the Wyrmskull Throne, it cannot mishap or arrive off target."
+    },
+    "wikidot5e:wondrous-items:kyrzins-ooze": {
+      "sourceDigest": "sha256:8c4ad90fcf56a961b9168303316093e5404408c6f80747754e537616dc82424b",
+      "effectSummary": "Attunement requires drinking the symbiotic ooze. While bonded, resist acid and poison damage and are immune to poisoned. Once per dawn as an action, become amorphous for 1 minute, letting you and worn/carried gear move through spaces as narrow as 1 inch without squeezing. Separately once per dawn as an action, exhale a 30-by-5-foot acid line; creatures make DC 15 Dexterity for 8d8 acid or half. The ooze cannot be removed and attunement cannot end voluntarily; curse-ending magic ends attunement and causes it to seep out. If you die while bonded, it bursts out and turns your corpse into a black pudding allied with the daelkyr."
+    },
+    "wikidot5e:wondrous-items:lantern-of-revealing": {
+      "sourceDigest": "sha256:8bc5de029e65235c2dca3523337c1fad4ac7c162bbe788983dfc8a5134c84434",
+      "effectSummary": "With 1 pint of oil, the hooded lantern burns 6 hours, shedding bright light 30 feet and dim another 30. Invisible creatures and objects are visible while in its bright light. As an action, lower the hood to reduce illumination to dim light in a 5-foot radius."
+    },
+    "wikidot5e:wondrous-items:lantern-of-tracking": {
+      "sourceDigest": "sha256:a250bd31800f76c68b08dad0cdc9ba753c3cbe650a210fe610e754c0ef6692a9",
+      "effectSummary": "With 1 pint of oil, burns 6 hours with bright light 30 feet and dim another 30. Each lantern permanently tracks one creature type determined by d10: 1 aberrations, 2 celestials, 3 constructs, 4 dragons, 5 elementals, 6 fey, 7 fiends, 8 giants, 9 monstrosities, 10 undead. While any creature of that type is within 300 feet, the flame turns bright green but does not reveal exact location."
+    }
+  }
+}

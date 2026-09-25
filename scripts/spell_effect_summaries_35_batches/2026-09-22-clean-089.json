@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified 3.5 reference spells with previously unresolved base mechanics expanded in full; clean batch 089.",
+  "entries": {
+    "spells/secure-corpse-94": {
+      "name": "Secure Corpse",
+      "sourceSha256": "e55845bfb8e797f426fff70f303db980456a7cb22b98674699b68b5b04eef334",
+      "effectSummary": "Turns your divine focus/holy symbol into a magical receptacle for one creature's corpse within Close range. The corpse is transformed into divine energy and stored inside the symbol for 1 day per caster level, dismissible. While stored, the remains are preserved in stasis as by gentle repose: they do not decay, time spent stored does not count against time limits for magic that returns the creature to life, and severed body parts stored as part of the corpse are likewise preserved. You can release the corpse by dismissing the spell. If the spell ends, is dismissed, or the holy symbol is destroyed, the corpse materializes in a square adjacent to the symbol's current location or, if the symbol was destroyed, its last location.",
+      "notes": "Source-locked to Book of Exalted Deeds. Gentle Repose is uniquely resolved to Player's Handbook v.3.5 and contributes only the preservation/stasis consequences; Secure Corpse supplies the transformation, storage, holy-symbol receptacle, release, and rematerialization rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/secure-corpse-94",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/gentleRepose.htm",
+          "role": "3.5 SRD cross-check for inherited corpse-preservation and revival-time-limit mechanics"
+        }
+      ]
+    },
+    "spells/halasters-shaking-hand-344": {
+      "name": "Halaster's Shaking Hand",
+      "sourceSha256": "89abc1c303f3086c4de12ec27101b6de2b27b21921ebf1e98a9be85c59ae15f9",
+      "effectSummary": "Functions as Bigby's interposing hand for 1 round per caster level: it creates a Large force hand that stays between you and one chosen opponent, grants you cover and +4 AC against that opponent regardless of darkness, invisibility, polymorph, or disguise, has your full normal hit points, AC 20, and your save bonuses, is immune to most nondamaging magic, never provokes attacks of opportunity, is destroyed by disintegrate or a successful dispel magic, cannot enter antimagic or pass through wall of force, is affected normally by prismatic effects, and halves the speed of creatures weighing 2,000 pounds or less that try to push past it. Retargeting the interposing function takes a move action. In addition, once per round the shaking hand can attempt to grapple a magic hand created by Bigby's clenched fist, crushing hand, forceful hand, or grasping hand. Its grapple bonus against another magic hand is your caster level + your Intelligence modifier if you are a wizard or Charisma modifier if you are a sorcerer +9 for its Strength 29 +4 for Large size. A grappled magic hand can escape only by winning an opposed grapple check, unless its own duration outlasts the shaking hand. If the opposing hand has no printed Strength score, treat its Strength as 17 + twice that spell's level. Breaking one grapple does not prevent the shaking hand from trying again on a later round.",
+      "notes": "Source-locked to City of Splendors: Waterdeep. Bigby's Interposing Hand is uniquely resolved to Player's Handbook v.3.5 and its complete defensive force-hand behavior is expanded here; Halaster's spell adds the separate anti-magic-hand grapple subsystem.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-shaking-hand-344",
+          "role": "primary City of Splendors catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/interposingHand.htm",
+          "role": "3.5 SRD cross-check for inherited Bigby's Interposing Hand mechanics"
+        }
+      ]
+    },
+    "spells/holy-star-4709": {
+      "name": "Holy Star",
+      "sourceSha256": "58812cdbfd277dd649c082e8296dacc77356733f39e4e75ec65183fbf7c2e5c5",
+      "effectSummary": "For 3 rounds, a candle-bright mote of divine energy floats near your shoulder. As a free action on your turn, choose one of three functions. Spell Turning gives the star a single pool of 1d4+3 spell levels for the entire Holy Star duration: directly targeted spells and spell-like effects can be turned back on their caster, while area/effect spells and touch-range spells are not turned. Fully turned spells subtract their level from the pool; if an incoming spell's level exceeds the remaining pool, only that fraction is turned, splitting damaging effects proportionally between you and the caster and converting nondamaging effects into proportional chances to affect each of you. If both sides have spell turning active, roll d%: 01–70 the spell drains away, 71–80 both are affected at full effect, 81–97 both turning effects cease functioning for 1d4 minutes, and 98–100 both creatures pass through a rift to another plane. Depleted Holy Star turning capacity never refreshes during the spell, and once exhausted that function stops working while the other two remain available. Protection grants a +6 circumstance bonus to AC. Fire Bolt makes a ranged touch attack against a creature up to 90 feet away using your normal attack bonus and deals 1d6 fire damage per two caster levels, maximum 10d6.",
+      "notes": "Source-locked to Spell Compendium p.116. Spell Turning's table-driven reflection and partial-turning behavior is expanded explicitly so Holy Star does not depend on an unresolved table reference. Holy Star overrides Spell Turning's normal 1d4+6 capacity with 1d4+3 and preserves depletion across mode changes.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/holy-star-4709",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/spellTurning.htm",
+          "role": "3.5 SRD cross-check for inherited turning, partial-turning, and mutual-turning mechanics"
+        }
+      ]
+    },
+    "spells/swamp-stride-4290": {
+      "name": "Swamp Stride",
+      "sourceSha256": "03a753de45f8b1e7e814b920363f94ff4fd63db40859227f36a02cffa23ee7d1",
+      "effectSummary": "For up to 1 hour per caster level, lets you enter a pool of water at least 1 foot deep and transport yourself instantly to another qualifying pool no more than 500 feet away. On entering a pool, you instinctively know the locations of other qualifying pools within transport range whose depth is within 1 foot of the entry pool's depth; you can choose one as your destination or simply emerge again from the entry pool. You can enter a pool up to once per caster level, and transporting from one pool to another counts as one entry. Each transport is a full-round action. You can remain within a pool without transporting, but you are forced out when the spell ends; the spell lasts until its duration expires or you exit a pool. All other Tree Stride limitations apply with pools substituted for trees, while Swamp Stride replaces Tree Stride's species-dependent ranges with a flat 500-foot maximum and replaces the living-tree/girth requirement with the printed pool-depth requirements.",
+      "notes": "Source-locked to Spell Compendium p.217. Tree Stride's usage-count, full-round transport, remain-inside, exit, and duration mechanics are expanded explicitly. Its tree-type transport table is not inherited; Swamp Stride replaces that table with a 500-foot maximum and depth-matching pool rules.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/swamp-stride-4290",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/treeStride.htm",
+          "role": "3.5 SRD cross-check for inherited Tree Stride usage and transport limitations"
+        }
+      ]
+    },
+    "spells/magic-miasma-4512": {
+      "name": "Magic Miasma",
+      "sourceSha256": "88b25857066af3cfe164d723200d082062be33435843a225b283d96c7df4ec6e",
+      "effectSummary": "Creates a 30-foot-radius emanation of thick sparkling fog at Medium range for 1 round per caster level. The fog has solid fog's effects: it blocks all sight, including darkvision, beyond 5 feet; creatures within 5 feet have concealment and creatures farther apart have total concealment; movement through it is limited to 5 feet regardless of normal speed, 5-foot steps are impossible, melee attack and melee damage rolls take -2, ordinary ranged weapon attacks are ineffective except for magic rays and similar attacks, and each 10 feet fallen through the fog reduces falling damage by 1d6. Only severe wind of at least 31 mph disperses it, doing so in 1 round, and the fog does not function underwater. In addition, spells cast while the caster is within Magic Miasma take -4 caster level and -2 to their saving throw DC. A creature within the fog or entering it must make a Will save; on a failure, those caster-level and save-DC penalties continue to apply to that creature's spellcasting even after it leaves, for the remaining duration of Magic Miasma. The material component is a small piece of quilted cloth soaked in water while the spell is cast.",
+      "notes": "Source-locked to Spell Compendium p.136. Solid Fog's complete movement, concealment, ranged-attack, falling, wind, and underwater behavior is expanded explicitly; Magic Miasma's own 30-foot-radius emanation and 1-round/level duration override Solid Fog's geometry and duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/magic-miasma-4512",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/solidFog.htm",
+          "role": "3.5 SRD cross-check for inherited Solid Fog mechanics"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/fogCloud.htm",
+          "role": "3.5 SRD cross-check for the sight/concealment and underwater mechanics inherited through Solid Fog"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "660b748ade75076806d457b45e3cee65c5fcd93a",
+    "workflowRun": 35687875311,
+    "validationRun": 35687877884,
+    "classificationArtifact": 10678005027,
+    "classificationArtifactSha256": "dfba18f349e31dfec7f180ac69035e003cfb4427c3b047dc43b88a3fc45cf3f3",
+    "queueCountBefore": 894,
+    "referenceQueueCountBefore": 894,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

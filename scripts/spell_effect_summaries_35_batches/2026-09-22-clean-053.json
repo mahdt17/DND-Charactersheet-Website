@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked source-verified 3.5 spell summary; clean batch 053.",
+  "entries": {
+    "spells/profane-item-627": {
+      "name": "Profane Item",
+      "sourceSha256": "e188cd6706712153a89d8fb1d94fde9b58ee48656e963f70137998eac76a989f",
+      "effectSummary": "Imbues one touched object with latent negative energy until discharged. If the item later touches or is touched by an animal or plant of any alignment, or by a good-aligned outsider or shapechanger, it discharges and deals 1d4 points of negative-energy damage per caster level (maximum 10d4). An animal or plant that triggers it must save against fear or flee in terror for 1d4 minutes, cowering instead if it cannot move; on a successful save it is shaken for the same duration. If a shapechanger triggers the item, an image of its natural form or most common alternate form appears superimposed over it for 1d4 rounds, revealing its nature. Profane item counters and dispels sacred item.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/profane-item-627",
+          "role": "primary Complete Champion record; independently reviewed as mechanically complete"
+        },
+        {
+          "url": "https://dndtools.net/spells/complete-champion--57/profane-item--627/",
+          "role": "matching Complete Champion rendering used to verify the complete damage, fear, shapechanger-reveal, and sacred-item counter rules"
+        },
+        {
+          "url": "https://srd.dndtools.org/srd/magic/spells/spells/spellsCC.html",
+          "role": "Complete Champion SRD cross-check via the paired sacred item/profane item mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "bd1c8f05f7884ab19ca7a386c6393cba82f6a4ac",
+    "workflowRun": 35675206432,
+    "validationRun": 35675209126,
+    "classificationArtifact": 10672748019,
+    "classificationArtifactSha256": "0919f1d895c5caa9736fcc4af52011ffb72cfccb7375641ae7965e14a0367a3b",
+    "queueCountBefore": 1035,
+    "cleanStandaloneCountBefore": 1
+  }
+}

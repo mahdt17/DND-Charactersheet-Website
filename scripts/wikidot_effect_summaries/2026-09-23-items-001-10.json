@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-001-10",
+  "records": {
+    "wikidot5e:wondrous-items:brazier-of-commanding-fire-elementals": {
+      "sourceDigest": "sha256:5d81b11c39b3470814394193e04b7ed2a2e8755338286360dbba2d383fc7d424",
+      "effectSummary": "While a fire burns in the brazier, once per dawn use an action and command word to summon a fire elemental as though casting conjure elemental."
+    },
+    "wikidot5e:wondrous-items:breastplate-of-balance": {
+      "sourceDigest": "sha256:e6501d9a452794c321335e6be69df88ee9bc74512fa42dc83f792227b30c8954",
+      "effectSummary": "The armor has 4 charges and regains 1d4 daily at dawn. When you or a visible creature within 60 feet is about to roll a d20 with advantage or disadvantage, use your reaction and 1 charge to cancel both advantage and disadvantage for that roll. As a bonus action, spend 2 charges to cast lesser restoration from the armor."
+    },
+    "wikidot5e:wondrous-items:breathing-bubble": {
+      "sourceDigest": "sha256:3b6f46f5b38aa4697c65ec591dad6f7ddffdcc609cc027d4dd23b8c0c1b0c9dd",
+      "effectSummary": "While worn over your head, the bubble provides 1 hour of breathable air. Its full air supply is restored daily at dawn."
+    },
+    "wikidot5e:wondrous-items:bridle-of-capturing": {
+      "sourceDigest": "sha256:9451c96daca55974443e308c6f9cddd18d81cf01bf4355a099478f631ec21334",
+      "effectSummary": "While holding one end, use an action and command word to target a visible beast within 20 feet. It makes DC 17 Charisma; on failure the bridle binds its neck and it falls under your command as though dominated by dominate beast, without needing you to keep holding the other end. On success it is immune to the bridle until next dawn. The binder may release the beast as a bonus action. A bound beast also makes a DC 17 Charisma check each dawn, ending the control on success."
+    },
+    "wikidot5e:wondrous-items:broom-of-flying": {
+      "sourceDigest": "sha256:894d6ea9975dc6394fb1de45cab303535bec28e03f1ae8228fcf9635ae14fae7",
+      "effectSummary": "Stand astride and speak the command word to ride the hovering broom. It flies 50 feet, or 30 feet while carrying over 200 pounds, with a 400-pound maximum. It stops hovering when you land. You may command it to travel alone to a familiar named location within 1 mile and later command it to return, provided it remains within 1 mile."
+    },
+    "wikidot5e:wondrous-items:butchers-bib": {
+      "sourceDigest": "sha256:35bd9f544d3a053e4850d4e3a542655a79e819c8c8504e85069d5955bca96086",
+      "effectSummary": "While worn, once per turn when rolling melee-weapon damage, reroll the weapon's damage dice and use the second total. Your weapon attacks dealing slashing damage score critical hits on d20 rolls of 19 or 20."
+    },
+    "wikidot5e:wondrous-items:candle-of-invocation": {
+      "sourceDigest": "sha256:91271f2a716b76a9ad0d29315602bc7e6638c3d81f7ed64632334ec442de6335",
+      "effectSummary": "The candle has a deity/alignment, detectable with detect good and evil; random d20 alignment: 1–2 CE, 3–4 CN, 5–7 CG, 8–9 NE, 10–11 N, 12–13 NG, 14–15 LE, 16–17 LN, 18–20 LG. Lighting takes an action. It has 4 total hours of burn time tracked in 1-minute increments and may be snuffed for later use. While lit it sheds dim light 30 feet; creatures in the light matching its alignment have advantage on attacks, saves, and checks, and matching clerics/druids can cast prepared 1st-level spells without slots, with 1st-level effects. Alternatively, the first time it is lit you may cast gate, which destroys the candle."
+    },
+    "wikidot5e:wondrous-items:cap-of-water-breathing": {
+      "sourceDigest": "sha256:c87fe00f8e85d1e606a88d736034858d07cacef95fe31be5c5bbe40a804a0886",
+      "effectSummary": "While wearing it underwater, use an action and command word to create an air bubble around your head and breathe normally underwater. The bubble lasts until you repeat the command, remove the cap, or leave the water."
+    },
+    "wikidot5e:wondrous-items:cape-of-enlargement": {
+      "sourceDigest": "sha256:7a88e7f1cc2aa8e4987881c19a5a1e6fa9d221c2fdd217b7f85afef98c6ae5ce",
+      "effectSummary": "The cape has 3 charges and regains 1d3 daily at dawn. As a bonus action while wearing it, spend 1 charge to enlarge yourself for 10 minutes or until dismissed as a bonus action: increase one size category if space permits, gain advantage on Strength checks and Strength saves, and add your proficiency bonus to damage when you hit with a weapon or unarmed strike."
+    },
+    "wikidot5e:wondrous-items:cape-of-the-mountebank": {
+      "sourceDigest": "sha256:76dbd71dcfe3fcf7465f57fcf072ff807ba6670e58733822aaf1f4ceb8b9ef51",
+      "effectSummary": "Once per dawn while wearing the cape, use an action to cast dimension door. A smoke cloud appears at both departure and arrival spaces, lightly obscuring each until the end of your next turn; light or stronger wind disperses it early."
+    }
+  }
+}

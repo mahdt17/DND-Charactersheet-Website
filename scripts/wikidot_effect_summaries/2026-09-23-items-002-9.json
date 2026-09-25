@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-002-9",
+  "records": {
+    "wikidot5e:wondrous-items:dried-leech": {
+      "sourceDigest": "sha256:41490ff907e2f579bb30509b08eb61f707eac16822e99e157c43727d05c230c4",
+      "effectSummary": "When a ranged attack using this magical ammunition hits, the leech animates and attaches to the target. At the start of each of that target's turns it takes 1d4 piercing damage. The leech falls off after dealing at least 10 total damage or when the target dies. Any creature, including the target, may use an action to detach it; once detached, it dies and loses its magic."
+    },
+    "wikidot5e:wondrous-items:driftglobe": {
+      "sourceDigest": "sha256:2cdebb8e02e405b48f93959a51fd634ede92e9bdda473b930759bf4498aa93d1",
+      "effectSummary": "If you are within 60 feet, speak a command word to make the globe produce light or daylight; daylight can be used once per dawn. As an action, speak another command to make the lit globe hover up to 5 feet above the ground. It remains hovering until grasped; if you move more than 60 feet away it follows by the shortest route until within 60 feet. If blocked, it settles gently to the ground, becomes inactive, and its light goes out."
+    },
+    "wikidot5e:wondrous-items:drown": {
+      "sourceDigest": "sha256:613b9798fd4172d74cde75d0e8c2c3f5e808966f23c2e304d556bd5e20f876d5",
+      "effectSummary": "This legendary trident floats on water and in place underwater and is immune to water damage. It grants +1 to attack and damage and deals +1d8 cold on a hit. While held, speak Aquan and gain cold resistance. Once per dawn, cast dominate monster at save DC 17 targeting only a water elemental. While inside a water node, once per dawn perform the Tears of Endless Anguish ritual to create a water devastation orb, using the normal ritual time and cost. Curse/flaw: while attuned you become covetous and demand the largest share of spoils; after 24 continuous hours of attunement, barnacles grow on your skin and can be removed by greater restoration or similar magic only after attunement ends."
+    },
+    "wikidot5e:wondrous-items:duplicitous-manuscript": {
+      "sourceDigest": "sha256:e5c86d6c5b4dfe9888347600e9d84b62f94dac3e7440b42155c35884ff4ae684",
+      "effectSummary": "To you, this wizard spellbook appears magical; to everyone else it appears to be verbose romance fiction. As an action, change its appearance and romance plot. It contains hallucinatory terrain, major image, mirror image, mislead, Nystul's magic aura, phantasmal force, and silent image, and functions as your wizard focus. It has 3 charges, regaining 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with a different Illusion spell in the book. When a visible creature makes an Intelligence (Investigation) check to discern one of your illusion spells or a save against one, use your reaction and 1 charge to impose disadvantage on that roll."
+    },
+    "wikidot5e:wondrous-items:duskcrusher": {
+      "sourceDigest": "sha256:61b50db815ba7a879f7bd564a1376a4345666cfe835b5d957b74a0e79bf764bf",
+      "effectSummary": "As a bonus action while holding the rod, manifest a radiant warhammer head; dismiss it as an action. While active, it sheds sunlight as bright light 15 feet and dim another 15, grants +2 to attack and damage, changes its weapon damage to radiant, and deals +1d8 radiant to undead. Once per dawn while the radiant head is active, use an action to cast sunbeam from the weapon with save DC 15."
+    },
+    "wikidot5e:wondrous-items:dust-of-corrosion": {
+      "sourceDigest": "sha256:99f056a687a14c9d58f60b9e8b59ea4b2cf75b259c80abe6a85d567db2ecdd5f",
+      "effectSummary": "One-use packet. As an action, throw it into a 10-foot cube extending from you. Nonmagical ferrous-metal surfaces and objects in the area instantly corrode into useless, unsalvageable dust. Creatures wholly or partly made of ferrous metal make DC 13 Constitution, taking 4d8 necrotic on failure or half on success."
+    },
+    "wikidot5e:wondrous-items:dust-of-deliciousness": {
+      "sourceDigest": "sha256:e90eefc45004dcbd73757c595221d8dfbd144eac9981b64c82896f069ff11405",
+      "effectSummary": "Contains enough dust for six servings. Sprinkling it over edible food greatly improves flavor. A creature that eats treated food has disadvantage on Wisdom ability checks and Wisdom saving throws for 1 hour."
+    },
+    "wikidot5e:wondrous-items:dust-of-disappearance": {
+      "sourceDigest": "sha256:691ef49b20ca5280f58d205b536ac8095c0732962b1861ab53054257f15efa5d",
+      "effectSummary": "One-use packet. As an action, throw the dust into the air; you and each creature and object within 10 feet become invisible for the same 2d4-minute duration. For a creature, invisibility ends early if it attacks or casts a spell."
+    },
+    "wikidot5e:wondrous-items:dust-of-dryness": {
+      "sourceDigest": "sha256:155996f4ee82db87d5cc737e6768d72f404baff35b05ab19dc83b7b9eeaf14e8",
+      "effectSummary": "Contains 1d6+4 pinches. As an action, one pinch transforms a 15-foot cube of water into a marble-sized, nearly weightless pellet. As an action, smash a pellet against a hard surface to end its magic and release all absorbed water. A mostly-water elemental exposed to one pinch makes DC 13 Constitution, taking 10d6 necrotic on failure or half on success."
+    },
+    "wikidot5e:wondrous-items:dust-of-sneezing-and-choking": {
+      "sourceDigest": "sha256:60589856f8e9f7c689a47c1754ff683f30f65205a22fb058f840e5ded8781891",
+      "effectSummary": "One-use cursed-looking-alike powder that appears to be dust of disappearance even to identify. As an action, throw it into the air; you and each breathing creature within 30 feet make DC 15 Constitution or become unable to breathe, incapacitated, and suffocating while sneezing uncontrollably. A conscious affected creature repeats the save at the end of each turn, ending the effect on success; lesser restoration also ends it."
+    }
+  }
+}

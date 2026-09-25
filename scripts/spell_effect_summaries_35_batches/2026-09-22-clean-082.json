@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Manually source-verified same-edition spells blocked by explicit inherited mechanics, with those mechanics expanded without changing selector policy; clean batch 082.",
+  "entries": {
+    "spells/charm-animal-2532": {
+      "name": "Charm Animal",
+      "sourceSha256": "7ae77e9a9efa9e730e76dcd51520e5e8693bbe1465938dac5a53e0c213ba1efd",
+      "effectSummary": "Functions as charm person, except the target is one creature of the animal type. On a failed Will save, the animal regards you as a trusted friend and ally for 1 hour per caster level. If you or your allies are threatening or attacking it when you cast the spell, it gains +5 on the save. The charm does not grant direct control: the animal interprets your words and actions favorably, and convincing it to do something it would not normally do requires the normal opposed Charisma check; it refuses suicidal or obviously harmful orders. Threatening the charmed animal after the spell takes effect breaks the charm. Spell resistance applies.",
+      "notes": "Player's Handbook v.3.5 core spell. The Charm Person reference is same-book and uniquely resolved; the only spell-specific override is the animal target type.",
+      "provenance": [
+        {
+          "url": "https://www.d20srd.org/srd/spells/charmAnimal.htm",
+          "role": "3.5 SRD source and cross-check for the animal-only override"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/charmPerson.htm",
+          "role": "3.5 SRD source for inherited Charm Person attitude, save, order, and break conditions"
+        }
+      ]
+    },
+    "spells/programmed-image-2692": {
+      "name": "Programmed Image",
+      "sourceSha256": "b360bcd86542258414d68ed74a11658d5396f56418c154964590da839b748034",
+      "effectSummary": "Creates a figment that can occupy up to one 20-foot cube plus one 10-foot cube per caster level. Like silent image, the illusion is shaped and moved as you design it and allows a Will save to disbelieve if interacted with, but Programmed Image also includes visual, auditory, olfactory, and thermal elements, including intelligible speech. It remains dormant indefinitely until a condition you set when casting occurs, then lasts 1 round per caster level. The trigger can be as general or detailed as desired but must depend on audible, tactile, olfactory, or visual information; it cannot detect normally imperceptible qualities such as alignment. The material component is fleece plus 25 gp of jade dust.",
+      "notes": "Player's Handbook v.3.5 core spell. Silent Image supplies the base figment behavior; Programmed Image explicitly replaces the size, sensory scope, duration, and activation model.",
+      "provenance": [
+        {
+          "url": "https://www.d20srd.org/srd/spells/programmedImage.htm",
+          "role": "3.5 SRD source for the trigger, expanded sensory elements, geometry, and duration"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/silentImage.htm",
+          "role": "3.5 SRD source for inherited figment creation/movement and disbelief behavior"
+        }
+      ]
+    },
+    "spells/repel-metal-or-stone-2354": {
+      "name": "Repel Metal Or Stone",
+      "sourceSha256": "89c58cc727888b7f7e1bc7d397ec32154e594eb92b01bb57e36bbb3da44a6622",
+      "effectSummary": "For 1 round per caster level, invisible waves sweep along a fixed 60-foot line from you and push metal or stone objects away at 40 feet per round. Fixed metal or stone objects more than 3 inches in diameter and loose objects over 500 pounds are unaffected; smaller fixed objects bend or break, while other eligible objects—including animated objects, small boulders, metal armor, weapons, and magic items with metal components—are driven back. Carried metal or stone drags its bearer with it unless released. Antimagic field blocks the effect. Once cast, the path remains fixed and continues operating without further concentration even if you move elsewhere.",
+      "notes": "Player's Handbook v.3.5 core spell. The Repel Wood comparison describes the wave model, but all operational metal/stone thresholds, speed, duration, and fixed-path behavior are printed directly in this spell.",
+      "provenance": [
+        {
+          "url": "https://www.d20srd.org/srd/spells/repelMetalOrStone.htm",
+          "role": "3.5 SRD source for complete operational mechanics"
+        }
+      ]
+    },
+    "spells/lightning-ring-4372": {
+      "name": "Lightning Ring",
+      "sourceSha256": "b497a394adfbf8e619e2ae44503fbd6d9d1a1083d83e10250d6b14d15759c205",
+      "effectSummary": "For 1 round per two caster levels, a mobile ring of electricity surrounds you without interfering with your attacks or spellcasting and grants electricity resistance 20. At the beginning of each of your turns, every adjacent creature takes 10d6 electricity damage, Reflex half. At that same time each round you can also use a free action to fire two separate lightning bolts in directions you choose. Each bolt functions as a caster-level-5 lightning bolt, dealing 5d6 electricity damage in a 120-foot line with Reflex half, including the base spell's interactions with combustibles, objects, low-melting-point metals, and barriers; however, the save DC is calculated as for Lightning Ring's 8th spell level rather than a 3rd-level spell. The material components are a small glass ring and a bit of animal fur.",
+      "notes": "Source-locked to Spell Compendium p.132. The Lightning Bolt reference supplies only the line spell's normal propagation/object behavior; Lightning Ring fixes each bolt at caster level 5 and an 8th-level-spell save DC.",
+      "provenance": [
+        {
+          "url": "https://dnd.arkalseif.info/spells/spell-compendium--86/lightning-ring--4372/",
+          "role": "matching Spell Compendium rendering used to verify resistance, adjacency pulse, two-bolt action economy, caster level, and save DC"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/lightningBolt.htm",
+          "role": "3.5 SRD cross-check for inherited 120-foot line, Reflex half, and object/barrier interactions"
+        }
+      ]
+    },
+    "spells/spiritual-chariot-4220": {
+      "name": "Spiritual Chariot",
+      "sourceSha256": "cd44845181e521a93826766390f72eaccc87b2f385fa21d6e64cc960954830a0",
+      "effectSummary": "Conjures a transparent force chariot already harnessed to one special mount for 1 hour per caster level. The chariot carries one Medium creature or two Small creatures plus the driver, and neither it nor its occupants count toward the mount's load, so the mount can travel at full speed. If unhitched, the chariot disappears. Its driver gains +4 sacred on Handle Animal checks. Occupants gain cover according to their size and attacker position; in most situations a Medium occupant has cover. The chariot is force and interacts with spells as wall of force does: it is immune to ordinary damage and unaffected by dispel magic, while disintegrate, rod of cancellation, sphere of annihilation, or mage's disjunction can destroy it; spells and breath weapons do not pass through its force surface, teleportation effects can bypass it, and it blocks ethereal passage through the protected surface.",
+      "notes": "Source-locked to Spell Compendium p.202. Wall of Force is invoked only for the chariot's force-material interaction and counters; the chariot's capacity, weight exemption, disappearance condition, Handle Animal bonus, and cover are native to Spiritual Chariot.",
+      "provenance": [
+        {
+          "url": "https://dndtools.net/spells/spell-compendium--86/spiritual-chariot--4220/",
+          "role": "matching Spell Compendium rendering used to verify chariot capacity, load exemption, cover, and wall-of-force interaction"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/wallOfForce.htm",
+          "role": "3.5 SRD cross-check for inherited force immunity, counters, and traversal interactions"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "c809a53e1da6139e660cd8dd0c95a877e0cd0108",
+    "workflowRun": 35685736959,
+    "validationRun": 35685740078,
+    "classificationArtifact": 10676428106,
+    "classificationArtifactSha256": "19be36cd2b1b9357e0e5cb3d32bc5a5cd63f0c8c0e88644c044970501a564d6b",
+    "queueCountBefore": 927,
+    "referenceQueueCountBefore": 927,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

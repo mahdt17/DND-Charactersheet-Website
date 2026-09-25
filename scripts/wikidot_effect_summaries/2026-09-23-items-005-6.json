@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-005-6",
+  "records": {
+    "wikidot5e:wondrous-items:quaals-feather-token": {
+      "sourceDigest": "sha256:b41f3464a6c2bf501d805157a2bacd3c425325683a911bab0c57250c3a0031bc",
+      "effectSummary": "A one-use feather token with DM-chosen or d100 type: 01–20 Anchor, 21–35 Bird, 36–50 Fan, 51–65 Swan Boat, 66–90 Tree, 91–00 Whip. Anchor: action touch a boat/ship; for 24 hours it cannot be moved by any means; touching again ends effect, then token disappears. Bird: action toss 5 feet up to create a nonattacking roc obeying simple commands, carrying 500 lb at 16 mph up to 144 miles/day with 1-hour rest per 3 flight hours, or 1,000 lb at half speed; disappears after max daily distance, at 0 HP, or when dismissed as an action. Fan: while on a boat/ship, action toss up to 10 feet to create a floating fan increasing one ship's speed by 5 mph for 8 hours; dismiss as action. Swan Boat: action touch to water at least 60 feet across; creates a self-propelled 50-by-20-foot boat moving 6 mph, action command movement/90-degree turn, carrying 32 Medium-or-smaller equivalents (Large counts 4, Huge 9), lasting 24 hours or dismissed as action. Tree: outdoors, action touch open ground to create a nonmagical 60-foot oak with 5-foot trunk and 20-foot-radius crown. Whip: action throw within 10 feet to create floating whip; bonus action make +9 melee spell attack against a creature within 10 feet for 1d6+5 force; each bonus action move it 20 feet and attack again; lasts 1 hour, until dismissed as action, incapacitation, or death."
+    },
+    "wikidot5e:wondrous-items:quandrix-primer": {
+      "sourceDigest": "sha256:1fe75bb2856475d83613ddc8f78c90ed364b006132a37a34c3014768cd96a093",
+      "effectSummary": "The primer has 3 charges and regains 1d3 daily at dawn. While holding it, after rolling Intelligence (Arcana) or Intelligence (Nature), spend 1 charge to add 1d4. If studied at the end of a long rest, choose one 1st-level druid or wizard spell; before your next long rest, while holding the primer, cast it once without a slot using Intelligence, Wisdom, or Charisma chosen for that casting."
+    },
+    "wikidot5e:wondrous-items:quiver-of-ehlonna": {
+      "sourceDigest": "sha256:1bce4fa85f0f79c3f54313b047af14919ccd5724c148025f2642f90e11fdc632",
+      "effectSummary": "The 2-pound quiver has three extradimensional compartments: shortest holds up to 60 arrows, bolts, or similar objects; middle up to 18 javelins or similar; longest up to 6 long objects such as bows, quarterstaffs, or spears. Draw any contained item as though from a normal quiver or scabbard."
+    },
+    "wikidot5e:wondrous-items:radiance": {
+      "sourceDigest": "sha256:adcab51a5cb4c48c6fc48c5f8db0cfe6e15badca9be2dccf6bdd770de8c69dee",
+      "effectSummary": "While holding this golden-mirror wand, gain +1 to spell attack rolls and ignore half cover on spell attacks. In darkness it sheds dim light 5 feet. Once per dawn while holding it, use a bonus action to cast enhance ability targeting only yourself."
+    },
+    "wikidot5e:wondrous-items:rakdos-riteknife": {
+      "sourceDigest": "sha256:da35e40f66511ba210ff060922a8af45f490b495bd5bc8b8207b684e435309e1",
+      "effectSummary": "This +1 magic dagger imprisons the soul of every creature you slay with it; such a creature can be restored only by wish. It holds up to five souls. Each stored soul makes hits deal +1d4 necrotic. As a bonus action, release any number of souls to regain 1d10 HP per soul. If five souls are stored, immediately after hitting and damaging a creature use your reaction to release all five; if the target then has fewer than 75 HP, it makes DC 15 Constitution or dies. If this kills it, Annihilation cannot be used again until a long rest."
+    },
+    "wikidot5e:wondrous-items:reapers-scream": {
+      "sourceDigest": "sha256:665e3985d69f7e7f15b1482679d11cedd1165ca4a16fa6b0399dfa2a9c75b021",
+      "effectSummary": "This legendary +2 morningstar deals necrotic instead of piercing. On an attack-roll 20, gain 10 temporary HP; while any of those specific temporary HP remain, a creature that hits you with a melee attack takes 10 necrotic. Once per dawn as a bonus action, invoke the rune; chosen creatures within 60 feet make DC 15 Wisdom or are stunned until the start of your next turn."
+    },
+    "wikidot5e:wondrous-items:red-wizard-blade": {
+      "sourceDigest": "sha256:be61296cf29fd97b0087537af92f74aae517268279c4f4edc9ce22c44c5d2414",
+      "effectSummary": "This magic dagger deals +3d12 necrotic on melee hits. A creature reduced to 0 HP by it dies and cannot be raised except by a deity or by true resurrection cast using a tablet of reawakening."
+    },
+    "wikidot5e:wondrous-items:revelers-concertina": {
+      "sourceDigest": "sha256:2229e82193fb7e91f57fdf08d92e8a30b3be1113c71ac24cc8771314869aee51",
+      "effectSummary": "While held by an attuned bard, gain +2 to bard spell save DCs. Once per dawn as an action, cast Otto's irresistible dance from the concertina."
+    },
+    "wikidot5e:wondrous-items:rhythm-makers-drum": {
+      "sourceDigest": "sha256:a60613c4b616f7fdf429894e3220bca188cbb4b7e86d777a37793c354de32eeb",
+      "effectSummary": "While held by an attuned bard, gain a rarity-based bonus to bard spell attacks and save DCs: uncommon +1, rare +2, very rare +3. Once per dawn as an action, play the drum to regain one use of Bardic Inspiration."
+    },
+    "wikidot5e:wondrous-items:ring-of-amity": {
+      "sourceDigest": "sha256:8129b752b68787499a699ad035835ead6f361a025633568c2e8d73eaf9643163",
+      "effectSummary": "When first attuning, touch one willing creature to form a bond. While bonded, whenever a spell or magical effect restores your HP, the bonded creature receives the same healing benefit. After each long rest, you may touch a willing creature to replace the bond. A creature can benefit from only one Ring of Amity bond. The bond ends if either creature changes planes, you form another bond, or you sever it as a bonus action. Once per dawn when the bonded creature within 60 feet hits with an attack, use your reaction to invoke the rune and turn that hit into a critical hit."
+    }
+  }
+}

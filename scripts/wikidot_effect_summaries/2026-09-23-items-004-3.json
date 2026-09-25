@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-items-004-3",
+  "records": {
+    "wikidot5e:wondrous-items:lash-of-immolation": {
+      "sourceDigest": "sha256:fc7947e173fca3e89445af2405fe28ff39fbbeeb4a3e0c172db9eb3f7ee37b22",
+      "effectSummary": "This +1 magic whip deals +1d6 fire on every hit. On a critical hit, the target is also restrained until the start of your next turn by fiery bands. Once per dawn when you hit, use your reaction to invoke the rune and increase that hit's extra fire damage from 1d6 to 2d6."
+    },
+    "wikidot5e:wondrous-items:lash-of-shadows": {
+      "sourceDigest": "sha256:6571ffaf38b5dcfad4b8b1ca339a8a09ca3681a10c915b5e3b0d69fb5fcc1f7d",
+      "effectSummary": "Sentient chaotic-evil whip: Intelligence 18, Wisdom 16, Charisma 20; hearing/darkvision 120 feet; telepathic; speaks/reads/understands Abyssal, Common, Draconic; houses mad marilith Sizlifeth. Dormant: learn Abyssal and Draconic; +1 attack/damage; on each hit you may force DC 13 Constitution and choose a poison. Serpent Venom: 3d6 poison on failure, half on success, reusable freely. Dead Eyes: failure poisons for 1 hour and blinds while poisoned; once per dawn. Awakened: bonus +2, poison DC 15, and gains Ghoul's Blood once per dawn—failure poisoned 1 minute and paralyzed while poisoned, repeating save each turn end. Exalted: bonus +3, poison DC 17, and gains Cockatrice Tears once per dawn—failure restrains as petrification begins, repeats save at end of next turn; success ends, failure petrifies for 24 hours."
+    },
+    "wikidot5e:wondrous-items:last-stand-armor": {
+      "sourceDigest": "sha256:b1a2790f949f38b5610076f194d8172610afb43f3e6bd0046a7576b4bc60f939",
+      "effectSummary": "This armor grants +1 AC. If you die while wearing it, the armor is destroyed and every celestial, fey, and fiend within 30 feet makes DC 15 Charisma or is banished to its home plane unless already there."
+    },
+    "wikidot5e:wondrous-items:leather-golem-armor": {
+      "sourceDigest": "sha256:9f1f931161257f1748050d28853b9e4c41194fe648559141a39832960be7ef1a",
+      "effectSummary": "This cursed leather armor grants +1 AC and +1 on saves against spells and magical effects, immunity to form-changing spells/effects, lightning resistance, and whenever you take lightning damage gain 5 temporary HP. Curse: attunement makes you unwilling to part with it until remove curse or similar magic. While cursed, taking fire damage gives disadvantage on attacks and ability checks until the end of your next turn. Whenever you suffer a critical hit, roll d6; on 6 you go berserk and cannot remove the armor, attacking the nearest visible creature each turn or an object if none is reachable, until incapacitated or calmed by suitable magic or DC 15 Charisma (Persuasion)."
+    },
+    "wikidot5e:wondrous-items:libram-of-souls-and-flesh": {
+      "sourceDigest": "sha256:c050d44b7a30d8248f3ae6b393f7a7ddc7f2881ffd7951dfc8cf53be6a9b29d4",
+      "effectSummary": "Wizard spellbook/focus containing animate dead, circle of death, false life, finger of death, speak with dead, summon undead, and vampiric touch; these are wizard spells for you while attuned. It has 3 charges, regaining 1d3 daily at dawn. Spend 1 minute studying and 1 charge to replace one prepared wizard spell with another Necromancy spell in the book. As an action spend 1 charge to appear undead for 10 minutes: undead are indifferent unless you damaged them and all outward inspection/spells read you as undead. The effect ends if you deal damage or force a saving throw."
+    },
+    "wikidot5e:wondrous-items:lifewell-tattoo": {
+      "sourceDigest": "sha256:4b2495837ade64aafe9af9dac46c4f972c5cd83c01cb11d463a06e19300280b9",
+      "effectSummary": "Attuning turns the needle into a tattoo; ending attunement makes it vanish and needle reappear. While tattooed, gain necrotic resistance. Once per dawn when you would be reduced to 0 HP, drop to 1 HP instead."
+    },
+    "wikidot5e:wondrous-items:living-armor": {
+      "sourceDigest": "sha256:8b816de43fb8421200c77b97770c0968f7a3f7ffef433598642d26dafe3fdc05",
+      "effectSummary": "This symbiotic armor grants +1 AC and resistance to necrotic, poison, and psychic. It cannot be removed and attunement cannot end voluntarily; curse-ending magic detaches it. Immediately after each long rest, feed it half your remaining Hit Dice rounded up or gain 1 exhaustion level."
+    },
+    "wikidot5e:wondrous-items:living-gloves": {
+      "sourceDigest": "sha256:0668f1a50ff7e09cfd1868f99442825785284d6641d0a922827843aef944f7ca",
+      "effectSummary": "Symbiotic gloves bond to your skin during attunement. Choose Sleight of Hand, thieves' tools, one artisan's tool, or one musical instrument; gain proficiency with that choice and double your proficiency bonus on ability checks using it. The gloves cannot be removed and attunement cannot end voluntarily; curse-ending magic ends attunement and permits removal."
+    },
+    "wikidot5e:wondrous-items:loadstone": {
+      "sourceDigest": "sha256:affe7bd03a54083420d46c503c88aecd763856155839e0a2ddac952823789f47",
+      "effectSummary": "A cursed 150-gp gem whose magic is hidden from detect magic but revealed by identify. If you Dash or Disengage while carrying it, the curse activates: until remove curse or similar magic, speed is reduced by 5 feet, maximum load and lift capacities are halved, and you become unwilling to part with the stone."
+    },
+    "wikidot5e:wondrous-items:longbow-of-the-healing-hearth": {
+      "sourceDigest": "sha256:78691f4144b7ad1ce6f6df3fbc32005d6a10815667c3f79b76810c130ad89b8d",
+      "effectSummary": "Legendary +3 longbow that creates one magic arrow when drawn without ammunition; created arrows vanish immediately after hit or miss. It has 8 charges, regaining 1d4+1 daily at dawn. Once per turn when taking the Attack action, spend 1 charge to replace one bow attack with a curative arrow that automatically hits a visible creature within 150 feet; that creature may immediately spend and roll one Hit Die and regain that result + your Wisdom modifier, minimum +1, or gains nothing if it has no unspent Hit Dice. While holding the bow, as an action cast at save DC 18: create food and water 1 charge, warding bond 2, guardian of faith 3."
+    }
+  }
+}

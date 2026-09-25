@@ -1,0 +1,210 @@
+name: Category enrichment audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [codex/content-foundation]
+    paths:
+      - ".github/enrichment-category-audit.request"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: enrichment-category-audit
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      scope: ${{ steps.config.outputs.scope }}
+      family: ${{ steps.config.outputs.family }}
+      category: ${{ steps.config.outputs.category }}
+      source_dir: ${{ steps.config.outputs.source_dir }}
+      key: ${{ steps.config.outputs.key }}
+      shards: ${{ steps.config.outputs.shards }}
+      matrix: ${{ steps.config.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: config
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          req=json.loads(Path(".github/enrichment-category-audit.request").read_text())
+          allowed={
+            "3.5/classes","3.5/feats","3.5/spells","3.5/items","3.5/equipment",
+            "5e/classes","5e/spells","5e/feats","5e/items"
+          }
+          scope=req.get("scope")
+          if scope not in allowed:
+              raise SystemExit(f"Unsupported scope: {scope}")
+          shards=int(req.get("shards",8))
+          if shards < 2 or shards > 16:
+              raise SystemExit("shards must be between 2 and 16")
+          family,category=scope.split("/",1)
+          source_dir="dndtools" if family=="3.5" else "wikidot5e"
+          key=("d35" if family=="3.5" else "e5")+"-"+category
+          matrix=json.dumps({"shard":list(range(shards))},separators=(",",":"))
+          values={
+              "scope":scope,"family":family,"category":category,"source_dir":source_dir,
+              "key":key,"shards":str(shards),"matrix":matrix
+          }
+          with open(os.environ["GITHUB_OUTPUT"],"a",encoding="utf-8") as out:
+              for k,v in values.items():
+                  out.write(f"{k}={v}\n")
+          PY
+
+  sample:
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { sample: 25, shard_count: 1, shard_index: 0 }
+          - { sample: 50, shard_count: 1, shard_index: 0 }
+          - { sample: 100, shard_count: 2, shard_index: 0 }
+          - { sample: 100, shard_count: 2, shard_index: 1 }
+          - { sample: 250, shard_count: 5, shard_index: 0 }
+          - { sample: 250, shard_count: 5, shard_index: 1 }
+          - { sample: 250, shard_count: 5, shard_index: 2 }
+          - { sample: 250, shard_count: 5, shard_index: 3 }
+          - { sample: 250, shard_count: 5, shard_index: 4 }
+    steps:
+      - uses: actions/checkout@v4
+      - name: Strict ${{ matrix.sample }}-record sample shard ${{ matrix.shard_index }}
+        run: >
+          python scripts/preflight_enrichment.py
+          --dnd-sample ${{ matrix.sample }}
+          --wikidot-sample ${{ matrix.sample }}
+          --min-rate 1.0 --delay 0.12
+          --only "${{ needs.prepare.outputs.scope }}"
+          --shard-count ${{ matrix.shard_count }}
+          --shard-index ${{ matrix.shard_index }}
+          --report "test-results/sample-${{ matrix.sample }}-${{ matrix.shard_index }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-${{ needs.prepare.outputs.key }}-sample-${{ matrix.sample }}-${{ matrix.shard_index }}
+          path: test-results/sample-${{ matrix.sample }}-${{ matrix.shard_index }}.json
+
+  source-shard:
+    needs: [prepare, sample]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Strict full source shard ${{ matrix.shard }}
+        run: >
+          python scripts/preflight_enrichment.py
+          --full --min-rate 1.0 --delay 0.12
+          --only "${{ needs.prepare.outputs.scope }}"
+          --shard-count ${{ needs.prepare.outputs.shards }}
+          --shard-index ${{ matrix.shard }}
+          --report "test-results/source-shards/shard-${{ matrix.shard }}.json"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-${{ needs.prepare.outputs.key }}-source-shard-${{ matrix.shard }}
+          path: test-results/source-shards/shard-${{ matrix.shard }}.json
+
+  source-aggregate:
+    needs: [prepare, sample, source-shard]
+    if: always() && needs.sample.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: enrichment-${{ needs.prepare.outputs.key }}-source-shard-*
+          path: test-results/source-shards
+          merge-multiple: true
+      - name: Aggregate exact full source audit
+        run: >
+          python scripts/aggregate_enrichment_shards.py
+          --reports-dir test-results/source-shards
+          --category "${{ needs.prepare.outputs.scope }}"
+          --output test-results/source-audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-${{ needs.prepare.outputs.key }}-source-full
+          path: test-results/source-audit.json
+
+  candidate-shard:
+    needs: [prepare, source-aggregate]
+    if: needs.source-aggregate.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build dry-run candidate shard ${{ matrix.shard }}
+        env:
+          FAMILY: ${{ needs.prepare.outputs.family }}
+          CATEGORY: ${{ needs.prepare.outputs.category }}
+        run: |
+          if [ "$FAMILY" = "3.5" ]; then
+            python scripts/enrich_dndtools.py --categories "$CATEGORY" --force --delay 0.12               --candidate-dir test-results/candidate-shards               --shard-count ${{ needs.prepare.outputs.shards }} --shard-index ${{ matrix.shard }}
+          else
+            python scripts/import_wikidot.py --categories "$CATEGORY" --delay 0.12 \
+              --candidate-dir test-results/candidate-shards \
+              --source-cache-dir test-results/wikidot-source-cache \
+              --repair-manifest test-results/wikidot-repair-manifest-${{ matrix.shard }}.json \
+              --shard-count ${{ needs.prepare.outputs.shards }} --shard-index ${{ matrix.shard }}
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-${{ needs.prepare.outputs.key }}-candidate-shard-${{ matrix.shard }}
+          path: |
+            test-results/candidate-shards/${{ needs.prepare.outputs.source_dir }}/${{ needs.prepare.outputs.category }}-shard-${{ matrix.shard }}.json
+            test-results/wikidot-repair-manifest-${{ matrix.shard }}.json
+            test-results/wikidot-source-cache/
+
+  output-audit:
+    needs: [prepare, source-aggregate, candidate-shard]
+    if: always() && needs.source-aggregate.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: enrichment-${{ needs.prepare.outputs.key }}-source-full
+          path: test-results/source
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: enrichment-${{ needs.prepare.outputs.key }}-candidate-shard-*
+          path: test-results/candidate-shards
+          merge-multiple: true
+      - name: Merge exact candidate shards
+        run: >
+          python scripts/aggregate_candidate_shards.py
+          --candidate-root test-results/candidate-shards
+          --scope "${{ needs.prepare.outputs.scope }}"
+          --shard-count ${{ needs.prepare.outputs.shards }}
+          --source-audit test-results/source/source-audit.json
+          --output-root test-results/candidates
+      - name: Audit complete candidate output
+        run: >
+          python scripts/audit_enrichment_output.py test-results/candidates
+          --source-audit test-results/source/source-audit.json
+          --only "${{ needs.prepare.outputs.scope }}"
+          --output test-results/output-audit.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: enrichment-${{ needs.prepare.outputs.key }}-output
+          path: |
+            test-results/output-audit.json
+            test-results/candidates/${{ needs.prepare.outputs.source_dir }}/${{ needs.prepare.outputs.category }}.json

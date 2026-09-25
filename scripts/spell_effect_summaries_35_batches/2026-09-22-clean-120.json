@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Verified 6-record batch 120 from the clean 202-record reference-dependent queue. The three Swift Haste printings are explicitly resolved to 3.5 Haste; Suppress Magic preserves its unusual printed check DC; Halaster's Fetch I closes its Summon Monster I inheritance without duplicating creature stat blocks; Ectoplasmic Web is expanded using independently verified 3.5 Web mechanics because the parsed primary Web text truncates its fire clause. Riskier source/header conflicts and stat-block/table-heavy records remain deferred.",
+  "entries": {
+    "spells/haste-swift-1988": {
+      "name": "Haste, Swift",
+      "sourceSha256": "3eea518984ea960bb855ee1678d94c0039bf446e6cd5df09a344ae2feb4a17d1",
+      "effectSummary": "As a swift action, hastes only the caster for 1 round. While hasted, you gain one extra attack at your full base attack bonus when making a full attack, +1 on attack rolls, +1 dodge AC and Reflex saves, and a +30-foot enhancement bonus to every movement mode up to twice that mode's normal speed. The extra attack is not an extra action and does not stack with similar extra-attack effects; multiple haste effects do not stack. Haste counters and dispels slow.",
+      "notes": "The Miniatures Handbook printing points to Player's Handbook p.239; this was manually resolved to the 3.5 Haste mechanics rather than the obsolete 3.0 Haste candidate.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/haste-swift-1988",
+          "role": "primary Miniatures Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/haste.htm",
+          "role": "secondary 3.5 SRD verification of inherited Haste mechanics"
+        }
+      ]
+    },
+    "spells/haste-swift-424": {
+      "name": "Haste, Swift",
+      "sourceSha256": "e76930dcb7ddfe69105d281b68f7ad764b8fb62b5199326ab9da964e424962fb",
+      "effectSummary": "As a swift action, hastes only the caster for 1 round. While hasted, you gain one extra attack at your full base attack bonus when making a full attack, +1 on attack rolls, +1 dodge AC and Reflex saves, and a +30-foot enhancement bonus to every movement mode up to twice that mode's normal speed. The extra attack is not an extra action and does not stack with similar extra-attack effects; multiple haste effects do not stack. Haste counters and dispels slow.",
+      "notes": "The Complete Adventurer printing was manually resolved to the 3.5 Haste mechanics; its catalog parser reports both 3.0 and 3.5 name candidates, but the source is a 3.5-era book and explicitly cites Player's Handbook p.239.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/haste-swift-424",
+          "role": "primary Complete Adventurer catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/haste.htm",
+          "role": "secondary 3.5 SRD verification of inherited Haste mechanics"
+        }
+      ]
+    },
+    "spells/haste-swift-4684": {
+      "name": "Haste, Swift",
+      "sourceSha256": "a496e748d4efe2450ed927f3ec07ae4dcad6c9c6364569620b75f7211dd7a4b6",
+      "effectSummary": "As a swift action, hastes only the caster for 1d4 rounds. While hasted, you gain one extra attack at your full base attack bonus when making a full attack, +1 on attack rolls, +1 dodge AC and Reflex saves, and a +30-foot enhancement bonus to every movement mode up to twice that mode's normal speed. The extra attack is not an extra action and does not stack with similar extra-attack effects; multiple haste effects do not stack. Haste counters and dispels slow. This printing explicitly states that it counters and dispels any slow effect on you.",
+      "notes": "The Spell Compendium printing was manually resolved to the 3.5 Haste mechanics and preserves its longer 1d4-round duration and explicit self-only slow counter/dispelling clause.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/haste-swift-4684",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/haste.htm",
+          "role": "secondary 3.5 SRD verification of inherited Haste mechanics"
+        }
+      ]
+    },
+    "spells/suppress-magic-1813": {
+      "name": "Suppress Magic",
+      "sourceSha256": "2ac71c5965c6ec9fa2b808feeae53bf1dd04e447856548d5ee2afa3d92056907",
+      "effectSummary": "For 1 round per caster level, attempts to suppress one magic item or soulmeld. Make a caster-level check against DC 11 + the soulmeld's meldshaper level as printed; success removes all magical properties from the item or soulmeld for the duration, functioning like a targeted dispel magic on an object except for this duration and essentia interaction. It does not affect ongoing spell effects even when they are on items. Each point of essentia invested grants +2 insight on the caster-level check; if the suppression attempt fails, all invested essentia immediately returns to your essentia pool.",
+      "notes": "The unusual printed DC 11 + meldshaper level was preserved after independent verification rather than normalized to a magic item's caster level. The primary source explicitly distinguishes this spell from ordinary targeted dispel magic.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/suppress-magic-1813",
+          "role": "primary Magic of Incarnum catalog record and digest source"
+        }
+      ]
+    },
+    "spells/halasters-fetch-i-334": {
+      "name": "Halaster's Fetch I",
+      "sourceSha256": "f7584e5a0940a5bf2eaa4e6f16fe4df70bbec39044834d847c2c56c10507c2e1",
+      "effectSummary": "Calls one creature from the Summon Monster I 1st-level list. It appears at the designated point and acts immediately on your turn, normally attacking your opponents; if you can communicate with it, you can direct it to refrain from attacking, attack particular foes, or take other actions. The creature cannot summon or conjure other creatures, cannot use teleportation or planar-travel abilities, and must be called into an environment that can support it. Unlike Summon Monster I, the called creature does not disappear when the 1-round-per-level duration expires; at that point it becomes free-willed and is no longer under your control.",
+      "notes": "Summon Monster I's table remains the authoritative creature-choice table; this lock expands the inherited behavioral mechanics and Halaster-specific persistence/free-will change without inventing creature stat blocks.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/halasters-fetch-i-334",
+          "role": "primary City of Splendors: Waterdeep catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/summon-monster-i-2441",
+          "role": "primary catalog source for inherited Summon Monster I behavior and creature-choice table"
+        }
+      ]
+    },
+    "spells/ectoplasmic-web-1339": {
+      "name": "Ectoplasmic Web",
+      "sourceSha256": "ccffdaeffc5e032ff7be1cd42082dae72df8fc28600ce0f0b8e38451b8234ead",
+      "effectSummary": "Creates ectoplasmic webs in a 20-foot-radius spread for 10 minutes per caster level; because the strands are ectoplasm, they affect incorporeal creatures. The web must be anchored between two or more solid, diametrically opposed points or it collapses. Creatures in the area make Reflex saves: success leaves them entangled but mobile, while failure leaves them entangled and unable to move until they spend 1 round and succeed on DC 20 Strength or DC 25 Escape Artist. Once mobile, each round spent moving allows another Strength or Escape Artist check and moves 5 feet per full 5 points by which the result exceeds 10. Five feet of web provides cover and 20 feet provides total cover. Fire burns away 5 square feet in 1 round and deals 2d4 fire damage to creatures in burning web; a permanent web damaged but not destroyed regrows in 10 minutes. Material component: spider web plus splinters from a resin sphere.",
+      "notes": "The Ghostwalk record inherits Web, but the parsed primary Web text truncates the fire clause. Full 3.5 Web mechanics were independently verified from the SRD and are expanded here so the effect is not locked with a known parser gap.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ectoplasmic-web-1339",
+          "role": "primary Ghostwalk catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/web.htm",
+          "role": "secondary 3.5 SRD verification for inherited Web mechanics missing from the parsed primary text"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "bed94703b653670e8fe065d86ad782cf11d7b4a2",
+    "workflowRun": 35711057506,
+    "validationRun": 35711061905,
+    "classificationArtifact": 10686596336,
+    "classificationArtifactSha256": "43aefc1ef583b3cd075bc5d83ed51f5e10c2011b83261891a6475bedf95fce7a",
+    "queueCountBefore": 202,
+    "referenceQueueCountBefore": 202,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

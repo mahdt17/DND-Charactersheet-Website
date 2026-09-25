@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest-locked reviewed DnD Tools spell effects; resolved Player's Handbook v.3.5 Mass Cure/Inflict reference batch 035.",
+  "entries": {
+    "spells/cure-critical-wounds-mass-2379": {
+      "name": "Cure Critical Wounds, Mass",
+      "sourceSha256": "66d62289daaed26a9fc2e07db7cd558f59b8ffe2fd69d53d4543aaee2243f779",
+      "effectSummary": "Each selected living creature heals 4d8 +1 point per caster level, maximum +40. Affected undead instead take that amount as positive-energy damage and can make a Will save for half damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cure-critical-wounds-mass-2379",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/cure-light-wounds-mass-2381",
+          "role": "same-book inherited Mass Cure Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/cure-moderate-wounds-mass-2384": {
+      "name": "Cure Moderate Wounds, Mass",
+      "sourceSha256": "ac0cd5236a8e6cd92cb461ea320ec76c52379ee2d16ae902f9f33704fd79113e",
+      "effectSummary": "Each selected living creature heals 2d8 +1 point per caster level, maximum +30. Affected undead instead take that amount as positive-energy damage and can make a Will save for half damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cure-moderate-wounds-mass-2384",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/cure-light-wounds-mass-2381",
+          "role": "same-book inherited Mass Cure Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/cure-serious-wounds-mass-2386": {
+      "name": "Cure Serious Wounds, Mass",
+      "sourceSha256": "efd1e1e404e6384ac1310d8281156709e90ef69b71101e2b41ed29316575f561",
+      "effectSummary": "Each selected living creature heals 3d8 +1 point per caster level, maximum +35. Affected undead instead take that amount as positive-energy damage and can make a Will save for half damage.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/cure-serious-wounds-mass-2386",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/cure-light-wounds-mass-2381",
+          "role": "same-book inherited Mass Cure Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/inflict-critical-wounds-mass-2744": {
+      "name": "Inflict Critical Wounds, Mass",
+      "sourceSha256": "8e3f034f62d8c79cd4c2523e718c5618696d8a2d7c50ee9bbccfe9ff3d266db3",
+      "effectSummary": "Deals 4d8 points of damage +1 point per caster level, maximum +40, to affected living creatures; affected undead are healed by the same amount instead. A cleric capable of spontaneously casting inflict spells can spontaneously cast this spell as well.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inflict-critical-wounds-mass-2744",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-mass-2746",
+          "role": "same-book inherited Mass Inflict Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/inflict-moderate-wounds-mass-2749": {
+      "name": "Inflict Moderate Wounds, Mass",
+      "sourceSha256": "e1a32bef831fcd1e82e3745e2f3925b61e3a057e76f25be233a77fb7a64316c8",
+      "effectSummary": "Deals 2d8 points of damage +1 point per caster level, maximum +30, to affected living creatures; affected undead are healed by the same amount instead. A cleric capable of spontaneously casting inflict spells can spontaneously cast this spell as well.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inflict-moderate-wounds-mass-2749",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-mass-2746",
+          "role": "same-book inherited Mass Inflict Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    },
+    "spells/inflict-serious-wounds-mass-2751": {
+      "name": "Inflict Serious Wounds, Mass",
+      "sourceSha256": "53be8aaed018d8904a4d36e6917b4158f7af2ea1c180050b070f82810f4a86eb",
+      "effectSummary": "Deals 3d8 points of damage +1 point per caster level, maximum +35, to affected living creatures; affected undead are healed by the same amount instead. A cleric capable of spontaneously casting inflict spells can spontaneously cast this spell as well.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/inflict-serious-wounds-mass-2751",
+          "role": "primary DnD Tools reference text reviewed"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-light-wounds-mass-2746",
+          "role": "same-book inherited Mass Inflict Light Wounds mechanics reviewed and expanded into a self-contained summary"
+        }
+      ]
+    }
+  }
+}

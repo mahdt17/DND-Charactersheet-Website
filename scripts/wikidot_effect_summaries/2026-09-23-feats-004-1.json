@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "source": "https://dnd5e.wikidot.com",
+  "batch": "2026-09-23-feats-004-1",
+  "records": {
+    "wikidot5e:feat:servo-crafting": {
+      "sourceDigest": "sha256:621c6de6ac424350fca1ab8846b316d47d4a8c29c1cfec60a44367e9cf3bd590",
+      "effectSummary": "Cast find familiar as a ritual to create a Servo familiar instead of an animal. It otherwise follows find familiar, but you can communicate telepathically with it and perceive through its senses anywhere on the same plane and may speak through it in your own voice. When you take the Attack action, you may forgo one attack to let the servo make one attack. Servo: Tiny construct; AC 11; 10 HP; speed 20 ft.; Str 4, Dex 11, Con 12, Int 3, Wis 10, Cha 7; immune to poison damage and charmed/poisoned; passive Perception 10; Claw +0 to hit, reach 5 ft., 1 slashing damage."
+    },
+    "wikidot5e:feat:shadow-touched": {
+      "sourceDigest": "sha256:fd5f2c7b09ed8f7283a00bb4b430c3be2fa0eabdb9c3380e46a293b72baf8615",
+      "effectSummary": "Increase Intelligence, Wisdom, or Charisma by 1, maximum 20. Learn invisibility and one 1st-level Illusion or Necromancy spell. Cast each once without a slot per long rest and also with appropriate spell slots. The ability increased by this feat is the spellcasting ability for both spells."
+    },
+    "wikidot5e:feat:sharpshooter": {
+      "sourceDigest": "sha256:787391fffd44ad386ccdc472ddd91773a4e33836442901a27501bf8ad959b937",
+      "effectSummary": "Long-range ranged weapon attacks do not have disadvantage, and ranged weapon attacks ignore half and three-quarters cover. Before making an attack with a ranged weapon you are proficient with, you may take -5 to the attack roll; on a hit add +10 damage."
+    },
+    "wikidot5e:feat:shield-master": {
+      "sourceDigest": "sha256:1e3d815d8b1b2c627bce9a1c1d21c81b5e2812444a6c8b042cb3d312485e9f50",
+      "effectSummary": "While wielding a shield, after taking the Attack action you may use a bonus action to shove a creature within 5 feet with the shield. If not incapacitated, add the shield's AC bonus to Dexterity saves against spells or harmful effects that target only you. If an effect allows a Dexterity save for half damage, use your reaction after succeeding to take no damage instead."
+    },
+    "wikidot5e:feat:shield-training": {
+      "sourceDigest": "sha256:1071fc0eb34771645012a395b08100fa707f8986ed84aab40a7a0e0c9b9d9a8a",
+      "effectSummary": "Increase Strength, Dexterity, or Constitution by 1, maximum 20. Gain shield proficiency. In combat, don or doff a shield as your free object interaction. If you have Spellcasting or Pact Magic, you may use a shield as a spellcasting focus."
+    },
+    "wikidot5e:feat:silver-tongued": {
+      "sourceDigest": "sha256:70d66a79944a69d19a5ec5691fa732deb7cb5fa2f03236385c9f63c140997b9a",
+      "effectSummary": "Increase Charisma by 1, maximum 20. Gain Deception proficiency, or expertise if already proficient. When taking the Attack action, replace one attack with an attempt to deceive a visible humanoid within 30 feet that can see and hear you; contest Charisma (Deception) against Wisdom (Insight). On success, your movement does not provoke opportunity attacks from it and your attacks against it have advantage until the end of your next turn or until you use this feature on another target. On failure, that target is immune to this attempt from you for 1 hour."
+    },
+    "wikidot5e:feat:skill-expert": {
+      "sourceDigest": "sha256:ea62c346901fb656cf219efd2cb21be28c41226012b59f53f565504de2893d6b",
+      "effectSummary": "Increase one ability score by 1, maximum 20. Gain proficiency in one skill. Choose one skill proficiency not already benefiting from doubled proficiency and gain expertise with it."
+    },
+    "wikidot5e:feat:skulker": {
+      "sourceDigest": "sha256:1fb47b6de75304ea3112edec7d7a56d6633b6f3759e618584c63f133ead2c640",
+      "effectSummary": "You may attempt to hide when lightly obscured from the creature you are hiding from. Missing with a ranged weapon attack while hidden does not reveal your position. Dim light does not impose disadvantage on Wisdom (Perception) checks relying on sight."
+    },
+    "wikidot5e:feat:slasher": {
+      "sourceDigest": "sha256:bb433142af998562f9ffc5c42ca286c4d5c7aeeac5ff60bcf32faeb69405a1cf",
+      "effectSummary": "Increase Strength or Dexterity by 1, maximum 20. Once per turn when an attack deals slashing damage, reduce the target's speed by 10 feet until the start of your next turn. When you critically hit a creature with slashing damage, it has disadvantage on all attack rolls until the start of your next turn."
+    },
+    "wikidot5e:feat:soul-of-the-storm-giant": {
+      "sourceDigest": "sha256:6429e70519e5e988962a0e920fd6e3b0b6779b5eeadad1a21a5afe3c79d804e0",
+      "effectSummary": "Increase Strength, Wisdom, or Charisma by 1, maximum 20. As a bonus action, create a 10-foot aura until the start of your next turn or until incapacitated. While active, you have resistance to lightning and thunder damage and attacks against you have disadvantage. When another creature starts its turn in the aura, you may force a Strength save against DC 8 + proficiency bonus + the modifier of the ability increased by this feat; on failure its speed is halved until the start of its next turn. Uses equal proficiency bonus per long rest."
+    }
+  }
+}

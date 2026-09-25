@@ -1,0 +1,544 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Skip-and-fill 30-record pilot batch 101: thirty independently source-verified 3.5-era reference records selected from a broad queue scan; risky legacy, unresolved, or insufficiently verified candidates were skipped rather than capping the batch.",
+  "entries": {
+    "spells/fleshbound-4797": {
+      "name": "Fleshbound",
+      "sourceSha256": "343d4d1070084a7e69ae5d67b5fe5ba4290379071af7338c38f6a359164506cc",
+      "effectSummary": "A possessing spirit in the touched creature is bound to that host and has complete control over the host while the spell lasts. Each round, as a full-round action, the possessed creature can attempt a special Will save whose DC is the Fleshbound save DC minus the possessing spirit's Hit Dice plus your caster level; a quori possessing an Inspired host adds the host's levels to its Hit Dice for this calculation. On a successful save the spirit can abandon the host as a free action; if it remains, it stays bound. Hit point damage or ability damage dealt to the host also damages the spirit, although the spirit cannot be killed by this transferred damage. If either the host or spirit reaches 0 or fewer hit points, the spirit is forced out as if by dismissal and cannot possess another host for a number of days equal to the total hit point and ability damage dealt to it through the host. Material component: a small sphere of volcanic glass.",
+      "notes": "Secrets of Sarlona printing, digest-locked. The spell's forced-ejection clause explicitly invokes dismissal, but its possession-binding, save formula, damage transfer, and post-ejection lockout are printed directly here.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/fleshbound-4797",
+          "role": "primary Secrets of Sarlona catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dismissal-2310",
+          "role": "Player's Handbook v.3.5 reference for the explicitly invoked forced dismissal"
+        }
+      ]
+    },
+    "spells/heart-of-air-876": {
+      "name": "Heart of Air",
+      "sourceSha256": "f4760746e668be254e0b0e50de83031fd52fef4479f8e5a399ddf615736a8329",
+      "effectSummary": "For 1 hour/level you gain a +10 enhancement bonus on Jump checks and, if you already have a fly speed, a +10-foot enhancement bonus to that speed. At any time during the duration you can activate a feather fall effect on yourself as an immediate action; that effect lasts 1 round/level, after which Heart of Air ends. While at least one other heart spell from the same series is active, you gain light fortification, giving a 25% chance to negate extra damage from critical hits or sneak attacks; with all four heart spells active, you are instead immune to that extra damage. The feather-fall activation reduces your falling speed to 60 feet per round and prevents falling damage while it remains active.",
+      "notes": "Complete Mage printing, digest-locked. Feather Fall is expanded only for the spell's immediate-action release mode; the Jump, fly-speed, fortification, and four-heart synergy are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/heart-of-air-876",
+          "role": "primary Complete Mage catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/feather-fall-2813",
+          "role": "Player's Handbook v.3.5 source for the explicitly inherited feather-fall effect"
+        }
+      ]
+    },
+    "spells/lawful-sword-2254": {
+      "name": "Lawful Sword",
+      "sourceSha256": "da94cfc6024955018ed82188c39480a0138c73a9549a67360614f580382ab17d",
+      "effectSummary": "One melee weapon you touch becomes a +5 axiomatic weapon for 1 round/level: it is lawful-aligned and deals +2d6 damage against chaotic creatures. It also continuously projects a magic circle against chaos. That 10-foot protective aura gives affected creatures +2 deflection AC and +2 resistance on saves against attacks or effects from chaotic creatures, suppresses possession and mental control while the protection applies, and prevents bodily contact by chaotic summoned creatures subject to the normal protection-circle limitations. If the circle is ended while the weapon remains under Lawful Sword, the weapon recreates it as a free action on your turn. The spell ends 1 round after the weapon leaves your hand; you can have only one Lawful Sword at a time. Its granted weapon properties supersede the weapon's normal enhancement bonus and special abilities for the duration, do not stack with other weapon-modifying spells, and do not affect artifacts.",
+      "notes": "Player's Guide to Faerûn printing, digest-locked. This spell follows Holy Sword's weapon-transformation chassis but substitutes axiomatic/lawful properties and Magic Circle against Chaos.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lawful-sword-2254",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/holy-sword-2622",
+          "role": "Player's Handbook v.3.5 source for inherited weapon-transformation mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/magic-circle-against-chaos-2334",
+          "role": "Player's Handbook v.3.5 source for the emitted protective circle"
+        }
+      ]
+    },
+    "spells/lawful-sword-4339": {
+      "name": "Lawful Sword",
+      "sourceSha256": "fc358bfb0d94cc3015d2c00b51d56aa9cde4dac905e7f0c2e5770189be7f1573",
+      "effectSummary": "One melee weapon you touch becomes a +5 axiomatic weapon for 1 round/level: it is lawful-aligned and deals +2d6 damage against chaotic creatures. It also continuously projects a magic circle against chaos. That 10-foot protective aura gives affected creatures +2 deflection AC and +2 resistance on saves against attacks or effects from chaotic creatures, suppresses possession and mental control while the protection applies, and prevents bodily contact by chaotic summoned creatures subject to the normal protection-circle limitations. If the circle is ended while the weapon remains under Lawful Sword, the weapon recreates it as a free action on your turn. The spell ends 1 round after the weapon leaves your hand; you can have only one Lawful Sword at a time. Its granted weapon properties supersede the weapon's normal enhancement bonus and special abilities for the duration, do not stack with other weapon-modifying spells, and do not affect artifacts.",
+      "notes": "Spell Compendium printing, digest-locked and preserved as its own source record. Holy Sword supplies the shared weapon chassis; this printing explicitly substitutes axiomatic/lawful properties and Magic Circle against Chaos.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/lawful-sword-4339",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/holy-sword-2622",
+          "role": "Player's Handbook v.3.5 source for inherited weapon-transformation mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/magic-circle-against-chaos-2334",
+          "role": "Player's Handbook v.3.5 source for the emitted protective circle"
+        }
+      ]
+    },
+    "spells/reduce-animal-2859": {
+      "name": "Reduce Animal",
+      "sourceSha256": "9f403ae488cdc87367448e467cfff6fe34a670be38c84156bbf30eb6cfa53683",
+      "effectSummary": "A willing Small, Medium, Large, or Huge animal is reduced by one size category for 1 hour/level. It gains +2 Dexterity, takes -2 Strength to a minimum Strength of 1, and gains +1 on attack rolls and AC from reduced size. Its height and length are halved and weight becomes one-eighth; space, reach, natural-weapon and weapon damage change for the new size, while speed does not change. Worn and carried equipment shrinks with the animal; an item that leaves its possession returns to normal size, while a projectile returns to normal after striking. Multiple magical size reductions do not stack. The subject's adjusted natural-attack damage follows the standard size-change damage progression.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Reduce Person supplies the explicit reduction mechanics; Reduce Animal changes the eligible target to one willing animal and its duration.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/reduce-animal-2859",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/reduce-person-2860",
+          "role": "same-book source for inherited reduction mechanics"
+        }
+      ]
+    },
+    "spells/opalescent-glare-2192": {
+      "name": "Opalescent Glare",
+      "sourceSha256": "c5e6c7a95c64d539c125629fa429e04d5b6e9986ffaab4ebe4e0f50b4079b60f",
+      "effectSummary": "You fix one living creature within 60 feet with an opalescent glare. An evil creature with 5 or fewer Hit Dice that fails its Will save dies; even if it succeeds, it is affected as by fear for 2d10 rounds. A nonevil creature, or an evil creature with more than 5 Hit Dice, suffers only the fear effect on a failed Will save. The inherited fear effect makes the victim panicked, causing it to flee at top speed and cower if unable to escape, subject to the normal fear rules.",
+      "notes": "Planar Handbook printing, digest-locked. The source's death-versus-fear split is preserved exactly; Fear supplies only the referenced fear-state behavior.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/opalescent-glare-2192",
+          "role": "primary Planar Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fear-2736",
+          "role": "Player's Handbook v.3.5 source for referenced fear mechanics"
+        }
+      ]
+    },
+    "spells/opalescent-glare-4606": {
+      "name": "Opalescent Glare",
+      "sourceSha256": "2f42bafca027fae2992431b013aab49826fda047fea45d8e33b4e262d15387ff",
+      "effectSummary": "For 1 round/level you gain a 60-foot gaze attack. An evil creature with 5 or fewer Hit Dice that fails its Will save against the gaze dies; even if it succeeds, it is affected as by fear for 2d10 rounds. A nonevil creature, or an evil creature with more than 5 Hit Dice, suffers only the fear effect on a failed Will save. The inherited fear effect makes the victim panicked, causing it to flee at top speed and cower if unable to escape, subject to the normal fear rules.",
+      "notes": "Spell Compendium printing, digest-locked. Unlike the Planar Handbook targeted version, this printing is a personal-duration gaze attack; its source-specific delivery is retained.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/opalescent-glare-4606",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fear-2736",
+          "role": "Player's Handbook v.3.5 source for referenced fear mechanics"
+        }
+      ]
+    },
+    "spells/phantom-stag-4628": {
+      "name": "Phantom Stag",
+      "sourceSha256": "c6e4b3df5b6653268d691620da6ed95579de63ac36c0cd75f98a5755c8267598",
+      "effectSummary": "Creates a Large magical stag mount with AC 20 (-1 size, +6 natural, +5 Dexterity), 40 hit points plus 5 per caster level, and an antler attack at +10 dealing 1d8+9 damage, doubled on a charge. It can trample Medium or smaller creatures for 1d6+9 damage; the Spell Compendium printing gives a Reflex save DC of 18 + one-half your caster level. Its speed is 20 feet per caster level, maximum 300 feet, it can carry its rider plus 10 pounds per caster level, and it ignores terrain that would normally slow movement. At caster level 12 it can air walk for at most 1 round at a time and gains +2 deflection AC; at 14 it can fly with average maneuverability and gains +4; at 16 its antlers gain ghost touch and wounding and it gains +6; at 18 it can use etherealness for itself and rider as an 18th-level caster and gains +8 deflection AC.",
+      "notes": "Spell Compendium printing, digest-locked. Air Walk and Etherealness are expanded only where the source invokes them; this printing's explicit trample save DC is preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantom-stag-4628",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/air-walk-2772",
+          "role": "Player's Handbook v.3.5 source for the 12th-level air-walk ability"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/etherealness-2810",
+          "role": "Player's Handbook v.3.5 source for the 18th-level etherealness ability"
+        }
+      ]
+    },
+    "spells/phantom-stag-652": {
+      "name": "Phantom Stag",
+      "sourceSha256": "706521065c9c6a62aab1fadb031fa16a9299d781f65f85e8bc8fdc03dc3721c1",
+      "effectSummary": "Creates a Large magical stag mount with AC 20 (-1 size, +6 natural, +5 Dexterity), 40 hit points plus 5 per caster level, and an antler attack at +10 dealing 1d8+9 damage, doubled on a charge. It can trample Medium or smaller creatures for 1d6+9 damage, allowing the Reflex save specified by the source. Its speed is 20 feet per caster level, maximum 300 feet, it can carry its rider plus 10 pounds per caster level, and it ignores terrain that would normally slow movement. At caster level 12 it can air walk for at most 1 round at a time and gains +2 deflection AC; at 14 it can fly with average maneuverability and gains +4; at 16 its antlers gain ghost touch and wounding and it gains +6; at 18 it can use etherealness for itself and rider as an 18th-level caster and gains +8 deflection AC.",
+      "notes": "Complete Divine printing, digest-locked and kept distinct from the later Spell Compendium revision; no later explicit trample-save DC is substituted into this printing.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/phantom-stag-652",
+          "role": "primary Complete Divine catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/air-walk-2772",
+          "role": "Player's Handbook v.3.5 source for the 12th-level air-walk ability"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/etherealness-2810",
+          "role": "Player's Handbook v.3.5 source for the 18th-level etherealness ability"
+        }
+      ]
+    },
+    "spells/polymorph-2854": {
+      "name": "Polymorph",
+      "sourceSha256": "272c8d7c5e5134d93804915d180c8cf5cb13a62d1bedc8190e52673d052583dd",
+      "effectSummary": "A willing living creature assumes the form of an aberration, animal, dragon, fey, giant, humanoid, magical beast, monstrous humanoid, ooze, plant, or vermin. The assumed form can have no more Hit Dice than the lower of your caster level or the subject's Hit Dice, to a maximum of 15 HD; it cannot be smaller than Fine and cannot be incorporeal or gaseous. Type and subtype change to match the form. The subject gains the new form's Strength, Dexterity, Constitution, size, movement modes, natural armor, natural weapons, racial skill bonuses, racial bonus feats, and extraordinary special attacks, but not its extraordinary special qualities, supernatural abilities, or spell-like abilities; Intelligence, Wisdom, and Charisma are retained. Equipment changes and spellcasting/body limitations follow alter self. The transformation heals lost hit points as though the subject had rested for a night, but does not restore ability damage or provide other rest benefits. If killed, the subject reverts but remains dead. Templates cannot be assumed.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Alter Self supplies the equipment, body, movement, natural-armor, natural-weapon, and casting chassis; Polymorph's broader creature types, HD cap, physical scores, healing, and extraordinary-attack rules are preserved directly.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/polymorph-2854",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/alter-self-2774",
+          "role": "same-book source for inherited transformation mechanics"
+        }
+      ]
+    },
+    "spells/radiance-2976": {
+      "name": "Radiance",
+      "sourceSha256": "610ccf7d7c04df50bfb49d27c02f4adf8c8fa3969a8bc1e749c85576fa23ce38",
+      "effectSummary": "Creates bright illumination in a 60-foot radius for 1 round/level, equivalent to daylight. Undead creatures in the illuminated area are dazzled while they remain inside and for 1d6 rounds after leaving. As a daylight-equivalent effect, it counters or dispels darkness spells of equal or lower level according to the normal light-versus-darkness rules.",
+      "notes": "Player's Handbook II printing, digest-locked. Daylight supplies the illumination and light-versus-darkness interaction; the undead dazzling rider and duration are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/radiance-2976",
+          "role": "primary Player's Handbook II catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/daylight-2601",
+          "role": "Player's Handbook v.3.5 source for inherited daylight illumination"
+        }
+      ]
+    },
+    "spells/righteous-glare-92": {
+      "name": "Righteous Glare",
+      "sourceSha256": "009c3cd316b2cfa1192f49562d59c7ae7181661abad93a9d3a0305ccc7c59501",
+      "effectSummary": "For 1 round/level you gain a 60-foot gaze attack. An evil creature with 5 or fewer Hit Dice that fails its Will save dies; even if it succeeds, it is affected as by fear for 2d10 rounds. A neutral creature, or an evil creature with more than 5 Hit Dice, suffers the fear effect on a failed Will save. Good creatures are unaffected. The inherited fear effect makes the victim panicked and subject to the normal fear-state behavior.",
+      "notes": "Book of Exalted Deeds printing, digest-locked. The alignment/Hit-Dice split and gaze delivery are source-specific; Fear supplies only the referenced panic mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/righteous-glare-92",
+          "role": "primary Book of Exalted Deeds catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/fear-2736",
+          "role": "Player's Handbook v.3.5 source for referenced fear mechanics"
+        }
+      ]
+    },
+    "spells/ruby-ray-reversal-2217": {
+      "name": "Ruby Ray of Reversal",
+      "sourceSha256": "9064591aec277e85c9662d39ed270c21111021c6e1c4ad77cf5b65b9843b0e1a",
+      "effectSummary": "A ruby ray negates one obstacle or condition it strikes. It can trigger a known trap; untie knots and release ordinary bindings; dispel entangle-like effects; open locked, barred, or arcane-locked doors or containers; make a hole up to 1 foot in radius in a wall of force, forcecage, or similar force effect; restore a transformed or petrified creature to its natural form; dispel magic jar if the ray strikes the soul-containing receptacle; or destroy webs, slime, grease, and similar hampering substances in a spread up to 20 feet in radius. Material component: a ruby worth 1,000 gp.",
+      "notes": "Player's Guide to Faerûn printing, digest-locked. Web and Arcane Lock references are resolved only for the exact interactions named by the source; the ray's menu of reversal effects is otherwise self-contained.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ruby-ray-reversal-2217",
+          "role": "primary Player's Guide to Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/web-2472",
+          "role": "Player's Handbook v.3.5 source for the referenced web obstacle"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/arcane-lock-2303",
+          "role": "Player's Handbook v.3.5 source for the referenced locked-object interaction"
+        }
+      ]
+    },
+    "spells/ruby-ray-reversal-4114": {
+      "name": "Ruby Ray of Reversal",
+      "sourceSha256": "25854a56d120b20c68ed14d973bf8830d9bec254ca85110fe1404d9fd5b37631",
+      "effectSummary": "A ruby ray negates one obstacle or condition it strikes. It can trigger a known trap; untie knots and release ordinary bindings; dispel entangle-like effects; open locked, barred, or arcane-locked doors or containers; make a 5-foot-diameter hole in a wall of force, forcecage, or similar force effect; restore a transformed or petrified creature to its natural form; dispel magic jar if the ray strikes the soul-containing receptacle; or destroy webs, slime, grease, and similar hampering substances in a spread up to 20 feet in radius. Focus: a ruby worth 500 gp.",
+      "notes": "Spell Compendium printing, digest-locked and kept distinct from the earlier Player's Guide to Faerûn printing; its 5-foot-diameter force hole and 500 gp focus are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/ruby-ray-reversal-4114",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/web-2472",
+          "role": "Player's Handbook v.3.5 source for the referenced web obstacle"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/arcane-lock-2303",
+          "role": "Player's Handbook v.3.5 source for the referenced locked-object interaction"
+        }
+      ]
+    },
+    "spells/shadow-of-the-dark-queen-1111": {
+      "name": "Shadow of the Dark Queen",
+      "sourceSha256": "b34f85502405adab57c8f1a589003ffce3f99d5d93b5db1a8e033ed00fbd019e",
+      "effectSummary": "A touched object radiates a 60-foot area of shadowy illumination for 2 rounds/level, using deeper darkness's illumination model; evil dragons and creatures with the dragonblood subtype can see normally within it. The area also functions as desecrate: turning checks against undead take -3, undead gain +1 profane on attack rolls, damage rolls, and saves, and undead created or summoned there gain +1 hit point per Hit Die. If the object is a permanent fixture dedicated to an evil power, those modifiers double and animate dead capacity is doubled; a fixture dedicated to a hostile power instead severs the effect's connection. A good dragon or dragonblood creature must succeed on a Will save to enter; once inside, each round it takes 2d6 damage and is dazed, with a successful Will save halving the damage and negating the daze. The spell counters or dispels Light of Xymor and equal-or-lower light effects as specified by its darkness inheritance. Divine spellcasters devoted to Tiamat cast it at +1 caster level.",
+      "notes": "Dragons of Faerûn printing, digest-locked. Both hidden Deeper Darkness inheritance and explicit Desecrate inheritance were resolved; the source-specific duration, dragon sight, good-dragon ward, and Tiamat caster-level bonus override or extend them.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/shadow-of-the-dark-queen-1111",
+          "role": "primary Dragons of Faerûn catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/desecrate-2604",
+          "role": "Player's Handbook v.3.5 source for inherited desecrate mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/deeper-darkness-2603",
+          "role": "Player's Handbook v.3.5 source for the hidden deeper-darkness illumination inheritance"
+        }
+      ]
+    },
+    "spells/symbol-of-insanity-2575": {
+      "name": "Symbol of Insanity",
+      "sourceSha256": "ff991dcd9e1cbe10a03195ecc87d388943ce4de8553987f572007cd1d33f3763",
+      "effectSummary": "Creates a permanent magical rune using symbol of death's placement, detection, trigger, password, attunement, dispelling, and offensive-use restrictions, but with no Hit Dice cap. Once triggered it remains active for 10 minutes per caster level. Creatures that fail the Will save become permanently insane, continuously using confusion behavior: each turn roll d%—01–10 attack the caster, 11–20 act normally, 21–50 babble incoherently, 51–70 flee the caster at top speed, 71–100 attack the nearest creature; a confused creature attacked by someone attacks that creature on its next turn. Remove curse cannot end the insanity, but greater restoration, heal, limited wish, miracle, or wish can. The rune can use the normal symbol trigger conditions, passwords, creature attunements, and permanency interaction, and a rogue can locate and disable it at the source-appropriate high DC. Material component: mercury and phosphorus plus powdered diamond and opal totaling at least 5,000 gp as specified by this printing.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Symbol of Death supplies the symbol chassis, Insanity supplies the permanent confusion effect, and Confusion was independently expanded as a hidden dependency; this spell's no-HD-cap and 10-minutes/level active period are preserved.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-insanity-2575",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "same-book source for inherited symbol mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/insanity-2561",
+          "role": "same-book source for inherited permanent insanity"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/confusion-2538",
+          "role": "same-book source for the hidden confusion behavior"
+        }
+      ]
+    },
+    "spells/symbol-of-persuasion-2576": {
+      "name": "Symbol of Persuasion",
+      "sourceSha256": "f89ad62fedddf4d29ea6743e5a231f9bf448b39edca081d0acc9e53e9f137991",
+      "effectSummary": "Creates a permanent magical rune using symbol of death's placement, detection, trigger, password, attunement, dispelling, and offensive-use restrictions, but with no Hit Dice cap. Once triggered it remains active for 10 minutes per caster level. Creatures that fail the Will save are charmed by you for 1 hour per caster level as by charm monster: they regard you as a trusted friend and ally, but are not under direct control; unusual requests can require opposed Charisma checks, suicidal or obviously harmful orders are not obeyed, and threatening the subject breaks the charm. The rune can use the normal symbol trigger conditions, passwords, creature attunements, and permanency interaction, and a rogue can locate and disable it at the source-appropriate high DC. Material component: mercury and phosphorus plus powdered diamond and opal totaling at least 5,000 gp as specified by this printing.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Symbol of Death supplies the symbol chassis and Charm Monster supplies the charm behavior; the no-HD-cap and 1-hour/level charm duration are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-persuasion-2576",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/symbol-of-death-2762",
+          "role": "same-book source for inherited symbol mechanics"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/charm-monster-2533",
+          "role": "same-book source for inherited charm behavior"
+        }
+      ]
+    },
+    "spells/tenacious-dispelling-772": {
+      "name": "Tenacious Dispelling",
+      "sourceSha256": "baaa5657f0617485fd9303b2866cb70515859f612eda2cb68f29cbbc6ca9bf54",
+      "effectSummary": "The first casting functions as a targeted dispel magic. Make dispel checks of 1d20 + caster level, maximum +10, against DC 11 + each effect's caster level to end ongoing spells on the target; the targeted form can also suppress a magic item's properties for 1d4 rounds or dispel an ongoing summoned effect under the normal dispel rules. If you cast Tenacious Dispelling again before the end of your next turn, that second casting can be either targeted or a 20-foot-radius area dispel and you gain +2 on all dispel checks made by it.",
+      "notes": "Complete Mage printing, digest-locked. Dispel Magic supplies the first-cast and second-cast dispel chassis; the one-turn recast window and +2 second-cast bonus are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tenacious-dispelling-772",
+          "role": "primary Complete Mage catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-2315",
+          "role": "Player's Handbook v.3.5 source for inherited dispel mechanics"
+        }
+      ]
+    },
+    "spells/vision-of-the-omniscient-eye-1061": {
+      "name": "Vision of the Omniscient Eye",
+      "sourceSha256": "97c3e08cc06b17d1ba4c8d62f22c5e375d2c6c0b4aa10fe85ba9ebb2f535eac3",
+      "effectSummary": "For 1 minute/level you gain a +10 insight bonus on Spot checks, cannot be dazzled or blinded, and can see normally even if you were already dazzled or blinded when the spell was cast. If you cast it while an effect such as see invisibility or true seeing is active, you can as a swift action mark one invisible creature or object within 60 feet with faerie fire for 1 minute; doing so immediately ends Vision of the Omniscient Eye. The faerie-fire outline removes concealment from ordinary darkness, blur, displacement, and invisibility, but does not overcome concealment from second-level-or-higher magical darkness. A character who learns this spell gains the permanent competence bonus on Spot checks stated by the source.",
+      "notes": "Dragon Magic printing, digest-locked. Faerie Fire supplies only the explicitly invoked outline behavior; blindness immunity, Spot bonuses, the expend-to-mark trigger, and learning benefit are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/vision-of-the-omniscient-eye-1061",
+          "role": "primary Dragon Magic catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/faerie-fire-2609",
+          "role": "Player's Handbook v.3.5 source for the invoked faerie-fire outline"
+        }
+      ]
+    },
+    "spells/wall-of-dispel-magic-3482": {
+      "name": "Wall of Dispel Magic",
+      "sourceSha256": "fcc1329d952eb9d47d4ff4c149a15e5bcb23efcbfd8bb2f4f23e80a427089282",
+      "effectSummary": "Creates an invisible, transparent, permeable wall. Any creature or object passing through is subjected to a targeted dispel magic at your caster level: ongoing spells on it are checked individually using the normal 1d20 + caster level, maximum +10, versus DC 11 + effect caster level formula; summoned creatures or effects can be dispelled under the normal targeted-dispel rules. Ordinary sight and see invisibility do not reveal the wall; detect magic can detect its aura, and true seeing reveals its presence and nature as specified by the source.",
+      "notes": "Underdark printing, digest-locked. Dispel Magic supplies the targeted-dispel resolution; the persistent wall trigger and visibility rules are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-dispel-magic-3482",
+          "role": "primary Underdark catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-2315",
+          "role": "Player's Handbook v.3.5 source for inherited targeted-dispel mechanics"
+        }
+      ]
+    },
+    "spells/wall-of-dispel-magic-4737": {
+      "name": "Wall of Dispel Magic",
+      "sourceSha256": "ac6d5e8175af4fb4a31de36e8957347b7b4ba2d1e7d67e59d1ce62d3b7e2b520",
+      "effectSummary": "Creates an invisible, transparent, permeable wall. Any creature or object passing through is subjected to a targeted dispel magic at your caster level: ongoing spells on it are checked individually using the normal 1d20 + caster level, maximum +10, versus DC 11 + effect caster level formula; summoned creatures or effects can be dispelled under the normal targeted-dispel rules. Ordinary sight and see invisibility do not reveal the wall; detect magic detects its aura and true seeing reveals the wall according to this printing.",
+      "notes": "Spell Compendium printing, digest-locked and kept distinct from the Underdark source. Dispel Magic supplies only the targeted-dispel resolution.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-dispel-magic-4737",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/dispel-magic-2315",
+          "role": "Player's Handbook v.3.5 source for inherited targeted-dispel mechanics"
+        }
+      ]
+    },
+    "spells/wall-of-light-4741": {
+      "name": "Wall of Light",
+      "sourceSha256": "e1f3a18f4145bd933839b45f95c3f4bc8a33245e78c324fc1375a264c8b596f2",
+      "effectSummary": "Creates a wall of brilliant light that is opaque to everyone except you but does not physically impede movement. Creatures passing through are dazzled for the spell's duration; spell resistance applies, while sightless creatures and creatures already dazzled are unaffected by that rider. The wall sheds illumination equivalent to daylight and therefore counters or dispels darkness effects of equal or lower level under the normal light-versus-darkness rules. Material component: powdered sunstone.",
+      "notes": "Spell Compendium printing, digest-locked. Daylight supplies the illumination interaction; the line-of-sight blocking and pass-through dazzling effect are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/wall-of-light-4741",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/daylight-2601",
+          "role": "Player's Handbook v.3.5 source for inherited daylight illumination"
+        }
+      ]
+    },
+    "spells/weighed-in-the-balance-4767": {
+      "name": "Weighed in the Balance",
+      "sourceSha256": "fa8c0c08ef0d977b37edc462b2c043ec39b238c61a96c5b1d2ddf082215267fc",
+      "effectSummary": "Creatures in a 30-foot-radius area are affected according to alignment. Living creatures of the four extreme alignments—lawful good, chaotic good, lawful evil, chaotic evil—take damage as inflict critical wounds: 4d8 +1 per caster level, maximum +20. Living creatures with one neutral component—neutral good, lawful neutral, chaotic neutral, or neutral evil—take damage as inflict moderate wounds: 2d8 +1 per caster level, maximum +10. True neutral living creatures are healed as by heal, restoring 10 hit points per caster level to a maximum of 150 and curing ability damage, blindness, confusion, dazing, dazzling, deafness, disease, exhaustion, fatigue, feeblemindedness, insanity, nausea, sickness, stunning, and poison, but not negative levels or permanent ability drain. Undead are harmed as by heal. The spell's own Will-negates and spell-resistance header governs affected creatures.",
+      "notes": "Spell Compendium printing, digest-locked. The three referenced spell effects are expanded only for their printed alignment branches; the spell's own area and save header remain authoritative.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/weighed-in-the-balance-4767",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-critical-wounds-2743",
+          "role": "Player's Handbook v.3.5 source for the extreme-alignment damage branch"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/inflict-moderate-wounds-2748",
+          "role": "Player's Handbook v.3.5 source for the mixed-neutral damage branch"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/heal-2398",
+          "role": "Player's Handbook v.3.5 source for the true-neutral and undead branch"
+        }
+      ]
+    },
+    "spells/invisibility-greater-2677": {
+      "name": "Invisibility, Greater",
+      "sourceSha256": "366552c04d511912e880cb078471fa0e0a78583179a2e7a64379c00628e529c4",
+      "effectSummary": "The touched creature and its carried gear become invisible for 1 round/level. Invisibility blocks ordinary sight and darkvision but not sound, scent, tracks, displaced objects, or other indirect clues; against a sighted foe an invisible attacker gains the normal +2 attack benefit and denies the defender's Dexterity bonus to AC, while attacks against an invisible creature suffer total-concealment miss chance. Unlike ordinary invisibility, this spell does not end when the subject attacks.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Invisibility supplies the visibility, equipment, detection-clue, concealment, and combat rules; Greater Invisibility explicitly removes the attack-ends-spell limitation.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-greater-2677",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "same-book source for inherited invisibility mechanics"
+        }
+      ]
+    },
+    "spells/invisibility-mass-2678": {
+      "name": "Invisibility, Mass",
+      "sourceSha256": "db0586e1ff9f4cf20d64a4cc89c7d174af5fe6156e7181c143fd1269edc78ca9",
+      "effectSummary": "All selected creatures within the spell's grouping limits become invisible along with their carried gear and use ordinary invisibility's visibility, equipment, concealment, and combat rules. The group is mobile, but every affected creature must remain within 180 feet of at least one other member; a creature that becomes separated beyond that distance loses its invisibility. Members do not automatically see one another merely because they share the spell. If any affected creature attacks, the mass invisibility effect ends for the entire group under the source's shared-break rule.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Ordinary Invisibility supplies the base invisibility chassis; the multi-creature spacing and shared-break rules are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-mass-2678",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "same-book source for inherited invisibility mechanics"
+        }
+      ]
+    },
+    "spells/invisibility-sphere-2675": {
+      "name": "Invisibility Sphere",
+      "sourceSha256": "addc6775ccff8168400e49d2c757dad0696eccb7ece7513cfc0097e129f16859",
+      "effectSummary": "All creatures within 10 feet of the recipient when the spell is cast become invisible with their carried gear, using ordinary invisibility's visibility, equipment, concealment, and combat rules. The sphere moves with the recipient. Affected creatures can see one another. A creature that leaves the 10-foot area becomes visible and does not regain invisibility by returning; creatures that were not present at casting do not become invisible by entering later. If an affected creature other than the recipient attacks, only that creature's invisibility ends; if the recipient attacks, the entire sphere ends.",
+      "notes": "Player's Handbook v.3.5 printing, digest-locked. Ordinary Invisibility supplies the base chassis; initial-membership, moving-area, mutual-visibility, leave-area, and attack-break behavior are source-specific.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-sphere-2675",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "same-book source for inherited invisibility mechanics"
+        }
+      ]
+    },
+    "spells/invisibility-swift-1975": {
+      "name": "Invisibility, Swift",
+      "sourceSha256": "e7acb24fb71fd76f26be1c3810a4db334b16e884f4f5ac8896640e818db5323c",
+      "effectSummary": "You become invisible, together with carried gear, as with invisibility, but the spell is personal, cast as a swift action, and lasts only 1 round. It can still end earlier if you attack under ordinary invisibility's attack-breaking rule. While invisible, the normal concealment, equipment, detection-clue, and combat modifiers of invisibility apply.",
+      "notes": "Miniatures Handbook printing, digest-locked. The source shortens the duration to 1 round and changes casting to a personal swift action while retaining ordinary Invisibility's mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-swift-1975",
+          "role": "primary Miniatures Handbook catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "Player's Handbook v.3.5 source for inherited invisibility mechanics"
+        }
+      ]
+    },
+    "spells/invisibility-swift-323": {
+      "name": "Invisibility, Swift",
+      "sourceSha256": "20bd25f5d50d359dfdb4b4b1b68b65e6f8c583dfc0b5aeb9464f5badc8a80eb9",
+      "effectSummary": "You become invisible, together with carried gear, as with invisibility, but the spell is personal, cast as a swift action, and lasts only 1 round. It can still end earlier if you attack under ordinary invisibility's attack-breaking rule. While invisible, the normal concealment, equipment, detection-clue, and combat modifiers of invisibility apply.",
+      "notes": "Champions of Valor printing, digest-locked and preserved independently. Its personal swift-action, 1-round form inherits ordinary Invisibility's break-on-attack and visibility mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-swift-323",
+          "role": "primary Champions of Valor catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "Player's Handbook v.3.5 source for inherited invisibility mechanics"
+        }
+      ]
+    },
+    "spells/invisibility-swift-3921": {
+      "name": "Invisibility, Swift",
+      "sourceSha256": "f75fb4b89dc969c3793d8fa66ea7953b0c0caf9d7ae9b8ee3c38254eec33d3b9",
+      "effectSummary": "You become invisible, together with carried gear, as with invisibility, but the spell is personal, cast as a swift action, and lasts only 1 round. It can still end earlier if you attack under ordinary invisibility's attack-breaking rule. While invisible, the normal concealment, equipment, detection-clue, and combat modifiers of invisibility apply.",
+      "notes": "Spell Compendium printing, digest-locked and preserved independently. Its personal swift-action, 1-round form inherits ordinary Invisibility's break-on-attack and visibility mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-swift-3921",
+          "role": "primary Spell Compendium catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "Player's Handbook v.3.5 source for inherited invisibility mechanics"
+        }
+      ]
+    },
+    "spells/invisibility-swift-404": {
+      "name": "Invisibility, Swift",
+      "sourceSha256": "5a8d1607d68fb084fb8711bbe21132a76f37d458aa8810aecbd6690da8dd16ee",
+      "effectSummary": "You become invisible, together with carried gear, as with invisibility, but the spell is personal, cast as a swift action, and lasts only 1 round. It can still end earlier if you attack under ordinary invisibility's attack-breaking rule. While invisible, the normal concealment, equipment, detection-clue, and combat modifiers of invisibility apply.",
+      "notes": "Complete Adventurer printing, digest-locked and preserved independently. Its personal swift-action, 1-round form inherits ordinary Invisibility's break-on-attack and visibility mechanics.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-swift-404",
+          "role": "primary Complete Adventurer catalog record and digest source"
+        },
+        {
+          "url": "https://new.dndtools.org/spells/invisibility-2676",
+          "role": "Player's Handbook v.3.5 source for inherited invisibility mechanics"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "34da1cdf73d62cb9eb903e0de1f612f9f87be21a",
+    "workflowRun": 35695558178,
+    "validationRun": 35695560842,
+    "classificationArtifact": 10679828462,
+    "classificationArtifactSha256": "c4576363b6150f29e4f7d91b7b2d1ceab2c225483172903835d3f884e41b0a80",
+    "queueCountBefore": 841,
+    "referenceQueueCountBefore": 841,
+    "automaticReferenceEligibleCountBefore": 0
+  }
+}

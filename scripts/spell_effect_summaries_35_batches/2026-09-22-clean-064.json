@@ -1,0 +1,234 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Digest- and table-digest-locked fully self-contained 3.5 SRD table reviews; clean batch 064.",
+  "entries": {
+    "spells/helping-hand-2620": {
+      "name": "Helping Hand",
+      "sourceSha256": "8cacb4d625dcdb6e4cac67bafbdd49e73bc39959ec87b214261bb15e160cb6a1",
+      "tablesSha256": "07d6f6a0d11ff0b2bbd6acb7fb7c0c5b9f421f2decac4c28a9a1e60ec809c316",
+      "effectSummary": "Creates a ghostly hand that searches within 5 miles for the closest creature matching a physical description you provide, then beckons that creature and, if it willingly follows, leads it back to you by the most direct feasible route. The search time depends on distance: 100 feet or less takes 1 round, 1,000 feet 1 minute, 1 mile 10 minutes, 2 miles 1 hour, 3 miles 2 hours, 4 miles 3 hours, and 5 miles 4 hours. The hand moves up to 240 feet per round while leading the subject. It never compels the subject, does not seek a second candidate if the closest matching creature refuses, returns empty-handed after 4 hours if no match exists, is visible only to you and a potential subject, has no physical form, cannot fight, cannot pass through solid objects, and cannot travel more than 5 miles from the casting point.",
+      "tables": [
+        [
+          [
+            "Distance",
+            "Time to Locate"
+          ],
+          [
+            "100 ft. or less",
+            "1 round"
+          ],
+          [
+            "1,000 ft.",
+            "1 minute"
+          ],
+          [
+            "1 mile",
+            "10 minutes"
+          ],
+          [
+            "2 miles",
+            "1 hour"
+          ],
+          [
+            "3 miles",
+            "2 hours"
+          ],
+          [
+            "4 miles",
+            "3 hours"
+          ],
+          [
+            "5 miles",
+            "4 hours"
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/helping-hand-2620",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/helpingHand.htm",
+          "role": "3.5 SRD cross-check for search behavior, travel restrictions, and the complete distance/time table"
+        }
+      ]
+    },
+    "spells/holy-word-2623": {
+      "name": "Holy Word",
+      "sourceSha256": "5cf3a697e8262471f01f3883cc4c6d48b3aba3127cc652ea9ecbd7b8af0df4f4",
+      "tablesSha256": "8f84c2a0bfd2b50b4cdfca28a08c7ec6f077abb42ea312a012783743197ff853",
+      "effectSummary": "Affects nongood creatures in the 40-foot-radius area that hear the word, with cumulative effects based on Hit Dice relative to your caster level: HD equal to caster level are deafened for 1d4 rounds; up to caster level -1 are also blinded for 2d4 rounds; up to caster level -5 are also paralyzed and helpless for 1d10 minutes; up to caster level -10 are also killed, with undead destroyed instead. Creatures whose HD exceed your caster level are unaffected. These hearing-dependent effects allow no save. If cast on your home plane, nongood extraplanar creatures in the area are also banished to their home planes for at least 24 hours whether or not they hear the word; that banishment allows a Will save at -4 to negate.",
+      "tables": [
+        [
+          [
+            "HD",
+            "Effect"
+          ],
+          [
+            "Equal to caster level",
+            "Deafened"
+          ],
+          [
+            "Up to caster level -1",
+            "Blinded, deafened"
+          ],
+          [
+            "Up to caster level -5",
+            "Paralyzed, blinded, deafened"
+          ],
+          [
+            "Up to caster level -10",
+            "Killed, paralyzed, blinded, deafened"
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/holy-word-2623",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/holyWord.htm",
+          "role": "3.5 SRD cross-check for cumulative HD effects, durations, and extraplanar banishment"
+        }
+      ]
+    },
+    "spells/imbue-with-spell-ability-2625": {
+      "name": "Imbue With Spell Ability",
+      "sourceSha256": "3c962b845628dea583926482ab75ea5fab974673e08eb3a9f09a60f9dcfbf495",
+      "tablesSha256": "70c5b3f0ea50033b137ca920b203ee042cff87ac2cf01b0eb3fb390e8a4a7911",
+      "effectSummary": "Transfers prepared cleric spells and the ability to cast them to a creature with Intelligence 5 or higher and Wisdom 9 or higher. Only abjuration, divination, and conjuration (healing) cleric spells can be transferred. A recipient with 2 HD or fewer can receive one 1st-level spell; 3–4 HD can receive one or two 1st-level spells; 5 HD or more can receive one or two 1st-level spells plus one 2nd-level spell. Multiple castings cannot exceed those limits. Variable spell characteristics use your caster level. Until the recipient uses the imbued spells, dies, or you dismiss the effect, you cannot prepare a new 4th-level spell in the slot used for this casting; if your available 4th-level spell count falls below the number of active imbue effects, the most recently cast imbued spells are dispelled. The recipient must be able to speak for verbal components, have humanlike hands for somatic components, and possess any required material components or focuses.",
+      "tables": [
+        [
+          [
+            "HD of Recipient",
+            "Spells Imbued"
+          ],
+          [
+            "2 or lower",
+            "One 1st-level spell"
+          ],
+          [
+            "3—4",
+            "One or two 1st-level spells"
+          ],
+          [
+            "5 or higher",
+            "One or two 1st-level spells and one 2nd-level spell"
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/imbue-with-spell-ability-2625",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/imbueWithSpellAbility.htm",
+          "role": "3.5 SRD cross-check for eligibility, transfer limits, slot restriction, and complete HD/spells table"
+        }
+      ]
+    },
+    "spells/spell-turning-2368": {
+      "name": "Spell Turning",
+      "sourceSha256": "db8c768bc666c86e0415f9a439cef4505e22de0b8d4d0a34380d8eb143e0bde3",
+      "tablesSha256": "8c1c31ad79046b5de65131bb6a37886a481d21638a02c5c3f620d16585e7240d",
+      "effectSummary": "Turns 1d4+6 spell levels of spells and spell-like effects targeted on you back on their original caster. Area effects, effect spells, and touch-range spells are not turned. Each fully turned spell subtracts its spell level from the remaining capacity. If the incoming spell's level exceeds the remaining capacity, only the matching fraction is turned: for damage, you take the unturned fraction and the caster takes the turned fraction; for nondamaging spells, those fractions become the respective chances to be affected. If both you and the attacking caster have spell turning active, roll d%: 01–70 the spell drains away, 71–80 both are affected at full effect, 81–97 both turning effects stop functioning for 1d4 minutes, and 98–100 both creatures pass through a rift to another plane. The arcane material component is a small silver mirror.",
+      "tables": [
+        [
+          [
+            "d%",
+            "Effect"
+          ],
+          [
+            "01-70",
+            "Spell drains away without effect."
+          ],
+          [
+            "71-80",
+            "Spell affects both of you equally at full effect."
+          ],
+          [
+            "81-97",
+            "Both turning effects are rendered nonfunctional for 1d4 minutes."
+          ],
+          [
+            "98-100",
+            "Both of you go through a rift into another plane."
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/spell-turning-2368",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/spellTurning.htm",
+          "role": "3.5 SRD cross-check for turning capacity, partial turning, resonance, and the complete d% table"
+        }
+      ]
+    },
+    "spells/tree-stride-2466": {
+      "name": "Tree Stride",
+      "sourceSha256": "915b65d010df34e268caa681df899f6d45195a7fb372ea39615cbf16d7192a9a",
+      "tablesSha256": "2ff34d36c12a698c00fa88482686b84ce16146f19fc4849aae0a6d6ef9820b62",
+      "effectSummary": "Lets you enter a living tree with girth at least equal to yours and transport yourself into another living tree of the same kind. On entering a tree, you know the locations of all qualifying trees of that kind within the listed range: oak, ash, or yew 3,000 feet; elm or linden 2,000 feet; other deciduous trees 1,500 feet; conifers 1,000 feet; all other trees 500 feet. You can enter a tree up to once per caster level, and each transport is a full-round action. You can remain hidden inside a tree without transporting, but are forced out when the spell ends; if the tree is chopped down or burned while you remain inside and you do not exit before the process completes, you die.",
+      "tables": [
+        [
+          [
+            "Type of Tree",
+            "Transport Range"
+          ],
+          [
+            "Oak, ash, yew",
+            "3,000 feet"
+          ],
+          [
+            "Elm, linden",
+            "2,000 feet"
+          ],
+          [
+            "Other deciduous",
+            "1,500 feet"
+          ],
+          [
+            "Any coniferous",
+            "1,000 feet"
+          ],
+          [
+            "All other trees",
+            "500 feet"
+          ]
+        ]
+      ],
+      "notes": "Player's Handbook v.3.5 table is fully captured and table-digest locked; no source repair is applied.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/spells/tree-stride-2466",
+          "role": "primary Player's Handbook v.3.5 catalog record and digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/treeStride.htm",
+          "role": "3.5 SRD cross-check for transport limits, concealment rules, and the complete tree/range table"
+        }
+      ]
+    }
+  },
+  "reviewCheckpoint": {
+    "commit": "d50ed36a807ba84a13078830d1bc941dc2b3e9db",
+    "workflowRun": 35680012057,
+    "validationRun": 35680015728,
+    "classificationArtifact": 10675141438,
+    "classificationArtifactSha256": "025c52a2341796df2f9b2ec33a191807f063dbee38180b88090478236b9c6731",
+    "queueCountBefore": 1011,
+    "referenceQueueCountBefore": 977,
+    "repairQueueCountBefore": 0,
+    "tableQueueCountBefore": 34
+  }
+}
