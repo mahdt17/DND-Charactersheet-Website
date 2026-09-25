@@ -8,6 +8,7 @@ export default function DiceTray({rolls,mode,setMode,roll,clear,close}) {
   const [expression,setExpression]=useState('1d20'),{preferences,update}=usePresentation(),reduced=useReducedMotion();
   return <aside className="dice-tray" aria-label="Dice roller">
     <div className="l-section-head"><h3><Dices size={20}/> Dice roller</h3><button className="l-button" aria-label="Close dice roller" onClick={close}><X size={17}/></button></div>
+    <p className="dice-tray-intro">Choose your dice. Make your next move.</p>
     <fieldset className="dice-style-picker"><legend>Your dice collection</legend><div>{diceStyles.map(style=><label key={style.id} className="dice-style-option" title={style.description} style={{'--die-body':style.body,'--die-edge':style.edge,'--die-ink':style.ink}}>
       <input type="radio" name="dice-style" value={style.id} checked={preferences.diceStyle===style.id} onChange={()=>update({diceStyle:style.id})}/><span className="dice-swatch" aria-hidden="true">20</span><strong>{style.name}</strong>
     </label>)}</div></fieldset>

@@ -60,6 +60,7 @@ jobs:
       - run: node tests/feature-choices.mjs
       - run: node tests/feat-selection.mjs
       - run: node tests/presentation.mjs
+      - run: node tests/dice-physics.mjs
       - name: Run targeted live spell regressions
         if: steps.scope.outputs.mode == 'targeted' && steps.scope.outputs.added_count != '0'
         run: >-
