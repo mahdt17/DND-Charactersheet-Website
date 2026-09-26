@@ -77,6 +77,11 @@ for(const [name,sourceOnlyIndex] of [
   assert(sourceOnly?.sourceOnly,`${name} keeps unmapped source proficiency as source-only`);
   assert.equal(sourceOnly.sourceClassId,record.catalogId,`${name} source-only training keeps provenance`);
 }
+
+const deathMaster35=integrated35('Death Master');
+const deathMasterSheet=reconcileClassGrants(baseCharacter([{catalogId:deathMaster35.catalogId,name:'Death Master',edition:'3.5',level:1,definition:deathMaster35}]));
+const deathMasterTraining=deathMasterSheet.trainingGrants.find(item=>item.sourceClassId===deathMaster35.catalogId);
+for(const index of ['scythe','staff'])assert(deathMasterTraining?.proficiencies.find(item=>item.index===index)?.sourceOnly,`Death Master ${index} remains source-only`);
 const warmage35=integrated35('Warmage');
 const warmage1=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:1,definition:warmage35}]));
 assert(!warmage1.trainingGrants.flatMap(grant=>grant.proficiencies).some(item=>item.index==='medium-armor'),'Warmage medium armor is not a level-1 grant');
