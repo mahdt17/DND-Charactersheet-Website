@@ -222,7 +222,7 @@ function derivedForRow(row){
     const featureId=feature.sourceFeatureId||slug(feature.name),meta=sourceInfo(row,feature.level,featureId);
     const id='class-grant:'+meta.sourceClassId+':feature:'+slug(feature.name);
     const history=(feature.history||[]).sort((a,b)=>a.level-b.level);
-    const description=feature.description||\`Granted by \${row.name} at class level \${feature.level}. See the class source for complete rules.\`;
+    const description=feature.description||`Granted by ${row.name} at class level ${feature.level}. See the class source for complete rules.`;
     const choice=needsChoice(feature);
     const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',description,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
@@ -247,7 +247,7 @@ function derivedForRow(row){
   if(record.referenceOnly)gaps.push('Canonical source record is still marked reference-only.');
   if(record.mechanicsPresence?.classFeatures===false)gaps.push('Class feature rules are not present in structured source data.');
   const descriptive=derivedFeatures.filter(feature=>feature.description.includes('See the class source for complete rules.')).length;
-  if(descriptive)gaps.push(\`\${descriptive} granted feature\${descriptive===1?'':'s'} lack structured rule text.\`);
+  if(descriptive)gaps.push(`${descriptive} granted feature${descriptive===1?'':'s'} lack structured rule text.`);
   const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
   return {
     row,features:derivedFeatures,actions,feats,resources,
