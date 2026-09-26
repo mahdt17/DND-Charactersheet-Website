@@ -438,11 +438,35 @@ def class_source_kind(lines: list[str]) -> str:
     return ""
 
 
+def explicit_variant_parents(lines: list[str], entry_name: str) -> list[str]:
+    """Return multiple valid base-class parents for a compound variant.
+
+    Some Unearthed Arcana variants apply to either of two base classes.  Preserve
+    that choice instead of collapsing it to an arbitrary parent.
+    """
+    known=(
+        "Barbarian","Bard","Cleric","Druid","Fighter","Monk","Paladin","Ranger",
+        "Rogue","Sorcerer","Wizard"
+    )
+    match=re.fullmatch(r"(.+?)\s+Variant",clean(entry_name or ""),re.I)
+    if match and "/" in match.group(1):
+        names=[clean(part).title() for part in match.group(1).split("/") if clean(part)]
+        if len(names)>1 and all(name in known for name in names):
+            return names
+    joined=" ".join(lines)
+    match=re.search(r"retained from base classes?[,]?\s*(?:the\s+)?([A-Za-z]+)\s+or\s+(?:the\s+)?([A-Za-z]+)",joined,re.I)
+    if match:
+        names=[clean(match.group(1)).title(),clean(match.group(2)).title()]
+        if all(name in known for name in names):
+            return names
+    return []
+
+
 def explicit_variant_parent(lines: list[str], entry_name: str) -> str:
     joined=" ".join(lines)
     patterns=[
         r"same hit dice,.*?advancement as (?:a |the )?standard ([A-Za-z ]+?)(?:\s*\(|\s+except|\s+as|\.)",
-        r"retained from base class,?\s*(?:the\s+)?([A-Za-z]+)",
+        r"retained from base class\b,?\s*(?:the\s+)?([A-Za-z]+)",
         r"has all the standard ([A-Za-z ]+?) class features",
         r"standard ([A-Za-z]+) class feature",
         r"adapt(?:ing)? (?:the )?([A-Za-z' -]+?) prestige class",
@@ -518,7 +542,7 @@ def apply_class_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    merge_keys=("inheritsFrom","sourceEdition","notes","prestige","hit_die","skillPoints","classSkills","classSkillRule","prerequisites","progression","featureNames")
+    merge_keys=("inheritsFrom","inheritsFromOptions","sourceEdition","notes","prestige","hit_die","skillPoints","classSkills","classSkillRule","prerequisites","progression","featureNames")
     for key in merge_keys:
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
@@ -584,9 +608,13 @@ def parse_class_core(parser: DetailParser, entry: dict) -> dict:
         progression_headers={clean(x).casefold() for x in progression[0]}
         if "skill points" in progression_headers and progression_headers.intersection({"cr","challenge rating","hit dice"}):
             result["racialClass"]=True
-    parent=explicit_variant_parent(lines,entry.get("name",""))
-    if parent:
-        result["inheritsFrom"]=parent
+    parents=explicit_variant_parents(lines,entry.get("name",""))
+    if parents:
+        result["inheritsFromOptions"]=parents
+    else:
+        parent=explicit_variant_parent(lines,entry.get("name",""))
+        if parent:
+            result["inheritsFrom"]=parent
     has_special_progression=any(
         isinstance(row,dict) and any(str(key).casefold()=="special" for key in row)
         for row in result.get("advancement",[])
@@ -1968,7 +1996,7 @@ def validate_details(entry: dict, category: str, parser: DetailParser, details: 
             raise ValueError("Supplement conflicts with parsed source fields: " + ", ".join(details["supplementConflicts"]))
         if not details.get("sourceBook"):
             raise ValueError("Class parse missing source book")
-        useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills","classSkillRule","inheritsFrom")
+        useful = ("hit_die","skillPoints","minBab","prerequisites","progression","advancement","classSkills","classSkillRule","inheritsFrom","inheritsFromOptions")
         if not any(details.get(key) for key in useful):
             # Some catalog records are source pointers (for example variant base
             # classes) with no mechanics on that exact page. They are safe to retain
@@ -2040,7 +2068,7 @@ def enrichment_gaps(category: str, details: dict) -> list[str]:
             for key in ("hit_die","skillPoints","classSkills"):
                 if key in gaps:
                     gaps.remove(key)
-        if details.get("inheritsFrom"):
+        if details.get("inheritsFrom") or details.get("inheritsFromOptions"):
             for key in ("progression","classSkills","hit_die","skillPoints"):
                 if key in gaps:
                     gaps.remove(key)
@@ -2110,6 +2138,7 @@ def candidate_summary(entry: dict, category: str, details: dict) -> str:
         if details.get("hit_die") is not None: bits.append(f"d{details['hit_die']} hit die")
         if details.get("skillPoints"): bits.append(f"{details['skillPoints']} skill points per level")
         if details.get("inheritsFrom"): bits.append(f"inherits baseline progression from {details['inheritsFrom']}")
+        if details.get("inheritsFromOptions"): bits.append("inherits baseline progression from choice of " + " or ".join(details["inheritsFromOptions"]))
         tail=(" with "+", ".join(bits)) if bits else ""
         return f"{name} is a D&D 3.5 {kind}{tail}. Source: {source}."
     if category=="feats":
@@ -2311,6 +2340,16 @@ def self_test():
     """
     p=DetailParser();p.feed(substitution_html);p.close()
     assert explicit_variant_parent(p.lines,"Fangshields Druid") == "Druid"
+
+    compound_variant_html = """
+    <h1>Sorcerer/Wizard Variant</h1><p>Base Class Unearthed Arcana (UA), p. 58</p>
+    <h2>Class Features</h2>
+    <p>All starting gold, skill points, class skills, hit dice, and class features all retained from base classes, sorcerer or Wizard, unless noted.</p>
+    """
+    p=DetailParser();p.feed(compound_variant_html);p.close()
+    compound=parse_class_core(p,{"name":"Sorcerer/Wizard Variant"})
+    assert compound.get("inheritsFromOptions")==["Sorcerer","Wizard"]
+    assert not compound.get("inheritsFrom"), "plural base classes must not be truncated to a bogus parent"
 
     racial_html = """
     <h1>Pixie</h1><p>Base Class Savage Species (SS), p. 190</p>
