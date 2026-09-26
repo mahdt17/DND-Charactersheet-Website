@@ -123,6 +123,8 @@ await fs.writeFile('test-results/class-automation-audit.json',JSON.stringify(rep
 console.log(`CLASS AUTOMATION AUDIT: ${report.complete}/${report.total} classes have sufficient structured data for the current generic reconciler; ${report.incomplete} report explicit source-data gaps.`);
 for(const [edition,counts] of Object.entries(report.byEdition))console.log(`${edition}: ${counts.complete}/${counts.total} complete`);
 console.log(`3.5 PROGRESSION COVERAGE: ${report.progressionCoverage.complete}/${report.progressionCoverage.total} immediate + ${report.progressionCoverage.conditional} required parent choice; automatable ${report.progressionCoverage.automatable}/${report.progressionCoverage.total}; inherited progressions resolved: ${report.progressionCoverage.inherited}; local descriptions complete: ${report.progressionCoverage.descriptionsComplete}/${report.progressionCoverage.total}`);
+if(report.progressionCoverage.total!==1054)throw new Error(`Expected the canonical 3.5 class catalog to contain 1054 classes; found ${report.progressionCoverage.total}.`);
+if(report.progressionCoverage.automatable!==report.progressionCoverage.total){const blocked=report.incompleteClasses.filter(item=>item.edition==='3.5'&&item.gaps.some(gap=>!gap.startsWith('Choose the variant base class')));throw new Error(`3.5 class automation coverage regressed: ${report.progressionCoverage.automatable}/${report.progressionCoverage.total}. Blocked: ${blocked.map(item=>item.name).join(', ')||'unknown'}`);}
 console.log('3.5 GAP COMBINATIONS');
 for(const [key,count] of gapCombinations.slice(0,15))console.log(`${count}\t${key}`);
 console.log('3.5 PARSER SHAPES');
