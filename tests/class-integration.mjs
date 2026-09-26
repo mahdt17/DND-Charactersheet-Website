@@ -103,6 +103,13 @@ for(const [name,index] of [['Monk','kama'],['Rogue','sap']]){
   const record=integrated35(name),sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name,edition:'3.5',level:1,definition:record}]));
   assert(sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId)?.proficiencies.find(item=>item.index===index)?.sourceOnly,`${name} unmatched named weapon stays source-only`);
 }
+
+const eberronBarbarian=annotateClassGrantKinds(classes35.find(record=>record.id==='classes/barbarian-37'),reference35);
+const eberronBarbarianSheet=reconcileClassGrants(baseCharacter([{catalogId:eberronBarbarian.catalogId,name:'Barbarian',edition:'3.5',level:1,definition:eberronBarbarian}]));
+const inheritedTraining=eberronBarbarianSheet.trainingGrants.find(item=>item.sourceClassId===eberronBarbarian.catalogId);
+assert.deepEqual(inheritedTraining?.proficiencies.map(item=>item.index),['light-armor','medium-armor','shields-except-tower','simple-weapons','martial-weapons'],'linked Eberron Barbarian reuses verified PHB training');
+assert.equal(eberronBarbarian.proficiencyProfileFrom,'classes/barbarian-89');
+assert.match(inheritedTraining?.sourceUrl||'',/barbarian-89$/,'training provenance points at the verified profile source while retaining duplicate class identity');
 const warmage35=integrated35('Warmage');
 const warmage1=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:1,definition:warmage35}]));
 assert(!warmage1.trainingGrants.flatMap(grant=>grant.proficiencies).some(item=>item.index==='medium-armor'),'Warmage medium armor is not a level-1 grant');
