@@ -62,6 +62,7 @@ jobs:
       - run: node tests/feat-gaps.mjs
       - run: node tests/legacy-casting-choices.mjs
       - run: node tests/legacy-special-casting.mjs
+      - run: node tests/legacy-preparation.mjs
       - run: node tests/hit-dice.mjs
       - run: node tests/multiclass-training.mjs
       - run: node tests/resources.mjs

@@ -106,7 +106,7 @@ save/reopen, ability display, feat removal and mobile layout.
 - Wizard specialization adds school-only slots and prohibits selected schools.
   Diviners give up one other school; other specialists give up two. Divination
   cannot be prohibited. Domain/specialist expenditure is separate per class and
-  recovers on a qualifying full rest. Changes to specialization remain setup
+  is refreshed through daily preparation. Changes to specialization remain setup
   corrections; acquisition timing is not an advancement-history engine.
 - Core Psion, Psychic Warrior and Wilder calculate a shared power-point reserve,
   including ability bonuses, while access and spending caps use each class's own
@@ -129,6 +129,44 @@ save/reopen, ability display, feat removal and mobile layout.
 actual resource spending, save/reopen, power limits, at-will use, shared Quick
 Ritual, unprepared Wizard rituals, and mobile layout. The edition creation suite
 now verifies that background Magic Initiate must be configured before continuing.
+
+### Individual 3.5 preparations
+
+- Wizard, Cleric, Cloistered Cleric, Druid, Paladin and Ranger prepare individual
+  copies in standard, domain or specialist slots. Level 0 spells consume a copy.
+  Lower-level spells can occupy higher slots without increasing spell level/DC.
+- Each cast spends one eligible prepared copy. Domain-only spells cannot occupy
+  standard slots, specialist slots require the chosen school, and changes to
+  class access, domains or prohibited schools invalidate affected preparations.
+- Daily preparation supports replacement and leaving slots open. Later study or
+  prayer can fill only open, unused slots; it cannot replace existing or spent
+  preparations. Recent casts can be kept unavailable against the day's allowance.
+  The player confirms timing by completing the preparation session; the app does
+  not track elapsed game time or automatically decide the eight-hour restriction.
+- Rest does not automatically replenish prepared copies. Saves retain exact
+  preparations and expenditure per class, including mixed-edition characters.
+  Old aggregate spent counts remain unavailable until daily preparation; an old
+  `prepared` flag does not create copies. Removing a class removes its preparation
+  ledger, slot expenditure and slot overrides.
+- Spontaneous 3.5 casters can spend a higher-level slot on a lower-level spell.
+  Their known-spell acquisition remains a separate source-review task.
+- Clerics configure cure/inflict conversion according to alignment and deity;
+  Druids can convert to Summon Nature's Ally. Casting lets the player choose the
+  prepared standard copy to sacrifice, of the same level or higher. Domain and
+  specialist slots cannot be sacrificed; the target spell must be in the saved
+  class spell list and independently eligible. Deity alignment is source-reviewed
+  by the player; the character's conflicting good/evil alignment is rejected.
+- Eight Druid/Paladin source-linked reprints that contained companion/mount
+  tables now use the SRD class tables. The repair only matches the original
+  malformed shape and preserves personal progression edits. All 160 class/level
+  combinations are checked for spell slots and base progression.
+
+`tests/legacy-preparation.mjs` verifies copy counts, level 0 expenditure, higher
+slots, restricted slots, invalid selections, daily versus later preparation,
+recent-cast reservations, old-save migration, persistence, ownership and removal.
+The casting-gap and spell-access browser suites cover actual preparation, casting,
+open-slot filling, domain/specialist restrictions, class switching, rest behavior,
+save/reopen and mobile layout.
 
 `tests/spell-access.mjs` checks all 480 core class/level combinations (12 classes
 per core edition, levels 1–20), Artificer, 3.5 spell lists, minimum abilities,
@@ -157,7 +195,8 @@ For 3.5, only 66 records have full local feature prose; 988 use progression
 summaries. Only 100 source proficiency supplements are verified, and 203 class
 records have proficiency source text. The audit now states its scope explicitly.
 
-Source-specific spell acquisition and per-slot preparation limits, bonus slots
+Source-specific spell acquisition and preparation for other classes,
+metamagic preparation, bonus slots
 for unreviewed casting classes, additional subclass casting progressions,
 complete power/invocation catalogs and effects, binding/incarnum, companions,
 domain granted powers, remaining training rules, additional spell-granting feats,
@@ -205,3 +244,9 @@ Read-only verification confirmed row-level security on both public tables.
 - [3.5 Psion](https://www.d20srd.org/srd/psionic/classes/psion.htm)
 - [3.5 shared power points](https://www.d20srd.org/srd/psionic/classes/index.htm)
 - [3.5 Warlock](https://new.dndtools.org/classes/warlock-4)
+- [3.5 arcane preparation](https://www.d20srd.org/srd/magicOverview/arcaneSpells.htm)
+- [3.5 divine preparation](https://www.d20srd.org/srd/magicOverview/divineSpells.htm)
+- [3.5 Druid progression](https://www.d20srd.org/srd/classes/druid.htm)
+- [3.5 Paladin progression](https://www.d20srd.org/srd/classes/paladin.htm)
+- [Druid source-linked reprints](https://new.dndtools.org/classes/druid-106)
+- [Paladin source-linked reprints](https://new.dndtools.org/classes/paladin-107)

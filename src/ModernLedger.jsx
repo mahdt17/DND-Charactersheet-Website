@@ -15,7 +15,7 @@ import GuidedSetup from './GuidedSetup';
 import EditionLevelUp from './EditionLevelUp';
 import LevelUp from './LevelUp';
 import TemporaryHPControl from './TemporaryHPControl';
-import {normalizeAdvancement,characterClasses} from './lib/advancement';
+import {normalizeAdvancement,characterClasses,classCharacter} from './lib/advancement';
 import {reconcileClassGrants} from './lib/classIntegration';
 import EditionSpellbook from './EditionSpellbook';
 import Modal from './Dialog';
@@ -23,9 +23,10 @@ import ClassProgression from './ClassProgression';
 import Homebrew from './Homebrew';
 import CatalogItems from './CatalogItems';
 import LegacyTraining from './LegacyTraining';
+import {usesLegacyPreparation,preparedCastOptions} from './lib/legacyPreparation';
 import FeatChoices from './FeatChoices';
 import {useReferenceIndex} from './lib/referenceIndex';
-import {keyOf,permittedSpells,spellAccess,resolveSpell} from './lib/editions';
+import {keyOf,permittedSpells,spellAccess,resolveSpell,spellSlotPools} from './lib/editions';
 import SpellAccessGrants from './SpellAccessGrants';
 import SubclassSpellChoices from './SubclassSpellChoices';
 import FeatSpellbook from './FeatSpellbook';
@@ -105,6 +106,15 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false})
 }
 
 function CharacterSheet({char,update,back,levelUp,roll:rawRoll,show,remove,campaigns,homebrew}) {
+  const printedPreparation=spell=>{
+    const rows=characterClasses(char),owner=rows.find(row=>row.catalogId===(spell.castingClassId||rows[0]?.catalogId));
+    if(!owner||spell.auto)return '';
+    const model={...classCharacter(char,owner),slotOverride:char.classSlotOverrides?.[owner.catalogId]??(owner===rows[0]?char.slotOverride:undefined)};
+    if(!usesLegacyPreparation(model))return spell.prepared?' · Prepared':'';
+    const copies=preparedCastOptions(model,spell,spellSlotPools(model),s=>spellAccess(model,resolveSpell(s,model))).filter(o=>!o.pool.startsWith('conversion-')).reduce((sum,o)=>sum+o.remaining,0);
+    return ' · '+copies+' prepared '+(copies===1?'copy':'copies')+' remaining';
+  };
+
   const [tab,setTab]=useState('actions'),[amount,setAmount]=useState(1),[edit,setEdit]=useState(false),[rest,setRest]=useState(false);
   const abilities=effectiveAbilities(char),pb=is35(char)?Number(char.bab)||0:profBonus(char.level),casting=castingKey(char),spellMod=modifier(abilities[casting]||10),slots=characterSlots(char).slice(1);
   const exhaustion=exhaustionLevel(char),effects=conditionEffects(char),passivePerception=10+modifier(abilities.wis)+(char.expertise?.Perception?2:char.skillProf.Perception?1:0)*pb;
@@ -128,7 +138,7 @@ function CharacterSheet({char,update,back,levelUp,roll:rawRoll,show,remove,campa
     {tab==='traits'&&<><TrainingPanel char={char} patch={patch} abilities={abilities}/><h2>Species & background traits</h2><p><strong>Languages known:</strong> {char.languages||'Not recorded — add them in Edit character.'}</p><Field label="Add a homebrew trait"><select value="" onChange={e=>{const t=homebrew.find(x=>x.id===e.target.value);if(t)patch({traits:[...(char.traits||RACE_DATA[char.race]?.traits.map(([name,description])=>({name,description}))||[]),{...t,homebrew:true}]});}}><option value="">Choose a saved trait</option>{homebrew.filter(t=>t.category==='trait'&&(char.ruleset==='custom'||t.edition===(char.ruleset||'2014'))&&!char.traits?.some(x=>x.id===t.id)).map(t=><option key={t.id} value={t.id}>{t.name}</option>)}</select></Field>{(char.traits||RACE_DATA[char.race]?.traits.map(([name,description])=>({name,description}))||[]).map(({id:traitId,name,description,homebrew:customTrait})=><details className="feature-detail" key={traitId||name}><summary>{name}<span>{customTrait?'Homebrew':char.race}</span></summary><p>{description}</p>{customTrait&&<Button danger onClick={()=>patch({traits:char.traits.filter(t=>t.id!==traitId)})}>Remove trait</Button>}</details>)}{mechanics(char)==='2014'&&BACKGROUND_DATA[char.background]&&<details className="feature-detail"><summary>{BACKGROUND_DATA[char.background].feature[0]}<span>{char.background}</span></summary><p>{BACKGROUND_DATA[char.background].feature[1]}</p></details>}<Field label="Additional traits"><textarea rows={6} value={char.traitNotes||''} onChange={e=>patch({traitNotes:e.target.value})}/></Field></>}
     {tab==='notes'&&<><h2>Character journal</h2><Field label="Campaign"><select value={char.campaignId||''} onChange={e=>patch({campaignId:e.target.value})}><option value="">Unassigned</option>{campaigns.map(c=><option key={c.id} value={c.id}>{c.name}</option>)}</select></Field><Field label="Backstory, personality, bonds, and session notes"><textarea rows={15} placeholder="What brought you here? Who are you becoming?" value={char.notes||''} onChange={e=>patch({notes:e.target.value})}/></Field><div className="l-toolbar"><Button icon={Download} onClick={()=>download(`${char.name}.json`,char)}>Export character</Button><Button icon={Printer} onClick={()=>window.print()}>Print sheet</Button><Button danger icon={Trash2} onClick={remove}>Delete</Button></div></>}
     </div></section></div>
-    <section className="print-sheet"><h2>Actions</h2>{[...(is35(char)?[]:weaponAttacks(char,abilities)),...char.actions].map(a=><p key={a.id}><strong>{a.name}</strong> · {a.damage||a.description}</p>)}<h2>Spells</h2>{[...char.spells,...featMagicSpells(char)].map(s=><p key={s.id||`${s.featGrantId}:${s.catalogId}`}>{s.name} · {spellLevel(s)===0?'Cantrip':`Level ${spellLevel(s)}`}{s.featSource?' · '+s.featSource:s.prepared?' · Prepared':''}</p>)}<h2>Inventory</h2>{char.inventory.map(i=><p key={i.id}>{i.name} × {i.qty}{i.equipped?' · Equipped':''}</p>)}<h2>Features</h2>{((char.grantedFeatures?.length?char.grantedFeatures:null)||classFeatures(char)||grantedClassFeatures(char)).map(f=><p key={f.id||f.index}>{f.name}</p>)}<h2>Notes</h2><p className="preserve-lines">{char.notes}</p></section>
+    <section className="print-sheet"><h2>Actions</h2>{[...(is35(char)?[]:weaponAttacks(char,abilities)),...char.actions].map(a=><p key={a.id}><strong>{a.name}</strong> · {a.damage||a.description}</p>)}<h2>Spells</h2>{[...char.spells,...featMagicSpells(char)].map(s=><p key={s.id||`${s.featGrantId}:${s.catalogId}`}>{s.name} · {spellLevel(s)===0?'Cantrip':`Level ${spellLevel(s)}`}{s.featSource?' · '+s.featSource:printedPreparation(s)}</p>)}<h2>Inventory</h2>{char.inventory.map(i=><p key={i.id}>{i.name} × {i.qty}{i.equipped?' · Equipped':''}</p>)}<h2>Features</h2>{((char.grantedFeatures?.length?char.grantedFeatures:null)||classFeatures(char)||grantedClassFeatures(char)).map(f=><p key={f.id||f.index}>{f.name}</p>)}<h2>Notes</h2><p className="preserve-lines">{char.notes}</p></section>
     {edit&&<Modal title="Edit character" onClose={()=>setEdit(false)}><div className="form-grid"><Field label="Name"><input value={char.name} onChange={e=>patch({name:e.target.value})}/></Field><Field label="Subclass"><input list="srd-subclasses" value={char.subclass||''} onChange={e=>patch({subclass:e.target.value})}/><datalist id="srd-subclasses">{(mechanics(char)==='2024'?modern.subclasses:subclasses).filter(s=>s.class.name===char.className).map(s=><option key={s.index} value={s.name}/>)}{castingSubclassNames[char.className]&&<option value={castingSubclassNames[char.className]}/>}</datalist></Field><NumberField label="Armor class" value={char.ac} onChange={ac=>patch({ac,autoArmor:false})}/><NumberField label="Speed (ft.)" value={char.speed} onChange={speed=>patch({speed})}/><NumberField label="Maximum HP" min={1} value={char.hp.max} onChange={max=>patch({hp:{...char.hp,max,current:Math.min(max,char.hp.current)}})}/><NumberField label="Temporary HP" value={char.hp.temp} onChange={temp=>patch({hp:{...char.hp,temp}})}/>{ABILITIES.map(a=><NumberField key={a.key} label={`${a.label} (base score)`} min={1} max={30} value={char.abilities[a.key]} onChange={v=>patch({abilities:{...char.abilities,[a.key]:v}})}/>)}<NumberField label="Initiative bonus" min={-20} max={20} value={char.initiativeBonus} onChange={initiativeBonus=>patch({initiativeBonus})}/><Field label="Languages"><input value={char.languages||''} onChange={e=>patch({languages:e.target.value})}/></Field></div><p className="l-muted">Base scores exclude species bonuses. Armor class and manual ability edits do not automatically change HP or equipment.</p><Button primary onClick={()=>setEdit(false)}>Done</Button></Modal>}
     {rest&&<RestDialog char={char} patch={patch} roll={roll} constitution={abilities.con} abilities={abilities} onClose={()=>setRest(false)}/>}
   </>;

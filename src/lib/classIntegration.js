@@ -615,6 +615,10 @@ export function removeClassProgression(character,classId){
     trainingGrants,
     spells,
     spellAccessGrants,
+    legacyPreparation:Object.fromEntries(Object.entries(character.legacyPreparation||{}).filter(([id])=>id!==classId)),
+    classSlotsUsed:Object.fromEntries(Object.entries(character.classSlotsUsed||{}).filter(([id])=>id!==classId)),
+    classRestrictedSlotsUsed:Object.fromEntries(Object.entries(character.classRestrictedSlotsUsed||{}).filter(([id])=>id!==classId)),
+    classSlotOverrides:Object.fromEntries(Object.entries(character.classSlotOverrides||{}).filter(([id])=>id!==classId)),
     ...(originalPrimary===classId&&removed.edition==='3.5'?{slotsUsed:{},slotOverride:null}:{}),
     featureChoices,
     castingAdvancements

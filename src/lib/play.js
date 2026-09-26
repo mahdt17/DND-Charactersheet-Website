@@ -33,7 +33,7 @@ export function availableSlots(c,s){
  const level=Number(s.level)||0,{standard,pact}=spellSlotPools(c);
  return [...standard.map((total,i)=>({level:i,remaining:Math.max(0,total-(c.slotsUsed?.[i]||0))})),
   ...pact.map((total,i)=>({level:i,remaining:Math.max(0,total-(c.pactSlotsUsed?.[i]||0)),pool:'pact'}))]
-  .filter(x=>x.remaining>0&&(is35(c)?x.level===level:x.level>=Math.max(1,level)));
+  .filter(x=>x.remaining>0&&x.level>=Math.max(is35(c)?0:1,level));
 }
 export function spendSpellSlot(c,s,level,pool='standard') {
  if(!availableSlots(c,s).some(x=>x.level===level&&(x.pool||'standard')===pool))throw Error('Choose an available slot for this spell.');

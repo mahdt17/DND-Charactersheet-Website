@@ -1,5 +1,6 @@
 import {characterClasses} from './advancement.js';
 import {subclassCasting} from './subclassCasting.js';
+import {usesLegacyPreparation} from './legacyPreparation.js';
 
 const fullCasters=new Set(['Bard','Cleric','Druid','Sorcerer','Wizard']);
 const halfCasters=new Set(['Paladin','Ranger']);
@@ -25,7 +26,11 @@ export function multiclassPools(c,singleSlots) {
 }
 
 export function restSpellSlots(c,rest) {
-  if(rest==='long')return {slotsUsed:{},pactSlotsUsed:{},classSlotsUsed:{},classRestrictedSlotsUsed:{},powerPointsUsed:0};
+  if(rest==='long'){
+    const rows=characterClasses(c),prepared=rows.filter(row=>usesLegacyPreparation({className:row.name,classDefinition:row.definition,ruleset:row.edition}));
+    const keep=value=>Object.fromEntries(Object.entries(value||{}).filter(([id])=>prepared.some(row=>row.catalogId===id)));
+    return {slotsUsed:prepared.some(row=>row.catalogId===rows[0]?.catalogId)?c.slotsUsed||{}:{},pactSlotsUsed:{},classSlotsUsed:keep(c.classSlotsUsed),classRestrictedSlotsUsed:keep(c.classRestrictedSlotsUsed),powerPointsUsed:0};
+  }
   const rows=characterClasses(c);
   const singleWarlock=rows.length===1&&rows[0].name==='Warlock'&&['2014','2024'].includes(c.ruleset||'2014');
   const classSlotsUsed={...c.classSlotsUsed};

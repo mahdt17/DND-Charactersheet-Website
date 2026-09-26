@@ -28,6 +28,10 @@ export function progressionTables(record) {
   // Use the SRD Sorcerer progression, never familiar natural armor as class BAB.
   const sourceId=record?.sourceId||String(record?.catalogId||record?.id||'').replace(/^dndtools:/,'');
   if(record?.name==='Sorcerer'&&record.progression?.[0]?.some(value=>/^master class level$/i.test(String(value)))&&['classes/sorcerer-98','classes/sorcerer-109','classes/sorcerer-46','classes/sorcerer-70'].includes(sourceId))return legacyCore.classes.find(c=>c.name==='Sorcerer').tables;
+  // These source-linked reprints captured animal companion / special mount
+  // tables. Limit repair to the original damaged shape, preserving custom edits.
+  const companionReprints={Druid:['classes/druid-106','classes/druid-40','classes/druid-64','classes/druid-92'],Paladin:['classes/paladin-107','classes/paladin-43','classes/paladin-67','classes/paladin-95']};
+  if(companionReprints[record?.name]?.includes(sourceId)&&record.progression?.[0]?.some(value=>/^Bonus HD$/i.test(String(value)))&&record.progression[0].some(value=>/armor adj/i.test(String(value))))return legacyCore.classes.find(c=>c.name===record.name).tables;
   const p=record?.progression;
   if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [p];
   if(record?.tables?.length)return record.tables;

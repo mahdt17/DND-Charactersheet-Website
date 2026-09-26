@@ -41,7 +41,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
       else if(rest==='long')patch({
         ...(recoverExhaustion?{exhaustion:Math.max(0,exhaustion-1),conditions:conditions.filter(c=>c.toLowerCase()!=='exhaustion')}:{}),
         hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
-        ...restSpellSlots(char,'long'),classRestrictedSlotsUsed:{},classSlotsUsed:{},...restFeatMagic(char,'long'),...recoverHitDice(char,recovery),
+        ...restSpellSlots(char,'long'),...restFeatMagic(char,'long'),...recoverHitDice(char,recovery),
         concentration:null,deathSaves:{success:0,failure:0},
         ...restResources(char,'long',{meditated},abilities)
       });
@@ -58,7 +58,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
       {!legacy&&<button className={`l-button ${rest==='short'?'primary':''}`} onClick={()=>{setRest('short');setError('');}}>Short rest</button>}
       <button className={`l-button ${rest==='long'?'primary':''}`} onClick={()=>{setRest('long');setRecovery(defaultRecovery(char));setError('');}}>Long rest</button>
     </div>
-    <p>{legacy?'After a full night of qualifying rest, recover your level in hit points and reset prepared slots. Apply ability damage recovery and other specific rules manually.':rest==='long'?'After a qualifying long rest, restore HP and spell slots, recover hit dice according to your edition, and reset rest resources. Temporary HP and concentration are cleared.':'Spend available hit dice to heal. Pact Magic slots recover fully. Each resource recovers the amount shown on its counter.'}</p>
+    <p>{legacy?'After a full night of qualifying rest, recover your level in hit points. Prepared spell slots remain spent until daily study or prayer; account for casts in the last 8 hours. Apply ability damage recovery and other specific rules manually.':rest==='long'?'After a qualifying long rest, restore HP and spell slots, recover hit dice according to your edition, and reset rest resources. Temporary HP and concentration are cleared. Any 3.5 prepared spells still require daily study or prayer.':'Spend available hit dice to heal. Pact Magic slots recover fully. Each resource recovers the amount shown on its counter.'}</p>
     {!legacy&&<>
       {resources.some(r=>r.meditation&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={meditated} onChange={e=>setMeditated(e.target.checked)}/>Meditated for at least 30 minutes (recover Ki Points)</label>}
       {rest==='short'&&resources.some(r=>r.restoration&&r.used>0)&&<label className="l-check"><input type="checkbox" checked={restoreSorcery} disabled={!!char.sorcerousRestorationUsed} onChange={e=>setRestoreSorcery(e.target.checked)}/>Use Sorcerous Restoration{char.sorcerousRestorationUsed?' (already used until a long rest)':''}</label>}
