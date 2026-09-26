@@ -35,6 +35,18 @@ for(const name of ['Dark Knowledge','Scribe Scroll','Lore Mastery','Still Mind']
 assert.equal(a4.resources.find(resource=>resource.name==='Dark Knowledge')?.max,4);
 assert(a4.grantedFeatures.every(feature=>feature.description&&['rule-text','progression'].includes(feature.descriptionSource)),'Every granted class feature needs a usable sourced description');
 assert(!a4.grantedFeatures.some(feature=>feature.description.includes('See the class source for complete rules.')),'Progression text replaces vague description placeholders');
+const trainedArchivist={...archivist,proficiencies:[
+  {index:'light-armor',name:'Light armor',kind:'armor'},
+  {index:'medium-armor',name:'Medium armor',kind:'armor'},
+  {index:'simple-weapons',name:'Simple weapons',kind:'weapons'}
+]};
+const trainedSheet=reconcileClassGrants(baseCharacter([{catalogId:trainedArchivist.catalogId,name:'Archivist',edition:'3.5',level:1,definition:trainedArchivist}]));
+const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===trainedArchivist.catalogId);
+assert(archivistTraining?.automatic,'3.5 source proficiencies become automatic class training');
+assert.deepEqual(archivistTraining.proficiencies.map(item=>item.index),['light-armor','medium-armor','simple-weapons']);
+const trainedAgain=reconcileClassGrants(trainedSheet);
+assert.equal(trainedAgain.trainingGrants.filter(grant=>grant.sourceClassId===trainedArchivist.catalogId).length,1,'class training reconciliation is idempotent');
+
 assert.deepEqual(a4.classSpellSlots.find(profile=>profile.sourceClassId===archivist.catalogId)?.slots.slice(0,4),[4,4,3,0],'Archivist multi-row slot table');
 const again=reconcileClassGrants(a4);
 assert.equal(new Set(again.actions.map(x=>x.id)).size,again.actions.length);
