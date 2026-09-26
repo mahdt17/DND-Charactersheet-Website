@@ -2371,6 +2371,20 @@
         }
       ],
       "verified": true
+    },
+    "classes/favored-soul-76": {
+      "name": "Favored Soul",
+      "sourceUrl": "https://new.dndtools.org/classes/favored-soul-76",
+      "proficiencyProfileFrom": "classes/favored-soul-7",
+      "verified": true,
+      "verificationNote": "Complete Divine Favored Soul explicitly lists Miniatures Handbook as another published appearance."
+    },
+    "classes/warmage-79": {
+      "name": "Warmage",
+      "sourceUrl": "https://new.dndtools.org/classes/warmage-79",
+      "proficiencyProfileFrom": "classes/warmage-5",
+      "verified": true,
+      "verificationNote": "Miniatures Handbook Warmage explicitly lists Complete Arcane as another published appearance."
     }
   }
 }
