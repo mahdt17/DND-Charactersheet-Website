@@ -38,6 +38,7 @@ const candidates=[
 ];
 const classes=candidates.map(classRow=>classAutomationReport(character(classRow)).classes[0]);
 const gapKey=item=>item.gaps.length?item.gaps.map(gap=>{
+  if(gap.startsWith('Choose the variant base class'))return 'variant-choice-required';
   if(gap.startsWith('No structured level progression'))return 'no-progression';
   if(gap.startsWith('Canonical source record'))return 'reference-only';
   if(gap.startsWith('Class feature rules'))return 'class-feature-rules-absent';
@@ -100,6 +101,12 @@ const report={
   progressionCoverage:{
     total:classes.filter(item=>item.edition==='3.5').length,
     complete:classes.filter(item=>item.edition==='3.5'&&item.progressionComplete).length,
+    conditional:integrated35.filter(record=>record.inheritanceRequired&&record.inheritanceOptions?.length>1).length,
+    automatable:integrated35.filter(record=>{
+      if(progressionTables(record).length)return true;
+      if(!record.inheritanceRequired||!record.inheritanceOptions?.length)return false;
+      return record.inheritanceOptions.every(option=>progressionTables(annotateClassGrantKinds({...record,inheritanceChoice:option.name||option},classReferenceIndex)).length>0);
+    }).length,
     inherited:integrated35.filter(record=>record.inheritedFromClassId).length,
     descriptionsComplete:classes.filter(item=>item.edition==='3.5'&&item.descriptionComplete).length
   },
@@ -115,7 +122,7 @@ await fs.mkdir('test-results',{recursive:true});
 await fs.writeFile('test-results/class-automation-audit.json',JSON.stringify(report,null,2)+'\n');
 console.log(`CLASS AUTOMATION AUDIT: ${report.complete}/${report.total} classes have sufficient structured data for the current generic reconciler; ${report.incomplete} report explicit source-data gaps.`);
 for(const [edition,counts] of Object.entries(report.byEdition))console.log(`${edition}: ${counts.complete}/${counts.total} complete`);
-console.log(`3.5 PROGRESSION COVERAGE: ${report.progressionCoverage.complete}/${report.progressionCoverage.total}; inherited progressions resolved: ${report.progressionCoverage.inherited}; local descriptions complete: ${report.progressionCoverage.descriptionsComplete}/${report.progressionCoverage.total}`);
+console.log(`3.5 PROGRESSION COVERAGE: ${report.progressionCoverage.complete}/${report.progressionCoverage.total} immediate + ${report.progressionCoverage.conditional} required parent choice; automatable ${report.progressionCoverage.automatable}/${report.progressionCoverage.total}; inherited progressions resolved: ${report.progressionCoverage.inherited}; local descriptions complete: ${report.progressionCoverage.descriptionsComplete}/${report.progressionCoverage.total}`);
 console.log('3.5 GAP COMBINATIONS');
 for(const [key,count] of gapCombinations.slice(0,15))console.log(`${count}\t${key}`);
 console.log('3.5 PARSER SHAPES');
