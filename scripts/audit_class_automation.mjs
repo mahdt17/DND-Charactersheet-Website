@@ -35,6 +35,48 @@ const candidates=[
   ...classes35.map(record=>row(record,'3.5',maximumLevel(record)))
 ];
 const classes=candidates.map(classRow=>classAutomationReport(character(classRow)).classes[0]);
+const gapKey=item=>item.gaps.length?item.gaps.map(gap=>{
+  if(gap.startsWith('No structured level progression'))return 'no-progression';
+  if(gap.startsWith('Canonical source record'))return 'reference-only';
+  if(gap.startsWith('Class feature rules'))return 'class-feature-rules-absent';
+  if(/lack structured rule text/.test(gap))return 'missing-feature-rule-text';
+  return gap;
+}).sort().join('+'):'complete';
+const rawText=record=>[record.description,record.sourceDescription,record.effect,...progressionTables(record).flat(3)].filter(Boolean).join(' ').toLowerCase();
+const familyFor=record=>{
+  const text=rawText(record),families=[];
+  const checks=[
+    ['spellcasting',/spells? per day|spells? known|caster level|spellcasting/],
+    ['psionics',/power points|powers? known|manifester level|psionic/],
+    ['maneuvers',/maneuvers? known|maneuvers? readied|stances? known|initiator level/],
+    ['invocations',/invocations? known|eldritch blast/],
+    ['incarnum',/soulmeld|essentia|chakra bind/],
+    ['binding',/vestiges?|soul binding|binder level/],
+    ['mysteries',/mysteries? known|paths? known|shadowcaster/],
+    ['auras',/auras? known|minor aura|major aura/],
+    ['companions',/animal companion|special mount|familiar/],
+    ['bonus-feats',/bonus feat/]
+  ];
+  for(const [name,re] of checks)if(re.test(text))families.push(name);
+  return families.length?families:['ordinary'];
+};
+const parserShape=record=>{
+  const tables=progressionTables(record);
+  if(!tables.length)return 'no-tables';
+  for(const table of tables){
+    for(const row of table.slice(0,5)){
+      const level=row?.some?.(value=>/^(?:class |racial )?level$/i.test(String(value).trim()));
+      const feature=row?.some?.(value=>/^(?:special|features?|class features?|abilities?)$/i.test(String(value).trim()));
+      if(level&&feature)return 'level+feature-table';
+    }
+  }
+  return 'table-without-feature-column';
+};
+const records35=new Map(classes35.map(record=>[record.catalogId,record]));
+const incomplete35=classes.filter(item=>item.edition==='3.5'&&!item.complete);
+const gapCombinations=Object.entries(incomplete35.reduce((acc,item)=>(acc[gapKey(item)]=(acc[gapKey(item)]||0)+1,acc),{})).sort((a,b)=>b[1]-a[1]);
+const parserShapes=Object.entries(incomplete35.reduce((acc,item)=>{const key=parserShape(records35.get(item.classId)||{});acc[key]=(acc[key]||0)+1;return acc;},{})).sort((a,b)=>b[1]-a[1]);
+const mechanicFamilies=Object.entries(incomplete35.reduce((acc,item)=>{for(const family of familyFor(records35.get(item.classId)||{}))acc[family]=(acc[family]||0)+1;return acc;},{})).sort((a,b)=>b[1]-a[1]);
 const group=edition=>{
   const list=classes.filter(item=>item.edition===edition);
   return {total:list.length,complete:list.filter(item=>item.complete).length,incomplete:list.filter(item=>!item.complete).length};
@@ -53,9 +95,20 @@ const report={
     choices:classes.reduce((n,item)=>n+item.choiceCount,0)
   },
   representative:Object.fromEntries(['Fighter','Wizard','Sorcerer','Rogue','Archivist','Psion','Loremaster','Abjurant Champion'].map(name=>[name,classes.find(item=>item.name===name)||null])),
-  incompleteClasses:classes.filter(item=>!item.complete).map(item=>({classId:item.classId,name:item.name,edition:item.edition,level:item.level,prestige:item.prestige,gaps:item.gaps}))
+  gapCombinations:Object.fromEntries(gapCombinations),
+  parserShapes:Object.fromEntries(parserShapes),
+  mechanicFamilies:Object.fromEntries(mechanicFamilies),
+  incompleteClasses:classes.filter(item=>!item.complete).map(item=>({classId:item.classId,name:item.name,edition:item.edition,level:item.level,prestige:item.prestige,gaps:item.gaps,
+    parserShape:item.edition==='3.5'?parserShape(records35.get(item.classId)||{}):undefined,
+    mechanicFamilies:item.edition==='3.5'?familyFor(records35.get(item.classId)||{}):undefined}))
 };
 await fs.mkdir('test-results',{recursive:true});
 await fs.writeFile('test-results/class-automation-audit.json',JSON.stringify(report,null,2)+'\n');
 console.log(`CLASS AUTOMATION AUDIT: ${report.complete}/${report.total} classes have sufficient structured data for the current generic reconciler; ${report.incomplete} report explicit source-data gaps.`);
 for(const [edition,counts] of Object.entries(report.byEdition))console.log(`${edition}: ${counts.complete}/${counts.total} complete`);
+console.log('3.5 GAP COMBINATIONS');
+for(const [key,count] of gapCombinations.slice(0,15))console.log(`${count}\t${key}`);
+console.log('3.5 PARSER SHAPES');
+for(const [key,count] of parserShapes)console.log(`${count}\t${key}`);
+console.log('3.5 MECHANIC FAMILIES');
+for(const [key,count] of mechanicFamilies)console.log(`${count}\t${key}`);
