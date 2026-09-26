@@ -280,12 +280,12 @@
         },
         {
           "index": "crossbow-light",
-          "name": "Crossbow, Light",
+          "name": "Crossbow, light",
           "kind": "weapons"
         },
         {
           "index": "crossbow-heavy",
-          "name": "Crossbow, Heavy",
+          "name": "Crossbow, heavy",
           "kind": "weapons"
         },
         {
@@ -299,17 +299,29 @@
           "kind": "weapons"
         },
         {
+          "index": "scythe",
+          "name": "Scythe",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
           "index": "sickle",
           "name": "Sickle",
           "kind": "weapons"
+        },
+        {
+          "index": "staff",
+          "name": "Staff",
+          "kind": "weapons",
+          "sourceOnly": true
         }
       ],
-      "verified": false,
+      "verified": true,
       "unresolvedNamedWeapons": [
         "scythe",
         "staff"
       ],
-      "reviewNote": "Source names do not currently map completely to the equipment catalog; do not automate until resolved."
+      "reviewNote": "Scythe and staff are retained as source-only 3.5 proficiencies because the modern equipment catalog has no exact compatible ID; they do not affect modern attack proficiency."
     },
     "classes/dragon-shaman-101": {
       "name": "Dragon Shaman",
