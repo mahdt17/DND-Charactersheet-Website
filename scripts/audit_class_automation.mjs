@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import classes2014 from '../src/data/classes.json' with {type:'json'};
 import modern from '../src/data/srd2024.json' with {type:'json'};
+import proficiencySupplements35 from '../src/data/class-proficiencies35.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
 import {classAutomationReport,annotateClassGrantKinds} from '../src/lib/classIntegration.js';
 import {progressionTables} from '../src/lib/advancement.js';
@@ -8,6 +9,7 @@ import {progressionTables} from '../src/lib/advancement.js';
 const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
 const [classes35,feats35]=await Promise.all([service.load('3.5/classes'),service.load('3.5/feats')]);
 const classReferenceIndex=[...classes35,...feats35];
+const proficiencyEntries=Object.values(proficiencySupplements35.entries||{}),verifiedProficiencyEntries=proficiencyEntries.filter(entry=>entry.verified);
 const integrated35=classes35.map(record=>annotateClassGrantKinds(record,classReferenceIndex));
 
 const maximumLevel=record=>{
@@ -94,8 +96,12 @@ const report={
     classes35:integrated35.length,
     fixedClassSkills:integrated35.filter(record=>Array.isArray(record.classSkills)&&record.classSkills.length>0).length,
     dynamicClassSkillRules:integrated35.filter(record=>record.classSkillRule).length,
-    startingProficiencies:integrated35.filter(record=>Array.isArray(record.proficiencies)&&record.proficiencies.length>0).length,
-    proficiencySourceText:integrated35.filter(record=>record.proficiencyText).length
+    startingProficiencies:integrated35.filter(record=>Array.isArray(record.proficiencies)&&record.proficiencies.length>0).length+verifiedProficiencyEntries.filter(entry=>entry.proficiencies?.length).length,
+    explicitNoStartingProficiencies:verifiedProficiencyEntries.filter(entry=>entry.explicitNoProficiencies).length,
+    proficiencySourceText:integrated35.filter(record=>record.proficiencyText).length+verifiedProficiencyEntries.filter(entry=>entry.proficiencyText).length,
+    proficiencyChoices:verifiedProficiencyEntries.reduce((n,entry)=>n+(entry.proficiencyChoices?.length||0),0),
+    proficiencySupplementVerified:verifiedProficiencyEntries.length,
+    proficiencySupplementReview:proficiencyEntries.filter(entry=>!entry.verified).length
   },
   mechanics:{
     features:classes.reduce((n,item)=>n+item.featureCount,0),
@@ -137,7 +143,7 @@ for(const [edition,counts] of Object.entries(report.byEdition))console.log(`${ed
 console.log(`3.5 PROGRESSION COVERAGE: ${report.progressionCoverage.complete}/${report.progressionCoverage.total} immediate + ${report.progressionCoverage.conditional} required parent choice; automatable ${report.progressionCoverage.automatable}/${report.progressionCoverage.total}; inherited progressions resolved: ${report.progressionCoverage.inherited}; full local rule prose: ${report.progressionCoverage.descriptionsComplete}/${report.progressionCoverage.total}; usable sourced summaries: ${report.progressionCoverage.descriptionsUsable}/${report.progressionCoverage.total}; progression-summary fallback: ${report.progressionCoverage.descriptionsUsingProgressionSummary} classes`);
 if(report.progressionCoverage.total!==1054)throw new Error(`Expected the canonical 3.5 class catalog to contain 1054 classes; found ${report.progressionCoverage.total}.`);
 if(report.progressionCoverage.automatable!==report.progressionCoverage.total){const blocked=report.incompleteClasses.filter(item=>item.edition==='3.5'&&item.gaps.some(gap=>!gap.startsWith('Choose the variant base class')));throw new Error(`3.5 class automation coverage regressed: ${report.progressionCoverage.automatable}/${report.progressionCoverage.total}. Blocked: ${blocked.map(item=>item.name).join(', ')||'unknown'}`);}
-console.log(`3.5 SOURCE DATA COVERAGE: fixed class skills ${report.sourceDataCoverage.fixedClassSkills}/${report.sourceDataCoverage.classes35}; dynamic class-skill rules ${report.sourceDataCoverage.dynamicClassSkillRules}; starting proficiencies ${report.sourceDataCoverage.startingProficiencies}/${report.sourceDataCoverage.classes35}; proficiency source text ${report.sourceDataCoverage.proficiencySourceText}/${report.sourceDataCoverage.classes35}`);
+console.log(`3.5 SOURCE DATA COVERAGE: fixed class skills ${report.sourceDataCoverage.fixedClassSkills}/${report.sourceDataCoverage.classes35}; dynamic class-skill rules ${report.sourceDataCoverage.dynamicClassSkillRules}; starting proficiency packages ${report.sourceDataCoverage.proficiencySupplementVerified} verified (+${report.sourceDataCoverage.explicitNoStartingProficiencies} explicit none); proficiency choices ${report.sourceDataCoverage.proficiencyChoices}; review queue ${report.sourceDataCoverage.proficiencySupplementReview}; source text ${report.sourceDataCoverage.proficiencySourceText}/${report.sourceDataCoverage.classes35}`);
 console.log('3.5 GAP COMBINATIONS');
 for(const [key,count] of gapCombinations.slice(0,15))console.log(`${count}\t${key}`);
 console.log('3.5 PARSER SHAPES');
