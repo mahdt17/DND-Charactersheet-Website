@@ -1,6 +1,6 @@
-import levels2014 from '../data/levels.json';
-import features2014 from '../data/features.json';
-import modern from '../data/srd2024.json';
+import levels2014 from '../data/levels.json' with {type:'json'};
+import features2014 from '../data/features.json' with {type:'json'};
+import modern from '../data/srd2024.json' with {type:'json'};
 import {characterClasses,contentKey,progressionTables} from './advancement.js';
 import {normalizeEdition} from './content.js';
 
