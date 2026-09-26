@@ -389,22 +389,44 @@ def parse_class_skills(parser: DetailParser) -> list[str]:
 
 
 def parse_progression_table(parser: DetailParser):
-    for table in parser.tables:
+    """Choose the strongest class-level progression table, not merely the first table with 'Class Level'.
+
+    Many 3.5 pages contain secondary tables (spell slots, poison scaling, mysteries, etc.)
+    before the actual BAB/save/Special advancement table.  Prefer a table exposing class
+    features and core progression, then fall back to named casting/manifesting tracks.
+    """
+    candidates=[]
+    feature_headers={"special","specials","feature","features","class feature","class features","abilities"}
+    core_headers={"bab","base attack bonus","attack bonus","fort","fortitude","fort save","ref","reflex","ref save","will","will save"}
+    track_pattern=re.compile(
+        r"(?:spellcasting|spells? per day|spells? known|manifesting|power points|powers? known|"
+        r"powers? discovered|maneuvers? known|maneuvers? readied|stances? known|invocations? known|"
+        r"soulmelds?|essentia|chakra binds?|mysteries?|vestiges?)",re.I
+    )
+    for table_index,table in enumerate(parser.tables):
         if not table:
             continue
         for idx,candidate in enumerate(table[:5]):
             header=[clean(c) for c in candidate]
             folded=[h.casefold() for h in header]
             has_level=any(h=="level" or h.endswith(" level") or h=="racial level" for h in folded)
-            has_progress=any(h in folded for h in ("bab","base attack bonus","fort","fortitude","ref","reflex","will","special","spellcasting","class level"))
-            if has_level and has_progress:
-                data_rows=table[idx+1:]
-                rows=[]
-                for row in data_rows:
-                    values=row+[""]*max(0,len(header)-len(row))
-                    rows.append({header[i] or f"column_{i+1}":clean(values[i]) for i in range(len(header))})
-                return [header]+data_rows,rows
-    return None,None
+            if not has_level:
+                continue
+            feature_count=sum(h in feature_headers for h in folded)
+            core_count=sum(h in core_headers for h in folded)
+            track_count=sum(bool(track_pattern.search(h)) for h in header)
+            if not (feature_count or core_count or track_count):
+                continue
+            score=feature_count*100+core_count*12+track_count*5+min(len(header),20)
+            candidates.append((score,-table_index,-idx,header,table[idx+1:]))
+    if not candidates:
+        return None,None
+    _,_,_,header,data_rows=max(candidates,key=lambda item:item[:3])
+    rows=[]
+    for row in data_rows:
+        values=row+[""]*max(0,len(header)-len(row))
+        rows.append({header[i] or f"column_{i+1}":clean(values[i]) for i in range(len(header))})
+    return [header]+data_rows,rows
 
 
 def class_source_kind(lines: list[str]) -> str:
@@ -2223,6 +2245,26 @@ def self_test():
     assert c["hit_die"] == 8 and c["skillPoints"] == "2 + Int" and c["prestige"]
     assert c["sourceBook"].endswith("Complete Warrior") and c["sourcePage"] == 79
     assert c["prerequisites"][0]["kind"] == "spells" and c["advancement"][0]["BAB"] == "+1"
+
+    # A secondary class-level casting table must not displace the real feature table.
+    multi_table_html = """
+    <h1>Shadow Test</h1><p>Base Class Example Book (EX), p. 1</p>
+    <table><tr><th>Class Level</th><th>1st</th><th>2nd</th></tr>
+    <tr><td>1st</td><td>1</td><td>—</td></tr></table>
+    <table><tr><th>Level</th><th>BAB</th><th>Fort</th><th>Ref</th><th>Will</th><th>Special</th></tr>
+    <tr><td>1st</td><td>+0</td><td>+0</td><td>+0</td><td>+2</td><td>Fundamentals, apprentice mysteries</td></tr></table>
+    """
+    p=DetailParser();p.feed(multi_table_html);p.close()
+    progression,advancement=parse_progression_table(p)
+    assert progression[0][-1]=="Special" and advancement[0]["Special"]=="Fundamentals, apprentice mysteries"
+
+    plural_special_html = """
+    <table><tr><th>Level</th><th>BAB</th><th>Fort</th><th>Ref</th><th>Will</th><th>Specials</th></tr>
+    <tr><td>1st</td><td>+0</td><td>+0</td><td>+0</td><td>+2</td><td>Focused talent</td></tr></table>
+    """
+    p=DetailParser();p.feed(plural_special_html);p.close()
+    progression,_=parse_progression_table(p)
+    assert progression[0][-1]=="Specials"
 
     base_with_prestige_prose = """
     <h1>Binder</h1><p>Base Class Tome of Magic (ToM), p. 9</p>
