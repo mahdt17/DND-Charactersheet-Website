@@ -1,0 +1,298 @@
+import levels2014 from '../data/levels.json';
+import features2014 from '../data/features.json';
+import modern from '../data/srd2024.json';
+import {characterClasses,contentKey,progressionTables} from './advancement.js';
+import {normalizeEdition} from './content.js';
+
+export const CLASS_INTEGRATION_VERSION=1;
+const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
+const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
+const title=value=>String(value||'').replace(/\b\w/g,c=>c.toUpperCase());
+const words={once:1,one:1,twice:2,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10};
+
+function sourceInfo(row,level,featureId){
+  const record=row.definition||{};
+  return {
+    sourceType:'class',
+    sourceId:featureId||record.id||record.catalogId||contentKey(record),
+    sourceClassId:row.catalogId||contentKey(record),
+    sourceClassLevel:level,
+    sourceFeatureId:featureId||null,
+    edition:normalizeEdition(row.edition||record.edition),
+    automatic:true,
+    sourceClassName:row.name,
+    source:row.name,
+    sourceUrl:record.sourceUrl||record.url||null
+  };
+}
+
+function featureLevel(feature){
+  const raw=feature?.level?.name?.match?.(/\d+$/)?.[0]??feature?.level;
+  return Math.max(0,Number(raw)||0);
+}
+function textDescription(feature){
+  if(!feature)return '';
+  if(typeof feature.description==='string')return feature.description;
+  if(Array.isArray(feature.desc))return feature.desc.join('\n\n');
+  if(typeof feature.desc==='string')return feature.desc;
+  return '';
+}
+function sourceFeatureDescription(record,name){
+  const source=String(record?.sourceDescription||record?.description||record?.effect||'');
+  if(!source||!name)return '';
+  const candidates=[name,String(name).replace(/\s*\([^)]*\)\s*$/,'')].filter(Boolean);
+  for(const candidate of [...new Set(candidates)]){
+    const escaped=candidate.replace(/[.*+?^\${}()|[\]\\]/g,'\\$&');
+    const heading=new RegExp('(?:^|\\n)\\s*(?:\\*\\*)?'+escaped+'(?:\\s*\\([^\\n)]*\\))?(?:\\*\\*)?\\s*:\\s*','i');
+    const match=heading.exec(source);
+    if(match){
+      const rest=source.slice(match.index+match[0].length);
+      const next=rest.search(/\n\s*(?:\*\*)?[A-Z][A-Za-z0-9 ’'()\/+-]{1,80}(?:\*\*)?\s*:/);
+      const value=(next>=0?rest.slice(0,next):rest).trim();
+      if(value)return value;
+    }
+    const paragraph=source.split(/\n\s*\n/).find(p=>norm(p).includes(norm(candidate)));
+    if(paragraph&&paragraph.length<=5000)return paragraph.replace(/^\s*(?:\*\*)?[^:]{1,100}(?:\*\*)?\s*:\s*/,'').trim();
+  }
+  return '';
+}
+
+function tableFeatureCells(record,maximum){
+  const grants=[];
+  for(const table of progressionTables(record)){
+    if(!Array.isArray(table)||!table.length)continue;
+    let headerIndex=-1,levelIndex=-1,featureIndexes=[];
+    for(let i=0;i<Math.min(5,table.length);i++){
+      const row=table[i]||[];
+      const candidate=row.findIndex(value=>/^(?:class |racial )?level$/i.test(String(value).trim()));
+      if(candidate<0)continue;
+      const indexes=row.map((value,index)=>/^(?:special|features?|class features?|abilities?)$/i.test(String(value).trim())?index:-1).filter(index=>index>=0);
+      if(indexes.length){headerIndex=i;levelIndex=candidate;featureIndexes=indexes;break;}
+    }
+    if(headerIndex<0)continue;
+    for(const data of table.slice(headerIndex+1)){
+      const level=parseInt(data?.[levelIndex]);
+      if(!Number.isFinite(level)||level<1||level>maximum)continue;
+      for(const index of featureIndexes){
+        for(const raw of splitFeatureCell(data?.[index],record.featureNames||[])){
+          grants.push({level,name:raw.name,progressionText:raw.text,sourceFeatureId:raw.id||null});
+        }
+      }
+    }
+  }
+  if(!grants.length&&Array.isArray(record?.advancement)){
+    for(const data of record.advancement){
+      const levelKey=Object.keys(data).find(k=>/^(?:class |racial )?level$/i.test(k));
+      const level=parseInt(data[levelKey]);
+      if(!Number.isFinite(level)||level<1||level>maximum)continue;
+      for(const [key,value] of Object.entries(data)){
+        if(!/^(?:special|features?|class features?|abilities?)$/i.test(key))continue;
+        for(const raw of splitFeatureCell(value,record.featureNames||[]))grants.push({level,name:raw.name,progressionText:raw.text,sourceFeatureId:raw.id||null});
+      }
+    }
+  }
+  return grants;
+}
+
+function splitFeatureCell(value,known=[]){
+  const text=String(value||'').trim();
+  if(!text||/^(?:—|-|none)$/i.test(text))return [];
+  const chunks=text.split(/\s*;\s*|\s*,\s*(?![^()]*\))/).map(x=>x.trim()).filter(Boolean);
+  const result=[];
+  for(const chunk of chunks){
+    const matches=known.filter(name=>norm(chunk).includes(norm(name)));
+    if(matches.length){
+      for(const name of matches)result.push({name,text:chunk,id:slug(name)});
+      continue;
+    }
+    let name=chunk
+      .replace(/\s+\d+\s*\/\s*(?:day|rest)\b.*$/i,'')
+      .replace(/\s+\d+\s+times?\s+per\s+(?:day|rest)\b.*$/i,'')
+      .replace(/\s+\+?\d+(?:d\d+)?(?:\s*\/\s*[^,;]+)?$/i,'')
+      .replace(/\s+\d+\/—$/i,'')
+      .trim();
+    if(/\([^)]*\)/.test(name)&&/^dark knowledge\b/i.test(name))name=name.replace(/\s*\([^)]*\)\s*$/,'');
+    result.push({name:title(name||chunk),text:chunk,id:slug(name||chunk)});
+  }
+  return result;
+}
+
+function explicitLevelGrants(record,maximum){
+  const result=[];
+  const add=(grant,level)=>{
+    const n=Math.max(1,Number(level??grant?.level)||1);
+    if(n>maximum||!grant)return;
+    const name=grant.name||grant.label||grant.feature||grant.id;
+    if(!name)return;
+    result.push({...grant,level:n,name:String(name),progressionText:grant.progressionText||grant.text||''});
+  };
+  if(Array.isArray(record?.grants))for(const grant of record.grants)add(grant,grant.level);
+  if(Array.isArray(record?.levelGrants))for(const grant of record.levelGrants)add(grant,grant.level);
+  if(record?.levelGrants&&!Array.isArray(record.levelGrants)&&typeof record.levelGrants==='object'){
+    for(const [level,grants] of Object.entries(record.levelGrants))for(const grant of Array.isArray(grants)?grants:[grants])add(grant,level);
+  }
+  return result;
+}
+
+function rawClassFeatures(row){
+  const record=row.definition||{},edition=normalizeEdition(row.edition||record.edition),maximum=row.level;
+  const explicit=explicitLevelGrants(record,maximum);
+  if(explicit.length)return explicit.map(grant=>({...grant,description:grant.description||grant.effect||''}));
+  if(edition==='2014'){
+    return levels2014
+      .filter(level=>level.class?.name===row.name&&!level.subclass&&level.level<=maximum)
+      .flatMap(level=>(level.features||[]).map(ref=>{
+        const feature=features2014.find(item=>item.index===ref.index)||ref;
+        return {level:level.level,name:feature.name||ref.name,description:textDescription(feature),sourceFeatureId:feature.index||ref.index,kind:feature.kind};
+      }));
+  }
+  if(edition==='2024'){
+    return (modern.features||[])
+      .filter(feature=>feature.class?.name===row.name&&featureLevel(feature)<=maximum&&(!feature.subclass||feature.subclass.name===row.subclass))
+      .map(feature=>({level:featureLevel(feature),name:feature.name,description:textDescription(feature),sourceFeatureId:feature.index||feature.id,kind:feature.kind}));
+  }
+  return tableFeatureCells(record,maximum).map(grant=>({...grant,description:sourceFeatureDescription(record,grant.name)}));
+}
+
+function coalesceFeatures(row){
+  const map=new Map();
+  for(const feature of rawClassFeatures(row)){
+    const name=String(feature.name||'').trim();
+    if(!name)continue;
+    const key=norm(name.replace(/\s*\([^)]*\)\s*$/,''));
+    const current=map.get(key);
+    const description=feature.description||sourceFeatureDescription(row.definition||{},name);
+    const history={level:feature.level,text:feature.progressionText||name};
+    if(!current){
+      map.set(key,{...feature,name:name.replace(/\s*\([^)]*\)\s*$/,''),level:feature.level,description,history:[history]});
+    }else{
+      current.level=Math.min(current.level,feature.level);
+      current.latestLevel=Math.max(current.latestLevel||current.level,feature.level);
+      current.history.push(history);
+      if(description&&description.length>(current.description||'').length)current.description=description;
+      if(feature.progressionText)current.progressionText=feature.progressionText;
+    }
+  }
+  return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
+}
+
+function actionType(feature,edition){
+  const text=feature.description||'';
+  if(/bonus action/i.test(text))return 'Bonus action';
+  if(/\breaction\b|immediate action/i.test(text))return edition==='3.5'?'Immediate action':'Reaction';
+  if(/swift action/i.test(text))return 'Swift action';
+  if(/full[- ]round action/i.test(text))return 'Full-round action';
+  if(/standard action/i.test(text))return 'Standard action';
+  if(/as an action|use your action|take an action/i.test(text))return 'Action';
+  return '';
+}
+function usageFromText(text){
+  const value=String(text||'');
+  const numeric=[...value.matchAll(/\b(\d+)\s*\/\s*(day|rest)\b/gi)].map(match=>({max:Number(match[1]),period:match[2].toLowerCase()}));
+  if(numeric.length)return numeric.at(-1);
+  const spelled=value.match(/\b(once|one|twice|two|three|four|five|six|seven|eight|nine|ten)(?:\s+times?)?\s+per\s+(day|short rest|long rest|rest)\b/i);
+  if(spelled)return {max:words[spelled[1].toLowerCase()],period:spelled[2].toLowerCase()};
+  return null;
+}
+function latestUsage(feature){
+  for(const item of [...(feature.history||[])].sort((a,b)=>b.level-a.level)){
+    const usage=usageFromText(item.text);
+    if(usage)return usage;
+  }
+  return usageFromText(feature.description);
+}
+function isConcreteFeat(feature){
+  if(feature.kind==='feat')return true;
+  if(/^bonus feat$|^fighter feat$|^wild feat$/i.test(feature.name))return false;
+  const description=feature.description||'';
+  const escaped=feature.name.replace(/[.*+?^\${}()|[\]\\]/g,'\\$&');
+  return /\b(?:gain|gains|gained|receive|receives)\b[^.]{0,160}\bas (?:a )?bonus feat\b/i.test(description)
+    ||new RegExp('\\b'+escaped+'\\b[^.]{0,120}\\bbonus feat\\b','i').test(description);
+}
+function needsChoice(feature){
+  if(feature.kind==='choice')return true;
+  if(/^bonus feat$|^fighter feat$|^wild feat$/i.test(feature.name))return true;
+  return /\bchoose\b|\bselect\b|\bchoice\b/i.test(feature.description||'');
+}
+
+function derivedForRow(row){
+  const edition=normalizeEdition(row.edition||row.definition?.edition),features=coalesceFeatures(row);
+  const derivedFeatures=[],actions=[],feats=[],resources=[];
+  for(const feature of features){
+    const featureId=feature.sourceFeatureId||slug(feature.name),meta=sourceInfo(row,feature.level,featureId);
+    const id='class-grant:'+meta.sourceClassId+':feature:'+slug(feature.name);
+    const history=(feature.history||[]).sort((a,b)=>a.level-b.level);
+    const description=feature.description||\`Granted by \${row.name} at class level \${feature.level}. See the class source for complete rules.\`;
+    const choice=needsChoice(feature);
+    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',description,desc:[description],progressionHistory:history,...meta};
+    derivedFeatures.push(base);
+    const concreteFeat=isConcreteFeat(feature);
+    if(concreteFeat){
+      feats.push({id:'class-grant:'+meta.sourceClassId+':feat:'+slug(feature.name),name:feature.name,level:feature.level,description,catalogId:feature.featId||undefined,...meta});
+    }
+    const usage=latestUsage(feature);
+    const type=actionType(feature,edition);
+    const useLike=/\buse\b|\bexpend\b|\bactivate\b|\binvoke\b|\bdraw upon\b/i.test(description);
+    if(!concreteFeat&&(type||(usage&&useLike))){
+      actions.push({id:'class-grant:'+meta.sourceClassId+':action:'+slug(feature.name),name:feature.name,type:type||'Special action',description,notes:history.at(-1)?.text||'',...meta});
+    }
+    if(edition==='3.5'&&usage&&usage.max>0){
+      const reset=usage.period==='short rest'?'short':usage.period==='rest'?'long':usage.period==='day'||usage.period==='long rest'?'long':'none';
+      resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),name:feature.name,max:usage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,...meta});
+    }
+  }
+  const record=row.definition||{},hasProgression=progressionTables(record).length>0||rawClassFeatures(row).length>0;
+  const gaps=[];
+  if(!hasProgression)gaps.push('No structured level progression is available.');
+  if(record.referenceOnly)gaps.push('Canonical source record is still marked reference-only.');
+  if(record.mechanicsPresence?.classFeatures===false)gaps.push('Class feature rules are not present in structured source data.');
+  const descriptive=derivedFeatures.filter(feature=>feature.description.includes('See the class source for complete rules.')).length;
+  if(descriptive)gaps.push(\`\${descriptive} granted feature\${descriptive===1?'':'s'} lack structured rule text.\`);
+  const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
+  return {
+    row,features:derivedFeatures,actions,feats,resources,
+    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,choiceCount:unresolvedChoices,gaps,complete:gaps.length===0}
+  };
+}
+
+function isOldClassFeature(entry){
+  return Boolean(entry?.sourceType==='class'&&entry?.automatic)||String(entry?.id||'').startsWith('class:');
+}
+function mergeDerived(existing,derived,{resource=false}={}){
+  const list=Array.isArray(existing)?existing:[];
+  const manual=list.filter(entry=>!isOldClassFeature(entry));
+  if(!resource)return [...manual,...derived];
+  const old=new Map(list.filter(isOldClassFeature).map(entry=>[entry.id,entry]));
+  return [...manual,...derived.map(entry=>({...entry,used:Math.max(0,Math.min(Number(entry.max)||0,Number(old.get(entry.id)?.used)||0))}))];
+}
+
+export function reconcileClassGrants(character){
+  const rows=characterClasses(character),derived=rows.map(derivedForRow);
+  const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources);
+  return {
+    ...character,
+    grantedFeatures:mergeDerived(character.grantedFeatures,features),
+    actions:mergeDerived(character.actions,actions),
+    feats:mergeDerived(character.feats,feats),
+    resources:mergeDerived(character.resources,resources,{resource:true}),
+    classAutomation:{version:CLASS_INTEGRATION_VERSION,classes:derived.map(x=>x.report),incompleteClassIds:derived.filter(x=>!x.report.complete).map(x=>x.report.classId)}
+  };
+}
+
+export function classAutomationReport(character){
+  return reconcileClassGrants(character).classAutomation;
+}
+
+export function removeClassProgression(character,classId){
+  const rows=characterClasses(character).filter(row=>row.catalogId!==classId);
+  if(!rows.length)throw new Error('A character must retain at least one class.');
+  const primary=rows[0];
+  return reconcileClassGrants({
+    ...character,
+    classLevels:rows,
+    level:rows.reduce((sum,row)=>sum+row.level,0),
+    className:primary.name,
+    classDefinition:primary.definition,
+    subclass:primary.subclass||''
+  });
+}
