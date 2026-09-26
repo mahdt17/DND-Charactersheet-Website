@@ -436,11 +436,16 @@ def parse_class_proficiencies(parser: DetailParser) -> dict:
             return True
         return False
 
+    def matched_positive(match) -> bool:
+        prefix=folded[max(0,match.start()-42):match.start()]
+        return not bool(re.search(r"(?:\bnot\b|\bno\b|\bwithout\b|\bexcept\b)[^.;,:]{0,30}$",prefix))
+
     def add(index: str, name: str, kind: str):
         if not any(item["index"]==index for item in grants):
             grants.append({"index":index,"name":name,"kind":kind})
 
-    if re.search(r"\b(?:all|any type of)\s+armor\b",folded) and positive("armor"):
+    all_armor_match=re.search(r"\b(?:all|any type of)\s+armor\b",folded)
+    if all_armor_match and matched_positive(all_armor_match):
         add("light-armor","Light armor","armor")
         add("medium-armor","Medium armor","armor")
         add("heavy-armor","Heavy armor","armor")
