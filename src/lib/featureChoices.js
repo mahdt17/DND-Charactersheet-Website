@@ -5,13 +5,14 @@ import {reconcileClassGrants} from './classIntegration.js';
 export const skillNames=['Acrobatics','Animal Handling','Arcana','Athletics','Deception','History','Insight','Intimidation','Investigation','Medicine','Nature','Perception','Performance','Persuasion','Religion','Sleight of Hand','Stealth','Survival'];
 const unsupported=r=>r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige;
 const norm=s=>String(s||'').trim().toLowerCase().replace(/[’']/g,'');
+const slug=s=>norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const featureLanguages=['Common','Common Sign Language','Dwarvish','Elvish','Giant','Gnomish','Goblin','Halfling','Orc','Abyssal','Celestial','Draconic','Deep Speech','Druidic','Infernal','Primordial','Sylvan',"Thieves' Cant",'Undercommon'];
 const scholarSkills=['Arcana','History','Investigation','Medicine','Nature','Religion'];
 
 function sourceChoicePlan(c,previous,picks={}) {
   const current=reconcileClassGrants(c),before=previous?reconcileClassGrants(previous):null;
   const rows=characterClasses(current),oldRows=before?characterClasses(before):[];
-  const patch={featureChoices:{...c.featureChoices}},groups=[];
+  const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])]},groups=[];
   for(const row of rows.filter(item=>item.edition==='3.5')) {
     const oldLevel=oldRows.find(item=>item.catalogId===row.catalogId)?.level||0;
     const features=(current.grantedFeatures||[]).filter(feature=>feature.sourceClassId===row.catalogId&&feature.kind==='choice');
@@ -27,6 +28,28 @@ function sourceChoicePlan(c,previous,picks={}) {
         const group={id,level,kind:'source-choice',count:1,required:1,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText:event.text||feature.description,sourceUrl:feature.sourceUrl,options:[],selected:value?[value]:[],valid};
         groups.push(group);
         if(valid)patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[value],sourceText:group.sourceText};
+      }
+    }
+  }
+
+  for(const report of current.classAutomation?.classes||[]) {
+    if(report.edition!=='3.5')continue;
+    const oldLevel=oldRows.find(item=>item.catalogId===report.classId)?.level||0;
+    for(const choice of report.proficiencyChoices||[]) {
+      const level=Math.max(1,Number(choice.level)||1);
+      if(report.level<level||oldLevel>=level)continue;
+      const id=`3.5:${report.classId}:${level}:proficiency:${choice.id||slug(choice.label)}`;
+      if(patch.featureChoices[id])continue;
+      const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
+      const selected=raw.map(value=>String(value||'').trim()).filter(Boolean);
+      const required=Math.max(1,Number(choice.count)||1),valid=selected.length===required&&new Set(selected.map(norm)).size===required;
+      const group={id,level,kind:'source-choice',choiceKind:'proficiency',proficiencyKind:choice.kind||'weapons',count:required,required,label:choice.label||'Class proficiency choice',className:report.name,classId:report.classId,sourceClassId:report.classId,sourceText:choice.sourceText||'Choose the source-defined proficiency.',options:[],selected,valid};
+      groups.push(group);
+      if(valid){
+        patch.featureChoices[id]={className:report.name,classId:report.classId,sourceClassId:report.classId,edition:'3.5',level,feature:group.label,choices:[...selected],sourceText:group.sourceText};
+        const trainingId=`class-choice:${report.classId}:${choice.id||slug(group.label)}`;
+        patch.trainingGrants=patch.trainingGrants.filter(grant=>grant.sourceChoiceId!==id);
+        patch.trainingGrants.push({classId:trainingId,sourceClassId:report.classId,sourceChoiceId:id,className:report.name,edition:'3.5',proficiencies:selected.map(name=>({kind:group.proficiencyKind,name,index:slug(name)}))});
       }
     }
   }
