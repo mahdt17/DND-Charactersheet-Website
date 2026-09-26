@@ -34,6 +34,9 @@ try {
  const legacy={...wizard,ruleset:'3.5',className:'Fighter',level:6};
  assert.deepEqual(e.legacyProgression(legacy),{bab:6,fort:5,ref:2,will:2});
  assert.equal(e.characterSlots(legacy).reduce((a,b)=>a+b),0);
+ const legacyCaster={...wizard,ruleset:'3.5',mechanics:'3.5',className:'Archivist',level:4,classDefinition:{name:'Archivist',edition:'3.5',catalogId:'dndtools:classes/archivist-74'},classSpellSlots:[{sourceClassId:'dndtools:classes/archivist-74',sourceClassName:'Archivist',slots:[4,4,3,0,0,0,0,0,0,0]}]};
+ assert.deepEqual(e.characterSlots(legacyCaster).slice(0,4),[4,4,3,0]);
+ assert.equal(e.spellSlotPools(legacyCaster).mode,'automatic');
  assert.equal(p.conditionEffects({...legacy,exhaustion:6}).dead,false);
  const cross={...wizard,ruleset:'custom',mechanics:'2024',classDefinition:{name:'Wizard',edition:'3.5'}};
  assert.equal(e.characterSlots(cross).reduce((a,b)=>a+b),0);
