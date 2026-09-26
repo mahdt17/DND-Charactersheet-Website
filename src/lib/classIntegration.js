@@ -8,11 +8,13 @@ import {normalizeEdition} from './content.js';
 export const CLASS_INTEGRATION_VERSION=1;
 const proficiencySupplements=proficiencySupplements35.entries||{};
 function withProficiencySupplement(record){
-  if(!record||normalizeEdition(record.edition)!=='3.5'||Array.isArray(record.proficiencies)&&record.proficiencies.length)return record;
+  if(!record||normalizeEdition(record.edition)!=='3.5')return record;
   const sourceId=record.sourceId||String(record.catalogId||'').replace(/^dndtools:/,'')||record.index||record.id;
   const supplement=proficiencySupplements[sourceId];
   if(!supplement||supplement.name!==record.name||!supplement.verified)return record;
-  return {...record,proficiencies:supplement.proficiencies,proficiencyChoices:supplement.proficiencyChoices||[],proficiencyText:supplement.proficiencyText,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencySourceUrl:supplement.sourceUrl};
+  const proficiencies=Array.isArray(record.proficiencies)&&record.proficiencies.length?record.proficiencies:(supplement.proficiencies||[]);
+  const proficiencyChoices=Array.isArray(record.proficiencyChoices)&&record.proficiencyChoices.length?record.proficiencyChoices:(supplement.proficiencyChoices||[]);
+  return {...record,proficiencies,proficiencyChoices,proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencySourceUrl:supplement.sourceUrl};
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -478,6 +480,15 @@ function derivedForRow(row){
     }
   }
   const record=withProficiencySupplement(row.definition||{});
+  const training=[];
+  if(edition==='3.5'){
+    const addTraining=(idSuffix,level,proficiencies,label)=>{
+      if(level>row.level||!Array.isArray(proficiencies)||!proficiencies.length)return;
+      training.push({id:'class-grant:'+row.catalogId+':training:'+idSuffix,classId:row.catalogId,sourceClassId:row.catalogId,className:row.name,sourceClassName:row.name,edition:'3.5',sourceType:'class',automatic:true,sourceUrl:record.proficiencySourceUrl||record.sourceUrl||null,sourceClassLevel:level,label,proficiencies:proficiencies.map(item=>({...item,sourceClassId:row.catalogId,sourceClassName:row.name,sourceClassLevel:level,automatic:true}))});
+    };
+    addTraining('starting',1,record.proficiencies,'Starting proficiencies');
+    for(const grant of record.proficiencyProgression||[])addTraining('level-'+grant.level,Math.max(1,Number(grant.level)||1),grant.proficiencies,grant.label||'Class proficiency');
+  }
   for(const track of progressionTracks(record,row.level)){
     const meta=sourceInfo(row,track.level,'track:'+slug(track.name));
     tracks.push({id:'class-grant:'+meta.sourceClassId+':track:'+slug(track.name),name:track.name,value:track.value,level:track.level,history:track.history,...meta});
@@ -497,10 +508,10 @@ function derivedForRow(row){
   if(descriptive)warnings.push(`${descriptive} granted feature${descriptive===1?'':'s'} use concise progression-table summaries because full local rule text is unavailable; source links remain authoritative.`);
   const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
   return {
-    row,features:derivedFeatures,actions,feats,resources,tracks,spellSlots,training:edition==='3.5'&&Array.isArray(record.proficiencies)&&record.proficiencies.length?[{id:'class-grant:'+row.catalogId+':training',classId:row.catalogId,sourceClassId:row.catalogId,className:row.name,sourceClassName:row.name,edition:'3.5',sourceType:'class',automatic:true,sourceUrl:record.sourceUrl||null,proficiencies:record.proficiencies.map(item=>({...item,sourceClassId:row.catalogId,sourceClassName:row.name,automatic:true}))}]:[],
+    row,features:derivedFeatures,actions,feats,resources,tracks,spellSlots,training,
     classSkills:edition==='3.5'&&Array.isArray(record.classSkills)?record.classSkills.map(name=>({id:'class-grant:'+row.catalogId+':class-skill:'+slug(name),name,sourceType:'class',automatic:true,sourceClassId:row.catalogId,sourceClassName:row.name,sourceUrl:record.sourceUrl||null,edition:'3.5'})):[],
     classSkillRules:edition==='3.5'&&record.classSkillRule?[{id:'class-grant:'+row.catalogId+':class-skill-rule',rule:record.classSkillRule,sourceType:'class',automatic:true,sourceClassId:row.catalogId,sourceClassName:row.name,sourceUrl:record.sourceUrl||null,edition:'3.5'}]:[],
-    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trainingGrantCount:edition==='3.5'&&Array.isArray(record.proficiencies)&&record.proficiencies.length?1:0,classSkillCount:edition==='3.5'&&Array.isArray(record.classSkills)?record.classSkills.length:0,classSkillRule:Boolean(edition==='3.5'&&record.classSkillRule),trackCount:tracks.length,spellSlotProfile:Boolean(slotProfile),choiceCount:unresolvedChoices,proficiencyChoices:record.proficiencyChoices||[],gaps,warnings,descriptionComplete:descriptive===0,descriptionReady:derivedFeatures.every(feature=>Boolean(feature.description)),progressionSummaryCount:descriptive,integrationComplete:gaps.length===0,complete:gaps.length===0}
+    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trainingGrantCount:training.length,classSkillCount:edition==='3.5'&&Array.isArray(record.classSkills)?record.classSkills.length:0,classSkillRule:Boolean(edition==='3.5'&&record.classSkillRule),trackCount:tracks.length,spellSlotProfile:Boolean(slotProfile),choiceCount:unresolvedChoices,proficiencyChoices:record.proficiencyChoices||[],gaps,warnings,descriptionComplete:descriptive===0,descriptionReady:derivedFeatures.every(feature=>Boolean(feature.description)),progressionSummaryCount:descriptive,integrationComplete:gaps.length===0,complete:gaps.length===0}
   };
 }
 
