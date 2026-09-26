@@ -141,6 +141,74 @@ function spellSlotProgression(record,maximum){
   return best;
 }
 
+function castingAdvancementGrants(record,classLevel){
+  const grants=[];
+  for(const table of progressionTables(record)){
+    if(!Array.isArray(table)||!table.length)continue;
+    let headerIndex=-1,levelIndex=-1,header=[];
+    for(let i=0;i<Math.min(5,table.length);i++){
+      const row=table[i]||[];
+      const candidate=row.findIndex(value=>/^(?:class |racial )?level$/i.test(String(value).trim()));
+      if(candidate>=0){headerIndex=i;levelIndex=candidate;header=row;break;}
+    }
+    if(headerIndex<0)continue;
+    const indexes=header.map((value,index)=>/spellcasting|spells? per day|spells? known|manifesting|powers? known/i.test(String(value))?index:-1).filter(index=>index>=0);
+    const row=table.slice(headerIndex+1).find(data=>parseInt(data?.[levelIndex])===classLevel);
+    if(!row)continue;
+    for(const index of indexes){
+      const value=String(row[index]??'').trim();
+      if(!/\+\s*1\s+level/i.test(value))continue;
+      const lower=value.toLowerCase(),kinds=[];
+      if(/arcane/.test(lower))kinds.push('arcane');
+      if(/divine/.test(lower))kinds.push('divine');
+      if(/manifest|power/.test(lower))kinds.push('psionic');
+      if(!kinds.length)kinds.push('spellcasting');
+      for(const kind of [...new Set(kinds)])grants.push({id:slug(String(header[index])+'-'+index+'-'+kind),kind,label:value,sourceColumn:String(header[index]),value});
+    }
+  }
+  return grants;
+}
+
+function supportsPsionicAdvancement(row){
+  return progressionTracks(row.definition||{},Math.max(30,row.level||1)).some(track=>/power points|powers? known|powers? discovered|maximum power level/i.test(track.name));
+}
+function supportsSpellcastingAdvancement(row){
+  return Boolean(spellSlotProgression(row.definition||{},Math.max(30,row.level||1)));
+}
+
+export function castingAdvancementPlan(character,record,nextClassLevel){
+  if(!record)return {groups:[],valid:true};
+  const sourceId=contentKey(record),rows=characterClasses(character).filter(row=>row.catalogId!==sourceId);
+  const groups=castingAdvancementGrants(record,nextClassLevel).map((grant,index)=>{
+    const candidates=rows.filter(row=>grant.kind==='psionic'?supportsPsionicAdvancement(row):supportsSpellcastingAdvancement(row)).map(row=>({classId:row.catalogId,name:row.name,edition:row.edition}));
+    return {...grant,id:'casting-advance-'+index+'-'+grant.id,candidates};
+  });
+  return {sourceClassId:sourceId,sourceClassLevel:nextClassLevel,groups,valid:groups.every(group=>group.candidates.length>0)};
+}
+
+export function castingAdvancementSelectionsValid(plan,picks={}){
+  if(!plan?.groups?.length)return true;
+  const selected=[];
+  for(const group of plan.groups){
+    const value=picks[group.id];
+    if(!group.candidates.some(candidate=>candidate.classId===value))return false;
+    selected.push(value);
+  }
+  return new Set(selected).size===selected.length;
+}
+
+export function applyCastingAdvancementSelections(character,plan,picks={}){
+  if(!plan?.groups?.length)return character;
+  if(!castingAdvancementSelectionsValid(plan,picks))throw new Error('Choose a valid existing class for each spellcasting or manifesting advancement.');
+  const existing=new Map((character.castingAdvancements||[]).map(entry=>[entry.id,entry]));
+  for(const group of plan.groups){
+    const target=group.candidates.find(candidate=>candidate.classId===picks[group.id]);
+    const id='class-advance:'+plan.sourceClassId+':'+plan.sourceClassLevel+':'+group.id;
+    existing.set(id,{id,sourceClassId:plan.sourceClassId,sourceClassLevel:plan.sourceClassLevel,targetClassId:target.classId,targetClassName:target.name,kind:group.kind,amount:1,label:group.label,automatic:true,sourceType:'class'});
+  }
+  return {...character,castingAdvancements:[...existing.values()]};
+}
+
 function progressionTracks(record,maximum){
   const tracks=new Map();
   const trackHeader=/^(?:power points(?: per day)?|pp|powers? known|powers? discovered|maximum power level known|maneuvers? known|maneuvers? readied|stances? known|invocations? known|soulmelds?|essentia|chakra binds?|vestiges? bound|spells? per day(?:\/spells? known|\/powers? known)?|spells? known|manifesting)$/i;
@@ -431,7 +499,25 @@ function mergeDerived(existing,derived,{resource=false}={}){
 
 export function reconcileClassGrants(character){
   const rows=characterClasses(character),derived=rows.map(derivedForRow);
-  const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources),tracks=derived.flatMap(x=>x.tracks),spellSlots=derived.flatMap(x=>x.spellSlots);
+  const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources);
+  let tracks=derived.flatMap(x=>x.tracks),spellSlots=derived.flatMap(x=>x.spellSlots);
+  const advancements=Array.isArray(character.castingAdvancements)?character.castingAdvancements:[];
+  for(const row of rows){
+    const applied=advancements.filter(entry=>entry.targetClassId===row.catalogId),extra=applied.reduce((sum,entry)=>sum+(Number(entry.amount)||0),0);
+    if(!extra)continue;
+    const effectiveLevel=row.level+extra,metaIds=applied.map(entry=>entry.id);
+    tracks=tracks.filter(track=>track.sourceClassId!==row.catalogId);
+    for(const track of progressionTracks(row.definition||{},effectiveLevel)){
+      const meta=sourceInfo(row,track.level,'track:'+slug(track.name));
+      tracks.push({id:'class-grant:'+meta.sourceClassId+':track:'+slug(track.name),name:track.name,value:track.value,level:track.level,history:track.history,effectiveClassLevel:effectiveLevel,advancedBy:metaIds,...meta});
+    }
+    spellSlots=spellSlots.filter(profile=>profile.sourceClassId!==row.catalogId);
+    const profile=spellSlotProgression(row.definition||{},effectiveLevel);
+    if(profile){
+      const meta=sourceInfo(row,profile.level,'spell-slots');
+      spellSlots.push({id:'class-grant:'+meta.sourceClassId+':spell-slots',slots:profile.slots,history:profile.history,spellLevels:profile.spellLevels,level:profile.level,effectiveClassLevel:effectiveLevel,advancedBy:metaIds,...meta});
+    }
+  }
   return {
     ...character,
     grantedFeatures:mergeDerived(character.grantedFeatures,features),
@@ -456,6 +542,7 @@ export function removeClassProgression(character,classId){
   const trainingGrants=(character.trainingGrants||[]).filter(grant=>grant.classId!==classId&&grant.sourceClassId!==classId);
   const spells=(character.spells||[]).filter(spell=>spell.castingClassId!==classId);
   const featureChoices=Object.fromEntries(Object.entries(character.featureChoices||{}).filter(([key,value])=>value?.classId!==classId&&value?.sourceClassId!==classId&&value?.className!==removedName&&!key.includes(':'+removedName+':')));
+  const castingAdvancements=(character.castingAdvancements||[]).filter(entry=>entry.sourceClassId!==classId&&entry.targetClassId!==classId);
   return reconcileClassGrants({
     ...character,
     classLevels:rows,
@@ -465,6 +552,7 @@ export function removeClassProgression(character,classId){
     subclass:primary.subclass||'',
     trainingGrants,
     spells,
-    featureChoices
+    featureChoices,
+    castingAdvancements
   });
 }
