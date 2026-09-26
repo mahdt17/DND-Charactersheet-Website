@@ -569,6 +569,43 @@
         }
       ],
       "verified": true
+    },
+    "classes/favored-soul-7": {
+      "name": "Favored Soul",
+      "sourceUrl": "https://new.dndtools.org/classes/favored-soul-7",
+      "proficiencyText": "Weapon and Armor Proficiency: Favored souls are proficient with all simple weapons, with light and medium armor, and with shields (except tower shields). A favored soul is also proficient with her deity’s favored weapon.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "proficiencyChoices": [
+        {
+          "id": "deity-favored-weapon",
+          "label": "Deity’s favored weapon",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Record the character’s deity-favored weapon; Favored Soul grants proficiency with that weapon."
+        }
+      ],
+      "verified": true
     }
   }
 }
