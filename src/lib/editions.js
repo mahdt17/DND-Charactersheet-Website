@@ -22,7 +22,8 @@ function singleClassSlots(c){
 export function spellSlotPools(c){
  if(Array.isArray(c.slotOverride))return {standard:slotArray(c.slotOverride),pact:Array(10).fill(0),mode:'override',reason:'Personal slot totals are active.'};
  if(characterClasses(c).length>1)return multiclassPools(c,singleClassSlots);
- return {standard:singleClassSlots(c),pact:Array(10).fill(0),mode:is35(c)||c.ruleset==='custom'?'manual':'automatic'};
+ const legacyProfile=is35(c)?legacySlotProfile(c):null;
+ return {standard:singleClassSlots(c),pact:Array(10).fill(0),mode:is35(c)||c.ruleset==='custom'?(legacyProfile?'automatic':'manual'):'automatic',reason:is35(c)&&!legacyProfile?'No explicit spell-slot matrix is present in this class progression.':undefined};
 }
 export const characterSlots=c=>spellSlotPools(c).standard;
 export const castingKey=c=>c.castingAbility||castingAbility[c.className]||'';
