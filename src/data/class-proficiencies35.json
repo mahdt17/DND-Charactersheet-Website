@@ -789,6 +789,143 @@
         }
       ],
       "verified": true
+    },
+    "classes/magewright-1029": {
+      "name": "Magewright",
+      "sourceUrl": "https://new.dndtools.org/classes/magewright-1029",
+      "proficiencyText": "Weapon and Armor Proficiency: Magewrights are proficient with all simple weapons. Magewrights are not proficient with any type of armor or with shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/marshal-78": {
+      "name": "Marshal",
+      "sourceUrl": "https://new.dndtools.org/classes/marshal-78",
+      "proficiencyText": "Weapon and Armor Proficiency: Marshals are proficient with all simple and martial weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/mystic-26": {
+      "name": "Mystic",
+      "sourceUrl": "https://new.dndtools.org/classes/mystic-26",
+      "proficiencyText": "Weapon and Armor Proficiency: The mystic is proficient in the use of all simple weapons. Mystics are proficient with light and medium armor and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/ninja-1": {
+      "name": "Ninja",
+      "sourceUrl": "https://new.dndtools.org/classes/ninja-1",
+      "proficiencyText": "Weapon and Armor Proficiency: Ninjas are proficient with all simple weapons, plus the hand crossbow, kama, kukri, nunchaku, sai, shortbow, short sword, shuriken, and siangham. Ninjas are not proficient with any type of armor or shield.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "hand-crossbow",
+          "name": "Hand crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "kama",
+          "name": "Kama",
+          "kind": "weapons"
+        },
+        {
+          "index": "kukri",
+          "name": "Kukri",
+          "kind": "weapons"
+        },
+        {
+          "index": "nunchaku",
+          "name": "Nunchaku",
+          "kind": "weapons"
+        },
+        {
+          "index": "sai",
+          "name": "Sai",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shuriken",
+          "name": "Shuriken",
+          "kind": "weapons"
+        },
+        {
+          "index": "siangham",
+          "name": "Siangham",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
