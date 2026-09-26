@@ -1,10 +1,19 @@
 import levels2014 from '../data/levels.json' with {type:'json'};
 import features2014 from '../data/features.json' with {type:'json'};
 import modern from '../data/srd2024.json' with {type:'json'};
+import proficiencySupplements35 from '../data/class-proficiencies35.json' with {type:'json'};
 import {characterClasses,contentKey,progressionTables} from './advancement.js';
 import {normalizeEdition} from './content.js';
 
 export const CLASS_INTEGRATION_VERSION=1;
+const proficiencySupplements=proficiencySupplements35.entries||{};
+function withProficiencySupplement(record){
+  if(!record||normalizeEdition(record.edition)!=='3.5'||Array.isArray(record.proficiencies)&&record.proficiencies.length)return record;
+  const sourceId=record.sourceId||String(record.catalogId||'').replace(/^dndtools:/,'')||record.index||record.id;
+  const supplement=proficiencySupplements[sourceId];
+  if(!supplement||supplement.name!==record.name||!supplement.verified)return record;
+  return {...record,proficiencies:supplement.proficiencies,proficiencyText:supplement.proficiencyText,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencySourceUrl:supplement.sourceUrl};
+}
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
 const title=value=>String(value||'').replace(/\b\w/g,c=>c.toUpperCase());
@@ -262,6 +271,7 @@ function inheritedParentNames(record,entries=[]){
 }
 
 function resolveInheritedClass(record,entries=[],seen=new Set()){
+  record=withProficiencySupplement(record);
   if(!record||progressionTables(record).length)return record;
   const identity=record.catalogId||record.id||record.name;
   if(seen.has(identity))return record;
@@ -467,7 +477,7 @@ function derivedForRow(row){
       resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),name:feature.name,max:usage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,...meta});
     }
   }
-  const record=row.definition||{};
+  const record=withProficiencySupplement(row.definition||{});
   for(const track of progressionTracks(record,row.level)){
     const meta=sourceInfo(row,track.level,'track:'+slug(track.name));
     tracks.push({id:'class-grant:'+meta.sourceClassId+':track:'+slug(track.name),name:track.name,value:track.value,level:track.level,history:track.history,...meta});
