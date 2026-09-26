@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import classes from '../src/data/classes.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
+import {spellSlotPools} from '../src/lib/editions.js';
 import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds} from '../src/lib/classIntegration.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
@@ -33,6 +34,9 @@ assert(a1.feats.some(feat=>feat.id==='manual-feat'));
 const a4=reconcileClassGrants(baseCharacter([{catalogId:archivist.catalogId,name:'Archivist',edition:'3.5',level:4,definition:archivist}]));
 for(const name of ['Dark Knowledge','Scribe Scroll','Lore Mastery','Still Mind'])assert(a4.grantedFeatures.some(feature=>feature.name===name),name);
 assert.equal(a4.resources.find(resource=>resource.name==='Dark Knowledge')?.max,4);
+assert.deepEqual(a4.classSpellSlots.find(profile=>profile.sourceClassId===archivist.catalogId)?.slots.slice(0,4),[4,4,3,0],'Archivist multi-row slot table');
+assert.deepEqual(spellSlotPools(a4).standard.slice(0,4),[4,4,3,0],'3.5 slot engine consumes reconciled Archivist slots');
+assert.equal(spellSlotPools(a4).mode,'automatic');
 const again=reconcileClassGrants(a4);
 assert.equal(new Set(again.actions.map(x=>x.id)).size,again.actions.length);
 assert.equal(new Set(again.feats.map(x=>x.id)).size,again.feats.length);
@@ -52,6 +56,17 @@ for(const [name,level,expected] of [
   const tracks=Object.fromEntries((reconciled.classProgressionTracks||[]).map(track=>[track.name,track.value]));
   for(const [track,value] of Object.entries(expected))assert.equal(tracks[track],value,`${name} ${track}`);
   assert.equal(classAutomationReport(reconciled).classes[0].progressionComplete,true,`${name} progression`);
+}
+
+for(const [name,level,expected] of [
+  ['Bard',5,[3,3,1,0]],
+  ['Assassin',3,[0,2,0,0]],
+  ['Dread Necromancer',4,[0,6,3,0]]
+]){
+  const record=integrated35(name);
+  const sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name,edition:'3.5',level,definition:record}]));
+  assert.deepEqual(sheet.classSpellSlots.find(profile=>profile.sourceClassId===record.catalogId)?.slots.slice(0,4),expected,`${name} source-derived spell slots`);
+  assert.deepEqual(spellSlotPools(sheet).standard.slice(0,4),expected,`${name} casting-engine slots`);
 }
 
 // Every no-table variant can resolve through its audited inheritance pointer.
