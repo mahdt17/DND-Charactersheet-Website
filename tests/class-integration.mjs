@@ -82,6 +82,27 @@ const deathMaster35=integrated35('Death Master');
 const deathMasterSheet=reconcileClassGrants(baseCharacter([{catalogId:deathMaster35.catalogId,name:'Death Master',edition:'3.5',level:1,definition:deathMaster35}]));
 const deathMasterTraining=deathMasterSheet.trainingGrants.find(item=>item.sourceClassId===deathMaster35.catalogId);
 for(const index of ['scythe','staff'])assert(deathMasterTraining?.proficiencies.find(item=>item.index===index)?.sourceOnly,`Death Master ${index} remains source-only`);
+
+for(const [name,expected] of [
+  ['Barbarian',['light-armor','medium-armor','shields-except-tower','simple-weapons','martial-weapons']],
+  ['Cleric',['light-armor','medium-armor','heavy-armor','shields-except-tower','simple-weapons']],
+  ['Fighter',['light-armor','medium-armor','heavy-armor','shields','simple-weapons','martial-weapons']],
+  ['Paladin',['light-armor','medium-armor','heavy-armor','shields-except-tower','simple-weapons','martial-weapons']],
+  ['Ranger',['light-armor','shields-except-tower','simple-weapons','martial-weapons']],
+  ['Sorcerer',['simple-weapons']],
+  ['Wizard',['club','dagger','crossbow-heavy','crossbow-light','quarterstaff']]
+]){
+  const record=integrated35(name),sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name,edition:'3.5',level:1,definition:record}]));
+  const grant=sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId);
+  assert.deepEqual(grant?.proficiencies.map(item=>item.index),expected,`${name} PHB training`);
+}
+const druid35=integrated35('Druid'),druidTraining=reconcileClassGrants(baseCharacter([{catalogId:druid35.catalogId,name:'Druid',edition:'3.5',level:1,definition:druid35}])).trainingGrants.find(item=>item.sourceClassId===druid35.catalogId);
+assert(druidTraining?.proficiencies.find(item=>item.index==='medium-armor')?.name.includes('nonmetal'),'Druid armor restriction remains visible');
+assert(druidTraining?.proficiencies.find(item=>item.index==='shields-except-tower')?.name.includes('Wooden'),'Druid shield restriction remains visible');
+for(const [name,index] of [['Monk','kama'],['Rogue','sap']]){
+  const record=integrated35(name),sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name,edition:'3.5',level:1,definition:record}]));
+  assert(sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId)?.proficiencies.find(item=>item.index===index)?.sourceOnly,`${name} unmatched named weapon stays source-only`);
+}
 const warmage35=integrated35('Warmage');
 const warmage1=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:1,definition:warmage35}]));
 assert(!warmage1.trainingGrants.flatMap(grant=>grant.proficiencies).some(item=>item.index==='medium-armor'),'Warmage medium armor is not a level-1 grant');
