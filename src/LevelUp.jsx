@@ -10,16 +10,17 @@ import {editionName} from './lib/editions';
 import Requirements from './Requirements';
 import Dialog from './Dialog';
 import {multiclassTrainingPlan,trainingChoicesValid} from './lib/training';
+import {annotateClassGrantKinds} from './lib/classIntegration';
 
 export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
   const [flow,setFlow]=useState('existing'),[selected,setSelected]=useState(''),[query,setQuery]=useState(''),[confirmations,setConfirmations]=useState({}),[proceed,setProceed]=useState(false),[reviewed,setReviewed]=useState(false);
   const [trainingChoices,setTrainingChoices]=useState({}),[pending,setPending]=useState(null),[featurePicks,setFeaturePicks]=useState({});
   const featurePlan=pending?featureChoicePlan(pending,char,featurePicks):null;
-  const catalog=useReferenceIndex(['classes'],char.ruleset||'2014'),rows=characterClasses(char);
+  const catalog=useReferenceIndex(['classes','feats'],char.ruleset||'2014'),rows=characterClasses(char);
   const all=classOptions(char.ruleset||'2014',[...homebrew,...catalog.entries]);
   const options=flow==='existing'?rows.map(r=>({...r.definition,name:r.name,catalogId:r.catalogId,edition:r.edition})):all.filter(c=>(flow==='prestige')===prestige(c)&&!rows.some(r=>r.catalogId===contentKey(c)||(r.name===c.name&&r.edition===c.edition)));
   const record=options.find(c=>contentKey(c)===selected)||(flow==='existing'?options[0]:null),row=rows.find(r=>r.catalogId===contentKey(record||{}));
-  const candidate=record&&(all.find(x=>contentKey(x)===contentKey(record))||record);
+  const candidate=record&&annotateClassGrantKinds(all.find(x=>contentKey(x)===contentKey(record))||record,catalog.entries);
   const eligibilityCharacter={...char,classLevels:rows.map(r=>({...r,definition:all.find(x=>contentKey(x)===r.catalogId)||all.find(x=>x.name===r.name&&x.edition===r.edition)||r.definition}))};
   const result=candidate?eligibleClass(eligibilityCharacter,candidate,prestige(candidate)?'prestige':'normal',confirmations):{checks:[],allowed:false};
   const training=multiclassTrainingPlan(eligibilityCharacter,candidate);
