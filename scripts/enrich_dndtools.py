@@ -445,13 +445,15 @@ def parse_class_proficiencies(parser: DetailParser) -> dict:
         add("medium-armor","Medium armor","armor")
         add("heavy-armor","Heavy armor","armor")
     else:
-        for phrase,index,name in (
-            ("light armor","light-armor","Light armor"),
-            ("medium armor","medium-armor","Medium armor"),
-            ("heavy armor","heavy-armor","Heavy armor"),
-        ):
-            if phrase in folded and positive(phrase):
-                add(index,name,"armor")
+        armor_pattern=r"\b((?:light|medium|heavy)(?:\s*,\s*(?:light|medium|heavy))*(?:\s*,?\s*(?:and|or)\s*(?:light|medium|heavy))?)\s+armor\b"
+        for match in re.finditer(armor_pattern,folded):
+            phrase=match.group(0)
+            if not positive(phrase):
+                continue
+            levels=set(re.findall(r"\b(light|medium|heavy)\b",match.group(1)))
+            for level in ("light","medium","heavy"):
+                if level in levels:
+                    add(f"{level}-armor",f"{level.title()} armor","armor")
     if "light shield" in folded and positive("light shield"):
         add("light-shields","Light shields","armor")
     if "heavy shield" in folded and positive("heavy shield"):
