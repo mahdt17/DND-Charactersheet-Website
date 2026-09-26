@@ -1,5 +1,7 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
 import classes from '../src/data/classes.json' with {type:'json'};
+import {createCatalogService} from '../src/lib/catalog.js';
 import {reconcileClassGrants,removeClassProgression,classAutomationReport} from '../src/lib/classIntegration.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
@@ -11,22 +13,11 @@ const baseCharacter=(classLevels,ruleset='3.5')=>({
   resources:[],spells:[],trainingGrants:[],featureChoices:{}
 });
 
-const archivist={
-  id:'classes/archivist-74',catalogId:'dndtools:classes/archivist-74',name:'Archivist',edition:'3.5',hit_die:6,
-  source:'Heroes of Horror',sourceUrl:'https://new.dndtools.org/classes/archivist-74',
-  sourceDescription:`Dark Knowledge: Three times per day, an archivist can draw upon his expansive knowledge. Using dark knowledge requires an appropriate Knowledge check.
-Scribe Scroll: Archivists gain Scribe Scroll as a bonus feat.
-Lore Mastery: Upon reaching 2nd level, an archivist gains a +2 bonus to all Decipher Script checks and to one Knowledge skill of his choice.
-Still Mind: Starting at 4th level, an archivist gains a +2 bonus on saving throws against enchantment.`,
-  progression:[
-    ['Class Level','BAB','Fort','Ref','Will','Special'],
-    ['1st','+0','+2','+0','+2','Dark knowledge (tactics) 3/day, Scribe Scroll'],
-    ['2nd','+1','+3','+0','+3','Lore mastery'],
-    ['3rd','+1','+3','+1','+3','Dark knowledge 4/day'],
-    ['4th','+2','+4','+1','+4','Still mind']
-  ],
-  mechanicsPresence:{classFeatures:true}
-};
+const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
+const classes35=await service.load('3.5/classes');
+const archivist=classes35.find(record=>record.name==='Archivist');
+assert(archivist,'Archivist must exist in the canonical 3.5 catalog');
+assert(archivist.progression?.length||archivist.tables?.length,'Archivist must expose structured progression data');
 
 const archivist1=baseCharacter([{catalogId:archivist.catalogId,name:'Archivist',edition:'3.5',level:1,definition:archivist}]);
 const a1=reconcileClassGrants(archivist1);
