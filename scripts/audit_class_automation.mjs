@@ -7,7 +7,7 @@ import {classAutomationReport,annotateClassGrantKinds} from '../src/lib/classInt
 import {progressionTables} from '../src/lib/advancement.js';
 
 const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
-const [classes35,feats35]=await Promise.all([service.load('3.5/classes'),service.load('3.5/feats')]);
+const [classes35,feats35,classesWikidot]=await Promise.all([service.load('3.5/classes'),service.load('3.5/feats'),service.load('2014/classes')]);
 const classReferenceIndex=[...classes35,...feats35];
 const proficiencyEntries=Object.values(proficiencySupplements35.entries||{}),verifiedProficiencyEntries=proficiencyEntries.filter(entry=>entry.verified);
 const integrated35=classes35.map(record=>annotateClassGrantKinds(record,classReferenceIndex));
@@ -35,6 +35,7 @@ const character=classRow=>({
 
 const candidates=[
   ...classes2014.map(record=>row(record,'2014',20)),
+  ...classesWikidot.filter(record=>!classes2014.some(core=>core.name===record.name)).map(record=>row(record,'2014',20)),
   ...(modern.classes||[]).map(record=>row(record,'2024',20)),
   ...integrated35.map(record=>row(record,'3.5',maximumLevel(record)))
 ];
@@ -87,6 +88,8 @@ const group=edition=>{
   return {total:list.length,complete:list.filter(item=>item.complete).length,incomplete:list.filter(item=>!item.complete).length};
 };
 const report={
+  coverageScope:'Generic progression and grant extraction only. Complete here does not mean full automation or independent source verification of every class mechanic.',
+  remainingMechanics:['Source-specific spell lists and acquisition limits','Subclass spellcasting and domain or specialist slots','Psionic, invocation, binding, incarnum and companion effects','Unstructured proficiency and choice rules'],
   generatedAt:new Date().toISOString(),
   total:classes.length,
   complete:classes.filter(item=>item.complete).length,

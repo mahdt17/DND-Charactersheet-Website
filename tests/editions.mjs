@@ -40,10 +40,10 @@ try {
  assert.equal(p.conditionEffects({...legacy,exhaustion:6}).dead,false);
  const cross={...wizard,ruleset:'custom',mechanics:'2024',classDefinition:{name:'Wizard',edition:'3.5'}};
  assert.equal(e.characterSlots(cross).reduce((a,b)=>a+b),0);
- const names=e.permittedSpells(cross).filter(s=>s.name==='Magic Missile');
+ const names=e.permittedSpells({...cross,unrestrictedSpellAccess:true}).filter(s=>s.name==='Magic Missile');
  assert.equal(new Set(names.map(e.keyOf)).size,3);
  const reference={category:'spell',edition:'3.5',name:'Reference spell',catalogId:'source:123',level:null,classes:[],referenceOnly:true};
- assert(e.permittedSpells(legacy,[reference]).some(s=>e.keyOf(s)==='source:123'));
+ assert(!e.permittedSpells(legacy,[reference]).some(s=>e.keyOf(s)==='source:123'));
  assert.deepEqual(p.availableSlots({...legacy,slotOverride:[2,0,0],slotsUsed:{0:1}},{level:0}),[{level:0,remaining:1}]);
  assert.equal(p.spellPlan(reference,legacy,1,2).rolls.length,0);
  assert.throws(()=>e.validPack([{category:'spell',edition:'custom',name:'Invalid',description:'x',level:10,classes:[]}]),/level/);

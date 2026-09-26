@@ -108,7 +108,7 @@ assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.classLevels
   const swordAction=()=>page.locator('.action-row').filter({hasText:'Longsword'});
   assert.match(await swordAction().innerText(),/no proficiency bonus/);assert(await swordAction().getByRole('button',{name:'+2 to hit',exact:true}).isVisible());
   await branch('normal','Fighter');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();
-  assert.match(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Martial weapons/);assert.doesNotMatch(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Heavy armor/);
+  assert.match(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Martial weapons/i);assert.doesNotMatch(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Heavy armor/);
   await page.getByRole('button',{name:'Continue to level choices'}).click();
   for(let step=0;step<4&&!await page.getByRole('button',{name:'Apply level up',exact:true}).isVisible();step++)await next();
   await page.getByRole('button',{name:'Apply level up',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();
@@ -118,8 +118,8 @@ assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.classLevels
   console.log(`PASS ${edition} multiclass weapon attack bonus, preserved saves/equipment and personal proficiency override/revert`);
   if(edition==='2024') {
    await branch('normal','Bard');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();
-   await page.getByLabel('Multiclass skill',{exact:true}).selectOption('Perception');assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
-   await page.getByLabel('Multiclass musical instrument',{exact:true}).selectOption('Flute');assert(!await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
+   await page.getByRole('region',{name:'Multiclass proficiencies'}).getByRole('button',{name:'Perception',exact:true}).click();assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
+   await page.getByRole('region',{name:'Multiclass proficiencies'}).getByRole('button',{name:'Flute',exact:true}).click();assert(!await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
    await page.getByRole('button',{name:'Cancel',exact:true}).click();assert.equal((await saved(weaponName)).trainingGrants.length,1);
    console.log('PASS Bard requires both choices and canceled advancement grants nothing');
   }

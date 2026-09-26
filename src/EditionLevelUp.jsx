@@ -20,7 +20,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   const needsSubclass=!manual&&target>=3&&!char.subclass;
   const nextAbilities={...abilities};
   if(asi&&mode==='scores'){if(first)nextAbilities[first]++;if(second)nextAbilities[second]++;}
-  const draft={...char,level:target,abilities:nextAbilities},effective=effectiveAbilities(draft);
+  const draft={...char,level:target,subclass,abilities:nextAbilities},effective=effectiveAbilities(draft);
   const counts=spellCounts(draft,effective[castingKey(draft)]||10),current=char.spells||[];
   const candidates=permittedSpells(draft,[...homebrew,...reference.entries]).filter(s=>!current.some(c=>keyOf(c)===keyOf(s)));
   const cantripGain=manual?Infinity:Math.max(0,counts.cantrips-current.filter(s=>s.level===0&&!s.auto).length);
@@ -31,7 +31,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   const featCharacter={...draft,level:characterLevel};
   const featValid=validFeatSelection(feat,featCharacter,{required:asi&&mode==='feat'});
   const choicesValid=(!needsSubclass||subclass.trim().length>1)&&(!(manual||mode==='feat')||featValid)&&(!asi||(mode==='feat'?featValid:first&&second&&Object.values(effective).every(n=>n<=20)));
-  const spellsValid=manual||selectedCantrips.length===cantripGain&&selectedSpells.length===spellGain;
+  const spellsValid=added.every(s=>candidates.some(x=>keyOf(x)===keyOf(s)))&&(manual||selectedCantrips.length===cantripGain&&selectedSpells.length===spellGain);
   function finish(){if(!choicesValid||!spellsValid)return;const result={...draft,subclass:subclass.trim(),hp:{...char.hp,max:char.hp.max+hp,current:Math.min(char.hp.max+hp,char.hp.current+hp)},spells:[...current,...added.map(s=>({...s,id:crypto.randomUUID(),prepared:manual||counts.mode!=='spellbook'}))],notes:[char.notes,notes].filter(Boolean).join('\n\n')};if((manual||mode==='feat')&&feat)result.feats=[...(char.feats||[]),{...feat,level:characterLevel}];if(is35(result)){const before=legacyProgression(char),after=legacyProgression(result);result.bab=(Number(char.bab)||0)+after.bab-before.bab;result.save35=Object.fromEntries(['fort','ref','will'].map(k=>[k,(char.save35?.[k]||0)+after[k]-before[k]]));}onFinish(result);}
   return <div className="creation-overlay" role="dialog" aria-modal="true" aria-label="Edition level up" ref={shell}><div className="creation-shell"><aside className="creation-sidebar"><h2>Level {char.level} → {target}</h2>{['Level choices','Spells','Review'].map((name,i)=><p key={name}>{i===step?'→ ':''}{name}</p>)}</aside><section className="creation-content"><div className="creation-topbar">Level up · {char.name}<ClassProgression char={char} score={effectiveAbilities(char)[castingKey(char)]||10}/></div><div className="creation-scroll">
     {step===0&&<><h2>Level {target} choices</h2><p>{record.features?.map(f=>f.name).join(' · ')||'Review your class progression and record the new choices below.'}</p>{manual&&<p>Review 3.5 prerequisites, skill ranks, feat eligibility and cross-edition conversions with your DM. Adjust base scores and hit points here.</p>}

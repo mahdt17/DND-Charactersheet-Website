@@ -54,8 +54,10 @@ jobs:
       - run: node tests/setup-choices.mjs
       - run: node tests/integration-foundation.mjs
       - run: node tests/class-integration.mjs
+      - run: node tests/class-catalog-lifecycle.mjs
       - run: node scripts/audit_class_automation.mjs
       - run: node tests/multiclass-casting.mjs
+      - run: node tests/spell-access.mjs
       - run: node tests/hit-dice.mjs
       - run: node tests/multiclass-training.mjs
       - run: node tests/resources.mjs
@@ -101,6 +103,9 @@ jobs:
       - name: Run catalog and advancement browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-integration.mjs
+      - name: Run class spell access browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-spell-access.mjs
       - name: Run class resource browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-resources.mjs

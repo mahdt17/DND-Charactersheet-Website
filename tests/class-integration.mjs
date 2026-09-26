@@ -104,7 +104,7 @@ for(const [name,index] of [['Monk','kama'],['Rogue','sap']]){
   assert(sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId)?.proficiencies.find(item=>item.index===index)?.sourceOnly,`${name} unmatched named weapon stays source-only`);
 }
 
-const eberronBarbarian=annotateClassGrantKinds(classes35.find(record=>record.id==='classes/barbarian-37'),reference35);
+const eberronBarbarian=annotateClassGrantKinds(classes35.find(record=>record.sourceId==='classes/barbarian-37'),reference35);
 const eberronBarbarianSheet=reconcileClassGrants(baseCharacter([{catalogId:eberronBarbarian.catalogId,name:'Barbarian',edition:'3.5',level:1,definition:eberronBarbarian}]));
 const inheritedTraining=eberronBarbarianSheet.trainingGrants.find(item=>item.sourceClassId===eberronBarbarian.catalogId);
 assert.deepEqual(inheritedTraining?.proficiencies.map(item=>item.index),['light-armor','medium-armor','shields-except-tower','simple-weapons','martial-weapons'],'linked Eberron Barbarian reuses verified PHB training');
@@ -117,7 +117,7 @@ for(const [id,expected] of [
   ['classes/expert2-124',['light-armor','simple-weapons']],
   ['classes/warrior2-135',['light-armor','medium-armor','shields-except-tower','simple-weapons','martial-weapons']]
 ]){
-  const record=annotateClassGrantKinds(classes35.find(item=>item.id===id),reference35);
+  const record=annotateClassGrantKinds(classes35.find(item=>item.sourceId===id),reference35);
   const sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name:record.name,edition:'3.5',level:1,definition:record}]));
   const grant=sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId);
   assert.deepEqual(grant?.proficiencies.map(item=>item.index),expected,`${id} verified NPC/generic training`);

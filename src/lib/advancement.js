@@ -20,7 +20,7 @@ export function normalizeAdvancement(c) {
   const classLevels=characterClasses(c);
   return {...c,classLevels,level:classLevels.reduce((n,x)=>n+x.level,0)||c.level||1};
 }
-export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
+export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,activeCastingClassId:row.catalogId,otherClassLevels:characterClasses(c).filter(r=>r.catalogId!==row.catalogId).reduce((n,r)=>n+r.level,0),level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
 export function progressionTables(record) {
   const p=record?.progression;
   if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [p];

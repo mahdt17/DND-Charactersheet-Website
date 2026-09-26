@@ -115,7 +115,7 @@ function tableFeatureCells(record,maximum){
   return grants;
 }
 
-function spellSlotProgression(record,maximum){
+export function spellSlotProgression(record,maximum){
   const spellLevel=value=>{
     const text=String(value||'').trim().toLowerCase();
     if(text==='0'||text==='0th')return 0;
@@ -145,18 +145,22 @@ function spellSlotProgression(record,maximum){
     if(mappings.length<2)continue;
     const history=[];
     for(const row of table.slice(dataStart)){
+      if(!/^\d{1,2}(?:st|nd|rd|th)?$/i.test(String(row?.[levelIndex]??'').trim()))continue;
       const level=parseInt(row?.[levelIndex]);
       if(!Number.isFinite(level)||level<1||level>maximum)continue;
-      const slots=Array(10).fill(0);
+      const slots=Array(10).fill(0),restrictedSlots=Array(10).fill(0),unlockedSpellLevels=[];
       for(const {spellLevel:levelNumber,index} of mappings){
         const raw=String(row?.[index]??'').trim();
-        const count=/^\d+$/.test(raw)?Number(raw):0;
+        const parsed=raw.match(/^(\d+)(?:\s*\+\s*(\d+))?$/);
+        const count=parsed?Number(parsed[1]):0;
+        if(parsed)unlockedSpellLevels.push(levelNumber);
+        restrictedSlots[levelNumber]=parsed?Number(parsed[2]||0):0;
         slots[levelNumber]=Math.max(0,Math.min(30,count));
       }
-      history.push({level,slots});
+      history.push({level,slots,restrictedSlots,unlockedSpellLevels});
     }
     if(!history.length)continue;
-    const latest=history.at(-1),candidate={level:latest.level,slots:latest.slots,history,spellLevels:mappings.map(item=>item.spellLevel)};
+    const latest=history.sort((a,b)=>a.level-b.level).at(-1),candidate={...latest,history,spellLevels:mappings.map(item=>item.spellLevel)};
     if(!best||candidate.spellLevels.length>best.spellLevels.length)best=candidate;
   }
   return best;
@@ -592,7 +596,9 @@ export function removeClassProgression(character,classId){
   if(!rows.length)throw new Error('A character must retain at least one class.');
   const primary=rows[0],removedName=removed?.name;
   const trainingGrants=(character.trainingGrants||[]).filter(grant=>grant.classId!==classId&&grant.sourceClassId!==classId);
-  const spells=(character.spells||[]).filter(spell=>spell.castingClassId!==classId);
+  const originalPrimary=characterClasses(character)[0]?.catalogId;
+  const spells=(character.spells||[]).filter(spell=>spell.auto||(spell.castingClassId||originalPrimary)!==classId);
+  const spellAccessGrants=(character.spellAccessGrants||[]).filter(grant=>grant.classId!==classId);
   const featureChoices=Object.fromEntries(Object.entries(character.featureChoices||{}).filter(([key,value])=>value?.classId!==classId&&value?.sourceClassId!==classId&&value?.className!==removedName&&!key.includes(':'+removedName+':')));
   const castingAdvancements=(character.castingAdvancements||[]).filter(entry=>entry.sourceClassId!==classId&&entry.targetClassId!==classId);
   return reconcileClassGrants({
@@ -604,6 +610,8 @@ export function removeClassProgression(character,classId){
     subclass:primary.subclass||'',
     trainingGrants,
     spells,
+    spellAccessGrants,
+    ...(originalPrimary===classId&&removed.edition==='3.5'?{slotsUsed:{},slotOverride:null}:{}),
     featureChoices,
     castingAdvancements
   });
