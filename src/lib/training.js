@@ -15,9 +15,14 @@ const unsupported=r=>r?.prestige||r?.stats?.prestige||r?.homebrew||r?.source==='
 const entry=index=>({index,name:labels[index],kind:index==='thieves-tools'?'tools':index.includes('armor')||index==='shields'?'armor':'weapons'});
 const kindFor=p=>p.index?.startsWith('skill-')?'skills':p.index?.includes('armor')||p.index==='shields'?'armor':p.index?.includes('tool')||instruments.some(n=>normalize(n)===normalize(p.name))?'tools':'weapons';
 const sourceEntry=p=>({index:p.index,name:String(p.name||'').replace(/^Skill: /,'').replace(/^Tool: /,''),kind:kindFor(p)});
-const sourceChoice=(choice,index)=>{
-  const raw=(choice.from?.options||[]).map(o=>o.item||o).filter(Boolean).map(sourceEntry);
+const sourceChoice=(choice,index,record)=>{
+  let raw=(choice.from?.options||[]).map(o=>o.item||o).filter(Boolean).map(sourceEntry);
   const desc=String(choice.desc||'').toLowerCase(),kind=raw.every(p=>p.kind==='skills')?'skills':raw.every(p=>p.kind==='tools')?'tools':'proficiencies';
+  // Imported API choice lists occasionally contain entries that conflict with the
+  // reviewed core class skill lists. Keep the source record as the primary input,
+  // then intersect skill choices with the project's already-vetted core list.
+  const reviewed=kind==='skills'?coreClassSkillOptions(record):null;
+  if(reviewed)raw=raw.filter(p=>reviewed.includes(p.name));
   const id=kind==='skills'?'skill':kind==='tools'&&/instrument/.test(desc)?'instrument':`choice-${index+1}`;
   return {id,label:choice.desc||`Multiclass proficiency choice ${index+1}`,kind,options:raw.map(p=>p.name),required:raw.length>0,count:Math.max(1,Number(choice.choose)||1)};
 };
@@ -39,7 +44,7 @@ export function multiclassTrainingPlan(c,record) {
   const source=record.multi_classing;
   const grants=Array.isArray(source?.proficiencies)?source.proficiencies.map(sourceEntry):coreMulticlassGrants(record.name,edition);
   if(!grants)return {mode:'manual',grants:[],choices:[]};
-  let choices=Array.isArray(source?.proficiency_choices)?source.proficiency_choices.map(sourceChoice):[];
+  let choices=Array.isArray(source?.proficiency_choices)?source.proficiency_choices.map((choice,index)=>sourceChoice(choice,index,record)):[];
   choices=choices.map(choice=>{
     const knownSkills=c.skillProf||{},knownTools=[...String(c.toolProf||'').split(/[,;\n]/),...(c.trainingGrants||[]).flatMap(g=>(g.proficiencies||[]).filter(p=>p.kind==='tools').map(p=>p.name))].map(normalize);
     const options=choice.options.filter(name=>choice.kind==='skills'?!knownSkills[name]&&!c.expertise?.[name]:choice.kind==='tools'?!knownTools.includes(normalize(name)):true);
