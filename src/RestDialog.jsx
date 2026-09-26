@@ -36,7 +36,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   function takeRest() {
     try {
       const conditions=conditionNames(char);
-      if(legacy)patch({hp:changeHP(char.hp,char.level,true),slotsUsed:{},conditions:conditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted')});
+      if(legacy)patch({hp:changeHP(char.hp,char.level,true),slotsUsed:{},classSlotsUsed:{},...restResources(char,'long',{},abilities),conditions:conditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted')});
       else if(rest==='long')patch({
         ...(recoverExhaustion?{exhaustion:Math.max(0,exhaustion-1),conditions:conditions.filter(c=>c.toLowerCase()!=='exhaustion')}:{}),
         hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
