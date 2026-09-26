@@ -606,6 +606,189 @@
         }
       ],
       "verified": true
+    },
+    "classes/healer-77": {
+      "name": "Healer",
+      "sourceUrl": "https://new.dndtools.org/classes/healer-77",
+      "proficiencyText": "Weapon and Armor Proficiency: Healers are proficient with all simple weapons and with light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/hexblade-19": {
+      "name": "Hexblade",
+      "sourceUrl": "https://new.dndtools.org/classes/hexblade-19",
+      "proficiencyText": "Weapon and Armor Proficiency: Hexblades are proficient with all simple and martial weapons, and with light armor but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/incarnate-81": {
+      "name": "Incarnate",
+      "sourceUrl": "https://new.dndtools.org/classes/incarnate-81",
+      "proficiencyText": "Weapon and Armor Proficiency: You are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/jester-975": {
+      "name": "Jester",
+      "sourceUrl": "https://new.dndtools.org/classes/jester-975",
+      "proficiencyText": "Weapon and Armor Proficiency: A jester is proficient with all simple weapons, plus the rapier, sap, short sword, shortbow, and whip. Jesters are proficient with light armor and all shields save for the tower shield.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "whip",
+          "name": "Whip",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/knight-103": {
+      "name": "Knight",
+      "sourceUrl": "https://new.dndtools.org/classes/knight-103",
+      "proficiencyText": "Weapon and Armor Proficiency: Knights are proficient with all simple and martial weapons and with all armor (heavy, medium, and light) and all shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/lurk-12": {
+      "name": "Lurk",
+      "sourceUrl": "https://new.dndtools.org/classes/lurk-12",
+      "proficiencyText": "Weapon and Armor Proficiency: Lurks are proficient with all simple and martial weapons, with light armor, and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
