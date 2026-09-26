@@ -1857,6 +1857,62 @@
         }
       ],
       "verified": true
+    },
+    "classes/barbarian-37": {
+      "name": "Barbarian",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-37",
+      "proficiencyProfileFrom": "classes/barbarian-89",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/barbarian-61": {
+      "name": "Barbarian",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-61",
+      "proficiencyProfileFrom": "classes/barbarian-89",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/barbarian-104": {
+      "name": "Barbarian",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-104",
+      "proficiencyProfileFrom": "classes/barbarian-89",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/fighter-41": {
+      "name": "Fighter",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-41",
+      "proficiencyProfileFrom": "classes/fighter-93",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/fighter-65": {
+      "name": "Fighter",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-65",
+      "proficiencyProfileFrom": "classes/fighter-93",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/ranger-44": {
+      "name": "Ranger",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-44",
+      "proficiencyProfileFrom": "classes/ranger-96",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/ranger-68": {
+      "name": "Ranger",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-68",
+      "proficiencyProfileFrom": "classes/ranger-96",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/ranger-108": {
+      "name": "Ranger",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-108",
+      "proficiencyProfileFrom": "classes/ranger-96",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
     }
   }
 }
