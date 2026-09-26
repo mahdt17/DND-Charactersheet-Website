@@ -7,14 +7,24 @@ import {normalizeEdition} from './content.js';
 
 export const CLASS_INTEGRATION_VERSION=1;
 const proficiencySupplements=proficiencySupplements35.entries||{};
+function resolvedProficiencySupplement(sourceId,seen=new Set()){
+  if(!sourceId||seen.has(sourceId))return null;
+  const supplement=proficiencySupplements[sourceId];
+  if(!supplement||!supplement.verified)return null;
+  if(!supplement.proficiencyProfileFrom)return supplement;
+  seen.add(sourceId);
+  const parent=resolvedProficiencySupplement(supplement.proficiencyProfileFrom,seen);
+  if(!parent||parent.name!==supplement.name)return null;
+  return {...parent,...supplement,proficiencies:supplement.proficiencies||parent.proficiencies||[],proficiencyChoices:supplement.proficiencyChoices||parent.proficiencyChoices||[],proficiencyProgression:supplement.proficiencyProgression||parent.proficiencyProgression||[],proficiencyText:supplement.proficiencyText||parent.proficiencyText,profileSourceId:supplement.proficiencyProfileFrom,profileSourceUrl:parent.sourceUrl};
+}
 function withProficiencySupplement(record){
   if(!record||normalizeEdition(record.edition)!=='3.5')return record;
   const sourceId=record.sourceId||String(record.catalogId||'').replace(/^dndtools:/,'')||record.index||record.id;
-  const supplement=proficiencySupplements[sourceId];
-  if(!supplement||supplement.name!==record.name||!supplement.verified)return record;
+  const supplement=resolvedProficiencySupplement(sourceId);
+  if(!supplement||supplement.name!==record.name)return record;
   const proficiencies=Array.isArray(record.proficiencies)&&record.proficiencies.length?record.proficiencies:(supplement.proficiencies||[]);
   const proficiencyChoices=Array.isArray(record.proficiencyChoices)&&record.proficiencyChoices.length?record.proficiencyChoices:(supplement.proficiencyChoices||[]);
-  return {...record,proficiencies,proficiencyChoices,proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencySourceUrl:supplement.sourceUrl};
+  return {...record,proficiencies,proficiencyChoices,proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
