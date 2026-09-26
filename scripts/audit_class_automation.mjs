@@ -90,6 +90,13 @@ const report={
   complete:classes.filter(item=>item.complete).length,
   incomplete:classes.filter(item=>!item.complete).length,
   byEdition:{'2014':group('2014'),'2024':group('2024'),'3.5':group('3.5')},
+  sourceDataCoverage:{
+    classes35:integrated35.length,
+    fixedClassSkills:integrated35.filter(record=>Array.isArray(record.classSkills)&&record.classSkills.length>0).length,
+    dynamicClassSkillRules:integrated35.filter(record=>record.classSkillRule).length,
+    startingProficiencies:integrated35.filter(record=>Array.isArray(record.proficiencies)&&record.proficiencies.length>0).length,
+    proficiencySourceText:integrated35.filter(record=>record.proficiencyText).length
+  },
   mechanics:{
     features:classes.reduce((n,item)=>n+item.featureCount,0),
     actions:classes.reduce((n,item)=>n+item.actionCount,0),
@@ -130,6 +137,7 @@ for(const [edition,counts] of Object.entries(report.byEdition))console.log(`${ed
 console.log(`3.5 PROGRESSION COVERAGE: ${report.progressionCoverage.complete}/${report.progressionCoverage.total} immediate + ${report.progressionCoverage.conditional} required parent choice; automatable ${report.progressionCoverage.automatable}/${report.progressionCoverage.total}; inherited progressions resolved: ${report.progressionCoverage.inherited}; full local rule prose: ${report.progressionCoverage.descriptionsComplete}/${report.progressionCoverage.total}; usable sourced summaries: ${report.progressionCoverage.descriptionsUsable}/${report.progressionCoverage.total}; progression-summary fallback: ${report.progressionCoverage.descriptionsUsingProgressionSummary} classes`);
 if(report.progressionCoverage.total!==1054)throw new Error(`Expected the canonical 3.5 class catalog to contain 1054 classes; found ${report.progressionCoverage.total}.`);
 if(report.progressionCoverage.automatable!==report.progressionCoverage.total){const blocked=report.incompleteClasses.filter(item=>item.edition==='3.5'&&item.gaps.some(gap=>!gap.startsWith('Choose the variant base class')));throw new Error(`3.5 class automation coverage regressed: ${report.progressionCoverage.automatable}/${report.progressionCoverage.total}. Blocked: ${blocked.map(item=>item.name).join(', ')||'unknown'}`);}
+console.log(`3.5 SOURCE DATA COVERAGE: fixed class skills ${report.sourceDataCoverage.fixedClassSkills}/${report.sourceDataCoverage.classes35}; dynamic class-skill rules ${report.sourceDataCoverage.dynamicClassSkillRules}; starting proficiencies ${report.sourceDataCoverage.startingProficiencies}/${report.sourceDataCoverage.classes35}; proficiency source text ${report.sourceDataCoverage.proficiencySourceText}/${report.sourceDataCoverage.classes35}`);
 console.log('3.5 GAP COMBINATIONS');
 for(const [key,count] of gapCombinations.slice(0,15))console.log(`${count}\t${key}`);
 console.log('3.5 PARSER SHAPES');
