@@ -15,8 +15,12 @@ export function catalogSpells(edition,homebrew=[]){return [...allSpells,...homeb
 export function resolveSpell(s,char){return allSpells.find(x=>keyOf(x)===keyOf(s))||(!s.edition&&!s.catalogId?allSpells.find(x=>x.edition===(char?.ruleset||'2014')&&x.name===s.name):null)||s;}
 export function classRecord(c){return c.classDefinition|| (mechanics(c)==='2024'?modern.classes:is35(c)?legacy.classes:classes).find(x=>x.name===c.className);}
 export function levelRecord(c,level=c.level){if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return {};return (mechanics(c)==='2024'?modern.levels:[]).find(l=>l.class.name===c.className&&l.level===level&&!l.subclass)|| (mechanics(c)==='2014'?classLevel(c.className,level):{});}
+function legacySlotProfile(c){
+ const classId=c.classDefinition?.catalogId||c.classDefinition?.id;
+ return (c.classSpellSlots||[]).find(profile=>profile.sourceClassId===classId)||(c.classSpellSlots||[]).find(profile=>profile.sourceClassName===c.className);
+}
 function singleClassSlots(c){
- if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return Array(10).fill(0);
+ if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c))return slotArray(legacySlotProfile(c)?.slots);
  if(mechanics(c)==='2024'){const p=levelRecord(c).spellcasting||{};return [0,...Array.from({length:9},(_,i)=>p[`spell_slots_level_${i+1}`]||0)];}
  return [0,...slotsFor(c.className,c.level)];}
 export function spellSlotPools(c){
