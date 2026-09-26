@@ -96,6 +96,8 @@ const report={
     feats:classes.reduce((n,item)=>n+item.featCount,0),
     resources:classes.reduce((n,item)=>n+item.resourceCount,0),
     trainingGrants:classes.reduce((n,item)=>n+(item.trainingGrantCount||0),0),
+    classSkills:classes.reduce((n,item)=>n+(item.classSkillCount||0),0),
+    classSkillRules:classes.filter(item=>item.classSkillRule).length,
     tracks:classes.reduce((n,item)=>n+(item.trackCount||0),0),
     choices:classes.reduce((n,item)=>n+item.choiceCount,0)
   },
