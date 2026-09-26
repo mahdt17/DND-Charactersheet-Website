@@ -92,5 +92,6 @@ export function hasWeaponTraining(c,weapon,starting=[]) {
     if(weapon.weapon_category==='Martial'&&((name==='Monk'&&weapon.properties?.some(p=>p.index==='light'))||(name==='Rogue'&&weapon.properties?.some(p=>['light','finesse'].includes(p.index)))))primary.push(weapon.index);
   }
   const proficiencies=[...primary,...recordedTraining(c).filter(p=>p.kind==='weapons').map(p=>p.index)];
-  return proficiencies.includes(`${weapon.weapon_category?.toLowerCase()}-weapons`)||proficiencies.some(p=>p===`${weapon.index}s`||p===weapon.index||p===weapon.index.split('-').reverse().join('-')+'s');
+  const scoped=proficiencies.includes('martial-melee-weapons')&&weapon.weapon_category==='Martial'&&weapon.weapon_range==='Melee';
+  return scoped||proficiencies.includes(`${weapon.weapon_category?.toLowerCase()}-weapons`)||proficiencies.some(p=>p===`${weapon.index}s`||p===weapon.index||p===weapon.index.split('-').reverse().join('-')+'s');
 }
