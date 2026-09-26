@@ -16,6 +16,7 @@ import EditionLevelUp from './EditionLevelUp';
 import LevelUp from './LevelUp';
 import TemporaryHPControl from './TemporaryHPControl';
 import {normalizeAdvancement,characterClasses} from './lib/advancement';
+import {reconcileClassGrants,removeClassProgression} from './lib/classIntegration';
 import EditionSpellbook from './EditionSpellbook';
 import Modal from './Dialog';
 import ClassProgression from './ClassProgression';
@@ -37,7 +38,7 @@ const id = () => crypto.randomUUID();
 const workspaceBlank = () => ({id:'ledger-workspace',name:'Ledger workspace',kind:'workspace',campaigns:[],encounters:[],homebrew:[]});
 const get = async key => {const r=await window.storage.get(`char-detail:${key}`);return r?JSON.parse(r.value):null;};
 const put = record => window.storage.set(`char-detail:${record.id}`,JSON.stringify(record));
-function normalize(record) { const next=normalizeAdvancement({...blankCharacter(record.name),...record,abilities:{...blankCharacter().abilities,...record.abilities},hp:{current:10,max:10,temp:0,...record.hp},inventory:record.inventory||[],spells:record.spells||[],actions:record.actions||[]}); return {...next,resources:characterResources(next,effectiveAbilities(next))}; }
+function normalize(record) { const base=normalizeAdvancement({...blankCharacter(record.name),...record,abilities:{...blankCharacter().abilities,...record.abilities},hp:{current:10,max:10,temp:0,...record.hp},inventory:record.inventory||[],spells:record.spells||[],actions:record.actions||[]}); const next=reconcileClassGrants(base); return {...next,resources:characterResources(next,effectiveAbilities(next))}; }
 function download(name, value) {const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 const classColors={Wizard:'#9b8cff',Sorcerer:'#c587e8',Warlock:'#b58fff',Fighter:'#e59c6b',Barbarian:'#ee7e81',Rogue:'#91a7c1',Ranger:'#7acbaa',Druid:'#7acbaa',Cleric:'#ebc76e',Paladin:'#ebc76e',Bard:'#e38db8',Monk:'#7cc9e0'};
 function Avatar({char,large=false}) {return <div className={`ledger-avatar ${large?'large':''}`} style={{'--class-color':classColors[char.className]||'#9b8cff'}}><Sword size={large?36:24}/><span>{char.name?.slice(0,1).toUpperCase()}</span></div>;}
