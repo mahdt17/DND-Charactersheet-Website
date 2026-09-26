@@ -52,5 +52,8 @@ const longsword=equipment.find(e=>e.index==='longsword'),longbow=equipment.find(
 const scopedTraining={ruleset:'3.5',className:'Warblade',trainingGrants:[{classId:'warblade',className:'Warblade',edition:'3.5',proficiencies:[{index:'martial-melee-weapons',name:'Martial melee weapons',kind:'weapons'}]}]};
 assert(hasWeaponTraining(scopedTraining,longsword,[]),'martial-melee scope covers martial melee weapons');
 assert(!hasWeaponTraining(scopedTraining,longbow,[]),'martial-melee scope does not grant martial ranged weapons');
+const sourceOnlyTraining={ruleset:'3.5',className:'Source-only test',trainingGrants:[{classId:'source-only',className:'Source-only test',edition:'3.5',proficiencies:[{index:'longsword',name:'Longsword',kind:'weapons',sourceOnly:true}]}]};
+assert(!hasWeaponTraining(sourceOnlyTraining,longsword,[]),'source-only proficiency must not grant a modern attack bonus');
+
 
 console.log('PASS all 24 core multiclass grant profiles, edition skill lists, required choices, saved grants, scoped weapon bonuses, repeat prevention and manual combinations');
