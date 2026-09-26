@@ -35,17 +35,12 @@ for(const name of ['Dark Knowledge','Scribe Scroll','Lore Mastery','Still Mind']
 assert.equal(a4.resources.find(resource=>resource.name==='Dark Knowledge')?.max,4);
 assert(a4.grantedFeatures.every(feature=>feature.description&&['rule-text','progression'].includes(feature.descriptionSource)),'Every granted class feature needs a usable sourced description');
 assert(!a4.grantedFeatures.some(feature=>feature.description.includes('See the class source for complete rules.')),'Progression text replaces vague description placeholders');
-const trainedArchivist={...archivist,proficiencies:[
-  {index:'light-armor',name:'Light armor',kind:'armor'},
-  {index:'medium-armor',name:'Medium armor',kind:'armor'},
-  {index:'simple-weapons',name:'Simple weapons',kind:'weapons'}
-]};
-const trainedSheet=reconcileClassGrants(baseCharacter([{catalogId:trainedArchivist.catalogId,name:'Archivist',edition:'3.5',level:1,definition:trainedArchivist}]));
-const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===trainedArchivist.catalogId);
-assert(archivistTraining?.automatic,'3.5 source proficiencies become automatic class training');
+const trainedSheet=reconcileClassGrants(archivist1);
+const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
+assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
 assert.deepEqual(archivistTraining.proficiencies.map(item=>item.index),['light-armor','medium-armor','simple-weapons']);
 const trainedAgain=reconcileClassGrants(trainedSheet);
-assert.equal(trainedAgain.trainingGrants.filter(grant=>grant.sourceClassId===trainedArchivist.catalogId).length,1,'class training reconciliation is idempotent');
+assert.equal(trainedAgain.trainingGrants.filter(grant=>grant.sourceClassId===archivist.catalogId).length,1,'supplement-backed class training reconciliation is idempotent');
 const skilledArchivist={...archivist,classSkills:['Concentration','Knowledge (religion)','Spellcraft']};
 const skilledSheet=reconcileClassGrants(baseCharacter([{catalogId:skilledArchivist.catalogId,name:'Archivist',edition:'3.5',level:1,definition:skilledArchivist}]));
 assert.deepEqual(skilledSheet.classSkills35.map(skill=>skill.name),['Concentration','Knowledge (religion)','Spellcraft']);
