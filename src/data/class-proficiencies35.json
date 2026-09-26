@@ -411,6 +411,164 @@
         }
       ],
       "verified": true
+    },
+    "classes/duskblade-102": {
+      "name": "Duskblade",
+      "sourceUrl": "https://new.dndtools.org/classes/duskblade-102",
+      "proficiencyText": "Weapon and Armor Proficiency: Duskblades are proficient with all simple and martial weapons, as well as all armors and shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/dwarf-paragon-1001": {
+      "name": "Dwarf Paragon",
+      "sourceUrl": "https://new.dndtools.org/classes/dwarf-paragon-1001",
+      "proficiencyText": "Weapon and Armor Proficiency: Dwarf paragons are proficient with all simple and martial weapons, with light, medium, and heavy armor, and with shields (but not with tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/eidolon-72": {
+      "name": "Eidolon",
+      "sourceUrl": "https://new.dndtools.org/classes/eidolon-72",
+      "proficiencyText": "Weapon and Armor Proficiency: An eidolon gains no proficiency in any kind of weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/eidoloncer-73": {
+      "name": "Eidoloncer",
+      "sourceUrl": "https://new.dndtools.org/classes/eidoloncer-73",
+      "proficiencyText": "Weapon and Armor Proficiency: An eidoloncer gains no proficiency in any kind of weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/elf-paragon-1002": {
+      "name": "Elf Paragon",
+      "sourceUrl": "https://new.dndtools.org/classes/elf-paragon-1002",
+      "proficiencyText": "Weapon and Armor Proficiency: Elf paragons are proficient with all simple weapons, rapiers, longswords, shortbows, and longbows. Elf paragons are proficient with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "longsword",
+          "name": "Longsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "longbow",
+          "name": "Longbow",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/factotum-35": {
+      "name": "Factotum",
+      "sourceUrl": "https://new.dndtools.org/classes/factotum-35",
+      "proficiencyText": "Weapon and Armor Proficiency: A factotum is proficient with all simple and martial weapons, and with light armor and shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
