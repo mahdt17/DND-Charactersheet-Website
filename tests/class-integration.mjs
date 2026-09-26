@@ -46,6 +46,14 @@ assert(archivistTraining?.automatic,'3.5 source proficiencies become automatic c
 assert.deepEqual(archivistTraining.proficiencies.map(item=>item.index),['light-armor','medium-armor','simple-weapons']);
 const trainedAgain=reconcileClassGrants(trainedSheet);
 assert.equal(trainedAgain.trainingGrants.filter(grant=>grant.sourceClassId===trainedArchivist.catalogId).length,1,'class training reconciliation is idempotent');
+const skilledArchivist={...archivist,classSkills:['Concentration','Knowledge (religion)','Spellcraft']};
+const skilledSheet=reconcileClassGrants(baseCharacter([{catalogId:skilledArchivist.catalogId,name:'Archivist',edition:'3.5',level:1,definition:skilledArchivist}]));
+assert.deepEqual(skilledSheet.classSkills35.map(skill=>skill.name),['Concentration','Knowledge (religion)','Spellcraft']);
+const dynamicSkillClass={name:'Adaptive Scholar',edition:'3.5',catalogId:'dndtools:classes/adaptive-scholar',classSkillRule:{mode:'choose_any',count:4,additional:['Craft']},progression:[['Class Level','Special'],['1st','Adaptive training']]};
+const dynamicSkillSheet=reconcileClassGrants(baseCharacter([{catalogId:dynamicSkillClass.catalogId,name:dynamicSkillClass.name,edition:'3.5',level:1,definition:dynamicSkillClass}]));
+assert.equal(dynamicSkillSheet.classSkillRules35[0].rule.mode,'choose_any');
+assert.equal(reconcileClassGrants(dynamicSkillSheet).classSkillRules35.length,1,'dynamic class-skill rules reconcile idempotently');
+
 
 assert.deepEqual(a4.classSpellSlots.find(profile=>profile.sourceClassId===archivist.catalogId)?.slots.slice(0,4),[4,4,3,0],'Archivist multi-row slot table');
 const again=reconcileClassGrants(a4);
