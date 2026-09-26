@@ -2194,6 +2194,19 @@
         }
       ],
       "verified": true
+    },
+    "classes/shadowcaster-113": {
+      "name": "Shadowcaster",
+      "sourceUrl": "https://new.dndtools.org/classes/shadowcaster-113",
+      "proficiencyText": "Shadowcasters are proficient with all simple weapons and are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
