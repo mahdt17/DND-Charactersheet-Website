@@ -2,11 +2,13 @@ import fs from 'node:fs/promises';
 import classes2014 from '../src/data/classes.json' with {type:'json'};
 import modern from '../src/data/srd2024.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
-import {classAutomationReport} from '../src/lib/classIntegration.js';
+import {classAutomationReport,annotateClassGrantKinds} from '../src/lib/classIntegration.js';
 import {progressionTables} from '../src/lib/advancement.js';
 
 const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
-const classes35=await service.load('3.5/classes');
+const [classes35,feats35]=await Promise.all([service.load('3.5/classes'),service.load('3.5/feats')]);
+const classReferenceIndex=[...classes35,...feats35];
+const integrated35=classes35.map(record=>annotateClassGrantKinds(record,classReferenceIndex));
 
 const maximumLevel=record=>{
   const levels=[];
@@ -32,7 +34,7 @@ const character=classRow=>({
 const candidates=[
   ...classes2014.map(record=>row(record,'2014',20)),
   ...(modern.classes||[]).map(record=>row(record,'2024',20)),
-  ...classes35.map(record=>row(record,'3.5',maximumLevel(record)))
+  ...integrated35.map(record=>row(record,'3.5',maximumLevel(record)))
 ];
 const classes=candidates.map(classRow=>classAutomationReport(character(classRow)).classes[0]);
 const gapKey=item=>item.gaps.length?item.gaps.map(gap=>{
@@ -72,7 +74,7 @@ const parserShape=record=>{
   }
   return 'table-without-feature-column';
 };
-const records35=new Map(classes35.map(record=>[record.catalogId,record]));
+const records35=new Map(integrated35.map(record=>[record.catalogId,record]));
 const incomplete35=classes.filter(item=>item.edition==='3.5'&&!item.complete);
 const gapCombinations=Object.entries(incomplete35.reduce((acc,item)=>(acc[gapKey(item)]=(acc[gapKey(item)]||0)+1,acc),{})).sort((a,b)=>b[1]-a[1]);
 const parserShapes=Object.entries(incomplete35.reduce((acc,item)=>{const key=parserShape(records35.get(item.classId)||{});acc[key]=(acc[key]||0)+1;return acc;},{})).sort((a,b)=>b[1]-a[1]);
@@ -92,7 +94,14 @@ const report={
     actions:classes.reduce((n,item)=>n+item.actionCount,0),
     feats:classes.reduce((n,item)=>n+item.featCount,0),
     resources:classes.reduce((n,item)=>n+item.resourceCount,0),
+    tracks:classes.reduce((n,item)=>n+(item.trackCount||0),0),
     choices:classes.reduce((n,item)=>n+item.choiceCount,0)
+  },
+  progressionCoverage:{
+    total:classes.filter(item=>item.edition==='3.5').length,
+    complete:classes.filter(item=>item.edition==='3.5'&&item.progressionComplete).length,
+    inherited:integrated35.filter(record=>record.inheritedFromClassId).length,
+    descriptionsComplete:classes.filter(item=>item.edition==='3.5'&&item.descriptionComplete).length
   },
   representative:Object.fromEntries(['Fighter','Wizard','Sorcerer','Rogue','Archivist','Psion','Loremaster','Abjurant Champion'].map(name=>[name,classes.find(item=>item.name===name)||null])),
   gapCombinations:Object.fromEntries(gapCombinations),
@@ -106,6 +115,7 @@ await fs.mkdir('test-results',{recursive:true});
 await fs.writeFile('test-results/class-automation-audit.json',JSON.stringify(report,null,2)+'\n');
 console.log(`CLASS AUTOMATION AUDIT: ${report.complete}/${report.total} classes have sufficient structured data for the current generic reconciler; ${report.incomplete} report explicit source-data gaps.`);
 for(const [edition,counts] of Object.entries(report.byEdition))console.log(`${edition}: ${counts.complete}/${counts.total} complete`);
+console.log(`3.5 PROGRESSION COVERAGE: ${report.progressionCoverage.complete}/${report.progressionCoverage.total}; inherited progressions resolved: ${report.progressionCoverage.inherited}; local descriptions complete: ${report.progressionCoverage.descriptionsComplete}/${report.progressionCoverage.total}`);
 console.log('3.5 GAP COMBINATIONS');
 for(const [key,count] of gapCombinations.slice(0,15))console.log(`${count}\t${key}`);
 console.log('3.5 PARSER SHAPES');
