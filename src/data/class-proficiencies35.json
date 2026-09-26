@@ -1627,6 +1627,114 @@
         }
       ],
       "verified": true
+    },
+    "classes/druid-92": {
+      "name": "Druid",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-92",
+      "proficiencyText": "Druids are proficient with club, dagger, dart, quarterstaff, scimitar, sickle, shortspear, sling, spear, natural attacks of wild-shape forms, light and medium nonmetal armor, and wooden shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light nonmetal armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium nonmetal armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Wooden shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "dart",
+          "name": "Dart",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "scimitar",
+          "name": "Scimitar",
+          "kind": "weapons"
+        },
+        {
+          "index": "sickle",
+          "name": "Sickle",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortspear",
+          "name": "Shortspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "sling",
+          "name": "Sling",
+          "kind": "weapons"
+        },
+        {
+          "index": "spear",
+          "name": "Spear",
+          "kind": "weapons"
+        },
+        {
+          "index": "wild-shape-natural-attacks",
+          "name": "Natural attacks of wild-shape forms",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
+    },
+    "classes/wizard-99": {
+      "name": "Wizard",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-99",
+      "proficiencyText": "Wizards are proficient with club, dagger, heavy crossbow, light crossbow, and quarterstaff, but not armor or shields.",
+      "proficiencies": [
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Crossbow, heavy",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Crossbow, light",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
