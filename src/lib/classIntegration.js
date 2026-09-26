@@ -66,7 +66,7 @@ function tableFeatureCells(record,maximum){
       const row=table[i]||[];
       const candidate=row.findIndex(value=>/^(?:class |racial )?level$/i.test(String(value).trim()));
       if(candidate<0)continue;
-      const indexes=row.map((value,index)=>/^(?:special|features?|class features?|abilities?)$/i.test(String(value).trim())?index:-1).filter(index=>index>=0);
+      const indexes=row.map((value,index)=>/^(?:specials?|features?|class features?|abilities?)$/i.test(String(value).trim())?index:-1).filter(index=>index>=0);
       if(indexes.length){headerIndex=i;levelIndex=candidate;featureIndexes=indexes;break;}
     }
     if(headerIndex<0)continue;
@@ -86,12 +86,74 @@ function tableFeatureCells(record,maximum){
       const level=parseInt(data[levelKey]);
       if(!Number.isFinite(level)||level<1||level>maximum)continue;
       for(const [key,value] of Object.entries(data)){
-        if(!/^(?:special|features?|class features?|abilities?)$/i.test(key))continue;
+        if(!/^(?:specials?|features?|class features?|abilities?)$/i.test(key))continue;
         for(const raw of splitFeatureCell(value,record.featureNames||[]))grants.push({level,name:raw.name,progressionText:raw.text,sourceFeatureId:raw.id||null});
       }
     }
   }
   return grants;
+}
+
+function progressionTracks(record,maximum){
+  const tracks=new Map();
+  const trackHeader=/^(?:power points(?: per day)?|pp|powers? known|powers? discovered|maximum power level known|maneuvers? known|maneuvers? readied|stances? known|invocations? known|soulmelds?|essentia|chakra binds?|vestiges? bound|spells? per day(?:\/spells? known|\/powers? known)?|spells? known|manifesting)$/i;
+  for(const table of progressionTables(record)){
+    if(!Array.isArray(table)||!table.length)continue;
+    let headerIndex=-1,levelIndex=-1,header=[];
+    for(let i=0;i<Math.min(5,table.length);i++){
+      const row=table[i]||[];
+      const candidate=row.findIndex(value=>/^(?:class |racial )?level$/i.test(String(value).trim()));
+      if(candidate>=0){headerIndex=i;levelIndex=candidate;header=row;break;}
+    }
+    if(headerIndex<0)continue;
+    const data=table.slice(headerIndex+1);
+    // Merged multi-column headers (for example Archivist spell slots) are not
+    // one-to-one tracks; do not pretend the umbrella heading is a scalar value.
+    const aligned=data.filter(row=>Array.isArray(row)&&row.length===header.length);
+    if(!aligned.length)continue;
+    const indexes=header.map((value,index)=>trackHeader.test(String(value).trim())?index:-1).filter(index=>index>=0);
+    for(const row of aligned){
+      const level=parseInt(row[levelIndex]);
+      if(!Number.isFinite(level)||level<1||level>maximum)continue;
+      for(const index of indexes){
+        const value=String(row[index]??'').trim();
+        if(!value||/^(?:—|-|none)$/i.test(value))continue;
+        const name=String(header[index]).trim(),key=norm(name);
+        if(!tracks.has(key))tracks.set(key,{name,history:[]});
+        tracks.get(key).history.push({level,value});
+      }
+    }
+  }
+  return [...tracks.values()].map(track=>{
+    const history=track.history.sort((a,b)=>a.level-b.level),latest=history.at(-1);
+    return {...track,level:latest.level,value:latest.value};
+  });
+}
+
+function resolveInheritedClass(record,entries=[],seen=new Set()){
+  if(!record?.inheritsFrom||progressionTables(record).length)return record;
+  const identity=record.catalogId||record.id||record.name;
+  if(seen.has(identity))return record;
+  const nextSeen=new Set(seen);nextSeen.add(identity);
+  const parent=(entries||[]).find(entry=>
+    normalizeEdition(entry?.edition)==='3.5' &&
+    (entry?.contentType==='class'||entry?.category==='class') &&
+    norm(entry.name)===norm(record.inheritsFrom) &&
+    (entry.catalogId||entry.id)!==identity
+  );
+  if(!parent)return record;
+  const resolved=resolveInheritedClass(parent,entries,nextSeen),filled={...record};
+  for(const key of ['progression','advancement','featureNames','hit_die','skillPoints','classSkills','classSkillRule']){
+    if(filled[key]==null||filled[key]===''||(Array.isArray(filled[key])&&!filled[key].length))filled[key]=resolved[key];
+  }
+  filled.mechanicsPresence={
+    ...(resolved.mechanicsPresence||{}),
+    ...(record.mechanicsPresence||{}),
+    classFeatures:Boolean(record.mechanicsPresence?.classFeatures||resolved.mechanicsPresence?.classFeatures),
+    ruleProse:Boolean(record.mechanicsPresence?.ruleProse||resolved.mechanicsPresence?.ruleProse)
+  };
+  filled.inheritedFromClassId=resolved.catalogId||resolved.id||null;
+  return filled;
 }
 
 function splitFeatureCell(value,known=[]){
@@ -118,18 +180,19 @@ function splitFeatureCell(value,known=[]){
 }
 
 export function annotateClassGrantKinds(record,entries=[]){
-  if(!record||normalizeEdition(record.edition)!=='3.5'||record.levelGrants||record.grants)return record;
+  if(!record||normalizeEdition(record.edition)!=='3.5')return record;
+  const resolved=resolveInheritedClass(record,entries);
+  if(resolved.levelGrants||resolved.grants)return resolved;
   const feats=entries.filter(entry=>entry?.contentType==='feat'||entry?.category==='feat');
-  if(!feats.length)return record;
   const byName=new Map(feats.map(feat=>[norm(feat.name),feat]));
-  const parsed=tableFeatureCells(record,30);
-  if(!parsed.length)return record;
+  const parsed=tableFeatureCells(resolved,30);
+  if(!parsed.length)return resolved;
   const levelGrants=parsed.map(grant=>{
     const exact=byName.get(norm(grant.name))||byName.get(norm(grant.name.replace(/\s*\([^)]*\)\s*$/,'')));
-    if(!exact)return {...grant,kind:'feature',description:sourceFeatureDescription(record,grant.name)};
-    return {...grant,kind:'feat',featId:exact.catalogId||exact.id,description:exact.description||exact.effectSummary||exact.effect||sourceFeatureDescription(record,grant.name),sourceUrl:exact.sourceUrl||record.sourceUrl};
+    if(!exact)return {...grant,kind:'feature',description:sourceFeatureDescription(resolved,grant.name)};
+    return {...grant,kind:'feat',featId:exact.catalogId||exact.id,description:exact.description||exact.effectSummary||exact.effect||sourceFeatureDescription(resolved,grant.name),sourceUrl:exact.sourceUrl||resolved.sourceUrl};
   });
-  return {...record,levelGrants};
+  return {...resolved,levelGrants};
 }
 
 function explicitLevelGrants(record,maximum){
@@ -232,7 +295,7 @@ function needsChoice(feature){
 
 function derivedForRow(row){
   const edition=normalizeEdition(row.edition||row.definition?.edition),features=coalesceFeatures(row);
-  const derivedFeatures=[],actions=[],feats=[],resources=[];
+  const derivedFeatures=[],actions=[],feats=[],resources=[],tracks=[];
   for(const feature of features){
     const featureId=feature.sourceFeatureId||slug(feature.name),meta=sourceInfo(row,feature.level,featureId);
     const id='class-grant:'+meta.sourceClassId+':feature:'+slug(feature.name);
@@ -255,17 +318,22 @@ function derivedForRow(row){
       resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),name:feature.name,max:usage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,...meta});
     }
   }
-  const record=row.definition||{},hasProgression=progressionTables(record).length>0||rawClassFeatures(row).length>0;
-  const gaps=[];
+  const record=row.definition||{};
+  for(const track of progressionTracks(record,row.level)){
+    const meta=sourceInfo(row,track.level,'track:'+slug(track.name));
+    tracks.push({id:'class-grant:'+meta.sourceClassId+':track:'+slug(track.name),name:track.name,value:track.value,level:track.level,history:track.history,...meta});
+  }
+  const hasProgression=progressionTables(record).length>0||rawClassFeatures(row).length>0;
+  const gaps=[],warnings=[];
   if(!hasProgression)gaps.push('No structured level progression is available.');
   if(record.referenceOnly)gaps.push('Canonical source record is still marked reference-only.');
   if(record.mechanicsPresence?.classFeatures===false)gaps.push('Class feature rules are not present in structured source data.');
   const descriptive=derivedFeatures.filter(feature=>feature.description.includes('See the class source for complete rules.')).length;
-  if(descriptive)gaps.push(`${descriptive} granted feature${descriptive===1?'':'s'} lack structured rule text.`);
+  if(descriptive)warnings.push(`${descriptive} granted feature${descriptive===1?'':'s'} use source-linked descriptions because concise local rule text is unavailable.`);
   const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
   return {
-    row,features:derivedFeatures,actions,feats,resources,
-    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,choiceCount:unresolvedChoices,gaps,complete:gaps.length===0}
+    row,features:derivedFeatures,actions,feats,resources,tracks,
+    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trackCount:tracks.length,choiceCount:unresolvedChoices,gaps,warnings,descriptionComplete:descriptive===0,integrationComplete:gaps.length===0,complete:gaps.length===0}
   };
 }
 
@@ -282,14 +350,15 @@ function mergeDerived(existing,derived,{resource=false}={}){
 
 export function reconcileClassGrants(character){
   const rows=characterClasses(character),derived=rows.map(derivedForRow);
-  const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources);
+  const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources),tracks=derived.flatMap(x=>x.tracks);
   return {
     ...character,
     grantedFeatures:mergeDerived(character.grantedFeatures,features),
     actions:mergeDerived(character.actions,actions),
     feats:mergeDerived(character.feats,feats),
     resources:mergeDerived(character.resources,resources,{resource:true}),
-    classAutomation:{version:CLASS_INTEGRATION_VERSION,classes:derived.map(x=>x.report),incompleteClassIds:derived.filter(x=>!x.report.complete).map(x=>x.report.classId)}
+    classProgressionTracks:mergeDerived(character.classProgressionTracks,tracks),
+    classAutomation:{version:CLASS_INTEGRATION_VERSION,classes:derived.map(x=>x.report),incompleteClassIds:derived.filter(x=>!x.report.integrationComplete).map(x=>x.report.classId)}
   };
 }
 
