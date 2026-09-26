@@ -130,18 +130,43 @@ function progressionTracks(record,maximum){
   });
 }
 
+function inheritedParentNames(record,entries=[]){
+  if(record?.inheritanceChoice)return [record.inheritanceChoice];
+  if(Array.isArray(record?.inheritsFromOptions)&&record.inheritsFromOptions.length)return record.inheritsFromOptions;
+  if(record?.inheritsFrom){
+    const exact=(entries||[]).some(entry=>
+      normalizeEdition(entry?.edition)==='3.5' &&
+      (entry?.contentType==='class'||entry?.category==='class') &&
+      norm(entry.name)===norm(record.inheritsFrom)
+    );
+    if(exact)return [record.inheritsFrom];
+  }
+  const variant=String(record?.name||'').match(/^(.+?)\s+Variant$/i);
+  if(variant&&variant[1].includes('/'))return variant[1].split('/').map(name=>name.trim()).filter(Boolean);
+  return [];
+}
+
 function resolveInheritedClass(record,entries=[],seen=new Set()){
-  if(!record?.inheritsFrom||progressionTables(record).length)return record;
+  if(!record||progressionTables(record).length)return record;
   const identity=record.catalogId||record.id||record.name;
   if(seen.has(identity))return record;
   const nextSeen=new Set(seen);nextSeen.add(identity);
-  const parent=(entries||[]).find(entry=>
+  const names=inheritedParentNames(record,entries);
+  const parents=names.map(name=>(entries||[]).find(entry=>
     normalizeEdition(entry?.edition)==='3.5' &&
     (entry?.contentType==='class'||entry?.category==='class') &&
-    norm(entry.name)===norm(record.inheritsFrom) &&
+    norm(entry.name)===norm(name) &&
     (entry.catalogId||entry.id)!==identity
-  );
-  if(!parent)return record;
+  )).filter(Boolean);
+  if(!parents.length)return record;
+  if(parents.length>1&&!record.inheritanceChoice){
+    return {
+      ...record,
+      inheritanceRequired:true,
+      inheritanceOptions:parents.map(parent=>({name:parent.name,classId:parent.catalogId||parent.id}))
+    };
+  }
+  const parent=parents.find(item=>norm(item.name)===norm(record.inheritanceChoice))||parents[0];
   const resolved=resolveInheritedClass(parent,entries,nextSeen),filled={...record};
   for(const key of ['progression','advancement','featureNames','hit_die','skillPoints','classSkills','classSkillRule']){
     if(filled[key]==null||filled[key]===''||(Array.isArray(filled[key])&&!filled[key].length))filled[key]=resolved[key];
@@ -152,6 +177,9 @@ function resolveInheritedClass(record,entries=[],seen=new Set()){
     classFeatures:Boolean(record.mechanicsPresence?.classFeatures||resolved.mechanicsPresence?.classFeatures),
     ruleProse:Boolean(record.mechanicsPresence?.ruleProse||resolved.mechanicsPresence?.ruleProse)
   };
+  filled.inheritanceRequired=false;
+  filled.inheritanceChoice=parent.name;
+  filled.inheritanceOptions=(record.inheritsFromOptions||names).map(name=>({name,classId:(entries||[]).find(entry=>norm(entry.name)===norm(name))?.catalogId||null}));
   filled.inheritedFromClassId=resolved.catalogId||resolved.id||null;
   return filled;
 }
@@ -325,7 +353,8 @@ function derivedForRow(row){
   }
   const hasProgression=progressionTables(record).length>0||rawClassFeatures(row).length>0;
   const gaps=[],warnings=[];
-  if(!hasProgression)gaps.push('No structured level progression is available.');
+  if(record.inheritanceRequired)gaps.push('Choose the variant base class before applying progression.');
+  else if(!hasProgression)gaps.push('No structured level progression is available.');
   if(record.referenceOnly)gaps.push('Canonical source record is still marked reference-only.');
   if(record.mechanicsPresence?.classFeatures===false)gaps.push('Class feature rules are not present in structured source data.');
   const descriptive=derivedFeatures.filter(feature=>feature.description.includes('See the class source for complete rules.')).length;
@@ -333,7 +362,7 @@ function derivedForRow(row){
   const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
   return {
     row,features:derivedFeatures,actions,feats,resources,tracks,
-    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trackCount:tracks.length,choiceCount:unresolvedChoices,gaps,warnings,descriptionComplete:descriptive===0,integrationComplete:gaps.length===0,complete:gaps.length===0}
+    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trackCount:tracks.length,choiceCount:unresolvedChoices,gaps,warnings,descriptionComplete:descriptive===0,integrationComplete:gaps.length===0,complete:gaps.length===0}
   };
 }
 
