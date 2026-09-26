@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import classes from '../src/data/classes.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
-import {reconcileClassGrants,removeClassProgression,classAutomationReport} from '../src/lib/classIntegration.js';
+import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds} from '../src/lib/classIntegration.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
   id:'test-character',name:'Automation Test',ruleset,mechanics:ruleset,level:classLevels.reduce((n,row)=>n+row.level,0),
@@ -14,8 +14,8 @@ const baseCharacter=(classLevels,ruleset='3.5')=>({
 });
 
 const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
-const classes35=await service.load('3.5/classes');
-const archivist=classes35.find(record=>record.name==='Archivist');
+const [classes35,feats35]=await Promise.all([service.load('3.5/classes'),service.load('3.5/feats')]);
+const archivist=annotateClassGrantKinds(classes35.find(record=>record.name==='Archivist'),feats35);
 assert(archivist,'Archivist must exist in the canonical 3.5 catalog');
 assert(archivist.progression?.length||archivist.tables?.length,'Archivist must expose structured progression data');
 
