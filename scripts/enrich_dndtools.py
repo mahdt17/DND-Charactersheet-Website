@@ -452,8 +452,18 @@ def parse_class_proficiencies(parser: DetailParser) -> dict:
         ):
             if phrase in folded and negated(phrase):
                 add(index,name,"armor")
-    if ("shield" in folded) and negated("shield"):
-        add("shields","Shields","armor")
+    if "light shield" in folded and negated("light shield"):
+        add("light-shields","Light shields","armor")
+    if "heavy shield" in folded and negated("heavy shield"):
+        add("heavy-shields","Heavy shields","armor")
+    if "tower shield" in folded and negated("tower shield"):
+        add("tower-shields","Tower shields","armor")
+    broad_shields=bool(re.search(r"\bshields?\b",folded)) and not re.search(r"\b(?:light|heavy|tower) shields?\b",folded)
+    if broad_shields and negated("shield"):
+        if re.search(r"shields?[^.;]{0,30}except[^.;]{0,20}tower",folded):
+            add("shields-except-tower","Shields (except tower shields)","armor")
+        else:
+            add("shields","Shields","armor")
     if "simple weapon" in folded and negated("simple weapon"):
         add("simple-weapons","Simple weapons","weapons")
     if "martial weapon" in folded and negated("martial weapon"):
@@ -2409,6 +2419,16 @@ def self_test():
     assert [item["index"] for item in prof["proficiencies"]]==["light-armor","medium-armor","simple-weapons"]
     assert "shields" not in [item["index"] for item in prof["proficiencies"]]
     assert not prof["proficiencyParseIncomplete"]
+
+    limited_shield_html = """
+    <h1>Warmage</h1><h2>Class Features</h2>
+    <p>Weapon and Armor Proficiency: Warmages are proficient with all simple weapons, light armor, and light shields.</p>
+    <h2>Advancement</h2>
+    """
+    p=DetailParser();p.feed(limited_shield_html);p.close()
+    prof=parse_class_proficiencies(p)
+    indexes={item["index"] for item in prof["proficiencies"]}
+    assert "light-shields" in indexes and "shields" not in indexes
 
     named_weapon_html = """
     <h1>Wizard</h1><h2>Class Features</h2>
