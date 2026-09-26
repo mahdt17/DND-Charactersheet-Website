@@ -1364,6 +1364,74 @@
         }
       ],
       "verified": true
+    },
+    "classes/scout-2": {
+      "name": "Scout",
+      "sourceUrl": "https://new.dndtools.org/classes/scout-2",
+      "proficiencyText": "Scouts are proficient with all simple weapons, several named weapons, and light armor, but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "handaxe",
+          "name": "Handaxe",
+          "kind": "weapons"
+        },
+        {
+          "index": "throwing-axe",
+          "name": "Throwing axe",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/soulknife-139": {
+      "name": "Soulknife",
+      "sourceUrl": "https://new.dndtools.org/classes/soulknife-139",
+      "proficiencyText": "Soulknives are proficient with all simple weapons, their own mind blades, light armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "mind-blade",
+          "name": "Mind blade",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
     }
   }
 }
