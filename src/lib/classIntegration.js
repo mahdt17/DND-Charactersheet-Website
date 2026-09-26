@@ -488,7 +488,7 @@ function derivedForRow(row){
   const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
   return {
     row,features:derivedFeatures,actions,feats,resources,tracks,spellSlots,
-    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trackCount:tracks.length,spellSlotProfile:Boolean(slotProfile),choiceCount:unresolvedChoices,gaps,warnings,descriptionComplete:descriptive===0,integrationComplete:gaps.length===0,complete:gaps.length===0}
+    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trackCount:tracks.length,spellSlotProfile:Boolean(slotProfile),choiceCount:unresolvedChoices,gaps,warnings,descriptionComplete:descriptive===0,descriptionReady:derivedFeatures.every(feature=>Boolean(feature.description)),progressionSummaryCount:descriptive,integrationComplete:gaps.length===0,complete:gaps.length===0}
   };
 }
 
