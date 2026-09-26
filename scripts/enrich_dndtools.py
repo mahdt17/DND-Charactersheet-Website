@@ -428,19 +428,19 @@ def parse_class_proficiencies(parser: DetailParser) -> dict:
     folded=text.casefold().replace("’","'")
     grants=[]
 
-    def negated(term: str) -> bool:
+    def positive(term: str) -> bool:
         for match in re.finditer(re.escape(term),folded):
             prefix=folded[max(0,match.start()-42):match.start()]
             if re.search(r"(?:\bnot\b|\bno\b|\bwithout\b|\bexcept\b)[^.;,:]{0,30}$",prefix):
                 continue
-            return False
-        return True
+            return True
+        return False
 
     def add(index: str, name: str, kind: str):
         if not any(item["index"]==index for item in grants):
             grants.append({"index":index,"name":name,"kind":kind})
 
-    if re.search(r"\b(?:all|any type of)\s+armor\b",folded) and negated("armor"):
+    if re.search(r"\b(?:all|any type of)\s+armor\b",folded) and positive("armor"):
         add("light-armor","Light armor","armor")
         add("medium-armor","Medium armor","armor")
         add("heavy-armor","Heavy armor","armor")
@@ -450,28 +450,28 @@ def parse_class_proficiencies(parser: DetailParser) -> dict:
             ("medium armor","medium-armor","Medium armor"),
             ("heavy armor","heavy-armor","Heavy armor"),
         ):
-            if phrase in folded and negated(phrase):
+            if phrase in folded and positive(phrase):
                 add(index,name,"armor")
-    if "light shield" in folded and negated("light shield"):
+    if "light shield" in folded and positive("light shield"):
         add("light-shields","Light shields","armor")
-    if "heavy shield" in folded and negated("heavy shield"):
+    if "heavy shield" in folded and positive("heavy shield"):
         add("heavy-shields","Heavy shields","armor")
-    if "tower shield" in folded and negated("tower shield"):
+    if "tower shield" in folded and positive("tower shield"):
         add("tower-shields","Tower shields","armor")
     broad_shields=bool(re.search(r"\bshields?\b",folded)) and not re.search(r"\b(?:light|heavy|tower) shields?\b",folded)
-    if broad_shields and negated("shield"):
+    if broad_shields and positive("shield"):
         if re.search(r"shields?[^.;]{0,30}except[^.;]{0,20}tower",folded):
             add("shields-except-tower","Shields (except tower shields)","armor")
         else:
             add("shields","Shields","armor")
-    if "simple weapon" in folded and negated("simple weapon"):
+    if "simple weapon" in folded and positive("simple weapon"):
         add("simple-weapons","Simple weapons","weapons")
-    if "martial weapon" in folded and negated("martial weapon"):
+    if "martial weapon" in folded and positive("martial weapon"):
         add("martial-weapons","Martial weapons","weapons")
 
     for weapon in class_weapon_catalog():
         for alias in weapon["aliases"]:
-            if alias and re.search(r"(?<![a-z])"+re.escape(alias)+r"(?![a-z])",folded) and negated(alias):
+            if alias and re.search(r"(?<![a-z])"+re.escape(alias)+r"(?![a-z])",folded) and positive(alias):
                 add(weapon["index"],weapon["name"],"weapons")
                 break
 
