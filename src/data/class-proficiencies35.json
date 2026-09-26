@@ -926,6 +926,57 @@
         }
       ],
       "verified": true
+    },
+    "classes/noble-27": {
+      "name": "Noble",
+      "sourceUrl": "https://new.dndtools.org/classes/noble-27",
+      "proficiencyText": "Weapon and Armor Proficiency: The noble is proficient in the use of all simple and martial weapons, light armor, and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/pixie-948": {
+      "name": "Pixie",
+      "sourceUrl": "https://new.dndtools.org/classes/pixie-948",
+      "proficiencyText": "Weapon and Armor Proficiency: Pixies are proficient with all simple weapons, with the short sword, and with the composite longbow, but not with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "composite-longbow",
+          "name": "Composite Longbow",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
