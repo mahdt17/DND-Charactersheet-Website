@@ -61,9 +61,10 @@ try {
   await importChar({...base,name:branchName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',5).definition,classLevels:[row('Fighter',5)],level:5,subclass:'Champion',abilityBonuses:{},skillProf:{Athletics:true}});
   await branch('normal','Rogue');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();
   assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
-  assert.equal(await page.getByLabel('Multiclass skill',{exact:true}).locator('option').filter({hasText:/^Athletics$/}).count(),0);
-  assert.equal(await page.getByLabel('Multiclass skill',{exact:true}).locator('option').filter({hasText:/^Performance$/}).count(),edition==='2014'?1:0);
-  await page.getByLabel('Multiclass skill',{exact:true}).selectOption(edition==='2014'?'Performance':'Stealth');await page.getByRole('button',{name:'Continue to level choices'}).click();
+  const training=page.getByRole('region',{name:'Multiclass proficiencies'});
+  assert.equal(await training.getByRole('button',{name:'Athletics',exact:true}).count(),0);
+  assert.equal(await training.getByRole('button',{name:'Performance',exact:true}).count(),edition==='2014'?1:0);
+  await training.getByRole('button',{name:edition==='2014'?'Performance':'Stealth',exact:true}).click();await page.getByRole('button',{name:'Continue to level choices'}).click();
   for(let step=0;step<4&&!await page.getByRole('button',{name:'Apply level up',exact:true}).isVisible();step++)await next();
   await page.getByRole('button',{name:'Apply level up',exact:true}).click();
   assert(await page.getByRole('button',{name:'Save level and choices'}).isDisabled());
