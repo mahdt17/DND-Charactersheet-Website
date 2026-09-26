@@ -41,6 +41,18 @@ assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become
 assert.deepEqual(archivistTraining.proficiencies.map(item=>item.index),['light-armor','medium-armor','simple-weapons']);
 const trainedAgain=reconcileClassGrants(trainedSheet);
 assert.equal(trainedAgain.trainingGrants.filter(grant=>grant.sourceClassId===archivist.catalogId).length,1,'supplement-backed class training reconciliation is idempotent');
+for(const [name,expected] of [
+  ['Psychic Warrior',['light-armor','medium-armor','heavy-armor','shields-except-tower','simple-weapons','martial-weapons']],
+  ['Shugenja',['simple-weapons','shortsword']],
+  ['Soulborn',['light-armor','medium-armor','heavy-armor','shields-except-tower','simple-weapons','martial-weapons']],
+  ['Spellthief',['light-armor','simple-weapons']],
+  ['Swashbuckler',['light-armor','simple-weapons','martial-weapons']]
+]){
+  const record=integrated35(name),sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name,edition:'3.5',level:1,definition:record}]));
+  const grant=sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId);
+  assert.deepEqual(grant?.proficiencies.map(item=>item.index),expected,`${name} verified source training`);
+}
+
 const skilledArchivist={...archivist,classSkills:['Concentration','Knowledge (religion)','Spellcraft']};
 const skilledSheet=reconcileClassGrants(baseCharacter([{catalogId:skilledArchivist.catalogId,name:'Archivist',edition:'3.5',level:1,definition:skilledArchivist}]));
 assert.deepEqual(skilledSheet.classSkills35.map(skill=>skill.name),['Concentration','Knowledge (religion)','Spellcraft']);
