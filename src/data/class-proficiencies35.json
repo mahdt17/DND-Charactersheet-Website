@@ -1444,6 +1444,189 @@
         }
       ],
       "verified": true
+    },
+    "classes/barbarian-89": {
+      "name": "Barbarian",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-89",
+      "proficiencyText": "A barbarian is proficient with all simple and martial weapons, light armor, medium armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/cleric-91": {
+      "name": "Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-91",
+      "proficiencyText": "Clerics are proficient with all simple weapons, all armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/fighter-93": {
+      "name": "Fighter",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-93",
+      "proficiencyText": "A fighter is proficient with all simple and martial weapons, all armor, and shields including tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields (including tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/paladin-95": {
+      "name": "Paladin",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-95",
+      "proficiencyText": "Paladins are proficient with all simple and martial weapons, all armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/ranger-96": {
+      "name": "Ranger",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-96",
+      "proficiencyText": "A ranger is proficient with all simple and martial weapons, light armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/sorcerer-98": {
+      "name": "Sorcerer",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcerer-98",
+      "proficiencyText": "Sorcerers are proficient with all simple weapons and are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
