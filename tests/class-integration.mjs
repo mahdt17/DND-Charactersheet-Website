@@ -62,6 +62,20 @@ const variantSheet=reconcileClassGrants(baseCharacter([{catalogId:fighterVariant
 assert.equal(classAutomationReport(variantSheet).classes[0].progressionComplete,true);
 assert((variantSheet.grantedFeatures||[]).every(feature=>feature.sourceClassId===fighterVariant.catalogId),'Inherited grants retain variant provenance');
 
+const compoundRaw=classes35.find(record=>record.name==='Sorcerer/Wizard Variant');
+const compound=annotateClassGrantKinds(compoundRaw,reference35);
+assert.equal(compound.inheritanceRequired,true);
+assert.deepEqual(compound.inheritanceOptions.map(option=>option.name).sort(),['Sorcerer','Wizard']);
+for(const parent of ['Sorcerer','Wizard']){
+  const resolved=annotateClassGrantKinds({...compoundRaw,inheritanceChoice:parent},reference35);
+  assert.equal(resolved.inheritanceRequired,false,`${parent} variant choice resolves`);
+  assert.equal(resolved.inheritanceChoice,parent);
+  assert(resolved.progression?.length,`${parent} progression inherited`);
+  assert(resolved.hit_die,`${parent} hit die inherited`);
+  const sheet=reconcileClassGrants(baseCharacter([{catalogId:resolved.catalogId,name:resolved.name,edition:'3.5',level:1,definition:resolved}]));
+  assert.equal(classAutomationReport(sheet).classes[0].progressionComplete,true);
+}
+
 // Plural "Specials" is a real catalog shape and must be parsed as class features.
 const planar=integrated35('Planar Vanguard');
 assert(planar);
