@@ -107,6 +107,85 @@
         }
       ],
       "verified": true
+    },
+    "classes/artificer-36": {
+      "name": "Artificer",
+      "sourceUrl": "https://new.dndtools.org/classes/artificer-36",
+      "proficiencyText": "Weapon and Armor Proficiency: Artificers are proficient with all simple weapons, with light and medium armor, and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/battle-dancer-973": {
+      "name": "Battle Dancer",
+      "sourceUrl": "https://new.dndtools.org/classes/battle-dancer-973",
+      "proficiencyText": "Weapon and Armor Proficiency: A battle dancer is proficient with all simple weapons. She is not proficient with any type of armor or shield.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/beguiler-100": {
+      "name": "Beguiler",
+      "sourceUrl": "https://new.dndtools.org/classes/beguiler-100",
+      "proficiencyText": "Weapon and Armor Proficiency: Beguilers are proficient with all simple weapons plus the hand crossbow, rapier, shortbow, and short sword. Beguilers are proficient with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "hand-crossbow",
+          "name": "Hand crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
