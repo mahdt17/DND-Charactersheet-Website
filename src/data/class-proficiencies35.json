@@ -1112,6 +1112,175 @@
         }
       ],
       "verified": true
+    },
+    "classes/swordsage-116": {
+      "name": "Swordsage",
+      "sourceUrl": "https://new.dndtools.org/classes/swordsage-116",
+      "proficiencyText": "Weapon and Armor Proficiency: Swordsages are proficient with simple weapons, martial melee weapons (including those usable as thrown weapons), and light armor, but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-melee-weapons",
+          "name": "Martial melee weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/totemist-83": {
+      "name": "Totemist",
+      "sourceUrl": "https://new.dndtools.org/classes/totemist-83",
+      "proficiencyText": "Weapon and Armor Proficiency: Totemists are proficient with all simple weapons, light armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/warblade-117": {
+      "name": "Warblade",
+      "sourceUrl": "https://new.dndtools.org/classes/warblade-117",
+      "proficiencyText": "Weapon and Armor Proficiency: Warblades are proficient with simple and martial melee weapons (including those usable as thrown weapons), light and medium armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-melee-weapons",
+          "name": "Martial melee weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/warlock-4": {
+      "name": "Warlock",
+      "sourceUrl": "https://new.dndtools.org/classes/warlock-4",
+      "proficiencyText": "Weapon and Armor Proficiency: Warlocks are proficient with all simple weapons and light armor, but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/warmage-5": {
+      "name": "Warmage",
+      "sourceUrl": "https://new.dndtools.org/classes/warmage-5",
+      "proficiencyText": "Weapon and Armor Proficiency: Warmages are proficient with all simple weapons, light armor, and light shields; at 8th level they gain medium-armor proficiency.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "light-shields",
+          "name": "Light shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "proficiencyProgression": [
+        {
+          "level": 8,
+          "label": "Armored Mage (medium)",
+          "proficiencies": [
+            {
+              "index": "medium-armor",
+              "name": "Medium armor",
+              "kind": "armor"
+            }
+          ]
+        }
+      ],
+      "verified": true
+    },
+    "classes/wilder-140": {
+      "name": "Wilder",
+      "sourceUrl": "https://new.dndtools.org/classes/wilder-140",
+      "proficiencyText": "Weapon and Armor Proficiency: Wilders are proficient with all simple weapons, light armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/wu-jen-6": {
+      "name": "Wu Jen",
+      "sourceUrl": "https://new.dndtools.org/classes/wu-jen-6",
+      "proficiencyText": "Weapon and Armor Proficiency: Wu jen are proficient with all simple weapons and are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
