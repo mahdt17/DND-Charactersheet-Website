@@ -410,8 +410,7 @@
           "sourceText": "Choose one martial weapon when taking the first dread necromancer level; the choice cannot be changed."
         }
       ],
-      "verified": false,
-      "reviewNote": "Fixed grants are resolved, but the martial-weapon choice must be integrated before automation is complete."
+      "verified": true
     }
   }
 }
