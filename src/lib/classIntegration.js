@@ -232,8 +232,7 @@ function derivedForRow(row){
     }
     const usage=latestUsage(feature);
     const type=actionType(feature,edition);
-    const useLike=/\buse\b|\bexpend\b|\bactivate\b|\binvoke\b|\bdraw upon\b/i.test(description);
-    if(!concreteFeat&&(type||(usage&&useLike))){
+    if(!concreteFeat&&(type||usage)){
       actions.push({id:'class-grant:'+meta.sourceClassId+':action:'+slug(feature.name),name:feature.name,type:type||'Special action',description,notes:history.at(-1)?.text||'',...meta});
     }
     if(edition==='3.5'&&usage&&usage.max>0){
