@@ -2207,6 +2207,170 @@
         }
       ],
       "verified": true
+    },
+    "classes/spirit-shaman-9": {
+      "name": "Spirit Shaman",
+      "sourceUrl": "https://new.dndtools.org/classes/spirit-shaman-9",
+      "proficiencyText": "Spirit shamans are proficient with a tribal weapon list, light armor, and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "dart",
+          "name": "Dart",
+          "kind": "weapons"
+        },
+        {
+          "index": "handaxe",
+          "name": "Handaxe",
+          "kind": "weapons"
+        },
+        {
+          "index": "javelin",
+          "name": "Javelin",
+          "kind": "weapons"
+        },
+        {
+          "index": "longspear",
+          "name": "Longspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortspear",
+          "name": "Shortspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "spear",
+          "name": "Spear",
+          "kind": "weapons"
+        },
+        {
+          "index": "sling",
+          "name": "Sling",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "throwing-axe",
+          "name": "Throwing axe",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
+    },
+    "classes/shaman-85": {
+      "name": "Shaman",
+      "sourceUrl": "https://new.dndtools.org/classes/shaman-85",
+      "proficiencyText": "Shamans are proficient with all simple weapons and light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/shugenja-86": {
+      "name": "Shugenja",
+      "sourceUrl": "https://new.dndtools.org/classes/shugenja-86",
+      "proficiencyText": "Shugenjas are proficient with all simple weapons and the wakizashi, and not armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "wakizashi",
+          "name": "Wakizashi",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
+    },
+    "classes/sohei-87": {
+      "name": "Sohei",
+      "sourceUrl": "https://new.dndtools.org/classes/sohei-87",
+      "proficiencyText": "Sohei are proficient with all simple and martial weapons and all armor, but no shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/wu-jen-88": {
+      "name": "Wu Jen",
+      "sourceUrl": "https://new.dndtools.org/classes/wu-jen-88",
+      "proficiencyText": "Wu jen are proficient with all simple weapons and not armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
