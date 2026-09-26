@@ -16,7 +16,7 @@ import EditionLevelUp from './EditionLevelUp';
 import LevelUp from './LevelUp';
 import TemporaryHPControl from './TemporaryHPControl';
 import {normalizeAdvancement,characterClasses} from './lib/advancement';
-import {reconcileClassGrants,removeClassProgression} from './lib/classIntegration';
+import {reconcileClassGrants} from './lib/classIntegration';
 import EditionSpellbook from './EditionSpellbook';
 import Modal from './Dialog';
 import ClassProgression from './ClassProgression';
