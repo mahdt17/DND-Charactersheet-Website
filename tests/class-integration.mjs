@@ -64,6 +64,19 @@ for(const [name,expected] of [
   const grant=sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId);
   assert.deepEqual(grant?.proficiencies.map(item=>item.index),expected,`${name} verified source training`);
 }
+
+for(const [name,sourceOnlyIndex] of [
+  ['Psion','shortspear'],
+  ['Psychic Rogue','sap'],
+  ['Scout','throwing-axe'],
+  ['Soulknife','mind-blade']
+]){
+  const record=integrated35(name),sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name,edition:'3.5',level:1,definition:record}]));
+  const grant=sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId);
+  const sourceOnly=grant?.proficiencies.find(item=>item.index===sourceOnlyIndex);
+  assert(sourceOnly?.sourceOnly,`${name} keeps unmapped source proficiency as source-only`);
+  assert.equal(sourceOnly.sourceClassId,record.catalogId,`${name} source-only training keeps provenance`);
+}
 const warmage35=integrated35('Warmage');
 const warmage1=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:1,definition:warmage35}]));
 assert(!warmage1.trainingGrants.flatMap(grant=>grant.proficiencies).some(item=>item.index==='medium-armor'),'Warmage medium armor is not a level-1 grant');
