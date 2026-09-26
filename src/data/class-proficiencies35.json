@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "entries": {
+    "classes/adept-917": {
+      "name": "Adept",
+      "sourceUrl": "https://new.dndtools.org/classes/adept-917",
+      "proficiencyText": "Weapon and Armor Proficiency: Adepts are skilled with all simple weapons. Adepts are not proficient with any type of armor nor with shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/archivist-74": {
+      "name": "Archivist",
+      "sourceUrl": "https://new.dndtools.org/classes/archivist-74",
+      "proficiencyText": "Weapon and Armor Proficiency: Archivists are proficient with all simple weapons and with light and medium armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/ardent-10": {
+      "name": "Ardent",
+      "sourceUrl": "https://new.dndtools.org/classes/ardent-10",
+      "proficiencyText": "Weapon and Armor Proficiency: Ardents are proficient with all simple weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/aristocrat-31": {
+      "name": "Aristocrat",
+      "sourceUrl": "https://new.dndtools.org/classes/aristocrat-31",
+      "proficiencyText": "Weapon and Armor Proficiency: The aristocrat is proficient in the use of all simple and martial weapons and with all types of armor and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    }
+  }
+}
