@@ -13,6 +13,14 @@ const slug=s=>normalize(s).replace(/\s+/g,'-');
 const editionOf=c=>c.ruleset||'2014';
 const unsupported=r=>r?.prestige||r?.stats?.prestige||r?.homebrew||r?.source==='Homebrew';
 const entry=index=>({index,name:labels[index],kind:index==='thieves-tools'?'tools':index.includes('armor')||index==='shields'?'armor':'weapons'});
+const kindFor=p=>p.index?.startsWith('skill-')?'skills':p.index?.includes('armor')||p.index==='shields'?'armor':p.index?.includes('tool')||instruments.some(n=>normalize(n)===normalize(p.name))?'tools':'weapons';
+const sourceEntry=p=>({index:p.index,name:String(p.name||'').replace(/^Skill: /,'').replace(/^Tool: /,''),kind:kindFor(p)});
+const sourceChoice=(choice,index)=>{
+  const raw=(choice.from?.options||[]).map(o=>o.item||o).filter(Boolean).map(sourceEntry);
+  const desc=String(choice.desc||'').toLowerCase(),kind=raw.every(p=>p.kind==='skills')?'skills':raw.every(p=>p.kind==='tools')?'tools':'proficiencies';
+  const id=kind==='skills'?'skill':kind==='tools'&&/instrument/.test(desc)?'instrument':`choice-${index+1}`;
+  return {id,label:choice.desc||`Multiclass proficiency choice ${index+1}`,kind,options:raw.map(p=>p.name),required:raw.length>0,count:Math.max(1,Number(choice.choose)||1)};
+};
 
 export function coreMulticlassGrants(name,edition) {
   const table=edition==='2024'?revised:edition==='2014'?legacy:{};
@@ -27,29 +35,26 @@ export function coreClassSkillOptions(record) {
 export function multiclassTrainingPlan(c,record) {
   const edition=editionOf(c),rows=c.classLevels?.length?c.classLevels:[{name:c.className,edition}];
   if(!record||rows.some(r=>r.name===record.name&&(r.edition||edition)===(record.edition||edition)))return {mode:'none',grants:[],choices:[]};
-  const grants=coreMulticlassGrants(record.name,edition);
-  if(!grants||record.edition!==edition||!['2014','2024'].includes(edition)||rows.some(r=>(r.edition||edition)!==edition)||unsupported(record))return {mode:'manual',grants:[],choices:[]};
-  const choices=[];
-  if(['Bard','Ranger','Rogue'].includes(record.name)) {
-    const all=coreClassSkillOptions(record);
-    const options=all.filter(s=>!c.skillProf?.[s]&&!c.expertise?.[s]);
-    choices.push({id:'skill',label:'Multiclass skill',kind:'skills',options,required:options.length>0});
-  }
-  if(record.name==='Bard') {
-    const known=[...String(c.toolProf||'').split(/[,;\n]/),...(c.trainingGrants||[]).flatMap(g=>(g.proficiencies||[]).filter(p=>p.kind==='tools').map(p=>p.name))].map(normalize);
-    const options=instruments.filter(n=>!known.includes(normalize(n)));
-    choices.push({id:'instrument',label:'Multiclass musical instrument',kind:'tools',options,required:options.length>0});
-  }
+  if(record.edition!==edition||!['2014','2024'].includes(edition)||rows.some(r=>(r.edition||edition)!==edition)||unsupported(record))return {mode:'manual',grants:[],choices:[]};
+  const source=record.multi_classing;
+  const grants=Array.isArray(source?.proficiencies)?source.proficiencies.map(sourceEntry):coreMulticlassGrants(record.name,edition);
+  if(!grants)return {mode:'manual',grants:[],choices:[]};
+  let choices=Array.isArray(source?.proficiency_choices)?source.proficiency_choices.map(sourceChoice):[];
+  choices=choices.map(choice=>{
+    const knownSkills=c.skillProf||{},knownTools=[...String(c.toolProf||'').split(/[,;\n]/),...(c.trainingGrants||[]).flatMap(g=>(g.proficiencies||[]).filter(p=>p.kind==='tools').map(p=>p.name))].map(normalize);
+    const options=choice.options.filter(name=>choice.kind==='skills'?!knownSkills[name]&&!c.expertise?.[name]:choice.kind==='tools'?!knownTools.includes(normalize(name)):true);
+    return {...choice,options,required:options.length>=choice.count};
+  });
   return {mode:'automatic',grants,choices};
 }
 export function trainingChoicesValid(plan,picks={}) {
-  return plan.choices.every(c=>c.required?c.options.includes(picks[c.id]):!picks[c.id]);
+  return plan.choices.every(c=>{const picked=Array.isArray(picks[c.id])?picks[c.id]:picks[c.id]?[picks[c.id]]:[];return c.required?picked.length===c.count&&new Set(picked).size===picked.length&&picked.every(name=>c.options.includes(name)):picked.length===0;});
 }
 export function applyMulticlassTraining(c,record,picks={}) {
   const plan=multiclassTrainingPlan(c,record);
   if(plan.mode!=='automatic')return {};
   if(!trainingChoicesValid(plan,picks)||Object.keys(picks).some(k=>!plan.choices.some(c=>c.id===k)))throw Error('Complete the multiclass proficiency choices before leveling up.');
-  const proficiencies=[...plan.grants,...plan.choices.filter(c=>picks[c.id]).map(c=>({kind:c.kind,name:picks[c.id],index:(c.kind==='skills'?'skill-':'')+slug(picks[c.id])}))];
+  const proficiencies=[...plan.grants,...plan.choices.flatMap(c=>(Array.isArray(picks[c.id])?picks[c.id]:picks[c.id]?[picks[c.id]]:[]).map(name=>({kind:c.kind,name,index:(c.kind==='skills'?'skill-':c.kind==='tools'?'tool-':'')+slug(name)})))];
   return {skillProf:{...c.skillProf,...Object.fromEntries(proficiencies.filter(p=>p.kind==='skills').map(p=>[p.name,true]))},
     trainingGrants:[...(c.trainingGrants||[]),{classId:record.catalogId||`${record.edition}:${record.index||record.name}`,className:record.name,edition:record.edition,proficiencies}]};
 }
