@@ -1913,6 +1913,139 @@
       "proficiencyProfileFrom": "classes/ranger-96",
       "verified": true,
       "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/cleric-39": {
+      "name": "Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-39",
+      "proficiencyProfileFrom": "classes/cleric-91",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/cleric-63": {
+      "name": "Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-63",
+      "proficiencyProfileFrom": "classes/cleric-91",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/cleric-105": {
+      "name": "Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-105",
+      "proficiencyProfileFrom": "classes/cleric-91",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/druid-40": {
+      "name": "Druid",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-40",
+      "proficiencyProfileFrom": "classes/druid-92",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/druid-64": {
+      "name": "Druid",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-64",
+      "proficiencyProfileFrom": "classes/druid-92",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/druid-106": {
+      "name": "Druid",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-106",
+      "proficiencyProfileFrom": "classes/druid-92",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/monk-42": {
+      "name": "Monk",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-42",
+      "proficiencyProfileFrom": "classes/monk-94",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/monk-66": {
+      "name": "Monk",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-66",
+      "proficiencyProfileFrom": "classes/monk-94",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/paladin-43": {
+      "name": "Paladin",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-43",
+      "proficiencyProfileFrom": "classes/paladin-95",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/paladin-67": {
+      "name": "Paladin",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-67",
+      "proficiencyProfileFrom": "classes/paladin-95",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/paladin-107": {
+      "name": "Paladin",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-107",
+      "proficiencyProfileFrom": "classes/paladin-95",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/rogue-45": {
+      "name": "Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-45",
+      "proficiencyProfileFrom": "classes/rogue-97",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/rogue-69": {
+      "name": "Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-69",
+      "proficiencyProfileFrom": "classes/rogue-97",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/sorcerer-46": {
+      "name": "Sorcerer",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcerer-46",
+      "proficiencyProfileFrom": "classes/sorcerer-98",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/sorcerer-70": {
+      "name": "Sorcerer",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcerer-70",
+      "proficiencyProfileFrom": "classes/sorcerer-98",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/sorcerer-109": {
+      "name": "Sorcerer",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcerer-109",
+      "proficiencyProfileFrom": "classes/sorcerer-98",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/wizard-47": {
+      "name": "Wizard",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-47",
+      "proficiencyProfileFrom": "classes/wizard-99",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/wizard-71": {
+      "name": "Wizard",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-71",
+      "proficiencyProfileFrom": "classes/wizard-99",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/wizard-110": {
+      "name": "Wizard",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-110",
+      "proficiencyProfileFrom": "classes/wizard-99",
+      "verified": true,
+      "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
     }
   }
 }
