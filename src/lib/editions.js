@@ -2,6 +2,8 @@ import {characterClasses,classCharacter,baseProgression,progressionRow} from './
 import {multiclassPools,slotArray} from './multiclassCasting';
 import {spellSlotProgression} from './classIntegration.js';
 import {spellAccessForClass} from './spellAccess.js';
+import {subclassCasting} from './subclassCasting.js';
+import {resolveFeatSpell} from './featMagic.js';
 import modern from '../data/srd2024.json';
 import legacy from '../data/srd35.json';
 import { spellCatalog, classes, slotsFor, countsFor, classLevel, modifier, castingAbility, grantedClassFeatures } from './rules';
@@ -26,6 +28,7 @@ function legacySlotProfile(c){
  return spellSlotProgression(classRecord(c),c.level+extra)||saved;
 }
 function singleClassSlots(c){
+ const subclass=subclassCasting(c);if(subclass)return subclass.slots;
  if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){
   const profile=legacySlotProfile(c),slots=slotArray(profile?.slots);
   const bonusAbility={Wizard:'int',Cleric:'wis',Druid:'wis',Paladin:'wis',Ranger:'wis',Sorcerer:'cha',Bard:'cha',Archivist:'wis','Cloistered Cleric':'wis','Favored Soul':'cha','Spirit Shaman':'wis'}[c.className];
@@ -44,12 +47,14 @@ export function spellSlotPools(c){
  return {standard:singleClassSlots(c),pact:Array(10).fill(0),restricted:slotArray(legacyProfile?.restrictedSlots),mode:is35(c)||c.ruleset==='custom'?(legacyProfile?'automatic':'manual'):'automatic',reason:is35(c)&&!legacyProfile?'No explicit spell-slot matrix is present in this class progression.':undefined};
 }
 export const characterSlots=c=>spellSlotPools(c).standard;
-export const castingKey=c=>c.castingAbility||(is35(c)?{Paladin:'wis',Ranger:'wis',Archivist:'int','Cloistered Cleric':'wis','Favored Soul':'wis','Spirit Shaman':'cha',Artificer:'int',Psion:'int','Psychic Warrior':'wis',Wilder:'cha'}[c.className]:c.className==='Artificer'?'int':null)||castingAbility[c.className]||'';
+export const castingKey=c=>c.castingAbility||subclassCasting(c)?.ability||(is35(c)?{Paladin:'wis',Ranger:'wis',Archivist:'int','Cloistered Cleric':'wis','Favored Soul':'wis','Spirit Shaman':'cha',Artificer:'int',Psion:'int','Psychic Warrior':'wis',Wilder:'cha'}[c.className]:c.className==='Artificer'?'int':null)||castingAbility[c.className]||'';
 export function spellCounts(c,score=10){if(is35(c)||c.ruleset==='custom')return {cantrips:99,known:99,prepared:99,mode:'custom'};
+ const subclass=subclassCasting(c);if(subclass)return subclass;
  if(c.className==='Artificer'&&mechanics(c)==='2014'){const row=progressionRow(classRecord(c),c.level);return {cantrips:Number(row['Cantrips Known'])||0,known:null,prepared:Math.max(1,Math.floor(c.level/2)+modifier(score)),mode:'prepared'};}
  if(mechanics(c)==='2024'){const p=levelRecord(c).spellcasting||{};return {cantrips:p.cantrips_known||0,known:c.className==='Wizard'?6+2*(c.level-1):p.prepared_spells||0,prepared:p.prepared_spells||0,mode:c.className==='Wizard'?'spellbook':'prepared'};}
  return countsFor(c.className,c.level,score);}
 export function spellAccess(c,s){
+ if(s.featGrantId){const granted=resolveFeatSpell(c,s);return granted?{allowed:true,level:granted.level,alwaysPrepared:true,ability:granted.featAbility}:{allowed:false,level:s.level,reason:'This feat no longer grants the spell.'};}
  const rows=characterClasses(c);
  if(s.castingClassId&&!rows.some(row=>row.catalogId===s.castingClassId)&&s.castingClassId!==c.activeCastingClassId)return {allowed:false,level:s.level,reason:'The class that granted this spell is no longer present.'};
  if(rows.length>1){

@@ -7,6 +7,7 @@ import {useReferenceIndex} from './lib/referenceIndex';
 import Dialog from './Dialog';
 import SpellAccessGrants from './SpellAccessGrants';
 import SubclassSpellChoices from './SubclassSpellChoices';
+import {subclassCasting} from './lib/subclassCasting';
 import {characterClasses,classCharacter,spellsForClass} from './lib/advancement';
 import SpellPicker from './EditionSpellPicker';
 
@@ -17,7 +18,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[]}) {
   const active=rows.find(r=>r.catalogId===classId)||rows[0],classModel=multiple?classCharacter(char,active):char;
   const accessModel=char.ruleset==='custom'?{...classModel,ruleset:'custom',mechanics:active.edition}:classModel;
   const accessFor=s=>s.auto?{allowed:true}:spellAccess(accessModel,resolveSpell(s,classModel));
-  const classSpells=multiple?spellsForClass(char,active.catalogId):(char.spells||[]);
+  const classSpells=(multiple?spellsForClass(char,active.catalogId):(char.spells||[])).map(s=>{const resolved=resolveSpell(s,classModel);return {...resolved,...s,level:typeof s.level==='number'?s.level:resolved.level,catalogId:resolved.catalogId||s.catalogId};});
   const reference=useReferenceIndex(manage?['spells']:[],char.ruleset||'2014'),manual=is35(classModel)||char.ruleset==='custom';
   const perClassLegacySlots=is35(classModel),isPrimary=active.catalogId===rows[0]?.catalogId;
   const activeSlotsUsed=perClassLegacySlots?(char.classSlotsUsed?.[active.catalogId]??(isPrimary?char.slotsUsed||{}:{})):(char.slotsUsed||{});
@@ -33,7 +34,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[]}) {
   const maneuverMode=is35(classModel)&&maneuverKnown!=null;
   const isStance=spell=>Boolean(spell?.isManeuver&&/\(stance\)/i.test(spell.school||''));
   const knownManeuvers=classSpells.filter(spell=>spell.isManeuver&&!isStance(spell)),knownStances=classSpells.filter(isStance),readiedManeuvers=knownManeuvers.filter(spell=>spell.prepared);
-  const selected=classSpells.map(s=>keyOf(s));
+  const selected=classSpells.map(s=>keyOf(s)),subclassProfile=subclassCasting(classModel);
   const cantrips=classSpells.filter(s=>!s.auto&&!accessFor(s).alwaysPrepared&&s.level===0),leveled=classSpells.filter(s=>!s.auto&&!accessFor(s).alwaysPrepared&&s.level>0);
   const spellLimit=manual||counts.mode==='spellbook'?Infinity:counts.mode==='known'?counts.known:counts.prepared;
   const prepared=leveled.filter(s=>s.prepared).length;
@@ -80,7 +81,7 @@ export default function EditionSpellbook({char,patch,roll,show,homebrew=[]}) {
   }
   return <><div className="l-section-head"><h2>{maneuverMode?'Maneuvers & stances':'Spellbook'} · {editionName(char.ruleset)}</h2><button className="l-button" onClick={()=>setManage(!manage)}>{manage?'Done':maneuverMode?'Manage maneuvers':'Manage spells'}</button></div>
     {char.ruleset==='custom'&&<label className="l-check"><input type="checkbox" checked={!!char.unrestrictedSpellAccess} onChange={e=>patch({unrestrictedSpellAccess:e.target.checked})}/> Allow spells from any class or edition (table-approved Custom rules)</label>}
-    <SubclassSpellChoices char={char} model={classModel} classId={active.catalogId} patch={patch}/>{pools.restricted?.some(Boolean)&&<p className="l-notice">Your class also grants restricted slots: {pools.restricted.flatMap((n,level)=>n?[`level ${level}: ${n}`]:[]).join(' · ')}. Track domain or specialist casts separately; these slots cannot cast arbitrary class spells.</p>}
+    {subclassProfile?.schools.length>0&&<p className="l-notice">Choose {subclassProfile.schools.join(' or ')} spells, plus up to {subclassProfile.unrestrictedChoices} known spell{subclassProfile.unrestrictedChoices===1?'':'s'} from other Wizard schools. Granted cantrips are listed separately from your chosen cantrips.</p>}<SubclassSpellChoices char={char} model={classModel} classId={active.catalogId} patch={patch}/>{pools.restricted?.some(Boolean)&&<p className="l-notice">Your class also grants restricted slots: {pools.restricted.flatMap((n,level)=>n?[`level ${level}: ${n}`]:[]).join(' · ')}. Track domain or specialist casts separately; these slots cannot cast arbitrary class spells.</p>}
     {restricted.length>0&&<section aria-label="Spells needing review"><p className="l-notice" role="alert">{restricted.length} saved spell(s) need class access review. They remain saved, but cannot be cast until eligible or granted by a specific feature.</p>{restricted.map(s=><div key={s.id}><strong>{s.name}</strong><p>{accessFor(s).reason}</p><button className="l-button" onClick={()=>patch({spells:char.spells.filter(x=>x.id!==s.id)})}>Remove {s.name}</button></div>)}</section>}
     {multiple&&<label className="l-field"><span>Spellcasting class</span><select value={active.catalogId} onChange={e=>{setClassId(e.target.value);setCast(null);}}>{rows.map(r=><option key={r.catalogId} value={r.catalogId}>{r.name} {r.level} · {editionName(r.edition)}</option>)}</select></label>}<div className="form-grid"><label className="l-field"><span>Casting ability</span><select aria-label="Casting ability" value={ability} onChange={e=>multiple?patch({classLevels:rows.map(r=>r.catalogId===active.catalogId?{...r,castingAbility:e.target.value}:r)}):patch({castingAbility:e.target.value})}><option value="">Choose</option>{['str','dex','con','int','wis','cha'].map(k=><option key={k}>{k}</option>)}</select></label><p>Spell attack {signed(pb+mod)} · Save DC {is35(char)?`10 + spell level ${signed(mod)}`:8+pb+mod}</p></div>
     {castNotice&&<p className="l-notice" role="status">{castNotice}</p>}{maneuverMode?<p>Maneuvers known: {knownManeuvers.length} / {maneuverKnown} · Readied: {readiedManeuvers.length} / {maneuverReadied??'—'} · Stances: {knownStances.length} / {stancesKnown??'—'}</p>:!manual&&<p>Cantrips: {cantrips.length} / {counts.cantrips} · {counts.mode==='known'?'Known spells':'Prepared spells'}: {counts.mode==='spellbook'?prepared:leveled.length} / {counts.mode==='known'?counts.known:counts.prepared||0}{counts.mode==='spellbook'?` · Spellbook: ${leveled.length} spells`:''}</p>}{overLimit&&<p className="l-notice" role="alert">This character exceeds its spell limit. Remove extra class spells or unprepare extras before casting. Your saved spells have been kept.</p>}

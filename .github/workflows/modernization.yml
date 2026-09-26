@@ -58,6 +58,7 @@ jobs:
       - run: node scripts/audit_class_automation.mjs
       - run: node tests/multiclass-casting.mjs
       - run: node tests/spell-access.mjs
+      - run: node tests/subclass-feat-magic.mjs
       - run: node tests/hit-dice.mjs
       - run: node tests/multiclass-training.mjs
       - run: node tests/resources.mjs
@@ -106,7 +107,10 @@ jobs:
       - name: Run class spell access browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-spell-access.mjs
-      - name: Run class resource browser tests
+      - name: Run subclass and feat magic browser tests
+        if: steps.scope.outputs.mode == 'full'
+        run: node tests/browser-subclass-feat-magic.mjs
+      - name: Run class resource tracker browser tests
         if: steps.scope.outputs.mode == 'full'
         run: node tests/browser-resources.mjs
       - name: Run guided feature choice browser tests

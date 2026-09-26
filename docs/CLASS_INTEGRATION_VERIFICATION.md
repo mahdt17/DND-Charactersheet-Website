@@ -41,6 +41,45 @@ mechanic is fully automated.
 
 ## Validation and its limits
 
+### Subclass casting and magic feats
+
+- Eldritch Knight and Arcane Trickster use their own level 3–20 spell tables,
+  Intelligence, Wizard spell lists, and one-third multiclass slot contributions
+  in both 2014 and 2024. A sole casting class retains its own slot table.
+- The 2014 school restrictions and out-of-school allowances are enforced across
+  current and proposed selections. The 2024 versions have no school restriction.
+  Arcane Trickster receives Mage Hand separately from its chosen cantrips.
+- Magic Initiate, Fey Touched and Shadow Touched have guided, validated choices
+  for both editions. Only the selected spells are granted; a feat never unlocks
+  the whole class list. Grants remain separate from class preparation/known limits.
+- Feat spells use the chosen or source-prescribed ability, and separate free-use
+  counters. Touched feats add their capped ability increase without modifying the
+  base score; an explicit opt-out accommodates older manually adjusted saves.
+- Free uses recover on a long rest. The 2024 Magic Initiate and both Touched feats
+  can also use available standard or Pact Magic slots. The 2014 Magic Initiate
+  follows the matching class's casting rules, including preparation where needed.
+- Repeated 2024 Magic Initiate selections require distinct lists. Invalid choices
+  block advancement. Class-granted feat choices survive reconciliation; removing
+  the grant removes its benefits. Replacing a choice does not refresh a spent use.
+- Older string-form spell levels are resolved before counting selected spells,
+  so legacy level-up saves cannot bypass known-spell/cantrip limits. Feat spells
+  are also included in the printable spell list.
+
+`tests/subclass-feat-magic.mjs` checks 80 subclass/class-level combinations,
+school allowances, multiclass ownership/slots, feat list and school choices,
+casting abilities, capped ability changes, grant reconciliation, repeated feats,
+free/slot casting, rest recovery, source removal, and malformed saved choices.
+`tests/browser-subclass-feat-magic.mjs` checks both subclass level-up flows,
+feat configuration and advancement, actual casts/slot expenditure, rests,
+save/reopen, ability display, feat removal and mobile layout.
+
+The guided feat spell selectors currently use the bundled edition spell catalogs.
+Other spell-granting feats, additional source spell choices, and non-spell feat
+effects still require explicit source grants/manual recording. Choice replacement
+timing remains table-controlled; the sheet does not track a replacement budget.
+Subclass non-spell combat features are not newly automated by this casting work.
+Background-granted Magic Initiate is configured on the sheet after creation.
+
 `tests/spell-access.mjs` checks all 480 core class/level combinations (12 classes
 per core edition, levels 1–20), Artificer, 3.5 spell lists, minimum abilities,
 class-specific levels, multiclassing, source grants, and Custom opt-in. It checks
@@ -91,3 +130,14 @@ Read-only verification confirmed row-level security on both public tables.
 - [Favored Soul](https://new.dndtools.org/classes/favored-soul-7)
 - [Spirit Shaman](https://new.dndtools.org/classes/spirit-shaman-9)
 - [Cloistered Cleric](https://www.d20srd.org/srd/variant/classes/variantCharacterClasses.htm#clericVariantCloisteredCleric)
+- [2014 Eldritch Knight](https://dnd5e.wikidot.com/fighter:eldritch-knight)
+- [2014 Arcane Trickster](https://dnd5e.wikidot.com/rogue:arcane-trickster)
+- [2024 Eldritch Knight](https://dnd2024.wikidot.com/fighter:eldritch-knight)
+- [2024 Arcane Trickster](https://dnd2024.wikidot.com/rogue:arcane-trickster)
+- [2014 Magic Initiate](https://dnd5e.wikidot.com/feat:magic-initiate)
+- [Official Magic Initiate slot-casting clarification](https://media.wizards.com/2020/dnd/downloads/SA-Compendium.pdf)
+- [2024 Magic Initiate](https://www.dndbeyond.com/sources/dnd/free-rules/feats)
+- [2014 Fey Touched](https://dnd5e.wikidot.com/feat:fey-touched)
+- [2014 Shadow Touched](https://dnd5e.wikidot.com/feat:shadow-touched)
+- [2024 Fey Touched](https://dnd2024.wikidot.com/feat:fey-touched)
+- [2024 Shadow Touched](https://dnd2024.wikidot.com/feat:shadow-touched)

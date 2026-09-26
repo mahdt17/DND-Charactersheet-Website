@@ -1,6 +1,7 @@
 import {contentKey, progressionRow} from './advancement.js';
 import {classSpellLists35} from './classSpellLists35.js';
 import {subclassSpellAccess} from './subclassSpells.js';
+import {subclassCasting,subclassSchoolAccess} from './subclassCasting.js';
 
 const norm=value=>String(value?.name||value||'').trim().toLowerCase();
 const validLevel=value=>Number.isInteger(value)&&value>=0&&value<=9;
@@ -21,7 +22,8 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
     (g.spellId===(spell.catalogId||`${spell.edition||'2014'}:${spell.index||spell.id||spell.name}`))&&g.source);
   if(grants.length){const level=grants[0].spellLevel??spell.level;return validLevel(level)?{allowed:true,level,reason:`Granted by ${grants[0].source}`} : deny('Set a valid level for this granted spell.');}
   const profile=legacy?classSpellLists35[c.className]:null;
-  const names=new Set([c.className,...(Array.isArray(c.classDefinition?.spellLists)?c.classDefinition.spellLists:[]),...(profile?.lists||[])].map(norm));
+  const subclass=subclassCasting(c);
+  const names=new Set([c.className,...(subclass?.active?[subclass.list]:[]),...(Array.isArray(c.classDefinition?.spellLists)?c.classDefinition.spellLists:[]),...(profile?.lists||[])].map(norm));
   const memberships=(spell.classes||[]).map(norm);
   const classLevels=Object.entries(spell.classLevels||{}).filter(([name,level])=>names.has(norm(name))&&validLevel(level));
   const addedLevel=profile?.spells?.[norm(spell.name).replaceAll('’',"'")];
@@ -46,5 +48,6 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
     const score=Number(c.abilities?.[ability])+Number(c.abilityBonuses?.[ability]||0);
     if(Number.isFinite(score)&&score<10+level)return deny(`Casting this spell requires ${ability.toUpperCase()} ${10+level}.`);
   } else if(level===0?cantrips<=0:level>maxLevel)return deny('Your class level has not unlocked this spell level.');
+  if(!subclassSchoolAccess(c,spell))return deny('All unrestricted-school choices are used. Choose a spell from your subclass schools or replace an existing unrestricted choice.');
   return {allowed:true,level};
 }

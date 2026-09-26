@@ -2,6 +2,7 @@ import subclasses14 from '../data/subclasses.json' with {type:'json'};
 import spells14 from '../data/spells.json' with {type:'json'};
 import modern from '../data/srd2024.json' with {type:'json'};
 import {characterClasses,contentKey} from './advancement.js';
+import {subclassCasting} from './subclassCasting.js';
 
 // Reviewed against the 2014 Basic Rules and 2024 Free Rules class tables:
 // https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes
@@ -32,6 +33,8 @@ export function subclassLandOptions(c){
 }
 export function subclassSpellGrants(c){
  const edition=c.classDefinition?.edition||c.ruleset||'2014';
+ const casting=subclassCasting(c);
+ if(casting?.fixedCantrip)return [{name:casting.fixedCantrip,classLevel:3,edition,alwaysPrepared:true,source:c.subclass}];
  if(!['2014','2024'].includes(edition)||!aliases[c.className]?.includes(norm(c.subclass)))return [];
  const land=norm(c.subclassSpellChoices?.[idFor(c)]?.land);
  let grants=[];

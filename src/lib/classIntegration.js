@@ -533,11 +533,12 @@ function derivedForRow(row){
 function isOldClassFeature(entry){
   return Boolean(entry?.sourceType==='class'&&entry?.automatic)||String(entry?.id||'').startsWith('class:');
 }
-function mergeDerived(existing,derived,{resource=false}={}){
+function mergeDerived(existing,derived,{resource=false,feat=false}={}){
   const list=Array.isArray(existing)?existing:[];
   const manual=list.filter(entry=>!isOldClassFeature(entry));
-  if(!resource)return [...manual,...derived];
+  if(!resource&&!feat)return [...manual,...derived];
   const old=new Map(list.filter(isOldClassFeature).map(entry=>[entry.id,entry]));
+  if(feat)return [...manual,...derived.map(entry=>({...entry,...(old.get(entry.id)?.magicChoices?{magicChoices:old.get(entry.id).magicChoices}:{})}))];
   return [...manual,...derived.map(entry=>({...entry,used:Math.max(0,Math.min(Number(entry.max)||0,Number(old.get(entry.id)?.used)||0))}))];
 }
 
@@ -567,7 +568,7 @@ export function reconcileClassGrants(character){
     spells:reconcileSubclassSpells(character),
     grantedFeatures:mergeDerived(character.grantedFeatures,features),
     actions:mergeDerived(character.actions,actions),
-    feats:mergeDerived(character.feats,feats),
+    feats:mergeDerived(character.feats,feats,{feat:true}),
     resources:mergeDerived(character.resources,resources,{resource:true}),
     trainingGrants:mergeDerived(character.trainingGrants,training),
     classSkills35:mergeDerived(character.classSkills35,classSkills35),

@@ -3,10 +3,11 @@ import {validFeatSelection} from './lib/featSelection';
 import ClassProgression from './ClassProgression';
 import React,{useState,useEffect,useRef} from 'react';
 import {ABILITIES,effectiveAbilities} from './CharacterManager';
-import {modifier} from './lib/rules';
+import {modifier,subclasses} from './lib/rules';
 import {modern,mechanics,is35,levelRecord,spellCounts,spellAccess,permittedSpells,keyOf,castingKey,legacyProgression} from './lib/editions';
 import {useReferenceIndex} from './lib/referenceIndex';
 import SpellPicker from './EditionSpellPicker';
+import {castingSubclassNames} from './lib/subclassCasting';
 import {focusDialog} from './GuidedSetup';
 
 export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],characterLevel=char.level+1}) {
@@ -20,7 +21,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   const needsSubclass=!manual&&target>=3&&!char.subclass;
   const nextAbilities={...abilities};
   if(asi&&mode==='scores'){if(first)nextAbilities[first]++;if(second)nextAbilities[second]++;}
-  const draft={...char,level:target,subclass,abilities:nextAbilities},effective=effectiveAbilities(draft);
+  const draft={...char,level:target,subclass,abilities:nextAbilities,spells:[...(char.spells||[]),...added]},effective=effectiveAbilities(draft);
   const counts=spellCounts(draft,effective[castingKey(draft)]||10),current=char.spells||[];
   const candidates=permittedSpells(draft,[...homebrew,...reference.entries]).filter(s=>!spellAccess(draft,s).alwaysPrepared&&!current.some(c=>keyOf(c)===keyOf(s)));
   const cantripGain=manual?Infinity:Math.max(0,counts.cantrips-current.filter(s=>s.level===0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
@@ -36,7 +37,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   return <div className="creation-overlay" role="dialog" aria-modal="true" aria-label="Edition level up" ref={shell}><div className="creation-shell"><aside className="creation-sidebar"><h2>Level {char.level} → {target}</h2>{['Level choices','Spells','Review'].map((name,i)=><p key={name}>{i===step?'→ ':''}{name}</p>)}</aside><section className="creation-content"><div className="creation-topbar">Level up · {char.name}<ClassProgression char={char} score={effectiveAbilities(char)[castingKey(char)]||10}/></div><div className="creation-scroll">
     {step===0&&<><h2>Level {target} choices</h2><p>{record.features?.map(f=>f.name).join(' · ')||'Review your class progression and record the new choices below.'}</p>{manual&&<p>Review 3.5 prerequisites, skill ranks, feat eligibility and cross-edition conversions with your DM. Adjust base scores and hit points here.</p>}
       <label className="creation-field"><span>Hit die result before Constitution</span><input type="number" min="1" max="30" value={hpGain} onChange={e=>setHpGain(Math.max(1,Math.min(30,Number(e.target.value)||1)))}/></label>
-      {needsSubclass&&<label className="creation-field"><span>Subclass name</span><input list="edition-subclasses" value={subclass} onChange={e=>setSubclass(e.target.value)}/><datalist id="edition-subclasses">{modern.subclasses.filter(s=>s.class.name===char.className).map(s=><option key={s.index} value={s.name}/>)}</datalist></label>}
+      {needsSubclass&&<label className="creation-field"><span>Subclass name</span><input list="edition-subclasses" value={subclass} onChange={e=>setSubclass(e.target.value)}/><datalist id="edition-subclasses">{(mechanics(char)==='2014'?subclasses:modern.subclasses).filter(s=>s.class.name===char.className).map(s=><option key={s.index} value={s.name}/>)}{castingSubclassNames[char.className]&&<option value={castingSubclassNames[char.className]}/>}</datalist></label>}
       {asi&&<><label className="creation-field"><span>Ability improvement</span><select aria-label="Ability improvement" value={mode} onChange={e=>setMode(e.target.value)}><option value="scores">Ability scores: +2 or +1/+1</option><option value="feat">Choose a feat</option></select></label>{mode==='scores'&&[first,second].map((value,i)=><label className="creation-field" key={i}><span>Ability increase {i+1}</span><select value={value} onChange={e=>(i?setSecond:setFirst)(e.target.value)}><option value="">Choose</option>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label}</option>)}</select></label>)}</>}
       {(manual||mode==='feat')&&<LevelUpFeatChoice char={featCharacter} feat={feat} onChange={setFeat} homebrew={homebrew}/>}
       {manual&&<div className="form-grid">{ABILITIES.map(a=><label className="creation-field" key={a.key}><span>{a.label} (base)</span><input type="number" min="1" max="30" value={abilities[a.key]} onChange={e=>setAbilities({...abilities,[a.key]:Math.max(1,Math.min(30,Number(e.target.value)||1))})}/></label>)}</div>}
