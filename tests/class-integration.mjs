@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import classes from '../src/data/classes.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
-import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections} from '../src/lib/classIntegration.js';
+import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections,legacyClassSkillStatus} from '../src/lib/classIntegration.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
   id:'test-character',name:'Automation Test',ruleset,mechanics:ruleset,level:classLevels.reduce((n,row)=>n+row.level,0),
@@ -53,6 +53,11 @@ const dynamicSkillClass={name:'Adaptive Scholar',edition:'3.5',catalogId:'dndtoo
 const dynamicSkillSheet=reconcileClassGrants(baseCharacter([{catalogId:dynamicSkillClass.catalogId,name:dynamicSkillClass.name,edition:'3.5',level:1,definition:dynamicSkillClass}]));
 assert.equal(dynamicSkillSheet.classSkillRules35[0].rule.mode,'choose_any');
 assert.equal(reconcileClassGrants(dynamicSkillSheet).classSkillRules35.length,1,'dynamic class-skill rules reconcile idempotently');
+assert.deepEqual(legacyClassSkillStatus(skilledSheet,'Spellcraft'),{classSkill:true,fixed:true,manual:false,dynamic:false,rankCap:4});
+assert.deepEqual(legacyClassSkillStatus(skilledSheet,'Tumble'),{classSkill:false,fixed:false,manual:false,dynamic:false,rankCap:2});
+const dynamicMarked={...dynamicSkillSheet,classSkillOverrides35:{tumble:true}};
+assert.deepEqual(legacyClassSkillStatus(dynamicMarked,'Tumble'),{classSkill:true,fixed:false,manual:true,dynamic:true,rankCap:4});
+
 
 
 assert.deepEqual(a4.classSpellSlots.find(profile=>profile.sourceClassId===archivist.catalogId)?.slots.slice(0,4),[4,4,3,0],'Archivist multi-row slot table');
