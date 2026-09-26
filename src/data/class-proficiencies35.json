@@ -310,6 +310,108 @@
         "staff"
       ],
       "reviewNote": "Source names do not currently map completely to the equipment catalog; do not automate until resolved."
+    },
+    "classes/dragon-shaman-101": {
+      "name": "Dragon Shaman",
+      "sourceUrl": "https://new.dndtools.org/classes/dragon-shaman-101",
+      "proficiencyText": "Weapon and Armor Proficiency: Dragon shamans are proficient with simple weapons, with light and medium armor, and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/dragonfire-adept-29": {
+      "name": "Dragonfire Adept",
+      "sourceUrl": "https://new.dndtools.org/classes/dragonfire-adept-29",
+      "proficiencyText": "Weapon and Armor Proficiency: Dragonfire adepts are proficient with simple weapons, but not with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/drow-paragon-1000": {
+      "name": "Drow Paragon",
+      "sourceUrl": "https://new.dndtools.org/classes/drow-paragon-1000",
+      "proficiencyText": "Weapon and Armor Proficiency: Drow paragons are proficient with all simple weapons, rapiers, longswords, and hand crossbows, and with light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "longsword",
+          "name": "Longsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "hand-crossbow",
+          "name": "Hand crossbow",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/dread-necromancer-75": {
+      "name": "Dread Necromancer",
+      "sourceUrl": "https://new.dndtools.org/classes/dread-necromancer-75",
+      "proficiencyText": "Weapon and Armor Proficiency: A dread necromancer is proficient with all simple weapons and with one martial weapon of her choice. Dread necromancers are also proficient with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "proficiencyChoices": [
+        {
+          "id": "martial-weapon",
+          "label": "Martial weapon proficiency",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Choose one martial weapon when taking the first dread necromancer level; the choice cannot be changed."
+        }
+      ],
+      "verified": false,
+      "reviewNote": "Fixed grants are resolved, but the martial-weapon choice must be integrated before automation is complete."
     }
   }
 }
