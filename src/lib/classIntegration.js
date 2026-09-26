@@ -488,7 +488,9 @@ function derivedForRow(row){
   const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
   return {
     row,features:derivedFeatures,actions,feats,resources,tracks,spellSlots,training:edition==='3.5'&&Array.isArray(record.proficiencies)&&record.proficiencies.length?[{id:'class-grant:'+row.catalogId+':training',classId:row.catalogId,sourceClassId:row.catalogId,className:row.name,sourceClassName:row.name,edition:'3.5',sourceType:'class',automatic:true,sourceUrl:record.sourceUrl||null,proficiencies:record.proficiencies.map(item=>({...item,sourceClassId:row.catalogId,sourceClassName:row.name,automatic:true}))}]:[],
-    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trainingGrantCount:edition==='3.5'&&Array.isArray(record.proficiencies)&&record.proficiencies.length?1:0,trackCount:tracks.length,spellSlotProfile:Boolean(slotProfile),choiceCount:unresolvedChoices,gaps,warnings,descriptionComplete:descriptive===0,descriptionReady:derivedFeatures.every(feature=>Boolean(feature.description)),progressionSummaryCount:descriptive,integrationComplete:gaps.length===0,complete:gaps.length===0}
+    classSkills:edition==='3.5'&&Array.isArray(record.classSkills)?record.classSkills.map(name=>({id:'class-grant:'+row.catalogId+':class-skill:'+slug(name),name,sourceType:'class',automatic:true,sourceClassId:row.catalogId,sourceClassName:row.name,sourceUrl:record.sourceUrl||null,edition:'3.5'})):[],
+    classSkillRules:edition==='3.5'&&record.classSkillRule?[{id:'class-grant:'+row.catalogId+':class-skill-rule',rule:record.classSkillRule,sourceType:'class',automatic:true,sourceClassId:row.catalogId,sourceClassName:row.name,sourceUrl:record.sourceUrl||null,edition:'3.5'}]:[],
+    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trainingGrantCount:edition==='3.5'&&Array.isArray(record.proficiencies)&&record.proficiencies.length?1:0,classSkillCount:edition==='3.5'&&Array.isArray(record.classSkills)?record.classSkills.length:0,classSkillRule:Boolean(edition==='3.5'&&record.classSkillRule),trackCount:tracks.length,spellSlotProfile:Boolean(slotProfile),choiceCount:unresolvedChoices,gaps,warnings,descriptionComplete:descriptive===0,descriptionReady:derivedFeatures.every(feature=>Boolean(feature.description)),progressionSummaryCount:descriptive,integrationComplete:gaps.length===0,complete:gaps.length===0}
   };
 }
 
@@ -505,7 +507,7 @@ function mergeDerived(existing,derived,{resource=false}={}){
 
 export function reconcileClassGrants(character){
   const rows=characterClasses(character),derived=rows.map(derivedForRow);
-  const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources),training=derived.flatMap(x=>x.training||[]);
+  const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources),training=derived.flatMap(x=>x.training||[]),classSkills35=derived.flatMap(x=>x.classSkills||[]),classSkillRules35=derived.flatMap(x=>x.classSkillRules||[]);
   let tracks=derived.flatMap(x=>x.tracks),spellSlots=derived.flatMap(x=>x.spellSlots);
   const advancements=Array.isArray(character.castingAdvancements)?character.castingAdvancements:[];
   for(const row of rows){
@@ -531,6 +533,8 @@ export function reconcileClassGrants(character){
     feats:mergeDerived(character.feats,feats),
     resources:mergeDerived(character.resources,resources,{resource:true}),
     trainingGrants:mergeDerived(character.trainingGrants,training),
+    classSkills35:mergeDerived(character.classSkills35,classSkills35),
+    classSkillRules35:mergeDerived(character.classSkillRules35,classSkillRules35),
     classProgressionTracks:mergeDerived(character.classProgressionTracks,tracks),
     classSpellSlots:mergeDerived(character.classSpellSlots,spellSlots),
     classAutomation:{version:CLASS_INTEGRATION_VERSION,classes:derived.map(x=>x.report),incompleteClassIds:derived.filter(x=>!x.report.integrationComplete).map(x=>x.report.classId)}
