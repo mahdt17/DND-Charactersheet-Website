@@ -9,6 +9,7 @@ import EquipmentChoice, { resolveEquipment } from "./StartingEquipment";
 import subraces from "./data/subraces.json";
 import equipmentData from "./data/equipment.json";
 import { spellCatalog, countsFor, castingAbility, maxSpellLevel, classes as srdClasses, classLevel, subclasses, armorFor } from "./lib/rules";
+import {spellAccess,resolveSpell} from './lib/editions';
 
 const INK = "#2B2620";
 const PAPER = "#EDE6D3";
@@ -922,7 +923,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
   const prevCounts = spellcasting ? spellCountsFor(char, char.level) : null;
   const cantripGain = counts ? Math.max(0, counts.cantrips - (char.spells || []).filter(s => s.source !== char.race && (s.level === "Cantrip" || s.level === 0)).length) : 0;
   const currentCantrips = (char.spells || []).filter((s) => s.level === "Cantrip" || s.level === 0).map((s) => s.name);
-  const currentChosen = (char.spells || []).filter((s) => s.source !== char.race || !s.auto).map((s) => s.name);
+  const currentChosen = (char.spells || []).filter((s) => !s.auto&&!spellAccess(char,resolveSpell(s,char)).alwaysPrepared).map((s) => s.name);
   const knownTarget = counts?.known ?? counts?.prepared ?? 0;
   const currentKnown = currentChosen.filter((name) => SPELL_DATA.some((s) => s.name === name && s.level > 0)).length;
   const spellGain = counts?.mode === "known" || counts?.mode === "spellbook" ? Math.max(0, knownTarget - currentKnown) : 0;
@@ -955,8 +956,11 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
   const toggleChoice = (name, list, setter, limit) => {
     setter((prev) => prev.includes(name) ? prev.filter((x) => x !== name) : (prev.length >= limit ? prev : [...prev, name]));
   };
-  const spellCandidates = availableSpells(char.className, maxSpellLevel(char.className, targetLevel), false);
-  const cantripCandidates = availableSpells(char.className, 0, true);
+  const accessModel={...char,level:targetLevel,subclass,abilities:abilityChanges()};
+  const selectable=SPELL_DATA.filter(s=>{const access=spellAccess(accessModel,s);return access.allowed&&!access.alwaysPrepared;});
+  const spellCandidates = selectable.filter(s=>s.level>0);
+  const cantripCandidates = selectable.filter(s=>s.level===0);
+  const normalPrepared=preparedSpells.filter(name=>spellCandidates.some(s=>s.name===name));
   const preparedLimit = counts?.mode === "prepared" ? countsFor(char.className,targetLevel,effectiveNextAbilities[castingAbility[char.className]]).prepared : null;
   const knownLimit = counts?.mode === "known" || counts?.mode === "spellbook" ? spellGain : 0;
 
@@ -984,13 +988,13 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
     if (isSpell) {
       if (cantripGain > 0 && newCantrips.length !== cantripGain) return false;
       if (knownLimit > 0 && newSpells.length !== knownLimit) return false;
-      if (counts?.mode === "prepared") return preparedSpells.length <= preparedLimit;
+      if (counts?.mode === "prepared") return normalPrepared.length <= preparedLimit;
     }
     return true;
   };
 
   function finish() {
-    if(!valid()||!featValid)return;
+    if(!valid()||!featValid||[...newCantrips,...newSpells].some(name=>!selectable.some(s=>s.name===name)))return;
     const oldConMod = abilityMod(effectiveAbilities(char).con);
     const nextAbilities = abilityChanges();
     const nextDraft = { ...char, level: targetLevel, abilities: nextAbilities };
@@ -1007,7 +1011,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
         ...newSpells.map((name) => { const d = SPELL_DATA.find((x) => x.name === name); return { id:`spell:${uid()}`, name, level:`${d.level}st-level spell`.replace("1st", d.level===1?"1st":`${d.level}th`), source:char.className, school:d.school, description:d.description, acquiredLevel:targetLevel, prepared:counts?.mode === "prepared" }; }),
       ];
       if (counts?.mode === "prepared") {
-        next.spells = [...existing.map(s=>({...s,prepared:preparedSpells.includes(s.name)})), ...preparedSpells.filter(name=>!existing.some(s=>s.name===name)).map(name=>({...SPELL_DATA.find(s=>s.name===name),id:`spell:${uid()}`,source:char.className,prepared:true})), ...additions];
+        next.spells = [...existing.map(s=>({...s,prepared:spellAccess(accessModel,resolveSpell(s,char)).alwaysPrepared||normalPrepared.includes(s.name)})), ...normalPrepared.filter(name=>!existing.some(s=>s.name===name)).map(name=>({...SPELL_DATA.find(s=>s.name===name),id:`spell:${uid()}`,source:char.className,prepared:true})), ...additions];
       } else next.spells = [...existing, ...additions];
       next.spellInfo = { ...spellCountsFor(next, targetLevel), casterType: FULL_CASTER_CLASSES.has(char.className) ? "Full caster" : HALF_CASTER_CLASSES.has(char.className) ? "Half caster" : "Pact caster / spells known", spellcastingAbility: classDataAbility(char.className), level: targetLevel };
     }
@@ -1050,7 +1054,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
             <CreationStepHeader eyebrow="Spellcasting" title="Choose your new spells" description="Only spells available to your class are shown. Your current selections remain on the character sheet, and new choices are added automatically when you finish leveling up."/>
             {cantripGain > 0 && <SpellPicker title="New cantrips" spells={cantripCandidates.filter(s=>!currentCantrips.includes(s.name))} selected={newCantrips} limit={cantripGain} onToggle={name=>toggleChoice(name,newCantrips,setNewCantrips,cantripGain)}/>}
             {knownLimit > 0 && <SpellPicker title="New spells" spells={spellCandidates.filter(s=>s.level>0&&!currentChosen.includes(s.name))} selected={newSpells} limit={knownLimit} onToggle={name=>toggleChoice(name,newSpells,setNewSpells,knownLimit)}/>}
-            {counts?.mode === "prepared" && <SpellPicker title="Prepared spells" spells={spellCandidates.filter(s=>s.level>0)} selected={preparedSpells} limit={preparedLimit} onToggle={name=>toggleChoice(name,preparedSpells,setPreparedSpells,preparedLimit)}/>}
+            {counts?.mode === "prepared" && <SpellPicker title="Prepared spells" spells={spellCandidates.filter(s=>s.level>0)} selected={normalPrepared} limit={preparedLimit} onToggle={name=>setPreparedSpells(normalPrepared.includes(name)?normalPrepared.filter(n=>n!==name):normalPrepared.length<preparedLimit?[...normalPrepared,name]:normalPrepared)}/>}
           </>}
           {isReview && <>
             <CreationStepHeader eyebrow="Final review" title={`You're becoming level ${targetLevel}`} description="Review every automatic change and every choice before the character is updated."/>

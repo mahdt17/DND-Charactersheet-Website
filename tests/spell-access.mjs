@@ -6,6 +6,7 @@ try {
  const e=await server.ssrLoadModule('/src/lib/editions.js');
  const a=await server.ssrLoadModule('/src/lib/advancement.js');
  const integration=await server.ssrLoadModule('/src/lib/classIntegration.js');
+ const subclass=await server.ssrLoadModule('/src/lib/subclassSpells.js');
  const {createCatalogService}=await server.ssrLoadModule('/src/lib/catalog.js');
  const svc=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
  const [classes35,spells35,classes14,spells14]=await Promise.all([svc.load('3.5/classes'),svc.load('3.5/spells'),svc.load('2014/classes'),svc.load('2014/spells')]);
@@ -56,6 +57,30 @@ try {
  assert(!e.spellAccess(cloistered,named('Magic Missile','3.5')).allowed);
  assert(!e.permittedSpells(make('Warblade','3.5',1),spells35).some(s=>s.isManeuver&&s.level>1));
  const arti=make('Artificer','2014',1);assert.equal(e.characterSlots(arti)[1],2);assert.equal(e.spellCounts(arti,18).cantrips,2);assert.equal(e.castingKey(arti),'int');assert(e.permittedSpells(arti,spells14).length>0);
+ for(const edition of ['2014','2024'])for(const [className,subclassName] of [['Cleric','Life Domain'],['Paladin','Oath of Devotion'],['Warlock','Fiend'],['Sorcerer','Draconic Sorcery'],['Druid','Circle of the Land']]){
+  const c={...make(className,edition,20),subclass:subclassName};
+  for(const land of subclass.subclassLandOptions(c).length?subclass.subclassLandOptions(c):['']){
+   const model={...c,subclassSpellChoices:{[a.characterClasses(c)[0].catalogId]:{land}}};
+   const grants=subclass.subclassSpellGrants(model),next=integration.reconcileClassGrants(model);
+   assert.equal(next.spells.filter(s=>s.classSpellGrant).length,grants.filter(g=>g.alwaysPrepared).length,`${edition} ${className} ${land}: every prepared grant resolves to a spell`);
+   assert.deepEqual(integration.reconcileClassGrants(next).spells,next.spells,'Subclass reconciliation is idempotent');
+   for(const grant of grants){const s=e.allSpells.find(s=>s.edition===edition&&s.name.toLowerCase().replaceAll('’',"'")===grant.name.toLowerCase().replaceAll('’',"'"));assert(s,grant.name);assert(e.spellAccess(model,s).allowed,grant.name);assert.equal(e.spellAccess(model,s).alwaysPrepared,grant.alwaysPrepared);}
+   assert(next.spells.every(s=>!s.auto),'Always prepared must still spend a spell slot');
+   assert.equal(integration.reconcileClassGrants({...next,subclass:'Unrelated subclass'}).spells.length,0);
+  }
+ }
+ const fiend={...make('Warlock','2014',4),subclass:'Fiend'};
+ assert(!e.spellAccess(fiend,named('Fireball')).allowed);
+ assert(e.spellAccess({...fiend,level:5},named('Fireball')).allowed);
+ assert(!e.spellAccess({...fiend,level:5},named('Fireball')).alwaysPrepared);
+ const devotion={...make('Paladin','2014',3),subclass:'Devotion'};
+ const normalizedDevotion=a.normalizeAdvancement({...devotion,classLevels:a.characterClasses(devotion),subclass:''});
+ assert.equal(normalizedDevotion.subclass,'Devotion','Per-class subclass choices remain authoritative on reopen');
+ assert(e.spellAccess(devotion,named('Sanctuary')).alwaysPrepared);
+ assert(!e.spellAccess({...devotion,level:2},named('Sanctuary')).allowed);
+ const existing=integration.reconcileClassGrants({...devotion,spells:[{...named('Sanctuary'),id:'manual-choice',prepared:false}]});
+ assert.equal(existing.spells.filter(s=>s.name==='Sanctuary').length,1,'Existing spells are not duplicated');
+ assert.equal(integration.reconcileClassGrants({...existing,subclass:''}).spells[0].id,'manual-choice','Manual entries survive subclass changes');
  // Every 3.5 source record is checked, without interpreting a non-empty
  // progression table as proof that all class mechanics have been implemented.
  let noMembership=0;

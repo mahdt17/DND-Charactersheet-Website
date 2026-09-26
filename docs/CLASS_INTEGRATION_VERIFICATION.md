@@ -19,6 +19,13 @@ mechanic is fully automated.
   slot overrides, including older saves that recorded primary slots separately.
 - Artificer uses its source table, Intelligence preparation limit, and rounded-up
   half-level contribution to multiclass slots.
+- Source-reviewed Life domain, Devotion oath and Circle of the Land spells are
+  added at their own class levels and stay prepared without using the normal
+  preparation allowance. Circle terrain is selectable per class. The 2024
+  Draconic and Fiend tables also grant prepared spells; 2014 Fiend spells instead
+  expand the list of known-spell choices. These spells still spend slots.
+  Changing subclass, terrain, or class level reconciles only derived spells;
+  manually recorded spells remain available for eligibility review.
 - Archivist and Favored Soul use the Cleric list; Spirit Shaman uses Druid.
   Cloistered Cleric includes its source-listed additions and adjusted spell levels.
   Noncleric divine spells copied by an Archivist require an explicit source grant.
@@ -49,6 +56,9 @@ of every source rule.
 editions, saved-spell repair through a source grant, persistence after reopening,
 multiclass selection and mobile layout. Existing creation, casting, progression,
 resource, training, hit-die, feat and integration suites remain in CI.
+Subclass checks cover every reviewed spell table and terrain, prepared grants,
+duplicate prevention, removal, 2014 expanded-list selection while leveling,
+and domain spells spending slots without consuming preparation choices.
 
 ## Remaining work before claiming full automation
 
@@ -59,7 +69,7 @@ summaries. Only 100 source proficiency supplements are verified, and 203 class
 records have proficiency source text. The audit now states its scope explicitly.
 
 Source-specific spell acquisition/preparation limits, restricted domain and
-specialist slots, bonus slots for unreviewed casting classes, all subclass casting progressions,
+specialist slots, bonus slots for unreviewed casting classes, additional subclass casting progressions,
 psionics/invocations/binding/incarnum effects, companions, and remaining training
 rules still need structured source work. Cross-edition slot conversions remain
 table-controlled. A spell access grant is an explicit exception, not evidence
@@ -70,6 +80,8 @@ Read-only verification confirmed row-level security on both public tables.
 
 ## Rules references
 
+- [2014 subclass spell tables](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes)
+- [2024 subclass spell tables](https://www.dndbeyond.com/sources/dnd/free-rules/character-classes)
 - [2014 multiclass spellcasting](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/customization-options#Spellcasting)
 - [2024 multiclass spellcasting](https://www.dndbeyond.com/sources/dnd/free-rules/creating-a-character)
 - [3.5 Cleric](https://www.d20srd.org/srd/classes/cleric.htm)

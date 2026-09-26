@@ -4,7 +4,7 @@ import ClassProgression from './ClassProgression';
 import React,{useState,useEffect,useRef} from 'react';
 import {ABILITIES,effectiveAbilities} from './CharacterManager';
 import {modifier} from './lib/rules';
-import {modern,mechanics,is35,levelRecord,spellCounts,permittedSpells,keyOf,castingKey,legacyProgression} from './lib/editions';
+import {modern,mechanics,is35,levelRecord,spellCounts,spellAccess,permittedSpells,keyOf,castingKey,legacyProgression} from './lib/editions';
 import {useReferenceIndex} from './lib/referenceIndex';
 import SpellPicker from './EditionSpellPicker';
 import {focusDialog} from './GuidedSetup';
@@ -22,9 +22,9 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   if(asi&&mode==='scores'){if(first)nextAbilities[first]++;if(second)nextAbilities[second]++;}
   const draft={...char,level:target,subclass,abilities:nextAbilities},effective=effectiveAbilities(draft);
   const counts=spellCounts(draft,effective[castingKey(draft)]||10),current=char.spells||[];
-  const candidates=permittedSpells(draft,[...homebrew,...reference.entries]).filter(s=>!current.some(c=>keyOf(c)===keyOf(s)));
-  const cantripGain=manual?Infinity:Math.max(0,counts.cantrips-current.filter(s=>s.level===0&&!s.auto).length);
-  const spellGain=manual?Infinity:Math.max(0,(counts.mode==='spellbook'||counts.mode==='known'?counts.known:counts.prepared||0)-current.filter(s=>s.level>0&&!s.auto).length);
+  const candidates=permittedSpells(draft,[...homebrew,...reference.entries]).filter(s=>!spellAccess(draft,s).alwaysPrepared&&!current.some(c=>keyOf(c)===keyOf(s)));
+  const cantripGain=manual?Infinity:Math.max(0,counts.cantrips-current.filter(s=>s.level===0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
+  const spellGain=manual?Infinity:Math.max(0,(counts.mode==='spellbook'||counts.mode==='known'?counts.known:counts.prepared||0)-current.filter(s=>s.level>0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
   const selectedCantrips=added.filter(s=>s.level===0),selectedSpells=added.filter(s=>s.level!==0);
   const hp=Math.max(1,hpGain+modifier(effective.con))+(mechanics(char)==='2024'&&char.race==='Dwarf'?1:0)+(modifier(effective.con)-modifier(effectiveAbilities(char).con))*char.level;
   function toggle(s){setAdded(list=>list.some(x=>keyOf(x)===keyOf(s))?list.filter(x=>keyOf(x)!==keyOf(s)):[...list,s]);}

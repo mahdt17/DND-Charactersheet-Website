@@ -4,6 +4,7 @@ import modern from '../data/srd2024.json' with {type:'json'};
 import proficiencySupplements35 from '../data/class-proficiencies35.json' with {type:'json'};
 import {characterClasses,contentKey,progressionTables} from './advancement.js';
 import {normalizeEdition} from './content.js';
+import {reconcileSubclassSpells} from './subclassSpells.js';
 
 export const CLASS_INTEGRATION_VERSION=1;
 const proficiencySupplements=proficiencySupplements35.entries||{};
@@ -563,6 +564,7 @@ export function reconcileClassGrants(character){
   }
   return {
     ...character,
+    spells:reconcileSubclassSpells(character),
     grantedFeatures:mergeDerived(character.grantedFeatures,features),
     actions:mergeDerived(character.actions,actions),
     feats:mergeDerived(character.feats,feats),

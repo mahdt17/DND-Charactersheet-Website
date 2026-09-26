@@ -1,5 +1,6 @@
 import {contentKey, progressionRow} from './advancement.js';
 import {classSpellLists35} from './classSpellLists35.js';
+import {subclassSpellAccess} from './subclassSpells.js';
 
 const norm=value=>String(value?.name||value||'').trim().toLowerCase();
 const validLevel=value=>Number.isInteger(value)&&value>=0&&value<=9;
@@ -13,6 +14,8 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
   if(c.ruleset==='custom'&&c.unrestrictedSpellAccess===true)
     return {allowed:true,level:spell.level,reason:'Table-approved custom spell access'};
   if(spell.edition&&spell.edition!==edition)return deny('This spell belongs to a different edition.');
+  const subclassGrant=subclassSpellAccess(c,spell);
+  if(subclassGrant&&validLevel(spell.level))return {allowed:true,level:spell.level,alwaysPrepared:subclassGrant.alwaysPrepared,reason:`Granted by ${subclassGrant.source}`};
   const classId=c.activeCastingClassId||contentKey(c.classDefinition||{name:c.className,edition});
   const grants=(c.spellAccessGrants||[]).filter(g=>g.classId===classId&&Number(g.classLevel||1)<=c.level&&
     (g.spellId===(spell.catalogId||`${spell.edition||'2014'}:${spell.index||spell.id||spell.name}`))&&g.source);

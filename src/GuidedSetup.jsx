@@ -50,7 +50,7 @@ export default function GuidedSetup({onCancel,onFinish,homebrew:customEntries=[]
  else if(halfElf){if(draft.bonusA)bonuses[draft.bonusA]=(bonuses[draft.bonusA]||0)+1;if(draft.bonusB)bonuses[draft.bonusB]=(bonuses[draft.bonusB]||0)+1;}
  const totals=Object.fromEntries(ABILITIES.map(a=>[a.key,Number(draft.abilities[a.key])+(bonuses[a.key]||0)]));
  const counts=spellCounts(draft,totals[draft.castingAbility||({Bard:'cha',Cleric:'wis',Druid:'wis',Paladin:'cha',Ranger:'wis',Sorcerer:'cha',Warlock:'cha',Wizard:'int'}[draft.className])]||10);
- const spells=permittedSpells(draft,homebrew),manual=is35(draft)||draft.ruleset==='custom',spellLimit=manual?Infinity:counts.mode==='spellbook'?counts.known:counts.mode==='known'?counts.known:counts.prepared;
+ const spells=permittedSpells(draft,homebrew).filter(s=>!spellAccess(draft,s).alwaysPrepared),manual=is35(draft)||draft.ruleset==='custom',spellLimit=manual?Infinity:counts.mode==='spellbook'?counts.known:counts.mode==='known'?counts.known:counts.prepared;
  const cantripLimit=manual?Infinity:counts.cantrips;
  const skillOptions=coreClassSkillOptions(c)||c?.proficiency_choices?.[0]?.from?.options?.map(x=>(x.item?.name||'').replace('Skill: ','')).filter(Boolean)||SKILLS.map(x=>x[0]);
  const skillLimit=c?.proficiency_choices?.[0]?.choose||0;

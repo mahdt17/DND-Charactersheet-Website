@@ -6,7 +6,7 @@ export const prestige=r=>Boolean(r?.prestige||r?.stats?.prestige);
 const norm=s=>String(s||'').trim().replace(/[’]/g,"'").toLowerCase();
 const scores={strength:'str',dexterity:'dex',constitution:'con',intelligence:'int',wisdom:'wis',charisma:'cha',str:'str',dex:'dex',con:'con',int:'int',wis:'wis',cha:'cha'};
 export function characterClasses(c) {
-  if(Array.isArray(c.classLevels)&&c.classLevels.length)return c.classLevels.map(row=>({...row,level:Math.max(1,Math.floor(Number(row.level)||1)),edition:normalizeEdition(row.edition||c.ruleset)}));
+  if(Array.isArray(c.classLevels)&&c.classLevels.length)return c.classLevels.map((row,i)=>({...row,subclass:row.subclass??(i===0?c.subclass||'':''),level:Math.max(1,Math.floor(Number(row.level)||1)),edition:normalizeEdition(row.edition||c.ruleset)}));
   if(!c.className)return [];
   const definition=c.classDefinition||{name:c.className,index:c.className,edition:c.ruleset==='custom'?c.mechanics:c.ruleset,hit_die:Number(String(c.hitDie||'d8').slice(1))};
   return [{catalogId:contentKey(definition),name:c.className,edition:normalizeEdition(definition.edition||c.ruleset),level:Math.max(1,Number(c.level)||1),definition,subclass:c.subclass||''}];
@@ -18,7 +18,7 @@ export function spellsForClass(c,catalogId) {
 }
 export function normalizeAdvancement(c) {
   const classLevels=characterClasses(c);
-  return {...c,classLevels,level:classLevels.reduce((n,x)=>n+x.level,0)||c.level||1};
+  return {...c,classLevels,subclass:classLevels[0]?.subclass||'',level:classLevels.reduce((n,x)=>n+x.level,0)||c.level||1};
 }
 export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,activeCastingClassId:row.catalogId,otherClassLevels:characterClasses(c).filter(r=>r.catalogId!==row.catalogId).reduce((n,r)=>n+r.level,0),level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
 export function progressionTables(record) {
