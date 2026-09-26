@@ -12,7 +12,7 @@ try {
  const page=await browser.newPage(),requests=[],errors=[];page.on('request',r=>requests.push(r.url()));page.on('pageerror',e=>errors.push(e.message));
  await page.goto(`http://127.0.0.1:5180${base}`);await page.getByRole('button',{name:'Explore the demo'}).waitFor();
  assert(!requests.some(u=>/LedgerEntry-|RevisedCatalog-|\/catalogs\//.test(u)),'Character rules must not load before entering the ledger');
- await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Open character'}).click();assert(await page.getByLabel('Current temporary HP').isVisible());assert(requests.some(u=>/LedgerEntry-/.test(u)));
+ await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Open character'}).click();assert(await page.getByLabel('Current temporary HP').isVisible());assert(requests.some(u=>/LedgerEntry-/.test(u)));assert(!requests.some(u=>/diceRenderer-/.test(u)),'3D physics must stay deferred until the first animated roll');
  await page.getByRole('button',{name:'Exit demo',exact:true}).click();await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Open character'}).waitFor();assert.equal(await page.getByRole('button',{name:'Open character'}).count(),1);assert.deepEqual(errors,[]);
  // Reuse the context: Chromium's single-process mode cannot reliably create
  // another one. Navigation resets module state; routing disables HTTP caching.

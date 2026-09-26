@@ -88,7 +88,7 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false})
     <input ref={fileRef} type="file" accept=".json,application/json" hidden onChange={importCharacter}/>
     {wizard&&<div className="wizard-layer">{error&&<div className="wizard-error" role="alert">{error}</div>}{busy&&<div className="wizard-saving" role="status">Saving character…</div>}{wizard==='create'?<GuidedSetup onRoll={roll} homebrew={workspace.homebrew||[]} onCancel={()=>setWizard(null)} onFinish={finish}/>:<LevelUp homebrew={workspace.homebrew||[]} char={char} onCancel={()=>setWizard(null)} onFinish={finish}/>}</div>}
     {!diceOpen&&<button type="button" className="floating-dice" aria-label="Open dice roller" onClick={()=>setDiceOpen(true)}><Dices size={20}/><span>Roll dice</span></button>}
-    <DiceAnimation rolls={rolls}/>
+    <DiceAnimation rolls={rolls} trayOpen={diceOpen}/>
     {diceOpen&&<DiceTray rolls={rolls} mode={mode} setMode={setMode} roll={roll} clear={()=>setRolls([])} close={()=>setDiceOpen(false)}/>}
     {detail&&<Modal title={detail.name||detail.title} onClose={()=>setDetail(null)}><Detail item={detail}/></Modal>}
     {deleteTarget&&<Modal title={`Delete ${deleteTarget.name}?`} onClose={()=>setDeleteTarget(null)}><p>This removes the character and its saved sheet. Export a backup first if you want to keep a copy.</p><div className="l-toolbar"><Button onClick={()=>download(`${deleteTarget.name}.json`,deleteTarget)} icon={Download}>Export backup</Button><Button disabled={busy} onClick={()=>setDeleteTarget(null)}>Cancel</Button><Button danger disabled={busy} onClick={remove}>{busy?'Deleting…':'Delete character'}</Button></div></Modal>}
