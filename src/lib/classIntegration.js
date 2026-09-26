@@ -42,7 +42,7 @@ function sourceFeatureDescription(record,name){
   if(!source||!name)return '';
   const candidates=[name,String(name).replace(/\s*\([^)]*\)\s*$/,'')].filter(Boolean);
   for(const candidate of [...new Set(candidates)]){
-    const escaped=candidate.replace(/[.*+?^\${}()|[\]\\]/g,'\\$&');
+    const escaped=candidate.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
     const heading=new RegExp('(?:^|\\n)\\s*(?:\\*\\*)?'+escaped+'(?:\\s*\\([^\\n)]*\\))?(?:\\*\\*)?\\s*:\\s*','i');
     const match=heading.exec(source);
     if(match){
@@ -205,7 +205,7 @@ function isConcreteFeat(feature){
   if(feature.kind==='feat')return true;
   if(/^bonus feat$|^fighter feat$|^wild feat$/i.test(feature.name))return false;
   const description=feature.description||'';
-  const escaped=feature.name.replace(/[.*+?^\${}()|[\]\\]/g,'\\$&');
+  const escaped=feature.name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   return /\b(?:gain|gains|gained|receive|receives)\b[^.]{0,160}\bas (?:a )?bonus feat\b/i.test(description)
     ||new RegExp('\\b'+escaped+'\\b[^.]{0,120}\\bbonus feat\\b','i').test(description);
 }
@@ -284,15 +284,22 @@ export function classAutomationReport(character){
 }
 
 export function removeClassProgression(character,classId){
+  const removed=characterClasses(character).find(row=>row.catalogId===classId);
   const rows=characterClasses(character).filter(row=>row.catalogId!==classId);
   if(!rows.length)throw new Error('A character must retain at least one class.');
-  const primary=rows[0];
+  const primary=rows[0],removedName=removed?.name;
+  const trainingGrants=(character.trainingGrants||[]).filter(grant=>grant.classId!==classId&&grant.sourceClassId!==classId);
+  const spells=(character.spells||[]).filter(spell=>spell.castingClassId!==classId);
+  const featureChoices=Object.fromEntries(Object.entries(character.featureChoices||{}).filter(([key,value])=>value?.classId!==classId&&value?.sourceClassId!==classId&&value?.className!==removedName&&!key.includes(':'+removedName+':')));
   return reconcileClassGrants({
     ...character,
     classLevels:rows,
     level:rows.reduce((sum,row)=>sum+row.level,0),
     className:primary.name,
     classDefinition:primary.definition,
-    subclass:primary.subclass||''
+    subclass:primary.subclass||'',
+    trainingGrants,
+    spells,
+    featureChoices
   });
 }
