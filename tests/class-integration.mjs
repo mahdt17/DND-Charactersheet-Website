@@ -52,6 +52,24 @@ for(const [name,expected] of [
   const grant=sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId);
   assert.deepEqual(grant?.proficiencies.map(item=>item.index),expected,`${name} verified source training`);
 }
+for(const [name,expected] of [
+  ['Swordsage',['light-armor','simple-weapons','martial-melee-weapons']],
+  ['Totemist',['light-armor','shields-except-tower','simple-weapons']],
+  ['Warblade',['light-armor','medium-armor','shields-except-tower','simple-weapons','martial-melee-weapons']],
+  ['Warlock',['light-armor','simple-weapons']],
+  ['Wilder',['light-armor','shields-except-tower','simple-weapons']],
+  ['Wu Jen',['simple-weapons']]
+]){
+  const record=integrated35(name),sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name,edition:'3.5',level:1,definition:record}]));
+  const grant=sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId);
+  assert.deepEqual(grant?.proficiencies.map(item=>item.index),expected,`${name} verified source training`);
+}
+const warmage35=integrated35('Warmage');
+const warmage1=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:1,definition:warmage35}]));
+assert(!warmage1.trainingGrants.flatMap(grant=>grant.proficiencies).some(item=>item.index==='medium-armor'),'Warmage medium armor is not a level-1 grant');
+const warmage8=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:8,definition:warmage35}]));
+assert(warmage8.trainingGrants.some(grant=>grant.sourceClassLevel===8&&grant.proficiencies.some(item=>item.index==='medium-armor')),'Warmage gains medium-armor proficiency at level 8');
+
 
 const skilledArchivist={...archivist,classSkills:['Concentration','Knowledge (religion)','Spellcraft']};
 const skilledSheet=reconcileClassGrants(baseCharacter([{catalogId:skilledArchivist.catalogId,name:'Archivist',edition:'3.5',level:1,definition:skilledArchivist}]));
