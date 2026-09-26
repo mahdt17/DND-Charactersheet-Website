@@ -77,6 +77,9 @@ try {
  const normalizedDevotion=a.normalizeAdvancement({...devotion,classLevels:a.characterClasses(devotion),subclass:''});
  assert.equal(normalizedDevotion.subclass,'Devotion','Per-class subclass choices remain authoritative on reopen');
  assert(e.spellAccess(devotion,named('Sanctuary')).alwaysPrepared);
+ const customRoll=integration.reconcileClassGrants(devotion);
+ customRoll.spells[0]={...customRoll.spells[0],rollFormula:'2d6+3',rollAttack:true};
+ assert.equal(integration.reconcileClassGrants(customRoll).spells[0].rollFormula,'2d6+3','Reconciliation retains spell roll preferences');
  assert(!e.spellAccess({...devotion,level:2},named('Sanctuary')).allowed);
  const existing=integration.reconcileClassGrants({...devotion,spells:[{...named('Sanctuary'),id:'manual-choice',prepared:false}]});
  assert.equal(existing.spells.filter(s=>s.name==='Sanctuary').length,1,'Existing spells are not duplicated');

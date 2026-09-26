@@ -63,7 +63,8 @@ export function reconcileSubclassSpells(c){
    const data=catalog[row.edition]?.find(s=>norm(s.name)===norm(grant.name));
    if(!data)continue;
    if(spells.some(s=>(s.castingClassId||rows[0].catalogId)===row.catalogId&&(s.edition||'2014')===row.edition&&norm(s.name)===norm(data.name)))continue;
-   spells.push({...data,edition:row.edition,catalogId:`${row.edition}:${data.index}`,id:`subclass-spell:${row.catalogId}:${data.index}`,castingClassId:row.catalogId,classSpellGrant:true,prepared:true,source:grant.source,description:data.description||data.desc?.join('\n\n')||'',school:typeof data.school==='object'?data.school.name:data.school});
+   const id=`subclass-spell:${row.catalogId}:${data.index}`,previous=(c.spells||[]).find(s=>s.classSpellGrant&&s.id===id);
+   spells.push({...data,...(previous?.rollFormula!=null?{rollFormula:previous.rollFormula}:{}),...(previous?.rollAttack!=null?{rollAttack:previous.rollAttack}:{}),edition:row.edition,catalogId:`${row.edition}:${data.index}`,id,castingClassId:row.catalogId,classSpellGrant:true,prepared:true,source:grant.source,description:data.description||data.desc?.join('\n\n')||'',school:typeof data.school==='object'?data.school.name:data.school});
   }
  }
  return spells;
