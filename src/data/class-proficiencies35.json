@@ -977,6 +977,141 @@
         }
       ],
       "verified": true
+    },
+    "classes/psychic-warrior-138": {
+      "name": "Psychic Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/psychic-warrior-138",
+      "proficiencyText": "Weapon and Armor Proficiency: Psychic warriors are proficient with all simple and martial weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/shugenja-8": {
+      "name": "Shugenja",
+      "sourceUrl": "https://new.dndtools.org/classes/shugenja-8",
+      "proficiencyText": "Weapon and Armor Proficiency: Shugenjas are proficient with all simple weapons and with the short sword. They are not proficient with any type of armor, nor with shields.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/soulborn-82": {
+      "name": "Soulborn",
+      "sourceUrl": "https://new.dndtools.org/classes/soulborn-82",
+      "proficiencyText": "Weapon and Armor Proficiency: Soulborns are proficient with all simple and martial weapons, with light, medium, and heavy armor, and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/spellthief-3": {
+      "name": "Spellthief",
+      "sourceUrl": "https://new.dndtools.org/classes/spellthief-3",
+      "proficiencyText": "Weapon and Armor Proficiency: Spellthieves are proficient with all simple weapons and with light armor but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/swashbuckler-23": {
+      "name": "Swashbuckler",
+      "sourceUrl": "https://new.dndtools.org/classes/swashbuckler-23",
+      "proficiencyText": "Weapon and Armor Proficiency: Swashbucklers are proficient with all simple and martial weapons, and with light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
