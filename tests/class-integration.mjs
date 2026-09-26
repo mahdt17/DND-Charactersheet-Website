@@ -15,7 +15,9 @@ const baseCharacter=(classLevels,ruleset='3.5')=>({
 
 const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
 const [classes35,feats35]=await Promise.all([service.load('3.5/classes'),service.load('3.5/feats')]);
-const archivist=annotateClassGrantKinds(classes35.find(record=>record.name==='Archivist'),feats35);
+const reference35=[...classes35,...feats35];
+const integrated35=name=>annotateClassGrantKinds(classes35.find(record=>record.name===name),reference35);
+const archivist=integrated35('Archivist');
 assert(archivist,'Archivist must exist in the canonical 3.5 catalog');
 assert(archivist.progression?.length||archivist.tables?.length,'Archivist must expose structured progression data');
 
@@ -35,6 +37,41 @@ const again=reconcileClassGrants(a4);
 assert.equal(new Set(again.actions.map(x=>x.id)).size,again.actions.length);
 assert.equal(new Set(again.feats.map(x=>x.id)).size,again.feats.length);
 assert.equal(new Set(again.grantedFeatures.map(x=>x.id)).size,again.grantedFeatures.length);
+
+// Recurring 3.5 progression families are retained generically instead of hard-coded per class.
+for(const [name,level,expected] of [
+  ['Psion',3,{'Power Points per Day':'11','Powers Known':'7','Maximum Power Level Known':'2nd'}],
+  ['Warblade',3,{'Maneuvers Known':'5','Maneuvers Readied':'3','Stances Known':'1'}],
+  ['Warlock',3,{'Invocations Known':'2'}],
+  ['Incarnate',3,{'Soulmelds':'3','Essentia':'3','Chakra Binds':'1'}],
+  ['Loremaster',3,{'Spells per Day':'+1 level of existing class'}]
+]){
+  const record=integrated35(name);
+  assert(record,`${name} must exist in the canonical 3.5 catalog`);
+  const reconciled=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name,edition:'3.5',level,definition:record}]));
+  const tracks=Object.fromEntries((reconciled.classProgressionTracks||[]).map(track=>[track.name,track.value]));
+  for(const [track,value] of Object.entries(expected))assert.equal(tracks[track],value,`${name} ${track}`);
+  assert.equal(classAutomationReport(reconciled).classes[0].progressionComplete,true,`${name} progression`);
+}
+
+// Every no-table variant can resolve through its audited inheritance pointer.
+const fighterVariant=integrated35('Fighter Variant');
+assert(fighterVariant?.inheritedFromClassId,'Fighter Variant should resolve canonical parent progression');
+assert(fighterVariant.progression?.length,'Inherited Fighter progression must be available');
+const variantSheet=reconcileClassGrants(baseCharacter([{catalogId:fighterVariant.catalogId,name:fighterVariant.name,edition:'3.5',level:2,definition:fighterVariant}]));
+assert.equal(classAutomationReport(variantSheet).classes[0].progressionComplete,true);
+assert((variantSheet.grantedFeatures||[]).every(feature=>feature.sourceClassId===fighterVariant.catalogId),'Inherited grants retain variant provenance');
+
+// Plural "Specials" is a real catalog shape and must be parsed as class features.
+const planar=integrated35('Planar Vanguard');
+assert(planar);
+const planarSheet=reconcileClassGrants(baseCharacter([{catalogId:planar.catalogId,name:planar.name,edition:'3.5',level:1,definition:planar}]));
+assert(planarSheet.grantedFeatures.length>0,'Specials column should produce class grants');
+
+// NPC progressions without a Special column are still structurally valid progressions.
+const aristocrat=integrated35('Aristocrat');
+const aristocratSheet=reconcileClassGrants(baseCharacter([{catalogId:aristocrat.catalogId,name:aristocrat.name,edition:'3.5',level:3,definition:aristocrat}]));
+assert.equal(classAutomationReport(aristocratSheet).classes[0].progressionComplete,true);
 
 const fighterRecord={...classes.find(row=>row.name==='Fighter'),edition:'2014',catalogId:'2014:fighter'};
 const wizardRecord={...classes.find(row=>row.name==='Wizard'),edition:'2014',catalogId:'2014:wizard'};
@@ -69,4 +106,4 @@ assert(!removed.spells.some(spell=>spell.id==='wizard-spell'));
 assert(!removed.trainingGrants.some(grant=>grant.classId===wizardRecord.catalogId));
 assert(!removed.grantedFeatures.some(feature=>feature.sourceClassId===wizardRecord.catalogId));
 
-console.log('PASS class reconciliation: Archivist actions/feat/resources, levels 1-4, idempotence, core multiclassing, prestige, and safe class removal');
+console.log('PASS class reconciliation: Archivist, recurring 3.5 progression families, inherited variants, plural Specials, multiclassing, prestige, idempotence, and safe removal');
