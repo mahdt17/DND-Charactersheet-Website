@@ -9,9 +9,14 @@ const service=createCatalogService({fetcher:async url=>({ok:true,json:async()=>J
 const classes35=await service.load('3.5/classes');
 
 const maximumLevel=record=>{
-  const numbers=progressionTables(record).flatMap(table=>table.slice(1).flatMap(row=>row.map(value=>/\d/.test(String(value))?parseInt(value):NaN))).filter(Number.isFinite);
-  const plausible=numbers.filter(n=>n>=1&&n<=30);
-  return plausible.length?Math.max(...plausible):1;
+  const levels=[];
+  for(const table of progressionTables(record)){
+    const header=table[0]||[],index=header.findIndex(value=>/^(?:class |racial )?level$/i.test(String(value).trim()));
+    if(index<0)continue;
+    for(const data of table.slice(1)){const level=parseInt(data[index]);if(Number.isFinite(level)&&level>=1&&level<=30)levels.push(level);}
+  }
+  if(!levels.length&&Array.isArray(record.advancement))for(const data of record.advancement){const key=Object.keys(data).find(k=>/^(?:class |racial )?level$/i.test(k));const level=parseInt(data[key]);if(Number.isFinite(level)&&level>=1&&level<=30)levels.push(level);}
+  return levels.length?Math.max(...levels):1;
 };
 const row=(record,edition,level)=>({
   catalogId:record.catalogId||`${edition}:${record.index||record.id||record.name}`,
