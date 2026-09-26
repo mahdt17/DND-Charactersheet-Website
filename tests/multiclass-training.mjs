@@ -48,4 +48,9 @@ assert(!hasWeaponTraining({className:'Rogue',ruleset:'2024'},sword,records('2024
 assert(hasWeaponTraining({className:'Rogue',ruleset:'2024'},whip,[]));
 assert(hasWeaponTraining({className:'Wizard',ruleset:'2024'},mace,[]));
 assert(!hasWeaponTraining({className:'Wizard',ruleset:'2014'},mace,records('2014','Wizard').proficiencies));
-console.log('PASS all 24 core multiclass grant profiles, edition skill lists, required choices, saved grants, weapon bonuses, repeat prevention and manual combinations');
+const longsword=equipment.find(e=>e.index==='longsword'),longbow=equipment.find(e=>e.index==='longbow');
+const scopedTraining={ruleset:'3.5',className:'Warblade',trainingGrants:[{classId:'warblade',className:'Warblade',edition:'3.5',proficiencies:[{index:'martial-melee-weapons',name:'Martial melee weapons',kind:'weapons'}]}]};
+assert(hasWeaponTraining(scopedTraining,longsword,[]),'martial-melee scope covers martial melee weapons');
+assert(!hasWeaponTraining(scopedTraining,longbow,[]),'martial-melee scope does not grant martial ranged weapons');
+
+console.log('PASS all 24 core multiclass grant profiles, edition skill lists, required choices, saved grants, scoped weapon bonuses, repeat prevention and manual combinations');
