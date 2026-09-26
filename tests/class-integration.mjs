@@ -110,6 +110,18 @@ const inheritedTraining=eberronBarbarianSheet.trainingGrants.find(item=>item.sou
 assert.deepEqual(inheritedTraining?.proficiencies.map(item=>item.index),['light-armor','medium-armor','shields-except-tower','simple-weapons','martial-weapons'],'linked Eberron Barbarian reuses verified PHB training');
 assert.equal(eberronBarbarian.proficiencyProfileFrom,'classes/barbarian-89');
 assert.match(inheritedTraining?.sourceUrl||'',/barbarian-89$/,'training provenance points at the verified profile source while retaining duplicate class identity');
+
+for(const [id,expected] of [
+  ['classes/expert-33',['light-armor','simple-weapons']],
+  ['classes/warrior-34',['light-armor','medium-armor','heavy-armor','shields','simple-weapons','martial-weapons']],
+  ['classes/expert2-124',['light-armor','simple-weapons']],
+  ['classes/warrior2-135',['light-armor','medium-armor','shields-except-tower','simple-weapons','martial-weapons']]
+]){
+  const record=annotateClassGrantKinds(classes35.find(item=>item.id===id),reference35);
+  const sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name:record.name,edition:'3.5',level:1,definition:record}]));
+  const grant=sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId);
+  assert.deepEqual(grant?.proficiencies.map(item=>item.index),expected,`${id} verified NPC/generic training`);
+}
 const warmage35=integrated35('Warmage');
 const warmage1=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:1,definition:warmage35}]));
 assert(!warmage1.trainingGrants.flatMap(grant=>grant.proficiencies).some(item=>item.index==='medium-armor'),'Warmage medium armor is not a level-1 grant');
