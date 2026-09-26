@@ -2046,6 +2046,154 @@
       "proficiencyProfileFrom": "classes/wizard-99",
       "verified": true,
       "verificationNote": "DnD Tools lists this record as another published appearance of the verified PHB class profile."
+    },
+    "classes/commoner-32": {
+      "name": "Commoner",
+      "sourceUrl": "https://www.d20srd.org/srd/npcClasses/commoner.htm",
+      "proficiencyText": "The commoner is proficient with one simple weapon and no armor or shields.",
+      "proficiencies": [],
+      "proficiencyChoices": [
+        {
+          "id": "simple-weapon",
+          "label": "Simple weapon proficiency",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Choose the one simple weapon granted by the Commoner NPC class."
+        }
+      ],
+      "verified": true
+    },
+    "classes/expert-33": {
+      "name": "Expert",
+      "sourceUrl": "https://www.d20srd.org/srd/npcClasses/expert.htm",
+      "proficiencyText": "The expert NPC class is proficient with all simple weapons and light armor, but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/warrior-34": {
+      "name": "Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/warrior-34",
+      "proficiencyText": "The warrior NPC class is proficient with all simple and martial weapons and all armor and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/expert2-124": {
+      "name": "Expert",
+      "sourceUrl": "https://new.dndtools.org/classes/expert2-124",
+      "proficiencyText": "The generic expert has all simple weapon and light armor proficiency and chooses one martial weapon.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "proficiencyChoices": [
+        {
+          "id": "martial-weapon",
+          "label": "Martial weapon proficiency",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Choose the one martial weapon granted by the generic Expert class."
+        }
+      ],
+      "verified": true
+    },
+    "classes/spellcaster-131": {
+      "name": "Spellcaster",
+      "sourceUrl": "https://www.d20srd.org/srd/variant/classes/genericClasses.htm",
+      "proficiencyText": "The generic spellcaster chooses one simple weapon and gains no armor proficiency.",
+      "proficiencies": [],
+      "proficiencyChoices": [
+        {
+          "id": "simple-weapon",
+          "label": "Simple weapon proficiency",
+          "kind": "weapons",
+          "count": 1,
+          "sourceText": "Choose the one simple weapon granted by the generic Spellcaster class."
+        }
+      ],
+      "verified": true
+    },
+    "classes/warrior2-135": {
+      "name": "Warrior",
+      "sourceUrl": "https://www.d20srd.org/srd/variant/classes/genericClasses.htm",
+      "proficiencyText": "The generic warrior has all simple and martial weapons, light and medium armor, and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
