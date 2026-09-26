@@ -389,6 +389,27 @@ def parse_class_skills(parser: DetailParser) -> list[str]:
 
 
 
+_CLASS_WEAPON_CACHE=None
+
+def class_weapon_catalog():
+    global _CLASS_WEAPON_CACHE
+    if _CLASS_WEAPON_CACHE is None:
+        path=CATALOG/"equipment.json"
+        rows=json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+        values=[]
+        for row in rows:
+            if row.get("kind")!="weapon":
+                continue
+            name=clean(row.get("name",""))
+            aliases={name.casefold()}
+            if "," in name:
+                left,right=[clean(part) for part in name.split(",",1)]
+                aliases.add(f"{right} {left}".casefold())
+            values.append({"index":str(row.get("id","")).split("/")[-1],"name":name,"aliases":aliases})
+        _CLASS_WEAPON_CACHE=values
+    return _CLASS_WEAPON_CACHE
+
+
 def parse_class_proficiencies(parser: DetailParser) -> dict:
     """Extract only explicit, source-stated class weapon/armor proficiency grants.
 
@@ -437,6 +458,12 @@ def parse_class_proficiencies(parser: DetailParser) -> dict:
         add("simple-weapons","Simple weapons","weapons")
     if "martial weapon" in folded and negated("martial weapon"):
         add("martial-weapons","Martial weapons","weapons")
+
+    for weapon in class_weapon_catalog():
+        for alias in weapon["aliases"]:
+            if alias and re.search(r"(?<![a-z])"+re.escape(alias)+r"(?![a-z])",folded) and negated(alias):
+                add(weapon["index"],weapon["name"],"weapons")
+                break
 
     positive=bool(re.search(r"\bproficient\b",folded))
     return {
@@ -2382,6 +2409,17 @@ def self_test():
     assert [item["index"] for item in prof["proficiencies"]]==["light-armor","medium-armor","simple-weapons"]
     assert "shields" not in [item["index"] for item in prof["proficiencies"]]
     assert not prof["proficiencyParseIncomplete"]
+
+    named_weapon_html = """
+    <h1>Wizard</h1><h2>Class Features</h2>
+    <p>Weapon and Armor Proficiency: Wizards are proficient with the club, dagger, heavy crossbow, light crossbow, and quarterstaff, but not with any type of armor or shield.</p>
+    <h2>Advancement</h2>
+    """
+    p=DetailParser();p.feed(named_weapon_html);p.close()
+    prof=parse_class_proficiencies(p)
+    indexes={item["index"] for item in prof["proficiencies"]}
+    assert {"club","dagger","crossbow-heavy","crossbow-light","quarterstaff"}.issubset(indexes)
+    assert "light-armor" not in indexes and "shields" not in indexes
 
     all_armor_html = """
     <h1>Test Knight</h1><h2>Class Features</h2>
