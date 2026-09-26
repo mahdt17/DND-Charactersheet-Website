@@ -1281,6 +1281,89 @@
         }
       ],
       "verified": true
+    },
+    "classes/psion-137": {
+      "name": "Psion",
+      "sourceUrl": "https://new.dndtools.org/classes/psion-137",
+      "proficiencyText": "Psions are proficient with the club, dagger, heavy crossbow, light crossbow, quarterstaff, and shortspear; they are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Crossbow, heavy",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Crossbow, light",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortspear",
+          "name": "Shortspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "verified": true
+    },
+    "classes/psychic-rogue-1050": {
+      "name": "Psychic Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/psychic-rogue-1050",
+      "proficiencyText": "Psychic rogues are proficient with all simple weapons, plus several named weapons, and with light armor but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-hand",
+          "name": "Crossbow, hand",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
