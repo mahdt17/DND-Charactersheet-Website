@@ -5,6 +5,7 @@ import {mechanics,is35} from './lib/editions';
 import {modifier,changeHP} from './lib/rules';
 import {conditionEffects,conditionNames,exhaustionLevel} from './lib/play';
 import {restSpellSlots} from './lib/multiclassCasting';
+import {restFeatMagic} from './lib/featMagic';
 import {hitDicePools,needsHitDiceReview,recoveryLimit,defaultRecovery,setSpentHitDice,spendHitDice,recoverHitDice} from './lib/hitDice';
 
 function Count({label,value=0,max,onChange,disabled=false}) {
@@ -36,11 +37,11 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   function takeRest() {
     try {
       const conditions=conditionNames(char);
-      if(legacy)patch({hp:changeHP(char.hp,char.level,true),slotsUsed:{},conditions:conditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted')});
+      if(legacy)patch({hp:changeHP(char.hp,char.level,true),...restSpellSlots(char,'long'),...restFeatMagic(char,'long'),...restResources(char,'long',{},abilities),conditions:conditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted')});
       else if(rest==='long')patch({
         ...(recoverExhaustion?{exhaustion:Math.max(0,exhaustion-1),conditions:conditions.filter(c=>c.toLowerCase()!=='exhaustion')}:{}),
         hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
-        ...restSpellSlots(char,'long'),...recoverHitDice(char,recovery),
+        ...restSpellSlots(char,'long'),classRestrictedSlotsUsed:{},classSlotsUsed:{},...restFeatMagic(char,'long'),...recoverHitDice(char,recovery),
         concentration:null,deathSaves:{success:0,failure:0},
         ...restResources(char,'long',{meditated},abilities)
       });

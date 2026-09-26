@@ -12,7 +12,7 @@ const importChar=async c=>{await page.locator('input[type=file]').setInputFiles(
 const saved=async name=>page.evaluate(async name=>{const rows=JSON.parse((await window.storage.get('char-index')).value);const row=rows.find(x=>x.name===name);return JSON.parse((await window.storage.get('char-detail:'+row.id)).value);},name);
 const waitSaved=async (name,expected)=>{for(let i=0;i<100;i++){const c=await saved(name);if(Object.entries(expected).every(([k,v])=>JSON.stringify(c[k])===JSON.stringify(v)))return c;await new Promise(r=>setTimeout(r,50));}assert.fail('Saved character did not reach expected state: '+JSON.stringify(expected));};
 const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
-async function branch(flow,name){await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByLabel('Advancement path').selectOption(flow);await page.getByLabel('Search level-up classes').fill(name);await page.getByLabel('Class to advance').selectOption(await page.getByLabel('Class to advance').locator('option').filter({hasText:new RegExp(`^${name} ·`)}).first().getAttribute('value'));}
+async function branch(flow,name){await page.getByRole('button',{name:'Level up',exact:true}).click();await page.getByLabel('Advancement path').selectOption(flow);await page.getByLabel('Search level-up classes').fill(name);await page.getByLabel('Class to advance').selectOption({label:await page.getByLabel('Class to advance').locator('option').filter({hasText:new RegExp(`^${name} ·`)}).first().textContent()});}
 try {
  await fs.mkdir('test-results',{recursive:true});await page.goto('http://127.0.0.1:5177/');await page.getByRole('button',{name:'Explore the demo'}).click();await page.getByRole('button',{name:'Open character'}).click();assert(!requests.some(u=>u.includes('/catalogs/')),'Catalogs must not load on startup');
  await page.getByRole('button',{name:'Toggle navigation'}).click();assert(!await page.locator('.ledger-nav').isVisible());await page.getByRole('button',{name:'Toggle navigation'}).click();assert(await page.locator('.ledger-nav').isVisible());
@@ -21,7 +21,7 @@ try {
  const demoName=await page.locator('.sheet-identity h1').innerText();let demo=await saved(demoName);await waitSaved(demoName,{hp:{...demo.hp,current:15,temp:9}});
  await page.getByRole('button',{name:'All characters',exact:true}).click();await page.locator('.character-card').filter({hasText:demoName}).getByRole('button',{name:'Open character'}).click();assert.equal(await page.getByLabel('Current temporary HP').inputValue(),'9');
  console.log('PASS directly editable temporary HP, independent adjustment, saved/reopened value, damage absorption and collapsible desktop navigation');
- await importChar(base);await branch('normal','Fighter');assert(!await page.getByLabel('Class to advance').locator('option').filter({hasText:'Abjurant Champion'}).count());await page.getByRole('checkbox',{name:/I reviewed/}).check();await page.getByRole('button',{name:'Continue to level choices'}).click();await next();await next();await page.getByRole('button',{name:'Apply level up'}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();let c=await saved(base.name);assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.bab,3);assert.equal(c.className,'Archivist');
+ await importChar(base);await branch('normal','Fighter');assert(!await page.getByLabel('Class to advance').locator('option').filter({hasText:'Abjurant Champion'}).count());await page.getByRole('checkbox',{name:/I reviewed/}).check();await page.getByRole('button',{name:'Continue to level choices'}).click();await next();await next();await page.getByRole('button',{name:'Apply level up'}).click();const fighterChoices=page.getByRole('region',{name:'Class feature choices'}).locator('input[placeholder*="Enter the selected feat"]');for(let i=0;i<await fighterChoices.count();i++)await fighterChoices.nth(i).fill(i===0?'Power Attack':`Recorded Fighter choice ${i+1}`);await page.getByRole('button',{name:'Save level and choices'}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();let c=await saved(base.name);assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.bab,3);assert.equal(c.className,'Archivist');assert(Object.values(c.featureChoices||{}).some(choice=>choice.className==='Fighter'&&choice.choices?.includes('Power Attack')));
  console.log('PASS legacy 3.5 save normalization and Archivist → Fighter branching, class levels and BAB');
  await importChar({...base,name:'Blocked Prestige'});await branch('prestige','Abjurant Champion');assert.match(await page.getByRole('dialog').innerText(),/Unmet:.*\+\s*5/);assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());await page.getByRole('button',{name:'Cancel',exact:true}).click();
  await importChar({...base,name:'Qualified Prestige',bab:5});await branch('prestige','Abjurant Champion');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();await page.getByRole('button',{name:'Continue to level choices'}).click();await next();await next();await page.getByRole('button',{name:'Apply level up'}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();c=await saved('Qualified Prestige');assert.equal(c.classLevels[1].definition.prestige,true);assert.equal(c.bab,6);assert(Object.values(c.prerequisiteConfirmations).every(Boolean));
@@ -61,9 +61,10 @@ try {
   await importChar({...base,name:branchName,ruleset:edition,className:'Fighter',classDefinition:row('Fighter',5).definition,classLevels:[row('Fighter',5)],level:5,subclass:'Champion',abilityBonuses:{},skillProf:{Athletics:true}});
   await branch('normal','Rogue');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();
   assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
-  assert.equal(await page.getByLabel('Multiclass skill',{exact:true}).locator('option').filter({hasText:/^Athletics$/}).count(),0);
-  assert.equal(await page.getByLabel('Multiclass skill',{exact:true}).locator('option').filter({hasText:/^Performance$/}).count(),edition==='2014'?1:0);
-  await page.getByLabel('Multiclass skill',{exact:true}).selectOption(edition==='2014'?'Performance':'Stealth');await page.getByRole('button',{name:'Continue to level choices'}).click();
+  const training=page.getByRole('region',{name:'Multiclass proficiencies'});
+  assert.equal(await training.getByRole('button',{name:'Athletics',exact:true}).count(),0);
+  assert.equal(await training.getByRole('button',{name:'Performance',exact:true}).count(),edition==='2014'?1:0);
+  await training.getByRole('button',{name:edition==='2014'?'Performance':'Stealth',exact:true}).click();await page.getByRole('button',{name:'Continue to level choices'}).click();
   for(let step=0;step<4&&!await page.getByRole('button',{name:'Apply level up',exact:true}).isVisible();step++)await next();
   await page.getByRole('button',{name:'Apply level up',exact:true}).click();
   assert(await page.getByRole('button',{name:'Save level and choices'}).isDisabled());
@@ -107,7 +108,7 @@ assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.classLevels
   const swordAction=()=>page.locator('.action-row').filter({hasText:'Longsword'});
   assert.match(await swordAction().innerText(),/no proficiency bonus/);assert(await swordAction().getByRole('button',{name:'+2 to hit',exact:true}).isVisible());
   await branch('normal','Fighter');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();
-  assert.match(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Martial weapons/);assert.doesNotMatch(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Heavy armor/);
+  assert.match(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Martial weapons/i);assert.doesNotMatch(await page.getByRole('region',{name:'Multiclass proficiencies'}).innerText(),/Heavy armor/);
   await page.getByRole('button',{name:'Continue to level choices'}).click();
   for(let step=0;step<4&&!await page.getByRole('button',{name:'Apply level up',exact:true}).isVisible();step++)await next();
   await page.getByRole('button',{name:'Apply level up',exact:true}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();
@@ -117,8 +118,8 @@ assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.classLevels
   console.log(`PASS ${edition} multiclass weapon attack bonus, preserved saves/equipment and personal proficiency override/revert`);
   if(edition==='2024') {
    await branch('normal','Bard');for(const checkbox of await page.getByRole('dialog').getByRole('checkbox').all())await checkbox.check();
-   await page.getByLabel('Multiclass skill',{exact:true}).selectOption('Perception');assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
-   await page.getByLabel('Multiclass musical instrument',{exact:true}).selectOption('Flute');assert(!await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
+   await page.getByRole('region',{name:'Multiclass proficiencies'}).getByRole('button',{name:'Perception',exact:true}).click();assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
+   await page.getByRole('region',{name:'Multiclass proficiencies'}).getByRole('button',{name:'Flute',exact:true}).click();assert(!await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());
    await page.getByRole('button',{name:'Cancel',exact:true}).click();assert.equal((await saved(weaponName)).trainingGrants.length,1);
    console.log('PASS Bard requires both choices and canceled advancement grants nothing');
   }

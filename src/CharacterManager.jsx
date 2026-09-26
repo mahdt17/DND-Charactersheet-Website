@@ -9,6 +9,9 @@ import EquipmentChoice, { resolveEquipment } from "./StartingEquipment";
 import subraces from "./data/subraces.json";
 import equipmentData from "./data/equipment.json";
 import { spellCatalog, countsFor, castingAbility, maxSpellLevel, classes as srdClasses, classLevel, subclasses, armorFor } from "./lib/rules";
+import {spellAccess,resolveSpell,spellCounts,castingKey} from './lib/editions';
+import {castingSubclassNames} from './lib/subclassCasting';
+import {applyFeatAbilityIncrease} from './lib/featMagic';
 
 const INK = "#2B2620";
 const PAPER = "#EDE6D3";
@@ -314,7 +317,7 @@ function raceBonus(raceName, key) {
 function effectiveAbilities(char) {
   const out = {};
   ABILITIES.forEach((a) => {
-    out[a.key] = (char.abilities[a.key] || 0) + (char.abilityBonuses ? (char.abilityBonuses[a.key] || 0) : raceBonus(char.race, a.key) + (char.ancestryBonuses?.[a.key] || 0));
+    out[a.key] = applyFeatAbilityIncrease(char,a.key,(char.abilities[a.key] || 0) + (char.abilityBonuses ? (char.abilityBonuses[a.key] || 0) : raceBonus(char.race, a.key) + (char.ancestryBonuses?.[a.key] || 0)));
   });
   return out;
 }
@@ -913,16 +916,17 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
   useWizardFocus(onCancel);
   const targetLevel = Math.min(20, char.level + 1);
   const classData = CLASS_DATA[char.className];
+  const [subclass, setSubclass] = useState(char.subclass || "");
   const newFeatures = (classLevel(char.className,targetLevel).features||[]).map(f=>f.name);
   const hasASI = (classLevel(char.className,targetLevel).ability_score_bonuses||0) > (classLevel(char.className,char.level).ability_score_bonuses||0);
   const subclassFeature = SUBCLASS_FEATURES[char.className];
   const needsSubclass = targetLevel >= ({Cleric:1,Sorcerer:1,Warlock:1,Wizard:2,Druid:2}[char.className]||3) && !char.subclass;
-  const spellcasting = !!SPELL_PROGRESSION[char.className];
-  const counts = spellcasting ? spellCountsFor(char, targetLevel) : null;
+  const spellcasting = !!SPELL_PROGRESSION[char.className]||!!castingSubclassNames[char.className];
+  const counts = spellcasting ? spellCounts({...char,level:targetLevel,subclass},effectiveAbilities(char)[castingKey({...char,subclass})]||10) : null;
   const prevCounts = spellcasting ? spellCountsFor(char, char.level) : null;
-  const cantripGain = counts ? Math.max(0, counts.cantrips - (char.spells || []).filter(s => s.source !== char.race && (s.level === "Cantrip" || s.level === 0)).length) : 0;
+  const cantripGain = counts ? Math.max(0, counts.cantrips - (char.spells || []).filter(s => s.source !== char.race && !spellAccess(char,resolveSpell(s,char)).alwaysPrepared && (s.level === "Cantrip" || s.level === 0)).length) : 0;
   const currentCantrips = (char.spells || []).filter((s) => s.level === "Cantrip" || s.level === 0).map((s) => s.name);
-  const currentChosen = (char.spells || []).filter((s) => s.source !== char.race || !s.auto).map((s) => s.name);
+  const currentChosen = (char.spells || []).filter((s) => !s.auto&&!spellAccess(char,resolveSpell(s,char)).alwaysPrepared).map((s) => s.name);
   const knownTarget = counts?.known ?? counts?.prepared ?? 0;
   const currentKnown = currentChosen.filter((name) => SPELL_DATA.some((s) => s.name === name && s.level > 0)).length;
   const spellGain = counts?.mode === "known" || counts?.mode === "spellbook" ? Math.max(0, knownTarget - currentKnown) : 0;
@@ -931,7 +935,6 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
 
   const [step, setStep] = useState(0);
   const [abilityPlan, setAbilityPlan] = useState({ mode: "plus-two", first: "str", second: "str" });
-  const [subclass, setSubclass] = useState(char.subclass || "");
   const [feat,setFeat]=useState(null);
   const featCharacter={...char,level:characterLevel};
   const featValid=!hasASI||abilityPlan.mode!=="feat"||validFeatSelection(feat,featCharacter);
@@ -955,8 +958,11 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
   const toggleChoice = (name, list, setter, limit) => {
     setter((prev) => prev.includes(name) ? prev.filter((x) => x !== name) : (prev.length >= limit ? prev : [...prev, name]));
   };
-  const spellCandidates = availableSpells(char.className, maxSpellLevel(char.className, targetLevel), false);
-  const cantripCandidates = availableSpells(char.className, 0, true);
+  const accessModel={...char,level:targetLevel,subclass,abilities:abilityChanges(),spells:[...(char.spells||[]),...newSpells.map(name=>SPELL_DATA.find(s=>s.name===name)).filter(Boolean)]};
+  const selectable=SPELL_DATA.filter(s=>{const access=spellAccess(accessModel,s);return access.allowed&&!access.alwaysPrepared;});
+  const spellCandidates = selectable.filter(s=>s.level>0);
+  const cantripCandidates = selectable.filter(s=>s.level===0);
+  const normalPrepared=preparedSpells.filter(name=>spellCandidates.some(s=>s.name===name));
   const preparedLimit = counts?.mode === "prepared" ? countsFor(char.className,targetLevel,effectiveNextAbilities[castingAbility[char.className]]).prepared : null;
   const knownLimit = counts?.mode === "known" || counts?.mode === "spellbook" ? spellGain : 0;
 
@@ -971,6 +977,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
 
   const valid = () => {
     if (isReview && !featValid) return false;
+    if ((isSpell||isReview)&&[...newCantrips,...newSpells].some(name=>!selectable.some(s=>s.name===name))) return false;
     if (steps[step] === "Ability improvement" || steps[step] === "Level choices") {
       if (needsSubclass && subclass.trim().length<2) return false;
       if (hasASI) {
@@ -984,13 +991,13 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
     if (isSpell) {
       if (cantripGain > 0 && newCantrips.length !== cantripGain) return false;
       if (knownLimit > 0 && newSpells.length !== knownLimit) return false;
-      if (counts?.mode === "prepared") return preparedSpells.length <= preparedLimit;
+      if (counts?.mode === "prepared") return normalPrepared.length <= preparedLimit;
     }
     return true;
   };
 
   function finish() {
-    if(!valid()||!featValid)return;
+    if(!valid()||!featValid||[...newCantrips,...newSpells].some(name=>!selectable.some(s=>s.name===name)))return;
     const oldConMod = abilityMod(effectiveAbilities(char).con);
     const nextAbilities = abilityChanges();
     const nextDraft = { ...char, level: targetLevel, abilities: nextAbilities };
@@ -1007,7 +1014,7 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
         ...newSpells.map((name) => { const d = SPELL_DATA.find((x) => x.name === name); return { id:`spell:${uid()}`, name, level:`${d.level}st-level spell`.replace("1st", d.level===1?"1st":`${d.level}th`), source:char.className, school:d.school, description:d.description, acquiredLevel:targetLevel, prepared:counts?.mode === "prepared" }; }),
       ];
       if (counts?.mode === "prepared") {
-        next.spells = [...existing.map(s=>({...s,prepared:preparedSpells.includes(s.name)})), ...preparedSpells.filter(name=>!existing.some(s=>s.name===name)).map(name=>({...SPELL_DATA.find(s=>s.name===name),id:`spell:${uid()}`,source:char.className,prepared:true})), ...additions];
+        next.spells = [...existing.map(s=>({...s,prepared:spellAccess(accessModel,resolveSpell(s,char)).alwaysPrepared||normalPrepared.includes(s.name)})), ...normalPrepared.filter(name=>!existing.some(s=>s.name===name)).map(name=>({...SPELL_DATA.find(s=>s.name===name),id:`spell:${uid()}`,source:char.className,prepared:true})), ...additions];
       } else next.spells = [...existing, ...additions];
       next.spellInfo = { ...spellCountsFor(next, targetLevel), casterType: FULL_CASTER_CLASSES.has(char.className) ? "Full caster" : HALF_CASTER_CLASSES.has(char.className) ? "Half caster" : "Pact caster / spells known", spellcastingAbility: classDataAbility(char.className), level: targetLevel };
     }
@@ -1044,13 +1051,13 @@ function LevelUpWizard({ char, onCancel, onFinish, homebrew=[], characterLevel=c
               {abilityPlan.mode==='feat'?<LevelUpFeatChoice char={featCharacter} feat={feat} onChange={setFeat} homebrew={homebrew}/>:<><div className="creation-section-grid two"><label className="creation-field"><span>{abilityPlan.mode==='plus-two'?'Ability to increase by 2':'First ability (+1)'}</span><select value={abilityPlan.first} onChange={e=>setAbilityPlan(x=>({...x,first:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>{abilityPlan.mode==='plus-one-two'&&<label className="creation-field"><span>Second ability (+1)</span><select value={abilityPlan.second} onChange={e=>setAbilityPlan(x=>({...x,second:e.target.value}))}>{ABILITIES.map(a=><option key={a.key} value={a.key}>{a.label} ({effectiveAbilities(char)[a.key]})</option>)}</select></label>}</div><div className="review-grid">{ABILITIES.map(a=><div key={a.key} className="review-stat"><span>{a.label}</span><strong>{effectiveAbilities(char)[a.key]} → {effectiveNextAbilities[a.key]}</strong></div>)}</div></>}
               <div className="creation-auto-note"><strong>Automatically recalculated</strong><span>Ability modifiers, saving throws, skills, spell attacks, and Constitution-based HP update automatically. Review custom attacks and feat effects manually.</span></div>
             </div>}
-            {needsSubclass && <div className="creation-section"><div className="creation-section-title">{subclassFeature}</div><label className="creation-field"><span>Subclass name</span><input list="level-subclasses" value={subclass} onChange={e=>setSubclass(e.target.value)} placeholder="Choose an SRD subclass or enter your own"/><datalist id="level-subclasses">{subclasses.filter(s=>s.class.name===char.className).map(s=><option key={s.index} value={s.name}/>)}</datalist><small>SRD subclass features appear on your sheet. Custom subclass effects require manual input.</small></label></div>}
+            {needsSubclass && <div className="creation-section"><div className="creation-section-title">{subclassFeature}</div><label className="creation-field"><span>Subclass name</span><input aria-label="Subclass name" list="level-subclasses" value={subclass} onChange={e=>setSubclass(e.target.value)} placeholder="Choose an SRD subclass or enter your own"/><datalist id="level-subclasses">{subclasses.filter(s=>s.class.name===char.className).map(s=><option key={s.index} value={s.name}/>)}{castingSubclassNames[char.className]&&<option value={castingSubclassNames[char.className]}/>}</datalist><small>SRD subclass features appear on your sheet. Custom subclass effects require manual input.</small></label></div>}
           </>}
           {isSpell && <>
             <CreationStepHeader eyebrow="Spellcasting" title="Choose your new spells" description="Only spells available to your class are shown. Your current selections remain on the character sheet, and new choices are added automatically when you finish leveling up."/>
             {cantripGain > 0 && <SpellPicker title="New cantrips" spells={cantripCandidates.filter(s=>!currentCantrips.includes(s.name))} selected={newCantrips} limit={cantripGain} onToggle={name=>toggleChoice(name,newCantrips,setNewCantrips,cantripGain)}/>}
             {knownLimit > 0 && <SpellPicker title="New spells" spells={spellCandidates.filter(s=>s.level>0&&!currentChosen.includes(s.name))} selected={newSpells} limit={knownLimit} onToggle={name=>toggleChoice(name,newSpells,setNewSpells,knownLimit)}/>}
-            {counts?.mode === "prepared" && <SpellPicker title="Prepared spells" spells={spellCandidates.filter(s=>s.level>0)} selected={preparedSpells} limit={preparedLimit} onToggle={name=>toggleChoice(name,preparedSpells,setPreparedSpells,preparedLimit)}/>}
+            {counts?.mode === "prepared" && <SpellPicker title="Prepared spells" spells={spellCandidates.filter(s=>s.level>0)} selected={normalPrepared} limit={preparedLimit} onToggle={name=>setPreparedSpells(normalPrepared.includes(name)?normalPrepared.filter(n=>n!==name):normalPrepared.length<preparedLimit?[...normalPrepared,name]:normalPrepared)}/>}
           </>}
           {isReview && <>
             <CreationStepHeader eyebrow="Final review" title={`You're becoming level ${targetLevel}`} description="Review every automatic change and every choice before the character is updated."/>

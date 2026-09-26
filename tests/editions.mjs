@@ -34,13 +34,16 @@ try {
  const legacy={...wizard,ruleset:'3.5',className:'Fighter',level:6};
  assert.deepEqual(e.legacyProgression(legacy),{bab:6,fort:5,ref:2,will:2});
  assert.equal(e.characterSlots(legacy).reduce((a,b)=>a+b),0);
+ const legacyCaster={...wizard,ruleset:'3.5',mechanics:'3.5',className:'Archivist',level:4,classDefinition:{name:'Archivist',edition:'3.5',catalogId:'dndtools:classes/archivist-74'},classSpellSlots:[{sourceClassId:'dndtools:classes/archivist-74',sourceClassName:'Archivist',slots:[4,4,3,0,0,0,0,0,0,0]}]};
+ assert.deepEqual(e.characterSlots(legacyCaster).slice(0,4),[4,4,3,0]);
+ assert.equal(e.spellSlotPools(legacyCaster).mode,'automatic');
  assert.equal(p.conditionEffects({...legacy,exhaustion:6}).dead,false);
  const cross={...wizard,ruleset:'custom',mechanics:'2024',classDefinition:{name:'Wizard',edition:'3.5'}};
  assert.equal(e.characterSlots(cross).reduce((a,b)=>a+b),0);
- const names=e.permittedSpells(cross).filter(s=>s.name==='Magic Missile');
+ const names=e.permittedSpells({...cross,unrestrictedSpellAccess:true}).filter(s=>s.name==='Magic Missile');
  assert.equal(new Set(names.map(e.keyOf)).size,3);
  const reference={category:'spell',edition:'3.5',name:'Reference spell',catalogId:'source:123',level:null,classes:[],referenceOnly:true};
- assert(e.permittedSpells(legacy,[reference]).some(s=>e.keyOf(s)==='source:123'));
+ assert(!e.permittedSpells(legacy,[reference]).some(s=>e.keyOf(s)==='source:123'));
  assert.deepEqual(p.availableSlots({...legacy,slotOverride:[2,0,0],slotsUsed:{0:1}},{level:0}),[{level:0,remaining:1}]);
  assert.equal(p.spellPlan(reference,legacy,1,2).rolls.length,0);
  assert.throws(()=>e.validPack([{category:'spell',edition:'custom',name:'Invalid',description:'x',level:10,classes:[]}]),/level/);

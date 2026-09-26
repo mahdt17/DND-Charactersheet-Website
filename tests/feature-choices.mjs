@@ -36,5 +36,28 @@ const multi={...make('2024','Fighter',6),classLevels:[{name:'Fighter',edition:'2
 const mp=featureChoicePlan(multi,prior);assert.equal(mp.groups.filter(g=>g.kind==='expertise').length,1);assert.equal(mp.groups.find(g=>g.kind==='expertise').level,1);assert.match(mp.patch.languages,/Thieves' Cant/);
 assert.deepEqual(featureChoicePlan({...multi,classLevels:[multi.classLevels[0],{...multi.classLevels[1],edition:'2014'}]},prior).groups,[]);
 assert.equal(featureChoicePlan({...multi,classLevels:[multi.classLevels[0],{name:'Druid',edition:'2024',level:1}]},prior).patch.languages,'Common, Druidic');
+
+const legacyChoiceClass={name:'Choice Adept',edition:'3.5',catalogId:'dndtools:classes/choice-adept',sourceUrl:'https://example.invalid/choice-adept',sourceDescription:'Bonus Feat: Choose one feat for which you meet the prerequisites.',progression:[['Class Level','Special'],['1st','Bonus feat']]};
+const legacyChoice={ruleset:'3.5',mechanics:'3.5',className:'Choice Adept',classDefinition:legacyChoiceClass,classLevels:[{name:'Choice Adept',edition:'3.5',catalogId:legacyChoiceClass.catalogId,level:1,definition:legacyChoiceClass}],level:1,abilities:{str:10,dex:10,con:10,int:10,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}};
+const legacyPlan=featureChoicePlan(legacyChoice,null);
+assert.equal(legacyPlan.groups.length,1);
+assert.equal(legacyPlan.groups[0].kind,'source-choice');
+assert.equal(legacyPlan.valid,false);
+assert.match(legacyPlan.groups[0].sourceText,/Bonus feat/i);
+assert.throws(()=>applyFeatureChoices(legacyChoice,null,{}),/Complete/);
+const legacyPick={[legacyPlan.groups[0].id]:['Combat Casting']};
+const legacyApplied=applyFeatureChoices(legacyChoice,null,legacyPick);
+assert.equal(Object.values(legacyApplied.featureChoices)[0].choices[0],'Combat Casting');
+assert.equal(featureChoicePlan(legacyApplied,null).groups.length,0,'recorded 3.5 source choices must not repeat');
+const dreadClass={name:'Dread Necromancer',edition:'3.5',sourceId:'classes/dread-necromancer-75',catalogId:'dndtools:classes/dread-necromancer-75',progression:[['Class Level','Special'],['1st','Charnel touch']]};
+const dreadChar={...legacyChoice,className:'Dread Necromancer',classDefinition:dreadClass,classLevels:[{name:'Dread Necromancer',edition:'3.5',catalogId:dreadClass.catalogId,level:1,definition:dreadClass}]};
+const dreadPlan=featureChoicePlan(dreadChar,null);
+const weaponChoice=dreadPlan.groups.find(group=>group.choiceKind==='proficiency');
+assert(weaponChoice,'Dread Necromancer must request its source-defined martial weapon choice');
+assert.equal(weaponChoice.proficiencyKind,'weapons');
+const dreadApplied=applyFeatureChoices(dreadChar,null,{[weaponChoice.id]:['Longsword']});
+assert(dreadApplied.trainingGrants.some(grant=>grant.sourceClassId===dreadClass.catalogId&&grant.proficiencies.some(p=>p.index==='longsword')));
+assert.equal(featureChoicePlan(dreadApplied,null).groups.filter(group=>group.choiceKind==='proficiency').length,0,'recorded proficiency choice must not repeat');
+
 assert.equal(skillNames.length,18);
-console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, multiclass attribution, preserved choices, duplicates and manual combinations');
+console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');

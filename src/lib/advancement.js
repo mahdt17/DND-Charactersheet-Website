@@ -1,12 +1,14 @@
 import {normalizeEdition} from './content.js';
 import {setSpentHitDice} from './hitDice.js';
 import {applyMulticlassTraining} from './training.js';
+import {applyFeatAbilityIncrease} from './featMagic.js';
+import legacyCore from '../data/srd35.json' with {type:'json'};
 export const contentKey=r=>r.catalogId||`${normalizeEdition(r.edition)}:${r.index||r.id||r.name}`;
 export const prestige=r=>Boolean(r?.prestige||r?.stats?.prestige);
 const norm=s=>String(s||'').trim().replace(/[’]/g,"'").toLowerCase();
 const scores={strength:'str',dexterity:'dex',constitution:'con',intelligence:'int',wisdom:'wis',charisma:'cha',str:'str',dex:'dex',con:'con',int:'int',wis:'wis',cha:'cha'};
 export function characterClasses(c) {
-  if(Array.isArray(c.classLevels)&&c.classLevels.length)return c.classLevels.map(row=>({...row,level:Math.max(1,Math.floor(Number(row.level)||1)),edition:normalizeEdition(row.edition||c.ruleset)}));
+  if(Array.isArray(c.classLevels)&&c.classLevels.length)return c.classLevels.map((row,i)=>({...row,subclass:row.subclass??(i===0?c.subclass||'':''),level:Math.max(1,Math.floor(Number(row.level)||1)),edition:normalizeEdition(row.edition||c.ruleset)}));
   if(!c.className)return [];
   const definition=c.classDefinition||{name:c.className,index:c.className,edition:c.ruleset==='custom'?c.mechanics:c.ruleset,hit_die:Number(String(c.hitDie||'d8').slice(1))};
   return [{catalogId:contentKey(definition),name:c.className,edition:normalizeEdition(definition.edition||c.ruleset),level:Math.max(1,Number(c.level)||1),definition,subclass:c.subclass||''}];
@@ -18,10 +20,14 @@ export function spellsForClass(c,catalogId) {
 }
 export function normalizeAdvancement(c) {
   const classLevels=characterClasses(c);
-  return {...c,classLevels,level:classLevels.reduce((n,x)=>n+x.level,0)||c.level||1};
+  return {...c,classLevels,subclass:classLevels[0]?.subclass||'',level:classLevels.reduce((n,x)=>n+x.level,0)||c.level||1};
 }
-export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
+export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,activeCastingClassId:row.catalogId,spells:spellsForClass(c,row.catalogId),otherClassLevels:characterClasses(c).filter(r=>r.catalogId!==row.catalogId).reduce((n,r)=>n+r.level,0),level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
 export function progressionTables(record) {
+  // These source-linked reprints accidentally captured the familiar table.
+  // Use the SRD Sorcerer progression, never familiar natural armor as class BAB.
+  const sourceId=record?.sourceId||String(record?.catalogId||record?.id||'').replace(/^dndtools:/,'');
+  if(record?.name==='Sorcerer'&&['classes/sorcerer-98','classes/sorcerer-109','classes/sorcerer-46','classes/sorcerer-70'].includes(sourceId))return legacyCore.classes.find(c=>c.name==='Sorcerer').tables;
   const p=record?.progression;
   if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [p];
   if(record?.tables?.length)return record.tables;
@@ -30,10 +36,12 @@ export function progressionTables(record) {
 }
 export function progressionRow(record,level) {
   for(const t of progressionTables(record)) {
-    const i=t[0]?.findIndex(v=>/^(?:class )?level$/i.test(String(v).trim()));
-    if(i<0)continue;
-    const r=t.slice(1).find(r=>parseInt(r[i])===level);
-    if(r)return Object.fromEntries(t[0].map((k,j)=>[k,r[j]]));
+    for(let h=0;h<Math.min(5,t.length);h++){
+      const i=t[h]?.findIndex(v=>/^(?:class )?level$/i.test(String(v).trim()));
+      if(i<0)continue;
+      const r=t.slice(h+1).find(r=>/^\d{1,2}(?:st|nd|rd|th)?$/i.test(String(r[i]??'').trim())&&parseInt(r[i])===level);
+      if(r)return Object.fromEntries(t[h].map((k,j)=>[k,r[j]]));
+    }
   }
   return {};
 }
@@ -44,7 +52,7 @@ export function baseProgression(record,level) {
 }
 function evaluateOne(p,c) {
   const text=String(p.text||p.description||p.name||'').trim(),kind=p.kind||p.type||'text';
-  const score=k=>Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0);
+  const score=k=>applyFeatAbilityIncrease(c,k,Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0));
   if(kind==='level'&&Number.isInteger(p.minimum)&&p.minimum>0)return totalLevel(c)>=p.minimum;
   if(kind==='ability_choice') {
     const options=p.options?.from?.options,choose=p.options?.choose;
@@ -109,7 +117,7 @@ export function requirements(record,c,confirmations={}, {multiclass=false}={}) {
       const names=[...text.matchAll(/Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma/gi)].map(x=>scores[x[0].toLowerCase()]);
       // Only the closed published ability-threshold sentence is automated.
       const residue=text.replace(/Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|scores?|of|13|or higher|and|or|an?|,/gi,'').trim();
-      if(names.length&&/13/.test(text)&&!residue){const ok=names.map(k=>Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0)>=13);result=/\bor\b/i.test(text.replace(/or higher/gi,''))?ok.some(Boolean):ok.every(Boolean);}
+      if(names.length&&/13/.test(text)&&!residue){const ok=names.map(k=>applyFeatAbilityIncrease(c,k,Number(c.abilities?.[k]||0)+Number(c.abilityBonuses?.[k]||0))>=13);result=/\bor\b/i.test(text.replace(/or higher/gi,''))?ok.some(Boolean):ok.every(Boolean);}
     }
     return {id,text,label:p.label||p.kind||'Prerequisite',status:result===true?'met':result===false?'unmet':confirmations[id]?'confirmed':'manual'};
   });
