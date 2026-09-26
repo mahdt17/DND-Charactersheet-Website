@@ -94,6 +94,53 @@ function tableFeatureCells(record,maximum){
   return grants;
 }
 
+function spellSlotProgression(record,maximum){
+  const spellLevel=value=>{
+    const text=String(value||'').trim().toLowerCase();
+    if(text==='0'||text==='0th')return 0;
+    const match=text.match(/^([1-9])(?:st|nd|rd|th)$/);
+    return match?Number(match[1]):null;
+  };
+  let best=null;
+  for(const table of progressionTables(record)){
+    if(!Array.isArray(table)||!table.length)continue;
+    let headerIndex=-1,levelIndex=-1,header=[];
+    for(let i=0;i<Math.min(5,table.length);i++){
+      const row=table[i]||[];
+      const candidate=row.findIndex(value=>/^(?:class |racial )?level$/i.test(String(value).trim()));
+      if(candidate>=0){headerIndex=i;levelIndex=candidate;header=row;break;}
+    }
+    if(headerIndex<0)continue;
+    let mappings=header.map((value,index)=>({spellLevel:spellLevel(value),index})).filter(item=>item.spellLevel!=null);
+    let dataStart=headerIndex+1;
+    if(mappings.length<2){
+      const umbrella=header.findIndex(value=>/spellcasting|spells? per day/i.test(String(value)));
+      for(let i=headerIndex+1;umbrella>=0&&i<Math.min(headerIndex+4,table.length);i++){
+        const sub=(table[i]||[]).map(spellLevel);
+        const levels=sub.map((level,index)=>({spellLevel:level,index:umbrella+index})).filter(item=>item.spellLevel!=null);
+        if(levels.length>=2){mappings=levels;dataStart=i+1;break;}
+      }
+    }
+    if(mappings.length<2)continue;
+    const history=[];
+    for(const row of table.slice(dataStart)){
+      const level=parseInt(row?.[levelIndex]);
+      if(!Number.isFinite(level)||level<1||level>maximum)continue;
+      const slots=Array(10).fill(0);
+      for(const {spellLevel:levelNumber,index} of mappings){
+        const raw=String(row?.[index]??'').trim();
+        const count=/^\d+$/.test(raw)?Number(raw):0;
+        slots[levelNumber]=Math.max(0,Math.min(30,count));
+      }
+      history.push({level,slots});
+    }
+    if(!history.length)continue;
+    const latest=history.at(-1),candidate={level:latest.level,slots:latest.slots,history,spellLevels:mappings.map(item=>item.spellLevel)};
+    if(!best||candidate.spellLevels.length>best.spellLevels.length)best=candidate;
+  }
+  return best;
+}
+
 function progressionTracks(record,maximum){
   const tracks=new Map();
   const trackHeader=/^(?:power points(?: per day)?|pp|powers? known|powers? discovered|maximum power level known|maneuvers? known|maneuvers? readied|stances? known|invocations? known|soulmelds?|essentia|chakra binds?|vestiges? bound|spells? per day(?:\/spells? known|\/powers? known)?|spells? known|manifesting)$/i;
@@ -323,7 +370,7 @@ function needsChoice(feature){
 
 function derivedForRow(row){
   const edition=normalizeEdition(row.edition||row.definition?.edition),features=coalesceFeatures(row);
-  const derivedFeatures=[],actions=[],feats=[],resources=[],tracks=[];
+  const derivedFeatures=[],actions=[],feats=[],resources=[],tracks=[],spellSlots=[];
   for(const feature of features){
     const featureId=feature.sourceFeatureId||slug(feature.name),meta=sourceInfo(row,feature.level,featureId);
     const id='class-grant:'+meta.sourceClassId+':feature:'+slug(feature.name);
@@ -351,6 +398,11 @@ function derivedForRow(row){
     const meta=sourceInfo(row,track.level,'track:'+slug(track.name));
     tracks.push({id:'class-grant:'+meta.sourceClassId+':track:'+slug(track.name),name:track.name,value:track.value,level:track.level,history:track.history,...meta});
   }
+  const slotProfile=spellSlotProgression(record,row.level);
+  if(slotProfile){
+    const meta=sourceInfo(row,slotProfile.level,'spell-slots');
+    spellSlots.push({id:'class-grant:'+meta.sourceClassId+':spell-slots',slots:slotProfile.slots,history:slotProfile.history,spellLevels:slotProfile.spellLevels,level:slotProfile.level,...meta});
+  }
   const hasProgression=progressionTables(record).length>0||rawClassFeatures(row).length>0;
   const gaps=[],warnings=[];
   if(record.inheritanceRequired)gaps.push('Choose the variant base class before applying progression.');
@@ -361,8 +413,8 @@ function derivedForRow(row){
   if(descriptive)warnings.push(`${descriptive} granted feature${descriptive===1?'':'s'} use source-linked descriptions because concise local rule text is unavailable.`);
   const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
   return {
-    row,features:derivedFeatures,actions,feats,resources,tracks,
-    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trackCount:tracks.length,choiceCount:unresolvedChoices,gaps,warnings,descriptionComplete:descriptive===0,integrationComplete:gaps.length===0,complete:gaps.length===0}
+    row,features:derivedFeatures,actions,feats,resources,tracks,spellSlots,
+    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trackCount:tracks.length,spellSlotProfile:Boolean(slotProfile),choiceCount:unresolvedChoices,gaps,warnings,descriptionComplete:descriptive===0,integrationComplete:gaps.length===0,complete:gaps.length===0}
   };
 }
 
@@ -379,7 +431,7 @@ function mergeDerived(existing,derived,{resource=false}={}){
 
 export function reconcileClassGrants(character){
   const rows=characterClasses(character),derived=rows.map(derivedForRow);
-  const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources),tracks=derived.flatMap(x=>x.tracks);
+  const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources),tracks=derived.flatMap(x=>x.tracks),spellSlots=derived.flatMap(x=>x.spellSlots);
   return {
     ...character,
     grantedFeatures:mergeDerived(character.grantedFeatures,features),
@@ -387,6 +439,7 @@ export function reconcileClassGrants(character){
     feats:mergeDerived(character.feats,feats),
     resources:mergeDerived(character.resources,resources,{resource:true}),
     classProgressionTracks:mergeDerived(character.classProgressionTracks,tracks),
+    classSpellSlots:mergeDerived(character.classSpellSlots,spellSlots),
     classAutomation:{version:CLASS_INTEGRATION_VERSION,classes:derived.map(x=>x.report),incompleteClassIds:derived.filter(x=>!x.report.integrationComplete).map(x=>x.report.classId)}
   };
 }
