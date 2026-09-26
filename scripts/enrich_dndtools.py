@@ -388,6 +388,63 @@ def parse_class_skills(parser: DetailParser) -> list[str]:
     return cleaned
 
 
+
+def parse_class_proficiencies(parser: DetailParser) -> dict:
+    """Extract only explicit, source-stated class weapon/armor proficiency grants.
+
+    Broad categories are normalized for automation. The original source sentence is
+    retained so unusual named-weapon clauses remain visible instead of being guessed.
+    """
+    features=section(parser.lines,parser.headings,"Class Features")
+    candidates=[]
+    for line in features:
+        value=clean(line)
+        if re.search(r"\b(?:weapon and armor proficiency|weapon proficiency|armor proficiency)\b",value,re.I):
+            candidates.append(value)
+    if not candidates:
+        return {}
+    text=" ".join(candidates)
+    folded=text.casefold().replace("’","'")
+    grants=[]
+
+    def negated(term: str) -> bool:
+        for match in re.finditer(re.escape(term),folded):
+            prefix=folded[max(0,match.start()-42):match.start()]
+            if re.search(r"(?:\bnot\b|\bno\b|\bwithout\b|\bexcept\b)[^.;,:]{0,30}$",prefix):
+                continue
+            return False
+        return True
+
+    def add(index: str, name: str, kind: str):
+        if not any(item["index"]==index for item in grants):
+            grants.append({"index":index,"name":name,"kind":kind})
+
+    if re.search(r"\b(?:all|any type of)\s+armor\b",folded) and negated("armor"):
+        add("light-armor","Light armor","armor")
+        add("medium-armor","Medium armor","armor")
+        add("heavy-armor","Heavy armor","armor")
+    else:
+        for phrase,index,name in (
+            ("light armor","light-armor","Light armor"),
+            ("medium armor","medium-armor","Medium armor"),
+            ("heavy armor","heavy-armor","Heavy armor"),
+        ):
+            if phrase in folded and negated(phrase):
+                add(index,name,"armor")
+    if ("shield" in folded) and negated("shield"):
+        add("shields","Shields","armor")
+    if "simple weapon" in folded and negated("simple weapon"):
+        add("simple-weapons","Simple weapons","weapons")
+    if "martial weapon" in folded and negated("martial weapon"):
+        add("martial-weapons","Martial weapons","weapons")
+
+    positive=bool(re.search(r"\bproficient\b",folded))
+    return {
+        "proficiencies":grants,
+        "proficiencyText":text,
+        "proficiencyParseIncomplete":bool(positive and not grants),
+    }
+
 def parse_progression_table(parser: DetailParser):
     """Choose the strongest class-level progression table, not merely the first table with 'Class Level'.
 
@@ -542,7 +599,7 @@ def apply_class_supplement(entry: dict, details: dict) -> dict:
         raise ValueError(f"Supplement identity mismatch for {entry.get('name')}")
     result={**details}
     conflicts=[]
-    merge_keys=("inheritsFrom","inheritsFromOptions","sourceEdition","notes","prestige","hit_die","skillPoints","classSkills","classSkillRule","prerequisites","progression","featureNames")
+    merge_keys=("inheritsFrom","inheritsFromOptions","sourceEdition","notes","prestige","hit_die","skillPoints","classSkills","classSkillRule","proficiencies","proficiencyText","prerequisites","progression","featureNames")
     for key in merge_keys:
         supplied=supplement.get(key)
         if supplied in (None,"",[],{}):
@@ -604,6 +661,9 @@ def parse_class_core(parser: DetailParser, entry: dict) -> dict:
         skill_rule=parse_class_skill_rule(parser)
         if skill_rule:
             result["classSkillRule"]=skill_rule
+    proficiency=parse_class_proficiencies(parser)
+    if proficiency:
+        result.update(proficiency)
     if progression:
         progression_headers={clean(x).casefold() for x in progression[0]}
         if "skill points" in progression_headers and progression_headers.intersection({"cr","challenge rating","hit dice"}):
@@ -638,7 +698,7 @@ def sibling_class_fallback(entry: dict) -> dict:
             raw=fetch(row["url"],0.05)
             parser=DetailParser(); parser.feed(raw); parser.close()
             parsed=parse_class_core(parser,row)
-            score=sum(bool(parsed.get(k)) for k in ("hit_die","skillPoints","progression","classSkills","classSkillRule","prerequisites","inheritsFrom"))
+            score=sum(bool(parsed.get(k)) for k in ("hit_die","skillPoints","progression","classSkills","classSkillRule","proficiencies","prerequisites","inheritsFrom"))
             score+=2 if (parsed.get("mechanicsPresence") or {}).get("classFeatures") else 0
             if score>best_score:
                 best_score=score
@@ -669,6 +729,8 @@ def legacy_class_fallback(entry: dict) -> dict:
     else:
         skill_rule=parse_class_skill_rule(parser)
         if skill_rule: result["classSkillRule"]=skill_rule
+    proficiency=parse_class_proficiencies(parser)
+    if proficiency: result.update(proficiency)
     progression,advancement=parse_progression_table(parser)
     if progression:
         result["progression"]=progression
@@ -690,7 +752,7 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     # class name may contain the canonical mechanics (for example PHB vs setting books).
     sibling=sibling_class_fallback(entry)
     if sibling:
-        for key in ("prerequisites","hit_die","skillPoints","minBab","classSkills","classSkillRule","progression","advancement","inheritsFrom"):
+        for key in ("prerequisites","hit_die","skillPoints","minBab","classSkills","classSkillRule","proficiencies","proficiencyText","proficiencyParseIncomplete","progression","advancement","inheritsFrom"):
             if not enriched.get(key) and sibling.get(key):
                 enriched[key]=sibling[key]
         enriched["siblingSourceUrl"]=sibling.get("siblingSourceUrl")
@@ -2307,6 +2369,28 @@ def self_test():
     p=DetailParser();p.feed(base_with_prestige_prose);p.close()
     binder=parse_class_core(p,{"name":"Binder"})
     assert not binder.get("prestige"), "incidental prose must not classify a base class as prestige"
+
+    proficiency_html = """
+    <h1>Archivist</h1><p>Base Class Heroes of Horror (HH), p. 82</p>
+    <h2>Class Features</h2>
+    <p>Weapon and Armor Proficiency: Archivists are proficient with all simple weapons and with light and medium armor, but not with shields.</p>
+    <p>Dark Knowledge: Three times per day, an archivist can draw upon his expansive knowledge.</p>
+    <h2>Advancement</h2>
+    """
+    p=DetailParser();p.feed(proficiency_html);p.close()
+    prof=parse_class_proficiencies(p)
+    assert [item["index"] for item in prof["proficiencies"]]==["light-armor","medium-armor","simple-weapons"]
+    assert "shields" not in [item["index"] for item in prof["proficiencies"]]
+    assert not prof["proficiencyParseIncomplete"]
+
+    all_armor_html = """
+    <h1>Test Knight</h1><h2>Class Features</h2>
+    <p>Weapon and Armor Proficiency: A test knight is proficient with all martial weapons, all armor, and shields.</p>
+    <h2>Advancement</h2>
+    """
+    p=DetailParser();p.feed(all_armor_html);p.close()
+    prof=parse_class_proficiencies(p)
+    assert {item["index"] for item in prof["proficiencies"]}=={"martial-weapons","light-armor","medium-armor","heavy-armor","shields"}
 
     expert_html = """
     <h1>Expert</h1><p>NPC Class Unearthed Arcana (UA), p. 77</p>
