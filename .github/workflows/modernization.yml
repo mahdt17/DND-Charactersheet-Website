@@ -53,6 +53,7 @@ jobs:
       - run: python tests/enrichment_gate.py
       - run: node tests/setup-choices.mjs
       - run: node tests/integration-foundation.mjs
+      - run: node tests/class-integration.mjs
       - run: node tests/multiclass-casting.mjs
       - run: node tests/hit-dice.mjs
       - run: node tests/multiclass-training.mjs
