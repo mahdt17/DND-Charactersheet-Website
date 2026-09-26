@@ -2416,7 +2416,7 @@ def self_test():
     """
     p=DetailParser();p.feed(proficiency_html);p.close()
     prof=parse_class_proficiencies(p)
-    assert [item["index"] for item in prof["proficiencies"]]==["light-armor","medium-armor","simple-weapons"]
+    assert {item["index"] for item in prof["proficiencies"]}=={"light-armor","medium-armor","simple-weapons"}, prof
     assert "shields" not in [item["index"] for item in prof["proficiencies"]]
     assert not prof["proficiencyParseIncomplete"]
 
