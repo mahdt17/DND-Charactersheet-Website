@@ -397,8 +397,11 @@ function coalesceFeatures(row){
   return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
 }
 
+function featureRuleText(feature){
+  return [feature.description,...(feature.history||[]).map(item=>item.text)].filter(Boolean).join(' ');
+}
 function actionType(feature,edition){
-  const text=feature.description||'';
+  const text=featureRuleText(feature);
   if(/bonus action/i.test(text))return 'Bonus action';
   if(/\breaction\b|immediate action/i.test(text))return edition==='3.5'?'Immediate action':'Reaction';
   if(/swift action/i.test(text))return 'Swift action';
@@ -425,7 +428,7 @@ function latestUsage(feature){
 function isConcreteFeat(feature){
   if(feature.kind==='feat')return true;
   if(/^bonus feat$|^fighter feat$|^wild feat$/i.test(feature.name))return false;
-  const description=feature.description||'';
+  const description=featureRuleText(feature);
   const escaped=feature.name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
   return /\b(?:gain|gains|gained|receive|receives)\b[^.]{0,160}\bas (?:a )?bonus feat\b/i.test(description)
     ||new RegExp('\\b'+escaped+'\\b[^.]{0,120}\\bbonus feat\\b','i').test(description);
@@ -433,7 +436,7 @@ function isConcreteFeat(feature){
 function needsChoice(feature){
   if(feature.kind==='choice')return true;
   if(/^bonus feat$|^fighter feat$|^wild feat$/i.test(feature.name))return true;
-  return /\bchoose\b|\bselect\b|\bchoice\b/i.test(feature.description||'');
+  return /\bchoose\b|\bselect\b|\bchoice\b/i.test(featureRuleText(feature));
 }
 
 function derivedForRow(row){
@@ -443,9 +446,12 @@ function derivedForRow(row){
     const featureId=feature.sourceFeatureId||slug(feature.name),meta=sourceInfo(row,feature.level,featureId);
     const id='class-grant:'+meta.sourceClassId+':feature:'+slug(feature.name);
     const history=(feature.history||[]).sort((a,b)=>a.level-b.level);
-    const description=feature.description||`Granted by ${row.name} at class level ${feature.level}. See the class source for complete rules.`;
+    const localRuleText=String(feature.description||'').trim();
+    const progressionSummary=String(history.at(-1)?.text||feature.progressionText||feature.name).trim();
+    const description=localRuleText||row.name+' progression: '+progressionSummary+'.';
+    const descriptionSource=localRuleText?'rule-text':'progression';
     const choice=needsChoice(feature);
-    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',description,desc:[description],progressionHistory:history,...meta};
+    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',description,descriptionSource,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
     const concreteFeat=isConcreteFeat(feature);
     if(concreteFeat){
@@ -477,8 +483,8 @@ function derivedForRow(row){
   else if(!hasProgression)gaps.push('No structured level progression is available.');
   if(record.referenceOnly)gaps.push('Canonical source record is still marked reference-only.');
   if(record.mechanicsPresence?.classFeatures===false)gaps.push('Class feature rules are not present in structured source data.');
-  const descriptive=derivedFeatures.filter(feature=>feature.description.includes('See the class source for complete rules.')).length;
-  if(descriptive)warnings.push(`${descriptive} granted feature${descriptive===1?'':'s'} use source-linked descriptions because concise local rule text is unavailable.`);
+  const descriptive=derivedFeatures.filter(feature=>feature.descriptionSource==='progression').length;
+  if(descriptive)warnings.push(`${descriptive} granted feature${descriptive===1?'':'s'} use concise progression-table summaries because full local rule text is unavailable; source links remain authoritative.`);
   const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
   return {
     row,features:derivedFeatures,actions,feats,resources,tracks,spellSlots,
