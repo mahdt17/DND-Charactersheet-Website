@@ -186,6 +186,130 @@
         }
       ],
       "verified": true
+    },
+    "classes/crusader-115": {
+      "name": "Crusader",
+      "sourceUrl": "https://new.dndtools.org/classes/crusader-115",
+      "proficiencyText": "Weapon and Armor Proficiency: As a crusader, you are proficient with simple weapons, martial weapons, light, medium, and heavy armor, and all shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/divine-mind-11": {
+      "name": "Divine Mind",
+      "sourceUrl": "https://new.dndtools.org/classes/divine-mind-11",
+      "proficiencyText": "Weapon and Armor Proficiency: Divine minds are proficient with all simple and martial weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields).",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/death-master-974": {
+      "name": "Death Master",
+      "sourceUrl": "https://new.dndtools.org/classes/death-master-974",
+      "proficiencyText": "Weapon and Armor Proficiency: A death master is proficient with the club, crossbow (light and heavy), dagger, scimitar, scythe, sickle, and staff. Death masters are proficient with light armor but not with shields of any type.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Crossbow, Light",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Crossbow, Heavy",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "scimitar",
+          "name": "Scimitar",
+          "kind": "weapons"
+        },
+        {
+          "index": "sickle",
+          "name": "Sickle",
+          "kind": "weapons"
+        }
+      ],
+      "verified": false,
+      "unresolvedNamedWeapons": [
+        "scythe",
+        "staff"
+      ],
+      "reviewNote": "Source names do not currently map completely to the equipment catalog; do not automate until resolved."
     }
   }
 }
