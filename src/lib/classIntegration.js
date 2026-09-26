@@ -545,6 +545,16 @@ export function classAutomationReport(character){
   return reconcileClassGrants(character).classAutomation;
 }
 
+export function legacyClassSkillStatus(character,name){
+  const key=norm(name);
+  const fixed=(character.classSkills35||[]).some(entry=>norm(entry.name)===key);
+  const manual=character.classSkillOverrides35?.[key]===true;
+  const dynamic=(character.classSkillRules35||[]).length>0;
+  const classSkill=fixed||manual;
+  const maximum=(Number(character.level)||1)+3;
+  return {classSkill,fixed,manual,dynamic,rankCap:classSkill?maximum:maximum/2};
+}
+
 export function removeClassProgression(character,classId){
   const removed=characterClasses(character).find(row=>row.catalogId===classId);
   const rows=characterClasses(character).filter(row=>row.catalogId!==classId);
