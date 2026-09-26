@@ -283,7 +283,7 @@ function resolveInheritedClass(record,entries=[],seen=new Set()){
   }
   const parent=parents.find(item=>norm(item.name)===norm(record.inheritanceChoice))||parents[0];
   const resolved=resolveInheritedClass(parent,entries,nextSeen),filled={...record};
-  for(const key of ['progression','advancement','featureNames','hit_die','skillPoints','classSkills','classSkillRule']){
+  for(const key of ['progression','advancement','featureNames','hit_die','skillPoints','classSkills','classSkillRule','proficiencies','proficiencyText','proficiencyParseIncomplete']){
     if(filled[key]==null||filled[key]===''||(Array.isArray(filled[key])&&!filled[key].length))filled[key]=resolved[key];
   }
   filled.mechanicsPresence={
