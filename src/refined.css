@@ -213,10 +213,10 @@ body,.ledger-app,.ledger-workspace { background:var(--bg); }
   .dice-stage-results small { display:inline; font-size:10px; }
 }
 @media(max-width:700px) {
-  .ledger-nav { position:fixed; top:0; left:0; width:min(286px,84vw); height:100dvh; z-index:80; padding:25px 16px; }
+  .ledger-nav { position:fixed; top:58px; left:0; width:min(286px,84vw); height:calc(100dvh - 58px); z-index:80; padding:25px 16px; }
   .ledger-brand { padding:0 8px 30px; }
   .ledger-nav nav button { border-radius:4px; }
-  .nav-scrim { display:block; position:fixed; inset:0; z-index:70; border:0; background:#05080bb8; }
+  .nav-scrim { display:block; position:fixed; inset:58px 0 0; z-index:70; border:0; background:#05080bb8; }
   .ledger-top { top:0; padding:9px 12px; min-height:58px; height:auto; }
   .ledger-top>.l-toolbar:last-child .appearance-control>summary span { display:none; }
   .ledger-main { padding:18px 12px 85px; }
