@@ -24,10 +24,12 @@ const basicScores={str:15,dex:14,con:13,int:12,wis:10,cha:8};
 const cost={8:0,9:1,10:2,11:3,12:4,13:5,14:7,15:9};
 export function classOptions(edition,homebrew=[]){
  const canonical=homebrew.filter(x=>x.category==='class'), published=canonical.filter(x=>x.edition==='2014'&&x.enrichment);
- const base=[...classes.filter(c=>!published.some(p=>p.name===c.name)).map(c=>({...c,edition:'2014',description:CLASS_DATA[c.name]?.blurb||''})),...modern.classes.map(c=>({...c,edition:'2024',description:CLASS_DATA[c.name]?.blurb||''})),...legacy.classes];
+ const legacyFallback=legacy.classes.filter(item=>!canonical.some(entry=>entry.edition==='3.5'&&entry.name===item.name));
+ const base=[...classes.filter(c=>!published.some(p=>p.name===c.name)).map(c=>({...c,edition:'2014',description:CLASS_DATA[c.name]?.blurb||''})),...modern.classes.map(c=>({...c,edition:'2024',description:CLASS_DATA[c.name]?.blurb||''})),...legacyFallback];
  const extra=canonical.map(c=>{const srd=c.edition==='2014'&&c.enrichment?classes.find(x=>x.name===c.name):null;
  return {...srd,...c,index:c.index||c.id,hit_die:c.hit_die||srd?.hit_die||null,saving_throws:srd?.saving_throws||c.saving_throws,proficiency_choices:srd?.proficiency_choices||c.proficiency_choices,starting_equipment:srd?.starting_equipment||c.starting_equipment,starting_equipment_options:srd?.starting_equipment_options||c.starting_equipment_options,supplementSource:srd?'SRD 5.1 starting equipment and proficiency choices':undefined};});
- return [...base,...extra].filter(c=>edition==='custom'||c.edition===edition);
+ const ordered=edition==='3.5'||edition==='custom'?[...extra,...base]:[...base,...extra];
+ return ordered.filter(c=>edition==='custom'||c.edition===edition);
 }
 export function raceOptions(edition,homebrew=[]){return [...Object.entries(RACE_DATA).map(([name,d])=>({...d,index:name,name,edition:'2014',speed:parseInt(d.speed),description:d.blurb,traits:d.traits.map(([name,description])=>({name,description}))})),...modern.species.map(s=>({...s,edition:'2024',description:`${s.size} · ${s.type}`,bonuses:{},traits:s.traits.map(t=>modern.traits.find(x=>x.index===t.index)||t)})),...legacy.races,...homebrew.filter(x=>x.category==='race').map(r=>({...r,index:r.id,speed:r.speed??30,traits:[{name:r.name,description:r.description}]}))].filter(r=>edition==='custom'||r.edition===edition);}
 function Field({label,children}){return <label className="creation-field"><span>{label}</span>{children}</label>;}
