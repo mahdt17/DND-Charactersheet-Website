@@ -1735,6 +1735,128 @@
         }
       ],
       "verified": true
+    },
+    "classes/monk-94": {
+      "name": "Monk",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-94",
+      "proficiencyText": "Monks are proficient with club, light or heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shuriken, siangham, and sling; they are not proficient with armor or shields.",
+      "proficiencies": [
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Crossbow, light",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Crossbow, heavy",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "handaxe",
+          "name": "Handaxe",
+          "kind": "weapons"
+        },
+        {
+          "index": "javelin",
+          "name": "Javelin",
+          "kind": "weapons"
+        },
+        {
+          "index": "kama",
+          "name": "Kama",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "nunchaku",
+          "name": "Nunchaku",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "sai",
+          "name": "Sai",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shuriken",
+          "name": "Shuriken",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "siangham",
+          "name": "Siangham",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "sling",
+          "name": "Sling",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/rogue-97": {
+      "name": "Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-97",
+      "proficiencyText": "Rogues are proficient with all simple weapons, plus the hand crossbow, rapier, sap, shortbow, and short sword; they are proficient with light armor but not shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-hand",
+          "name": "Crossbow, hand",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
