@@ -2441,7 +2441,7 @@ def self_test():
     prof=parse_class_proficiencies(p)
     indexes={item["index"] for item in prof["proficiencies"]}
     assert {"club","dagger","crossbow-heavy","crossbow-light","quarterstaff"}.issubset(indexes)
-    assert "light-armor" not in indexes and "shields" not in indexes
+    assert "light-armor" not in indexes and "shields" not in indexes, prof
 
     all_armor_html = """
     <h1>Test Knight</h1><h2>Class Features</h2>
