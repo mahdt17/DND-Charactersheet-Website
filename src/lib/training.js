@@ -83,7 +83,7 @@ export function startingProficiencies(c,fallback=[]) {
 export function hasWeaponTraining(c,weapon,starting=[]) {
   const override=c.weaponTrainingOverrides?.[weapon.index];
   if(typeof override==='boolean')return override;
-  let primary=starting.map(p=>typeof p==='string'?p:p.index);
+  let primary=starting.filter(p=>typeof p==='string'||!p?.sourceOnly).map(p=>typeof p==='string'?p:p.index);
   // Revised weapon traits are category/property rules, not the 2014 list.
   const first=c.classLevels?.[0],edition=first?.edition||c.classDefinition?.edition||(c.ruleset==='custom'?c.mechanics:editionOf(c)),name=first?.name||c.className;
   if(edition==='2024'&&!unsupported(first?.definition||c.classDefinition)&&Object.hasOwn(revised,name)) {
@@ -91,7 +91,7 @@ export function hasWeaponTraining(c,weapon,starting=[]) {
     if(['Barbarian','Fighter','Paladin','Ranger'].includes(name))primary.push('martial-weapons');
     if(weapon.weapon_category==='Martial'&&((name==='Monk'&&weapon.properties?.some(p=>p.index==='light'))||(name==='Rogue'&&weapon.properties?.some(p=>['light','finesse'].includes(p.index)))))primary.push(weapon.index);
   }
-  const proficiencies=[...primary,...recordedTraining(c).filter(p=>p.kind==='weapons').map(p=>p.index)];
+  const proficiencies=[...primary,...recordedTraining(c).filter(p=>p.kind==='weapons'&&!p.sourceOnly).map(p=>p.index)];
   const scoped=proficiencies.includes('martial-melee-weapons')&&weapon.weapon_category==='Martial'&&weapon.weapon_range==='Melee';
   return scoped||proficiencies.includes(`${weapon.weapon_category?.toLowerCase()}-weapons`)||proficiencies.some(p=>p===`${weapon.index}s`||p===weapon.index||p===weapon.index.split('-').reverse().join('-')+'s');
 }
