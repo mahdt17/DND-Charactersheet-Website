@@ -117,6 +117,21 @@ function splitFeatureCell(value,known=[]){
   return result;
 }
 
+export function annotateClassGrantKinds(record,entries=[]){
+  if(!record||normalizeEdition(record.edition)!=='3.5'||record.levelGrants||record.grants)return record;
+  const feats=entries.filter(entry=>entry?.contentType==='feat'||entry?.category==='feat');
+  if(!feats.length)return record;
+  const byName=new Map(feats.map(feat=>[norm(feat.name),feat]));
+  const parsed=tableFeatureCells(record,30);
+  if(!parsed.length)return record;
+  const levelGrants=parsed.map(grant=>{
+    const exact=byName.get(norm(grant.name))||byName.get(norm(grant.name.replace(/\s*\([^)]*\)\s*$/,'')));
+    if(!exact)return {...grant,kind:'feature',description:sourceFeatureDescription(record,grant.name)};
+    return {...grant,kind:'feat',featId:exact.catalogId||exact.id,description:exact.description||exact.effectSummary||exact.effect||sourceFeatureDescription(record,grant.name),sourceUrl:exact.sourceUrl||record.sourceUrl};
+  });
+  return {...record,levelGrants};
+}
+
 function explicitLevelGrants(record,maximum){
   const result=[];
   const add=(grant,level)=>{
