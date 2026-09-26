@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import classes from '../src/data/classes.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
 import {spellSlotPools} from '../src/lib/editions.js';
-import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds} from '../src/lib/classIntegration.js';
+import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections} from '../src/lib/classIntegration.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
   id:'test-character',name:'Automation Test',ruleset,mechanics:ruleset,level:classLevels.reduce((n,row)=>n+row.level,0),
@@ -114,6 +114,49 @@ const mixed=reconcileClassGrants(multiclass);
 assert(mixed.grantedFeatures.some(feature=>feature.sourceClassId===fighterRecord.catalogId));
 assert(mixed.grantedFeatures.some(feature=>feature.sourceClassId===wizardRecord.catalogId));
 assert.equal(classAutomationReport(mixed).classes.length,2);
+
+// Prestige advancement applies only to the chosen existing caster/manifesting progression.
+const wizard35=integrated35('Wizard'),cleric35=integrated35('Cleric'),psion35=integrated35('Psion');
+const wizardRow={catalogId:wizard35.catalogId,name:'Wizard',edition:'3.5',level:5,definition:wizard35};
+const wizard5=reconcileClassGrants(baseCharacter([wizardRow]));
+const loremaster=integrated35('Loremaster'),lorePlan=castingAdvancementPlan(wizard5,loremaster,1);
+assert.equal(lorePlan.groups.length,1);
+assert(lorePlan.groups[0].candidates.some(option=>option.classId===wizard35.catalogId));
+const lorePicks={[lorePlan.groups[0].id]:wizard35.catalogId};
+assert(castingAdvancementSelectionsValid(lorePlan,lorePicks));
+const loreAdvanced=applyCastingAdvancementSelections({...wizard5,classLevels:[wizardRow,{catalogId:loremaster.catalogId,name:'Loremaster',edition:'3.5',level:1,definition:loremaster}],level:6},lorePlan,lorePicks);
+const loreSheet=reconcileClassGrants(loreAdvanced),wizard6=reconcileClassGrants(baseCharacter([{...wizardRow,level:6}]));
+assert.equal(loreSheet.classSpellSlots.find(profile=>profile.sourceClassId===wizard35.catalogId)?.effectiveClassLevel,6);
+assert.deepEqual(loreSheet.classSpellSlots.find(profile=>profile.sourceClassId===wizard35.catalogId)?.slots,wizard6.classSpellSlots.find(profile=>profile.sourceClassId===wizard35.catalogId)?.slots);
+
+const mystic=integrated35('Mystic Theurge');
+const dualBase=reconcileClassGrants(baseCharacter([
+  {...wizardRow,level:3},
+  {catalogId:cleric35.catalogId,name:'Cleric',edition:'3.5',level:3,definition:cleric35}
+]));
+const mysticPlan=castingAdvancementPlan(dualBase,mystic,1);
+assert.equal(mysticPlan.groups.length,2,'Mystic Theurge should advance two casting progressions');
+const arcaneGroup=mysticPlan.groups.find(group=>group.kind==='arcane'),divineGroup=mysticPlan.groups.find(group=>group.kind==='divine');
+assert(arcaneGroup&&divineGroup);
+const mysticPicks={[arcaneGroup.id]:wizard35.catalogId,[divineGroup.id]:cleric35.catalogId};
+assert(castingAdvancementSelectionsValid(mysticPlan,mysticPicks));
+const mysticSheet=reconcileClassGrants(applyCastingAdvancementSelections({...dualBase,classLevels:[...dualBase.classLevels,{catalogId:mystic.catalogId,name:mystic.name,edition:'3.5',level:1,definition:mystic}],level:7},mysticPlan,mysticPicks));
+assert.equal(mysticSheet.classSpellSlots.find(profile=>profile.sourceClassId===wizard35.catalogId)?.effectiveClassLevel,4);
+assert.equal(mysticSheet.classSpellSlots.find(profile=>profile.sourceClassId===cleric35.catalogId)?.effectiveClassLevel,4);
+
+const cerebremancer=integrated35('Cerebremancer');
+const psiBase=reconcileClassGrants(baseCharacter([
+  {...wizardRow,level:3},
+  {catalogId:psion35.catalogId,name:'Psion',edition:'3.5',level:3,definition:psion35}
+]));
+const cerePlan=castingAdvancementPlan(psiBase,cerebremancer,1);
+assert(cerePlan.groups.some(group=>group.kind==='arcane'));
+assert(cerePlan.groups.some(group=>group.kind==='psionic'));
+const cerePicks=Object.fromEntries(cerePlan.groups.map(group=>[group.id,group.kind==='psionic'?psion35.catalogId:wizard35.catalogId]));
+assert(castingAdvancementSelectionsValid(cerePlan,cerePicks));
+const cereSheet=reconcileClassGrants(applyCastingAdvancementSelections({...psiBase,classLevels:[...psiBase.classLevels,{catalogId:cerebremancer.catalogId,name:cerebremancer.name,edition:'3.5',level:1,definition:cerebremancer}],level:7},cerePlan,cerePicks));
+assert.equal(cereSheet.classSpellSlots.find(profile=>profile.sourceClassId===wizard35.catalogId)?.effectiveClassLevel,4);
+assert.equal(cereSheet.classProgressionTracks.find(track=>track.sourceClassId===psion35.catalogId&&track.name==='Power Points per Day')?.effectiveClassLevel,4);
 
 const prestige={
   id:'classes/test-prestige',catalogId:'dndtools:classes/test-prestige',name:'Test Prestige',edition:'3.5',prestige:true,hit_die:8,
