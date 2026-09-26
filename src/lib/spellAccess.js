@@ -2,6 +2,8 @@ import {contentKey, progressionRow} from './advancement.js';
 import {classSpellLists35} from './classSpellLists35.js';
 import {subclassSpellAccess} from './subclassSpells.js';
 import {subclassCasting,subclassSchoolAccess} from './subclassCasting.js';
+import {domainSpell,prohibitedSpell} from './legacyCastingChoices.js';
+import {specialCastingAccess} from './legacySpecialCasting.js';
 
 const norm=value=>String(value?.name||value||'').trim().toLowerCase();
 const validLevel=value=>Number.isInteger(value)&&value>=0&&value<=9;
@@ -15,6 +17,9 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
   if(c.ruleset==='custom'&&c.unrestrictedSpellAccess===true)
     return {allowed:true,level:spell.level,reason:'Table-approved custom spell access'};
   if(spell.edition&&spell.edition!==edition)return deny('This spell belongs to a different edition.');
+  const special=legacy?specialCastingAccess(c,spell):null;
+  if(special)return special;
+  if(legacy&&prohibitedSpell(c,spell))return deny('This Wizard cannot cast spells from a prohibited school.');
   const subclassGrant=subclassSpellAccess(c,spell);
   if(subclassGrant&&validLevel(spell.level))return {allowed:true,level:spell.level,alwaysPrepared:subclassGrant.alwaysPrepared,reason:`Granted by ${subclassGrant.source}`};
   const classId=c.activeCastingClassId||contentKey(c.classDefinition||{name:c.className,edition});
@@ -27,8 +32,9 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
   const memberships=(spell.classes||[]).map(norm);
   const classLevels=Object.entries(spell.classLevels||{}).filter(([name,level])=>names.has(norm(name))&&validLevel(level));
   const addedLevel=profile?.spells?.[norm(spell.name).replaceAll('’',"'")];
-  if(!memberships.some(name=>names.has(name))&&!classLevels.length&&!validLevel(addedLevel))return deny(`Not on the ${c.className} spell list. Record a specific source grant if a feature allows it.`);
-  const level=validLevel(addedLevel)?addedLevel:legacy&&classLevels.length?Math.min(...classLevels.map(([,level])=>level)):spell.level;
+  const domain=legacy?domainSpell(c,spell):null,ordinary=memberships.some(name=>names.has(name))||classLevels.length||validLevel(addedLevel);
+  if(!ordinary&&!domain)return deny(`Not on the ${c.className} spell list. Record a specific source grant if a feature allows it.`);
+  const level=!ordinary&&domain?domain.level:validLevel(addedLevel)?addedLevel:legacy&&classLevels.length?Math.min(...classLevels.map(([,level])=>level)):spell.level;
   if(!validLevel(level))return deny('This spell needs a verified class spell level.');
   if(legacy){
     if(spell.isManeuver){
@@ -49,5 +55,5 @@ export function spellAccessForClass(c,spell,{maxLevel=-1,cantrips=0,legacyProfil
     if(Number.isFinite(score)&&score<10+level)return deny(`Casting this spell requires ${ability.toUpperCase()} ${10+level}.`);
   } else if(level===0?cantrips<=0:level>maxLevel)return deny('Your class level has not unlocked this spell level.');
   if(!subclassSchoolAccess(c,spell))return deny('All unrestricted-school choices are used. Choose a spell from your subclass schools or replace an existing unrestricted choice.');
-  return {allowed:true,level};
+  return {allowed:true,level,...(domain?{domain:domain.domain,domainLevel:domain.level,domainOnly:!ordinary}:{})};
 }

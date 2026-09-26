@@ -25,8 +25,10 @@ export function multiclassPools(c,singleSlots) {
 }
 
 export function restSpellSlots(c,rest) {
-  if(rest==='long')return {slotsUsed:{},pactSlotsUsed:{}};
+  if(rest==='long')return {slotsUsed:{},pactSlotsUsed:{},classSlotsUsed:{},classRestrictedSlotsUsed:{},powerPointsUsed:0};
   const rows=characterClasses(c);
   const singleWarlock=rows.length===1&&rows[0].name==='Warlock'&&['2014','2024'].includes(c.ruleset||'2014');
-  return {slotsUsed:singleWarlock?{}:c.slotsUsed,pactSlotsUsed:{}};
+  const classSlotsUsed={...c.classSlotsUsed};
+  for(const row of rows)if(row.name==='Warlock'&&['2014','2024'].includes(row.edition))classSlotsUsed[row.catalogId]={};
+  return {slotsUsed:singleWarlock?{}:c.slotsUsed,pactSlotsUsed:{},classSlotsUsed};
 }

@@ -73,12 +73,62 @@ free/slot casting, rest recovery, source removal, and malformed saved choices.
 feat configuration and advancement, actual casts/slot expenditure, rests,
 save/reopen, ability display, feat removal and mobile layout.
 
-The guided feat spell selectors currently use the bundled edition spell catalogs.
-Other spell-granting feats, additional source spell choices, and non-spell feat
-effects still require explicit source grants/manual recording. Choice replacement
-timing remains table-controlled; the sheet does not track a replacement budget.
-Subclass non-spell combat features are not newly automated by this casting work.
-Background-granted Magic Initiate is configured on the sheet after creation.
+### Additional feat and legacy casting integration
+
+- Background Magic Initiate is configured during creation. Sage is locked to
+  Wizard; Acolyte is locked to Cleric. Changing backgrounds removes the previous
+  derived background feat and its choices.
+- Feat selectors also load complete published spell records from the reference
+  catalog, retain the selected records for offline use, and reject incomplete
+  reference records. Edition, school, ritual and attack requirements still apply.
+- Artificer Initiate (2014), Spell Sniper (2014), Ritual Caster, Telekinetic and
+  Telepathic now have guided choices. Artificer Initiate derives its tool training.
+  Spell Sniper shows adjusted range/cover rules. Telekinetic shows its shove save
+  DC; Telepathic shows its communication restrictions. These reminders do not
+  simulate another creature's position, save, cover, or response.
+- Ritual Caster (2014) supports a persistent ritual book and copying eligible
+  written rituals with source attribution and displayed time/gold costs. Payment
+  and elapsed time remain explicit table actions. The 2024 version gains rituals
+  as proficiency increases. Quick Ritual has one shared use for feat rituals and
+  any eligible prepared class ritual; it never spends a spell slot.
+- Wizard book rituals can be used without preparation in either modern edition.
+  Ordinary slot casting still requires preparation. A ritual tag alone does not
+  give a 2014 Sorcerer or Warlock ritual casting.
+- 2024 Magic Initiate allows one spell replacement upon gaining a level; changing
+  the list or ability requires a recorded setup correction. Other configured feat
+  choices are locked behind a correction with a reason. Neither path resets uses.
+- Five non-SRD 2024 magic feats have concise, source-linked catalog supplements.
+- 3.5 Cleric domains use 22 SRD lists with nine spell levels each. Two distinct
+  domains are required, opposed alignments are rejected, and Cloistered Cleric
+  receives Knowledge additionally. Domain-only spells cannot use ordinary slots.
+  Deity restrictions still require source review; domain granted powers are not
+  applied by this spell-list implementation.
+- Wizard specialization adds school-only slots and prohibits selected schools.
+  Diviners give up one other school; other specialists give up two. Divination
+  cannot be prohibited. Domain/specialist expenditure is separate per class and
+  recovers on a qualifying full rest. Changes to specialization remain setup
+  corrections; acquisition timing is not an advancement-history engine.
+- Core Psion, Psychic Warrior and Wilder calculate a shared power-point reserve,
+  including ability bonuses, while access and spending caps use each class's own
+  manifester level. Psion discipline lists remain separate from the general list.
+  Source augmentation effects, recent expenditure recovery restrictions, wild
+  surge and other exceptional rules require table adjudication.
+- 3.5 Warlock invocations use grade and known-count restrictions and at-will use;
+  they do not spend spell slots. The available catalog of powers and invocations
+  is still incomplete; this does not claim full psionic/invocation coverage.
+- Four source-linked Sorcerer records now use the SRD class progression instead
+  of an accidentally extracted familiar table. Known-spell tables are excluded
+  from slot parsing, and multirow headers work for class level lookup.
+- Mixed-edition spellbooks keep independent class slots; modern Warlock pools
+  recover on a short rest without resetting another edition's slots. This does
+  not invent a shared cross-edition slot conversion rule.
+
+`tests/feat-gaps.mjs`, `tests/legacy-casting-choices.mjs` and
+`tests/legacy-special-casting.mjs` cover these mechanics. The browser suite
+`tests/browser-casting-gaps.mjs` checks domain selection, specialist restrictions,
+actual resource spending, save/reopen, power limits, at-will use, shared Quick
+Ritual, unprepared Wizard rituals, and mobile layout. The edition creation suite
+now verifies that background Magic Initiate must be configured before continuing.
 
 `tests/spell-access.mjs` checks all 480 core class/level combinations (12 classes
 per core edition, levels 1–20), Artificer, 3.5 spell lists, minimum abilities,
@@ -103,16 +153,17 @@ and domain spells spending slots without consuming preparation choices.
 
 The previous generic audit counts 1,078/1,079 records as structurally usable and
 one as requiring a parent-class choice. That measures progression extraction.
-For 3.5, only 70 records have full local feature prose; 984 use progression
+For 3.5, only 66 records have full local feature prose; 988 use progression
 summaries. Only 100 source proficiency supplements are verified, and 203 class
 records have proficiency source text. The audit now states its scope explicitly.
 
-Source-specific spell acquisition/preparation limits, restricted domain and
-specialist slots, bonus slots for unreviewed casting classes, additional subclass casting progressions,
-psionics/invocations/binding/incarnum effects, companions, and remaining training
-rules still need structured source work. Cross-edition slot conversions remain
-table-controlled. A spell access grant is an explicit exception, not evidence
-that these systems are automated.
+Source-specific spell acquisition and per-slot preparation limits, bonus slots
+for unreviewed casting classes, additional subclass casting progressions,
+complete power/invocation catalogs and effects, binding/incarnum, companions,
+domain granted powers, remaining training rules, additional spell-granting feats,
+and non-spell feat effects still need structured source work. Cross-edition slot
+conversions remain table-controlled. A spell access grant is an explicit
+exception, not evidence that these systems are automated.
 
 No Supabase schema, catalog storage, policies or live character rows were changed.
 Read-only verification confirmed row-level security on both public tables.
@@ -141,3 +192,16 @@ Read-only verification confirmed row-level security on both public tables.
 - [2014 Shadow Touched](https://dnd5e.wikidot.com/feat:shadow-touched)
 - [2024 Fey Touched](https://dnd2024.wikidot.com/feat:fey-touched)
 - [2024 Shadow Touched](https://dnd2024.wikidot.com/feat:shadow-touched)
+- [2024 backgrounds](https://www.dndbeyond.com/sources/dnd/free-rules/character-origins)
+- [2014 Artificer Initiate](https://dnd5e.wikidot.com/feat:artificer-initiate)
+- [2014 Spell Sniper](https://dnd5e.wikidot.com/feat:spell-sniper)
+- [2014 Ritual Caster](https://dnd5e.wikidot.com/feat:ritual-caster)
+- [2024 Ritual Caster](https://dnd2024.wikidot.com/feat:ritual-caster)
+- [2024 Telekinetic](https://dnd2024.wikidot.com/feat:telekinetic)
+- [2024 Telepathic](https://dnd2024.wikidot.com/feat:telepathic)
+- [3.5 domains](https://www.d20srd.org/srd/spellLists/clericDomains.htm)
+- [3.5 Wizard specialization and Sorcerer progression](https://www.d20srd.org/srd/classes/sorcererWizard.htm)
+- [Sorcerer source-linked reprints](https://new.dndtools.org/classes/sorcerer-98)
+- [3.5 Psion](https://www.d20srd.org/srd/psionic/classes/psion.htm)
+- [3.5 shared power points](https://www.d20srd.org/srd/psionic/classes/index.htm)
+- [3.5 Warlock](https://new.dndtools.org/classes/warlock-4)

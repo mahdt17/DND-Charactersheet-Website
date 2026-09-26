@@ -2,6 +2,7 @@ import {normalizeEdition} from './content.js';
 import {setSpentHitDice} from './hitDice.js';
 import {applyMulticlassTraining} from './training.js';
 import {applyFeatAbilityIncrease} from './featMagic.js';
+import legacyCore from '../data/srd35.json' with {type:'json'};
 export const contentKey=r=>r.catalogId||`${normalizeEdition(r.edition)}:${r.index||r.id||r.name}`;
 export const prestige=r=>Boolean(r?.prestige||r?.stats?.prestige);
 const norm=s=>String(s||'').trim().replace(/[’]/g,"'").toLowerCase();
@@ -23,6 +24,10 @@ export function normalizeAdvancement(c) {
 }
 export function classCharacter(c,row) {return {...c,classLevels:undefined,className:row.name,classDefinition:row.definition,activeCastingClassId:row.catalogId,spells:spellsForClass(c,row.catalogId),otherClassLevels:characterClasses(c).filter(r=>r.catalogId!==row.catalogId).reduce((n,r)=>n+r.level,0),level:row.level,subclass:row.subclass||'',ruleset:row.edition,slotOverride:undefined,castingAbility:row.castingAbility||(characterClasses(c)[0]?.catalogId===row.catalogId?c.castingAbility:undefined)};}
 export function progressionTables(record) {
+  // These source-linked reprints accidentally captured the familiar table.
+  // Use the SRD Sorcerer progression, never familiar natural armor as class BAB.
+  const sourceId=record?.sourceId||String(record?.catalogId||record?.id||'').replace(/^dndtools:/,'');
+  if(record?.name==='Sorcerer'&&['classes/sorcerer-98','classes/sorcerer-109','classes/sorcerer-46','classes/sorcerer-70'].includes(sourceId))return legacyCore.classes.find(c=>c.name==='Sorcerer').tables;
   const p=record?.progression;
   if(Array.isArray(p)&&p.length&&Array.isArray(p[0])&&!Array.isArray(p[0][0]))return [p];
   if(record?.tables?.length)return record.tables;
@@ -31,10 +36,12 @@ export function progressionTables(record) {
 }
 export function progressionRow(record,level) {
   for(const t of progressionTables(record)) {
-    const i=t[0]?.findIndex(v=>/^(?:class )?level$/i.test(String(v).trim()));
-    if(i<0)continue;
-    const r=t.slice(1).find(r=>parseInt(r[i])===level);
-    if(r)return Object.fromEntries(t[0].map((k,j)=>[k,r[j]]));
+    for(let h=0;h<Math.min(5,t.length);h++){
+      const i=t[h]?.findIndex(v=>/^(?:class )?level$/i.test(String(v).trim()));
+      if(i<0)continue;
+      const r=t.slice(h+1).find(r=>/^\d{1,2}(?:st|nd|rd|th)?$/i.test(String(r[i]??'').trim())&&parseInt(r[i])===level);
+      if(r)return Object.fromEntries(t[h].map((k,j)=>[k,r[j]]));
+    }
   }
   return {};
 }

@@ -30,7 +30,7 @@ try {
   assert.equal(spent.slotsUsed[2],1);assert.equal(spent.pactSlotsUsed[2],1);
   const rested={...spent,...restSpellSlots(spent,'short')};
   assert.equal(rested.slotsUsed[2],1);assert.deepEqual(rested.pactSlotsUsed,{});
-  assert.deepEqual(restSpellSlots(spent,'long'),{slotsUsed:{},pactSlotsUsed:{}});
+  assert.deepEqual(restSpellSlots(spent,'long'),{slotsUsed:{},pactSlotsUsed:{},classSlotsUsed:{},classRestrictedSlotsUsed:{},powerPointsUsed:0});
   assert.throws(()=>p.spendSpellSlot({...spent,pactSlotsUsed:{2:2}},s,2,'pact'),/available slot/);
   assert.throws(()=>p.spendSpellSlot(c,{level:3},2,'pact'),/available slot/);
   assert.throws(()=>p.spendSpellSlot(c,s,2,'invented'),/available slot/);

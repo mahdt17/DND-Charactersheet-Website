@@ -1,0 +1,1124 @@
+[
+  {
+    "name": "Air",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#airDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Obscuring Mist",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/obscuringMist.htm"
+      },
+      {
+        "level": 2,
+        "name": "Wind Wall",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/windWall.htm"
+      },
+      {
+        "level": 3,
+        "name": "Gaseous Form",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/gaseousForm.htm"
+      },
+      {
+        "level": 4,
+        "name": "Air Walk",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/airWalk.htm"
+      },
+      {
+        "level": 5,
+        "name": "Control Winds",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/controlWinds.htm"
+      },
+      {
+        "level": 6,
+        "name": "Chain Lightning",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/chainLightning.htm"
+      },
+      {
+        "level": 7,
+        "name": "Control Weather",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/controlWeather.htm"
+      },
+      {
+        "level": 8,
+        "name": "Whirlwind",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/whirlwind.htm"
+      },
+      {
+        "level": 9,
+        "name": "Elemental Swarm",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/elementalSwarm.htm"
+      }
+    ]
+  },
+  {
+    "name": "Animal",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#animalDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Calm Animals",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/calmAnimals.htm"
+      },
+      {
+        "level": 2,
+        "name": "Hold Animal",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/holdAnimal.htm"
+      },
+      {
+        "level": 3,
+        "name": "Dominate Animal",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/dominateAnimal.htm"
+      },
+      {
+        "level": 4,
+        "name": "Summon Nature's Ally IV",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/summonNaturesAllyIV.htm"
+      },
+      {
+        "level": 5,
+        "name": "Commune with Nature",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/communeWithNature.htm"
+      },
+      {
+        "level": 6,
+        "name": "Antilife Shell",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/antilifeShell.htm"
+      },
+      {
+        "level": 7,
+        "name": "Animal Shapes",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/animalShapes.htm"
+      },
+      {
+        "level": 8,
+        "name": "Summon Nature's Ally VIII",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/summonNaturesAllyVIII.htm"
+      },
+      {
+        "level": 9,
+        "name": "Shapechange",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/shapechange.htm"
+      }
+    ]
+  },
+  {
+    "name": "Chaos",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#chaosDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Protection from Law",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/protectionFromLaw.htm"
+      },
+      {
+        "level": 2,
+        "name": "Shatter",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/shatter.htm"
+      },
+      {
+        "level": 3,
+        "name": "Magic Circle against Law",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magicCircleAgainstLaw.htm"
+      },
+      {
+        "level": 4,
+        "name": "Chaos Hammer",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/chaosHammer.htm"
+      },
+      {
+        "level": 5,
+        "name": "Dispel Law",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/dispelLaw.htm"
+      },
+      {
+        "level": 6,
+        "name": "Animate Objects",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/animateObjects.htm"
+      },
+      {
+        "level": 7,
+        "name": "Word of Chaos",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/wordOfChaos.htm"
+      },
+      {
+        "level": 8,
+        "name": "Cloak of Chaos",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/cloakOfChaos.htm"
+      },
+      {
+        "level": 9,
+        "name": "Summon Monster IX",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/summonMonsterIX.htm"
+      }
+    ]
+  },
+  {
+    "name": "Death",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#deathDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Cause Fear",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/causeFear.htm"
+      },
+      {
+        "level": 2,
+        "name": "Death Knell",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/deathKnell.htm"
+      },
+      {
+        "level": 3,
+        "name": "Animate Dead",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/animateDead.htm"
+      },
+      {
+        "level": 4,
+        "name": "Death Ward",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/deathWard.htm"
+      },
+      {
+        "level": 5,
+        "name": "Slay Living",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/slayLiving.htm"
+      },
+      {
+        "level": 6,
+        "name": "Create Undead",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/createUndead.htm"
+      },
+      {
+        "level": 7,
+        "name": "Destruction",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/destruction.htm"
+      },
+      {
+        "level": 8,
+        "name": "Create Greater Undead",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/createGreaterUndead.htm"
+      },
+      {
+        "level": 9,
+        "name": "Wail of the Banshee",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/wailOfTheBanshee.htm"
+      }
+    ]
+  },
+  {
+    "name": "Destruction",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#destructionDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Inflict Light Wounds",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/inflictLightWounds.htm"
+      },
+      {
+        "level": 2,
+        "name": "Shatter",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/shatter.htm"
+      },
+      {
+        "level": 3,
+        "name": "Contagion",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/contagion.htm"
+      },
+      {
+        "level": 4,
+        "name": "Inflict Critical Wounds",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/inflictCriticalWounds.htm"
+      },
+      {
+        "level": 5,
+        "name": "Inflict Light Wounds, Mass",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/inflictLightWoundsMass.htm"
+      },
+      {
+        "level": 6,
+        "name": "Harm",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/harm.htm"
+      },
+      {
+        "level": 7,
+        "name": "Disintegrate",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/disintegrate.htm"
+      },
+      {
+        "level": 8,
+        "name": "Earthquake",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/earthquake.htm"
+      },
+      {
+        "level": 9,
+        "name": "Implosion",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/implosion.htm"
+      }
+    ]
+  },
+  {
+    "name": "Earth",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#earthDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Magic Stone",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magicStone.htm"
+      },
+      {
+        "level": 2,
+        "name": "Soften Earth and Stone",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/softenEarthAndStone.htm"
+      },
+      {
+        "level": 3,
+        "name": "Stone Shape",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/stoneShape.htm"
+      },
+      {
+        "level": 4,
+        "name": "Spike Stones",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/spikeStones.htm"
+      },
+      {
+        "level": 5,
+        "name": "Wall of Stone",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/wallOfStone.htm"
+      },
+      {
+        "level": 6,
+        "name": "Stoneskin",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/stoneskin.htm"
+      },
+      {
+        "level": 7,
+        "name": "Earthquake",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/earthquake.htm"
+      },
+      {
+        "level": 8,
+        "name": "Iron Body",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/ironBody.htm"
+      },
+      {
+        "level": 9,
+        "name": "Elemental Swarm",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/elementalSwarm.htm"
+      }
+    ]
+  },
+  {
+    "name": "Evil",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#evilDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Protection from Good",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/protectionFromGood.htm"
+      },
+      {
+        "level": 2,
+        "name": "Desecrate",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/desecrate.htm"
+      },
+      {
+        "level": 3,
+        "name": "Magic Circle against Good",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magicCircleAgainstGood.htm"
+      },
+      {
+        "level": 4,
+        "name": "Unholy Blight",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/unholyBlight.htm"
+      },
+      {
+        "level": 5,
+        "name": "Dispel Good",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/dispelGood.htm"
+      },
+      {
+        "level": 6,
+        "name": "Create Undead",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/createUndead.htm"
+      },
+      {
+        "level": 7,
+        "name": "Blasphemy",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/blasphemy.htm"
+      },
+      {
+        "level": 8,
+        "name": "Unholy Aura",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/unholyAura.htm"
+      },
+      {
+        "level": 9,
+        "name": "Summon Monster IX",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/summonMonsterIX.htm"
+      }
+    ]
+  },
+  {
+    "name": "Fire",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#fireDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Burning Hands",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/burningHands.htm"
+      },
+      {
+        "level": 2,
+        "name": "Produce Flame",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/produceFlame.htm"
+      },
+      {
+        "level": 3,
+        "name": "Resist Energy",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/resistEnergy.htm"
+      },
+      {
+        "level": 4,
+        "name": "Wall of Fire",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/wallOfFire.htm"
+      },
+      {
+        "level": 5,
+        "name": "Fire Shield",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/fireShield.htm"
+      },
+      {
+        "level": 6,
+        "name": "Fire Seeds",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/fireSeeds.htm"
+      },
+      {
+        "level": 7,
+        "name": "Fire Storm",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/fireStorm.htm"
+      },
+      {
+        "level": 8,
+        "name": "Incendiary Cloud",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/incendiaryCloud.htm"
+      },
+      {
+        "level": 9,
+        "name": "Elemental Swarm",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/elementalSwarm.htm"
+      }
+    ]
+  },
+  {
+    "name": "Good",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#goodDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Protection from Evil",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/protectionFromEvil.htm"
+      },
+      {
+        "level": 2,
+        "name": "Aid",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/aid.htm"
+      },
+      {
+        "level": 3,
+        "name": "Magic Circle against Evil",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magicCircleAgainstEvil.htm"
+      },
+      {
+        "level": 4,
+        "name": "Holy Smite",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/holySmite.htm"
+      },
+      {
+        "level": 5,
+        "name": "Dispel Evil",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/dispelEvil.htm"
+      },
+      {
+        "level": 6,
+        "name": "Blade Barrier",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/bladeBarrier.htm"
+      },
+      {
+        "level": 7,
+        "name": "Holy Word",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/holyWord.htm"
+      },
+      {
+        "level": 8,
+        "name": "Holy Aura",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/holyAura.htm"
+      },
+      {
+        "level": 9,
+        "name": "Summon Monster IX",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/summonMonsterIX.htm"
+      }
+    ]
+  },
+  {
+    "name": "Healing",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#healingDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Cure Light Wounds",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/cureLightWounds.htm"
+      },
+      {
+        "level": 2,
+        "name": "Cure Moderate Wounds",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/cureModerateWounds.htm"
+      },
+      {
+        "level": 3,
+        "name": "Cure Serious Wounds",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/cureSeriousWounds.htm"
+      },
+      {
+        "level": 4,
+        "name": "Cure Critical Wounds",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/cureCriticalWounds.htm"
+      },
+      {
+        "level": 5,
+        "name": "Cure Light Wounds, Mass",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/cureLightWoundsMass.htm"
+      },
+      {
+        "level": 6,
+        "name": "Heal",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/heal.htm"
+      },
+      {
+        "level": 7,
+        "name": "Regenerate",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/regenerate.htm"
+      },
+      {
+        "level": 8,
+        "name": "Cure Critical Wounds, Mass",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/cureCriticalWoundsMass.htm"
+      },
+      {
+        "level": 9,
+        "name": "Heal, Mass",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/healMass.htm"
+      }
+    ]
+  },
+  {
+    "name": "Knowledge",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#knowledgeDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Detect Secret Doors",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/detectSecretDoors.htm"
+      },
+      {
+        "level": 2,
+        "name": "Detect Thoughts",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/detectThoughts.htm"
+      },
+      {
+        "level": 3,
+        "name": "Clairaudience/Clairvoyance",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/clairaudienceClairvoyance.htm"
+      },
+      {
+        "level": 4,
+        "name": "Divination",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/divination.htm"
+      },
+      {
+        "level": 5,
+        "name": "True Seeing",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/trueSeeing.htm"
+      },
+      {
+        "level": 6,
+        "name": "Find the Path",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/findThePath.htm"
+      },
+      {
+        "level": 7,
+        "name": "Legend Lore",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/legendLore.htm"
+      },
+      {
+        "level": 8,
+        "name": "Discern Location",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/discernLocation.htm"
+      },
+      {
+        "level": 9,
+        "name": "Foresight",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/foresight.htm"
+      }
+    ]
+  },
+  {
+    "name": "Law",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#lawDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Protection from Chaos",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/protectionFromChaos.htm"
+      },
+      {
+        "level": 2,
+        "name": "Calm Emotions",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/calmEmotions.htm"
+      },
+      {
+        "level": 3,
+        "name": "Magic Circle against Chaos",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magicCircleAgainstChaos.htm"
+      },
+      {
+        "level": 4,
+        "name": "Order's Wrath",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/ordersWrath.htm"
+      },
+      {
+        "level": 5,
+        "name": "Dispel Chaos",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/dispelChaos.htm"
+      },
+      {
+        "level": 6,
+        "name": "Hold Monster",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/holdMonster.htm"
+      },
+      {
+        "level": 7,
+        "name": "Dictum",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/dictum.htm"
+      },
+      {
+        "level": 8,
+        "name": "Shield of Law",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/shieldOfLaw.htm"
+      },
+      {
+        "level": 9,
+        "name": "Summon Monster IX",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/summonMonsterIX.htm"
+      }
+    ]
+  },
+  {
+    "name": "Luck",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#luckDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Entropic Shield",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/entropicShield.htm"
+      },
+      {
+        "level": 2,
+        "name": "Aid",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/aid.htm"
+      },
+      {
+        "level": 3,
+        "name": "Protection from Energy",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/protectionFromEnergy.htm"
+      },
+      {
+        "level": 4,
+        "name": "Freedom of Movement",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/freedomOfMovement.htm"
+      },
+      {
+        "level": 5,
+        "name": "Break Enchantment",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/breakEnchantment.htm"
+      },
+      {
+        "level": 6,
+        "name": "Mislead",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/mislead.htm"
+      },
+      {
+        "level": 7,
+        "name": "Spell Turning",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/spellTurning.htm"
+      },
+      {
+        "level": 8,
+        "name": "Moment of Prescience",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/momentOfPrescience.htm"
+      },
+      {
+        "level": 9,
+        "name": "Miracle",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/miracle.htm"
+      }
+    ]
+  },
+  {
+    "name": "Magic",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#magicDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Magic Aura",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magicAura.htm"
+      },
+      {
+        "level": 2,
+        "name": "Identify",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/identify.htm"
+      },
+      {
+        "level": 3,
+        "name": "Dispel Magic",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/dispelMagic.htm"
+      },
+      {
+        "level": 4,
+        "name": "Imbue with Spell Ability",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/imbueWithSpellAbility.htm"
+      },
+      {
+        "level": 5,
+        "name": "Spell Resistance",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/spellResistance.htm"
+      },
+      {
+        "level": 6,
+        "name": "Antimagic Field",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/antimagicField.htm"
+      },
+      {
+        "level": 7,
+        "name": "Spell Turning",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/spellTurning.htm"
+      },
+      {
+        "level": 8,
+        "name": "Protection from Spells",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/protectionFromSpells.htm"
+      },
+      {
+        "level": 9,
+        "name": "Mage's Disjunction",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magesDisjunction.htm"
+      }
+    ]
+  },
+  {
+    "name": "Plant",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#plantDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Entangle",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/entangle.htm"
+      },
+      {
+        "level": 2,
+        "name": "Barkskin",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/barkskin.htm"
+      },
+      {
+        "level": 3,
+        "name": "Plant Growth",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/plantGrowth.htm"
+      },
+      {
+        "level": 4,
+        "name": "Command Plants",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/commandPlants.htm"
+      },
+      {
+        "level": 5,
+        "name": "Wall of Thorns",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/wallOfThorns.htm"
+      },
+      {
+        "level": 6,
+        "name": "Repel Wood",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/repelWood.htm"
+      },
+      {
+        "level": 7,
+        "name": "Animate Plants",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/animatePlants.htm"
+      },
+      {
+        "level": 8,
+        "name": "Control Plants",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/controlPlants.htm"
+      },
+      {
+        "level": 9,
+        "name": "Shambler",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/shambler.htm"
+      }
+    ]
+  },
+  {
+    "name": "Protection",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#protectionDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Sanctuary",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/sanctuary.htm"
+      },
+      {
+        "level": 2,
+        "name": "Shield Other",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/shieldOther.htm"
+      },
+      {
+        "level": 3,
+        "name": "Protection from Energy",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/protectionFromEnergy.htm"
+      },
+      {
+        "level": 4,
+        "name": "Spell Immunity",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/spellImmunity.htm"
+      },
+      {
+        "level": 5,
+        "name": "Spell Resistance",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/spellResistance.htm"
+      },
+      {
+        "level": 6,
+        "name": "Antimagic Field",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/antimagicField.htm"
+      },
+      {
+        "level": 7,
+        "name": "Repulsion",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/repulsion.htm"
+      },
+      {
+        "level": 8,
+        "name": "Mind Blank",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/mindBlank.htm"
+      },
+      {
+        "level": 9,
+        "name": "Prismatic Sphere",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/prismaticSphere.htm"
+      }
+    ]
+  },
+  {
+    "name": "Strength",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#strengthDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Enlarge Person",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/enlargePerson.htm"
+      },
+      {
+        "level": 2,
+        "name": "Bull's Strength",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/bullsStrength.htm"
+      },
+      {
+        "level": 3,
+        "name": "Magic Vestment",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magicVestment.htm"
+      },
+      {
+        "level": 4,
+        "name": "Spell Immunity",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/spellImmunity.htm"
+      },
+      {
+        "level": 5,
+        "name": "Righteous Might",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/righteousMight.htm"
+      },
+      {
+        "level": 6,
+        "name": "Stoneskin",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/stoneskin.htm"
+      },
+      {
+        "level": 7,
+        "name": "Grasping Hand",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/graspingHand.htm"
+      },
+      {
+        "level": 8,
+        "name": "Clenched Fist",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/clenchedFist.htm"
+      },
+      {
+        "level": 9,
+        "name": "Crushing Hand",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/crushingHand.htm"
+      }
+    ]
+  },
+  {
+    "name": "Sun",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#sunDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Endure Elements",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/endureElements.htm"
+      },
+      {
+        "level": 2,
+        "name": "Heat Metal",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/heatMetal.htm"
+      },
+      {
+        "level": 3,
+        "name": "Searing Light",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/searingLight.htm"
+      },
+      {
+        "level": 4,
+        "name": "Fire Shield",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/fireShield.htm"
+      },
+      {
+        "level": 5,
+        "name": "Flame Strike",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/flameStrike.htm"
+      },
+      {
+        "level": 6,
+        "name": "Fire Seeds",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/fireSeeds.htm"
+      },
+      {
+        "level": 7,
+        "name": "Sunbeam",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/sunbeam.htm"
+      },
+      {
+        "level": 8,
+        "name": "Sunburst",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/sunburst.htm"
+      },
+      {
+        "level": 9,
+        "name": "Prismatic Sphere",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/prismaticSphere.htm"
+      }
+    ]
+  },
+  {
+    "name": "Travel",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#travelDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Longstrider",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/longstrider.htm"
+      },
+      {
+        "level": 2,
+        "name": "Locate Object",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/locateObject.htm"
+      },
+      {
+        "level": 3,
+        "name": "Fly",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/fly.htm"
+      },
+      {
+        "level": 4,
+        "name": "Dimension Door",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/dimensionDoor.htm"
+      },
+      {
+        "level": 5,
+        "name": "Teleport",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/teleport.htm"
+      },
+      {
+        "level": 6,
+        "name": "Find the Path",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/findThePath.htm"
+      },
+      {
+        "level": 7,
+        "name": "Teleport, Greater",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/teleportGreater.htm"
+      },
+      {
+        "level": 8,
+        "name": "Phase Door",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/phaseDoor.htm"
+      },
+      {
+        "level": 9,
+        "name": "Astral Projection",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/astralProjection.htm"
+      }
+    ]
+  },
+  {
+    "name": "Trickery",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#trickeryDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Disguise Self",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/disguiseSelf.htm"
+      },
+      {
+        "level": 2,
+        "name": "Invisibility",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/invisibility.htm"
+      },
+      {
+        "level": 3,
+        "name": "Nondetection",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/nondetection.htm"
+      },
+      {
+        "level": 4,
+        "name": "Confusion",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/confusion.htm"
+      },
+      {
+        "level": 5,
+        "name": "False Vision",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/falseVision.htm"
+      },
+      {
+        "level": 6,
+        "name": "Mislead",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/mislead.htm"
+      },
+      {
+        "level": 7,
+        "name": "Screen",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/screen.htm"
+      },
+      {
+        "level": 8,
+        "name": "Polymorph Any Object",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/polymorphAnyObject.htm"
+      },
+      {
+        "level": 9,
+        "name": "Time Stop",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/timeStop.htm"
+      }
+    ]
+  },
+  {
+    "name": "War",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#warDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Magic Weapon",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magicWeapon.htm"
+      },
+      {
+        "level": 2,
+        "name": "Spiritual Weapon",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/spiritualWeapon.htm"
+      },
+      {
+        "level": 3,
+        "name": "Magic Vestment",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/magicVestment.htm"
+      },
+      {
+        "level": 4,
+        "name": "Divine Power",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/divinePower.htm"
+      },
+      {
+        "level": 5,
+        "name": "Flame Strike",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/flameStrike.htm"
+      },
+      {
+        "level": 6,
+        "name": "Blade Barrier",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/bladeBarrier.htm"
+      },
+      {
+        "level": 7,
+        "name": "Power Word Blind",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/powerWordBlind.htm"
+      },
+      {
+        "level": 8,
+        "name": "Power Word Stun",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/powerWordStun.htm"
+      },
+      {
+        "level": 9,
+        "name": "Power Word Kill",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/powerWordKill.htm"
+      }
+    ]
+  },
+  {
+    "name": "Water",
+    "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#waterDomain",
+    "spells": [
+      {
+        "level": 1,
+        "name": "Obscuring Mist",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/obscuringMist.htm"
+      },
+      {
+        "level": 2,
+        "name": "Fog Cloud",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/fogCloud.htm"
+      },
+      {
+        "level": 3,
+        "name": "Water Breathing",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/waterBreathing.htm"
+      },
+      {
+        "level": 4,
+        "name": "Control Water",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/controlWater.htm"
+      },
+      {
+        "level": 5,
+        "name": "Ice Storm",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/iceStorm.htm"
+      },
+      {
+        "level": 6,
+        "name": "Cone of Cold",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/coneOfCold.htm"
+      },
+      {
+        "level": 7,
+        "name": "Acid Fog",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/acidFog.htm"
+      },
+      {
+        "level": 8,
+        "name": "Horrid Wilting",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/horridWilting.htm"
+      },
+      {
+        "level": 9,
+        "name": "Elemental Swarm",
+        "sourceUrl": "https://www.d20srd.org/srd/spells/elementalSwarm.htm"
+      }
+    ]
+  }
+]

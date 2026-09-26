@@ -1,3 +1,4 @@
+import {featMagicState} from './featMagic.js';
 // Core multiclass grants: 2014 Basic Rules customization table and 2024 class
 // descriptions. Class skill lists differ from several imported API choice lists.
 const skills=['Acrobatics','Animal Handling','Arcana','Athletics','Deception','History','Insight','Intimidation','Investigation','Medicine','Nature','Perception','Performance','Persuasion','Religion','Sleight of Hand','Stealth','Survival'];
@@ -65,6 +66,7 @@ export function applyMulticlassTraining(c,record,picks={}) {
 }
 export function recordedTraining(c) {
   const entries=(c.trainingGrants||[]).flatMap(g=>g.proficiencies||[]);
+  for(const f of c.feats||[]){const state=featMagicState(f,c);if(state.valid&&state.profile?.tools)entries.push({index:f.magicChoices.tool.toLowerCase().replace(/[^a-z]+/g,'-'),name:f.magicChoices.tool,kind:'tools',sourceFeatId:f.id});}
   // Fixed grants can be recovered for older core multiclass saves. Skill and
   // instrument choices are never inferred.
   if(['2014','2024'].includes(editionOf(c)))for(const row of (c.classLevels||[]).slice(1)) {

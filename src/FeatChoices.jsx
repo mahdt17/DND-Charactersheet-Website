@@ -6,12 +6,13 @@ import {requirements,qualified} from './lib/advancement';
 import Requirements from './Requirements';
 import FeatMagicChoices from './FeatMagicChoices';
 import {featMagicProfile} from './lib/featMagic';
+import {featSupplements} from './lib/featSupplements';
 export default function FeatChoices({char,patch,homebrew=[],editable=false,lockedCount=0,maxFeats=Infinity,requireCustomReview=false}) {
  const [open,setOpen]=useState(false),[query,setQuery]=useState(''),[page,setPage]=useState(0),[confirmations,setConfirmations]=useState({}),[custom,setCustom]=useState(''),[customReviewed,setCustomReviewed]=useState(false),[customDescription,setCustomDescription]=useState('');
  const full=(char.feats||[]).length>=maxFeats;
  const reference=useReferenceIndex(open?['feats']:[],char.ruleset||'2014');
  useEffect(()=>setPage(0),[query]);
- const candidates=[...feats14.map(f=>({...f,edition:'2014'})),...modern.feats.map(f=>({...f,edition:'2024'})),...(legacy.feats||[]),...homebrew.filter(f=>f.category==='feat'),...reference.entries].filter(f=>(char.ruleset==='custom'||f.edition===(char.ruleset||'2014'))&&f.name.toLowerCase().includes(query.toLowerCase()));
+ const candidates=[...feats14.map(f=>({...f,edition:'2014'})),...modern.feats.map(f=>({...f,edition:'2024'})),...featSupplements,...(legacy.feats||[]),...homebrew.filter(f=>f.category==='feat'),...reference.entries].filter(f=>(char.ruleset==='custom'||f.edition===(char.ruleset||'2014'))&&f.name.toLowerCase().includes(query.toLowerCase()));
  return <section aria-label="Feat choices"><h3>Review feat selections</h3>{editable&&(char.feats||[]).slice(lockedCount).map(f=><div className="feature-detail" key={f.id||keyOf(f)}><strong>{f.name}</strong><p>{f.description||f.desc?.join('\n')}</p><FeatMagicChoices feat={f} char={char} onChange={next=>patch({feats:char.feats.map(x=>x===f?next:x)})}/><button className="l-button" onClick={()=>patch({feats:char.feats.filter(x=>x!==f)})}>Remove {f.name}</button></div>)}
  {full&&<p role="status">One feat selected for this level. Remove it to choose another.</p>}
  <button className="l-button" onClick={()=>setOpen(!open)}>{open?'Close feat catalog':'Choose from feat catalog'}</button>{open&&<div className="l-panel"><label className="l-field"><span>Search feats</span><input value={query} onChange={e=>setQuery(e.target.value)}/></label><p>Choose feats only when your class, race or table grants a feat. Supported magic-feat choices are configured below; other choice-dependent effects are recorded on your sheet.</p>{reference.loading&&<p role="status">Loading feats…</p>}{reference.error&&<p role="alert">{reference.error}<button className="l-button" onClick={reference.retry}>Retry catalog</button></p>}

@@ -126,6 +126,7 @@ export function spellSlotProgression(record,maximum){
   let best=null;
   for(const table of progressionTables(record)){
     if(!Array.isArray(table)||!table.length)continue;
+    if(table.slice(0,3).some(row=>row.some(value=>/^spells? known$/i.test(String(value).trim()))))continue;
     let headerIndex=-1,levelIndex=-1,header=[];
     for(let i=0;i<Math.min(5,table.length);i++){
       const row=table[i]||[];
