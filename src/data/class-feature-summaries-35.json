@@ -49,5 +49,49 @@
       "description": "At 10th level and again at 20th level, choose a bonus feat from Skill Focus (any Knowledge skill), Spell Focus, any metamagic feat, or any item creation feat.",
       "sourceSha256": "630079cbb9ac918d8b9453472299dc1df526f28081e792a90b78adf5cfba14b3"
     }
+  ],
+  "classes/psion-137": [
+    {
+      "name": "Class Skills",
+      "level": 1,
+      "description": "Your chosen psionic discipline adds class skills. Seer adds Gather Information, Listen, and Spot; Shaper adds Bluff, Disguise, and Use Psionic Device; Kineticist adds Autohypnosis, Disable Device, and Intimidate; Egoist adds Autohypnosis, Balance, and Heal; Nomad adds Climb, Jump, Ride, Survival, and Swim; Telepath adds Bluff, Diplomacy, Gather Information, and Sense Motive.",
+      "sourceSha256": "4c3cf6b76c7f1f2dd6cc23e3da7d17ca46fec8cb27cfcb15bc466d7f3262fdda"
+    },
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with the club, dagger, heavy crossbow, light crossbow, quarterstaff, and shortspear. Psions are not proficient with armor or shields, and armor does not interfere with manifesting powers.",
+      "sourceSha256": "94ff913ba80f304798edfadadedc797817a8856b266832c4879c3fdc55471ad2"
+    },
+    {
+      "name": "Power Points/Day",
+      "level": 1,
+      "description": "Manifesting powers spends power points. Your base daily power-point allotment follows the Psion progression table, and a high Intelligence score can grant bonus power points; race, feats, and items can also add power points.",
+      "sourceSha256": "4611824c506710eba94b291dc1b35f1cfffd2e8fc6f25160a893f68ec87e6701"
+    },
+    {
+      "name": "Discipline",
+      "level": 1,
+      "description": "Choose one psionic discipline at 1st level. It grants its associated class skills and access to powers restricted to that discipline; you cannot normally learn powers restricted to the other disciplines.",
+      "sourceSha256": "99048a4ee203e58b9528f6d7df9456114f0578514016f923131aaa484f3f249c"
+    },
+    {
+      "name": "Powers Known",
+      "level": 1,
+      "description": "Begin with three psion powers known and learn additional powers as you gain levels. You may choose general psion powers and powers from your chosen discipline, but not powers restricted to other disciplines unless another rule allows it. You do not prepare powers; after a good night's rest you regain spent power points. A power's save DC is 10 + power level + Intelligence modifier.",
+      "sourceSha256": "6b505ce9375cb51e49ba9be80ff51870808fd8fa19a6cbe9910760ad0746e8cd"
+    },
+    {
+      "name": "Maximum Power Level Known",
+      "level": 1,
+      "description": "The highest-level power you can learn increases with Psion level according to the class table. To learn or manifest a power, your Intelligence score must be at least 10 + the power's level.",
+      "sourceSha256": "20718a453988c34cf951a766f302e97e63fa27f609fc49fd9bae446ac1336fa2"
+    },
+    {
+      "name": "Bonus Feats",
+      "level": 1,
+      "description": "Gain a bonus feat at 1st, 5th, 10th, 15th, and 20th level. Each of these class bonus feats must be a psionic feat, metapsionic feat, or psionic item creation feat; they are in addition to normal character-level feats.",
+      "sourceSha256": "ad7654feb5cc6ebcec8fa543c06fae29b525b2ed79f7b8a804b0654adb3b4bbc"
+    }
   ]
 }
