@@ -31,6 +31,14 @@ try {
  assert.equal(p.exhaustionLevel({conditions:'exhaustion'}),1);
  assert.equal(p.exhaustionLevel({exhaustion:2.9}),2);
  assert.equal(p.rollMode('advantage',true),'normal');
+ const archivistDefinition={sourceId:'classes/archivist-74',name:'Archivist',sourceBook:'Heroes of Horror',url:'https://new.dndtools.org/classes/archivist-74',progression:[['Class Level','BAB','Fort','Ref','Will','Special'],['1st','+0','+2','+0','+2','Dark knowledge (tactics) 3/day, Scribe Scroll'],['2nd','+1','+3','+0','+3','Lore mastery'],['3rd','+1','+3','+1','+3','Dark knowledge 4/day'],['4th','+2','+4','+1','+4','Still mind'],['5th','+2','+4','+1','+4','Dark knowledge (puissance)']]};
+ const archivistFeatures=e.classFeatures({...wizard,ruleset:'3.5',className:'Archivist',classDefinition:archivistDefinition,level:5});
+ assert.deepEqual(archivistFeatures.filter(f=>['Dark knowledge','Scribe Scroll'].includes(f.name)).map(f=>f.name),['Dark knowledge','Scribe Scroll']);
+ assert.equal(archivistFeatures.find(f=>f.name==='Dark knowledge').level,1);
+ assert.equal(archivistFeatures.find(f=>f.name==='Dark knowledge').progression.length,3);
+ assert.match(archivistFeatures.find(f=>f.name==='Dark knowledge').desc[0],/Knowledge check/i);
+ assert.equal(archivistFeatures.find(f=>f.name==='Scribe Scroll').featName,'Scribe Scroll');
+ assert(archivistFeatures.some(f=>f.name==='Prayerbook'));
  const legacy={...wizard,ruleset:'3.5',className:'Fighter',level:6};
  assert.deepEqual(e.legacyProgression(legacy),{bab:6,fort:5,ref:2,will:2});
  assert.equal(e.characterSlots(legacy).reduce((a,b)=>a+b),0);
