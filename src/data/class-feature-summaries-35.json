@@ -1,0 +1,45 @@
+{
+  "classes/archivist-74": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons and with light and medium armor, but not shields."
+    },
+    {
+      "name": "Spellcasting",
+      "level": 1,
+      "description": "Casts divine spells from a prayerbook. Intelligence determines the highest spell level the archivist can learn, prepare, or cast and sets spell save DCs; Wisdom provides bonus spells per day. Spells are prepared after rest and study."
+    },
+    {
+      "name": "Prayerbook",
+      "level": 1,
+      "description": "Keeps divine spells in a prayerbook and can prepare only spells recorded there, except read magic. Begins with all 0-level cleric spells plus selected 1st-level cleric spells, gains two cleric spells for the prayerbook at each archivist level, and can copy additional divine spells from scrolls under the normal spellbook-copying rules."
+    },
+    {
+      "name": "Dark knowledge",
+      "level": 1,
+      "description": "3/day at 1st level, with one additional daily use every three archivist levels. Make the Knowledge check appropriate to the creature type (DC 15); the effect lasts 1 minute unless stated otherwise and normally affects a creature or creatures of the same race within 60 feet. Tactics (1st) grants allies +1 to attack rolls against the affected creatures, improving to +2/+3 when the check beats the DC by 10/20. Puissance (5th) similarly grants +1/+2/+3 on saves against the affected creatures' abilities. Foe (8th) grants +1d6/+2d6/+3d6 weapon damage. Dread Secret (11th) dazzles, dazes, or stuns one target for 1 round depending on the check margin. Foreknowledge (14th) grants allies within 30 feet +1/+2/+3 insight AC against attacks from the affected creature."
+    },
+    {
+      "name": "Scribe Scroll",
+      "level": 1,
+      "featName": "Scribe Scroll",
+      "description": "Gains Scribe Scroll as a bonus feat."
+    },
+    {
+      "name": "Lore mastery",
+      "level": 2,
+      "description": "Gain +2 on Decipher Script checks and on one chosen Knowledge skill. Choose another Knowledge skill for this +2 bonus at 7th, 13th, and 17th level; each choice is permanent."
+    },
+    {
+      "name": "Still mind",
+      "level": 4,
+      "description": "Gain a +2 bonus on saving throws against enchantment spells and effects."
+    },
+    {
+      "name": "Bonus feat",
+      "level": 10,
+      "description": "At 10th level and again at 20th level, choose a bonus feat from Skill Focus (any Knowledge skill), Spell Focus, any metamagic feat, or any item creation feat."
+    }
+  ]
+}
