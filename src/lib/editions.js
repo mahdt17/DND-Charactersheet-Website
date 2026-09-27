@@ -65,7 +65,11 @@ function legacyClassFeatures(record,level){
   if((detail.level||1)>level)continue;
   const base=baseFeatureName(detail.name);
   const key=base.toLocaleLowerCase(),existing=grouped.get(key);
-  add(detail.name,detail.level||existing?.level||1,{desc:detail.description?[detail.description]:existing?.desc||[],featName:detail.featName||existing?.featName,reviewed:true});
+  if(existing){
+   existing.desc=detail.description?[detail.description]:existing.desc||[];
+   existing.featName=detail.featName||existing.featName;
+   existing.reviewed=true;
+  }else add(detail.name,detail.level||1,{desc:detail.description?[detail.description]:[],featName:detail.featName,reviewed:true});
  }
  return [...grouped.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
 }
