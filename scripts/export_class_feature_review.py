@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
 import enrich_dndtools as d35
 
-CATALOG=ROOT/"public"/"catalogs"/"dndtools"/"classes.json"
+CATALOG=ROOT/"public"/"catalogs"/"dndtools"/"classes.json"\nSUMMARIES=ROOT/"src"/"data"/"class-feature-summaries-35.json"
 
 def clean(value):
     return d35.clean(value)
@@ -61,6 +61,37 @@ def normalize_feature_name(value):
     value=clean(value).rstrip(":")
     return re.sub(r"\s+"," ",value)
 
+def feature_key(value):
+    value=normalize_feature_name(value)
+    value=re.sub(r"\s*\([^)]*\)"," ",value)
+    value=re.sub(r"\s+\d+/(?:day|week|encounter)\b.*$","",value,flags=re.I)
+    value=re.sub(r"\s+\+?\d+d\d+\b.*$","",value,flags=re.I)
+    value=re.sub(r"\s+\+\d+\b.*$","",value,flags=re.I)
+    return clean(value).casefold()
+
+def reviewed_summaries():
+    if not SUMMARIES.exists(): return {}
+    data=json.loads(SUMMARIES.read_text(encoding="utf-8"))
+    if not isinstance(data,dict): raise ValueError("class feature summaries must be an object")
+    return data
+
+def validate_reviewed_features(entry,features,reviews):
+    reviewed=reviews.get(entry.get("id"),[])
+    if not reviewed:return
+    by_key={}
+    for feature in features:
+        by_key.setdefault(feature_key(feature.get("name","")),[]).append(feature)
+    for review in reviewed:
+        key=feature_key(review.get("name",""))
+        matches=by_key.get(key,[])
+        if len(matches)!=1:
+            raise ValueError(f"Reviewed feature {review.get('name')} resolved to {len(matches)} source blocks")
+        expected=review.get("sourceSha256")
+        if not expected:
+            raise ValueError(f"Reviewed feature {review.get('name')} is missing sourceSha256")
+        if matches[0].get("sourceSha256")!=expected:
+            raise ValueError(f"Reviewed feature {review.get('name')} source digest changed")
+
 def feature_blocks(raw):
     parser=FeatureParser(); parser.feed(raw); parser.close()
     out=[]; current=None
@@ -90,12 +121,14 @@ def main():
     if args.shard_count<1 or not 0<=args.shard_index<args.shard_count:
         ap.error("invalid shard")
     rows=json.loads(CATALOG.read_text(encoding="utf-8"))
+    reviews=reviewed_summaries()
     entries=[]; failures=[]
     for i,row in enumerate(rows):
         if i%args.shard_count!=args.shard_index:continue
         try:
             raw=d35.fetch(row["url"],args.delay)
             features=feature_blocks(raw)
+            validate_reviewed_features(row,features,reviews)
             entries.append({"id":row.get("id"),"name":row.get("name"),"url":row.get("url"),
                             "sourceBook":row.get("sourceBook"),"features":features})
         except Exception as exc:
