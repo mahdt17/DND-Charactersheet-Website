@@ -45,8 +45,8 @@ export function baseFeatureName(value=''){
  return String(value).replace(/\s*\([^)]*\)/g,' ').replace(/\s+\d+\/(?:day|week|encounter)\b.*$/i,'').replace(/\s+\+?\d+d\d+\b.*$/i,'').replace(/\s+\+\d+\b.*$/i,'').replace(/\s+\d+\/[—-]\s*$/i,'').replace(/\s+\d+\s*$/,'').replace(/\bFeats\b$/i,'feat').replace(/\s+/g,' ').trim();
 }
 function reviewedLegacyFeatures(record){
- const key=record?.sourceId||record?.id;
- const rows=legacyFeatureSummaries[key]||legacyFeatureSummaries[record?.name]||[];
+ const keys=[record?.sourceId,record?.id,record?.catalogId].filter(Boolean).map(value=>String(value).replace(/^dndtools:/,''));
+ const rows=keys.map(key=>legacyFeatureSummaries[key]).find(Array.isArray)||legacyFeatureSummaries[record?.name]||[];
  return Array.isArray(rows)?rows:[];
 }
 function legacyClassFeatures(record,level){
