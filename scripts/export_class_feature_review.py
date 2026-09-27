@@ -13,7 +13,8 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
 import enrich_dndtools as d35
 
-CATALOG=ROOT/"public"/"catalogs"/"dndtools"/"classes.json"\nSUMMARIES=ROOT/"src"/"data"/"class-feature-summaries-35.json"
+CATALOG=ROOT/"public"/"catalogs"/"dndtools"/"classes.json"
+SUMMARIES=ROOT/"src"/"data"/"class-feature-summaries-35.json"
 
 def clean(value):
     return d35.clean(value)
