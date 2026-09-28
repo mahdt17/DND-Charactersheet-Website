@@ -453,7 +453,7 @@ for(const [sourceId,profileId] of sourceEquivalent35Profiles){
   const report=classAutomationReport(sheet).classes[0];
   assert.equal(report.progressionComplete,true,sourceId+' has complete inherited progression');
   assert.equal(report.descriptionReady,true,sourceId+' has descriptions for all granted features');
-  assert.equal(report.descriptionComplete,true,sourceId+' uses reviewed rule text rather than progression summaries');
+  assert.equal(report.descriptionComplete,true,sourceId+' uses reviewed rule text rather than progression summaries: '+(sheet.grantedFeatures||[]).filter(item=>item.descriptionSource==='progression').map(item=>item.name).join(', '));
   assert.equal(report.complete,true,sourceId+' has no structural automation gap');
 }
 
