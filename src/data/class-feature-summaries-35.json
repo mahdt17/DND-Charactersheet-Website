@@ -451,6 +451,150 @@
       "sourceSha256": "e960e40da05fee29e4cff516bfc7b16a0b8e7da7b04309299d5c160c748bc6e6"
     }
   ],
+  "classes/dragonfire-adept-29": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with simple weapons, but not armor or shields. Because draconic invocations have somatic components, armor and shields can impose arcane spell failure on invocation use.",
+      "sourceSha256": "f7f76e0b15ac8fa5347b095188ba17ff3e936403154de9a017ad92af47163baa"
+    },
+    {
+      "name": "Invocations",
+      "level": 1,
+      "description": "Use known draconic invocations at will as spell-like abilities, normally as standard actions that provoke attacks of opportunity and can be used defensively with Concentration. Charisma sets invocation save DCs. Invocation grades progress from least at 1st level to lesser at 6th, greater at 11th, and dark at 16th; the class table increases invocations known to 8 by 18th level, and each time a new invocation is learned one known invocation may be replaced by another of the same or lower grade.",
+      "sourceSha256": "44ebd98ed15b8966c98b9f6201742851f8805fb0ca9bcd46f13162f09a76e3af"
+    },
+    {
+      "name": "Breath Weapon",
+      "level": 1,
+      "actionType": "Standard action",
+      "description": "Use a supernatural breath weapon at will as a standard action, choosing a 15-foot cone or 30-foot line. It begins at 1d6 fire damage with a Reflex save for half at DC 10 + half class level + Constitution modifier, scales to 9d6 at 20th level, and doubles cone/line range at 10th level. You are immune to your own breath weapon.",
+      "sourceSha256": "fbdf5696449393e514ebb721809e19201f25a08e8a15cafbd4addcebb63a0637"
+    },
+    {
+      "name": "Dragontouched",
+      "level": 1,
+      "featName": "Dragontouched",
+      "description": "Gain Dragontouched as a bonus feat at 1st level.",
+      "sourceSha256": "a3d814e838ce2294f8293bbe33b427a84a978a5d145a17d688ceb5f78f61ffbb"
+    },
+    {
+      "name": "Breath Effect",
+      "level": 2,
+      "choiceKind": "source",
+      "choiceLevels": [
+        2,
+        5,
+        10,
+        12,
+        15,
+        20
+      ],
+      "choiceOptionsByLevel": {
+        "2": [
+          "Frost Breath",
+          "Lightning Breath",
+          "Sickening Breath"
+        ],
+        "5": [
+          "Frost Breath",
+          "Lightning Breath",
+          "Sickening Breath",
+          "Acid Breath",
+          "Shaped Breath",
+          "Slow Breath",
+          "Weakening Breath"
+        ],
+        "10": [
+          "Frost Breath",
+          "Lightning Breath",
+          "Sickening Breath",
+          "Acid Breath",
+          "Shaped Breath",
+          "Slow Breath",
+          "Weakening Breath",
+          "Cloud Breath",
+          "Enduring Breath",
+          "Sleep Breath",
+          "Thunder Breath"
+        ],
+        "12": [
+          "Frost Breath",
+          "Lightning Breath",
+          "Sickening Breath",
+          "Acid Breath",
+          "Shaped Breath",
+          "Slow Breath",
+          "Weakening Breath",
+          "Cloud Breath",
+          "Enduring Breath",
+          "Sleep Breath",
+          "Thunder Breath"
+        ],
+        "15": [
+          "Frost Breath",
+          "Lightning Breath",
+          "Sickening Breath",
+          "Acid Breath",
+          "Shaped Breath",
+          "Slow Breath",
+          "Weakening Breath",
+          "Cloud Breath",
+          "Enduring Breath",
+          "Sleep Breath",
+          "Thunder Breath",
+          "Discorporating Breath of Bahamut",
+          "Force Breath",
+          "Paralyzing Breath",
+          "Fivefold Breath of Tiamat"
+        ],
+        "20": [
+          "Frost Breath",
+          "Lightning Breath",
+          "Sickening Breath",
+          "Acid Breath",
+          "Shaped Breath",
+          "Slow Breath",
+          "Weakening Breath",
+          "Cloud Breath",
+          "Enduring Breath",
+          "Sleep Breath",
+          "Thunder Breath",
+          "Discorporating Breath of Bahamut",
+          "Force Breath",
+          "Paralyzing Breath",
+          "Fivefold Breath of Tiamat"
+        ]
+      },
+      "uniqueChoices": true,
+      "description": "Learn one breath effect at 2nd, 5th, 10th, 12th, 15th, and 20th level, selecting only effects whose minimum-level prerequisite you meet. A breath use can normally apply one known effect, and the same breath effect cannot be applied in two consecutive rounds unless its rules say otherwise.",
+      "sourceSha256": "d6eddd778b3db48566a35b336710c15ba161aaf9c23a8c217d98a64ca36fa0ee"
+    },
+    {
+      "name": "Scales",
+      "level": 2,
+      "description": "Gain natural armor +2 at 2nd level, improving to +3 at 8th, +4 at 13th, and +5 at 18th. If you already have a natural armor bonus, use the higher value rather than stacking them.",
+      "sourceSha256": "f9628e98736bdf44db465a8e73aa20c58ae14ccfb98a9a2647c948347c6c5115"
+    },
+    {
+      "name": "Dragonkin",
+      "level": 4,
+      "description": "Gain +4 competence on Diplomacy checks to influence dragons and dragonblood creatures, and count as a dragon when determining whether a dragon's frightful presence can affect you.",
+      "sourceSha256": "0ec7c53b88c8e2e3a2d2b9e3804e128747113d775b6df13c657dbd8ba07c4146"
+    },
+    {
+      "name": "Damage Reduction",
+      "level": 6,
+      "description": "Gain damage reduction 2/magic at 6th level; it improves to 5/magic at 16th level.",
+      "sourceSha256": "7516a74e2acefdc65616401147cbb828d205ffc7be7eefb1f35efbabe638305a"
+    },
+    {
+      "name": "Immunities",
+      "level": 19,
+      "description": "Gain immunity to paralysis and sleep at 19th level.",
+      "sourceSha256": "fc7ef6ef83c289fa96cce164469a294a49b2595ee4402472614e3b891e7bd904"
+    }
+  ],
   "classes/dread-necromancer-75": [
     {
       "name": "Weapon and Armor Proficiency",
