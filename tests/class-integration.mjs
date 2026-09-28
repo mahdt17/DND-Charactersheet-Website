@@ -280,6 +280,15 @@ assert.equal(shugenja20.actions.find(action=>action.name==='Sense Elements')?.ty
 assert.equal(shugenja20.resources.find(resource=>resource.name==='Sense Elements')?.max,7);
 assert.match(shugenja20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Charisma/i);
 assert.match(shugenja20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/cannot use Quicken Spell/i);
+const reviewedWuJen35=exact35('classes/wu-jen-6');
+const wuJen18=reconcileClassGrants(baseCharacter([{catalogId:reviewedWuJen35.catalogId,name:'Wu Jen',edition:'3.5',level:18,definition:reviewedWuJen35}]));
+assert.equal(wuJen18.resources.find(resource=>resource.name==='Watchful Spirit')?.max,1);
+assert.equal(wuJen18.grantedFeatures.find(feature=>feature.name==='Bonus Feat')?.choiceKind,'feat');
+assert.deepEqual(wuJen18.grantedFeatures.find(feature=>feature.name==='Spell Secret')?.choiceLevels,[3,9,12,15,18]);
+assert.deepEqual(wuJen18.grantedFeatures.find(feature=>feature.name==='Taboos')?.choiceLevels,[1,3,9,12,15,18]);
+assert.deepEqual(wuJen18.grantedFeatures.find(feature=>feature.name==='Elemental Mastery')?.choiceOptionsByLevel?.['6'],['Earth','Fire','Metal','Water','Wood']);
+assert.match(wuJen18.grantedFeatures.find(feature=>feature.name==='Spellbooks')?.description||'',/two spells/i);
+assert.match(wuJen18.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Intelligence/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
