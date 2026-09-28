@@ -30,6 +30,7 @@ function withProficiencySupplement(record){
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const featureMatchKey=value=>norm(String(value||'')
+  .replace(/^\+\d+\s+/,'')
   .replace(/\s*\([^)]*\)/g,' ')
   .replace(/\s+\d+\/(?:day|week|encounter)\b.*$/i,'')
   .replace(/\s+\+?\d+d\d+\b.*$/i,'')
@@ -60,7 +61,8 @@ function reviewedFeatureMetadata(record,name){
   const row=reviewedFeatureRow(record,name);
   if(!row)return {};
   const metadata={};
-  for(const key of ['featName','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
+  if(row.sourceUrl)metadata.reviewedSourceUrl=row.sourceUrl;
+  for(const key of ['featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -374,7 +376,7 @@ function resolveInheritedClass(record,entries=[],seen=new Set()){
 
 function splitFeatureCell(value,known=[]){
   const text=String(value||'').trim();
-  if(!text||/^(?:—|-|none)$/i.test(text))return [];
+  if(!text||/^(?:—|–|-|none)$/i.test(text))return [];
   const chunks=text.split(/\s*;\s*|\s*,\s*(?![^()]*\))/).map(x=>x.trim()).filter(Boolean);
   const result=[];
   for(const chunk of chunks){
@@ -482,7 +484,7 @@ function coalesceFeatures(row){
       current.history.push(history);
       if(description&&description.length>(current.description||'').length)current.description=description;
       if(feature.progressionText)current.progressionText=feature.progressionText;
-      for(const field of ['featName','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
+      for(const field of ['featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource','reviewedSourceUrl'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
     }
   }
   return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
@@ -560,14 +562,14 @@ function derivedForRow(row,character=null){
   const edition=normalizeEdition(row.edition||row.definition?.edition),features=coalesceFeatures(row);
   const derivedFeatures=[],actions=[],feats=[],resources=[],tracks=[],spellSlots=[];
   for(const feature of features){
-    const featureId=feature.sourceFeatureId||slug(feature.name),meta=sourceInfo(row,feature.level,featureId);
+    const featureId=feature.sourceFeatureId||slug(feature.name),meta={...sourceInfo(row,feature.level,featureId),...(feature.reviewedSourceUrl?{sourceUrl:feature.reviewedSourceUrl}:{})};
     const id='class-grant:'+meta.sourceClassId+':feature:'+slug(feature.name);
     const history=(feature.history||[]).sort((a,b)=>a.level-b.level);
     const localRuleText=String(feature.description||'').trim();
     const progressionSummary=String(history.at(-1)?.text||feature.progressionText||feature.name).trim();
     const description=localRuleText||row.name+' progression: '+progressionSummary+'.';
     const descriptionSource=localRuleText?'rule-text':'progression';
-    const choice=Boolean(feature.choiceKind)||needsChoice(feature);
+    const choice=feature.choiceRequired===false?false:Boolean(feature.choiceKind)||needsChoice(feature);
     const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
     const concreteFeat=isConcreteFeat(feature),grantedFeatName=feature.featName||'';

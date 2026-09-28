@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import classes from '../src/data/classes.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
+import {featureChoicePlan} from '../src/lib/featureChoices.js';
 import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections,legacyClassSkillStatus} from '../src/lib/classIntegration.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
@@ -562,4 +563,62 @@ assert(!removed.spells.some(spell=>spell.id==='wizard-spell'));
 assert(!removed.trainingGrants.some(grant=>grant.classId===wizardRecord.catalogId));
 assert(!removed.grantedFeatures.some(feature=>feature.sourceClassId===wizardRecord.catalogId));
 
-console.log('PASS class reconciliation: Archivist, recurring 3.5 progression families, inherited variants, plural Specials, multiclassing, prestige, idempotence, and safe removal');
+// Source-reviewed XPH Soulknife and Complete Warrior Samurai.
+const soulknife35=exact35('classes/soulknife-139'),samurai35=exact35('classes/samurai-22');
+const classSheet=(definition,level)=>reconcileClassGrants(baseCharacter([{catalogId:definition.catalogId,name:definition.name,edition:'3.5',level,definition}]));
+for(let level=1;level<=20;level++){
+  const soulknife=classSheet(soulknife35,level),samurai=classSheet(samurai35,level);
+  assert.equal(soulknife.actions.find(action=>action.name==='Mind Blade')?.type,level<5?'Move action':'Free action',`Soulknife ${level} creation timing`);
+  assert.equal(soulknife.grantedFeatures.filter(feature=>feature.name==='Mind Blade').length,1,'enhancement prefixes coalesce into the original Mind Blade');
+  assert(!soulknife.grantedFeatures.some(feature=>/^\+\d+ Mind Blade$/i.test(feature.name)),'no duplicate enhancement-only features');
+  assert.equal(soulknife.grantedFeatures.find(feature=>feature.name==='Mind Blade')?.progressionHistory.length,1+Math.floor(level/4));
+  for(const [name,threshold] of [['Weapon Focus (mind blade)',1],['Wild Talent',1],['Speed of Thought',6],['Greater Weapon Focus (mind blade)',9]]){
+    assert.equal(soulknife.feats.filter(feat=>feat.name===name&&feat.sourceClassId===soulknife35.catalogId).length,Number(level>=threshold),`${name} unlocks at ${threshold}`);
+  }
+  for(const [name,threshold,type] of [['Throw Mind Blade',2,'Ranged attack'],['Psychic Strike',3,'Move action'],['Shape Mind Blade',5,'Full-round action'],['Bladewind',9,'Full-round action']]){
+    assert.equal(soulknife.actions.find(action=>action.name===name)?.type,level>=threshold?type:undefined,`${name} timing at ${level}`);
+  }
+  assert.equal(soulknife.resources.length,0,'at-will blade abilities do not invent daily counters');
+  const smite=samurai.resources.find(resource=>resource.name==='Kiai Smite');
+  assert.equal(smite?.max,level<3?undefined:level<7?1:level<12?2:level<17?3:4,`Kiai Smite uses at ${level}`);
+  assert.equal(samurai.actions.find(action=>action.name==='Kiai Smite')?.type,level>=3?'Free action':undefined);
+  for(const [name,threshold] of [['Staredown',6],['Mass Staredown',10]]){
+    assert.equal(samurai.actions.find(action=>action.name===name)?.type,level<threshold?undefined:level<14?'Standard action':'Move action',`${name} timing at ${level}`);
+  }
+  assert(samurai.feats.some(feat=>feat.name==='Exotic Weapon Proficiency (bastard sword)'));
+  assert.equal(samurai.feats.some(feat=>feat.name==='Improved Initiative'),level>=8);
+  assert(!samurai.feats.some(feat=>/Two-Weapon Fighting|Quick Draw/.test(feat.name)),'weapon-restricted benefits do not become unrestricted feats');
+  assert(samurai.grantedFeatures.filter(feature=>feature.sourceClassId===samurai35.catalogId).every(feature=>feature.sourceUrl===(feature.name==='Kiai Smite'?'https://new.dndtools.org/classes/samurai-22':'https://dndtools.net/classes/samurai/')),'reviewed Samurai rules link to their intact source');
+  assert(!samurai.grantedFeatures.some(feature=>/^[–—-]$/.test(feature.name)),'empty progression cells never become features');
+  assert.deepEqual(reconcileClassGrants(soulknife),soulknife,'Soulknife reconciliation is idempotent');
+  assert.deepEqual(reconcileClassGrants(samurai),samurai,'Samurai reconciliation is idempotent');
+}
+const soulknife20=classSheet(soulknife35,20),samurai20=classSheet(samurai35,20);
+assert.match(soulknife20.grantedFeatures.find(feature=>feature.name==='Mind Blade Enhancement').description,/8 hours/);
+assert.match(soulknife20.grantedFeatures.find(feature=>feature.name==='Knife to the Soul').description,/when charging/);
+assert.match(samurai20.grantedFeatures.find(feature=>feature.name==='Frightful Presence').description,/24 hours/);
+const spentSamurai={...samurai20,resources:samurai20.resources.map(resource=>({...resource,used:2}))};
+assert.equal(reconcileClassGrants(JSON.parse(JSON.stringify(spentSamurai))).resources.find(resource=>resource.name==='Kiai Smite').used,2,'save/reconcile retains spent smites');
+const downleveled=classSheet(samurai35,13);
+assert.equal(downleveled.actions.find(action=>action.name==='Mass Staredown').type,'Standard action');
+const dualClass=reconcileClassGrants(baseCharacter([
+  {catalogId:soulknife35.catalogId,name:'Soulknife',edition:'3.5',level:4,definition:soulknife35},
+  {catalogId:samurai35.catalogId,name:'Samurai',edition:'3.5',level:14,definition:samurai35}
+]));
+assert.equal(dualClass.actions.find(action=>action.name==='Mind Blade').type,'Move action','timing uses own class level');
+assert.equal(dualClass.resources.find(resource=>resource.name==='Kiai Smite').max,3,'uses own Samurai level');
+for(const definition of [soulknife35,samurai35]){
+  const without=removeClassProgression(dualClass,definition.catalogId);
+  for(const field of ['grantedFeatures','actions','feats','resources'])assert(!without[field].some(item=>item.sourceClassId===definition.catalogId),`${field} cleans up on class removal`);
+  assert(without.actions.some(action=>action.id==='manual-action'));
+  assert(without.feats.some(feat=>feat.id==='manual-feat'));
+}
+const orientalSamurai=classSheet(exact35('classes/samurai-84'),20);
+assert(!orientalSamurai.grantedFeatures.some(feature=>feature.name==='Kiai Smite'),'same-name Oriental Adventures class does not inherit Complete Warrior mechanics');
+for(const sourceId of ['classes/wizard-99','classes/wizard-110','classes/cleric-91','classes/druid-92','classes/dragon-shaman-101','classes/wu-jen-6']){
+  const optionalLanguages=classSheet(exact35(sourceId),1);
+  assert(!featureChoicePlan(optionalLanguages).groups.some(group=>group.label==='Bonus Languages'),`${sourceId} optional language availability does not block creation`);
+  assert.equal(optionalLanguages.grantedFeatures.find(feature=>feature.name==='Bonus Languages').kind,'feature','the language rule stays visible');
+}
+assert(featureChoicePlan(classSheet(exact35('classes/fighter-93'),1)).groups.some(group=>/Bonus Feat/.test(group.label)&&!group.valid),'required bonus feat choices still block creation');
+console.log('PASS class reconciliation: reviewed features, level-scaled actions, multiclassing, source isolation, idempotence, and safe removal');

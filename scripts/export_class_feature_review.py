@@ -30,7 +30,7 @@ class FeatureParser(HTMLParser):
 
     def handle_starttag(self,tag,attrs):
         tag=tag.lower()
-        if tag=="h2":
+        if tag in {"h2","h3","h4","h5","h6"}:
             self.in_h2=True; self.h2=[]
         elif self.in_features and tag=="p":
             self.in_p=True; self.p=[]; self.strong=[]
@@ -39,7 +39,7 @@ class FeatureParser(HTMLParser):
 
     def handle_endtag(self,tag):
         tag=tag.lower()
-        if tag=="h2" and self.in_h2:
+        if tag in {"h2","h3","h4","h5","h6"} and self.in_h2:
             heading=clean(" ".join(self.h2))
             self.in_features=heading.casefold()=="class features"
             self.in_h2=False; self.h2=[]
@@ -76,13 +76,17 @@ def reviewed_summaries():
     if not isinstance(data,dict): raise ValueError("class feature summaries must be an object")
     return data
 
-def validate_reviewed_features(entry,features,reviews):
+def validate_reviewed_features(entry,features,reviews,source_features=None):
     reviewed=reviews.get(entry.get("id"),[])
     if not reviewed:return
-    by_key={}
-    for feature in features:
-        by_key.setdefault(feature_key(feature.get("name","")),[]).append(feature)
     for review in reviewed:
+        source_url=review.get("sourceUrl") or entry.get("url")
+        blocks=features if source_url==entry.get("url") else (source_features or {}).get(source_url)
+        if blocks is None:
+            raise ValueError(f"Reviewed feature {review.get('name')} requires source {source_url}")
+        by_key={}
+        for feature in blocks:
+            by_key.setdefault(feature_key(feature.get("name","")),[]).append(feature)
         source_name=review.get("sourceFeatureName") or review.get("name","")
         key=feature_key(source_name)
         matches=by_key.get(key,[])
@@ -118,25 +122,35 @@ def main():
     ap.add_argument("--shard-count",type=int,default=8)
     ap.add_argument("--shard-index",type=int,required=True)
     ap.add_argument("--delay",type=float,default=0.08)
+    ap.add_argument("--class-id",action="append",help="Review only these catalog IDs (repeatable).")
     ap.add_argument("--output",type=Path,required=True)
     args=ap.parse_args()
     if args.shard_count<1 or not 0<=args.shard_index<args.shard_count:
         ap.error("invalid shard")
     rows=json.loads(CATALOG.read_text(encoding="utf-8"))
+    if args.class_id:
+        requested=set(args.class_id)
+        missing=requested-{row.get("id") for row in rows}
+        if missing:ap.error("unknown class IDs: "+", ".join(sorted(missing)))
+        rows=[row for row in rows if row.get("id") in requested]
     reviews=reviewed_summaries()
-    entries=[]; failures=[]
+    entries=[]; failures=[]; source_features={}
     for i,row in enumerate(rows):
         if i%args.shard_count!=args.shard_index:continue
         try:
             raw=d35.fetch(row["url"],args.delay)
             features=feature_blocks(raw)
-            validate_reviewed_features(row,features,reviews)
+            for review in reviews.get(row.get("id"),[]):
+                url=review.get("sourceUrl")
+                if url and url!=row["url"] and url not in source_features:
+                    source_features[url]=feature_blocks(d35.fetch_allowed(url,{"new.dndtools.org","dndtools.net"},args.delay))
+            validate_reviewed_features(row,features,reviews,source_features)
             entries.append({"id":row.get("id"),"name":row.get("name"),"url":row.get("url"),
                             "sourceBook":row.get("sourceBook"),"features":features})
         except Exception as exc:
             failures.append({"id":row.get("id"),"name":row.get("name"),"url":row.get("url"),"error":str(exc)})
     payload={"reviewOnly":True,"shardCount":args.shard_count,"shardIndex":args.shard_index,
-             "entries":entries,"fetchFailures":failures}
+             "entries":entries,"sourceFeatures":source_features,"fetchFailures":failures}
     args.output.parent.mkdir(parents=True,exist_ok=True)
     args.output.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({"classes":len(entries),"features":sum(len(x["features"]) for x in entries),

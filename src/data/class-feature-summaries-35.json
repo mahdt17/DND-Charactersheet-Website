@@ -238,7 +238,8 @@
       "name": "Bonus Languages",
       "level": 1,
       "description": "Celestial, Abyssal, and Infernal are available as cleric bonus-language choices in addition to languages available from race and other rules.",
-      "sourceSha256": "acea18af08633a12d5af249dbaeaeaa750e37111761dd0167b0c178b8c51440a"
+      "sourceSha256": "acea18af08633a12d5af249dbaeaeaa750e37111761dd0167b0c178b8c51440a",
+      "choiceRequired": false
     }
   ],
   "classes/cloistered-cleric-120": [
@@ -278,7 +279,8 @@
       "name": "Bonus Languages",
       "level": 1,
       "description": "Draconic is available as a dragon-shaman bonus language in addition to languages otherwise available from your race and other rules.",
-      "sourceSha256": "16c3db854279f563d22acb78098745683aea53daf6afdd8b3d4fa05d0bd13d69"
+      "sourceSha256": "16c3db854279f563d22acb78098745683aea53daf6afdd8b3d4fa05d0bd13d69",
+      "choiceRequired": false
     },
     {
       "name": "Draconic Aura",
@@ -743,7 +745,8 @@
       "name": "Bonus Languages",
       "level": 1,
       "description": "Sylvan is available as a druid bonus-language choice. You also learn Druidic for free at 1st level; it does not use a normal language slot and may not be taught to nondruids.",
-      "sourceSha256": "ba282ea29a9b81a9762e8f89e86e09ee6056bd3d68cfc8ec4bd64715fc34c8e5"
+      "sourceSha256": "ba282ea29a9b81a9762e8f89e86e09ee6056bd3d68cfc8ec4bd64715fc34c8e5",
+      "choiceRequired": false
     },
     {
       "name": "Animal Companion (Ex)",
@@ -2427,6 +2430,115 @@
       "sourceSha256": "35036da5c06e94d859df82da31e51c183cbb66477911c7ff835d330ab49184f1"
     }
   ],
+  "classes/samurai-22": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with simple and martial weapons and all armor, but not shields.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "80d2738b58bbbbde74ce32725ea20ccc61df20237ecf2b209fac0d82a75c56b5"
+    },
+    {
+      "name": "Daisho Proficiency",
+      "level": 1,
+      "featName": "Exotic Weapon Proficiency (bastard sword)",
+      "description": "Gain Exotic Weapon Proficiency (bastard sword) as a bonus feat. A katana is a masterwork bastard sword; a wakizashi is a masterwork shortsword.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "e9bf604475ac6022c9eb481499dc042471609bdd52e4277ab35f9b8c03a0d41d"
+    },
+    {
+      "name": "Two Swords as One",
+      "level": 2,
+      "description": "Treat yourself as having Two-Weapon Fighting only while wielding a katana and wakizashi together, without needing the feat's prerequisites. This does not grant unrestricted use with other weapons.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "bae3998571e35d981c8f2b490c3d7c9a8cfba19d4a3a8f408f1d28114ad491cc"
+    },
+    {
+      "name": "Kiai Smite",
+      "level": 3,
+      "actionType": "Free action",
+      "resource": {
+        "maxByLevel": {
+          "3": 1,
+          "7": 2,
+          "12": 3,
+          "17": 4
+        },
+        "reset": "long",
+        "unit": "smite"
+      },
+      "description": "Shout to add your Charisma bonus, minimum +1, to the attack and damage rolls of your next attack. Daily uses rise from one at level 3 to two at 7, three at 12, and four at 17. Use no more than one Kiai Smite per round.",
+      "sourceSha256": "2de2af05a6f3825e9642333eb722d7b43cfc11d3de662b4a697ebe3131896788"
+    },
+    {
+      "name": "Iaijutsu Master",
+      "level": 5,
+      "actionType": "Free action",
+      "description": "Treat yourself as having Quick Draw only when drawing your katana or wakizashi.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "6a1ff3a01267e31a93ae771bc5d69b23247bbdaf98b17e17e47313bb61fe0c67"
+    },
+    {
+      "name": "Staredown",
+      "level": 6,
+      "actionType": "Standard action",
+      "actionTypeByLevel": {
+        "14": "Move action"
+      },
+      "description": "Gain +4 on Intimidate checks and use Intimidate to demoralize an opponent. Later Staredown features expand the affected area and reduce the action cost.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "23fcca4f463f078869dc7ae8ae33f0cb6be1144bb168932c7029bfa9c8f1032d"
+    },
+    {
+      "name": "Improved Initiative",
+      "level": 8,
+      "featName": "Improved Initiative",
+      "description": "Gain the Improved Initiative feat at level 8.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "4ee560257eede2c963f30fd76e7f8b461e8e974cc2f1caa88a3fb6ffd2e63bce"
+    },
+    {
+      "name": "Mass Staredown",
+      "level": 10,
+      "actionType": "Standard action",
+      "actionTypeByLevel": {
+        "14": "Move action"
+      },
+      "description": "Use one Intimidate check to demoralize every opponent within 30 feet. This requires a standard action until Improved Staredown reduces it to a move action at level 14.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "3317769d33f587b4483cb7946ee38b3275dc55a734b16c2f92ee6a9100b0b242"
+    },
+    {
+      "name": "Improved Two Swords as One",
+      "level": 11,
+      "description": "Treat yourself as having Improved Two-Weapon Fighting while wielding a katana and wakizashi together, without needing its prerequisites. The benefit is restricted to that weapon pair.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "41bff61a3676a38165cdf92353f7b73a82a185bbb9fdc31e011b735ec4a055d3"
+    },
+    {
+      "name": "Improved Staredown",
+      "level": 14,
+      "actionType": "Move action",
+      "description": "Demoralize opponents within 30 feet as a move action.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "0d5736a6b93d90fad9434e8980ffe1d0a2e986248bea3d000344a8d9a7b9ac6b"
+    },
+    {
+      "name": "Greater Two Swords as One",
+      "level": 16,
+      "description": "Treat yourself as having Greater Two-Weapon Fighting while wielding a katana and wakizashi together, without needing its prerequisites. The benefit is restricted to that weapon pair.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "2ccb2520901bd89dc6d4d68e36d52002cec75292230495cbf3280ed27854435f"
+    },
+    {
+      "name": "Frightful Presence",
+      "level": 20,
+      "actionType": "When drawing your blade",
+      "description": "Drawing your blade forces opponents within 30 feet to save at Will DC 20 + your Charisma modifier. Failure causes panic for creatures with 4 or fewer HD, or shaken for 5–19 HD, lasting 4d6 rounds. Creatures with 20+ HD are unaffected; a successful save grants immunity to your presence for 24 hours.",
+      "sourceUrl": "https://dndtools.net/classes/samurai/",
+      "sourceSha256": "c9eac54f5d00d5669433bbb8df65f8220168f167008302ab1214f556c63dd7a3"
+    }
+  ],
   "classes/scout-2": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -2749,6 +2861,112 @@
       "level": 1,
       "description": "Familiar abilities accumulate with the master's combined levels in familiar-granting classes. They include scaling natural armor and Intelligence plus abilities such as Alertness, improved evasion, share spells, empathic link, and later familiar powers according to the familiar progression.",
       "sourceSha256": "cfe8403b5299888cafdba3ae2c03f16f8a39920279059f18d5f5bb2968f743e6"
+    }
+  ],
+  "classes/soulknife-139": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with simple weapons, your own mind blade, light armor, and shields other than tower shields.",
+      "sourceSha256": "215a9ee5320b70175bb717a2f1c4ffc12ac1aa37cdfc0ab7323963f09fed0301"
+    },
+    {
+      "name": "Mind Blade",
+      "level": 1,
+      "actionType": "Move action",
+      "actionTypeByLevel": {
+        "5": "Free action"
+      },
+      "description": "Form a psychic shortsword sized for you; it counts as magical against damage reduction. It dissipates when released, except during a throw. Its attack and damage enhancement rises by +1 at levels 4, 8, 12, 16, and 20. Free Draw permits one formation attempt per round from level 5. In a psionics-negating area, a DC 20 Will save sustains it for class-level rounds; retrying formation there costs a move action.",
+      "sourceSha256": "ced7c9add702e25b0a280062d95af411c752275296da912c416af38dbfbec32f"
+    },
+    {
+      "name": "Weapon Focus (Mind Blade)",
+      "level": 1,
+      "featName": "Weapon Focus (mind blade)",
+      "description": "Gain Weapon Focus (mind blade) as a bonus feat, applying its attack bonus to your mind blade.",
+      "sourceSha256": "849665ba32998e8beb709f890c97ef49028913b941c954ef3f291e1ab5074e90"
+    },
+    {
+      "name": "Wild Talent",
+      "level": 1,
+      "featName": "Wild Talent",
+      "description": "Gain Wild Talent as a bonus feat, providing psionic power even if you have no other power-point reserve.",
+      "sourceSha256": "996397d784a67aaf58b8eabf54a90d950f749c249cfc070c607dd21908de8a3e"
+    },
+    {
+      "name": "Throw Mind Blade",
+      "level": 2,
+      "actionType": "Ranged attack",
+      "description": "Throw your mind blade with a 30-foot range increment. It dissipates after the attack, hit or miss. Psychic Strike and other applicable mind-blade abilities can accompany the throw.",
+      "sourceSha256": "9f536c1972983ef1878fe42a57f3849272b2acf43cb20713d95f7658eec47073"
+    },
+    {
+      "name": "Psychic Strike",
+      "level": 3,
+      "actionType": "Move action",
+      "description": "Charge the blade to deal extra damage on its next successful hit against a living, nonmindless creature without immunity to mind-affecting effects. Damage is 1d8 at level 3 and increases by 1d8 at levels 7, 11, 15, and 19. This is not precision damage. The charge survives dismissal or a missed throw until used; charging again costs a move action.",
+      "sourceSha256": "fc7d970ce479fb91a22ac79d1252a3f74224cf9cc15e133536f706e0fed4b001"
+    },
+    {
+      "name": "Free Draw",
+      "level": 5,
+      "actionType": "Free action",
+      "description": "Materialize your mind blade as a free action, with only one formation attempt per round. This limit also matters when a psionics-negating effect requires a Will save.",
+      "sourceSha256": "0039b3a83a515a2dfe6cbfdd90b6a215be29ab6458eecf4565a9b5738567899b"
+    },
+    {
+      "name": "Shape Mind Blade",
+      "level": 5,
+      "actionType": "Full-round action",
+      "description": "Reshape the blade into a longsword or bastard sword, or split it into two shortswords. A bastard sword requires two hands without its exotic weapon proficiency. Each split blade has an enhancement bonus 1 lower than a single blade, and normal two-weapon penalties apply.",
+      "sourceSha256": "1a90686c56408af904a1a805e2c9e5557699c23bc4870803028fce3d9517dbee"
+    },
+    {
+      "name": "Mind Blade Enhancement",
+      "level": 6,
+      "choiceKind": "source",
+      "choiceLevels": [
+        6,
+        10,
+        14,
+        18
+      ],
+      "description": "Select weapon abilities from the source's mind-blade table within a total equivalent bonus of +1 at level 6, +2 at 10, +3 at 14, or +4 at 18. This budget is separate from the blade's attack and damage enhancement. The configuration persists across blade forms and re-creation; reassignment requires 8 hours of concentration. Record the combination and verify its costs against the source table.",
+      "sourceSha256": "e5100389f213e3be551f40d22e13c41c08a194934123c22bb9f31d1eda815544"
+    },
+    {
+      "name": "Speed of Thought",
+      "level": 6,
+      "featName": "Speed of Thought",
+      "description": "Gain Speed of Thought as a bonus feat at level 6; its normal conditions still govern the movement benefit.",
+      "sourceSha256": "23e701293ecd416a9bccf763e9f9ddf6319454d581c5ccff7cda18f382d8cc24"
+    },
+    {
+      "name": "Bladewind",
+      "level": 9,
+      "actionType": "Full-round action",
+      "description": "Replace a full attack with one melee attack at your full base attack bonus against each opponent within reach. Each blade fragment retains the current blade's form and properties. Forfeit bonus or extra attacks from other abilities; the blade then returns to its previous form.",
+      "sourceSha256": "af24a7d68443392400fbb2143c2a9d66e05ff03fb477505f3a0a197889a26a0b"
+    },
+    {
+      "name": "Greater Weapon Focus (Mind Blade)",
+      "level": 9,
+      "featName": "Greater Weapon Focus (mind blade)",
+      "description": "Gain Greater Weapon Focus (mind blade) as a bonus feat at level 9.",
+      "sourceSha256": "1ef3b0d66ef5d85a25a95f20462dd2097e53c2a866c9f9ec4b3601d8f28b1116"
+    },
+    {
+      "name": "Knife to the Soul",
+      "level": 13,
+      "description": "When charging Psychic Strike, allocate any of its extra damage dice to Intelligence, Wisdom, or Charisma damage instead: each sacrificed die deals 1 point to the chosen score. Decide the score and allocation when charging; any remaining dice still deal Psychic Strike damage.",
+      "sourceSha256": "a4c889fe5a447e9fefc9fb311b8ed0586e8dfe12355e58654efc4a2c1d89ef44"
+    },
+    {
+      "name": "Multiple Throw",
+      "level": 17,
+      "description": "You may throw as many mind blades in a round as the number of melee attacks you could make, including applicable two-weapon attacks.",
+      "sourceSha256": "fff44aef885565eaae89075d415497b97c020fa2237602e1730fc307994afb86"
     }
   ],
   "classes/spirit-shaman-9": [
@@ -3186,7 +3404,8 @@
       "name": "Bonus Languages",
       "level": 1,
       "description": "You may choose Draconic in place of one of the bonus languages otherwise available from your race.",
-      "sourceSha256": "c14367a6b94166f851da35ba4c1f6bffc3a54305ca37a6ef300cb181dce66cad"
+      "sourceSha256": "c14367a6b94166f851da35ba4c1f6bffc3a54305ca37a6ef300cb181dce66cad",
+      "choiceRequired": false
     },
     {
       "name": "Familiar",
@@ -3225,7 +3444,8 @@
       "name": "Bonus Languages",
       "level": 1,
       "description": "Draconic or Giant can replace one racial bonus language available to the character.",
-      "sourceSha256": "69d7cf3e34701d9e5de5a920b9439a8f53ab4edd1df79bc853cd05ca630be667"
+      "sourceSha256": "69d7cf3e34701d9e5de5a920b9439a8f53ab4edd1df79bc853cd05ca630be667",
+      "choiceRequired": false
     },
     {
       "name": "Watchful Spirit",

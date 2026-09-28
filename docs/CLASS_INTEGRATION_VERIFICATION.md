@@ -209,6 +209,33 @@ Read-only verification confirmed row-level security on both public tables.
 
 ## Rules references
 
+### Soulknife and Complete Warrior Samurai review (2026-09-28)
+
+- XPH Soulknife has 14 reviewed feature summaries, its four fixed bonus feats,
+  explicit action types, and level-dependent Mind Blade formation timing.
+  The +1 through +5 blade milestones remain history on one feature.
+- Complete Warrior Samurai has 12 reviewed summaries, weapon-restricted feat
+  reminders, fixed proficiency/initiative feats, level-scaled Kiai Smite uses,
+  and the level-14 Staredown action upgrade. The Oriental Adventures class remains
+  separate. Empty en-dash progression cells no longer create spurious features.
+- Damaged Samurai blocks in the newer source were checked against the intact
+  [older Complete Warrior page](https://dndtools.net/classes/samurai/).
+  Individual features link to the source whose digest was verified; Kiai Smite
+  uses the intact newer block including its once-per-round restriction.
+- Optional bonus-language availability no longer forces a separate class choice
+  during creation. Required bonus-feat selections still require completion.
+- Integration tests cover every level, multiclass timing, reconciliation,
+  saved resource expenditure, variant isolation, and removal. Source-review tests
+  cover alternate-page headings, missing blocks, duplicate blocks, and changed
+  digests. The exporter accepts repeatable `--class-id` filters for focused checks.
+
+These changes present rules, grants, choices and counters. They do not resolve
+attacks, equipment-dependent feat benefits, blade property costs, Psychic Strike
+charges, ability damage, fear saves, or target conditions automatically. Wild
+Talent is granted as a feat; its power-point contribution remains separate work.
+
+### Reference links
+
 - [2014 subclass spell tables](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/classes)
 - [2024 subclass spell tables](https://www.dndbeyond.com/sources/dnd/free-rules/character-classes)
 - [2014 multiclass spellcasting](https://www.dndbeyond.com/sources/dnd/basic-rules-2014/customization-options#Spellcasting)
