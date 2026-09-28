@@ -62,6 +62,7 @@ export function characterResources(c,abilities) {
   return resources;
 }
 export function resourceRecoveryText(r) {
+  if(r.recoveryText)return r.recoveryText;
   const short=r.shortRecovery??(r.reset==='short'?'all':0);
   return `${short==='all'?'All on short or long rest':short?`${short} on short rest; all on long rest`:r.reset==='none'?'Manual recovery':'All on long rest'}${r.meditation?' · requires 30 minutes of meditation':''}${r.restoration?' · optional Sorcerous Restoration on short rest':''}`;
 }
