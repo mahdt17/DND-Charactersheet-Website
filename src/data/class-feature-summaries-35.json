@@ -534,5 +534,76 @@
       "description": "At 10th level and every three rogue levels thereafter, choose a rogue special ability. Options include Crippling Strike, Defensive Roll, Improved Evasion, Opportunist, Skill Mastery, Slippery Mind, or a bonus feat. Repeated selections must follow the option's own rules; for example, Skill Mastery may be selected more than once for different skills.",
       "sourceSha256": "35036da5c06e94d859df82da31e51c183cbb66477911c7ff835d330ab49184f1"
     }
+  ],
+  "classes/sorcerer-98": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons. Sorcerers are not proficient with armor or shields, and armor can cause arcane spell failure for spells with somatic components.",
+      "sourceSha256": "66d07f9e766944073598c9b2f92ba6d1823ce39d4bb320c980c30e14acaead28"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Cast arcane spells from the sorcerer/wizard list without preparing them in advance. Charisma determines the highest spell level you can learn or cast, spell save DCs, and bonus spells per day. Spells known follow the sorcerer table, and beginning at 4th level certain level gains allow one known spell to be exchanged for another spell of the same level under the class's replacement limits.",
+      "sourceSha256": "07950034ec89be7786efed06ba7f2bcb41b6fde3ada598bd1ae219a556c686f6"
+    },
+    {
+      "name": "Familiar",
+      "level": 1,
+      "description": "You can obtain one familiar through the class's familiar ritual and material cost. The familiar improves as your qualifying class levels increase; qualifying familiar-granting classes stack for familiar abilities. If the familiar dies or is dismissed, the source rules apply an XP loss and a delay before replacement.",
+      "sourceSha256": "ab9d36c15573d7b732d8b42d8318e3c5bd215384b0891804e708412479050981"
+    },
+    {
+      "name": "Familiar Basics",
+      "level": 1,
+      "description": "A familiar uses its base creature statistics with class-rule adjustments. Its effective Hit Dice, hit points, attacks, saving throws, and skills are derived partly from the master's character statistics as described by the familiar rules.",
+      "sourceSha256": "20426101e7a5bfec2947893e5b005ba50fdd02fb7d3a22644602798fab5e4a44"
+    },
+    {
+      "name": "Familiar Ability Descriptions",
+      "level": 1,
+      "description": "Familiar abilities accumulate with the master's combined levels in familiar-granting classes. They include scaling natural armor and Intelligence plus abilities such as Alertness, improved evasion, share spells, empathic link, and later familiar powers according to the familiar progression.",
+      "sourceSha256": "cfe8403b5299888cafdba3ae2c03f16f8a39920279059f18d5f5bb2968f743e6"
+    }
+  ],
+  "classes/wizard-99": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with the club, dagger, heavy crossbow, light crossbow, and quarterstaff. Wizards are not proficient with armor or shields, and armor can cause arcane spell failure for spells with somatic components.",
+      "sourceSha256": "9482ba21ca4502afd3c69d9330153fb13e8e4054469456653062589486952ad4"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Prepare and cast arcane spells from the wizard list. Intelligence determines the highest spell level you can learn, prepare, or cast, spell save DCs, and bonus spells per day. Wizards can learn any number of spells but must prepare their daily spells after rest and spellbook study.",
+      "sourceSha256": "07445cb77f75544223d65c01f07af9ae345591a037f462dda5bb48fe63c777a6"
+    },
+    {
+      "name": "Bonus Languages",
+      "level": 1,
+      "description": "You may choose Draconic in place of one of the bonus languages otherwise available from your race.",
+      "sourceSha256": "c14367a6b94166f851da35ba4c1f6bffc3a54305ca37a6ef300cb181dce66cad"
+    },
+    {
+      "name": "Familiar",
+      "level": 1,
+      "description": "You can obtain a familiar using the same familiar rules as a sorcerer. Levels in classes that grant familiars stack when determining familiar abilities.",
+      "sourceSha256": "a4e802a558f4675bfdcc78d3e347b78e63d9d89bb1bd2ca2e2e532dcdc70da89"
+    },
+    {
+      "name": "Scribe Scroll",
+      "level": 1,
+      "featName": "Scribe Scroll",
+      "description": "Gain Scribe Scroll as a bonus feat at 1st level. Wizard bonus feats gained later must come from the wizard's allowed bonus-feat categories and still require their normal prerequisites.",
+      "sourceSha256": "52121adce7cf24031bdb19c442c5d1c5041f712985b3b9afdf9c98d97e58d964"
+    },
+    {
+      "name": "Spellbooks",
+      "level": 1,
+      "description": "Prepare wizard spells from a spellbook, except read magic. Begin with all allowed 0-level wizard spells plus selected 1st-level spells, add two spells you can cast at each new wizard level, and copy additional wizard spells under the spellbook rules. A specialist wizard gains one extra specialty-school preparation per spell level but must give up prohibited schools under the specialization rules.",
+      "sourceSha256": "1235b2efd0f40d597c609835e7af85795c0f1f38c5d2e1dd7e9106bf40b5a78c"
+    }
   ]
 }
