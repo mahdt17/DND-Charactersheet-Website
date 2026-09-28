@@ -440,7 +440,17 @@ function rawClassFeatures(row){
       .filter(feature=>feature.class?.name===row.name&&featureLevel(feature)<=maximum&&(!feature.subclass||feature.subclass.name===row.subclass))
       .map(feature=>({level:featureLevel(feature),name:feature.name,description:textDescription(feature),sourceFeatureId:feature.index||feature.id,kind:feature.kind}));
   }
-  return tableFeatureCells(record,maximum).map(decorateLegacy);
+  const table=tableFeatureCells(record,maximum).map(decorateLegacy);
+  if(edition==='3.5'){
+    const seen=new Set(table.map(feature=>featureMatchKey(feature.name)));
+    for(const detail of reviewedFeatureRows(record)){
+      const level=Math.max(1,Number(detail?.level)||1),name=String(detail?.name||'').trim();
+      if(!name||level>maximum||seen.has(featureMatchKey(name)))continue;
+      table.push({level,name,description:String(detail.description||'').trim(),...reviewedFeatureMetadata(record,name)});
+      seen.add(featureMatchKey(name));
+    }
+  }
+  return table;
 }
 
 function coalesceFeatures(row){
