@@ -6,6 +6,7 @@ import {subclassCasting} from './subclassCasting.js';
 import {resolveFeatSpell} from './featMagic.js';
 import modern from '../data/srd2024.json';
 import legacy from '../data/srd35.json';
+import legacyFeatureSummaries from '../data/class-feature-summaries-35.json';
 import { spellCatalog, classes, slotsFor, countsFor, classLevel, modifier, castingAbility, grantedClassFeatures } from './rules';
 export { modern, legacy };
 export const editions=[['2014','5e','2014 · SRD 5.1'],['2024','5.5e','Revised rules · SRD 5.2.1'],['3.5','3.5e','SRD 3.5 · base, prestige & psionic classes'],['custom','Custom','Mix editions and your homebrew']];
@@ -70,8 +71,50 @@ export function permittedSpells(c,homebrew=[]){
  return [...new Map(catalogSpells(c.ruleset||'2014',homebrew).map(s=>[keyOf(s),s])).values()]
   .flatMap(s=>{const access=spellAccess(c,s);return access.allowed?[{...s,level:access.level}]:[];});
 }
-export function classFeatures(c){if(characterClasses(c).length>1)return characterClasses(c).flatMap(row=>{const model=classCharacter(c,row);return (classFeatures(model)||grantedClassFeatures(model)).map(f=>({...f,index:row.catalogId+':'+f.index,name:row.name+' · '+f.name}));});if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){const record=classRecord(c);if(record?.progression?.length)return Array.from({length:c.level},(_,i)=>{const row=progressionRow(record,i+1);const name=row.Special||row.Features||row['Class Features'];return name&&name!=='—'?{index:'class-'+(i+1),name,level:i+1,desc:[`See ${record.sourceBook||record.source||'the class source'} for feature choices and full rules.`]}:null;}).filter(Boolean);return [{index:'class-reference',name:c.className+' progression',level:c.level,desc:[classRecord(c)?.description||'Add class features below.']}];}
- if(mechanics(c)==='2024')return modern.features.filter(f=>f.class?.name===c.className&&Number(f.level?.name?.match(/\d+$/)?.[0]||0)<=c.level&&(!f.subclass||f.subclass.name===c.subclass)).map(f=>({...f,level:Number(f.level?.name?.match(/\d+$/)?.[0]||0),desc:[f.description]}));
+function splitFeatureList(value=''){
+ const out=[];let start=0,depth=0;
+ for(let i=0;i<=value.length;i++){
+  const ch=value[i];
+  if(ch==='(')depth++;
+  else if(ch===')')depth=Math.max(0,depth-1);
+  if(i===value.length||(depth===0&&(ch===','||ch===';'))){const part=value.slice(start,i).trim();if(part&&part!=='—'&&part!=='-')out.push(part);start=i+1;}
+ }
+ return out;
+}
+export function baseFeatureName(value=''){
+ return String(value).replace(/\s*\([^)]*\)/g,' ').replace(/\s+\d+\/(?:day|week|encounter)\b.*$/i,'').replace(/\s+\+?\d+d\d+\b.*$/i,'').replace(/\s+\+\d+\b.*$/i,'').replace(/\s+\d+\/[—-]\s*$/i,'').replace(/\s+\d+\s*$/,'').replace(/\bFeats\b$/i,'feat').replace(/\s+/g,' ').trim();
+}
+function reviewedLegacyFeatures(record){
+ const keys=[record?.sourceId,record?.id,record?.catalogId].filter(Boolean).map(value=>String(value).replace(/^dndtools:/,''));
+ const rows=keys.map(key=>legacyFeatureSummaries[key]).find(Array.isArray)||legacyFeatureSummaries[record?.name]||[];
+ return Array.isArray(rows)?rows:[];
+}
+function legacyClassFeatures(record,level){
+ const grouped=new Map();
+ const add=(name,featureLevel,extra={})=>{
+  const base=baseFeatureName(name);if(!base)return;
+  const key=base.toLocaleLowerCase();
+  const current=grouped.get(key)||{index:`class-feature-${key.replace(/[^a-z0-9]+/g,'-')}`,name:base,featureName:base,level:featureLevel,progression:[],desc:[],sourceUrl:record?.sourceUrl||record?.url||'',sourceBook:record?.sourceBook||record?.source||''};
+  current.level=Math.min(current.level||featureLevel,featureLevel);
+  if(name&&!current.progression.some(x=>x.level===featureLevel&&x.label===name))current.progression.push({level:featureLevel,label:name});
+  Object.assign(current,extra);
+  grouped.set(key,current);
+ };
+ if(record?.progression?.length)for(let i=1;i<=level;i++){const row=progressionRow(record,i),value=row.Special||row.Features||row['Class Features'];for(const name of splitFeatureList(String(value||'')))add(name,i);}
+ for(const detail of reviewedLegacyFeatures(record)){
+  if((detail.level||1)>level)continue;
+  const base=baseFeatureName(detail.name);
+  const key=base.toLocaleLowerCase(),existing=grouped.get(key);
+  if(existing){
+   existing.desc=detail.description?[detail.description]:existing.desc||[];
+   existing.featName=detail.featName||existing.featName;
+   existing.reviewed=true;
+  }else add(detail.name,detail.level||1,{desc:detail.description?[detail.description]:[],featName:detail.featName,reviewed:true});
+ }
+ return [...grouped.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
+}
+export function classFeatures(c){if(characterClasses(c).length>1)return characterClasses(c).flatMap(row=>{const model=classCharacter(c,row);return (classFeatures(model)||grantedClassFeatures(model)).map(f=>({...f,index:row.catalogId+':'+f.index,className:row.name,featureName:f.featureName||f.name,name:row.name+' · '+f.name}));});if(is35(c)||c.ruleset==='custom'&&c.classDefinition?.edition!==mechanics(c)){const record=classRecord(c);const features=legacyClassFeatures(record,c.level);if(features.length)return features;return [{index:'class-reference',name:c.className+' progression',featureName:c.className+' progression',level:c.level,desc:[classRecord(c)?.description||'No structured class features are available for this source entry yet.'],sourceUrl:record?.sourceUrl||record?.url||''}];}
+ if(mechanics(c)==='2024')return modern.features.filter(f=>f.class?.name===c.className&&Number(f.level?.name?.match(/\d+$/)?.[0]||0)<=c.level&&(!f.subclass||f.subclass.name===c.subclass)).map(f=>({...f,featureName:f.name,level:Number(f.level?.name?.match(/\d+$/)?.[0]||0),desc:[f.description]}));
  return null;}
 export function legacyProgression(c){const d=classRecord(c),r=baseProgression(d,c.level);return Object.fromEntries(Object.entries(r).map(([k,v])=>[k,Number.isFinite(v)?v:0]));}
 export function validPack(value){const list=Array.isArray(value)?value:value?.entries;if(!Array.isArray(list)||!list.length||list.length>2000)throw Error('Use an array of 1–2,000 homebrew entries.');
