@@ -534,6 +534,7 @@ function structuredUsage(feature,classLevel,character=null){
   return {max,period:spec.period||'',reset:spec.reset||'',recoveryText:spec.recoveryText||'',unit:spec.unit||''};
 }
 function isConcreteFeat(feature){
+  if(feature.choiceKind)return false;
   if(feature.kind==='feat')return true;
   if(/^bonus feat$|^fighter feat$|^wild feat$/i.test(feature.name))return false;
   const description=featureRuleText(feature);
