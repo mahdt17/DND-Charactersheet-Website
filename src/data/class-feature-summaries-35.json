@@ -51,6 +51,14 @@
       "choiceKind": "feat"
     }
   ],
+  "classes/aristocrat-31": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, all types of armor, and shields.",
+      "sourceSha256": "b7ac80f69f06e22b7e4e179ff0d42557af03a8489b30af87243c5e3a464d222e"
+    }
+  ],
   "classes/barbarian-89": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -266,6 +274,15 @@
       "level": 1,
       "description": "Use cleric spellcasting with the cloistered-cleric class adjustments, including the additional source-listed spells added to the class spell list at levels 0, 1, 2, 3, 6, 7, and 9.",
       "sourceSha256": "f04f23412ee0e2df88891366e66966612b8e8f2f94321ec2a0610a96d06cb64d"
+    }
+  ],
+  "classes/commoner-32": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with one chosen simple weapon. You gain no proficiency with other weapons, armor, or shields from the Commoner class; the weapon choice is handled by the class training selection.",
+      "sourceSha256": "cfa830b11418e87fd6684a6506c3361decab0f5914f5914d5f347ccd8883c357",
+      "choiceRequired": false
     }
   ],
   "classes/dragon-shaman-101": [
@@ -880,6 +897,15 @@
       "level": 6,
       "description": "After you damage an opponent with a melee attack, gain a bonus on caster-level checks to overcome that opponent's spell resistance for the rest of the encounter. The bonus is +2 at 6th level, +3 at 11th, +4 at 16th, and +5 at 18th.",
       "sourceSha256": "173fe4feb80fc5a4bfad38d1244302566292b1f54f4c435a0b28085ef47ee1ca"
+    }
+  ],
+  "classes/expert-33": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons and light armor, but not shields. The Expert also chooses any ten skills to be class skills; that class-skill selection is handled separately from this feature reminder.",
+      "sourceSha256": "7cbdbaee2f025ceef7370a4e2d3d1b0707ec30225bd03fbcbbc8bb58eb619cd0",
+      "choiceRequired": false
     }
   ],
   "classes/factotum-35": [
@@ -3328,6 +3354,14 @@
       "featName": "Sudden Maximize",
       "description": "Gain Sudden Maximize as a bonus feat at 20th level. If you already have the feat, the source allows choosing a different feat instead.",
       "sourceSha256": "6a2b9967c49a759d5cb426d6110caac84f3905cc5faa709cb1549972ae9f43c8"
+    }
+  ],
+  "classes/warrior-34": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, all armor, and shields.",
+      "sourceSha256": "478551226b278793603496e52477a9188acccf5cdb638199163a4b63622a67e1"
     }
   ],
   "classes/wilder-140": [

@@ -621,4 +621,23 @@ for(const sourceId of ['classes/wizard-99','classes/wizard-110','classes/cleric-
   assert.equal(optionalLanguages.grantedFeatures.find(feature=>feature.name==='Bonus Languages').kind,'feature','the language rule stays visible');
 }
 assert(featureChoicePlan(classSheet(exact35('classes/fighter-93'),1)).groups.some(group=>/Bonus Feat/.test(group.label)&&!group.valid),'required bonus feat choices still block creation');
+// Source-reviewed DMG NPC classes. Their training packages were verified separately;
+// these summaries keep the visible feature text source-locked without duplicating
+// proficiency/class-skill choice UI in the generic feature-choice system.
+for(const [sourceId,pattern] of [
+  ['classes/aristocrat-31',/simple and martial weapons.*armor.*shields/i],
+  ['classes/commoner-32',/one chosen simple weapon/i],
+  ['classes/expert-33',/ten skills to be class skills/i],
+  ['classes/warrior-34',/simple and martial weapons.*armor.*shields/i]
+]){
+  const definition=exact35(sourceId),sheet=classSheet(definition,1);
+  const feature=sheet.grantedFeatures.find(item=>item.name==='Weapon and Armor Proficiency'&&item.sourceClassId===definition.catalogId);
+  assert(feature,sourceId+' has its reviewed proficiency feature');
+  assert.equal(feature.descriptionSource,'rule-text',sourceId+' uses reviewed rule text');
+  assert.match(feature.description,pattern,sourceId+' preserves its source-specific rule');
+  assert.equal(feature.kind,'feature',sourceId+' does not duplicate training choices as a feature choice');
+  assert(!sheet.actions.some(item=>item.sourceClassId===definition.catalogId),sourceId+' does not invent actions');
+  assert(!sheet.resources.some(item=>item.sourceClassId===definition.catalogId),sourceId+' does not invent resources');
+}
+
 console.log('PASS class reconciliation: reviewed features, level-scaled actions, multiclassing, source isolation, idempotence, and safe removal');
