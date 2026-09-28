@@ -125,6 +125,56 @@
       "sourceSha256": "accabe3bd772da42aee5ac33612e4cdb58e8f3cd8a2cbc791ea4193102a6d7bd"
     }
   ],
+  "classes/cleric-91": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons, light, medium, and heavy armor, and shields except tower shields. A cleric with the War domain can also gain the deity's favored-weapon proficiency and Weapon Focus benefits when the domain rules call for them.",
+      "sourceSha256": "419440a7b427415b9f3ce4bcc434df1f478d18401dba062140ec0b3e7e9c9114"
+    },
+    {
+      "name": "Aura (Ex)",
+      "level": 1,
+      "description": "If your deity or chosen alignment domain is chaotic, evil, good, or lawful, you project the corresponding alignment aura with strength based on your cleric level.",
+      "sourceSha256": "6d958aa0153ad1a08ce79e763886024173bd11d38493331fd896d5ecb57bf5a0"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Cast divine spells from the cleric list. Wisdom determines the highest spell level you can prepare or cast, spell save DCs, and bonus spells per day. Cleric spells are prepared in advance, and domain slots are tracked separately from ordinary cleric slots.",
+      "sourceSha256": "51eb9a5214945904b538c82137aef89f38dd7b785aee5551060caa39d1392ebd"
+    },
+    {
+      "name": "Deity, Domains, and Domain Spells",
+      "level": 1,
+      "description": "Choose a deity or a deityless spiritual focus and select two permitted domains. Each domain grants a power and a domain spell at each spell level; domain spell slots can be prepared only from one of your chosen domains. Alignment domains must match your alignment.",
+      "sourceSha256": "3ba86887c7a1ddc3403217ba165f498b6527159737fe37aaad64f9992af6b116"
+    },
+    {
+      "name": "Spontaneous Casting",
+      "level": 1,
+      "description": "A good cleric, or a neutral cleric of a good deity, can sacrifice a prepared non-domain spell to cast an eligible cure spell of the same level or lower. Evil clerics use inflict spells instead. A neutral cleric of a neutral deity chooses cure or inflict and keeps that choice.",
+      "sourceSha256": "7bad8e57239041bd27ebf667a27e54b6f77418080694c0f62d799188ff45c488"
+    },
+    {
+      "name": "Chaotic, Evil, Good, and Lawful Spells",
+      "level": 1,
+      "description": "You cannot cast a spell with an alignment descriptor opposed to your own alignment or your deity's alignment.",
+      "sourceSha256": "02b80553d42538bb89c3ea9456131f89a95aa08e6d859b74fc8281adccbaa74a"
+    },
+    {
+      "name": "Turn or Rebuke Undead (Su)",
+      "level": 1,
+      "description": "Channel divine power through a holy or unholy symbol to affect undead. Good clerics turn or destroy undead; evil clerics rebuke or command them. Neutral clerics follow the choice required by their deity/alignment rules. You can attempt this 3 + your Charisma modifier times per day.",
+      "sourceSha256": "cd2af704caabc309dcb57f4d90db99ff527a61e20e864e81bb040e27f41b268a"
+    },
+    {
+      "name": "Bonus Languages",
+      "level": 1,
+      "description": "Celestial, Abyssal, and Infernal are available as cleric bonus-language choices in addition to languages available from race and other rules.",
+      "sourceSha256": "acea18af08633a12d5af249dbaeaeaa750e37111761dd0167b0c178b8c51440a"
+    }
+  ],
   "classes/fighter-93": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -296,6 +346,98 @@
       "level": 20,
       "description": "You are treated as an outsider rather than a humanoid for spells and magical effects, gain damage reduction 10/magic, and can still be restored to life as your former creature type. A nonlawful monk cannot gain further monk levels. A monk who advances another class after becoming multiclass cannot later resume monk advancement.",
       "sourceSha256": "465e22f133c1b288dd84bd578aa92e37095664893bdde1c93f1b3c6635f05d4c"
+    }
+  ],
+  "classes/paladin-95": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, light, medium, and heavy armor, and shields except tower shields.",
+      "sourceSha256": "14261f993d8a3af3bc718dad96a27c590ca9149759a898c1420248f327993ba7"
+    },
+    {
+      "name": "Aura of Good (Ex)",
+      "level": 1,
+      "description": "Project a good-aligned aura whose power is based on your paladin level.",
+      "sourceSha256": "efc837ff011b5bcd07931084df7a5a108dfcca1605739b7b32f74e4390fe2f87"
+    },
+    {
+      "name": "Detect Evil (Sp)",
+      "level": 1,
+      "description": "Use detect evil at will as a spell-like ability.",
+      "sourceSha256": "2223d570fbf905731371cf44b86a0772e5193ad7fa5ab8347a0a0d2f919fe80f"
+    },
+    {
+      "name": "Smite Evil (Su)",
+      "level": 1,
+      "description": "Once per day at 1st level, declare a smite on one normal melee attack against an evil creature. Add your Charisma bonus to the attack roll and your paladin level to damage. A failed alignment match still expends the use. Gain another daily use at 5th level and every five paladin levels thereafter, to 5/day at 20th.",
+      "sourceSha256": "81d206de411d12f1c5c2815eed0c8365e23006350e7bfe33d71a1ecdbae39f88"
+    },
+    {
+      "name": "Divine Grace (Su)",
+      "level": 2,
+      "description": "Add your Charisma bonus, if any, to all saving throws.",
+      "sourceSha256": "e262a34e2047914a9a032f355abb27f65b892dc11c2a3c06b37c2978ffec48c7"
+    },
+    {
+      "name": "Lay on Hands (Su)",
+      "level": 2,
+      "description": "With Charisma 12 or higher, gain a daily healing pool equal to paladin level × Charisma bonus. You can divide the pool among multiple uses. Using lay on hands is a standard action; against undead, you can instead spend points as damage with a successful melee touch attack.",
+      "sourceSha256": "11e31fac61a86e5d4d8faa9ec5579ed33a1b630e4b744111b5c5a296da9955e8"
+    },
+    {
+      "name": "Aura of Courage (Su)",
+      "level": 3,
+      "description": "Become immune to fear. While you are conscious, allies within 10 feet gain a +4 morale bonus on saving throws against fear effects.",
+      "sourceSha256": "7ffdea011c6c72d022321f1b40795b5e38afa847ddd50e8c6e542b9a787147f8"
+    },
+    {
+      "name": "Divine Health",
+      "level": 3,
+      "description": "Gain immunity to all diseases, including supernatural and magical diseases.",
+      "sourceSha256": "10b157344ec6da3ef767a0878aa5425a49c1edab1688c5d8770ad025444a913f"
+    },
+    {
+      "name": "Turn Undead (Su)",
+      "level": 4,
+      "description": "Turn undead as a cleric three levels lower than your paladin level. You can use this ability 3 + your Charisma modifier times per day.",
+      "sourceSha256": "1993a1a98c204edfe900ca5ca9020fce51116727ad9a0363958fc4b7d67b17da"
+    },
+    {
+      "name": "Spells",
+      "level": 4,
+      "description": "Beginning at 4th level, prepare and cast divine spells from the paladin list. Wisdom determines spell access, save DCs, and bonus spells per day. A printed 0 on the progression means the spell level is available only through applicable bonus spells.",
+      "sourceSha256": "4f43a07c7c378d29a7820b3e8885dc537569a8bcf328ae5b1721e8bb49c934e9"
+    },
+    {
+      "name": "Special Mount (Sp)",
+      "level": 5,
+      "description": "Gain the service of a special mount. Once per day, as a full-round action, call the same mount to appear adjacent to you for up to 2 hours per paladin level. The mount progresses with paladin level and has the special abilities described by the class rules.",
+      "sourceSha256": "115dd6c46fc7cea81ad6981f260b4ab0e048955e184769ce8db14838229c887e"
+    },
+    {
+      "name": "Remove Disease (Sp)",
+      "level": 6,
+      "description": "Produce remove disease as a spell-like ability once per week at 6th level, gaining one additional weekly use every three paladin levels thereafter.",
+      "sourceSha256": "df9151006d9ddc2eab805e1a6d7da630721154ccd927eb73174c17559be1e57e"
+    },
+    {
+      "name": "Code of Conduct",
+      "level": 1,
+      "description": "A paladin must remain lawful good, avoid willingly committing evil acts, respect legitimate authority, act honorably, help those in need when doing so does not serve evil or chaos, and punish those who threaten innocents. Violating the class's fall conditions can remove paladin abilities until atonement.",
+      "sourceSha256": "072fcf96409af57c8ce8d82504dbf95ce19328d7eaccbe688402cacbc00dcbb8"
+    },
+    {
+      "name": "Associates",
+      "level": 1,
+      "description": "Do not knowingly associate with evil characters or continue with companions who consistently violate the paladin's moral code; henchmen, followers, and cohorts must be lawful good. The class also carries the 3.5 multiclass restriction described by the source.",
+      "sourceSha256": "9807eee6591b49d06ef7e6de6fbaf16322116be668acf9216f163a525e754995"
+    },
+    {
+      "name": "Paladin’s Mount Basics",
+      "level": 5,
+      "description": "The special mount uses its base creature statistics plus the paladin-mount progression: bonus Hit Dice, natural armor and Strength adjustments, increased Intelligence, and additional special abilities such as empathic link as the paladin advances.",
+      "sourceSha256": "b27e64881ea7831935fb922552565582f08e48348ad8a72b3eca2ef1474e6b38"
     }
   ],
   "classes/psion-137": [
