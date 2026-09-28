@@ -175,6 +175,7 @@ assert.equal(ninja8.actions.find(action=>action.name==='Ghost Step')?.type,'Swif
 assert.equal(ninja8.actions.find(action=>action.name==='Ki Dodge')?.type,'Swift action');
 assert.equal(ninja8.actions.find(action=>action.name==='Ghost Strike')?.type,'Move action');
 assert.match(ninja8.grantedFeatures.find(feature=>feature.name==='Ki Power')?.description||'',/shared pool/i);
+assert.equal(ninja8.resources.find(resource=>resource.name==='Ki Power')?.max,6,'Ninja ki pool is half level plus Wisdom modifier');
 
 const reviewedScout35=exact35('classes/scout-2');
 const scout8=reconcileClassGrants(baseCharacter([{catalogId:reviewedScout35.catalogId,name:'Scout',edition:'3.5',level:8,definition:reviewedScout35}]));
