@@ -84,6 +84,17 @@ assert.equal(paladin6.resources.find(resource=>resource.name==='Special Mount')?
 assert.equal(paladin6.resources.find(resource=>resource.name==='Remove Disease')?.max,1,'Paladin Remove Disease begins at once per week');
 assert.equal(paladin6.resources.find(resource=>resource.name==='Remove Disease')?.reset,'none','weekly Paladin resources do not reset on normal rests');
 assert.match(paladin6.resources.find(resource=>resource.name==='Remove Disease')?.recoveryText||'',/one week/i);
+const wizard35=exact35('classes/wizard-99');
+const wizard1=reconcileClassGrants(baseCharacter([{catalogId:wizard35.catalogId,name:'Wizard',edition:'3.5',level:1,definition:wizard35}]));
+assert.equal(wizard1.grantedFeatures.find(feature=>feature.name==='Spellbooks')?.descriptionSource,'rule-text');
+assert(wizard1.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===wizard35.catalogId),'Wizard Scribe Scroll is a class-granted feat');
+assert.match(wizard1.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Intelligence/i);
+
+const sorcerer35=exact35('classes/sorcerer-98');
+const sorcerer1=reconcileClassGrants(baseCharacter([{catalogId:sorcerer35.catalogId,name:'Sorcerer',edition:'3.5',level:1,definition:sorcerer35}]));
+assert.equal(sorcerer1.grantedFeatures.find(feature=>feature.name==='Familiar')?.descriptionSource,'rule-text');
+assert.match(sorcerer1.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/without preparing/i);
+assert.match(sorcerer1.grantedFeatures.find(feature=>feature.name==='Familiar Basics')?.description||'',/Hit Dice/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
