@@ -735,6 +735,148 @@
       "sourceSha256": "173fe4feb80fc5a4bfad38d1244302566292b1f54f4c435a0b28085ef47ee1ca"
     }
   ],
+  "classes/factotum-35": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, light armor, and shields except tower shields. Factotum Arcane Dilettante abilities function as spell-like abilities, so armor does not impose arcane spell failure on them.",
+      "sourceSha256": "7c5429be21d5fee869dfca8704a4ec7c5e66514938f5114d98690bcd4f53fc8c"
+    },
+    {
+      "name": "Inspiration",
+      "level": 1,
+      "resource": {
+        "maxByLevel": {
+          "1": 2,
+          "2": 3,
+          "5": 4,
+          "8": 5,
+          "11": 6,
+          "14": 7,
+          "17": 8,
+          "20": 10
+        },
+        "reset": "encounter",
+        "unit": "inspiration point",
+        "recoveryText": "Refresh the Inspiration pool to its maximum at the beginning of each encounter."
+      },
+      "description": "At the beginning of each encounter, gain the class-table number of inspiration points. Many factotum abilities spend points from this shared encounter pool; the pool is 2 at 1st level, 3 at 2nd, 4 at 5th, 5 at 8th, 6 at 11th, 7 at 14th, 8 at 17th, and 10 at 20th.",
+      "sourceSha256": "76ab3a18ca94d39132195727eb34dd990df253054ed00472c2f6ad7889599dae"
+    },
+    {
+      "name": "Cunning Insight",
+      "level": 1,
+      "actionType": "No action",
+      "description": "Before an attack roll, damage roll, or saving throw, spend 1 inspiration point to add your Intelligence modifier as a competence bonus. It requires no action and can be used repeatedly while inspiration remains, but the competence bonus does not stack with itself.",
+      "sourceSha256": "1e63bc9aeec2be7e727d09f1c9ce79679013e1681736980ee417e5cef26b83a5"
+    },
+    {
+      "name": "Cunning Knowledge",
+      "level": 1,
+      "actionType": "No action",
+      "description": "When making a check with a skill in which you have at least 1 rank, spend 1 inspiration point to add your factotum level to the check. You can use Cunning Knowledge only once per day for any particular skill, though different skills can each receive the benefit.",
+      "sourceSha256": "a6032cb8424c3bf8d187f6efa55e6e61ca02acfb7e652f95a03388337784b566"
+    },
+    {
+      "name": "Trapfinding",
+      "sourceFeatureName": "Trapﬁnding (Ex)",
+      "level": 1,
+      "description": "Use Search to locate traps with DC above 20 and Disable Device to bypass or disarm magic traps, following the standard Trapfinding rules.",
+      "sourceSha256": "6e48f276938ef055ab7878a827cd2dc48c0f938905694d626942186b3b030bc7"
+    },
+    {
+      "name": "Arcane Dilettante",
+      "level": 2,
+      "description": "Spend 1 inspiration point to use one of your daily Arcane Dilettante spells as a spell-like ability. After daily rest, prepare the class-table number of distinct sorcerer/wizard spells up to the listed maximum spell level, with no more than one spell at that maximum level. Each prepared spell can be used once before the next 8-hour rest, uses factotum level as caster level, Intelligence for save DCs, cannot require an XP cost, and may have metamagic applied only if the modified level is within your allowed spell level.",
+      "sourceSha256": "823df9504686c1fc038235af652b348120c25a4b7f33cce5079eaf410a40dfee"
+    },
+    {
+      "name": "Brains over Brawn",
+      "level": 3,
+      "description": "Add your Intelligence bonus to Strength checks, Dexterity checks, and skill checks based on Strength or Dexterity.",
+      "sourceSha256": "796fce96d593eaa962cd415dd3c8cc0857ef474e9108a21a609c7070036711c8"
+    },
+    {
+      "name": "Cunning Defense",
+      "level": 3,
+      "actionType": "Free action",
+      "description": "Spend 1 inspiration point as a free action to add your Intelligence bonus as a dodge bonus to AC against one opponent for 1 round. You may use it against multiple opponents, but not more than once during your turn against the same foe.",
+      "sourceSha256": "bb75ce8402e9ac5bf6f44fa8f69c00c35c0569023cb70cafda6842328e075d88"
+    },
+    {
+      "name": "Cunning Strike",
+      "level": 4,
+      "actionType": "No action",
+      "description": "Before making an attack roll, spend 1 inspiration point to gain +1d6 sneak attack damage for that attack. For interactions with uncanny dodge, use your factotum level as your rogue level.",
+      "sourceSha256": "f2ece40f2c990bb1ded1d25b54e76fabd5af87ce27b1143ccd41bcf838a26aa4"
+    },
+    {
+      "name": "Opportunistic Piety",
+      "level": 5,
+      "actionType": "Standard action",
+      "resource": {
+        "maxByLevel": {
+          "5": 3,
+          "10": 4,
+          "15": 5,
+          "20": 6
+        },
+        "ability": "wis",
+        "abilityMinimum": 0,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Opportunistic Piety daily uses refresh with the character's daily recovery; each use also costs 1 inspiration point."
+      },
+      "description": "Spend 1 inspiration point and one daily use as a standard action to channel divine energy. Heal a living creature or damage an undead creature for twice your factotum level + Intelligence modifier, or turn undead as a cleric of your factotum level. Daily uses equal 3 + positive Wisdom bonus at 5th level, with one additional base use at 10th, 15th, and 20th.",
+      "sourceSha256": "f2a2e7c1fc6731b566c779da800d97ad67c332920a7390267a25e2a5d40625d4"
+    },
+    {
+      "name": "Cunning Surge",
+      "level": 8,
+      "actionType": "No action",
+      "description": "During your turn, spend 3 inspiration points to gain one extra standard action.",
+      "sourceSha256": "c852fb7ac8ad8c3de12b57980157209d06c93b313893646bfe93bc566c32900b"
+    },
+    {
+      "name": "Cunning Breach",
+      "level": 11,
+      "actionType": "Free action",
+      "description": "Spend 2 inspiration points as a free action to ignore one target's spell resistance and damage reduction for 1 round.",
+      "sourceSha256": "a9905062a4fc29033688648e53f17d5e5dda84e3f0b208c4a8566b0b4b3776ee"
+    },
+    {
+      "name": "Cunning Dodge",
+      "level": 13,
+      "actionType": "Immediate action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Cunning Dodge's once-per-day use refreshes with the character's daily recovery; activation also costs 4 inspiration points."
+      },
+      "description": "Once per day, if damage would reduce you to 0 or fewer hit points, spend 4 inspiration points as an immediate action to ignore that damage.",
+      "sourceSha256": "95b0abdef30680993a096650f3105a181020a7a707b0d0d0282860e895f10a8f"
+    },
+    {
+      "name": "Improved Cunning Defense",
+      "level": 16,
+      "description": "Add your Intelligence bonus as a continuous dodge bonus to AC without spending inspiration. Unlike Cunning Defense, this benefit does not apply while wearing medium or heavy armor.",
+      "sourceSha256": "c2573b3eb9438f8356439586378b1b62c5e07a9c8ca12e73deb1adf99b9ad088"
+    },
+    {
+      "name": "Cunning Brilliance",
+      "level": 19,
+      "actionType": "Free action",
+      "resource": {
+        "max": 3,
+        "reset": "long",
+        "unit": "ability use",
+        "recoveryText": "At the start of each day, designate three eligible extraordinary class abilities; each designated ability can be activated once that day and costs 4 inspiration points."
+      },
+      "description": "At the start of each day, designate three extraordinary class abilities available to a standard class by 15th level or lower. Spend 4 inspiration points as a free action to gain one designated ability's benefits and drawbacks for 1 minute as though your relevant class level equaled your factotum level. Each designated ability can be used once that day.",
+      "sourceSha256": "4cec415dc07c79c839c3ad17c535b20575161539dae4bc0379d478e3cd95c6cd"
+    }
+  ],
   "classes/favored-soul-7": [
     {
       "name": "Weapon and Armor Proficiency",
