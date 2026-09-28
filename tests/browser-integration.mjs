@@ -33,7 +33,17 @@ try {
  assert.match(await scribeScroll.innerText(),/create a scroll|base price/i);
  assert.equal(await page.locator('.feature-detail summary').filter({hasText:'Dark knowledge (tactics) 3/day, Scribe Scroll'}).count(),0);
  assert(await page.locator('.feature-detail summary').filter({hasText:'Prayerbook'}).count());
- console.log('PASS 3.5 class features render individually with reviewed rules and granted-feat mechanics');
+ await page.getByRole('tab',{name:'Actions',exact:true}).click();
+ const darkKnowledgeAction=page.locator('.action-row').filter({hasText:'Dark Knowledge'}).first();
+ assert(await darkKnowledgeAction.count());
+ assert.match(await darkKnowledgeAction.innerText(),/Knowledge check/i);
+ assert.match(await page.getByText('Dark Knowledge',{exact:true}).count().then(String),/^[1-9]/);
+ await page.getByRole('tab',{name:'Feats',exact:true}).click();
+ const scribeScrollFeat=page.locator('.feature-detail').filter({has:page.locator('summary',{hasText:'Scribe Scroll'})}).first();
+ assert(await scribeScrollFeat.count());
+ await scribeScrollFeat.locator('summary').click();
+ assert.match(await scribeScrollFeat.innerText(),/create a scroll|base price/i);
+ console.log('PASS Archivist reviewed features render individually and reconcile Dark Knowledge to Actions/resources plus Scribe Scroll to Feats');
  await branch('normal','Fighter');assert(!await page.getByLabel('Class to advance').locator('option').filter({hasText:'Abjurant Champion'}).count());await page.getByRole('checkbox',{name:/I reviewed/}).check();await page.getByRole('button',{name:'Continue to level choices'}).click();await next();await next();await page.getByRole('button',{name:'Apply level up'}).click();const fighterChoices=page.getByRole('region',{name:'Class feature choices'}).locator('input[placeholder*="Enter the selected feat"]');for(let i=0;i<await fighterChoices.count();i++)await fighterChoices.nth(i).fill(i===0?'Power Attack':`Recorded Fighter choice ${i+1}`);await page.getByRole('button',{name:'Save level and choices'}).click();await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();let c=await saved(base.name);assert.deepEqual(c.classLevels.map(r=>r.level),[5,1]);assert.equal(c.bab,3);assert.equal(c.className,'Archivist');assert(Object.values(c.featureChoices||{}).some(choice=>choice.className==='Fighter'&&choice.choices?.includes('Power Attack')));
  console.log('PASS legacy 3.5 save normalization and Archivist → Fighter branching, class levels and BAB');
  await importChar({...base,name:'Blocked Prestige'});await branch('prestige','Abjurant Champion');assert.match(await page.getByRole('dialog').innerText(),/Unmet:.*\+\s*5/);assert(await page.getByRole('button',{name:'Continue to level choices'}).isDisabled());await page.getByRole('button',{name:'Cancel',exact:true}).click();
