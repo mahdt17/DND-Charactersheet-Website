@@ -39,7 +39,13 @@ const featureMatchKey=value=>norm(String(value||'')
   .replace(/\bfeats\b$/i,'feat'));
 function reviewedFeatureRows(record){
   const keys=[record?.sourceId,record?.id,record?.catalogId].filter(Boolean).map(value=>String(value).replace(/^dndtools:/,''));
-  const rows=keys.map(key=>legacyFeatureSummaries[key]).find(Array.isArray)||legacyFeatureSummaries[record?.name]||[];
+  const direct=keys.map(key=>legacyFeatureSummaries[key]).find(Array.isArray);
+  if(direct)return direct;
+  const sourceId=keys[0];
+  const supplement=resolvedProficiencySupplement(sourceId);
+  const profileId=supplement?.name===record?.name?supplement?.profileSourceId:null;
+  const profiled=profileId?legacyFeatureSummaries[profileId]:null;
+  const rows=Array.isArray(profiled)?profiled:legacyFeatureSummaries[record?.name]||[];
   return Array.isArray(rows)?rows:[];
 }
 function reviewedFeatureRow(record,name){
