@@ -46,7 +46,7 @@ assert.match(fighterBonus?.description||'',/prerequisites/i);
 
 const rogue35=exact35('classes/rogue-97');
 const rogue10=reconcileClassGrants(baseCharacter([{catalogId:rogue35.catalogId,name:'Rogue',edition:'3.5',level:10,definition:rogue35}]));
-const rogueSpecial=rogue10.grantedFeatures.find(feature=>/special ability/i.test(feature.name));
+const rogueSpecial=rogue10.grantedFeatures.find(feature=>/special abilit(?:y|ies)/i.test(feature.name));
 assert.equal(rogueSpecial?.kind,'choice','Rogue Special Ability is recognized as a class choice');
 assert.equal(rogueSpecial?.descriptionSource,'rule-text','singular progression label resolves plural source heading');
 assert.match(rogueSpecial?.description||'',/Crippling Strike/i);
