@@ -653,7 +653,15 @@
       "name": "Ki Power",
       "level": 1,
       "description": "Gain a daily ki-use pool equal to one-half ninja level, minimum 1, plus Wisdom bonus. Ki abilities work only while unarmored and unencumbered. While at least one ki use remains, gain +2 on Will saves. Ghost Step, Ki Dodge, Ghost Strike, Greater Ki Dodge, and Ghost Walk spend this shared pool.",
-      "sourceSha256": "b04c9694dcec51ba967f03bc7c5122f5ca9ee67cf3aa4631819dc4fa7e2ffdc6"
+      "sourceSha256": "b04c9694dcec51ba967f03bc7c5122f5ca9ee67cf3aa4631819dc4fa7e2ffdc6",
+      "resource": {
+        "perLevel": 0.5,
+        "ability": "wis",
+        "minimum": 1,
+        "reset": "long",
+        "unit": "ki use",
+        "recoveryText": "The daily ki pool refreshes with the character's daily recovery."
+      }
     },
     {
       "name": "Sudden Strike",
