@@ -201,6 +201,125 @@
       "sourceSha256": "f04f23412ee0e2df88891366e66966612b8e8f2f94321ec2a0610a96d06cb64d"
     }
   ],
+  "classes/dread-necromancer-75": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons, one martial weapon chosen when you first enter the class, and light armor. You are not proficient with shields. Dread-necromancer spells can be cast in light armor without arcane spell failure, while medium/heavy armor or shields can impose normal arcane spell failure.",
+      "sourceSha256": "00d7579fb53e87255dca09686e27ca23b98075b254c45597925616a28fd853ad"
+    },
+    {
+      "name": "Spellcasting",
+      "level": 1,
+      "description": "Cast arcane spells spontaneously from the dread-necromancer list. When a new spell level is unlocked, you automatically know the class-list spells of that level. Charisma determines spell access, save DCs, and bonus spells per day; Advanced Learning can add additional eligible necromancy spells.",
+      "sourceSha256": "80274aeab73b8783cc7ac89125e33adfe87b1df12910493a3035264c986edf41"
+    },
+    {
+      "name": "Charnel Touch",
+      "level": 1,
+      "actionType": "Standard action",
+      "description": "At will, but no more than once per round, make a melee touch attack that deals 1d8 negative-energy damage plus 1 per four dread-necromancer levels to a living creature. The same touch instead heals an undead creature by 1 hit point plus 1 per four class levels and can be delivered through spectral hand.",
+      "sourceSha256": "f56d5bdb52ead220db70e82962e979c78e7affc473888692e099a8e3c9e0f4fd"
+    },
+    {
+      "name": "Rebuke Undead",
+      "level": 1,
+      "description": "Rebuke or command undead by channeling negative energy, using the cleric rebuke-undead class feature rules.",
+      "sourceSha256": "263edf88a44e76fa6a0ff203fe14ce48ca3ef3b68e6275d9817eef6c6d719611"
+    },
+    {
+      "name": "Lich Body",
+      "level": 2,
+      "description": "Gain damage reduction 2/bludgeoning and magic at 2nd level. The reduction improves to 4 at 7th, 6 at 11th, and 8 at 15th level.",
+      "sourceSha256": "0ef785b55c6d3f6781c8c3dca3dd25226b8f325a940da2571060223f2608bbef"
+    },
+    {
+      "name": "Negative Energy Burst",
+      "level": 3,
+      "actionType": "Standard action",
+      "description": "Emit a 5-foot burst of negative energy that deals 1d4 damage per class level to living creatures and heals undead by the same amount; a Will save with DC 10 + half class level + Charisma modifier halves the damage. Uses increase from 1/day at 3rd to 2/day at 8th, 3/day at 13th, and 4/day at 18th.",
+      "sourceSha256": "c55c542c1d23572a2443e352354a700e26b7011bb3fd76edc582cfc2c9cedb28"
+    },
+    {
+      "name": "Advanced Learning",
+      "level": 4,
+      "choiceKind": "source",
+      "description": "At 4th, 8th, 12th, 16th, and 20th level, add one eligible necromancy spell from the cleric or wizard list to your dread-necromancer spell list. The spell cannot exceed the highest spell level you already know; if it appears on both lists at different levels, use the lower level.",
+      "sourceSha256": "54adb2a3d6fe027720199206c066d407094beada04708587540ac4dddae9c0c4"
+    },
+    {
+      "name": "Mental Bastion",
+      "level": 4,
+      "description": "Gain +2 on saving throws against sleep, stunning, paralysis, poison, and disease. The bonus improves to +4 at 14th level.",
+      "sourceSha256": "ec6484b61f5d6a2c7af9cf007a2d418339bb3520f6ada934125c832001a6097f"
+    },
+    {
+      "name": "Fear Aura",
+      "level": 5,
+      "actionType": "Free action",
+      "description": "As a free action, radiate a 5-foot fear aura. Enemies in the area must make a Will save with DC 10 + half class level + Charisma modifier or become shaken; a creature that succeeds is immune to your fear aura for 24 hours.",
+      "sourceSha256": "4f2ae9d6f394f13463047139811dcd926bd93d2728b8d1c2a596340f9af0d382"
+    },
+    {
+      "name": "Scabrous Touch",
+      "level": 6,
+      "actionType": "Swift action",
+      "description": "As a swift action, charge your Charnel Touch to inflict a disease as contagion on the next successful touch, with no incubation period and a Fortitude save of DC 10 + half class level + Charisma modifier. Uses increase from 1/day at 6th to 2/day at 11th and 3/day at 16th.",
+      "sourceSha256": "79e7aa0168bd013dc8a6dada283e418785c6e8568af99a74c5d8b3a3cb26f3f4"
+    },
+    {
+      "name": "Summon Familiar",
+      "level": 7,
+      "choiceKind": "source",
+      "choiceOptionsByLevel": {
+        "7": [
+          "Imp",
+          "Quasit",
+          "Vargouille",
+          "Ghostly Visage"
+        ]
+      },
+      "description": "At 7th level or later, obtain one evil familiar chosen from imp, quasit, vargouille, or ghostly visage. It receives the source-listed familiar benefits and can deliver your touch abilities; full familiar statistics remain a companion-state subsystem.",
+      "sourceSha256": "1bf999cdd9df100cba21e0a1b7a2a17ba63ab97f6b943e549a4a5d3122564e2e"
+    },
+    {
+      "name": "Undead Mastery",
+      "level": 8,
+      "description": "Undead you create gain +4 enhancement bonuses to Strength and Dexterity and +2 hit points per Hit Die. Animate dead control capacity becomes (4 + Charisma bonus) HD per class level, and control undead can target (2 + Charisma bonus) HD per level.",
+      "sourceSha256": "30e43e9cd9e6cc412e9aeda56f305f220b2e13ac1f4d7c778a9aeea704cce46f"
+    },
+    {
+      "name": "Negative Energy Resistance",
+      "level": 9,
+      "description": "Gain +4 on saving throws against negative-energy effects, including energy drain, some ability drain, and inflict spells.",
+      "sourceSha256": "ac3e8c70e05ce2dbc387a86c8a75e4245396aa95072fc63417abf221564a3b58"
+    },
+    {
+      "name": "Light Fortification",
+      "level": 10,
+      "description": "Gain 25% resistance to critical hits at 10th level. The fortification improves to 50% at 17th level.",
+      "sourceSha256": "a271eec293c4d418ed67d765a00c181df48dd8bb1aebef8e867677fa99ba1e8e"
+    },
+    {
+      "name": "Enervating Touch",
+      "level": 12,
+      "actionType": "Swift action",
+      "resource": {
+        "perLevel": 0.5,
+        "reset": "long",
+        "unit": "negative levels",
+        "recoveryText": "The daily negative-level pool refreshes with the character's daily recovery."
+      },
+      "description": "As a swift action, charge your Charnel Touch to bestow negative levels on the next successful touch. Your daily pool equals half your dread-necromancer level, with no more than two negative levels delivered by one touch; the removal save uses DC 10 + half class level + Charisma modifier.",
+      "sourceSha256": "dc0aa42311297945fd639e77897e259f9c3a44261cdbfa93cccd7c13e802c623"
+    },
+    {
+      "name": "Lich Transformation",
+      "level": 20,
+      "description": "At 20th level, if you are humanoid, your type changes to undead and you gain the source-listed undead traits; existing Hit Dice become d12s and hit points are rerolled. The class removes the normal XP/gold cost for creating the required phylactery.",
+      "sourceSha256": "9ed111f7f5e8f17342adddac4cc1d5b3be637ddfbad3859314d9a170fe570e87"
+    }
+  ],
   "classes/druid-92": [
     {
       "name": "Weapon and Armor Proficiency",
