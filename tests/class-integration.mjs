@@ -107,8 +107,8 @@ const ranger3=reconcileClassGrants(baseCharacter([{catalogId:reviewedRanger35.ca
 assert(ranger3.feats.some(feat=>feat.name==='Track'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Track is a class-granted feat');
 assert(ranger3.feats.some(feat=>feat.name==='Endurance'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Endurance is a class-granted feat');
 assert.equal(ranger3.grantedFeatures.find(feature=>feature.name==='Combat Style')?.kind,'choice','Ranger combat style remains a guided class choice');
-const reviewedFavoredSoul35=exact35('classes/favored-soul-7');
-const favoredSoul5=reconcileClassGrants(baseCharacter([{catalogId:reviewedFavoredSoul35.catalogId,name:'Favored Soul',edition:'3.5',level:5,definition:reviewedFavoredSoul35}]));
+const reviewedFavoredSoulBaseline35=exact35('classes/favored-soul-7');
+const favoredSoul5=reconcileClassGrants(baseCharacter([{catalogId:reviewedFavoredSoulBaseline35.catalogId,name:'Favored Soul',edition:'3.5',level:5,definition:reviewedFavoredSoulBaseline35}]));
 assert.equal(favoredSoul5.grantedFeatures.find(feature=>feature.name==='Spells')?.descriptionSource,'rule-text');
 assert.match(favoredSoul5.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Charisma/i);
 assert.equal(favoredSoul5.grantedFeatures.find(feature=>feature.name==='Energy Resistance')?.kind,'choice','Favored Soul energy resistance remains a source-defined choice');
