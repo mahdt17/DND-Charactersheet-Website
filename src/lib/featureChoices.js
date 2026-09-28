@@ -12,7 +12,11 @@ const scholarSkills=['Arcana','History','Investigation','Medicine','Nature','Rel
 function sourceChoicePlan(c,previous,picks={}) {
   const current=reconcileClassGrants(c),before=previous?reconcileClassGrants(previous):null;
   const rows=characterClasses(current),oldRows=before?characterClasses(before):[];
-  const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])]},groups=[];
+  const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])]},groups=[];
+  const addChoiceFeat=(id,row,feature,level,value)=>{
+    patch.feats=patch.feats.filter(feat=>feat.sourceChoiceId!==id);
+    patch.feats.push({id:`class-choice:${id}:${slug(value)}`,name:value,level,description:`Chosen from ${row.name} · ${feature.name}.`,sourceType:'class-choice',automatic:true,sourceChoiceId:id,sourceClassId:row.catalogId,sourceClassName:row.name,sourceClassLevel:level,sourceFeatureId:feature.sourceFeatureId||feature.id||null,edition:'3.5',source:row.name,sourceUrl:feature.sourceUrl||row.definition?.sourceUrl||row.definition?.url||null});
+  };
   for(const row of rows.filter(item=>item.edition==='3.5')) {
     const oldLevel=oldRows.find(item=>item.catalogId===row.catalogId)?.level||0;
     const features=(current.grantedFeatures||[]).filter(feature=>feature.sourceClassId===row.catalogId&&feature.kind==='choice');
@@ -22,12 +26,22 @@ function sourceChoicePlan(c,previous,picks={}) {
       for(const [index,event] of events.entries()) {
         const level=Number(event.level)||feature.sourceClassLevel||feature.level;
         const id=`3.5:${row.catalogId}:${level}:${feature.sourceFeatureId||feature.id}:${index}`;
-        if(patch.featureChoices[id])continue;
-        const raw=Array.isArray(picks[id])?picks[id][0]:picks[id];
-        const value=String(raw||'').trim(),valid=Boolean(value);
-        const group={id,level,kind:'source-choice',count:1,required:1,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText:event.text||feature.description,sourceUrl:feature.sourceUrl,options:[],selected:value?[value]:[],valid};
+        const options=(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value));
+        const choiceKind=feature.choiceKind||'source';
+        const existing=patch.featureChoices[id];
+        if(existing){
+          if(choiceKind==='feat'&&!patch.feats.some(feat=>feat.sourceChoiceId===id))for(const value of existing.choices||[])addChoiceFeat(id,row,feature,level,value);
+          continue;
+        }
+        const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
+        const selected=raw.map(value=>String(value||'').trim()).filter(Boolean),required=1;
+        const valid=selected.length===required&&(!options.length||selected.every(value=>options.includes(value)));
+        const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText:feature.description||event.text,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites};
         groups.push(group);
-        if(valid)patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[value],sourceText:group.sourceText};
+        if(valid){
+          patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[...selected],sourceText:group.sourceText,choiceKind};
+          if(choiceKind==='feat')for(const value of selected)addChoiceFeat(id,row,feature,level,value);
+        }
       }
     }
   }
