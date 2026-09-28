@@ -242,6 +242,30 @@ assert.deepEqual(elementFocus?.options,['Air','Earth','Fire','Water']);
 const fireShugenja=applyFeatureChoices(shugenja1,null,{[elementFocus.id]:['Fire']});
 assert(Object.values(fireShugenja.featureChoices).some(choice=>choice.feature==='Element Focus'&&choice.choices?.[0]==='Fire'));
 
+const wuJenClass35={name:'Wu Jen',edition:'3.5',sourceId:'classes/wu-jen-6',catalogId:'dndtools:classes/wu-jen-6',sourceUrl:'https://new.dndtools.org/classes/wu-jen-6',progression:[['Level','Special'],['1st','Watchful spirit, bonus feat'],['3rd','Spell secret'],['6th','Elemental mastery']]};
+const wuJen1={...legacyChoice,className:'Wu Jen',classDefinition:wuJenClass35,classLevels:[{name:'Wu Jen',edition:'3.5',catalogId:wuJenClass35.catalogId,level:1,definition:wuJenClass35}],level:1};
+const wuJenPlan=featureChoicePlan(wuJen1,null);
+const wuJenFeat=wuJenPlan.groups.find(group=>group.label==='Bonus Feat');
+const wuJenTaboo=wuJenPlan.groups.find(group=>group.label==='Taboos');
+assert.equal(wuJenFeat?.choiceKind,'feat');
+assert(wuJenTaboo?.options.includes('Cannot eat meat'));
+const wuJenChosen=applyFeatureChoices(wuJen1,null,{[wuJenFeat.id]:['Empower Spell'],[wuJenTaboo.id]:['Cannot eat meat']});
+assert(wuJenChosen.feats.some(feat=>feat.name==='Empower Spell'&&feat.sourceType==='class-choice'));
+
+const wuJen3={...wuJenChosen,classLevels:[{...wuJen1.classLevels[0],level:3}],level:3};
+const wuJen2={...wuJenChosen,classLevels:[{...wuJen1.classLevels[0],level:2}],level:2};
+const wuJen3Plan=featureChoicePlan(wuJen3,wuJen2);
+const spellSecret=wuJen3Plan.groups.find(group=>group.label==='Spell Secret');
+const nextTaboo=wuJen3Plan.groups.find(group=>group.label==='Taboos');
+assert(spellSecret,'Wu Jen level 3 requests a Spell Secret');
+assert(!nextTaboo.options.includes('Cannot eat meat'),'Wu Jen later taboos exclude previously chosen taboos');
+
+const wuJen6={...wuJenChosen,classLevels:[{...wuJen1.classLevels[0],level:6}],level:6};
+const wuJen5={...wuJenChosen,classLevels:[{...wuJen1.classLevels[0],level:5}],level:5};
+const wuJen6Plan=featureChoicePlan(wuJen6,wuJen5);
+const mastery=wuJen6Plan.groups.find(group=>group.label==='Elemental Mastery');
+assert.deepEqual(mastery?.options,['Earth','Fire','Metal','Water','Wood']);
+
 const knightClass35={name:'Knight',edition:'3.5',sourceId:'classes/knight-103',catalogId:'dndtools:classes/knight-103',sourceUrl:'https://new.dndtools.org/classes/knight-103',progression:[['Level','Special'],['2nd','Mounted Combat, shield block +1'],['5th','Bonus feat, vigilant defender'],['10th','Bonus feat']]};
 const knight10={...legacyChoice,className:'Knight',classDefinition:knightClass35,classLevels:[{name:'Knight',edition:'3.5',catalogId:knightClass35.catalogId,level:10,definition:knightClass35}],level:10};
 const knight9={...knight10,classLevels:[{...knight10.classLevels[0],level:9}],level:9};
