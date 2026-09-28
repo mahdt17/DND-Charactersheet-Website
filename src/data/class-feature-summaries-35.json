@@ -838,6 +838,144 @@
       "sourceSha256": "cfe8403b5299888cafdba3ae2c03f16f8a39920279059f18d5f5bb2968f743e6"
     }
   ],
+  "classes/spirit-shaman-9": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with the club, dagger, dart, handaxe, javelin, longspear, quarterstaff, shortspear, spear, sling, shortbow, throwing axe, light armor, and shields.",
+      "sourceSha256": "aa9e51da093472cd16138855121b9ef0f372f379ca41e75140b384baffdead49"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Cast divine spells from the druid list using a daily spell-retrieval system. Wisdom determines the highest spell level you can retrieve or cast and bonus spells per day; Charisma sets spell save DCs. Each day you retrieve a limited selection of druid spells, then cast those retrieved spells spontaneously within your spells-per-day limits. Metamagic is applied when a spell is retrieved rather than on the fly.",
+      "sourceSha256": "9b94aa01a5bae076e4bf29dd1d8b5b419d87a8dd53dd6dca808e61de1105f018"
+    },
+    {
+      "name": "Spirit Guide",
+      "level": 1,
+      "featName": "Alertness",
+      "choiceKind": "source",
+      "choiceOptionsByLevel": {
+        "1": [
+          "Badger",
+          "Bear",
+          "Buffalo",
+          "Cougar",
+          "Coyote",
+          "Crane",
+          "Crow",
+          "Eagle",
+          "Elk",
+          "Fox",
+          "Hawk",
+          "Lizard",
+          "Otter",
+          "Owl",
+          "Rabbit",
+          "Raccoon",
+          "Scorpion",
+          "Snake",
+          "Spider",
+          "Turtle",
+          "Vulture",
+          "Wolf"
+        ]
+      },
+      "description": "Choose the personal form of your spirit guide at 1st level. The guide is not a separate creature and grants no benefit based on its chosen form, but it grants Alertness and later enables Follow the Guide and Guide Magic.",
+      "sourceSha256": "f56a8ba300742fface174566eb4364d1adfa24dae85f34d0fac0444c752036aa"
+    },
+    {
+      "name": "Wild Empathy (Ex)",
+      "level": 1,
+      "description": "Improve an animal's attitude with a wild-empathy check of 1d20 + spirit-shaman level + Charisma modifier. The animal normally must be within 30 feet and able to study you. Unlike druid/ranger wild empathy, this version does not affect magical beasts.",
+      "sourceSha256": "f076964f3e47ea7c0937fb4dd1657564279d05253b1211a01b549dc0419449af"
+    },
+    {
+      "name": "Chastise Spirits (Su)",
+      "level": 2,
+      "description": "As a standard action, deal 1d6 damage per spirit-shaman level to all spirits within 30 feet. A Will save with DC 10 + spirit-shaman level + Charisma modifier halves the damage, and incorporeal spirits do not receive the normal miss chance against this effect. Uses per day equal 3 + your Charisma modifier.",
+      "sourceSha256": "09ccb865ce88e16db00b6acfca215b5608d36efb92dd9584dcba1668df9a8b55"
+    },
+    {
+      "name": "Detect Spirits (Sp)",
+      "level": 3,
+      "description": "At will, use detect spirits as a spell-like ability. It functions like detect undead but detects creatures defined as spirits by the spirit-shaman class.",
+      "sourceSha256": "49e4eb912a5e5668ab1e747a8e36eeeeb159c47685e0b16f2a299c574d7efd9b"
+    },
+    {
+      "name": "Blessing of the Spirits (Sp)",
+      "level": 4,
+      "description": "Perform a 10-minute personal rite that protects you as protection from evil would, except the protection applies to spirits. The blessing lasts until dismissed or dispelled and can be recreated with another 10-minute rite.",
+      "sourceSha256": "7335c0215e4b283c66ae9e993339b97b9c953a05754d3bf16056bc019584a77d"
+    },
+    {
+      "name": "Follow the Guide (Su)",
+      "level": 5,
+      "description": "If you fail a saving throw against an enchantment spell or effect, attempt the same save once more 1 round later at the same DC.",
+      "sourceSha256": "7b7421ad48de785c34ebd55e659261a5cb0580d99207e751a078a83de2c0acd9"
+    },
+    {
+      "name": "Ghost Warrior (Su)",
+      "level": 6,
+      "description": "Weapons you hold gain the ghost touch property while held. Against incorporeal touch attacks, use your normal Armor Class instead of touch AC.",
+      "sourceSha256": "491688ff0f0e6772233837a95649d5303367d48f07e0cc8557adf45766b0aeb3"
+    },
+    {
+      "name": "Warding of the Spirits (Sp)",
+      "level": 7,
+      "description": "Once per day, perform a 1-minute rite to ward yourself and nearby companions against hostile spirits. The ward lasts 10 minutes per spirit-shaman level and functions like magic circle against evil except that it applies to spirits.",
+      "sourceSha256": "aa30c250193b9618169d3251d7c21be5b3a4dd940a6cc0faeb55263d3cc79bf9"
+    },
+    {
+      "name": "Spirit Form (Su)",
+      "level": 9,
+      "description": "Once per day at 9th level, as a standard action, become incorporeal for up to 1 minute with the source-listed incorporeal defenses, movement, deflection AC, and touch attack. Uses improve to twice per day at 15th level and three times per day at 20th.",
+      "sourceSha256": "4538253e4b699b1256922d94048c064a89b8fa810485331091fb1d098ec3912a"
+    },
+    {
+      "name": "Guide Magic (Su)",
+      "level": 10,
+      "description": "As a free action, assign your spirit guide to maintain concentration on one concentration-duration spell or spell-like ability. You can act normally while the guide concentrates, using your normal Concentration modifier when a check is required.",
+      "sourceSha256": "3946d1845b44438e9fd2d5ee070c962eb15d12895b1dcc48fc9e0937ce96b30f"
+    },
+    {
+      "name": "Recall Spirit (Sp)",
+      "level": 11,
+      "description": "Once per week, reconnect a recently deceased creature's spirit to its body if used within 1 round of death. The effect functions like the source's modified raise dead ability without normal level loss.",
+      "sourceSha256": "c1184eaa290efbcf6e159278ca6ca762ad61996e9c7c7dd42706c0210d62ce2e"
+    },
+    {
+      "name": "Exorcism (Su)",
+      "level": 13,
+      "description": "As a full-round action, attempt to force a possessing spirit or creature from its host with a class-level check plus Charisma modifier against DC 10 + the possessor's Hit Dice + its Charisma modifier. A successfully exorcised spirit cannot possess the same victim for 24 hours.",
+      "sourceSha256": "73d008d19d600c303f2e6f97ea6495612c2755103ba6415a1b224983cb098bbc"
+    },
+    {
+      "name": "Weaken Spirits (Su)",
+      "level": 16,
+      "description": "When using Chastise Spirits, trade 3d6 chastise damage for 1 round of weakening. Affected spirits lose the source-listed spell resistance, damage reduction, and incorporeal defenses for the duration; spirits that succeed on the chastise save are not weakened.",
+      "sourceSha256": "f3223115560ae1baecbae98e4a5ee3de24763b2d75d468bd4e561b4a601c5b14"
+    },
+    {
+      "name": "Spirit Journey (Sp)",
+      "level": 17,
+      "description": "Once per day, travel bodily through the spirit world as a self-only version of shadow walk without requiring a shadowy starting area.",
+      "sourceSha256": "dd35c6c27ce1d537381f1192227e1dc03f44eb877f22459573e7900f919788e5"
+    },
+    {
+      "name": "Favored of the Spirits (Sp)",
+      "level": 19,
+      "description": "Perform an 8-hour rite and pay the source-listed XP cost to gain a persistent death warding effect. If you fall to 0 or fewer hit points or an ability score reaches 0, the ward immediately produces a heal effect and is then discharged.",
+      "sourceSha256": "bf02fe4c87416ce351012b0f78aa912a3327bd138514e6e100440cf84086490f"
+    },
+    {
+      "name": "Spirit Who Walks (Ex)",
+      "level": 20,
+      "description": "Your type is treated as fey instead of humanoid for spells and magical effects, and you gain damage reduction 5/cold iron.",
+      "sourceSha256": "e40048c0875737961797c14b6eb5390a30e3a6d0e1c12e916b41887ef7cb1dac"
+    }
+  ],
   "classes/wizard-99": [
     {
       "name": "Weapon and Armor Proficiency",
