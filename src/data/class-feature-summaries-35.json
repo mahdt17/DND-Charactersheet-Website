@@ -2450,6 +2450,73 @@
       "sourceSha256": "fbb96147a4f1f2ae852b6422e0e4eece7e29a3bdab85fa52120f8b9027a34926"
     }
   ],
+  "classes/warmage-5": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons, light armor, and light shields. At 8th level, also gain medium-armor proficiency.",
+      "sourceSha256": "76d40b8a405e1dc2486a8c169e1e9bc9410522b02f0e31784cb780c12f977b65"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Cast arcane spells spontaneously from the warmage list using Charisma. Charisma determines the highest spell level you can cast, spell save DCs, and bonus spells per day; warmage spells do not require preparation.",
+      "sourceSha256": "ed3d929459199c7564abf8fcc37258825629b56cdec76a637717f0c744ede4a6"
+    },
+    {
+      "name": "Armored Mage",
+      "level": 1,
+      "description": "Ignore arcane spell failure for warmage spells in light armor and with light shields. At 8th level, medium armor also qualifies. The benefit does not apply to arcane spells from other classes.",
+      "sourceSha256": "d6bdba25ab74eb8b5f91a898146f6bac7d843680a96180b2c61097e77aa66d80"
+    },
+    {
+      "name": "Warmage Edge",
+      "level": 1,
+      "description": "When a warmage spell deals hit point damage, add your Intelligence bonus to that spell's damage. A single casting gains the bonus only once per damage instance as described by the source, even when the spell creates multiple missiles or targets.",
+      "sourceSha256": "29bba9953294944ca90e1cc4f56c92361eb96cb4ef33a01046a5eaa1fd7b501a"
+    },
+    {
+      "name": "Advanced Learning",
+      "level": 3,
+      "choiceKind": "source",
+      "choiceLevels": [
+        3,
+        6,
+        11,
+        16
+      ],
+      "description": "At 3rd, 6th, 11th, and 16th level, add one wizard evocation spell to your warmage spell list. The chosen spell cannot exceed the highest spell level you already know, and once selected it permanently joins your warmage list.",
+      "sourceSha256": "c1fdd76378adee34f5cd07cb68b2fb2ba2c4aa878ddafdd1ca8ee00c35797587"
+    },
+    {
+      "name": "Sudden Empower",
+      "level": 7,
+      "featName": "Sudden Empower",
+      "description": "Gain Sudden Empower as a bonus feat at 7th level. If you already have the feat, the source allows choosing a different feat instead.",
+      "sourceSha256": "23cc0733e53171d99a10c9685521b0efaaf839fd4ff000d662de38632257a79c"
+    },
+    {
+      "name": "Sudden Enlarge",
+      "level": 10,
+      "featName": "Sudden Enlarge",
+      "description": "Gain Sudden Enlarge as a bonus feat at 10th level. If you already have the feat, the source allows choosing a different feat instead.",
+      "sourceSha256": "7ba61c256f4e315bd625153b8dc8485c719f2c044d18a7a143206c3ae70009cf"
+    },
+    {
+      "name": "Sudden Widen",
+      "level": 15,
+      "featName": "Sudden Widen",
+      "description": "Gain Sudden Widen as a bonus feat at 15th level. If you already have the feat, the source allows choosing a different feat instead.",
+      "sourceSha256": "c2ad394cebc6e6d8b65c47ae816896601d67f252b02f19990ef831d5f030f15a"
+    },
+    {
+      "name": "Sudden Maximize",
+      "level": 20,
+      "featName": "Sudden Maximize",
+      "description": "Gain Sudden Maximize as a bonus feat at 20th level. If you already have the feat, the source allows choosing a different feat instead.",
+      "sourceSha256": "6a2b9967c49a759d5cb426d6110caac84f3905cc5faa709cb1549972ae9f43c8"
+    }
+  ],
   "classes/wilder-140": [
     {
       "name": "Weapon and Armor Proficiency",
