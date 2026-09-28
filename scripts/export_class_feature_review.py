@@ -83,10 +83,11 @@ def validate_reviewed_features(entry,features,reviews):
     for feature in features:
         by_key.setdefault(feature_key(feature.get("name","")),[]).append(feature)
     for review in reviewed:
-        key=feature_key(review.get("name",""))
+        source_name=review.get("sourceFeatureName") or review.get("name","")
+        key=feature_key(source_name)
         matches=by_key.get(key,[])
         if len(matches)!=1:
-            raise ValueError(f"Reviewed feature {review.get('name')} resolved to {len(matches)} source blocks")
+            raise ValueError(f"Reviewed feature {review.get('name')} (source block {source_name}) resolved to {len(matches)} source blocks")
         expected=review.get("sourceSha256")
         if not expected:
             raise ValueError(f"Reviewed feature {review.get('name')} is missing sourceSha256")
