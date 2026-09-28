@@ -235,6 +235,14 @@ assert.equal(duskblade20.actions.find(action=>/^Arcane Channeling(?:\s|$)/i.test
 assert.equal(duskblade20.actions.find(action=>/^Quick Cast(?:\s|$)/i.test(action.name))?.type,'Swift action');
 assert.equal(duskblade20.resources.find(resource=>/^Quick Cast(?:\s|$)/i.test(resource.name))?.max,4);
 assert.match(duskblade20.grantedFeatures.find(feature=>feature.name==='Spells Known')?.description||'',/odd-numbered levels/i);
+const reviewedWarmage35=exact35('classes/warmage-5');
+const warmage20=reconcileClassGrants(baseCharacter([{catalogId:reviewedWarmage35.catalogId,name:'Warmage',edition:'3.5',level:20,definition:reviewedWarmage35}]));
+for(const featName of ['Sudden Empower','Sudden Enlarge','Sudden Widen','Sudden Maximize'])assert(warmage20.feats.some(feat=>feat.name===featName&&feat.sourceClassId===reviewedWarmage35.catalogId),`Warmage grants ${featName}`);
+assert.equal(warmage20.grantedFeatures.find(feature=>feature.name==='Advanced Learning')?.kind,'choice');
+assert.deepEqual(warmage20.grantedFeatures.find(feature=>feature.name==='Advanced Learning')?.choiceLevels,[3,6,11,16]);
+assert.match(warmage20.grantedFeatures.find(feature=>feature.name==='Warmage Edge')?.description||'',/Intelligence bonus/i);
+assert.match(warmage20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Charisma/i);
+assert.equal(warmage20.grantedFeatures.find(feature=>feature.name==='Armored Mage')?.descriptionSource,'rule-text');
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
