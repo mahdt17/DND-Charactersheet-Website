@@ -58,7 +58,8 @@ try {
 
  const barbarianDefinition={sourceId:'classes/barbarian-89',name:'Barbarian',progression:[['Class Level','BAB','Fort','Ref','Will','Special'],['1st','+1','+2','+0','+0','Fast movement, illiteracy, rage 1/day'],['2nd','+2','+3','+0','+0','Uncanny dodge'],['3rd','+3','+3','+1','+1','Trap sense +1'],['4th','+4','+4','+1','+1','Rage 2/day']]};
  const barbarianFeatures=e.classFeatures({...wizard,ruleset:'3.5',className:'Barbarian',classDefinition:barbarianDefinition,level:4});
- const rage=barbarianFeatures.find(f=>f.name==='Rage');
+ const rage=barbarianFeatures.find(f=>f.name.toLowerCase()==='rage');
+ assert(rage);
  assert.equal(rage.progression.length,2);
  assert.match(rage.desc[0],/6\/day at 20th/i);
  assert(barbarianFeatures.some(f=>f.name==='Weapon and Armor Proficiency'));
