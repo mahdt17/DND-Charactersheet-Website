@@ -530,7 +530,9 @@ function structuredUsage(feature,classLevel,character=null){
   }
   if(!Number.isFinite(max)&&Number.isFinite(Number(spec.perLevel)))max=Number(spec.perLevel)*Math.max(0,Number(classLevel)||0)+Number(spec.base||0);
   if(spec.ability&&character?.abilities){
-    const score=Number(character.abilities[spec.ability]),modifier=Number.isFinite(score)?Math.floor((score-10)/2):null;
+    const score=Number(character.abilities[spec.ability]);
+    let modifier=Number.isFinite(score)?Math.floor((score-10)/2):null;
+    if(modifier!=null&&Number.isFinite(Number(spec.abilityMinimum)))modifier=Math.max(Number(spec.abilityMinimum),modifier);
     if(modifier!=null&&Number.isFinite(Number(spec.levelTimesAbility)))max=Number(spec.levelTimesAbility)*Math.max(0,Number(classLevel)||0)*modifier;
     else if(modifier!=null)max=(Number.isFinite(max)?max:0)+modifier;
   }
