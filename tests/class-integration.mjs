@@ -107,6 +107,18 @@ const ranger3=reconcileClassGrants(baseCharacter([{catalogId:reviewedRanger35.ca
 assert(ranger3.feats.some(feat=>feat.name==='Track'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Track is a class-granted feat');
 assert(ranger3.feats.some(feat=>feat.name==='Endurance'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Endurance is a class-granted feat');
 assert.equal(ranger3.grantedFeatures.find(feature=>feature.name==='Combat Style')?.kind,'choice','Ranger combat style remains a guided class choice');
+const reviewedFavoredSoul35=exact35('classes/favored-soul-7');
+const favoredSoul5=reconcileClassGrants(baseCharacter([{catalogId:reviewedFavoredSoul35.catalogId,name:'Favored Soul',edition:'3.5',level:5,definition:reviewedFavoredSoul35}]));
+assert.equal(favoredSoul5.grantedFeatures.find(feature=>feature.name==='Spells')?.descriptionSource,'rule-text');
+assert.match(favoredSoul5.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Charisma/i);
+assert.equal(favoredSoul5.grantedFeatures.find(feature=>feature.name==='Energy Resistance')?.kind,'choice','Favored Soul energy resistance remains a source-defined choice');
+assert(!favoredSoul5.feats.some(feat=>/^Weapon Focus$/i.test(feat.name)),'Favored Soul does not invent a deity weapon feat without a weapon');
+
+const reviewedCloistered35=exact35('classes/cloistered-cleric-120');
+const cloistered1=reconcileClassGrants(baseCharacter([{catalogId:reviewedCloistered35.catalogId,name:'Cloistered Cleric',edition:'3.5',level:1,definition:reviewedCloistered35}]));
+assert.equal(cloistered1.grantedFeatures.find(feature=>feature.name==='Lore')?.descriptionSource,'rule-text');
+assert.match(cloistered1.grantedFeatures.find(feature=>/Deity, Domains/i.test(feature.name))?.description||'',/Knowledge domain/i);
+assert.match(cloistered1.grantedFeatures.find(feature=>feature.name==='Spellcasting')?.description||'',/additional source-listed spells/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
