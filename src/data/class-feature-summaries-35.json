@@ -602,6 +602,73 @@
       "sourceSha256": "0346e2b95ae3612ea6bb251f5c227be3ae83180a8a84e34b22c57a708782bc60"
     }
   ],
+  "classes/duskblade-102": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, all armor, and shields except tower shields.",
+      "sourceSha256": "ef087f5e578dd2c0dc3448e9a7fa897f2d2527392d31ae6b051f4285a7c2a40f"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Cast arcane spells from the duskblade list using Intelligence. Intelligence determines spell access, save DCs, and bonus spells per day, and duskblade caster level equals class level.",
+      "sourceSha256": "c9ba0a8c2e442dcfee6dfd7a437f2fe998b901205a6cd5d9f4f836f9e793f6ad"
+    },
+    {
+      "name": "Spells Known",
+      "level": 1,
+      "description": "Begin with two 0-level and two 1st-level duskblade spells known plus one additional 0-level spell per point of Intelligence bonus. Learn one additional spell you can cast at every new duskblade level. Beginning at 5th level and on later odd-numbered levels, you may replace one known spell under the source's same-level and maximum-level restrictions. Duskblade spells are cast spontaneously rather than prepared.",
+      "sourceSha256": "f29e7385a0e9e0bdd7ca1232d593bcbaf4a26c14923fa012d52c12bf8c506ed5"
+    },
+    {
+      "name": "Arcane Attunement",
+      "level": 1,
+      "resource": {
+        "max": 3,
+        "ability": "int",
+        "minimum": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Arcane Attunement uses refresh with the character's daily recovery."
+      },
+      "description": "Use dancing lights, detect magic, flare, ghost sound, or read magic as spell-like abilities a combined total of 3 + Intelligence modifier times per day. These uses do not count against spells known or spells per day.",
+      "sourceSha256": "d507686ed8eca2ade6993989be1893d5c6e40c96afaf6c2bf936ae171f6fc8ee"
+    },
+    {
+      "name": "Armored Mage",
+      "level": 1,
+      "description": "Ignore arcane spell failure for duskblade spells in light armor and with light shields. At 4th level, medium armor also qualifies; at 7th, heavy shields also qualify. The benefit does not apply to arcane spells from other classes.",
+      "sourceSha256": "1a276203d24c9a1625c3560bc37badf2a703c530f28971adae1f7b570078aeb6"
+    },
+    {
+      "name": "Combat Casting",
+      "level": 2,
+      "featName": "Combat Casting",
+      "description": "Gain Combat Casting as a bonus feat at 2nd level.",
+      "sourceSha256": "c1d8a9b3b29463f8aa371985c4fd497b35f1b21bdb099d5cd3816308ff10fe8f"
+    },
+    {
+      "name": "Arcane Channeling",
+      "level": 3,
+      "actionType": "Standard action",
+      "description": "Beginning at 3rd level, as a standard action cast a touch spell with casting time 1 standard action or less and deliver it through a melee weapon attack without the casting itself provoking attacks of opportunity. At 13th level, you may instead channel a qualifying touch spell as part of a full attack, applying it to each target you hit that round.",
+      "sourceSha256": "f208010ecc7f984b8cb1125813f9f5e4af9f6af7dadcca0bd0ebbe87944577e5"
+    },
+    {
+      "name": "Quick Cast",
+      "level": 5,
+      "actionType": "Swift action",
+      "description": "Cast one qualifying standard-action-or-faster spell as a swift action. Uses increase from 1/day at 5th level to 2/day at 10th, 3/day at 15th, and 4/day at 20th.",
+      "sourceSha256": "7129e3957e4c8bc23e0abe39334f76ee9ad297df234886167c980c883fe9b838"
+    },
+    {
+      "name": "Spell Power",
+      "level": 6,
+      "description": "After you damage an opponent with a melee attack, gain a bonus on caster-level checks to overcome that opponent's spell resistance for the rest of the encounter. The bonus is +2 at 6th level, +3 at 11th, +4 at 16th, and +5 at 18th.",
+      "sourceSha256": "173fe4feb80fc5a4bfad38d1244302566292b1f54f4c435a0b28085ef47ee1ca"
+    }
+  ],
   "classes/favored-soul-7": [
     {
       "name": "Weapon and Armor Proficiency",
