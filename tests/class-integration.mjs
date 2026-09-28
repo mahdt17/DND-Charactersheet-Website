@@ -401,6 +401,62 @@ for(const [id,expected] of [
   const grant=sheet.trainingGrants.find(item=>item.sourceClassId===record.catalogId);
   assert.deepEqual(grant?.proficiencies.map(item=>item.index),expected,`${id} verified NPC/generic training`);
 }
+// Source-equivalent campaign-setting reprints reuse already-verified base-class mechanics.
+// Keep this as a batch invariant: no reprint may silently drift from its reviewed profile.
+const sourceEquivalent35Profiles=[
+  ['classes/barbarian-37','classes/barbarian-89'],
+  ['classes/barbarian-61','classes/barbarian-89'],
+  ['classes/barbarian-104','classes/barbarian-89'],
+  ['classes/fighter-41','classes/fighter-93'],
+  ['classes/fighter-65','classes/fighter-93'],
+  ['classes/ranger-44','classes/ranger-96'],
+  ['classes/ranger-68','classes/ranger-96'],
+  ['classes/ranger-108','classes/ranger-96'],
+  ['classes/cleric-39','classes/cleric-91'],
+  ['classes/cleric-63','classes/cleric-91'],
+  ['classes/cleric-105','classes/cleric-91'],
+  ['classes/druid-40','classes/druid-92'],
+  ['classes/druid-64','classes/druid-92'],
+  ['classes/druid-106','classes/druid-92'],
+  ['classes/monk-42','classes/monk-94'],
+  ['classes/monk-66','classes/monk-94'],
+  ['classes/paladin-43','classes/paladin-95'],
+  ['classes/paladin-67','classes/paladin-95'],
+  ['classes/paladin-107','classes/paladin-95'],
+  ['classes/rogue-45','classes/rogue-97'],
+  ['classes/rogue-69','classes/rogue-97'],
+  ['classes/sorcerer-46','classes/sorcerer-98'],
+  ['classes/sorcerer-70','classes/sorcerer-98'],
+  ['classes/sorcerer-109','classes/sorcerer-98'],
+  ['classes/wizard-47','classes/wizard-99'],
+  ['classes/wizard-71','classes/wizard-99'],
+  ['classes/wizard-110','classes/wizard-99']
+];
+const mechanicsSnapshot35=sheet=>({
+  features:(sheet.grantedFeatures||[]).map(item=>item.name).sort(),
+  actions:(sheet.actions||[]).map(item=>item.name).sort(),
+  feats:(sheet.feats||[]).map(item=>item.name).sort(),
+  resources:(sheet.resources||[]).map(item=>[item.name,item.max]).sort((a,b)=>String(a[0]).localeCompare(String(b[0]))),
+  tracks:(sheet.classProgressionTracks||[]).map(item=>[item.name,String(item.value)]).sort((a,b)=>String(a[0]).localeCompare(String(b[0]))),
+  slots:(sheet.classSpellSlots||[]).map(item=>item.slots),
+  training:(sheet.trainingGrants||[]).flatMap(grant=>grant.proficiencies||[]).map(item=>item.index).sort()
+});
+for(const [sourceId,profileId] of sourceEquivalent35Profiles){
+  const record=annotateClassGrantKinds(classes35.find(item=>item.sourceId===sourceId),reference35);
+  const profile=annotateClassGrantKinds(classes35.find(item=>item.sourceId===profileId),reference35);
+  assert(record,sourceId+' exists');
+  assert(profile,profileId+' exists');
+  assert.equal(record.proficiencyProfileFrom,profileId,sourceId+' keeps verified profile provenance');
+  const sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name:record.name,edition:'3.5',level:20,definition:record}]));
+  const profileSheet=reconcileClassGrants(baseCharacter([{catalogId:profile.catalogId,name:profile.name,edition:'3.5',level:20,definition:profile}]));
+  assert.deepEqual(mechanicsSnapshot35(sheet),mechanicsSnapshot35(profileSheet),sourceId+' reconciles identically to '+profileId);
+  const report=classAutomationReport(sheet).classes[0];
+  assert.equal(report.progressionComplete,true,sourceId+' has complete inherited progression');
+  assert.equal(report.descriptionReady,true,sourceId+' has descriptions for all granted features');
+  assert.equal(report.descriptionComplete,true,sourceId+' uses reviewed rule text rather than progression summaries');
+  assert.equal(report.complete,true,sourceId+' has no structural automation gap');
+}
+
 const warmage35=integrated35('Warmage');
 const warmage1=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:1,definition:warmage35}]));
 assert(!warmage1.trainingGrants.flatMap(grant=>grant.proficiencies).some(item=>item.index==='medium-armor'),'Warmage medium armor is not a level-1 grant');
