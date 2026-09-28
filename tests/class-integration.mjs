@@ -262,6 +262,17 @@ assert.match(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Spells'
 assert.match(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Wisdom determines/i);
 assert.match(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Wings')?.description||'',/60-foot fly speed/i);
 assert.match(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Damage Reduction')?.description||'',/10\/silver/i);
+const reviewedHealer35=exact35('classes/healer-77');
+const healer20=reconcileClassGrants(baseCharacter([{catalogId:reviewedHealer35.catalogId,name:'Healer',edition:'3.5',level:20,definition:reviewedHealer35}]));
+assert(healer20.feats.some(feat=>feat.name==='Skill Focus (Heal)'&&feat.sourceClassId===reviewedHealer35.catalogId),'Healer grants Skill Focus (Heal)');
+for(const name of ['Cleanse Paralysis','Cleanse Disease','Cleanse Fear','Cleanse Poison','Cleanse Blindness','Cleanse Spirit','Cleanse Petrification','New Limb'])assert.equal(healer20.resources.find(resource=>resource.name===name)?.max,1,`Healer tracks ${name} once per day`);
+assert.equal(healer20.actions.find(action=>action.name==='Unicorn Companion')?.type,'Full-round action');
+assert.equal(healer20.resources.find(resource=>resource.name==='Unicorn Companion')?.max,1);
+assert.equal(healer20.resources.find(resource=>resource.name==='New Life')?.max,1);
+assert.equal(healer20.resources.find(resource=>resource.name==='New Life')?.reset,'none');
+assert.match(healer20.resources.find(resource=>resource.name==='New Life')?.recoveryText||'',/once per week/i);
+assert.match(healer20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Prepare divine spells/i);
+assert.match(healer20.grantedFeatures.find(feature=>feature.name==='Healing Hands')?.description||'',/Charisma modifier/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
