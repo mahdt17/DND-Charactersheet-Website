@@ -252,6 +252,16 @@ assert.deepEqual(beguiler20.grantedFeatures.find(feature=>feature.name==='Advanc
 assert.match(beguiler20.grantedFeatures.find(feature=>feature.name==='Cloaked Casting')?.description||'',/automatically overcome/i);
 assert.match(beguiler20.grantedFeatures.find(feature=>feature.name==='Surprise Casting')?.description||'',/move action/i);
 assert.match(beguiler20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/automatically know every/i);
+const reviewedFavoredSoul35=exact35('classes/favored-soul-7');
+const favoredSoul20=reconcileClassGrants(baseCharacter([{catalogId:reviewedFavoredSoul35.catalogId,name:'Favored Soul',edition:'3.5',level:20,definition:reviewedFavoredSoul35}]));
+assert.equal(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Energy Resistance')?.kind,'choice');
+assert.deepEqual(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Energy Resistance')?.choiceLevels,[5,10,15]);
+assert.equal(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Deity’s Weapon Focus')?.choiceKind,'feat');
+assert.equal(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Deity’s Weapon Specialization')?.choiceKind,'feat');
+assert.match(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Charisma determines spell access/i);
+assert.match(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Wisdom determines/i);
+assert.match(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Wings')?.description||'',/60-foot fly speed/i);
+assert.match(favoredSoul20.grantedFeatures.find(feature=>feature.name==='Damage Reduction')?.description||'',/10\/silver/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
