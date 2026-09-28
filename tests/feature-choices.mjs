@@ -204,5 +204,14 @@ assert(!knightBonus.options.includes('Power Attack'),'Knight bonus feat picker r
 const knightChosen=applyFeatureChoices(knight10,knight9,{[knightBonus.id]:['Spirited Charge']});
 assert(knightChosen.feats.some(feat=>feat.name==='Spirited Charge'&&feat.sourceType==='class-choice'));
 
+const warmageClass35={name:'Warmage',edition:'3.5',sourceId:'classes/warmage-5',catalogId:'dndtools:classes/warmage-5',sourceUrl:'https://new.dndtools.org/classes/warmage-5',progression:[['Level','Special'],['3rd','Advanced learning'],['6th','Advanced learning'],['11th','Advanced learning'],['16th','Advanced learning']]};
+const warmage11={...legacyChoice,className:'Warmage',classDefinition:warmageClass35,classLevels:[{name:'Warmage',edition:'3.5',catalogId:warmageClass35.catalogId,level:11,definition:warmageClass35}],level:11};
+const warmage10={...warmage11,classLevels:[{...warmage11.classLevels[0],level:10}],level:10};
+const warmagePlan=featureChoicePlan(warmage11,warmage10);
+const warmageLearning=warmagePlan.groups.find(group=>group.label==='Advanced Learning');
+assert(warmageLearning,'Warmage level 11 requests Advanced Learning');
+assert.equal(warmageLearning.required,1);
+assert.equal(warmageLearning.choiceKind,'source');
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
