@@ -478,6 +478,378 @@
       "choiceKind": "feat"
     }
   ],
+  "classes/hexblade-19": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons and light armor, but not shields. Hexblade spells can be cast in light armor without arcane spell failure; medium/heavy armor or a shield can impose normal arcane spell failure, and multiclass arcane spells use their own normal armor rules.",
+      "sourceSha256": "dc51649b328e888489411d0bc257e406c7b768a09712cf8aaa6f120e97a6fe13"
+    },
+    {
+      "name": "Hexblade’s Curse",
+      "level": 1,
+      "actionType": "Free action",
+      "description": "As a free action, curse one visible foe within 60 feet. The target takes -2 on attacks, saves, ability checks, skill checks, and weapon damage for 1 hour unless it succeeds on a Will save with DC 10 + half hexblade level + Charisma modifier. Uses increase from 1/day at 1st level to 2/day at 5th, 3/day at 9th, 4/day at 13th, and 5/day at 17th. A target that successfully saves cannot be affected by your curse again for 24 hours.",
+      "sourceSha256": "b56a2c3ea248ffba8db1817e00a794d38809799a9acefb380fbc4a2e53e2956c"
+    },
+    {
+      "name": "Arcane Resistance",
+      "level": 2,
+      "description": "Add your Charisma bonus, minimum +1, to saving throws against spells and spell-like effects.",
+      "sourceSha256": "9e7fa44317c3f04822ef3eb96a0009682f6a38f936e2389599f2393bd267c4ec"
+    },
+    {
+      "name": "Mettle",
+      "level": 3,
+      "description": "If you succeed on a Fortitude or Will save against an effect that normally has a reduced effect on a successful save, negate that effect completely. Mettle does not function while you are unconscious or asleep.",
+      "sourceSha256": "a0c7f2aa75416e7145933aec29f1358323da5a90e9fbedc3e972cc662333ab6c"
+    },
+    {
+      "name": "Familiar",
+      "level": 4,
+      "description": "Beginning at 4th level, you can obtain a familiar using the source's familiar rules. Treat your hexblade level as three lower when determining familiar abilities. A multiclass character can still have only one familiar at a time; full familiar state remains part of the companion subsystem.",
+      "sourceSha256": "852723a0cae6f7e3e9bcc7f9c67b6bf305e11bf9c55b64af72316aecac501a8a"
+    },
+    {
+      "name": "Spells",
+      "level": 4,
+      "description": "Beginning at 4th level, cast a limited number of arcane hexblade spells spontaneously using Charisma. A printed 0 spells/day means that spell level is available only through applicable bonus spells. Caster level is one-half hexblade level once spellcasting begins, and the source permits limited same-level spell replacement at 12th, 15th, and 18th level.",
+      "sourceSha256": "0dbe7d0549308050e685bfe51d04f8e858365696294618557fe693d0ab9dbd87"
+    },
+    {
+      "name": "Bonus Feat",
+      "level": 5,
+      "choiceKind": "feat",
+      "choiceLevels": [
+        5,
+        10,
+        15,
+        20
+      ],
+      "choiceOptionsByLevel": {
+        "5": [
+          "Combat Casting",
+          "Greater Spell Focus (Enchantment)",
+          "Greater Spell Focus (Necromancy)",
+          "Greater Spell Focus (Transmutation)",
+          "Greater Spell Penetration",
+          "Spell Focus (Enchantment)",
+          "Spell Focus (Necromancy)",
+          "Spell Focus (Transmutation)",
+          "Spell Penetration"
+        ],
+        "10": [
+          "Combat Casting",
+          "Greater Spell Focus (Enchantment)",
+          "Greater Spell Focus (Necromancy)",
+          "Greater Spell Focus (Transmutation)",
+          "Greater Spell Penetration",
+          "Spell Focus (Enchantment)",
+          "Spell Focus (Necromancy)",
+          "Spell Focus (Transmutation)",
+          "Spell Penetration"
+        ],
+        "15": [
+          "Combat Casting",
+          "Greater Spell Focus (Enchantment)",
+          "Greater Spell Focus (Necromancy)",
+          "Greater Spell Focus (Transmutation)",
+          "Greater Spell Penetration",
+          "Spell Focus (Enchantment)",
+          "Spell Focus (Necromancy)",
+          "Spell Focus (Transmutation)",
+          "Spell Penetration"
+        ],
+        "20": [
+          "Combat Casting",
+          "Greater Spell Focus (Enchantment)",
+          "Greater Spell Focus (Necromancy)",
+          "Greater Spell Focus (Transmutation)",
+          "Greater Spell Penetration",
+          "Spell Focus (Enchantment)",
+          "Spell Focus (Necromancy)",
+          "Spell Focus (Transmutation)",
+          "Spell Penetration"
+        ]
+      },
+      "description": "At 5th level and every five levels thereafter, choose one hexblade bonus feat from the source list: Combat Casting; Spell Focus or Greater Spell Focus for enchantment, necromancy, or transmutation; Spell Penetration; or Greater Spell Penetration. You must meet any normal prerequisites.",
+      "sourceSha256": "8aae353d2e6eafc4b335423e9bf44e0de05334571e24a349bb39f3a80e145a52"
+    },
+    {
+      "name": "Greater Hexblade’s Curse",
+      "level": 7,
+      "description": "At 7th level, the penalty imposed by Hexblade’s Curse improves from -2 to -4.",
+      "sourceSha256": "1e18e4f5c75e30e8f5bebdca68eee93e91ce6ab4ddb70bc38175da437ecd6aa3"
+    },
+    {
+      "name": "Aura of Unluck",
+      "level": 12,
+      "actionType": "Free action",
+      "resource": {
+        "maxByLevel": {
+          "12": 1,
+          "16": 2,
+          "20": 3
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Daily Aura of Unluck uses refresh with the character's daily recovery."
+      },
+      "description": "As a free action, create an aura that gives attacks against you a 20% miss chance for 3 + your Charisma bonus rounds. You can use it once per day at 12th level, twice per day at 16th, and three times per day at 20th.",
+      "sourceSha256": "b36c4297a193635e8e1c458e5494ae3bfa5fb6a402128d2140653ed4ceac98b0"
+    },
+    {
+      "name": "Dire Hexblade’s Curse",
+      "level": 19,
+      "description": "At 19th level, the penalty imposed by Hexblade’s Curse improves from -4 to -6.",
+      "sourceSha256": "c02eb242a8de533827af7dd7fb547c9b3ccc4ffcd81c9699f11eb7ace99952cf"
+    }
+  ],
+  "classes/marshal-78": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, light, medium, and heavy armor, and shields except tower shields.",
+      "sourceSha256": "5dfc37608ea871ab1fe6b335e7c0149003c087da5d35e6c49cdf3478e1ae1741"
+    },
+    {
+      "name": "Auras",
+      "level": 1,
+      "actionType": "Swift action",
+      "description": "Project one known minor aura and, from 2nd level onward, one known major aura at the same time. Activating an aura is a swift action; dismissing it or replacing another aura of the same kind is a free action. Unless noted otherwise, an aura affects allies within 60 feet who can hear and understand you, and its circumstance bonus does not stack with other marshal aura bonuses.",
+      "sourceSha256": "c931ae9e6d885c60d38eb470e0556e14d31456cad2398758807b3292c69ebd46"
+    },
+    {
+      "name": "Minor Aura",
+      "level": 1,
+      "choiceKind": "source",
+      "choiceLevels": [
+        1,
+        3,
+        5,
+        7,
+        9,
+        12,
+        15,
+        19
+      ],
+      "choiceOptionsByLevel": {
+        "1": [
+          "Accurate Strike",
+          "Art of War",
+          "Demand Fortitude",
+          "Determined Caster",
+          "Force of Will",
+          "Master of Opportunity",
+          "Master of Tactics",
+          "Motivate Charisma",
+          "Motivate Constitution",
+          "Motivate Dexterity",
+          "Motivate Intelligence",
+          "Motivate Strength",
+          "Motivate Wisdom",
+          "Over the Top",
+          "Watchful Eye"
+        ],
+        "3": [
+          "Accurate Strike",
+          "Art of War",
+          "Demand Fortitude",
+          "Determined Caster",
+          "Force of Will",
+          "Master of Opportunity",
+          "Master of Tactics",
+          "Motivate Charisma",
+          "Motivate Constitution",
+          "Motivate Dexterity",
+          "Motivate Intelligence",
+          "Motivate Strength",
+          "Motivate Wisdom",
+          "Over the Top",
+          "Watchful Eye"
+        ],
+        "5": [
+          "Accurate Strike",
+          "Art of War",
+          "Demand Fortitude",
+          "Determined Caster",
+          "Force of Will",
+          "Master of Opportunity",
+          "Master of Tactics",
+          "Motivate Charisma",
+          "Motivate Constitution",
+          "Motivate Dexterity",
+          "Motivate Intelligence",
+          "Motivate Strength",
+          "Motivate Wisdom",
+          "Over the Top",
+          "Watchful Eye"
+        ],
+        "7": [
+          "Accurate Strike",
+          "Art of War",
+          "Demand Fortitude",
+          "Determined Caster",
+          "Force of Will",
+          "Master of Opportunity",
+          "Master of Tactics",
+          "Motivate Charisma",
+          "Motivate Constitution",
+          "Motivate Dexterity",
+          "Motivate Intelligence",
+          "Motivate Strength",
+          "Motivate Wisdom",
+          "Over the Top",
+          "Watchful Eye"
+        ],
+        "9": [
+          "Accurate Strike",
+          "Art of War",
+          "Demand Fortitude",
+          "Determined Caster",
+          "Force of Will",
+          "Master of Opportunity",
+          "Master of Tactics",
+          "Motivate Charisma",
+          "Motivate Constitution",
+          "Motivate Dexterity",
+          "Motivate Intelligence",
+          "Motivate Strength",
+          "Motivate Wisdom",
+          "Over the Top",
+          "Watchful Eye"
+        ],
+        "12": [
+          "Accurate Strike",
+          "Art of War",
+          "Demand Fortitude",
+          "Determined Caster",
+          "Force of Will",
+          "Master of Opportunity",
+          "Master of Tactics",
+          "Motivate Charisma",
+          "Motivate Constitution",
+          "Motivate Dexterity",
+          "Motivate Intelligence",
+          "Motivate Strength",
+          "Motivate Wisdom",
+          "Over the Top",
+          "Watchful Eye"
+        ],
+        "15": [
+          "Accurate Strike",
+          "Art of War",
+          "Demand Fortitude",
+          "Determined Caster",
+          "Force of Will",
+          "Master of Opportunity",
+          "Master of Tactics",
+          "Motivate Charisma",
+          "Motivate Constitution",
+          "Motivate Dexterity",
+          "Motivate Intelligence",
+          "Motivate Strength",
+          "Motivate Wisdom",
+          "Over the Top",
+          "Watchful Eye"
+        ],
+        "19": [
+          "Accurate Strike",
+          "Art of War",
+          "Demand Fortitude",
+          "Determined Caster",
+          "Force of Will",
+          "Master of Opportunity",
+          "Master of Tactics",
+          "Motivate Charisma",
+          "Motivate Constitution",
+          "Motivate Dexterity",
+          "Motivate Intelligence",
+          "Motivate Strength",
+          "Motivate Wisdom",
+          "Over the Top",
+          "Watchful Eye"
+        ]
+      },
+      "description": "Each time your minor-auras-known count increases, choose another minor aura. A minor aura lets affected allies add your Charisma bonus to the source-listed category of rolls. You know 1 minor aura at 1st level and eventually 8 at 19th level.",
+      "sourceSha256": "6284f4abbbde17a06e3af7f4d2920812e8138b68762b8a853673700747efca96"
+    },
+    {
+      "name": "Major Aura",
+      "level": 2,
+      "choiceKind": "source",
+      "choiceLevels": [
+        2,
+        5,
+        9,
+        14,
+        20
+      ],
+      "choiceOptionsByLevel": {
+        "2": [
+          "Hardy Soldiers",
+          "Motivate Ardor",
+          "Motivate Attack",
+          "Motivate Care",
+          "Motivate Urgency",
+          "Resilient Troops",
+          "Steady Hand"
+        ],
+        "5": [
+          "Hardy Soldiers",
+          "Motivate Ardor",
+          "Motivate Attack",
+          "Motivate Care",
+          "Motivate Urgency",
+          "Resilient Troops",
+          "Steady Hand"
+        ],
+        "9": [
+          "Hardy Soldiers",
+          "Motivate Ardor",
+          "Motivate Attack",
+          "Motivate Care",
+          "Motivate Urgency",
+          "Resilient Troops",
+          "Steady Hand"
+        ],
+        "14": [
+          "Hardy Soldiers",
+          "Motivate Ardor",
+          "Motivate Attack",
+          "Motivate Care",
+          "Motivate Urgency",
+          "Resilient Troops",
+          "Steady Hand"
+        ],
+        "20": [
+          "Hardy Soldiers",
+          "Motivate Ardor",
+          "Motivate Attack",
+          "Motivate Care",
+          "Motivate Urgency",
+          "Resilient Troops",
+          "Steady Hand"
+        ]
+      },
+      "description": "Each time your major-auras-known count increases, choose another major aura. The major aura bonus is +1 at 2nd level, +2 at 7th, +3 at 14th, and +4 at 20th. You know 1 major aura at 2nd level and eventually 5 at 20th level.",
+      "sourceSha256": "00b25007528636030495be2eaa87918bf60c754d74c3f563a47948f1ddf347f5"
+    },
+    {
+      "name": "Skill Focus (Diplomacy)",
+      "level": 1,
+      "featName": "Skill Focus (Diplomacy)",
+      "description": "Gain Skill Focus (Diplomacy) as a bonus feat. If you already have that exact feat, the source permits choosing a different feat instead.",
+      "sourceSha256": "b954c035a3fb86f848fd845424ef0561774498fc6180dd35761547acfeb5bd42"
+    },
+    {
+      "name": "Grant Move Action",
+      "level": 4,
+      "actionType": "Standard action",
+      "description": "As a standard action, grant an immediate extra move action to any or all allies within 30 feet, but not yourself. Uses increase from 1/day at 4th level to 2/day at 8th, 3/day at 12th, 4/day at 16th, and 5/day at 20th. A creature can benefit from only one such extra move action in a round.",
+      "sourceSha256": "62ba91a91511da08653e90626f7c5b656d087ee7e030b3ca24b20422813d1db1"
+    }
+  ],
   "classes/monk-94": [
     {
       "name": "Weapon and Armor Proficiency",
