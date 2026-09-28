@@ -476,7 +476,7 @@ function coalesceFeatures(row){
       current.history.push(history);
       if(description&&description.length>(current.description||'').length)current.description=description;
       if(feature.progressionText)current.progressionText=feature.progressionText;
-      for(const field of ['featName','choiceKind','choiceOptionsByLevel','ignorePrerequisites','actionType','resource'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
+      for(const field of ['featName','choiceKind','choiceCount','choiceLevels','choiceOptionsByLevel','ignorePrerequisites','actionType','resource'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
     }
   }
   return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
@@ -515,6 +515,13 @@ function structuredUsage(feature,classLevel,character=null){
   const spec=feature.resource;
   if(!spec||typeof spec!=='object')return null;
   let max=Number(spec.max);
+  if(!Number.isFinite(max)&&spec.maxByLevel&&typeof spec.maxByLevel==='object'){
+    const eligible=Object.entries(spec.maxByLevel)
+      .map(([level,value])=>[Number(level),Number(value)])
+      .filter(([level,value])=>Number.isFinite(level)&&Number.isFinite(value)&&level<=Math.max(0,Number(classLevel)||0))
+      .sort((a,b)=>a[0]-b[0]);
+    if(eligible.length)max=eligible.at(-1)[1];
+  }
   if(!Number.isFinite(max)&&Number.isFinite(Number(spec.perLevel)))max=Number(spec.perLevel)*Math.max(0,Number(classLevel)||0)+Number(spec.base||0);
   if(spec.ability&&character?.abilities){
     const score=Number(character.abilities[spec.ability]);
