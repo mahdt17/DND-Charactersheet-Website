@@ -47,7 +47,8 @@
       "name": "Bonus feat",
       "level": 10,
       "description": "At 10th level and again at 20th level, choose a bonus feat from Skill Focus (any Knowledge skill), Spell Focus, any metamagic feat, or any item creation feat.",
-      "sourceSha256": "630079cbb9ac918d8b9453472299dc1df526f28081e792a90b78adf5cfba14b3"
+      "sourceSha256": "630079cbb9ac918d8b9453472299dc1df526f28081e792a90b78adf5cfba14b3",
+      "choiceKind": "feat"
     }
   ],
   "classes/barbarian-89": [
@@ -135,7 +136,166 @@
       "name": "Bonus Feats",
       "level": 1,
       "description": "Gain a fighter bonus feat at 1st level, another at 2nd level, and one every two fighter levels thereafter through 20th. Each choice must come from the fighter bonus feat list and you must meet its prerequisites. These are in addition to normal level-based feats.",
-      "sourceSha256": "61cad721dd1272ec1404a6ab28e450e7f30d1675b7318c433674161fdfbaa030"
+      "sourceSha256": "61cad721dd1272ec1404a6ab28e450e7f30d1675b7318c433674161fdfbaa030",
+      "choiceKind": "feat"
+    }
+  ],
+  "classes/monk-94": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with the club, light or heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shuriken, siangham, and sling. Monks are not proficient with armor or shields; armor, shields, and medium or heavy loads also disable several monk abilities.",
+      "sourceSha256": "e21b1ad78ebf4d7a991187d8947ffe67eb5e0c67e80f4f8156067f88af587f1f"
+    },
+    {
+      "name": "AC Bonus (Ex)",
+      "level": 1,
+      "description": "While unarmored and unencumbered, add your Wisdom bonus to AC. You also gain +1 AC at 5th level and another +1 every five monk levels thereafter, to +4 at 20th. These bonuses apply to touch AC and while flat-footed, but are lost while immobilized or helpless or while using armor, a shield, or a medium/heavy load.",
+      "sourceSha256": "ecb9ff0aff56caf121a85d8b3840e1804c6d80b9b31a40af27a637599accfcfd"
+    },
+    {
+      "name": "Flurry of Blows (Ex)",
+      "level": 1,
+      "actionType": "Full-round action",
+      "description": "When unarmored, use a full attack to make one extra attack at your highest base attack bonus, with the flurry penalty applied to every attack that round. The penalty is -2 initially, -1 at 5th, and disappears at 9th. Flurry uses unarmed strikes or special monk weapons; at 11th level it gains a second extra attack at the full base attack bonus.",
+      "sourceSha256": "62602c1735fea1474c18ed300bd4376505655f8e450207d4f2c5a0e21a21fe40"
+    },
+    {
+      "name": "Unarmed Strike",
+      "level": 1,
+      "featName": "Improved Unarmed Strike",
+      "description": "Gain Improved Unarmed Strike as a bonus feat. Monk unarmed strikes can use any appropriate body part, apply full Strength to damage, may deal lethal or nonlethal damage without the usual penalty, count as both manufactured and natural weapons for effects that enhance either, and use the monk unarmed-damage progression.",
+      "sourceSha256": "e07de3027bcf077dce8a4fa177caf7b15c83a89730de4b8e190b233f39b37137"
+    },
+    {
+      "name": "Bonus Feat",
+      "level": 1,
+      "choiceKind": "feat",
+      "ignorePrerequisites": true,
+      "choiceOptionsByLevel": {
+        "1": [
+          "Improved Grapple",
+          "Stunning Fist"
+        ],
+        "2": [
+          "Combat Reflexes",
+          "Deflect Arrows"
+        ],
+        "6": [
+          "Improved Disarm",
+          "Improved Trip"
+        ]
+      },
+      "description": "Choose Improved Grapple or Stunning Fist at 1st level, Combat Reflexes or Deflect Arrows at 2nd, and Improved Disarm or Improved Trip at 6th. These monk bonus-feat choices ignore the feats' normal prerequisites.",
+      "sourceSha256": "c19bc7f19f9c5f46627aaafbd2eb6566dbf002d14c6b8727008e69385cb819c6"
+    },
+    {
+      "name": "Evasion (Ex)",
+      "level": 2,
+      "description": "On a successful Reflex save against an effect that normally deals half damage, take no damage instead. Evasion works only in light armor or no armor and does not function while helpless.",
+      "sourceSha256": "44c2c6572ea4a0303cccdb5649d08d98b0d299f1491ee4be73678271face4f7c"
+    },
+    {
+      "name": "Fast Movement (Ex)",
+      "level": 3,
+      "description": "Gain the enhancement bonus to speed shown on the monk progression. The bonus is lost while wearing armor or carrying a medium or heavy load.",
+      "sourceSha256": "fc72e33ebac571eda0936bb4612dddd522cdc3086e4c65f4e6807cecca5a3c2e"
+    },
+    {
+      "name": "Still Mind (Ex)",
+      "level": 3,
+      "description": "Gain +2 on saving throws against enchantment spells and effects.",
+      "sourceSha256": "fdec1d700463b76a0cb83ea2c820f926c1306089dc4f4815f52717c793e1d00e"
+    },
+    {
+      "name": "Ki Strike (Su)",
+      "level": 4,
+      "description": "Your unarmed strikes count as magic weapons for overcoming damage reduction at 4th level, also as lawful at 10th, and also as adamantine at 16th for damage reduction and hardness.",
+      "sourceSha256": "fd04cd16a515eef34d1d93dcc1338f54d0061bdf8c69ffffc1294ab903b79388"
+    },
+    {
+      "name": "Slow Fall (Ex)",
+      "level": 4,
+      "description": "When within reach of a wall, reduce the effective falling distance by 20 feet at 4th level. The reduction improves with monk level until 20th level, when a nearby wall lets you fall any distance without harm.",
+      "sourceSha256": "5eefda217901b2c64163f5253c5ccf6a55f244ed41ea53fa1879a591d592bd22"
+    },
+    {
+      "name": "Purity of Body (Ex)",
+      "level": 5,
+      "description": "Gain immunity to disease except supernatural and magical diseases.",
+      "sourceSha256": "3a1df6de9eb5c8e9457f9e66161a5a005c0e2a8de3f8a9a8a4773f53038a2aa5"
+    },
+    {
+      "name": "Wholeness of Body (Su)",
+      "level": 7,
+      "resource": {
+        "perLevel": 2,
+        "reset": "long",
+        "unit": "hit points",
+        "recoveryText": "Healing pool refreshes after the character's daily recovery; track the table's rest/timing requirements."
+      },
+      "description": "Heal your own wounds from a daily pool equal to twice your monk level. You may divide that healing among multiple uses.",
+      "sourceSha256": "217e165149b7d13fc8cb67adf24dd6627cc71cf148a2c18fdc4a5aba11715a27"
+    },
+    {
+      "name": "Improved Evasion (Ex)",
+      "level": 9,
+      "description": "Against effects covered by evasion, take no damage on a successful Reflex save and only half damage on a failed save. It does not function while helpless.",
+      "sourceSha256": "12a9eeaecc83b136a04805b41cb99a6021aafaf969414c590185bddeb935c203"
+    },
+    {
+      "name": "Diamond Body (Su)",
+      "level": 11,
+      "description": "Gain immunity to poison.",
+      "sourceSha256": "3611996c0022b9f10b7ebe812e8a487f6745dee82632d6c33c2f0498136930bb"
+    },
+    {
+      "name": "Abundant Step (Su)",
+      "level": 12,
+      "description": "Once per day, move between spaces as dimension door. The effect's caster level is one-half your monk level, rounded down.",
+      "sourceSha256": "4b82b4b358063b5c3c6d2eab85cd09020aefb35b5acb872df9baddde95834541"
+    },
+    {
+      "name": "Diamond Soul (Ex)",
+      "level": 13,
+      "description": "Gain spell resistance equal to your monk level + 10.",
+      "sourceSha256": "a68f02c85080ce15b6ba904efd39d15b7a0d11126415ef8e135571f9ec37b441"
+    },
+    {
+      "name": "Quivering Palm (Su)",
+      "level": 15,
+      "description": "Once per week, announce the ability before an attack. If the eligible target is hit and damaged, you can later attempt to slay it within a number of days equal to your monk level; the target survives on a Fortitude save with DC 10 + half monk level + Wisdom modifier. Several creature types and creatures immune to critical hits cannot be affected.",
+      "sourceSha256": "96a04c84d36bf54465ea9b81869e9bfc1443b352ada4a11d30b4866bb2d483bc"
+    },
+    {
+      "name": "Timeless Body (Ex)",
+      "level": 17,
+      "description": "You no longer take new ability-score penalties from aging and cannot be magically aged. Existing aging penalties remain, aging bonuses still accrue, and you still die of old age.",
+      "sourceSha256": "d6fe1513d23a26467998aa163e5ef7f5af8e4ba1dfc7ec05c5996c296caf1ac3"
+    },
+    {
+      "name": "Tongue of the Sun and Moon (Ex)",
+      "level": 17,
+      "description": "You can speak with any living creature.",
+      "sourceSha256": "5f04df3ae8b6a56ef2f21ad06a2c2e6b21f363f5de6b044f40039eb5eede8ba2"
+    },
+    {
+      "name": "Empty Body (Su)",
+      "level": 19,
+      "resource": {
+        "perLevel": 1,
+        "reset": "long",
+        "unit": "rounds",
+        "recoveryText": "Daily ethereal rounds refresh after the character's daily recovery."
+      },
+      "description": "Become ethereal as the etherealness spell for a total number of rounds per day equal to your monk level. The rounds can be split among multiple uses.",
+      "sourceSha256": "38eb104c50db02644ed03eb1587eb0032e7a1362687d09a6da0d08b83db33de2"
+    },
+    {
+      "name": "Perfect Self",
+      "level": 20,
+      "description": "You are treated as an outsider rather than a humanoid for spells and magical effects, gain damage reduction 10/magic, and can still be restored to life as your former creature type. A nonlawful monk cannot gain further monk levels. A monk who advances another class after becoming multiclass cannot later resume monk advancement.",
+      "sourceSha256": "465e22f133c1b288dd84bd578aa92e37095664893bdde1c93f1b3c6635f05d4c"
     }
   ],
   "classes/psion-137": [
@@ -179,7 +339,8 @@
       "name": "Bonus Feats",
       "level": 1,
       "description": "Gain a bonus feat at 1st, 5th, 10th, 15th, and 20th level. Each of these class bonus feats must be a psionic feat, metapsionic feat, or psionic item creation feat; they are in addition to normal character-level feats.",
-      "sourceSha256": "ad7654feb5cc6ebcec8fa543c06fae29b525b2ed79f7b8a804b0654adb3b4bbc"
+      "sourceSha256": "ad7654feb5cc6ebcec8fa543c06fae29b525b2ed79f7b8a804b0654adb3b4bbc",
+      "choiceKind": "feat"
     }
   ],
   "classes/rogue-97": [
