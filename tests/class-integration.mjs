@@ -130,6 +130,22 @@ assert.equal(spiritShaman17.resources.find(resource=>resource.name==='Warding of
 assert.equal(spiritShaman17.resources.find(resource=>resource.name==='Recall Spirit')?.max,1);
 assert.equal(spiritShaman17.resources.find(resource=>resource.name==='Recall Spirit')?.reset,'none');
 assert.equal(spiritShaman17.resources.find(resource=>resource.name==='Spirit Journey')?.max,1);
+const reviewedPsychicWarriorFeatures35=exact35('classes/psychic-warrior-138');
+const psychicWarrior8=reconcileClassGrants(baseCharacter([{catalogId:reviewedPsychicWarriorFeatures35.catalogId,name:'Psychic Warrior',edition:'3.5',level:8,definition:reviewedPsychicWarriorFeatures35}]));
+const psychicWarriorBonus=psychicWarrior8.grantedFeatures.find(feature=>feature.name==='Bonus Feats');
+assert.equal(psychicWarriorBonus?.kind,'choice','Psychic Warrior bonus feats remain guided choices');
+assert.equal(psychicWarriorBonus?.progressionHistory?.filter(event=>/bonus feat/i.test(event.text||'')).length,4,'Psychic Warrior retains bonus-feat milestones through level 8');
+assert.match(psychicWarrior8.grantedFeatures.find(feature=>feature.name==='Power Points/Day')?.description||'',/Wisdom/i);
+assert.match(psychicWarrior8.grantedFeatures.find(feature=>feature.name==='Maximum Power Level Known')?.description||'',/4th level/i);
+
+const reviewedWilderFeatures35=exact35('classes/wilder-140');
+const wilder17=reconcileClassGrants(baseCharacter([{catalogId:reviewedWilderFeatures35.catalogId,name:'Wilder',edition:'3.5',level:17,definition:reviewedWilderFeatures35}]));
+const wildSurge=wilder17.grantedFeatures.find(feature=>feature.name==='Wild Surge');
+assert.equal(wildSurge?.descriptionSource,'rule-text');
+assert.equal(wildSurge?.progressionHistory?.filter(event=>/wild surge/i.test(event.text||'')).length,5,'Wilder Wild Surge milestones coalesce into one reviewed feature through level 17');
+assert.equal(wilder17.actions.find(action=>action.name==='Volatile Mind')?.type,'Standard action');
+assert.match(wilder17.grantedFeatures.find(feature=>feature.name==='Psychic Enervation')?.description||'',/5%/);
+assert.match(wilder17.grantedFeatures.find(feature=>feature.name==='Power Points/Day')?.description||'',/Charisma/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
