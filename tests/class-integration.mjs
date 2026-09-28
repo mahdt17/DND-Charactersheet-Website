@@ -57,6 +57,18 @@ const barbarian4=reconcileClassGrants(baseCharacter([{catalogId:barbarian35.cata
 assert(barbarian4.actions.some(action=>action.name==='Rage'&&action.sourceClassId===barbarian35.catalogId));
 assert.equal(barbarian4.resources.find(resource=>resource.name==='Rage')?.max,2);
 assert.equal(barbarian4.grantedFeatures.find(feature=>feature.name==='Rage')?.descriptionSource,'rule-text');
+const monk35=exact35('classes/monk-94');
+const monk20=reconcileClassGrants(baseCharacter([{catalogId:monk35.catalogId,name:'Monk',edition:'3.5',level:20,definition:monk35}]));
+assert(monk20.feats.some(feat=>feat.name==='Improved Unarmed Strike'&&feat.sourceClassId===monk35.catalogId),'Monk Unarmed Strike grants Improved Unarmed Strike');
+const flurry=monk20.actions.find(action=>action.name.toLowerCase()==='flurry of blows');
+assert.equal(flurry?.type,'Full-round action','Monk Flurry is exposed as a full-round action');
+assert.equal(monk20.resources.find(resource=>resource.name.toLowerCase()==='wholeness of body')?.max,40,'Wholeness healing pool is twice monk level');
+assert.equal(monk20.resources.find(resource=>resource.name.toLowerCase()==='abundant step')?.max,1,'Abundant Step is once per day');
+const palm=monk20.resources.find(resource=>resource.name.toLowerCase()==='quivering palm');
+assert.equal(palm?.max,1,'Quivering Palm is once per week');
+assert.equal(palm?.reset,'none');
+assert.match(palm?.recoveryText||'',/one week/i);
+assert.equal(monk20.resources.find(resource=>resource.name.toLowerCase()==='empty body')?.max,20,'Empty Body tracks monk-level ethereal rounds');
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
