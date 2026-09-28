@@ -2906,7 +2906,8 @@
       "description": "You can obtain one familiar through the class's familiar ritual and material cost. The familiar improves as your qualifying class levels increase; qualifying familiar-granting classes stack for familiar abilities. If the familiar dies or is dismissed, the source rules apply an XP loss and a delay before replacement.",
       "sourceSha256": "ab9d36c15573d7b732d8b42d8318e3c5bd215384b0891804e708412479050981",
       "aliases": [
-        "Summon Familiar"
+        "Summon Familiar",
+        "Summonfamiliar"
       ]
     },
     {
@@ -3491,7 +3492,8 @@
       "description": "You can obtain a familiar using the same familiar rules as a sorcerer. Levels in classes that grant familiars stack when determining familiar abilities.",
       "sourceSha256": "a4e802a558f4675bfdcc78d3e347b78e63d9d89bb1bd2ca2e2e532dcdc70da89",
       "aliases": [
-        "Summon Familiar"
+        "Summon Familiar",
+        "Summonfamiliar"
       ]
     },
     {
