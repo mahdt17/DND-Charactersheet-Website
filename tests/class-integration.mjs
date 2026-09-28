@@ -289,6 +289,21 @@ assert.deepEqual(wuJen18.grantedFeatures.find(feature=>feature.name==='Taboos')?
 assert.deepEqual(wuJen18.grantedFeatures.find(feature=>feature.name==='Elemental Mastery')?.choiceOptionsByLevel?.['6'],['Earth','Fire','Metal','Water','Wood']);
 assert.match(wuJen18.grantedFeatures.find(feature=>feature.name==='Spellbooks')?.description||'',/two spells/i);
 assert.match(wuJen18.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Intelligence/i);
+const reviewedFactotum35=exact35('classes/factotum-35');
+const factotum20=reconcileClassGrants(baseCharacter([{catalogId:reviewedFactotum35.catalogId,name:'Factotum',edition:'3.5',level:20,definition:reviewedFactotum35}]));
+assert.equal(factotum20.resources.find(resource=>resource.name==='Inspiration')?.max,10);
+assert.equal(factotum20.resources.find(resource=>resource.name==='Inspiration')?.reset,'encounter');
+assert.equal(factotum20.actions.find(action=>action.name==='Cunning Defense')?.type,'Free action');
+assert.equal(factotum20.actions.find(action=>action.name==='Cunning Breach')?.type,'Free action');
+assert.equal(factotum20.actions.find(action=>action.name==='Cunning Dodge')?.type,'Immediate action');
+assert.equal(factotum20.resources.find(resource=>resource.name==='Cunning Dodge')?.max,1);
+assert.equal(factotum20.resources.find(resource=>resource.name==='Opportunistic Piety')?.max,8,'Factotum Opportunistic Piety is base uses plus positive Wisdom bonus');
+assert.equal(factotum20.resources.find(resource=>resource.name==='Cunning Brilliance')?.max,3);
+assert.match(factotum20.grantedFeatures.find(feature=>feature.name==='Arcane Dilettante')?.description||'',/distinct sorcerer\/wizard spells/i);
+
+const lowWisFactotum={...baseCharacter([{catalogId:reviewedFactotum35.catalogId,name:'Factotum',edition:'3.5',level:5,definition:reviewedFactotum35}]),abilities:{str:14,dex:14,con:14,int:16,wis:8,cha:12}};
+const lowWisFactotum5=reconcileClassGrants(lowWisFactotum);
+assert.equal(lowWisFactotum5.resources.find(resource=>resource.name==='Opportunistic Piety')?.max,3,'negative Wisdom does not reduce Opportunistic Piety base uses');
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
