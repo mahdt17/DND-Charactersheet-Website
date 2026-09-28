@@ -636,6 +636,121 @@
       "sourceSha256": "465e22f133c1b288dd84bd578aa92e37095664893bdde1c93f1b3c6635f05d4c"
     }
   ],
+  "classes/ninja-1": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons plus hand crossbow, kama, kukri, nunchaku, sai, shortbow, short sword, shuriken, and siangham. Ninjas are not proficient with armor or shields.",
+      "sourceSha256": "40beea30d61e8e89711eba562d8b23d1947609964d61f35e56f6716cd5574235"
+    },
+    {
+      "name": "AC Bonus",
+      "level": 1,
+      "description": "While unarmored and unencumbered, add your Wisdom bonus to AC. Gain an additional +1 class bonus at 5th level and another +1 every five ninja levels thereafter, to +4 at 20th. These bonuses apply to touch AC and while flat-footed but are lost while immobilized, helpless, armored, shielded, or carrying a medium/heavy load.",
+      "sourceSha256": "5ec075a5c7822436f2b8ff155544f140dcded5597701a4098db29c3ea784fc54"
+    },
+    {
+      "name": "Ki Power",
+      "level": 1,
+      "description": "Gain a daily ki-use pool equal to one-half ninja level, minimum 1, plus Wisdom bonus. Ki abilities work only while unarmored and unencumbered. While at least one ki use remains, gain +2 on Will saves. Ghost Step, Ki Dodge, Ghost Strike, Greater Ki Dodge, and Ghost Walk spend this shared pool.",
+      "sourceSha256": "b04c9694dcec51ba967f03bc7c5122f5ca9ee67cf3aa4631819dc4fa7e2ffdc6"
+    },
+    {
+      "name": "Sudden Strike",
+      "level": 1,
+      "description": "Deal +1d6 damage when a target is denied its Dexterity bonus to AC; damage increases by +1d6 every two ninja levels. Ranged sudden strikes require a target within 30 feet. It does not work merely from flanking and fails against targets/effects that prevent precision damage.",
+      "sourceSha256": "19a877c58514127e870e5351adb31f112156c14fe9981ea9cb43da0cc8744162"
+    },
+    {
+      "name": "Trapfinding",
+      "level": 1,
+      "description": "Use Search to locate traps with DC above 20 and Disable Device to bypass or disarm magic traps, using the same core rules as the rogue Trapfinding feature.",
+      "sourceSha256": "ae114a75fa15c0df0435459f42ce57bf8f432255fb29e4442ada255492a17469"
+    },
+    {
+      "name": "Ghost Step",
+      "level": 2,
+      "actionType": "Swift action",
+      "description": "Spend one ki use as a swift action to become invisible for 1 round. At 10th level, you may become ethereal instead of invisible.",
+      "sourceSha256": "1c865fa5bb5048bc63b7aa6c237f3fa48bbaa6c2c33853ea62f9d780be9a33be"
+    },
+    {
+      "name": "Poison Use",
+      "level": 3,
+      "description": "You no longer risk accidentally poisoning yourself when applying poison to a weapon.",
+      "sourceSha256": "2db52e662a05e641f9db4278bbff64620139c1f763cb01d994816c4f6075e89e"
+    },
+    {
+      "name": "Great Leap",
+      "level": 4,
+      "description": "While unarmored and carrying no more than a light load, make Jump checks as though you had a running start and the Run feat, including the source-listed +4 jump benefit.",
+      "sourceSha256": "228de2d21bebfe4327c19a2c646b9c0030f0eb2eca74c91b6cc14daab51d30ce"
+    },
+    {
+      "name": "Acrobatics",
+      "level": 6,
+      "description": "Gain +2 on Climb, Jump, and Tumble checks at 6th level; this improves to +4 at 12th and +6 at 18th.",
+      "sourceSha256": "12fcb52fd29d2402b1912e6cf76d1405c65a780fd30d4c9421ba086ccf7e21a2"
+    },
+    {
+      "name": "Ki Dodge",
+      "level": 6,
+      "actionType": "Swift action",
+      "description": "Spend one ki use as a swift action to gain concealment with a 20% miss chance against attacks for 1 round. True seeing negates the miss chance; the concealment does not stack with other concealment.",
+      "sourceSha256": "74f396b23e4d9e384938e058e0a153f16d044c1363dc54cebb3c766e4a7f7b0d"
+    },
+    {
+      "name": "Speed Climb",
+      "level": 7,
+      "actionType": "Move action",
+      "description": "While unarmored and carrying no more than a light load, climb at your speed as a move action without the normal penalty, provided you begin and end the round on a horizontal surface.",
+      "sourceSha256": "7330eddf709ff2bc22862f523dfe94bced82cea57d8449e56cea1fb6f6005a42"
+    },
+    {
+      "name": "Ghost Strike",
+      "level": 8,
+      "actionType": "Move action",
+      "description": "Spend one ki use as a move action to let your next attack, made before the end of your next turn, strike incorporeal and ethereal creatures normally; while ethereal, it also lets you strike Material Plane targets normally.",
+      "sourceSha256": "14799a63427576b434573f3e135d35db8c5fba26dc324ea1347af65205ac8175"
+    },
+    {
+      "name": "Improved Poison Use",
+      "level": 9,
+      "actionType": "Move action",
+      "description": "Apply poison to a weapon as a move action instead of a standard action.",
+      "sourceSha256": "4dcf4281a2c7d2dd58b22604da5a481a4f434a33a95bc5d0a8bb987151223048"
+    },
+    {
+      "name": "Evasion",
+      "level": 12,
+      "description": "On a successful Reflex save against an effect that normally deals half damage, take no damage instead. Ninja Evasion functions only while unarmored and carrying no more than a light load.",
+      "sourceSha256": "b8714154c9c2830a4492e62a197520beb06e595a7a173f7cc867e33d1059bf7c"
+    },
+    {
+      "name": "Ghost Mind",
+      "level": 14,
+      "description": "Scrying-subschooled spells must pass a caster-level check against DC 20 + ninja level to detect or see you; failed targeted attempts fail entirely, while failed area scans simply fail to reveal you.",
+      "sourceSha256": "d65d0608cb56c2ae1b6d31e2c78e661c7cc63ef468d5d4f765ab67f2e4bd6c18"
+    },
+    {
+      "name": "Ghost Sight",
+      "level": 16,
+      "description": "See invisible and ethereal creatures as easily as material creatures and objects.",
+      "sourceSha256": "68b2bda8c292d9608b75fab2560d569133f762ca61d52142f39bb1abbd9578f4"
+    },
+    {
+      "name": "Greater Ki Dodge",
+      "level": 18,
+      "description": "Your Ki Dodge improves from concealment to total concealment, producing a 50% miss chance.",
+      "sourceSha256": "d5aefa98a440a129c2945e79d9dc8214fd195dc6b898a6799b65d0b737ba0bc1"
+    },
+    {
+      "name": "Ghost Walk",
+      "level": 20,
+      "description": "Spend two ki uses to enter the Ethereal Plane as ethereal jaunt with caster level equal to ninja level.",
+      "sourceSha256": "4274d5867f4da386804af3e14bc8f204780a136456feff08c2280632ded4942e"
+    }
+  ],
   "classes/paladin-95": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -958,6 +1073,246 @@
       "sourceSha256": "35036da5c06e94d859df82da31e51c183cbb66477911c7ff835d330ab49184f1"
     }
   ],
+  "classes/scout-2": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons plus handaxe, throwing axe, short sword, and shortbow, and with light armor but not shields.",
+      "sourceSha256": "96284539f6b6f132b1becb666b2306850981372683e4d6a773b038b42a38c5c5"
+    },
+    {
+      "name": "Skirmish",
+      "level": 1,
+      "description": "After moving at least 10 feet in the round, gain extra precision damage and later an AC bonus. Damage starts at +1d6 and increases by +1d6 every four levels above 1st; the AC bonus begins at +1 at 3rd and increases by +1 every four levels thereafter. The AC benefit is lost in medium/heavy armor or with a medium/heavy load.",
+      "sourceSha256": "3e9c6e54c68d8bcefe6e8d9767a11896e003d14178c93528f6f31490c709afab"
+    },
+    {
+      "name": "Trapfinding",
+      "level": 1,
+      "description": "Use Search to locate traps with DC above 20 and Disable Device to bypass or disarm magic traps, following the core Trapfinding rules.",
+      "sourceSha256": "f39059e4ea0561e08c5e8fe862bd93587d995096179f0308f081d01a782f30e3"
+    },
+    {
+      "name": "Battle Fortitude",
+      "level": 2,
+      "description": "Gain a competence bonus on Fortitude saves and initiative checks: +1 at 2nd level, +2 at 11th, and +3 at 20th. The benefit is lost in medium/heavy armor or with a medium/heavy load.",
+      "sourceSha256": "bcf3194e0276e0c9f72402ce6ab9523292507d07d83b44bee0fe42bfa899e801"
+    },
+    {
+      "name": "Uncanny Dodge",
+      "level": 2,
+      "description": "Retain your Dexterity bonus to AC while flat-footed or attacked by an invisible opponent unless immobilized; if another class already grants Uncanny Dodge, use the normal Improved Uncanny Dodge interaction.",
+      "sourceSha256": "28a00b3349df2f086b0ecd1074ca3b03615e02581d33e0ba1d8408d11b73e345"
+    },
+    {
+      "name": "Fast Movement",
+      "level": 3,
+      "description": "While in light or no armor and carrying no more than a light load, increase land speed by 10 feet at 3rd level and by 20 feet at 11th level.",
+      "sourceSha256": "4ad549a7f96d8ed8014f68b64b412e8a9de007a55bf4fc2f14f172b9e3b186a9"
+    },
+    {
+      "name": "Trackless Step",
+      "level": 3,
+      "description": "Leave no trail in natural surroundings and cannot be tracked there unless you choose to leave a trail.",
+      "sourceSha256": "ecc424b805575ff1c472decf63d40295f83095d4e51c962d3bb68287ae885a56"
+    },
+    {
+      "name": "Bonus Feats",
+      "level": 4,
+      "choiceKind": "feat",
+      "choiceOptionsByLevel": {
+        "4": [
+          "Acrobatic",
+          "Agile",
+          "Alertness",
+          "Athletic",
+          "Blind-Fight",
+          "Brachiation",
+          "Combat Expertise",
+          "Danger Sense",
+          "Dodge",
+          "Endurance",
+          "Far Shot",
+          "Great Fortitude",
+          "Hear the Unseen",
+          "Improved Initiative",
+          "Improved Swimming",
+          "Iron Will",
+          "Lightning Reflexes",
+          "Mobility",
+          "Point Blank Shot",
+          "Precise Shot",
+          "Quick Draw",
+          "Quick Reconnoiter",
+          "Rapid Reload",
+          "Shot on the Run",
+          "Skill Focus",
+          "Spring Attack",
+          "Track"
+        ],
+        "8": [
+          "Acrobatic",
+          "Agile",
+          "Alertness",
+          "Athletic",
+          "Blind-Fight",
+          "Brachiation",
+          "Combat Expertise",
+          "Danger Sense",
+          "Dodge",
+          "Endurance",
+          "Far Shot",
+          "Great Fortitude",
+          "Hear the Unseen",
+          "Improved Initiative",
+          "Improved Swimming",
+          "Iron Will",
+          "Lightning Reflexes",
+          "Mobility",
+          "Point Blank Shot",
+          "Precise Shot",
+          "Quick Draw",
+          "Quick Reconnoiter",
+          "Rapid Reload",
+          "Shot on the Run",
+          "Skill Focus",
+          "Spring Attack",
+          "Track"
+        ],
+        "12": [
+          "Acrobatic",
+          "Agile",
+          "Alertness",
+          "Athletic",
+          "Blind-Fight",
+          "Brachiation",
+          "Combat Expertise",
+          "Danger Sense",
+          "Dodge",
+          "Endurance",
+          "Far Shot",
+          "Great Fortitude",
+          "Hear the Unseen",
+          "Improved Initiative",
+          "Improved Swimming",
+          "Iron Will",
+          "Lightning Reflexes",
+          "Mobility",
+          "Point Blank Shot",
+          "Precise Shot",
+          "Quick Draw",
+          "Quick Reconnoiter",
+          "Rapid Reload",
+          "Shot on the Run",
+          "Skill Focus",
+          "Spring Attack",
+          "Track"
+        ],
+        "16": [
+          "Acrobatic",
+          "Agile",
+          "Alertness",
+          "Athletic",
+          "Blind-Fight",
+          "Brachiation",
+          "Combat Expertise",
+          "Danger Sense",
+          "Dodge",
+          "Endurance",
+          "Far Shot",
+          "Great Fortitude",
+          "Hear the Unseen",
+          "Improved Initiative",
+          "Improved Swimming",
+          "Iron Will",
+          "Lightning Reflexes",
+          "Mobility",
+          "Point Blank Shot",
+          "Precise Shot",
+          "Quick Draw",
+          "Quick Reconnoiter",
+          "Rapid Reload",
+          "Shot on the Run",
+          "Skill Focus",
+          "Spring Attack",
+          "Track"
+        ],
+        "20": [
+          "Acrobatic",
+          "Agile",
+          "Alertness",
+          "Athletic",
+          "Blind-Fight",
+          "Brachiation",
+          "Combat Expertise",
+          "Danger Sense",
+          "Dodge",
+          "Endurance",
+          "Far Shot",
+          "Great Fortitude",
+          "Hear the Unseen",
+          "Improved Initiative",
+          "Improved Swimming",
+          "Iron Will",
+          "Lightning Reflexes",
+          "Mobility",
+          "Point Blank Shot",
+          "Precise Shot",
+          "Quick Draw",
+          "Quick Reconnoiter",
+          "Rapid Reload",
+          "Shot on the Run",
+          "Skill Focus",
+          "Spring Attack",
+          "Track"
+        ]
+      },
+      "description": "At 4th level and every four scout levels thereafter, choose one feat from the scout bonus-feat list. You must still meet the selected feat's prerequisites.",
+      "sourceSha256": "937545619f2d93a26dd0c04f1c1c37cd2533c395ff342ae6f619706465a77699"
+    },
+    {
+      "name": "Evasion",
+      "level": 5,
+      "description": "On a successful Reflex save against an effect that normally deals half damage, take no damage instead, subject to the scout's armor/load restrictions.",
+      "sourceSha256": "f6ec999e6ffe0f2aaf8cc3fee45a25acfd7c387d81064a6d3f1c8d56dc1ab099"
+    },
+    {
+      "name": "Flawless Stride",
+      "level": 6,
+      "description": "Move through terrain that would normally slow movement without that reduction, subject to the source's terrain and armor/load limitations.",
+      "sourceSha256": "ad2a20fd327ec78466f844604e09e623a37c9f4011f0669e58f9176bebd5cc77"
+    },
+    {
+      "name": "Camouflage",
+      "level": 8,
+      "description": "Use Hide in natural terrain even when that terrain does not provide cover or concealment, while meeting the scout's armor/load restrictions.",
+      "sourceSha256": "5915880362e687546eb92421897e06b2c37c23b6e3693ef2f7c41cd4e4af3b44"
+    },
+    {
+      "name": "Blindsense",
+      "level": 10,
+      "description": "Gain blindsense out to 30 feet.",
+      "sourceSha256": "a95402d34835e8eb054bb412bc7ca7fad7701a92486abb232e501c05933283e1"
+    },
+    {
+      "name": "Hide in Plain Sight",
+      "level": 14,
+      "description": "Use Hide in natural terrain even while being observed, subject to the scout's armor/load restrictions.",
+      "sourceSha256": "f21d27b57a49a559cc13cfb42752b552b3aafd6debf085342107f845d42325e2"
+    },
+    {
+      "name": "Free Movement",
+      "level": 18,
+      "description": "While meeting the scout's armor/load restrictions, gain the continuous benefit of freedom of movement.",
+      "sourceSha256": "0b689a434285d355c627816e057d0015980642fbe4fa1aa75a847faa5f1b9309"
+    },
+    {
+      "name": "Blindsight",
+      "level": 20,
+      "description": "Gain blindsight out to 30 feet.",
+      "sourceSha256": "e04f475d1270be81a71334c464a9fd0324ae42dbd50286f3354b9bf7501d70ae"
+    }
+  ],
   "classes/sorcerer-98": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -1126,6 +1481,87 @@
       "level": 20,
       "description": "Your type is treated as fey instead of humanoid for spells and magical effects, and you gain damage reduction 5/cold iron.",
       "sourceSha256": "e40048c0875737961797c14b6eb5390a30e3a6d0e1c12e916b41887ef7cb1dac"
+    }
+  ],
+  "classes/swashbuckler-23": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons and light armor. Several class features stop functioning in medium/heavy armor or while carrying a medium/heavy load.",
+      "sourceSha256": "7b99ea38f1efb1b3b813d4152e3ecea5c53183f47d86d71511eba87b4889e2f2"
+    },
+    {
+      "name": "Weapon Finesse",
+      "level": 1,
+      "featName": "Weapon Finesse",
+      "description": "Gain Weapon Finesse as a bonus feat at 1st level even if you do not meet its normal prerequisites.",
+      "sourceSha256": "faabeeb19190283eebf1843d1c7987c0974e1134264b0d78b4738792d20757ad"
+    },
+    {
+      "name": "Grace",
+      "level": 2,
+      "description": "Gain +1 competence on Reflex saves at 2nd level, +2 at 11th, and +3 at 20th. This benefit is lost in medium/heavy armor or with a medium/heavy load.",
+      "sourceSha256": "8177672c52d471e74ec5fb4b4548bf17f80294d300953294d65c533c8d8236b5"
+    },
+    {
+      "name": "Insightful Strike",
+      "level": 3,
+      "description": "Add your Intelligence bonus to damage with light weapons and other Weapon-Finesse-eligible weapons, in addition to Strength where applicable. Targets immune to sneak attacks or critical hits are immune; the benefit is lost in medium/heavy armor or with a medium/heavy load.",
+      "sourceSha256": "6f4564db4c89db214afec7b8aa77dd3cb573cc76600f660d85d4fb4a1c66dc60"
+    },
+    {
+      "name": "Dodge Bonus",
+      "level": 5,
+      "description": "During your action, designate one melee opponent and gain +1 dodge AC against that opponent. The bonus improves to +2 at 10th, +3 at 15th, and +4 at 20th. You may designate a new opponent on any action; the benefit is lost in medium/heavy armor or with a medium/heavy load.",
+      "sourceSha256": "879d62e8b827366016c4c4165c6d638f02680be91f26fab153c0d4bfa1ff61d2"
+    },
+    {
+      "name": "Acrobatic Charge",
+      "level": 7,
+      "description": "Charge through terrain or ally-occupied paths that would normally prevent charging, while still making any appropriate movement checks the situation requires.",
+      "sourceSha256": "9a06e1aa4162fcb596e6b31ce2760529706a96f28505baa53b3476331d2b11ea"
+    },
+    {
+      "name": "Improved Flanking",
+      "level": 8,
+      "description": "When you flank an opponent, your own attack bonus from flanking is +4 instead of +2; allies flanking with you do not gain the increased bonus.",
+      "sourceSha256": "6dafd55759c5be4c09612af91dc00bd2e59724db4248840db5b9725251e9dbf9"
+    },
+    {
+      "name": "Lucky",
+      "level": 11,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "reroll",
+        "recoveryText": "The once-per-day reroll refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, reroll one failed attack roll, skill check, ability check, or saving throw. You must use the second result even if it is worse.",
+      "sourceSha256": "af5cc8c556443e6ddffbd548b3f986eb992860d67d60766d81eeec1c6b820c25"
+    },
+    {
+      "name": "Acrobatic Skill Mastery",
+      "level": 13,
+      "description": "Take 10 on Jump or Tumble checks even when stress or distractions would normally prevent taking 10.",
+      "sourceSha256": "eb4e4f93b9dcf6b7f1868f3247923d1b94f0a9192ea8fec717d4cea051c5613b"
+    },
+    {
+      "name": "Weakening Critical",
+      "level": 14,
+      "description": "When you score a critical hit against a creature vulnerable to critical hits, also deal 2 points of Strength damage.",
+      "sourceSha256": "bf009bb78cd04770aaf1a249539fe69d528a8d2001d303b3e5648873fa60049f"
+    },
+    {
+      "name": "Slippery Mind",
+      "level": 17,
+      "description": "If you fail a save against an enchantment spell or effect, attempt the same save once more 1 round later at the same DC.",
+      "sourceSha256": "b10dbd49716965209c8fa80d15e8b756219e1860080f34e26a4bfa45c1e8e054"
+    },
+    {
+      "name": "Wounding Critical",
+      "level": 19,
+      "description": "When you score a critical hit against a creature vulnerable to critical hits, also deal 2 Constitution damage in addition to the Strength damage from Weakening Critical.",
+      "sourceSha256": "1404c487e4c9fe720ec46ee2609d4ea22cccae8821cfdb9db8731597c010d9cd"
     }
   ],
   "classes/warlock-4": [
