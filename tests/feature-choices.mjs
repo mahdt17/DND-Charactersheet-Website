@@ -213,10 +213,11 @@ assert.equal(beguilerLearning.required,1);
 
 const favoredSoulClass35={name:'Favored Soul',edition:'3.5',sourceId:'classes/favored-soul-7',catalogId:'dndtools:classes/favored-soul-7',sourceUrl:'https://new.dndtools.org/classes/favored-soul-7',progression:[['Level','Special'],['3rd','Deity’s weapon focus'],['5th','Energy resistance (1st type)'],['10th','Energy resistance (2nd type)']]};
 const favoredSoul3={...legacyChoice,className:'Favored Soul',classDefinition:favoredSoulClass35,classLevels:[{name:'Favored Soul',edition:'3.5',catalogId:favoredSoulClass35.catalogId,level:3,definition:favoredSoulClass35}],level:3};
-const favoredSoul3Plan=featureChoicePlan(favoredSoul3,null);
+const favoredSoul2={...favoredSoul3,classLevels:[{...favoredSoul3.classLevels[0],level:2}],level:2};
+const favoredSoul3Plan=featureChoicePlan(favoredSoul3,favoredSoul2);
 const deityFocus=favoredSoul3Plan.groups.find(group=>group.label==='Deity’s Weapon Focus');
 assert.equal(deityFocus?.choiceKind,'feat');
-const focusedSoul=applyFeatureChoices(favoredSoul3,null,{[deityFocus.id]:['Weapon Focus (Longsword)']});
+const focusedSoul=applyFeatureChoices(favoredSoul3,favoredSoul2,{[deityFocus.id]:['Weapon Focus (Longsword)']});
 assert(focusedSoul.feats.some(feat=>feat.name==='Weapon Focus (Longsword)'&&feat.sourceType==='class-choice'));
 
 const favoredSoul5={...focusedSoul,classLevels:[{...favoredSoul3.classLevels[0],level:5}],level:5};
