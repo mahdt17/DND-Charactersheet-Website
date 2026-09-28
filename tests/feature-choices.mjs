@@ -193,5 +193,16 @@ const nextAura=dragonShaman5Plan.groups.find(group=>group.label==='Draconic Aura
 assert.equal(nextAura?.required,1);
 assert(!nextAura.options.includes('Power')&&!nextAura.options.includes('Presence')&&!nextAura.options.includes('Vigor'),'Known draconic auras are excluded from later choices');
 
+const knightClass35={name:'Knight',edition:'3.5',sourceId:'classes/knight-103',catalogId:'dndtools:classes/knight-103',sourceUrl:'https://new.dndtools.org/classes/knight-103',progression:[['Level','Special'],['2nd','Mounted Combat, shield block +1'],['5th','Bonus feat, vigilant defender'],['10th','Bonus feat']]};
+const knight10={...legacyChoice,className:'Knight',classDefinition:knightClass35,classLevels:[{name:'Knight',edition:'3.5',catalogId:knightClass35.catalogId,level:10,definition:knightClass35}],level:10};
+const knight9={...knight10,classLevels:[{...knight10.classLevels[0],level:9}],level:9};
+const knightPlan=featureChoicePlan(knight10,knight9);
+const knightBonus=knightPlan.groups.find(group=>group.label==='Bonus Feat');
+assert(knightBonus,'Knight level 10 requests its restricted bonus feat');
+assert(knightBonus.options.includes('Spirited Charge')&&knightBonus.options.includes('Weapon Focus (Lance)'));
+assert(!knightBonus.options.includes('Power Attack'),'Knight bonus feat picker remains source-restricted');
+const knightChosen=applyFeatureChoices(knight10,knight9,{[knightBonus.id]:['Spirited Charge']});
+assert(knightChosen.feats.some(feat=>feat.name==='Spirited Charge'&&feat.sourceType==='class-choice'));
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
