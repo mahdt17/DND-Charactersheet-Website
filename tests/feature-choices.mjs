@@ -266,6 +266,21 @@ const wuJen6Plan=featureChoicePlan(wuJen6,wuJen5);
 const mastery=wuJen6Plan.groups.find(group=>group.label==='Elemental Mastery');
 assert.deepEqual(mastery?.options,['Earth','Fire','Metal','Water','Wood']);
 
+const dragonfireClass35={name:'Dragonfire Adept',edition:'3.5',sourceId:'classes/dragonfire-adept-29',catalogId:'dndtools:classes/dragonfire-adept-29',sourceUrl:'https://new.dndtools.org/classes/dragonfire-adept-29',progression:[['Level','Special'],['1st','Breath weapon 1d6, Dragontouched, least invocations'],['2nd','Breath effect, scales +2'],['5th','Breath weapon 3d6, breath effect']]};
+const dragonfire2={...legacyChoice,className:'Dragonfire Adept',classDefinition:dragonfireClass35,classLevels:[{name:'Dragonfire Adept',edition:'3.5',catalogId:dragonfireClass35.catalogId,level:2,definition:dragonfireClass35}],level:2};
+const dragonfire1={...dragonfire2,classLevels:[{...dragonfire2.classLevels[0],level:1}],level:1};
+const dragonfire2Plan=featureChoicePlan(dragonfire2,dragonfire1);
+const firstBreathEffect=dragonfire2Plan.groups.find(group=>group.label==='Breath Effect');
+assert.deepEqual(firstBreathEffect?.options,['Frost Breath','Lightning Breath','Sickening Breath']);
+const frostyAdept=applyFeatureChoices(dragonfire2,dragonfire1,{[firstBreathEffect.id]:['Frost Breath']});
+
+const dragonfire5={...frostyAdept,classLevels:[{...dragonfire2.classLevels[0],level:5}],level:5};
+const dragonfire4={...frostyAdept,classLevels:[{...dragonfire2.classLevels[0],level:4}],level:4};
+const dragonfire5Plan=featureChoicePlan(dragonfire5,dragonfire4);
+const secondBreathEffect=dragonfire5Plan.groups.find(group=>group.label==='Breath Effect');
+assert(!secondBreathEffect.options.includes('Frost Breath'),'Dragonfire Adept cannot learn the same breath effect twice');
+assert(secondBreathEffect.options.includes('Acid Breath')&&secondBreathEffect.options.includes('Weakening Breath'));
+
 const knightClass35={name:'Knight',edition:'3.5',sourceId:'classes/knight-103',catalogId:'dndtools:classes/knight-103',sourceUrl:'https://new.dndtools.org/classes/knight-103',progression:[['Level','Special'],['2nd','Mounted Combat, shield block +1'],['5th','Bonus feat, vigilant defender'],['10th','Bonus feat']]};
 const knight10={...legacyChoice,className:'Knight',classDefinition:knightClass35,classLevels:[{name:'Knight',edition:'3.5',catalogId:knightClass35.catalogId,level:10,definition:knightClass35}],level:10};
 const knight9={...knight10,classLevels:[{...knight10.classLevels[0],level:9}],level:9};
