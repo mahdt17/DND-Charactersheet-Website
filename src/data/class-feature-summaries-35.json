@@ -175,6 +175,104 @@
       "sourceSha256": "acea18af08633a12d5af249dbaeaeaa750e37111761dd0167b0c178b8c51440a"
     }
   ],
+  "classes/druid-92": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with the club, dagger, dart, quarterstaff, scimitar, sickle, shortspear, sling, spear, and the natural attacks of wild-shaped forms. Proficient with light and medium nonmetal armor and nonmetal shields except tower shields; prohibited metal armor or shields suppress druid spellcasting and supernatural/spell-like class abilities while worn and for 24 hours afterward.",
+      "sourceSha256": "0815966d554e1a3e25c678686fe270c211a0752c2818d3ae42c423be3d3c745a"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Prepare and cast divine spells from the druid list. Wisdom determines the highest spell level you can prepare or cast, spell save DCs, and bonus spells per day. Druids prepare spells during daily meditation and do not receive cleric domains.",
+      "sourceSha256": "b5571fd3cc9231d0cf536a15f3d42c18aa74f4190086334b7568be7d22e115d1"
+    },
+    {
+      "name": "Spontaneous Casting",
+      "level": 1,
+      "description": "Sacrifice a prepared non-domain druid spell to cast a summon nature's ally spell of the same spell level or lower without having prepared that summoning spell.",
+      "sourceSha256": "58495a0124ba319f23d57bcae84153128db0b4f1e493ad7cd7d2242318828b5e"
+    },
+    {
+      "name": "Chaotic, Evil, Good, and Lawful Spells",
+      "level": 1,
+      "description": "You cannot cast a spell with an alignment descriptor opposed to your own alignment or your deity's alignment, if you have a deity.",
+      "sourceSha256": "86d034b127f83a902878793cd667202057ca166f0e5a7434242211be9ee0ac70"
+    },
+    {
+      "name": "Bonus Languages",
+      "level": 1,
+      "description": "Sylvan is available as a druid bonus-language choice. You also learn Druidic for free at 1st level; it does not use a normal language slot and may not be taught to nondruids.",
+      "sourceSha256": "ba282ea29a9b81a9762e8f89e86e09ee6056bd3d68cfc8ec4bd64715fc34c8e5"
+    },
+    {
+      "name": "Animal Companion (Ex)",
+      "level": 1,
+      "description": "Begin with an animal companion from the class's allowed list. The companion improves with druid level, and higher-level druids can choose stronger alternative companions by applying the source-listed effective-level adjustment. Replacing a released or lost companion requires the class's ceremony.",
+      "sourceSha256": "01a1739979f95a1514bdd9bb811ff0c9ef8e556adcb1dfd02f49ffdba4cc7776"
+    },
+    {
+      "name": "Nature Sense (Ex)",
+      "level": 1,
+      "description": "Gain +2 on Knowledge (nature) and Survival checks.",
+      "sourceSha256": "a4d2723e16d6c23d1cb63786d17995e97d8fd9a90bfa588e096f8187ed51d7ea"
+    },
+    {
+      "name": "Wild Empathy (Ex)",
+      "level": 1,
+      "description": "Improve an animal's attitude with a wild-empathy check of 1d20 + druid level + Charisma modifier. The creature normally must be within 30 feet and able to study you. You can also influence an Intelligence 1 or 2 magical beast with a -4 penalty.",
+      "sourceSha256": "bd6a2f1f4631b8dcd3f9c40f178c6943332d0f11a606b13fb9f9754fc2f4935b"
+    },
+    {
+      "name": "Woodland Stride (Ex)",
+      "level": 2,
+      "description": "Move through natural undergrowth at normal speed without damage or impairment. Magically manipulated undergrowth still affects you.",
+      "sourceSha256": "f1824ea9d4ab1b909e3baf1eb6c7d9ccd8e57721514aca54c1b8cb284e716bde"
+    },
+    {
+      "name": "Trackless Step (Ex)",
+      "level": 3,
+      "description": "Leave no trail in natural surroundings and cannot be tracked there unless you choose to leave a trail.",
+      "sourceSha256": "b9e7e3df8b8f8ac2fa2a23d3b6a9cf77ffc05c4fe2157554c7b86c951e0a3431"
+    },
+    {
+      "name": "Resist Nature’s Lure (Ex)",
+      "level": 4,
+      "description": "Gain +4 on saving throws against the spell-like abilities of fey.",
+      "sourceSha256": "01ee3f4724de36f99158bb9eb323d4a204b061345519b01ca9071f5ece997db8"
+    },
+    {
+      "name": "Wild Shape (Su)",
+      "level": 5,
+      "description": "At 5th level, change into a familiar Small or Medium animal and back once per day. Changing form is a standard action and the form lasts up to 1 hour per druid level or until you revert. Uses per day, allowed sizes, and eligible creature types improve at the source-listed druid levels.",
+      "sourceSha256": "3e23554ff8d18b7a975b723386b73cfd3cf0cf0e2b3c1aee1bd0e863546a5317"
+    },
+    {
+      "name": "Venom Immunity (Ex)",
+      "level": 9,
+      "description": "Gain immunity to all poisons.",
+      "sourceSha256": "de66abf0653cfa2e6e58e8abef37f5e21d58b06ee1bab62db82e73e610ddecc1"
+    },
+    {
+      "name": "A Thousand Faces (Su)",
+      "level": 13,
+      "description": "Change your physical appearance at will as disguise self, affecting your body but not your possessions; this is a physical alteration rather than an illusion.",
+      "sourceSha256": "00ef4bcf6db9e1bb2e8bccf8cb134940a2dba3eacba0d4777836382a6b0d8eb4"
+    },
+    {
+      "name": "Timeless Body (Ex)",
+      "level": 15,
+      "description": "You no longer take new ability-score penalties from aging and cannot be magically aged. Existing penalties remain, aging bonuses still accrue, and you still die of old age. Violating core druid alignment/nature/Druidic obligations can cause loss of druid spells and abilities until atonement.",
+      "sourceSha256": "47705c1bc73efefb7baa0b14d751e722758cee4280e5dc612549f555c49eb59c"
+    },
+    {
+      "name": "Animal Companion Basics",
+      "level": 1,
+      "description": "Animal companions use their base creature statistics plus the druid companion progression for bonus Hit Dice, natural armor, Strength/Dexterity adjustments, bonus tricks, and companion abilities such as link and share spells. Qualifying animal-companion class levels stack as defined by the source.",
+      "sourceSha256": "0346e2b95ae3612ea6bb251f5c227be3ae83180a8a84e34b22c57a708782bc60"
+    }
+  ],
   "classes/fighter-93": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -483,6 +581,108 @@
       "description": "Gain a bonus feat at 1st, 5th, 10th, 15th, and 20th level. Each of these class bonus feats must be a psionic feat, metapsionic feat, or psionic item creation feat; they are in addition to normal character-level feats.",
       "sourceSha256": "ad7654feb5cc6ebcec8fa543c06fae29b525b2ed79f7b8a804b0654adb3b4bbc",
       "choiceKind": "feat"
+    }
+  ],
+  "classes/ranger-96": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, light armor, and shields except tower shields.",
+      "sourceSha256": "410209bc8c7733230e758b6d925e3785a0f4616d4bfc61c550f269ee039ca6d3"
+    },
+    {
+      "name": "Favored Enemy (Ex)",
+      "level": 1,
+      "description": "Select a favored-enemy creature type at 1st level. Gain +2 on the source-listed Bluff, Listen, Sense Motive, Spot, and Survival checks against that enemy and +2 weapon damage against it. At 5th level and every five ranger levels thereafter, select another favored enemy and increase one favored-enemy bonus by +2. Humanoid and outsider choices require the appropriate subtype.",
+      "sourceSha256": "332c30929c21ad1fe8b545a73316abdca9001be9567a9641ba9b2e83cee31e2f"
+    },
+    {
+      "name": "Track",
+      "level": 1,
+      "featName": "Track",
+      "description": "Gain Track as a bonus feat.",
+      "sourceSha256": "3e3dd4235e40c0ffeb5fdfd8882f1f410e4b58bb5c4dd51def6675dc5ffd72e3"
+    },
+    {
+      "name": "Wild Empathy (Ex)",
+      "level": 1,
+      "description": "Improve an animal's attitude with a wild-empathy check of 1d20 + ranger level + Charisma modifier. The creature normally must be within 30 feet and able to study you. You can also influence an Intelligence 1 or 2 magical beast with a -4 penalty.",
+      "sourceSha256": "8dc98e1856928f3e8810dea6da8c1f6a24d785d10046c4866496719f1855067c"
+    },
+    {
+      "name": "Combat Style (Ex)",
+      "level": 2,
+      "choiceKind": "source",
+      "choiceOptionsByLevel": {
+        "2": [
+          "Archery",
+          "Two-Weapon Combat"
+        ]
+      },
+      "ignorePrerequisites": true,
+      "description": "Choose Archery or Two-Weapon Combat at 2nd level. Archery grants the class benefit equivalent to Rapid Shot; Two-Weapon Combat grants the class benefit equivalent to Two-Weapon Fighting. The combat-style benefits ignore normal feat prerequisites but function only in light armor or no armor.",
+      "sourceSha256": "e4be9c3dc0e8bf08b1575ee6502a697fdce07d1487ffcaf8b6f9b46f3bba3e78"
+    },
+    {
+      "name": "Endurance",
+      "level": 3,
+      "featName": "Endurance",
+      "description": "Gain Endurance as a bonus feat at 3rd level.",
+      "sourceSha256": "0a3d2750884f876a1f93a03f19227d0d755c67ec1dcd72f5920f14e191118b05"
+    },
+    {
+      "name": "Animal Companion (Ex)",
+      "level": 4,
+      "description": "Gain an animal companion using the druid companion rules, but your effective druid level is one-half your ranger level. Alternative companion lists use the same source-listed effective-level adjustments.",
+      "sourceSha256": "7de61cd35376caa0c09a173eff7dad68cdc69cefb1417a0032fe6fc4d9c72a88"
+    },
+    {
+      "name": "Spells",
+      "level": 4,
+      "description": "Beginning at 4th level, prepare and cast divine spells from the ranger list. Wisdom determines spell access, save DCs, and bonus spells. A printed 0 on the progression means that level is available only through applicable bonus spells. Ranger caster level is one-half ranger level once spellcasting begins.",
+      "sourceSha256": "30e67b9b74a6da910c467641aa6a23e006acae0be1a0e444c4b2f4b540946974"
+    },
+    {
+      "name": "Improved Combat Style (Ex)",
+      "level": 6,
+      "description": "At 6th level, the Archery style gains the class benefit equivalent to Manyshot, while Two-Weapon Combat gains the class benefit equivalent to Improved Two-Weapon Fighting. Normal prerequisites are ignored, and the benefit still requires light armor or no armor.",
+      "sourceSha256": "1e1c93b84628a3d3416d605f2d0d1df0a31ed5bc010d918834b5042f82914674"
+    },
+    {
+      "name": "Woodland Stride (Ex)",
+      "level": 7,
+      "description": "Move through natural undergrowth at normal speed without damage or impairment. Enchanted or magically manipulated undergrowth can still impede you.",
+      "sourceSha256": "b8cd59c8a27a6c79b28f0d0ddbf21178e1f2c04fde49a50cd947ac050a792069"
+    },
+    {
+      "name": "Swift Tracker (Ex)",
+      "level": 8,
+      "description": "Follow tracks at normal speed without the usual -5 penalty, and take only -10 instead of -20 when tracking at up to twice normal speed.",
+      "sourceSha256": "f8a352272bee220ad782e1f1dbe8bbf1319127f63b3acf73b8b6063bde4e9401"
+    },
+    {
+      "name": "Evasion (Ex)",
+      "level": 9,
+      "description": "On a successful Reflex save against an effect that normally deals half damage, take no damage instead. Ranger evasion works only in light armor or no armor and does not function while helpless.",
+      "sourceSha256": "06d8f144e666a3f76e70b9e59772867ee0ce8fd11aaf78c54f95acb2d2d610d0"
+    },
+    {
+      "name": "Combat Style Mastery (Ex)",
+      "level": 11,
+      "description": "At 11th level, the Archery style gains the class benefit equivalent to Improved Precise Shot, while Two-Weapon Combat gains the class benefit equivalent to Greater Two-Weapon Fighting. Normal prerequisites are ignored, and the benefit still requires light armor or no armor.",
+      "sourceSha256": "177d2672e6e1c774ebe2f2a1e392fffff1f9a07c1c66d23b7564d0c4d589f4c8"
+    },
+    {
+      "name": "Camouflage (Ex)",
+      "level": 13,
+      "description": "Use Hide in natural terrain even when that terrain does not provide cover or concealment.",
+      "sourceSha256": "783de1d4d3c6cb1888cfa8a17036d220cc82c52c8289e06167ae542aced43c13"
+    },
+    {
+      "name": "Hide in Plain Sight (Ex)",
+      "level": 17,
+      "description": "While in natural terrain, use Hide even while being observed.",
+      "sourceSha256": "accbaf4089adedf9afb8d85b8221974cee90f8114c996e095060252e680e7422"
     }
   ],
   "classes/rogue-97": [
