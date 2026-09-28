@@ -60,7 +60,7 @@ function reviewedFeatureMetadata(record,name){
   const row=reviewedFeatureRow(record,name);
   if(!row)return {};
   const metadata={};
-  for(const key of ['featName','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','resource'])if(row[key]!=null)metadata[key]=row[key];
+  for(const key of ['featName','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -482,7 +482,7 @@ function coalesceFeatures(row){
       current.history.push(history);
       if(description&&description.length>(current.description||'').length)current.description=description;
       if(feature.progressionText)current.progressionText=feature.progressionText;
-      for(const field of ['featName','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','resource'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
+      for(const field of ['featName','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
     }
   }
   return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
@@ -576,7 +576,15 @@ function derivedForRow(row,character=null){
       feats.push({id:'class-grant:'+meta.sourceClassId+':feat:'+slug(featName),name:featName,level:feature.level,description,catalogId:feature.featId||undefined,...meta});
     }
     const usage=structuredUsage(feature,row.level,character)||latestUsage(feature);
-    const type=feature.actionType||actionType(feature,edition);
+    let reviewedActionType=feature.actionType;
+    if(feature.actionTypeByLevel&&typeof feature.actionTypeByLevel==='object'){
+      const eligible=Object.entries(feature.actionTypeByLevel)
+        .map(([level,value])=>[Number(level),String(value||'').trim()])
+        .filter(([level,value])=>Number.isFinite(level)&&value&&level<=row.level)
+        .sort((a,b)=>a[0]-b[0]);
+      if(eligible.length)reviewedActionType=eligible.at(-1)[1];
+    }
+    const type=reviewedActionType||actionType(feature,edition);
     if(!concreteFeat&&(type||usage)){
       actions.push({id:'class-grant:'+meta.sourceClassId+':action:'+slug(feature.name),name:feature.name,type:type||'Special action',description,notes:history.at(-1)?.text||'',...meta});
     }
