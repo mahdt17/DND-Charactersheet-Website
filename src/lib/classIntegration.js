@@ -42,10 +42,20 @@ function reviewedFeatureRows(record){
   const rows=keys.map(key=>legacyFeatureSummaries[key]).find(Array.isArray)||legacyFeatureSummaries[record?.name]||[];
   return Array.isArray(rows)?rows:[];
 }
-function reviewedFeatureDescription(record,name){
+function reviewedFeatureRow(record,name){
   const key=featureMatchKey(name);
-  const row=reviewedFeatureRows(record).find(item=>featureMatchKey(item?.name)===key);
+  return reviewedFeatureRows(record).find(item=>featureMatchKey(item?.name)===key)||null;
+}
+function reviewedFeatureDescription(record,name){
+  const row=reviewedFeatureRow(record,name);
   return typeof row?.description==='string'?row.description.trim():'';
+}
+function reviewedFeatureMetadata(record,name){
+  const row=reviewedFeatureRow(record,name);
+  if(!row)return {};
+  const metadata={};
+  for(const key of ['featName','choiceKind','choiceOptionsByLevel','ignorePrerequisites','actionType','resource'])if(row[key]!=null)metadata[key]=row[key];
+  return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
 const title=value=>String(value||'').replace(/\b\w/g,c=>c.toUpperCase());
@@ -414,8 +424,9 @@ function explicitLevelGrants(record,maximum){
 
 function rawClassFeatures(row){
   const record=row.definition||{},edition=normalizeEdition(row.edition||record.edition),maximum=row.level;
+  const decorateLegacy=grant=>edition==='3.5'?{...grant,...reviewedFeatureMetadata(record,grant.name),description:grant.description||grant.effect||sourceFeatureDescription(record,grant.name)}:{...grant,description:grant.description||grant.effect||''};
   const explicit=explicitLevelGrants(record,maximum);
-  if(explicit.length)return explicit.map(grant=>({...grant,description:grant.description||grant.effect||''}));
+  if(explicit.length)return explicit.map(decorateLegacy);
   if(edition==='2014'){
     return levels2014
       .filter(level=>level.class?.name===row.name&&!level.subclass&&level.level<=maximum)
@@ -429,7 +440,7 @@ function rawClassFeatures(row){
       .filter(feature=>feature.class?.name===row.name&&featureLevel(feature)<=maximum&&(!feature.subclass||feature.subclass.name===row.subclass))
       .map(feature=>({level:featureLevel(feature),name:feature.name,description:textDescription(feature),sourceFeatureId:feature.index||feature.id,kind:feature.kind}));
   }
-  return tableFeatureCells(record,maximum).map(grant=>({...grant,description:sourceFeatureDescription(record,grant.name)}));
+  return tableFeatureCells(record,maximum).map(decorateLegacy);
 }
 
 function coalesceFeatures(row){
@@ -449,6 +460,7 @@ function coalesceFeatures(row){
       current.history.push(history);
       if(description&&description.length>(current.description||'').length)current.description=description;
       if(feature.progressionText)current.progressionText=feature.progressionText;
+      for(const field of ['featName','choiceKind','choiceOptionsByLevel','ignorePrerequisites','actionType','resource'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
     }
   }
   return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
@@ -462,16 +474,16 @@ function actionType(feature,edition){
   if(/bonus action/i.test(text))return 'Bonus action';
   if(/\breaction\b|immediate action/i.test(text))return edition==='3.5'?'Immediate action':'Reaction';
   if(/swift action/i.test(text))return 'Swift action';
-  if(/full[- ]round action/i.test(text))return 'Full-round action';
+  if(/full[- ]round action|full attack action/i.test(text))return 'Full-round action';
   if(/standard action/i.test(text))return 'Standard action';
   if(/as an action|use your action|take an action/i.test(text))return 'Action';
   return '';
 }
 function usageFromText(text){
   const value=String(text||'');
-  const numeric=[...value.matchAll(/\b(\d+)\s*\/\s*(day|rest)\b/gi)].map(match=>({max:Number(match[1]),period:match[2].toLowerCase()}));
+  const numeric=[...value.matchAll(/\b(\d+)\s*\/\s*(day|week|rest)\b/gi)].map(match=>({max:Number(match[1]),period:match[2].toLowerCase()}));
   if(numeric.length)return numeric.at(-1);
-  const spelled=value.match(/\b(once|one|twice|two|three|four|five|six|seven|eight|nine|ten)(?:\s+times?)?\s+per\s+(day|short rest|long rest|rest)\b/i);
+  const spelled=value.match(/\b(once|one|twice|two|three|four|five|six|seven|eight|nine|ten)(?:\s+times?)?\s+per\s+(day|week|short rest|long rest|rest)\b/i);
   if(spelled)return {max:words[spelled[1].toLowerCase()],period:spelled[2].toLowerCase()};
   return null;
 }
@@ -481,6 +493,15 @@ function latestUsage(feature){
     if(usage)return usage;
   }
   return usageFromText(feature.description);
+}
+function structuredUsage(feature,classLevel){
+  const spec=feature.resource;
+  if(!spec||typeof spec!=='object')return null;
+  let max=Number(spec.max);
+  if(!Number.isFinite(max)&&Number.isFinite(Number(spec.perLevel)))max=Number(spec.perLevel)*Math.max(0,Number(classLevel)||0)+Number(spec.base||0);
+  max=Math.floor(max);
+  if(!Number.isFinite(max)||max<=0)return null;
+  return {max,period:spec.period||'',reset:spec.reset||'',recoveryText:spec.recoveryText||'',unit:spec.unit||''};
 }
 function isConcreteFeat(feature){
   if(feature.kind==='feat')return true;
@@ -507,21 +528,23 @@ function derivedForRow(row){
     const progressionSummary=String(history.at(-1)?.text||feature.progressionText||feature.name).trim();
     const description=localRuleText||row.name+' progression: '+progressionSummary+'.';
     const descriptionSource=localRuleText?'rule-text':'progression';
-    const choice=needsChoice(feature);
-    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',description,descriptionSource,desc:[description],progressionHistory:history,...meta};
+    const choice=Boolean(feature.choiceKind)||needsChoice(feature);
+    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
-    const concreteFeat=isConcreteFeat(feature);
-    if(concreteFeat){
-      feats.push({id:'class-grant:'+meta.sourceClassId+':feat:'+slug(feature.name),name:feature.name,level:feature.level,description,catalogId:feature.featId||undefined,...meta});
+    const concreteFeat=isConcreteFeat(feature),grantedFeatName=feature.featName||'';
+    if(concreteFeat||grantedFeatName){
+      const featName=grantedFeatName||feature.name;
+      feats.push({id:'class-grant:'+meta.sourceClassId+':feat:'+slug(featName),name:featName,level:feature.level,description,catalogId:feature.featId||undefined,...meta});
     }
-    const usage=latestUsage(feature);
-    const type=actionType(feature,edition);
+    const usage=structuredUsage(feature,row.level)||latestUsage(feature);
+    const type=feature.actionType||actionType(feature,edition);
     if(!concreteFeat&&(type||usage)){
       actions.push({id:'class-grant:'+meta.sourceClassId+':action:'+slug(feature.name),name:feature.name,type:type||'Special action',description,notes:history.at(-1)?.text||'',...meta});
     }
     if(edition==='3.5'&&usage&&usage.max>0){
-      const reset=usage.period==='short rest'?'short':usage.period==='rest'?'long':usage.period==='day'||usage.period==='long rest'?'long':'none';
-      resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),name:feature.name,max:usage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,...meta});
+      const reset=usage.reset|| (usage.period==='short rest'?'short':usage.period==='rest'?'long':usage.period==='day'||usage.period==='long rest'?'long':'none');
+      const recoveryText=usage.recoveryText|| (usage.period==='week'?'Recover after one week; track the elapsed time manually.':'');
+      resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(feature.name),name:feature.name,max:usage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:usage.unit||undefined,...meta});
     }
   }
   const record=withProficiencySupplement(row.definition||{});
