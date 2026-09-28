@@ -69,14 +69,14 @@ assert.equal(palm?.max,1,'Quivering Palm is once per week');
 assert.equal(palm?.reset,'none');
 assert.match(palm?.recoveryText||'',/one week/i);
 assert.equal(monk20.resources.find(resource=>resource.name.toLowerCase()==='empty body')?.max,20,'Empty Body tracks monk-level ethereal rounds');
-const cleric35=exact35('classes/cleric-91');
-const cleric1=reconcileClassGrants(baseCharacter([{catalogId:cleric35.catalogId,name:'Cleric',edition:'3.5',level:1,definition:cleric35}]));
+const reviewedCleric35=exact35('classes/cleric-91');
+const cleric1=reconcileClassGrants(baseCharacter([{catalogId:reviewedCleric35.catalogId,name:'Cleric',edition:'3.5',level:1,definition:reviewedCleric35}]));
 assert.equal(cleric1.grantedFeatures.find(feature=>feature.name==='Spontaneous Casting')?.descriptionSource,'rule-text');
 assert.match(cleric1.grantedFeatures.find(feature=>/Deity, Domains/i.test(feature.name))?.description||'',/two permitted domains/i);
 assert.match(cleric1.grantedFeatures.find(feature=>/Turn or Rebuke Undead/i.test(feature.name))?.description||'',/3 \+ your Charisma modifier times per day/i);
 
-const paladin35=exact35('classes/paladin-95');
-const paladin6=reconcileClassGrants(baseCharacter([{catalogId:paladin35.catalogId,name:'Paladin',edition:'3.5',level:6,definition:paladin35}]));
+const reviewedPaladin35=exact35('classes/paladin-95');
+const paladin6=reconcileClassGrants(baseCharacter([{catalogId:reviewedPaladin35.catalogId,name:'Paladin',edition:'3.5',level:6,definition:reviewedPaladin35}]));
 assert.equal(paladin6.grantedFeatures.find(feature=>feature.name==='Lay on Hands')?.descriptionSource,'rule-text');
 assert.equal(paladin6.actions.find(action=>action.name==='Lay on Hands')?.type,'Standard action','Paladin Lay on Hands is exposed as a standard action');
 assert.equal(paladin6.actions.find(action=>action.name==='Special Mount')?.type,'Full-round action','Paladin Special Mount calling is exposed as a full-round action');
@@ -84,14 +84,14 @@ assert.equal(paladin6.resources.find(resource=>resource.name==='Special Mount')?
 assert.equal(paladin6.resources.find(resource=>resource.name==='Remove Disease')?.max,1,'Paladin Remove Disease begins at once per week');
 assert.equal(paladin6.resources.find(resource=>resource.name==='Remove Disease')?.reset,'none','weekly Paladin resources do not reset on normal rests');
 assert.match(paladin6.resources.find(resource=>resource.name==='Remove Disease')?.recoveryText||'',/one week/i);
-const wizard35=exact35('classes/wizard-99');
-const wizard1=reconcileClassGrants(baseCharacter([{catalogId:wizard35.catalogId,name:'Wizard',edition:'3.5',level:1,definition:wizard35}]));
+const reviewedWizard35=exact35('classes/wizard-99');
+const wizard1=reconcileClassGrants(baseCharacter([{catalogId:reviewedWizard35.catalogId,name:'Wizard',edition:'3.5',level:1,definition:reviewedWizard35}]));
 assert.equal(wizard1.grantedFeatures.find(feature=>feature.name==='Spellbooks')?.descriptionSource,'rule-text');
-assert(wizard1.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===wizard35.catalogId),'Wizard Scribe Scroll is a class-granted feat');
+assert(wizard1.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===reviewedWizard35.catalogId),'Wizard Scribe Scroll is a class-granted feat');
 assert.match(wizard1.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Intelligence/i);
 
-const sorcerer35=exact35('classes/sorcerer-98');
-const sorcerer1=reconcileClassGrants(baseCharacter([{catalogId:sorcerer35.catalogId,name:'Sorcerer',edition:'3.5',level:1,definition:sorcerer35}]));
+const reviewedSorcerer35=exact35('classes/sorcerer-98');
+const sorcerer1=reconcileClassGrants(baseCharacter([{catalogId:reviewedSorcerer35.catalogId,name:'Sorcerer',edition:'3.5',level:1,definition:reviewedSorcerer35}]));
 assert.equal(sorcerer1.grantedFeatures.find(feature=>feature.name==='Familiar')?.descriptionSource,'rule-text');
 assert.match(sorcerer1.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/without preparing/i);
 assert.match(sorcerer1.grantedFeatures.find(feature=>feature.name==='Familiar Basics')?.description||'',/Hit Dice/i);
