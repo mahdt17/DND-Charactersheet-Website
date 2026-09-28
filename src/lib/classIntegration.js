@@ -425,8 +425,20 @@ function explicitLevelGrants(record,maximum){
 function rawClassFeatures(row){
   const record=row.definition||{},edition=normalizeEdition(row.edition||record.edition),maximum=row.level;
   const decorateLegacy=grant=>edition==='3.5'?{...grant,...reviewedFeatureMetadata(record,grant.name),description:grant.description||grant.effect||sourceFeatureDescription(record,grant.name)}:{...grant,description:grant.description||grant.effect||''};
+  const supplementReviewed=features=>{
+    const list=features.map(decorateLegacy);
+    if(edition!=='3.5')return list;
+    const seen=new Set(list.map(feature=>featureMatchKey(feature.name)));
+    for(const detail of reviewedFeatureRows(record)){
+      const level=Math.max(1,Number(detail?.level)||1),name=String(detail?.name||'').trim();
+      if(!name||level>maximum||seen.has(featureMatchKey(name)))continue;
+      list.push({level,name,description:String(detail.description||'').trim(),...reviewedFeatureMetadata(record,name)});
+      seen.add(featureMatchKey(name));
+    }
+    return list;
+  };
   const explicit=explicitLevelGrants(record,maximum);
-  if(explicit.length)return explicit.map(decorateLegacy);
+  if(explicit.length)return supplementReviewed(explicit);
   if(edition==='2014'){
     return levels2014
       .filter(level=>level.class?.name===row.name&&!level.subclass&&level.level<=maximum)
@@ -440,17 +452,7 @@ function rawClassFeatures(row){
       .filter(feature=>feature.class?.name===row.name&&featureLevel(feature)<=maximum&&(!feature.subclass||feature.subclass.name===row.subclass))
       .map(feature=>({level:featureLevel(feature),name:feature.name,description:textDescription(feature),sourceFeatureId:feature.index||feature.id,kind:feature.kind}));
   }
-  const table=tableFeatureCells(record,maximum).map(decorateLegacy);
-  if(edition==='3.5'){
-    const seen=new Set(table.map(feature=>featureMatchKey(feature.name)));
-    for(const detail of reviewedFeatureRows(record)){
-      const level=Math.max(1,Number(detail?.level)||1),name=String(detail?.name||'').trim();
-      if(!name||level>maximum||seen.has(featureMatchKey(name)))continue;
-      table.push({level,name,description:String(detail.description||'').trim(),...reviewedFeatureMetadata(record,name)});
-      seen.add(featureMatchKey(name));
-    }
-  }
-  return table;
+  return supplementReviewed(tableFeatureCells(record,maximum));
 }
 
 function coalesceFeatures(row){
