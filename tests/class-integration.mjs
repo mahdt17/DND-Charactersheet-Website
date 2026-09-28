@@ -243,6 +243,15 @@ assert.deepEqual(warmage20.grantedFeatures.find(feature=>feature.name==='Advance
 assert.match(warmage20.grantedFeatures.find(feature=>feature.name==='Warmage Edge')?.description||'',/Intelligence bonus/i);
 assert.match(warmage20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Charisma/i);
 assert.equal(warmage20.grantedFeatures.find(feature=>feature.name==='Armored Mage')?.descriptionSource,'rule-text');
+const reviewedBeguiler35=exact35('classes/beguiler-100');
+const beguiler20=reconcileClassGrants(baseCharacter([{catalogId:reviewedBeguiler35.catalogId,name:'Beguiler',edition:'3.5',level:20,definition:reviewedBeguiler35}]));
+assert(beguiler20.feats.some(feat=>feat.name==='Silent Spell'&&feat.sourceClassId===reviewedBeguiler35.catalogId),'Beguiler grants Silent Spell');
+assert(beguiler20.feats.some(feat=>feat.name==='Still Spell'&&feat.sourceClassId===reviewedBeguiler35.catalogId),'Beguiler grants Still Spell');
+assert.equal(beguiler20.grantedFeatures.find(feature=>feature.name==='Advanced Learning')?.kind,'choice');
+assert.deepEqual(beguiler20.grantedFeatures.find(feature=>feature.name==='Advanced Learning')?.choiceLevels,[3,7,11,15,19]);
+assert.match(beguiler20.grantedFeatures.find(feature=>feature.name==='Cloaked Casting')?.description||'',/automatically overcome/i);
+assert.match(beguiler20.grantedFeatures.find(feature=>feature.name==='Surprise Casting')?.description||'',/move action/i);
+assert.match(beguiler20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/automatically know every/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
