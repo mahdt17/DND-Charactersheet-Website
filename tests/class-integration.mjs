@@ -35,6 +35,28 @@ for(const name of ['Dark Knowledge','Scribe Scroll','Lore Mastery','Still Mind']
 assert.equal(a4.resources.find(resource=>resource.name==='Dark Knowledge')?.max,4);
 assert(a4.grantedFeatures.every(feature=>feature.description&&['rule-text','progression'].includes(feature.descriptionSource)),'Every granted class feature needs a usable sourced description');
 assert(!a4.grantedFeatures.some(feature=>feature.description.includes('See the class source for complete rules.')),'Progression text replaces vague description placeholders');
+const exact35=sourceId=>annotateClassGrantKinds(classes35.find(record=>record.sourceId===sourceId),reference35);
+
+const fighter35=exact35('classes/fighter-93');
+const fighter6=reconcileClassGrants(baseCharacter([{catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:6,definition:fighter35}]));
+const fighterBonus=fighter6.grantedFeatures.find(feature=>feature.name.toLowerCase()==='bonus feat');
+assert.equal(fighterBonus?.kind,'choice','Fighter bonus feats remain guided choices rather than fake concrete feats');
+assert.equal(fighterBonus?.descriptionSource,'rule-text');
+assert.match(fighterBonus?.description||'',/prerequisites/i);
+
+const rogue35=exact35('classes/rogue-97');
+const rogue10=reconcileClassGrants(baseCharacter([{catalogId:rogue35.catalogId,name:'Rogue',edition:'3.5',level:10,definition:rogue35}]));
+const rogueSpecial=rogue10.grantedFeatures.find(feature=>/special ability/i.test(feature.name));
+assert.equal(rogueSpecial?.kind,'choice','Rogue Special Ability is recognized as a class choice');
+assert.equal(rogueSpecial?.descriptionSource,'rule-text','singular progression label resolves plural source heading');
+assert.match(rogueSpecial?.description||'',/Crippling Strike/i);
+assert(rogue10.grantedFeatures.some(feature=>feature.name==='Sneak Attack'));
+
+const barbarian35=exact35('classes/barbarian-89');
+const barbarian4=reconcileClassGrants(baseCharacter([{catalogId:barbarian35.catalogId,name:'Barbarian',edition:'3.5',level:4,definition:barbarian35}]));
+assert(barbarian4.actions.some(action=>action.name==='Rage'&&action.sourceClassId===barbarian35.catalogId));
+assert.equal(barbarian4.resources.find(resource=>resource.name==='Rage')?.max,2);
+assert.equal(barbarian4.grantedFeatures.find(feature=>feature.name==='Rage')?.descriptionSource,'rule-text');
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
