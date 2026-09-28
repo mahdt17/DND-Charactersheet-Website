@@ -211,7 +211,7 @@
     {
       "name": "Bonus Languages",
       "level": 1,
-      "description": "Draconic is available as a dragon-shaman bonus-language choice in addition to languages otherwise available from your race and other rules.",
+      "description": "Draconic is available as a dragon-shaman bonus language in addition to languages otherwise available from your race and other rules.",
       "sourceSha256": "16c3db854279f563d22acb78098745683aea53daf6afdd8b3d4fa05d0bd13d69"
     },
     {
