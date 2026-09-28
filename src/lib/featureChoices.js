@@ -28,7 +28,14 @@ function sourceChoicePlan(c,previous,picks={}) {
       for(const [index,event] of events.entries()) {
         const level=Number(event.level)||feature.sourceClassLevel||feature.level;
         const id=`3.5:${row.catalogId}:${level}:${feature.sourceFeatureId||feature.id}:${index}`;
-        const options=(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value));
+        let options=(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value));
+        if(feature.uniqueChoices){
+          const already=new Set(Object.values(patch.featureChoices||{})
+            .filter(choice=>choice?.sourceClassId===row.catalogId&&choice?.feature===feature.name)
+            .flatMap(choice=>choice.choices||[])
+            .map(norm));
+          options=options.filter(value=>!already.has(norm(value)));
+        }
         const choiceKind=feature.choiceKind||'source';
         const existing=patch.featureChoices[id];
         if(existing){
