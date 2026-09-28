@@ -37,6 +37,16 @@ const mp=featureChoicePlan(multi,prior);assert.equal(mp.groups.filter(g=>g.kind=
 assert.deepEqual(featureChoicePlan({...multi,classLevels:[multi.classLevels[0],{...multi.classLevels[1],edition:'2014'}]},prior).groups,[]);
 assert.equal(featureChoicePlan({...multi,classLevels:[multi.classLevels[0],{name:'Druid',edition:'2024',level:1}]},prior).patch.languages,'Common, Druidic');
 
+const fighterReprintClass35={name:'Fighter',edition:'3.5',sourceId:'classes/fighter-41',catalogId:'dndtools:classes/fighter-41',sourceUrl:'https://new.dndtools.org/classes/fighter-41',progression:[['Class Level','Special'],['1st','Bonus feat'],['2nd','Bonus feat']]};
+const fighterReprint35={ruleset:'3.5',mechanics:'3.5',className:'Fighter',classDefinition:fighterReprintClass35,classLevels:[{name:'Fighter',edition:'3.5',catalogId:fighterReprintClass35.catalogId,level:1,definition:fighterReprintClass35}],level:1,abilities:{str:10,dex:10,con:10,int:10,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}};
+const fighterReprintPlan=featureChoicePlan(fighterReprint35,null);
+const fighterReprintBonus=fighterReprintPlan.groups.find(group=>/^Bonus Feats?$/i.test(group.label));
+assert.equal(fighterReprintBonus?.choiceKind,'feat','verified Fighter reprints inherit canonical bonus-feat metadata');
+const fighterReprintChosen=applyFeatureChoices(fighterReprint35,null,{[fighterReprintBonus.id]:['Power Attack']});
+assert(fighterReprintChosen.feats.some(feat=>feat.name==='Power Attack'&&feat.sourceType==='class-choice'),'Fighter reprint choice materializes a feat');
+const fighterReprintReconciled=(await import('../src/lib/classIntegration.js')).reconcileClassGrants(fighterReprintChosen);
+assert(fighterReprintReconciled.feats.some(feat=>feat.name==='Power Attack'&&feat.sourceType==='class-choice'),'Fighter reprint class-choice feat survives reconciliation');
+
 const legacyChoiceClass={name:'Choice Adept',edition:'3.5',catalogId:'dndtools:classes/choice-adept',sourceUrl:'https://example.invalid/choice-adept',sourceDescription:'Bonus Feat: Choose one feat for which you meet the prerequisites.',progression:[['Class Level','Special'],['1st','Bonus feat']]};
 const legacyChoice={ruleset:'3.5',mechanics:'3.5',className:'Choice Adept',classDefinition:legacyChoiceClass,classLevels:[{name:'Choice Adept',edition:'3.5',catalogId:legacyChoiceClass.catalogId,level:1,definition:legacyChoiceClass}],level:1,abilities:{str:10,dex:10,con:10,int:10,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}};
 const legacyPlan=featureChoicePlan(legacyChoice,null);
