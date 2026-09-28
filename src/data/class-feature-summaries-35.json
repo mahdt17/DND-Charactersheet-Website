@@ -772,7 +772,8 @@
         ]
       },
       "description": "Each time your minor-auras-known count increases, choose another minor aura. A minor aura lets affected allies add your Charisma bonus to the source-listed category of rolls. You know 1 minor aura at 1st level and eventually 8 at 19th level.",
-      "sourceSha256": "6284f4abbbde17a06e3af7f4d2920812e8138b68762b8a853673700747efca96"
+      "sourceSha256": "6284f4abbbde17a06e3af7f4d2920812e8138b68762b8a853673700747efca96",
+      "uniqueChoices": true
     },
     {
       "name": "Major Aura",
@@ -833,7 +834,8 @@
         ]
       },
       "description": "Each time your major-auras-known count increases, choose another major aura. The major aura bonus is +1 at 2nd level, +2 at 7th, +3 at 14th, and +4 at 20th. You know 1 major aura at 2nd level and eventually 5 at 20th level.",
-      "sourceSha256": "00b25007528636030495be2eaa87918bf60c754d74c3f563a47948f1ddf347f5"
+      "sourceSha256": "00b25007528636030495be2eaa87918bf60c754d74c3f563a47948f1ddf347f5",
+      "uniqueChoices": true
     },
     {
       "name": "Skill Focus (Diplomacy)",
