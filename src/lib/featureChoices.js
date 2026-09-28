@@ -21,7 +21,9 @@ function sourceChoicePlan(c,previous,picks={}) {
     const oldLevel=oldRows.find(item=>item.catalogId===row.catalogId)?.level||0;
     const features=(current.grantedFeatures||[]).filter(feature=>feature.sourceClassId===row.catalogId&&feature.kind==='choice');
     for(const feature of features) {
-      const events=(feature.progressionHistory||[{level:feature.sourceClassLevel||feature.level,text:feature.description}])
+      const events=(Array.isArray(feature.choiceLevels)&&feature.choiceLevels.length
+        ?feature.choiceLevels.map(level=>({level,text:feature.name}))
+        :(feature.progressionHistory||[{level:feature.sourceClassLevel||feature.level,text:feature.description}]))
         .filter(event=>Number(event.level)>oldLevel&&Number(event.level)<=row.level);
       for(const [index,event] of events.entries()) {
         const level=Number(event.level)||feature.sourceClassLevel||feature.level;
