@@ -203,6 +203,14 @@ const nextAura=dragonShaman5Plan.groups.find(group=>group.label==='Draconic Aura
 assert.equal(nextAura?.required,1);
 assert(!nextAura.options.includes('Power')&&!nextAura.options.includes('Presence')&&!nextAura.options.includes('Vigor'),'Known draconic auras are excluded from later choices');
 
+const beguilerClass35={name:'Beguiler',edition:'3.5',sourceId:'classes/beguiler-100',catalogId:'dndtools:classes/beguiler-100',sourceUrl:'https://new.dndtools.org/classes/beguiler-100',progression:[['Level','Special'],['3rd','Advanced learning'],['7th','Advanced learning']]};
+const beguiler7={...legacyChoice,className:'Beguiler',classDefinition:beguilerClass35,classLevels:[{name:'Beguiler',edition:'3.5',catalogId:beguilerClass35.catalogId,level:7,definition:beguilerClass35}],level:7};
+const beguiler6={...beguiler7,classLevels:[{...beguiler7.classLevels[0],level:6}],level:6};
+const beguilerPlan=featureChoicePlan(beguiler7,beguiler6);
+const beguilerLearning=beguilerPlan.groups.find(group=>group.label==='Advanced Learning');
+assert(beguilerLearning,'Beguiler level 7 requests its next Advanced Learning spell');
+assert.equal(beguilerLearning.required,1);
+
 const knightClass35={name:'Knight',edition:'3.5',sourceId:'classes/knight-103',catalogId:'dndtools:classes/knight-103',sourceUrl:'https://new.dndtools.org/classes/knight-103',progression:[['Level','Special'],['2nd','Mounted Combat, shield block +1'],['5th','Bonus feat, vigilant defender'],['10th','Bonus feat']]};
 const knight10={...legacyChoice,className:'Knight',classDefinition:knightClass35,classLevels:[{name:'Knight',edition:'3.5',catalogId:knightClass35.catalogId,level:10,definition:knightClass35}],level:10};
 const knight9={...knight10,classLevels:[{...knight10.classLevels[0],level:9}],level:9};
