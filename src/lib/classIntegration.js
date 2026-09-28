@@ -2,6 +2,7 @@ import levels2014 from '../data/levels.json' with {type:'json'};
 import features2014 from '../data/features.json' with {type:'json'};
 import modern from '../data/srd2024.json' with {type:'json'};
 import proficiencySupplements35 from '../data/class-proficiencies35.json' with {type:'json'};
+import legacyFeatureSummaries from '../data/class-feature-summaries-35.json' with {type:'json'};
 import {characterClasses,contentKey,progressionTables} from './advancement.js';
 import {normalizeEdition} from './content.js';
 import {reconcileSubclassSpells} from './subclassSpells.js';
@@ -28,6 +29,24 @@ function withProficiencySupplement(record){
   return {...record,proficiencies,proficiencyChoices,proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
+const featureMatchKey=value=>norm(String(value||'')
+  .replace(/\s*\([^)]*\)/g,' ')
+  .replace(/\s+\d+\/(?:day|week|encounter)\b.*$/i,'')
+  .replace(/\s+\+?\d+d\d+\b.*$/i,'')
+  .replace(/\s+\+\d+\b.*$/i,'')
+  .replace(/\s+\d+\/[—-]\s*$/i,'')
+  .replace(/\babilities\b$/i,'ability')
+  .replace(/\bfeats\b$/i,'feat'));
+function reviewedFeatureRows(record){
+  const keys=[record?.sourceId,record?.id,record?.catalogId].filter(Boolean).map(value=>String(value).replace(/^dndtools:/,''));
+  const rows=keys.map(key=>legacyFeatureSummaries[key]).find(Array.isArray)||legacyFeatureSummaries[record?.name]||[];
+  return Array.isArray(rows)?rows:[];
+}
+function reviewedFeatureDescription(record,name){
+  const key=featureMatchKey(name);
+  const row=reviewedFeatureRows(record).find(item=>featureMatchKey(item?.name)===key);
+  return typeof row?.description==='string'?row.description.trim():'';
+}
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
 const title=value=>String(value||'').replace(/\b\w/g,c=>c.toUpperCase());
 const words={once:1,one:1,twice:2,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10};
@@ -60,6 +79,8 @@ function textDescription(feature){
   return '';
 }
 function sourceFeatureDescription(record,name){
+  const reviewed=reviewedFeatureDescription(record,name);
+  if(reviewed)return reviewed;
   const source=String(record?.sourceDescription||record?.description||record?.effect||'');
   if(!source||!name)return '';
   const seed=[name,String(name).replace(/\s*\([^)]*\)\s*$/,'')].filter(Boolean);
