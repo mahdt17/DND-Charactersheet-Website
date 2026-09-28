@@ -62,7 +62,15 @@ function textDescription(feature){
 function sourceFeatureDescription(record,name){
   const source=String(record?.sourceDescription||record?.description||record?.effect||'');
   if(!source||!name)return '';
-  const candidates=[name,String(name).replace(/\s*\([^)]*\)\s*$/,'')].filter(Boolean);
+  const seed=[name,String(name).replace(/\s*\([^)]*\)\s*$/,'')].filter(Boolean);
+  const candidates=[];
+  for(const value of seed){
+    candidates.push(value);
+    if(/\bability$/i.test(value))candidates.push(value.replace(/\bability$/i,'abilities'));
+    if(/\babilities$/i.test(value))candidates.push(value.replace(/\babilities$/i,'ability'));
+    if(/\bfeat$/i.test(value))candidates.push(value.replace(/\bfeat$/i,'feats'));
+    if(/\bfeats$/i.test(value))candidates.push(value.replace(/\bfeats$/i,'feat'));
+  }
   for(const candidate of [...new Set(candidates)]){
     const escaped=candidate.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
     const heading=new RegExp('(?:^|\\n)\\s*(?:\\*\\*)?'+escaped+'(?:\\s*\\([^\\n)]*\\))?(?:\\*\\*)?\\s*:\\s*','i');
