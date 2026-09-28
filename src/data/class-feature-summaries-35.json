@@ -1878,7 +1878,10 @@
       "level": 1,
       "actionType": "Full-round action",
       "description": "When unarmored, use a full attack to make one extra attack at your highest base attack bonus, with the flurry penalty applied to every attack that round. The penalty is -2 initially, -1 at 5th, and disappears at 9th. Flurry uses unarmed strikes or special monk weapons; at 11th level it gains a second extra attack at the full base attack bonus.",
-      "sourceSha256": "62602c1735fea1474c18ed300bd4376505655f8e450207d4f2c5a0e21a21fe40"
+      "sourceSha256": "62602c1735fea1474c18ed300bd4376505655f8e450207d4f2c5a0e21a21fe40",
+      "aliases": [
+        "Greater Flurry"
+      ]
     },
     {
       "name": "Unarmed Strike",
@@ -1937,7 +1940,18 @@
       "name": "Slow Fall (Ex)",
       "level": 4,
       "description": "When within reach of a wall, reduce the effective falling distance by 20 feet at 4th level. The reduction improves with monk level until 20th level, when a nearby wall lets you fall any distance without harm.",
-      "sourceSha256": "5eefda217901b2c64163f5253c5ccf6a55f244ed41ea53fa1879a591d592bd22"
+      "sourceSha256": "5eefda217901b2c64163f5253c5ccf6a55f244ed41ea53fa1879a591d592bd22",
+      "aliases": [
+        "Slow Fall 20 Ft.",
+        "Slow Fall 30 Ft.",
+        "Slow Fall 40 Ft.",
+        "Slow Fall 50 Ft.",
+        "Slow Fall 60 Ft.",
+        "Slow Fall 70 Ft.",
+        "Slow Fall 80 Ft.",
+        "Slow Fall 90 Ft.",
+        "Slow Fall Any Distance"
+      ]
     },
     {
       "name": "Purity of Body (Ex)",
@@ -2230,7 +2244,16 @@
       "name": "Paladin’s Mount Basics",
       "level": 5,
       "description": "The special mount uses its base creature statistics plus the paladin-mount progression: bonus Hit Dice, natural armor and Strength adjustments, increased Intelligence, and additional special abilities such as empathic link as the paladin advances.",
-      "sourceSha256": "b27e64881ea7831935fb922552565582f08e48348ad8a72b3eca2ef1474e6b38"
+      "sourceSha256": "b27e64881ea7831935fb922552565582f08e48348ad8a72b3eca2ef1474e6b38",
+      "aliases": [
+        "Empathic Link",
+        "Improved Evasion",
+        "Share Spells",
+        "Share Saving Throws",
+        "Improved Speed",
+        "Command",
+        "Spell Resistance"
+      ]
     }
   ],
   "classes/psion-137": [
@@ -2881,7 +2904,10 @@
       "name": "Familiar",
       "level": 1,
       "description": "You can obtain one familiar through the class's familiar ritual and material cost. The familiar improves as your qualifying class levels increase; qualifying familiar-granting classes stack for familiar abilities. If the familiar dies or is dismissed, the source rules apply an XP loss and a delay before replacement.",
-      "sourceSha256": "ab9d36c15573d7b732d8b42d8318e3c5bd215384b0891804e708412479050981"
+      "sourceSha256": "ab9d36c15573d7b732d8b42d8318e3c5bd215384b0891804e708412479050981",
+      "aliases": [
+        "Summon Familiar"
+      ]
     },
     {
       "name": "Familiar Basics",
@@ -2893,7 +2919,18 @@
       "name": "Familiar Ability Descriptions",
       "level": 1,
       "description": "Familiar abilities accumulate with the master's combined levels in familiar-granting classes. They include scaling natural armor and Intelligence plus abilities such as Alertness, improved evasion, share spells, empathic link, and later familiar powers according to the familiar progression.",
-      "sourceSha256": "cfe8403b5299888cafdba3ae2c03f16f8a39920279059f18d5f5bb2968f743e6"
+      "sourceSha256": "cfe8403b5299888cafdba3ae2c03f16f8a39920279059f18d5f5bb2968f743e6",
+      "aliases": [
+        "Alertness",
+        "Improved Evasion",
+        "Share Spells",
+        "Empathic Link",
+        "Deliver Touch Spells",
+        "Speak with Master",
+        "Speak with Animals of Its Kind",
+        "Spell Resistance",
+        "Scry on Familiar"
+      ]
     }
   ],
   "classes/soulknife-139": [
@@ -3452,7 +3489,10 @@
       "name": "Familiar",
       "level": 1,
       "description": "You can obtain a familiar using the same familiar rules as a sorcerer. Levels in classes that grant familiars stack when determining familiar abilities.",
-      "sourceSha256": "a4e802a558f4675bfdcc78d3e347b78e63d9d89bb1bd2ca2e2e532dcdc70da89"
+      "sourceSha256": "a4e802a558f4675bfdcc78d3e347b78e63d9d89bb1bd2ca2e2e532dcdc70da89",
+      "aliases": [
+        "Summon Familiar"
+      ]
     },
     {
       "name": "Scribe Scroll",
