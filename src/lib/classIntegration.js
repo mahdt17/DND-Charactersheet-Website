@@ -54,7 +54,7 @@ function reviewedFeatureMetadata(record,name){
   const row=reviewedFeatureRow(record,name);
   if(!row)return {};
   const metadata={};
-  for(const key of ['featName','choiceKind','choiceCount','choiceOptionsByLevel','ignorePrerequisites','actionType','resource'])if(row[key]!=null)metadata[key]=row[key];
+  for(const key of ['featName','choiceKind','choiceCount','choiceLevels','choiceOptionsByLevel','ignorePrerequisites','actionType','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -551,7 +551,7 @@ function derivedForRow(row,character=null){
     const description=localRuleText||row.name+' progression: '+progressionSummary+'.';
     const descriptionSource=localRuleText?'rule-text':'progression';
     const choice=Boolean(feature.choiceKind)||needsChoice(feature);
-    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
+    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
     const concreteFeat=isConcreteFeat(feature),grantedFeatName=feature.featName||'';
     if(concreteFeat||grantedFeatName){
