@@ -173,5 +173,25 @@ const marshalChosen=applyFeatureChoices(marshal5,null,distinctAuraPicks);
 assert.equal(Object.values(marshalChosen.featureChoices).filter(choice=>choice.feature==='Minor Aura').length,3);
 assert.equal(Object.values(marshalChosen.featureChoices).filter(choice=>choice.feature==='Major Aura').length,2);
 
+const dragonShamanClass35={name:'Dragon Shaman',edition:'3.5',sourceId:'classes/dragon-shaman-101',catalogId:'dndtools:classes/dragon-shaman-101',sourceUrl:'https://new.dndtools.org/classes/dragon-shaman-101',progression:[['Level','Special'],['1st','Draconic aura +1, totem dragon'],['2nd','Skill Focus'],['3rd','Draconic adaptation'],['5th','Draconic aura +2']]};
+const dragonShaman1={...legacyChoice,className:'Dragon Shaman',classDefinition:dragonShamanClass35,classLevels:[{name:'Dragon Shaman',edition:'3.5',catalogId:dragonShamanClass35.catalogId,level:1,definition:dragonShamanClass35}],level:1};
+const dragonShamanPlan=featureChoicePlan(dragonShaman1,null);
+const dragonAuras=dragonShamanPlan.groups.find(group=>group.label==='Draconic Aura');
+const dragonTotem=dragonShamanPlan.groups.find(group=>group.label==='Totem Dragon');
+assert.equal(dragonAuras?.required,3,'Dragon Shaman starts knowing three draconic auras');
+assert(dragonAuras.options.includes('Vigor')&&dragonAuras.options.includes('Energy Shield'));
+assert(dragonTotem?.options.includes('Gold')&&dragonTotem.options.includes('Red'));
+assert.throws(()=>applyFeatureChoices(dragonShaman1,null,{[dragonAuras.id]:['Power','Power','Vigor'],[dragonTotem.id]:['Gold']}),/Complete/,'Dragon Shaman cannot duplicate starting auras');
+const dragonShamanChosen=applyFeatureChoices(dragonShaman1,null,{[dragonAuras.id]:['Power','Presence','Vigor'],[dragonTotem.id]:['Gold']});
+assert(Object.values(dragonShamanChosen.featureChoices).some(choice=>choice.feature==='Totem Dragon'&&choice.choices?.[0]==='Gold'));
+assert(Object.values(dragonShamanChosen.featureChoices).some(choice=>choice.feature==='Draconic Aura'&&choice.choices?.length===3));
+
+const dragonShaman5={...dragonShamanChosen,classLevels:[{...dragonShaman1.classLevels[0],level:5}],level:5};
+const dragonShaman4={...dragonShamanChosen,classLevels:[{...dragonShaman1.classLevels[0],level:4}],level:4};
+const dragonShaman5Plan=featureChoicePlan(dragonShaman5,dragonShaman4);
+const nextAura=dragonShaman5Plan.groups.find(group=>group.label==='Draconic Aura');
+assert.equal(nextAura?.required,1);
+assert(!nextAura.options.includes('Power')&&!nextAura.options.includes('Presence')&&!nextAura.options.includes('Vigor'),'Known draconic auras are excluded from later choices');
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
