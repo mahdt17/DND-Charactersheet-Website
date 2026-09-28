@@ -75,5 +75,16 @@ const monk2={...monkApplied,level:2,classLevels:[{...monkChoice.classLevels[0],l
 const monk2Plan=featureChoicePlan(monk2,monkApplied);
 assert.deepEqual(monk2Plan.groups.find(group=>group.label.toLowerCase()==='bonus feat')?.options,['Combat Reflexes','Deflect Arrows']);
 
+const rangerClass35={name:'Ranger',edition:'3.5',sourceId:'classes/ranger-96',catalogId:'dndtools:classes/ranger-96',sourceUrl:'https://new.dndtools.org/classes/ranger-96',progression:[['Class Level','Special'],['1st','Favored enemy, Track, wild empathy'],['2nd','Combat style']]};
+const rangerChoice35={...legacyChoice,className:'Ranger',classDefinition:rangerClass35,classLevels:[{name:'Ranger',edition:'3.5',catalogId:rangerClass35.catalogId,level:2,definition:rangerClass35}],level:2};
+const rangerBefore35={...rangerChoice35,classLevels:[{...rangerChoice35.classLevels[0],level:1}],level:1};
+const rangerStylePlan=featureChoicePlan(rangerChoice35,rangerBefore35);
+const rangerStyle=rangerStylePlan.groups.find(group=>group.label==='Combat Style');
+assert(rangerStyle,'Ranger level 2 requests its reviewed combat-style choice');
+assert.deepEqual(rangerStyle.options,['Archery','Two-Weapon Combat']);
+assert.equal(rangerStyle.ignorePrerequisites,true);
+const rangerStyled=applyFeatureChoices(rangerChoice35,rangerBefore35,{[rangerStyle.id]:['Archery']});
+assert(Object.values(rangerStyled.featureChoices).some(choice=>choice.feature==='Combat Style'&&choice.choices?.[0]==='Archery'));
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
