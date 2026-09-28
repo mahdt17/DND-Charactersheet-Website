@@ -424,7 +424,11 @@ function explicitLevelGrants(record,maximum){
 
 function rawClassFeatures(row){
   const record=row.definition||{},edition=normalizeEdition(row.edition||record.edition),maximum=row.level;
-  const decorateLegacy=grant=>edition==='3.5'?{...grant,...reviewedFeatureMetadata(record,grant.name),description:grant.description||grant.effect||sourceFeatureDescription(record,grant.name)}:{...grant,description:grant.description||grant.effect||''};
+  const decorateLegacy=grant=>{
+    if(edition!=='3.5')return {...grant,description:grant.description||grant.effect||''};
+    const reviewed=reviewedFeatureRow(record,grant.name);
+    return {...grant,...reviewedFeatureMetadata(record,grant.name),...(reviewed?.name?{name:reviewed.name}:{}),description:reviewedFeatureDescription(record,grant.name)||grant.description||grant.effect||sourceFeatureDescription(record,grant.name)};
+  };
   const supplementReviewed=features=>{
     const list=features.map(decorateLegacy);
     if(edition!=='3.5')return list;
