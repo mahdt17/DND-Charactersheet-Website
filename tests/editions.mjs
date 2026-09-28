@@ -39,6 +39,26 @@ try {
  assert.match(archivistFeatures.find(f=>f.name==='Dark knowledge').desc[0],/Knowledge check/i);
  assert.equal(archivistFeatures.find(f=>f.name==='Scribe Scroll').featName,'Scribe Scroll');
  assert(archivistFeatures.some(f=>f.name==='Prayerbook'));
+ const fighterDefinition={sourceId:'classes/fighter-93',name:'Fighter',progression:[['Class Level','BAB','Fort','Ref','Will','Special'],['1st','+1','+2','+0','+0','Bonus feat'],['2nd','+2','+3','+0','+0','Bonus feat'],['4th','+4','+4','+1','+1','Bonus feat'],['6th','+6/+1','+5','+2','+2','Bonus feat']]};
+ const fighterFeatures=e.classFeatures({...wizard,ruleset:'3.5',className:'Fighter',classDefinition:fighterDefinition,level:6});
+ const fighterBonus=fighterFeatures.find(f=>f.name.toLowerCase()==='bonus feat');
+ assert.equal(fighterBonus.progression.length,4);
+ assert.match(fighterBonus.desc[0],/prerequisites/i);
+ assert(fighterFeatures.some(f=>f.name==='Weapon and Armor Proficiency'));
+
+ const rogueDefinition={sourceId:'classes/rogue-97',name:'Rogue',progression:[['Class Level','BAB','Fort','Ref','Will','Special'],['1st','+0','+0','+2','+0','Sneak attack +1d6, trapfinding'],['2nd','+1','+0','+3','+0','Evasion'],['3rd','+2','+1','+3','+1','Sneak attack +2d6, trap sense +1'],['4th','+3','+1','+4','+1','Uncanny dodge'],['8th','+6/+1','+2','+6','+2','Improved uncanny dodge'],['10th','+7/+2','+3','+7','+3','Special ability']]};
+ const rogueFeatures=e.classFeatures({...wizard,ruleset:'3.5',className:'Rogue',classDefinition:rogueDefinition,level:10});
+ assert.equal(rogueFeatures.filter(f=>f.name==='Sneak Attack').length,1);
+ assert.equal(rogueFeatures.find(f=>f.name==='Sneak Attack').progression.length,2);
+ assert.match(rogueFeatures.find(f=>f.name==='Special Ability').desc[0],/Crippling Strike/i);
+ assert.equal(rogueFeatures.filter(f=>/Special Abilit/i.test(f.name)).length,1);
+
+ const barbarianDefinition={sourceId:'classes/barbarian-89',name:'Barbarian',progression:[['Class Level','BAB','Fort','Ref','Will','Special'],['1st','+1','+2','+0','+0','Fast movement, illiteracy, rage 1/day'],['2nd','+2','+3','+0','+0','Uncanny dodge'],['3rd','+3','+3','+1','+1','Trap sense +1'],['4th','+4','+4','+1','+1','Rage 2/day']]};
+ const barbarianFeatures=e.classFeatures({...wizard,ruleset:'3.5',className:'Barbarian',classDefinition:barbarianDefinition,level:4});
+ const rage=barbarianFeatures.find(f=>f.name==='Rage');
+ assert.equal(rage.progression.length,2);
+ assert.match(rage.desc[0],/6\/day at 20th/i);
+ assert(barbarianFeatures.some(f=>f.name==='Weapon and Armor Proficiency'));
  const legacy={...wizard,ruleset:'3.5',className:'Fighter',level:6};
  assert.deepEqual(e.legacyProgression(legacy),{bab:6,fort:5,ref:2,will:2});
  assert.equal(e.characterSlots(legacy).reduce((a,b)=>a+b),0);
