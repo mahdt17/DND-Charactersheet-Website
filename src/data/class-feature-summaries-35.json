@@ -832,6 +832,160 @@
       "choiceKind": "feat"
     }
   ],
+  "classes/healer-77": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons and light armor. Wearing metal armor or using any shield violates the healer's oath, suppressing healer spellcasting and supernatural/spell-like class features while worn and for 24 hours afterward.",
+      "sourceSha256": "6a364f85ff3d6b94b2bb493e400bf539fc2147f2d11099d259859d195731882e"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Prepare divine spells from the healer list using Wisdom. Wisdom determines spell access, save DCs, and bonus spells per day. After one hour of daily meditation or prayer, choose prepared spells from any healer-list spells of levels you can cast.",
+      "sourceSha256": "7f6d7c543f07581beddf483f9fdb1008580663c5aa8f236b7b03f6ca167d6555"
+    },
+    {
+      "name": "Healing Hands",
+      "level": 1,
+      "description": "When a healer spell of the healing subschool cures hit point damage, add your Charisma modifier to the amount healed. This applies only to healing-subschooled spells cast as a healer.",
+      "sourceSha256": "b75b54c455247d6c5d940b237d0dccea7e7539dfb8f77b0f00c4ccf4fc240300"
+    },
+    {
+      "name": "Skill Focus (Heal)",
+      "level": 2,
+      "featName": "Skill Focus (Heal)",
+      "description": "Gain Skill Focus (Heal) as a bonus feat at 2nd level. If you already have that feat, the source allows a different feat instead.",
+      "sourceSha256": "7edc6f266683ae34422673695d40da1df99e39c2267dc75e83c4ab3f7897cf66"
+    },
+    {
+      "name": "Cleanse Paralysis",
+      "level": 3,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Cleanse Paralysis refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, remove paralysis as though using remove paralysis.",
+      "sourceSha256": "f23ea2e98640b4ee871cabb20b7a6e00520edb87cd55026d5e7043749966ff71"
+    },
+    {
+      "name": "Cleanse Disease",
+      "level": 4,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Cleanse Disease refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, remove disease as though using remove disease.",
+      "sourceSha256": "04c88c5931f507fb407f1f0dbf5717899ec501d1180363cfc2db0e2df6f24762"
+    },
+    {
+      "name": "Cleanse Fear",
+      "level": 5,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Cleanse Fear refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, remove fear as though using remove fear.",
+      "sourceSha256": "621e05eb51d0c20f9ab4d20f049c0936fa453e270c74f3c494a9dbafb9c25643"
+    },
+    {
+      "name": "Cleanse Poison",
+      "level": 6,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Cleanse Poison refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, neutralize poison as though using neutralize poison.",
+      "sourceSha256": "eba2480510d2c07ae093ec6475359686e0856795a38881dcb1128422bc051ee3"
+    },
+    {
+      "name": "Effortless Healing",
+      "level": 7,
+      "description": "Cast healer spells of the healing subschool without provoking attacks of opportunity. This benefit applies only to healing-subschooled spells cast as a healer.",
+      "sourceSha256": "16516c6d81e44b9db8f26a721629ccd842e34f9c2cc8a4d4ef55a1dab128b72b"
+    },
+    {
+      "name": "Unicorn Companion",
+      "level": 8,
+      "actionType": "Full-round action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "call",
+        "recoveryText": "The daily companion call refreshes with the character's daily recovery."
+      },
+      "description": "Once per day as a full-round action, call your celestial unicorn companion. It appears adjacent to you and remains for 2 hours per healer level unless dismissed earlier. Alternative celestial companions become available from 12th level with the source-listed effective-level adjustments; full companion statistics remain a companion-state subsystem.",
+      "sourceSha256": "49fed856ce6ad5a9615916b4e8fb94b7ec7142565198def54c24bc9579708aa2"
+    },
+    {
+      "name": "Cleanse Blindness",
+      "level": 9,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Cleanse Blindness refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, remove blindness or deafness as though using remove blindness/deafness.",
+      "sourceSha256": "3a695d3cf28ad838dc1a2cdf4e597b5558dd8665efc43db1b00d1846446a2b35"
+    },
+    {
+      "name": "Cleanse Spirit",
+      "level": 10,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Cleanse Spirit refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, restore a creature as though using greater restoration.",
+      "sourceSha256": "a1ab51f7989fc009c9400e6050dbf4bad294abc9fa5df7ddf054194c6bbbc0b9"
+    },
+    {
+      "name": "Cleanse Petrification",
+      "level": 13,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Cleanse Petrification refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, restore a petrified creature as though using stone to flesh.",
+      "sourceSha256": "1722c48165cc54dbef721384484b475863187f8b1ef30710c01e4e5bd48b897c"
+    },
+    {
+      "name": "New Limb",
+      "level": 15,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "New Limb refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, regrow lost or damaged body parts as though using regenerate.",
+      "sourceSha256": "78a0d54312ce8362ff479c4646be5ca410f115045ca1e68d0311c2545bb68ec0"
+    },
+    {
+      "name": "New Life",
+      "level": 20,
+      "resource": {
+        "max": 1,
+        "reset": "none",
+        "unit": "use",
+        "recoveryText": "New Life can be used once per week; track the seven-day recovery manually."
+      },
+      "description": "Once per week, return a dead creature to life as though using true resurrection.",
+      "sourceSha256": "f6c6806207310e063061d5113db746b446337fecde8fd4fed307fd39caf70ba3"
+    }
+  ],
   "classes/hexblade-19": [
     {
       "name": "Weapon and Armor Proficiency",
