@@ -2921,5 +2921,176 @@
       "description": "Prepare wizard spells from a spellbook, except read magic. Begin with all allowed 0-level wizard spells plus selected 1st-level spells, add two spells you can cast at each new wizard level, and copy additional wizard spells under the spellbook rules. A specialist wizard gains one extra specialty-school preparation per spell level but must give up prohibited schools under the specialization rules.",
       "sourceSha256": "1235b2efd0f40d597c609835e7af85795c0f1f38c5d2e1dd7e9106bf40b5a78c"
     }
+  ],
+  "classes/wu-jen-6": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons, but not armor or shields. Armor can cause arcane spell failure for wu jen spells with somatic components.",
+      "sourceSha256": "072d5d18d56d0e4950b47494d3c67502e814c06094760bf1c66b4a936636b412"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Prepare arcane spells from the wu jen list using Intelligence, much like a wizard. Intelligence determines spell access, bonus spells, and save DCs.",
+      "sourceSha256": "52f5ecdecf12f260473fb5c23d6f640b0d0a519fb83784bdc144d2ff8807c244"
+    },
+    {
+      "name": "Bonus Languages",
+      "level": 1,
+      "description": "Draconic or Giant can replace one racial bonus language available to the character.",
+      "sourceSha256": "69d7cf3e34701d9e5de5a920b9439a8f53ab4edd1df79bc853cd05ca630be667"
+    },
+    {
+      "name": "Watchful Spirit",
+      "level": 1,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "reroll",
+        "recoveryText": "Watchful Spirit refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, immediately after rolling initiative but before learning your place in the initiative order, reroll the initiative check and keep the better result.",
+      "sourceSha256": "e96e8dd8a1496d9083db058e52ed60b58e0e45210071daaddb25a4a64e1a96d9"
+    },
+    {
+      "name": "Bonus Feat",
+      "level": 1,
+      "choiceKind": "feat",
+      "choiceLevels": [
+        1
+      ],
+      "description": "At 1st level, gain one bonus metamagic feat. The selected feat must actually be a metamagic feat and normal prerequisites still apply.",
+      "sourceSha256": "e2fc541ff6dd63f1f4da2951cffdbe2c69828d90d4bc401ae21b7a761cf34b5e"
+    },
+    {
+      "name": "Spell Secret",
+      "level": 3,
+      "choiceKind": "source",
+      "choiceLevels": [
+        3,
+        9,
+        12,
+        15,
+        18
+      ],
+      "description": "At 3rd level and at 9th, 12th, 15th, and 18th level, select one spell you know and permanently apply one of Enlarge Spell, Extend Spell, Still Spell, or Silent Spell to that spell without increasing its spell level. Record the spell and applied modification together; the same spell may receive different secrets more than once.",
+      "sourceSha256": "bf3131127033c8c614bea9fa090e591822015ba15dfad8ab9a9ef2d9647f67f2"
+    },
+    {
+      "name": "Elemental Mastery",
+      "level": 6,
+      "choiceKind": "source",
+      "choiceLevels": [
+        6
+      ],
+      "choiceOptionsByLevel": {
+        "6": [
+          "Earth",
+          "Fire",
+          "Metal",
+          "Water",
+          "Wood"
+        ]
+      },
+      "description": "At 6th level, choose earth, fire, metal, water, or wood. Spells of the mastered element use an effective caster level 2 higher for level-dependent variables and caster-level checks, and you gain +2 on saving throws against spells of that element. Spells marked All benefit from any elemental mastery.",
+      "sourceSha256": "26f658836c243ea75a70a330e6dbf76c3e0d3dbe5bfd8e74315d65195b9a3594"
+    },
+    {
+      "name": "Spellbooks",
+      "level": 1,
+      "description": "Prepare spells from a spellbook. The starting spellbook contains every 0-level wu jen spell plus three 1st-level spells and one additional 1st-level spell per point of Intelligence bonus. Each new wu jen level adds two spells of levels you can cast, and additional wu jen spells can be copied from other spellbooks under the normal rules.",
+      "sourceSha256": "a22993e6c848550ade22e8931939b032f9c8e7d574b15d8306b7bf3a7fc438bb"
+    },
+    {
+      "name": "Taboos",
+      "level": 1,
+      "choiceKind": "source",
+      "choiceLevels": [
+        1,
+        3,
+        9,
+        12,
+        15,
+        18
+      ],
+      "choiceOptionsByLevel": {
+        "1": [
+          "Cannot eat meat",
+          "Cannot own more than can be carried",
+          "Must make a daily offering to spirit powers",
+          "Cannot bathe",
+          "Cannot cut hair",
+          "Cannot touch a dead body",
+          "Cannot drink alcohol",
+          "Cannot wear a certain color",
+          "Cannot light a fire",
+          "Cannot sit facing in a certain direction"
+        ],
+        "3": [
+          "Cannot eat meat",
+          "Cannot own more than can be carried",
+          "Must make a daily offering to spirit powers",
+          "Cannot bathe",
+          "Cannot cut hair",
+          "Cannot touch a dead body",
+          "Cannot drink alcohol",
+          "Cannot wear a certain color",
+          "Cannot light a fire",
+          "Cannot sit facing in a certain direction"
+        ],
+        "9": [
+          "Cannot eat meat",
+          "Cannot own more than can be carried",
+          "Must make a daily offering to spirit powers",
+          "Cannot bathe",
+          "Cannot cut hair",
+          "Cannot touch a dead body",
+          "Cannot drink alcohol",
+          "Cannot wear a certain color",
+          "Cannot light a fire",
+          "Cannot sit facing in a certain direction"
+        ],
+        "12": [
+          "Cannot eat meat",
+          "Cannot own more than can be carried",
+          "Must make a daily offering to spirit powers",
+          "Cannot bathe",
+          "Cannot cut hair",
+          "Cannot touch a dead body",
+          "Cannot drink alcohol",
+          "Cannot wear a certain color",
+          "Cannot light a fire",
+          "Cannot sit facing in a certain direction"
+        ],
+        "15": [
+          "Cannot eat meat",
+          "Cannot own more than can be carried",
+          "Must make a daily offering to spirit powers",
+          "Cannot bathe",
+          "Cannot cut hair",
+          "Cannot touch a dead body",
+          "Cannot drink alcohol",
+          "Cannot wear a certain color",
+          "Cannot light a fire",
+          "Cannot sit facing in a certain direction"
+        ],
+        "18": [
+          "Cannot eat meat",
+          "Cannot own more than can be carried",
+          "Must make a daily offering to spirit powers",
+          "Cannot bathe",
+          "Cannot cut hair",
+          "Cannot touch a dead body",
+          "Cannot drink alcohol",
+          "Cannot wear a certain color",
+          "Cannot light a fire",
+          "Cannot sit facing in a certain direction"
+        ]
+      },
+      "uniqueChoices": true,
+      "description": "Choose one taboo at 1st level and one additional taboo each time you gain a Spell Secret. Violating any taboo prevents further spellcasting for the rest of that day. The source examples include dietary, ownership, offering, grooming, contact, alcohol, color, fire, and facing-direction restrictions.",
+      "sourceSha256": "0e65a027838cdc80217d775a82623a69d793cc39f6754d9f09a730747cd6fa7e"
+    }
   ]
 }
