@@ -189,6 +189,23 @@ assert(swash11.feats.some(feat=>feat.name==='Weapon Finesse'&&feat.sourceClassId
 assert.equal(swash11.resources.find(resource=>resource.name==='Lucky')?.max,1);
 assert.equal(swash11.resources.find(resource=>resource.name==='Lucky')?.reset,'long');
 assert.match(swash11.grantedFeatures.find(feature=>feature.name==='Insightful Strike')?.description||'',/Intelligence bonus/i);
+const reviewedHexblade35=exact35('classes/hexblade-19');
+const hexblade20=reconcileClassGrants(baseCharacter([{catalogId:reviewedHexblade35.catalogId,name:'Hexblade',edition:'3.5',level:20,definition:reviewedHexblade35}]));
+assert.equal(hexblade20.actions.find(action=>action.name==='Hexblade’s Curse')?.type,'Free action');
+assert.equal(hexblade20.resources.find(resource=>resource.name==='Hexblade’s Curse')?.max,5);
+assert.equal(hexblade20.actions.find(action=>action.name==='Aura of Unluck')?.type,'Free action');
+assert.equal(hexblade20.resources.find(resource=>resource.name==='Aura of Unluck')?.max,3);
+assert.equal(hexblade20.grantedFeatures.find(feature=>feature.name==='Bonus Feat')?.kind,'choice');
+assert.match(hexblade20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/one-half hexblade level/i);
+
+const reviewedMarshal35=exact35('classes/marshal-78');
+const marshal20=reconcileClassGrants(baseCharacter([{catalogId:reviewedMarshal35.catalogId,name:'Marshal',edition:'3.5',level:20,definition:reviewedMarshal35}]));
+assert.equal(marshal20.actions.find(action=>action.name==='Auras')?.type,'Swift action');
+assert.equal(marshal20.actions.find(action=>action.name==='Grant Move Action')?.type,'Standard action');
+assert.equal(marshal20.resources.find(resource=>resource.name==='Grant Move Action')?.max,5);
+assert(marshal20.feats.some(feat=>feat.name==='Skill Focus (Diplomacy)'&&feat.sourceClassId===reviewedMarshal35.catalogId),'Marshal grants Skill Focus (Diplomacy)');
+assert.equal(marshal20.grantedFeatures.find(feature=>feature.name==='Minor Aura')?.choiceLevels?.length,8);
+assert.equal(marshal20.grantedFeatures.find(feature=>feature.name==='Major Aura')?.choiceLevels?.length,5);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
