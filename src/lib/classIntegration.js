@@ -54,7 +54,7 @@ function reviewedFeatureMetadata(record,name){
   const row=reviewedFeatureRow(record,name);
   if(!row)return {};
   const metadata={};
-  for(const key of ['featName','choiceKind','choiceCount','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','resource'])if(row[key]!=null)metadata[key]=row[key];
+  for(const key of ['featName','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -476,7 +476,7 @@ function coalesceFeatures(row){
       current.history.push(history);
       if(description&&description.length>(current.description||'').length)current.description=description;
       if(feature.progressionText)current.progressionText=feature.progressionText;
-      for(const field of ['featName','choiceKind','choiceCount','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','resource'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
+      for(const field of ['featName','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','resource'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
     }
   }
   return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
@@ -524,8 +524,9 @@ function structuredUsage(feature,classLevel,character=null){
   }
   if(!Number.isFinite(max)&&Number.isFinite(Number(spec.perLevel)))max=Number(spec.perLevel)*Math.max(0,Number(classLevel)||0)+Number(spec.base||0);
   if(spec.ability&&character?.abilities){
-    const score=Number(character.abilities[spec.ability]);
-    if(Number.isFinite(score))max=(Number.isFinite(max)?max:0)+Math.floor((score-10)/2);
+    const score=Number(character.abilities[spec.ability]),modifier=Number.isFinite(score)?Math.floor((score-10)/2):null;
+    if(modifier!=null&&Number.isFinite(Number(spec.levelTimesAbility)))max=Number(spec.levelTimesAbility)*Math.max(0,Number(classLevel)||0)*modifier;
+    else if(modifier!=null)max=(Number.isFinite(max)?max:0)+modifier;
   }
   if(Number.isFinite(Number(spec.minimum)))max=Math.max(Number(spec.minimum),max);
   max=Math.floor(max);
@@ -558,7 +559,7 @@ function derivedForRow(row,character=null){
     const description=localRuleText||row.name+' progression: '+progressionSummary+'.';
     const descriptionSource=localRuleText?'rule-text':'progression';
     const choice=Boolean(feature.choiceKind)||needsChoice(feature);
-    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
+    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
     const concreteFeat=isConcreteFeat(feature),grantedFeatName=feature.featName||'';
     if(concreteFeat||grantedFeatName){
