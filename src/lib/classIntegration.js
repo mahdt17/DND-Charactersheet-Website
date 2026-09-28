@@ -656,6 +656,7 @@ export function removeClassProgression(character,classId){
   const spells=(character.spells||[]).filter(spell=>spell.auto||(spell.castingClassId||originalPrimary)!==classId);
   const spellAccessGrants=(character.spellAccessGrants||[]).filter(grant=>grant.classId!==classId);
   const featureChoices=Object.fromEntries(Object.entries(character.featureChoices||{}).filter(([key,value])=>value?.classId!==classId&&value?.sourceClassId!==classId&&value?.className!==removedName&&!key.includes(':'+removedName+':')));
+  const feats=(character.feats||[]).filter(feat=>!(feat.sourceType==='class-choice'&&feat.sourceClassId===classId));
   const castingAdvancements=(character.castingAdvancements||[]).filter(entry=>entry.sourceClassId!==classId&&entry.targetClassId!==classId);
   return reconcileClassGrants({
     ...character,
@@ -673,6 +674,7 @@ export function removeClassProgression(character,classId){
     classSlotOverrides:Object.fromEntries(Object.entries(character.classSlotOverrides||{}).filter(([id])=>id!==classId)),
     ...(originalPrimary===classId&&removed.edition==='3.5'?{slotsUsed:{},slotOverride:null}:{}),
     featureChoices,
+    feats,
     castingAdvancements
   });
 }
