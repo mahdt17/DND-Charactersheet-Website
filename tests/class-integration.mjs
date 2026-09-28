@@ -216,6 +216,17 @@ assert.equal(dragonShaman14.resources.find(resource=>resource.name==='Commune wi
 assert.equal(dragonShaman14.resources.find(resource=>resource.name==='Commune with Dragon Spirit')?.reset,'none');
 assert.match(dragonShaman14.resources.find(resource=>resource.name==='Commune with Dragon Spirit')?.recoveryText||'',/seven days/i);
 assert.equal(dragonShaman14.grantedFeatures.find(feature=>feature.name==='Draconic Aura')?.choiceCountByLevel?.['1'],3);
+const reviewedKnight35=exact35('classes/knight-103');
+const knight20=reconcileClassGrants(baseCharacter([{catalogId:reviewedKnight35.catalogId,name:'Knight',edition:'3.5',level:20,definition:reviewedKnight35}]));
+assert.equal(knight20.resources.find(resource=>resource.name==='Knight’s Challenge')?.max,11,'Knight Challenge pool is half level plus Charisma modifier');
+assert.equal(knight20.actions.find(action=>action.name==='Fighting Challenge')?.type,'Swift action');
+assert.equal(knight20.actions.find(action=>action.name==='Test of Mettle')?.type,'Swift action');
+assert.equal(knight20.actions.find(action=>action.name==='Bond of Loyalty')?.type,'Free action');
+assert.equal(knight20.actions.find(action=>action.name==='Shield Ally')?.type,'Immediate action');
+assert(knight20.feats.some(feat=>feat.name==='Mounted Combat'&&feat.sourceClassId===reviewedKnight35.catalogId),'Knight grants Mounted Combat');
+assert.equal(knight20.grantedFeatures.find(feature=>feature.name==='Bonus Feat')?.kind,'choice');
+assert.equal(knight20.grantedFeatures.find(feature=>feature.name==='Fighting Challenge')?.descriptionSource,'rule-text');
+assert.match(knight20.grantedFeatures.find(feature=>feature.name==='Knight’s Code')?.description||'',/flanking/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
