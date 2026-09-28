@@ -20,6 +20,16 @@ class FeatureReviewTests(unittest.TestCase):
                 self.assertIn('Continuation.', blocks[0]['sourceText'])
                 self.assertNotIn('Separate restrictions', blocks[1]['sourceText'])
 
+    def test_nested_headings_do_not_end_class_features(self):
+        blocks = feature_blocks(
+            '<h2>Class Features</h2>'
+            '<p><strong>First:</strong> First rule.</p>'
+            '<h4>FIRST FEATURE OPTIONS</h4><table><tr><td>Option</td></tr></table>'
+            '<p><strong>Second:</strong> Second rule.</p>'
+            '<h2>Advancement</h2><p><strong>Not a feature:</strong> Ignore.</p>'
+        )
+        self.assertEqual([b['name'] for b in blocks], ['First', 'Second'])
+
     def test_alternate_sources_fail_closed(self):
         primary = feature_blocks('<h2>Class Features</h2><p><strong>Feature:</strong> Broken.</p>')
         alternate = feature_blocks('<h4>Class Features</h4><p><strong>Feature:</strong> Complete.</p>')

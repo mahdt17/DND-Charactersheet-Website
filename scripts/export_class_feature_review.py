@@ -22,8 +22,8 @@ def clean(value):
 class FeatureParser(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
-        self.in_h2=False; self.h2=[]
-        self.in_features=False
+        self.in_h2=False; self.h2=[]; self.heading_level=None
+        self.in_features=False; self.features_heading_level=None
         self.in_p=False; self.p=[]
         self.in_strong=False; self.strong=[]
         self.paragraphs=[]
@@ -31,7 +31,7 @@ class FeatureParser(HTMLParser):
     def handle_starttag(self,tag,attrs):
         tag=tag.lower()
         if tag in {"h2","h3","h4","h5","h6"}:
-            self.in_h2=True; self.h2=[]
+            self.in_h2=True; self.h2=[]; self.heading_level=int(tag[1])
         elif self.in_features and tag=="p":
             self.in_p=True; self.p=[]; self.strong=[]
         elif self.in_p and tag=="strong":
@@ -41,8 +41,12 @@ class FeatureParser(HTMLParser):
         tag=tag.lower()
         if tag in {"h2","h3","h4","h5","h6"} and self.in_h2:
             heading=clean(" ".join(self.h2))
-            self.in_features=heading.casefold()=="class features"
-            self.in_h2=False; self.h2=[]
+            level=self.heading_level or int(tag[1])
+            if heading.casefold()=="class features":
+                self.in_features=True; self.features_heading_level=level
+            elif self.in_features and self.features_heading_level is not None and level<=self.features_heading_level:
+                self.in_features=False
+            self.in_h2=False; self.h2=[]; self.heading_level=None
         elif tag=="strong" and self.in_strong:
             value=clean(" ".join(self._strong_buf))
             if value:self.strong.append(value)
