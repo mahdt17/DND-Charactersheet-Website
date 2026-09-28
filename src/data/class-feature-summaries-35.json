@@ -789,6 +789,184 @@
       "sourceSha256": "c02eb242a8de533827af7dd7fb547c9b3ccc4ffcd81c9699f11eb7ace99952cf"
     }
   ],
+  "classes/knight-103": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, light, medium, and heavy armor, and shields except tower shields.",
+      "sourceSha256": "7a1b7a181799f71269d273600fca6c6b6becd66591e9f2fa0bfa1aee399905b7"
+    },
+    {
+      "name": "Knight’s Challenge",
+      "level": 1,
+      "resource": {
+        "perLevel": 0.5,
+        "ability": "cha",
+        "minimum": 1,
+        "reset": "long",
+        "unit": "challenge use",
+        "recoveryText": "Knight’s Challenge uses refresh with the character's daily recovery."
+      },
+      "description": "Gain a shared daily Knight’s Challenge pool equal to one-half your knight level plus your Charisma modifier, minimum one use per day. Fighting Challenge and later challenge options spend uses from this same pool.",
+      "sourceSha256": "3ffb6e7220505bb54fbdac07f5fda8c368c7dc6b55caba28acab7e6eb132dd5d"
+    },
+    {
+      "name": "Fighting Challenge",
+      "sourceFeatureName": "Knight’s Challenge",
+      "level": 1,
+      "actionType": "Swift action",
+      "description": "As a swift action, spend one Knight’s Challenge use to challenge one eligible foe. Against that foe, gain a morale bonus on Will saves, attack rolls, and damage rolls for 5 + Charisma modifier rounds. The bonus is +1 at 1st level, +2 at 7th, +3 at 13th, and +4 at 19th.",
+      "sourceSha256": "3ffb6e7220505bb54fbdac07f5fda8c368c7dc6b55caba28acab7e6eb132dd5d"
+    },
+    {
+      "name": "Test of Mettle",
+      "sourceFeatureName": "Knight’s Challenge",
+      "level": 4,
+      "actionType": "Swift action",
+      "description": "As a swift action, spend one Knight’s Challenge use to challenge eligible enemies within 100 feet. Foes of sufficient CR that fail a Will save against DC 10 + half knight level + Charisma modifier must prefer attacking you while the effect lasts, subject to the source's targeting and once-per-day-per-creature limits.",
+      "sourceSha256": "3ffb6e7220505bb54fbdac07f5fda8c368c7dc6b55caba28acab7e6eb132dd5d"
+    },
+    {
+      "name": "Call to Battle",
+      "sourceFeatureName": "Knight’s Challenge",
+      "level": 8,
+      "actionType": "Swift action",
+      "description": "As a swift action, spend one Knight’s Challenge use to let an ally attempt another saving throw against a fear effect, adding your Charisma bonus to that save. A successful new save immediately ends the fear effect as though the original save had succeeded.",
+      "sourceSha256": "3ffb6e7220505bb54fbdac07f5fda8c368c7dc6b55caba28acab7e6eb132dd5d"
+    },
+    {
+      "name": "Daunting Challenge",
+      "sourceFeatureName": "Knight’s Challenge",
+      "level": 12,
+      "actionType": "Swift action",
+      "description": "As a swift action, spend one Knight’s Challenge use to force eligible lower-CR enemies within 100 feet to make a Will save against DC 10 + half knight level + Charisma modifier or become shaken. Each creature can be targeted by this effect only once per day.",
+      "sourceSha256": "3ffb6e7220505bb54fbdac07f5fda8c368c7dc6b55caba28acab7e6eb132dd5d"
+    },
+    {
+      "name": "Bond of Loyalty",
+      "sourceFeatureName": "Knight’s Challenge",
+      "level": 16,
+      "actionType": "Free action",
+      "description": "Once per round as a free action, spend one Knight’s Challenge use to attempt an additional saving throw against a mind-affecting spell or ability, even if that effect is controlling your actions.",
+      "sourceSha256": "3ffb6e7220505bb54fbdac07f5fda8c368c7dc6b55caba28acab7e6eb132dd5d"
+    },
+    {
+      "name": "Loyal Beyond Death",
+      "sourceFeatureName": "Knight’s Challenge",
+      "level": 20,
+      "actionType": "Special action",
+      "description": "When reduced to 0 or fewer hit points while your body remains intact, spend one Knight’s Challenge use to remain conscious and continue acting for 1 more round. You can spend additional uses round by round until healed above the source's death threshold or the pool runs out.",
+      "sourceSha256": "3ffb6e7220505bb54fbdac07f5fda8c368c7dc6b55caba28acab7e6eb132dd5d"
+    },
+    {
+      "name": "Knight’s Code",
+      "sourceFeatureName": "The Knight’s Code",
+      "level": 1,
+      "description": "Follow the knightly code: forgo your own flanking attack bonus, do not strike flat-footed opponents, and do not deal lethal damage to helpless foes. Violating the code costs one Knight’s Challenge use for the day; if none remain, take the source-listed attack/save penalty for the rest of the day.",
+      "sourceSha256": "f6e795baae6322d2bab6c7d9f1dd3d0f5c13646f13585a135b55f5b5b2146283"
+    },
+    {
+      "name": "Mounted Combat",
+      "level": 2,
+      "featName": "Mounted Combat",
+      "description": "Gain Mounted Combat as a bonus feat at 2nd level.",
+      "sourceSha256": "7bde4f34bc8fcb13d3ab82990313970a156a513a970fd980d2f4c3bcc395a142"
+    },
+    {
+      "name": "Shield Block",
+      "level": 2,
+      "description": "During your action, designate one opponent. Your shield bonus to AC against that foe increases by +1 at 2nd level, +2 at 11th, and +3 at 20th.",
+      "sourceSha256": "06d687833d25b37d6fbbc494fa8730ca96024442acf64319cd85fce4b47e4e05"
+    },
+    {
+      "name": "Bulwark of Defense",
+      "level": 3,
+      "description": "An opponent that begins its turn in your threatened area treats all squares you threaten as difficult terrain.",
+      "sourceSha256": "e4fe878399d5b418cd117294cd4d36711dd4ba8643220914673f1be4c98fdfa1"
+    },
+    {
+      "name": "Armor Mastery",
+      "level": 4,
+      "description": "Ignore the normal speed reduction from medium armor beginning at 4th level and from heavy armor beginning at 9th level.",
+      "sourceSha256": "d20da7e1519f7d905a78de230b3adc1fbc17f4286944a949155da7fc6fd8d93f"
+    },
+    {
+      "name": "Bonus Feat",
+      "level": 5,
+      "choiceKind": "feat",
+      "choiceLevels": [
+        5,
+        10,
+        15
+      ],
+      "choiceOptionsByLevel": {
+        "5": [
+          "Animal Affinity",
+          "Diehard",
+          "Endurance",
+          "Great Fortitude",
+          "Iron Will",
+          "Quick Draw",
+          "Ride-By Attack",
+          "Spirited Charge",
+          "Trample",
+          "Weapon Focus (Lance)"
+        ],
+        "10": [
+          "Animal Affinity",
+          "Diehard",
+          "Endurance",
+          "Great Fortitude",
+          "Iron Will",
+          "Quick Draw",
+          "Ride-By Attack",
+          "Spirited Charge",
+          "Trample",
+          "Weapon Focus (Lance)"
+        ],
+        "15": [
+          "Animal Affinity",
+          "Diehard",
+          "Endurance",
+          "Great Fortitude",
+          "Iron Will",
+          "Quick Draw",
+          "Ride-By Attack",
+          "Spirited Charge",
+          "Trample",
+          "Weapon Focus (Lance)"
+        ]
+      },
+      "description": "At 5th, 10th, and 15th level, choose one bonus feat from the knight's source list. You must meet the feat's normal prerequisites.",
+      "sourceSha256": "45fec5b3c88815490fcffaf900effee853e628e43b4f3140d9193d054db50984"
+    },
+    {
+      "name": "Vigilant Defender",
+      "level": 5,
+      "description": "Increase the Tumble DC for opponents attempting to move through your threatened area or your space without provoking attacks of opportunity by an amount equal to your knight level.",
+      "sourceSha256": "cc4a3e534376a78dbf5eb08bd9fc72449f5470f521fa987b7f1a45eaf775d0cf"
+    },
+    {
+      "name": "Shield Ally",
+      "level": 6,
+      "actionType": "Immediate action",
+      "description": "As an immediate action, choose to absorb half the physical melee or ranged attack damage dealt to an adjacent ally before your next turn, following the source's restrictions.",
+      "sourceSha256": "01ee4b9b61177d22d7594dca37630bdc7d675365a59b4c9b90f2b9cd031f7a86"
+    },
+    {
+      "name": "Improved Shield Ally",
+      "level": 14,
+      "actionType": "Immediate action",
+      "description": "Once per round, absorb all damage from one physical attack against an adjacent ally, while retaining the option to absorb half the damage from other qualifying physical attacks as Shield Ally allows.",
+      "sourceSha256": "a8dfe1fe015d17081fde30cfa68deaab1e5b40abe8c5dc6d35bc4740d2b7f1cf"
+    },
+    {
+      "name": "Impetuous Endurance",
+      "level": 17,
+      "description": "You no longer automatically fail a saving throw when the d20 shows a natural 1; the save still fails if the total result does not meet the DC.",
+      "sourceSha256": "6fe64e8f5391ec870ce4bdf0d15a8d66ea2aef818c6121a3ba1c728234e4ca51"
+    }
+  ],
   "classes/marshal-78": [
     {
       "name": "Weapon and Armor Proficiency",
