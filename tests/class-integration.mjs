@@ -146,6 +146,15 @@ assert.equal(wildSurge?.progressionHistory?.filter(event=>/wild surge/i.test(eve
 assert.equal(wilder17.actions.find(action=>action.name==='Volatile Mind')?.type,'Standard action');
 assert.match(wilder17.grantedFeatures.find(feature=>feature.name==='Psychic Enervation')?.description||'',/5%/);
 assert.match(wilder17.grantedFeatures.find(feature=>feature.name==='Power Points/Day')?.description||'',/Charisma/i);
+const reviewedWarlockFeatures35=exact35('classes/warlock-4');
+const warlock12=reconcileClassGrants(baseCharacter([{catalogId:reviewedWarlockFeatures35.catalogId,name:'Warlock',edition:'3.5',level:12,definition:reviewedWarlockFeatures35}]));
+assert.equal(warlock12.actions.find(action=>action.name==='Eldritch Blast')?.type,'Standard action');
+assert.equal(warlock12.actions.find(action=>action.name==='Fiendish Resilience')?.type,'Free action');
+assert.equal(warlock12.resources.find(resource=>resource.name==='Fiendish Resilience')?.max,1);
+assert.equal(warlock12.resources.find(resource=>resource.name==='Fiendish Resilience')?.reset,'long');
+assert.equal(warlock12.grantedFeatures.find(feature=>feature.name==='Energy Resistance')?.kind,'choice');
+assert.equal(warlock12.grantedFeatures.find(feature=>feature.name==='Energy Resistance')?.choiceCount,2);
+assert.match(warlock12.grantedFeatures.find(feature=>feature.name==='Invocations')?.description||'',/at will/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
