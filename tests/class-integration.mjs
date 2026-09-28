@@ -227,6 +227,14 @@ assert(knight20.feats.some(feat=>feat.name==='Mounted Combat'&&feat.sourceClassI
 assert.equal(knight20.grantedFeatures.find(feature=>feature.name==='Bonus Feat')?.kind,'choice');
 assert.equal(knight20.grantedFeatures.find(feature=>feature.name==='Fighting Challenge')?.descriptionSource,'rule-text');
 assert.match(knight20.grantedFeatures.find(feature=>feature.name==='Knight’s Code')?.description||'',/flanking/i);
+const reviewedDuskblade35=exact35('classes/duskblade-102');
+const duskblade20=reconcileClassGrants(baseCharacter([{catalogId:reviewedDuskblade35.catalogId,name:'Duskblade',edition:'3.5',level:20,definition:reviewedDuskblade35}]));
+assert.equal(duskblade20.resources.find(resource=>resource.name==='Arcane Attunement')?.max,6,'Duskblade Arcane Attunement is 3 + Intelligence modifier');
+assert(duskblade20.feats.some(feat=>feat.name==='Combat Casting'&&feat.sourceClassId===reviewedDuskblade35.catalogId),'Duskblade grants Combat Casting');
+assert.equal(duskblade20.actions.find(action=>/^Arcane Channeling(?:\s|$)/i.test(action.name))?.type,'Standard action');
+assert.equal(duskblade20.actions.find(action=>/^Quick Cast(?:\s|$)/i.test(action.name))?.type,'Swift action');
+assert.equal(duskblade20.resources.find(resource=>/^Quick Cast(?:\s|$)/i.test(resource.name))?.max,4);
+assert.match(duskblade20.grantedFeatures.find(feature=>feature.name==='Spells Known')?.description||'',/odd-numbered levels/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
