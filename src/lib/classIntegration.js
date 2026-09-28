@@ -30,6 +30,7 @@ function withProficiencySupplement(record){
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const featureMatchKey=value=>norm(String(value||'')
+  .replace(/^\d+(?:st|nd|rd|th)\s+/i,'')
   .replace(/^\+\d+\s+/,'')
   .replace(/\s*\([^)]*\)/g,' ')
   .replace(/\s+\d+\/(?:day|week|encounter)\b.*$/i,'')
