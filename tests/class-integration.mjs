@@ -169,6 +169,25 @@ assert.equal(dread16.grantedFeatures.find(feature=>feature.name==='Summon Famili
 const dread20=reconcileClassGrants(baseCharacter([{catalogId:reviewedDreadNecromancer35.catalogId,name:'Dread Necromancer',edition:'3.5',level:20,definition:reviewedDreadNecromancer35}]));
 assert(dread20.feats.some(feat=>/Craft Wondrous Item/i.test(feat.name)&&feat.sourceClassId===reviewedDreadNecromancer35.catalogId),'Dread Necromancer gains Craft Wondrous Item from the level table');
 assert.equal(dread20.grantedFeatures.find(feature=>feature.name==='Lich Transformation')?.descriptionSource,'rule-text');
+const reviewedNinja35=exact35('classes/ninja-1');
+const ninja8=reconcileClassGrants(baseCharacter([{catalogId:reviewedNinja35.catalogId,name:'Ninja',edition:'3.5',level:8,definition:reviewedNinja35}]));
+assert.equal(ninja8.actions.find(action=>action.name==='Ghost Step')?.type,'Swift action');
+assert.equal(ninja8.actions.find(action=>action.name==='Ki Dodge')?.type,'Swift action');
+assert.equal(ninja8.actions.find(action=>action.name==='Ghost Strike')?.type,'Move action');
+assert.match(ninja8.grantedFeatures.find(feature=>feature.name==='Ki Power')?.description||'',/shared pool/i);
+
+const reviewedScout35=exact35('classes/scout-2');
+const scout8=reconcileClassGrants(baseCharacter([{catalogId:reviewedScout35.catalogId,name:'Scout',edition:'3.5',level:8,definition:reviewedScout35}]));
+assert.equal(scout8.grantedFeatures.find(feature=>feature.name==='Bonus Feats')?.kind,'choice');
+assert.equal(scout8.grantedFeatures.find(feature=>feature.name==='Bonus Feats')?.progressionHistory?.filter(event=>/bonus feat/i.test(event.text||'')).length,2);
+assert.match(scout8.grantedFeatures.find(feature=>feature.name==='Skirmish')?.description||'',/10 feet/i);
+
+const reviewedSwashbuckler35=exact35('classes/swashbuckler-23');
+const swash11=reconcileClassGrants(baseCharacter([{catalogId:reviewedSwashbuckler35.catalogId,name:'Swashbuckler',edition:'3.5',level:11,definition:reviewedSwashbuckler35}]));
+assert(swash11.feats.some(feat=>feat.name==='Weapon Finesse'&&feat.sourceClassId===reviewedSwashbuckler35.catalogId),'Swashbuckler grants Weapon Finesse');
+assert.equal(swash11.resources.find(resource=>resource.name==='Lucky')?.max,1);
+assert.equal(swash11.resources.find(resource=>resource.name==='Lucky')?.reset,'long');
+assert.match(swash11.grantedFeatures.find(feature=>feature.name==='Insightful Strike')?.description||'',/Intelligence bonus/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
