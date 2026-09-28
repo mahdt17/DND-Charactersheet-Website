@@ -234,6 +234,14 @@ const secondResistance=favoredSoul10Plan.groups.find(group=>group.label==='Energ
 assert(!secondResistance.options.includes('Fire'),'Favored Soul later energy resistance excludes an already chosen type');
 assert(secondResistance.options.includes('Cold'));
 
+const shugenjaClass35={name:'Shugenja',edition:'3.5',sourceId:'classes/shugenja-8',catalogId:'dndtools:classes/shugenja-8',sourceUrl:'https://new.dndtools.org/classes/shugenja-8',progression:[['Level','Special'],['1st','Elemental focus, sense elements']]};
+const shugenja1={...legacyChoice,className:'Shugenja',classDefinition:shugenjaClass35,classLevels:[{name:'Shugenja',edition:'3.5',catalogId:shugenjaClass35.catalogId,level:1,definition:shugenjaClass35}],level:1};
+const shugenjaPlan=featureChoicePlan(shugenja1,null);
+const elementFocus=shugenjaPlan.groups.find(group=>group.label==='Element Focus');
+assert.deepEqual(elementFocus?.options,['Air','Earth','Fire','Water']);
+const fireShugenja=applyFeatureChoices(shugenja1,null,{[elementFocus.id]:['Fire']});
+assert(Object.values(fireShugenja.featureChoices).some(choice=>choice.feature==='Element Focus'&&choice.choices?.[0]==='Fire'));
+
 const knightClass35={name:'Knight',edition:'3.5',sourceId:'classes/knight-103',catalogId:'dndtools:classes/knight-103',sourceUrl:'https://new.dndtools.org/classes/knight-103',progression:[['Level','Special'],['2nd','Mounted Combat, shield block +1'],['5th','Bonus feat, vigilant defender'],['10th','Bonus feat']]};
 const knight10={...legacyChoice,className:'Knight',classDefinition:knightClass35,classLevels:[{name:'Knight',edition:'3.5',catalogId:knightClass35.catalogId,level:10,definition:knightClass35}],level:10};
 const knight9={...knight10,classLevels:[{...knight10.classLevels[0],level:9}],level:9};
