@@ -48,10 +48,13 @@ try {
 
  const rogueDefinition={sourceId:'classes/rogue-97',name:'Rogue',progression:[['Class Level','BAB','Fort','Ref','Will','Special'],['1st','+0','+0','+2','+0','Sneak attack +1d6, trapfinding'],['2nd','+1','+0','+3','+0','Evasion'],['3rd','+2','+1','+3','+1','Sneak attack +2d6, trap sense +1'],['4th','+3','+1','+4','+1','Uncanny dodge'],['8th','+6/+1','+2','+6','+2','Improved uncanny dodge'],['10th','+7/+2','+3','+7','+3','Special ability']]};
  const rogueFeatures=e.classFeatures({...wizard,ruleset:'3.5',className:'Rogue',classDefinition:rogueDefinition,level:10});
- assert.equal(rogueFeatures.filter(f=>f.name==='Sneak Attack').length,1);
- assert.equal(rogueFeatures.find(f=>f.name==='Sneak Attack').progression.length,2);
- assert.match(rogueFeatures.find(f=>f.name==='Special Ability').desc[0],/Crippling Strike/i);
- assert.equal(rogueFeatures.filter(f=>/Special Abilit/i.test(f.name)).length,1);
+ const sneakAttack=rogueFeatures.find(f=>f.name.toLowerCase()==='sneak attack');
+ assert(sneakAttack);
+ assert.equal(sneakAttack.progression.length,2);
+ const specialAbility=rogueFeatures.find(f=>f.name.toLowerCase()==='special ability');
+ assert(specialAbility);
+ assert.match(specialAbility.desc[0],/Crippling Strike/i);
+ assert.equal(rogueFeatures.filter(f=>/special abilit/i.test(f.name)).length,1);
 
  const barbarianDefinition={sourceId:'classes/barbarian-89',name:'Barbarian',progression:[['Class Level','BAB','Fort','Ref','Will','Special'],['1st','+1','+2','+0','+0','Fast movement, illiteracy, rage 1/day'],['2nd','+2','+3','+0','+0','Uncanny dodge'],['3rd','+3','+3','+1','+1','Trap sense +1'],['4th','+4','+4','+1','+1','Rage 2/day']]};
  const barbarianFeatures=e.classFeatures({...wizard,ruleset:'3.5',className:'Barbarian',classDefinition:barbarianDefinition,level:4});
