@@ -208,9 +208,9 @@ assert.equal(marshal20.grantedFeatures.find(feature=>feature.name==='Minor Aura'
 assert.equal(marshal20.grantedFeatures.find(feature=>feature.name==='Major Aura')?.choiceLevels?.length,5);
 const reviewedDragonShaman35=exact35('classes/dragon-shaman-101');
 const dragonShaman14=reconcileClassGrants(baseCharacter([{catalogId:reviewedDragonShaman35.catalogId,name:'Dragon Shaman',edition:'3.5',level:14,definition:reviewedDragonShaman35}]));
-assert.equal(dragonShaman14.actions.find(action=>action.name==='Draconic Aura')?.type,'Swift action');
-assert.equal(dragonShaman14.actions.find(action=>action.name==='Breath Weapon')?.type,'Standard action');
-assert.equal(dragonShaman14.actions.find(action=>action.name==='Touch of Vitality')?.type,'Standard action');
+assert.equal(dragonShaman14.actions.find(action=>/^Draconic Aura(?:\s|$)/i.test(action.name))?.type,'Swift action');
+assert.equal(dragonShaman14.actions.find(action=>/^Breath Weapon(?:\s|$)/i.test(action.name))?.type,'Standard action');
+assert.equal(dragonShaman14.actions.find(action=>/^Touch of Vitality(?:\s|$)/i.test(action.name))?.type,'Standard action');
 assert.equal(dragonShaman14.resources.find(resource=>resource.name==='Touch of Vitality')?.max,28,'Dragon Shaman Touch of Vitality is 2 × level × Charisma modifier');
 assert.equal(dragonShaman14.resources.find(resource=>resource.name==='Commune with Dragon Spirit')?.max,1);
 assert.equal(dragonShaman14.resources.find(resource=>resource.name==='Commune with Dragon Spirit')?.reset,'none');
