@@ -140,5 +140,38 @@ assert(!scoutBonus.options.includes('Power Attack'),'Scout bonus feat picker rem
 const scoutChosen=applyFeatureChoices(scoutChoice35,scoutBefore35,{[scoutBonus.id]:['Track']});
 assert(scoutChosen.feats.some(feat=>feat.name==='Track'&&feat.sourceType==='class-choice'&&feat.sourceClassId===scoutClass35.catalogId));
 
+const hexbladeClass35={name:'Hexblade',edition:'3.5',sourceId:'classes/hexblade-19',catalogId:'dndtools:classes/hexblade-19',sourceUrl:'https://new.dndtools.org/classes/hexblade-19',progression:[['Class Level','Special'],['5th','Bonus feat'],['10th','Bonus feat']]};
+const hexbladeChoice35={...legacyChoice,className:'Hexblade',classDefinition:hexbladeClass35,classLevels:[{name:'Hexblade',edition:'3.5',catalogId:hexbladeClass35.catalogId,level:10,definition:hexbladeClass35}],level:10};
+const hexbladeBefore35={...hexbladeChoice35,classLevels:[{...hexbladeChoice35.classLevels[0],level:9}],level:9};
+const hexbladePlan=featureChoicePlan(hexbladeChoice35,hexbladeBefore35);
+const hexbladeBonus=hexbladePlan.groups.find(group=>group.label==='Bonus Feat');
+assert(hexbladeBonus,'Hexblade level 10 requests a bonus feat');
+assert(hexbladeBonus.options.includes('Spell Penetration'));
+assert(!hexbladeBonus.options.includes('Power Attack'),'Hexblade bonus feat remains source-restricted');
+const hexbladeChosen=applyFeatureChoices(hexbladeChoice35,hexbladeBefore35,{[hexbladeBonus.id]:['Spell Penetration']});
+assert(hexbladeChosen.feats.some(feat=>feat.name==='Spell Penetration'&&feat.sourceType==='class-choice'));
+
+const marshalClass35={name:'Marshal',edition:'3.5',sourceId:'classes/marshal-78',catalogId:'dndtools:classes/marshal-78',sourceUrl:'https://new.dndtools.org/classes/marshal-78',progression:[['Level','Special'],['1st','Skill Focus (Diplomacy), minor aura'],['2nd','Major aura +1'],['3rd','—'],['4th','Grant move action 1/day'],['5th','—']]};
+const marshal5={...legacyChoice,className:'Marshal',classDefinition:marshalClass35,classLevels:[{name:'Marshal',edition:'3.5',catalogId:marshalClass35.catalogId,level:5,definition:marshalClass35}],level:5};
+const marshalPlan=featureChoicePlan(marshal5,null);
+const marshalMinor=marshalPlan.groups.filter(group=>group.label==='Minor Aura');
+const marshalMajor=marshalPlan.groups.filter(group=>group.label==='Major Aura');
+assert.equal(marshalMinor.length,3,'Marshal level 5 knows three minor auras');
+assert.equal(marshalMajor.length,2,'Marshal level 5 knows two major auras');
+const duplicateAuraPicks={};
+for(const group of marshalMinor)duplicateAuraPicks[group.id]=['Accurate Strike'];
+for(const group of marshalMajor)duplicateAuraPicks[group.id]=['Hardy Soldiers'];
+assert.throws(()=>applyFeatureChoices(marshal5,null,duplicateAuraPicks),/Complete/,'Marshal cannot learn the same aura repeatedly');
+const distinctAuraPicks={
+  [marshalMinor[0].id]:['Accurate Strike'],
+  [marshalMinor[1].id]:['Art of War'],
+  [marshalMinor[2].id]:['Demand Fortitude'],
+  [marshalMajor[0].id]:['Hardy Soldiers'],
+  [marshalMajor[1].id]:['Motivate Attack']
+};
+const marshalChosen=applyFeatureChoices(marshal5,null,distinctAuraPicks);
+assert.equal(Object.values(marshalChosen.featureChoices).filter(choice=>choice.feature==='Minor Aura').length,3);
+assert.equal(Object.values(marshalChosen.featureChoices).filter(choice=>choice.feature==='Major Aura').length,2);
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
