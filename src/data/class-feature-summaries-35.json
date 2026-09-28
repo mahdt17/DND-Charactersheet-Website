@@ -654,6 +654,39 @@
       "choiceKind": "feat"
     }
   ],
+  "classes/psychic-warrior-138": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, light, medium, and heavy armor, and shields except tower shields.",
+      "sourceSha256": "081cad57893062a002c45e8bb8107d762800a0adeacba55a763a2d57d0ee4e95"
+    },
+    {
+      "name": "Power Points/Day",
+      "level": 1,
+      "description": "Use a daily power-point reserve to manifest psychic-warrior powers. Base power points follow the class table, with bonus power points from a high Wisdom score and other valid sources. A 1st-level psychic warrior has 0 base class power points but can still manifest the power known if bonus power points provide a reserve.",
+      "sourceSha256": "470ca6c47e9b0e6a84e7914dc95211908fa820e75e0606e2acab027b253c8451"
+    },
+    {
+      "name": "Powers Known",
+      "level": 1,
+      "description": "Know one psychic-warrior power at 1st level and gain another power known at each new psychic-warrior level. Powers normally come from the psychic-warrior list, require no daily preparation, and can be manifested repeatedly while sufficient power points remain. Wisdom sets save DCs and bonus power points.",
+      "sourceSha256": "01ffc386785922a348ebf0b0c3a61e1c5346f8419d6302adf71b2a775639dc9c"
+    },
+    {
+      "name": "Maximum Power Level Known",
+      "level": 1,
+      "description": "Begin with access to 1st-level powers. The highest power level available increases according to the class table, reaching 6th-level powers at 16th level. Learning or manifesting a power also requires Wisdom of at least 10 + the power's level.",
+      "sourceSha256": "18d8d9772837283528ec48886bedc3603fd8517830d83f65c8e114c3859084ec"
+    },
+    {
+      "name": "Bonus Feats",
+      "level": 1,
+      "choiceKind": "feat",
+      "description": "Choose a bonus combat-oriented feat at 1st and 2nd level and again at 5th, 8th, 11th, 14th, 17th, and 20th. Eligible choices are fighter bonus feats or psionic feats, and normal prerequisites still apply; fighter-level-specific feats still require the necessary fighter levels.",
+      "sourceSha256": "6597020f5185ecf5e982827a70d132a9a358f0d867e12c9dcfb252459d4edec2"
+    }
+  ],
   "classes/ranger-96": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -974,6 +1007,63 @@
       "level": 20,
       "description": "Your type is treated as fey instead of humanoid for spells and magical effects, and you gain damage reduction 5/cold iron.",
       "sourceSha256": "e40048c0875737961797c14b6eb5390a30e3a6d0e1c12e916b41887ef7cb1dac"
+    }
+  ],
+  "classes/wilder-140": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons, light armor, and shields except tower shields.",
+      "sourceSha256": "17b065ee1d1fa66cdc51e8b28e676a1623348db9f1a995d7a0d7f43876ce4f52"
+    },
+    {
+      "name": "Power Points/Day",
+      "level": 1,
+      "description": "Use a daily power-point reserve to manifest wilder powers. Base power points follow the wilder table, with bonus power points from a high Charisma score and other valid sources.",
+      "sourceSha256": "f0ee08725fe562468be8db2e0f2a419473e7bfdb354e0fd05d44889311e75e89"
+    },
+    {
+      "name": "Powers Known",
+      "level": 1,
+      "description": "Begin knowing one wilder power and gain additional powers known at the class-table levels. Powers normally come from the wilder list, require no preparation, and can be manifested repeatedly while sufficient power points remain. Charisma sets power save DCs and bonus power points.",
+      "sourceSha256": "b195d388e65f123e187b5b95440be92f614f21ce332716a39404e8f47262fd23"
+    },
+    {
+      "name": "Maximum Power Level Known",
+      "level": 1,
+      "description": "Begin with access to 1st-level powers and unlock higher power levels according to the wilder table, reaching 9th-level powers at 18th level. Learning or manifesting a power requires Charisma of at least 10 + the power's level.",
+      "sourceSha256": "0f09b4a144042d5651a6f67dae14c700b45499557aaa117b12f8af5f0d252833"
+    },
+    {
+      "name": "Wild Surge",
+      "level": 1,
+      "description": "When manifesting a power, you may invoke a wild surge to increase manifester level without paying the extra augmentation power points supplied by the surge. The maximum surge is +1 at 1st level, +2 at 3rd, +3 at 7th, +4 at 11th, +5 at 15th, and +6 at 19th. Wild Surge cannot be combined with Overchannel and can trigger Psychic Enervation.",
+      "sourceSha256": "12d94f096a00f3b1a0b9ca5fe4ce73532539223f53d4ecaaaa6f6ce8e9e0a4f7"
+    },
+    {
+      "name": "Psychic Enervation",
+      "level": 1,
+      "description": "After each Wild Surge, there is a 5% chance per manifester level added by the surge that Psychic Enervation occurs. On enervation, you are dazed until the end of your next turn and lose power points equal to your wilder level.",
+      "sourceSha256": "d81ab95757f74bbf92953888b3fb70d01a8d8571abf7ea1419d8c17bf74e3b3e"
+    },
+    {
+      "name": "Elude Touch",
+      "level": 2,
+      "description": "Add your Charisma bonus to Armor Class against touch attacks, including rays. Your touch AC cannot exceed your normal Armor Class.",
+      "sourceSha256": "7f1b59b64d190a403b7524b9dfcd9418a5e6f04f207dcf9973bc9142f4b434b4"
+    },
+    {
+      "name": "Surging Euphoria",
+      "level": 4,
+      "description": "After a successful Wild Surge, gain a morale bonus on attack rolls, damage rolls, and saving throws for rounds equal to the surge intensity. The bonus is +1 at 4th level, +2 at 12th, and +3 at 20th. Psychic Enervation prevents the bonus for that surge.",
+      "sourceSha256": "977b987cd6016b815f44f5b446bc0d265f6ed2555bbe2f8d6ae303d76916861c"
+    },
+    {
+      "name": "Volatile Mind",
+      "level": 5,
+      "actionType": "Standard action",
+      "description": "Telepathy powers manifested on you cost their manifester 1 additional power point at 5th level; the added cost rises to 2 at 9th, 3 at 13th, and 4 at 17th. As a standard action, you can lower this protection for 1 round.",
+      "sourceSha256": "c0bb549633706f4e59433ab321c987ccb408de577040ffccd82a8c6ce2e3aa46"
     }
   ],
   "classes/wizard-99": [
