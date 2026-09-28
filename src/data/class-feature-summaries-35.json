@@ -739,44 +739,81 @@
     {
       "name": "Weapon and Armor Proficiency",
       "level": 1,
-      "description": "Proficient with all simple weapons, light and medium armor, shields except tower shields, and your deity's favored weapon. Heavy armor is not a class proficiency, but wearing it does not by itself interfere with favored-soul spellcasting.",
+      "description": "Proficient with all simple weapons, light and medium armor, and shields except tower shields, plus your deity's favored weapon. Heavy armor is not a favored-soul proficiency, but wearing it does not interfere with favored-soul spellcasting.",
       "sourceSha256": "3004a4d3232d355b653ed2c45d49c7c4858898c7fa74baae410911a5cc7312c7"
     },
     {
       "name": "Spells",
       "level": 1,
-      "description": "Cast divine spells from the cleric list without preparing them in advance. Charisma determines the highest spell level you can cast and bonus spells per day; Wisdom sets spell save DCs. Spells known follow the favored-soul table, with limited same-level spell replacement beginning at 4th level and on later even-numbered favored-soul levels.",
+      "description": "Cast divine spells spontaneously from the cleric list. Charisma determines spell access, spells per day, and bonus spells; Wisdom determines favored-soul spell save DCs. Begin with a fixed number of spells known and gain more with class level. Starting at 4th level and every even favored-soul level thereafter, you may replace one known spell under the source's same-level and maximum-level restrictions.",
       "sourceSha256": "856a13c6cde9eec8a0ae33ae2429a6029e4d824d37f7dd9d6fb7d7e9bae9064a"
     },
     {
       "name": "Deity’s Weapon Focus",
       "level": 3,
-      "description": "Gain Weapon Focus with your deity's favored weapon at 3rd level. If you already possess that exact feat, the source allows a different feat instead.",
+      "choiceKind": "feat",
+      "choiceLevels": [
+        3
+      ],
+      "description": "At 3rd level, gain Weapon Focus with your deity's favored weapon. Record the specific Weapon Focus feat for that favored weapon; if you already have it, the source allows a different feat instead.",
       "sourceSha256": "9cc15c5f61142548ff1918092f6b1f2d0a883d720c7e184500af00ceb5025504"
     },
     {
-      "name": "Energy Resistance (Ex)",
+      "name": "Energy Resistance",
       "level": 5,
       "choiceKind": "source",
-      "description": "At 5th level, select an energy type and gain resistance 10 against it. At 10th and 15th level, gain resistance 10 against one additional energy type each time.",
+      "choiceLevels": [
+        5,
+        10,
+        15
+      ],
+      "choiceOptionsByLevel": {
+        "5": [
+          "Acid",
+          "Cold",
+          "Electricity",
+          "Fire",
+          "Sonic"
+        ],
+        "10": [
+          "Acid",
+          "Cold",
+          "Electricity",
+          "Fire",
+          "Sonic"
+        ],
+        "15": [
+          "Acid",
+          "Cold",
+          "Electricity",
+          "Fire",
+          "Sonic"
+        ]
+      },
+      "uniqueChoices": true,
+      "description": "At 5th level choose one energy type and gain resistance 10 to it. At 10th and 15th level choose a different energy type each time and gain resistance 10 to each new type.",
       "sourceSha256": "90a7a4d93820fc4e03c05f7e448dab78f75c3e40cfb80c51e780e1fbd232396a"
     },
     {
       "name": "Deity’s Weapon Specialization",
       "level": 12,
-      "description": "Gain Weapon Specialization with your deity's favored weapon at 12th level. If you already possess that exact feat, the source allows a different feat instead.",
+      "choiceKind": "feat",
+      "choiceLevels": [
+        12
+      ],
+      "description": "At 12th level, gain Weapon Specialization with your deity's favored weapon. Record the specific Weapon Specialization feat for that favored weapon; if you already have it, the source allows a different feat instead.",
       "sourceSha256": "963172f58a7bfad2e70845c974cabf8be394c663fa1f947914d51297a3d054e9"
     },
     {
-      "name": "Wings (Ex)",
+      "name": "Wings",
       "level": 17,
-      "description": "Gain a 60-foot fly speed with good maneuverability. Good favored souls grow feathered wings, evil favored souls grow batlike wings, and neutral favored souls may use either appearance.",
+      "description": "Gain wings and a 60-foot fly speed with good maneuverability. Good-aligned favored souls grow feathered wings, evil-aligned favored souls grow batlike wings, and neutral favored souls may choose either form.",
       "sourceSha256": "ce55320e245e88572cccde72cd7c1ca8ffb94d21c605f14fafdffc2dee64fb2a"
     },
     {
-      "name": "Damage Reduction (Su)",
+      "name": "Damage Reduction",
       "level": 20,
-      "description": "Gain damage reduction 10/silver if lawful or 10/cold iron if chaotic. A favored soul who is neither lawful nor chaotic may use either source-listed form.",
+      "description": "Gain damage reduction 10/silver if lawful or 10/cold iron if chaotic. A favored soul that is neither lawful nor chaotic may choose either form of damage reduction.",
       "sourceSha256": "819a06a2476e4ad2f9db6ba9e51170bfbb9f1816b00bb0a273b68365a6d10ec7"
     }
   ],
