@@ -486,6 +486,7 @@ function actionType(feature,edition){
   if(/bonus action/i.test(text))return 'Bonus action';
   if(/\breaction\b|immediate action/i.test(text))return edition==='3.5'?'Immediate action':'Reaction';
   if(/swift action/i.test(text))return 'Swift action';
+  if(/free action/i.test(text))return 'Free action';
   if(/full[- ]round action|full attack action/i.test(text))return 'Full-round action';
   if(/standard action/i.test(text))return 'Standard action';
   if(/as an action|use your action|take an action/i.test(text))return 'Action';
