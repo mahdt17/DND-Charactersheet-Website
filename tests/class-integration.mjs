@@ -304,6 +304,15 @@ assert.match(factotum20.grantedFeatures.find(feature=>feature.name==='Arcane Dil
 const lowWisFactotum={...baseCharacter([{catalogId:reviewedFactotum35.catalogId,name:'Factotum',edition:'3.5',level:5,definition:reviewedFactotum35}]),abilities:{str:14,dex:14,con:14,int:16,wis:8,cha:12}};
 const lowWisFactotum5=reconcileClassGrants(lowWisFactotum);
 assert.equal(lowWisFactotum5.resources.find(resource=>resource.name==='Opportunistic Piety')?.max,3,'negative Wisdom does not reduce Opportunistic Piety base uses');
+const reviewedDragonfireAdept35=exact35('classes/dragonfire-adept-29');
+const dragonfire20=reconcileClassGrants(baseCharacter([{catalogId:reviewedDragonfireAdept35.catalogId,name:'Dragonfire Adept',edition:'3.5',level:20,definition:reviewedDragonfireAdept35}]));
+assert.equal(dragonfire20.actions.find(action=>action.name==='Breath Weapon')?.type,'Standard action');
+assert(dragonfire20.feats.some(feat=>feat.name==='Dragontouched'&&feat.sourceClassId===reviewedDragonfireAdept35.catalogId),'Dragonfire Adept grants Dragontouched');
+assert.equal(dragonfire20.grantedFeatures.find(feature=>feature.name==='Breath Effect')?.kind,'choice');
+assert.deepEqual(dragonfire20.grantedFeatures.find(feature=>feature.name==='Breath Effect')?.choiceLevels,[2,5,10,12,15,20]);
+assert.match(dragonfire20.grantedFeatures.find(feature=>feature.name==='Invocations')?.description||'',/at will/i);
+assert.match(dragonfire20.grantedFeatures.find(feature=>feature.name==='Invocations')?.description||'',/dark at 16th/i);
+assert.match(dragonfire20.grantedFeatures.find(feature=>feature.name==='Damage Reduction')?.description||'',/5\/magic/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
