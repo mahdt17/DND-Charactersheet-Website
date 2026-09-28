@@ -95,5 +95,15 @@ assert(spiritGuideChoice.options.includes('Wolf')&&spiritGuideChoice.options.inc
 const spiritGuided=applyFeatureChoices(spiritShamanChoice35,null,{[spiritGuideChoice.id]:['Wolf']});
 assert(Object.values(spiritGuided.featureChoices).some(choice=>choice.feature==='Spirit Guide'&&choice.choices?.[0]==='Wolf'));
 
+const psychicWarriorClass35={name:'Psychic Warrior',edition:'3.5',sourceId:'classes/psychic-warrior-138',catalogId:'dndtools:classes/psychic-warrior-138',sourceUrl:'https://new.dndtools.org/classes/psychic-warrior-138',progression:[['Class Level','Special'],['1st','Bonus feat'],['2nd','Bonus feat'],['5th','Bonus feat']]};
+const psychicWarriorChoice35={...legacyChoice,className:'Psychic Warrior',classDefinition:psychicWarriorClass35,classLevels:[{name:'Psychic Warrior',edition:'3.5',catalogId:psychicWarriorClass35.catalogId,level:2,definition:psychicWarriorClass35}],level:2};
+const psychicWarriorPlan=featureChoicePlan(psychicWarriorChoice35,null);
+const psychicWarriorBonuses=psychicWarriorPlan.groups.filter(group=>group.label==='Bonus Feats');
+assert.equal(psychicWarriorBonuses.length,2,'Psychic Warrior creation requests both level 1 and level 2 bonus feats');
+assert(psychicWarriorBonuses.every(group=>group.choiceKind==='feat'));
+const psychicWarriorPicks=Object.fromEntries(psychicWarriorBonuses.map((group,index)=>[group.id,[index?'Psionic Weapon':'Combat Casting']]));
+const psychicWarriorChosen=applyFeatureChoices(psychicWarriorChoice35,null,psychicWarriorPicks);
+assert.equal(psychicWarriorChosen.feats.filter(feat=>feat.sourceType==='class-choice'&&feat.sourceClassId===psychicWarriorClass35.catalogId).length,2);
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
