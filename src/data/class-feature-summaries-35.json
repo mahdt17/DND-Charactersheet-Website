@@ -3501,7 +3501,10 @@
       "level": 1,
       "featName": "Scribe Scroll",
       "description": "Gain Scribe Scroll as a bonus feat at 1st level. Wizard bonus feats gained later must come from the wizard's allowed bonus-feat categories and still require their normal prerequisites.",
-      "sourceSha256": "52121adce7cf24031bdb19c442c5d1c5041f712985b3b9afdf9c98d97e58d964"
+      "sourceSha256": "52121adce7cf24031bdb19c442c5d1c5041f712985b3b9afdf9c98d97e58d964",
+      "aliases": [
+        "Bonus Feat"
+      ]
     },
     {
       "name": "Spellbooks",
