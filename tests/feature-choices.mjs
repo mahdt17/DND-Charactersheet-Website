@@ -59,5 +59,21 @@ const dreadApplied=applyFeatureChoices(dreadChar,null,{[weaponChoice.id]:['Longs
 assert(dreadApplied.trainingGrants.some(grant=>grant.sourceClassId===dreadClass.catalogId&&grant.proficiencies.some(p=>p.index==='longsword')));
 assert.equal(featureChoicePlan(dreadApplied,null).groups.filter(group=>group.choiceKind==='proficiency').length,0,'recorded proficiency choice must not repeat');
 
+const monkClass={name:'Monk',edition:'3.5',sourceId:'classes/monk-94',catalogId:'dndtools:classes/monk-94',sourceUrl:'https://new.dndtools.org/classes/monk-94',progression:[['Class Level','Special'],['1st','Flurry of blows, unarmed strike, bonus feat'],['2nd','Evasion, bonus feat'],['6th','Bonus feat']]};
+const monkChoice={...legacyChoice,className:'Monk',classDefinition:monkClass,classLevels:[{name:'Monk',edition:'3.5',catalogId:monkClass.catalogId,level:1,definition:monkClass}]};
+const monkPlan=featureChoicePlan(monkChoice,null);
+const monkBonus=monkPlan.groups.find(group=>group.label.toLowerCase()==='bonus feat');
+assert(monkBonus,'Monk level 1 requests its reviewed bonus feat');
+assert.equal(monkBonus.choiceKind,'feat');
+assert.deepEqual(monkBonus.options,['Improved Grapple','Stunning Fist']);
+const monkApplied=applyFeatureChoices(monkChoice,null,{[monkBonus.id]:['Stunning Fist']});
+assert(monkApplied.feats.some(feat=>feat.name==='Stunning Fist'&&feat.sourceType==='class-choice'&&feat.sourceClassId===monkClass.catalogId));
+const monkReconciled=(await import('../src/lib/classIntegration.js')).reconcileClassGrants(monkApplied);
+assert(monkReconciled.feats.some(feat=>feat.name==='Improved Unarmed Strike'&&feat.sourceType==='class'),'Monk automatic feat survives beside selected bonus feat');
+assert(monkReconciled.feats.some(feat=>feat.name==='Stunning Fist'&&feat.sourceType==='class-choice'),'selected Monk bonus feat survives reconciliation');
+const monk2={...monkApplied,level:2,classLevels:[{...monkChoice.classLevels[0],level:2}]};
+const monk2Plan=featureChoicePlan(monk2,monkApplied);
+assert.deepEqual(monk2Plan.groups.find(group=>group.label.toLowerCase()==='bonus feat')?.options,['Combat Reflexes','Deflect Arrows']);
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
