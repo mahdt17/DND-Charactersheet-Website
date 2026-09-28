@@ -1009,6 +1009,81 @@
       "sourceSha256": "e40048c0875737961797c14b6eb5390a30e3a6d0e1c12e916b41887ef7cb1dac"
     }
   ],
+  "classes/warlock-4": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons and light armor, but not shields. Warlock invocations, including Eldritch Blast, can be used in light armor without arcane spell failure; medium/heavy armor or shields can impose arcane spell failure on invocations.",
+      "sourceSha256": "992c1ef4ba2139ca1195b2e20569ce4bf69f1cc024ca618081117340602c0b03"
+    },
+    {
+      "name": "Invocations",
+      "level": 1,
+      "description": "Use known invocations at will as spell-like abilities. Using an invocation is normally a standard action that can provoke attacks of opportunity and can be disrupted; Charisma sets invocation save DCs. Invocation grades progress from least to lesser, greater, and dark, with replacement allowed at levels when a new invocation is learned under the source rules.",
+      "sourceSha256": "a371030e5319281060b8d8c517e9c2a70d23d97b9ccad5448b72e210d166159a"
+    },
+    {
+      "name": "Eldritch Blast",
+      "level": 1,
+      "actionType": "Standard action",
+      "description": "Make a 60-foot ranged touch attack that deals 1d6 damage at 1st level and scales with warlock level to 9d6 at 20th. Eldritch Blast is a spell-like ability subject to spell resistance, deals half damage to objects, and can be modified by eligible blast-shape and eldritch-essence invocations.",
+      "sourceSha256": "f3821c352782d2ba046c20e666341b0a384894ff96e86ccd39ba79b3a39fb478"
+    },
+    {
+      "name": "Detect Magic",
+      "level": 2,
+      "description": "Use detect magic at will as a spell-like ability with caster level equal to your warlock level.",
+      "sourceSha256": "032989fbfc932de3e27d3cd2239dc90a1878c57db10558cc0ab34a97bb85dd52"
+    },
+    {
+      "name": "Damage Reduction",
+      "level": 3,
+      "description": "Gain damage reduction 1/cold iron at 3rd level. It improves to 2 at 7th, 3 at 11th, 4 at 15th, and 5 at 19th level.",
+      "sourceSha256": "7759e1c65b6c4d42948467261010d238419db23b96a99bf7d59052ffb6fa3259"
+    },
+    {
+      "name": "Deceive Item",
+      "level": 4,
+      "description": "When making a Use Magic Device check, you can take 10 even while distracted or threatened.",
+      "sourceSha256": "9e6e2979b6e47474f32c75e84df59dd9c4cad1e6efba18fd9603fb73435484a6"
+    },
+    {
+      "name": "Fiendish Resilience",
+      "level": 8,
+      "actionType": "Free action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "The once-per-day use refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, as a free action, enter a 2-minute state that grants fast healing 1. The fast healing improves to 2 at 13th level and 5 at 18th level.",
+      "sourceSha256": "f1b9ad468c280fbdcd028a532c284b6cd1a6a405dbed4d300516f3bcb58eee0f"
+    },
+    {
+      "name": "Energy Resistance",
+      "level": 10,
+      "choiceKind": "source",
+      "choiceCount": 2,
+      "choiceOptionsByLevel": {
+        "10": [
+          "Acid",
+          "Cold",
+          "Electricity",
+          "Fire",
+          "Sonic"
+        ]
+      },
+      "description": "At 10th level choose two different energy types from acid, cold, electricity, fire, and sonic. Gain resistance 5 against both chosen types; the same two resistances improve to 10 at 20th level and cannot be changed.",
+      "sourceSha256": "b4ea272ec9b80f96d2f3f5f9ccb9eff1357596aaa3e99db4bc62ea68306043b6"
+    },
+    {
+      "name": "Imbue Item",
+      "level": 12,
+      "description": "When crafting a magic item with the appropriate item creation feat, substitute a Use Magic Device check for a required spell you do not know or cannot cast. The source sets DC 15 + spell level for arcane spells and 25 + spell level for divine spells; a failed check blocks that spell requirement until you gain a level.",
+      "sourceSha256": "fbb96147a4f1f2ae852b6422e0e4eece7e29a3bdab85fa52120f8b9027a34926"
+    }
+  ],
   "classes/wilder-140": [
     {
       "name": "Weapon and Armor Proficiency",
