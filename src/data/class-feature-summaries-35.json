@@ -50,6 +50,94 @@
       "sourceSha256": "630079cbb9ac918d8b9453472299dc1df526f28081e792a90b78adf5cfba14b3"
     }
   ],
+  "classes/barbarian-89": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, light and medium armor, and shields except tower shields.",
+      "sourceSha256": "b547872f2b5a329259c64cf21945019c62fe13bee82016ab7683e3e9017999f2"
+    },
+    {
+      "name": "Fast Movement (Ex)",
+      "level": 1,
+      "description": "Your land speed increases by 10 feet while you wear no armor, light armor, or medium armor and are not carrying a heavy load. Apply this bonus before reductions from armor or encumbrance.",
+      "sourceSha256": "3733c25d44e7a365aa07e3d842a4a9f4a46670c52992fd483f7b5c01ace5d9d5"
+    },
+    {
+      "name": "Illiteracy",
+      "level": 1,
+      "description": "You do not automatically know how to read and write. Spending 2 skill points grants literacy in every language you can speak. Taking a level in any other class grants literacy automatically; entering barbarian after another class does not remove existing literacy.",
+      "sourceSha256": "c6775bb54430709cc015475a9a1c1d3def62986efc6d7ed6888b0b1ffd607d4c"
+    },
+    {
+      "name": "Rage (Ex)",
+      "level": 1,
+      "description": "Rage begins at 1 use per day and gains another daily use every four barbarian levels, to 6/day at 20th. While raging you gain +4 Strength, +4 Constitution, and +2 morale on Will saves, but take -2 AC; the rage lasts 3 + your improved Constitution modifier rounds, restricts many skills, spellcasting, and item activations, and normally leaves you fatigued for the encounter. You can rage only once per encounter and can start it only during your own action.",
+      "sourceSha256": "3a5b42f8bc1d1d36cb3a5f0025382751a5fd6d97f69ace78b578c8f6d3da551f"
+    },
+    {
+      "name": "Uncanny Dodge (Ex)",
+      "level": 2,
+      "description": "Retain your Dexterity bonus to AC while flat-footed or when attacked by an invisible opponent, unless you are immobilized. If another class already grants uncanny dodge, you gain improved uncanny dodge instead.",
+      "sourceSha256": "a928a825d97469f8e8b0665d6bbf26b07480fd19e262182dd3b70722ce75617d"
+    },
+    {
+      "name": "Trap Sense (Ex)",
+      "level": 3,
+      "description": "Gain +1 on Reflex saves against traps and +1 dodge AC against trap attacks. Both bonuses increase by +1 every three barbarian levels thereafter through +6 at 18th level, and trap-sense bonuses from multiple classes stack.",
+      "sourceSha256": "221b528de3aec177efedc72430778dcb9b49d2501e2f1bc441537637a426db99"
+    },
+    {
+      "name": "Improved Uncanny Dodge (Ex)",
+      "level": 5,
+      "description": "You can no longer be flanked, except by a rogue whose rogue level is at least four higher than your effective level for this ability. Levels from classes that grant uncanny dodge stack for this purpose.",
+      "sourceSha256": "b2c5723172185ad0c6cf1efbbac7283800eb1be1e616b6cfd82c2b6a962d1f57"
+    },
+    {
+      "name": "Damage Reduction (Ex)",
+      "level": 7,
+      "description": "Gain damage reduction 1/- against weapon and natural-attack damage at 7th level. It improves by 1 at 10th, 13th, 16th, and 19th level, reaching 5/-. Damage reduction can reduce an instance of damage to 0 but not below 0.",
+      "sourceSha256": "ee2e83f0f02a745c9ae44d8ea6464869e90ef03377ba2b9bd3d979caa5c702fa"
+    },
+    {
+      "name": "Greater Rage (Ex)",
+      "level": 11,
+      "description": "While raging, your Strength and Constitution bonuses improve to +6 each and your morale bonus on Will saves improves to +3; the -2 AC penalty remains.",
+      "sourceSha256": "fe8be30f18cd70471a5dafb7247adb976ab95a831a61d63efae12985f3ab0b93"
+    },
+    {
+      "name": "Indomitable Will (Ex)",
+      "level": 14,
+      "description": "While raging, gain +4 on Will saves against enchantment spells and effects. This stacks with the rage morale bonus and other applicable modifiers.",
+      "sourceSha256": "a506abc77813dd13360e4393f244b2d4476ba219ad94f2ee0084c8e26545f31a"
+    },
+    {
+      "name": "Tireless Rage (Ex)",
+      "level": 17,
+      "description": "You no longer become fatigued when a rage ends.",
+      "sourceSha256": "26392e04ad41c75e7125a03db380d7f9ca3bc982eae45815c1a4367e86bb3e92"
+    },
+    {
+      "name": "Mighty Rage (Ex)",
+      "level": 20,
+      "description": "While raging, your Strength and Constitution bonuses improve to +8 each and your morale bonus on Will saves improves to +4; the -2 AC penalty remains. A barbarian who becomes lawful loses the ability to rage and cannot gain additional barbarian levels.",
+      "sourceSha256": "accabe3bd772da42aee5ac33612e4cdb58e8f3cd8a2cbc791ea4193102a6d7bd"
+    }
+  ],
+  "classes/fighter-93": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, all armor, and shields including tower shields.",
+      "sourceSha256": "cf2f26e71a2755db542ae5a97c23155faee7980cfba40b8713ea01f9299ff482"
+    },
+    {
+      "name": "Bonus Feats",
+      "level": 1,
+      "description": "Gain a fighter bonus feat at 1st level, another at 2nd level, and one every two fighter levels thereafter through 20th. Each choice must come from the fighter bonus feat list and you must meet its prerequisites. These are in addition to normal level-based feats.",
+      "sourceSha256": "61cad721dd1272ec1404a6ab28e450e7f30d1675b7318c433674161fdfbaa030"
+    }
+  ],
   "classes/psion-137": [
     {
       "name": "Class Skills",
@@ -92,6 +180,56 @@
       "level": 1,
       "description": "Gain a bonus feat at 1st, 5th, 10th, 15th, and 20th level. Each of these class bonus feats must be a psionic feat, metapsionic feat, or psionic item creation feat; they are in addition to normal character-level feats.",
       "sourceSha256": "ad7654feb5cc6ebcec8fa543c06fae29b525b2ed79f7b8a804b0654adb3b4bbc"
+    }
+  ],
+  "classes/rogue-97": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons plus the hand crossbow, rapier, sap, shortbow, and short sword. Proficient with light armor, but not shields.",
+      "sourceSha256": "6725732f86c7dbd6900216a1091745b6c5b5fb197d805d55fd4ecbbc14474ad3"
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 1,
+      "description": "Deal +1d6 damage when the target is denied its Dexterity bonus to AC or when you flank it; the bonus increases by +1d6 every two rogue levels. Ranged sneak attacks require the target to be within 30 feet. Sneak-attack dice are not multiplied on a critical hit, and the attack requires a target with a vulnerable anatomy that you can see and reach without concealment.",
+      "sourceSha256": "68ea16422103365cd3bf7118f6d5665052c359d520a1c26f16e5b6fa20d2ba2a"
+    },
+    {
+      "name": "Trapfinding",
+      "level": 1,
+      "description": "You can use Search to find traps with DCs above 20 and Disable Device to disarm magic traps. Beating a trap's Disable Device DC by 10 or more lets you understand and bypass it for your party without disarming it.",
+      "sourceSha256": "4734fb81c3c915f1326d19f3260a241e3de29baa822ccd151c967a13b0a44728"
+    },
+    {
+      "name": "Evasion (Ex)",
+      "level": 2,
+      "description": "When you succeed on a Reflex save against an effect that normally deals half damage on a successful save, you instead take no damage. Evasion works only in light armor or no armor and does not function while you are helpless.",
+      "sourceSha256": "07660860d2612ad99ffd7dd8c90b50d86ebe935af18847e3f8487faca9d5e467"
+    },
+    {
+      "name": "Trap Sense (Ex)",
+      "level": 3,
+      "description": "Gain +1 on Reflex saves against traps and +1 dodge AC against trap attacks. Both bonuses increase by +1 at 6th, 9th, 12th, 15th, and 18th rogue level, and trap-sense bonuses from multiple classes stack.",
+      "sourceSha256": "32c9fe97e3faaeae9a489da8508e88533db40f3eed010b3ff8ae34e13c99e4d3"
+    },
+    {
+      "name": "Uncanny Dodge (Ex)",
+      "level": 4,
+      "description": "Retain your Dexterity bonus to AC while flat-footed or when attacked by an invisible opponent, unless you are immobilized. If another class already grants uncanny dodge, you gain improved uncanny dodge instead.",
+      "sourceSha256": "8f56c185db58794a233bc0f47eaa19ac6327f2c7a88df7bf2976fdd94f2e23c0"
+    },
+    {
+      "name": "Improved Uncanny Dodge (Ex)",
+      "level": 8,
+      "description": "You can no longer be flanked, except by a rogue whose rogue level is at least four higher than your effective level for this ability. Levels from classes that grant uncanny dodge stack for this purpose.",
+      "sourceSha256": "0a5e8f57285728e0f86455d0581f98c8ed1ea7507a02342ff71f402d3ff45406"
+    },
+    {
+      "name": "Special Abilities",
+      "level": 10,
+      "description": "At 10th level and every three rogue levels thereafter, choose a rogue special ability. Options include Crippling Strike, Defensive Roll, Improved Evasion, Opportunist, Skill Mastery, Slippery Mind, or a bonus feat. Repeated selections must follow the option's own rules; for example, Skill Mastery may be selected more than once for different skills.",
+      "sourceSha256": "35036da5c06e94d859df82da31e51c183cbb66477911c7ff835d330ab49184f1"
     }
   ]
 }
