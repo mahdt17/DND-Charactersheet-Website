@@ -125,6 +125,72 @@
       "sourceSha256": "accabe3bd772da42aee5ac33612e4cdb58e8f3cd8a2cbc791ea4193102a6d7bd"
     }
   ],
+  "classes/beguiler-100": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons plus the hand crossbow, rapier, shortbow, and short sword, and with light armor but not shields.",
+      "sourceSha256": "ee3655b547f839886f299b963c44b006aa6f736fd597a3be47eb345cabea87f0"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Cast arcane spells spontaneously from the beguiler list using Intelligence. When you gain access to a new spell level, you automatically know every beguiler-list spell of that level. Intelligence determines spell access, save DCs, and bonus spells per day; Advanced Learning can permanently add additional eligible spells.",
+      "sourceSha256": "fb218d6e817dfc30a2bea8633e5b7da2843eb33b3a4d296534f004f9449da5cd"
+    },
+    {
+      "name": "Armored Mage",
+      "level": 1,
+      "description": "Ignore arcane spell failure for beguiler spells while wearing light armor. This benefit does not extend to other armor or to arcane spells gained from other classes.",
+      "sourceSha256": "f1b09a91c14ed82eddb5ed9fe06e04bcd015aa38fa44859bf369cae628c4ddd4"
+    },
+    {
+      "name": "Trapfinding",
+      "level": 1,
+      "description": "Use Search to locate traps with DC above 20 and Disable Device to disarm magic traps. If you beat a trap's Disable Device DC by 10 or more, you can study and bypass it without disarming it.",
+      "sourceSha256": "d65853331896a01b9aa4e0f123363efb66c8de08f590840ed25309e26e460fae"
+    },
+    {
+      "name": "Cloaked Casting",
+      "level": 2,
+      "description": "Against a foe denied its Dexterity bonus to AC, beguiler spells gain +1 to save DC at 2nd level. At 8th level gain +2 on caster-level checks to overcome that foe's spell resistance; at 14th the save-DC bonus becomes +2; at 20th you automatically overcome that foe's spell resistance.",
+      "sourceSha256": "1c0ac201e2ac5897f218449f4b2fc34e815789db761d23630a984fb67e4a3a7c"
+    },
+    {
+      "name": "Surprise Casting",
+      "level": 2,
+      "description": "After a successful combat feint, the target is denied its Dexterity bonus against your next melee attack or spell made on or before your next turn while you remain in melee. At 6th level, feinting becomes a move action; with Improved Feint, it becomes a swift action instead.",
+      "sourceSha256": "c83df55c168ceca21a7b1bb597200038230005479e6b0cbbb9fe28c353f911aa"
+    },
+    {
+      "name": "Advanced Learning",
+      "level": 3,
+      "choiceKind": "source",
+      "choiceLevels": [
+        3,
+        7,
+        11,
+        15,
+        19
+      ],
+      "description": "At 3rd, 7th, 11th, 15th, and 19th level, add one sorcerer/wizard enchantment or illusion spell to your beguiler spell list. The chosen spell cannot exceed the highest spell level you already know and permanently joins your list once selected.",
+      "sourceSha256": "b88bbacf5fd7e5a7f4d397287233ab23a1b0575bd3f10de589edf9a599cd0d29"
+    },
+    {
+      "name": "Silent Spell",
+      "level": 5,
+      "featName": "Silent Spell",
+      "description": "Gain Silent Spell as a bonus feat at 5th level.",
+      "sourceSha256": "48d2969b268cf99d0c713a49287df7743952593111011a6c97d38d37d6cfc300"
+    },
+    {
+      "name": "Still Spell",
+      "level": 10,
+      "featName": "Still Spell",
+      "description": "Gain Still Spell as a bonus feat at 10th level.",
+      "sourceSha256": "0061f9c2825fdae3e6b386da8c92dc81427d62e2831164209cf8faf8df3a4fae"
+    }
+  ],
   "classes/cleric-91": [
     {
       "name": "Weapon and Armor Proficiency",
