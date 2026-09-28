@@ -175,6 +175,32 @@
       "sourceSha256": "acea18af08633a12d5af249dbaeaeaa750e37111761dd0167b0c178b8c51440a"
     }
   ],
+  "classes/cloistered-cleric-120": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with simple weapons and light armor.",
+      "sourceSha256": "451598d5ca81728c5d076fad2d1826e84e4e057fa85a452635a9b4eea63489ca"
+    },
+    {
+      "name": "Lore (Ex)",
+      "level": 1,
+      "description": "Use the bardic knowledge class feature with your cloistered-cleric level in place of bard level.",
+      "sourceSha256": "330712d6ee287453dcb1afdefaf75a7576ceaecbba4c19d43644c4faf42fd76f"
+    },
+    {
+      "name": "Deity, Domains, and Domain Spells",
+      "level": 1,
+      "description": "In addition to two normal cleric domains, automatically gain the Knowledge domain. You receive its granted power and may prepare the bonus domain spell from Knowledge or either of your two regular domains.",
+      "sourceSha256": "19f9d5a8231885d946c2f7857a4998103dbd5abdf9fbc24e20837ec04c6d632b"
+    },
+    {
+      "name": "Spellcasting",
+      "level": 1,
+      "description": "Use cleric spellcasting with the cloistered-cleric class adjustments, including the additional source-listed spells added to the class spell list at levels 0, 1, 2, 3, 6, 7, and 9.",
+      "sourceSha256": "f04f23412ee0e2df88891366e66966612b8e8f2f94321ec2a0610a96d06cb64d"
+    }
+  ],
   "classes/druid-92": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -271,6 +297,51 @@
       "level": 1,
       "description": "Animal companions use their base creature statistics plus the druid companion progression for bonus Hit Dice, natural armor, Strength/Dexterity adjustments, bonus tricks, and companion abilities such as link and share spells. Qualifying animal-companion class levels stack as defined by the source.",
       "sourceSha256": "0346e2b95ae3612ea6bb251f5c227be3ae83180a8a84e34b22c57a708782bc60"
+    }
+  ],
+  "classes/favored-soul-7": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons, light and medium armor, shields except tower shields, and your deity's favored weapon. Heavy armor is not a class proficiency, but wearing it does not by itself interfere with favored-soul spellcasting.",
+      "sourceSha256": "3004a4d3232d355b653ed2c45d49c7c4858898c7fa74baae410911a5cc7312c7"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Cast divine spells from the cleric list without preparing them in advance. Charisma determines the highest spell level you can cast and bonus spells per day; Wisdom sets spell save DCs. Spells known follow the favored-soul table, with limited same-level spell replacement beginning at 4th level and on later even-numbered favored-soul levels.",
+      "sourceSha256": "856a13c6cde9eec8a0ae33ae2429a6029e4d824d37f7dd9d6fb7d7e9bae9064a"
+    },
+    {
+      "name": "Deity’s Weapon Focus",
+      "level": 3,
+      "description": "Gain Weapon Focus with your deity's favored weapon at 3rd level. If you already possess that exact feat, the source allows a different feat instead.",
+      "sourceSha256": "9cc15c5f61142548ff1918092f6b1f2d0a883d720c7e184500af00ceb5025504"
+    },
+    {
+      "name": "Energy Resistance (Ex)",
+      "level": 5,
+      "choiceKind": "source",
+      "description": "At 5th level, select an energy type and gain resistance 10 against it. At 10th and 15th level, gain resistance 10 against one additional energy type each time.",
+      "sourceSha256": "90a7a4d93820fc4e03c05f7e448dab78f75c3e40cfb80c51e780e1fbd232396a"
+    },
+    {
+      "name": "Deity’s Weapon Specialization",
+      "level": 12,
+      "description": "Gain Weapon Specialization with your deity's favored weapon at 12th level. If you already possess that exact feat, the source allows a different feat instead.",
+      "sourceSha256": "963172f58a7bfad2e70845c974cabf8be394c663fa1f947914d51297a3d054e9"
+    },
+    {
+      "name": "Wings (Ex)",
+      "level": 17,
+      "description": "Gain a 60-foot fly speed with good maneuverability. Good favored souls grow feathered wings, evil favored souls grow batlike wings, and neutral favored souls may use either appearance.",
+      "sourceSha256": "ce55320e245e88572cccde72cd7c1ca8ffb94d21c605f14fafdffc2dee64fb2a"
+    },
+    {
+      "name": "Damage Reduction (Su)",
+      "level": 20,
+      "description": "Gain damage reduction 10/silver if lawful or 10/cold iron if chaotic. A favored soul who is neither lawful nor chaotic may use either source-listed form.",
+      "sourceSha256": "819a06a2476e4ad2f9db6ba9e51170bfbb9f1816b00bb0a273b68365a6d10ec7"
     }
   ],
   "classes/fighter-93": [
