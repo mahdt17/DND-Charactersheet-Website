@@ -511,11 +511,16 @@ function latestUsage(feature){
   }
   return usageFromText(feature.description);
 }
-function structuredUsage(feature,classLevel){
+function structuredUsage(feature,classLevel,character=null){
   const spec=feature.resource;
   if(!spec||typeof spec!=='object')return null;
   let max=Number(spec.max);
   if(!Number.isFinite(max)&&Number.isFinite(Number(spec.perLevel)))max=Number(spec.perLevel)*Math.max(0,Number(classLevel)||0)+Number(spec.base||0);
+  if(spec.ability&&character?.abilities){
+    const score=Number(character.abilities[spec.ability]);
+    if(Number.isFinite(score))max=(Number.isFinite(max)?max:0)+Math.floor((score-10)/2);
+  }
+  if(Number.isFinite(Number(spec.minimum)))max=Math.max(Number(spec.minimum),max);
   max=Math.floor(max);
   if(!Number.isFinite(max)||max<=0)return null;
   return {max,period:spec.period||'',reset:spec.reset||'',recoveryText:spec.recoveryText||'',unit:spec.unit||''};
@@ -534,7 +539,7 @@ function needsChoice(feature){
   return /\bchoose\b|\bselect\b|\bchoice\b/i.test(featureRuleText(feature));
 }
 
-function derivedForRow(row){
+function derivedForRow(row,character=null){
   const edition=normalizeEdition(row.edition||row.definition?.edition),features=coalesceFeatures(row);
   const derivedFeatures=[],actions=[],feats=[],resources=[],tracks=[],spellSlots=[];
   for(const feature of features){
@@ -553,7 +558,7 @@ function derivedForRow(row){
       const featName=grantedFeatName||feature.name;
       feats.push({id:'class-grant:'+meta.sourceClassId+':feat:'+slug(featName),name:featName,level:feature.level,description,catalogId:feature.featId||undefined,...meta});
     }
-    const usage=structuredUsage(feature,row.level)||latestUsage(feature);
+    const usage=structuredUsage(feature,row.level,character)||latestUsage(feature);
     const type=feature.actionType||actionType(feature,edition);
     if(!concreteFeat&&(type||usage)){
       actions.push({id:'class-grant:'+meta.sourceClassId+':action:'+slug(feature.name),name:feature.name,type:type||'Special action',description,notes:history.at(-1)?.text||'',...meta});
@@ -613,7 +618,7 @@ function mergeDerived(existing,derived,{resource=false,feat=false}={}){
 }
 
 export function reconcileClassGrants(character){
-  const rows=characterClasses(character),derived=rows.map(derivedForRow);
+  const rows=characterClasses(character),derived=rows.map(row=>derivedForRow(row,character));
   const features=derived.flatMap(x=>x.features),actions=derived.flatMap(x=>x.actions),feats=derived.flatMap(x=>x.feats),resources=derived.flatMap(x=>x.resources),training=derived.flatMap(x=>x.training||[]),classSkills35=derived.flatMap(x=>x.classSkills||[]),classSkillRules35=derived.flatMap(x=>x.classSkillRules||[]);
   let tracks=derived.flatMap(x=>x.tracks),spellSlots=derived.flatMap(x=>x.spellSlots);
   const advancements=Array.isArray(character.castingAdvancements)?character.castingAdvancements:[];
