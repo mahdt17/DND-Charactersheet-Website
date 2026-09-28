@@ -2381,6 +2381,58 @@
       "sourceSha256": "e04f475d1270be81a71334c464a9fd0324ae42dbd50286f3354b9bf7501d70ae"
     }
   ],
+  "classes/shugenja-8": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons and the short sword, but not armor or shields. Armor does not interfere with shugenja spellcasting, though normal armor check penalties still apply where appropriate.",
+      "sourceSha256": "61c058e17a9c5ae5a5b8df70da6a7770beec1a2642ee37c7b1ceae107dec88ce"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Cast divine shugenja spells spontaneously using Charisma. Spell access, save DCs, and bonus spells depend on Charisma. Your spells known include order-determined spells plus additional spells, and at least half of the spells known at each spell level must belong to your favored element. Beginning at 4th level and every even shugenja level thereafter, you may replace one eligible known spell while still honoring elemental focus. Metamagic normally increases casting time, and shugenjas cannot use Quicken Spell.",
+      "sourceSha256": "9877e43fd6b4113e13ff5a520f9f2f12aa9a978c852ba93939d07ac400edac16"
+    },
+    {
+      "name": "Element Focus",
+      "level": 1,
+      "choiceKind": "source",
+      "choiceLevels": [
+        1
+      ],
+      "choiceOptionsByLevel": {
+        "1": [
+          "Air",
+          "Earth",
+          "Fire",
+          "Water"
+        ]
+      },
+      "description": "Choose air, earth, fire, or water as your favored element. At least half the non-order spells you know at each spell level must belong to that element, and you gain the source's Spell Focus benefit for spells of the favored element regardless of school. Air prohibits earth, earth prohibits air, fire prohibits water, and water prohibits fire. The source describes Void as a special Order of the Ineffable Mystery exception rather than a general choice.",
+      "sourceSha256": "2e58b4f707cae90d603cd0b5efe0e721eb88f30e203217a0766f1f9ec9af4251"
+    },
+    {
+      "name": "Sense Elements",
+      "sourceFeatureName": "Element Focus",
+      "level": 1,
+      "actionType": "Full-round action",
+      "resource": {
+        "maxByLevel": {
+          "1": 3,
+          "5": 4,
+          "10": 5,
+          "15": 6,
+          "20": 7
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Sense Elements uses refresh with the character's daily recovery."
+      },
+      "description": "As a full-round action, sense sources of air, earth, fire, or water within 10 feet. Continued concentration can extend the radius by 5 feet per additional round up to 5 extra feet per shugenja level, or let you make Spellcraft checks for progressively more precise information. Uses are 3/day at 1st level and increase by one at 5th, 10th, 15th, and 20th level.",
+      "sourceSha256": "2e58b4f707cae90d603cd0b5efe0e721eb88f30e203217a0766f1f9ec9af4251"
+    }
+  ],
   "classes/sorcerer-98": [
     {
       "name": "Weapon and Armor Proficiency",
