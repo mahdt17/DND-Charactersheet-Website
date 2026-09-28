@@ -201,6 +201,190 @@
       "sourceSha256": "f04f23412ee0e2df88891366e66966612b8e8f2f94321ec2a0610a96d06cb64d"
     }
   ],
+  "classes/dragon-shaman-101": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with simple weapons, light and medium armor, and shields except tower shields.",
+      "sourceSha256": "02387436fe8a2b47b06c28711e68d0820810c745326dadd2f483f3402e8df510"
+    },
+    {
+      "name": "Bonus Languages",
+      "level": 1,
+      "description": "Draconic is available as a dragon-shaman bonus-language choice in addition to languages otherwise available from your race and other rules.",
+      "sourceSha256": "16c3db854279f563d22acb78098745683aea53daf6afdd8b3d4fa05d0bd13d69"
+    },
+    {
+      "name": "Draconic Aura",
+      "level": 1,
+      "actionType": "Swift action",
+      "choiceKind": "source",
+      "choiceLevels": [
+        1,
+        3,
+        5,
+        7,
+        9
+      ],
+      "choiceCountByLevel": {
+        "1": 3,
+        "3": 1,
+        "5": 1,
+        "7": 1,
+        "9": 1
+      },
+      "choiceOptionsByLevel": {
+        "1": [
+          "Energy Shield",
+          "Power",
+          "Presence",
+          "Resistance",
+          "Senses",
+          "Toughness",
+          "Vigor"
+        ],
+        "3": [
+          "Energy Shield",
+          "Power",
+          "Presence",
+          "Resistance",
+          "Senses",
+          "Toughness",
+          "Vigor"
+        ],
+        "5": [
+          "Energy Shield",
+          "Power",
+          "Presence",
+          "Resistance",
+          "Senses",
+          "Toughness",
+          "Vigor"
+        ],
+        "7": [
+          "Energy Shield",
+          "Power",
+          "Presence",
+          "Resistance",
+          "Senses",
+          "Toughness",
+          "Vigor"
+        ],
+        "9": [
+          "Energy Shield",
+          "Power",
+          "Presence",
+          "Resistance",
+          "Senses",
+          "Toughness",
+          "Vigor"
+        ]
+      },
+      "uniqueChoices": true,
+      "description": "Project one known draconic aura at a time as a swift action; dismiss or replace it with a free action. At 1st level choose three of Energy Shield, Power, Presence, Resistance, Senses, Toughness, and Vigor; learn one additional aura at 3rd, 5th, 7th, and 9th until all seven are known. Aura bonus starts at +1 and improves to +2 at 5th, +3 at 10th, +4 at 15th, and +5 at 20th.",
+      "sourceSha256": "b8df6e26bee12736f2b04e9583c1d466448df246666938e085b08d5c8bfd28b9"
+    },
+    {
+      "name": "Totem Dragon",
+      "level": 1,
+      "choiceKind": "source",
+      "choiceLevels": [
+        1
+      ],
+      "choiceOptionsByLevel": {
+        "1": [
+          "Black",
+          "Blue",
+          "Brass",
+          "Bronze",
+          "Copper",
+          "Gold",
+          "Green",
+          "Red",
+          "Silver",
+          "White"
+        ]
+      },
+      "description": "Choose one true-dragon totem: black, blue, brass, bronze, copper, gold, green, red, silver, or white. Your alignment must be within one step of the source-listed alignments for that dragon. The choice determines three additional class skills, your breath weapon's energy type and shape, your adaptation, and later energy immunity.",
+      "sourceSha256": "a02a97692bb5cd5b24e79d18062fbb93561d0921bf13a0bfb9df42bf19a1b2cc"
+    },
+    {
+      "name": "Skill Focus",
+      "level": 2,
+      "choiceKind": "feat",
+      "choiceLevels": [
+        2,
+        8,
+        16
+      ],
+      "description": "At 2nd, 8th, and 16th level, gain Skill Focus tied to one of the three class skills granted by your chosen totem dragon. Each selection should use a different totem-granted skill; if all three are already covered, the source permits another dragon-shaman class skill.",
+      "sourceSha256": "db974b74baf3aa7d9ac06065749b0104d63f8743c53c72ba32c0624cc451c697"
+    },
+    {
+      "name": "Draconic Adaptation",
+      "level": 3,
+      "description": "Gain the adaptation associated with your totem dragon. Depending on the totem, this is an always-active extraordinary benefit or an at-will spell-like ability. At 13th level you can share the adaptation with allies within 30 feet as described by the source.",
+      "sourceSha256": "9899bf8895893435a945ba45067a297b6bc9f1bd12cc3398e7ee0e1359f98a1a"
+    },
+    {
+      "name": "Breath Weapon",
+      "level": 4,
+      "actionType": "Standard action",
+      "description": "Gain the breath weapon associated with your totem dragon. It deals 2d6 damage at 4th level and +1d6 every two dragon-shaman levels thereafter, with a Reflex save for half at DC 10 + half class level + Constitution modifier. After breathing, wait 1d4 rounds before using it again. Cone/line range increases at 12th and 20th level.",
+      "sourceSha256": "f7d8086ba9f28015324942e10ddfcbe47385959987be57d5d0e9c4e313506963"
+    },
+    {
+      "name": "Draconic Resolve",
+      "level": 4,
+      "description": "Gain immunity to paralysis and sleep effects and immunity to the frightful presence of dragons.",
+      "sourceSha256": "6980e3cd2efffa51b2310582e4229315c87c4d472ca2c625c5bd6101f211e4b8"
+    },
+    {
+      "name": "Touch of Vitality",
+      "level": 6,
+      "actionType": "Standard action",
+      "resource": {
+        "ability": "cha",
+        "levelTimesAbility": 2,
+        "minimum": 0,
+        "reset": "long",
+        "unit": "healing points",
+        "recoveryText": "The Touch of Vitality pool refreshes with the character's daily recovery."
+      },
+      "description": "As a standard action, heal living creatures from a daily pool equal to 2 × dragon-shaman level × Charisma modifier, divided among uses as desired. Beginning at 11th level, spend pool points to remove source-listed conditions or ability damage as well as healing hit points.",
+      "sourceSha256": "2275514d9c69d4a2512ede411fda0336e92199f971a4d7252334e5caac077614"
+    },
+    {
+      "name": "Natural Armor",
+      "level": 7,
+      "description": "Gain +1 natural armor at 7th level; the improvement becomes +2 at 12th and +3 at 17th level.",
+      "sourceSha256": "dd84f53d211636a8259a08f53ad057fe5e25bb2a92fe4d1bc5cd84359a2a9dc4"
+    },
+    {
+      "name": "Energy Immunity",
+      "level": 9,
+      "description": "Gain immunity to the energy type of the breath weapon granted by your chosen totem dragon.",
+      "sourceSha256": "061a00c6ef047f36c7da8230da5a701560752bf26c526e92335bbe0ba0d6cf23"
+    },
+    {
+      "name": "Commune with Dragon Spirit",
+      "level": 14,
+      "resource": {
+        "max": 1,
+        "reset": "none",
+        "unit": "use",
+        "recoveryText": "After using Commune with Dragon Spirit, it cannot be used again for seven days."
+      },
+      "description": "Contact your dragon totem as commune without the normal material component, focus, or XP cost, asking one question per three dragon-shaman levels. After use, this ability cannot be used again for seven days.",
+      "sourceSha256": "e198a88a3cbb8674c7164327c452982f0abb77861f18a86d9b982363f512589c"
+    },
+    {
+      "name": "Draconic Wings",
+      "level": 19,
+      "description": "Grow wings resembling your totem dragon's, granting a 60-foot fly speed with good maneuverability; while carrying a medium load the fly speed is 40 feet. If you already have wings, you may choose whether the new wings replace them.",
+      "sourceSha256": "e960e40da05fee29e4cff516bfc7b16a0b8e7da7b04309299d5c160c748bc6e6"
+    }
+  ],
   "classes/dread-necromancer-75": [
     {
       "name": "Weapon and Armor Proficiency",
