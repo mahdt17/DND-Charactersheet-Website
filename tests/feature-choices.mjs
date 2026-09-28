@@ -105,5 +105,16 @@ const psychicWarriorPicks=Object.fromEntries(psychicWarriorBonuses.map((group,in
 const psychicWarriorChosen=applyFeatureChoices(psychicWarriorChoice35,null,psychicWarriorPicks);
 assert.equal(psychicWarriorChosen.feats.filter(feat=>feat.sourceType==='class-choice'&&feat.sourceClassId===psychicWarriorClass35.catalogId).length,2);
 
+const warlockClass35={name:'Warlock',edition:'3.5',sourceId:'classes/warlock-4',catalogId:'dndtools:classes/warlock-4',sourceUrl:'https://new.dndtools.org/classes/warlock-4',progression:[['Class Level','Special'],['10th','Energy resistance 5']]};
+const warlockChoice35={...legacyChoice,className:'Warlock',classDefinition:warlockClass35,classLevels:[{name:'Warlock',edition:'3.5',catalogId:warlockClass35.catalogId,level:10,definition:warlockClass35}],level:10};
+const warlockPlan=featureChoicePlan(warlockChoice35,null);
+const warlockEnergy=warlockPlan.groups.find(group=>group.label==='Energy Resistance');
+assert(warlockEnergy,'Warlock level 10 requests its two energy resistance choices');
+assert.equal(warlockEnergy.required,2);
+assert.equal(warlockEnergy.valid,false);
+assert.throws(()=>applyFeatureChoices(warlockChoice35,null,{[warlockEnergy.id]:['Fire','Fire']}),/Complete/);
+const warlockResistant=applyFeatureChoices(warlockChoice35,null,{[warlockEnergy.id]:['Fire','Cold']});
+assert(Object.values(warlockResistant.featureChoices).some(choice=>choice.feature==='Energy Resistance'&&choice.choices?.length===2));
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
