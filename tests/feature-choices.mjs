@@ -86,5 +86,14 @@ assert.equal(rangerStyle.ignorePrerequisites,true);
 const rangerStyled=applyFeatureChoices(rangerChoice35,rangerBefore35,{[rangerStyle.id]:['Archery']});
 assert(Object.values(rangerStyled.featureChoices).some(choice=>choice.feature==='Combat Style'&&choice.choices?.[0]==='Archery'));
 
+const spiritShamanClass35={name:'Spirit Shaman',edition:'3.5',sourceId:'classes/spirit-shaman-9',catalogId:'dndtools:classes/spirit-shaman-9',sourceUrl:'https://new.dndtools.org/classes/spirit-shaman-9',progression:[['Class Level','Special'],['1st','Spirit guide, wild empathy']]};
+const spiritShamanChoice35={...legacyChoice,className:'Spirit Shaman',classDefinition:spiritShamanClass35,classLevels:[{name:'Spirit Shaman',edition:'3.5',catalogId:spiritShamanClass35.catalogId,level:1,definition:spiritShamanClass35}],level:1};
+const spiritGuidePlan=featureChoicePlan(spiritShamanChoice35,null);
+const spiritGuideChoice=spiritGuidePlan.groups.find(group=>group.label==='Spirit Guide');
+assert(spiritGuideChoice,'Spirit Shaman requests its reviewed spirit-guide form');
+assert(spiritGuideChoice.options.includes('Wolf')&&spiritGuideChoice.options.includes('Owl'));
+const spiritGuided=applyFeatureChoices(spiritShamanChoice35,null,{[spiritGuideChoice.id]:['Wolf']});
+assert(Object.values(spiritGuided.featureChoices).some(choice=>choice.feature==='Spirit Guide'&&choice.choices?.[0]==='Wolf'));
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
