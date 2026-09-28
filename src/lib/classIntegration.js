@@ -51,8 +51,13 @@ function reviewedFeatureRows(record){
   return Array.isArray(rows)?rows:[];
 }
 function reviewedFeatureRow(record,name){
-  const key=featureMatchKey(name);
-  return reviewedFeatureRows(record).find(item=>featureMatchKey(item?.name)===key)||null;
+  const key=featureMatchKey(name),rows=reviewedFeatureRows(record);
+  const direct=rows.find(item=>featureMatchKey(item?.name)===key);
+  if(direct)return direct;
+  const alias=rows.find(item=>Array.isArray(item?.aliases)&&item.aliases.some(value=>featureMatchKey(value)===key));
+  if(alias)return alias;
+  if(key.startsWith('wild shape'))return rows.find(item=>featureMatchKey(item?.name)==='wild shape')||null;
+  return null;
 }
 function reviewedFeatureDescription(record,name){
   const row=reviewedFeatureRow(record,name);

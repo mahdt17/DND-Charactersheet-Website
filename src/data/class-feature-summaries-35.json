@@ -829,7 +829,14 @@
       "name": "Animal Companion Basics",
       "level": 1,
       "description": "Animal companions use their base creature statistics plus the druid companion progression for bonus Hit Dice, natural armor, Strength/Dexterity adjustments, bonus tricks, and companion abilities such as link and share spells. Qualifying animal-companion class levels stack as defined by the source.",
-      "sourceSha256": "0346e2b95ae3612ea6bb251f5c227be3ae83180a8a84e34b22c57a708782bc60"
+      "sourceSha256": "0346e2b95ae3612ea6bb251f5c227be3ae83180a8a84e34b22c57a708782bc60",
+      "aliases": [
+        "Link",
+        "Share Spells",
+        "Evasion",
+        "Devotion",
+        "Improved Evasion"
+      ]
     }
   ],
   "classes/duskblade-102": [
