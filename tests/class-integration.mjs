@@ -136,7 +136,7 @@ const psychicWarriorBonus=psychicWarrior8.grantedFeatures.find(feature=>feature.
 assert.equal(psychicWarriorBonus?.kind,'choice','Psychic Warrior bonus feats remain guided choices');
 assert.equal(psychicWarriorBonus?.progressionHistory?.filter(event=>/bonus feat/i.test(event.text||'')).length,4,'Psychic Warrior retains bonus-feat milestones through level 8');
 assert.match(psychicWarrior8.grantedFeatures.find(feature=>feature.name==='Power Points/Day')?.description||'',/Wisdom/i);
-assert.match(psychicWarrior8.grantedFeatures.find(feature=>feature.name==='Maximum Power Level Known')?.description||'',/4th level/i);
+assert.match(psychicWarrior8.grantedFeatures.find(feature=>feature.name==='Maximum Power Level Known')?.description||'',/6th-level powers at 16th level/i);
 
 const reviewedWilderFeatures35=exact35('classes/wilder-140');
 const wilder17=reconcileClassGrants(baseCharacter([{catalogId:reviewedWilderFeatures35.catalogId,name:'Wilder',edition:'3.5',level:17,definition:reviewedWilderFeatures35}]));
