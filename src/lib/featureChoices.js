@@ -36,7 +36,9 @@ function sourceChoicePlan(c,previous,picks={}) {
         const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
         const selected=raw.map(value=>String(value||'').trim()).filter(Boolean),required=1;
         const valid=selected.length===required&&(!options.length||selected.every(value=>options.includes(value)));
-        const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText:feature.description||event.text,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites};
+        const detail=String(feature.description||'').trim();
+        const sourceText=detail?(norm(detail).includes(norm(feature.name))?detail:`${feature.name}: ${detail}`):(event.text||feature.name);
+        const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites};
         groups.push(group);
         if(valid){
           patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[...selected],sourceText:group.sourceText,choiceKind};
