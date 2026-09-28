@@ -119,6 +119,17 @@ const cloistered1=reconcileClassGrants(baseCharacter([{catalogId:reviewedCloiste
 assert.equal(cloistered1.grantedFeatures.find(feature=>feature.name==='Lore')?.descriptionSource,'rule-text');
 assert.match(cloistered1.grantedFeatures.find(feature=>/Deity, Domains/i.test(feature.name))?.description||'',/Knowledge domain/i);
 assert.match(cloistered1.grantedFeatures.find(feature=>feature.name==='Spellcasting')?.description||'',/additional source-listed spells/i);
+const reviewedSpiritShaman35=exact35('classes/spirit-shaman-9');
+const spiritShaman17=reconcileClassGrants(baseCharacter([{catalogId:reviewedSpiritShaman35.catalogId,name:'Spirit Shaman',edition:'3.5',level:17,definition:reviewedSpiritShaman35}]));
+assert(spiritShaman17.feats.some(feat=>feat.name==='Alertness'&&feat.sourceClassId===reviewedSpiritShaman35.catalogId),'Spirit Guide grants Alertness');
+assert.equal(spiritShaman17.grantedFeatures.find(feature=>feature.name==='Spirit Guide')?.kind,'choice','Spirit Guide form remains a guided source choice');
+assert.equal(spiritShaman17.actions.find(action=>action.name==='Chastise Spirits')?.type,'Standard action');
+assert.equal(spiritShaman17.actions.find(action=>action.name==='Guide Magic')?.type,'Free action');
+assert.equal(spiritShaman17.actions.find(action=>action.name==='Exorcism')?.type,'Full-round action');
+assert.equal(spiritShaman17.resources.find(resource=>resource.name==='Warding of the Spirits')?.max,1);
+assert.equal(spiritShaman17.resources.find(resource=>resource.name==='Recall Spirit')?.max,1);
+assert.equal(spiritShaman17.resources.find(resource=>resource.name==='Recall Spirit')?.reset,'none');
+assert.equal(spiritShaman17.resources.find(resource=>resource.name==='Spirit Journey')?.max,1);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
