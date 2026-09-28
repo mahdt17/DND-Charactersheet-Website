@@ -211,6 +211,28 @@ const beguilerLearning=beguilerPlan.groups.find(group=>group.label==='Advanced L
 assert(beguilerLearning,'Beguiler level 7 requests its next Advanced Learning spell');
 assert.equal(beguilerLearning.required,1);
 
+const favoredSoulClass35={name:'Favored Soul',edition:'3.5',sourceId:'classes/favored-soul-7',catalogId:'dndtools:classes/favored-soul-7',sourceUrl:'https://new.dndtools.org/classes/favored-soul-7',progression:[['Level','Special'],['3rd','Deity’s weapon focus'],['5th','Energy resistance (1st type)'],['10th','Energy resistance (2nd type)']]};
+const favoredSoul3={...legacyChoice,className:'Favored Soul',classDefinition:favoredSoulClass35,classLevels:[{name:'Favored Soul',edition:'3.5',catalogId:favoredSoulClass35.catalogId,level:3,definition:favoredSoulClass35}],level:3};
+const favoredSoul3Plan=featureChoicePlan(favoredSoul3,null);
+const deityFocus=favoredSoul3Plan.groups.find(group=>group.label==='Deity’s Weapon Focus');
+assert.equal(deityFocus?.choiceKind,'feat');
+const focusedSoul=applyFeatureChoices(favoredSoul3,null,{[deityFocus.id]:['Weapon Focus (Longsword)']});
+assert(focusedSoul.feats.some(feat=>feat.name==='Weapon Focus (Longsword)'&&feat.sourceType==='class-choice'));
+
+const favoredSoul5={...focusedSoul,classLevels:[{...favoredSoul3.classLevels[0],level:5}],level:5};
+const favoredSoul4={...focusedSoul,classLevels:[{...favoredSoul3.classLevels[0],level:4}],level:4};
+const favoredSoul5Plan=featureChoicePlan(favoredSoul5,favoredSoul4);
+const firstResistance=favoredSoul5Plan.groups.find(group=>group.label==='Energy Resistance');
+assert(firstResistance?.options.includes('Fire')&&firstResistance.options.includes('Cold'));
+const resistedSoul=applyFeatureChoices(favoredSoul5,favoredSoul4,{[firstResistance.id]:['Fire']});
+
+const favoredSoul10={...resistedSoul,classLevels:[{...favoredSoul3.classLevels[0],level:10}],level:10};
+const favoredSoul9={...resistedSoul,classLevels:[{...favoredSoul3.classLevels[0],level:9}],level:9};
+const favoredSoul10Plan=featureChoicePlan(favoredSoul10,favoredSoul9);
+const secondResistance=favoredSoul10Plan.groups.find(group=>group.label==='Energy Resistance');
+assert(!secondResistance.options.includes('Fire'),'Favored Soul later energy resistance excludes an already chosen type');
+assert(secondResistance.options.includes('Cold'));
+
 const knightClass35={name:'Knight',edition:'3.5',sourceId:'classes/knight-103',catalogId:'dndtools:classes/knight-103',sourceUrl:'https://new.dndtools.org/classes/knight-103',progression:[['Level','Special'],['2nd','Mounted Combat, shield block +1'],['5th','Bonus feat, vigilant defender'],['10th','Bonus feat']]};
 const knight10={...legacyChoice,className:'Knight',classDefinition:knightClass35,classLevels:[{name:'Knight',edition:'3.5',catalogId:knightClass35.catalogId,level:10,definition:knightClass35}],level:10};
 const knight9={...knight10,classLevels:[{...knight10.classLevels[0],level:9}],level:9};
