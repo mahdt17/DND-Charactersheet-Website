@@ -34,8 +34,8 @@ function sourceChoicePlan(c,previous,picks={}) {
           continue;
         }
         const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
-        const selected=raw.map(value=>String(value||'').trim()).filter(Boolean),required=1;
-        const valid=selected.length===required&&(!options.length||selected.every(value=>options.includes(value)));
+        const selected=raw.map(value=>String(value||'').trim()).filter(Boolean),required=Math.max(1,Number(feature.choiceCount)||1);
+        const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length||selected.every(value=>options.includes(value)));
         const detail=String(feature.description||'').trim();
         const sourceText=detail?(norm(detail).includes(norm(feature.name))?detail:`${feature.name}: ${detail}`):(event.text||feature.name);
         const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites};
