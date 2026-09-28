@@ -273,6 +273,13 @@ assert.equal(healer20.resources.find(resource=>resource.name==='New Life')?.rese
 assert.match(healer20.resources.find(resource=>resource.name==='New Life')?.recoveryText||'',/once per week/i);
 assert.match(healer20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Prepare divine spells/i);
 assert.match(healer20.grantedFeatures.find(feature=>feature.name==='Healing Hands')?.description||'',/Charisma modifier/i);
+const reviewedShugenja35=exact35('classes/shugenja-8');
+const shugenja20=reconcileClassGrants(baseCharacter([{catalogId:reviewedShugenja35.catalogId,name:'Shugenja',edition:'3.5',level:20,definition:reviewedShugenja35}]));
+assert.equal(shugenja20.grantedFeatures.find(feature=>feature.name==='Element Focus')?.kind,'choice');
+assert.equal(shugenja20.actions.find(action=>action.name==='Sense Elements')?.type,'Full-round action');
+assert.equal(shugenja20.resources.find(resource=>resource.name==='Sense Elements')?.max,7);
+assert.match(shugenja20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Charisma/i);
+assert.match(shugenja20.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/cannot use Quicken Spell/i);
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
