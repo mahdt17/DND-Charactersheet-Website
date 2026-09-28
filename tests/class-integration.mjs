@@ -95,6 +95,18 @@ const sorcerer1=reconcileClassGrants(baseCharacter([{catalogId:reviewedSorcerer3
 assert.equal(sorcerer1.grantedFeatures.find(feature=>feature.name==='Familiar')?.descriptionSource,'rule-text');
 assert.match(sorcerer1.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/without preparing/i);
 assert.match(sorcerer1.grantedFeatures.find(feature=>feature.name==='Familiar Basics')?.description||'',/Hit Dice/i);
+const reviewedDruid35=exact35('classes/druid-92');
+const druid5=reconcileClassGrants(baseCharacter([{catalogId:reviewedDruid35.catalogId,name:'Druid',edition:'3.5',level:5,definition:reviewedDruid35}]));
+assert.equal(druid5.grantedFeatures.find(feature=>feature.name==='Wild Shape')?.descriptionSource,'rule-text');
+assert.equal(druid5.actions.find(action=>action.name==='Wild Shape')?.type,'Standard action','Druid Wild Shape is exposed as a standard action');
+assert.equal(druid5.resources.find(resource=>resource.name==='Wild Shape')?.max,1,'Druid Wild Shape begins at once per day');
+assert.match(druid5.grantedFeatures.find(feature=>feature.name==='Spontaneous Casting')?.description||'',/summon nature/i);
+
+const reviewedRanger35=exact35('classes/ranger-96');
+const ranger3=reconcileClassGrants(baseCharacter([{catalogId:reviewedRanger35.catalogId,name:'Ranger',edition:'3.5',level:3,definition:reviewedRanger35}]));
+assert(ranger3.feats.some(feat=>feat.name==='Track'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Track is a class-granted feat');
+assert(ranger3.feats.some(feat=>feat.name==='Endurance'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Endurance is a class-granted feat');
+assert.equal(ranger3.grantedFeatures.find(feature=>feature.name==='Combat Style')?.kind,'choice','Ranger combat style remains a guided class choice');
 const trainedSheet=reconcileClassGrants(archivist1);
 const archivistTraining=trainedSheet.trainingGrants.find(grant=>grant.sourceClassId===archivist.catalogId);
 assert(archivistTraining?.automatic,'verified 3.5 proficiency supplements become automatic class training');
