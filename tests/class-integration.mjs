@@ -39,7 +39,7 @@ const exact35=sourceId=>annotateClassGrantKinds(classes35.find(record=>record.so
 
 const fighter35=exact35('classes/fighter-93');
 const fighter6=reconcileClassGrants(baseCharacter([{catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:6,definition:fighter35}]));
-const fighterBonus=fighter6.grantedFeatures.find(feature=>feature.name.toLowerCase()==='bonus feat');
+const fighterBonus=fighter6.grantedFeatures.find(feature=>/^bonus feats?$/i.test(feature.name));
 assert.equal(fighterBonus?.kind,'choice','Fighter bonus feats remain guided choices rather than fake concrete feats');
 assert.equal(fighterBonus?.descriptionSource,'rule-text');
 assert.match(fighterBonus?.description||'',/prerequisites/i);
