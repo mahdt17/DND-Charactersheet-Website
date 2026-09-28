@@ -129,5 +129,16 @@ const dreadFamiliarPlan=featureChoicePlan(dreadFamiliarStart,null);
 const dreadFamiliar=dreadFamiliarPlan.groups.find(group=>group.label==='Summon Familiar');
 assert.deepEqual(dreadFamiliar?.options,['Imp','Quasit','Vargouille','Ghostly Visage']);
 
+const scoutClass35={name:'Scout',edition:'3.5',sourceId:'classes/scout-2',catalogId:'dndtools:classes/scout-2',sourceUrl:'https://new.dndtools.org/classes/scout-2',progression:[['Class Level','Special'],['4th','Bonus Feat'],['8th','Bonus feat']]};
+const scoutChoice35={...legacyChoice,className:'Scout',classDefinition:scoutClass35,classLevels:[{name:'Scout',edition:'3.5',catalogId:scoutClass35.catalogId,level:8,definition:scoutClass35}],level:8};
+const scoutBefore35={...scoutChoice35,classLevels:[{...scoutChoice35.classLevels[0],level:7}],level:7};
+const scoutPlan=featureChoicePlan(scoutChoice35,scoutBefore35);
+const scoutBonus=scoutPlan.groups.find(group=>/^Bonus Feats?$/i.test(group.label));
+assert(scoutBonus,'Scout level 8 requests its reviewed bonus feat');
+assert(scoutBonus.options.includes('Track')&&scoutBonus.options.includes('Quick Reconnoiter'));
+assert(!scoutBonus.options.includes('Power Attack'),'Scout bonus feat picker remains restricted to the source list');
+const scoutChosen=applyFeatureChoices(scoutChoice35,scoutBefore35,{[scoutBonus.id]:['Track']});
+assert(scoutChosen.feats.some(feat=>feat.name==='Track'&&feat.sourceType==='class-choice'&&feat.sourceClassId===scoutClass35.catalogId));
+
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
