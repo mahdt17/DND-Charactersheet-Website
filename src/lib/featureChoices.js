@@ -37,6 +37,34 @@ function sourceChoicePlan(c,previous,picks={}) {
           options=options.filter(value=>!already.has(norm(value)));
         }
         const choiceKind=feature.choiceKind||'source';
+        if(choiceKind==='animal-companion'){
+          const multiplier=Number.isFinite(Number(feature.companionLevelMultiplier))?Number(feature.companionLevelMultiplier):1;
+          const effectiveDruidLevel=Math.max(0,Math.floor(row.level*multiplier));
+          const mechanics=feature.choiceOptionMechanics&&typeof feature.choiceOptionMechanics==='object'?feature.choiceOptionMechanics:{};
+          const mechanicFor=value=>{
+            const match=Object.entries(mechanics).find(([name])=>norm(name)===norm(value));
+            return match?.[1]&&typeof match[1]==='object'?match[1]:{};
+          };
+          options=options.filter(value=>effectiveDruidLevel>=Math.max(0,Number(mechanicFor(value).minEffectiveLevel)||0));
+          const existing=patch.featureChoices[id];
+          if(existing)continue;
+          const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
+          const selected=raw.map(value=>String(value||'').trim()).filter(Boolean);
+          const valid=selected.length===1&&options.includes(selected[0]);
+          const sourceText=String(feature.description||'').trim()||event.text||feature.name;
+          const selectedMechanic=valid?mechanicFor(selected[0]):{};
+          groups.push({
+            id,level,kind:'source-choice',choiceKind:'animal-companion',count:1,required:1,label:feature.name,
+            className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,
+            options,selected,valid,effectiveDruidLevel,companionLevelMultiplier:multiplier
+          });
+          if(valid)patch.featureChoices[id]={
+            className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,
+            choices:[selected[0]],sourceText,choiceKind:'animal-companion',effectiveDruidLevel,
+            companionLevelMultiplier:multiplier,levelAdjustment:Math.max(0,Number(selectedMechanic.levelAdjustment)||0)
+          };
+          continue;
+        }
         if(choiceKind==='favored-enemy'){
           const sourceText=String(feature.description||'').trim()||event.text||feature.name;
           const enemyId=id+':enemy',boostId=id+':boost';
