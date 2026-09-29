@@ -43,6 +43,34 @@ assert.equal(featureChoicePlan({...multi,classLevels:[multi.classLevels[0],{name
 const service35=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
 const [choiceClasses35,choiceFeats35]=await Promise.all([service35.load('3.5/classes'),service35.load('3.5/feats')]);
 const choiceReference35=[...choiceClasses35,...choiceFeats35];
+const druidCompanionClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/druid-92'),choiceReference35);
+const companionChoiceBase=(definition,level)=>({ruleset:'3.5',mechanics:'3.5',className:definition.name,classDefinition:definition,classLevels:[{name:definition.name,edition:'3.5',catalogId:definition.catalogId,level,definition}],level,abilities:{str:10,dex:12,con:12,int:12,wis:16,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}});
+const druidCompanionLevel1=featureChoicePlan(companionChoiceBase(druidCompanionClass35,1),null);
+const druidCompanionLevel1Group=druidCompanionLevel1.groups.find(group=>group.choiceKind==='animal-companion');
+assert(druidCompanionLevel1Group,'Druid Animal Companion is a guided source choice');
+assert(druidCompanionLevel1Group.options.includes('Wolf')&&druidCompanionLevel1Group.options.includes('Shark (Medium)'));
+assert(!druidCompanionLevel1Group.options.includes('Ape')&&!druidCompanionLevel1Group.options.includes('Crocodile'));
+assert.equal(featureChoicePlan(companionChoiceBase(druidCompanionClass35,1),null,{[druidCompanionLevel1Group.id]:['Ape']}).valid,false,'Druid cannot select a level-4 alternative at level 1');
+const druidCompanionLevel4=featureChoicePlan(companionChoiceBase(druidCompanionClass35,4),null);
+const druidCompanionLevel4Group=druidCompanionLevel4.groups.find(group=>group.choiceKind==='animal-companion');
+assert(druidCompanionLevel4Group.options.includes('Ape')&&druidCompanionLevel4Group.options.includes('Crocodile'));
+assert(!druidCompanionLevel4Group.options.includes('Dire Wolf'));
+const druidCompanionSelected=applyFeatureChoices(companionChoiceBase(druidCompanionClass35,4),null,{[druidCompanionLevel4Group.id]:['Ape']});
+assert(Object.values(druidCompanionSelected.featureChoices).some(choice=>choice.choiceKind==='animal-companion'&&choice.choices?.[0]==='Ape'));
+assert.equal(featureChoicePlan(JSON.parse(JSON.stringify(druidCompanionSelected)),null).groups.length,0,'Animal Companion selection persists across save/reopen');
+
+const swCompanionRaw35=choiceClasses35.find(record=>record.sourceId==='classes/sorcererwizard-variant-957');
+const swCompanionUnresolved35=annotateClassGrantKinds(swCompanionRaw35,choiceReference35);
+assert.equal(swCompanionUnresolved35.inheritanceRequired,true);
+assert.deepEqual(swCompanionUnresolved35.inheritanceOptions.map(option=>option.name).sort(),['Sorcerer','Wizard']);
+const swCompanionSorcerer35=annotateClassGrantKinds({...swCompanionRaw35,inheritanceChoice:'Sorcerer'},choiceReference35);
+const swCompanionLevel8=featureChoicePlan(companionChoiceBase(swCompanionSorcerer35,8),null);
+const swCompanionLevel8Group=swCompanionLevel8.groups.find(group=>group.choiceKind==='animal-companion');
+assert.equal(swCompanionLevel8Group?.effectiveDruidLevel,4);
+assert(swCompanionLevel8Group.options.includes('Ape')&&!swCompanionLevel8Group.options.includes('Dire Wolf'));
+const swCompanionSelected=applyFeatureChoices(companionChoiceBase(swCompanionSorcerer35,8),null,{[swCompanionLevel8Group.id]:['Ape']});
+assert.equal(swCompanionSelected.grantedFeatures.find(feature=>feature.companionName==='Ape')?.companionEffectiveDruidLevel,1);
+
 const thugChoiceClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/thug-132'),choiceReference35);
 const thugChoiceBase=(level)=>({ruleset:'3.5',mechanics:'3.5',className:'Thug',classDefinition:thugChoiceClass35,classLevels:[{name:'Thug',edition:'3.5',catalogId:thugChoiceClass35.catalogId,level,definition:thugChoiceClass35}],level,abilities:{str:14,dex:14,con:14,int:12,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}});
 assert.equal(featureChoicePlan(thugChoiceBase(1),null).groups.filter(group=>/^Bonus Feats?$/i.test(group.label)).length,0,'Thug has no level-1 Fighter bonus-feat choice');
