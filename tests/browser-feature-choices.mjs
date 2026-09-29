@@ -48,7 +48,7 @@ try {
  const commonerSaved=await saved(commonerName);
  assert(Object.values(commonerSaved.featureChoices||{}).some(choice=>choice.sourceClassId==='dndtools:classes/commoner-32'&&choice.choices?.[0]==='Club'));
  assert((commonerSaved.trainingGrants||[]).some(grant=>grant.sourceClassId==='dndtools:classes/commoner-32'&&grant.proficiencies?.some(p=>p.index==='club')));
- await page.reload();await page.getByRole('button',{name:'Explore the demo'}).click().catch(()=>{});
+ await page.reload();await page.waitForFunction(()=>window.storage&&typeof window.storage.get==='function');
  const commonerReloaded=await saved(commonerName);
  assert(Object.values(commonerReloaded.featureChoices||{}).some(choice=>choice.choices?.[0]==='Club'),'Commoner source choice survives save/reopen');
  console.log('PASS 3.5 Commoner required simple-weapon choice, source-valid options, persistence and training grant');
