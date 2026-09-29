@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-09-28",
+  "snapshotDate": "2026-09-29",
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "51b3241627f3e720c55c69a7de3175e7b2773843",
+  "snapshotCommit": "0ba40d04062dbb6901129d281bce3696ac377c33",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 44,
@@ -815,20 +815,40 @@
       "name": "Aristocrat",
       "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/aristocrat-31",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
-      "existingDirectSummaryCount": 0,
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
+      "existingDirectSummaryCount": 1,
       "existingProfileParent": null,
-      "featureRequirements": [],
+      "featureRequirements": [
+        {
+          "name": "Weapon and Armor Proficiency",
+          "level": 1,
+          "requirement": "All simple and martial weapons, all armor, and shields; fixed class skills include individual Knowledge specialties.",
+          "sourceUrl": "https://new.dndtools.org/classes/aristocrat-31",
+          "implementedBehavior": "Exact source-owned training and fixed class skills reconcile at levels 1–20; Knowledge specialties remain separate class skills."
+        }
+      ],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        {
+          "type": "exact_source_review",
+          "commit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+          "note": "Exact DMG v.3.5 Aristocrat page independently verified: d8, 4 + Int skill points, fixed class skills, all simple/martial weapons, all armor and shields."
+        },
+        {
+          "type": "integration_and_lifecycle_validation",
+          "commit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+          "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36526588499",
+          "note": "Validate modernization #1388 passed source-specific feature text, levels 1 and 20 fixed class skills/training, individual Knowledge skills, multiclass removal/preservation, browser advancement coverage, and manual-entry preservation."
+        }
+      ],
+      "verifiedCommit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36526588499",
+      "nextAction": "Complete; re-audit only if the exact source record or shared class-integration behavior changes."
     },
     {
       "sourceId": "classes/artificer-36",
@@ -2895,31 +2915,41 @@
       "name": "Commoner",
       "sourceBook": "Base Class Dragonlance Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/commoner-24",
-      "status": "pending_audit",
-      "sourceReview": "pending",
+      "status": "blocked",
+      "sourceReview": "blocked",
       "featureIntegration": "pending",
       "sheetAutomation": "pending",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "The exact Dragonlance Campaign Setting page exposes only an “Also appears in: DMG” pointer and no class mechanics. Do not inherit DMG Commoner mechanics without an independently verifiable DCS source."
+      ],
+      "dependencies": [
+        "Independent source text for this exact Dragonlance record, such as the cited DCS page or another authoritative reproduction."
+      ],
+      "evidence": [
+        {
+          "type": "exact_source_page_check",
+          "commit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+          "note": "The exact Dragonlance Campaign Setting page exposes only an “Also appears in: DMG” pointer and no class mechanics. Do not inherit DMG Commoner mechanics without an independently verifiable DCS source."
+        }
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Keep source-specific and blocked; verify exact Dragonlance mechanics before implementing or inheriting anything."
     },
     {
       "sourceId": "classes/commoner-32",
       "name": "Commoner",
       "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/commoner-32",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
-      "sheetAutomation": "partial",
-      "validation": "pending",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 1,
       "existingProfileParent": null,
       "featureRequirements": [
@@ -2931,9 +2961,7 @@
           "implementedBehavior": "Guided source-owned simple-weapon picker with source-valid options; saved selection creates a class-owned training grant."
         }
       ],
-      "gaps": [
-        "Persist a focused multiclass source-removal regression proving the Commoner choice/training grant is removed while the other class is preserved before promoting this record to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         {
@@ -2941,11 +2969,22 @@
           "commit": "da988cff60b27d9f5c6fbb492921881efa10016b",
           "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36508629797",
           "note": "Full validation passed on rerun; guided creation enforces the DMG Commoner's one-simple-weapon choice, saves the choice/training grant, and reopens it through the character list."
+        },
+        {
+          "type": "exact_source_reverification",
+          "commit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+          "note": "Exact DMG v.3.5 Commoner page independently reverified: one chosen simple weapon, no armor or shields, and the fixed class-skill list match the maintained exact-source profile."
+        },
+        {
+          "type": "multiclass_removal_validation",
+          "commit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+          "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36526588499",
+          "note": "Validate modernization #1388 passed the focused regression proving Commoner-owned weapon choice, training grant, and fixed class skills are removed while Warrior training/class skills survive."
         }
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36508629797",
-      "nextAction": "Add the focused Commoner multiclass removal regression, then reassess the complete gate."
+      "verifiedCommit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36526588499",
+      "nextAction": "Complete; re-audit only if the exact source record or shared choice/reconciliation behavior changes."
     },
     {
       "sourceId": "classes/conjurer-variant-961",
@@ -20145,40 +20184,70 @@
       "name": "Warrior",
       "sourceBook": "Base Class Dragonlance Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/warrior-28",
-      "status": "pending_audit",
-      "sourceReview": "pending",
+      "status": "blocked",
+      "sourceReview": "blocked",
       "featureIntegration": "pending",
       "sheetAutomation": "pending",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "The exact Dragonlance Campaign Setting page exposes only “Also appears in” pointers and no class mechanics. Do not inherit DMG Warrior mechanics without an independently verifiable DCS source."
+      ],
+      "dependencies": [
+        "Independent source text for this exact Dragonlance record, such as the cited DCS page or another authoritative reproduction."
+      ],
+      "evidence": [
+        {
+          "type": "exact_source_page_check",
+          "commit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+          "note": "The exact Dragonlance Campaign Setting page exposes only “Also appears in” pointers and no class mechanics. Do not inherit DMG Warrior mechanics without an independently verifiable DCS source."
+        }
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Keep source-specific and blocked; verify exact Dragonlance mechanics before implementing or inheriting anything."
     },
     {
       "sourceId": "classes/warrior-34",
       "name": "Warrior",
       "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/warrior-34",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
-      "existingDirectSummaryCount": 0,
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
+      "existingDirectSummaryCount": 1,
       "existingProfileParent": null,
-      "featureRequirements": [],
+      "featureRequirements": [
+        {
+          "name": "Weapon and Armor Proficiency",
+          "level": 1,
+          "requirement": "All simple and martial weapons, all armor, and shields; fixed class skills are Climb, Handle Animal, Intimidate, Jump, Ride, and Swim.",
+          "sourceUrl": "https://new.dndtools.org/classes/warrior-34",
+          "implementedBehavior": "Exact source-owned training and six fixed class skills reconcile at levels 1–20."
+        }
+      ],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        {
+          "type": "exact_source_review",
+          "commit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+          "note": "Exact DMG v.3.5 Warrior page independently verified: d8, 2 + Int skill points, six fixed class skills, all simple/martial weapons, all armor and shields."
+        },
+        {
+          "type": "integration_and_lifecycle_validation",
+          "commit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+          "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36526588499",
+          "note": "Validate modernization #1388 passed source-specific feature text, levels 1 and 20 fixed class skills/training, multiclass removal/preservation, browser advancement coverage, and manual-entry preservation."
+        }
+      ],
+      "verifiedCommit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36526588499",
+      "nextAction": "Complete; re-audit only if the exact source record or shared class-integration behavior changes."
     },
     {
       "sourceId": "classes/warrior2-135",
@@ -21161,5 +21230,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Maintained checkpoint after Commoner/Expert required-choice automation work; completion remains per-source and conservative."
+  "lastUpdatedNote": "Bulk exact-source audit checkpoint: DMG Aristocrat/Commoner/Warrior are complete only after exact-source verification and green lifecycle/browser validation; Dragonlance same-name records remain blocked from inheritance because their exact pages expose no mechanics."
 }

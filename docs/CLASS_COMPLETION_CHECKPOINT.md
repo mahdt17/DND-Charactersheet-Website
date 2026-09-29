@@ -1,50 +1,67 @@
 # 3.5 Class Completion Checkpoint
 
-Updated: 2026-09-28 (America/New_York)
+Updated: 2026-09-29 (America/New_York)
 
 ## Current state
 
 - Repository: `mahdt17/DND-Charactersheet-Website`
 - Branch: `codex/class-integration-engine`
 - Pull request: #8 — keep open, draft, and unmerged.
-- Last fully validated functional SHA: `51b3241627f3e720c55c69a7de3175e7b2773843`
-- Full validation: [Validate modernization #1379](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36518328892) — **passed**
+- Last fully validated functional SHA: `0ba40d04062dbb6901129d281bce3696ac377c33`
+- Full validation: [Validate modernization #1388](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36526588499) — **passed**
 - Supabase: unchanged.
 - Deploy/merge: not performed.
-- Dirty or unpushed work: none recorded on the branch.
 
-## Completed in the current stop point
+## Revised bulk-audit rules now in force
 
-- `classes/expert-33` — **Expert (Dungeon Master's Guide v.3.5)**
-  - Source review verified.
-  - Weapon/armor training is source-owned.
-  - "Choose any ten skills to be class skills" is a structured required choice.
-  - The 46 skills on the source page are eligibility options only; they are not automatically granted.
-  - Exactly ten selections are required and persisted.
-  - Only selected Expert skills receive class-skill rank caps.
-  - Save/reopen and source-owned multiclass removal are covered.
-  - Full unit/regression/build/browser CI passed on `51b3241627f3e720c55c69a7de3175e7b2773843`.
+- All **1,054 exact class source IDs remain independent**.
+- Same-name classes never inherit mechanics merely because their names match.
+- Matching catalog fingerprints are candidates only; source verification is still required before any inheritance.
+- Self-contained user-facing descriptions are mandatory for reviewed class features and feats.
+- `scripts/audit_source_identity_and_descriptions.py` runs in modernization CI and fails if a reviewed summary still delegates core mechanics with unresolved wording such as “functions as” or “identical to”.
+- Unreviewed cross-reference descriptions remain queued rather than being silently treated as complete.
 
-## Reviewed but not promoted to complete
+## Completed exact-source batch
 
-- `classes/commoner-32` — Commoner
-  - Source review and structured one-simple-weapon selection are implemented and previously passed full CI.
-  - Remaining completion gap: persist a focused multiclass removal regression for the Commoner-owned choice/training grant before marking the record complete.
+- `classes/aristocrat-31` — **Aristocrat (Dungeon Master's Guide v.3.5)**
+  - Exact source independently verified.
+  - Fixed class skills, including individual Knowledge specialties, are source-owned.
+  - All simple/martial weapons, all armor, and shields reconcile as class-owned training.
+  - Levels 1 and 20, multiclass removal/preservation, manual-entry preservation, and browser advancement coverage passed.
 
-## Tracker
+- `classes/commoner-32` — **Commoner (Dungeon Master's Guide v.3.5)**
+  - Exact source independently reverified.
+  - Exactly one simple weapon is a structured required choice; no armor/shield training is granted by the class.
+  - The previously missing focused removal regression is already present and passed #1388.
+  - Removing Commoner cleans its source-owned choice, training, and class skills while preserving the other class.
 
-- Inventory preserved: **1054 source IDs**.
-- Current directly keyed summary records: **44**.
-- Authoritative maintained tracker: `docs/class-completion-tracker.json`.
-- Completion is tracked per exact source ID; same-name reprints/variants are not assumed equivalent.
+- `classes/warrior-34` — **Warrior (Dungeon Master's Guide v.3.5)**
+  - Exact source independently verified.
+  - Six fixed class skills plus simple/martial weapons, all armor, and shields are source-owned.
+  - Levels 1 and 20, multiclass removal/preservation, manual-entry preservation, and browser advancement coverage passed.
 
-## Next exact work after the user's questions
+## Same-name records deliberately NOT inherited
 
-Do not start this work until explicitly resuming the class workflow.
+- `classes/commoner-24` — Commoner (Dragonlance Campaign Setting): **blocked**. Exact page has no mechanics, only an “Also appears in: DMG” pointer.
+- `classes/warrior-28` — Warrior (Dragonlance Campaign Setting): **blocked**. Exact page has no mechanics, only “Also appears in” pointers.
+- These remain independent until their exact Dragonlance mechanics can be verified.
 
-1. Re-open the checkpoint and verify the remote PR head/CI first.
-2. Finish the remaining Commoner removal regression if desired before promoting `classes/commoner-32`.
-3. Next ready related base-class batch:
-   - `classes/aristocrat-31`
-   - `classes/warrior-34`
-4. For that pair, re-confirm the already reviewed fixed class-skill lists and training packages, test levels 1 and 20 plus multiclass removal/preservation, then update this tracker/checkpoint.
+## Bulk audit findings
+
+- Class inventory: **1,054 exact source IDs**.
+- Same-name scan: **107 groups covering 236 records**; name-based inheritance is therefore not an acceptable proof of equivalence.
+- Current direct summary record count remains **44**; this is not a completion count.
+- Current tracker totals after this checkpoint: **4 complete**, **2 blocked**, with all other records retaining their individual audit states.
+
+## Description-quality queue
+
+- The exact-source description audit is active in CI.
+- Current unresolved cross-reference work is being handled as a separate exact-ID feat queue.
+- Existing verified description overrides are evaluated before the fail-closed gate.
+
+## Next work
+
+1. Resolve the first linked feat cross-reference batch (Minor Malevolence → Malevolence → Grand Malevolence) into standalone exact-ID summaries with provenance.
+2. Re-run the self-contained-description audit and full modernization validation.
+3. Continue selecting the largest safe source-specific class batch from the generated manifest; do not auto-include same-name reprints.
+4. Keep source-damaged exact records blocked instead of borrowing mechanics from similarly named records.
