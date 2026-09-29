@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "snapshotCommit": "5a6aeff565832910ee414eb0db9e8f11ee99af07",
+  "snapshotCommit": "a6123fe36ddc952a07456a98a71233efd5bdf176",
   "exactClassRecordCount": 1054,
   "rule": "Exact source IDs remain independent. Catalog-identical fingerprints are candidate evidence only; source verification is required before mechanic sharing.",
   "sameNameGroups": {
@@ -1025,7 +1025,7 @@
         "name": "Aristocrat",
         "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
         "sourcePage": 108,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "complete",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "0e0a457e"
@@ -1075,7 +1075,7 @@
         "name": "Commoner",
         "sourceBook": "Base Class Dragonlance Campaign Setting",
         "sourcePage": 46,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "blocked",
         "sameNameRecordCount": 2,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "5b4379b7"
@@ -1085,7 +1085,7 @@
         "name": "Commoner",
         "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
         "sourcePage": 109,
-        "trackerStatus": "reviewed_partial",
+        "trackerStatus": "complete",
         "sameNameRecordCount": 2,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "5b4379b7"
@@ -1375,7 +1375,7 @@
         "name": "Thug",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 51,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "complete",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "d75b1d39"
@@ -1415,7 +1415,7 @@
         "name": "Warrior",
         "sourceBook": "Base Class Dragonlance Campaign Setting",
         "sourcePage": 53,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "blocked",
         "sameNameRecordCount": 3,
         "sameNameDistinctMechanics": 3,
         "mechanicsFingerprint": "a8c0a4f5"
@@ -1425,7 +1425,7 @@
         "name": "Warrior",
         "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
         "sourcePage": 109,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "complete",
         "sameNameRecordCount": 3,
         "sameNameDistinctMechanics": 3,
         "mechanicsFingerprint": "1e08389f"
@@ -1435,7 +1435,7 @@
         "name": "Wilderness Rogue",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 56,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "complete",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "5c468465"

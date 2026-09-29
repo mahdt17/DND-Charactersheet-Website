@@ -4,10 +4,10 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "163eb27b109e228e40b9e85e5a26062e61286fa1",
+  "snapshotCommit": "a6123fe36ddc952a07456a98a71233efd5bdf176",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
-  "directSummaryRecordCount": 44,
+  "directSummaryRecordCount": 45,
   "initializationNote": "Pending means not assessed against the complete-workflow gate. It does not mean prior reviews or implementations are absent. Never infer completion from a summary array or a matching class name.",
   "entries": [
     {
@@ -20726,12 +20726,12 @@
       "name": "Wilderness Rogue",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "pending",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
+      "existingDirectSummaryCount": 1,
       "existingProfileParent": null,
       "featureRequirements": [
         "Retain Rogue baseline mechanics except the exact Unearthed Arcana changes.",
@@ -20741,21 +20741,19 @@
         "Hide in Plain Sight may be chosen only after Camouflage.",
         "Selected Ranger-derived abilities need self-contained mechanics rather than unresolved 'as the ranger ability' wording."
       ],
-      "gaps": [
-        "Special Ability option prerequisites are not yet represented as structured source-choice dependencies.",
-        "Selecting Woodland Stride, Camouflage, or Hide in Plain Sight must grant the selected ability's actual standalone mechanics, not only save the choice label.",
-        "Exact Wilderness Rogue class-skill replacement and source-owned choice extension still need implementation/regression coverage."
-      ],
-      "dependencies": [
-        "Reusable source-choice option prerequisite/grant semantics for inherited variant choices."
-      ],
+      "gaps": [],
+      "dependencies": [],
       "evidence": [
         "Exact source reviewed: https://new.dndtools.org/classes/wilderness-rogue-136 (Unearthed Arcana p. 56).",
-        "Source explicitly retains Rogue baseline unless noted, then lists the exact skill removals/additions and Special Ability extensions."
+        "Exact class-skill removals/additions and Rogue baseline retention are source-owned in a6123fe36ddc952a07456a98a71233efd5bdf176.",
+        "Special Ability choices add Woodland Stride, Camouflage, and Hide in Plain Sight without collapsing the exact source identity.",
+        "Hide in Plain Sight is rejected until Camouflage is already selected; selected Ranger-derived mechanics materialize as standalone source-owned features with referenced-source provenance.",
+        "Focused regressions cover invalid prerequisites, levels 10/13/16, save/reopen persistence, exact training/skills, and multiclass source removal.",
+        "Validate modernization #1395 passed full class/feat/spell/item regressions, build, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the exact skill swap and reusable source-choice option prerequisite/grant behavior; then test levels 10/13/16/19, invalid Hide in Plain Sight before Camouflage, persistence, and multiclass removal."
+      "verifiedCommit": "a6123fe36ddc952a07456a98a71233efd5bdf176",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36534180093",
+      "nextAction": "Complete; retain exact-source prerequisite, persistence, and source-removal regressions."
     },
     {
       "sourceId": "classes/wildrunner-748",
@@ -21258,5 +21256,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Checkpoint after exact-source Thug completion and Wilderness Rogue source review under the fail-closed bulk variant workflow."
+  "lastUpdatedNote": "Checkpoint after exact-source Wilderness Rogue completion; next safe batch is the source-verified Unearthed Arcana feature-swap variants."
 }
