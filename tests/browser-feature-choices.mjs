@@ -154,5 +154,31 @@ try {
  assert(!(clericVariantSaved.grantedFeatures||[]).some(feature=>/Turn or Rebuke Undead/i.test(feature.name)));
  console.log('PASS 3.5 Cleric Variant energy polarity, Smite automation, exact parent and removal exchange');
 
+ const abjurerName='Guided Abjurer Variant 3.5';
+ await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.getByRole('button',{name:'Create character',exact:true}).click();
+ await page.getByLabel('Character name',{exact:true}).fill(abjurerName);
+ await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
+ await page.getByLabel('Search class').fill('Abjurer Variant');await page.locator('[data-catalog-id="dndtools:classes/abjurer-variant-960"]').click();await next();
+ await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();
+ assert.equal(await page.getByText('Abjuration',{exact:true}).count(),1,'Abjurer Variant displays its fixed specialist school');
+ assert(await page.getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Abjurer Variant waits for two prohibited schools');
+ await page.getByLabel('Prohibited Evocation',{exact:true}).check();
+ assert(await page.getByRole('button',{name:'Continue',exact:true}).isDisabled());
+ await page.getByLabel('Prohibited Necromancy',{exact:true}).check();
+ assert(!await page.getByRole('button',{name:'Continue',exact:true}).isDisabled());
+ await next();await next();
+ assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+ await page.getByRole('button',{name:'Create Character',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:abjurerName}).waitFor();
+ const abjurerSaved=await saved(abjurerName);
+ assert.equal(abjurerSaved.classDefinition?.inheritedFromClassId,'dndtools:classes/wizard-99');
+ assert.equal(abjurerSaved.classDefinition?.specialistSchool,'Abjuration');
+ assert.deepEqual(abjurerSaved.legacyCastingChoices?.['dndtools:classes/abjurer-variant-960']?.prohibited?.sort(),['Evocation','Necromancy']);
+ assert(!(abjurerSaved.grantedFeatures||[]).some(feature=>feature.name==='Familiar'));
+ assert((abjurerSaved.actions||[]).some(action=>action.name==='Resistance to Energy'));
+ console.log('PASS 3.5 Abjurer Variant fixed specialization, prohibited schools, exact exchange and persistence');
+
  assert.deepEqual(errors,[]);
 } catch(e){await page.screenshot({path:'test-results/feature-choices-failure.png',fullPage:true});throw e;} finally {await browser.close();await server.close();}
