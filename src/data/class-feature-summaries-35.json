@@ -4102,5 +4102,91 @@
       "referencedSourceId": "classes/ranger-96",
       "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyleMastery"
     }
+  ],
+  "classes/druid-variant-952": [
+    {
+      "name": "AC Bonus (Ex)",
+      "level": 1,
+      "description": "While unarmored, unencumbered, and not using a shield, add your Wisdom bonus (if any) to Armor Class, including touch AC and while flat-footed. You lose these bonuses while immobilized or helpless, while wearing armor, while using a shield, or while carrying a medium or heavy load. In addition, gain a +1 class AC bonus at 5th level, increasing to +2 at 10th, +3 at 15th, and +4 at 20th.",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
+      "referencedSourceId": "classes/monk-94",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/monk.htm#acBonus"
+    },
+    {
+      "name": "Fast Movement (Ex)",
+      "level": 3,
+      "description": "At 3rd level, gain a +10-foot enhancement bonus to speed while unarmored and not carrying a medium or heavy load. The bonus improves to +20 feet at 6th level, +30 at 9th, +40 at 12th, +50 at 15th, and +60 at 18th.",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
+      "referencedSourceId": "classes/monk-94",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/monk.htm#fastMovement"
+    },
+    {
+      "name": "Favored Enemy (Ex)",
+      "level": 1,
+      "description": "At 1st level, choose one favored enemy from the Ranger favored-enemy list. Gain +2 on Bluff, Listen, Sense Motive, Spot, and Survival checks against that enemy and +2 on weapon damage rolls against it. At 5th level and every five Druid Variant levels thereafter, choose one additional favored enemy and increase the bonus against any one favored enemy by +2; the newly selected enemy can receive that increase. Humanoid and outsider choices require the listed subtype.",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
+      "referencedSourceId": "classes/ranger-96",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#favoredEnemy",
+      "choiceKind": "favored-enemy",
+      "choiceLevels": [
+        1,
+        5,
+        10,
+        15,
+        20
+      ],
+      "choiceOptions": [
+        "Aberration",
+        "Animal",
+        "Construct",
+        "Dragon",
+        "Elemental",
+        "Fey",
+        "Giant",
+        "Humanoid (aquatic)",
+        "Humanoid (dwarf)",
+        "Humanoid (elf)",
+        "Humanoid (goblinoid)",
+        "Humanoid (gnoll)",
+        "Humanoid (gnome)",
+        "Humanoid (halfling)",
+        "Humanoid (human)",
+        "Humanoid (orc)",
+        "Humanoid (reptilian)",
+        "Magical beast",
+        "Monstrous Humanoid",
+        "Ooze",
+        "Outsider (air)",
+        "Outsider (chaotic)",
+        "Outsider (earth)",
+        "Outsider (evil)",
+        "Outsider (fire)",
+        "Outsider (good)",
+        "Outsider (lawful)",
+        "Outsider (native)",
+        "Outsider (water)",
+        "Plant",
+        "Undead",
+        "Vermin"
+      ],
+      "uniqueChoices": true
+    },
+    {
+      "name": "Swift Tracker (Ex)",
+      "level": 8,
+      "description": "Beginning at 8th level, follow tracks at normal speed without the usual -5 penalty, and take only a -10 penalty instead of -20 when tracking at up to twice normal speed.",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
+      "referencedSourceId": "classes/ranger-96",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#swiftTracker"
+    },
+    {
+      "name": "Track",
+      "level": 1,
+      "featName": "Track",
+      "description": "Gain Track as a bonus feat at 1st level.",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
+      "referencedSourceId": "classes/ranger-96",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#track"
+    }
   ]
 }
