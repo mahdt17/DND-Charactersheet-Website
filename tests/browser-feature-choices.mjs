@@ -162,7 +162,7 @@ try {
  await page.getByLabel('Search class').fill('Abjurer Variant');await page.locator('[data-catalog-id="dndtools:classes/abjurer-variant-960"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
  await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();
- assert.equal(await page.getByText('Abjuration',{exact:true}).count(),1,'Abjurer Variant displays its fixed specialist school');
+ assert.equal(await page.getByText('Specialist school: Abjuration',{exact:true}).count(),1,'Abjurer Variant displays its fixed specialist school');
  assert(await page.getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Abjurer Variant waits for two prohibited schools');
  await page.getByLabel('Prohibited Evocation',{exact:true}).check();
  assert(await page.getByRole('button',{name:'Continue',exact:true}).isDisabled());
