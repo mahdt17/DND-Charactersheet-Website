@@ -28,7 +28,7 @@ function withProficiencySupplement(record){
   const proficiencies=Array.isArray(record.proficiencies)&&record.proficiencies.length?record.proficiencies:(supplement.proficiencies||[]);
   const proficiencyChoices=Array.isArray(record.proficiencyChoices)&&record.proficiencyChoices.length?record.proficiencyChoices:(supplement.proficiencyChoices||[]);
   const verifiedClassSkills=Array.isArray(supplement.classSkills);
-  return {...record,proficiencies,proficiencyChoices,classSkillChoices:record.classSkillChoices||supplement.classSkillChoices||[],...(verifiedClassSkills?{classSkills:supplement.classSkills,classSkillRule:null,classSkillSourceUrl:supplement.classSkillSourceUrl||supplement.sourceUrl}:{}),proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,featureSuppressions:record.featureSuppressions||supplement.featureSuppressions||[],featureChoiceOverrides:record.featureChoiceOverrides||supplement.featureChoiceOverrides||[],featureAdditions:record.featureAdditions||supplement.featureAdditions||[],inheritanceSourceId:record.inheritanceSourceId||supplement.inheritanceSourceId||undefined,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
+  return {...record,proficiencies,proficiencyChoices,classSkillChoices:record.classSkillChoices||supplement.classSkillChoices||[],...(verifiedClassSkills?{classSkills:supplement.classSkills,classSkillRule:null,classSkillSourceUrl:supplement.classSkillSourceUrl||supplement.sourceUrl}:{}),proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,featureSuppressions:record.featureSuppressions||supplement.featureSuppressions||[],featureChoiceOverrides:record.featureChoiceOverrides||supplement.featureChoiceOverrides||[],featureAdditions:record.featureAdditions||supplement.featureAdditions||[],inheritanceSourceId:record.inheritanceSourceId||supplement.inheritanceSourceId||undefined,inheritsFromOptions:record.inheritsFromOptions||supplement.inheritsFromOptions||undefined,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const featureMatchKey=value=>norm(String(value||'')
@@ -77,7 +77,7 @@ function reviewedFeatureMetadata(record,name){
   if(!row)return {};
   const metadata={};
   if(row.sourceUrl)metadata.reviewedSourceUrl=row.sourceUrl;
-  for(const key of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
+  for(const key of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -599,6 +599,24 @@ function structuredUsage(feature,classLevel,character=null){
   if(!Number.isFinite(max)||max<=0)return null;
   return {max,period:spec.period||'',reset:spec.reset||'',recoveryText:spec.recoveryText||'',unit:spec.unit||''};
 }
+function animalCompanionProgression(level){
+  const effectiveDruidLevel=Math.max(0,Math.floor(Number(level)||0));
+  if(effectiveDruidLevel<1)return {effectiveDruidLevel,bonusHD:0,naturalArmorAdjustment:0,strDexAdjustment:0,bonusTricks:0,specialAbilities:[]};
+  let bonusHD=0,naturalArmorAdjustment=0,strDexAdjustment=0,bonusTricks=1;
+  if(effectiveDruidLevel>=18){bonusHD=12;naturalArmorAdjustment=12;strDexAdjustment=6;bonusTricks=7;}
+  else if(effectiveDruidLevel>=15){bonusHD=10;naturalArmorAdjustment=10;strDexAdjustment=5;bonusTricks=6;}
+  else if(effectiveDruidLevel>=12){bonusHD=8;naturalArmorAdjustment=8;strDexAdjustment=4;bonusTricks=5;}
+  else if(effectiveDruidLevel>=9){bonusHD=6;naturalArmorAdjustment=6;strDexAdjustment=3;bonusTricks=4;}
+  else if(effectiveDruidLevel>=6){bonusHD=4;naturalArmorAdjustment=4;strDexAdjustment=2;bonusTricks=3;}
+  else if(effectiveDruidLevel>=3){bonusHD=2;naturalArmorAdjustment=2;strDexAdjustment=1;bonusTricks=2;}
+  const specialAbilities=['Link','Share Spells'];
+  if(effectiveDruidLevel>=3)specialAbilities.push('Evasion');
+  if(effectiveDruidLevel>=6)specialAbilities.push('Devotion');
+  if(effectiveDruidLevel>=9)specialAbilities.push('Multiattack');
+  if(effectiveDruidLevel>=15)specialAbilities.push('Improved Evasion');
+  return {effectiveDruidLevel,bonusHD,naturalArmorAdjustment,strDexAdjustment,bonusTricks,specialAbilities};
+}
+
 function isConcreteFeat(feature){
   if(feature.choiceKind)return false;
   if(feature.kind==='feat')return true;
@@ -626,8 +644,38 @@ function derivedForRow(row,character=null){
     const description=localRuleText||row.name+' progression: '+progressionSummary+'.';
     const descriptionSource=localRuleText?'rule-text':'progression';
     const choice=feature.choiceRequired===false?false:Boolean(feature.choiceKind)||needsChoice(feature);
-    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptions:feature.choiceOptions||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,choiceOptionMechanics:feature.choiceOptionMechanics||undefined,choiceOptionPrerequisites:feature.choiceOptionPrerequisites||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
+    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptions:feature.choiceOptions||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,choiceOptionMechanics:feature.choiceOptionMechanics||undefined,choiceOptionPrerequisites:feature.choiceOptionPrerequisites||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,companionLevelMultiplier:feature.companionLevelMultiplier||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
+    if(choice&&feature.choiceKind==='animal-companion'&&character?.featureChoices){
+      const selectedEntry=Object.values(character.featureChoices)
+        .find(entry=>entry?.sourceClassId===row.catalogId&&entry?.choiceKind==='animal-companion'&&featureMatchKey(entry?.feature)===featureMatchKey(feature.name));
+      const selectedName=String(selectedEntry?.choices?.[0]||'').trim();
+      if(selectedName){
+        const mechanicEntry=Object.entries(feature.choiceOptionMechanics||{}).find(([name])=>featureMatchKey(name)===featureMatchKey(selectedName));
+        const mechanic=(mechanicEntry?.[1]&&typeof mechanicEntry[1]==='object')?mechanicEntry[1]:{};
+        const multiplier=Number.isFinite(Number(feature.companionLevelMultiplier))?Number(feature.companionLevelMultiplier):1;
+        const baseEffectiveLevel=Math.max(0,Math.floor(row.level*multiplier));
+        const levelAdjustment=Math.max(0,Number(mechanic.levelAdjustment)||0);
+        const companionLevel=Math.max(0,baseEffectiveLevel-levelAdjustment);
+        const progression=animalCompanionProgression(companionLevel);
+        const specials=progression.specialAbilities.length?progression.specialAbilities.join(', '):'none yet';
+        const companionDescription=`Selected animal companion: ${selectedName}. Effective druid level ${baseEffectiveLevel}${levelAdjustment?` - ${levelAdjustment} alternative-companion adjustment = ${companionLevel}`:` (companion level ${companionLevel})`}. Current companion progression: +${progression.bonusHD} bonus HD, +${progression.naturalArmorAdjustment} natural armor, +${progression.strDexAdjustment} Strength/Dexterity, ${progression.bonusTricks} bonus trick${progression.bonusTricks===1?'':'s'}, and ${specials}. ${feature.description||''}`.trim();
+        const selectedId=id+':companion:'+slug(selectedName);
+        derivedFeatures.push({
+          id:selectedId,index:selectedId,name:'Animal Companion · '+selectedName,level:feature.level,latestLevel:row.level,kind:'feature',
+          description:companionDescription,descriptionSource:'rule-text',desc:[companionDescription],progressionHistory:[{level:feature.level,text:selectedName}],
+          selectedFromFeature:feature.name,companionName:selectedName,baseEffectiveDruidLevel:baseEffectiveLevel,companionEffectiveDruidLevel:companionLevel,
+          companionLevelAdjustment:levelAdjustment,companionProgression:progression,
+          ...meta,sourceFeatureId:(featureId||slug(feature.name))+':companion:'+slug(selectedName)
+        });
+        tracks.push({
+          id:'class-grant:'+meta.sourceClassId+':track:animal-companion',name:'Animal Companion',value:selectedName,level:feature.level,
+          history:[{level:feature.level,value:selectedName}],companionName:selectedName,baseEffectiveDruidLevel:baseEffectiveLevel,
+          companionEffectiveDruidLevel:companionLevel,companionLevelAdjustment:levelAdjustment,...progression,
+          ...meta,sourceFeatureId:(featureId||slug(feature.name))+':companion-track'
+        });
+      }
+    }
     if(choice&&feature.choiceOptionMechanics&&character?.featureChoices){
       const selectedChoices=Object.values(character.featureChoices)
         .filter(entry=>entry?.sourceClassId===row.catalogId&&featureMatchKey(entry?.feature)===featureMatchKey(feature.name))
