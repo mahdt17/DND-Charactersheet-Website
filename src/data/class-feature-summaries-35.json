@@ -5256,5 +5256,45 @@
       "referencedSourceId": "classes/paladin-95",
       "referencedSourceUrl": "https://www.d20srd.org/srd/classes/paladin.htm#auraOfCourage"
     }
+  ],
+  "classes/abjurer-variant-960": [
+    {
+      "name": "Resistance to Energy (Su)",
+      "level": 1,
+      "description": "Once per day as a standard action, touch yourself or one creature to grant resistance against acid, cold, electricity, fire, or sonic equal to 5 + one-half your Abjurer Variant level. The protection lasts 1 hour and overlaps rather than stacks with resist energy.",
+      "sourceUrl": "https://new.dndtools.org/classes/abjurer-variant-960",
+      "actionType": "Standard action",
+      "resource": {
+        "max": 1,
+        "period": "day",
+        "reset": "long",
+        "unit": "uses"
+      }
+    },
+    {
+      "name": "Aura of Protection (Ex)",
+      "level": 5,
+      "description": "At 5th level, as a standard action, gain a deflection bonus to AC and a resistance bonus on all saving throws equal to your Intelligence modifier. Each use lasts up to 1 minute but ends after the first attack against you or the first saving throw you must make. Use once per day at 5th level and one additional time per day for every five Abjurer Variant levels above 5th.",
+      "sourceUrl": "https://new.dndtools.org/classes/abjurer-variant-960",
+      "actionType": "Standard action",
+      "resource": {
+        "maxByLevel": {
+          "5": 1,
+          "10": 2,
+          "15": 3,
+          "20": 4
+        },
+        "period": "day",
+        "reset": "long",
+        "unit": "uses"
+      }
+    },
+    {
+      "name": "Spontaneous Dispelling (Ex)",
+      "level": 5,
+      "description": "At 5th level, lose prepared spells totaling at least four spell levels to cast dispel magic spontaneously; 0-level spells do not count. At 11th level, you may instead lose prepared spells totaling at least seven spell levels to cast greater dispel magic. You may combine this ability with a readied action to use either spell as a counterspell.",
+      "sourceUrl": "https://new.dndtools.org/classes/abjurer-variant-960",
+      "actionType": "As spell or readied action"
+    }
   ]
 }
