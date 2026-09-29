@@ -1117,8 +1117,8 @@
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
       "status": "reviewed_partial",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
@@ -1128,16 +1128,17 @@
         "Grant Ranger Favored Enemy plus the Archery Combat Style chain with exact level behavior."
       ],
       "gaps": [
-        "Foreign Ranger feature progression and forced Archery style benefits still need source-owned standalone mechanics and regression coverage."
+        "Implementation is present in the current branch but requires full validation before completion."
       ],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/barbarian-variant-950 (Base Class Unearthed Arcana, p. source page).",
-        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
+        "Implementation present: exact Barbarian parent binding; Rage/Greater Rage/Indomitable Will/Tireless Rage/Mighty Rage suppressed; Ranger Favored Enemy automated; fixed Archery style materialized as Rapid Shot, Manyshot, and Improved Precise Shot with Ranger provenance; source-removal regression added."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Implement the exact Ranger-derived feature progression without inheriting unrelated Ranger mechanics."
+      "nextAction": "Run full validation; promote only if Favored Enemy choices, fixed Archery feats, retained Barbarian mechanics/training, and source-removal regressions pass."
     },
     {
       "sourceId": "classes/bard",
@@ -5440,8 +5441,8 @@
       "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
       "status": "reviewed_partial",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
@@ -5451,16 +5452,17 @@
         "Grant Monk unarmored AC/Wisdom treatment and fast movement plus Ranger Favored Enemy, Swift Tracker, and Track."
       ],
       "gaps": [
-        "The cross-class AC/speed mechanics and Favored Enemy choice/progression require dedicated source-owned automation."
+        "Implementation is present in the current branch but requires full validation before completion."
       ],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/druid-variant-952 (Base Class Unearthed Arcana, p. source page).",
-        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
+        "Implementation present: exact Druid parent binding; armor/shield proficiency and Wild Shape removed; Monk-style unarmored AC/Fast Movement plus Ranger Favored Enemy/Swift Tracker/Track added; 3.5 AC calculator and source-removal regressions added."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Split defensive/movement mechanics from Ranger-derived feature choices before implementation."
+      "nextAction": "Run full validation; promote only if Druid weapon-only training, no Wild Shape, Monk-style AC/Fast Movement, Ranger-derived features, and source-removal regressions pass."
     },
     {
       "sourceId": "classes/druidic-avenger-123",
@@ -12678,8 +12680,8 @@
       "sourceUrl": "https://new.dndtools.org/classes/monk-variant-954",
       "status": "reviewed_partial",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
       "validation": "pending",
       "existingDirectSummaryCount": 2,
       "existingProfileParent": null,
@@ -12689,18 +12691,19 @@
         "Grant Barbarian damage reduction progression."
       ],
       "gaps": [
-        "Implementation is present in the current batch but requires full validation before completion."
+        "Implementation is present in the current branch but requires full validation before completion."
       ],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/monk-variant-954 (Unearthed Arcana p. 58).",
         "Implementation binds specifically to classes/monk-94, suppresses Monk Fast Movement, overrides AC Bonus so Wisdom-to-AC remains but the level-based class AC bonus is removed, and adds Barbarian damage reduction at 7/10/13/16/19.",
         "The shared AC calculator is corrected for 3.5 semantics: canonical Monk gains Wisdom plus its level-based AC bonus, Monk Variant gains Wisdom only, and 3.5 Barbarian no longer receives the 5e Constitution-to-AC rule.",
-        "Full validation is still required before this exact source can be promoted to complete."
+        "Full validation is still required before this exact source can be promoted to complete.",
+        "Implementation present: exact Monk parent binding, Fast Movement suppression, Wisdom-only unarmored AC, Barbarian DR progression, 3.5 AC semantics, and source-removal regression. Live source re-verification completed 2026-09-29; full validation still pending."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Run full validation and promote only if exact AC behavior, Fast Movement suppression, Barbarian DR progression, retained Monk mechanics, and source-removal regressions pass."
+      "nextAction": "Run full validation; promote only if exact AC, DR, retained Monk mechanics, and source-removal regressions pass."
     },
     {
       "sourceId": "classes/monk-variant-fighting-styles-949",
@@ -13849,8 +13852,8 @@
       "sourceUrl": "https://new.dndtools.org/classes/paladin-variant-955",
       "status": "reviewed_partial",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
@@ -13860,16 +13863,17 @@
         "Grant Ranger Favored Enemy restricted to aberrations, dragons, giants, monstrous humanoids, evil outsiders, or undead."
       ],
       "gaps": [
-        "Restricted Favored Enemy selection/progression needs exact structured choices and standalone mechanics."
+        "Implementation is present in the current branch but requires full validation before completion."
       ],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/paladin-variant-955 (Base Class Unearthed Arcana, p. source page).",
-        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
+        "Implementation present: exact Paladin parent binding; Lay on Hands, Turn Undead, and Remove Disease suppressed; restricted Ranger Favored Enemy pool automated with new-enemy and +2 allocation choices; source-removal regression added."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Implement the restricted Favored Enemy progression and source-removal behavior."
+      "nextAction": "Run full validation; promote only if the restricted Favored Enemy pool, retained Paladin mechanics/training, and source-removal regressions pass."
     },
     {
       "sourceId": "classes/pale-master-552",
