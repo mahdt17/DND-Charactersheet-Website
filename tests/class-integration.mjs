@@ -595,6 +595,9 @@ const cloistered1=reconcileClassGrants(baseCharacter([{catalogId:reviewedCloiste
 assert.equal(cloistered1.grantedFeatures.find(feature=>feature.name==='Lore')?.descriptionSource,'rule-text');
 assert.match(cloistered1.grantedFeatures.find(feature=>/Deity, Domains/i.test(feature.name))?.description||'',/Knowledge domain/i);
 assert.match(cloistered1.grantedFeatures.find(feature=>feature.name==='Spellcasting')?.description||'',/additional source-listed spells/i);
+const cloisteredTraining=cloistered1.trainingGrants.find(grant=>grant.sourceClassId===reviewedCloistered35.catalogId);
+assert.deepEqual((cloisteredTraining?.proficiencies||[]).map(item=>item.index).sort(),['light-armor','simple-weapons'],'Cloistered Cleric keeps only source-verified simple weapons and light armor');
+assert.equal(cloisteredTraining?.sourceUrl,'https://new.dndtools.org/classes/cloistered-cleric-120','Cloistered Cleric training retains exact source provenance');
 const reviewedSpiritShaman35=exact35('classes/spirit-shaman-9');
 const spiritShaman17=reconcileClassGrants(baseCharacter([{catalogId:reviewedSpiritShaman35.catalogId,name:'Spirit Shaman',edition:'3.5',level:17,definition:reviewedSpiritShaman35}]));
 assert(spiritShaman17.feats.some(feat=>feat.name==='Alertness'&&feat.sourceClassId===reviewedSpiritShaman35.catalogId),'Spirit Guide grants Alertness');
@@ -1145,6 +1148,9 @@ for(let level=1;level<=20;level++){
   assert(samurai.feats.some(feat=>feat.name==='Exotic Weapon Proficiency (bastard sword)'));
   assert.equal(samurai.feats.some(feat=>feat.name==='Improved Initiative'),level>=8);
   assert(!samurai.feats.some(feat=>/Two-Weapon Fighting|Quick Draw/.test(feat.name)),'weapon-restricted benefits do not become unrestricted feats');
+  const samuraiTraining=samurai.trainingGrants.find(grant=>grant.sourceClassId===samurai35.catalogId);
+  assert.deepEqual((samuraiTraining?.proficiencies||[]).map(item=>item.index).sort(),['heavy-armor','light-armor','martial-weapons','medium-armor','simple-weapons'],'Samurai receives all armor plus simple/martial weapons and no shield proficiency');
+  assert.equal(samuraiTraining?.sourceUrl,'https://new.dndtools.org/classes/samurai-22','Samurai training retains exact source provenance');
   assert(samurai.grantedFeatures.filter(feature=>feature.sourceClassId===samurai35.catalogId).every(feature=>feature.sourceUrl===(feature.name==='Kiai Smite'?'https://new.dndtools.org/classes/samurai-22':'https://dndtools.net/classes/samurai/')),'reviewed Samurai rules link to their intact source');
   assert(!samurai.grantedFeatures.some(feature=>/^[–—-]$/.test(feature.name)),'empty progression cells never become features');
   assert.deepEqual(reconcileClassGrants(soulknife),soulknife,'Soulknife reconciliation is idempotent');
