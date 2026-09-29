@@ -1,4 +1,27 @@
 {
+  "classes/adept-917": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons. Adepts gain no armor or shield proficiency from the class.",
+      "sourceSha256": "24d38cacb96db17ba05d0632b73b431e2c07971bfc01595cecfda6e10a6b46f2"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Prepare divine spells from the adept list. Wisdom determines spell access, save DCs, and bonus spells per day. Adepts prepare spells through daily prayer or meditation and do not spontaneously convert prepared spells to cure or inflict spells.",
+      "sourceSha256": "88e2467469947d2e6215292c467cec91a23ef69b189c08d3519187259ed4c413"
+    },
+    {
+      "name": "Summon Familiar",
+      "level": 2,
+      "aliases": [
+        "Familiar"
+      ],
+      "description": "At 2nd level, gain a familiar using the same familiar rules used by sorcerers and wizards.",
+      "sourceSha256": "ebe453e046219a46e00fd4ec95e8bef241176189bbc0481c304ee182a88bd70d"
+    }
+  ],
   "classes/archivist-74": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -915,6 +938,46 @@
       "choiceRequired": false
     }
   ],
+  "classes/expert2-124": [
+    {
+      "name": "Base Save Bonuses",
+      "level": 1,
+      "description": "Use two good save progressions and one poor save progression, as defined by the generic Expert class.",
+      "sourceSha256": "92a0d753fb1077e1798124b92ee330440ef2dd09883cadd81ccb6340d87ff671"
+    },
+    {
+      "name": "Class Skills",
+      "level": 1,
+      "description": "Choose any twelve skills as class skills; Craft and Profession are also class skills.",
+      "sourceSha256": "652dd666985ed5168d904c055a48d25dba1a9cd3ec78c6505aac84fcf0347c3b"
+    },
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons, one chosen martial weapon, and light armor.",
+      "sourceSha256": "1acd2b99fd27f3092e41cc5b0f5e7320e5551e4ebbae0480a6fdc9d2018154d8"
+    },
+    {
+      "name": "Bonus Feats",
+      "level": 1,
+      "aliases": [
+        "Bonus Feat"
+      ],
+      "choiceKind": "feat",
+      "choiceLevels": [
+        1,
+        2,
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "choiceCount": 1,
+      "description": "Gain one bonus feat at 1st, 2nd, and 4th level, then another every four class levels through 20th.",
+      "sourceSha256": "b975f1dd1f7349e8ccdf623ef3c398eef4ad1b13b1d864091bb168c0f9f33acc"
+    }
+  ],
   "classes/factotum-35": [
     {
       "name": "Weapon and Armor Proficiency",
@@ -1611,6 +1674,26 @@
       "level": 17,
       "description": "You no longer automatically fail a saving throw when the d20 shows a natural 1; the save still fails if the total result does not meet the DC.",
       "sourceSha256": "6fe64e8f5391ec870ce4bdf0d15a8d66ea2aef818c6121a3ba1c728234e4ca51"
+    }
+  ],
+  "classes/magewright-1029": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons, but not armor or shields. Armor can cause arcane spell failure for magewright spells with somatic components.",
+      "sourceSha256": "1e59782dee9a088eb5d0cdecb64f5b3e7d6ec988abefd31924989864dd62f5e5"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Prepare arcane spells ahead of time. Intelligence determines spell save DCs and bonus spells. Magewrights do not use spellbooks and cannot learn spells from spellbooks or scrolls; a printed 0 on the progression grants only applicable bonus spells.",
+      "sourceSha256": "22bf3a74851ad1732eeee39a33091376c88357ae84b78ac98464abfd97c91eee"
+    },
+    {
+      "name": "Spell Mastery",
+      "level": 1,
+      "description": "Prepare a limited mastered spell repertoire without a spellbook. Begin with mastered spells equal to Intelligence modifier, then learn another Intelligence-modifier number of spells plus one 0-level spell whenever a new spell level is gained and again at 20th level.",
+      "sourceSha256": "778e2dbc21cc88d18ef92da7fec41bf7f2aa5d8b70ae97c6d6d1d7e16741d677"
     }
   ],
   "classes/marshal-78": [
@@ -3407,6 +3490,50 @@
       "level": 1,
       "description": "Proficient with all simple and martial weapons, all armor, and shields.",
       "sourceSha256": "478551226b278793603496e52477a9188acccf5cdb638199163a4b63622a67e1"
+    }
+  ],
+  "classes/warrior2-135": [
+    {
+      "name": "Base Save Bonuses",
+      "level": 1,
+      "description": "Use one good save progression and two poor save progressions, as defined by the generic Warrior class.",
+      "sourceSha256": "6e2da9fb8d204ca60c37e565422f7b0cfad02aa65e8d5df46a3a993731623b7e"
+    },
+    {
+      "name": "Class Skills",
+      "level": 1,
+      "description": "Choose any six skills as class skills; Craft is also a class skill.",
+      "sourceSha256": "1c0fac40ac702791bb5524d252b51edc2c24d9fefa9df727591f3f60f946a856"
+    },
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons, light and medium armor, and shields except tower shields.",
+      "sourceSha256": "3fc0413699ef20ef073244838b5b722e1b035171f2a2dfe1b14686a60917c12e"
+    },
+    {
+      "name": "Bonus Feats",
+      "level": 1,
+      "aliases": [
+        "Bonus Feat"
+      ],
+      "choiceKind": "feat",
+      "choiceLevels": [
+        1,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20
+      ],
+      "choiceCount": 1,
+      "description": "Gain one bonus feat at 1st and 2nd level, then another at every even class level through 20th.",
+      "sourceSha256": "7981df9eeb3df94a72faa40998c2caba242e6701818a61be40deda9526e694db"
     }
   ],
   "classes/wilder-140": [

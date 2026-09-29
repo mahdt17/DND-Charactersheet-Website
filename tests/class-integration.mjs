@@ -430,7 +430,8 @@ const sourceEquivalent35Profiles=[
   ['classes/sorcerer-109','classes/sorcerer-98'],
   ['classes/wizard-47','classes/wizard-99'],
   ['classes/wizard-71','classes/wizard-99'],
-  ['classes/wizard-110','classes/wizard-99']
+  ['classes/wizard-110','classes/wizard-99'],
+  ['classes/favored-soul-76','classes/favored-soul-7']
 ];
 const mechanicsSnapshot35=sheet=>({
   features:(sheet.grantedFeatures||[]).map(item=>item.name).sort(),
@@ -456,6 +457,25 @@ for(const [sourceId,profileId] of sourceEquivalent35Profiles){
   assert.equal(report.descriptionComplete,true,sourceId+' uses reviewed rule text rather than progression summaries: '+(sheet.grantedFeatures||[]).filter(item=>item.descriptionSource==='progression').map(item=>item.name).join(', '));
   assert.equal(report.complete,true,sourceId+' has no structural automation gap');
 }
+
+// Straightforward reviewed NPC/campaign classes: rule text, training, choices, and structural completeness.
+for(const sourceId of ['classes/adept-917','classes/magewright-1029','classes/expert2-124','classes/warrior2-135']){
+  const record=annotateClassGrantKinds(classes35.find(item=>item.sourceId===sourceId),reference35);
+  assert(record,sourceId+' exists');
+  const sheet=reconcileClassGrants(baseCharacter([{catalogId:record.catalogId,name:record.name,edition:'3.5',level:20,definition:record}]));
+  const report=classAutomationReport(sheet).classes[0];
+  assert.equal(report.progressionComplete,true,sourceId+' progression complete');
+  assert.equal(report.descriptionReady,true,sourceId+' descriptions ready');
+  assert.equal(report.descriptionComplete,true,sourceId+' uses reviewed descriptions: '+(sheet.grantedFeatures||[]).filter(item=>item.descriptionSource==='progression').map(item=>item.name).join(', '));
+  assert.equal(report.complete,true,sourceId+' has no structural automation gap');
+}
+const genericExpert=annotateClassGrantKinds(classes35.find(item=>item.sourceId==='classes/expert2-124'),reference35);
+const genericExpertSheet=reconcileClassGrants(baseCharacter([{catalogId:genericExpert.catalogId,name:genericExpert.name,edition:'3.5',level:20,definition:genericExpert}]));
+assert(genericExpertSheet.classSkillRules35.length===1,'generic Expert preserves dynamic class-skill rule');
+assert.equal(genericExpertSheet.classAutomation.classes[0].proficiencyChoices.length,1,'generic Expert requires its one martial-weapon proficiency choice');
+const genericWarrior=annotateClassGrantKinds(classes35.find(item=>item.sourceId==='classes/warrior2-135'),reference35);
+const genericWarriorSheet=reconcileClassGrants(baseCharacter([{catalogId:genericWarrior.catalogId,name:genericWarrior.name,edition:'3.5',level:20,definition:genericWarrior}]));
+assert(genericWarriorSheet.classSkillRules35.length===1,'generic Warrior preserves dynamic class-skill rule');
 
 const warmage35=integrated35('Warmage');
 const warmage1=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:1,definition:warmage35}]));
