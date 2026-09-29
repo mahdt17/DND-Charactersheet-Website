@@ -63,7 +63,7 @@ Updated: 2026-09-29 (America/New_York)
 - Class inventory: **1,054 exact source IDs**.
 - Same-name scan: **107 groups covering 236 records**; name-based inheritance is not proof of equivalence.
 - Of those same-name groups, the bulk audit found **92 with structured mechanical differences**.
-- Tracker totals now: **16 complete**, **2 blocked**; all remaining records retain individual audit states.
+- Tracker totals now: **17 complete**, **2 blocked**; all remaining records retain individual audit states.
 - Current direct-summary count is **50** and remains a coverage metric only, never a completion count.
 - The next exact Unearthed Arcana p.58 records have been independently source-reviewed for batching; cross-class replacements are being split by implementation risk instead of being assumed equivalent.
 
@@ -95,5 +95,6 @@ Updated: 2026-09-29 (America/New_York)
 - Druid Variant now has weapon-only Druid training, no Wild Shape, Monk-style unarmored AC/Fast Movement, Ranger Swift Tracker/Track, and 3.5-specific AC calculator support.
 - Companion/Favored Enemy variant batch is fully validated on #1433 at `af619352c1ee2b4ce67be94964273a97573f41fe`: Monk Variant, Barbarian Variant, Paladin Variant, Druid Variant, Bard Variant, and Sorcerer/Wizard Variant are complete.
 - Animal Companion automation is regression-locked for Druid, Bard Variant, and Sorcerer/Wizard Variant, including exact parent IDs, guided selection, half-level scaling where required, alternative-companion penalties, persistence, and source-removal cleanup.
-- Cleric Variant is now source-reviewed and implemented pending full validation: exact `classes/cleric-91` parent, no Turn/Rebuke Undead, one retained Cleric energy-polarity choice that materializes Smite Evil or Smite Good with Paladin daily scaling, and Aura of Courage at 3rd level.
+- Cleric Variant is complete after full validation #1435 at `6f3f95b0853a79d9e17240720af7598732d6ade9`: exact Cleric parent, retained domain choice, no Turn/Rebuke Undead, positive/negative-energy Smite polarity with Paladin scaling, Aura of Courage, persistence, removal, and browser coverage.
+- Abjurer Variant (UA p.59) is now implemented pending full validation: exact `classes/wizard-99` parent fixed to Abjuration specialization, two prohibited schools required, no Familiar, no later Wizard bonus feats, no specialist bonus spell slot, and source-owned Resistance to Energy, Aura of Protection, and Spontaneous Dispelling.
 - The self-contained-description audit remains active; reviewed descriptions must stay standalone and exact-source-owned.
