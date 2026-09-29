@@ -207,8 +207,9 @@ const druidVariant1={...druidVariant20Base,classLevels:[{...druidVariant20Base.c
 const druidVariant1Plan=featureChoicePlan(druidVariant1,null);
 const druidVariantEnemy1=druidVariant1Plan.groups.find(group=>group.choiceKind==='favored-enemy');
 assert(druidVariantEnemy1?.options.includes('Animal'),'Druid Variant receives the full Ranger favored-enemy list');
-const druidVariant1Chosen=applyFeatureChoices(druidVariant1,null,{[druidVariantEnemy1.id]:['Animal']});
-assert(Object.values(druidVariant1Chosen.featureChoices).some(choice=>choice.choiceKind==='favored-enemy'&&choice.choices?.[0]==='Animal'));
+const druidVariantEnemyPlan=featureChoicePlan(druidVariant1,null,{[druidVariantEnemy1.id]:['Animal']});
+assert(Object.values(druidVariantEnemyPlan.patch.featureChoices||{}).some(choice=>choice.choiceKind==='favored-enemy'&&choice.choices?.[0]==='Animal'),'Druid Variant persists its Favored Enemy selection even while other source choices remain unresolved');
+const druidVariant1Chosen=reconcileClassGrants({...druidVariant1,...druidVariantEnemyPlan.patch});
 assert.equal(classAutomationReport(druidVariant20).classes[0].descriptionComplete,true,'Druid Variant retained and replacement mechanics are fully described');
 const druidVariantMulti=reconcileClassGrants({...druidVariant1Chosen,classLevels:[
   {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
