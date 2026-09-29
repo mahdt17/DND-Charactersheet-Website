@@ -115,6 +115,37 @@ const monkVariantRemoved=removeClassProgression(monkVariantMulti,monkVariant35.c
 assert(!monkVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===monkVariant35.catalogId),'Removing Monk Variant removes its source-owned features');
 assert(monkVariantRemoved.actions.some(action=>action.id==='manual-action')&&monkVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Monk Variant preserves unrelated manual data');
 
+const barbarianVariant35=exact35('classes/barbarian-variant-950');
+const barbarianVariant20Base=baseCharacter([{catalogId:barbarianVariant35.catalogId,name:'Barbarian Variant',edition:'3.5',level:20,definition:barbarianVariant35}]);
+const barbarianVariant20=reconcileClassGrants(barbarianVariant20Base);
+assert.equal(barbarianVariant35.inheritedFromClassId,'dndtools:classes/barbarian-89','Barbarian Variant binds the exact reviewed Barbarian source');
+for(const removed of ['Rage','Greater Rage','Indomitable Will','Tireless Rage','Mighty Rage'])assert(!barbarianVariant20.grantedFeatures.some(feature=>feature.name===removed),'Barbarian Variant removes '+removed);
+for(const retained of ['Fast Movement','Trap Sense','Damage Reduction'])assert(barbarianVariant20.grantedFeatures.some(feature=>feature.name===retained),'Barbarian Variant retains '+retained);
+const barbarianVariantEnemy=barbarianVariant20.grantedFeatures.find(feature=>feature.name==='Favored Enemy');
+assert.equal(barbarianVariantEnemy?.choiceKind,'favored-enemy');
+assert(barbarianVariantEnemy?.choiceOptions?.includes('Animal')&&barbarianVariantEnemy?.choiceOptions?.includes('Outsider (evil)'));
+for(const [name,rule] of [['Combat Style','Rapid Shot'],['Improved Combat Style','Manyshot'],['Combat Style Mastery','Improved Precise Shot']]){
+  const feature=barbarianVariant20.grantedFeatures.find(item=>item.name===name);
+  assert.match(feature?.description||'',new RegExp(rule,'i'),'Barbarian Variant materializes '+name+' Archery mechanics');
+  assert.match(feature?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/ranger/i);
+}
+for(const proficiency of ['light-armor','medium-armor','shields-except-tower','simple-weapons','martial-weapons'])assert(barbarianVariant20.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Barbarian Variant retains Barbarian training: '+proficiency);
+const barbarianVariant1={...barbarianVariant20Base,classLevels:[{...barbarianVariant20Base.classLevels[0],level:1}],level:1};
+const barbarianVariant1Plan=featureChoicePlan(barbarianVariant1,null);
+const barbarianVariantEnemy1=barbarianVariant1Plan.groups.find(group=>group.choiceKind==='favored-enemy');
+assert(barbarianVariantEnemy1?.options.includes('Animal'),'Barbarian Variant receives the unrestricted Ranger favored-enemy list');
+const barbarianVariant1Chosen=applyFeatureChoices(barbarianVariant1,null,{[barbarianVariantEnemy1.id]:['Animal']});
+assert(Object.values(barbarianVariant1Chosen.featureChoices).some(choice=>choice.choiceKind==='favored-enemy'&&choice.choices?.[0]==='Animal'));
+assert.equal(classAutomationReport(barbarianVariant20).classes[0].descriptionComplete,true,'Barbarian Variant retained and replacement mechanics are fully described');
+const barbarianVariantMulti=reconcileClassGrants({...barbarianVariant1Chosen,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:barbarianVariant35.catalogId,name:'Barbarian Variant',edition:'3.5',level:1,definition:barbarianVariant35}
+],level:2,className:'Fighter',classDefinition:fighter35});
+const barbarianVariantRemoved=removeClassProgression(barbarianVariantMulti,barbarianVariant35.catalogId);
+assert(!barbarianVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===barbarianVariant35.catalogId),'Removing Barbarian Variant removes its source-owned features');
+assert(!Object.values(barbarianVariantRemoved.featureChoices||{}).some(choice=>choice.sourceClassId===barbarianVariant35.catalogId),'Removing Barbarian Variant removes its Favored Enemy selections');
+assert(barbarianVariantRemoved.actions.some(action=>action.id==='manual-action')&&barbarianVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Barbarian Variant preserves unrelated manual data');
+
 const paladinVariant35=exact35('classes/paladin-variant-955');
 const paladinVariant20Base=baseCharacter([{catalogId:paladinVariant35.catalogId,name:'Paladin Variant',edition:'3.5',level:20,definition:paladinVariant35}]);
 const paladinVariant20=reconcileClassGrants(paladinVariant20Base);
