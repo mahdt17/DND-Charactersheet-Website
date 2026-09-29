@@ -25,9 +25,12 @@ try {
  const monk35={ruleset:'3.5',mechanics:'3.5',className:'Monk',level:20,classLevels:[{name:'Monk',edition:'3.5',catalogId:'dndtools:classes/monk-94',level:20,definition:{sourceId:'classes/monk-94'}}],inventory:[]};
  const monkVariant35={ruleset:'3.5',mechanics:'3.5',className:'Monk Variant',level:20,classLevels:[{name:'Monk Variant',edition:'3.5',catalogId:'dndtools:classes/monk-variant-954',level:20,definition:{sourceId:'classes/monk-variant-954'}}],inventory:[]};
  const barbarian35={ruleset:'3.5',mechanics:'3.5',className:'Barbarian',level:1,classLevels:[{name:'Barbarian',edition:'3.5',catalogId:'dndtools:classes/barbarian-89',level:1,definition:{sourceId:'classes/barbarian-89'}}],inventory:[]};
+ const druidVariant35={ruleset:'3.5',mechanics:'3.5',className:'Druid Variant',level:20,classLevels:[{name:'Druid Variant',edition:'3.5',catalogId:'dndtools:classes/druid-variant-952',level:20,definition:{sourceId:'classes/druid-variant-952'}}],inventory:[]};
  assert.equal(r.armorFor(monk35,{str:10,dex:16,con:10,wis:18}),21,'3.5 Monk gets Wisdom to AC plus +1 per five Monk levels');
  assert.equal(r.armorFor(monkVariant35,{str:10,dex:16,con:10,wis:18}),17,'3.5 Monk Variant retains Wisdom to AC but loses the class-level AC bonus');
  assert.equal(r.armorFor({...monkVariant35,inventory:[{id:'s',equipmentIndex:'shield',equipped:true}]},{str:10,dex:16,con:10,wis:18}),15,'3.5 Monk Variant loses Wisdom to AC while using a shield');
+ assert.equal(r.armorFor(druidVariant35,{str:10,dex:16,con:10,wis:18}),21,'3.5 Druid Variant gets Wisdom to AC plus the full Monk class-level AC bonus');
+ assert.equal(r.armorFor({...druidVariant35,inventory:[{id:'s',equipmentIndex:'shield',equipped:true}]},{str:10,dex:16,con:10,wis:18}),15,'3.5 Druid Variant loses Monk-style unarmored AC while using a shield');
  assert.equal(r.armorFor(barbarian35,{str:16,dex:14,con:14,wis:10}),12,'3.5 Barbarian does not inherit 5e Constitution-to-AC');
  assert.equal(r.weaponAttacks(fighter,{str:16,dex:14})[0].attack,5);
  assert.equal(r.weaponAttacks({...fighter,classDefinition:{name:'Fighter',proficiencies:['All armor, shields','Simple weapons, martial weapons']}},{str:16,dex:14})[0].attack,5,'Published prose proficiency lists retain the core class weapon bonus');
