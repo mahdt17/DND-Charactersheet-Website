@@ -87,6 +87,7 @@ Updated: 2026-09-29 (America/New_York)
 
 - Ranger Variant is complete and fully validated; do not redo it.
 - Monk Variant implementation is now on the branch pending validation: exact Monk parent binding, Wisdom-only unarmored AC, no Monk Fast Movement, Barbarian DR 1/- through 5/-, and source-removal coverage.
+- Live source re-verification on 2026-09-29 confirms the exact UA p.58 exchange: `https://new.dndtools.org/classes/monk-variant-954` retains Wisdom-to-AC while losing the level-based unarmored AC bonus and enhancement speed; the referenced SRD Barbarian DR progression is 1/- at 7th, 2/- at 10th, 3/- at 13th, 4/- at 16th, and 5/- at 19th.
 - The 3.5 AC calculator now distinguishes 3.5 Monk/Monk Variant from 5e-style Barbarian/Monk unarmored-defense rules; validate this before promoting Monk Variant.
 - After Monk, build the shared Favored Enemy progression needed by Barbarian Variant, Paladin Variant, and Druid Variant.
 - Then build the shared Animal Companion path needed by Bard Variant and Sorcerer/Wizard Variant.
