@@ -115,6 +115,42 @@ const monkVariantRemoved=removeClassProgression(monkVariantMulti,monkVariant35.c
 assert(!monkVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===monkVariant35.catalogId),'Removing Monk Variant removes its source-owned features');
 assert(monkVariantRemoved.actions.some(action=>action.id==='manual-action')&&monkVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Monk Variant preserves unrelated manual data');
 
+const paladinVariant35=exact35('classes/paladin-variant-955');
+const paladinVariant20Base=baseCharacter([{catalogId:paladinVariant35.catalogId,name:'Paladin Variant',edition:'3.5',level:20,definition:paladinVariant35}]);
+const paladinVariant20=reconcileClassGrants(paladinVariant20Base);
+assert.equal(paladinVariant35.inheritedFromClassId,'dndtools:classes/paladin-95','Paladin Variant binds the exact reviewed Paladin source');
+for(const removed of ['Lay on Hands','Turn Undead','Remove Disease'])assert(!paladinVariant20.grantedFeatures.some(feature=>feature.name===removed),'Paladin Variant removes '+removed);
+for(const retained of ['Smite Evil','Divine Grace','Special Mount'])assert(paladinVariant20.grantedFeatures.some(feature=>feature.name===retained),'Paladin Variant retains '+retained);
+const paladinVariantEnemy=paladinVariant20.grantedFeatures.find(feature=>feature.name==='Favored Enemy');
+assert.equal(paladinVariantEnemy?.choiceKind,'favored-enemy');
+assert.deepEqual(paladinVariantEnemy?.choiceLevels,[1,5,10,15,20]);
+assert.deepEqual(paladinVariantEnemy?.choiceOptions,['Aberration','Dragon','Giant','Monstrous Humanoid','Outsider (evil)','Undead']);
+assert.match(paladinVariantEnemy?.description||'',/aberrations, dragons, giants, monstrous humanoids, evil outsiders, or undead/i);
+assert.match(paladinVariantEnemy?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/ranger/i);
+for(const proficiency of ['light-armor','medium-armor','heavy-armor','shields-except-tower','simple-weapons','martial-weapons'])assert(paladinVariant20.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Paladin Variant retains Paladin training: '+proficiency);
+const paladinVariant1={...paladinVariant20Base,classLevels:[{...paladinVariant20Base.classLevels[0],level:1}],level:1};
+const paladinVariant1Plan=featureChoicePlan(paladinVariant1,null);
+const paladinVariantEnemy1=paladinVariant1Plan.groups.find(group=>group.choiceKind==='favored-enemy');
+assert(paladinVariantEnemy1,'Paladin Variant requests a restricted favored enemy at 1st level');
+assert(paladinVariantEnemy1.options.includes('Dragon')&&!paladinVariantEnemy1.options.includes('Animal'));
+const paladinVariant1Chosen=applyFeatureChoices(paladinVariant1,null,{[paladinVariantEnemy1.id]:['Dragon']});
+const paladinVariant5={...paladinVariant1Chosen,classLevels:[{...paladinVariant1Chosen.classLevels[0],level:5}],level:5};
+const paladinVariant5Plan=featureChoicePlan(paladinVariant5,paladinVariant1Chosen);
+const paladinVariantEnemy5=paladinVariant5Plan.groups.find(group=>group.choiceKind==='favored-enemy');
+const paladinVariantBoost5=paladinVariant5Plan.groups.find(group=>group.choiceKind==='favored-enemy-boost');
+assert(paladinVariantEnemy5&&!paladinVariantEnemy5.options.includes('Dragon')&&paladinVariantBoost5?.options.includes('Dragon'),'Paladin Variant enforces new-enemy and boost choices');
+const paladinVariant5Chosen=applyFeatureChoices(paladinVariant5,paladinVariant1Chosen,{[paladinVariantEnemy5.id]:['Undead'],[paladinVariantBoost5.id]:['Undead']});
+assert(Object.values(paladinVariant5Chosen.featureChoices).some(choice=>choice.choiceKind==='favored-enemy-boost'&&choice.choices?.[0]==='Undead'));
+assert.equal(classAutomationReport(paladinVariant20).classes[0].descriptionComplete,true,'Paladin Variant retained and replacement mechanics are fully described');
+const paladinVariantMulti=reconcileClassGrants({...paladinVariant5Chosen,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:paladinVariant35.catalogId,name:'Paladin Variant',edition:'3.5',level:5,definition:paladinVariant35}
+],level:6,className:'Fighter',classDefinition:fighter35});
+const paladinVariantRemoved=removeClassProgression(paladinVariantMulti,paladinVariant35.catalogId);
+assert(!paladinVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===paladinVariant35.catalogId),'Removing Paladin Variant removes its source-owned features');
+assert(!Object.values(paladinVariantRemoved.featureChoices||{}).some(choice=>choice.sourceClassId===paladinVariant35.catalogId),'Removing Paladin Variant removes its Favored Enemy selections');
+assert(paladinVariantRemoved.actions.some(action=>action.id==='manual-action')&&paladinVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Paladin Variant preserves unrelated manual data');
+
 const reviewedCleric35=exact35('classes/cleric-91');
 const cleric1=reconcileClassGrants(baseCharacter([{catalogId:reviewedCleric35.catalogId,name:'Cleric',edition:'3.5',level:1,definition:reviewedCleric35}]));
 assert.equal(cleric1.grantedFeatures.find(feature=>feature.name==='Spontaneous Casting')?.descriptionSource,'rule-text');
