@@ -55,9 +55,11 @@ const druidCompanionLevel4=featureChoicePlan(companionChoiceBase(druidCompanionC
 const druidCompanionLevel4Group=druidCompanionLevel4.groups.find(group=>group.choiceKind==='animal-companion');
 assert(druidCompanionLevel4Group.options.includes('Ape')&&druidCompanionLevel4Group.options.includes('Crocodile'));
 assert(!druidCompanionLevel4Group.options.includes('Dire Wolf'));
-const druidCompanionSelected=applyFeatureChoices(companionChoiceBase(druidCompanionClass35,4),null,{[druidCompanionLevel4Group.id]:['Ape']});
-assert(Object.values(druidCompanionSelected.featureChoices).some(choice=>choice.choiceKind==='animal-companion'&&choice.choices?.[0]==='Ape'));
-assert.equal(featureChoicePlan(JSON.parse(JSON.stringify(druidCompanionSelected)),null).groups.length,0,'Animal Companion selection persists across save/reopen');
+const druidCompanionLevel4Selected=featureChoicePlan(companionChoiceBase(druidCompanionClass35,4),null,{[druidCompanionLevel4Group.id]:['Ape']});
+assert(Object.values(druidCompanionLevel4Selected.patch.featureChoices).some(choice=>choice.choiceKind==='animal-companion'&&choice.choices?.[0]==='Ape'),'Level-4 alternative companion selection persists in the source-choice patch');
+const druidCompanionLevel1Selected=applyFeatureChoices(companionChoiceBase(druidCompanionClass35,1),null,{[druidCompanionLevel1Group.id]:['Wolf']});
+assert(Object.values(druidCompanionLevel1Selected.featureChoices).some(choice=>choice.choiceKind==='animal-companion'&&choice.choices?.[0]==='Wolf'));
+assert.equal(featureChoicePlan(JSON.parse(JSON.stringify(druidCompanionLevel1Selected)),null).groups.length,0,'Level-1 Animal Companion selection persists across save/reopen');
 
 const swCompanionRaw35=choiceClasses35.find(record=>record.sourceId==='classes/sorcererwizard-variant-957');
 const swCompanionUnresolved35=annotateClassGrantKinds(swCompanionRaw35,choiceReference35);
