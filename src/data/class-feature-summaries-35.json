@@ -3047,13 +3047,7 @@
       "name": "Fast Movement",
       "level": 3,
       "description": "While in light or no armor and carrying no more than a light load, increase land speed by 10 feet at 3rd level and by 20 feet at 11th level.",
-      "sourceSha256": "4ad549a7f96d8ed8014f68b64b412e8a9de007a55bf4fc2f14f172b9e3b186a9",
-      "aliases": [
-        "Fast Movement +10ft",
-        "Fast Movement +20ft",
-        "Fast Movement +10 ft.",
-        "Fast Movement +20 ft."
-      ]
+      "sourceSha256": "4ad549a7f96d8ed8014f68b64b412e8a9de007a55bf4fc2f14f172b9e3b186a9"
     },
     {
       "name": "Trackless Step",
@@ -3240,11 +3234,7 @@
       "name": "Blindsense",
       "level": 10,
       "description": "Gain blindsense out to 30 feet.",
-      "sourceSha256": "a95402d34835e8eb054bb412bc7ca7fad7701a92486abb232e501c05933283e1",
-      "aliases": [
-        "Blindsense 30 ft.",
-        "Blindsense 30ft"
-      ]
+      "sourceSha256": "a95402d34835e8eb054bb412bc7ca7fad7701a92486abb232e501c05933283e1"
     },
     {
       "name": "Hide in Plain Sight",
@@ -3264,10 +3254,7 @@
       "description": "Gain blindsight out to 30 feet.",
       "sourceSha256": "e04f475d1270be81a71334c464a9fd0324ae42dbd50286f3354b9bf7501d70ae",
       "aliases": [
-        "Blindsight 30 ft.",
-        "Blindsight 30ft",
-        "blind sight 30ft",
-        "blind sight 30 ft."
+        "blind sight"
       ]
     }
   ],
