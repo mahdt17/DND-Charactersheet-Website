@@ -206,10 +206,16 @@ for(const removedTraining of ['light-armor','medium-armor','shields-except-tower
 const druidVariant1={...druidVariant20Base,classLevels:[{...druidVariant20Base.classLevels[0],level:1}],level:1};
 const druidVariant1Plan=featureChoicePlan(druidVariant1,null);
 const druidVariantEnemy1=druidVariant1Plan.groups.find(group=>group.choiceKind==='favored-enemy');
+const druidVariantCompanion1=druidVariant1Plan.groups.find(group=>group.choiceKind==='animal-companion');
 assert(druidVariantEnemy1?.options.includes('Animal'),'Druid Variant receives the full Ranger favored-enemy list');
-const druidVariantEnemyPlan=featureChoicePlan(druidVariant1,null,{[druidVariantEnemy1.id]:['Animal']});
-assert(Object.values(druidVariantEnemyPlan.patch.featureChoices||{}).some(choice=>choice.choiceKind==='favored-enemy'&&choice.choices?.[0]==='Animal'),'Druid Variant persists its Favored Enemy selection even while other source choices remain unresolved');
-const druidVariant1Chosen=reconcileClassGrants({...druidVariant1,...druidVariantEnemyPlan.patch});
+assert(druidVariantCompanion1?.options.includes('Wolf')&&!druidVariantCompanion1?.options.includes('Ape'),'Druid Variant level 1 receives only legal starting companions');
+const druidVariant1Chosen=applyFeatureChoices(druidVariant1,null,{
+  [druidVariantEnemy1.id]:['Animal'],
+  [druidVariantCompanion1.id]:['Wolf']
+});
+assert(Object.values(druidVariant1Chosen.featureChoices||{}).some(choice=>choice.choiceKind==='favored-enemy'&&choice.choices?.[0]==='Animal'),'Druid Variant persists Favored Enemy');
+assert(Object.values(druidVariant1Chosen.featureChoices||{}).some(choice=>choice.choiceKind==='animal-companion'&&choice.choices?.[0]==='Wolf'),'Druid Variant persists Animal Companion');
+assert.equal(druidVariant1Chosen.grantedFeatures.find(feature=>feature.companionName==='Wolf')?.companionEffectiveDruidLevel,1,'Druid Variant companion scales at full class level');
 assert.equal(classAutomationReport(druidVariant20).classes[0].descriptionComplete,true,'Druid Variant retained and replacement mechanics are fully described');
 const druidVariantMulti=reconcileClassGrants({...druidVariant1Chosen,classLevels:[
   {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
@@ -252,6 +258,108 @@ assert.equal(druid5.grantedFeatures.find(feature=>feature.name==='Wild Shape')?.
 assert.equal(druid5.actions.find(action=>action.name==='Wild Shape')?.type,'Standard action','Druid Wild Shape is exposed as a standard action');
 assert.equal(druid5.resources.find(resource=>resource.name==='Wild Shape')?.max,1,'Druid Wild Shape begins at once per day');
 assert.match(druid5.grantedFeatures.find(feature=>feature.name==='Spontaneous Casting')?.description||'',/summon nature/i);
+
+const druid1Base=baseCharacter([{catalogId:reviewedDruid35.catalogId,name:'Druid',edition:'3.5',level:1,definition:reviewedDruid35}]);
+const druid1Plan=featureChoicePlan(druid1Base,null);
+const druidCompanion1=druid1Plan.groups.find(group=>group.choiceKind==='animal-companion');
+assert(druidCompanion1,'Druid creation requests an Animal Companion');
+assert(druidCompanion1.options.includes('Wolf')&&druidCompanion1.options.includes('Shark (Medium)'),'Druid starting companion list includes standard and aquatic source options');
+assert(!druidCompanion1.options.includes('Ape')&&!druidCompanion1.options.includes('Crocodile'),'Druid level 1 excludes level-4 alternative companions');
+const druidWolf=applyFeatureChoices(druid1Base,null,{[druidCompanion1.id]:['Wolf']});
+const druidWolfFeature=druidWolf.grantedFeatures.find(feature=>feature.companionName==='Wolf');
+assert.equal(druidWolfFeature?.baseEffectiveDruidLevel,1);
+assert.equal(druidWolfFeature?.companionEffectiveDruidLevel,1);
+assert.equal(druidWolfFeature?.companionProgression?.bonusHD,0);
+assert.deepEqual(druidWolfFeature?.companionProgression?.specialAbilities,['Link','Share Spells']);
+const druidWolfTrack=druidWolf.classProgressionTracks.find(track=>track.name==='Animal Companion'&&track.sourceClassId===reviewedDruid35.catalogId);
+assert.equal(druidWolfTrack?.companionName,'Wolf');
+assert.equal(druidWolfTrack?.bonusTricks,1);
+
+const druid4Base=baseCharacter([{catalogId:reviewedDruid35.catalogId,name:'Druid',edition:'3.5',level:4,definition:reviewedDruid35}]);
+const druid4Plan=featureChoicePlan(druid4Base,null);
+const druidCompanion4=druid4Plan.groups.find(group=>group.choiceKind==='animal-companion');
+assert(druidCompanion4?.options.includes('Ape')&&druidCompanion4?.options.includes('Crocodile'),'Druid level 4 unlocks -3 alternative companions');
+assert(!druidCompanion4?.options.includes('Dire Wolf'),'Druid level 4 does not unlock level-7 alternatives');
+const druidApe=applyFeatureChoices(druid4Base,null,{[druidCompanion4.id]:['Ape']});
+const druidApeFeature=druidApe.grantedFeatures.find(feature=>feature.companionName==='Ape');
+assert.equal(druidApeFeature?.baseEffectiveDruidLevel,4);
+assert.equal(druidApeFeature?.companionLevelAdjustment,3);
+assert.equal(druidApeFeature?.companionEffectiveDruidLevel,1,'Alternative companion penalty reduces effective companion level');
+
+const reviewedBard35=exact35('classes/bard');
+const bard20=reconcileClassGrants(baseCharacter([{catalogId:reviewedBard35.catalogId,name:'Bard',edition:'3.5',level:20,definition:reviewedBard35}]));
+assert.equal(bard20.resources.find(resource=>resource.name==='Bardic Music')?.max,20,'Bardic Music tracks one use per Bard level');
+assert(!bard20.resources.some(resource=>resource.name==='Bardic Knowledge'),'Bardic Knowledge has no invented daily-use resource');
+for(const name of ['Countersong','Fascinate','Inspire Courage','Inspire Competence','Suggestion','Inspire Greatness','Song of Freedom','Inspire Heroics','Mass Suggestion'])assert(bard20.actions.some(action=>action.name===name),'Bard action automation: '+name);
+assert.equal(bard20.actions.find(action=>action.name==='Song of Freedom')?.type,'1 minute');
+for(const proficiency of ['light-armor','shields-except-tower','simple-weapons','longsword','rapier','sap','shortsword','shortbow','whip'])assert(bard20.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Bard source training: '+proficiency);
+assert.equal(classAutomationReport(bard20).classes[0].descriptionComplete,true,'Reviewed Bard features have self-contained source descriptions');
+
+const bardVariant35=exact35('classes/bard-variant-951');
+const bardVariant20Base=baseCharacter([{catalogId:bardVariant35.catalogId,name:'Bard Variant',edition:'3.5',level:20,definition:bardVariant35}]);
+const bardVariant20=reconcileClassGrants(bardVariant20Base);
+assert.equal(bardVariant35.inheritedFromClassId,'dndtools:classes/bard','Bard Variant binds the exact reviewed Bard source');
+for(const removed of ['Bardic Knowledge','Inspire Courage','Inspire Competence','Inspire Greatness','Inspire Heroics'])assert(!bardVariant20.grantedFeatures.some(feature=>feature.name===removed),'Bard Variant removes '+removed);
+for(const retained of ['Bardic Music','Countersong','Fascinate','Suggestion','Song of Freedom','Mass Suggestion'])assert(bardVariant20.grantedFeatures.some(feature=>feature.name===retained),'Bard Variant retains '+retained);
+for(const gained of ['Animal Companion','Nature Sense','Wild Empathy','Resist Nature’s Lure'])assert(bardVariant20.grantedFeatures.some(feature=>feature.name===gained),'Bard Variant gains '+gained);
+assert.equal(bardVariant20.resources.find(resource=>resource.name==='Bardic Music')?.max,20,'Bard Variant retains Bardic Music uses');
+const bardVariant1={...bardVariant20Base,classLevels:[{...bardVariant20Base.classLevels[0],level:1}],level:1};
+const bardVariant1Plan=featureChoicePlan(bardVariant1,null);
+const bardVariantCompanion=bardVariant1Plan.groups.find(group=>group.choiceKind==='animal-companion');
+assert(bardVariantCompanion?.options.includes('Wolf')&&!bardVariantCompanion.options.includes('Ape'),'Bard Variant receives full-level Druid companion eligibility');
+const bardVariantWolf=applyFeatureChoices(bardVariant1,null,{[bardVariantCompanion.id]:['Wolf']});
+assert.equal(bardVariantWolf.grantedFeatures.find(feature=>feature.companionName==='Wolf')?.companionEffectiveDruidLevel,1);
+const bardVariantMulti=reconcileClassGrants({...bardVariantWolf,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:bardVariant35.catalogId,name:'Bard Variant',edition:'3.5',level:1,definition:bardVariant35}
+],level:2,className:'Fighter',classDefinition:fighter35});
+const bardVariantRemoved=removeClassProgression(bardVariantMulti,bardVariant35.catalogId);
+assert(!Object.values(bardVariantRemoved.featureChoices||{}).some(choice=>choice.sourceClassId===bardVariant35.catalogId),'Removing Bard Variant removes its companion choice');
+assert(!bardVariantRemoved.classProgressionTracks.some(track=>track.sourceClassId===bardVariant35.catalogId),'Removing Bard Variant removes its companion track');
+assert(bardVariantRemoved.actions.some(action=>action.id==='manual-action')&&bardVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Bard Variant preserves manual data');
+
+const swVariantRaw=classes35.find(record=>record.sourceId==='classes/sorcererwizard-variant-957');
+const swVariantUnresolved=annotateClassGrantKinds(swVariantRaw,reference35);
+assert.equal(swVariantUnresolved.inheritanceRequired,true,'Sorcerer/Wizard Variant fails closed until its parent is chosen');
+assert.deepEqual(swVariantUnresolved.inheritanceOptions.map(option=>option.name).sort(),['Sorcerer','Wizard']);
+const swSorcerer35=annotateClassGrantKinds({...swVariantRaw,inheritanceChoice:'Sorcerer'},reference35);
+const swWizard35=annotateClassGrantKinds({...swVariantRaw,inheritanceChoice:'Wizard'},reference35);
+assert.equal(swSorcerer35.inheritedFromClassId,'dndtools:classes/sorcerer-98');
+assert.equal(swWizard35.inheritedFromClassId,'dndtools:classes/wizard-99');
+const swSorcerer8Base=baseCharacter([{catalogId:swSorcerer35.catalogId,name:'Sorcerer/Wizard Variant',edition:'3.5',level:8,definition:swSorcerer35}]);
+const swSorcerer8=reconcileClassGrants(swSorcerer8Base);
+assert(swSorcerer8.grantedFeatures.some(feature=>feature.name==='Spells'),'Sorcerer-parent variant retains Sorcerer spellcasting');
+assert(!swSorcerer8.grantedFeatures.some(feature=>/^Familiar(?: Basics| Ability Descriptions)?$/.test(feature.name)),'Sorcerer-parent variant removes Familiar mechanics');
+assert(swSorcerer8.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index==='simple-weapons'),'Sorcerer-parent variant retains Sorcerer training');
+const swSorcerer8Plan=featureChoicePlan(swSorcerer8Base,null);
+const swSorcererCompanion=swSorcerer8Plan.groups.find(group=>group.choiceKind==='animal-companion');
+assert.equal(swSorcererCompanion?.effectiveDruidLevel,4,'Sorcerer/Wizard companion uses half class level');
+assert(swSorcererCompanion?.options.includes('Ape')&&!swSorcererCompanion.options.includes('Dire Wolf'),'Half-level companion eligibility uses effective Druid level');
+const swSorcererApe=applyFeatureChoices(swSorcerer8Base,null,{[swSorcererCompanion.id]:['Ape']});
+const swApeFeature=swSorcererApe.grantedFeatures.find(feature=>feature.companionName==='Ape');
+assert.equal(swApeFeature?.baseEffectiveDruidLevel,4);
+assert.equal(swApeFeature?.companionLevelAdjustment,3);
+assert.equal(swApeFeature?.companionEffectiveDruidLevel,1);
+
+const swWizard8Base=baseCharacter([{catalogId:swWizard35.catalogId,name:'Sorcerer/Wizard Variant',edition:'3.5',level:8,definition:swWizard35}]);
+const swWizard8=reconcileClassGrants(swWizard8Base);
+assert(swWizard8.grantedFeatures.some(feature=>feature.name==='Spellbooks'),'Wizard-parent variant retains Wizard spellbook mechanics');
+assert(swWizard8.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===swWizard35.catalogId),'Wizard-parent variant retains Scribe Scroll');
+assert(!swWizard8.grantedFeatures.some(feature=>/^Familiar(?: Basics| Ability Descriptions)?$/.test(feature.name)),'Wizard-parent variant removes Familiar mechanics');
+for(const proficiency of ['club','dagger','crossbow-heavy','crossbow-light','quarterstaff'])assert(swWizard8.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Wizard-parent variant retains Wizard training: '+proficiency);
+const swWizard8Plan=featureChoicePlan(swWizard8Base,null);
+const swWizardCompanion=swWizard8Plan.groups.find(group=>group.choiceKind==='animal-companion');
+const swWizardWolf=applyFeatureChoices(swWizard8Base,null,{[swWizardCompanion.id]:['Wolf']});
+assert.equal(swWizardWolf.grantedFeatures.find(feature=>feature.companionName==='Wolf')?.baseEffectiveDruidLevel,4);
+assert.equal(swWizardWolf.grantedFeatures.find(feature=>feature.companionName==='Wolf')?.companionEffectiveDruidLevel,4);
+assert.equal(swWizardWolf.grantedFeatures.find(feature=>feature.companionName==='Wolf')?.companionProgression?.bonusHD,2);
+const swWizardMulti=reconcileClassGrants({...swWizardWolf,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:swWizard35.catalogId,name:'Sorcerer/Wizard Variant',edition:'3.5',level:8,definition:swWizard35}
+],level:9,className:'Fighter',classDefinition:fighter35});
+const swWizardRemoved=removeClassProgression(swWizardMulti,swWizard35.catalogId);
+assert(!Object.values(swWizardRemoved.featureChoices||{}).some(choice=>choice.sourceClassId===swWizard35.catalogId),'Removing Sorcerer/Wizard Variant removes its companion choice');
+assert(!swWizardRemoved.classProgressionTracks.some(track=>track.sourceClassId===swWizard35.catalogId),'Removing Sorcerer/Wizard Variant removes companion progression');
 
 const reviewedRanger35=exact35('classes/ranger-96');
 const ranger3=reconcileClassGrants(baseCharacter([{catalogId:reviewedRanger35.catalogId,name:'Ranger',edition:'3.5',level:3,definition:reviewedRanger35}]));
