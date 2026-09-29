@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import classes from '../src/data/classes.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
-import {featureChoicePlan} from '../src/lib/featureChoices.js';
+import {featureChoicePlan,applyFeatureChoices} from '../src/lib/featureChoices.js';
 import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections,legacyClassSkillStatus} from '../src/lib/classIntegration.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
@@ -165,6 +165,41 @@ assert.match(wizardVariantBonus?.description||'',/1st level.*5th.*10th.*15th.*20
 assert(!/\bas fighter\b/i.test(wizardVariantBonus?.description||''),'Wizard Variant bonus-feat description is standalone');
 assert(wizardVariant20.grantedFeatures.some(feature=>feature.name==='Spells'),'Wizard Variant retains Wizard spellcasting');
 assert(wizardVariant20.grantedFeatures.some(feature=>feature.name==='Familiar'),'Wizard Variant retains Familiar');
+
+const fighterVariantMulti=reconcileClassGrants({...fighterVariant20,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:fighterVariant35.catalogId,name:'Fighter Variant',edition:'3.5',level:20,definition:fighterVariant35}
+],level:21,className:'Fighter',classDefinition:fighter35});
+const fighterVariantRemoved=removeClassProgression(fighterVariantMulti,fighterVariant35.catalogId);
+assert(!fighterVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===fighterVariant35.catalogId),'Removing Fighter Variant removes its source-owned Sneak Attack progression');
+assert(fighterVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===fighter35.catalogId),'Removing Fighter Variant preserves the unrelated Fighter class');
+assert(fighterVariantRemoved.actions.some(action=>action.id==='manual-action')&&fighterVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Fighter Variant preserves manual data');
+
+const rogueVariantBase=baseCharacter([{catalogId:rogueVariant35.catalogId,name:'Rogue Variant',edition:'3.5',level:2,definition:rogueVariant35}]);
+const rogueVariantPlan=featureChoicePlan(rogueVariantBase,null);
+const rogueVariantPicks=Object.fromEntries(rogueVariantPlan.groups.map((group,index)=>[group.id,[index?'Combat Expertise':'Power Attack']]));
+const rogueVariantChosen=applyFeatureChoices(rogueVariantBase,null,rogueVariantPicks);
+const rogueVariantMulti=reconcileClassGrants({...rogueVariantChosen,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:rogueVariant35.catalogId,name:'Rogue Variant',edition:'3.5',level:2,definition:rogueVariant35}
+],level:3,className:'Fighter',classDefinition:fighter35});
+const rogueVariantRemoved=removeClassProgression(rogueVariantMulti,rogueVariant35.catalogId);
+assert(!rogueVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===rogueVariant35.catalogId),'Removing Rogue Variant removes its source-owned replacement progression');
+assert(!rogueVariantRemoved.feats.some(feat=>feat.sourceType==='class-choice'&&feat.sourceClassId===rogueVariant35.catalogId),'Removing Rogue Variant removes its selected Fighter-list bonus feats');
+assert(rogueVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Rogue Variant preserves manual feats');
+
+const wizardVariantBase=baseCharacter([{catalogId:wizardVariant35.catalogId,name:'Wizard Variant',edition:'3.5',level:5,definition:wizardVariant35}]);
+const wizardVariantPlan=featureChoicePlan(wizardVariantBase,null);
+const wizardVariantPicks=Object.fromEntries(wizardVariantPlan.groups.map((group,index)=>[group.id,[index?'Combat Expertise':'Power Attack']]));
+const wizardVariantChosen=applyFeatureChoices(wizardVariantBase,null,wizardVariantPicks);
+const wizardVariantMulti=reconcileClassGrants({...wizardVariantChosen,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:wizardVariant35.catalogId,name:'Wizard Variant',edition:'3.5',level:5,definition:wizardVariant35}
+],level:6,className:'Fighter',classDefinition:fighter35});
+const wizardVariantRemoved=removeClassProgression(wizardVariantMulti,wizardVariant35.catalogId);
+assert(!wizardVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===wizardVariant35.catalogId),'Removing Wizard Variant removes its source-owned replacement progression');
+assert(!wizardVariantRemoved.feats.some(feat=>feat.sourceType==='class-choice'&&feat.sourceClassId===wizardVariant35.catalogId),'Removing Wizard Variant removes its selected Fighter-list bonus feats');
+assert(wizardVariantRemoved.actions.some(action=>action.id==='manual-action'),'Removing Wizard Variant preserves manual actions');
 
 const wildernessRogue35=exact35('classes/wilderness-rogue-136');
 const wildernessRogue16Base=baseCharacter([{catalogId:wildernessRogue35.catalogId,name:'Wilderness Rogue',edition:'3.5',level:16,definition:wildernessRogue35}]);
