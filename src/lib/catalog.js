@@ -1,4 +1,4 @@
-import descriptionOverrides35 from '../data/source-description-overrides-35.json';
+import descriptionOverrides35 from '../data/source-description-overrides-35.json' with {type:'json'};
 import {normalizeContentEntry, normalizeEdition, contentType, textValue} from './content.js';
 export const SOURCES = {'3.5':'dndtools', '2014':'wikidot5e'};
 export const isBoilerplate = value => /logged in to clone|click here to|wikidot\.com|view wiki source|notify administrators/i.test(String(value || ''));
