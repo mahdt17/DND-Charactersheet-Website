@@ -633,7 +633,9 @@ function derivedForRow(row,character=null){
   const chosenClassSkills=edition==='3.5'?Object.values(character?.featureChoices||{})
     .filter(choice=>choice?.sourceClassId===row.catalogId&&choice?.choiceKind==='class-skill')
     .flatMap(choice=>choice.choices||[]):[];
-  const classSkillNames=edition==='3.5'?[...new Set([...(Array.isArray(record.classSkills)?record.classSkills:[]),...chosenClassSkills])]:[];
+  const hasClassSkillChoice=edition==='3.5'&&Array.isArray(record.classSkillChoices)&&record.classSkillChoices.length>0;
+  const fixedClassSkills=hasClassSkillChoice?[]:(Array.isArray(record.classSkills)?record.classSkills:[]);
+  const classSkillNames=edition==='3.5'?[...new Set([...fixedClassSkills,...chosenClassSkills])]:[];
   return {
     row,features:derivedFeatures,actions,feats,resources,tracks,spellSlots,training,
     classSkills:classSkillNames.map(name=>({id:'class-grant:'+row.catalogId+':class-skill:'+slug(name),name,sourceType:'class',automatic:true,sourceClassId:row.catalogId,sourceClassName:row.name,sourceUrl:record.sourceUrl||null,edition:'3.5'})),
