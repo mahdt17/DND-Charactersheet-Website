@@ -89,6 +89,9 @@ Updated: 2026-09-29 (America/New_York)
 - Monk Variant implementation is now on the branch pending validation: exact Monk parent binding, Wisdom-only unarmored AC, no Monk Fast Movement, Barbarian DR 1/- through 5/-, and source-removal coverage.
 - Live source re-verification on 2026-09-29 confirms the exact UA p.58 exchange: `https://new.dndtools.org/classes/monk-variant-954` retains Wisdom-to-AC while losing the level-based unarmored AC bonus and enhancement speed; the referenced SRD Barbarian DR progression is 1/- at 7th, 2/- at 10th, 3/- at 13th, 4/- at 16th, and 5/- at 19th.
 - The 3.5 AC calculator now distinguishes 3.5 Monk/Monk Variant from 5e-style Barbarian/Monk unarmored-defense rules; validate this before promoting Monk Variant.
-- After Monk, build the shared Favored Enemy progression needed by Barbarian Variant, Paladin Variant, and Druid Variant.
-- Then build the shared Animal Companion path needed by Bard Variant and Sorcerer/Wizard Variant.
+- Shared Favored Enemy automation is now implemented on the branch: exact Ranger options, unique new-enemy selection, and the separate +2 bonus-allocation choice at 5th/10th/15th/20th are persisted and regression-covered.
+- Barbarian Variant, Paladin Variant, and Druid Variant now consume that shared Favored Enemy path with exact source restrictions and source-removal coverage; all three remain pending full validation and must not be promoted to complete until CI passes.
+- Barbarian Variant also materializes its fixed Archery progression as Rapid Shot, Manyshot, and Improved Precise Shot class-granted feats.
+- Druid Variant now has weapon-only Druid training, no Wild Shape, Monk-style unarmored AC/Fast Movement, Ranger Swift Tracker/Track, and 3.5-specific AC calculator support.
+- After this batch validates, build the shared Animal Companion path needed by Bard Variant and Sorcerer/Wizard Variant.
 - The self-contained-description audit remains active; reviewed descriptions must stay standalone and exact-source-owned.
