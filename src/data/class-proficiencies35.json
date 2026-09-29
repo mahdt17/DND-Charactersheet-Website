@@ -3144,6 +3144,138 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana p. 58 Druid Variant independently reviewed. It retains the PHB Druid baseline except armor/shield proficiency and all Wild Shape progression, and gains Monk unarmored AC and Fast Movement plus Ranger Favored Enemy, Swift Tracker, and Track."
+    },
+    "classes/bard": {
+      "name": "Bard",
+      "sourceUrl": "https://new.dndtools.org/classes/bard",
+      "proficiencyText": "Bards are proficient with all simple weapons plus longsword, rapier, sap, short sword, shortbow, and whip; light armor; and shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields-except-tower",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "longsword",
+          "name": "Longsword",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Short sword",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "whip",
+          "name": "Whip",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/bard-variant-951": {
+      "name": "Bard Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/bard-variant-951",
+      "inheritanceSourceId": "classes/bard",
+      "featureSuppressions": [
+        {
+          "name": "Bardic Knowledge"
+        },
+        {
+          "name": "Inspire Courage"
+        },
+        {
+          "name": "Inspire Competence"
+        },
+        {
+          "name": "Inspire Greatness"
+        },
+        {
+          "name": "Inspire Heroics"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Animal Companion (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion"
+        },
+        {
+          "name": "Nature Sense (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#natureSense"
+        },
+        {
+          "name": "Wild Empathy (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#wildEmpathy"
+        },
+        {
+          "name": "Resist Nature’s Lure (Ex)",
+          "level": 4,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#resistNaturesLure"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Bard Variant independently reviewed. It retains the Bard baseline except Bardic Knowledge and the four Inspire abilities, and gains the Druid Animal Companion, Nature Sense, Wild Empathy, and Resist Nature's Lure features."
+    },
+    "classes/sorcererwizard-variant-957": {
+      "name": "Sorcerer/Wizard Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcererwizard-variant-957",
+      "inheritsFromOptions": [
+        "Sorcerer",
+        "Wizard"
+      ],
+      "featureSuppressions": [
+        {
+          "name": "Familiar"
+        },
+        {
+          "name": "Familiar Basics"
+        },
+        {
+          "name": "Familiar Ability Descriptions"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Animal Companion (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Sorcerer/Wizard Variant independently reviewed. The user must choose the Sorcerer or Wizard parent progression; Familiar is removed and replaced with a Druid Animal Companion whose base effective druid level is one-half class level, rounded down under the general 3.5 fraction rule."
     }
   }
 }
