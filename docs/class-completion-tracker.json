@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "0ba40d04062dbb6901129d281bce3696ac377c33",
+  "snapshotCommit": "163eb27b109e228e40b9e85e5a26062e61286fa1",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 44,
@@ -18944,20 +18944,32 @@
       "name": "Thug",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/thug-132",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
-      "existingDirectSummaryCount": 0,
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
+      "existingDirectSummaryCount": 2,
       "existingProfileParent": null,
-      "featureRequirements": [],
+      "featureRequirements": [
+        "No Fighter bonus feat at Thug level 1.",
+        "Fighter bonus-feat progression begins at Thug level 2 and continues every two levels through 20.",
+        "Urban Tracking is an additional Thug-specific Fighter bonus-feat option.",
+        "Thug training is simple weapons, martial weapons, and light armor only.",
+        "Use the exact Unearthed Arcana class-skill list."
+      ],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "Exact source reviewed: https://new.dndtools.org/classes/thug-132 (Unearthed Arcana p. 51).",
+        "Source-owned class skills/training and variant feature overrides added in 76de778d8670b076d49855d5ab0b09f68d96414c.",
+        "Inherited-feature suppression fallback corrected in 78db2c73c495da2c4aa0afdce7bdf8f69571ef45.",
+        "Exact choice option lists preserved through derived features in 163eb27b109e228e40b9e85e5a26062e61286fa1.",
+        "Validate modernization #1393 passed full class/feat/spell/item regressions, build, and all browser suites."
+      ],
+      "verifiedCommit": "163eb27b109e228e40b9e85e5a26062e61286fa1",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36530886999",
+      "nextAction": "Complete; retain exact-source regression coverage."
     },
     {
       "sourceId": "classes/thunder-guide-445",
@@ -20714,20 +20726,36 @@
       "name": "Wilderness Rogue",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "featureRequirements": [
+        "Retain Rogue baseline mechanics except the exact Unearthed Arcana changes.",
+        "Remove Appraise, Diplomacy, Decipher Script, Forgery, and Gather Information from Rogue class skills.",
+        "Add Handle Animal, Knowledge (geography), Knowledge (nature), Ride, and Survival as class skills.",
+        "Add Woodland Stride, Camouflage, and Hide in Plain Sight to Rogue Special Ability choices.",
+        "Hide in Plain Sight may be chosen only after Camouflage.",
+        "Selected Ranger-derived abilities need self-contained mechanics rather than unresolved 'as the ranger ability' wording."
+      ],
+      "gaps": [
+        "Special Ability option prerequisites are not yet represented as structured source-choice dependencies.",
+        "Selecting Woodland Stride, Camouflage, or Hide in Plain Sight must grant the selected ability's actual standalone mechanics, not only save the choice label.",
+        "Exact Wilderness Rogue class-skill replacement and source-owned choice extension still need implementation/regression coverage."
+      ],
+      "dependencies": [
+        "Reusable source-choice option prerequisite/grant semantics for inherited variant choices."
+      ],
+      "evidence": [
+        "Exact source reviewed: https://new.dndtools.org/classes/wilderness-rogue-136 (Unearthed Arcana p. 56).",
+        "Source explicitly retains Rogue baseline unless noted, then lists the exact skill removals/additions and Special Ability extensions."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the exact skill swap and reusable source-choice option prerequisite/grant behavior; then test levels 10/13/16/19, invalid Hide in Plain Sight before Camouflage, persistence, and multiclass removal."
     },
     {
       "sourceId": "classes/wildrunner-748",
@@ -21230,5 +21258,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Bulk exact-source audit checkpoint: DMG Aristocrat/Commoner/Warrior are complete only after exact-source verification and green lifecycle/browser validation; Dragonlance same-name records remain blocked from inheritance because their exact pages expose no mechanics."
+  "lastUpdatedNote": "Checkpoint after exact-source Thug completion and Wilderness Rogue source review under the fail-closed bulk variant workflow."
 }
