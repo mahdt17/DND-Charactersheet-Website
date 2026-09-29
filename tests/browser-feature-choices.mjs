@@ -168,7 +168,7 @@ try {
  assert(await page.getByRole('button',{name:'Continue',exact:true}).isDisabled());
  await page.getByLabel('Prohibited Necromancy',{exact:true}).check();
  assert(!await page.getByRole('button',{name:'Continue',exact:true}).isDisabled());
- await next();await next();
+ await next();
  assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
  await page.getByRole('button',{name:'Create Character',exact:true}).click();
  await page.locator('.sheet-identity').filter({hasText:abjurerName}).waitFor();
