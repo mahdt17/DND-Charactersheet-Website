@@ -37,7 +37,7 @@ const featureMatchKey=value=>norm(String(value||'')
   .replace(/\s*\([^)]*\)/g,' ')
   .replace(/\s+\d+\/(?:day|week|encounter)\b.*$/i,'')
   .replace(/\s+\+?\d+d\d+\b.*$/i,'')
-  .replace(/\s+\+\d+\b.*$/i,'')
+  .replace(/\s*\+\d+\b.*$/i,'')
   .replace(/\s+\d+\/[—-]\s*$/i,'')
   .replace(/\babilities\b$/i,'ability')
   .replace(/\bfeats\b$/i,'feat'));
