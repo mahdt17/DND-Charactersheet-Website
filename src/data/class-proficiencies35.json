@@ -2699,6 +2699,99 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana Wilderness Rogue source independently reviewed. It retains Rogue baseline class features except for the source-listed class-skill changes and added special-ability choices."
+    },
+    "classes/fighter-variant-953": {
+      "name": "Fighter Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-variant-953",
+      "featureSuppressions": [
+        {
+          "name": "Bonus Feats"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Sneak Attack",
+          "levels": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19
+          ],
+          "referencedSourceId": "classes/rogue-97",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/rogue.htm#sneakAttack"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Fighter Variant independently reviewed. It retains Fighter baseline mechanics except that all Fighter bonus feats are exchanged for Rogue sneak-attack progression."
+    },
+    "classes/rogue-variant-958": {
+      "name": "Rogue Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-variant-958",
+      "featureSuppressions": [
+        {
+          "name": "Sneak Attack"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Bonus Feats",
+          "levels": [
+            1,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20
+          ],
+          "choiceKind": "feat",
+          "choiceFeatType": "Fighter Bonus Feat feat",
+          "referencedSourceId": "classes/fighter-93",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/fighter.htm#bonusFeats"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Rogue Variant independently reviewed. It retains Rogue baseline mechanics except that sneak attack is exchanged for Fighter bonus-feat progression."
+    },
+    "classes/wizard-variant-959": {
+      "name": "Wizard Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-variant-959",
+      "featureSuppressions": [
+        {
+          "name": "Scribe Scroll"
+        },
+        {
+          "name": "Bonus Feats"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Bonus Feats",
+          "levels": [
+            1,
+            5,
+            10,
+            15,
+            20
+          ],
+          "choiceKind": "feat",
+          "choiceFeatType": "Fighter Bonus Feat feat",
+          "referencedSourceId": "classes/fighter-93",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/fighter.htm#bonusFeats"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 59 Wizard Variant independently reviewed. It replaces Scribe Scroll and the normal Wizard bonus-feat list with Fighter-list bonus feats at 1st level and every five Wizard Variant levels thereafter."
     }
   }
 }

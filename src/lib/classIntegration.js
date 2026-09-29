@@ -18,7 +18,7 @@ function resolvedProficiencySupplement(sourceId,seen=new Set()){
   const parent=resolvedProficiencySupplement(supplement.proficiencyProfileFrom,seen);
   if(!parent||parent.name!==supplement.name)return null;
   const classSkills=Array.isArray(supplement.classSkills)?supplement.classSkills:(Array.isArray(parent.classSkills)?parent.classSkills:undefined);
-  return {...parent,...supplement,proficiencies:supplement.proficiencies||parent.proficiencies||[],proficiencyChoices:supplement.proficiencyChoices||parent.proficiencyChoices||[],classSkillChoices:supplement.classSkillChoices||parent.classSkillChoices||[],...(Array.isArray(classSkills)?{classSkills}:{}),classSkillSourceUrl:supplement.classSkillSourceUrl||parent.classSkillSourceUrl,proficiencyProgression:supplement.proficiencyProgression||parent.proficiencyProgression||[],proficiencyText:supplement.proficiencyText||parent.proficiencyText,featureSuppressions:supplement.featureSuppressions||parent.featureSuppressions||[],featureChoiceOverrides:supplement.featureChoiceOverrides||parent.featureChoiceOverrides||[],profileSourceId:supplement.proficiencyProfileFrom,profileSourceUrl:parent.sourceUrl};
+  return {...parent,...supplement,proficiencies:supplement.proficiencies||parent.proficiencies||[],proficiencyChoices:supplement.proficiencyChoices||parent.proficiencyChoices||[],classSkillChoices:supplement.classSkillChoices||parent.classSkillChoices||[],...(Array.isArray(classSkills)?{classSkills}:{}),classSkillSourceUrl:supplement.classSkillSourceUrl||parent.classSkillSourceUrl,proficiencyProgression:supplement.proficiencyProgression||parent.proficiencyProgression||[],proficiencyText:supplement.proficiencyText||parent.proficiencyText,featureSuppressions:supplement.featureSuppressions||parent.featureSuppressions||[],featureChoiceOverrides:supplement.featureChoiceOverrides||parent.featureChoiceOverrides||[],featureAdditions:supplement.featureAdditions||parent.featureAdditions||[],profileSourceId:supplement.proficiencyProfileFrom,profileSourceUrl:parent.sourceUrl};
 }
 function withProficiencySupplement(record){
   if(!record||normalizeEdition(record.edition)!=='3.5')return record;
@@ -28,7 +28,7 @@ function withProficiencySupplement(record){
   const proficiencies=Array.isArray(record.proficiencies)&&record.proficiencies.length?record.proficiencies:(supplement.proficiencies||[]);
   const proficiencyChoices=Array.isArray(record.proficiencyChoices)&&record.proficiencyChoices.length?record.proficiencyChoices:(supplement.proficiencyChoices||[]);
   const verifiedClassSkills=Array.isArray(supplement.classSkills);
-  return {...record,proficiencies,proficiencyChoices,classSkillChoices:record.classSkillChoices||supplement.classSkillChoices||[],...(verifiedClassSkills?{classSkills:supplement.classSkills,classSkillRule:null,classSkillSourceUrl:supplement.classSkillSourceUrl||supplement.sourceUrl}:{}),proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,featureSuppressions:record.featureSuppressions||supplement.featureSuppressions||[],featureChoiceOverrides:record.featureChoiceOverrides||supplement.featureChoiceOverrides||[],proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
+  return {...record,proficiencies,proficiencyChoices,classSkillChoices:record.classSkillChoices||supplement.classSkillChoices||[],...(verifiedClassSkills?{classSkills:supplement.classSkills,classSkillRule:null,classSkillSourceUrl:supplement.classSkillSourceUrl||supplement.sourceUrl}:{}),proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,featureSuppressions:record.featureSuppressions||supplement.featureSuppressions||[],featureChoiceOverrides:record.featureChoiceOverrides||supplement.featureChoiceOverrides||[],featureAdditions:record.featureAdditions||supplement.featureAdditions||[],proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const featureMatchKey=value=>norm(String(value||'')
@@ -77,7 +77,7 @@ function reviewedFeatureMetadata(record,name){
   if(!row)return {};
   const metadata={};
   if(row.sourceUrl)metadata.reviewedSourceUrl=row.sourceUrl;
-  for(const key of ['featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
+  for(const key of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -412,6 +412,15 @@ function splitFeatureCell(value,known=[]){
   return result;
 }
 
+function featureSuppressed(record,name,level){
+  const rules=Array.isArray(record?.featureSuppressions)?record.featureSuppressions:[];
+  return rules.some(rule=>{
+    if(featureMatchKey(rule?.name)!==featureMatchKey(name))return false;
+    const levels=Array.isArray(rule.levels)?rule.levels.map(Number):[];
+    return !levels.length||levels.includes(Number(level));
+  });
+}
+
 export function annotateClassGrantKinds(record,entries=[]){
   if(!record||normalizeEdition(record.edition)!=='3.5')return record;
   const resolved=resolveInheritedClass(record,entries);
@@ -419,15 +428,10 @@ export function annotateClassGrantKinds(record,entries=[]){
   const feats=entries.filter(entry=>entry?.contentType==='feat'||entry?.category==='feat');
   const byName=new Map(feats.map(feat=>[norm(feat.name),feat]));
   const parsed=tableFeatureCells(resolved,30);
-  if(!parsed.length)return resolved;
-  const suppressions=Array.isArray(resolved.featureSuppressions)?resolved.featureSuppressions:[];
+  const additions=Array.isArray(resolved.featureAdditions)?resolved.featureAdditions:[];
+  if(!parsed.length&&!additions.length)return resolved;
   const choiceOverrides=Array.isArray(resolved.featureChoiceOverrides)?resolved.featureChoiceOverrides:[];
-  const suppressed=grant=>suppressions.some(rule=>{
-    if(featureMatchKey(rule?.name)!==featureMatchKey(grant.name))return false;
-    const levels=Array.isArray(rule.levels)?rule.levels.map(Number):[];
-    return !levels.length||levels.includes(Number(grant.level));
-  });
-  const levelGrants=parsed.filter(grant=>!suppressed(grant)).map(grant=>{
+  const inherited=parsed.filter(grant=>!featureSuppressed(resolved,grant.name,grant.level)).map(grant=>{
     const exact=byName.get(norm(grant.name))||byName.get(norm(grant.name.replace(/\s*\([^)]*\)\s*$/,'')));
     let result=!exact
       ?{...grant,kind:'feature',description:sourceFeatureDescription(resolved,grant.name)}
@@ -435,15 +439,25 @@ export function annotateClassGrantKinds(record,entries=[]){
     const override=choiceOverrides.find(rule=>featureMatchKey(rule?.name)===featureMatchKey(grant.name));
     if(override){
       let choiceOptions=Array.isArray(override.choiceOptions)?override.choiceOptions.map(String):[];
-      if(override.choiceFeatType){
-        choiceOptions.push(...feats.filter(feat=>norm(feat.featType)===norm(override.choiceFeatType)).map(feat=>feat.name));
-      }
+      if(override.choiceFeatType)choiceOptions.push(...feats.filter(feat=>norm(feat.featType)===norm(override.choiceFeatType)).map(feat=>feat.name));
       choiceOptions.push(...(override.choiceOptionsExtra||[]).map(String));
       choiceOptions=[...new Set(choiceOptions.filter(Boolean))].sort((a,b)=>a.localeCompare(b));
       result={...result,...override,...(choiceOptions.length?{choiceOptions}:{}),kind:'choice'};
     }
     return result;
   });
+  const added=additions.flatMap(rule=>{
+    const levels=(Array.isArray(rule?.levels)?rule.levels:[rule?.level??1]).map(Number).filter(level=>Number.isFinite(level)&&level>=1);
+    let choiceOptions=Array.isArray(rule?.choiceOptions)?rule.choiceOptions.map(String):[];
+    if(rule?.choiceFeatType)choiceOptions.push(...feats.filter(feat=>norm(feat.featType)===norm(rule.choiceFeatType)).map(feat=>feat.name));
+    choiceOptions.push(...(rule?.choiceOptionsExtra||[]).map(String));
+    choiceOptions=[...new Set(choiceOptions.filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+    return levels.map(level=>{
+      const {levels:ignoredLevels,level:ignoredLevel,...metadata}=rule||{};
+      return {...metadata,level,name:String(rule?.name||'').trim(),text:rule?.progressionText||rule?.name||'',progressionText:rule?.progressionText||rule?.name||'',kind:rule?.choiceKind?'choice':'feature',description:sourceFeatureDescription(resolved,rule?.name),...(choiceOptions.length?{choiceOptions}:{})};
+    }).filter(grant=>grant.name);
+  });
+  const levelGrants=[...inherited,...added].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
   return {...resolved,levelGrants};
 }
 
@@ -477,7 +491,7 @@ function rawClassFeatures(row){
     const seen=new Set(list.map(feature=>featureMatchKey(feature.name)));
     for(const detail of reviewedFeatureRows(record)){
       const level=Math.max(1,Number(detail?.level)||1),name=String(detail?.name||'').trim();
-      if(!name||level>maximum||seen.has(featureMatchKey(name)))continue;
+      if(!name||level>maximum||featureSuppressed(record,name,level)||seen.has(featureMatchKey(name)))continue;
       list.push({level,name,description:String(detail.description||'').trim(),...reviewedFeatureMetadata(record,name)});
       seen.add(featureMatchKey(name));
     }
@@ -519,7 +533,7 @@ function coalesceFeatures(row){
       current.history.push(history);
       if(description&&description.length>(current.description||'').length)current.description=description;
       if(feature.progressionText)current.progressionText=feature.progressionText;
-      for(const field of ['featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource','reviewedSourceUrl'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
+      for(const field of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource','reviewedSourceUrl'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
     }
   }
   return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));

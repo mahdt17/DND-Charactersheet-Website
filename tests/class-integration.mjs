@@ -128,6 +128,41 @@ const ranger3=reconcileClassGrants(baseCharacter([{catalogId:reviewedRanger35.ca
 assert(ranger3.feats.some(feat=>feat.name==='Track'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Track is a class-granted feat');
 assert(ranger3.feats.some(feat=>feat.name==='Endurance'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Endurance is a class-granted feat');
 assert.equal(ranger3.grantedFeatures.find(feature=>feature.name==='Combat Style')?.kind,'choice','Ranger combat style remains a guided class choice');
+const fighterVariant35=exact35('classes/fighter-variant-953');
+const fighterVariant20=reconcileClassGrants(baseCharacter([{catalogId:fighterVariant35.catalogId,name:'Fighter Variant',edition:'3.5',level:20,definition:fighterVariant35}]));
+assert(!fighterVariant20.grantedFeatures.some(feature=>/^Bonus Feats?$/i.test(feature.name)),'Fighter Variant removes Fighter bonus feats');
+const fighterVariantSneak=fighterVariant20.grantedFeatures.find(feature=>feature.name==='Sneak Attack');
+assert.equal(fighterVariantSneak?.descriptionSource,'rule-text');
+assert.deepEqual(fighterVariantSneak?.progressionHistory?.map(event=>event.level),[1,3,5,7,9,11,13,15,17,19]);
+assert.match(fighterVariantSneak?.description||'',/reaching \+10d6 at 19th level/i);
+assert(!/\bas rogue\b/i.test(fighterVariantSneak?.description||''),'Fighter Variant Sneak Attack description is standalone');
+assert.match(fighterVariantSneak?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/rogue/i);
+for(const proficiency of ['light-armor','medium-armor','heavy-armor','shields','simple-weapons','martial-weapons'])assert(fighterVariant20.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Fighter Variant retains Fighter training: '+proficiency);
+
+const rogueVariant35=exact35('classes/rogue-variant-958');
+const rogueVariant20=reconcileClassGrants(baseCharacter([{catalogId:rogueVariant35.catalogId,name:'Rogue Variant',edition:'3.5',level:20,definition:rogueVariant35}]));
+assert(!rogueVariant20.grantedFeatures.some(feature=>feature.name==='Sneak Attack'),'Rogue Variant removes Rogue sneak attack');
+const rogueVariantBonus=rogueVariant20.grantedFeatures.find(feature=>/^Bonus Feats?$/i.test(feature.name));
+assert.equal(rogueVariantBonus?.kind,'choice');
+assert.deepEqual(rogueVariantBonus?.progressionHistory?.map(event=>event.level),[1,2,4,6,8,10,12,14,16,18,20]);
+assert(rogueVariantBonus?.choiceOptions?.includes('Power Attack'));
+assert(!rogueVariantBonus?.choiceOptions?.includes('Alertness'));
+assert.match(rogueVariantBonus?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/fighter/i);
+assert(!/\bas fighter\b/i.test(rogueVariantBonus?.description||''),'Rogue Variant bonus-feat description is standalone');
+
+const wizardVariant35=exact35('classes/wizard-variant-959');
+const wizardVariant20=reconcileClassGrants(baseCharacter([{catalogId:wizardVariant35.catalogId,name:'Wizard Variant',edition:'3.5',level:20,definition:wizardVariant35}]));
+assert(!wizardVariant20.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===wizardVariant35.catalogId),'Wizard Variant removes Scribe Scroll');
+const wizardVariantBonus=wizardVariant20.grantedFeatures.find(feature=>/^Bonus Feats?$/i.test(feature.name));
+assert.equal(wizardVariantBonus?.kind,'choice');
+assert.deepEqual(wizardVariantBonus?.progressionHistory?.map(event=>event.level),[1,5,10,15,20]);
+assert(wizardVariantBonus?.choiceOptions?.includes('Power Attack'));
+assert(!wizardVariantBonus?.choiceOptions?.includes('Alertness'));
+assert.match(wizardVariantBonus?.description||'',/1st level.*5th.*10th.*15th.*20th/i);
+assert(!/\bas fighter\b/i.test(wizardVariantBonus?.description||''),'Wizard Variant bonus-feat description is standalone');
+assert(wizardVariant20.grantedFeatures.some(feature=>feature.name==='Spells'),'Wizard Variant retains Wizard spellcasting');
+assert(wizardVariant20.grantedFeatures.some(feature=>feature.name==='Familiar'),'Wizard Variant retains Familiar');
+
 const wildernessRogue35=exact35('classes/wilderness-rogue-136');
 const wildernessRogue16Base=baseCharacter([{catalogId:wildernessRogue35.catalogId,name:'Wilderness Rogue',edition:'3.5',level:16,definition:wildernessRogue35}]);
 const wildernessRogue16=reconcileClassGrants({

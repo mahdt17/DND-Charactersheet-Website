@@ -54,6 +54,31 @@ assert(!thugChoiceGroup?.options.includes('Alertness'),'Thug choice pool exclude
 assert.equal(featureChoicePlan(thugChoiceBase(2),thugChoiceBase(1),{[thugChoiceGroup.id]:['Alertness']}).valid,false,'invalid Thug bonus-feat selections are rejected');
 assert.equal(featureChoicePlan(thugChoiceBase(2),thugChoiceBase(1),{[thugChoiceGroup.id]:['Urban Tracking']}).valid,true,'Thug source-specific Urban Tracking selection is accepted');
 
+const fighterSwap35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/fighter-variant-953'),choiceReference35);
+const rogueSwap35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/rogue-variant-958'),choiceReference35);
+const wizardSwap35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/wizard-variant-959'),choiceReference35);
+const swapBase=(definition,level,featureChoices={})=>({ruleset:'3.5',mechanics:'3.5',className:definition.name,classDefinition:definition,classLevels:[{name:definition.name,edition:'3.5',catalogId:definition.catalogId,level,definition}],level,abilities:{str:14,dex:14,con:12,int:16,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices});
+assert.equal(featureChoicePlan(swapBase(fighterSwap35,20),null).groups.filter(group=>/^Bonus Feats?$/i.test(group.label)).length,0,'Fighter Variant never asks for removed Fighter bonus feats');
+
+const rogueSwapPlan=featureChoicePlan(swapBase(rogueSwap35,2),null);
+assert.deepEqual(rogueSwapPlan.groups.filter(group=>/^Bonus Feats?$/i.test(group.label)).map(group=>group.level),[1,2]);
+for(const group of rogueSwapPlan.groups){assert(group.options.includes('Power Attack'));assert(!group.options.includes('Alertness'));}
+const rogueBadPicks=Object.fromEntries(rogueSwapPlan.groups.map(group=>[group.id,['Alertness']]));
+assert.equal(featureChoicePlan(swapBase(rogueSwap35,2),null,rogueBadPicks).valid,false);
+const rogueGoodPicks=Object.fromEntries(rogueSwapPlan.groups.map((group,index)=>[group.id,[index?'Combat Expertise':'Power Attack']]));
+const rogueSwapApplied=applyFeatureChoices(swapBase(rogueSwap35,2),null,rogueGoodPicks);
+assert(rogueSwapApplied.feats.some(feat=>feat.name==='Power Attack'&&feat.sourceClassId===rogueSwap35.catalogId&&feat.sourceType==='class-choice'));
+assert.equal(featureChoicePlan(JSON.parse(JSON.stringify(rogueSwapApplied)),null).groups.length,0,'Rogue Variant bonus-feat choices persist across save/reopen');
+
+const wizardSwapPlan=featureChoicePlan(swapBase(wizardSwap35,5),null);
+assert.deepEqual(wizardSwapPlan.groups.filter(group=>/^Bonus Feats?$/i.test(group.label)).map(group=>group.level),[1,5]);
+for(const group of wizardSwapPlan.groups){assert(group.options.includes('Power Attack'));assert(!group.options.includes('Alertness'));}
+const wizardGoodPicks=Object.fromEntries(wizardSwapPlan.groups.map((group,index)=>[group.id,[index?'Combat Expertise':'Power Attack']]));
+const wizardSwapApplied=applyFeatureChoices(swapBase(wizardSwap35,5),null,wizardGoodPicks);
+assert(!wizardSwapApplied.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===wizardSwap35.catalogId));
+assert.equal(featureChoicePlan(JSON.parse(JSON.stringify(wizardSwapApplied)),null).groups.length,0,'Wizard Variant Fighter-list bonus feats persist across save/reopen');
+
+
 const wildernessChoiceClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/wilderness-rogue-136'),choiceReference35);
 const wildernessChoiceBase=(level,featureChoices={})=>({ruleset:'3.5',mechanics:'3.5',className:'Wilderness Rogue',classDefinition:wildernessChoiceClass35,classLevels:[{name:'Wilderness Rogue',edition:'3.5',catalogId:wildernessChoiceClass35.catalogId,level,definition:wildernessChoiceClass35}],level,abilities:{str:12,dex:16,con:12,int:14,wis:12,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices});
 const wilderness10Plan=featureChoicePlan(wildernessChoiceBase(10),wildernessChoiceBase(9));

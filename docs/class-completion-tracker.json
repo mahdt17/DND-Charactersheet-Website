@@ -7,7 +7,7 @@
   "snapshotCommit": "a6123fe36ddc952a07456a98a71233efd5bdf176",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
-  "directSummaryRecordCount": 45,
+  "directSummaryRecordCount": 48,
   "initializationNote": "Pending means not assessed against the complete-workflow gate. It does not mean prior reviews or implementations are absent. Never infer completion from a summary array or a matching class name.",
   "entries": [
     {
@@ -1115,20 +1115,29 @@
       "name": "Barbarian Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Barbarian baseline except the exact Unearthed Arcana exchange.",
+        "Remove Rage, Greater Rage, Indomitable Will, Tireless Rage, and Mighty Rage.",
+        "Grant Ranger Favored Enemy plus the Archery Combat Style chain with exact level behavior."
+      ],
+      "gaps": [
+        "Foreign Ranger feature progression and forced Archery style benefits still need source-owned standalone mechanics and regression coverage."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/barbarian-variant-950 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the exact Ranger-derived feature progression without inheriting unrelated Ranger mechanics."
     },
     {
       "sourceId": "classes/bard",
@@ -1155,20 +1164,29 @@
       "name": "Bard Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/bard-variant-951",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Bard baseline except the exact Unearthed Arcana exchange.",
+        "Remove Bardic Knowledge and the listed Inspire Courage/Competence/Greatness/Heroics benefits.",
+        "Grant Druid Animal Companion, Nature Sense, Resist Nature's Lure, and Wild Empathy."
+      ],
+      "gaps": [
+        "Animal Companion and the Druid-derived abilities still require standalone mechanics and source-owned automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/bard-variant-951 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the four exact Druid-derived replacements and their lifecycle behavior."
     },
     {
       "sourceId": "classes/bardic-sage-118",
@@ -2755,20 +2773,29 @@
       "name": "Cleric Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-variant-972",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Cleric baseline except the exact Unearthed Arcana exchange.",
+        "Remove Turn Undead.",
+        "Grant Smite Evil for positive-energy channelers or Smite Good for negative-energy channelers, plus Aura of Courage."
+      ],
+      "gaps": [
+        "Conditional smite polarity, usage tracking, and Aura of Courage still need structured automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/cleric-variant-972 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Model the channel-polarity-dependent smite and Aura of Courage as exact-source grants."
     },
     {
       "sourceId": "classes/cloaked-dancer-291",
@@ -5411,20 +5438,29 @@
       "name": "Druid Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Druid baseline except the exact Unearthed Arcana exchange.",
+        "Remove armor and shield proficiency and every Wild Shape version.",
+        "Grant Monk unarmored AC/Wisdom treatment and fast movement plus Ranger Favored Enemy, Swift Tracker, and Track."
+      ],
+      "gaps": [
+        "The cross-class AC/speed mechanics and Favored Enemy choice/progression require dedicated source-owned automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/druid-variant-952 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Split defensive/movement mechanics from Ranger-derived feature choices before implementation."
     },
     {
       "sourceId": "classes/druidic-avenger-123",
@@ -8010,20 +8046,29 @@
       "name": "Fighter Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/fighter-variant-953",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
-      "existingDirectSummaryCount": 0,
+      "existingDirectSummaryCount": 1,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Fighter baseline mechanics except the source-listed exchange.",
+        "Remove all Fighter bonus-feat progression.",
+        "Gain Rogue Sneak Attack progression at 1st level and every two levels thereafter."
+      ],
+      "gaps": [
+        "Implementation is present in the current batch but requires full validation before completion."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/fighter-variant-953 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Run full validation and promote only if exact progression, descriptions, and lifecycle regressions pass."
     },
     {
       "sourceId": "classes/fist-of-dal-quor-814",
@@ -12630,20 +12675,29 @@
       "name": "Monk Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/monk-variant-954",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Monk baseline except the exact Unearthed Arcana exchange.",
+        "Remove the enhancement bonus to unarmored speed and the non-Wisdom unarmored AC bonus while retaining Wisdom to AC.",
+        "Grant Barbarian damage reduction progression."
+      ],
+      "gaps": [
+        "Exact partial AC/speed suppression and Barbarian DR progression need structured sheet automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/monk-variant-954 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the defense/movement substitutions without suppressing the retained Wisdom-to-AC benefit."
     },
     {
       "sourceId": "classes/monk-variant-fighting-styles-949",
@@ -13790,20 +13844,29 @@
       "name": "Paladin Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-variant-955",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Paladin baseline except the exact Unearthed Arcana exchange.",
+        "Remove Lay on Hands, Turn Undead, and Remove Disease.",
+        "Grant Ranger Favored Enemy restricted to aberrations, dragons, giants, monstrous humanoids, evil outsiders, or undead."
+      ],
+      "gaps": [
+        "Restricted Favored Enemy selection/progression needs exact structured choices and standalone mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/paladin-variant-955 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the restricted Favored Enemy progression and source-removal behavior."
     },
     {
       "sourceId": "classes/pale-master-552",
@@ -14810,20 +14873,29 @@
       "name": "Ranger Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-variant-956",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Ranger baseline except the exact Unearthed Arcana exchange.",
+        "Remove Combat Style, Improved Combat Style, and Combat Style Mastery.",
+        "Grant Druid Wild Shape restricted to Small or Medium animals plus Barbarian Fast Movement."
+      ],
+      "gaps": [
+        "Wild Shape size restriction and Barbarian Fast Movement need exact standalone source-owned automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/ranger-variant-956 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Reuse only verified Wild Shape/Fast Movement mechanics with the variant-specific restrictions."
     },
     {
       "sourceId": "classes/raumathari-battlemage-889",
@@ -15210,20 +15282,29 @@
       "name": "Rogue Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/rogue-variant-958",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
-      "existingDirectSummaryCount": 0,
+      "existingDirectSummaryCount": 1,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Rogue baseline mechanics except the source-listed exchange.",
+        "Remove all Sneak Attack progression.",
+        "Gain Fighter bonus feats at 1st, 2nd, and every two levels thereafter through 20th."
+      ],
+      "gaps": [
+        "Implementation is present in the current batch but requires full validation before completion."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/rogue-variant-958 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Run full validation and promote only if strict Fighter feat pools, persistence, and lifecycle regressions pass."
     },
     {
       "sourceId": "classes/ronin-333",
@@ -17177,20 +17258,29 @@
       "name": "Sorcerer/Wizard Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/sorcererwizard-variant-957",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Treat Sorcerer and Wizard as separate eligible baselines; do not collapse them.",
+        "Remove Familiar from the chosen baseline.",
+        "Grant a Druid Animal Companion using one-half the Sorcerer or Wizard class level."
+      ],
+      "gaps": [
+        "The exact record requires a fail-closed Sorcerer-versus-Wizard inheritance choice plus half-level Animal Companion automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/sorcererwizard-variant-957 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Preserve the two possible exact parent identities and implement the half-level companion mechanic."
     },
     {
       "sourceId": "classes/soul-eater-172",
@@ -21020,20 +21110,29 @@
       "name": "Wizard Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/wizard-variant-959",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
-      "existingDirectSummaryCount": 0,
+      "existingDirectSummaryCount": 1,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Retain Wizard baseline mechanics except the source-listed feat exchange.",
+        "Remove Scribe Scroll and the standard Wizard bonus-feat list.",
+        "Gain Fighter-list bonus feats at 1st, 5th, 10th, 15th, and 20th levels."
+      ],
+      "gaps": [
+        "Implementation is present in the current batch but requires full validation before completion."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact source independently reviewed: https://new.dndtools.org/classes/wizard-variant-959 (Base Class Unearthed Arcana, p. source page).",
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Run full validation and promote only if the exact feat schedule, strict Fighter pool, and persistence regressions pass."
     },
     {
       "sourceId": "classes/wonderworker-158",
@@ -21256,5 +21355,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Checkpoint after exact-source Wilderness Rogue completion; next safe batch is the source-verified Unearthed Arcana feature-swap variants."
+  "lastUpdatedNote": "Wilderness Rogue is fully validated; Unearthed Arcana p.58 variants were independently source-classified, with Fighter/Rogue/Wizard feature-swap implementations pending full CI."
 }

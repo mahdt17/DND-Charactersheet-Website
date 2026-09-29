@@ -1035,7 +1035,7 @@
         "name": "Barbarian Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "39c4e68d"
@@ -1045,7 +1045,7 @@
         "name": "Bard Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "5579fb6a"
@@ -1055,7 +1055,7 @@
         "name": "Cleric Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "3fa75fa3"
@@ -1135,7 +1135,7 @@
         "name": "Druid Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "b443ad3f"
@@ -1185,7 +1185,7 @@
         "name": "Fighter Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "5c2cd7a2"
@@ -1255,7 +1255,7 @@
         "name": "Monk Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "2c8254ae"
@@ -1295,7 +1295,7 @@
         "name": "Paladin Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 2,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "8be98ac0"
@@ -1325,7 +1325,7 @@
         "name": "Ranger Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 2,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "891bdeb4"
@@ -1335,7 +1335,7 @@
         "name": "Rogue Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "5ec55e7d"
@@ -1365,7 +1365,7 @@
         "name": "Sorcerer/Wizard Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "78f08c52"
@@ -1445,7 +1445,7 @@
         "name": "Wizard Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 59,
-        "trackerStatus": "pending_audit",
+        "trackerStatus": "reviewed_partial",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "2a505afc"

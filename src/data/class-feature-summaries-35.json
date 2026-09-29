@@ -3873,5 +3873,37 @@
       "description": "At 10th level and every three Wilderness Rogue levels thereafter (13th, 16th, and 19th), choose one Rogue special ability. In addition to the standard Rogue options—Crippling Strike, Defensive Roll, Improved Evasion, Opportunist, Skill Mastery, Slippery Mind, or a bonus feat—you may choose Woodland Stride, Camouflage, or Hide in Plain Sight. Hide in Plain Sight can be chosen only after you already have Camouflage.",
       "sourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136"
     }
+  ],
+  "classes/fighter-variant-953": [
+    {
+      "name": "Sneak Attack",
+      "level": 1,
+      "description": "Deal +1d6 extra damage when the target is denied its Dexterity bonus to AC or when you flank it; the bonus increases by +1d6 every two Fighter Variant levels thereafter, reaching +10d6 at 19th level. Ranged sneak attacks require the target to be within 30 feet. Sneak-attack dice are not multiplied on a critical hit, and the attack requires a target with a vulnerable anatomy that you can see and reach without concealment.",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-variant-953",
+      "referencedSourceId": "classes/rogue-97",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/rogue.htm#sneakAttack"
+    }
+  ],
+  "classes/rogue-variant-958": [
+    {
+      "name": "Bonus Feats",
+      "level": 1,
+      "choiceKind": "feat",
+      "description": "Gain a Fighter bonus feat at 1st level, another at 2nd level, and one every two Rogue Variant levels thereafter through 20th. Each choice must come from the Fighter bonus-feat list and you must meet its normal prerequisites. These replace the Rogue's sneak-attack progression.",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-variant-958",
+      "referencedSourceId": "classes/fighter-93",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/fighter.htm#bonusFeats"
+    }
+  ],
+  "classes/wizard-variant-959": [
+    {
+      "name": "Bonus Feats",
+      "level": 1,
+      "choiceKind": "feat",
+      "description": "Choose a feat from the Fighter bonus-feat list at 1st level and again at 5th, 10th, 15th, and 20th Wizard Variant level. You must meet each feat's normal prerequisites. This Fighter-list progression replaces Scribe Scroll and the standard Wizard bonus-feat list.",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-variant-959",
+      "referencedSourceId": "classes/fighter-93",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/fighter.htm#bonusFeats"
+    }
   ]
 }
