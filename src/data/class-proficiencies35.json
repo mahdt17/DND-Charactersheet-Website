@@ -2576,7 +2576,8 @@
         }
       ],
       "verified": true,
-      "verificationNote": "Exact Unearthed Arcana Thug source independently reviewed. The class inherits Fighter baseline progression except for source-listed changes."
+      "verificationNote": "Exact Unearthed Arcana Thug source independently reviewed. The class inherits Fighter baseline progression except for source-listed changes.",
+      "inheritanceSourceId": "classes/fighter-93"
     },
     "classes/wilderness-rogue-136": {
       "name": "Wilderness Rogue",
@@ -2698,7 +2699,8 @@
         }
       ],
       "verified": true,
-      "verificationNote": "Exact Unearthed Arcana Wilderness Rogue source independently reviewed. It retains Rogue baseline class features except for the source-listed class-skill changes and added special-ability choices."
+      "verificationNote": "Exact Unearthed Arcana Wilderness Rogue source independently reviewed. It retains Rogue baseline class features except for the source-listed class-skill changes and added special-ability choices.",
+      "inheritanceSourceId": "classes/rogue-97"
     },
     "classes/fighter-variant-953": {
       "name": "Fighter Variant",
@@ -2728,7 +2730,8 @@
         }
       ],
       "verified": true,
-      "verificationNote": "Exact Unearthed Arcana p. 58 Fighter Variant independently reviewed. It retains Fighter baseline mechanics except that all Fighter bonus feats are exchanged for Rogue sneak-attack progression."
+      "verificationNote": "Exact Unearthed Arcana p. 58 Fighter Variant independently reviewed. It retains Fighter baseline mechanics except that all Fighter bonus feats are exchanged for Rogue sneak-attack progression.",
+      "inheritanceSourceId": "classes/fighter-93"
     },
     "classes/rogue-variant-958": {
       "name": "Rogue Variant",
@@ -2761,7 +2764,8 @@
         }
       ],
       "verified": true,
-      "verificationNote": "Exact Unearthed Arcana p. 58 Rogue Variant independently reviewed. It retains Rogue baseline mechanics except that sneak attack is exchanged for Fighter bonus-feat progression."
+      "verificationNote": "Exact Unearthed Arcana p. 58 Rogue Variant independently reviewed. It retains Rogue baseline mechanics except that sneak attack is exchanged for Fighter bonus-feat progression.",
+      "inheritanceSourceId": "classes/rogue-97"
     },
     "classes/wizard-variant-959": {
       "name": "Wizard Variant",
@@ -2791,7 +2795,8 @@
         }
       ],
       "verified": true,
-      "verificationNote": "Exact Unearthed Arcana p. 59 Wizard Variant independently reviewed. It replaces Scribe Scroll and the normal Wizard bonus-feat list with Fighter-list bonus feats at 1st level and every five Wizard Variant levels thereafter."
+      "verificationNote": "Exact Unearthed Arcana p. 59 Wizard Variant independently reviewed. It replaces Scribe Scroll and the normal Wizard bonus-feat list with Fighter-list bonus feats at 1st level and every five Wizard Variant levels thereafter.",
+      "inheritanceSourceId": "classes/wizard-99"
     }
   }
 }

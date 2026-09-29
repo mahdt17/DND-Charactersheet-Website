@@ -28,7 +28,7 @@ function withProficiencySupplement(record){
   const proficiencies=Array.isArray(record.proficiencies)&&record.proficiencies.length?record.proficiencies:(supplement.proficiencies||[]);
   const proficiencyChoices=Array.isArray(record.proficiencyChoices)&&record.proficiencyChoices.length?record.proficiencyChoices:(supplement.proficiencyChoices||[]);
   const verifiedClassSkills=Array.isArray(supplement.classSkills);
-  return {...record,proficiencies,proficiencyChoices,classSkillChoices:record.classSkillChoices||supplement.classSkillChoices||[],...(verifiedClassSkills?{classSkills:supplement.classSkills,classSkillRule:null,classSkillSourceUrl:supplement.classSkillSourceUrl||supplement.sourceUrl}:{}),proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,featureSuppressions:record.featureSuppressions||supplement.featureSuppressions||[],featureChoiceOverrides:record.featureChoiceOverrides||supplement.featureChoiceOverrides||[],featureAdditions:record.featureAdditions||supplement.featureAdditions||[],proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
+  return {...record,proficiencies,proficiencyChoices,classSkillChoices:record.classSkillChoices||supplement.classSkillChoices||[],...(verifiedClassSkills?{classSkills:supplement.classSkills,classSkillRule:null,classSkillSourceUrl:supplement.classSkillSourceUrl||supplement.sourceUrl}:{}),proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,featureSuppressions:record.featureSuppressions||supplement.featureSuppressions||[],featureChoiceOverrides:record.featureChoiceOverrides||supplement.featureChoiceOverrides||[],featureAdditions:record.featureAdditions||supplement.featureAdditions||[],inheritanceSourceId:record.inheritanceSourceId||supplement.inheritanceSourceId||undefined,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const featureMatchKey=value=>norm(String(value||'')
@@ -357,7 +357,14 @@ function resolveInheritedClass(record,entries=[],seen=new Set()){
   if(seen.has(identity))return record;
   const nextSeen=new Set(seen);nextSeen.add(identity);
   const names=inheritedParentNames(record,entries);
-  const parents=names.map(name=>(entries||[]).find(entry=>
+  const exactParentSourceId=String(record.inheritanceSourceId||'').replace(/^dndtools:/,'');
+  const exactParent=exactParentSourceId?(entries||[]).find(entry=>{
+    if(normalizeEdition(entry?.edition)!=='3.5'||!((entry?.contentType==='class'||entry?.category==='class')))return false;
+    const sourceId=String(entry?.sourceId||entry?.catalogId||entry?.id||'').replace(/^dndtools:/,'');
+    return sourceId===exactParentSourceId&&(entry.catalogId||entry.id)!==identity;
+  }):null;
+  if(exactParentSourceId&&!exactParent)return {...record,inheritanceRequired:true,inheritanceSourceMissing:true,inheritanceOptions:[]};
+  const parents=exactParent?[exactParent]:names.map(name=>(entries||[]).find(entry=>
     normalizeEdition(entry?.edition)==='3.5' &&
     (entry?.contentType==='class'||entry?.category==='class') &&
     norm(entry.name)===norm(name) &&
@@ -384,7 +391,7 @@ function resolveInheritedClass(record,entries=[],seen=new Set()){
   };
   filled.inheritanceRequired=false;
   filled.inheritanceChoice=parent.name;
-  filled.inheritanceOptions=(record.inheritsFromOptions||names).map(name=>({name,classId:(entries||[]).find(entry=>norm(entry.name)===norm(name))?.catalogId||null}));
+  filled.inheritanceOptions=exactParent?[{name:parent.name,classId:parent.catalogId||parent.id||null}]:(record.inheritsFromOptions||names).map(name=>({name,classId:(entries||[]).find(entry=>norm(entry.name)===norm(name))?.catalogId||null}));
   filled.inheritedFromClassId=resolved.catalogId||resolved.id||null;
   return filled;
 }

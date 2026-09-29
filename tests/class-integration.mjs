@@ -130,6 +130,7 @@ assert(ranger3.feats.some(feat=>feat.name==='Endurance'&&feat.sourceClassId===re
 assert.equal(ranger3.grantedFeatures.find(feature=>feature.name==='Combat Style')?.kind,'choice','Ranger combat style remains a guided class choice');
 const fighterVariant35=exact35('classes/fighter-variant-953');
 const fighterVariant20=reconcileClassGrants(baseCharacter([{catalogId:fighterVariant35.catalogId,name:'Fighter Variant',edition:'3.5',level:20,definition:fighterVariant35}]));
+assert.equal(fighterVariant35.inheritedFromClassId,'dndtools:classes/fighter-93','Fighter Variant binds the exact reviewed Fighter source rather than a same-name record');
 assert(!fighterVariant20.grantedFeatures.some(feature=>/^Bonus Feats?$/i.test(feature.name)),'Fighter Variant removes Fighter bonus feats');
 const fighterVariantSneak=fighterVariant20.grantedFeatures.find(feature=>feature.name==='Sneak Attack');
 assert.equal(fighterVariantSneak?.descriptionSource,'rule-text');
@@ -141,6 +142,7 @@ for(const proficiency of ['light-armor','medium-armor','heavy-armor','shields','
 
 const rogueVariant35=exact35('classes/rogue-variant-958');
 const rogueVariant20=reconcileClassGrants(baseCharacter([{catalogId:rogueVariant35.catalogId,name:'Rogue Variant',edition:'3.5',level:20,definition:rogueVariant35}]));
+assert.equal(rogueVariant35.inheritedFromClassId,'dndtools:classes/rogue-97','Rogue Variant binds the exact reviewed Rogue source rather than a same-name record');
 assert(!rogueVariant20.grantedFeatures.some(feature=>feature.name==='Sneak Attack'),'Rogue Variant removes Rogue sneak attack');
 const rogueVariantBonus=rogueVariant20.grantedFeatures.find(feature=>/^Bonus Feats?$/i.test(feature.name));
 assert.equal(rogueVariantBonus?.kind,'choice');
@@ -152,6 +154,7 @@ assert(!/\bas fighter\b/i.test(rogueVariantBonus?.description||''),'Rogue Varian
 
 const wizardVariant35=exact35('classes/wizard-variant-959');
 const wizardVariant20=reconcileClassGrants(baseCharacter([{catalogId:wizardVariant35.catalogId,name:'Wizard Variant',edition:'3.5',level:20,definition:wizardVariant35}]));
+assert.equal(wizardVariant35.inheritedFromClassId,'dndtools:classes/wizard-99','Wizard Variant binds the exact reviewed Wizard source rather than a same-name record');
 assert(!wizardVariant20.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===wizardVariant35.catalogId),'Wizard Variant removes Scribe Scroll');
 const wizardVariantBonus=wizardVariant20.grantedFeatures.find(feature=>/^Bonus Feats?$/i.test(feature.name));
 assert.equal(wizardVariantBonus?.kind,'choice');
