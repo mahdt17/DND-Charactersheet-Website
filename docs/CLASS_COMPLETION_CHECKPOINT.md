@@ -93,5 +93,7 @@ Updated: 2026-09-29 (America/New_York)
 - Barbarian Variant, Paladin Variant, and Druid Variant now consume that shared Favored Enemy path with exact source restrictions and source-removal coverage; all three remain pending full validation and must not be promoted to complete until CI passes.
 - Barbarian Variant also materializes its fixed Archery progression as Rapid Shot, Manyshot, and Improved Precise Shot class-granted feats.
 - Druid Variant now has weapon-only Druid training, no Wild Shape, Monk-style unarmored AC/Fast Movement, Ranger Swift Tracker/Track, and 3.5-specific AC calculator support.
-- After this batch validates, build the shared Animal Companion path needed by Bard Variant and Sorcerer/Wizard Variant.
+- Animal Companion automation is now implemented and source-reviewed: Druid companion tiers/progression, Bard Variant full-level companion inheritance, and Sorcerer/Wizard Variant half-level companion progression with exact PHB parent IDs are regression-covered.
+- Validation run #1431 passed the complete unit/regression/build/browser suite on implementation head `57623bd83e830cafdcd2ce1161003f80f0b7748b`, including class integration, feature choices, full 3.5 class/feat/spell/item regressions, build, and all browser layers.
+- A newer browser-test-only commit adds explicit guided-creation coverage for Druid Animal Companion and Sorcerer/Wizard Variant parent/companion selection; keep Bard/Druid/companion variants pending until that exact branch head receives a green run.
 - The self-contained-description audit remains active; reviewed descriptions must stay standalone and exact-source-owned.
