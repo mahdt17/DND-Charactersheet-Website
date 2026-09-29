@@ -35,20 +35,29 @@
       "name": "Abjurer Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/abjurer-variant-960",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "reviewed_partial",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
+      "featureRequirements": [
+        "Use the exact PHB Wizard baseline fixed to Abjuration specialization.",
+        "Remove Familiar, Wizard bonus feats at 5th/10th/15th/20th, and the normal specialist bonus spell per day.",
+        "Gain Resistance to Energy, Aura of Protection, and Spontaneous Dispelling with exact Unearthed Arcana p.59 scaling."
+      ],
+      "gaps": [
+        "Exact source implementation is present in the current branch and requires full validation before completion."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exact Unearthed Arcana p.59 source and SRD specialist-Wizard rules independently reviewed.",
+        "Implementation present: exact Wizard parent; fixed Abjuration specialization with two legal prohibited schools; no specialist bonus slot; Familiar and later Wizard bonus feats removed; source-owned Resistance to Energy, Aura of Protection, and Spontaneous Dispelling automation; persistence and source-removal regressions included."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Run full validation; promote only if fixed specialization/prohibited schools, removed specialist slot/Familiar/bonus feats, all three replacement abilities, persistence, source removal, and browser regressions pass."
     },
     {
       "sourceId": "classes/abolisher-556",
@@ -2772,11 +2781,11 @@
       "name": "Cleric Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-variant-972",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [
@@ -2784,19 +2793,18 @@
         "Remove Turn Undead.",
         "Grant Smite Evil for positive-energy channelers or Smite Good for negative-energy channelers, plus Aura of Courage."
       ],
-      "gaps": [
-        "Exact source implementation is present in the current branch and requires full validation before completion."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/cleric-variant-972 (Base Class Unearthed Arcana, p. source page).",
         "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
         "Live source re-review confirmed the exact UA p.58 exchange: exact PHB Cleric parent, Turn/Rebuke Undead removed, positive-energy channelers gain Smite Evil, negative-energy channelers gain Smite Good, and Aura of Courage is gained as the Paladin ability.",
-        "Implementation present: source-owned positive/negative-energy choice reuses retained Cleric spontaneous-casting polarity, selected Smite Evil/Good materializes as an action plus Paladin-scaled daily resource, Aura of Courage is added at 3rd level, and source-removal/browser regressions are included."
+        "Implementation present: source-owned positive/negative-energy choice reuses retained Cleric spontaneous-casting polarity, selected Smite Evil/Good materializes as an action plus Paladin-scaled daily resource, Aura of Courage is added at 3rd level, and source-removal/browser regressions are included.",
+        "Full validation #1435 passed on exact head 6f3f95b0853a79d9e17240720af7598732d6ade9: exact-parent retention, retained Cleric domain choice, both smite polarities/scaling, Aura of Courage, source audits, full regressions, build, guided creation, persistence, removal, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full validation; promote only if exact-parent retention, Turn/Rebuke removal, both smite polarities/scaling, Aura of Courage, persistence, and source-removal/browser regressions pass."
+      "verifiedCommit": "6f3f95b0853a79d9e17240720af7598732d6ade9",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36626157351",
+      "nextAction": "Complete; re-audit only if the exact source record or shared class-integration behavior changes."
     },
     {
       "sourceId": "classes/cloaked-dancer-291",
@@ -21365,5 +21373,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Companion/Favored Enemy UA variants validated complete on #1433; Cleric Variant source-owned smite polarity and Aura of Courage implementation is now pending full validation."
+  "lastUpdatedNote": "Cleric Variant fully validated on #1435; Abjurer Variant exact-source specialist implementation is pending full validation."
 }
