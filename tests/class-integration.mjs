@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import classes from '../src/data/classes.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
 import {featureChoicePlan,applyFeatureChoices} from '../src/lib/featureChoices.js';
+import {validLegacyChoices,prohibitedSpell,restrictedCastingOptions} from '../src/lib/legacyCastingChoices.js';
 import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections,legacyClassSkillStatus} from '../src/lib/classIntegration.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
@@ -292,6 +293,38 @@ const wizard1=reconcileClassGrants(baseCharacter([{catalogId:reviewedWizard35.ca
 assert.equal(wizard1.grantedFeatures.find(feature=>feature.name==='Spellbooks')?.descriptionSource,'rule-text');
 assert(wizard1.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===reviewedWizard35.catalogId),'Wizard Scribe Scroll is a class-granted feat');
 assert.match(wizard1.grantedFeatures.find(feature=>feature.name==='Spells')?.description||'',/Intelligence/i);
+
+const abjurerVariant35=exact35('classes/abjurer-variant-960');
+assert.equal(abjurerVariant35.inheritedFromClassId,'dndtools:classes/wizard-99','Abjurer Variant binds exact PHB Wizard');
+assert.equal(abjurerVariant35.specialistSchool,'Abjuration');
+assert.equal(abjurerVariant35.specialistBonusSlots,false);
+const abjurer1Base=baseCharacter([{catalogId:abjurerVariant35.catalogId,name:'Abjurer Variant',edition:'3.5',level:1,definition:abjurerVariant35}]);
+const abjurer1={...abjurer1Base,legacyCastingChoices:{[abjurerVariant35.catalogId]:{prohibited:['Evocation','Necromancy']}}};
+assert.equal(validLegacyChoices(abjurer1),true,'Fixed Abjuration specialization requires two legal prohibited schools');
+assert.equal(validLegacyChoices({...abjurer1,legacyCastingChoices:{[abjurerVariant35.catalogId]:{prohibited:['Evocation']}}}),false,'Abjurer fails closed until both prohibited schools are chosen');
+assert.equal(prohibitedSpell(abjurer1,{school:'Evocation'}),true);
+assert.equal(prohibitedSpell(abjurer1,{school:'Abjuration'}),false);
+assert.equal(restrictedCastingOptions(abjurer1,{level:1,school:'Abjuration'},{standard:[0,2,0],restricted:[0,0,0]}).some(option=>option.pool==='specialist'),false,'Spontaneous Dispelling exchange removes normal specialist bonus slots');
+const abjurer20=reconcileClassGrants({...abjurer1,classLevels:[{...abjurer1.classLevels[0],level:20}],level:20});
+assert(!abjurer20.grantedFeatures.some(feature=>feature.name==='Familiar'),'Abjurer Variant removes Familiar');
+assert(abjurer20.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===abjurerVariant35.catalogId),'Abjurer Variant retains Scribe Scroll');
+assert(!abjurer20.grantedFeatures.some(feature=>/^Bonus Feat$/i.test(feature.name)),'Abjurer Variant removes later Wizard bonus feats');
+for(const name of ['Resistance to Energy','Aura of Protection','Spontaneous Dispelling'])assert(abjurer20.grantedFeatures.some(feature=>feature.name===name),'Abjurer Variant gains '+name);
+assert.equal(abjurer20.actions.find(action=>action.name==='Resistance to Energy')?.type,'Standard action');
+assert.equal(abjurer20.resources.find(resource=>resource.name==='Resistance to Energy')?.max,1);
+assert.equal(abjurer20.resources.find(resource=>resource.name==='Aura of Protection')?.max,4,'Aura of Protection scales to 4/day at 20th');
+assert.equal(abjurer20.actions.find(action=>action.name==='Spontaneous Dispelling')?.type,'As spell or readied action');
+for(const proficiency of ['club','dagger','crossbow-heavy','crossbow-light','quarterstaff'])assert(abjurer20.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Abjurer Variant retains Wizard training: '+proficiency);
+assert.equal(classAutomationReport(abjurer20).classes[0].descriptionComplete,true);
+const abjurerMulti=reconcileClassGrants({...abjurer20,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:abjurerVariant35.catalogId,name:'Abjurer Variant',edition:'3.5',level:20,definition:abjurerVariant35}
+],level:21,className:'Fighter',classDefinition:fighter35});
+const abjurerRemoved=removeClassProgression(abjurerMulti,abjurerVariant35.catalogId);
+assert(!abjurerRemoved.grantedFeatures.some(feature=>feature.sourceClassId===abjurerVariant35.catalogId));
+assert(!abjurerRemoved.actions.some(action=>action.sourceClassId===abjurerVariant35.catalogId));
+assert(!abjurerRemoved.resources.some(resource=>resource.sourceClassId===abjurerVariant35.catalogId));
+assert(abjurerRemoved.actions.some(action=>action.id==='manual-action')&&abjurerRemoved.feats.some(feat=>feat.id==='manual-feat'));
 
 const reviewedSorcerer35=exact35('classes/sorcerer-98');
 const sorcerer1=reconcileClassGrants(baseCharacter([{catalogId:reviewedSorcerer35.catalogId,name:'Sorcerer',edition:'3.5',level:1,definition:reviewedSorcerer35}]));
