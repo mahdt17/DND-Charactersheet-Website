@@ -3047,7 +3047,13 @@
       "name": "Fast Movement",
       "level": 3,
       "description": "While in light or no armor and carrying no more than a light load, increase land speed by 10 feet at 3rd level and by 20 feet at 11th level.",
-      "sourceSha256": "4ad549a7f96d8ed8014f68b64b412e8a9de007a55bf4fc2f14f172b9e3b186a9"
+      "sourceSha256": "4ad549a7f96d8ed8014f68b64b412e8a9de007a55bf4fc2f14f172b9e3b186a9",
+      "aliases": [
+        "Fast Movement +10ft",
+        "Fast Movement +20ft",
+        "Fast Movement +10 ft.",
+        "Fast Movement +20 ft."
+      ]
     },
     {
       "name": "Trackless Step",
