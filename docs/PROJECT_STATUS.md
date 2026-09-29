@@ -101,3 +101,13 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Eberron Campaign Setting Bard is `source-conflict`: both exact D&DTools pages are incomplete, while corroborated ECS p.34 evidence adds a bardic-music-for-bonus-feat substitution absent from the current PHB-derived summaries.
 - The other fifteen records are `needs-review` with explicit subsystem blockers in the canonical tracker rather than being promoted from source completeness alone.
 
+## 2026-09-29 source-equivalent reprint + training checkpoint
+
+- Validate modernization #1461 passed at `831c5f7ffc0bd92e2c50d1055919c1e432c81833` after adding source-verified starting training for Cloistered Cleric and Complete Warrior Samurai.
+- Samurai is complete: all simple/martial weapons, all armor, no shields; Daisho Proficiency remains a source-owned class feat. Existing level 1-20 action/resource/feat/idempotence/removal regressions remain green.
+- Cloistered Cleric training is verified as simple weapons + light armor, but the record remains `needs-review` because the shared Cleric domain granted-power/deity restriction subsystem is still incomplete.
+- Processed the existing 28-record source-equivalent reprint invariant as one batch. Twelve reprints whose reviewed parent is complete are now complete; sixteen reprints inherit the exact unresolved blocker of their incomplete parent instead of being falsely promoted.
+- The existing regression invariant proves each reprint reconciles identically to its linked reviewed parent for features, actions, feats, resources, progression tracks, spell slots, training, descriptions, and structural completeness.
+- Firecrawl fallback usage remains zero; Supabase remains unchanged.
+- Canonical tracker totals after this checkpoint: **42 complete, 45 needs-review, 1 source-conflict, 2 blocked, 964 pending audit**.
+

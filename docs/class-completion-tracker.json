@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "5e2ba0d7c871ce826d837ccba8a799b1f3c64dd1",
+  "snapshotCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -1054,60 +1054,69 @@
       "name": "Barbarian",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-104",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/barbarian-89",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/barbarian-89.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/barbarian-89."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/barbarian-89; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/barbarian-37",
       "name": "Barbarian",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-37",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/barbarian-89",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/barbarian-89.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/barbarian-89."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/barbarian-89; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/barbarian-61",
       "name": "Barbarian",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-61",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/barbarian-89",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/barbarian-89.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/barbarian-89."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/barbarian-89; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/barbarian-89",
@@ -2747,60 +2756,75 @@
       "name": "Cleric",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-105",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/cleric-91",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/cleric-91.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/cleric-91."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
     },
     {
       "sourceId": "classes/cleric-39",
       "name": "Cleric",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-39",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/cleric-91",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/cleric-91.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/cleric-91."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
     },
     {
       "sourceId": "classes/cleric-63",
       "name": "Cleric",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-63",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/cleric-91",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/cleric-91.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/cleric-91."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
     },
     {
       "sourceId": "classes/cleric-91",
@@ -2883,20 +2907,25 @@
       "name": "Cloistered Cleric",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/cloistered-cleric-120",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 4,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Starting training is now source-verified (simple weapons and light armor), but Cloistered Cleric still depends on incomplete structured Cleric domain granted-power and deity/domain-restriction automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Unearthed Arcana source verification confirms simple weapons and light armor, plus the Cloistered Cleric class-skill/domain changes.",
+        "Validate modernization #1461 passed the new Cloistered Cleric training regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833; the remaining blocker is domain automation rather than source/training coverage."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete the shared Cleric domain granted-power/deity restriction subsystem, including the mandatory Knowledge domain, then add creation/level-up/domain browser regressions."
     },
     {
       "sourceId": "classes/cloud-anchorite-499",
@@ -5437,60 +5466,69 @@
       "name": "Druid",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/druid-106",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/druid-92",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/druid-92.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/druid-92."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/druid-92; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/druid-40",
       "name": "Druid",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/druid-40",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/druid-92",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/druid-92.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/druid-92."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/druid-92; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/druid-64",
       "name": "Druid",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/druid-64",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/druid-92",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/druid-92.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/druid-92."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/druid-92; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/druid-92",
@@ -7972,20 +8010,25 @@
       "name": "Favored Soul",
       "sourceBook": "Base Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/favored-soul-76",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/favored-soul-7",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Favored Soul uses the Cleric list, but source-specific spells-known acquisition/replacement and deity-linked favored-weapon choices are not fully represented as structured persisted state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/favored-soul-7.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/favored-soul-7."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement spells-known gain/replacement and deity/favored-weapon linkage, then add creation and level-up regressions."
     },
     {
       "sourceId": "classes/fiend-of-blasphemy-471",
@@ -8092,40 +8135,46 @@
       "name": "Fighter",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/fighter-41",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/fighter-93",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/fighter-93.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/fighter-93."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/fighter-93; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/fighter-65",
       "name": "Fighter",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/fighter-65",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/fighter-93",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/fighter-93.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/fighter-93."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/fighter-93; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/fighter-93",
@@ -12718,40 +12767,46 @@
       "name": "Monk",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/monk-42",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/monk-94",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/monk-94.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/monk-94."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/monk-94; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/monk-66",
       "name": "Monk",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/monk-66",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/monk-94",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/monk-94.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/monk-94."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/monk-94; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/monk-94",
@@ -13841,60 +13896,75 @@
       "name": "Paladin",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-107",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/paladin-95",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/paladin-95.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/paladin-95."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
     },
     {
       "sourceId": "classes/paladin-43",
       "name": "Paladin",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-43",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/paladin-95",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/paladin-95.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/paladin-95."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
     },
     {
       "sourceId": "classes/paladin-67",
       "name": "Paladin",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-67",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/paladin-95",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/paladin-95.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/paladin-95."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
     },
     {
       "sourceId": "classes/paladin-95",
@@ -14948,60 +15018,75 @@
       "name": "Ranger",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-108",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/ranger-96",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/ranger-96.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
     },
     {
       "sourceId": "classes/ranger-44",
       "name": "Ranger",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-44",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/ranger-96",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/ranger-96.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
     },
     {
       "sourceId": "classes/ranger-68",
       "name": "Ranger",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-68",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/ranger-96",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/ranger-96.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
     },
     {
       "sourceId": "classes/ranger-96",
@@ -15406,40 +15491,46 @@
       "name": "Rogue",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/rogue-45",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/rogue-97",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/rogue-97.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/rogue-97."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/rogue-97; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/rogue-69",
       "name": "Rogue",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/rogue-69",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/rogue-97",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/rogue-97.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/rogue-97."
+      ],
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified source-equivalent to classes/rogue-97; re-audit only if the parent/shared integration changes."
     },
     {
       "sourceId": "classes/rogue-97",
@@ -15823,11 +15914,11 @@
       "name": "Samurai",
       "sourceBook": "Base Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/samurai-22",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 12,
       "existingProfileParent": null,
       "featureRequirements": [],
@@ -15839,11 +15930,13 @@
           "commit": "2220bf461bd09a05bb5d5e9979aeeaf619073d0e",
           "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36454895853",
           "note": "Reviewed features and CI passed; remaining automation limits are documented in CLASS_INTEGRATION_VERIFICATION.md."
-        }
+        },
+        "Complete Warrior source verification confirms all simple and martial weapons, all armor, and no shield proficiency; Daisho Proficiency remains a class-feature feat.",
+        "Validate modernization #1461 passed at 831c5f7ffc0bd92e2c50d1055919c1e432c81833, including source-specific Samurai mechanics, training, idempotence, removal, full 3.5 regressions, build, and browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "verifiedCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36646581912",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared class integration or training behavior changes."
     },
     {
       "sourceId": "classes/samurai-84",
@@ -17382,60 +17475,75 @@
       "name": "Sorcerer",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/sorcerer-109",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/sorcerer-98",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/sorcerer-98.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
     },
     {
       "sourceId": "classes/sorcerer-46",
       "name": "Sorcerer",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/sorcerer-46",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/sorcerer-98",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/sorcerer-98.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
     },
     {
       "sourceId": "classes/sorcerer-70",
       "name": "Sorcerer",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/sorcerer-70",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/sorcerer-98",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/sorcerer-98.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
     },
     {
       "sourceId": "classes/sorcerer-98",
@@ -21259,60 +21367,75 @@
       "name": "Wizard",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/wizard-110",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/wizard-99",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/wizard-99.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
     },
     {
       "sourceId": "classes/wizard-47",
       "name": "Wizard",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/wizard-47",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/wizard-99",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/wizard-99.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
     },
     {
       "sourceId": "classes/wizard-71",
       "name": "Wizard",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/wizard-71",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/wizard-99",
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/wizard-99.",
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
     },
     {
       "sourceId": "classes/wizard-99",

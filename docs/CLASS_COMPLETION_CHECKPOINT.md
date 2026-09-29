@@ -98,3 +98,12 @@ Updated: 2026-09-29 (America/New_York)
 - Cleric Variant is complete after full validation #1435 at `6f3f95b0853a79d9e17240720af7598732d6ade9`: exact Cleric parent, retained domain choice, no Turn/Rebuke Undead, positive/negative-energy Smite polarity with Paladin scaling, Aura of Courage, persistence, removal, and browser coverage.
 - Abjurer Variant (UA p.59) is now implemented pending full validation: exact `classes/wizard-99` parent fixed to Abjuration specialization, two prohibited schools required, no Familiar, no later Wizard bonus feats, no specialist bonus spell slot, and source-owned Resistance to Energy, Aura of Protection, and Spontaneous Dispelling.
 - The self-contained-description audit remains active; reviewed descriptions must stay standalone and exact-source-owned.
+
+## 2026-09-29 reprint/training checkpoint
+
+- Green validation baseline: #1461 at `831c5f7ffc0bd92e2c50d1055919c1e432c81833`.
+- Complete Warrior Samurai is complete after exact starting-training verification and existing level 1-20 mechanics regressions.
+- Cloistered Cleric starting training is verified, but completion remains blocked on shared Cleric domain granted-power/deity automation.
+- 28 source-equivalent published-appearance records were processed through the existing parent-equivalence invariant: 12 complete-parent reprints promoted; 16 incomplete-parent reprints moved to explicit `needs-review` with inherited blockers.
+- Current canonical tracker totals: **42 complete / 45 needs-review / 1 source-conflict / 2 blocked / 964 pending audit / 1054 total**.
+
