@@ -791,8 +791,296 @@
     {
       "name": "Animal Companion (Ex)",
       "level": 1,
-      "description": "Begin with an animal companion from the class's allowed list. The companion improves with druid level, and higher-level druids can choose stronger alternative companions by applying the source-listed effective-level adjustment. Replacing a released or lost companion requires the class's ceremony.",
-      "sourceSha256": "01a1739979f95a1514bdd9bb811ff0c9ef8e556adcb1dfd02f49ffdba4cc7776"
+      "description": "Choose an animal companion from the Druid list. Standard companions are always available; stronger alternatives unlock at effective druid levels 4, 7, 10, 13, and 16 and reduce the level used for companion abilities by 3, 6, 9, 12, or 15 respectively. The companion gains bonus Hit Dice, natural armor, Strength/Dexterity, bonus tricks, and abilities from the Druid companion progression. Replacing a released or lost companion requires 24 uninterrupted hours of prayer.",
+      "sourceSha256": "01a1739979f95a1514bdd9bb811ff0c9ef8e556adcb1dfd02f49ffdba4cc7776",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion",
+      "choiceKind": "animal-companion",
+      "choiceCount": 1,
+      "choiceOptions": [
+        "Badger",
+        "Camel",
+        "Dire Rat",
+        "Dog",
+        "Riding Dog",
+        "Eagle",
+        "Hawk",
+        "Horse (light or heavy)",
+        "Owl",
+        "Pony",
+        "Snake (Small or Medium viper)",
+        "Wolf",
+        "Porpoise",
+        "Shark (Medium)",
+        "Squid",
+        "Ape",
+        "Bear (black)",
+        "Bison",
+        "Boar",
+        "Cheetah",
+        "Crocodile",
+        "Dire Badger",
+        "Dire Bat",
+        "Dire Weasel",
+        "Leopard",
+        "Lizard (monitor)",
+        "Shark (Large)",
+        "Snake (constrictor)",
+        "Snake (Large viper)",
+        "Wolverine",
+        "Bear (brown)",
+        "Dire Wolverine",
+        "Crocodile (giant)",
+        "Deinonychus",
+        "Dire Ape",
+        "Dire Boar",
+        "Dire Wolf",
+        "Elasmosaurus",
+        "Lion",
+        "Rhinoceros",
+        "Snake (Huge viper)",
+        "Tiger",
+        "Bear (polar)",
+        "Dire Lion",
+        "Megaraptor",
+        "Shark (Huge)",
+        "Snake (giant constrictor)",
+        "Whale (orca)",
+        "Dire Bear",
+        "Elephant",
+        "Octopus (giant)",
+        "Dire Shark",
+        "Dire Tiger",
+        "Squid (giant)",
+        "Triceratops",
+        "Tyrannosaurus"
+      ],
+      "choiceOptionMechanics": {
+        "Badger": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Camel": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Dire Rat": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Dog": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Riding Dog": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Eagle": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Hawk": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Horse (light or heavy)": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Owl": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Pony": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Snake (Small or Medium viper)": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Wolf": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Porpoise": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Shark (Medium)": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Squid": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Ape": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Bear (black)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Bison": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Boar": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Cheetah": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Crocodile": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Dire Badger": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Dire Bat": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Dire Weasel": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Leopard": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Lizard (monitor)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Shark (Large)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Snake (constrictor)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Snake (Large viper)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Wolverine": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Bear (brown)": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Wolverine": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Crocodile (giant)": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Deinonychus": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Ape": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Boar": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Wolf": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Elasmosaurus": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Lion": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Rhinoceros": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Snake (Huge viper)": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Tiger": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Bear (polar)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Dire Lion": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Megaraptor": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Shark (Huge)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Snake (giant constrictor)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Whale (orca)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Dire Bear": {
+          "minEffectiveLevel": 13,
+          "levelAdjustment": 12
+        },
+        "Elephant": {
+          "minEffectiveLevel": 13,
+          "levelAdjustment": 12
+        },
+        "Octopus (giant)": {
+          "minEffectiveLevel": 13,
+          "levelAdjustment": 12
+        },
+        "Dire Shark": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Dire Tiger": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Squid (giant)": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Triceratops": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Tyrannosaurus": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        }
+      },
+      "companionLevelMultiplier": 1
     },
     {
       "name": "Nature Sense (Ex)",
@@ -851,7 +1139,7 @@
     {
       "name": "Animal Companion Basics",
       "level": 1,
-      "description": "Animal companions use their base creature statistics plus the druid companion progression for bonus Hit Dice, natural armor, Strength/Dexterity adjustments, bonus tricks, and companion abilities such as link and share spells. Qualifying animal-companion class levels stack as defined by the source.",
+      "description": "Animal companion abilities use the Druid progression. At effective druid levels 1-2 the companion gains Link and Share Spells; at 3rd it gains Evasion, at 6th Devotion, at 9th Multiattack, and at 15th Improved Evasion. Bonus HD, natural armor, Strength/Dexterity, and bonus tricks improve at the printed level bands.",
       "sourceSha256": "0346e2b95ae3612ea6bb251f5c227be3ae83180a8a84e34b22c57a708782bc60",
       "aliases": [
         "Link",
@@ -859,7 +1147,8 @@
         "Evasion",
         "Devotion",
         "Improved Evasion"
-      ]
+      ],
+      "sourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion"
     }
   ],
   "classes/duskblade-102": [
@@ -4190,6 +4479,720 @@
       "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
       "referencedSourceId": "classes/ranger-96",
       "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#track"
+    }
+  ],
+  "classes/bard": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple weapons plus longsword, rapier, sap, short sword, shortbow, and whip; proficient with light armor and shields except tower shields. Bard spells can be cast in light armor without arcane spell failure, while medium/heavy armor and shields still risk failure for somatic bard spells.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#weaponAndArmorProficiency"
+    },
+    {
+      "name": "Spells",
+      "level": 1,
+      "description": "Cast arcane spells from the Bard list without preparing them. Charisma determines the highest spell level you can cast, spell save DCs, and bonus spells per day. Bard spells have a verbal component, and spells known/spells per day follow the Bard progression.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#spells"
+    },
+    {
+      "name": "Bardic Knowledge",
+      "level": 1,
+      "description": "Make a special knowledge check equal to 1d20 + bard level + Intelligence modifier to recall relevant information about notable people, legendary items, or noteworthy places. You cannot take 10 or 20 on this check.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#bardicKnowledge"
+    },
+    {
+      "name": "Bardic Music",
+      "level": 1,
+      "description": "Use bardic music once per day per bard level. Starting a bardic music effect is a standard action unless its feature says otherwise and requires the source-listed Perform ranks. While maintaining bardic music you cannot cast spells or activate spell-completion, spell-trigger, or command-word magic items.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#bardicMusic",
+      "actionType": "Standard action",
+      "resource": {
+        "perLevel": 1,
+        "period": "day",
+        "reset": "long",
+        "unit": "uses"
+      }
+    },
+    {
+      "name": "Countersong",
+      "level": 1,
+      "description": "Use bardic music to counter sonic or language-dependent magical attacks for up to 10 rounds. Each round make a Perform check; affected allies within 30 feet may use that result in place of their saving throw when it is higher, including new saves against ongoing effects.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#countersong",
+      "actionType": "Standard action"
+    },
+    {
+      "name": "Fascinate",
+      "level": 1,
+      "description": "Use bardic music to fascinate creatures within 90 feet that can see, hear, and pay attention to you. The target makes a Will save against your Perform check. You can affect one creature at 1st level plus one additional creature for every three bard levels beyond 1st, and maintain the effect by concentrating for up to 1 round per bard level.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#fascinate",
+      "actionType": "Standard action"
+    },
+    {
+      "name": "Inspire Courage",
+      "level": 1,
+      "description": "Use bardic music to grant allies who can hear you a +1 morale bonus on saves against charm and fear and +1 morale on attack and weapon damage rolls. The bonus becomes +2 at 8th level, +3 at 14th, and +4 at 20th, and lasts while heard and for 5 rounds afterward.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#inspireCourage",
+      "actionType": "Standard action"
+    },
+    {
+      "name": "Inspire Competence",
+      "level": 3,
+      "description": "At 3rd level, use bardic music to grant one ally within 30 feet who can see and hear you a +2 competence bonus on checks with one skill. You must concentrate and can maintain the effect for up to 2 minutes; you cannot target yourself.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#inspireCompetence",
+      "actionType": "Standard action"
+    },
+    {
+      "name": "Suggestion",
+      "level": 6,
+      "description": "At 6th level, make a suggestion as the spell to a creature you have already fascinated. The Will save DC is 10 + half your bard level + your Charisma modifier. Using suggestion this way does not consume an additional daily bardic music use.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#suggestion",
+      "actionType": "Standard action"
+    },
+    {
+      "name": "Inspire Greatness",
+      "level": 9,
+      "description": "At 9th level, use bardic music on yourself or a willing ally within 30 feet. The target gains 2 bonus d10 Hit Dice with corresponding temporary hit points, +2 competence on attack rolls, and +1 competence on Fortitude saves. Gain one additional target every three bard levels beyond 9th.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#inspireGreatness",
+      "actionType": "Standard action"
+    },
+    {
+      "name": "Song of Freedom",
+      "level": 12,
+      "description": "At 12th level, perform for 1 uninterrupted minute to produce break enchantment on one target within 30 feet other than yourself, using your bard level as caster level.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#songOfFreedom",
+      "actionType": "1 minute"
+    },
+    {
+      "name": "Inspire Heroics",
+      "level": 15,
+      "description": "At 15th level, use bardic music on yourself or a willing ally within 30 feet. The target gains +4 morale on saving throws and +4 dodge AC while hearing you and for up to 5 rounds afterward. Gain one additional target every three bard levels beyond 15th.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#inspireHeroics",
+      "actionType": "Standard action"
+    },
+    {
+      "name": "Mass Suggestion",
+      "level": 18,
+      "description": "At 18th level, use the suggestion bardic music ability simultaneously on any number of creatures you have already fascinated.",
+      "sourceUrl": "https://www.d20srd.org/srd/classes/bard.htm#massSuggestion",
+      "actionType": "Standard action"
+    }
+  ],
+  "classes/bard-variant-951": [
+    {
+      "name": "Animal Companion (Ex)",
+      "level": 1,
+      "description": "Choose an animal companion from the Druid list. Standard companions are always available; stronger alternatives unlock at effective druid levels 4, 7, 10, 13, and 16 and reduce the level used for companion abilities by 3, 6, 9, 12, or 15 respectively. The companion gains bonus Hit Dice, natural armor, Strength/Dexterity, bonus tricks, and abilities from the Druid companion progression. Replacing a released or lost companion requires 24 uninterrupted hours of prayer.",
+      "sourceUrl": "https://new.dndtools.org/classes/bard-variant-951",
+      "referencedSourceId": "classes/druid-92",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion",
+      "choiceKind": "animal-companion",
+      "choiceCount": 1,
+      "choiceOptions": [
+        "Badger",
+        "Camel",
+        "Dire Rat",
+        "Dog",
+        "Riding Dog",
+        "Eagle",
+        "Hawk",
+        "Horse (light or heavy)",
+        "Owl",
+        "Pony",
+        "Snake (Small or Medium viper)",
+        "Wolf",
+        "Porpoise",
+        "Shark (Medium)",
+        "Squid",
+        "Ape",
+        "Bear (black)",
+        "Bison",
+        "Boar",
+        "Cheetah",
+        "Crocodile",
+        "Dire Badger",
+        "Dire Bat",
+        "Dire Weasel",
+        "Leopard",
+        "Lizard (monitor)",
+        "Shark (Large)",
+        "Snake (constrictor)",
+        "Snake (Large viper)",
+        "Wolverine",
+        "Bear (brown)",
+        "Dire Wolverine",
+        "Crocodile (giant)",
+        "Deinonychus",
+        "Dire Ape",
+        "Dire Boar",
+        "Dire Wolf",
+        "Elasmosaurus",
+        "Lion",
+        "Rhinoceros",
+        "Snake (Huge viper)",
+        "Tiger",
+        "Bear (polar)",
+        "Dire Lion",
+        "Megaraptor",
+        "Shark (Huge)",
+        "Snake (giant constrictor)",
+        "Whale (orca)",
+        "Dire Bear",
+        "Elephant",
+        "Octopus (giant)",
+        "Dire Shark",
+        "Dire Tiger",
+        "Squid (giant)",
+        "Triceratops",
+        "Tyrannosaurus"
+      ],
+      "choiceOptionMechanics": {
+        "Badger": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Camel": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Dire Rat": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Dog": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Riding Dog": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Eagle": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Hawk": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Horse (light or heavy)": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Owl": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Pony": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Snake (Small or Medium viper)": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Wolf": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Porpoise": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Shark (Medium)": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Squid": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Ape": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Bear (black)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Bison": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Boar": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Cheetah": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Crocodile": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Dire Badger": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Dire Bat": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Dire Weasel": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Leopard": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Lizard (monitor)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Shark (Large)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Snake (constrictor)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Snake (Large viper)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Wolverine": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Bear (brown)": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Wolverine": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Crocodile (giant)": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Deinonychus": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Ape": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Boar": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Wolf": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Elasmosaurus": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Lion": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Rhinoceros": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Snake (Huge viper)": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Tiger": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Bear (polar)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Dire Lion": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Megaraptor": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Shark (Huge)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Snake (giant constrictor)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Whale (orca)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Dire Bear": {
+          "minEffectiveLevel": 13,
+          "levelAdjustment": 12
+        },
+        "Elephant": {
+          "minEffectiveLevel": 13,
+          "levelAdjustment": 12
+        },
+        "Octopus (giant)": {
+          "minEffectiveLevel": 13,
+          "levelAdjustment": 12
+        },
+        "Dire Shark": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Dire Tiger": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Squid (giant)": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Triceratops": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Tyrannosaurus": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        }
+      },
+      "companionLevelMultiplier": 1
+    },
+    {
+      "name": "Nature Sense (Ex)",
+      "level": 1,
+      "description": "Gain +2 on Knowledge (nature) and Survival checks.",
+      "sourceUrl": "https://new.dndtools.org/classes/bard-variant-951",
+      "referencedSourceId": "classes/druid-92",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#natureSense"
+    },
+    {
+      "name": "Wild Empathy (Ex)",
+      "level": 1,
+      "description": "Improve an animal's attitude with a wild-empathy check of 1d20 + Bard Variant level + Charisma modifier. You can also influence an Intelligence 1 or 2 magical beast with a -4 penalty.",
+      "sourceUrl": "https://new.dndtools.org/classes/bard-variant-951",
+      "referencedSourceId": "classes/druid-92",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#wildEmpathy"
+    },
+    {
+      "name": "Resist Nature’s Lure (Ex)",
+      "level": 4,
+      "description": "Gain +4 on saving throws against the spell-like abilities of fey.",
+      "sourceUrl": "https://new.dndtools.org/classes/bard-variant-951",
+      "referencedSourceId": "classes/druid-92",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#resistNaturesLure"
+    }
+  ],
+  "classes/sorcererwizard-variant-957": [
+    {
+      "name": "Animal Companion (Ex)",
+      "level": 1,
+      "description": "Gain an animal companion as a Druid, but use one-half your Sorcerer/Wizard class level (fractions round down under the general 3.5 rule) as the base effective druid level for companion progression. Standard companions remain selectable; stronger alternatives require the corresponding effective druid level and apply their normal level adjustment.",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcererwizard-variant-957",
+      "referencedSourceId": "classes/druid-92",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion",
+      "choiceKind": "animal-companion",
+      "choiceCount": 1,
+      "choiceOptions": [
+        "Badger",
+        "Camel",
+        "Dire Rat",
+        "Dog",
+        "Riding Dog",
+        "Eagle",
+        "Hawk",
+        "Horse (light or heavy)",
+        "Owl",
+        "Pony",
+        "Snake (Small or Medium viper)",
+        "Wolf",
+        "Porpoise",
+        "Shark (Medium)",
+        "Squid",
+        "Ape",
+        "Bear (black)",
+        "Bison",
+        "Boar",
+        "Cheetah",
+        "Crocodile",
+        "Dire Badger",
+        "Dire Bat",
+        "Dire Weasel",
+        "Leopard",
+        "Lizard (monitor)",
+        "Shark (Large)",
+        "Snake (constrictor)",
+        "Snake (Large viper)",
+        "Wolverine",
+        "Bear (brown)",
+        "Dire Wolverine",
+        "Crocodile (giant)",
+        "Deinonychus",
+        "Dire Ape",
+        "Dire Boar",
+        "Dire Wolf",
+        "Elasmosaurus",
+        "Lion",
+        "Rhinoceros",
+        "Snake (Huge viper)",
+        "Tiger",
+        "Bear (polar)",
+        "Dire Lion",
+        "Megaraptor",
+        "Shark (Huge)",
+        "Snake (giant constrictor)",
+        "Whale (orca)",
+        "Dire Bear",
+        "Elephant",
+        "Octopus (giant)",
+        "Dire Shark",
+        "Dire Tiger",
+        "Squid (giant)",
+        "Triceratops",
+        "Tyrannosaurus"
+      ],
+      "choiceOptionMechanics": {
+        "Badger": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Camel": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Dire Rat": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Dog": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Riding Dog": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Eagle": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Hawk": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Horse (light or heavy)": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Owl": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Pony": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Snake (Small or Medium viper)": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Wolf": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Porpoise": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Shark (Medium)": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Squid": {
+          "minEffectiveLevel": 0,
+          "levelAdjustment": 0
+        },
+        "Ape": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Bear (black)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Bison": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Boar": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Cheetah": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Crocodile": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Dire Badger": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Dire Bat": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Dire Weasel": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Leopard": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Lizard (monitor)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Shark (Large)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Snake (constrictor)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Snake (Large viper)": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Wolverine": {
+          "minEffectiveLevel": 4,
+          "levelAdjustment": 3
+        },
+        "Bear (brown)": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Wolverine": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Crocodile (giant)": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Deinonychus": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Ape": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Boar": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Dire Wolf": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Elasmosaurus": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Lion": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Rhinoceros": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Snake (Huge viper)": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Tiger": {
+          "minEffectiveLevel": 7,
+          "levelAdjustment": 6
+        },
+        "Bear (polar)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Dire Lion": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Megaraptor": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Shark (Huge)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Snake (giant constrictor)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Whale (orca)": {
+          "minEffectiveLevel": 10,
+          "levelAdjustment": 9
+        },
+        "Dire Bear": {
+          "minEffectiveLevel": 13,
+          "levelAdjustment": 12
+        },
+        "Elephant": {
+          "minEffectiveLevel": 13,
+          "levelAdjustment": 12
+        },
+        "Octopus (giant)": {
+          "minEffectiveLevel": 13,
+          "levelAdjustment": 12
+        },
+        "Dire Shark": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Dire Tiger": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Squid (giant)": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Triceratops": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        },
+        "Tyrannosaurus": {
+          "minEffectiveLevel": 16,
+          "levelAdjustment": 15
+        }
+      },
+      "companionLevelMultiplier": 0.5
     }
   ]
 }
