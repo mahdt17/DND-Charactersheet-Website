@@ -733,6 +733,7 @@ for(const [sourceId,expectedSkills] of npcFixedSkillSets35){
     const sheet=classSheet(definition,level);
     const owned=sheet.classSkills35.filter(skill=>skill.sourceClassId===definition.catalogId).map(skill=>skill.name).sort();
     assert.deepEqual(owned,[...expectedSkills].sort(),sourceId+' level '+level+' exact fixed class skills');
+    assert.equal(sheet.classSkillRules35.some(rule=>rule.sourceClassId===definition.catalogId),false,sourceId+' verified fixed skills suppress stale dynamic class-skill rules');
     for(const skill of expectedSkills){
       const status=legacyClassSkillStatus(sheet,skill);
       assert.equal(status.classSkill,true,sourceId+' '+skill+' is a class skill');

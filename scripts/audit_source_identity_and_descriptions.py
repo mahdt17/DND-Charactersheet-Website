@@ -68,6 +68,14 @@ def feature_cells(row):
    if i<len(r) and str(r[i] or "").strip() not in {"","-","—"}: out.append(str(r[i]).strip())
  return out
 
+def pure_combat_progression(row):
+ p=row.get("progression") or []
+ if not p or not isinstance(p[0],list): return False
+ heads=[re.sub(r"[^a-z]","",str(x or "").casefold()) for x in p[0]]
+ aliases={"level","classlevel","bab","baseattackbonus","fort","fortsave","fortitudesave","ref","refsave","reflexsave","will","willsave"}
+ if any(head not in aliases for head in heads): return False
+ return any(head in {"bab","baseattackbonus"} for head in heads) and any(head in {"fort","fortsave","fortitudesave"} for head in heads) and any(head in {"ref","refsave","reflexsave"} for head in heads) and any(head in {"will","willsave"} for head in heads)
+
 def main():
  classes=json.loads(CLASSES.read_text(encoding="utf-8"))
  feats=json.loads(FEATS.read_text(encoding="utf-8"))
@@ -93,7 +101,7 @@ def main():
    (identical if len(variants)==1 else divergent).append(item)
   for row in records:
    families=risk(row); features=feature_cells(row)
-   low=not row.get("prestige") and not row.get("prerequisites") and not features and families==["ordinary"]
+   low=not row.get("prestige") and not row.get("prerequisites") and not features and families==["ordinary"] and not row.get("inheritsFrom") and not row.get("inheritsFromOptions") and not row.get("fallbackSourceUrl") and pure_combat_progression(row)
    rows.append({"sourceId":row["id"],"name":row.get("name"),"sourceBook":row.get("sourceBook"),"sourcePage":row.get("sourcePage"),"trackerStatus":tracked.get(row["id"],{}).get("status","untracked"),"mechanicsFingerprint":fingerprint(row),"sameNameRecordCount":len(records),"sameNameDistinctMechanics":len(variants),"equivalenceStatus":"unique-source-record" if len(records)==1 else "catalog-identical-candidate-source-verification-required" if len(variants)==1 else "same-name-mechanics-diverge-do-not-inherit","riskFamilies":families,"featureCellCount":len(features),"batchTier":"low-risk-fixed-progression" if low else "source-specific-review"})
  queue=[]; reviewed_fail=[]
  for row in feats:
