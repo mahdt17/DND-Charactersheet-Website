@@ -243,9 +243,14 @@ for(const proficiency of ['light-armor','medium-armor','heavy-armor','shields-ex
 const clericVariant1={...clericVariant20Base,classLevels:[{...clericVariant20Base.classLevels[0],level:1}],level:1};
 const clericVariant1Plan=featureChoicePlan(clericVariant1,null);
 const clericEnergy=clericVariant1Plan.groups.find(group=>group.choiceKind==='cleric-energy');
+const clericDomains=clericVariant1Plan.groups.find(group=>/Deity, Domains, and Domain Spells/i.test(group.label));
 assert(clericEnergy,'Cleric Variant requires the source-defined positive/negative-energy polarity');
 assert.deepEqual(clericEnergy.options,['Positive energy','Negative energy']);
-const clericPositive=applyFeatureChoices(clericVariant1,null,{[clericEnergy.id]:['Positive energy']});
+assert(clericDomains,'Cleric Variant retains the Cleric deity/domain source choice');
+const clericPositive=applyFeatureChoices(clericVariant1,null,{
+  [clericEnergy.id]:['Positive energy'],
+  [clericDomains.id]:['Pelor; Good, Healing']
+});
 assert(Object.values(clericPositive.featureChoices||{}).some(choice=>choice.choiceKind==='cleric-energy'&&choice.choices?.[0]==='Positive energy'));
 assert(clericPositive.actions.some(action=>action.name==='Smite Evil'&&action.type==='Melee attack'),'Positive-energy Cleric Variant gains Smite Evil action');
 assert(!clericPositive.actions.some(action=>action.name==='Smite Good'),'Positive-energy Cleric Variant does not gain Smite Good');
@@ -254,7 +259,10 @@ const clericPositive5=reconcileClassGrants({...clericPositive,classLevels:[{...c
 assert.equal(clericPositive5.resources.find(resource=>resource.name==='Smite Evil')?.max,2,'Smite Evil scales to 2/day at 5th level');
 assert(clericPositive5.grantedFeatures.some(feature=>feature.name==='Aura of Courage'),'Aura of Courage is present by 3rd level');
 assert.match(clericPositive5.grantedFeatures.find(feature=>feature.name==='Aura of Courage')?.description||'',/all(?:y|ies) within 10 feet|each ally within 10 feet/i);
-const clericNegative=applyFeatureChoices(clericVariant1,null,{[clericEnergy.id]:['Negative energy']});
+const clericNegative=applyFeatureChoices(clericVariant1,null,{
+  [clericEnergy.id]:['Negative energy'],
+  [clericDomains.id]:['Nerull; Death, Evil']
+});
 assert(clericNegative.actions.some(action=>action.name==='Smite Good'),'Negative-energy Cleric Variant gains Smite Good');
 assert(!clericNegative.actions.some(action=>action.name==='Smite Evil'),'Negative-energy Cleric Variant does not gain Smite Evil');
 assert.equal(clericNegative.resources.find(resource=>resource.name==='Smite Good')?.max,1,'Smite Good starts at 1/day');

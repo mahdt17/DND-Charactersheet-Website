@@ -135,7 +135,10 @@ try {
  await page.getByLabel('Search class').fill('Cleric Variant');await page.locator('[data-catalog-id="dndtools:classes/cleric-variant-972"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
  await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
- assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Cleric Variant creation waits for its energy polarity');
+ const clericDomainChoice=page.getByLabel('Cleric Variant 1 Deity, Domains, and Domain Spells choice',{exact:true});
+ assert.equal(await clericDomainChoice.count(),1,'Cleric Variant retains the Cleric deity/domain source choice');
+ await clericDomainChoice.fill('Pelor; Good, Healing');
+ assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Cleric Variant creation still waits for its energy polarity after domains are recorded');
  const positiveEnergy=page.getByLabel('Cleric Variant 1 Spontaneous Casting: Positive energy',{exact:true});
  assert.equal(await positiveEnergy.count(),1,'Cleric Variant exposes the positive-energy source option');
  assert.equal(await page.getByLabel('Cleric Variant 1 Spontaneous Casting: Negative energy',{exact:true}).count(),1,'Cleric Variant exposes the negative-energy source option');
