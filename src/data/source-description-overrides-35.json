@@ -16,6 +16,72 @@
           "role": "D&D 3.5 SRD glyph of warding mechanics used to resolve the source cross-reference"
         }
       ]
+    },
+    "feats/armor-proficiency-medium-117": {
+      "name": "Armor Proficiency (medium)",
+      "effectSummary": "Gain proficiency with medium armor. When you wear medium armor with which you are proficient, its armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.",
+      "normalRule": "If you wear medium armor without proficiency, its armor check penalty also applies to attack rolls and to all skill checks that involve moving, including Ride.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/armor-proficiency-medium-117",
+          "role": "exact source record; Benefit and Normal defer to Armor Proficiency (light)"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/armor-proficiency-light-115",
+          "role": "referenced proficiency mechanics expanded into a standalone medium-armor description"
+        }
+      ]
+    },
+    "feats/armor-proficiency-heavy-113": {
+      "name": "Armor Proficiency (heavy)",
+      "effectSummary": "Gain proficiency with heavy armor. When you wear heavy armor with which you are proficient, its armor check penalty applies only to Balance, Climb, Escape Artist, Hide, Jump, Move Silently, Pick Pocket, and Tumble checks.",
+      "normalRule": "If you wear heavy armor without proficiency, its armor check penalty also applies to attack rolls and to all skill checks that involve moving, including Ride.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/armor-proficiency-heavy-113",
+          "role": "exact source record; Benefit and Normal defer to Armor Proficiency (light)"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/armor-proficiency-light-115",
+          "role": "referenced proficiency mechanics expanded into a standalone heavy-armor description"
+        }
+      ]
+    },
+    "feats/improved-familiar-1484": {
+      "name": "Improved Familiar",
+      "effectSummary": "Expands the familiars you may select when acquiring a new familiar. You may choose a deathfang (neutral evil, minimum arcane caster level 9th), flying snake (neutral, 3rd), lizard, spitting crawler (neutral, 3rd), lynx (neutral, 3rd), osquip (neutral evil, 5th), or tressym (neutral good, 5th). You must meet the listed minimum arcane caster level, and the familiar's alignment may be no more than one step from yours on each alignment axis.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1484",
+          "role": "exact Player's Guide to Faerûn feat record and prerequisite"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1481",
+          "role": "referenced Improved Familiar selection and alignment mechanics"
+        },
+        {
+          "url": "https://dnd.arkalseif.info/feats/players-guide-to-faerun--22/improved-familiar--1484/index.html",
+          "role": "same-source familiar option table cross-check"
+        }
+      ]
+    },
+    "feats/improved-familiar-1485": {
+      "name": "Improved Familiar",
+      "effectSummary": "Expands the familiars you may select when acquiring a new familiar. You may choose a flying snake (neutral, minimum arcane caster level 3rd; master gains +2 on saves against acid), deathfang (neutral evil, 9th; master must be evil and have Spell Focus (Necromancy)), lizard, spitting crawler (neutral, 3rd; master gains +2 on saves against acid), lynx (neutral, 3rd; master gains +3 on Move Silently checks), or osquip (neutral, 5th; master gains +2 on Hide and Listen checks). You must meet the listed minimum arcane caster level and any listed special requirement, and the familiar's alignment may be no more than one step from yours on each alignment axis.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1485",
+          "role": "exact Races of Faerûn feat pointer and prerequisite"
+        },
+        {
+          "url": "https://new.dndtools.org/feats/improved-familiar-1481",
+          "role": "referenced Improved Familiar selection and alignment mechanics"
+        },
+        {
+          "url": "https://anyflip.com/hewsi/nhbo/basic/151-200",
+          "role": "Races of Faerûn Table A-5 option levels and special rules cross-check"
+        }
+      ]
     }
   }
 }

@@ -20,6 +20,10 @@ PATTERNS=[
  re.compile(r"\b(?:effect|field|ability)\s+(?:is|are)\s+identical\s+to\s+(?:that|those)\s+of\b",re.I),
  re.compile(r"^\s*as\s+the\s+[^.;\n]{1,80}\s+feat\b[^\n]*(?:except|but)\b",re.I|re.M),
  re.compile(r"\bduplicate(?:s|d|\s+the)?\s+effects?\s+of\b",re.I),
+ re.compile(r"^\s*see\s+[^.!?\n]{2,140}[.!]?\s*$",re.I|re.M),
+ re.compile(r"^\s*uses?\s+(?:the\s+)?(?:core\s+)?[^.!?\n]{1,80}\s+rules\b",re.I|re.M),
+ re.compile(r"\bfunctions?\s+as\s+(?:the\s+)?[^.;\n]{1,80}\b(?:except|but)\b",re.I),
+ re.compile(r"\bas\s+described\s+(?:in|under)\s+[^.;\n]{1,100}",re.I),
 ]
 GENERIC=re.compile(r"\bfunctions?\s+as\s+(?:an?\s+)?(?:spell-like|supernatural|extraordinary|psi-like)\s+abilit(?:y|ies)\b",re.I)
 
@@ -37,11 +41,15 @@ def unresolved(text):
  masked=GENERIC.sub("",str(text or ""))
  return [p.pattern for p in PATTERNS if p.search(masked)]
 
-def feat_text(row,override):
- effective={**row,**{k:v for k,v in (override or {}).items() if k in {"description","effectSummary","effect","benefit"}}}
+def feat_texts(row,override):
+ effective={**row,**{k:v for k,v in (override or {}).items() if k in {"description","effectSummary","effect","benefit","normalRule","specialRule"}}}
+ texts=[]
  for key in ("description","effectSummary","effect","benefit"):
-  if isinstance(effective.get(key),str) and effective[key].strip(): return key,effective[key].strip()
- return None,""
+  if isinstance(effective.get(key),str) and effective[key].strip():
+   texts.append((key,effective[key].strip())); break
+ for key in ("normalRule","specialRule"):
+  if isinstance(effective.get(key),str) and effective[key].strip(): texts.append((key,effective[key].strip()))
+ return texts
 
 def risk(row):
  text=json.dumps([row.get("name"),row.get("progression"),row.get("advancement"),row.get("prerequisites"),row.get("classSkills")],ensure_ascii=False).casefold()
@@ -90,10 +98,12 @@ def main():
    rows.append({"sourceId":row["id"],"name":row.get("name"),"sourceBook":row.get("sourceBook"),"sourcePage":row.get("sourcePage"),"trackerStatus":tracked.get(row["id"],{}).get("status","untracked"),"mechanicsFingerprint":fingerprint(row),"sameNameRecordCount":len(records),"sameNameDistinctMechanics":len(variants),"equivalenceStatus":"unique-source-record" if len(records)==1 else "catalog-identical-candidate-source-verification-required" if len(variants)==1 else "same-name-mechanics-diverge-do-not-inherit","riskFamilies":families,"featureCellCount":len(features),"batchTier":"low-risk-fixed-progression" if low else "source-specific-review"})
  queue=[]; reviewed_fail=[]
  for row in feats:
-  field,text=feat_text(row,overrides.get(row.get("id")))
-  matched=unresolved(text)
-  if matched:
-   item={"sourceId":row.get("id"),"name":row.get("name"),"sourceBook":row.get("sourceBook"),"sourcePage":row.get("sourcePage"),"displayField":field,"reviewed":bool(row.get("featRuleReviewVerified")),"matchedPatterns":matched}
+  violations=[]
+  for field,text in feat_texts(row,overrides.get(row.get("id"))):
+   matched=unresolved(text)
+   if matched: violations.append({"displayField":field,"matchedPatterns":matched})
+  if violations:
+   item={"sourceId":row.get("id"),"name":row.get("name"),"sourceBook":row.get("sourceBook"),"sourcePage":row.get("sourcePage"),"reviewed":bool(row.get("featRuleReviewVerified")),"violations":violations}
    queue.append(item)
    if item["reviewed"]: reviewed_fail.append(item)
  class_fail=[]
