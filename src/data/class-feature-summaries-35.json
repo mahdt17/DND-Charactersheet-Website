@@ -3998,5 +3998,32 @@
       "referencedSourceId": "classes/barbarian-89",
       "referencedSourceUrl": "https://www.d20srd.org/srd/classes/barbarian.htm#damageReduction"
     }
+  ],
+  "classes/paladin-variant-955": [
+    {
+      "name": "Favored Enemy (Ex)",
+      "level": 1,
+      "description": "At 1st level, choose one favored enemy from aberrations, dragons, giants, monstrous humanoids, evil outsiders, or undead. Gain +2 on Bluff, Listen, Sense Motive, Spot, and Survival checks against that enemy and +2 on weapon damage rolls against it. At 5th level and every five Paladin Variant levels thereafter, choose one additional favored enemy from that restricted list and increase the bonus against any one favored enemy by +2; the newly selected enemy can receive that increase.",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-variant-955",
+      "referencedSourceId": "classes/ranger-96",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#favoredEnemy",
+      "choiceKind": "favored-enemy",
+      "choiceLevels": [
+        1,
+        5,
+        10,
+        15,
+        20
+      ],
+      "choiceOptions": [
+        "Aberration",
+        "Dragon",
+        "Giant",
+        "Monstrous Humanoid",
+        "Outsider (evil)",
+        "Undead"
+      ],
+      "uniqueChoices": true
+    }
   ]
 }
