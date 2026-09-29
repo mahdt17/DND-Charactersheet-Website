@@ -4,6 +4,7 @@ import classes from '../src/data/classes.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
 import {featureChoicePlan,applyFeatureChoices} from '../src/lib/featureChoices.js';
 import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections,legacyClassSkillStatus} from '../src/lib/classIntegration.js';
+import {armorFor} from '../src/lib/rules.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
   id:'test-character',name:'Automation Test',ruleset,mechanics:ruleset,level:classLevels.reduce((n,row)=>n+row.level,0),
@@ -181,6 +182,43 @@ const paladinVariantRemoved=removeClassProgression(paladinVariantMulti,paladinVa
 assert(!paladinVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===paladinVariant35.catalogId),'Removing Paladin Variant removes its source-owned features');
 assert(!Object.values(paladinVariantRemoved.featureChoices||{}).some(choice=>choice.sourceClassId===paladinVariant35.catalogId),'Removing Paladin Variant removes its Favored Enemy selections');
 assert(paladinVariantRemoved.actions.some(action=>action.id==='manual-action')&&paladinVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Paladin Variant preserves unrelated manual data');
+
+const druidVariant35=exact35('classes/druid-variant-952');
+const druidVariant20Base=baseCharacter([{catalogId:druidVariant35.catalogId,name:'Druid Variant',edition:'3.5',level:20,definition:druidVariant35}]);
+const druidVariant20=reconcileClassGrants(druidVariant20Base);
+assert.equal(druidVariant35.inheritedFromClassId,'dndtools:classes/druid-92','Druid Variant binds the exact reviewed Druid source');
+assert(!druidVariant20.grantedFeatures.some(feature=>feature.name==='Wild Shape'),'Druid Variant removes all Wild Shape progression');
+for(const retained of ['Spells','Animal Companion','Woodland Stride'])assert(druidVariant20.grantedFeatures.some(feature=>feature.name===retained),'Druid Variant retains '+retained);
+const druidVariantAC=druidVariant20.grantedFeatures.find(feature=>feature.name==='AC Bonus');
+assert.equal(druidVariantAC?.descriptionSource,'rule-text');
+assert.match(druidVariantAC?.description||'',/\+4 at 20th/i);
+const druidVariantFast=druidVariant20.grantedFeatures.find(feature=>feature.name==='Fast Movement');
+assert.deepEqual(druidVariantFast?.progressionHistory?.map(event=>event.level),[3,6,9,12,15,18]);
+assert.match(druidVariantFast?.description||'',/\+60 at 18th/i);
+const druidVariantEnemy=druidVariant20.grantedFeatures.find(feature=>feature.name==='Favored Enemy');
+assert.equal(druidVariantEnemy?.choiceKind,'favored-enemy');
+assert(druidVariantEnemy?.choiceOptions?.includes('Animal')&&druidVariantEnemy?.choiceOptions?.includes('Undead'));
+assert(druidVariant20.grantedFeatures.some(feature=>feature.name==='Swift Tracker'),'Druid Variant gains Ranger Swift Tracker');
+assert(druidVariant20.feats.some(feat=>feat.name==='Track'&&feat.sourceClassId===druidVariant35.catalogId),'Druid Variant gains Track as a class feat');
+const druidVariantTraining=druidVariant20.trainingGrants.flatMap(grant=>grant.proficiencies||[]);
+for(const weapon of ['club','dagger','quarterstaff','scimitar','sickle','sling','spear'])assert(druidVariantTraining.some(item=>item.index===weapon),'Druid Variant retains Druid weapon training: '+weapon);
+for(const removedTraining of ['light-armor','medium-armor','shields-except-tower'])assert(!druidVariantTraining.some(item=>item.index===removedTraining),'Druid Variant removes '+removedTraining+' proficiency');
+assert.equal(armorFor(druidVariant20,druidVariant20.abilities),18,'Druid Variant level 20 applies Wisdom plus +4 Monk-style class AC when unarmored');
+const druidVariant1={...druidVariant20Base,classLevels:[{...druidVariant20Base.classLevels[0],level:1}],level:1};
+const druidVariant1Plan=featureChoicePlan(druidVariant1,null);
+const druidVariantEnemy1=druidVariant1Plan.groups.find(group=>group.choiceKind==='favored-enemy');
+assert(druidVariantEnemy1?.options.includes('Animal'),'Druid Variant receives the full Ranger favored-enemy list');
+const druidVariant1Chosen=applyFeatureChoices(druidVariant1,null,{[druidVariantEnemy1.id]:['Animal']});
+assert(Object.values(druidVariant1Chosen.featureChoices).some(choice=>choice.choiceKind==='favored-enemy'&&choice.choices?.[0]==='Animal'));
+assert.equal(classAutomationReport(druidVariant20).classes[0].descriptionComplete,true,'Druid Variant retained and replacement mechanics are fully described');
+const druidVariantMulti=reconcileClassGrants({...druidVariant1Chosen,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:druidVariant35.catalogId,name:'Druid Variant',edition:'3.5',level:1,definition:druidVariant35}
+],level:2,className:'Fighter',classDefinition:fighter35});
+const druidVariantRemoved=removeClassProgression(druidVariantMulti,druidVariant35.catalogId);
+assert(!druidVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===druidVariant35.catalogId),'Removing Druid Variant removes its source-owned features');
+assert(!Object.values(druidVariantRemoved.featureChoices||{}).some(choice=>choice.sourceClassId===druidVariant35.catalogId),'Removing Druid Variant removes its Favored Enemy selections');
+assert(druidVariantRemoved.actions.some(action=>action.id==='manual-action')&&druidVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Druid Variant preserves unrelated manual data');
 
 const reviewedCleric35=exact35('classes/cleric-91');
 const cleric1=reconcileClassGrants(baseCharacter([{catalogId:reviewedCleric35.catalogId,name:'Cleric',edition:'3.5',level:1,definition:reviewedCleric35}]));
