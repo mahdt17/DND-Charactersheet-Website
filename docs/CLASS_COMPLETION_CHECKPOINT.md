@@ -7,8 +7,8 @@ Updated: 2026-09-29 (America/New_York)
 - Repository: `mahdt17/DND-Charactersheet-Website`
 - Branch: `codex/class-integration-engine`
 - Pull request: #8 — keep open, draft, and unmerged.
-- Last fully validated functional SHA: `a6123fe36ddc952a07456a98a71233efd5bdf176`
-- Full validation: [Validate modernization #1395](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36534180093) — **passed**
+- Last fully validated functional SHA: `6c5efa5c7263627337d8276121a6519a5488234a`
+- Full validation: [Validate modernization #1401](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36537213669) — **passed**
 - Supabase: unchanged.
 - Deploy/merge: not performed.
 
@@ -33,8 +33,18 @@ Updated: 2026-09-29 (America/New_York)
   - Woodland Stride, Camouflage, and Hide in Plain Sight are added to the Rogue Special Ability choice set at the normal 10/13/16/19 unlocks.
   - Hide in Plain Sight is fail-closed until Camouflage has already been selected.
   - The three Ranger-derived selections materialize complete standalone mechanics with referenced-source provenance; no “as the ranger ability” placeholder remains.
-  - Save/reopen, exact training/skills, invalid prerequisite, and multiclass source-removal regressions are preserved.
-  - Full source audit, unit/regression/build/browser validation passed #1395.
+  - Save/reopen, exact training/skills, invalid prerequisite, level 19, and multiclass source-removal regressions are preserved.
+  - Full source audit, unit/regression/build/browser validation passed #1401.
+- `classes/fighter-variant-953` — **Fighter Variant (Unearthed Arcana p. 58)** — complete.
+  - Binds specifically to `classes/fighter-93`, removes Fighter bonus feats, and grants source-owned Rogue Sneak Attack at levels 1/3/5/7/9/11/13/15/17/19.
+  - Exact training, standalone description/provenance, and source-removal lifecycle are regression-locked.
+- `classes/rogue-variant-958` — **Rogue Variant (Unearthed Arcana p. 58)** — complete.
+  - Binds specifically to `classes/rogue-97`, removes Sneak Attack, and grants Fighter-list bonus-feat choices at 1/2/4/6/8/10/12/14/16/18/20.
+  - Strict option filtering, save/reopen persistence, materialized selected feats, and source-removal lifecycle are regression-locked.
+- `classes/wizard-variant-959` — **Wizard Variant (Unearthed Arcana p. 59)** — complete.
+  - Binds specifically to `classes/wizard-99`, removes Scribe Scroll/normal Wizard bonus-feat progression, and grants Fighter-list bonus feats at 1/5/10/15/20.
+  - Wizard spellcasting and Familiar retention, strict option filtering, persistence, and source-removal lifecycle are regression-locked.
+  - Full source audit, unit/regression/build/browser validation for the three-variant batch passed #1401.
 
 ## Same-name records deliberately NOT inherited
 
@@ -47,7 +57,7 @@ Updated: 2026-09-29 (America/New_York)
 - Class inventory: **1,054 exact source IDs**.
 - Same-name scan: **107 groups covering 236 records**; name-based inheritance is not proof of equivalence.
 - Of those same-name groups, the bulk audit found **92 with structured mechanical differences**.
-- Tracker totals now: **6 complete**, **2 blocked**; all remaining records retain individual audit states.
+- Tracker totals now: **9 complete**, **2 blocked**; all remaining records retain individual audit states.
 - Current direct-summary count is **45** and remains a coverage metric only, never a completion count.
 - The next exact Unearthed Arcana p.58 records have been independently source-reviewed for batching; cross-class replacements are being split by implementation risk instead of being assumed equivalent.
 
@@ -67,9 +77,9 @@ Updated: 2026-09-29 (America/New_York)
 - Intentionally empty post-suppression grant lists do not fall back and resurrect parent features.
 - Derived features retain exact choice option lists through sheet reconciliation.
 
-## Next work
+## Next work for a future session
 
-1. Process the homogeneous Unearthed Arcana feature-swap batch: `classes/fighter-variant-953`, `classes/rogue-variant-958`, and `classes/wizard-variant-959`.
-2. Reuse only the specific verified Rogue Sneak Attack / Fighter bonus-feat mechanics; do not inherit unrelated class mechanics.
-3. Keep the remaining p.58 variants reviewed separately because they introduce companions, conditional smites, AC/speed changes, wild shape restrictions, or other higher-risk systems.
-4. Continue the feat/class-feature self-contained-description audit in parallel.
+- The Fighter Variant / Rogue Variant / Wizard Variant batch is complete and fully validated; do not redo it.
+- Keep the remaining Unearthed Arcana p.58 variants separate by implementation risk because they introduce companions, conditional smites, AC/speed changes, wild shape restrictions, or other higher-risk systems.
+- The self-contained-description audit currently has 9 unresolved feat records queued and 0 reviewed-description violations.
+- Resume from this checkpoint only when requested; no additional class or feat batch was started after #1401.

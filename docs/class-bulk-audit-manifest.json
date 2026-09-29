@@ -1185,7 +1185,7 @@
         "name": "Fighter Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "reviewed_partial",
+        "trackerStatus": "complete",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "5c2cd7a2"
@@ -1335,7 +1335,7 @@
         "name": "Rogue Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 58,
-        "trackerStatus": "reviewed_partial",
+        "trackerStatus": "complete",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "5ec55e7d"
@@ -1445,7 +1445,7 @@
         "name": "Wizard Variant",
         "sourceBook": "Base Class Unearthed Arcana",
         "sourcePage": 59,
-        "trackerStatus": "reviewed_partial",
+        "trackerStatus": "complete",
         "sameNameRecordCount": 1,
         "sameNameDistinctMechanics": 1,
         "mechanicsFingerprint": "2a505afc"
