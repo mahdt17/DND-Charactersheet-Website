@@ -336,7 +336,7 @@ function progressionTracks(record,maximum){
 
 function inheritedParentNames(record,entries=[]){
   if(record?.inheritanceChoice)return [record.inheritanceChoice];
-  if(Array.isArray(record?.inheritsFromOptions)&&record.inheritsFromOptions.length)return record.inheritsFromOptions;
+  if(Array.isArray(record?.inheritsFromOptions)&&record.inheritsFromOptions.length)return record.inheritsFromOptions.map(option=>option?.name||option).filter(Boolean);
   if(record?.inheritsFrom){
     const exact=(entries||[]).some(entry=>
       normalizeEdition(entry?.edition)==='3.5' &&
@@ -364,12 +364,22 @@ function resolveInheritedClass(record,entries=[],seen=new Set()){
     return sourceId===exactParentSourceId&&(entry.catalogId||entry.id)!==identity;
   }):null;
   if(exactParentSourceId&&!exactParent)return {...record,inheritanceRequired:true,inheritanceSourceMissing:true,inheritanceOptions:[]};
-  const parents=exactParent?[exactParent]:names.map(name=>(entries||[]).find(entry=>
-    normalizeEdition(entry?.edition)==='3.5' &&
-    (entry?.contentType==='class'||entry?.category==='class') &&
-    norm(entry.name)===norm(name) &&
-    (entry.catalogId||entry.id)!==identity
-  )).filter(Boolean);
+  const optionSpec=name=>(record.inheritsFromOptions||[]).find(option=>norm(option?.name||option)===norm(name));
+  const parentForName=name=>{
+    const spec=optionSpec(name),sourceId=String(spec?.sourceId||spec?.classId||'').replace(/^dndtools:/,'');
+    if(sourceId)return (entries||[]).find(entry=>{
+      if(normalizeEdition(entry?.edition)!=='3.5'||!((entry?.contentType==='class'||entry?.category==='class')))return false;
+      const entrySourceId=String(entry?.sourceId||entry?.catalogId||entry?.id||'').replace(/^dndtools:/,'');
+      return entrySourceId===sourceId&&(entry.catalogId||entry.id)!==identity;
+    });
+    return (entries||[]).find(entry=>
+      normalizeEdition(entry?.edition)==='3.5' &&
+      (entry?.contentType==='class'||entry?.category==='class') &&
+      norm(entry.name)===norm(name) &&
+      (entry.catalogId||entry.id)!==identity
+    );
+  };
+  const parents=exactParent?[exactParent]:names.map(parentForName).filter(Boolean);
   if(!parents.length)return record;
   if(parents.length>1&&!record.inheritanceChoice){
     return {
@@ -391,7 +401,10 @@ function resolveInheritedClass(record,entries=[],seen=new Set()){
   };
   filled.inheritanceRequired=false;
   filled.inheritanceChoice=parent.name;
-  filled.inheritanceOptions=exactParent?[{name:parent.name,classId:parent.catalogId||parent.id||null}]:(record.inheritsFromOptions||names).map(name=>({name,classId:(entries||[]).find(entry=>norm(entry.name)===norm(name))?.catalogId||null}));
+  filled.inheritanceOptions=exactParent?[{name:parent.name,classId:parent.catalogId||parent.id||null}]:(record.inheritsFromOptions||names).map(option=>{
+    const name=option?.name||option,parentRecord=parentForName(name);
+    return {name,classId:parentRecord?.catalogId||parentRecord?.id||null,...(option?.sourceId?{sourceId:option.sourceId}:{})};
+  });
   filled.inheritedFromClassId=resolved.catalogId||resolved.id||null;
   return filled;
 }
