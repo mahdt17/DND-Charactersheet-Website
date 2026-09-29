@@ -3937,5 +3937,21 @@
         "unit": "uses"
       }
     }
+  ],
+  "classes/monk-variant-954": [
+    {
+      "name": "AC Bonus (Ex)",
+      "level": 1,
+      "description": "While unarmored, unencumbered, and not using a shield, add your Wisdom bonus (if any) to Armor Class, including touch AC and while flat-footed. You lose this Wisdom-to-AC benefit while immobilized or helpless, while wearing armor, while using a shield, or while carrying a medium or heavy load. Unlike a standard Monk, this variant does not gain the additional +1 class AC bonus at 5th level or its later increases.",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-variant-954"
+    },
+    {
+      "name": "Damage Reduction",
+      "level": 7,
+      "description": "Gain damage reduction 1/- against weapon and natural-attack damage at 7th level. It improves to 2/- at 10th level, 3/- at 13th, 4/- at 16th, and 5/- at 19th. Damage reduction can reduce an instance of damage to 0 but not below 0.",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-variant-954",
+      "referencedSourceId": "classes/barbarian-89",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/barbarian.htm#damageReduction"
+    }
   ]
 }

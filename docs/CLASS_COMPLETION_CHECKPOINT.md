@@ -7,8 +7,8 @@ Updated: 2026-09-29 (America/New_York)
 - Repository: `mahdt17/DND-Charactersheet-Website`
 - Branch: `codex/class-integration-engine`
 - Pull request: #8 — keep open, draft, and unmerged.
-- Last fully validated functional SHA: `6c5efa5c7263627337d8276121a6519a5488234a`
-- Full validation: [Validate modernization #1401](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36537213669) — **passed**
+- Last fully validated functional SHA: `174e6a1d8e9e72d9522aa2a0da6aae08c38ba744`
+- Full validation: [Validate modernization #1403](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36609989469) — **passed**
 - Supabase: unchanged.
 - Deploy/merge: not performed.
 
@@ -45,6 +45,12 @@ Updated: 2026-09-29 (America/New_York)
   - Binds specifically to `classes/wizard-99`, removes Scribe Scroll/normal Wizard bonus-feat progression, and grants Fighter-list bonus feats at 1/5/10/15/20.
   - Wizard spellcasting and Familiar retention, strict option filtering, persistence, and source-removal lifecycle are regression-locked.
   - Full source audit, unit/regression/build/browser validation for the three-variant batch passed #1401.
+- `classes/ranger-variant-956` — **Ranger Variant (Unearthed Arcana p. 58)** — complete.
+  - Binds specifically to `classes/ranger-96` and removes Combat Style, Improved Combat Style, and Combat Style Mastery only.
+  - Gains source-owned Barbarian Fast Movement plus Druid Wild Shape restricted permanently to familiar Small or Medium animals.
+  - Wild Shape is a Standard action and scales from 1/day at 5th level to 6/day at 18th without importing Druid size, plant, or elemental expansions.
+  - Retained Ranger training/baseline mechanics, standalone descriptions/provenance, and source-removal cleanup are regression-locked.
+  - Full source audit, unit/regression/build/browser validation passed #1403.
 
 ## Same-name records deliberately NOT inherited
 
@@ -57,8 +63,8 @@ Updated: 2026-09-29 (America/New_York)
 - Class inventory: **1,054 exact source IDs**.
 - Same-name scan: **107 groups covering 236 records**; name-based inheritance is not proof of equivalence.
 - Of those same-name groups, the bulk audit found **92 with structured mechanical differences**.
-- Tracker totals now: **9 complete**, **2 blocked**; all remaining records retain individual audit states.
-- Current direct-summary count is **45** and remains a coverage metric only, never a completion count.
+- Tracker totals now: **10 complete**, **2 blocked**; all remaining records retain individual audit states.
+- Current direct-summary count is **50** and remains a coverage metric only, never a completion count.
 - The next exact Unearthed Arcana p.58 records have been independently source-reviewed for batching; cross-class replacements are being split by implementation risk instead of being assumed equivalent.
 
 ## Description-quality queue
@@ -77,9 +83,11 @@ Updated: 2026-09-29 (America/New_York)
 - Intentionally empty post-suppression grant lists do not fall back and resurrect parent features.
 - Derived features retain exact choice option lists through sheet reconciliation.
 
-## Next work for a future session
+## Next work
 
-- The Fighter Variant / Rogue Variant / Wizard Variant batch is complete and fully validated; do not redo it.
-- Keep the remaining Unearthed Arcana p.58 variants separate by implementation risk because they introduce companions, conditional smites, AC/speed changes, wild shape restrictions, or other higher-risk systems.
-- The self-contained-description audit currently has 9 unresolved feat records queued and 0 reviewed-description violations.
-- Resume from this checkpoint only when requested; no additional class or feat batch was started after #1401.
+- Ranger Variant is complete and fully validated; do not redo it.
+- Monk Variant implementation is now on the branch pending validation: exact Monk parent binding, Wisdom-only unarmored AC, no Monk Fast Movement, Barbarian DR 1/- through 5/-, and source-removal coverage.
+- The 3.5 AC calculator now distinguishes 3.5 Monk/Monk Variant from 5e-style Barbarian/Monk unarmored-defense rules; validate this before promoting Monk Variant.
+- After Monk, build the shared Favored Enemy progression needed by Barbarian Variant, Paladin Variant, and Druid Variant.
+- Then build the shared Animal Companion path needed by Bard Variant and Sorcerer/Wizard Variant.
+- The self-contained-description audit remains active; reviewed descriptions must stay standalone and exact-source-owned.

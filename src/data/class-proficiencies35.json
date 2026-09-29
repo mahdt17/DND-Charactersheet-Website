@@ -2836,6 +2836,32 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana p. 58 Ranger Variant independently reviewed. It retains Ranger baseline mechanics except that Combat Style, Improved Combat Style, and Combat Style Mastery are exchanged for Barbarian Fast Movement and Druid Wild Shape restricted to Small or Medium animal forms."
+    },
+    "classes/monk-variant-954": {
+      "name": "Monk Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-variant-954",
+      "inheritanceSourceId": "classes/monk-94",
+      "featureSuppressions": [
+        {
+          "name": "Fast Movement"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Damage Reduction",
+          "levels": [
+            7,
+            10,
+            13,
+            16,
+            19
+          ],
+          "referencedSourceId": "classes/barbarian-89",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/barbarian.htm#damageReduction"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Monk Variant independently reviewed. It retains Monk baseline mechanics except that it loses the enhancement bonus to unarmored speed and the class-level unarmored AC bonus while retaining Wisdom to AC; it gains Barbarian damage reduction progression."
     }
   }
 }

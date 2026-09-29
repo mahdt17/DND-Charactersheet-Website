@@ -90,6 +90,31 @@ assert.equal(palm?.max,1,'Quivering Palm is once per week');
 assert.equal(palm?.reset,'none');
 assert.match(palm?.recoveryText||'',/one week/i);
 assert.equal(monk20.resources.find(resource=>resource.name.toLowerCase()==='empty body')?.max,20,'Empty Body tracks monk-level ethereal rounds');
+const monkVariant35=exact35('classes/monk-variant-954');
+const monkVariant20=reconcileClassGrants(baseCharacter([{catalogId:monkVariant35.catalogId,name:'Monk Variant',edition:'3.5',level:20,definition:monkVariant35}]));
+assert.equal(monkVariant35.inheritedFromClassId,'dndtools:classes/monk-94','Monk Variant binds the exact reviewed Monk source');
+assert(!monkVariant20.grantedFeatures.some(feature=>feature.name==='Fast Movement'),'Monk Variant removes the Monk enhancement speed feature');
+const monkVariantAC=monkVariant20.grantedFeatures.find(feature=>feature.name==='AC Bonus');
+assert.equal(monkVariantAC?.descriptionSource,'rule-text');
+assert.match(monkVariantAC?.description||'',/Wisdom bonus/i);
+assert.match(monkVariantAC?.description||'',/does not gain the additional \+1 class AC bonus at 5th level/i);
+const monkVariantDR=monkVariant20.grantedFeatures.find(feature=>feature.name==='Damage Reduction');
+assert.equal(monkVariantDR?.descriptionSource,'rule-text');
+assert.deepEqual(monkVariantDR?.progressionHistory?.map(event=>event.level),[7,10,13,16,19]);
+assert.match(monkVariantDR?.description||'',/5\/- at 19th level/i);
+assert.match(monkVariantDR?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/barbarian/i);
+assert(monkVariant20.grantedFeatures.some(feature=>feature.name==='Perfect Self'),'Monk Variant retains Perfect Self');
+assert(monkVariant20.feats.some(feat=>feat.name==='Improved Unarmed Strike'&&feat.sourceClassId===monkVariant35.catalogId),'Monk Variant retains Monk automatic feats');
+for(const proficiency of ['club','crossbow-light','crossbow-heavy','dagger','handaxe','javelin','kama','nunchaku','quarterstaff','sai','shuriken','siangham','sling'])assert(monkVariant20.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Monk Variant retains Monk training: '+proficiency);
+assert.equal(classAutomationReport(monkVariant20).classes[0].descriptionComplete,true,'Monk Variant retained and replacement mechanics are fully described');
+const monkVariantMulti=reconcileClassGrants({...monkVariant20,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:monkVariant35.catalogId,name:'Monk Variant',edition:'3.5',level:20,definition:monkVariant35}
+],level:21,className:'Fighter',classDefinition:fighter35});
+const monkVariantRemoved=removeClassProgression(monkVariantMulti,monkVariant35.catalogId);
+assert(!monkVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===monkVariant35.catalogId),'Removing Monk Variant removes its source-owned features');
+assert(monkVariantRemoved.actions.some(action=>action.id==='manual-action')&&monkVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Monk Variant preserves unrelated manual data');
+
 const reviewedCleric35=exact35('classes/cleric-91');
 const cleric1=reconcileClassGrants(baseCharacter([{catalogId:reviewedCleric35.catalogId,name:'Cleric',edition:'3.5',level:1,definition:reviewedCleric35}]));
 assert.equal(cleric1.grantedFeatures.find(feature=>feature.name==='Spontaneous Casting')?.descriptionSource,'rule-text');

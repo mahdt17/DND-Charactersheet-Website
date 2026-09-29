@@ -51,12 +51,27 @@ export function changeHP(hp, amount, healing=false) {
   const absorbed=Math.min(hp.temp||0,amount);
   return {...hp,temp:(hp.temp||0)-absorbed,current:Math.max(0,hp.current-(amount-absorbed))};
 }
+const legacySourceId=row=>String(row?.definition?.sourceId||row?.definition?.id||row?.catalogId||'').replace(/^dndtools:/,'');
+function legacyClassLevel(char,sourceId,fallbackName=''){
+  const rows=Array.isArray(char?.classLevels)?char.classLevels:[];
+  const exact=rows.filter(row=>legacySourceId(row)===sourceId).reduce((n,row)=>n+Math.max(0,Number(row.level)||0),0);
+  if(exact)return exact;
+  if(!rows.length&&char?.className===fallbackName)return Math.max(0,Number(char.level)||0);
+  return 0;
+}
 export function armorFor(char, abilities) {
   const dex=modifier(abilities.dex),con=modifier(abilities.con),wis=modifier(abilities.wis);
   const worn=(char.inventory||[]).filter(i=>i.equipped).map(i=>equipment.find(e=>e.index===i.equipmentIndex)).filter(Boolean);
   const shield=worn.some(e=>e.index==='shield');
   const armor=worn.filter(e=>e.armor_class&&e.index!=='shield');
   if(armor.length){const e=armor[0];return e.armor_class.base+(e.armor_class.dex_bonus?Math.min(dex,e.armor_class.max_bonus??Infinity):0)+(shield?2:0);}
+  const legacy35=char?.ruleset==='3.5'||char?.mechanics==='3.5';
+  if(legacy35){
+    const monkLevel=legacyClassLevel(char,'classes/monk-94','Monk');
+    const monkVariantLevel=legacyClassLevel(char,'classes/monk-variant-954','Monk Variant');
+    if(!shield&&(monkLevel||monkVariantLevel))return 10+dex+wis+Math.min(4,Math.floor(monkLevel/5));
+    return 10+dex+(shield?2:0);
+  }
   const base=char.className==='Barbarian'?10+dex+con:char.className==='Monk'&&!shield?10+dex+wis:10+dex;
   return base+(shield?2:0);
 }

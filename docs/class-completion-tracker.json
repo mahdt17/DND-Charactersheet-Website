@@ -4,10 +4,10 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "6c5efa5c7263627337d8276121a6519a5488234a",
+  "snapshotCommit": "174e6a1d8e9e72d9522aa2a0da6aae08c38ba744",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
-  "directSummaryRecordCount": 48,
+  "directSummaryRecordCount": 50,
   "initializationNote": "Pending means not assessed against the complete-workflow gate. It does not mean prior reviews or implementations are absent. Never infer completion from a summary array or a matching class name.",
   "entries": [
     {
@@ -12681,7 +12681,7 @@
       "featureIntegration": "partial",
       "sheetAutomation": "partial",
       "validation": "pending",
-      "existingDirectSummaryCount": 0,
+      "existingDirectSummaryCount": 2,
       "existingProfileParent": null,
       "featureRequirements": [
         "Retain Monk baseline except the exact Unearthed Arcana exchange.",
@@ -12689,16 +12689,18 @@
         "Grant Barbarian damage reduction progression."
       ],
       "gaps": [
-        "Exact partial AC/speed suppression and Barbarian DR progression need structured sheet automation."
+        "Implementation is present in the current batch but requires full validation before completion."
       ],
       "dependencies": [],
       "evidence": [
-        "Exact source independently reviewed: https://new.dndtools.org/classes/monk-variant-954 (Base Class Unearthed Arcana, p. source page).",
-        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+        "Exact source independently reviewed: https://new.dndtools.org/classes/monk-variant-954 (Unearthed Arcana p. 58).",
+        "Implementation binds specifically to classes/monk-94, suppresses Monk Fast Movement, overrides AC Bonus so Wisdom-to-AC remains but the level-based class AC bonus is removed, and adds Barbarian damage reduction at 7/10/13/16/19.",
+        "The shared AC calculator is corrected for 3.5 semantics: canonical Monk gains Wisdom plus its level-based AC bonus, Monk Variant gains Wisdom only, and 3.5 Barbarian no longer receives the 5e Constitution-to-AC rule.",
+        "Full validation is still required before this exact source can be promoted to complete."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Implement the defense/movement substitutions without suppressing the retained Wisdom-to-AC benefit."
+      "nextAction": "Run full validation and promote only if exact AC behavior, Fast Movement suppression, Barbarian DR progression, retained Monk mechanics, and source-removal regressions pass."
     },
     {
       "sourceId": "classes/monk-variant-fighting-styles-949",
@@ -14874,29 +14876,32 @@
       "name": "Ranger Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-variant-956",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "pending",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
+      "existingDirectSummaryCount": 2,
       "existingProfileParent": null,
       "featureRequirements": [
         "Retain Ranger baseline except the exact Unearthed Arcana exchange.",
         "Remove Combat Style, Improved Combat Style, and Combat Style Mastery.",
         "Grant Druid Wild Shape restricted to Small or Medium animals plus Barbarian Fast Movement."
       ],
-      "gaps": [
-        "Wild Shape size restriction and Barbarian Fast Movement need exact standalone source-owned automation."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
-        "Exact source independently reviewed: https://new.dndtools.org/classes/ranger-variant-956 (Base Class Unearthed Arcana, p. source page).",
-        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+        "Exact source independently reviewed: https://new.dndtools.org/classes/ranger-variant-956 (Unearthed Arcana p. 58).",
+        "Exact parent binding uses classes/ranger-96; same-name Ranger records are not substituted.",
+        "Combat Style, Improved Combat Style, and Combat Style Mastery are suppressed without removing the rest of the Ranger baseline.",
+        "Barbarian Fast Movement and Druid Wild Shape are materialized as source-owned standalone features with referenced-source provenance.",
+        "Wild Shape remains restricted to familiar Small or Medium animals, scales from 1/day at 5th level to 6/day at 18th, and does not import Druid Large/Tiny/Huge/plant/elemental expansions.",
+        "Wild Shape action/resource automation, retained Ranger training, complete descriptions, and source-removal cleanup are regression-locked.",
+        "Validate modernization #1403 passed full unit/class/feat/spell/item/build/browser validation at 174e6a1d8e9e72d9522aa2a0da6aae08c38ba744."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Reuse only verified Wild Shape/Fast Movement mechanics with the variant-specific restrictions."
+      "verifiedCommit": "174e6a1d8e9e72d9522aa2a0da6aae08c38ba744",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36609989469",
+      "nextAction": "Complete; retain exact-parent, Wild Shape restriction/scaling, provenance, training, and source-removal regressions."
     },
     {
       "sourceId": "classes/raumathari-battlemage-889",
