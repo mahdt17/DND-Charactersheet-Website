@@ -78,5 +78,54 @@ try {
  assert.equal((expertReopened.classSkills35||[]).filter(skill=>skill.sourceClassId==='dndtools:classes/expert-33').length,10,'Expert class-skill choices survive save/reopen');
  console.log('PASS 3.5 Expert exact ten class-skill choices, eligibility, persistence and source-owned class-skill grants');
 
+ const druidCompanionName='Guided Druid Companion 3.5';
+ await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.getByRole('button',{name:'Create character',exact:true}).click();
+ await page.getByLabel('Character name',{exact:true}).fill(druidCompanionName);
+ await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
+ await page.getByLabel('Search class').fill('Druid');await page.locator('[data-catalog-id="dndtools:classes/druid-92"]').click();await next();
+ await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Druid creation waits for its Animal Companion');
+ const druidWolfChoice=page.getByLabel('Druid 1 Animal Companion: Wolf',{exact:true});
+ assert.equal(await druidWolfChoice.count(),1,'Druid exposes Wolf as a legal starting companion');
+ assert.equal(await page.getByLabel('Druid 1 Animal Companion: Ape',{exact:true}).count(),0,'Druid level 1 hides level-4 alternative companions');
+ await druidWolfChoice.check();
+ assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+ await page.getByRole('button',{name:'Create Character',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:druidCompanionName}).waitFor();
+ const druidCompanionSaved=await saved(druidCompanionName);
+ assert(Object.values(druidCompanionSaved.featureChoices||{}).some(choice=>choice.choiceKind==='animal-companion'&&choice.choices?.[0]==='Wolf'));
+ assert((druidCompanionSaved.grantedFeatures||[]).some(feature=>feature.companionName==='Wolf'&&feature.companionEffectiveDruidLevel===1));
+ assert((druidCompanionSaved.classProgressionTracks||[]).some(track=>track.name==='Animal Companion'&&track.companionName==='Wolf'&&track.companionEffectiveDruidLevel===1));
+ console.log('PASS 3.5 Druid guided Animal Companion selection, eligibility, persistence and progression');
+
+ const swCompanionName='Guided Sorcerer Wizard Companion 3.5';
+ await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.getByRole('button',{name:'Create character',exact:true}).click();
+ await page.getByLabel('Character name',{exact:true}).fill(swCompanionName);
+ await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
+ await page.getByLabel('Search class').fill('Sorcerer/Wizard Variant');
+ await page.locator('[data-catalog-id="dndtools:classes/sorcererwizard-variant-957"]').click();
+ const parentChoice=page.getByLabel('Variant base class',{exact:true});
+ await parentChoice.selectOption('Sorcerer');
+ assert.equal(await parentChoice.locator('option',{hasText:'Wizard'}).count(),1,'Sorcerer/Wizard Variant exposes both exact parent choices');
+ await next();
+ await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Sorcerer/Wizard Variant creation waits for its replacement Animal Companion');
+ const swWolfChoice=page.getByLabel('Sorcerer/Wizard Variant 1 Animal Companion: Wolf',{exact:true});
+ assert.equal(await swWolfChoice.count(),1,'Half-level Sorcerer parent still exposes standard companions at level 1');
+ assert.equal(await page.getByLabel('Sorcerer/Wizard Variant 1 Animal Companion: Ape',{exact:true}).count(),0,'Half-level Sorcerer parent hides level-4 alternatives at level 1');
+ await swWolfChoice.check();
+ assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+ await page.getByRole('button',{name:'Create Character',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:swCompanionName}).waitFor();
+ const swCompanionSaved=await saved(swCompanionName);
+ assert.equal(swCompanionSaved.classDefinition?.inheritedFromClassId,'dndtools:classes/sorcerer-98','Guided setup persists the exact PHB Sorcerer parent');
+ assert(Object.values(swCompanionSaved.featureChoices||{}).some(choice=>choice.choiceKind==='animal-companion'&&choice.choices?.[0]==='Wolf'));
+ assert((swCompanionSaved.grantedFeatures||[]).some(feature=>feature.companionName==='Wolf'&&feature.baseEffectiveDruidLevel===0&&feature.companionEffectiveDruidLevel===0));
+ console.log('PASS 3.5 Sorcerer/Wizard Variant exact parent choice and half-level Animal Companion creation');
+
  assert.deepEqual(errors,[]);
 } catch(e){await page.screenshot({path:'test-results/feature-choices-failure.png',fullPage:true});throw e;} finally {await browser.close();await server.close();}
