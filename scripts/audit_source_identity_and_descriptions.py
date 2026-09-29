@@ -20,7 +20,7 @@ PATTERNS=[
  re.compile(r"\b(?:effect|field|ability)\s+(?:is|are)\s+identical\s+to\s+(?:that|those)\s+of\b",re.I),
  re.compile(r"^\s*as\s+the\s+[^.;\n]{1,80}\s+feat\b[^\n]*(?:except|but)\b",re.I|re.M),
  re.compile(r"\bduplicate(?:s|d|\s+the)?\s+effects?\s+of\b",re.I),
- re.compile(r"\bas\s+(?:the\s+)?[A-Z][A-Za-z0-9'’ -]{1,60}\s+feat\b",re.I),
+ re.compile(r"\bas\s+the\s+[A-Z][A-Za-z0-9\'’]*(?:\s+[A-Z][A-Za-z0-9\'’]*){0,5}\s+feat\b"),
 ]
 GENERIC=re.compile(r"\bfunctions?\s+as\s+(?:an?\s+)?(?:spell-like|supernatural|extraordinary|psi-like)\s+abilit(?:y|ies)\b",re.I)
 
