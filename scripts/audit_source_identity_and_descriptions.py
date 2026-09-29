@@ -20,10 +20,9 @@ PATTERNS=[
  re.compile(r"\b(?:effect|field|ability)\s+(?:is|are)\s+identical\s+to\s+(?:that|those)\s+of\b",re.I),
  re.compile(r"^\s*as\s+the\s+[^.;\n]{1,80}\s+feat\b[^\n]*(?:except|but)\b",re.I|re.M),
  re.compile(r"\bduplicate(?:s|d|\s+the)?\s+effects?\s+of\b",re.I),
- re.compile(r"^\s*see\s+[^.!?\n]{2,140}[.!]?\s*$",re.I|re.M),
+ re.compile(r"^\s*See\s+(?:[A-Z][A-Za-z0-9'’()-]*)(?:\s+[A-Z][A-Za-z0-9'’()-]*){0,5}(?:\s+\([^\n)]{1,40}\))?[.!]?\s*$",re.M),
  re.compile(r"^\s*uses?\s+(?:the\s+)?(?:core\s+)?[^.!?\n]{1,80}\s+rules\b",re.I|re.M),
  re.compile(r"\bfunctions?\s+as\s+(?:the\s+)?[^.;\n]{1,80}\b(?:except|but)\b",re.I),
- re.compile(r"\bas\s+described\s+(?:in|under)\s+[^.;\n]{1,100}",re.I),
 ]
 GENERIC=re.compile(r"\bfunctions?\s+as\s+(?:an?\s+)?(?:spell-like|supernatural|extraordinary|psi-like)\s+abilit(?:y|ies)\b",re.I)
 
