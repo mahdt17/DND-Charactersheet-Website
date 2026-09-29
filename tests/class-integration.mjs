@@ -201,6 +201,39 @@ assert(!wizardVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId
 assert(!wizardVariantRemoved.feats.some(feat=>feat.sourceType==='class-choice'&&feat.sourceClassId===wizardVariant35.catalogId),'Removing Wizard Variant removes its selected Fighter-list bonus feats');
 assert(wizardVariantRemoved.actions.some(action=>action.id==='manual-action'),'Removing Wizard Variant preserves manual actions');
 
+const rangerVariant35=exact35('classes/ranger-variant-956');
+const rangerVariant18=reconcileClassGrants(baseCharacter([{catalogId:rangerVariant35.catalogId,name:'Ranger Variant',edition:'3.5',level:18,definition:rangerVariant35}]));
+assert.equal(rangerVariant35.inheritedFromClassId,'dndtools:classes/ranger-96','Ranger Variant binds the exact reviewed Ranger source');
+for(const removed of ['Combat Style','Improved Combat Style','Combat Style Mastery'])assert(!rangerVariant18.grantedFeatures.some(feature=>feature.name===removed),'Ranger Variant removes '+removed);
+for(const retained of ['Favored Enemy','Track','Endurance'])assert(rangerVariant18.grantedFeatures.some(feature=>feature.name===retained)||rangerVariant18.feats.some(feat=>feat.name===retained),'Ranger Variant retains Ranger mechanic: '+retained);
+const rangerVariantFast=rangerVariant18.grantedFeatures.find(feature=>feature.name==='Fast Movement');
+assert.equal(rangerVariantFast?.descriptionSource,'rule-text');
+assert.match(rangerVariantFast?.description||'',/land speed increases by 10 feet/i);
+assert.match(rangerVariantFast?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/barbarian/i);
+const rangerVariantWild=rangerVariant18.grantedFeatures.find(feature=>feature.name==='Wild Shape');
+assert.equal(rangerVariantWild?.descriptionSource,'rule-text');
+assert.deepEqual(rangerVariantWild?.progressionHistory?.map(event=>event.level),[5,6,7,10,14,18]);
+assert.match(rangerVariantWild?.description||'',/Small or Medium animal/i);
+assert.match(rangerVariantWild?.description||'',/do not gain.*Large.*Tiny.*Huge.*plant.*elemental/i);
+assert.match(rangerVariantWild?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/druid/i);
+assert.equal(rangerVariant18.actions.find(action=>action.name==='Wild Shape')?.type,'Standard action');
+assert.equal(rangerVariant18.resources.find(resource=>resource.name==='Wild Shape')?.max,6);
+const rangerVariant5=reconcileClassGrants(baseCharacter([{catalogId:rangerVariant35.catalogId,name:'Ranger Variant',edition:'3.5',level:5,definition:rangerVariant35}]));
+assert.equal(rangerVariant5.resources.find(resource=>resource.name==='Wild Shape')?.max,1);
+const rangerVariant10=reconcileClassGrants(baseCharacter([{catalogId:rangerVariant35.catalogId,name:'Ranger Variant',edition:'3.5',level:10,definition:rangerVariant35}]));
+assert.equal(rangerVariant10.resources.find(resource=>resource.name==='Wild Shape')?.max,4);
+for(const proficiency of ['light-armor','shields-except-tower','simple-weapons','martial-weapons'])assert(rangerVariant18.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Ranger Variant retains Ranger training: '+proficiency);
+assert.equal(classAutomationReport(rangerVariant18).classes[0].descriptionComplete,true,'Ranger Variant retained and replacement mechanics are fully described');
+const rangerVariantMulti=reconcileClassGrants({...rangerVariant18,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:rangerVariant35.catalogId,name:'Ranger Variant',edition:'3.5',level:18,definition:rangerVariant35}
+],level:19,className:'Fighter',classDefinition:fighter35});
+const rangerVariantRemoved=removeClassProgression(rangerVariantMulti,rangerVariant35.catalogId);
+assert(!rangerVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===rangerVariant35.catalogId),'Removing Ranger Variant removes its Fast Movement and Wild Shape features');
+assert(!rangerVariantRemoved.actions.some(action=>action.sourceClassId===rangerVariant35.catalogId),'Removing Ranger Variant removes its Wild Shape action');
+assert(!rangerVariantRemoved.resources.some(resource=>resource.sourceClassId===rangerVariant35.catalogId),'Removing Ranger Variant removes its Wild Shape resource');
+assert(rangerVariantRemoved.actions.some(action=>action.id==='manual-action')&&rangerVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Ranger Variant preserves unrelated manual data');
+
 const wildernessRogue35=exact35('classes/wilderness-rogue-136');
 const wildernessRogue16Base=baseCharacter([{catalogId:wildernessRogue35.catalogId,name:'Wilderness Rogue',edition:'3.5',level:16,definition:wildernessRogue35}]);
 const wildernessRogue16=reconcileClassGrants({

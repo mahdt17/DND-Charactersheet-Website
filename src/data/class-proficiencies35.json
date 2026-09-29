@@ -2797,6 +2797,45 @@
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana p. 59 Wizard Variant independently reviewed. It replaces Scribe Scroll and the normal Wizard bonus-feat list with Fighter-list bonus feats at 1st level and every five Wizard Variant levels thereafter.",
       "inheritanceSourceId": "classes/wizard-99"
+    },
+    "classes/ranger-variant-956": {
+      "name": "Ranger Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-variant-956",
+      "inheritanceSourceId": "classes/ranger-96",
+      "featureSuppressions": [
+        {
+          "name": "Combat Style"
+        },
+        {
+          "name": "Improved Combat Style"
+        },
+        {
+          "name": "Combat Style Mastery"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Fast Movement",
+          "level": 1,
+          "referencedSourceId": "classes/barbarian-89",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/barbarian.htm#barbarianFastMovement"
+        },
+        {
+          "name": "Wild Shape",
+          "levels": [
+            5,
+            6,
+            7,
+            10,
+            14,
+            18
+          ],
+          "referencedSourceId": "classes/druid-92",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#wildShape"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Ranger Variant independently reviewed. It retains Ranger baseline mechanics except that Combat Style, Improved Combat Style, and Combat Style Mastery are exchanged for Barbarian Fast Movement and Druid Wild Shape restricted to Small or Medium animal forms."
     }
   }
 }

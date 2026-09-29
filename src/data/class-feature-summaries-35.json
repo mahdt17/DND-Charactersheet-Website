@@ -3905,5 +3905,37 @@
       "referencedSourceId": "classes/fighter-93",
       "referencedSourceUrl": "https://www.d20srd.org/srd/classes/fighter.htm#bonusFeats"
     }
+  ],
+  "classes/ranger-variant-956": [
+    {
+      "name": "Fast Movement",
+      "level": 1,
+      "description": "Your land speed increases by 10 feet while you wear no armor, light armor, or medium armor and are not carrying a heavy load. Apply this bonus before reductions from armor or encumbrance.",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-variant-956",
+      "referencedSourceId": "classes/barbarian-89",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/barbarian.htm#barbarianFastMovement"
+    },
+    {
+      "name": "Wild Shape",
+      "level": 5,
+      "description": "At 5th level, you can change into a familiar Small or Medium animal and back once per day. Changing form is a standard action, does not provoke an attack of opportunity, and the animal form lasts up to 1 hour per Ranger Variant level or until you revert. Your allowed forms remain Small or Medium animals only; you do not gain the Druid's later Large, Tiny, Huge, plant, or elemental form expansions. Daily uses increase to 2 at 6th level, 3 at 7th, 4 at 10th, 5 at 14th, and 6 at 18th.",
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-variant-956",
+      "referencedSourceId": "classes/druid-92",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#wildShape",
+      "actionType": "Standard action",
+      "resource": {
+        "maxByLevel": {
+          "5": 1,
+          "6": 2,
+          "7": 3,
+          "10": 4,
+          "14": 5,
+          "18": 6
+        },
+        "period": "day",
+        "reset": "long",
+        "unit": "uses"
+      }
+    }
   ]
 }
