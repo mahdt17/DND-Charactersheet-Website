@@ -1252,4 +1252,42 @@ for(const [removedDefinition,remainingDefinition] of [[aristocrat35,warriorNpc35
   assert(without.feats.some(feat=>feat.id==='manual-feat'),'manual feats survive NPC class removal');
 }
 
+
+// Large safe batch: exact-source martial and noncasting classes with reviewed rule text and verified training.
+const largeSafeBatch35=[
+  'classes/barbarian-89',
+  'classes/fighter-93',
+  'classes/knight-103',
+  'classes/monk-94',
+  'classes/ninja-1',
+  'classes/rogue-97',
+  'classes/scout-2',
+  'classes/soulknife-139',
+  'classes/swashbuckler-23'
+];
+for(const sourceId of largeSafeBatch35){
+  const definition=exact35(sourceId);
+  assert(definition,sourceId+' exact class exists');
+  const sheet=classSheet(definition,20);
+  const report=classAutomationReport(sheet).classes[0];
+  assert.equal(report.progressionComplete,true,sourceId+' has complete structured progression');
+  assert.equal(report.descriptionReady,true,sourceId+' has descriptions for every granted feature');
+  assert.equal(report.descriptionComplete,true,sourceId+' uses reviewed source-owned rule text rather than progression placeholders');
+  assert.equal(report.complete,true,sourceId+' has no structural class-automation gap');
+  assert(sheet.trainingGrants.some(grant=>grant.sourceClassId===definition.catalogId),sourceId+' has verified source-owned starting training');
+  assert.deepEqual(reconcileClassGrants(JSON.parse(JSON.stringify(sheet))),sheet,sourceId+' reconciliation is idempotent');
+  const anchorDefinition=sourceId==='classes/fighter-93'?exact35('classes/rogue-97'):exact35('classes/fighter-93');
+  const dual=reconcileClassGrants(baseCharacter([
+    {catalogId:anchorDefinition.catalogId,name:anchorDefinition.name,edition:'3.5',level:1,definition:anchorDefinition},
+    {catalogId:definition.catalogId,name:definition.name,edition:'3.5',level:20,definition}
+  ]));
+  const removed=removeClassProgression(dual,definition.catalogId);
+  assert(!removed.grantedFeatures.some(item=>item.sourceClassId===definition.catalogId),sourceId+' removal clears source-owned features');
+  assert(!removed.actions.some(item=>item.sourceClassId===definition.catalogId),sourceId+' removal clears source-owned actions');
+  assert(!removed.resources.some(item=>item.sourceClassId===definition.catalogId),sourceId+' removal clears source-owned resources');
+  assert(!removed.trainingGrants.some(item=>item.sourceClassId===definition.catalogId),sourceId+' removal clears source-owned training');
+  assert(removed.actions.some(item=>item.id==='manual-action')&&removed.feats.some(item=>item.id==='manual-feat'),sourceId+' removal preserves unrelated manual data');
+}
+console.log('PASS large 9-class exact-source batch: completeness, reviewed descriptions, training, idempotence and source removal');
+
 console.log('PASS class reconciliation: reviewed features, level-scaled actions, multiclassing, source isolation, idempotence, and safe removal');

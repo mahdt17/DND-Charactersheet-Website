@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-29",
+  "repository": "mahdt17/DND-Charactersheet-Website",
+  "branch": "codex/class-integration-engine",
+  "parentCommit": "06a88b42a935d8b19831a448bc06306ef8aa1bb8",
+  "routing": [
+    "Exa discovery",
+    "Tavily advanced extraction",
+    "deterministic completeness checks",
+    "existing regressions",
+    "full CI"
+  ],
+  "firecrawlFallbacks": 0,
+  "classes": [
+    {
+      "sourceId": "classes/barbarian-89",
+      "name": "Barbarian",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-89",
+      "exaDiscovery": "corroborating references found",
+      "tavilyExtraction": "pass",
+      "objectiveChecks": {
+        "level20": true,
+        "classSkills": true,
+        "tableIntegrity": true,
+        "contamination": false,
+        "keyFeatures": [
+          "Rage",
+          "Fast Movement",
+          "Uncanny Dodge"
+        ]
+      },
+      "preCiStatus": "reviewed_partial"
+    },
+    {
+      "sourceId": "classes/fighter-93",
+      "name": "Fighter",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/fighter-93",
+      "exaDiscovery": "corroborating references found",
+      "tavilyExtraction": "pass",
+      "objectiveChecks": {
+        "level20": true,
+        "classSkills": true,
+        "tableIntegrity": true,
+        "contamination": false,
+        "keyFeatures": [
+          "Bonus Feat",
+          "Weapon and Armor Proficiency"
+        ]
+      },
+      "preCiStatus": "reviewed_partial"
+    },
+    {
+      "sourceId": "classes/knight-103",
+      "name": "Knight",
+      "sourceBook": "Base Class Player's Handbook II",
+      "sourceUrl": "https://new.dndtools.org/classes/knight-103",
+      "exaDiscovery": "corroborating references found",
+      "tavilyExtraction": "pass",
+      "objectiveChecks": {
+        "level20": true,
+        "classSkills": true,
+        "tableIntegrity": true,
+        "contamination": false,
+        "keyFeatures": [
+          "Knight’s Challenge",
+          "Fighting Challenge",
+          "Test of Mettle"
+        ]
+      },
+      "preCiStatus": "reviewed_partial"
+    },
+    {
+      "sourceId": "classes/monk-94",
+      "name": "Monk",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/monk-94",
+      "exaDiscovery": "corroborating references found",
+      "tavilyExtraction": "pass",
+      "objectiveChecks": {
+        "level20": true,
+        "classSkills": true,
+        "tableIntegrity": true,
+        "contamination": false,
+        "keyFeatures": [
+          "Flurry of Blows",
+          "Wholeness of Body",
+          "Quivering Palm"
+        ]
+      },
+      "preCiStatus": "reviewed_partial"
+    },
+    {
+      "sourceId": "classes/ninja-1",
+      "name": "Ninja",
+      "sourceBook": "Base Class Complete Adventurer",
+      "sourceUrl": "https://new.dndtools.org/classes/ninja-1",
+      "exaDiscovery": "corroborating references found",
+      "tavilyExtraction": "pass",
+      "objectiveChecks": {
+        "level20": true,
+        "classSkills": true,
+        "tableIntegrity": true,
+        "contamination": false,
+        "keyFeatures": [
+          "Ki Power",
+          "Ghost Step",
+          "Ki Dodge"
+        ]
+      },
+      "preCiStatus": "reviewed_partial"
+    },
+    {
+      "sourceId": "classes/rogue-97",
+      "name": "Rogue",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/rogue-97",
+      "exaDiscovery": "corroborating references found",
+      "tavilyExtraction": "pass",
+      "objectiveChecks": {
+        "level20": true,
+        "classSkills": true,
+        "tableIntegrity": true,
+        "contamination": false,
+        "keyFeatures": [
+          "Sneak Attack",
+          "Trapfinding",
+          "Special Abilities"
+        ]
+      },
+      "preCiStatus": "reviewed_partial"
+    },
+    {
+      "sourceId": "classes/scout-2",
+      "name": "Scout",
+      "sourceBook": "Base Class Complete Adventurer",
+      "sourceUrl": "https://new.dndtools.org/classes/scout-2",
+      "exaDiscovery": "corroborating references found",
+      "tavilyExtraction": "pass",
+      "objectiveChecks": {
+        "level20": true,
+        "classSkills": true,
+        "tableIntegrity": true,
+        "contamination": false,
+        "keyFeatures": [
+          "Skirmish",
+          "Bonus Feats",
+          "Battle Fortitude"
+        ]
+      },
+      "preCiStatus": "reviewed_partial"
+    },
+    {
+      "sourceId": "classes/soulknife-139",
+      "name": "Soulknife",
+      "sourceBook": "Base Class Expanded Psionics Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/soulknife-139",
+      "exaDiscovery": "corroborating references found",
+      "tavilyExtraction": "pass",
+      "objectiveChecks": {
+        "level20": true,
+        "classSkills": true,
+        "tableIntegrity": true,
+        "contamination": false,
+        "keyFeatures": [
+          "Mind Blade",
+          "Psychic Strike",
+          "Knife to the Soul"
+        ]
+      },
+      "preCiStatus": "reviewed_partial"
+    },
+    {
+      "sourceId": "classes/swashbuckler-23",
+      "name": "Swashbuckler",
+      "sourceBook": "Base Class Complete Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/swashbuckler-23",
+      "exaDiscovery": "corroborating references found",
+      "tavilyExtraction": "pass",
+      "objectiveChecks": {
+        "level20": true,
+        "classSkills": true,
+        "tableIntegrity": true,
+        "contamination": false,
+        "keyFeatures": [
+          "Weapon Finesse",
+          "Insightful Strike",
+          "Lucky"
+        ]
+      },
+      "preCiStatus": "reviewed_partial"
+    }
+  ],
+  "exceptions": [
+    {
+      "sourceId": "classes/expert2-124",
+      "name": "Expert",
+      "sourceUrl": "https://new.dndtools.org/classes/expert2-124",
+      "status": "needs-review",
+      "reason": "Selectable generic-class base save progression is source-required but not modeled/persisted."
+    },
+    {
+      "sourceId": "classes/warrior2-135",
+      "name": "Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/warrior2-135",
+      "status": "needs-review",
+      "reason": "Selectable generic-class base save progression is source-required but not modeled/persisted."
+    }
+  ]
+}

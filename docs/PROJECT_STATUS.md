@@ -72,3 +72,13 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Binder now has source-verified starting proficiencies and class skills, but remains needs-review until a reusable binding/vestige subsystem is implemented.
 - Firecrawl fallback count for this new workflow remains zero. Supabase was not modified.
 - Excel reporting is generated as a checkpoint layer from repository progress data; GitHub remains canonical.
+
+## 2026-09-29 larger class batch
+
+- Selected a 9-class safe promotion batch after filtering pending records for reviewed feature summaries, verified training data, exact-source identity, existing mechanic-specific regressions, and absence of known incomplete spell/aura/binding/manifesting subsystems.
+- Batch: PHB Barbarian, PHB Fighter, PHB Monk, PHB Rogue, PHB II Knight, Complete Adventurer Ninja, Complete Adventurer Scout, XPH Soulknife, and Complete Warrior Swashbuckler.
+- Exa discovery produced corroborating 3.5 references for the batch; Tavily advanced extraction passed all nine exact source pages on the first pass for level-20 progression, class skills, table integrity, key mechanics, and contamination checks.
+- Firecrawl fallback usage remains zero.
+- Added one batch regression gate for progression completeness, reviewed descriptions, verified training, idempotent reconciliation, and source-removal cleanup.
+- Unearthed Arcana generic Expert and generic Warrior were deliberately peeled into `needs-review`: both require selectable good/poor base-save progressions, and that choice is not yet represented as structured persisted class state.
+- Full CI remains the promotion gate; the nine classes stay `reviewed_partial` until it passes.
