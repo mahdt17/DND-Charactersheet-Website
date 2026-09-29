@@ -64,6 +64,8 @@ assert.equal(prematureHide.valid,false,'Hide in Plain Sight is rejected before C
 assert(prematureHide.groups.find(group=>group.id===wilderness10Choice.id)?.unmetPrerequisites.includes('Camouflage'));
 
 const wilderness16Plan=featureChoicePlan(wildernessChoiceBase(16),wildernessChoiceBase(9));
+const wilderness19Plan=featureChoicePlan(wildernessChoiceBase(19),wildernessChoiceBase(9));
+assert.deepEqual(wilderness19Plan.groups.filter(group=>/^Special Abilit/i.test(group.label)).map(group=>group.level),[10,13,16,19],'Wilderness Rogue retains all four source-defined Special Ability milestones');
 const wildernessPicks={};
 wildernessPicks[wilderness16Plan.groups.find(group=>group.level===10).id]=['Woodland Stride'];
 wildernessPicks[wilderness16Plan.groups.find(group=>group.level===13).id]=['Camouflage'];
