@@ -56,6 +56,7 @@ jobs:
       - run: node tests/class-integration.mjs
       - run: python tests/class-feature-review.py
       - run: node tests/class-catalog-lifecycle.mjs
+      - run: python scripts/audit_source_identity_and_descriptions.py
       - run: node scripts/audit_class_automation.mjs
       - run: node tests/multiclass-casting.mjs
       - run: node tests/spell-access.mjs

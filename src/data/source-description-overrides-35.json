@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Exact-source user-facing description overrides for reviewed 3.5 records whose source prose delegates core mechanics to another rule. Overrides never match by name and must retain provenance for every expanded dependency.",
+  "entries": {
+    "feats/craft-aboleth-glyph-446": {
+      "name": "Craft Aboleth Glyph",
+      "benefitSha256": "5f2463594d527c4f0a875dd04ed6ef8eba61aa02cbae272989987efd55e12ff2",
+      "effectSummary": "Create a permanent magical glyph on an object or on up to 5 square feet of area per caster level. When creating it, set a password and/or trigger conditions based on physical characteristics, creature type, subtype or kind, alignment, or religion; the trigger cannot be based on class, Hit Dice, or level. Invisible creatures trigger it normally, while creatures passing ethereally do not. Choose either a blast glyph or a spell glyph. A blast glyph deals 1d8 damage per two caster levels (maximum 5d8) of acid, cold, electricity, fire, or sonic damage to the triggering creature and creatures within 5 feet; Reflex halves and spell resistance applies. A spell glyph stores a harmful spell of 3rd level or lower that you know, uses your caster level for level-dependent effects, and targets or centers the stored effect on the triggering creature as appropriate. The glyph is nearly invisible, can be identified and disabled as a magic trap, and can be dispelled. Unlike an ordinary glyph, an aboleth glyph automatically reforms 1 minute after being discharged or dispelled. Crafting takes 1 day per 1,000 gp of base price; base price is caster level × spell level × 1,000 gp, with XP cost equal to 1/25 of base price and raw materials equal to half. It can be permanently destroyed only by effects or damage capable of destroying a magic item. You can instead create one of the source-listed master glyphs, which uses its own listed effect and base cost.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/craft-aboleth-glyph-446",
+          "role": "primary Lords of Madness feat record and Benefit-field digest source"
+        },
+        {
+          "url": "https://www.d20srd.org/srd/spells/glyphOfWarding.htm",
+          "role": "D&D 3.5 SRD glyph of warding mechanics used to resolve the source cross-reference"
+        }
+      ]
+    }
+  }
+}

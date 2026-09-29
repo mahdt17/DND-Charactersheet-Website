@@ -1,3 +1,4 @@
+import descriptionOverrides35 from '../data/source-description-overrides-35.json';
 import {normalizeContentEntry, normalizeEdition, contentType, textValue} from './content.js';
 export const SOURCES = {'3.5':'dndtools', '2014':'wikidot5e'};
 export const isBoilerplate = value => /logged in to clone|click here to|wikidot\.com|view wiki source|notify administrators/i.test(String(value || ''));
@@ -8,7 +9,8 @@ function freeze(value) {
 export function normalizeCatalogRecord(row, source, category) {
   const catalogId=row.catalogId||(source==='dndtools'?`dndtools:${row.id}`:row.id);
   const integrityIssues=['effect','effectSummary','description'].filter(k=>isBoilerplate(row[k])).map(k=>`Invalid source text in ${k}`);
-  const clean={...row};
+  const descriptionOverride=source==='dndtools'?descriptionOverrides35.entries?.[row.id]:null;
+  const clean={...row,...(descriptionOverride?.effectSummary?{effectSummary:descriptionOverride.effectSummary,descriptionOverrideVerified:true,descriptionOverrideProvenance:descriptionOverride.provenance||[]}:{}),...(descriptionOverride?.description?{description:descriptionOverride.description}:{} )};
   for(const k of ['effect','effectSummary','description']) if(isBoilerplate(clean[k])) delete clean[k];
   const description=[clean.description||clean.effectSummary||clean.effect||clean.benefit,clean.normalRule&&`Normal: ${clean.normalRule}`,clean.specialRule&&`Special: ${clean.specialRule}`].filter(Boolean).join('\n\n');
   const verified=row.enrichment?.validated&&!row.enrichment?.partial&&!integrityIssues.length;
