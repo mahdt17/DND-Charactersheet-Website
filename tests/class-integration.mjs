@@ -1275,7 +1275,7 @@ for(const sourceId of largeSafeBatch35){
   assert.equal(report.descriptionComplete,true,sourceId+' uses reviewed source-owned rule text rather than progression placeholders');
   assert.equal(report.complete,true,sourceId+' has no structural class-automation gap');
   assert(sheet.trainingGrants.some(grant=>grant.sourceClassId===definition.catalogId),sourceId+' has verified source-owned starting training');
-  assert.deepEqual(reconcileClassGrants(JSON.parse(JSON.stringify(sheet))),sheet,sourceId+' reconciliation is idempotent');
+  assert.deepEqual(reconcileClassGrants(sheet),sheet,sourceId+' reconciliation is idempotent');
   const anchorDefinition=sourceId==='classes/fighter-93'?exact35('classes/rogue-97'):exact35('classes/fighter-93');
   const dual=reconcileClassGrants(baseCharacter([
     {catalogId:anchorDefinition.catalogId,name:anchorDefinition.name,edition:'3.5',level:1,definition:anchorDefinition},
