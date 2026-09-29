@@ -107,7 +107,7 @@ try {
  await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
  await page.getByLabel('Search class').fill('Sorcerer/Wizard Variant');
  await page.locator('[data-catalog-id="dndtools:classes/sorcererwizard-variant-957"]').click();
- const parentChoice=page.getByLabel('Variant base class',{exact:true});
+ const parentChoice=page.locator('.creation-field').filter({hasText:/^Variant base class/}).locator('select');
  await parentChoice.selectOption('Sorcerer');
  assert.equal(await parentChoice.locator('option',{hasText:'Wizard'}).count(),1,'Sorcerer/Wizard Variant exposes both exact parent choices');
  await next();
