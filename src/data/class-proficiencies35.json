@@ -2904,6 +2904,98 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana p. 58 Paladin Variant independently reviewed. It retains the PHB Paladin baseline except Lay on Hands, Turn Undead, and Remove Disease, and gains Ranger Favored Enemy restricted to aberrations, dragons, giants, monstrous humanoids, evil outsiders, or undead."
+    },
+    "classes/barbarian-variant-950": {
+      "name": "Barbarian Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
+      "inheritanceSourceId": "classes/barbarian-89",
+      "featureSuppressions": [
+        {
+          "name": "Rage"
+        },
+        {
+          "name": "Greater Rage"
+        },
+        {
+          "name": "Indomitable Will"
+        },
+        {
+          "name": "Tireless Rage"
+        },
+        {
+          "name": "Mighty Rage"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Favored Enemy (Ex)",
+          "levels": [
+            1,
+            5,
+            10,
+            15,
+            20
+          ],
+          "choiceKind": "favored-enemy",
+          "uniqueChoices": true,
+          "choiceOptions": [
+            "Aberration",
+            "Animal",
+            "Construct",
+            "Dragon",
+            "Elemental",
+            "Fey",
+            "Giant",
+            "Humanoid (aquatic)",
+            "Humanoid (dwarf)",
+            "Humanoid (elf)",
+            "Humanoid (goblinoid)",
+            "Humanoid (gnoll)",
+            "Humanoid (gnome)",
+            "Humanoid (halfling)",
+            "Humanoid (human)",
+            "Humanoid (orc)",
+            "Humanoid (reptilian)",
+            "Magical beast",
+            "Monstrous Humanoid",
+            "Ooze",
+            "Outsider (air)",
+            "Outsider (chaotic)",
+            "Outsider (earth)",
+            "Outsider (evil)",
+            "Outsider (fire)",
+            "Outsider (good)",
+            "Outsider (lawful)",
+            "Outsider (native)",
+            "Outsider (water)",
+            "Plant",
+            "Undead",
+            "Vermin"
+          ],
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#favoredEnemy"
+        },
+        {
+          "name": "Combat Style (Ex)",
+          "level": 2,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyle"
+        },
+        {
+          "name": "Improved Combat Style (Ex)",
+          "level": 6,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#improvedCombatStyle"
+        },
+        {
+          "name": "Combat Style Mastery (Ex)",
+          "level": 11,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyleMastery"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Barbarian Variant independently reviewed. It retains the PHB Barbarian baseline except Rage, Greater Rage, Indomitable Will, Tireless Rage, and Mighty Rage, and gains Ranger Favored Enemy plus the fixed Archery combat-style progression."
     }
   }
 }
