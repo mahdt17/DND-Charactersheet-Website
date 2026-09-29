@@ -67,6 +67,7 @@ jobs:
           node scripts/generate_progress_report.mjs docs/class-completion-tracker.json --output=test-results/project-progress.json
           node --check scripts/build_class_review_queue.mjs
           node scripts/build_class_review_queue.mjs docs/class-completion-tracker.json --output=test-results/class-review-queue.json
+          node -e "const q=require('./test-results/class-review-queue.json');if(!q.queue.some(x=>x.recordId==='classes/binder-112'&&x.reasons.includes('binding-subsystem-requires-structured-model')))process.exit(1)"
       - run: node tests/multiclass-casting.mjs
       - run: node tests/spell-access.mjs
       - run: node tests/subclass-feat-magic.mjs

@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "174e6a1d8e9e72d9522aa2a0da6aae08c38ba744",
+  "snapshotCommit": "61f1c44b965c3aff27ac044bea5c5f643e7c509c",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -684,20 +684,24 @@
       "name": "Archivist",
       "sourceBook": "Base Class Heroes of Horror",
       "sourceUrl": "https://new.dndtools.org/classes/archivist-74",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 8,
       "existingProfileParent": null,
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "Existing reviewed class-feature summaries cover Dark Knowledge, Scribe Scroll, Prayerbook, spellcasting, Lore Mastery, Still Mind, and later Archivist mechanics.",
+        "Existing class-integration and browser regressions verify Dark Knowledge as a sheet action/resource, Scribe Scroll as a feat, progression scaling, and Archivist multiclass branching.",
+        "2026-09-29 Exa discovery plus Tavily extraction cross-check confirmed the exact Archivist source; an initially clipped query-reranked extraction was retried with Tavily and completed through level 20 without Firecrawl."
+      ],
+      "verifiedCommit": "61f1c44b965c3aff27ac044bea5c5f643e7c509c",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36633978181",
+      "nextAction": "Preserve regression coverage while scaling the generic class audit."
     },
     {
       "sourceId": "classes/archmage-380",
@@ -1601,20 +1605,37 @@
       "name": "Binder",
       "sourceBook": "Base Class Tome of Magic",
       "sourceUrl": "https://new.dndtools.org/classes/binder-112",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
-      "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "featureRequirements": [
+        "Track effective binder level, maximum vestige level, and simultaneous vestiges from class progression.",
+        "Represent vestige selection, binding check outcome, pact influence/sign state, and granted vestige abilities.",
+        "Represent Pact Augmentation selections with repeatable choices and stacking.",
+        "Represent Binder bonus-feat choices from the exact allowed list with prerequisite checks.",
+        "Preserve Soul Guardian progression and Suppress Sign action behavior."
+      ],
+      "gaps": [
+        "No reviewed Binder feature-summary block exists yet.",
+        "The current generic checkbox choice model cannot faithfully represent repeated Pact Augmentation selections.",
+        "No structured vestige selection/pact state or granted-ability automation exists yet."
+      ],
+      "dependencies": [
+        "Structured binding/vestige subsystem"
+      ],
+      "evidence": [
+        "Exact new.dndtools Binder page passed Tavily completeness checks through level 20 with class skills and all key class features present.",
+        "Independent srd.dndtools.org Binder reference agrees on Soul Binding, Suppress Sign, bonus-feat levels, Pact Augmentation scaling/repetition, Soul Guardian, and vestige-count progression.",
+        "Starting simple-weapon/light-armor training and exact class skills are now captured in the verified 3.5 training supplement.",
+        "No Firecrawl fallback was needed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement a reusable binding/vestige subsystem before promoting Binder; do not approximate repeatable Pact Augmentation with unique checkbox choices."
     },
     {
       "sourceId": "classes/black-blood-cultist-283",

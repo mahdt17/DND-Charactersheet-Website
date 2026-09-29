@@ -61,3 +61,14 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - PR #6 is superseded by the later merged presentation/temporary-HP work.
 - Historical audit documents may remain for traceability, but this file should be used first for current project state.
 - Merged feature branches may be deleted once they are no longer needed for recovery.
+
+## 2026-09-29 research / verification pipeline checkpoint
+
+- Added Exa -> Tavily -> deterministic validation -> alternate-source/retry -> Firecrawl-last-resort routing documentation and helper scripts.
+- CI now syntax-checks the research helpers and generates repository-derived class batch, progress, and exception-queue JSON.
+- Archivist source extraction was independently rechecked: Tavily initially returned a clipped query-reranked table, an intelligent Tavily retry produced the full level-20 page, and no Firecrawl fallback was needed.
+- Five-class structural source batch uses exact records: PHB Barbarian (classes/barbarian-89), PHB Wizard (classes/wizard-99), PHB Rogue (classes/rogue-97), Complete Arcane Warlock (classes/warlock-4), and Tome of Magic Binder (classes/binder-112). All five source pages passed objective extraction completeness gates.
+- Barbarian, Wizard, Rogue, and Warlock already have reviewed feature summaries and verified training data. Binder exposed a real subsystem gap: vestige state plus repeatable Pact Augmentation choices are not faithfully modeled by the generic choice UI.
+- Binder now has source-verified starting proficiencies and class skills, but remains needs-review until a reusable binding/vestige subsystem is implemented.
+- Firecrawl fallback count for this new workflow remains zero. Supabase was not modified.
+- Excel reporting is generated as a checkpoint layer from repository progress data; GitHub remains canonical.

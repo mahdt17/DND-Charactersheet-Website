@@ -3342,6 +3342,41 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana p. 59 Abjurer Variant independently reviewed. It is the exact PHB Wizard specialized in Abjuration, permanently loses Familiar, loses Wizard bonus feats gained at 5/10/15/20, and loses the specialist bonus spell per day. It gains Resistance to Energy, Aura of Protection, and Spontaneous Dispelling."
+    },
+    "classes/binder-112": {
+      "name": "Binder",
+      "sourceUrl": "https://new.dndtools.org/classes/binder-112",
+      "proficiencyText": "Weapon and Armor Proficiency: Binders are proficient with all simple weapons and with light armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true,
+      "classSkillSourceUrl": "https://new.dndtools.org/classes/binder-112",
+      "classSkillText": "The binder class skills are Bluff, Concentration, Craft, Decipher Script, Diplomacy, Gather Information, Intimidate, Knowledge (arcana), Knowledge (religion), Knowledge (the planes), Profession, and Sense Motive.",
+      "classSkills": [
+        "Bluff",
+        "Concentration",
+        "Craft",
+        "Decipher Script",
+        "Diplomacy",
+        "Gather Information",
+        "Intimidate",
+        "Knowledge (arcana)",
+        "Knowledge (religion)",
+        "Knowledge (the planes)",
+        "Profession",
+        "Sense Motive"
+      ],
+      "verificationNote": "Exact Tome of Magic Binder source was independently cross-checked. This supplement covers starting training and class skills only; vestige binding, Pact Augmentation repetition, and granted vestige abilities remain explicitly outside completion."
     }
   }
 }

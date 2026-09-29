@@ -631,6 +631,12 @@ assert.equal(warlock12.resources.find(resource=>resource.name==='Fiendish Resili
 assert.equal(warlock12.grantedFeatures.find(feature=>feature.name==='Energy Resistance')?.kind,'choice');
 assert.equal(warlock12.grantedFeatures.find(feature=>feature.name==='Energy Resistance')?.choiceCount,2);
 assert.match(warlock12.grantedFeatures.find(feature=>feature.name==='Invocations')?.description||'',/at will/i);
+
+const binder35=exact35('classes/binder-112');
+const binder1=reconcileClassGrants(baseCharacter([{catalogId:binder35.catalogId,name:'Binder',edition:'3.5',level:1,definition:binder35}]));
+assert.deepEqual(binder1.trainingGrants.find(item=>item.sourceClassId===binder35.catalogId)?.proficiencies.map(item=>item.index).sort(),['light-armor','simple-weapons'],'Binder receives exact Tome of Magic starting training');
+for(const skill of ['Bluff','Concentration','Decipher Script','Knowledge (arcana)','Knowledge (religion)','Knowledge (the planes)','Sense Motive'])assert.equal(legacyClassSkillStatus(binder1,skill).classSkill,true,'Binder class skill: '+skill);
+assert.equal(classAutomationReport(binder1).classes[0].descriptionComplete,false,'Binder remains explicitly incomplete until binding/vestige mechanics receive reviewed structured automation');
 const reviewedDreadNecromancer35=exact35('classes/dread-necromancer-75');
 const dread16=reconcileClassGrants(baseCharacter([{catalogId:reviewedDreadNecromancer35.catalogId,name:'Dread Necromancer',edition:'3.5',level:16,definition:reviewedDreadNecromancer35}]));
 assert.equal(dread16.actions.find(action=>action.name==='Charnel Touch')?.type,'Standard action');
