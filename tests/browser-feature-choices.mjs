@@ -29,5 +29,29 @@ try {
   await page.setViewportSize({width:390,height:844});assert(await page.getByLabel('Current temporary HP',{exact:true}).isVisible());await page.getByLabel('Current temporary HP',{exact:true}).fill('12');await page.getByLabel('Temporary HP options',{exact:true}).click();await page.getByLabel('Temporary HP adjustment',{exact:true}).fill('4');await page.getByRole('button',{name:'Reduce temp HP',exact:true}).click();assert.equal(await page.getByLabel('Current temporary HP').inputValue(),'8');assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);await page.screenshot({path:`test-results/feature-choices-${edition}-mobile.png`,fullPage:true});await page.setViewportSize({width:1440,height:1000});
   console.log(`PASS ${edition} required creation Expertise, eligible choices, saved grants, skill bonuses and visible mobile temporary HP controls`);
  }
+ const commonerName='Guided Commoner 3.5';
+ if(await page.getByRole('button',{name:'All characters',exact:true}).count())await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.getByRole('button',{name:'Create character',exact:true}).click();
+ await page.getByLabel('Character name',{exact:true}).fill(commonerName);
+ await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
+ await page.getByLabel('Search class').fill('Commoner');await choose('Commoner');await next();
+ await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
+ await next();await next();await next();await next();
+ assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Commoner creation waits for its required simple-weapon choice');
+ const clubChoice=page.getByLabel('Commoner 1 Simple weapon proficiency: Club',{exact:true});
+ assert.equal(await clubChoice.count(),1,'Commoner exposes a structured simple-weapon option');
+ assert.equal(await page.getByLabel('Commoner 1 Simple weapon proficiency: Longsword',{exact:true}).count(),0,'Commoner excludes martial weapons');
+ await clubChoice.check();
+ assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+ await page.getByRole('button',{name:'Create Character',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:commonerName}).waitFor();
+ const commonerSaved=await saved(commonerName);
+ assert(Object.values(commonerSaved.featureChoices||{}).some(choice=>choice.sourceClassId==='dndtools:classes/commoner-32'&&choice.choices?.[0]==='Club'));
+ assert((commonerSaved.trainingGrants||[]).some(grant=>grant.sourceClassId==='dndtools:classes/commoner-32'&&grant.proficiencies?.some(p=>p.index==='club')));
+ await page.reload();await page.getByRole('button',{name:'Explore the demo'}).click().catch(()=>{});
+ const commonerReloaded=await saved(commonerName);
+ assert(Object.values(commonerReloaded.featureChoices||{}).some(choice=>choice.choices?.[0]==='Club'),'Commoner source choice survives save/reopen');
+ console.log('PASS 3.5 Commoner required simple-weapon choice, source-valid options, persistence and training grant');
+
  assert.deepEqual(errors,[]);
 } catch(e){await page.screenshot({path:'test-results/feature-choices-failure.png',fullPage:true});throw e;} finally {await browser.close();await server.close();}

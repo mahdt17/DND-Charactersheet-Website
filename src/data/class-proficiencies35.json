@@ -2058,7 +2058,29 @@
           "label": "Simple weapon proficiency",
           "kind": "weapons",
           "count": 1,
-          "sourceText": "Choose the one simple weapon granted by the Commoner NPC class."
+          "sourceText": "Choose the one simple weapon granted by the Commoner NPC class.",
+          "options": [
+            "Gauntlet",
+            "Unarmed strike",
+            "Dagger",
+            "Punching dagger",
+            "Spiked gauntlet",
+            "Light mace",
+            "Sickle",
+            "Club",
+            "Heavy mace",
+            "Morningstar",
+            "Shortspear",
+            "Longspear",
+            "Quarterstaff",
+            "Spear",
+            "Heavy crossbow",
+            "Light crossbow",
+            "Dart",
+            "Javelin",
+            "Sling"
+          ],
+          "optionsSourceUrl": "https://www.d20srd.org/srd/equipment/weapons.htm#tableWeapons"
         }
       ],
       "verified": true

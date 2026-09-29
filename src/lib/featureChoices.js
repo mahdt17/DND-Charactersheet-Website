@@ -67,8 +67,9 @@ function sourceChoicePlan(c,previous,picks={}) {
       if(patch.featureChoices[id])continue;
       const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
       const selected=raw.map(value=>String(value||'').trim()).filter(Boolean);
-      const required=Math.max(1,Number(choice.count)||1),valid=selected.length===required&&new Set(selected.map(norm)).size===required;
-      const group={id,level,kind:'source-choice',choiceKind:'proficiency',proficiencyKind:choice.kind||'weapons',count:required,required,label:choice.label||'Class proficiency choice',className:report.name,classId:report.classId,sourceClassId:report.classId,sourceText:choice.sourceText||'Choose the source-defined proficiency.',options:[],selected,valid};
+      const options=(Array.isArray(choice.options)?choice.options:[]).map(value=>String(value));
+      const required=Math.max(1,Number(choice.count)||1),valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length||selected.every(value=>options.includes(value)));
+      const group={id,level,kind:'source-choice',choiceKind:'proficiency',proficiencyKind:choice.kind||'weapons',count:required,required,label:choice.label||'Class proficiency choice',className:report.name,classId:report.classId,sourceClassId:report.classId,sourceText:choice.sourceText||'Choose the source-defined proficiency.',sourceUrl:choice.optionsSourceUrl||null,options,selected,valid};
       groups.push(group);
       if(valid){
         patch.featureChoices[id]={className:report.name,classId:report.classId,sourceClassId:report.classId,edition:'3.5',level,feature:group.label,choices:[...selected],sourceText:group.sourceText};
