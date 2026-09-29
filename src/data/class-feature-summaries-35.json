@@ -4025,5 +4025,82 @@
       ],
       "uniqueChoices": true
     }
+  ],
+  "classes/barbarian-variant-950": [
+    {
+      "name": "Favored Enemy (Ex)",
+      "level": 1,
+      "description": "At 1st level, choose one favored enemy from the Ranger favored-enemy list. Gain +2 on Bluff, Listen, Sense Motive, Spot, and Survival checks against that enemy and +2 on weapon damage rolls against it. At 5th level and every five Barbarian Variant levels thereafter, choose one additional favored enemy and increase the bonus against any one favored enemy by +2; the newly selected enemy can receive that increase. Humanoid and outsider choices require the listed subtype.",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
+      "referencedSourceId": "classes/ranger-96",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#favoredEnemy",
+      "choiceKind": "favored-enemy",
+      "choiceLevels": [
+        1,
+        5,
+        10,
+        15,
+        20
+      ],
+      "choiceOptions": [
+        "Aberration",
+        "Animal",
+        "Construct",
+        "Dragon",
+        "Elemental",
+        "Fey",
+        "Giant",
+        "Humanoid (aquatic)",
+        "Humanoid (dwarf)",
+        "Humanoid (elf)",
+        "Humanoid (goblinoid)",
+        "Humanoid (gnoll)",
+        "Humanoid (gnome)",
+        "Humanoid (halfling)",
+        "Humanoid (human)",
+        "Humanoid (orc)",
+        "Humanoid (reptilian)",
+        "Magical beast",
+        "Monstrous Humanoid",
+        "Ooze",
+        "Outsider (air)",
+        "Outsider (chaotic)",
+        "Outsider (earth)",
+        "Outsider (evil)",
+        "Outsider (fire)",
+        "Outsider (good)",
+        "Outsider (lawful)",
+        "Outsider (native)",
+        "Outsider (water)",
+        "Plant",
+        "Undead",
+        "Vermin"
+      ],
+      "uniqueChoices": true
+    },
+    {
+      "name": "Combat Style (Ex)",
+      "level": 2,
+      "description": "Gain the Ranger Archery combat style at 2nd level: you are treated as having Rapid Shot even without its normal prerequisites. This benefit functions only while you wear light armor or no armor.",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
+      "referencedSourceId": "classes/ranger-96",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyle"
+    },
+    {
+      "name": "Improved Combat Style (Ex)",
+      "level": 6,
+      "description": "At 6th level, your Archery combat style improves so you are treated as having Manyshot even without its normal prerequisites. This benefit functions only while you wear light armor or no armor.",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
+      "referencedSourceId": "classes/ranger-96",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#improvedCombatStyle"
+    },
+    {
+      "name": "Combat Style Mastery (Ex)",
+      "level": 11,
+      "description": "At 11th level, your Archery combat style improves again so you are treated as having Improved Precise Shot even without its normal prerequisites. This benefit functions only while you wear light armor or no armor.",
+      "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
+      "referencedSourceId": "classes/ranger-96",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyleMastery"
+    }
   ]
 }
