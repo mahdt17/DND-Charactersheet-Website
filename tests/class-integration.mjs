@@ -129,6 +129,7 @@ for(const [name,rule] of [['Combat Style','Rapid Shot'],['Improved Combat Style'
   const feature=barbarianVariant20.grantedFeatures.find(item=>item.name===name);
   assert.match(feature?.description||'',new RegExp(rule,'i'),'Barbarian Variant materializes '+name+' Archery mechanics');
   assert.match(feature?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/ranger/i);
+  assert(barbarianVariant20.feats.some(feat=>feat.name===rule&&feat.sourceClassId===barbarianVariant35.catalogId),'Barbarian Variant materializes '+rule+' as a class-granted feat');
 }
 for(const proficiency of ['light-armor','medium-armor','shields-except-tower','simple-weapons','martial-weapons'])assert(barbarianVariant20.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Barbarian Variant retains Barbarian training: '+proficiency);
 const barbarianVariant1={...barbarianVariant20Base,classLevels:[{...barbarianVariant20Base.classLevels[0],level:1}],level:1};
