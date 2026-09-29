@@ -37,6 +37,34 @@ function sourceChoicePlan(c,previous,picks={}) {
           options=options.filter(value=>!already.has(norm(value)));
         }
         const choiceKind=feature.choiceKind||'source';
+        if(choiceKind==='favored-enemy'){
+          const sourceText=String(feature.description||'').trim()||event.text||feature.name;
+          const enemyId=id+':enemy',boostId=id+':boost';
+          const existingEnemy=patch.featureChoices[enemyId];
+          if(!existingEnemy){
+            const rawEnemy=Array.isArray(picks[enemyId])?picks[enemyId]:picks[enemyId]?[picks[enemyId]]:[];
+            const selectedEnemy=rawEnemy.map(value=>String(value||'').trim()).filter(Boolean);
+            const validEnemy=selectedEnemy.length===1&&options.includes(selectedEnemy[0]);
+            groups.push({id:enemyId,level,kind:'source-choice',choiceKind:'favored-enemy',count:1,required:1,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected:selectedEnemy,valid:validEnemy});
+            if(validEnemy)patch.featureChoices[enemyId]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[selectedEnemy[0]],sourceText,choiceKind:'favored-enemy'};
+          }
+          const firstLevel=Math.min(...(Array.isArray(feature.choiceLevels)&&feature.choiceLevels.length?feature.choiceLevels:[feature.level||1]).map(Number).filter(Number.isFinite));
+          if(level>firstLevel){
+            const selectedEnemies=[...new Set(Object.values(patch.featureChoices||{})
+              .filter(choice=>choice?.sourceClassId===row.catalogId&&choice?.choiceKind==='favored-enemy'&&norm(choice?.feature)===norm(feature.name))
+              .flatMap(choice=>choice?.choices||[])
+              .map(value=>String(value))
+              .filter(Boolean))];
+            if(!patch.featureChoices[boostId]){
+              const rawBoost=Array.isArray(picks[boostId])?picks[boostId]:picks[boostId]?[picks[boostId]]:[];
+              const selectedBoost=rawBoost.map(value=>String(value||'').trim()).filter(Boolean);
+              const validBoost=selectedBoost.length===1&&selectedEnemies.includes(selectedBoost[0]);
+              groups.push({id:boostId,level,kind:'source-choice',choiceKind:'favored-enemy-boost',count:1,required:1,label:feature.name+' Bonus Increase',className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText:'Increase one existing favored-enemy bonus by +2; the enemy selected at this level is eligible.',sourceUrl:feature.sourceUrl,options:selectedEnemies,selected:selectedBoost,valid:validBoost});
+              if(validBoost)patch.featureChoices[boostId]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name+' Bonus Increase',choices:[selectedBoost[0]],sourceText:'Increase one existing favored-enemy bonus by +2; the enemy selected at this level is eligible.',choiceKind:'favored-enemy-boost'};
+            }
+          }
+          continue;
+        }
         const existing=patch.featureChoices[id];
         if(existing){
           if(choiceKind==='feat'&&!patch.feats.some(feat=>feat.sourceChoiceId===id))for(const value of existing.choices||[])addChoiceFeat(id,row,feature,level,value);
