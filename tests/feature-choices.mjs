@@ -1,4 +1,7 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import {createCatalogService} from '../src/lib/catalog.js';
+import {annotateClassGrantKinds} from '../src/lib/classIntegration.js';
 import {featureChoicePlan,applyFeatureChoices,skillNames} from '../src/lib/featureChoices.js';
 const make=(edition,name,level,extra={})=>({ruleset:edition,className:name,level,classDefinition:{name,edition},skillProf:{Stealth:true,Arcana:true,Athletics:true,Perception:true},expertise:{},languages:'Common',...extra});
 for(const edition of ['2014','2024']) {
@@ -36,6 +39,20 @@ const multi={...make('2024','Fighter',6),classLevels:[{name:'Fighter',edition:'2
 const mp=featureChoicePlan(multi,prior);assert.equal(mp.groups.filter(g=>g.kind==='expertise').length,1);assert.equal(mp.groups.find(g=>g.kind==='expertise').level,1);assert.match(mp.patch.languages,/Thieves' Cant/);
 assert.deepEqual(featureChoicePlan({...multi,classLevels:[multi.classLevels[0],{...multi.classLevels[1],edition:'2014'}]},prior).groups,[]);
 assert.equal(featureChoicePlan({...multi,classLevels:[multi.classLevels[0],{name:'Druid',edition:'2024',level:1}]},prior).patch.languages,'Common, Druidic');
+
+const service35=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
+const [choiceClasses35,choiceFeats35]=await Promise.all([service35.load('3.5/classes'),service35.load('3.5/feats')]);
+const choiceReference35=[...choiceClasses35,...choiceFeats35];
+const thugChoiceClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/thug-132'),choiceReference35);
+const thugChoiceBase=(level)=>({ruleset:'3.5',mechanics:'3.5',className:'Thug',classDefinition:thugChoiceClass35,classLevels:[{name:'Thug',edition:'3.5',catalogId:thugChoiceClass35.catalogId,level,definition:thugChoiceClass35}],level,abilities:{str:14,dex:14,con:14,int:12,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}});
+assert.equal(featureChoicePlan(thugChoiceBase(1),null).groups.filter(group=>/^Bonus Feats?$/i.test(group.label)).length,0,'Thug has no level-1 Fighter bonus-feat choice');
+const thugChoicePlan=featureChoicePlan(thugChoiceBase(2),thugChoiceBase(1));
+const thugChoiceGroup=thugChoicePlan.groups.find(group=>/^Bonus Feats?$/i.test(group.label));
+assert(thugChoiceGroup?.options.includes('Urban Tracking'),'Thug choice pool includes its exact source exception');
+assert(thugChoiceGroup?.options.includes('Power Attack'),'Thug choice pool includes typed Fighter bonus feats');
+assert(!thugChoiceGroup?.options.includes('Alertness'),'Thug choice pool excludes non-Fighter feats');
+assert.equal(featureChoicePlan(thugChoiceBase(2),thugChoiceBase(1),{[thugChoiceGroup.id]:['Alertness']}).valid,false,'invalid Thug bonus-feat selections are rejected');
+assert.equal(featureChoicePlan(thugChoiceBase(2),thugChoiceBase(1),{[thugChoiceGroup.id]:['Urban Tracking']}).valid,true,'Thug source-specific Urban Tracking selection is accepted');
 
 const fighterReprintClass35={name:'Fighter',edition:'3.5',sourceId:'classes/fighter-41',catalogId:'dndtools:classes/fighter-41',sourceUrl:'https://new.dndtools.org/classes/fighter-41',progression:[['Class Level','Special'],['1st','Bonus feat'],['2nd','Bonus feat']]};
 const fighterReprint35={ruleset:'3.5',mechanics:'3.5',className:'Fighter',classDefinition:fighterReprintClass35,classLevels:[{name:'Fighter',edition:'3.5',catalogId:fighterReprintClass35.catalogId,level:1,definition:fighterReprintClass35}],level:1,abilities:{str:10,dex:10,con:10,int:10,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}};

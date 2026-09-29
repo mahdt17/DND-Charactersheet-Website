@@ -3811,5 +3811,20 @@
       "description": "Choose one taboo at 1st level and one additional taboo each time you gain a Spell Secret. Violating any taboo prevents further spellcasting for the rest of that day. The source examples include dietary, ownership, offering, grooming, contact, alcohol, color, fire, and facing-direction restrictions.",
       "sourceSha256": "0e65a027838cdc80217d775a82623a69d793cc39f6754d9f09a730747cd6fa7e"
     }
+  ],
+  "classes/thug-132": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Proficient with all simple and martial weapons and with light armor. The Thug class does not grant medium armor, heavy armor, or shield proficiency.",
+      "sourceUrl": "https://new.dndtools.org/classes/thug-132"
+    },
+    {
+      "name": "Bonus Feats",
+      "level": 2,
+      "description": "You do not gain the Fighter's normal bonus feat at 1st level. Beginning at 2nd level, retain the Fighter bonus-feat progression, gaining a bonus feat at 2nd level and every two class levels thereafter through 20th. Each choice may be any feat classified for Fighter bonus-feat selection for which you meet the normal prerequisites; Urban Tracking is also explicitly available to a Thug as a Fighter bonus-feat choice.",
+      "sourceUrl": "https://new.dndtools.org/classes/thug-132",
+      "choiceKind": "feat"
+    }
   ]
 }

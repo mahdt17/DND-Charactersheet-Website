@@ -18,7 +18,7 @@ function resolvedProficiencySupplement(sourceId,seen=new Set()){
   const parent=resolvedProficiencySupplement(supplement.proficiencyProfileFrom,seen);
   if(!parent||parent.name!==supplement.name)return null;
   const classSkills=Array.isArray(supplement.classSkills)?supplement.classSkills:(Array.isArray(parent.classSkills)?parent.classSkills:undefined);
-  return {...parent,...supplement,proficiencies:supplement.proficiencies||parent.proficiencies||[],proficiencyChoices:supplement.proficiencyChoices||parent.proficiencyChoices||[],classSkillChoices:supplement.classSkillChoices||parent.classSkillChoices||[],...(Array.isArray(classSkills)?{classSkills}:{}),classSkillSourceUrl:supplement.classSkillSourceUrl||parent.classSkillSourceUrl,proficiencyProgression:supplement.proficiencyProgression||parent.proficiencyProgression||[],proficiencyText:supplement.proficiencyText||parent.proficiencyText,profileSourceId:supplement.proficiencyProfileFrom,profileSourceUrl:parent.sourceUrl};
+  return {...parent,...supplement,proficiencies:supplement.proficiencies||parent.proficiencies||[],proficiencyChoices:supplement.proficiencyChoices||parent.proficiencyChoices||[],classSkillChoices:supplement.classSkillChoices||parent.classSkillChoices||[],...(Array.isArray(classSkills)?{classSkills}:{}),classSkillSourceUrl:supplement.classSkillSourceUrl||parent.classSkillSourceUrl,proficiencyProgression:supplement.proficiencyProgression||parent.proficiencyProgression||[],proficiencyText:supplement.proficiencyText||parent.proficiencyText,featureSuppressions:supplement.featureSuppressions||parent.featureSuppressions||[],featureChoiceOverrides:supplement.featureChoiceOverrides||parent.featureChoiceOverrides||[],profileSourceId:supplement.proficiencyProfileFrom,profileSourceUrl:parent.sourceUrl};
 }
 function withProficiencySupplement(record){
   if(!record||normalizeEdition(record.edition)!=='3.5')return record;
@@ -28,7 +28,7 @@ function withProficiencySupplement(record){
   const proficiencies=Array.isArray(record.proficiencies)&&record.proficiencies.length?record.proficiencies:(supplement.proficiencies||[]);
   const proficiencyChoices=Array.isArray(record.proficiencyChoices)&&record.proficiencyChoices.length?record.proficiencyChoices:(supplement.proficiencyChoices||[]);
   const verifiedClassSkills=Array.isArray(supplement.classSkills);
-  return {...record,proficiencies,proficiencyChoices,classSkillChoices:record.classSkillChoices||supplement.classSkillChoices||[],...(verifiedClassSkills?{classSkills:supplement.classSkills,classSkillRule:null,classSkillSourceUrl:supplement.classSkillSourceUrl||supplement.sourceUrl}:{}),proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
+  return {...record,proficiencies,proficiencyChoices,classSkillChoices:record.classSkillChoices||supplement.classSkillChoices||[],...(verifiedClassSkills?{classSkills:supplement.classSkills,classSkillRule:null,classSkillSourceUrl:supplement.classSkillSourceUrl||supplement.sourceUrl}:{}),proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,featureSuppressions:record.featureSuppressions||supplement.featureSuppressions||[],featureChoiceOverrides:record.featureChoiceOverrides||supplement.featureChoiceOverrides||[],proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const featureMatchKey=value=>norm(String(value||'')
@@ -413,10 +413,29 @@ export function annotateClassGrantKinds(record,entries=[]){
   const byName=new Map(feats.map(feat=>[norm(feat.name),feat]));
   const parsed=tableFeatureCells(resolved,30);
   if(!parsed.length)return resolved;
-  const levelGrants=parsed.map(grant=>{
+  const suppressions=Array.isArray(resolved.featureSuppressions)?resolved.featureSuppressions:[];
+  const choiceOverrides=Array.isArray(resolved.featureChoiceOverrides)?resolved.featureChoiceOverrides:[];
+  const suppressed=grant=>suppressions.some(rule=>{
+    if(featureMatchKey(rule?.name)!==featureMatchKey(grant.name))return false;
+    const levels=Array.isArray(rule.levels)?rule.levels.map(Number):[];
+    return !levels.length||levels.includes(Number(grant.level));
+  });
+  const levelGrants=parsed.filter(grant=>!suppressed(grant)).map(grant=>{
     const exact=byName.get(norm(grant.name))||byName.get(norm(grant.name.replace(/\s*\([^)]*\)\s*$/,'')));
-    if(!exact)return {...grant,kind:'feature',description:sourceFeatureDescription(resolved,grant.name)};
-    return {...grant,kind:'feat',featId:exact.catalogId||exact.id,description:exact.description||exact.effectSummary||exact.effect||sourceFeatureDescription(resolved,grant.name),sourceUrl:exact.sourceUrl||resolved.sourceUrl};
+    let result=!exact
+      ?{...grant,kind:'feature',description:sourceFeatureDescription(resolved,grant.name)}
+      :{...grant,kind:'feat',featId:exact.catalogId||exact.id,description:exact.description||exact.effectSummary||exact.effect||sourceFeatureDescription(resolved,grant.name),sourceUrl:exact.sourceUrl||resolved.sourceUrl};
+    const override=choiceOverrides.find(rule=>featureMatchKey(rule?.name)===featureMatchKey(grant.name));
+    if(override){
+      let choiceOptions=Array.isArray(override.choiceOptions)?override.choiceOptions.map(String):[];
+      if(override.choiceFeatType){
+        choiceOptions.push(...feats.filter(feat=>norm(feat.featType)===norm(override.choiceFeatType)).map(feat=>feat.name));
+      }
+      choiceOptions.push(...(override.choiceOptionsExtra||[]).map(String));
+      choiceOptions=[...new Set(choiceOptions.filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+      result={...result,...override,...(choiceOptions.length?{choiceOptions}:{}),kind:'choice'};
+    }
+    return result;
   });
   return {...resolved,levelGrants};
 }

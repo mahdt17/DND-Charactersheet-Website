@@ -45,6 +45,26 @@ assert.equal(fighterBonus?.kind,'choice','Fighter bonus feats remain guided choi
 assert.equal(fighterBonus?.descriptionSource,'rule-text');
 assert.match(fighterBonus?.description||'',/prerequisites/i);
 
+const thug35=exact35('classes/thug-132');
+const thug1=reconcileClassGrants(baseCharacter([{catalogId:thug35.catalogId,name:'Thug',edition:'3.5',level:1,definition:thug35}]));
+assert.deepEqual(thug1.trainingGrants.find(item=>item.sourceClassId===thug35.catalogId)?.proficiencies.map(item=>item.index),['light-armor','simple-weapons','martial-weapons'],'Thug receives only source-listed training');
+assert(!thug1.grantedFeatures.some(feature=>/^bonus feats?$/i.test(feature.name)),'Thug suppresses Fighter bonus feat at level 1');
+for(const skill of ['Bluff','Gather Information','Knowledge (local)','Sleight of Hand'])assert.equal(legacyClassSkillStatus(thug1,skill).classSkill,true,'Thug class skill: '+skill);
+assert.equal(legacyClassSkillStatus(thug1,'Spot').classSkill,false,'Thug does not inherit unrelated Fighter/Rogue skills');
+
+const thug2=reconcileClassGrants(baseCharacter([{catalogId:thug35.catalogId,name:'Thug',edition:'3.5',level:2,definition:thug35}]));
+const thugBonus=thug2.grantedFeatures.find(feature=>/^bonus feats?$/i.test(feature.name));
+assert.equal(thugBonus?.kind,'choice','Thug level 2 exposes its inherited Fighter bonus feat as a guided choice');
+assert.equal(thugBonus?.level,2,'Thug first bonus feat is level 2');
+assert(thugBonus?.choiceOptions?.includes('Urban Tracking'),'Thug explicitly adds Urban Tracking to its Fighter bonus-feat choices');
+assert(thugBonus?.choiceOptions?.includes('Power Attack'),'Thug retains ordinary Fighter bonus-feat options');
+assert(!thugBonus?.choiceOptions?.includes('Alertness'),'Thug bonus-feat pool rejects unrelated feats');
+
+const thug20=reconcileClassGrants(baseCharacter([{catalogId:thug35.catalogId,name:'Thug',edition:'3.5',level:20,definition:thug35}]));
+const thugHistory=thug20.grantedFeatures.find(feature=>/^bonus feats?$/i.test(feature.name))?.progressionHistory||[];
+assert.deepEqual(thugHistory.map(event=>event.level),[2,4,6,8,10,12,14,16,18,20],'Thug retains Fighter bonus-feat progression after suppressing level 1');
+assert.equal(classAutomationReport(thug20).classes[0].descriptionComplete,true,'Thug inherited progression has self-contained reviewed rule text');
+
 const rogue35=exact35('classes/rogue-97');
 const rogue10=reconcileClassGrants(baseCharacter([{catalogId:rogue35.catalogId,name:'Rogue',edition:'3.5',level:10,definition:rogue35}]));
 const rogueSpecial=rogue10.grantedFeatures.find(feature=>/special abilit(?:y|ies)/i.test(feature.name));

@@ -2519,6 +2519,64 @@
       "proficiencyProfileFrom": "classes/warmage-5",
       "verified": true,
       "verificationNote": "Miniatures Handbook Warmage explicitly lists Complete Arcane as another published appearance."
+    },
+    "classes/thug-132": {
+      "name": "Thug",
+      "sourceUrl": "https://new.dndtools.org/classes/thug-132",
+      "classSkillSourceUrl": "https://new.dndtools.org/classes/thug-132",
+      "proficiencyText": "Thugs are proficient with all simple and martial weapons and with light armor.",
+      "classSkills": [
+        "Bluff",
+        "Climb",
+        "Craft",
+        "Gather Information",
+        "Handle Animal",
+        "Intimidate",
+        "Jump",
+        "Knowledge (local)",
+        "Ride",
+        "Sleight of Hand",
+        "Swim"
+      ],
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "featureSuppressions": [
+        {
+          "name": "Bonus Feats",
+          "levels": [
+            1
+          ],
+          "reason": "Unearthed Arcana Thug does not gain the normal Fighter bonus feat at 1st level."
+        }
+      ],
+      "featureChoiceOverrides": [
+        {
+          "name": "Bonus Feats",
+          "choiceKind": "feat",
+          "choiceFeatType": "Fighter Bonus Feat feat",
+          "choiceOptionsExtra": [
+            "Urban Tracking"
+          ],
+          "sourceUrl": "https://new.dndtools.org/classes/thug-132"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana Thug source independently reviewed. The class inherits Fighter baseline progression except for source-listed changes."
     }
   }
 }
