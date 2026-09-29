@@ -233,9 +233,8 @@ const level5Picks={[rangerEnemy5.id]:['Giant'],[rangerBoost5.id]:['Dragon']};
 const rangerLevel5Planned=featureChoicePlan(rangerLevel5,rangerEnemyChosen,level5Picks);
 const plannedBoost=rangerLevel5Planned.groups.find(group=>group.choiceKind==='favored-enemy-boost');
 assert(plannedBoost.options.includes('Dragon')&&plannedBoost.options.includes('Giant'),'The newly selected enemy can receive the same-level +2 increase');
-const rangerLevel5Chosen=applyFeatureChoices(rangerLevel5,rangerEnemyChosen,level5Picks);
-assert.equal(Object.values(rangerLevel5Chosen.featureChoices).filter(choice=>choice.choiceKind==='favored-enemy').length,2);
-assert(Object.values(rangerLevel5Chosen.featureChoices).some(choice=>choice.choiceKind==='favored-enemy-boost'&&choice.choices?.[0]==='Dragon'));
+assert.equal(Object.values(rangerLevel5Planned.patch.featureChoices).filter(choice=>choice.choiceKind==='favored-enemy').length,2);
+assert(Object.values(rangerLevel5Planned.patch.featureChoices).some(choice=>choice.choiceKind==='favored-enemy-boost'&&choice.choices?.[0]==='Dragon'));
 
 const spiritShamanClass35={name:'Spirit Shaman',edition:'3.5',sourceId:'classes/spirit-shaman-9',catalogId:'dndtools:classes/spirit-shaman-9',sourceUrl:'https://new.dndtools.org/classes/spirit-shaman-9',progression:[['Class Level','Special'],['1st','Spirit guide, wild empathy']]};
 const spiritShamanChoice35={...legacyChoice,className:'Spirit Shaman',classDefinition:spiritShamanClass35,classLevels:[{name:'Spirit Shaman',edition:'3.5',catalogId:spiritShamanClass35.catalogId,level:1,definition:spiritShamanClass35}],level:1};
