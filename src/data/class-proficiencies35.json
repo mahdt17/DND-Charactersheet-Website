@@ -3252,8 +3252,14 @@
       "name": "Sorcerer/Wizard Variant",
       "sourceUrl": "https://new.dndtools.org/classes/sorcererwizard-variant-957",
       "inheritsFromOptions": [
-        "Sorcerer",
-        "Wizard"
+        {
+          "name": "Sorcerer",
+          "sourceId": "classes/sorcerer-98"
+        },
+        {
+          "name": "Wizard",
+          "sourceId": "classes/wizard-99"
+        }
       ],
       "featureSuppressions": [
         {
@@ -3275,7 +3281,7 @@
         }
       ],
       "verified": true,
-      "verificationNote": "Exact Unearthed Arcana p. 58 Sorcerer/Wizard Variant independently reviewed. The user must choose the Sorcerer or Wizard parent progression; Familiar is removed and replaced with a Druid Animal Companion whose base effective druid level is one-half class level, rounded down under the general 3.5 fraction rule."
+      "verificationNote": "Exact Unearthed Arcana p. 58 Sorcerer/Wizard Variant independently reviewed. The user must choose the exact PHB Sorcerer (classes/sorcerer-98) or Wizard (classes/wizard-99) parent progression; Familiar is removed and replaced with a Druid Animal Companion whose base effective druid level is one-half class level, rounded down under the general 3.5 fraction rule."
     }
   }
 }
