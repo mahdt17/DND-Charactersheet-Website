@@ -4084,7 +4084,8 @@
       "description": "Gain the Ranger Archery combat style at 2nd level: you are treated as having Rapid Shot even without its normal prerequisites. This benefit functions only while you wear light armor or no armor.",
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
       "referencedSourceId": "classes/ranger-96",
-      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyle"
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyle",
+      "featName": "Rapid Shot"
     },
     {
       "name": "Improved Combat Style (Ex)",
@@ -4092,7 +4093,8 @@
       "description": "At 6th level, your Archery combat style improves so you are treated as having Manyshot even without its normal prerequisites. This benefit functions only while you wear light armor or no armor.",
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
       "referencedSourceId": "classes/ranger-96",
-      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#improvedCombatStyle"
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#improvedCombatStyle",
+      "featName": "Manyshot"
     },
     {
       "name": "Combat Style Mastery (Ex)",
@@ -4100,7 +4102,8 @@
       "description": "At 11th level, your Archery combat style improves again so you are treated as having Improved Precise Shot even without its normal prerequisites. This benefit functions only while you wear light armor or no armor.",
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
       "referencedSourceId": "classes/ranger-96",
-      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyleMastery"
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#combatStyleMastery",
+      "featName": "Improved Precise Shot"
     }
   ],
   "classes/druid-variant-952": [
