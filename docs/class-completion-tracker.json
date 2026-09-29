@@ -1115,11 +1115,11 @@
       "name": "Barbarian Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-variant-950",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [
@@ -1127,18 +1127,17 @@
         "Remove Rage, Greater Rage, Indomitable Will, Tireless Rage, and Mighty Rage.",
         "Grant Ranger Favored Enemy plus the Archery Combat Style chain with exact level behavior."
       ],
-      "gaps": [
-        "Implementation is present in the current branch but requires full validation before completion."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/barbarian-variant-950 (Base Class Unearthed Arcana, p. source page).",
         "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
-        "Implementation present: exact Barbarian parent binding; Rage/Greater Rage/Indomitable Will/Tireless Rage/Mighty Rage suppressed; Ranger Favored Enemy automated; fixed Archery style materialized as Rapid Shot, Manyshot, and Improved Precise Shot with Ranger provenance; source-removal regression added."
+        "Implementation present: exact Barbarian parent binding; Rage/Greater Rage/Indomitable Will/Tireless Rage/Mighty Rage suppressed; Ranger Favored Enemy automated; fixed Archery style materialized as Rapid Shot, Manyshot, and Improved Precise Shot with Ranger provenance; source-removal regression added.",
+        "Full validation #1433 passed on exact head af619352c1ee2b4ce67be94964273a97573f41fe: source audits, class integration, full 3.5 class/feat/spell/item regressions, build, guided creation, save/reopen/source-removal coverage, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full validation; promote only if Favored Enemy choices, fixed Archery feats, retained Barbarian mechanics/training, and source-removal regressions pass."
+      "verifiedCommit": "af619352c1ee2b4ce67be94964273a97573f41fe",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36624283472",
+      "nextAction": "Complete; re-audit only if the exact source record or shared class-integration behavior changes."
     },
     {
       "sourceId": "classes/bard",
@@ -1165,11 +1164,11 @@
       "name": "Bard Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/bard-variant-951",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "pending",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [
@@ -1177,17 +1176,16 @@
         "Remove Bardic Knowledge and the listed Inspire Courage/Competence/Greatness/Heroics benefits.",
         "Grant Druid Animal Companion, Nature Sense, Resist Nature's Lure, and Wild Empathy."
       ],
-      "gaps": [
-        "Animal Companion and the Druid-derived abilities still require standalone mechanics and source-owned automation."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/bard-variant-951 (Base Class Unearthed Arcana, p. source page).",
-        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
+        "Full validation #1433 passed on exact head af619352c1ee2b4ce67be94964273a97573f41fe: source audits, class integration, full 3.5 class/feat/spell/item regressions, build, guided creation, save/reopen/source-removal coverage, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the four exact Druid-derived replacements and their lifecycle behavior."
+      "verifiedCommit": "af619352c1ee2b4ce67be94964273a97573f41fe",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36624283472",
+      "nextAction": "Complete; re-audit only if the exact source record or shared class-integration behavior changes."
     },
     {
       "sourceId": "classes/bardic-sage-118",
@@ -2776,8 +2774,8 @@
       "sourceUrl": "https://new.dndtools.org/classes/cleric-variant-972",
       "status": "reviewed_partial",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
@@ -2787,16 +2785,18 @@
         "Grant Smite Evil for positive-energy channelers or Smite Good for negative-energy channelers, plus Aura of Courage."
       ],
       "gaps": [
-        "Conditional smite polarity, usage tracking, and Aura of Courage still need structured automation."
+        "Exact source implementation is present in the current branch and requires full validation before completion."
       ],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/cleric-variant-972 (Base Class Unearthed Arcana, p. source page).",
-        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
+        "Live source re-review confirmed the exact UA p.58 exchange: exact PHB Cleric parent, Turn/Rebuke Undead removed, positive-energy channelers gain Smite Evil, negative-energy channelers gain Smite Good, and Aura of Courage is gained as the Paladin ability.",
+        "Implementation present: source-owned positive/negative-energy choice reuses retained Cleric spontaneous-casting polarity, selected Smite Evil/Good materializes as an action plus Paladin-scaled daily resource, Aura of Courage is added at 3rd level, and source-removal/browser regressions are included."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Model the channel-polarity-dependent smite and Aura of Courage as exact-source grants."
+      "nextAction": "Run full validation; promote only if exact-parent retention, Turn/Rebuke removal, both smite polarities/scaling, Aura of Courage, persistence, and source-removal/browser regressions pass."
     },
     {
       "sourceId": "classes/cloaked-dancer-291",
@@ -5439,11 +5439,11 @@
       "name": "Druid Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [
@@ -5451,18 +5451,17 @@
         "Remove armor and shield proficiency and every Wild Shape version.",
         "Grant Monk unarmored AC/Wisdom treatment and fast movement plus Ranger Favored Enemy, Swift Tracker, and Track."
       ],
-      "gaps": [
-        "Implementation is present in the current branch but requires full validation before completion."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/druid-variant-952 (Base Class Unearthed Arcana, p. source page).",
         "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
-        "Implementation present: exact Druid parent binding; armor/shield proficiency and Wild Shape removed; Monk-style unarmored AC/Fast Movement plus Ranger Favored Enemy/Swift Tracker/Track added; 3.5 AC calculator and source-removal regressions added."
+        "Implementation present: exact Druid parent binding; armor/shield proficiency and Wild Shape removed; Monk-style unarmored AC/Fast Movement plus Ranger Favored Enemy/Swift Tracker/Track added; 3.5 AC calculator and source-removal regressions added.",
+        "Full validation #1433 passed on exact head af619352c1ee2b4ce67be94964273a97573f41fe: source audits, class integration, full 3.5 class/feat/spell/item regressions, build, guided creation, save/reopen/source-removal coverage, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full validation; promote only if Druid weapon-only training, no Wild Shape, Monk-style AC/Fast Movement, Ranger-derived features, and source-removal regressions pass."
+      "verifiedCommit": "af619352c1ee2b4ce67be94964273a97573f41fe",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36624283472",
+      "nextAction": "Complete; re-audit only if the exact source record or shared class-integration behavior changes."
     },
     {
       "sourceId": "classes/druidic-avenger-123",
@@ -12678,11 +12677,11 @@
       "name": "Monk Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/monk-variant-954",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 2,
       "existingProfileParent": null,
       "featureRequirements": [
@@ -12690,20 +12689,19 @@
         "Remove the enhancement bonus to unarmored speed and the non-Wisdom unarmored AC bonus while retaining Wisdom to AC.",
         "Grant Barbarian damage reduction progression."
       ],
-      "gaps": [
-        "Implementation is present in the current branch but requires full validation before completion."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/monk-variant-954 (Unearthed Arcana p. 58).",
         "Implementation binds specifically to classes/monk-94, suppresses Monk Fast Movement, overrides AC Bonus so Wisdom-to-AC remains but the level-based class AC bonus is removed, and adds Barbarian damage reduction at 7/10/13/16/19.",
         "The shared AC calculator is corrected for 3.5 semantics: canonical Monk gains Wisdom plus its level-based AC bonus, Monk Variant gains Wisdom only, and 3.5 Barbarian no longer receives the 5e Constitution-to-AC rule.",
         "Full validation is still required before this exact source can be promoted to complete.",
-        "Implementation present: exact Monk parent binding, Fast Movement suppression, Wisdom-only unarmored AC, Barbarian DR progression, 3.5 AC semantics, and source-removal regression. Live source re-verification completed 2026-09-29; full validation still pending."
+        "Implementation present: exact Monk parent binding, Fast Movement suppression, Wisdom-only unarmored AC, Barbarian DR progression, 3.5 AC semantics, and source-removal regression. Live source re-verification completed 2026-09-29; full validation still pending.",
+        "Full validation #1433 passed on exact head af619352c1ee2b4ce67be94964273a97573f41fe: source audits, class integration, full 3.5 class/feat/spell/item regressions, build, guided creation, save/reopen/source-removal coverage, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full validation; promote only if exact AC, DR, retained Monk mechanics, and source-removal regressions pass."
+      "verifiedCommit": "af619352c1ee2b4ce67be94964273a97573f41fe",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36624283472",
+      "nextAction": "Complete; re-audit only if the exact source record or shared class-integration behavior changes."
     },
     {
       "sourceId": "classes/monk-variant-fighting-styles-949",
@@ -13850,11 +13848,11 @@
       "name": "Paladin Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-variant-955",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [
@@ -13862,18 +13860,17 @@
         "Remove Lay on Hands, Turn Undead, and Remove Disease.",
         "Grant Ranger Favored Enemy restricted to aberrations, dragons, giants, monstrous humanoids, evil outsiders, or undead."
       ],
-      "gaps": [
-        "Implementation is present in the current branch but requires full validation before completion."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/paladin-variant-955 (Base Class Unearthed Arcana, p. source page).",
         "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
-        "Implementation present: exact Paladin parent binding; Lay on Hands, Turn Undead, and Remove Disease suppressed; restricted Ranger Favored Enemy pool automated with new-enemy and +2 allocation choices; source-removal regression added."
+        "Implementation present: exact Paladin parent binding; Lay on Hands, Turn Undead, and Remove Disease suppressed; restricted Ranger Favored Enemy pool automated with new-enemy and +2 allocation choices; source-removal regression added.",
+        "Full validation #1433 passed on exact head af619352c1ee2b4ce67be94964273a97573f41fe: source audits, class integration, full 3.5 class/feat/spell/item regressions, build, guided creation, save/reopen/source-removal coverage, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full validation; promote only if the restricted Favored Enemy pool, retained Paladin mechanics/training, and source-removal regressions pass."
+      "verifiedCommit": "af619352c1ee2b4ce67be94964273a97573f41fe",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36624283472",
+      "nextAction": "Complete; re-audit only if the exact source record or shared class-integration behavior changes."
     },
     {
       "sourceId": "classes/pale-master-552",
@@ -17270,11 +17267,11 @@
       "name": "Sorcerer/Wizard Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/sorcererwizard-variant-957",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "pending",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [
@@ -17282,17 +17279,16 @@
         "Remove Familiar from the chosen baseline.",
         "Grant a Druid Animal Companion using one-half the Sorcerer or Wizard class level."
       ],
-      "gaps": [
-        "The exact record requires a fail-closed Sorcerer-versus-Wizard inheritance choice plus half-level Animal Companion automation."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exact source independently reviewed: https://new.dndtools.org/classes/sorcererwizard-variant-957 (Base Class Unearthed Arcana, p. source page).",
-        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse."
+        "Same-name or parent-class mechanics are not treated as sufficient proof; only the exact listed exchange is eligible for reuse.",
+        "Full validation #1433 passed on exact head af619352c1ee2b4ce67be94964273a97573f41fe: source audits, class integration, full 3.5 class/feat/spell/item regressions, build, guided creation, save/reopen/source-removal coverage, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Preserve the two possible exact parent identities and implement the half-level companion mechanic."
+      "verifiedCommit": "af619352c1ee2b4ce67be94964273a97573f41fe",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36624283472",
+      "nextAction": "Complete; re-audit only if the exact source record or shared class-integration behavior changes."
     },
     {
       "sourceId": "classes/soul-eater-172",
@@ -21369,5 +21365,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Wilderness Rogue is fully validated; Unearthed Arcana p.58 variants were independently source-classified, with Fighter/Rogue/Wizard feature-swap implementations pending full CI."
+  "lastUpdatedNote": "Companion/Favored Enemy UA variants validated complete on #1433; Cleric Variant source-owned smite polarity and Aura of Courage implementation is now pending full validation."
 }

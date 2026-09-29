@@ -706,12 +706,23 @@ function derivedForRow(row,character=null){
         if(!mechanicDescription||seenSelected.has(selectedKey))continue;
         seenSelected.add(selectedKey);
         const selectedId=id+':choice:'+slug(optionName);
+        const selectedName=mechanic.name||optionName;
+        const selectedMeta={...meta,sourceClassLevel:selected.level,sourceFeatureId:(featureId||slug(feature.name))+':choice:'+slug(optionName),...(mechanic.sourceUrl?{referencedSourceUrl:mechanic.sourceUrl}:{})};
         derivedFeatures.push({
-          id:selectedId,index:selectedId,name:mechanic.name||optionName,level:selected.level,latestLevel:selected.level,kind:'feature',
+          id:selectedId,index:selectedId,name:selectedName,level:selected.level,latestLevel:selected.level,kind:'feature',
           description:mechanicDescription,descriptionSource:'rule-text',desc:[mechanicDescription],progressionHistory:[{level:selected.level,text:optionName}],
-          selectedFromFeature:feature.name,referencedSourceUrl:mechanic.sourceUrl||undefined,
-          ...meta,sourceClassLevel:selected.level,sourceFeatureId:(featureId||slug(feature.name))+':choice:'+slug(optionName)
+          selectedFromFeature:feature.name,...selectedMeta
         });
+        const mechanicUsage=structuredUsage(mechanic,row.level,character);
+        const mechanicActionType=String(mechanic.actionType||'').trim();
+        if(mechanicActionType||mechanicUsage){
+          actions.push({id:'class-grant:'+meta.sourceClassId+':action:'+slug(selectedName),name:selectedName,type:mechanicActionType||'Special action',description:mechanicDescription,notes:optionName,...selectedMeta});
+        }
+        if(edition==='3.5'&&mechanicUsage&&mechanicUsage.max>0){
+          const reset=mechanicUsage.reset|| (mechanicUsage.period==='short rest'?'short':mechanicUsage.period==='rest'?'long':mechanicUsage.period==='day'||mechanicUsage.period==='long rest'?'long':'none');
+          const recoveryText=mechanicUsage.recoveryText|| (mechanicUsage.period==='week'?'Recover after one week; track the elapsed time manually.':'');
+          resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(selectedName),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(selectedName),name:selectedName,max:mechanicUsage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:mechanicUsage.unit||undefined,...selectedMeta});
+        }
       }
     }
     const concreteFeat=isConcreteFeat(feature),grantedFeatName=feature.featName||'';

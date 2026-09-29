@@ -5194,5 +5194,67 @@
       },
       "companionLevelMultiplier": 0.5
     }
+  ],
+  "classes/cleric-variant-972": [
+    {
+      "name": "Spontaneous Casting",
+      "level": 1,
+      "description": "Retain the Cleric's spontaneous casting rule and record the positive- or negative-energy polarity that the class would normally channel. A good cleric or a neutral cleric of a good deity uses positive energy and spontaneous cure spells; an evil cleric or a neutral cleric of an evil deity uses negative energy and spontaneous inflict spells. A neutral cleric of a neutral deity chooses one polarity permanently. For this variant, positive energy grants Smite Evil and negative energy grants Smite Good.",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-variant-972",
+      "referencedSourceId": "classes/paladin-95",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/paladin.htm#smiteEvil",
+      "choiceKind": "cleric-energy",
+      "choiceCount": 1,
+      "choiceOptions": [
+        "Positive energy",
+        "Negative energy"
+      ],
+      "choiceOptionMechanics": {
+        "Positive energy": {
+          "name": "Smite Evil",
+          "description": "Once per day at 1st level, declare a smite on one normal melee attack against an evil creature. Add your Charisma bonus to the attack roll and your Cleric Variant level to damage. If the target is not evil, the smite has no effect but the use is still spent. Gain a second daily use at 5th level and one additional use every five Cleric Variant levels thereafter, to 5/day at 20th.",
+          "sourceUrl": "https://www.d20srd.org/srd/classes/paladin.htm#smiteEvil",
+          "actionType": "Melee attack",
+          "resource": {
+            "maxByLevel": {
+              "1": 1,
+              "5": 2,
+              "10": 3,
+              "15": 4,
+              "20": 5
+            },
+            "period": "day",
+            "reset": "long",
+            "unit": "uses"
+          }
+        },
+        "Negative energy": {
+          "name": "Smite Good",
+          "description": "Once per day at 1st level, declare a smite on one normal melee attack against a good creature. Add your Charisma bonus to the attack roll and your Cleric Variant level to damage. If the target is not good, the smite has no effect but the use is still spent. Gain a second daily use at 5th level and one additional use every five Cleric Variant levels thereafter, to 5/day at 20th.",
+          "sourceUrl": "https://www.d20srd.org/srd/classes/paladin.htm#smiteEvil",
+          "actionType": "Melee attack",
+          "resource": {
+            "maxByLevel": {
+              "1": 1,
+              "5": 2,
+              "10": 3,
+              "15": 4,
+              "20": 5
+            },
+            "period": "day",
+            "reset": "long",
+            "unit": "uses"
+          }
+        }
+      }
+    },
+    {
+      "name": "Aura of Courage (Su)",
+      "level": 3,
+      "description": "At 3rd level, become immune to fear. While you are conscious, each ally within 10 feet gains a +4 morale bonus on saving throws against fear effects.",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-variant-972",
+      "referencedSourceId": "classes/paladin-95",
+      "referencedSourceUrl": "https://www.d20srd.org/srd/classes/paladin.htm#auraOfCourage"
+    }
   ]
 }

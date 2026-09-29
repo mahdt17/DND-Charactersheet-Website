@@ -63,7 +63,7 @@ Updated: 2026-09-29 (America/New_York)
 - Class inventory: **1,054 exact source IDs**.
 - Same-name scan: **107 groups covering 236 records**; name-based inheritance is not proof of equivalence.
 - Of those same-name groups, the bulk audit found **92 with structured mechanical differences**.
-- Tracker totals now: **10 complete**, **2 blocked**; all remaining records retain individual audit states.
+- Tracker totals now: **16 complete**, **2 blocked**; all remaining records retain individual audit states.
 - Current direct-summary count is **50** and remains a coverage metric only, never a completion count.
 - The next exact Unearthed Arcana p.58 records have been independently source-reviewed for batching; cross-class replacements are being split by implementation risk instead of being assumed equivalent.
 
@@ -93,7 +93,7 @@ Updated: 2026-09-29 (America/New_York)
 - Barbarian Variant, Paladin Variant, and Druid Variant now consume that shared Favored Enemy path with exact source restrictions and source-removal coverage; all three remain pending full validation and must not be promoted to complete until CI passes.
 - Barbarian Variant also materializes its fixed Archery progression as Rapid Shot, Manyshot, and Improved Precise Shot class-granted feats.
 - Druid Variant now has weapon-only Druid training, no Wild Shape, Monk-style unarmored AC/Fast Movement, Ranger Swift Tracker/Track, and 3.5-specific AC calculator support.
-- Animal Companion automation is now implemented and source-reviewed: Druid companion tiers/progression, Bard Variant full-level companion inheritance, and Sorcerer/Wizard Variant half-level companion progression with exact PHB parent IDs are regression-covered.
-- Validation run #1431 passed the complete unit/regression/build/browser suite on implementation head `57623bd83e830cafdcd2ce1161003f80f0b7748b`, including class integration, feature choices, full 3.5 class/feat/spell/item regressions, build, and all browser layers.
-- A newer browser-test-only commit adds explicit guided-creation coverage for Druid Animal Companion and Sorcerer/Wizard Variant parent/companion selection; keep Bard/Druid/companion variants pending until that exact branch head receives a green run.
+- Companion/Favored Enemy variant batch is fully validated on #1433 at `af619352c1ee2b4ce67be94964273a97573f41fe`: Monk Variant, Barbarian Variant, Paladin Variant, Druid Variant, Bard Variant, and Sorcerer/Wizard Variant are complete.
+- Animal Companion automation is regression-locked for Druid, Bard Variant, and Sorcerer/Wizard Variant, including exact parent IDs, guided selection, half-level scaling where required, alternative-companion penalties, persistence, and source-removal cleanup.
+- Cleric Variant is now source-reviewed and implemented pending full validation: exact `classes/cleric-91` parent, no Turn/Rebuke Undead, one retained Cleric energy-polarity choice that materializes Smite Evil or Smite Good with Paladin daily scaling, and Aura of Courage at 3rd level.
 - The self-contained-description audit remains active; reviewed descriptions must stay standalone and exact-source-owned.

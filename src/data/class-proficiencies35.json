@@ -3282,6 +3282,26 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana p. 58 Sorcerer/Wizard Variant independently reviewed. The user must choose the exact PHB Sorcerer (classes/sorcerer-98) or Wizard (classes/wizard-99) parent progression; Familiar is removed and replaced with a Druid Animal Companion whose base effective druid level is one-half class level, rounded down under the general 3.5 fraction rule."
+    },
+    "classes/cleric-variant-972": {
+      "name": "Cleric Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/cleric-variant-972",
+      "inheritanceSourceId": "classes/cleric-91",
+      "featureSuppressions": [
+        {
+          "name": "Turn or Rebuke Undead (Su)"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Aura of Courage (Su)",
+          "level": 3,
+          "referencedSourceId": "classes/paladin-95",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/paladin.htm#auraOfCourage"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Cleric Variant independently reviewed. It retains the exact PHB Cleric baseline except Turn/Rebuke Undead; the Cleric's positive/negative-energy polarity determines Smite Evil versus Smite Good using Paladin smite progression, and Aura of Courage is gained as the Paladin ability."
     }
   }
 }

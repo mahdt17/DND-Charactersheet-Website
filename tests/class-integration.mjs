@@ -232,6 +232,44 @@ assert.equal(cleric1.grantedFeatures.find(feature=>feature.name==='Spontaneous C
 assert.match(cleric1.grantedFeatures.find(feature=>/Deity, Domains/i.test(feature.name))?.description||'',/two permitted domains/i);
 assert.match(cleric1.grantedFeatures.find(feature=>/Turn or Rebuke Undead/i.test(feature.name))?.description||'',/3 \+ your Charisma modifier times per day/i);
 
+const clericVariant35=exact35('classes/cleric-variant-972');
+const clericVariant20Base=baseCharacter([{catalogId:clericVariant35.catalogId,name:'Cleric Variant',edition:'3.5',level:20,definition:clericVariant35}]);
+const clericVariant20=reconcileClassGrants(clericVariant20Base);
+assert.equal(clericVariant35.inheritedFromClassId,'dndtools:classes/cleric-91','Cleric Variant binds the exact PHB Cleric source');
+assert(!clericVariant20.grantedFeatures.some(feature=>/Turn or Rebuke Undead/i.test(feature.name)),'Cleric Variant removes Turn/Rebuke Undead');
+for(const retained of ['Spells','Deity, Domains, and Domain Spells','Spontaneous Casting'])assert(clericVariant20.grantedFeatures.some(feature=>feature.name===retained),'Cleric Variant retains '+retained);
+assert(clericVariant20.grantedFeatures.some(feature=>feature.name==='Aura of Courage'),'Cleric Variant gains Aura of Courage');
+for(const proficiency of ['light-armor','medium-armor','heavy-armor','shields-except-tower','simple-weapons'])assert(clericVariant20.trainingGrants.flatMap(grant=>grant.proficiencies||[]).some(item=>item.index===proficiency),'Cleric Variant retains Cleric training: '+proficiency);
+const clericVariant1={...clericVariant20Base,classLevels:[{...clericVariant20Base.classLevels[0],level:1}],level:1};
+const clericVariant1Plan=featureChoicePlan(clericVariant1,null);
+const clericEnergy=clericVariant1Plan.groups.find(group=>group.choiceKind==='cleric-energy');
+assert(clericEnergy,'Cleric Variant requires the source-defined positive/negative-energy polarity');
+assert.deepEqual(clericEnergy.options,['Positive energy','Negative energy']);
+const clericPositive=applyFeatureChoices(clericVariant1,null,{[clericEnergy.id]:['Positive energy']});
+assert(Object.values(clericPositive.featureChoices||{}).some(choice=>choice.choiceKind==='cleric-energy'&&choice.choices?.[0]==='Positive energy'));
+assert(clericPositive.actions.some(action=>action.name==='Smite Evil'&&action.type==='Melee attack'),'Positive-energy Cleric Variant gains Smite Evil action');
+assert(!clericPositive.actions.some(action=>action.name==='Smite Good'),'Positive-energy Cleric Variant does not gain Smite Good');
+assert.equal(clericPositive.resources.find(resource=>resource.name==='Smite Evil')?.max,1,'Smite Evil starts at 1/day');
+const clericPositive5=reconcileClassGrants({...clericPositive,classLevels:[{...clericPositive.classLevels[0],level:5}],level:5});
+assert.equal(clericPositive5.resources.find(resource=>resource.name==='Smite Evil')?.max,2,'Smite Evil scales to 2/day at 5th level');
+assert(clericPositive5.grantedFeatures.some(feature=>feature.name==='Aura of Courage'),'Aura of Courage is present by 3rd level');
+assert.match(clericPositive5.grantedFeatures.find(feature=>feature.name==='Aura of Courage')?.description||'',/all(?:y|ies) within 10 feet|each ally within 10 feet/i);
+const clericNegative=applyFeatureChoices(clericVariant1,null,{[clericEnergy.id]:['Negative energy']});
+assert(clericNegative.actions.some(action=>action.name==='Smite Good'),'Negative-energy Cleric Variant gains Smite Good');
+assert(!clericNegative.actions.some(action=>action.name==='Smite Evil'),'Negative-energy Cleric Variant does not gain Smite Evil');
+assert.equal(clericNegative.resources.find(resource=>resource.name==='Smite Good')?.max,1,'Smite Good starts at 1/day');
+assert.equal(classAutomationReport(clericVariant20).classes[0].descriptionComplete,true,'Cleric Variant retained and replacement mechanics are fully described');
+const clericVariantMulti=reconcileClassGrants({...clericPositive5,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:clericVariant35.catalogId,name:'Cleric Variant',edition:'3.5',level:5,definition:clericVariant35}
+],level:6,className:'Fighter',classDefinition:fighter35});
+const clericVariantRemoved=removeClassProgression(clericVariantMulti,clericVariant35.catalogId);
+assert(!clericVariantRemoved.grantedFeatures.some(feature=>feature.sourceClassId===clericVariant35.catalogId),'Removing Cleric Variant removes its source-owned features');
+assert(!clericVariantRemoved.actions.some(action=>action.sourceClassId===clericVariant35.catalogId),'Removing Cleric Variant removes selected Smite action');
+assert(!clericVariantRemoved.resources.some(resource=>resource.sourceClassId===clericVariant35.catalogId),'Removing Cleric Variant removes selected Smite resource');
+assert(!Object.values(clericVariantRemoved.featureChoices||{}).some(choice=>choice.sourceClassId===clericVariant35.catalogId),'Removing Cleric Variant removes its energy choice');
+assert(clericVariantRemoved.actions.some(action=>action.id==='manual-action')&&clericVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing Cleric Variant preserves unrelated manual data');
+
 const reviewedPaladin35=exact35('classes/paladin-95');
 const paladin6=reconcileClassGrants(baseCharacter([{catalogId:reviewedPaladin35.catalogId,name:'Paladin',edition:'3.5',level:6,definition:reviewedPaladin35}]));
 assert.equal(paladin6.grantedFeatures.find(feature=>feature.name==='Lay on Hands')?.descriptionSource,'rule-text');

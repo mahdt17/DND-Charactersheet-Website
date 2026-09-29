@@ -127,5 +127,29 @@ try {
  assert((swCompanionSaved.grantedFeatures||[]).some(feature=>feature.companionName==='Wolf'&&feature.baseEffectiveDruidLevel===0&&feature.companionEffectiveDruidLevel===0));
  console.log('PASS 3.5 Sorcerer/Wizard Variant exact parent choice and half-level Animal Companion creation');
 
+ const clericVariantName='Guided Cleric Variant 3.5';
+ await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.getByRole('button',{name:'Create character',exact:true}).click();
+ await page.getByLabel('Character name',{exact:true}).fill(clericVariantName);
+ await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
+ await page.getByLabel('Search class').fill('Cleric Variant');await page.locator('[data-catalog-id="dndtools:classes/cleric-variant-972"]').click();await next();
+ await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Cleric Variant creation waits for its energy polarity');
+ const positiveEnergy=page.getByLabel('Cleric Variant 1 Spontaneous Casting: Positive energy',{exact:true});
+ assert.equal(await positiveEnergy.count(),1,'Cleric Variant exposes the positive-energy source option');
+ assert.equal(await page.getByLabel('Cleric Variant 1 Spontaneous Casting: Negative energy',{exact:true}).count(),1,'Cleric Variant exposes the negative-energy source option');
+ await positiveEnergy.check();
+ assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+ await page.getByRole('button',{name:'Create Character',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:clericVariantName}).waitFor();
+ const clericVariantSaved=await saved(clericVariantName);
+ assert.equal(clericVariantSaved.classDefinition?.inheritedFromClassId,'dndtools:classes/cleric-91','Guided Cleric Variant persists the exact PHB Cleric parent');
+ assert(Object.values(clericVariantSaved.featureChoices||{}).some(choice=>choice.choiceKind==='cleric-energy'&&choice.choices?.[0]==='Positive energy'));
+ assert((clericVariantSaved.actions||[]).some(action=>action.name==='Smite Evil'&&action.sourceClassId==='dndtools:classes/cleric-variant-972'));
+ assert((clericVariantSaved.resources||[]).some(resource=>resource.name==='Smite Evil'&&resource.max===1));
+ assert(!(clericVariantSaved.grantedFeatures||[]).some(feature=>/Turn or Rebuke Undead/i.test(feature.name)));
+ console.log('PASS 3.5 Cleric Variant energy polarity, Smite automation, exact parent and removal exchange');
+
  assert.deepEqual(errors,[]);
 } catch(e){await page.screenshot({path:'test-results/feature-choices-failure.png',fullPage:true});throw e;} finally {await browser.close();await server.close();}
