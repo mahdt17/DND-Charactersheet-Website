@@ -3225,7 +3225,10 @@
       "name": "Camouflage",
       "level": 8,
       "description": "Use Hide in natural terrain even when that terrain does not provide cover or concealment, while meeting the scout's armor/load restrictions.",
-      "sourceSha256": "5915880362e687546eb92421897e06b2c37c23b6e3693ef2f7c41cd4e4af3b44"
+      "sourceSha256": "5915880362e687546eb92421897e06b2c37c23b6e3693ef2f7c41cd4e4af3b44",
+      "aliases": [
+        "Camoflague"
+      ]
     },
     {
       "name": "Blindsense",
@@ -3233,7 +3236,8 @@
       "description": "Gain blindsense out to 30 feet.",
       "sourceSha256": "a95402d34835e8eb054bb412bc7ca7fad7701a92486abb232e501c05933283e1",
       "aliases": [
-        "Blindsense 30 ft."
+        "Blindsense 30 ft.",
+        "Blindsense 30ft"
       ]
     },
     {
@@ -3254,7 +3258,10 @@
       "description": "Gain blindsight out to 30 feet.",
       "sourceSha256": "e04f475d1270be81a71334c464a9fd0324ae42dbd50286f3354b9bf7501d70ae",
       "aliases": [
-        "Blindsight 30 ft."
+        "Blindsight 30 ft.",
+        "Blindsight 30ft",
+        "blind sight 30ft",
+        "blind sight 30 ft."
       ]
     }
   ],
