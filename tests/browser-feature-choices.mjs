@@ -34,7 +34,7 @@ try {
  await page.getByRole('button',{name:'Create character',exact:true}).click();
  await page.getByLabel('Character name',{exact:true}).fill(commonerName);
  await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
- await page.getByLabel('Search class').fill('Commoner');await choose('Commoner');await next();
+ await page.getByLabel('Search class').fill('Commoner');await page.locator('[data-catalog-id="dndtools:classes/commoner-32"]').click();await next();
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
  await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
  assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Commoner creation waits for its required simple-weapon choice');
