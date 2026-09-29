@@ -17,7 +17,7 @@ function resolvedProficiencySupplement(sourceId,seen=new Set()){
   seen.add(sourceId);
   const parent=resolvedProficiencySupplement(supplement.proficiencyProfileFrom,seen);
   if(!parent||parent.name!==supplement.name)return null;
-  return {...parent,...supplement,proficiencies:supplement.proficiencies||parent.proficiencies||[],proficiencyChoices:supplement.proficiencyChoices||parent.proficiencyChoices||[],proficiencyProgression:supplement.proficiencyProgression||parent.proficiencyProgression||[],proficiencyText:supplement.proficiencyText||parent.proficiencyText,profileSourceId:supplement.proficiencyProfileFrom,profileSourceUrl:parent.sourceUrl};
+  return {...parent,...supplement,proficiencies:supplement.proficiencies||parent.proficiencies||[],proficiencyChoices:supplement.proficiencyChoices||parent.proficiencyChoices||[],classSkillChoices:supplement.classSkillChoices||parent.classSkillChoices||[],proficiencyProgression:supplement.proficiencyProgression||parent.proficiencyProgression||[],proficiencyText:supplement.proficiencyText||parent.proficiencyText,profileSourceId:supplement.proficiencyProfileFrom,profileSourceUrl:parent.sourceUrl};
 }
 function withProficiencySupplement(record){
   if(!record||normalizeEdition(record.edition)!=='3.5')return record;
@@ -26,7 +26,7 @@ function withProficiencySupplement(record){
   if(!supplement||supplement.name!==record.name)return record;
   const proficiencies=Array.isArray(record.proficiencies)&&record.proficiencies.length?record.proficiencies:(supplement.proficiencies||[]);
   const proficiencyChoices=Array.isArray(record.proficiencyChoices)&&record.proficiencyChoices.length?record.proficiencyChoices:(supplement.proficiencyChoices||[]);
-  return {...record,proficiencies,proficiencyChoices,proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
+  return {...record,proficiencies,proficiencyChoices,classSkillChoices:record.classSkillChoices||supplement.classSkillChoices||[],proficiencyProgression:supplement.proficiencyProgression||record.proficiencyProgression||[],proficiencyText:record.proficiencyText||supplement.proficiencyText,proficiencyParseIncomplete:false,proficiencySupplementVerified:true,proficiencyProfileFrom:supplement.profileSourceId||null,proficiencySourceUrl:supplement.profileSourceUrl||supplement.sourceUrl};
 }
 const norm=value=>String(value||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9]+/g,' ').trim();
 const featureMatchKey=value=>norm(String(value||'')
@@ -630,11 +630,15 @@ function derivedForRow(row,character=null){
   const descriptive=derivedFeatures.filter(feature=>feature.descriptionSource==='progression').length;
   if(descriptive)warnings.push(`${descriptive} granted feature${descriptive===1?'':'s'} use concise progression-table summaries because full local rule text is unavailable; source links remain authoritative.`);
   const unresolvedChoices=derivedFeatures.filter(feature=>feature.kind==='choice').length;
+  const chosenClassSkills=edition==='3.5'?Object.values(character?.featureChoices||{})
+    .filter(choice=>choice?.sourceClassId===row.catalogId&&choice?.choiceKind==='class-skill')
+    .flatMap(choice=>choice.choices||[]):[];
+  const classSkillNames=edition==='3.5'?[...new Set([...(Array.isArray(record.classSkills)?record.classSkills:[]),...chosenClassSkills])]:[];
   return {
     row,features:derivedFeatures,actions,feats,resources,tracks,spellSlots,training,
-    classSkills:edition==='3.5'&&Array.isArray(record.classSkills)?record.classSkills.map(name=>({id:'class-grant:'+row.catalogId+':class-skill:'+slug(name),name,sourceType:'class',automatic:true,sourceClassId:row.catalogId,sourceClassName:row.name,sourceUrl:record.sourceUrl||null,edition:'3.5'})):[],
+    classSkills:classSkillNames.map(name=>({id:'class-grant:'+row.catalogId+':class-skill:'+slug(name),name,sourceType:'class',automatic:true,sourceClassId:row.catalogId,sourceClassName:row.name,sourceUrl:record.sourceUrl||null,edition:'3.5'})),
     classSkillRules:edition==='3.5'&&record.classSkillRule?[{id:'class-grant:'+row.catalogId+':class-skill-rule',rule:record.classSkillRule,sourceType:'class',automatic:true,sourceClassId:row.catalogId,sourceClassName:row.name,sourceUrl:record.sourceUrl||null,edition:'3.5'}]:[],
-    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trainingGrantCount:training.length,classSkillCount:edition==='3.5'&&Array.isArray(record.classSkills)?record.classSkills.length:0,classSkillRule:Boolean(edition==='3.5'&&record.classSkillRule),trackCount:tracks.length,spellSlotProfile:Boolean(slotProfile),choiceCount:unresolvedChoices,proficiencyChoices:record.proficiencyChoices||[],gaps,warnings,descriptionComplete:descriptive===0,descriptionReady:derivedFeatures.every(feature=>Boolean(feature.description)),progressionSummaryCount:descriptive,integrationComplete:gaps.length===0,complete:gaps.length===0}
+    report:{classId:row.catalogId,name:row.name,edition,level:row.level,prestige:Boolean(record.prestige||record.stats?.prestige),hasProgression,inheritanceRequired:Boolean(record.inheritanceRequired),inheritanceOptions:record.inheritanceOptions||[],progressionComplete:hasProgression,featureCount:derivedFeatures.length,actionCount:actions.length,featCount:feats.length,resourceCount:resources.length,trainingGrantCount:training.length,classSkillCount:classSkillNames.length,classSkillRule:Boolean(edition==='3.5'&&record.classSkillRule),trackCount:tracks.length,spellSlotProfile:Boolean(slotProfile),choiceCount:unresolvedChoices,proficiencyChoices:record.proficiencyChoices||[],classSkillChoices:record.classSkillChoices||[],gaps,warnings,descriptionComplete:descriptive===0,descriptionReady:derivedFeatures.every(feature=>Boolean(feature.description)),progressionSummaryCount:descriptive,integrationComplete:gaps.length===0,complete:gaps.length===0}
   };
 }
 

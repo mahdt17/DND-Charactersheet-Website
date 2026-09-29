@@ -54,5 +54,29 @@ try {
  assert(Object.values(commonerReloaded.featureChoices||{}).some(choice=>choice.choices?.[0]==='Club'),'Commoner source choice survives save/reopen');
  console.log('PASS 3.5 Commoner required simple-weapon choice, source-valid options, persistence and training grant');
 
+ const expertName='Guided Expert 3.5';
+ await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.getByRole('button',{name:'Create character',exact:true}).click();
+ await page.getByLabel('Character name',{exact:true}).fill(expertName);
+ await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
+ await page.getByLabel('Search class').fill('Expert');await page.locator('[data-catalog-id="dndtools:classes/expert-33"]').click();await next();
+ await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Expert creation waits for ten class-skill choices');
+ const expertPicks=['Appraise','Balance','Bluff','Climb','Concentration','Craft','Decipher Script','Diplomacy','Disable Device','Disguise'];
+ for(const skill of expertPicks)await page.getByLabel(`Expert 1 Class skills: ${skill}`,{exact:true}).check();
+ assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+ assert(await page.getByLabel('Expert 1 Class skills: Escape Artist',{exact:true}).isDisabled(),'Expert choice stops at exactly ten skills');
+ await page.getByRole('button',{name:'Create Character',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:expertName}).waitFor();
+ const expertSaved=await saved(expertName);
+ assert.equal((expertSaved.classSkills35||[]).filter(skill=>skill.sourceClassId==='dndtools:classes/expert-33').length,10);
+ assert(Object.values(expertSaved.featureChoices||{}).some(choice=>choice.sourceClassId==='dndtools:classes/expert-33'&&choice.choiceKind==='class-skill'&&choice.choices?.length===10));
+ await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.locator('.character-card').filter({hasText:expertName}).getByRole('button',{name:'Open character'}).click();
+ const expertReopened=await saved(expertName);
+ assert.equal((expertReopened.classSkills35||[]).filter(skill=>skill.sourceClassId==='dndtools:classes/expert-33').length,10,'Expert class-skill choices survive save/reopen');
+ console.log('PASS 3.5 Expert exact ten class-skill choices, eligibility, persistence and source-owned class-skill grants');
+
  assert.deepEqual(errors,[]);
 } catch(e){await page.screenshot({path:'test-results/feature-choices-failure.png',fullPage:true});throw e;} finally {await browser.close();await server.close();}

@@ -78,6 +78,20 @@ function sourceChoicePlan(c,previous,picks={}) {
         patch.trainingGrants.push({classId:trainingId,sourceClassId:report.classId,sourceChoiceId:id,className:report.name,edition:'3.5',proficiencies:selected.map(name=>({kind:group.proficiencyKind,name,index:slug(name)}))});
       }
     }
+    for(const choice of report.classSkillChoices||[]) {
+      const level=Math.max(1,Number(choice.level)||1);
+      if(report.level<level||oldLevel>=level)continue;
+      const id=`3.5:${report.classId}:${level}:class-skill:${choice.id||slug(choice.label)}`;
+      if(patch.featureChoices[id])continue;
+      const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
+      const selected=raw.map(value=>String(value||'').trim()).filter(Boolean);
+      const options=(Array.isArray(choice.options)?choice.options:[]).map(value=>String(value));
+      const required=Math.max(1,Number(choice.count)||1);
+      const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&selected.every(value=>options.includes(value));
+      const group={id,level,kind:'source-choice',choiceKind:'class-skill',count:required,required,label:choice.label||'Class skills',className:report.name,classId:report.classId,sourceClassId:report.classId,sourceText:choice.sourceText||'Choose the source-defined class skills.',sourceUrl:choice.sourceUrl||choice.optionsSourceUrl||null,options,selected,valid};
+      groups.push(group);
+      if(valid)patch.featureChoices[id]={className:report.name,classId:report.classId,sourceClassId:report.classId,edition:'3.5',level,feature:group.label,choices:[...selected],sourceText:group.sourceText,choiceKind:'class-skill'};
+    }
   }
   return {groups,patch,valid:groups.every(group=>group.valid)};
 }
@@ -142,5 +156,6 @@ export function featureChoicePlan(c,previous=null,picks={}) {
 export function applyFeatureChoices(c,previous,picks) {
   const plan=featureChoicePlan(c,previous,picks);
   if(!plan.valid)throw Error('Complete the class feature choices before saving.');
-  return {...c,...plan.patch};
+  const next={...c,...plan.patch},edition=c.ruleset||'2014';
+  return edition==='3.5'||characterClasses(next).some(row=>row.edition==='3.5')&&!['2014','2024'].includes(edition)?reconcileClassGrants(next):next;
 }

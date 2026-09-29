@@ -73,6 +73,28 @@ assert(Object.values(commonerChosen35.featureChoices).some(choice=>choice.source
 assert(commonerChosen35.trainingGrants.some(grant=>grant.sourceClassId===commonerClass35.catalogId&&grant.sourceChoiceId===commonerWeapon35.id&&grant.proficiencies.some(p=>p.index==='club')));
 assert.equal(featureChoicePlan(commonerChosen35,null).groups.filter(group=>group.choiceKind==='proficiency').length,0,'saved Commoner weapon choice must not repeat');
 
+const expertClass35={name:'Expert',edition:'3.5',sourceId:'classes/expert-33',catalogId:'dndtools:classes/expert-33',sourceUrl:'https://www.d20srd.org/srd/npcClasses/expert.htm',progression:[['Class Level','BAB','Fort Save','Ref Save','Will Save'],['1st','+0','+0','+0','+2']]};
+const warriorClass35={name:'Warrior',edition:'3.5',sourceId:'classes/warrior-34',catalogId:'dndtools:classes/warrior-34',sourceUrl:'https://new.dndtools.org/classes/warrior-34',progression:[['Class Level','BAB','Fort Save','Ref Save','Will Save'],['1st','+1','+2','+0','+0']]};
+const expertChar35={...legacyChoice,className:'Expert',classDefinition:expertClass35,classLevels:[{name:'Expert',edition:'3.5',catalogId:expertClass35.catalogId,level:1,definition:expertClass35},{name:'Warrior',edition:'3.5',catalogId:warriorClass35.catalogId,level:1,definition:warriorClass35}],level:2};
+const expertPlan35=featureChoicePlan(expertChar35,null);
+const expertSkills35=expertPlan35.groups.find(group=>group.choiceKind==='class-skill');
+assert(expertSkills35,'Expert requires its ten class-skill choices');
+assert.equal(expertSkills35.required,10);
+assert.equal(expertSkills35.options.length,46);
+assert(expertSkills35.options.includes('Appraise')&&expertSkills35.options.includes('Knowledge (the planes)')&&expertSkills35.options.includes('Truespeak'));
+assert.throws(()=>applyFeatureChoices(expertChar35,null,{[expertSkills35.id]:expertSkills35.options.slice(0,9)}),/Complete/);
+const expertChosenNames35=expertSkills35.options.slice(0,10);
+const expertChosen35=applyFeatureChoices(expertChar35,null,{[expertSkills35.id]:expertChosenNames35});
+assert.equal(Object.values(expertChosen35.featureChoices).find(choice=>choice.sourceClassId===expertClass35.catalogId&&choice.choiceKind==='class-skill')?.choices.length,10);
+assert.equal(expertChosen35.classSkills35.filter(skill=>skill.sourceClassId===expertClass35.catalogId).length,10);
+const expertIntegration35=await import('../src/lib/classIntegration.js');
+for(const skill of expertChosenNames35)assert.equal(expertIntegration35.legacyClassSkillStatus(expertChosen35,skill).classSkill,true,skill+' becomes an Expert class skill');
+assert.equal(expertIntegration35.legacyClassSkillStatus(expertChosen35,'Spot').classSkill,false,'unchosen Expert skill remains cross-class');
+const expertRemoved35=expertIntegration35.removeClassProgression(expertChosen35,expertClass35.catalogId);
+assert.equal(expertRemoved35.classSkills35.some(skill=>skill.sourceClassId===expertClass35.catalogId),false,'removing Expert cleans up its chosen class skills');
+assert.equal(Object.values(expertRemoved35.featureChoices||{}).some(choice=>choice.sourceClassId===expertClass35.catalogId),false,'removing Expert cleans up its class-skill choice');
+assert(expertRemoved35.trainingGrants.some(grant=>grant.sourceClassId===warriorClass35.catalogId),'removing Expert preserves the other class training');
+
 const dreadClass={name:'Dread Necromancer',edition:'3.5',sourceId:'classes/dread-necromancer-75',catalogId:'dndtools:classes/dread-necromancer-75',progression:[['Class Level','Special'],['1st','Charnel touch']]};
 const dreadChar={...legacyChoice,className:'Dread Necromancer',classDefinition:dreadClass,classLevels:[{name:'Dread Necromancer',edition:'3.5',catalogId:dreadClass.catalogId,level:1,definition:dreadClass}]};
 const dreadPlan=featureChoicePlan(dreadChar,null);
