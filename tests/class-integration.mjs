@@ -1272,7 +1272,7 @@ for(const sourceId of largeSafeBatch35){
   const report=classAutomationReport(sheet).classes[0];
   assert.equal(report.progressionComplete,true,sourceId+' has complete structured progression');
   assert.equal(report.descriptionReady,true,sourceId+' has descriptions for every granted feature');
-  assert.equal(report.descriptionComplete,true,sourceId+' uses reviewed source-owned rule text rather than progression placeholders');
+  assert.equal(report.descriptionComplete,true,sourceId+' uses reviewed source-owned rule text rather than progression placeholders: '+sheet.grantedFeatures.filter(item=>item.descriptionSource==='progression').map(item=>item.name).join(', '));
   assert.equal(report.complete,true,sourceId+' has no structural class-automation gap');
   assert(sheet.trainingGrants.some(grant=>grant.sourceClassId===definition.catalogId),sourceId+' has verified source-owned starting training');
   assert.deepEqual(reconcileClassGrants(sheet),sheet,sourceId+' reconciliation is idempotent');
