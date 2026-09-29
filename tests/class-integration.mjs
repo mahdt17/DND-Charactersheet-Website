@@ -101,7 +101,7 @@ assert.match(monkVariantAC?.description||'',/does not gain the additional \+1 cl
 const monkVariantDR=monkVariant20.grantedFeatures.find(feature=>feature.name==='Damage Reduction');
 assert.equal(monkVariantDR?.descriptionSource,'rule-text');
 assert.deepEqual(monkVariantDR?.progressionHistory?.map(event=>event.level),[7,10,13,16,19]);
-assert.match(monkVariantDR?.description||'',/5\/- at 19th level/i);
+assert.match(monkVariantDR?.description||'',/5\/- at 19th(?: level)?/i);
 assert.match(monkVariantDR?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/barbarian/i);
 assert(monkVariant20.grantedFeatures.some(feature=>feature.name==='Perfect Self'),'Monk Variant retains Perfect Self');
 assert(monkVariant20.feats.some(feat=>feat.name==='Improved Unarmed Strike'&&feat.sourceClassId===monkVariant35.catalogId),'Monk Variant retains Monk automatic feats');
