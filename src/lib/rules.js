@@ -69,7 +69,11 @@ export function armorFor(char, abilities) {
   if(legacy35){
     const monkLevel=legacyClassLevel(char,'classes/monk-94','Monk');
     const monkVariantLevel=legacyClassLevel(char,'classes/monk-variant-954','Monk Variant');
-    if(!shield&&(monkLevel||monkVariantLevel))return 10+dex+wis+Math.min(4,Math.floor(monkLevel/5));
+    const druidVariantLevel=legacyClassLevel(char,'classes/druid-variant-952','Druid Variant');
+    if(!shield&&(monkLevel||monkVariantLevel||druidVariantLevel)){
+      const classAcBonus=Math.min(4,Math.max(Math.floor(monkLevel/5),Math.floor(druidVariantLevel/5)));
+      return 10+dex+wis+classAcBonus;
+    }
     return 10+dex+(shield?2:0);
   }
   const base=char.className==='Barbarian'?10+dex+con:char.className==='Monk'&&!shield?10+dex+wis:10+dex;
