@@ -82,6 +82,60 @@
           "role": "Races of Faerûn Table A-5 option levels and special rules cross-check"
         }
       ]
+    },
+    "feats/minor-malevolence-3548": {
+      "name": "Minor Malevolence",
+      "effectSummary": "As a standard action, enter the space of a living creature of your creature type, provoking an attack of opportunity from that creature, and attempt to possess it. The target makes a Will save against DC 10 + half your Hit Dice + your Charisma modifier. On a successful save, it resists and becomes immune to your feats on the path of the dominator for one day. On a failed save, your ghost body and any ghost touch equipment you carry vanish into the host while other carried items drop in its square; you control the host and perceive through its senses. The host can attempt a new Will save every 10 minutes to eject you into an adjacent space. The possession is mind-affecting and can last up to 10 minutes per Hit Die. You can attempt this possession a number of times per day equal to your Charisma modifier, minimum 1, and each use deals 2 points of Charisma damage to you. When you leave a host, your ghost touch equipment reforms with your ghost body.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/minor-malevolence-3548",
+          "role": "Exact Ghostwalk Minor Malevolence record; supplies the control exception, save-immunity rule, and Charisma-damage cost."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/ghost-ride-3471",
+          "role": "Referenced Ghost Ride mechanics expanded into the standalone possession procedure, duration, uses, targeting, saves, and equipment handling."
+        }
+      ]
+    },
+    "feats/malevolence-3549": {
+      "name": "Malevolence",
+      "effectSummary": "As a standard action, enter the space of a living creature of your creature type, provoking an attack of opportunity from that creature, and attempt to possess and control it. The target makes a Will save against DC 10 + half your Hit Dice + your Charisma modifier. On a successful save, it resists and becomes immune to your feats on the path of the dominator for one day. On a failed save, your ghost body and any ghost touch equipment you carry vanish into the host while other carried items drop in its square; you control the host and perceive through its senses. The host can attempt a new Will save every 10 minutes to eject you into an adjacent space. The possession is mind-affecting and can last for a number of hours equal to your Hit Dice. You can attempt this possession a number of times per day equal to your Charisma modifier, minimum 1, and each use deals 2 points of Charisma damage to you. When you leave a host, your ghost touch equipment reforms with your ghost body.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/malevolence-3549",
+          "role": "Exact Ghostwalk Malevolence record; changes the inherited maximum possession duration to one hour per Hit Die and retains the listed save-immunity and Charisma-damage rules."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/minor-malevolence-3548",
+          "role": "Referenced Minor Malevolence control mechanics."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/ghost-ride-3471",
+          "role": "Underlying Ghost Ride possession procedure, uses, targeting, saves, and equipment handling."
+        }
+      ]
+    },
+    "feats/grand-malevolence-3550": {
+      "name": "Grand Malevolence",
+      "effectSummary": "You can maintain possession and control of a number of living creatures of your creature type at the same time equal to your Charisma bonus. Each possession attempt is a standard action: enter that creature's space, provoking an attack of opportunity, and it makes a Will save against DC 10 + half your Hit Dice + your Charisma modifier. A successful save resists the attempt and makes that creature immune to your feats on the path of the dominator for one day. On a failed save, your ghost body remains hidden in the possessed hosts; non-ghost-touch equipment drops when you first possess a host, while ghost touch equipment stays with your vanished ghost form. Each host can attempt a new Will save every 10 minutes to eject your control, and each possession can last for a number of hours equal to your Hit Dice. The ability is mind-affecting. You can attempt possession a number of times per day equal to your Charisma modifier, minimum 1, and each use deals 2 points of Charisma damage to you. You can divide your actions among your hosts in any way you choose regardless of distance, and relaxing control of a host so it can act normally is a free action. When you leave your last possessed host, your ghost body and ghost touch equipment reform.",
+      "provenance": [
+        {
+          "url": "https://new.dndtools.org/feats/grand-malevolence-3550",
+          "role": "Exact Ghostwalk Grand Malevolence record; supplies simultaneous-host limit, per-host action procedure, divided actions, free relaxation of control, and last-host equipment rule."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/malevolence-3549",
+          "role": "Referenced Malevolence duration and possession-control mechanics."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/minor-malevolence-3548",
+          "role": "Referenced Minor Malevolence control, save-immunity, and Charisma-damage mechanics."
+        },
+        {
+          "url": "https://new.dndtools.org/feats/ghost-ride-3471",
+          "role": "Underlying Ghost Ride targeting, save DC, daily-use, mind-affecting, and equipment mechanics."
+        }
+      ]
     }
   }
 }
