@@ -477,7 +477,8 @@ function rawClassFeatures(row){
     return list;
   };
   const explicit=explicitLevelGrants(record,maximum);
-  if(explicit.length)return supplementReviewed(explicit);
+  const hasExplicitGrantSource=Array.isArray(record?.levelGrants)||Array.isArray(record?.grants)||(record?.levelGrants&&typeof record.levelGrants==='object');
+  if(hasExplicitGrantSource)return supplementReviewed(explicit);
   if(edition==='2014'){
     return levels2014
       .filter(level=>level.class?.name===row.name&&!level.subclass&&level.level<=maximum)
