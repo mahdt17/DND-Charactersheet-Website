@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "06a88b42a935d8b19831a448bc06306ef8aa1bb8",
+  "snapshotCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -35,11 +35,11 @@
       "name": "Abjurer Variant",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/abjurer-variant-960",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [
@@ -47,17 +47,17 @@
         "Remove Familiar, Wizard bonus feats at 5th/10th/15th/20th, and the normal specialist bonus spell per day.",
         "Gain Resistance to Energy, Aura of Protection, and Spontaneous Dispelling with exact Unearthed Arcana p.59 scaling."
       ],
-      "gaps": [
-        "Exact source implementation is present in the current branch and requires full validation before completion."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exact Unearthed Arcana p.59 source and SRD specialist-Wizard rules independently reviewed.",
-        "Implementation present: exact Wizard parent; fixed Abjuration specialization with two legal prohibited schools; no specialist bonus slot; Familiar and later Wizard bonus feats removed; source-owned Resistance to Energy, Aura of Protection, and Spontaneous Dispelling automation; persistence and source-removal regressions included."
+        "Implementation present: exact Wizard parent; fixed Abjuration specialization with two legal prohibited schools; no specialist bonus slot; Familiar and later Wizard bonus feats removed; source-owned Resistance to Energy, Aura of Protection, and Spontaneous Dispelling automation; persistence and source-removal regressions included.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full validation; promote only if fixed specialization/prohibited schools, removed specialist slot/Familiar/bonus feats, all three replacement abilities, persistence, source removal, and browser regressions pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/abolisher-556",
@@ -144,20 +144,26 @@
       "name": "Adept",
       "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/adept-917",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Full familiar creature state, statistics, progression, replacement/death handling, and sheet integration remain a companion subsystem."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement/reuse the structured familiar subsystem, then add creation/level-up/save-reopen regressions for Adept."
     },
     {
       "sourceId": "classes/aerial-avenger-980",
@@ -1108,26 +1114,26 @@
       "name": "Barbarian",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/barbarian-89",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 12,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Large-batch source and mechanic gates passed; full CI validation is pending before promotion to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for the exact class mechanics.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, key-feature, table-integrity, and contamination gates.",
-        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks."
+        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full CI for the 9-class martial batch; promote only after the batch gate and browser/regression suite pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/barbarian-variant-950",
@@ -1471,20 +1477,26 @@
       "name": "Beguiler",
       "sourceBook": "Base Class Player's Handbook II",
       "sourceUrl": "https://new.dndtools.org/classes/beguiler-100",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 9,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Advanced Learning choices are recorded generically but are not yet materialized as permanent additions to actual Beguiler spell access/known-spell state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Materialize Advanced Learning into source-owned spell access with level/school eligibility and persistence regressions."
     },
     {
       "sourceId": "classes/beholder-mage-557",
@@ -2788,20 +2800,26 @@
       "name": "Cleric",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-91",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 8,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
     },
     {
       "sourceId": "classes/cleric-variant-972",
@@ -5014,20 +5032,26 @@
       "name": "Dragon Shaman",
       "sourceBook": "Base Class Player's Handbook II",
       "sourceUrl": "https://new.dndtools.org/classes/dragon-shaman-101",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 13,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Totem Dragon and aura selections persist, but the selected totem/aura options do not yet materialize all option-specific mechanics such as class skills, breath energy/shape, adaptation, immunity, Skill Focus eligibility, and individual aura effects."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add structured option-mechanic payloads for totems and auras, then verify creation, level-up, persistence, and source removal."
     },
     {
       "sourceId": "classes/dragonfire-adept-29",
@@ -5254,20 +5278,26 @@
       "name": "Dread Necromancer",
       "sourceBook": "Base Class Heroes of Horror",
       "sourceUrl": "https://new.dndtools.org/classes/dread-necromancer-75",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 16,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Advanced Learning is persisted as a generic source choice rather than a permanent spell-list addition, and full evil-familiar state remains a companion subsystem."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Integrate Advanced Learning with spell access and complete familiar-state automation before promotion."
     },
     {
       "sourceId": "classes/dread-pirate-182",
@@ -5743,20 +5773,26 @@
       "name": "Duskblade",
       "sourceBook": "Base Class Player's Handbook II",
       "sourceUrl": "https://new.dndtools.org/classes/duskblade-102",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 9,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "The source-specific Spells Known acquisition and odd-level spell-replacement rules are described but not represented as persisted structured spell choices."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Duskblade known-spell gain/replacement choices with eligibility and persistence regressions."
     },
     {
       "sourceId": "classes/dwarf-paragon-1001",
@@ -8067,26 +8103,26 @@
       "name": "Fighter",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/fighter-93",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 2,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Large-batch source and mechanic gates passed; full CI validation is pending before promotion to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for the exact class mechanics.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, key-feature, table-integrity, and contamination gates.",
-        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks."
+        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full CI for the 9-class martial batch; promote only after the batch gate and browser/regression suite pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/fighter-variant-953",
@@ -10783,26 +10819,26 @@
       "name": "Knight",
       "sourceBook": "Base Class Player's Handbook II",
       "sourceUrl": "https://new.dndtools.org/classes/knight-103",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 18,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Large-batch source and mechanic gates passed; full CI validation is pending before promotion to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for the exact class mechanics.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, key-feature, table-integrity, and contamination gates.",
-        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks."
+        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full CI for the 9-class martial batch; promote only after the batch gate and browser/regression suite pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/knight-of-the-blue-moon-303",
@@ -11929,20 +11965,26 @@
       "name": "Marshal",
       "sourceBook": "Base Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/marshal-78",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 6,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Minor/Major Aura selections persist, but selected aura names are not materialized into option-specific sheet effects/descriptions."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add structured Marshal aura option mechanics and creation/level-up/persistence/source-removal regressions."
     },
     {
       "sourceId": "classes/martyred-champion-of-ilmater-673",
@@ -12669,26 +12711,26 @@
       "name": "Monk",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/monk-94",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 21,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Large-batch source and mechanic gates passed; full CI validation is pending before promotion to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for the exact class mechanics.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, key-feature, table-integrity, and contamination gates.",
-        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks."
+        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full CI for the 9-class martial batch; promote only after the batch gate and browser/regression suite pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/monk-enabled-hand-987",
@@ -13326,26 +13368,26 @@
       "name": "Ninja",
       "sourceBook": "Base Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/ninja-1",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 18,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Large-batch source and mechanic gates passed; full CI validation is pending before promotion to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for the exact class mechanics.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, key-feature, table-integrity, and contamination gates.",
-        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks."
+        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full CI for the 9-class martial batch; promote only after the batch gate and browser/regression suite pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/ninja-of-the-crescent-moon-777",
@@ -13812,20 +13854,26 @@
       "name": "Paladin",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-95",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 15,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
     },
     {
       "sourceId": "classes/paladin-of-freedom-125",
@@ -14901,20 +14949,26 @@
       "name": "Ranger",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-96",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 15,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
     },
     {
       "sourceId": "classes/ranger-variant-21",
@@ -15333,26 +15387,26 @@
       "name": "Rogue",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/rogue-97",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 8,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Large-batch source and mechanic gates passed; full CI validation is pending before promotion to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for the exact class mechanics.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, key-feature, table-integrity, and contamination gates.",
-        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks."
+        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full CI for the 9-class martial batch; promote only after the batch gate and browser/regression suite pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/rogue-variant-958",
@@ -16097,26 +16151,26 @@
       "name": "Scout",
       "sourceBook": "Base Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/scout-2",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 15,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Large-batch source and mechanic gates passed; full CI validation is pending before promotion to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for the exact class mechanics.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, key-feature, table-integrity, and contamination gates.",
-        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks."
+        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full CI for the 9-class martial batch; promote only after the batch gate and browser/regression suite pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/sea-mother-whip-903",
@@ -17491,17 +17545,15 @@
       "name": "Soulknife",
       "sourceBook": "Base Class Expanded Psionics Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/soulknife-139",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 14,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Large-batch source and mechanic gates passed; full CI validation is pending before promotion to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         {
@@ -17512,11 +17564,13 @@
         },
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for the exact class mechanics.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, key-feature, table-integrity, and contamination gates.",
-        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks."
+        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full CI for the 9-class martial batch; promote only after the batch gate and browser/regression suite pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/sovereign-speaker-466",
@@ -18323,26 +18377,26 @@
       "name": "Swashbuckler",
       "sourceBook": "Base Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/swashbuckler-23",
-      "status": "reviewed_partial",
+      "status": "complete",
       "sourceReview": "verified",
       "featureIntegration": "complete",
       "sheetAutomation": "complete",
-      "validation": "pending",
+      "validation": "passed",
       "existingDirectSummaryCount": 12,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Large-batch source and mechanic gates passed; full CI validation is pending before promotion to complete."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for the exact class mechanics.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, key-feature, table-integrity, and contamination gates.",
-        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks."
+        "Existing class-integration regressions cover class-specific actions/resources/feats/choices; the new large-batch gate adds structural completeness, reviewed-description, idempotence, training, and source-removal checks.",
+        "Full Validate modernization CI #1457 passed at bc0f0f36371ce15f89ba491a2afa45cc4faa1114.",
+        "Required unit/integration, full 3.5 class/feat/spell/item regressions, build, and browser suites passed."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Run full CI for the 9-class martial batch; promote only after the batch gate and browser/regression suite pass."
+      "verifiedCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared integration behavior changes."
     },
     {
       "sourceId": "classes/swift-scion-880",
@@ -20281,20 +20335,26 @@
       "name": "Warmage",
       "sourceBook": "Base Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/warmage-5",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 9,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Advanced Learning choices are recorded generically but are not yet materialized as permanent additions to actual Warmage spell access."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
+        "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
+        "No Firecrawl fallback was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Materialize Warmage Advanced Learning with evocation/level eligibility and persistence regressions."
     },
     {
       "sourceId": "classes/warmage-79",

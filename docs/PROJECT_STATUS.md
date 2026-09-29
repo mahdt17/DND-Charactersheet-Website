@@ -82,3 +82,13 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Added one batch regression gate for progression completeness, reviewed descriptions, verified training, idempotent reconciliation, and source-removal cleanup.
 - Unearthed Arcana generic Expert and generic Warrior were deliberately peeled into `needs-review`: both require selectable good/poor base-save progressions, and that choice is not yet represented as structured persisted class state.
 - Full CI remains the promotion gate; the nine classes stay `reviewed_partial` until it passes.
+
+## 2026-09-29 green larger-batch checkpoint
+
+- Validate modernization #1457 passed at `bc0f0f36371ce15f89ba491a2afa45cc4faa1114`.
+- Promoted the nine-class larger safe batch to complete: Barbarian, Fighter, Knight, Monk, Ninja, Rogue, Scout, Soulknife, and Swashbuckler.
+- Abjurer Variant also passed its full pending validation on the same run and is complete.
+- The Scout repair is systemic: feature matching now normalizes numeric distance suffixes such as `+10ft` rather than depending on one-off class aliases.
+- A read-only 10-class follow-up source batch passed Exa discovery + Tavily extraction without any Firecrawl fallback: Adept, Beguiler, Cleric, Dragon Shaman, Dread Necromancer, Duskblade, Marshal, Paladin, Ranger, and Warmage.
+- All ten are now explicitly classified `needs-review` because their remaining blockers are structured automation gaps rather than source-retrieval problems. The tracker records the exact blocker and next action per class.
+

@@ -31,7 +31,8 @@
           "Uncanny Dodge"
         ]
       },
-      "preCiStatus": "reviewed_partial"
+      "preCiStatus": "reviewed_partial",
+      "finalStatus": "complete"
     },
     {
       "sourceId": "classes/fighter-93",
@@ -50,7 +51,8 @@
           "Weapon and Armor Proficiency"
         ]
       },
-      "preCiStatus": "reviewed_partial"
+      "preCiStatus": "reviewed_partial",
+      "finalStatus": "complete"
     },
     {
       "sourceId": "classes/knight-103",
@@ -70,7 +72,8 @@
           "Test of Mettle"
         ]
       },
-      "preCiStatus": "reviewed_partial"
+      "preCiStatus": "reviewed_partial",
+      "finalStatus": "complete"
     },
     {
       "sourceId": "classes/monk-94",
@@ -90,7 +93,8 @@
           "Quivering Palm"
         ]
       },
-      "preCiStatus": "reviewed_partial"
+      "preCiStatus": "reviewed_partial",
+      "finalStatus": "complete"
     },
     {
       "sourceId": "classes/ninja-1",
@@ -110,7 +114,8 @@
           "Ki Dodge"
         ]
       },
-      "preCiStatus": "reviewed_partial"
+      "preCiStatus": "reviewed_partial",
+      "finalStatus": "complete"
     },
     {
       "sourceId": "classes/rogue-97",
@@ -130,7 +135,8 @@
           "Special Abilities"
         ]
       },
-      "preCiStatus": "reviewed_partial"
+      "preCiStatus": "reviewed_partial",
+      "finalStatus": "complete"
     },
     {
       "sourceId": "classes/scout-2",
@@ -150,7 +156,8 @@
           "Battle Fortitude"
         ]
       },
-      "preCiStatus": "reviewed_partial"
+      "preCiStatus": "reviewed_partial",
+      "finalStatus": "complete"
     },
     {
       "sourceId": "classes/soulknife-139",
@@ -170,7 +177,8 @@
           "Knife to the Soul"
         ]
       },
-      "preCiStatus": "reviewed_partial"
+      "preCiStatus": "reviewed_partial",
+      "finalStatus": "complete"
     },
     {
       "sourceId": "classes/swashbuckler-23",
@@ -190,7 +198,8 @@
           "Lucky"
         ]
       },
-      "preCiStatus": "reviewed_partial"
+      "preCiStatus": "reviewed_partial",
+      "finalStatus": "complete"
     }
   ],
   "exceptions": [
@@ -208,5 +217,8 @@
       "status": "needs-review",
       "reason": "Selectable generic-class base save progression is source-required but not modeled/persisted."
     }
-  ]
+  ],
+  "validationCommit": "bc0f0f36371ce15f89ba491a2afa45cc4faa1114",
+  "validationRun": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36640208692",
+  "validationResult": "passed"
 }
