@@ -434,8 +434,10 @@ function splitFeatureCell(value,known=[]){
 
 function featureSuppressed(record,name,level){
   const rules=Array.isArray(record?.featureSuppressions)?record.featureSuppressions:[];
+  const directKey=featureMatchKey(name),reviewedKey=featureMatchKey(reviewedFeatureRow(record,name)?.name);
   return rules.some(rule=>{
-    if(featureMatchKey(rule?.name)!==featureMatchKey(name))return false;
+    const ruleKey=featureMatchKey(rule?.name);
+    if(ruleKey!==directKey&&(!reviewedKey||ruleKey!==reviewedKey))return false;
     const levels=Array.isArray(rule.levels)?rule.levels.map(Number):[];
     return !levels.length||levels.includes(Number(level));
   });
