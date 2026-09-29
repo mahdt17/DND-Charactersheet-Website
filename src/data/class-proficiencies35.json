@@ -2996,6 +2996,154 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana p. 58 Barbarian Variant independently reviewed. It retains the PHB Barbarian baseline except Rage, Greater Rage, Indomitable Will, Tireless Rage, and Mighty Rage, and gains Ranger Favored Enemy plus the fixed Archery combat-style progression."
+    },
+    "classes/druid-variant-952": {
+      "name": "Druid Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-variant-952",
+      "inheritanceSourceId": "classes/druid-92",
+      "proficiencies": [
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "dart",
+          "name": "Dart",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "scimitar",
+          "name": "Scimitar",
+          "kind": "weapons"
+        },
+        {
+          "index": "sickle",
+          "name": "Sickle",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortspear",
+          "name": "Shortspear",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "sling",
+          "name": "Sling",
+          "kind": "weapons"
+        },
+        {
+          "index": "spear",
+          "name": "Spear",
+          "kind": "weapons"
+        },
+        {
+          "index": "wild-shape-natural-attacks",
+          "name": "Natural attacks of wild-shape forms",
+          "kind": "weapons",
+          "sourceOnly": true
+        }
+      ],
+      "proficiencyText": "Retains the Druid's weapon proficiencies but loses all armor and shield proficiency.",
+      "featureSuppressions": [
+        {
+          "name": "Wild Shape"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "AC Bonus (Ex)",
+          "level": 1,
+          "referencedSourceId": "classes/monk-94",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/monk.htm#acBonus"
+        },
+        {
+          "name": "Fast Movement (Ex)",
+          "levels": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18
+          ],
+          "referencedSourceId": "classes/monk-94",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/monk.htm#fastMovement"
+        },
+        {
+          "name": "Favored Enemy (Ex)",
+          "levels": [
+            1,
+            5,
+            10,
+            15,
+            20
+          ],
+          "choiceKind": "favored-enemy",
+          "uniqueChoices": true,
+          "choiceOptions": [
+            "Aberration",
+            "Animal",
+            "Construct",
+            "Dragon",
+            "Elemental",
+            "Fey",
+            "Giant",
+            "Humanoid (aquatic)",
+            "Humanoid (dwarf)",
+            "Humanoid (elf)",
+            "Humanoid (goblinoid)",
+            "Humanoid (gnoll)",
+            "Humanoid (gnome)",
+            "Humanoid (halfling)",
+            "Humanoid (human)",
+            "Humanoid (orc)",
+            "Humanoid (reptilian)",
+            "Magical beast",
+            "Monstrous Humanoid",
+            "Ooze",
+            "Outsider (air)",
+            "Outsider (chaotic)",
+            "Outsider (earth)",
+            "Outsider (evil)",
+            "Outsider (fire)",
+            "Outsider (good)",
+            "Outsider (lawful)",
+            "Outsider (native)",
+            "Outsider (water)",
+            "Plant",
+            "Undead",
+            "Vermin"
+          ],
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#favoredEnemy"
+        },
+        {
+          "name": "Swift Tracker (Ex)",
+          "level": 8,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#swiftTracker"
+        },
+        {
+          "name": "Track",
+          "level": 1,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#track"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Druid Variant independently reviewed. It retains the PHB Druid baseline except armor/shield proficiency and all Wild Shape progression, and gains Monk unarmored AC and Fast Movement plus Ranger Favored Enemy, Swift Tracker, and Track."
     }
   }
 }
