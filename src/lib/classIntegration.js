@@ -611,7 +611,7 @@ function derivedForRow(row,character=null){
   const edition=normalizeEdition(row.edition||row.definition?.edition),features=coalesceFeatures(row);
   const derivedFeatures=[],actions=[],feats=[],resources=[],tracks=[],spellSlots=[];
   for(const feature of features){
-    const featureId=feature.sourceFeatureId||slug(feature.name),meta={...sourceInfo(row,feature.level,featureId),...(feature.reviewedSourceUrl?{sourceUrl:feature.reviewedSourceUrl}:{})};
+    const featureId=feature.sourceFeatureId||slug(feature.name),meta={...sourceInfo(row,feature.level,featureId),...(feature.reviewedSourceUrl?{sourceUrl:feature.reviewedSourceUrl}:{}),...(feature.referencedSourceId?{referencedSourceId:feature.referencedSourceId}:{}),...(feature.referencedSourceUrl?{referencedSourceUrl:feature.referencedSourceUrl}:{})};
     const id='class-grant:'+meta.sourceClassId+':feature:'+slug(feature.name);
     const history=(feature.history||[]).sort((a,b)=>a.level-b.level);
     const localRuleText=String(feature.description||'').trim();
