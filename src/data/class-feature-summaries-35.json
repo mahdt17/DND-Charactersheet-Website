@@ -3231,7 +3231,10 @@
       "name": "Blindsense",
       "level": 10,
       "description": "Gain blindsense out to 30 feet.",
-      "sourceSha256": "a95402d34835e8eb054bb412bc7ca7fad7701a92486abb232e501c05933283e1"
+      "sourceSha256": "a95402d34835e8eb054bb412bc7ca7fad7701a92486abb232e501c05933283e1",
+      "aliases": [
+        "Blindsense 30 ft."
+      ]
     },
     {
       "name": "Hide in Plain Sight",
@@ -3249,7 +3252,10 @@
       "name": "Blindsight",
       "level": 20,
       "description": "Gain blindsight out to 30 feet.",
-      "sourceSha256": "e04f475d1270be81a71334c464a9fd0324ae42dbd50286f3354b9bf7501d70ae"
+      "sourceSha256": "e04f475d1270be81a71334c464a9fd0324ae42dbd50286f3354b9bf7501d70ae",
+      "aliases": [
+        "Blindsight 30 ft."
+      ]
     }
   ],
   "classes/shugenja-8": [
