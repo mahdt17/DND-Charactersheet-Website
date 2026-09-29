@@ -3302,6 +3302,46 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana p. 58 Cleric Variant independently reviewed. It retains the exact PHB Cleric baseline except Turn/Rebuke Undead; the Cleric's positive/negative-energy polarity determines Smite Evil versus Smite Good using Paladin smite progression, and Aura of Courage is gained as the Paladin ability."
+    },
+    "classes/abjurer-variant-960": {
+      "name": "Abjurer Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/abjurer-variant-960",
+      "inheritanceSourceId": "classes/wizard-99",
+      "specialistSchool": "Abjuration",
+      "specialistBonusSlots": false,
+      "featureSuppressions": [
+        {
+          "name": "Familiar"
+        },
+        {
+          "name": "Bonus Feat",
+          "levels": [
+            5,
+            10,
+            15,
+            20
+          ]
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Resistance to Energy (Su)",
+          "level": 1
+        },
+        {
+          "name": "Aura of Protection (Ex)",
+          "level": 5
+        },
+        {
+          "name": "Spontaneous Dispelling (Ex)",
+          "levels": [
+            5,
+            11
+          ]
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 59 Abjurer Variant independently reviewed. It is the exact PHB Wizard specialized in Abjuration, permanently loses Familiar, loses Wizard bonus feats gained at 5/10/15/20, and loses the specialist bonus spell per day. It gains Resistance to Energy, Aura of Protection, and Spontaneous Dispelling."
     }
   }
 }
