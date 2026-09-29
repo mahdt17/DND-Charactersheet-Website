@@ -72,7 +72,7 @@
     },
     "classes/aristocrat-31": {
       "name": "Aristocrat",
-      "sourceUrl": "https://new.dndtools.org/classes/aristocrat-31",
+      "sourceUrl": "https://www.d20srd.org/srd/npcClasses/aristocrat.htm",
       "proficiencyText": "Weapon and Armor Proficiency: The aristocrat is proficient in the use of all simple and martial weapons and with all types of armor and shields.",
       "proficiencies": [
         {
@@ -106,7 +106,37 @@
           "kind": "weapons"
         }
       ],
-      "verified": true
+      "verified": true,
+      "classSkillSourceUrl": "https://www.d20srd.org/srd/npcClasses/aristocrat.htm",
+      "classSkillText": "The aristocrat's class skills include Knowledge (all skills taken individually).",
+      "classSkills": [
+        "Appraise",
+        "Bluff",
+        "Diplomacy",
+        "Disguise",
+        "Forgery",
+        "Gather Information",
+        "Handle Animal",
+        "Intimidate",
+        "Knowledge (arcana)",
+        "Knowledge (architecture and engineering)",
+        "Knowledge (dungeoneering)",
+        "Knowledge (geography)",
+        "Knowledge (history)",
+        "Knowledge (local)",
+        "Knowledge (nature)",
+        "Knowledge (nobility and royalty)",
+        "Knowledge (religion)",
+        "Knowledge (the planes)",
+        "Listen",
+        "Perform",
+        "Ride",
+        "Sense Motive",
+        "Speak Language",
+        "Spot",
+        "Swim",
+        "Survival"
+      ]
     },
     "classes/artificer-36": {
       "name": "Artificer",
@@ -2083,7 +2113,21 @@
           "optionsSourceUrl": "https://www.d20srd.org/srd/equipment/weapons.htm#tableWeapons"
         }
       ],
-      "verified": true
+      "verified": true,
+      "classSkillSourceUrl": "https://www.d20srd.org/srd/npcClasses/commoner.htm",
+      "classSkillText": "The commoner's class skills are Climb, Craft, Handle Animal, Jump, Listen, Profession, Ride, Spot, Swim, and Use Rope.",
+      "classSkills": [
+        "Climb",
+        "Craft",
+        "Handle Animal",
+        "Jump",
+        "Listen",
+        "Profession",
+        "Ride",
+        "Spot",
+        "Swim",
+        "Use Rope"
+      ]
     },
     "classes/expert-33": {
       "name": "Expert",
@@ -2163,7 +2207,7 @@
     },
     "classes/warrior-34": {
       "name": "Warrior",
-      "sourceUrl": "https://new.dndtools.org/classes/warrior-34",
+      "sourceUrl": "https://www.d20srd.org/srd/npcClasses/warrior.htm",
       "proficiencyText": "The warrior NPC class is proficient with all simple and martial weapons and all armor and shields.",
       "proficiencies": [
         {
@@ -2197,7 +2241,17 @@
           "kind": "weapons"
         }
       ],
-      "verified": true
+      "verified": true,
+      "classSkillSourceUrl": "https://www.d20srd.org/srd/npcClasses/warrior.htm",
+      "classSkillText": "The warrior's class skills are Climb, Handle Animal, Intimidate, Jump, Ride, and Swim.",
+      "classSkills": [
+        "Climb",
+        "Handle Animal",
+        "Intimidate",
+        "Jump",
+        "Ride",
+        "Swim"
+      ]
     },
     "classes/expert2-124": {
       "name": "Expert",

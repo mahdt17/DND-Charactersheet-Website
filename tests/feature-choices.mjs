@@ -91,6 +91,22 @@ assert.equal(expertChosen35.classSkills35.some(skill=>skill.sourceClassId===expe
 const expertIntegration35=await import('../src/lib/classIntegration.js');
 for(const skill of expertChosenNames35)assert.equal(expertIntegration35.legacyClassSkillStatus(expertChosen35,skill).classSkill,true,skill+' becomes an Expert class skill');
 assert.equal(expertIntegration35.legacyClassSkillStatus(expertChosen35,'Spot').classSkill,false,'unchosen Expert skill remains cross-class');
+const commonerMulticlass35=expertIntegration35.reconcileClassGrants({
+  ...commonerChosen35,
+  level:2,
+  classLevels:[
+    ...commonerChosen35.classLevels,
+    {name:'Warrior',edition:'3.5',catalogId:warriorClass35.catalogId,level:1,definition:warriorClass35}
+  ]
+});
+assert(commonerMulticlass35.trainingGrants.some(grant=>grant.sourceClassId===warriorClass35.catalogId),'Commoner multiclass fixture preserves Warrior training');
+const commonerRemoved35=expertIntegration35.removeClassProgression(commonerMulticlass35,commonerClass35.catalogId);
+assert.equal(Object.values(commonerRemoved35.featureChoices||{}).some(choice=>choice.sourceClassId===commonerClass35.catalogId),false,'removing Commoner cleans its selected weapon choice');
+assert.equal(commonerRemoved35.trainingGrants.some(grant=>grant.sourceClassId===commonerClass35.catalogId),false,'removing Commoner cleans its chosen weapon training');
+assert.equal(commonerRemoved35.classSkills35.some(skill=>skill.sourceClassId===commonerClass35.catalogId),false,'removing Commoner cleans its fixed class skills');
+assert(commonerRemoved35.trainingGrants.some(grant=>grant.sourceClassId===warriorClass35.catalogId),'removing Commoner preserves Warrior training');
+assert(commonerRemoved35.classSkills35.some(skill=>skill.sourceClassId===warriorClass35.catalogId),'removing Commoner preserves Warrior class skills');
+
 const expertRemoved35=expertIntegration35.removeClassProgression(expertChosen35,expertClass35.catalogId);
 assert.equal(expertRemoved35.classSkills35.some(skill=>skill.sourceClassId===expertClass35.catalogId),false,'removing Expert cleans up its chosen class skills');
 assert.equal(Object.values(expertRemoved35.featureChoices||{}).some(choice=>choice.sourceClassId===expertClass35.catalogId),false,'removing Expert cleans up its class-skill choice');

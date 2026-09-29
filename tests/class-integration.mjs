@@ -716,4 +716,58 @@ for(const [sourceId,pattern] of [
   assert(!sheet.resources.some(item=>item.sourceClassId===definition.catalogId),sourceId+' does not invent resources');
 }
 
+
+const npcFixedSkillSets35=[
+  ['classes/aristocrat-31',[
+    'Appraise','Bluff','Diplomacy','Disguise','Forgery','Gather Information','Handle Animal','Intimidate',
+    'Knowledge (arcana)','Knowledge (architecture and engineering)','Knowledge (dungeoneering)','Knowledge (geography)',
+    'Knowledge (history)','Knowledge (local)','Knowledge (nature)','Knowledge (nobility and royalty)',
+    'Knowledge (religion)','Knowledge (the planes)','Listen','Perform','Ride','Sense Motive','Speak Language','Spot','Swim','Survival'
+  ]],
+  ['classes/commoner-32',['Climb','Craft','Handle Animal','Jump','Listen','Profession','Ride','Spot','Swim','Use Rope']],
+  ['classes/warrior-34',['Climb','Handle Animal','Intimidate','Jump','Ride','Swim']]
+];
+for(const [sourceId,expectedSkills] of npcFixedSkillSets35){
+  const definition=exact35(sourceId);
+  for(const level of [1,20]){
+    const sheet=classSheet(definition,level);
+    const owned=sheet.classSkills35.filter(skill=>skill.sourceClassId===definition.catalogId).map(skill=>skill.name).sort();
+    assert.deepEqual(owned,[...expectedSkills].sort(),sourceId+' level '+level+' exact fixed class skills');
+    for(const skill of expectedSkills){
+      const status=legacyClassSkillStatus(sheet,skill);
+      assert.equal(status.classSkill,true,sourceId+' '+skill+' is a class skill');
+      assert.equal(status.rankCap,level+3,sourceId+' '+skill+' uses the class-skill rank cap at level '+level);
+    }
+  }
+}
+const aristocrat35=exact35('classes/aristocrat-31'),warriorNpc35=exact35('classes/warrior-34');
+const aristocrat1=classSheet(aristocrat35,1);
+assert(!aristocrat1.classSkills35.some(skill=>skill.sourceClassId===aristocrat35.catalogId&&skill.name==='Knowledge'),'Aristocrat must not collapse all Knowledge skills to one generic entry');
+for(const skill of ['Knowledge (arcana)','Knowledge (history)','Knowledge (local)','Knowledge (religion)','Knowledge (the planes)']){
+  assert.equal(legacyClassSkillStatus(aristocrat1,skill).classSkill,true,'Aristocrat expands '+skill+' individually');
+}
+for(const [definition,expectedTraining] of [
+  [aristocrat35,['light-armor','medium-armor','heavy-armor','shields','simple-weapons','martial-weapons']],
+  [warriorNpc35,['light-armor','medium-armor','heavy-armor','shields','simple-weapons','martial-weapons']]
+]){
+  for(const level of [1,20]){
+    const sheet=classSheet(definition,level);
+    const grant=sheet.trainingGrants.find(item=>item.sourceClassId===definition.catalogId);
+    assert.deepEqual(grant?.proficiencies.map(item=>item.index),expectedTraining,definition.sourceId+' level '+level+' exact training package');
+  }
+}
+const npcDual35=reconcileClassGrants(baseCharacter([
+  {catalogId:aristocrat35.catalogId,name:aristocrat35.name,edition:'3.5',level:1,definition:aristocrat35},
+  {catalogId:warriorNpc35.catalogId,name:warriorNpc35.name,edition:'3.5',level:1,definition:warriorNpc35}
+]));
+for(const [removedDefinition,remainingDefinition] of [[aristocrat35,warriorNpc35],[warriorNpc35,aristocrat35]]){
+  const without=removeClassProgression(npcDual35,removedDefinition.catalogId);
+  assert(!without.classSkills35.some(skill=>skill.sourceClassId===removedDefinition.catalogId),removedDefinition.sourceId+' removal cleans only its class skills');
+  assert(!without.trainingGrants.some(grant=>grant.sourceClassId===removedDefinition.catalogId),removedDefinition.sourceId+' removal cleans only its training');
+  assert(without.classSkills35.some(skill=>skill.sourceClassId===remainingDefinition.catalogId),remainingDefinition.sourceId+' class skills survive other-class removal');
+  assert(without.trainingGrants.some(grant=>grant.sourceClassId===remainingDefinition.catalogId),remainingDefinition.sourceId+' training survives other-class removal');
+  assert(without.actions.some(action=>action.id==='manual-action'),'manual actions survive NPC class removal');
+  assert(without.feats.some(feat=>feat.id==='manual-feat'),'manual feats survive NPC class removal');
+}
+
 console.log('PASS class reconciliation: reviewed features, level-scaled actions, multiclassing, source isolation, idempotence, and safe removal');
