@@ -3377,6 +3377,59 @@
         "Sense Motive"
       ],
       "verificationNote": "Exact Tome of Magic Binder source was independently cross-checked. This supplement covers starting training and class skills only; vestige binding, Pact Augmentation repetition, and granted vestige abilities remain explicitly outside completion."
+    },
+    "classes/cloistered-cleric-120": {
+      "name": "Cloistered Cleric",
+      "sourceUrl": "https://new.dndtools.org/classes/cloistered-cleric-120",
+      "proficiencyText": "Cloistered clerics are proficient with simple weapons and with light armor.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Unearthed Arcana Cloistered Cleric source independently verified; unlike the PHB Cleric baseline it retains only simple-weapon and light-armor starting proficiencies."
+    },
+    "classes/samurai-22": {
+      "name": "Samurai",
+      "sourceUrl": "https://new.dndtools.org/classes/samurai-22",
+      "proficiencyText": "A samurai is proficient with all simple and martial weapons and with all types of armor, but not with shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Complete Warrior Samurai source independently verified. Shield proficiency is intentionally absent; Daisho Proficiency remains a class-feature feat rather than generic starting-training data."
     }
   }
 }
