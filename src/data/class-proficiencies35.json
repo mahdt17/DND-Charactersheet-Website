@@ -2862,6 +2862,48 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana p. 58 Monk Variant independently reviewed. It retains Monk baseline mechanics except that it loses the enhancement bonus to unarmored speed and the class-level unarmored AC bonus while retaining Wisdom to AC; it gains Barbarian damage reduction progression."
+    },
+    "classes/paladin-variant-955": {
+      "name": "Paladin Variant",
+      "sourceUrl": "https://new.dndtools.org/classes/paladin-variant-955",
+      "inheritanceSourceId": "classes/paladin-95",
+      "featureSuppressions": [
+        {
+          "name": "Lay on Hands"
+        },
+        {
+          "name": "Turn Undead"
+        },
+        {
+          "name": "Remove Disease"
+        }
+      ],
+      "featureAdditions": [
+        {
+          "name": "Favored Enemy (Ex)",
+          "levels": [
+            1,
+            5,
+            10,
+            15,
+            20
+          ],
+          "choiceKind": "favored-enemy",
+          "choiceOptions": [
+            "Aberration",
+            "Dragon",
+            "Giant",
+            "Monstrous Humanoid",
+            "Outsider (evil)",
+            "Undead"
+          ],
+          "uniqueChoices": true,
+          "referencedSourceId": "classes/ranger-96",
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm#favoredEnemy"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana p. 58 Paladin Variant independently reviewed. It retains the PHB Paladin baseline except Lay on Hands, Turn Undead, and Remove Disease, and gains Ranger Favored Enemy restricted to aberrations, dragons, giants, monstrous humanoids, evil outsiders, or undead."
     }
   }
 }
