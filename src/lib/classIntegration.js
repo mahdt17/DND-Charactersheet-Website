@@ -44,12 +44,19 @@ const featureMatchKey=value=>norm(String(value||'')
 function reviewedFeatureRows(record){
   const keys=[record?.sourceId,record?.id,record?.catalogId].filter(Boolean).map(value=>String(value).replace(/^dndtools:/,''));
   const direct=keys.map(key=>legacyFeatureSummaries[key]).find(Array.isArray);
-  if(direct)return direct;
+  const inheritedId=String(record?.inheritedFromClassId||'').replace(/^dndtools:/,'');
+  const inherited=inheritedId&&Array.isArray(legacyFeatureSummaries[inheritedId])?legacyFeatureSummaries[inheritedId]:null;
+  if(direct){
+    if(!inherited)return direct;
+    const merged=new Map(inherited.map(item=>[featureMatchKey(item?.name),item]));
+    for(const item of direct)merged.set(featureMatchKey(item?.name),item);
+    return [...merged.values()];
+  }
   const sourceId=keys[0];
   const supplement=resolvedProficiencySupplement(sourceId);
   const profileId=supplement?.name===record?.name?supplement?.profileSourceId:null;
   const profiled=profileId?legacyFeatureSummaries[profileId]:null;
-  const rows=Array.isArray(profiled)?profiled:legacyFeatureSummaries[record?.name]||[];
+  const rows=Array.isArray(profiled)?profiled:inherited||legacyFeatureSummaries[record?.name]||[];
   return Array.isArray(rows)?rows:[];
 }
 function reviewedFeatureRow(record,name){
@@ -70,7 +77,7 @@ function reviewedFeatureMetadata(record,name){
   if(!row)return {};
   const metadata={};
   if(row.sourceUrl)metadata.reviewedSourceUrl=row.sourceUrl;
-  for(const key of ['featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptionsByLevel','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
+  for(const key of ['featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','uniqueChoices','ignorePrerequisites','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -598,8 +605,31 @@ function derivedForRow(row,character=null){
     const description=localRuleText||row.name+' progression: '+progressionSummary+'.';
     const descriptionSource=localRuleText?'rule-text':'progression';
     const choice=feature.choiceRequired===false?false:Boolean(feature.choiceKind)||needsChoice(feature);
-    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptions:feature.choiceOptions||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
+    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptions:feature.choiceOptions||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,choiceOptionMechanics:feature.choiceOptionMechanics||undefined,choiceOptionPrerequisites:feature.choiceOptionPrerequisites||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
+    if(choice&&feature.choiceOptionMechanics&&character?.featureChoices){
+      const selectedChoices=Object.values(character.featureChoices)
+        .filter(entry=>entry?.sourceClassId===row.catalogId&&featureMatchKey(entry?.feature)===featureMatchKey(feature.name))
+        .flatMap(entry=>(entry?.choices||[]).map(value=>({name:String(value),level:Number(entry?.level)||feature.level})));
+      const seenSelected=new Set();
+      for(const selected of selectedChoices){
+        const mechanicEntry=Object.entries(feature.choiceOptionMechanics).find(([name])=>featureMatchKey(name)===featureMatchKey(selected.name));
+        if(!mechanicEntry)continue;
+        const [optionName,rawMechanic]=mechanicEntry;
+        const mechanic=typeof rawMechanic==='string'?{description:rawMechanic}:rawMechanic||{};
+        const mechanicDescription=String(mechanic.description||'').trim();
+        const selectedKey=featureMatchKey(optionName);
+        if(!mechanicDescription||seenSelected.has(selectedKey))continue;
+        seenSelected.add(selectedKey);
+        const selectedId=id+':choice:'+slug(optionName);
+        derivedFeatures.push({
+          id:selectedId,index:selectedId,name:mechanic.name||optionName,level:selected.level,latestLevel:selected.level,kind:'feature',
+          description:mechanicDescription,descriptionSource:'rule-text',desc:[mechanicDescription],progressionHistory:[{level:selected.level,text:optionName}],
+          selectedFromFeature:feature.name,referencedSourceUrl:mechanic.sourceUrl||undefined,
+          ...meta,sourceClassLevel:selected.level,sourceFeatureId:(featureId||slug(feature.name))+':choice:'+slug(optionName)
+        });
+      }
+    }
     const concreteFeat=isConcreteFeat(feature),grantedFeatName=feature.featName||'';
     if(concreteFeat||grantedFeatName){
       const featName=grantedFeatName||feature.name;

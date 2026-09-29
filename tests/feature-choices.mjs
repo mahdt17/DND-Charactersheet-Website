@@ -54,6 +54,28 @@ assert(!thugChoiceGroup?.options.includes('Alertness'),'Thug choice pool exclude
 assert.equal(featureChoicePlan(thugChoiceBase(2),thugChoiceBase(1),{[thugChoiceGroup.id]:['Alertness']}).valid,false,'invalid Thug bonus-feat selections are rejected');
 assert.equal(featureChoicePlan(thugChoiceBase(2),thugChoiceBase(1),{[thugChoiceGroup.id]:['Urban Tracking']}).valid,true,'Thug source-specific Urban Tracking selection is accepted');
 
+const wildernessChoiceClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/wilderness-rogue-136'),choiceReference35);
+const wildernessChoiceBase=(level,featureChoices={})=>({ruleset:'3.5',mechanics:'3.5',className:'Wilderness Rogue',classDefinition:wildernessChoiceClass35,classLevels:[{name:'Wilderness Rogue',edition:'3.5',catalogId:wildernessChoiceClass35.catalogId,level,definition:wildernessChoiceClass35}],level,abilities:{str:12,dex:16,con:12,int:14,wis:12,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices});
+const wilderness10Plan=featureChoicePlan(wildernessChoiceBase(10),wildernessChoiceBase(9));
+const wilderness10Choice=wilderness10Plan.groups.find(group=>group.level===10&&/^Special Abilit/i.test(group.label));
+assert(wilderness10Choice?.options.includes('Woodland Stride')&&wilderness10Choice?.options.includes('Camouflage')&&wilderness10Choice?.options.includes('Hide in Plain Sight'));
+const prematureHide=featureChoicePlan(wildernessChoiceBase(10),wildernessChoiceBase(9),{[wilderness10Choice.id]:['Hide in Plain Sight']});
+assert.equal(prematureHide.valid,false,'Hide in Plain Sight is rejected before Camouflage');
+assert(prematureHide.groups.find(group=>group.id===wilderness10Choice.id)?.unmetPrerequisites.includes('Camouflage'));
+
+const wilderness16Plan=featureChoicePlan(wildernessChoiceBase(16),wildernessChoiceBase(9));
+const wildernessPicks={};
+wildernessPicks[wilderness16Plan.groups.find(group=>group.level===10).id]=['Woodland Stride'];
+wildernessPicks[wilderness16Plan.groups.find(group=>group.level===13).id]=['Camouflage'];
+wildernessPicks[wilderness16Plan.groups.find(group=>group.level===16).id]=['Hide in Plain Sight'];
+assert.equal(featureChoicePlan(wildernessChoiceBase(16),wildernessChoiceBase(9),wildernessPicks).valid,true,'Camouflage acquired at an earlier Special Ability unlock satisfies Hide in Plain Sight');
+const wildernessApplied=applyFeatureChoices(wildernessChoiceBase(16),wildernessChoiceBase(9),wildernessPicks);
+for(const name of ['Woodland Stride','Camouflage','Hide in Plain Sight'])assert(wildernessApplied.grantedFeatures.some(feature=>feature.name===name&&feature.selectedFromFeature==='Special Abilities'),'selected Wilderness Rogue mechanic is materialized: '+name);
+const wildernessReopened=JSON.parse(JSON.stringify(wildernessApplied));
+assert.equal(featureChoicePlan(wildernessReopened,null).groups.length,0,'saved Wilderness Rogue choices do not repeat after reopen');
+const wildernessReconciled=(await import('../src/lib/classIntegration.js')).reconcileClassGrants(wildernessReopened);
+for(const name of ['Woodland Stride','Camouflage','Hide in Plain Sight'])assert(wildernessReconciled.grantedFeatures.some(feature=>feature.name===name&&feature.selectedFromFeature==='Special Abilities'),'reopened Wilderness Rogue keeps selected mechanic: '+name);
+
 const fighterReprintClass35={name:'Fighter',edition:'3.5',sourceId:'classes/fighter-41',catalogId:'dndtools:classes/fighter-41',sourceUrl:'https://new.dndtools.org/classes/fighter-41',progression:[['Class Level','Special'],['1st','Bonus feat'],['2nd','Bonus feat']]};
 const fighterReprint35={ruleset:'3.5',mechanics:'3.5',className:'Fighter',classDefinition:fighterReprintClass35,classLevels:[{name:'Fighter',edition:'3.5',catalogId:fighterReprintClass35.catalogId,level:1,definition:fighterReprintClass35}],level:1,abilities:{str:10,dex:10,con:10,int:10,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}};
 const fighterReprintPlan=featureChoicePlan(fighterReprint35,null);

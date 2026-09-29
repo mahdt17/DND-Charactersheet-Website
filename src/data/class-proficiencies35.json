@@ -2577,6 +2577,128 @@
       ],
       "verified": true,
       "verificationNote": "Exact Unearthed Arcana Thug source independently reviewed. The class inherits Fighter baseline progression except for source-listed changes."
+    },
+    "classes/wilderness-rogue-136": {
+      "name": "Wilderness Rogue",
+      "sourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136",
+      "classSkillSourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136",
+      "proficiencyText": "The Wilderness Rogue retains the standard Rogue weapon and armor proficiencies; the variant changes class skills and expands the Rogue special-ability choices.",
+      "classSkills": [
+        "Balance",
+        "Bluff",
+        "Climb",
+        "Craft",
+        "Disable Device",
+        "Disguise",
+        "Escape Artist",
+        "Hide",
+        "Intimidate",
+        "Jump",
+        "Knowledge (local)",
+        "Listen",
+        "Move Silently",
+        "Open Lock",
+        "Perform",
+        "Profession",
+        "Search",
+        "Sense Motive",
+        "Sleight of Hand",
+        "Spot",
+        "Swim",
+        "Tumble",
+        "Use Magic Device",
+        "Use Rope",
+        "Handle Animal",
+        "Knowledge (geography)",
+        "Knowledge (nature)",
+        "Ride",
+        "Survival"
+      ],
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-hand",
+          "name": "Crossbow, hand",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons",
+          "sourceOnly": true
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Shortsword",
+          "kind": "weapons"
+        }
+      ],
+      "featureChoiceOverrides": [
+        {
+          "name": "Special Abilities",
+          "choiceKind": "source",
+          "choiceCount": 1,
+          "choiceLevels": [
+            10,
+            13,
+            16,
+            19
+          ],
+          "choiceOptions": [
+            "Crippling Strike",
+            "Defensive Roll",
+            "Improved Evasion",
+            "Opportunist",
+            "Skill Mastery",
+            "Slippery Mind",
+            "Feat",
+            "Woodland Stride",
+            "Camouflage",
+            "Hide in Plain Sight"
+          ],
+          "choiceOptionPrerequisites": {
+            "Hide in Plain Sight": [
+              "Camouflage"
+            ]
+          },
+          "choiceOptionMechanics": {
+            "Woodland Stride": {
+              "description": "Move through natural undergrowth such as thorns, briars, and overgrown areas at normal speed without taking damage or suffering other impairment. Enchanted or magically manipulated undergrowth can still impede you.",
+              "sourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm"
+            },
+            "Camouflage": {
+              "description": "Use Hide in any sort of natural terrain even when that terrain does not provide cover or concealment.",
+              "sourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm"
+            },
+            "Hide in Plain Sight": {
+              "description": "While in any sort of natural terrain, use Hide even while being observed.",
+              "sourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm"
+            }
+          },
+          "sourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136"
+        }
+      ],
+      "verified": true,
+      "verificationNote": "Exact Unearthed Arcana Wilderness Rogue source independently reviewed. It retains Rogue baseline class features except for the source-listed class-skill changes and added special-ability choices."
     }
   }
 }

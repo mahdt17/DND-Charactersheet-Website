@@ -3826,5 +3826,52 @@
       "sourceUrl": "https://new.dndtools.org/classes/thug-132",
       "choiceKind": "feat"
     }
+  ],
+  "classes/wilderness-rogue-136": [
+    {
+      "name": "Special Abilities",
+      "level": 10,
+      "choiceKind": "source",
+      "choiceCount": 1,
+      "choiceLevels": [
+        10,
+        13,
+        16,
+        19
+      ],
+      "choiceOptions": [
+        "Crippling Strike",
+        "Defensive Roll",
+        "Improved Evasion",
+        "Opportunist",
+        "Skill Mastery",
+        "Slippery Mind",
+        "Feat",
+        "Woodland Stride",
+        "Camouflage",
+        "Hide in Plain Sight"
+      ],
+      "choiceOptionPrerequisites": {
+        "Hide in Plain Sight": [
+          "Camouflage"
+        ]
+      },
+      "choiceOptionMechanics": {
+        "Woodland Stride": {
+          "description": "Move through natural undergrowth such as thorns, briars, and overgrown areas at normal speed without taking damage or suffering other impairment. Enchanted or magically manipulated undergrowth can still impede you.",
+          "sourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm"
+        },
+        "Camouflage": {
+          "description": "Use Hide in any sort of natural terrain even when that terrain does not provide cover or concealment.",
+          "sourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm"
+        },
+        "Hide in Plain Sight": {
+          "description": "While in any sort of natural terrain, use Hide even while being observed.",
+          "sourceUrl": "https://www.d20srd.org/srd/classes/ranger.htm"
+        }
+      },
+      "description": "At 10th level and every three Wilderness Rogue levels thereafter (13th, 16th, and 19th), choose one Rogue special ability. In addition to the standard Rogue options—Crippling Strike, Defensive Roll, Improved Evasion, Opportunist, Skill Mastery, Slippery Mind, or a bonus feat—you may choose Woodland Stride, Camouflage, or Hide in Plain Sight. Hide in Plain Sight can be chosen only after you already have Camouflage.",
+      "sourceUrl": "https://new.dndtools.org/classes/wilderness-rogue-136"
+    }
   ]
 }

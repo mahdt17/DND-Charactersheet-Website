@@ -128,6 +128,34 @@ const ranger3=reconcileClassGrants(baseCharacter([{catalogId:reviewedRanger35.ca
 assert(ranger3.feats.some(feat=>feat.name==='Track'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Track is a class-granted feat');
 assert(ranger3.feats.some(feat=>feat.name==='Endurance'&&feat.sourceClassId===reviewedRanger35.catalogId),'Ranger Endurance is a class-granted feat');
 assert.equal(ranger3.grantedFeatures.find(feature=>feature.name==='Combat Style')?.kind,'choice','Ranger combat style remains a guided class choice');
+const wildernessRogue35=exact35('classes/wilderness-rogue-136');
+const wildernessRogue16Base=baseCharacter([{catalogId:wildernessRogue35.catalogId,name:'Wilderness Rogue',edition:'3.5',level:16,definition:wildernessRogue35}]);
+const wildernessRogue16=reconcileClassGrants({
+  ...wildernessRogue16Base,
+  featureChoices:{
+    'wr-10':{sourceClassId:wildernessRogue35.catalogId,classId:wildernessRogue35.catalogId,className:'Wilderness Rogue',edition:'3.5',level:10,feature:'Special Abilities',choices:['Woodland Stride'],choiceKind:'source'},
+    'wr-13':{sourceClassId:wildernessRogue35.catalogId,classId:wildernessRogue35.catalogId,className:'Wilderness Rogue',edition:'3.5',level:13,feature:'Special Abilities',choices:['Camouflage'],choiceKind:'source'},
+    'wr-16':{sourceClassId:wildernessRogue35.catalogId,classId:wildernessRogue35.catalogId,className:'Wilderness Rogue',edition:'3.5',level:16,feature:'Special Abilities',choices:['Hide in Plain Sight'],choiceKind:'source'}
+  }
+});
+for(const skill of ['Handle Animal','Knowledge (geography)','Knowledge (nature)','Ride','Survival'])assert.equal(legacyClassSkillStatus(wildernessRogue16,skill).classSkill,true,'Wilderness Rogue adds '+skill);
+for(const skill of ['Appraise','Diplomacy','Decipher Script','Forgery','Gather Information'])assert.equal(legacyClassSkillStatus(wildernessRogue16,skill).classSkill,false,'Wilderness Rogue removes '+skill);
+const wildernessTraining=wildernessRogue16.trainingGrants.find(item=>item.sourceClassId===wildernessRogue35.catalogId)?.proficiencies.map(item=>item.index)||[];
+for(const proficiency of ['light-armor','simple-weapons','crossbow-hand','rapier','sap','shortbow','shortsword'])assert(wildernessTraining.includes(proficiency),'Wilderness Rogue retains Rogue training: '+proficiency);
+const wildernessSpecial=wildernessRogue16.grantedFeatures.find(feature=>/^Special Abilit(?:y|ies)$/i.test(feature.name));
+assert.equal(wildernessSpecial?.kind,'choice');
+for(const option of ['Crippling Strike','Woodland Stride','Camouflage','Hide in Plain Sight'])assert(wildernessSpecial?.choiceOptions?.includes(option),'Wilderness Rogue Special Abilities includes '+option);
+const woodland=wildernessRogue16.grantedFeatures.find(feature=>feature.name==='Woodland Stride'&&feature.selectedFromFeature==='Special Abilities');
+const camouflage=wildernessRogue16.grantedFeatures.find(feature=>feature.name==='Camouflage'&&feature.selectedFromFeature==='Special Abilities');
+const hidePlain=wildernessRogue16.grantedFeatures.find(feature=>feature.name==='Hide in Plain Sight'&&feature.selectedFromFeature==='Special Abilities');
+assert.match(woodland?.description||'',/natural undergrowth/i);
+assert.match(camouflage?.description||'',/cover or concealment/i);
+assert.match(hidePlain?.description||'',/while being observed/i);
+assert.match(hidePlain?.referencedSourceUrl||'',/d20srd\.org\/srd\/classes\/ranger/i);
+const wildernessWithFighter={...wildernessRogue16,classLevels:[...wildernessRogue16.classLevels,{catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35}],level:17,grantedFeatures:[...(wildernessRogue16.grantedFeatures||[]),{id:'manual-feature',name:'Manual Feature',description:'Keep me.'}]};
+const wildernessRemoved=removeClassProgression(wildernessWithFighter,wildernessRogue35.catalogId);
+assert(!wildernessRemoved.grantedFeatures.some(feature=>feature.sourceClassId===wildernessRogue35.catalogId),'Removing Wilderness Rogue removes its selected option mechanics');
+assert(wildernessRemoved.grantedFeatures.some(feature=>feature.id==='manual-feature'),'Removing Wilderness Rogue preserves unrelated manual features');
 const reviewedFavoredSoulBaseline35=exact35('classes/favored-soul-7');
 const favoredSoul5=reconcileClassGrants(baseCharacter([{catalogId:reviewedFavoredSoulBaseline35.catalogId,name:'Favored Soul',edition:'3.5',level:5,definition:reviewedFavoredSoulBaseline35}]));
 assert.equal(favoredSoul5.grantedFeatures.find(feature=>feature.name==='Spells')?.descriptionSource,'rule-text');

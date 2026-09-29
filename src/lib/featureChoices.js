@@ -44,10 +44,21 @@ function sourceChoicePlan(c,previous,picks={}) {
         }
         const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
         const selected=raw.map(value=>String(value||'').trim()).filter(Boolean),required=Math.max(1,Number(feature.choiceCountByLevel?.[String(level)]??feature.choiceCount)||1);
-        const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length||selected.every(value=>options.includes(value)));
+        const optionPrerequisites=feature.choiceOptionPrerequisites&&typeof feature.choiceOptionPrerequisites==='object'?feature.choiceOptionPrerequisites:{};
+        const priorSelections=Object.values(patch.featureChoices||{})
+          .filter(choice=>choice?.sourceClassId===row.catalogId&&norm(choice?.feature)===norm(feature.name))
+          .flatMap(choice=>choice?.choices||[])
+          .map(value=>String(value));
+        const requirementsFor=value=>{
+          const match=Object.entries(optionPrerequisites).find(([name])=>norm(name)===norm(value));
+          const requirements=match?.[1];
+          return Array.isArray(requirements)?requirements.map(String):requirements?[String(requirements)]:[];
+        };
+        const unmetPrerequisites=selected.flatMap(value=>requirementsFor(value).filter(requiredName=>!priorSelections.some(existing=>norm(existing)===norm(requiredName))));
+        const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length||selected.every(value=>options.includes(value)))&&unmetPrerequisites.length===0;
         const detail=String(feature.description||'').trim();
         const sourceText=detail?(norm(detail).includes(norm(feature.name))?detail:`${feature.name}: ${detail}`):(event.text||feature.name);
-        const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites};
+        const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites,optionPrerequisites,unmetPrerequisites};
         groups.push(group);
         if(valid){
           patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[...selected],sourceText:group.sourceText,choiceKind};
