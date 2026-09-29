@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-29",
+  "repository": "mahdt17/DND-Charactersheet-Website",
+  "branch": "codex/class-integration-engine",
+  "checkpointCommit": "5e2ba0d7c871ce826d837ccba8a799b1f3c64dd1",
+  "discoveryProvider": "Exa",
+  "extractionProvider": "Tavily",
+  "firecrawlFallbacks": 0,
+  "objectiveGate": "level-20 progression + class skills + intact tables + key mechanics + no login/footer contamination",
+  "totals": {
+    "selected": 17,
+    "firstPassExactSource": 16,
+    "sourceConflict": 1,
+    "complete": 1,
+    "needsReview": 15
+  },
+  "records": [
+    {
+      "sourceId": "classes/bard",
+      "name": "Bard",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "sourceUrl": "https://new.dndtools.org/classes/bard",
+      "sourceReview": "conflict",
+      "status": "source-conflict",
+      "validation": "blocked",
+      "gaps": [
+        "The exact Eberron Campaign Setting Bard catalog page is explicitly incomplete and contains no usable class progression/mechanics.",
+        "The current reviewed Bard summaries are PHB/SRD-derived and omit the Eberron Campaign Setting p.34 option to take specified Eberron bard feats as bonus feats instead of gaining a new bardic-music form at 3rd, 6th, 9th, 12th, 15th, or 18th level."
+      ],
+      "nextAction": "Recover and verify the complete Eberron Campaign Setting p.34 Bard option text, model the bardic-music-for-Eberron-feat substitution with prerequisites, then regression-test the exact record."
+    },
+    {
+      "sourceId": "classes/dragonfire-adept-29",
+      "name": "Dragonfire Adept",
+      "sourceBook": "Base Class Dragon Magic",
+      "sourceUrl": "https://new.dndtools.org/classes/dragonfire-adept-29",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Invocation selection/catalog effects remain incomplete, and selected Breath Effect names do not yet materialize all option-specific mechanics."
+      ],
+      "nextAction": "Complete structured invocation and Breath Effect mechanics, then add creation/level-up/persistence/source-removal regressions."
+    },
+    {
+      "sourceId": "classes/druid-92",
+      "name": "Druid",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/druid-92",
+      "sourceReview": "verified",
+      "status": "complete",
+      "validation": "passed",
+      "gaps": [],
+      "nextAction": "Preserve as verified. Do not re-audit unless shared companion, Wild Shape, preparation, or class-integration behavior changes.",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36641528108",
+      "verifiedCommit": "5e2ba0d7c871ce826d837ccba8a799b1f3c64dd1"
+    },
+    {
+      "sourceId": "classes/factotum-35",
+      "name": "Factotum",
+      "sourceBook": "Base Class Dungeonscape",
+      "sourceUrl": "https://new.dndtools.org/classes/factotum-35",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Arcane Dilettante daily preparation of distinct sorcerer/wizard spells, maximum-level constraints, one-use-per-prepared-spell state, and metamagic restrictions are not represented as structured daily casting choices."
+      ],
+      "nextAction": "Implement structured Arcane Dilettante daily spell selection/use state and add rest, casting, and persistence regressions."
+    },
+    {
+      "sourceId": "classes/favored-soul-7",
+      "name": "Favored Soul",
+      "sourceBook": "Base Class Complete Divine",
+      "sourceUrl": "https://new.dndtools.org/classes/favored-soul-7",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Favored Soul uses the Cleric list, but source-specific spells-known acquisition/replacement and deity-linked favored-weapon choices are not fully represented as structured persisted state."
+      ],
+      "nextAction": "Implement spells-known gain/replacement and deity/favored-weapon linkage, then add creation and level-up regressions."
+    },
+    {
+      "sourceId": "classes/healer-77",
+      "name": "Healer",
+      "sourceBook": "Base Class Miniatures Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/healer-77",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Unicorn Companion calling is tracked, but full companion creature state, scaling statistics, abilities, persistence, and lifecycle are not materialized."
+      ],
+      "nextAction": "Route Unicorn Companion through the structured companion model and verify level scaling, save/reopen, and removal."
+    },
+    {
+      "sourceId": "classes/hexblade-19",
+      "name": "Hexblade",
+      "sourceBook": "Base Class Complete Warrior",
+      "sourceUrl": "https://new.dndtools.org/classes/hexblade-19",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Hexblade class features are reviewed, but full Familiar state and the source-specific spells-known acquisition/replacement path are not structured."
+      ],
+      "nextAction": "Complete familiar state plus Hexblade known-spell progression/replacement and add persistence regressions."
+    },
+    {
+      "sourceId": "classes/magewright-1029",
+      "name": "Magewright",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "sourceUrl": "https://new.dndtools.org/classes/magewright-1029",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Spell Mastery repertoire acquisition and expansion when new spell levels unlock are described but not represented as structured persisted spell choices."
+      ],
+      "nextAction": "Implement Magewright mastered-spell repertoire progression and verify creation, level-up, and save/reopen."
+    },
+    {
+      "sourceId": "classes/psion-137",
+      "name": "Psion",
+      "sourceBook": "Base Class Expanded Psionics Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/psion-137",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Power-point progression is parsed, but discipline selection and complete power-known/catalog/effect automation remain incomplete."
+      ],
+      "nextAction": "Complete structured discipline selection and power-known/catalog integration before promotion."
+    },
+    {
+      "sourceId": "classes/psychic-warrior-138",
+      "name": "Psychic Warrior",
+      "sourceBook": "Base Class Expanded Psionics Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/psychic-warrior-138",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Power-point progression and bonus feats are represented, but power-known selection/catalog/effect automation remains incomplete."
+      ],
+      "nextAction": "Complete Psychic Warrior power selection/catalog integration and add level-up/persistence regressions."
+    },
+    {
+      "sourceId": "classes/shugenja-8",
+      "name": "Shugenja",
+      "sourceBook": "Base Class Complete Divine",
+      "sourceUrl": "https://new.dndtools.org/classes/shugenja-8",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Element Focus choice persists, but focused/opposed element spell-access restrictions and source-specific spells-known acquisition are not fully applied."
+      ],
+      "nextAction": "Apply Element Focus to spell access and implement Shugenja spells-known progression with regression coverage."
+    },
+    {
+      "sourceId": "classes/sorcerer-98",
+      "name": "Sorcerer",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/sorcerer-98",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+      ],
+      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
+    },
+    {
+      "sourceId": "classes/spirit-shaman-9",
+      "name": "Spirit Shaman",
+      "sourceBook": "Base Class Complete Divine",
+      "sourceUrl": "https://new.dndtools.org/classes/spirit-shaman-9",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Spirit Guide choice persists and Druid-list access is mapped, but daily Spells Retrieved selection and option-specific Spirit Guide mechanics are not fully structured."
+      ],
+      "nextAction": "Implement daily Spells Retrieved state and Spirit Guide option mechanics with rest/persistence regressions."
+    },
+    {
+      "sourceId": "classes/warlock-4",
+      "name": "Warlock",
+      "sourceBook": "Base Class Complete Arcane",
+      "sourceUrl": "https://new.dndtools.org/classes/warlock-4",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Invocation progression is detected and Eldritch Blast/class features are reviewed, but the complete invocation catalog, selection, eligibility, and effects are not automated."
+      ],
+      "nextAction": "Complete structured invocation catalog/selection/effects and add creation/level-up/browser regressions."
+    },
+    {
+      "sourceId": "classes/wilder-140",
+      "name": "Wilder",
+      "sourceBook": "Base Class Expanded Psionics Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/wilder-140",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Power-point progression is parsed, but powers-known selection/catalog/effects remain incomplete."
+      ],
+      "nextAction": "Complete Wilder power selection/catalog integration and verify progression, persistence, and resource behavior."
+    },
+    {
+      "sourceId": "classes/wizard-99",
+      "name": "Wizard",
+      "sourceBook": "Base Class Player's Handbook v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/wizard-99",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+      ],
+      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
+    },
+    {
+      "sourceId": "classes/wu-jen-6",
+      "name": "Wu Jen",
+      "sourceBook": "Base Class Complete Arcane",
+      "sourceUrl": "https://new.dndtools.org/classes/wu-jen-6",
+      "sourceReview": "verified",
+      "status": "needs-review",
+      "validation": "blocked",
+      "gaps": [
+        "Spell Secret, Elemental Mastery, and Taboos are selectable/recordable, but their selected option mechanics and complete spellbook acquisition are not fully materialized."
+      ],
+      "nextAction": "Apply selected Spell Secret/Elemental Mastery/Taboo mechanics and complete Wu Jen spellbook acquisition with persistence regressions."
+    }
+  ]
+}

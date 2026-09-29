@@ -92,3 +92,12 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - A read-only 10-class follow-up source batch passed Exa discovery + Tavily extraction without any Firecrawl fallback: Adept, Beguiler, Cleric, Dragon Shaman, Dread Necromancer, Duskblade, Marshal, Paladin, Ranger, and Warmage.
 - All ten are now explicitly classified `needs-review` because their remaining blockers are structured automation gaps rather than source-retrieval problems. The tracker records the exact blocker and next action per class.
 
+## 2026-09-29 reviewed 17-class source batch
+
+- Validate modernization #1458 passed at `5e2ba0d7c871ce826d837ccba8a799b1f3c64dd1`; the prior 28-class checkpoint remains green.
+- Audited all 17 remaining pending classes that already had reviewed feature summaries and verified training profiles.
+- Sixteen exact new.dndtools pages passed the Exa -> Tavily objective extraction gate on the first pass; Firecrawl fallback usage remained zero.
+- PHB Druid is complete: exact source verification, structured Animal Companion selection/persistence, Wild Shape automation, spontaneous preparation behavior, full 3.5 regressions, build, browser coverage, and the generated class-automation audit all pass.
+- Eberron Campaign Setting Bard is `source-conflict`: both exact D&DTools pages are incomplete, while corroborated ECS p.34 evidence adds a bardic-music-for-bonus-feat substitution absent from the current PHB-derived summaries.
+- The other fifteen records are `needs-review` with explicit subsystem blockers in the canonical tracker rather than being promoted from source completeness alone.
+
