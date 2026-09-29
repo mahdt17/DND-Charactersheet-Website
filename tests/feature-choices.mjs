@@ -215,6 +215,28 @@ assert.equal(rangerStyle.ignorePrerequisites,true);
 const rangerStyled=applyFeatureChoices(rangerChoice35,rangerBefore35,{[rangerStyle.id]:['Archery']});
 assert(Object.values(rangerStyled.featureChoices).some(choice=>choice.feature==='Combat Style'&&choice.choices?.[0]==='Archery'));
 
+const rangerLevel1={...rangerChoice35,classLevels:[{...rangerChoice35.classLevels[0],level:1}],level:1};
+const rangerCreatePlan=featureChoicePlan(rangerLevel1,null);
+const rangerEnemy1=rangerCreatePlan.groups.find(group=>group.choiceKind==='favored-enemy');
+assert(rangerEnemy1,'Ranger creation requests its 1st-level favored enemy');
+assert(rangerEnemy1.options.includes('Dragon')&&rangerEnemy1.options.includes('Outsider (evil)'));
+const rangerEnemyChosen=applyFeatureChoices(rangerLevel1,null,{[rangerEnemy1.id]:['Dragon']});
+assert(Object.values(rangerEnemyChosen.featureChoices).some(choice=>choice.choiceKind==='favored-enemy'&&choice.choices?.[0]==='Dragon'));
+const rangerLevel5={...rangerEnemyChosen,classLevels:[{...rangerEnemyChosen.classLevels[0],level:5}],level:5};
+const rangerLevel5Plan=featureChoicePlan(rangerLevel5,rangerEnemyChosen);
+const rangerEnemy5=rangerLevel5Plan.groups.find(group=>group.choiceKind==='favored-enemy');
+const rangerBoost5=rangerLevel5Plan.groups.find(group=>group.choiceKind==='favored-enemy-boost');
+assert(rangerEnemy5&&rangerBoost5,'Ranger level 5 requests a new favored enemy and a +2 bonus increase');
+assert(!rangerEnemy5.options.includes('Dragon'),'Favored Enemy cannot select the same enemy twice');
+assert.deepEqual(rangerBoost5.options,['Dragon'],'Before the new level-5 enemy is chosen, only existing favored enemies are valid boost targets');
+const level5Picks={[rangerEnemy5.id]:['Giant'],[rangerBoost5.id]:['Dragon']};
+const rangerLevel5Planned=featureChoicePlan(rangerLevel5,rangerEnemyChosen,level5Picks);
+const plannedBoost=rangerLevel5Planned.groups.find(group=>group.choiceKind==='favored-enemy-boost');
+assert(plannedBoost.options.includes('Dragon')&&plannedBoost.options.includes('Giant'),'The newly selected enemy can receive the same-level +2 increase');
+const rangerLevel5Chosen=applyFeatureChoices(rangerLevel5,rangerEnemyChosen,level5Picks);
+assert.equal(Object.values(rangerLevel5Chosen.featureChoices).filter(choice=>choice.choiceKind==='favored-enemy').length,2);
+assert(Object.values(rangerLevel5Chosen.featureChoices).some(choice=>choice.choiceKind==='favored-enemy-boost'&&choice.choices?.[0]==='Dragon'));
+
 const spiritShamanClass35={name:'Spirit Shaman',edition:'3.5',sourceId:'classes/spirit-shaman-9',catalogId:'dndtools:classes/spirit-shaman-9',sourceUrl:'https://new.dndtools.org/classes/spirit-shaman-9',progression:[['Class Level','Special'],['1st','Spirit guide, wild empathy']]};
 const spiritShamanChoice35={...legacyChoice,className:'Spirit Shaman',classDefinition:spiritShamanClass35,classLevels:[{name:'Spirit Shaman',edition:'3.5',catalogId:spiritShamanClass35.catalogId,level:1,definition:spiritShamanClass35}],level:1};
 const spiritGuidePlan=featureChoicePlan(spiritShamanChoice35,null);
