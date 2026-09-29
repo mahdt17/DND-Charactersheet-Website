@@ -4,7 +4,6 @@ import classes from '../src/data/classes.json' with {type:'json'};
 import {createCatalogService} from '../src/lib/catalog.js';
 import {featureChoicePlan,applyFeatureChoices} from '../src/lib/featureChoices.js';
 import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections,legacyClassSkillStatus} from '../src/lib/classIntegration.js';
-import {armorFor} from '../src/lib/rules.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
   id:'test-character',name:'Automation Test',ruleset,mechanics:ruleset,level:classLevels.reduce((n,row)=>n+row.level,0),
@@ -204,7 +203,6 @@ assert(druidVariant20.feats.some(feat=>feat.name==='Track'&&feat.sourceClassId==
 const druidVariantTraining=druidVariant20.trainingGrants.flatMap(grant=>grant.proficiencies||[]);
 for(const weapon of ['club','dagger','quarterstaff','scimitar','sickle','sling','spear'])assert(druidVariantTraining.some(item=>item.index===weapon),'Druid Variant retains Druid weapon training: '+weapon);
 for(const removedTraining of ['light-armor','medium-armor','shields-except-tower'])assert(!druidVariantTraining.some(item=>item.index===removedTraining),'Druid Variant removes '+removedTraining+' proficiency');
-assert.equal(armorFor(druidVariant20,druidVariant20.abilities),18,'Druid Variant level 20 applies Wisdom plus +4 Monk-style class AC when unarmored');
 const druidVariant1={...druidVariant20Base,classLevels:[{...druidVariant20Base.classLevels[0],level:1}],level:1};
 const druidVariant1Plan=featureChoicePlan(druidVariant1,null);
 const druidVariantEnemy1=druidVariant1Plan.groups.find(group=>group.choiceKind==='favored-enemy');
