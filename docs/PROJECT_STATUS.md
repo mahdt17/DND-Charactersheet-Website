@@ -183,3 +183,12 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Same-name/source variants remain independent, including Divine Champion, Divine Disciple, Divine Oracle and Divine Seeker. Dragon Rider (Dragonlance) and Dragonrider (Draconomicon) are also kept fully separate.
 - Demonwrecker Arcane keeps its parsed prerequisite discrepancy explicit for implementation-time resolution rather than silently normalizing the record.
 - Canonical tracker totals: **45 complete, 282 needs-review, 1 source-conflict, 2 blocked, 724 pending audit**.
+
+## 2026-09-30 third prestige 75-class source audit
+
+- Green validation baseline #1485 at `dc7e9498b62745afa44954208c7bcfe8b404ac2e` (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36673595321).
+- Source-audited **75** additional pending records, **Dragonsong Lyrist through Epic Ranger**, in one atomic checkpoint.
+- Tavily bulk exact-page extraction returned empty result sets for this batch, so it was explicitly rejected as evidence. Exa discovery plus source-faithful SRD/D&DTools/RealmsHelps and archived source references were used instead. Supabase remained unchanged.
+- Epic Level Handbook **3.0** progressions remain independent from Dungeon Master's Guide v3.5 epic progressions; duplicate-name source variants were not collapsed.
+- All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted on source research alone.
+- Canonical tracker totals: **45 complete, 357 needs-review, 1 source-conflict, 2 blocked, 649 pending audit**.

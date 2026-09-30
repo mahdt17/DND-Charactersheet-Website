@@ -167,3 +167,11 @@ Updated: 2026-09-29 (America/New_York)
 - Exact source/version extraction used Tavily with Exa source-faithful recovery for omitted prerequisites. Firecrawl duplicate/source fallbacks yielded no additional usable pages; Supabase was not written.
 - Duplicate-name/version records remain independent. Dragon Rider (Dragonlance) and Dragonrider (Draconomicon) are explicitly separate.
 - Tracker totals: **45 complete / 282 needs-review / 1 source-conflict / 2 blocked / 724 pending / 1054 total**.
+
+## 2026-09-30 third prestige 75-class audit
+
+- Green baseline: #1485 at `dc7e9498b62745afa44954208c7bcfe8b404ac2e`.
+- **75** additional records (**Dragonsong Lyrist → Epic Ranger**) moved from `pending_audit` to source-verified `needs-review`.
+- Bulk Tavily extraction returned empty responses and was not used as evidence; Exa plus source-faithful SRD/D&DTools/RealmsHelps references supplied the audit evidence instead.
+- 3.0 Epic Level Handbook and 3.5 DMG epic progression records remain source-independent, as do all other duplicate-name variants.
+- Tracker totals: **45 complete / 357 needs-review / 1 source-conflict / 2 blocked / 649 pending / 1054 total**.
