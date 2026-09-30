@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "e137c6d5295b38e6b69f5f233cd5768e708c3f2b",
+  "snapshotCommit": "e10f7f700083079952fd14dbac8629b36399da19",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -2137,540 +2137,729 @@
       "name": "Black Blood Hunter",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/black-blood-hunter-658",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Black Blood Hunter needs its lycanthrope/Malar entry gate and form-aware mechanics, including animal-aspect uses, curse DC, form-change timing and improved damage reduction."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact natural/afflicted lycanthrope prerequisites plus form-aware spell/item behavior, animal-aspect resources, wild empathy, hybrid-form benefits, natural attacks/DR and faster/quick change."
     },
     {
       "sourceId": "classes/black-dog-412",
       "name": "Black Dog",
       "sourceBook": "Prestige Class Dragonmarked",
       "sourceUrl": "https://new.dndtools.org/classes/black-dog-412",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dragonmarked Black Dog needs its Mark of Hospitality/training entry gate and dragonmark-powered poison/death-attack subsystem."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement full source prerequisites, Heir's Mark caster-level stacking, Hospitality uses, poison inventory/creation/refinement/empowerment, Death Attack and Dhurinda abilities."
     },
     {
       "sourceId": "classes/black-flame-zealot-256",
       "name": "Black Flame Zealot",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/black-flame-zealot-256",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Divine Black Flame Zealot needs its nongood/order/divine-casting/sneak-attack entry gate plus alternating divine advancement, death attack, sneak attack and sacred-flame resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Complete Divine prerequisites and selected divine-caster advancement with source-specific death attack, poison use, sneak attack, fear immunity, stride, sacred flame and immolation."
     },
     {
       "sourceId": "classes/black-flame-zealot-884",
       "name": "Black Flame Zealot",
       "sourceBook": "Prestige Class Unapproachable East",
       "sourceUrl": "https://new.dndtools.org/classes/black-flame-zealot-884",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Unapproachable East Black Flame Zealot is a separate earlier source record with Kossuth/order entry semantics and source-specific advancement; it must not inherit the Complete Divine version by name."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Unapproachable East prerequisites/progression independently and regression-lock it against the Complete Divine record."
     },
     {
       "sourceId": "classes/blackguard-382",
       "name": "Blackguard",
       "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/blackguard-382",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "DMG 3.5 Blackguard needs its full evil/BAB/skill/feat/outsider-contact gate plus prepared divine casting, smite, undead-command, sneak-attack and fiendish-servant state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact DMG prerequisites, Wisdom-based prepared Blackguard casting, smite-good uses, aura/dark blessing/command undead, sneak attack and persistent fiendish-servant state."
     },
     {
       "sourceId": "classes/blade-bravo-726",
       "name": "Blade Bravo",
       "sourceBook": "Prestige Class Races of Stone",
       "sourceUrl": "https://new.dndtools.org/classes/blade-bravo-726",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Stone Blade Bravo needs its gnome/dueling entry gate and light-armor combat package, selectable bonus feats, melee-only sneak attack and size-based abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites and armor restrictions, guided bonus-feat choices, melee-sneak-attack scaling, size advantage, Small but Deadly and Lethal Riposte."
     },
     {
       "sourceId": "classes/blade-dancer-629",
       "name": "Blade Dancer",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/blade-dancer-629",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Oriental Adventures Blade Dancer needs its lawful/high-mobility/spellcasting/sword entry gate plus source-specific speed, acrobatics and enchanted-blade resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source gate, armor/load restrictions, fast-movement table, Acrobatics/Leap of the Clouds, daily enchanted-blade choices and Ride the Wind."
     },
     {
       "sourceId": "classes/blade-of-orien-413",
       "name": "Blade of Orien",
       "sourceBook": "Prestige Class Dragonmarked",
       "sourceUrl": "https://new.dndtools.org/classes/blade-of-orien-413",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dragonmarked Blade of Orien needs its Mark of Passage entry gate and a reusable dragonmark-teleport resource model across all ten levels."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact Passage prerequisites, Heir's Mark caster-level stacking and improved/swift leap, grasp, twist, push, wrath, shadow shift, cloak and fury."
     },
     {
       "sourceId": "classes/bladesinger-306",
       "name": "Bladesinger",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/bladesinger-306",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Bladesinger needs its elf/half-elf martial/skill/feat/arcane entry gate, song restrictions and odd-level existing-caster advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Complete Warrior prerequisites, weapon/armor/song restrictions, selected arcane-caster advancement and Bladesong/Spellsong/Celerity/Fury without inheriting other Bladesinger spell tables."
     },
     {
       "sourceId": "classes/bladesinger-695",
       "name": "Bladesinger",
       "sourceBook": "Prestige Class Races of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/bladesinger-695",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Faerûn Bladesinger is a distinct source record with its own prerequisite details and dedicated prepared Bladesinger spellbook/table rather than Complete Warrior caster advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Races of Faerûn prerequisites, class spellbook/slots, song abilities and source bonus-feat progression; regression-lock all Bladesinger variants."
     },
     {
       "sourceId": "classes/bladesinger-839",
       "name": "Bladesinger",
       "sourceBook": "Prestige Class Tome and Blood: A Guidebook to Wizards and Sorcerers",
       "sourceUrl": "https://new.dndtools.org/classes/bladesinger-839",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome and Blood Bladesinger is a corrected 3.0 source record with its own feat/skill/longsword gate and prepared class spell table."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-correct Tome and Blood prerequisites, class spellbook/table, song restrictions and bonus-feat progression independently."
     },
     {
       "sourceId": "classes/blessed-gruumsh-982",
       "name": "Blessed of Gruumsh",
       "sourceBook": "Prestige Class Dragon Compendium",
       "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dragon Compendium Blessed of Gruumsh needs its orc/half-orc, nongood, martial/religious and eye-removal ritual gate plus Divine Blessing/Evil Eye resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source entry gate, Divine Blessing scaling, Fist/Keen Eye/three Evil Eye variants, Thunderous Roar and weekly True Orc resource."
     },
     {
       "sourceId": "classes/blighter-257",
       "name": "Blighter",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/blighter-257",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Divine Blighter needs its ex-druid transition and source entry gate, dedicated Wisdom-prepared spell table gated by deforestation, undead wild shape and destructive daily resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement source-exact entry/transition, dedicated Blighter casting/deforestation lock, undead wild shape and daily supernatural/spell-like features through Plague."
     },
     {
       "sourceId": "classes/blighter-607",
       "name": "Blighter",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/blighter-607",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Masters of the Wild Blighter is an earlier source record with its own entry semantics, spell table and feature wording; it must stay independent from Complete Divine."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Masters of the Wild progression, deforestation casting, undead wild shape and source-specific daily abilities; add same-name version regressions."
     },
     {
       "sourceId": "classes/blood-magus-225",
       "name": "Blood Magus",
       "sourceBook": "Prestige Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/blood-magus-225",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Arcane Blood Magus needs its resurrection/event and arcane entry gate, selected caster advancement except 5th/10th, and blood-cost/item/companion/travel mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, selected arcane advancement, blood component/durable casting/stanch, scarification/draught, homunculus, bloodseeking, infusion/awaken blood and Bloodwalk."
     },
     {
       "sourceId": "classes/blood-magus-840",
       "name": "Blood Magus",
       "sourceBook": "Prestige Class Tome and Blood: A Guidebook to Wizards and Sorcerers",
       "sourceUrl": "https://new.dndtools.org/classes/blood-magus-840",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome and Blood Blood Magus is a separate earlier record with different alignment/skill/casting prerequisites, alternating advancement and feature order."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Tome and Blood gate/progression independently, including Gore/Infusion/Homunculus/Bloodwalk, and regression-lock against Complete Arcane."
     },
     {
       "sourceId": "classes/bloodclaw-master-866",
       "name": "Bloodclaw Master",
       "sourceBook": "Prestige Class Tome of Battle: The Book of Nine Swords",
       "sourceUrl": "https://new.dndtools.org/classes/bloodclaw-master-866",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome of Battle Bloodclaw Master needs structured Tiger Claw maneuver prerequisites, initiator-level advancement and shifting/claw/two-weapon/pounce/rend state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement maneuver prerequisites and IL advancement, Tiger Claw choices/readied increase, shifting resources including shifter variant behavior, claws, superior TWF, pounce, rend, vision and scent."
     },
     {
       "sourceId": "classes/bloodhound-204",
       "name": "Bloodhound",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/bloodhound-204",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Adventurer Bloodhound needs its BAB/skills/feats gate and persistent mark state driving tracking, nonlethal, pursuit, defenses and locate/freedom/scent/path abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Complete Adventurer gate and multi-mark state, source-specific tracking/nonlethal bonuses, pursuit speed, mark defenses and daily locate/freedom/find-path resources."
     },
     {
       "sourceId": "classes/bloodhound-608",
       "name": "Bloodhound",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/bloodhound-608",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Masters of the Wild Bloodhound is a materially different 3.0 record with Run/Wilderness Lore entry rules and mark/subdual/pacekeeping/shatter/barrier progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Masters of the Wild prerequisites and mechanics independently, including mark limits, subdual rules, pacekeeping/restlessness, shatter/fracture, scry/barrier defenses and daily abilities."
     },
     {
       "sourceId": "classes/bloodscaled-fury-394",
       "name": "Bloodscaled Fury",
       "sourceBook": "Prestige Class Draconomicon",
       "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Draconomicon Bloodscaled Fury is an epic dragon class requiring BAB +22; exact source-faithful references resolve the new-page truncation. It also needs dragon/rage/frightful-presence gating and 12-level fury/scales resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Preserve BAB +22 and implement the dragon/rage/frightful-presence gate, draconic fury, Scales of Blood, rend, extended/incite/tireless fury and Blinding Speed."
     },
     {
       "sourceId": "classes/bloodstorm-blade-867",
       "name": "Bloodstorm Blade",
       "sourceBook": "Prestige Class Tome of Battle: The Book of Nine Swords",
       "sourceUrl": "https://new.dndtools.org/classes/bloodstorm-blade-867",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome of Battle Bloodstorm Blade needs its Iron Heart strike/stance entry gate and maneuver-consuming thrown-weapon subsystem."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, readied-maneuver expenditure/recovery for returning attacks, thrown-weapon modes, bonus fighter feats and ricochet/storm features."
     },
     {
       "sourceId": "classes/body-leech-1044",
       "name": "Body Leech",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.5]",
       "sourceUrl": "https://new.dndtools.org/classes/body-leech-1044",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Mind's Eye 3.5 Body Leech needs its ectoplasmic cocoon/mind switch manifesting gate plus stasis-cocoon, drain, tether-hound and cheat-death state with partial manifesting advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact psionic prerequisites, selected manifesting-class advancement and persistent cocoon/drain/tether/cheat-death resources."
     },
     {
       "sourceId": "classes/bonded-summoner-575",
       "name": "Bonded Summoner",
       "sourceBook": "Prestige Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/bonded-summoner-575",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Miniatures Handbook Bonded Summoner needs its familiar, planar-language/knowledge and 2nd-level arcane entry gate plus elemental companion, resistances/immunities and alternating spellcasting advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact entry requirements, persistent elemental companion growth, energy affinity/resistances/immunities, source spellcasting progression and elemental-form end state."
     },
     {
       "sourceId": "classes/bone-collector-523",
       "name": "Bone Collector",
       "sourceBook": "Prestige Class Ghostwalk",
       "sourceUrl": "https://new.dndtools.org/classes/bone-collector-523",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Ghostwalk Bone Collector needs its full source entry gate, including prior harmful undead/necromancy exposure, plus bone crafting, negative-energy shroud and stored-undead-effect mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the complete source gate, bone armor/weapon crafting choices, shroud side effects, undead-channel storage/discharge and remaining source progression."
     },
     {
       "sourceId": "classes/bone-knight-477",
       "name": "Bone Knight",
       "sourceBook": "Prestige Class Five Nations",
       "sourceUrl": "https://new.dndtools.org/classes/bone-knight-477",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Five Nations Bone Knight needs its turn/rebuke-undead and divine-casting entry gate plus bonecraft equipment, undead command, skeletal steed and divine spellcasting advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement full source prerequisites, bonecraft armor/weapon state, rebuke/bone march, skeletal steed persistence and selected divine-caster advancement."
     },
     {
       "sourceId": "classes/breachgnome-696",
       "name": "Breachgnome",
       "sourceBook": "Prestige Class Races of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/breachgnome-696",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Faerûn Breachgnome needs its full source entry gate and Seal the Breach defensive progression, bonus feats and uncanny-dodge state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce the complete source prerequisites and implement Seal the Breach milestones, bonus-feat choices and uncanny-dodge interactions."
     },
     {
       "sourceId": "classes/brimstone-speaker-863",
       "name": "Brimstone Speaker",
       "sourceBook": "Prestige Class Tome of Magic",
       "sourceUrl": "https://new.dndtools.org/classes/brimstone-speaker-863",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome of Magic Brimstone Speaker needs its true-prayer/deity-domain gate plus partial divine advancement, Tongue of Fire and heavenly-entreaty resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact religious/truing entry requirements, selected divine advancement and level-based Tongue of Fire/heavenly-entreaty state."
     },
     {
       "sourceId": "classes/broken-one-monk-924",
@@ -2697,480 +2886,648 @@
       "name": "Cabinet Trickster",
       "sourceBook": "Prestige Class Races of Eberron",
       "sourceUrl": "https://new.dndtools.org/classes/cabinet-trickster-718",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Eberron Cabinet Trickster needs changeling/Cabinet trial entry state plus detect-thoughts uses, thought tricks, bonus feats and final change-shape mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the exact source gate, detect-thoughts counters/bonuses, each thought trick and save DC, bonus-feat choices and persistent Change Shape."
     },
     {
       "sourceId": "classes/cancer-mage-180",
       "name": "Cancer Mage",
       "sourceBook": "Prestige Class Book of Vile Darkness",
       "sourceUrl": "https://new.dndtools.org/classes/cancer-mage-180",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Book of Vile Darkness Cancer Mage needs its disease/poison exposure and source entry gate plus disease-host, cancerous-companion, viral and disease-form mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement full source prerequisites and tainted disease subsystem, companion persistence, infection/viral abilities, sneak-attack scaling and disease-form transformation."
     },
     {
       "sourceId": "classes/candle-caster-841",
       "name": "Candle Caster",
       "sourceBook": "Prestige Class Tome and Blood: A Guidebook to Wizards and Sorcerers",
       "sourceUrl": "https://new.dndtools.org/classes/candle-caster-841",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome and Blood Candle Caster needs 3rd-level spellcasting, tindertwig supply and remaining source prerequisites plus candle creation/storage and spellcasting progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce the full source gate, model tindertwig/material costs and candle item creation/storage/use, and preserve the source spellcasting advancement."
     },
     {
       "sourceId": "classes/cannith-wand-adept-784",
       "name": "Cannith Wand Adept",
       "sourceBook": "Prestige Class Sharn: City of Towers",
       "sourceUrl": "https://new.dndtools.org/classes/cannith-wand-adept-784",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Sharn Cannith Wand Adept needs its full source entry gate plus wand identification/focus, quick-draw, dual-use, siphon-charge and dragonmark mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce the complete prerequisites and implement wand-specific caster/DC bonuses, dual activation, charge transfer and improved dragonmark state."
     },
     {
       "sourceId": "classes/cataclysm-mage-444",
       "name": "Cataclysm Mage",
       "sourceBook": "Prestige Class Explorer's Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/cataclysm-mage-444",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Explorer's Handbook Cataclysm Mage needs its vision-based source gate plus partial arcane advancement and prophecy/cataclysm class resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the complete source prerequisites including qualifying vision, selected arcane advancement and the class's prophecy/cataclysm feature choices and uses."
     },
     {
       "sourceId": "classes/cavalier-341",
       "name": "Cavalier",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/cavalier-341",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Cavalier needs its source-specific mounted-combat entry gate, special-mount stacking, mounted weapon bonuses and deadly/unstoppable charge resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Complete Warrior prerequisites and mounted subsystem independently, including paladin-mount stacking and charge-use progression."
     },
     {
       "sourceId": "classes/cavalier-765",
       "name": "Cavalier",
       "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
       "sourceUrl": "https://new.dndtools.org/classes/cavalier-765",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Sword and Fist Cavalier is a distinct 3.0 record with masterwork armor/shield entry requirements and older mount/burst/charge progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Sword and Fist gate/progression independently, including required equipment, mount state, Burst of Speed and source charge mechanics."
     },
     {
       "sourceId": "classes/cavelord-896",
       "name": "Cavelord",
       "sourceBook": "Prestige Class Underdark",
       "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Underdark Cavelord needs its full subterranean entry gate plus tunnelrunner, cave tracking/senses, tunnelswimmer, changestones and Bones of the Earth."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce complete source prerequisites and implement subterranean movement/sense bonuses plus daily spell-like/end-state features."
     },
     {
       "sourceId": "classes/cavestalker-426",
       "name": "Cavestalker",
       "sourceBook": "Prestige Class Drow of the Underdark",
       "sourceUrl": "https://new.dndtools.org/classes/cavestalker-426",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Drow of the Underdark Cavestalker needs natural darkvision and its full source gate plus spelunker, Underdark affinity, cavesense and exotic-combat-style progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact entry requirements and reusable underground movement/sense/combat-style state, gaseous form, Void in Space and master spelunker."
     },
     {
       "sourceId": "classes/celebrant-of-sharess-659",
       "name": "Celebrant of Sharess",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/celebrant-of-sharess-659",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Celebrant of Sharess needs its chaotic-good/exalted social-performance gate plus dedicated spell table and celebrant supernatural resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce the full source prerequisites and implement the class spell table, exalted restrictions and level-based celebrant abilities/resources."
     },
     {
       "sourceId": "classes/celestial-mystic-161",
       "name": "Celestial Mystic",
       "sourceBook": "Prestige Class Book of Exalted Deeds",
       "sourceUrl": "https://new.dndtools.org/classes/celestial-mystic-161",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Book of Exalted Deeds Celestial Mystic needs its full exalted/religious entry gate including 4th-level spellcasting, then near-full existing-caster advancement and celestial traits."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, selected spellcasting advancement and celestial resistances/abilities through the capstone."
     },
     {
       "sourceId": "classes/celestial-paragon-1058",
       "name": "Celestial Paragon",
       "sourceBook": "Prestige Class Web 3.0",
       "sourceUrl": "https://new.dndtools.org/classes/celestial-paragon-1058",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Web 3.0 Celestial Paragon needs its epic/source entry gate plus alternating divine advancement, radiant/aura, celestial metamagic, holy strike, healing touch and divine transformation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce exact web-source prerequisites and implement source-specific epic progression/resources without conflating later celestial classes."
     },
     {
       "sourceId": "classes/cerebral-assassin-994",
       "name": "Cerebral Assassin",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.0]",
       "sourceUrl": "https://new.dndtools.org/classes/cerebral-assassin-994",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Mind's Eye 3.0 Cerebral Assassin needs 3rd-level manifesting, legacy psionic combat-mode requirements and source-specific psion progression plus assassin abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the full legacy psionic entry gate, combat-mode state, partial psion power progression and source assassin/death mechanics independently."
     },
     {
       "sourceId": "classes/cerebremancer-908",
       "name": "Cerebremancer",
       "sourceBook": "Prestige Class Expanded Psionics Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/cerebremancer-908",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Expanded Psionics Handbook Cerebremancer needs both 2nd-level arcane spells and 2nd-level powers, then simultaneous arcane and manifesting advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact dual-casting prerequisites and two independently selected advancement targets at every class level, with multiclass regression coverage."
     },
     {
       "sourceId": "classes/cerebrex-983",
       "name": "Cerebrex",
       "sourceBook": "Prestige Class Dragon Compendium",
       "sourceUrl": "https://new.dndtools.org/classes/cerebrex-983",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dragon Compendium Cerebrex needs its full 3rd-level-arcane entry gate plus even-level caster advancement and sensory/mental class abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce complete source prerequisites, selected arcane advancement on even levels and all perception/neural/mental-state features."
     },
     {
       "sourceId": "classes/chameleon-705",
       "name": "Chameleon",
       "sourceBook": "Prestige Class Races of Destiny",
       "sourceUrl": "https://new.dndtools.org/classes/chameleon-705",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Destiny Chameleon needs its full adaptable-character entry gate plus daily Aptitude Focus, floating feat, ability boon and source-specific arcane/divine casting state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact prerequisites and persistent daily focus/bonus-feat/casting choices, including safe switching and spellbook/divine-access behavior."
     },
     {
       "sourceId": "classes/champion-of-corellon-larethian-742",
       "name": "Champion of Corellon Larethian",
       "sourceBook": "Prestige Class Races of the Wild",
       "sourceUrl": "https://new.dndtools.org/classes/champion-of-corellon-larethian-742",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of the Wild Champion of Corellon Larethian needs its full Corellon-worship/elf martial entry gate plus blessing/wrath and source combat-choice progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce complete prerequisites and implement deity/alignment loss behavior, combat feature choices and Corellon's Blessing/Wrath state."
     },
     {
       "sourceId": "classes/champion-of-gwynharwyf-162",
       "name": "Champion of Gwynharwyf",
       "sourceBook": "Prestige Class Book of Exalted Deeds",
       "sourceUrl": "https://new.dndtools.org/classes/champion-of-gwynharwyf-162",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Book of Exalted Deeds Champion of Gwynharwyf needs its full exalted/rage entry gate plus dedicated spellcasting, Furious Casting and damage-reduction/rage progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, champion spell table, rage-aware casting, DR and remaining exalted combat/resources."
     },
     {
       "sourceId": "classes/chaotician-687",
       "name": "Chaotician",
       "sourceBook": "Prestige Class Planar Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/chaotician-687",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Planar Handbook Chaotician needs its full chaotic/three-save entry gate plus chaotic contagion, anarchic grace, babble and reroll resource mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce complete source prerequisites and implement daily Anarchic Grace/Destiny's Arbiter plus remaining chaos-state abilities."
     },
     {
       "sourceId": "classes/child-of-night-856",
       "name": "Child of Night",
       "sourceBook": "Prestige Class Tome of Magic",
       "sourceUrl": "https://new.dndtools.org/classes/child-of-night-856",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome of Magic Child of Night needs shadow mystery/darkness-spell access and prior Plane of Shadow travel plus remaining source prerequisites and near-full caster/shadowcaster advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source gate, selectable qualifying casting target and all shadow-form/defensive resources without conflating spellcasting and mystery progression."
     },
     {
       "sourceId": "classes/church-inquisitor-258",
       "name": "Church Inquisitor",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/church-inquisitor-258",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Divine Church Inquisitor needs its lawful-good-order, Will-save and zone-of-truth divine gate plus full divine advancement and anti-corruption/inquisition features."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Complete Divine prerequisites and full selected divine advancement with detect evil, immunity/defense, domain/inquisition and source-specific abilities."
     },
     {
       "sourceId": "classes/church-inquisitor-357",
       "name": "Church Inquisitor",
       "sourceBook": "Prestige Class Defenders of the Faith: A Guidebook to Clerics and Paladins",
       "sourceUrl": "https://new.dndtools.org/classes/church-inquisitor-357",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Defenders of the Faith Church Inquisitor is an older separate record requiring dispel magic as a divine spell and using source-specific proficiencies/features."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Defenders of the Faith gate and progression independently and regression-lock against Complete Divine."
     },
     {
       "sourceId": "classes/cipher-adept-688",
       "name": "Cipher Adept",
       "sourceBook": "Prestige Class Planar Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/cipher-adept-688",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Planar Handbook Cipher Adept needs its full faction/source entry gate plus unarmed strike, evasion, combat-instinct and later body/mind abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce complete prerequisites and implement the source's unarmed/combat-instinct progression and capstone state."
     },
     {
       "sourceId": "classes/citadel-elite-785",
       "name": "Citadel Elite",
       "sourceBook": "Prestige Class Sharn: City of Towers",
       "sourceUrl": "https://new.dndtools.org/classes/citadel-elite-785",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Sharn Citadel Elite needs Breland origin and its full Citadel entry gate plus training bonuses and level-based choice between bonus feats and spellcasting advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement complete prerequisites and guided per-level feat-versus-caster advancement choices, plus disciplined-mind/organization features."
     },
     {
       "sourceId": "classes/claw-sun-and-ankh-paladin-925",
@@ -3328,20 +3685,27 @@
       "name": "Cloaked Dancer",
       "sourceBook": "Prestige Class Complete Scoundrel",
       "sourceUrl": "https://new.dndtools.org/classes/cloaked-dancer-291",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Scoundrel Cloaked Dancer needs its full performance/arcane entry gate plus alternating arcane advancement, enchanting-dance modes and surprise-strike scaling."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce exact source prerequisites, selected arcane advancement and daily/encounter dance state for beguiling/wearying/frightful effects."
     },
     {
       "sourceId": "classes/cloistered-cleric-120",
@@ -3373,100 +3737,135 @@
       "name": "Cloud Anchorite",
       "sourceBook": "Prestige Class Frostburn",
       "sourceUrl": "https://new.dndtools.org/classes/cloud-anchorite-499",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Frostburn Cloud Anchorite needs Fort +5, its high-altitude wilderness initiation and remaining source gate plus monk stacking and mountain-movement/combat features."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement complete prerequisites, monk AC/unarmed stacking and source acrobatic/high-altitude movement and defense progression."
     },
     {
       "sourceId": "classes/cognition-thief-660",
       "name": "Cognition Thief",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/cognition-thief-660",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Cognition Thief needs psionic blast plus its full source gate, partial manifesting advancement and mind-reading/control resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce exact prerequisites, selected manifesting advancement and source mind-probe/mental-defense/insanity abilities with daily counters."
     },
     {
       "sourceId": "classes/coiled-cabalist-803",
       "name": "Coiled Cabalist",
       "sourceBook": "Prestige Class Serpent Kingdoms",
       "sourceUrl": "https://new.dndtools.org/classes/coiled-cabalist-803",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Serpent Kingdoms Coiled Cabalist needs yuan-ti race, 3rd-level arcane casting and remaining source gate plus handfang effects and source spellcasting progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact prerequisites, selected arcane advancement and handfang venom/acid/paralysis/unconscious/damage choices with save scaling."
     },
     {
       "sourceId": "classes/combat-medic-526",
       "name": "Combat Medic",
       "sourceBook": "Prestige Class Heroes of Battle",
       "sourceUrl": "https://new.dndtools.org/classes/combat-medic-526",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Heroes of Battle Combat Medic needs cure-light-wounds access and full source gate plus full eligible spellcasting advancement, healing kickers, defensive casting and spontaneous heal."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce complete prerequisites, selected eligible caster progression and healing-trigger resources/effects, Mobility/Evasion and spontaneous Heal conversion."
     },
     {
       "sourceId": "classes/combat-trapsmith-292",
       "name": "Combat Trapsmith",
       "sourceBook": "Prestige Class Complete Scoundrel",
       "sourceUrl": "https://new.dndtools.org/classes/combat-trapsmith-292",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Scoundrel Combat Trapsmith needs trapfinding and its full trapmaking gate plus learned combat-trap choices, replacement rules and trap-sense progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact prerequisites and reusable combat-trap selection/construction state, prerequisites, materials, placement and replacement on level-up."
     },
     {
       "sourceId": "classes/commoner-24",
@@ -3569,200 +3968,270 @@
       "name": "Consecrated Harrier",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/consecrated-harrier-259",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Divine Consecrated Harrier needs its church assignment and full source entry gate plus dedicated prepared spell table, target-hunt bonuses and code-of-conduct state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Complete Divine prerequisites, harrier spellcasting, persistent assigned-target state, Blessing of Scripture and hunt abilities/code enforcement."
     },
     {
       "sourceId": "classes/consecrated-harrier-358",
       "name": "Consecrated Harrier",
       "sourceBook": "Prestige Class Defenders of the Faith: A Guidebook to Clerics and Paladins",
       "sourceUrl": "https://new.dndtools.org/classes/consecrated-harrier-358",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Defenders of the Faith Consecrated Harrier is an earlier separate record with its own spell/proficiency progression and assignment/code semantics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Defenders of the Faith gate/progression independently and add same-name source-isolation regressions."
     },
     {
       "sourceId": "classes/constructor-1045",
       "name": "Constructor",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.5]",
       "sourceUrl": "https://new.dndtools.org/classes/constructor-1045",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Mind's Eye 3.5 Constructor needs its full astral-construct entry gate plus advanced/boost/utility construct options and mostly-full selected manifesting advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact 3.5 prerequisites, construct-menu/state handling, ecto protection, construction action modifiers and selected manifesting progression."
     },
     {
       "sourceId": "classes/constructor-995",
       "name": "Constructor",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.0]",
       "sourceUrl": "https://new.dndtools.org/classes/constructor-995",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Mind's Eye 3.0 Constructor specifically requires astral construct I–III and uses legacy psion/construct progression distinct from the 3.5 update."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the 3.0 entry gate and legacy astral-construct/power progression independently; regression-lock against the 3.5 Constructor."
     },
     {
       "sourceId": "classes/contemplative-260",
       "name": "Contemplative",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/contemplative-260",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Divine Contemplative needs divine spellcasting, direct divine/enlightened contact and its remaining source gate, then full divine advancement, bonus domains and divine-body progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce exact Complete Divine prerequisites and selected divine progression, guided bonus-domain selection and all divine-health/body/wholeness/capstone state."
     },
     {
       "sourceId": "classes/contemplative-359",
       "name": "Contemplative",
       "sourceBook": "Prestige Class Defenders of the Faith: A Guidebook to Clerics and Paladins",
       "sourceUrl": "https://new.dndtools.org/classes/contemplative-359",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Defenders of the Faith Contemplative is an older separate record whose prerequisite/progression details must not be inherited from Complete Divine by name."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce the Defenders of the Faith gate and source feature/casting progression independently; add same-name regressions."
     },
     {
       "sourceId": "classes/corrupt-avenger-530",
       "name": "Corrupt Avenger",
       "sourceBook": "Prestige Class Heroes of Horror",
       "sourceUrl": "https://new.dndtools.org/classes/corrupt-avenger-530",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Heroes of Horror Corrupt Avenger needs moderate corruption/taint and its full source gate plus a dedicated spell table, sworn-foe state and tainted-strike/fury resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact taint prerequisites, spell table, persistent sworn foe and bonuses, taint suppression, tainted-strike counters and fear/fury features."
     },
     {
       "sourceId": "classes/cosmic-descryer-448",
       "name": "Cosmic Descryer",
       "sourceBook": "Prestige Class Epic Level Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/cosmic-descryer-448",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Epic Level Handbook Cosmic Descryer needs epic spell/planar-travel entry requirements plus alternate-level caster advancement and planar summoning/trait mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce the full epic gate and implement selected casting advancement, planar-contact/summoning resources and source epic abilities."
     },
     {
       "sourceId": "classes/court-herald-655",
       "name": "Court Herald",
       "sourceBook": "Prestige Class Power of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/court-herald-655",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Power of Faerûn Court Herald needs three languages and its full court/social entry gate plus dedicated Charisma-based spontaneous arcane casting and herald abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce complete prerequisites, implement the class spell list/slots and persistent heraldic/social knowledge and performance resources."
     },
     {
       "sourceId": "classes/cragtop-archer-727",
       "name": "Cragtop Archer",
       "sourceBook": "Prestige Class Races of Stone",
       "sourceUrl": "https://new.dndtools.org/classes/cragtop-archer-727",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Stone Cragtop Archer needs BAB +6 and its full climbing/archery entry gate plus long-range and elevation-based shot mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce complete source prerequisites and implement climbing safety, farsight, Strike from Above, Arcing Shot and Horizon Shot calculations."
     },
     {
       "sourceId": "classes/crescent-moon-knight-paladin-926",
@@ -3789,40 +4258,54 @@
       "name": "Crimson Scourge",
       "sourceBook": "Prestige Class CityScape",
       "sourceUrl": "https://new.dndtools.org/classes/crimson-scourge-262",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Cityscape Crimson Scourge needs Fort +3 and its full bounty-hunter entry gate plus nonlethal, tracking, painful-strike, threat and scent mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact prerequisites and target/tracking state, nonlethal handling, painful-strike scaling, disarm/threaten, defenses and Smell of Blood."
     },
     {
       "sourceId": "classes/crinti-shadow-marauder-791",
       "name": "Crinti Shadow Marauder",
       "sourceBook": "Prestige Class Shining South",
       "sourceUrl": "https://new.dndtools.org/classes/crinti-shadow-marauder-791",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Shining South Crinti Shadow Marauder needs Dambrath origin plus Crinti/noble sanction and its remaining mounted entry gate; features depend on mount/shadow movement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce complete source prerequisites and implement mounted bonus-feat choice, shadow walk/mount state and later teleport/shadow-combat abilities."
     },
     {
       "sourceId": "classes/crusader-115",
@@ -3856,120 +4339,162 @@
       "name": "Cryokineticist",
       "sourceBook": "Prestige Class Frostburn",
       "sourceUrl": "https://new.dndtools.org/classes/cryokineticist-500",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Frostburn Cryokineticist needs energy emanation and its full psionic entry gate plus a suite of cold psi-like abilities and daily capstone resource."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact prerequisites and level-gated cold abilities, attack/DC scaling, weapon afrost state, cold adaptation/walk and Bone Chill use."
     },
     {
       "sourceId": "classes/crystal-master-1046",
       "name": "Crystal Master",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.5]",
       "sourceUrl": "https://new.dndtools.org/classes/crystal-master-1046",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Mind's Eye 3.5 Crystal Master needs manifester level 5 and its full source gate plus embedded-gem choices, Improved Psicrystal and source manifesting advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact 3.5 prerequisites, body-slot/gem uniqueness and benefits, psicrystal stacking and selected manifesting-class progression."
     },
     {
       "sourceId": "classes/crystal-master-996",
       "name": "Crystal Master",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.0]",
       "sourceUrl": "https://new.dndtools.org/classes/crystal-master-996",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Mind's Eye 3.0 Crystal Master needs 3rd-level manifesting and uses a different legacy gem/third-eye system and psionic progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the 3.0 gate and legacy gem/third-eye crafting/benefits independently; regression-lock against the 3.5 Crystal Master."
     },
     {
       "sourceId": "classes/crystalsinger-997",
       "name": "Crystalsinger",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.0]",
       "sourceUrl": "https://new.dndtools.org/classes/crystalsinger-997",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Mind's Eye 3.0 Crystalsinger needs a 5th-level power and two item-creation feats plus remaining source requirements, full legacy power-point progression and crystal crafting/channeling."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce complete source prerequisites, item-creation choices, legacy psion progression, crystal-channel/crafting resources and Song of the Crystal transformation."
     },
     {
       "sourceId": "classes/cultist-of-the-shattered-peak-540",
       "name": "Cultist of the Shattered Peak",
       "sourceBook": "Prestige Class Lost Empires of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/cultist-of-the-shattered-peak-540",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Lost Empires of Faerûn Cultist needs Netherese-human origin, sneak attack, no arcane-class levels and remaining source gate plus its own Intelligence arcane spell table, smite-mage and death attack."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source restrictions, dedicated Cultist casting, sneak-attack scaling, anti-mage features and death-attack state."
     },
     {
       "sourceId": "classes/cyran-avenger-476",
       "name": "Cyran Avenger",
       "sourceBook": "Prestige Class Five Nations",
       "sourceUrl": "https://new.dndtools.org/classes/cyran-avenger-476",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Five Nations Cyran Avenger needs Cyre origin and its full source entry gate plus avenging-strike/enemy-region state, spellcasting advancement and daily divination/necromancy abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
+        "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
+        "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce complete prerequisites and implement melee/ranged avenging strike, enemy-region selections, selected spellcasting advancement and discern-lies/speak-with-dead uses."
     },
     {
       "sourceId": "classes/cyre-scout-414",
@@ -22365,5 +22890,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Prestige third 20-class source audit recorded on green baseline #1482; source review is not mechanical completion."
+  "lastUpdatedNote": "Prestige 75-class source audit recorded on green baseline #1483; source verification is not mechanical completion."
 }

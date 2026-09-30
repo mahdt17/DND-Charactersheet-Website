@@ -165,3 +165,12 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Same-name records remain independent: Complete Warrior and Oriental Adventures Bear Warrior have different timing/proficiency/resource rules, while Lords of Madness and Monsters of Faerûn Beholder Mage use materially different casting/special progressions.
 - Alternate source-faithful references recovered omitted entry criteria for the partial parsed records, while Battle Scion remains weapon-defined rather than receiving a fabricated universal prerequisite set.
 - Canonical tracker totals: **45 complete, 132 needs-review, 1 source-conflict, 2 blocked, 874 pending audit**.
+
+## 2026-09-30 prestige 75-class source audit
+
+- Green validation baseline #1483 at `e10f7f700083079952fd14dbac8629b36399da19` (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36669954450).
+- Source-audited **75** pending prestige-class records in one checkpoint using Exa discovery plus Tavily advanced extraction of the exact source/version records. Firecrawl fallback searches were attempted for ambiguous same-name pairs; they produced no additional usable pages. Supabase remained unchanged.
+- All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted solely because source research succeeded. Structured prerequisites, reviewed summaries, automation and regression evidence remain required for completion.
+- Same-name records remain source-independent, including Black Flame Zealot, Bladesinger, Blighter, Blood Magus, Bloodhound, Cavalier, Church Inquisitor, Consecrated Harrier, Constructor, Contemplative and Crystal Master.
+- Bloodscaled Fury preserves the verified **BAB +22** entry requirement despite a truncated "+2" summary on the exact new.dndtools page.
+- Canonical tracker totals: **45 complete, 207 needs-review, 1 source-conflict, 2 blocked, 799 pending audit**.

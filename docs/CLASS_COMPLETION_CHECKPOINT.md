@@ -151,3 +151,11 @@ Updated: 2026-09-29 (America/New_York)
 - Duplicate Bear Warrior and Beholder Mage records remain source-independent, and Battle Scion preserves its legendary-weapon-defined entry model.
 - Exa + Tavily supplied the usable evidence; grouped Firecrawl fallback search produced no additional source page, and Supabase was not written.
 - Tracker totals: **45 complete / 132 needs-review / 1 source-conflict / 2 blocked / 874 pending / 1054 total**.
+
+## 2026-09-30 prestige 75-class audit
+
+- Green baseline: #1483 at `e10f7f700083079952fd14dbac8629b36399da19`.
+- **75** additional prestige-class records moved from `pending_audit` to source-verified `needs-review` in a single atomic source-audit checkpoint.
+- Exa discovery + Tavily exact extraction were used across the batch; Firecrawl fallback searches on ambiguous same-name pairs returned no additional usable pages, and Supabase was not written.
+- Duplicate-name source versions remain independent, and Bloodscaled Fury is explicitly locked to the source-faithful BAB +22 requirement.
+- Tracker totals: **45 complete / 207 needs-review / 1 source-conflict / 2 blocked / 799 pending / 1054 total**.
