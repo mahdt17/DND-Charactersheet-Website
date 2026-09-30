@@ -299,11 +299,14 @@ assert(Object.values(warlockResistant.featureChoices).some(choice=>choice.featur
 const dreadReviewedClass35={name:'Dread Necromancer',edition:'3.5',sourceId:'classes/dread-necromancer-75',catalogId:'dndtools:classes/dread-necromancer-75',sourceUrl:'https://new.dndtools.org/classes/dread-necromancer-75',progression:[['Class Level','Special'],['4th','Advanced learning'],['7th','Summon familiar'],['8th','Advanced learning']]};
 const dreadReviewed8={...legacyChoice,className:'Dread Necromancer',classDefinition:dreadReviewedClass35,classLevels:[{name:'Dread Necromancer',edition:'3.5',catalogId:dreadReviewedClass35.catalogId,level:8,definition:dreadReviewedClass35}],level:8};
 const dreadReviewedBefore={...dreadReviewed8,classLevels:[{...dreadReviewed8.classLevels[0],level:7}],level:7};
-const dreadAdvancePlan=featureChoicePlan(dreadReviewed8,dreadReviewedBefore);
+const dreadAdvancePlan=featureChoicePlan(dreadReviewed8,dreadReviewedBefore,{}, {spells:choiceSpells35});
 const dreadLearning=dreadAdvancePlan.groups.find(group=>group.label==='Advanced Learning');
 assert(dreadLearning,'Dread Necromancer level 8 requests its next Advanced Learning spell');
-const dreadLearned=applyFeatureChoices(dreadReviewed8,dreadReviewedBefore,{[dreadLearning.id]:['Enervation']});
+assert.equal(dreadLearning.choiceKind,'spell-access');
+assert(dreadLearning.options.includes('Enervation'),'Dread Necromancer Advanced Learning offers an eligible wizard necromancy spell');
+const dreadLearned=applyFeatureChoices(dreadReviewed8,dreadReviewedBefore,{[dreadLearning.id]:['Enervation']},{spells:choiceSpells35});
 assert(Object.values(dreadLearned.featureChoices).some(choice=>choice.feature==='Advanced Learning'&&choice.choices?.[0]==='Enervation'));
+assert(dreadLearned.spellAccessGrants?.some(grant=>grant.classId===dreadReviewedClass35.catalogId&&grant.spellName==='Enervation'&&grant.sourceChoiceId===dreadLearning.id),'Dread Necromancer Advanced Learning persists a class-scoped spell-access grant');
 const dreadFamiliarStart={...legacyChoice,className:'Dread Necromancer',classDefinition:dreadReviewedClass35,classLevels:[{name:'Dread Necromancer',edition:'3.5',catalogId:dreadReviewedClass35.catalogId,level:7,definition:dreadReviewedClass35}],level:7};
 const dreadFamiliarPlan=featureChoicePlan(dreadFamiliarStart,null);
 const dreadFamiliar=dreadFamiliarPlan.groups.find(group=>group.label==='Summon Familiar');
