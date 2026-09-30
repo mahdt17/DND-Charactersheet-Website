@@ -41,7 +41,7 @@ assert.deepEqual(featureChoicePlan({...multi,classLevels:[multi.classLevels[0],{
 assert.equal(featureChoicePlan({...multi,classLevels:[multi.classLevels[0],{name:'Druid',edition:'2024',level:1}]},prior).patch.languages,'Common, Druidic');
 
 const service35=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
-const [choiceClasses35,choiceFeats35]=await Promise.all([service35.load('3.5/classes'),service35.load('3.5/feats')]);
+const [choiceClasses35,choiceFeats35,choiceSpells35]=await Promise.all([service35.load('3.5/classes'),service35.load('3.5/feats'),service35.load('3.5/spells')]);
 const choiceReference35=[...choiceClasses35,...choiceFeats35];
 const druidCompanionClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/druid-92'),choiceReference35);
 const companionChoiceBase=(definition,level)=>({ruleset:'3.5',mechanics:'3.5',className:definition.name,classDefinition:definition,classLevels:[{name:definition.name,edition:'3.5',catalogId:definition.catalogId,level,definition}],level,abilities:{str:10,dex:12,con:12,int:12,wis:16,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}});
@@ -462,14 +462,21 @@ assert(!knightBonus.options.includes('Power Attack'),'Knight bonus feat picker r
 const knightChosen=applyFeatureChoices(knight10,knight9,{[knightBonus.id]:['Spirited Charge']});
 assert(knightChosen.feats.some(feat=>feat.name==='Spirited Charge'&&feat.sourceType==='class-choice'));
 
-const warmageClass35={name:'Warmage',edition:'3.5',sourceId:'classes/warmage-5',catalogId:'dndtools:classes/warmage-5',sourceUrl:'https://new.dndtools.org/classes/warmage-5',progression:[['Level','Special'],['3rd','Advanced learning'],['6th','Advanced learning'],['11th','Advanced learning'],['16th','Advanced learning']]};
-const warmage11={...legacyChoice,className:'Warmage',classDefinition:warmageClass35,classLevels:[{name:'Warmage',edition:'3.5',catalogId:warmageClass35.catalogId,level:11,definition:warmageClass35}],level:11};
-const warmage10={...warmage11,classLevels:[{...warmage11.classLevels[0],level:10}],level:10};
-const warmagePlan=featureChoicePlan(warmage11,warmage10);
+const warmageClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/warmage-5'),choiceReference35);
+const warmage11=companionChoiceBase(warmageClass35,11);
+const warmage10=companionChoiceBase(warmageClass35,10);
+const warmagePlan=featureChoicePlan(warmage11,warmage10,{}, {spells:choiceSpells35});
 const warmageLearning=warmagePlan.groups.find(group=>group.label==='Advanced Learning');
 assert(warmageLearning,'Warmage level 11 requests Advanced Learning');
 assert.equal(warmageLearning.required,1);
-assert.equal(warmageLearning.choiceKind,'source');
+assert.equal(warmageLearning.choiceKind,'spell-access');
+assert(warmageLearning.options.length>0,'Advanced Learning offers verified eligible spells instead of a free-text ruling');
+const warmagePick=warmageLearning.options[0];
+const learnedWarmage=applyFeatureChoices(warmage11,warmage10,{[warmageLearning.id]:[warmagePick]},{spells:choiceSpells35});
+const learnedGrant=learnedWarmage.spellAccessGrants?.find(grant=>grant.classId===warmageClass35.catalogId&&grant.sourceChoiceId===warmageLearning.id);
+assert(learnedGrant,'Advanced Learning materializes a permanent source-owned spell-access grant');
+assert.equal(learnedGrant.spellName,warmagePick);
+assert.equal(learnedGrant.source,'Warmage · Advanced Learning');
 
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
