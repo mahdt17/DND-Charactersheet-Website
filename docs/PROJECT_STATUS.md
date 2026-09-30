@@ -156,3 +156,12 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Exact prestige requirements were recovered with alternate source-faithful references where the parsed page omitted fields, including Arcane Archer, Arcane Hierophant, Arcanopath Monk, Arch Psion, Ardent Dilettante, Argent Fist, Ashworm Dragoon, Astral Dancer and Atavist.
 - Canonical tracker totals: **45 complete, 112 needs-review, 1 source-conflict, 2 blocked, 894 pending audit**.
 
+
+## 2026-09-30 prestige third 20-class source audit
+
+- Green validation baseline #1482 at `e137c6d5295b38e6b69f5f233cd5768e708c3f2b`.
+- Source-audited the next 20 pending prestige-class records with Exa discovery plus Tavily advanced extraction of all 20 exact new.dndtools pages. Grouped Firecrawl fallback searches were attempted where old entry blocks were partial but returned no usable additional source pages; Supabase remained unchanged.
+- All 20 move to explicit `needs-review`; none were promoted from successful source extraction alone because reviewed summaries, structured prerequisites and/or class-specific automation are still missing.
+- Same-name records remain independent: Complete Warrior and Oriental Adventures Bear Warrior have different timing/proficiency/resource rules, while Lords of Madness and Monsters of Faerûn Beholder Mage use materially different casting/special progressions.
+- Alternate source-faithful references recovered omitted entry criteria for the partial parsed records, while Battle Scion remains weapon-defined rather than receiving a fabricated universal prerequisite set.
+- Canonical tracker totals: **45 complete, 132 needs-review, 1 source-conflict, 2 blocked, 874 pending audit**.

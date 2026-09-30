@@ -143,3 +143,11 @@ Updated: 2026-09-29 (America/New_York)
 - No source-complete record was marked mechanically complete without reviewed summaries, automation and regression evidence.
 - Tracker totals: **45 complete / 112 needs-review / 1 source-conflict / 2 blocked / 894 pending / 1054 total**.
 
+
+## 2026-09-30 prestige third 20-class audit
+
+- Green baseline: #1482 at `e137c6d5295b38e6b69f5f233cd5768e708c3f2b`.
+- Twenty additional prestige classes moved from `pending_audit` to source-verified `needs-review` with exact prerequisite/mechanics blockers; source completeness alone was not treated as automation completeness.
+- Duplicate Bear Warrior and Beholder Mage records remain source-independent, and Battle Scion preserves its legendary-weapon-defined entry model.
+- Exa + Tavily supplied the usable evidence; grouped Firecrawl fallback search produced no additional source page, and Supabase was not written.
+- Tracker totals: **45 complete / 132 needs-review / 1 source-conflict / 2 blocked / 874 pending / 1054 total**.

@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-09-29",
+  "snapshotDate": "2026-09-30",
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "f636202f739ca0d316697ea2854f7138947e75a9",
+  "snapshotCommit": "e137c6d5295b38e6b69f5f233cd5768e708c3f2b",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -1268,80 +1268,108 @@
       "name": "Auspician",
       "sourceBook": "Prestige Class Faiths & Pantheons",
       "sourceUrl": "https://new.dndtools.org/classes/auspician-480",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Faiths & Pantheons Auspician needs chaotic alignment, Dodge/Great Fortitude/Iron Will/Lightning Reflexes, Fort +5/Ref +2, Luck domain and Tyche's-blood initiation enforced, plus full casting advancement and its Fate/Luck-domain, Lucky Blow, Tyche's Curse, infusion and daily luck resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact entry gates, selectable existing-caster advancement, Fate/Luck domain state, daily Luck Infusion/Mark choices, Tyche's Curse uses, Lucky Blow scaling and Luck of the Gods."
     },
     {
       "sourceId": "classes/avenging-executioner-289",
       "name": "Avenging Executioner",
       "sourceBook": "Prestige Class Complete Scoundrel",
       "sourceUrl": "https://new.dndtools.org/classes/avenging-executioner-289",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Avenging Executioner needs nongood alignment, BAB +5, Hide 4/Intimidate 6/Move Silently 4 and tragic-wrong prerequisites, plus sudden-strike scaling and fear/intimidation state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce exact entry requirements; add sudden-strike progression, Bloody Blade/Bloody Murder fear saves, Rapid Intimidation and Dread Blade reminders/state, then level regressions."
     },
     {
       "sourceId": "classes/ballisteer-993",
       "name": "Ballisteer",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.0]",
       "sourceUrl": "https://new.dndtools.org/classes/ballisteer-993",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "The Mind's Eye 3.0 Ballisteer needs BAB +3, Tumble 6, Dodge/Mobility/Point Blank Shot/Psionic Shot and 2nd-level manifesting, plus its legacy psychic-warrior power-point/power-discovery schedule and point-spending shot abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Keep this 3.0 record source-specific; implement exact entry gates, legacy manifesting progression and power-point shot resources without inheriting later 3.5 conversions."
     },
     {
       "sourceId": "classes/bane-of-infidels-606",
       "name": "Bane of Infidels",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/bane-of-infidels-606",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Bane of Infidels needs nongood alignment, Intimidate 4, Knowledge (religion) 6, Knowledge (nature) 6, Iron Will, Leadership and 3rd-level divine casting, then full selected-class casting plus sacrifice/pyre/loyalty field mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce exact prerequisites, selectable divine casting target and level-by-level supernatural/spell-like resources for energumen, pyre, sacrifices, wicker man, bonfire and antipathy."
     },
     {
       "sourceId": "classes/barbarian-104",
@@ -1573,40 +1601,54 @@
       "name": "Battle Maiden",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/battle-maiden-626",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Oriental Adventures Battle Maiden needs female, lawful, BAB +7, Handle Animal 10, Ride 10, Mounted Combat, Ride-By Attack and Spirited Charge, plus a source-specific special mount and mounted defensive/resource progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact entry gates, OA training, special-mount state/progression, Ride bonus milestones, Burst of Speed, Defensive Riding and Heal Mount uses."
     },
     {
       "sourceId": "classes/battle-scion-874",
       "name": "Battle Scion",
       "sourceBook": "Prestige Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/battle-scion-874",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Battle Scion has weapon-defined entry requirements rather than one fixed prerequisite set; its legendary weapon owns additional level abilities while the class independently grants fighter bonus feats at 1/4/7/10."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Model legendary-weapon selection as required source state, validate that weapon's own entry criteria, separate weapon-owned abilities from class-owned bonus feats, and regression-test loss/recovery of the weapon."
     },
     {
       "sourceId": "classes/battle-sorcerer-119",
@@ -1633,160 +1675,216 @@
       "name": "Battle Trickster",
       "sourceBook": "Prestige Class Complete Scoundrel",
       "sourceUrl": "https://new.dndtools.org/classes/battle-trickster-290",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Battle Trickster needs BAB +5, any three skills at 6 ranks and any two skill tricks, then grants bonus skill tricks, a fighter bonus feat and Tricky Fighting."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add structured skill-trick prerequisites/ownership, guided bonus-trick choices, fighter-bonus-feat choice and Tricky Fighting reminder/state across all three levels."
     },
     {
       "sourceId": "classes/battlerager-694",
       "name": "Battlerager",
       "sourceBook": "Prestige Class Races of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Faerûn Battlerager needs dwarf, nonlawful alignment, BAB +5, Intimidate 8, Knowledge (religion) 2, Perform 2, Cleave, Endurance, Power Attack and rage, plus extra-rage, fixed feats and natural-armor/fear-resistance features."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce the complete source entry gate; stack rage uses safely, grant source feats at the proper levels, and model Gruff/Rock Gut/Fearless/Natural Armor without conflating other battleragers."
     },
     {
       "sourceId": "classes/battlesmith-725",
       "name": "Battlesmith",
       "sourceBook": "Prestige Class Races of Stone",
       "sourceUrl": "https://new.dndtools.org/classes/battlesmith-725",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Battlesmith needs dwarf, BAB +5, Craft (armorsmithing or weaponsmithing) 10, heavy-armor proficiency, Endurance, Weapon Focus (warhammer), and creation/use of a dwarvencraft weapon, plus crafted-warhammer and forge abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact entry prerequisites including the crafted-weapon event, then source-owned warhammer Wisdom damage, forge crafting benefits, Flesh of My Flesh scaling and fire/blood defenses."
     },
     {
       "sourceId": "classes/bayushi-deceiver-627",
       "name": "Bayushi Deceiver",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/bayushi-deceiver-627",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Oriental Adventures Bayushi Deceiver needs human (Scorpion), nonlawful alignment, BAB +3, Bluff 8, Diplomacy 8, Improved Initiative and sneak attack +2d6, plus source-specific poison, feint and sneak-attack progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact clan/race/alignment/skill/feat/sneak-attack gates; add sneak-attack scaling, Poison Use, Strike First/Last, Scorpion Feint and fixed Improved Disarm/Improved Critical grants."
     },
     {
       "sourceId": "classes/bear-warrior-340",
       "name": "Bear Warrior",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/bear-warrior-340",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Bear Warrior needs BAB +7, Power Attack and rage/frenzy; its bear form is tied to rage, progresses black→brown→dire at 1/5/10, gains Scent at 3 and +1 rage/day at 7."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement CW-specific entry gates and rage-linked form state/stat changes, Scent and extra-rage resource; do not inherit Oriental Adventures timing or proficiencies."
     },
     {
       "sourceId": "classes/bear-warrior-628",
       "name": "Bear Warrior",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/bear-warrior-628",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Oriental Adventures Bear Warrior needs BAB +7, Power Attack and rage/fury/ki frenzy; unlike Complete Warrior it grants martial/simple proficiency, separate bear-form uses/timing (1/4/8) and extra raging at 5/10."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the OA record independently with its own proficiencies, black/brown/dire use progression, Scent and extra-rage milestones; regression-lock same-name source isolation."
     },
     {
       "sourceId": "classes/beast-heart-adept-432",
       "name": "Beast Heart Adept",
       "sourceBook": "Prestige Class Dungeonscape",
       "sourceUrl": "https://new.dndtools.org/classes/beast-heart-adept-432",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Beast Heart Adept needs Handle Animal 8, Knowledge (arcana) 4, Knowledge (dungeoneering) 4, Animal Affinity and a week alone in a dungeon, plus a selectable monstrous companion and companion/monster-lore progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact entry requirements, reusable monstrous-companion state/advancement and Monster Lore plus later companion/tactical features, then persistence/removal regressions."
     },
     {
       "sourceId": "classes/beastmaster-203",
       "name": "Beastmaster",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/beastmaster-203",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Adventurer Beastmaster needs Handle Animal 8, Survival 4 and Skill Focus (Handle Animal), then an animal companion at effective druid level class+3, stacking wild empathy, extra companions and daily Speak with Animals."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact entry gate and reusable multi-companion state, effective companion levels/penalties, wild-empathy stacking, Alertness, low-light/scent and Speak with Animals counters."
     },
     {
       "sourceId": "classes/beguiler-100",
@@ -1820,80 +1918,108 @@
       "name": "Beholder Mage",
       "sourceBook": "Prestige Class Lords of Madness",
       "sourceUrl": "https://new.dndtools.org/classes/beholder-mage-557",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Lords of Madness Beholder Mage needs a true beholder that destroys its central antimagic eye; it has a unique Intelligence spontaneous arcane progression, caster level twice class level, spell-stalk eye-ray sacrifice, Arcane Hands and Ocular Transformation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement LoM-specific race/special prerequisite and independent spell-learning/slot/caster-level model, spell-stalk ownership plus Arcane Hands/Ocular Transformation state; never inherit the older Monsters of Faerûn class."
     },
     {
       "sourceId": "classes/beholder-mage-600",
       "name": "Beholder Mage",
       "sourceBook": "Prestige Class Monster Compendium: Monsters of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/beholder-mage-600",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Monsters of Faerûn Beholder Mage is a distinct 3.0 record: beholder race plus destroyed central eye, wizard-style spell preparation, a different save/special table including Summon Familiar, and source-specific casting progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Keep the 3.0 record independent; implement its exact race/special gate, prepared-casting table, familiar grant and source progression without borrowing Lords of Madness spontaneous/stalk mechanics."
     },
     {
       "sourceId": "classes/beloved-of-valarian-160",
       "name": "Beloved of Valarian",
       "sourceBook": "Prestige Class Book of Exalted Deeds",
       "sourceUrl": "https://new.dndtools.org/classes/beloved-of-valarian-160",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Beloved of Valarian needs female, good alignment, BAB +7, Knowledge (nature) 5, Ride 10, Mounted Combat, Sacred Vow, Vow of Chastity and the druid-grove animal-rescue initiation, plus its own spell table and unicorn/celestial-charger progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact exalted entry gate, class spell list/slots, unicorn→celestial charger companion state, telepathic/timeless/ethereal features and daily Holy Smite/Mass Baleful Polymorph resources."
     },
     {
       "sourceId": "classes/bereft-862",
       "name": "Bereft",
       "sourceBook": "Prestige Class Tome of Magic",
       "sourceUrl": "https://new.dndtools.org/classes/bereft-862",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome of Magic Bereft needs neutral alignment, Truespeak 13, at least three languages and the 3,700 gp ritual of renaming, then Obscure Personal Truename and syllable/Word of Unmaking Truespeech mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add exact alignment/skill/language/ritual gate, source feat grant and a reusable Truespeech/Truespeak action model for the syllables and Word of Unmaking, with explicit XP/cost reminders."
     },
     {
       "sourceId": "classes/berronar-valkyrie-paladin-923",
@@ -1920,20 +2046,27 @@
       "name": "Berserk",
       "sourceBook": "Prestige Class Deities and Demigods",
       "sourceUrl": "https://new.dndtools.org/classes/berserk-354",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Deities and Demigods Berserk needs nonlawful alignment, BAB +5, medium armor proficiency, Shield Proficiency, Martial Weapon Proficiency in battleaxe/longsword/warhammer and Asgardian patronage, plus battle-fury, DR, speed and totem beast-shape resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact entry gate including pantheon and weapon-choice requirement; add Battle Fury uses, movement/DR progression and chosen beast-shape uses/state across ten levels."
     },
     {
       "sourceId": "classes/binder-112",
@@ -1977,20 +2110,27 @@
       "name": "Black Blood Cultist",
       "sourceBook": "Prestige Class Champions of Ruin",
       "sourceUrl": "https://new.dndtools.org/classes/black-blood-cultist-283",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Black Blood Cultist needs CE/CN/NE alignment, Knowledge (nature) 2, Survival 8, Improved Unarmed Strike, Track and rage; its class stacks rage and adds claws, bite, rend, grapple, DR/silver, scent and feral-form state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
+        "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
+        "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Enforce exact entry gates; stack rage progression safely and model natural attacks, Improved Grapple, DR/silver, Scent, Stranglehold, Savage Grapple and Feral Form with level regressions."
     },
     {
       "sourceId": "classes/black-blood-hunter-658",
@@ -22225,5 +22365,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Cleric Variant fully validated on #1435; Abjurer Variant exact-source specialist implementation is pending full validation."
+  "lastUpdatedNote": "Prestige third 20-class source audit recorded on green baseline #1482; source review is not mechanical completion."
 }
