@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "d7bc51975028f8788157c72268472e74d880c7bb",
+  "snapshotCommit": "b61de4ef934f46c4905a78a68cba2001b92c3b3b",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -1253,20 +1253,26 @@
       "name": "Battle Dancer",
       "sourceBook": "Base Class Dragon Compendium",
       "sourceUrl": "https://new.dndtools.org/classes/battle-dancer-973",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Battle Dancer feature-summary block exists yet; unarmored AC/speed/unarmed-damage progression, Tumble-rank-gated dance actions, and the irreversible Dancer's Strike alignment/material selections are not represented as structured sheet mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa exact-page extraction reviewed the class feature text and advancement table from the record's new.dndtools source URL.",
+        "2026-09-29 Tavily advanced extraction of the exact source page passed the source-page completeness/structure check earlier in this batch.",
+        "The repository already contains a source-verified starting-training profile for this exact class record; no Firecrawl fallback or Supabase query was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Battle Dancer feature summaries, model dance actions and Dancer's Strike choices, then regression-test AC/speed/unarmed scaling and persistence."
     },
     {
       "sourceId": "classes/battle-maiden-626",
@@ -3809,20 +3815,26 @@
       "name": "Death Master",
       "sourceBook": "Base Class Dragon Compendium",
       "sourceUrl": "https://new.dndtools.org/classes/death-master-974",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Death Master feature-summary block exists yet; prepared spellbook acquisition, Rebuke Undead usage, full Undead Minion creature/scaling/replacement state, and lich-template effects are not structurally automated."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa exact-page extraction reviewed the class feature text and advancement table from the record's new.dndtools source URL.",
+        "2026-09-29 Tavily advanced extraction of the exact source page passed the source-page completeness/structure check earlier in this batch.",
+        "The repository already contains a source-verified starting-training profile for this exact class record; no Firecrawl fallback or Supabase query was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement/reuse spellbook and companion subsystems for Death Master, then add rebuke, minion scaling/replacement, preparation, and level-20 template regressions."
     },
     {
       "sourceId": "classes/deaths-chosen-545",
@@ -5449,20 +5461,26 @@
       "name": "Drow Paragon",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/drow-paragon-1000",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Drow Paragon feature-summary block exists yet; the source's sex-dependent Cleric-or-Wizard spellcasting advancement, improved innate spell-like uses, racial vision/light changes, and automatic Dex +2 boost are not fully modeled."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa exact-page extraction reviewed the class feature text and advancement table from the record's new.dndtools source URL.",
+        "2026-09-29 Tavily advanced extraction of the exact source page passed the source-page completeness/structure check earlier in this batch.",
+        "The repository already contains a source-verified starting-training profile for this exact class record; no Firecrawl fallback or Supabase query was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Drow Paragon summaries and a constrained casting-advancement target model, then implement racial-trait deltas and the level-3 Dexterity boost with persistence tests."
     },
     {
       "sourceId": "classes/druid-106",
@@ -5857,20 +5875,26 @@
       "name": "Dwarf Paragon",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/dwarf-paragon-1001",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Dwarf Paragon feature-summary block exists yet; Craft Expertise, stonecunning/darkvision/save racial upgrades, and the automatic Con +2 ability boost are description-only rather than structured character-state changes."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa exact-page extraction reviewed the class feature text and advancement table from the record's new.dndtools source URL.",
+        "2026-09-29 Tavily advanced extraction of the exact source page passed the source-page completeness/structure check earlier in this batch.",
+        "The repository already contains a source-verified starting-training profile for this exact class record; no Firecrawl fallback or Supabase query was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Dwarf Paragon summaries and structured racial-trait/ability-score deltas, then verify levels 1-3 and save/reopen behavior."
     },
     {
       "sourceId": "classes/dwarven-defender-385",
@@ -6277,20 +6301,26 @@
       "name": "Elf Paragon",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/elf-paragon-1002",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Elf Paragon feature-summary block exists yet; Wizard-only spellcasting advancement, the restricted Weapon Focus choice, elfsight/enchantment-resistance upgrades, and the automatic Int +2 boost are not fully structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa exact-page extraction reviewed the class feature text and advancement table from the record's new.dndtools source URL.",
+        "2026-09-29 Tavily advanced extraction of the exact source page passed the source-page completeness/structure check earlier in this batch.",
+        "The repository already contains a source-verified starting-training profile for this exact class record; no Firecrawl fallback or Supabase query was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Elf Paragon summaries, constrain casting advancement to Wizard, implement the source-restricted Weapon Focus choice and racial/ability deltas, then add level 1-3 regressions."
     },
     {
       "sourceId": "classes/elocater-909",
@@ -10672,20 +10702,26 @@
       "name": "Jester",
       "sourceBook": "Base Class Dragon Compendium",
       "sourceUrl": "https://new.dndtools.org/classes/jester-975",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Jester feature-summary block exists yet; the per-level Jester's Performance pool, performance action economy/skill-rank gates, Audacity scaling, and source-specific spells-known acquisition/replacement are not structurally automated."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa exact-page extraction reviewed the class feature text and advancement table from the record's new.dndtools source URL.",
+        "2026-09-29 Tavily advanced extraction of the exact source page passed the source-page completeness/structure check earlier in this batch.",
+        "The repository already contains a source-verified starting-training profile for this exact class record; no Firecrawl fallback or Supabase query was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Jester summaries, model the shared performance resource and individual performance actions, then implement spells-known progression/replacement and browser persistence coverage."
     },
     {
       "sourceId": "classes/jordain-vizier-798",
@@ -13539,20 +13575,26 @@
       "name": "Noble",
       "sourceBook": "Base Class Dragonlance Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/noble-27",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Noble feature-summary block exists yet; the source's first-level-only entry rule, bonus class-skill choice, Favor weekly usage, Inspire Confidence/Greatness usage, and Coordinate scaling are not structurally represented."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa exact-page extraction reviewed the class feature text and advancement table from the record's new.dndtools source URL.",
+        "2026-09-29 Tavily advanced extraction of the exact source page passed the source-page completeness/structure check earlier in this batch.",
+        "The repository already contains a source-verified starting-training profile for this exact class record; no Firecrawl fallback or Supabase query was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Noble summaries and enforce the first-level-only requirement; implement class-skill choice and Favor/Inspire resources/actions with level-scaling regressions."
     },
     {
       "sourceId": "classes/noble-heart-paladin-938",
@@ -17979,20 +18021,26 @@
       "name": "Spellthief",
       "sourceBook": "Base Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/spellthief-3",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Spellthief feature-summary block exists yet; stolen spells/effects/spell-like abilities/resistance and absorbed-spell state are dynamic target-derived temporary mechanics, while spells-known acquisition/replacement also remains unmodeled."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29 Exa exact-page extraction reviewed the class feature text and advancement table from the record's new.dndtools source URL.",
+        "2026-09-29 Tavily advanced extraction of the exact source page passed the source-page completeness/structure check earlier in this batch.",
+        "The repository already contains a source-verified starting-training profile for this exact class record; no Firecrawl fallback or Supabase query was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Design a reusable stolen-magic state subsystem for temporary spell/effect/SLA/resistance ownership, then add Spellthief spell-known progression and lifecycle regressions."
     },
     {
       "sourceId": "classes/spellwarp-sniper-300",

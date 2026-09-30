@@ -120,3 +120,11 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Firecrawl fallback usage remained zero and Supabase was not changed.
 - Canonical tracker totals: **44 complete, 43 needs-review, 1 source-conflict, 2 blocked, 964 pending audit**.
 
+## 2026-09-29 profiled 8-class source audit
+
+- Validate modernization #1477 passed at `b61de4ef934f46c4905a78a68cba2001b92c3b3b`; the Advanced Learning tracker checkpoint is green.
+- Audited eight additional pending classes that already had source-verified training profiles: Battle Dancer, Death Master, Drow Paragon, Dwarf Paragon, Elf Paragon, Jester, Noble, and Spellthief.
+- Exact source pages were reviewed with Exa and had already passed the earlier Tavily exact-page extraction gate; no Firecrawl fallback or Supabase read was required.
+- All eight move from `pending_audit` to explicit `needs-review`. They are intentionally not promoted because each requires structured feature/state work beyond source completeness.
+- Canonical tracker totals after this source-audit batch: **44 complete, 51 needs-review, 1 source-conflict, 2 blocked, 956 pending audit**.
+

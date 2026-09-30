@@ -115,3 +115,10 @@ Updated: 2026-09-29 (America/New_York)
 - Dread Necromancer Advanced Learning is fixed; only evil-familiar companion state remains before promotion.
 - Current tracker totals: **44 complete / 43 needs-review / 1 source-conflict / 2 blocked / 964 pending audit / 1054 total**.
 
+## 2026-09-29 profiled 8-class source-audit checkpoint
+
+- Green baseline before audit: #1477 at `b61de4ef934f46c4905a78a68cba2001b92c3b3b`.
+- Eight profiled pending classes were source-reviewed and moved to explicit `needs-review` with class-specific blockers; none were promoted on source completeness alone.
+- Heavy subsystem blockers are preserved explicitly for Death Master (spellbook/minion/template), Spellthief (stolen-magic state), and Jester (performance/spells-known), while the racial paragons and Battle Dancer/Noble have narrower structured-state work.
+- Current tracker totals: **44 complete / 51 needs-review / 1 source-conflict / 2 blocked / 956 pending audit / 1054 total**.
+
