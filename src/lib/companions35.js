@@ -168,6 +168,8 @@ export function reconcileCompanions35(character){
     }
     const derivedStats=derivedStats35(base,profileId,progression,character,exceptions);
     const maxHp=defaultHitPoints(base,profileId,character);
+    const previousCurrent=Number(old?.hp?.current);
+    const currentHp=Number.isFinite(previousCurrent)?Math.min(maxHp,Math.max(0,previousCurrent)):maxHp;
     const id=old?.id||'companion35:'+slug35(group.key);
     const incomplete=!base||distinctSelections.length>1;
     const incompleteReason=!base
@@ -182,7 +184,7 @@ export function reconcileCompanions35(character){
       sourceClassIds,sourceFeatureIds,contributions,effectiveMasterLevel,levelAdjustment,effectiveCompanionLevel,
       baseStats:base?{...base}:null,derivedStats,progression,
       specialAbilities:[...(progression.specialAbilities||[])],
-      hp:{max:maxHp,current:Math.min(maxHp,Math.max(0,Number(old?.hp?.current)??maxHp))},
+      hp:{max:maxHp,current:currentHp},
       status:old?.status||'active',lifecycle,notes:old?.notes||'',
       template:primary.companionTemplate||old?.template||null,
       exceptions,incomplete,incompleteReason:incompleteReason||null
