@@ -102,9 +102,9 @@ assert.equal(hexbladeFamiliar.effectiveCompanionLevel,1,'Hexblade contributes cl
 
 const dreadCompanionClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/dread-necromancer-75'),choiceReference35);
 const dreadCompanionLevel7=featureChoicePlan(companionChoiceBase(dreadCompanionClass35,7),null);
-const dreadFamiliar=dreadCompanionLevel7.groups.find(group=>group.choiceKind==='familiar');
-assert.deepEqual(dreadFamiliar?.options,['Imp','Quasit','Vargouille','Ghostly Visage']);
-assert.equal(dreadFamiliar?.companionProfileId,'standard-familiar');
+const dreadFamiliarGroup=dreadCompanionLevel7.groups.find(group=>group.choiceKind==='familiar');
+assert.deepEqual(dreadFamiliarGroup?.options,['Imp','Quasit','Vargouille','Ghostly Visage']);
+assert.equal(dreadFamiliarGroup?.companionProfileId,'standard-familiar');
 
 const thugChoiceClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/thug-132'),choiceReference35);
 const thugChoiceBase=(level)=>({ruleset:'3.5',mechanics:'3.5',className:'Thug',classDefinition:thugChoiceClass35,classLevels:[{name:'Thug',edition:'3.5',catalogId:thugChoiceClass35.catalogId,level,definition:thugChoiceClass35}],level,abilities:{str:14,dex:14,con:14,int:12,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}});
