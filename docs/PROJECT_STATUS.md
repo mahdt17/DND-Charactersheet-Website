@@ -200,3 +200,11 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Epic Level Handbook **3.0** continuations remain independent from Dungeon Master's Guide v3.5 epic records; all duplicate-name source variants were kept separate.
 - All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted on source research alone.
 - Canonical tracker totals: **45 complete, 432 needs-review, 1 source-conflict, 2 blocked, 574 pending audit**.
+
+## 2026-09-30 fifth prestige 75-class source audit
+
+- Green validation baseline #1487 at `bb1105c69ef8a06dd0c77c529df3b4c20fae9368` (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36675880980).
+- Source-audited **75** additional pending records, **Guild Thief through Kineticist**, in one atomic checkpoint using Tavily exact-page extraction plus Exa source-faithful recovery. Supabase remained unchanged.
+- Same-name 3.0/3.5 and alternate-source variants remain independent; no class-name inheritance was used.
+- All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted on source research alone.
+- Canonical tracker totals: **45 complete, 507 needs-review, 1 source-conflict, 2 blocked, 499 pending audit**.

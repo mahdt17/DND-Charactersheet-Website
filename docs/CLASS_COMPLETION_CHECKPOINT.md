@@ -183,3 +183,11 @@ Updated: 2026-09-29 (America/New_York)
 - Exa plus source-faithful SRD/D&DTools/RealmsHelps/archived references supplied audit evidence; Supabase was not written.
 - Epic 3.0/3.5 records and same-name source variants remain independent.
 - Tracker totals: **45 complete / 432 needs-review / 1 source-conflict / 2 blocked / 574 pending / 1054 total**.
+
+## 2026-09-30 fifth prestige 75-class audit
+
+- Green baseline: #1487 at `bb1105c69ef8a06dd0c77c529df3b4c20fae9368`.
+- **75** additional records (**Guild Thief → Kineticist**) moved from `pending_audit` to source-verified `needs-review`.
+- Tavily exact-page extraction plus Exa recovery supplied the source evidence; no Firecrawl fallback or Supabase write was required.
+- Duplicate-name/source variants remain independent.
+- Tracker totals: **45 complete / 507 needs-review / 1 source-conflict / 2 blocked / 499 pending / 1054 total**.

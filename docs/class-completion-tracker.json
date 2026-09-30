@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "e4e3023e84f731af7b2132ca165ba8fc437fba3b",
+  "snapshotCommit": "bb1105c69ef8a06dd0c77c529df3b4c20fae9368",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -11772,40 +11772,54 @@
       "name": "Guild Thief",
       "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/guild-thief-514",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Forgotten Realms Campaign Setting Guild Thief is source-verified with thieves' guild membership plus stealth/social skill gates; it still needs sneak attack, doublespeak, uncanny dodge, reputation and bonus-feat automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact guild/skill entry rules and the five-level sneak-attack, reputation, uncanny-dodge and bonus-feat progression."
     },
     {
       "sourceId": "classes/guild-wizard-of-waterdeep-565",
       "name": "Guild Wizard of Waterdeep",
       "sourceBook": "Prestige Class Magic of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/guild-wizard-of-waterdeep-565",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Magic of Faerûn Guild Wizard of Waterdeep is source-verified with 3rd-level arcane casting, alchemy/arcana/Spellcraft requirements, Scribe Scroll, metamagic plus Spell Focus/Penetration and a 1,000 gp initiation fee; it grants full arcane advancement and Spellpool access."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact entry/fee state, selected full arcane advancement, improved spell acquisition, Spellpool tiers, bonus item creation/language and dispel/counterspell features."
     },
     {
       "sourceId": "classes/half-giant-racial-class-16",
@@ -11832,320 +11846,432 @@
       "name": "Halfling Outrider",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/halfling-outrider-315",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Halfling Outrider is source-verified as the 3.5 version with halfling race, BAB +5, Listen/Ride/Spot, Mounted Combat and Mounted Archery; its mount-stacking and mounted-combat progression differ from Sword and Fist."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the 3.5 gate, companion/mount level stacking, mounted AC/Ride bonuses and all defensive/charge/evasion/full-attack/quick-turn features independently."
     },
     {
       "sourceId": "classes/halfling-outrider-772",
       "name": "Halfling Outrider",
       "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
       "sourceUrl": "https://new.dndtools.org/classes/halfling-outrider-772",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Sword and Fist Halfling Outrider is the older 3.0 source with d10 hit die, different proficiencies and defensive-ride/deflect-attack progression; it must not inherit the Complete Warrior version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the 3.0 gate/progression independently and source-isolation regressions against Complete Warrior."
     },
     {
       "sourceId": "classes/halruaan-elder-794",
       "name": "Halruaan Elder",
       "sourceBook": "Prestige Class Shining South",
       "sourceUrl": "https://new.dndtools.org/classes/halruaan-elder-794",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Shining South Halruaan Elder is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/halruaan-magehound-795",
       "name": "Halruaan Magehound",
       "sourceBook": "Prestige Class Shining South",
       "sourceUrl": "https://new.dndtools.org/classes/halruaan-magehound-795",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Shining South Halruaan Magehound is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hammer-of-moradin-666",
       "name": "Hammer of Moradin",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/hammer-of-moradin-666",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Hammer of Moradin is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hand-of-the-adama-796",
       "name": "Hand of the Adama",
       "sourceBook": "Prestige Class Shining South",
       "sourceUrl": "https://new.dndtools.org/classes/hand-of-the-adama-796",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Shining South Hand of the Adama is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hand-of-the-winged-masters-374",
       "name": "Hand of the Winged Masters",
       "sourceBook": "Prestige Class Dragon Magic",
       "sourceUrl": "https://new.dndtools.org/classes/hand-of-the-winged-masters-374",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dragon Magic Hand of the Winged Masters is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/harper-agent-667",
       "name": "Harper Agent",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/harper-agent-667",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Harper Agent is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/harper-mage-566",
       "name": "Harper Mage",
       "sourceBook": "Prestige Class Magic of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/harper-mage-566",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Magic of Faerûn Harper Mage is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/harper-paragon-668",
       "name": "Harper Paragon",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/harper-paragon-668",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Harper Paragon is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/harper-priest-567",
       "name": "Harper Priest",
       "sourceBook": "Prestige Class Magic of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/harper-priest-567",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Magic of Faerûn Harper Priest is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/harper-scout-515",
       "name": "Harper Scout",
       "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/harper-scout-515",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Forgotten Realms Campaign Setting Harper Scout is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hathran-516",
       "name": "Hathran",
       "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/hathran-516",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Forgotten Realms Campaign Setting Hathran is the earlier source version requiring both 2nd-level arcane and divine casting plus Witches of Rashemen membership/patronage; it uses full casting and its own cohort/place-magic/fear/circle progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the FRCS gate and progression independently from the Player's Guide revision, including dual-casting eligibility, cohort/place magic and circle/fear resources."
     },
     {
       "sourceId": "classes/hathran-669",
       "name": "Hathran",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/hathran-669",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Hathran is the revised 3.5 version requiring a Rashemi woman, qualifying patron, Witches membership, 4th-level arcane or divine casting and item-creation restrictions; it has revised spirit/leadership/taboo progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the PGtF gate, item-creation restriction, selected casting advancement, Rashemi spirit magic, taboo/leadership/circle features and source-isolation regressions."
     },
     {
       "sourceId": "classes/havoc-mage-577",
       "name": "Havoc Mage",
       "sourceBook": "Prestige Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/havoc-mage-577",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Miniatures Handbook Havoc Mage is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/haztaratain-815",
       "name": "Haztaratain",
       "sourceBook": "Prestige Class Secrets of Sarlona",
       "sourceUrl": "https://new.dndtools.org/classes/haztaratain-815",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Secrets of Sarlona Haztaratain is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/healer-77",
@@ -12178,120 +12304,162 @@
       "name": "Heartwarder",
       "sourceBook": "Prestige Class Faiths & Pantheons",
       "sourceUrl": "https://new.dndtools.org/classes/heartwarder-487",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Faiths & Pantheons Heartwarder is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/heir-of-siberys-438",
       "name": "Heir of Siberys",
       "sourceBook": "Prestige Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/heir-of-siberys-438",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Eberron Campaign Setting Heir of Siberys is source-verified for a dragonmarked race with 15 ranks in any two skills and explicit exclusion of existing dragonmark feats/Dragonmark Heir levels; it needs Siberys-mark choice/action-point automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact exclusions and skill/race gate, Siberys mark selection/progression, action-point increase and related house/mark features."
     },
     {
       "sourceId": "classes/hellbreaker-462",
       "name": "Hellbreaker",
       "sourceBook": "Prestige Class Fiendish Codex II: Tyrants of the Nine Hells",
       "sourceUrl": "https://new.dndtools.org/classes/hellbreaker-462",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Fiendish Codex II: Tyrants of the Nine Hells Hellbreaker is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hellfire-warlock-463",
       "name": "Hellfire Warlock",
       "sourceBook": "Prestige Class Fiendish Codex II: Tyrants of the Nine Hells",
       "sourceUrl": "https://new.dndtools.org/classes/hellfire-warlock-463",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Fiendish Codex II Hellfire Warlock is source-verified with Infernal and brimstone blast or hellrime blast; all three levels advance invocations and scale hellfire blast while adding infusion, fire resistance and hellfire shield."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact invocation/language gate, full invocation advancement, hellfire-blast resource/cost rules, infusion, resistance and shield."
     },
     {
       "sourceId": "classes/hellreaver-464",
       "name": "Hellreaver",
       "sourceBook": "Prestige Class Fiendish Codex II: Tyrants of the Nine Hells",
       "sourceUrl": "https://new.dndtools.org/classes/hellreaver-464",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Fiendish Codex II: Tyrants of the Nine Hells Hellreaver is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/henshin-mystic-632",
       "name": "Henshin Mystic",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/henshin-mystic-632",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Oriental Adventures Henshin Mystic is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hexblade-19",
@@ -12324,220 +12492,297 @@
       "name": "Hexer",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/hexer-616",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Hexer is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hida-defender-633",
       "name": "Hida Defender",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/hida-defender-633",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Oriental Adventures Hida Defender is source-verified for nonevil Human (Crab), BAB +5, heavy armor proficiency, Power Attack and Weapon Focus with battleaxe/warhammer/greatclub; it progresses smite, critical focus, rage and damage reduction."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact Rokugan gate, qualifying weapon selection, smite/critical focus and stacking rage/DR progression."
     },
     {
       "sourceId": "classes/hidecarved-dragon-405",
       "name": "Hidecarved Dragon",
       "sourceBook": "Prestige Class Draconomicon",
       "sourceUrl": "https://new.dndtools.org/classes/hidecarved-dragon-405",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Draconomicon Hidecarved Dragon is source-verified for dragons with natural armor +20 and base Will +12; it needs dragon-specific spell resistance, weakness suppression, resistances/immunities, DR and natural-armor progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact dragon/natural-armor/Will gate and all hidecarved defensive scaling and immunity/DR state."
     },
     {
       "sourceId": "classes/hierophant-387",
       "name": "Hierophant",
       "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/hierophant-387",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dungeon Master's Guide v3.5 Hierophant is source-verified with Knowledge (religion) 15, any metamagic feat and 7th-level divine casting; class levels improve caster level but not spell slots and grant one special ability per level."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the 3.5 gate, no-slot caster-level advancement and guided special-ability choices with repeatability/eligibility rules."
     },
     {
       "sourceId": "classes/hierophant-517",
       "name": "Hierophant",
       "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/hierophant-517",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Forgotten Realms Campaign Setting Hierophant is the 3.0 source variant with its own more restrictive religious/nature framing; it must remain independent from the DMG v3.5 version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce the exact FRCS gate and special-ability rules independently, then regression-lock against the DMG v3.5 Hierophant."
     },
     {
       "sourceId": "classes/high-elemental-binder-653",
       "name": "High Elemental Binder",
       "sourceBook": "Prestige Class Player's Guide to Eberron",
       "sourceUrl": "https://new.dndtools.org/classes/high-elemental-binder-653",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Eberron High Elemental Binder is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/high-proselytizer-458",
       "name": "High Proselytizer",
       "sourceBook": "Prestige Class Epic Level Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/high-proselytizer-458",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Epic Level Handbook High Proselytizer is source-verified with 5th-level divine casting and a patron deity, using epic proselytize/deific abilities, intermittent divine advancement and epic bonus feats."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact epic prerequisites, proselytize/deific-touch/word/face progression, heal uses, divine advancement schedule and bonus-feat cadence."
     },
     {
       "sourceId": "classes/highland-stalker-187",
       "name": "Highland Stalker",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/highland-stalker-187",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Adventurer Highland Stalker is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hin-fist-797",
       "name": "Hin Fist",
       "sourceBook": "Prestige Class Shining South",
       "sourceUrl": "https://new.dndtools.org/classes/hin-fist-797",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Shining South Hin Fist is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hoardstealer-406",
       "name": "Hoardstealer",
       "sourceBook": "Prestige Class Draconomicon",
       "sourceUrl": "https://new.dndtools.org/classes/hoardstealer-406",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Draconomicon Hoardstealer is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/holt-warden-228",
       "name": "Holt Warden",
       "sourceBook": "Prestige Class Complete Champion",
       "sourceUrl": "https://new.dndtools.org/classes/holt-warden-228",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Champion Holt Warden is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/holy-judge-paladin-935",
@@ -12564,60 +12809,81 @@
       "name": "Holy Liberator",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/holy-liberator-242",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Divine Holy Liberator is source-verified as chaotic good with BAB +5, Diplomacy 5, Sense Motive 5 and Iron Will; it uses the revised 3.5 spell/smite/resolution progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Complete Divine gate, dedicated class casting, smite/remove-fatigue/aura/break-enchantment/divine-grace/companion progression and ex-liberator behavior independently."
     },
     {
       "sourceId": "classes/holy-liberator-361",
       "name": "Holy Liberator",
       "sourceBook": "Prestige Class Defenders of the Faith: A Guidebook to Clerics and Paladins",
       "sourceUrl": "https://new.dndtools.org/classes/holy-liberator-361",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Defenders of the Faith Holy Liberator is the earlier 3.0 version with chaotic good, BAB +5, Diplomacy 5 and Iron Will but a materially different class table including resist enchantment/turn undead and its own casting progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the 3.0 gate and class table independently; regression-lock against Complete Divine."
     },
     {
       "sourceId": "classes/holy-scourge-268",
       "name": "Holy Scourge",
       "sourceBook": "Prestige Class Complete Mage",
       "sourceUrl": "https://new.dndtools.org/classes/holy-scourge-268",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Mage Holy Scourge is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hordebreaker-809",
@@ -12644,240 +12910,324 @@
       "name": "Horizon Walker",
       "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/horizon-walker-388",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dungeon Master's Guide v.3.5 Horizon Walker is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/horned-harbinger-488",
       "name": "Horned Harbinger",
       "sourceBook": "Prestige Class Faiths & Pantheons",
       "sourceUrl": "https://new.dndtools.org/classes/horned-harbinger-488",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Faiths & Pantheons Horned Harbinger is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hospitaler-243",
       "name": "Hospitaler",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/hospitaler-243",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Divine Hospitaler is source-verified with nonchaotic alignment, BAB +5, Handle Animal/Ride 5, Mounted Combat, Ride-By Attack and 1st-level divine casting; it has its own code/ex-class behavior and revised progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Complete Divine prerequisites, selected/divine casting behavior, mounted features, bonus feats and code/ex-class state independently."
     },
     {
       "sourceId": "classes/hospitaler-362",
       "name": "Hospitaler",
       "sourceBook": "Prestige Class Defenders of the Faith: A Guidebook to Clerics and Paladins",
       "sourceUrl": "https://new.dndtools.org/classes/hospitaler-362",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Defenders of the Faith Hospitaler is the earlier 3.0 source with different progression from Complete Divine and must remain source-independent."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Recover/enforce exact Defenders of the Faith entry and class table, then add source-isolation regressions."
     },
     {
       "sourceId": "classes/hulking-hurler-316",
       "name": "Hulking Hurler",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/hulking-hurler-316",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Hulking Hurler is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/hunter-of-the-dead-317",
       "name": "Hunter of the Dead",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/hunter-of-the-dead-317",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Hunter of the Dead is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/hunter-of-the-dead-363",
       "name": "Hunter of the Dead",
       "sourceBook": "Prestige Class Defenders of the Faith: A Guidebook to Clerics and Paladins",
       "sourceUrl": "https://new.dndtools.org/classes/hunter-of-the-dead-363",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Defenders of the Faith: A Guidebook to Clerics and Paladins Hunter of the Dead is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/iaijutsu-master-634",
       "name": "Iaijutsu Master",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/iaijutsu-master-634",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Oriental Adventures Iaijutsu Master is source-verified as a lawful iaijutsu/katana specialist with Quick Draw, Weapon Focus (katana), Improved Initiative and Iaijutsu Focus requirements; it needs katana/initiative/Charisma damage automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact gate and Weapon Finesse/canny defense, Lightning Blade, Strike from the Void, bonus feats, One Strike Two Cuts and Strike with No Thought."
     },
     {
       "sourceId": "classes/illithid-body-tamer-899",
       "name": "Illithid Body Tamer",
       "sourceBook": "Prestige Class Underdark",
       "sourceUrl": "https://new.dndtools.org/classes/illithid-body-tamer-899",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Underdark Illithid Body Tamer is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/illithid-savant-817",
       "name": "Illithid Savant",
       "sourceBook": "Prestige Class Savage Species",
       "sourceUrl": "https://new.dndtools.org/classes/illithid-savant-817",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Savage Species Illithid Savant is source-verified for mind flayers that consumed the brain of a CR 9+ creature; its progression acquires skills, feats, class features and special attacks/qualities from consumed creatures."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact race/event gate and a safe persistent acquisition model for consumed-creature skills, feats, class features, attacks and qualities."
     },
     {
       "sourceId": "classes/illithid-slayer-911",
       "name": "Illithid Slayer",
       "sourceBook": "Prestige Class Expanded Psionics Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/illithid-slayer-911",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Expanded Psionics Handbook Illithid Slayer is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/illumine-soul-279",
       "name": "Illumine Soul",
       "sourceBook": "Prestige Class Complete Psionic",
       "sourceUrl": "https://new.dndtools.org/classes/illumine-soul-279",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Psionic Illumine Soul is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/illusionist-variant-965",
@@ -12904,100 +13254,135 @@
       "name": "Imaskari Vengeance Taker",
       "sourceBook": "Prestige Class Underdark",
       "sourceUrl": "https://new.dndtools.org/classes/imaskari-vengeance-taker-900",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Underdark Imaskari Vengeance Taker is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/impure-prince-586",
       "name": "Impure Prince",
       "sourceBook": "Prestige Class Magic of Eberron",
       "sourceUrl": "https://new.dndtools.org/classes/impure-prince-586",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Magic of Eberron Impure Prince is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/incandescent-champion-590",
       "name": "Incandescent Champion",
       "sourceBook": "Prestige Class Magic of Incarnum",
       "sourceUrl": "https://new.dndtools.org/classes/incandescent-champion-590",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Magic of Incarnum Incandescent Champion is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/incantatrix-568",
       "name": "Incantatrix",
       "sourceBook": "Prestige Class Magic of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/incantatrix-568",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Magic of Faerûn Incantatrix is the 3.0 source variant with 3rd-level arcane casting and metamagic entry but a different feature/progression package from Player's Guide to Faerûn."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the Magic of Faerûn gate/table independently and source-isolation regressions."
     },
     {
       "sourceId": "classes/incantatrix-670",
       "name": "Incantatrix",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/incantatrix-670",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Incantatrix is source-verified with Concentration 4, Knowledge (arcana) 8, Spellcraft 8, Iron Will, a metamagic feat, 3rd-level arcane casting and no abjuration prohibition; it adds an extra prohibited school and full arcane advancement."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact PGtF gate, prohibited-school choice, full arcane progression, cooperative/metamagic effect, spell-trigger, seize concentration, instant/improved metamagic and Snatch Spell."
     },
     {
       "sourceId": "classes/incarnate-81",
@@ -13031,240 +13416,324 @@
       "name": "Incarnum Blade",
       "sourceBook": "Prestige Class Magic of Incarnum",
       "sourceUrl": "https://new.dndtools.org/classes/incarnum-blade-591",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Magic of Incarnum Incarnum Blade is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/initiate-of-pistis-sophia-146",
       "name": "Initiate of Pistis Sophia",
       "sourceBook": "Prestige Class Book of Exalted Deeds",
       "sourceUrl": "https://new.dndtools.org/classes/initiate-of-pistis-sophia-146",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Book of Exalted Deeds Initiate of Pistis Sophia is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/initiate-of-the-draconic-mysteries-407",
       "name": "Initiate of the Draconic Mysteries",
       "sourceBook": "Prestige Class Draconomicon",
       "sourceUrl": "https://new.dndtools.org/classes/initiate-of-the-draconic-mysteries-407",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Draconomicon Initiate of the Draconic Mysteries is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/initiate-of-the-sevenfold-veil-214",
       "name": "Initiate of the Sevenfold Veil",
       "sourceBook": "Prestige Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/initiate-of-the-sevenfold-veil-214",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Arcane Initiate of the Sevenfold Veil is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/inquisitor-343",
       "name": "Inquisitor",
       "sourceBook": "Prestige Class Dragonlance Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/inquisitor-343",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dragonlance Campaign Setting Inquisitor is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/inquisitor-of-the-drowning-goddess-901",
       "name": "Inquisitor of the Drowning Goddess",
       "sourceBook": "Prestige Class Underdark",
       "sourceUrl": "https://new.dndtools.org/classes/inquisitor-of-the-drowning-goddess-901",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Underdark Inquisitor of the Drowning Goddess is source-verified for lawful evil/neutral kuo-toa with Concentration 8, Knowledge (religion) 4, Improved Unarmed Strike and Blibdoolpoolp patronage; it needs fear/adhesive/devoted-mind automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact racial/religious gate and fear aura, mien of justice, adhesive, devoted mind, outcast mark and body-coating features."
     },
     {
       "sourceId": "classes/insidious-corruptor-430",
       "name": "Insidious Corruptor",
       "sourceBook": "Prestige Class Drow of the Underdark",
       "sourceUrl": "https://new.dndtools.org/classes/insidious-corruptor-430",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Drow of the Underdark Insidious Corruptor is source-verified for evil drow with Bluff 9, Diplomacy/Sense Motive 4, Persuasive and dominate person; even levels advance casting while influence/manipulation features scale."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact drow/enchantment gate, even-level selected casting advancement and claws/manipulation/minion/charm/compulsion progression."
     },
     {
       "sourceId": "classes/invisible-blade-318",
       "name": "Invisible Blade",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/invisible-blade-318",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Invisible Blade is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/iron-mind-733",
       "name": "Iron Mind",
       "sourceBook": "Prestige Class Races of Stone",
       "sourceUrl": "https://new.dndtools.org/classes/iron-mind-733",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Stone Iron Mind is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/ironsoul-forgemaster-592",
       "name": "Ironsoul Forgemaster",
       "sourceBook": "Prestige Class Magic of Incarnum",
       "sourceUrl": "https://new.dndtools.org/classes/ironsoul-forgemaster-592",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Magic of Incarnum Ironsoul Forgemaster is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/jade-phoenix-mage-870",
       "name": "Jade Phoenix Mage",
       "sourceBook": "Prestige Class Tome of Battle: The Book of Nine Swords",
       "sourceUrl": "https://new.dndtools.org/classes/jade-phoenix-mage-870",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome of Battle Jade Phoenix Mage is source-verified with two martial maneuvers including a strike, one stance and 2nd-level arcane casting; it combines initiator progression with arcane advancement except at 1st and 6th."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact maneuver/stance/spell gate, initiator-level/maneuver progression, selected arcane advancement schedule and all Jade Phoenix abilities."
     },
     {
       "sourceId": "classes/jaunter-443",
       "name": "Jaunter",
       "sourceBook": "Prestige Class Expedition to the Demonweb Pits",
       "sourceUrl": "https://new.dndtools.org/classes/jaunter-443",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Expedition to the Demonweb Pits Jaunter is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/jester-975",
@@ -13297,160 +13766,216 @@
       "name": "Jordain Vizier",
       "sourceBook": "Prestige Class Shining South",
       "sourceUrl": "https://new.dndtools.org/classes/jordain-vizier-798",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Shining South Jordain Vizier is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/justice-of-weald-and-woe-284",
       "name": "Justice of Weald and Woe",
       "sourceBook": "Prestige Class Champions of Ruin",
       "sourceUrl": "https://new.dndtools.org/classes/justice-of-weald-and-woe-284",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Champions of Ruin Justice of Weald and Woe is source-verified with BAB +6, bowmaking/stealth/nature/survival skills, Point Blank Shot and Weapon Focus (longbow); it has dedicated Wisdom casting and archery/assassination progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact gate, dedicated class spell table/known spells, archery feat choices, sneak/death/lucky-shot and woodland features."
     },
     {
       "sourceId": "classes/justiciar-319",
       "name": "Justiciar",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/justiciar-319",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Justiciar is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/justiciar-of-taiia-355",
       "name": "Justiciar of Taiia",
       "sourceBook": "Prestige Class Deities and Demigods",
       "sourceUrl": "https://new.dndtools.org/classes/justiciar-of-taiia-355",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Deities and Demigods Justiciar of Taiia is source-verified as nongood, BAB +4, Knowledge (religion) 6 and Taiia patronage; it uses a dedicated 1st-4th spell table plus sneak attack, combat sense and divination spell-like abilities."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact 3.0 religious gate, dedicated spell table, bonus weapon proficiency, sneak attack/combat sense, augury/divination uses and church-favor loss rules."
     },
     {
       "sourceId": "classes/justiciar-of-tyr-671",
       "name": "Justiciar of Tyr",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/justiciar-of-tyr-671",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Justiciar of Tyr is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/keeper-of-the-cerulean-sign-560",
       "name": "Keeper of the Cerulean Sign",
       "sourceBook": "Prestige Class Lords of Madness",
       "sourceUrl": "https://new.dndtools.org/classes/keeper-of-the-cerulean-sign-560",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Lords of Madness Keeper of the Cerulean Sign is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/kensai-320",
       "name": "Kensai",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/kensai-320",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Kensai is source-verified as a distinct prestige-class record; exact entry requirements, level progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature/casting or manifesting progression, persistent resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/kineticist-1024",
       "name": "Kineticist",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.0]",
       "sourceUrl": "https://new.dndtools.org/classes/kineticist-1024",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Mind's Eye 3.0 Kineticist is source-verified with 3rd-level manifesting, a power matching the chosen energy focus and a source-defined destructive/traumatic qualifying event; its powers depend on a persistent chosen energy type."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Tavily advanced extraction reviewed the exact new.dndtools source/version page for this batch.",
+        "Exa source-faithful discovery/recovery filled prerequisite blocks or source distinctions omitted by parsed pages.",
+        "Same-name 3.0/3.5 and alternate-source records were kept independent rather than inherited by class name.",
+        "No Firecrawl fallback and no Supabase write were required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact legacy psionic/event gate, immutable energy-focus selection, manifesting progression and all energy-lash/kineticist features independently."
     },
     {
       "sourceId": "classes/kingqueen-of-the-wild-617",
@@ -24465,5 +24990,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Fourth prestige 75-class source audit recorded on green baseline #1486; source verification is not mechanical completion."
+  "lastUpdatedNote": "Fifth prestige 75-class source audit recorded on green baseline #1487; source verification is not mechanical completion."
 }
