@@ -1,6 +1,6 @@
 import {characterClasses} from './advancement.js';
 import {recordedTraining} from './training.js';
-import {reconcileClassGrants} from './classIntegration.js';
+import {reconcileClassGrants,spellSlotProgression} from './classIntegration.js';
 
 export const skillNames=['Acrobatics','Animal Handling','Arcana','Athletics','Deception','History','Insight','Intimidation','Investigation','Medicine','Nature','Perception','Performance','Persuasion','Religion','Sleight of Hand','Stealth','Survival'];
 const unsupported=r=>r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige;
@@ -9,10 +9,10 @@ const slug=s=>norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 const featureLanguages=['Common','Common Sign Language','Dwarvish','Elvish','Giant','Gnomish','Goblin','Halfling','Orc','Abyssal','Celestial','Draconic','Deep Speech','Druidic','Infernal','Primordial','Sylvan',"Thieves' Cant",'Undercommon'];
 const scholarSkills=['Arcana','History','Investigation','Medicine','Nature','Religion'];
 
-function sourceChoicePlan(c,previous,picks={}) {
+function sourceChoicePlan(c,previous,picks={},context={}) {
   const current=reconcileClassGrants(c),before=previous?reconcileClassGrants(previous):null;
   const rows=characterClasses(current),oldRows=before?characterClasses(before):[];
-  const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])]},groups=[];
+  const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])],spellAccessGrants:[...(c.spellAccessGrants||[])]},groups=[];
   const addChoiceFeat=(id,row,feature,level,value)=>{
     patch.feats=patch.feats.filter(feat=>feat.sourceChoiceId!==id);
     patch.feats.push({id:`class-choice:${id}:${slug(value)}`,name:value,level,description:`Chosen from ${row.name} · ${feature.name}.`,sourceType:'class-choice',automatic:true,sourceChoiceId:id,sourceClassId:row.catalogId,sourceClassName:row.name,sourceClassLevel:level,sourceFeatureId:feature.sourceFeatureId||feature.id||null,edition:'3.5',source:row.name,sourceUrl:feature.sourceUrl||row.definition?.sourceUrl||row.definition?.url||null});
@@ -63,6 +63,59 @@ function sourceChoicePlan(c,previous,picks={}) {
             choices:[selected[0]],sourceText,choiceKind:'animal-companion',effectiveDruidLevel,
             companionLevelMultiplier:multiplier,levelAdjustment:Math.max(0,Number(selectedMechanic.levelAdjustment)||0)
           };
+          continue;
+        }
+        if(choiceKind==='spell-access'){
+          const profile=spellSlotProgression(row.definition,row.level>=level?level:row.level);
+          const unlocked=(profile?.unlockedSpellLevels||profile?.history?.at(-1)?.unlockedSpellLevels||[]).map(Number).filter(Number.isFinite);
+          const maxLevel=unlocked.length?Math.max(...unlocked):-1;
+          const lists=(feature.spellLists||[]).map(norm),schools=(feature.spellSchools||[]).map(norm);
+          const spellLevelFor=spell=>{
+            const levels=[];
+            for(const list of lists){
+              const exact=Object.entries(spell.classLevels||{}).find(([name])=>norm(name)===list);
+              if(exact&&Number.isInteger(Number(exact[1])))levels.push(Number(exact[1]));
+              else if((spell.classes||[]).some(name=>norm(name)===list)&&Number.isInteger(Number(spell.level)))levels.push(Number(spell.level));
+            }
+            return levels.length?Math.min(...levels):null;
+          };
+          const ordinaryForClass=spell=>Object.entries(spell.classLevels||{}).some(([name])=>norm(name)===norm(row.name))||(spell.classes||[]).some(name=>norm(name)===norm(row.name));
+          const grantIdFor=spell=>spell.catalogId||`${spell.edition||'3.5'}:${spell.index||spell.id||spell.name}`;
+          const already=new Set((patch.spellAccessGrants||[]).filter(grant=>grant.classId===row.catalogId).map(grant=>grant.spellId));
+          const eligible=(context.spells||[]).filter(spell=>{
+            const spellLevel=spellLevelFor(spell);
+            return (spell.edition||'3.5')==='3.5'&&!spell.referenceOnly&&spellLevel!==null&&spellLevel<=maxLevel&&
+              (!schools.length||schools.includes(norm(spell.school?.name||spell.school)))&&!ordinaryForClass(spell)&&!already.has(grantIdFor(spell));
+          }).sort((a,b)=>String(a.name).localeCompare(String(b.name)));
+          options=eligible.map(spell=>String(spell.name));
+          const existing=patch.featureChoices[id];
+          const addSpellGrant=(value,choice=existing)=>{
+            const spell=eligible.find(item=>String(item.name)===String(value))||(context.spells||[]).find(item=>String(item.name)===String(value));
+            if(!spell)return;
+            const spellLevel=spellLevelFor(spell);
+            if(spellLevel===null||spellLevel>maxLevel)return;
+            const spellId=grantIdFor(spell);
+            patch.spellAccessGrants=patch.spellAccessGrants.filter(grant=>grant.sourceChoiceId!==id);
+            patch.spellAccessGrants.push({
+              classId:row.catalogId,classLevel:level,spellId,spellName:spell.name,spellLevel,
+              source:`${row.name} · ${feature.name}`,sourceChoiceId:id,sourceFeatureId:feature.sourceFeatureId||feature.id||null,
+              sourceUrl:feature.sourceUrl||row.definition?.sourceUrl||row.definition?.url||null
+            });
+          };
+          if(existing){
+            if(!patch.spellAccessGrants.some(grant=>grant.sourceChoiceId===id))for(const value of existing.choices||[])addSpellGrant(value,existing);
+            continue;
+          }
+          const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
+          const selected=raw.map(value=>String(value||'').trim()).filter(Boolean);
+          const valid=selected.length===1&&options.includes(selected[0]);
+          const detail=String(feature.description||'').trim();
+          const sourceText=detail?(norm(detail).includes(norm(feature.name))?detail:`${feature.name}: ${detail}`):(event.text||feature.name);
+          groups.push({id,level,kind:'source-choice',choiceKind:'spell-access',count:1,required:1,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,maxSpellLevel:maxLevel,spellLists:feature.spellLists||[],spellSchools:feature.spellSchools||[]});
+          if(valid){
+            patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[selected[0]],sourceText,choiceKind:'spell-access'};
+            addSpellGrant(selected[0]);
+          }
           continue;
         }
         if(choiceKind==='favored-enemy'){
@@ -165,9 +218,9 @@ function sourceChoicePlan(c,previous,picks={}) {
 
 // Choices are collected only for features gained in this creation/advancement.
 // Existing characters never have historical selections silently invented.
-export function featureChoicePlan(c,previous=null,picks={}) {
+export function featureChoicePlan(c,previous=null,picks={},context={}) {
   const edition=c.ruleset||'2014',rows=characterClasses(c),before=previous?characterClasses(previous):[];
-  if(edition==='3.5'||rows.some(row=>row.edition==='3.5')&&!['2014','2024'].includes(edition))return sourceChoicePlan(c,previous,picks);
+  if(edition==='3.5'||rows.some(row=>row.edition==='3.5')&&!['2014','2024'].includes(edition))return sourceChoicePlan(c,previous,picks,context);
   const patch={skillProf:{...c.skillProf},expertise:{...c.expertise},toolExpertise:{...c.toolExpertise},featureChoices:{...c.featureChoices},trainingGrants:[...c.trainingGrants||[]]};
   if(!['2014','2024'].includes(edition)||rows.some(r=>r.edition!==edition||unsupported(r)||unsupported(r.definition)))return {groups:[],patch:{},valid:true};
   const grants=[],groups=[];
@@ -220,8 +273,8 @@ export function featureChoicePlan(c,previous=null,picks={}) {
   if(knownLanguages.length)patch.languages=knownLanguages.join(', ');
   return {groups,patch,valid};
 }
-export function applyFeatureChoices(c,previous,picks) {
-  const plan=featureChoicePlan(c,previous,picks);
+export function applyFeatureChoices(c,previous,picks,context={}) {
+  const plan=featureChoicePlan(c,previous,picks,context);
   if(!plan.valid)throw Error('Complete the class feature choices before saving.');
   const next={...c,...plan.patch},edition=c.ruleset||'2014';
   return edition==='3.5'||characterClasses(next).some(row=>row.edition==='3.5')&&!['2014','2024'].includes(edition)?reconcileClassGrants(next):next;

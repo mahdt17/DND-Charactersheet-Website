@@ -196,7 +196,7 @@
     {
       "name": "Advanced Learning",
       "level": 3,
-      "choiceKind": "source",
+      "choiceKind": "spell-access",
       "choiceLevels": [
         3,
         7,
@@ -205,7 +205,14 @@
         19
       ],
       "description": "At 3rd, 7th, 11th, 15th, and 19th level, add one sorcerer/wizard enchantment or illusion spell to your beguiler spell list. The chosen spell cannot exceed the highest spell level you already know and permanently joins your list once selected.",
-      "sourceSha256": "b88bbacf5fd7e5a7f4d397287233ab23a1b0575bd3f10de589edf9a599cd0d29"
+      "sourceSha256": "b88bbacf5fd7e5a7f4d397287233ab23a1b0575bd3f10de589edf9a599cd0d29",
+      "spellLists": [
+        "Wizard"
+      ],
+      "spellSchools": [
+        "Enchantment",
+        "Illusion"
+      ]
     },
     {
       "name": "Silent Spell",
@@ -679,9 +686,23 @@
     {
       "name": "Advanced Learning",
       "level": 4,
-      "choiceKind": "source",
+      "choiceKind": "spell-access",
       "description": "At 4th, 8th, 12th, 16th, and 20th level, add one eligible necromancy spell from the cleric or wizard list to your dread-necromancer spell list. The spell cannot exceed the highest spell level you already know; if it appears on both lists at different levels, use the lower level.",
-      "sourceSha256": "54adb2a3d6fe027720199206c066d407094beada04708587540ac4dddae9c0c4"
+      "sourceSha256": "54adb2a3d6fe027720199206c066d407094beada04708587540ac4dddae9c0c4",
+      "choiceLevels": [
+        4,
+        8,
+        12,
+        16,
+        20
+      ],
+      "spellLists": [
+        "Cleric",
+        "Wizard"
+      ],
+      "spellSchools": [
+        "Necromancy"
+      ]
     },
     {
       "name": "Mental Bastion",
@@ -3785,7 +3806,7 @@
     {
       "name": "Advanced Learning",
       "level": 3,
-      "choiceKind": "source",
+      "choiceKind": "spell-access",
       "choiceLevels": [
         3,
         6,
@@ -3793,7 +3814,13 @@
         16
       ],
       "description": "At 3rd, 6th, 11th, and 16th level, add one wizard evocation spell to your warmage spell list. The chosen spell cannot exceed the highest spell level you already know, and once selected it permanently joins your warmage list.",
-      "sourceSha256": "c1fdd76378adee34f5cd07cb68b2fb2ba2c4aa878ddafdd1ca8ee00c35797587"
+      "sourceSha256": "c1fdd76378adee34f5cd07cb68b2fb2ba2c4aa878ddafdd1ca8ee00c35797587",
+      "spellLists": [
+        "Wizard"
+      ],
+      "spellSchools": [
+        "Evocation"
+      ]
     },
     {
       "name": "Sudden Empower",
