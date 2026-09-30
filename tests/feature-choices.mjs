@@ -304,8 +304,7 @@ const dreadLearning=dreadAdvancePlan.groups.find(group=>group.label==='Advanced 
 assert(dreadLearning,'Dread Necromancer level 8 requests its next Advanced Learning spell');
 assert.equal(dreadLearning.choiceKind,'spell-access');
 assert(!dreadLearning.options.includes('Enervation'),'Dread Necromancer Advanced Learning excludes spells already on the native class list');
-const dreadDebugCandidates=choiceSpells35.filter(spell=>(spell.classes||[]).some(name=>['cleric','wizard'].includes(String(name).toLowerCase()))&&/necromancy/i.test(String(spell.school?.name||spell.school||''))).slice(0,12).map(spell=>({name:spell.name,level:spell.level,classLevels:spell.classLevels,school:spell.school,referenceOnly:spell.referenceOnly,integrityIssues:spell.integrityIssues}));
-assert(dreadLearning.options.length>0,`Dread Necromancer Advanced Learning offers at least one eligible necromancy spell outside the native class list; maxSpellLevel=${dreadLearning.maxSpellLevel}; sample=${JSON.stringify(dreadDebugCandidates)}`);
+assert(dreadLearning.options.length>0,'Dread Necromancer Advanced Learning offers at least one eligible necromancy spell outside the native class list');
 const dreadPick=dreadLearning.options[0],dreadPickRecord=choiceSpells35.find(spell=>spell.name===dreadPick);
 assert(dreadPickRecord,'Advanced Learning option resolves to a verified catalog spell');
 assert.match(String(dreadPickRecord.school?.name||dreadPickRecord.school||''),/Necromancy/i,'Advanced Learning option is a necromancy spell');
@@ -385,13 +384,25 @@ const nextAura=dragonShaman5Plan.groups.find(group=>group.label==='Draconic Aura
 assert.equal(nextAura?.required,1);
 assert(!nextAura.options.includes('Power')&&!nextAura.options.includes('Presence')&&!nextAura.options.includes('Vigor'),'Known draconic auras are excluded from later choices');
 
-const beguilerClass35={name:'Beguiler',edition:'3.5',sourceId:'classes/beguiler-100',catalogId:'dndtools:classes/beguiler-100',sourceUrl:'https://new.dndtools.org/classes/beguiler-100',progression:[['Level','Special'],['3rd','Advanced learning'],['7th','Advanced learning']]};
-const beguiler7={...legacyChoice,className:'Beguiler',classDefinition:beguilerClass35,classLevels:[{name:'Beguiler',edition:'3.5',catalogId:beguilerClass35.catalogId,level:7,definition:beguilerClass35}],level:7};
-const beguiler6={...beguiler7,classLevels:[{...beguiler7.classLevels[0],level:6}],level:6};
-const beguilerPlan=featureChoicePlan(beguiler7,beguiler6);
+const beguilerClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/beguiler-100'),choiceReference35);
+const beguiler7=companionChoiceBase(beguilerClass35,7);
+const beguiler6=companionChoiceBase(beguilerClass35,6);
+const beguilerPlan=featureChoicePlan(beguiler7,beguiler6,{}, {spells:choiceSpells35});
 const beguilerLearning=beguilerPlan.groups.find(group=>group.label==='Advanced Learning');
 assert(beguilerLearning,'Beguiler level 7 requests its next Advanced Learning spell');
 assert.equal(beguilerLearning.required,1);
+assert.equal(beguilerLearning.choiceKind,'spell-access');
+assert(beguilerLearning.options.length>0,'Beguiler Advanced Learning offers an eligible verified Wizard enchantment or illusion spell');
+const beguilerPick=beguilerLearning.options[0],beguilerPickRecord=choiceSpells35.find(spell=>spell.name===beguilerPick);
+assert(beguilerPickRecord,'Beguiler Advanced Learning option resolves to a catalog spell');
+assert.match(String(beguilerPickRecord.school?.name||beguilerPickRecord.school||''),/Enchantment|Illusion/i);
+assert((beguilerPickRecord.classes||[]).some(name=>String(name).toLowerCase()==='wizard'),'Beguiler Advanced Learning option comes from the Wizard list');
+assert(!(beguilerPickRecord.classes||[]).some(name=>String(name).toLowerCase()==='beguiler'),'Beguiler Advanced Learning excludes spells already on its native list');
+const learnedBeguiler=applyFeatureChoices(beguiler7,beguiler6,{[beguilerLearning.id]:[beguilerPick]},{spells:choiceSpells35});
+const beguilerGrant=learnedBeguiler.spellAccessGrants?.find(grant=>grant.classId===beguilerClass35.catalogId&&grant.sourceChoiceId===beguilerLearning.id);
+assert(beguilerGrant,'Beguiler Advanced Learning persists a class-scoped spell-access grant');
+assert.equal(beguilerGrant.spellName,beguilerPick);
+assert.equal(beguilerGrant.source,'Beguiler · Advanced Learning');
 
 const favoredSoulClass35={name:'Favored Soul',edition:'3.5',sourceId:'classes/favored-soul-7',catalogId:'dndtools:classes/favored-soul-7',sourceUrl:'https://new.dndtools.org/classes/favored-soul-7',progression:[['Level','Special'],['3rd','Deity’s weapon focus'],['5th','Energy resistance (1st type)'],['10th','Energy resistance (2nd type)']]};
 const favoredSoul3={...legacyChoice,className:'Favored Soul',classDefinition:favoredSoulClass35,classLevels:[{name:'Favored Soul',edition:'3.5',catalogId:favoredSoulClass35.catalogId,level:3,definition:favoredSoulClass35}],level:3};
