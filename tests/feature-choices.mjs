@@ -303,10 +303,11 @@ const dreadAdvancePlan=featureChoicePlan(dreadReviewed8,dreadReviewedBefore,{}, 
 const dreadLearning=dreadAdvancePlan.groups.find(group=>group.label==='Advanced Learning');
 assert(dreadLearning,'Dread Necromancer level 8 requests its next Advanced Learning spell');
 assert.equal(dreadLearning.choiceKind,'spell-access');
-assert(dreadLearning.options.includes('Enervation'),'Dread Necromancer Advanced Learning offers an eligible wizard necromancy spell');
-const dreadLearned=applyFeatureChoices(dreadReviewed8,dreadReviewedBefore,{[dreadLearning.id]:['Enervation']},{spells:choiceSpells35});
-assert(Object.values(dreadLearned.featureChoices).some(choice=>choice.feature==='Advanced Learning'&&choice.choices?.[0]==='Enervation'));
-assert(dreadLearned.spellAccessGrants?.some(grant=>grant.classId===dreadReviewedClass35.catalogId&&grant.spellName==='Enervation'&&grant.sourceChoiceId===dreadLearning.id),'Dread Necromancer Advanced Learning persists a class-scoped spell-access grant');
+assert(!dreadLearning.options.includes('Enervation'),'Dread Necromancer Advanced Learning excludes spells already on the native class list');
+assert(dreadLearning.options.includes('Shivering Touch'),'Dread Necromancer Advanced Learning offers an eligible wizard necromancy spell outside the native class list');
+const dreadLearned=applyFeatureChoices(dreadReviewed8,dreadReviewedBefore,{[dreadLearning.id]:['Shivering Touch']},{spells:choiceSpells35});
+assert(Object.values(dreadLearned.featureChoices).some(choice=>choice.feature==='Advanced Learning'&&choice.choices?.[0]==='Shivering Touch'));
+assert(dreadLearned.spellAccessGrants?.some(grant=>grant.classId===dreadReviewedClass35.catalogId&&grant.spellName==='Shivering Touch'&&grant.sourceChoiceId===dreadLearning.id),'Dread Necromancer Advanced Learning persists a class-scoped spell-access grant');
 const dreadFamiliarStart={...legacyChoice,className:'Dread Necromancer',classDefinition:dreadReviewedClass35,classLevels:[{name:'Dread Necromancer',edition:'3.5',catalogId:dreadReviewedClass35.catalogId,level:7,definition:dreadReviewedClass35}],level:7};
 const dreadFamiliarPlan=featureChoicePlan(dreadFamiliarStart,null);
 const dreadFamiliar=dreadFamiliarPlan.groups.find(group=>group.label==='Summon Familiar');
