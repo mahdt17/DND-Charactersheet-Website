@@ -191,3 +191,11 @@ Updated: 2026-09-29 (America/New_York)
 - Tavily exact-page extraction plus Exa recovery supplied the source evidence; no Firecrawl fallback or Supabase write was required.
 - Duplicate-name/source variants remain independent.
 - Tracker totals: **45 complete / 507 needs-review / 1 source-conflict / 2 blocked / 499 pending / 1054 total**.
+
+## 2026-09-30 sixth prestige 75-class audit
+
+- Green baseline: #1488 at `7bb335f3dcc27aa4d91e4db8384ba162e67a2755`.
+- **75** additional records (**King/queen of the Wild → Menacing Brute**) moved from `pending_audit` to source-verified `needs-review`.
+- Tavily exact-page extraction plus Exa prerequisite/source recovery supplied the audit evidence; no Firecrawl fallback or Supabase write was required.
+- Duplicate-name/source variants remain independent.
+- Tracker totals: **45 complete / 582 needs-review / 1 source-conflict / 2 blocked / 424 pending / 1054 total**.

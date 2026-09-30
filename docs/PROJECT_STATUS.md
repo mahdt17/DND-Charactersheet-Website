@@ -208,3 +208,11 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Same-name 3.0/3.5 and alternate-source variants remain independent; no class-name inheritance was used.
 - All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted on source research alone.
 - Canonical tracker totals: **45 complete, 507 needs-review, 1 source-conflict, 2 blocked, 499 pending audit**.
+
+## 2026-09-30 sixth prestige 75-class source audit
+
+- Green validation baseline #1488 at `7bb335f3dcc27aa4d91e4db8384ba162e67a2755` (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36676951770).
+- Source-audited **75** additional pending records, **King/queen of the Wild through Menacing Brute**, in one atomic checkpoint using Tavily exact-page extraction plus Exa source-faithful recovery. Supabase remained unchanged.
+- Same-name/source variants remain independent, especially Knight of the Chalice, Master of Shrouds and Meditant.
+- All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted on source research alone.
+- Canonical tracker totals: **45 complete, 582 needs-review, 1 source-conflict, 2 blocked, 424 pending audit**.
