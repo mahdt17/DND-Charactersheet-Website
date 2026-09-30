@@ -199,3 +199,11 @@ Updated: 2026-09-29 (America/New_York)
 - Tavily exact-page extraction plus Exa prerequisite/source recovery supplied the audit evidence; no Firecrawl fallback or Supabase write was required.
 - Duplicate-name/source variants remain independent.
 - Tracker totals: **45 complete / 582 needs-review / 1 source-conflict / 2 blocked / 424 pending / 1054 total**.
+
+## 2026-09-30 seventh prestige 75-class audit
+
+- Green baseline: #1489 at `7e55323587f2dda045ff0e3a81919444fafd42b0`.
+- **75** additional records (**Merchant Prince → Purifier of the Hallowed Doctrine**) moved from `pending_audit` to source-verified `needs-review`.
+- Tavily exact-page extraction plus Exa recovery supplied the audit evidence; no Firecrawl fallback or Supabase write was required.
+- Duplicate-name/source variants remain independent.
+- Tracker totals: **45 complete / 657 needs-review / 1 source-conflict / 2 blocked / 349 pending / 1054 total**.

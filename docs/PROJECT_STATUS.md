@@ -216,3 +216,11 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Same-name/source variants remain independent, especially Knight of the Chalice, Master of Shrouds and Meditant.
 - All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted on source research alone.
 - Canonical tracker totals: **45 complete, 582 needs-review, 1 source-conflict, 2 blocked, 424 pending audit**.
+
+## 2026-09-30 seventh prestige 75-class source audit
+
+- Green validation baseline #1489 at `7e55323587f2dda045ff0e3a81919444fafd42b0` (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36677934529).
+- Source-audited **75** additional pending records, **Merchant Prince through Purifier of the Hallowed Doctrine**, in one atomic checkpoint using Tavily exact-page extraction plus Exa source-faithful recovery. Supabase remained unchanged.
+- Duplicate/source variants remain independent, including Nightcloak and Order of the Bow Initiate.
+- All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted on source research alone.
+- Canonical tracker totals: **45 complete, 657 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
