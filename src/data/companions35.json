@@ -839,6 +839,68 @@
             "Scry on Familiar"
           ]
         }
+      ],
+      "choices": [
+        [
+          "Bat",
+          1,
+          0,
+          "monsters/bat-535"
+        ],
+        [
+          "Cat",
+          1,
+          0,
+          "monsters/cat-542"
+        ],
+        [
+          "Hawk",
+          1,
+          0,
+          "monsters/hawk-552"
+        ],
+        [
+          "Lizard",
+          1,
+          0,
+          "monsters/lizard-560"
+        ],
+        [
+          "Owl",
+          1,
+          0,
+          "monsters/owl-568"
+        ],
+        [
+          "Rat",
+          1,
+          0,
+          "monsters/rat-574"
+        ],
+        [
+          "Raven",
+          1,
+          0,
+          "monsters/raven-575"
+        ],
+        [
+          "Snake",
+          1,
+          0,
+          "monsters/snake-viper-tiny-583"
+        ],
+        [
+          "Toad",
+          1,
+          0,
+          "monsters/toad-591"
+        ],
+        [
+          "Weasel",
+          1,
+          0,
+          "monsters/weasel-592"
+        ]
       ]
     },
     "paladin-special-mount": {

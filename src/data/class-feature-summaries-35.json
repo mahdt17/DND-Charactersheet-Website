@@ -19,7 +19,15 @@
         "Familiar"
       ],
       "description": "At 2nd level, gain a familiar using the same familiar rules used by sorcerers and wizards.",
-      "sourceSha256": "ebe453e046219a46e00fd4ec95e8bef241176189bbc0481c304ee182a88bd70d"
+      "sourceSha256": "ebe453e046219a46e00fd4ec95e8bef241176189bbc0481c304ee182a88bd70d",
+      "choiceKind": "familiar",
+      "choiceCount": 1,
+      "companionRelationshipType": "familiar",
+      "companionProfileId": "standard-familiar",
+      "companionContribution": {
+        "mode": "full"
+      },
+      "companionChoiceRequired": true
     }
   ],
   "classes/archivist-74": [
@@ -727,7 +735,7 @@
     {
       "name": "Summon Familiar",
       "level": 7,
-      "choiceKind": "source",
+      "choiceKind": "familiar",
       "choiceOptionsByLevel": {
         "7": [
           "Imp",
@@ -737,7 +745,22 @@
         ]
       },
       "description": "At 7th level or later, obtain one evil familiar chosen from imp, quasit, vargouille, or ghostly visage. It receives the source-listed familiar benefits and can deliver your touch abilities; full familiar statistics remain a companion-state subsystem.",
-      "sourceSha256": "1bf999cdd9df100cba21e0a1b7a2a17ba63ab97f6b943e549a4a5d3122564e2e"
+      "sourceSha256": "1bf999cdd9df100cba21e0a1b7a2a17ba63ab97f6b943e549a4a5d3122564e2e",
+      "choiceCount": 1,
+      "companionRelationshipType": "familiar",
+      "companionProfileId": "standard-familiar",
+      "companionContribution": {
+        "mode": "full"
+      },
+      "companionChoiceRequired": true,
+      "companionExceptions": {
+        "choiceOptionsFromFeature": true,
+        "retainCreatureType": true,
+        "omitAbilities": [
+          "Speak with Animals of Its Kind"
+        ],
+        "deliverTouchAbilities": true
+      }
     },
     {
       "name": "Undead Mastery",
@@ -1101,7 +1124,13 @@
           "levelAdjustment": 15
         }
       },
-      "companionLevelMultiplier": 1
+      "companionLevelMultiplier": 1,
+      "companionRelationshipType": "animal-companion",
+      "companionProfileId": "druid-animal-companion",
+      "companionContribution": {
+        "mode": "full"
+      },
+      "companionChoiceRequired": true
     },
     {
       "name": "Nature Sense (Ex)",
@@ -1618,7 +1647,15 @@
         "recoveryText": "The daily companion call refreshes with the character's daily recovery."
       },
       "description": "Once per day as a full-round action, call your celestial unicorn companion. It appears adjacent to you and remains for 2 hours per healer level unless dismissed earlier. Alternative celestial companions become available from 12th level with the source-listed effective-level adjustments; full companion statistics remain a companion-state subsystem.",
-      "sourceSha256": "49fed856ce6ad5a9615916b4e8fb94b7ec7142565198def54c24bc9579708aa2"
+      "sourceSha256": "49fed856ce6ad5a9615916b4e8fb94b7ec7142565198def54c24bc9579708aa2",
+      "companionRelationshipType": "class-companion",
+      "companionProfileId": "healer-companion",
+      "companionContribution": {
+        "mode": "full"
+      },
+      "companionChoiceRequired": false,
+      "companionDefaultCreatureId": "monsters/unicorn-500",
+      "companionTemplate": "celestial"
     },
     {
       "name": "Cleanse Blindness",
@@ -1711,7 +1748,16 @@
       "name": "Familiar",
       "level": 4,
       "description": "Beginning at 4th level, you can obtain a familiar using the source's familiar rules. Treat your hexblade level as three lower when determining familiar abilities. A multiclass character can still have only one familiar at a time; full familiar state remains part of the companion subsystem.",
-      "sourceSha256": "852723a0cae6f7e3e9bcc7f9c67b6bf305e11bf9c55b64af72316aecac501a8a"
+      "sourceSha256": "852723a0cae6f7e3e9bcc7f9c67b6bf305e11bf9c55b64af72316aecac501a8a",
+      "choiceKind": "familiar",
+      "choiceCount": 1,
+      "companionRelationshipType": "familiar",
+      "companionProfileId": "standard-familiar",
+      "companionContribution": {
+        "mode": "minus",
+        "amount": 3
+      },
+      "companionChoiceRequired": true
     },
     {
       "name": "Spells",
@@ -2613,7 +2659,14 @@
       "name": "Special Mount (Sp)",
       "level": 5,
       "description": "Gain the service of a special mount. Once per day, as a full-round action, call the same mount to appear adjacent to you for up to 2 hours per paladin level. The mount progresses with paladin level and has the special abilities described by the class rules.",
-      "sourceSha256": "115dd6c46fc7cea81ad6981f260b4ab0e048955e184769ce8db14838229c887e"
+      "sourceSha256": "115dd6c46fc7cea81ad6981f260b4ab0e048955e184769ce8db14838229c887e",
+      "companionRelationshipType": "special-mount",
+      "companionProfileId": "paladin-special-mount",
+      "companionContribution": {
+        "mode": "full"
+      },
+      "companionChoiceRequired": false,
+      "companionDefaultCreatureId": "monsters/warhorse-heavy-555"
     },
     {
       "name": "Remove Disease (Sp)",
@@ -2823,7 +2876,17 @@
       "name": "Animal Companion (Ex)",
       "level": 4,
       "description": "Gain an animal companion using the druid companion rules, but your effective druid level is one-half your ranger level. Alternative companion lists use the same source-listed effective-level adjustments.",
-      "sourceSha256": "7de61cd35376caa0c09a173eff7dad68cdc69cefb1417a0032fe6fc4d9c72a88"
+      "sourceSha256": "7de61cd35376caa0c09a173eff7dad68cdc69cefb1417a0032fe6fc4d9c72a88",
+      "choiceKind": "animal-companion",
+      "choiceCount": 1,
+      "companionRelationshipType": "animal-companion",
+      "companionProfileId": "druid-animal-companion",
+      "companionContribution": {
+        "mode": "fraction",
+        "numerator": 1,
+        "denominator": 2
+      },
+      "companionChoiceRequired": true
     },
     {
       "name": "Spells",
@@ -3352,7 +3415,15 @@
       "aliases": [
         "Summon Familiar",
         "Summonfamiliar"
-      ]
+      ],
+      "choiceKind": "familiar",
+      "choiceCount": 1,
+      "companionRelationshipType": "familiar",
+      "companionProfileId": "standard-familiar",
+      "companionContribution": {
+        "mode": "full"
+      },
+      "companionChoiceRequired": true
     },
     {
       "name": "Familiar Basics",
@@ -3988,7 +4059,15 @@
       "aliases": [
         "Summon Familiar",
         "Summonfamiliar"
-      ]
+      ],
+      "choiceKind": "familiar",
+      "choiceCount": 1,
+      "companionRelationshipType": "familiar",
+      "companionProfileId": "standard-familiar",
+      "companionContribution": {
+        "mode": "full"
+      },
+      "companionChoiceRequired": true
     },
     {
       "name": "Scribe Scroll",
@@ -5225,7 +5304,15 @@
           "levelAdjustment": 15
         }
       },
-      "companionLevelMultiplier": 0.5
+      "companionLevelMultiplier": 0.5,
+      "companionRelationshipType": "animal-companion",
+      "companionProfileId": "druid-animal-companion",
+      "companionContribution": {
+        "mode": "fraction",
+        "numerator": 1,
+        "denominator": 2
+      },
+      "companionChoiceRequired": true
     }
   ],
   "classes/cleric-variant-972": [

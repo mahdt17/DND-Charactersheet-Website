@@ -1,6 +1,7 @@
 import {characterClasses} from './advancement.js';
 import {recordedTraining} from './training.js';
 import {reconcileClassGrants,spellSlotProgression} from './classIntegration.js';
+import {companionChoiceOptions35,companionEffectiveLevel35} from './companions35.js';
 
 export const skillNames=['Acrobatics','Animal Handling','Arcana','Athletics','Deception','History','Insight','Intimidation','Investigation','Medicine','Nature','Perception','Performance','Persuasion','Religion','Sleight of Hand','Stealth','Survival'];
 const unsupported=r=>r?.homebrew||r?.source==='Homebrew'||r?.prestige||r?.stats?.prestige;
@@ -37,32 +38,42 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           options=options.filter(value=>!already.has(norm(value)));
         }
         const choiceKind=feature.choiceKind||'source';
-        if(choiceKind==='animal-companion'){
-          const multiplier=Number.isFinite(Number(feature.companionLevelMultiplier))?Number(feature.companionLevelMultiplier):1;
-          const effectiveDruidLevel=Math.max(0,Math.floor(row.level*multiplier));
-          const mechanics=feature.choiceOptionMechanics&&typeof feature.choiceOptionMechanics==='object'?feature.choiceOptionMechanics:{};
-          const mechanicFor=value=>{
-            const match=Object.entries(mechanics).find(([name])=>norm(name)===norm(value));
-            return match?.[1]&&typeof match[1]==='object'?match[1]:{};
-          };
-          options=options.filter(value=>effectiveDruidLevel>=Math.max(0,Number(mechanicFor(value).minEffectiveLevel)||0));
+        if(feature.companionProfileId&&feature.companionChoiceRequired!==false){
+          const contribution={...(feature.companionContribution||{mode:'full'}),level:row.level};
+          const effectiveCompanionLevel=companionEffectiveLevel35([contribution],0);
+          const engineOptions=companionChoiceOptions35(feature.companionProfileId,effectiveCompanionLevel);
+          const sourceOverrides=Boolean(feature.companionExceptions?.choiceOptionsFromFeature);
+          const sourceOptions=(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value));
+          const optionRows=sourceOverrides
+            ?sourceOptions.map(name=>({name,minEffectiveLevel:0,levelAdjustment:0,baseCreatureId:null}))
+            :engineOptions;
+          options=optionRows.map(option=>option.name);
           const existing=patch.featureChoices[id];
           if(existing)continue;
           const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
           const selected=raw.map(value=>String(value||'').trim()).filter(Boolean);
-          const valid=selected.length===1&&options.includes(selected[0]);
+          const selectedOption=optionRows.find(option=>option.name===selected[0]);
+          const valid=selected.length===1&&Boolean(selectedOption);
           const sourceText=String(feature.description||'').trim()||event.text||feature.name;
-          const selectedMechanic=valid?mechanicFor(selected[0]):{};
-          groups.push({
-            id,level,kind:'source-choice',choiceKind:'animal-companion',count:1,required:1,label:feature.name,
-            className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,
-            options,selected,valid,effectiveDruidLevel,companionLevelMultiplier:multiplier
-          });
-          if(valid)patch.featureChoices[id]={
-            className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,
-            choices:[selected[0]],sourceText,choiceKind:'animal-companion',effectiveDruidLevel,
-            companionLevelMultiplier:multiplier,levelAdjustment:Math.max(0,Number(selectedMechanic.levelAdjustment)||0)
+          const relationshipType=feature.companionRelationshipType||feature.choiceKind||'companion';
+          const group={
+            id,level,kind:'source-choice',choiceKind,relationshipType,companionProfileId:feature.companionProfileId,
+            count:1,required:1,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,
+            sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,effectiveCompanionLevel,
+            ...(feature.companionProfileId==='druid-animal-companion'?{effectiveDruidLevel:effectiveCompanionLevel}:{}),
+            companionContribution:feature.companionContribution||{mode:'full'}
           };
+          groups.push(group);
+          if(valid){
+            const levelAdjustment=Math.max(0,Number(selectedOption.levelAdjustment)||0);
+            patch.featureChoices[id]={
+              className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,
+              choices:[selected[0]],sourceText,choiceKind,relationshipType,companionProfileId:feature.companionProfileId,
+              effectiveCompanionLevel,levelAdjustment,baseCreatureId:selectedOption.baseCreatureId||null,
+              ...(feature.companionProfileId==='druid-animal-companion'?{effectiveDruidLevel:effectiveCompanionLevel}:{}),
+              companionContribution:feature.companionContribution||{mode:'full'}
+            };
+          }
           continue;
         }
         if(choiceKind==='spell-access'){
