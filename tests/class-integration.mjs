@@ -366,6 +366,9 @@ const druidApeFeature=druidApe.grantedFeatures.find(feature=>feature.companionNa
 assert.equal(druidApeFeature?.baseEffectiveDruidLevel,4);
 assert.equal(druidApeFeature?.companionLevelAdjustment,3);
 assert.equal(druidApeFeature?.companionEffectiveDruidLevel,1,'Alternative companion penalty reduces effective companion level');
+assert.equal(druidApe.companions?.length,1,'Druid alternative companion materializes a persisted companion record');
+assert.equal(druidApe.companions[0].baseCreatureId,'monsters/ape-531');
+assert.equal(druidApe.companions[0].effectiveCompanionLevel,1);
 
 const reviewedBard35=exact35('classes/bard');
 const bard20=reconcileClassGrants(baseCharacter([{catalogId:reviewedBard35.catalogId,name:'Bard',edition:'3.5',level:20,definition:reviewedBard35}]));
