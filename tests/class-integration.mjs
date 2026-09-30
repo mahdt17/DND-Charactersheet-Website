@@ -512,7 +512,12 @@ assert(rogueVariantRemoved.feats.some(feat=>feat.id==='manual-feat'),'Removing R
 const wizardVariantBase=baseCharacter([{catalogId:wizardVariant35.catalogId,name:'Wizard Variant',edition:'3.5',level:5,definition:wizardVariant35}]);
 const wizardVariantPlan=featureChoicePlan(wizardVariantBase,null);
 assert(wizardVariantPlan.groups.some(group=>group.choiceKind==='familiar'),'Wizard Variant retains the inherited Wizard familiar');
-const wizardVariantPicks=Object.fromEntries(wizardVariantPlan.groups.map((group,index)=>[group.id,[group.choiceKind==='familiar'?'Raven':index?'Combat Expertise':'Power Attack']]));
+const wizardVariantFeatGroups=wizardVariantPlan.groups.filter(group=>/^Bonus Feats?$/i.test(group.label));
+const wizardVariantPicks=Object.fromEntries(wizardVariantPlan.groups.map(group=>{
+  if(group.choiceKind==='familiar')return [group.id,['Raven']];
+  const featIndex=wizardVariantFeatGroups.indexOf(group);
+  return [group.id,[featIndex===0?'Power Attack':'Combat Expertise']];
+}));
 const wizardVariantChosen=applyFeatureChoices(wizardVariantBase,null,wizardVariantPicks);
 const wizardVariantMulti=reconcileClassGrants({...wizardVariantChosen,classLevels:[
   {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
