@@ -83,8 +83,8 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           const grantIdFor=spell=>spell.catalogId||`${spell.edition||'3.5'}:${spell.index||spell.id||spell.name}`;
           const already=new Set((patch.spellAccessGrants||[]).filter(grant=>grant.classId===row.catalogId).map(grant=>grant.spellId));
           const eligible=(context.spells||[]).filter(spell=>{
-            const spellLevel=spellLevelFor(spell);
-            return (spell.edition||'3.5')==='3.5'&&!spell.referenceOnly&&spellLevel!==null&&spellLevel<=maxLevel&&
+            const spellLevel=spellLevelFor(spell),integrityIssues=Array.isArray(spell.integrityIssues)?spell.integrityIssues:[];
+            return (spell.edition||'3.5')==='3.5'&&integrityIssues.length===0&&String(spell.name||'').trim()&&spellLevel!==null&&spellLevel<=maxLevel&&
               (!schools.length||schools.includes(norm(spell.school?.name||spell.school)))&&!ordinaryForClass(spell)&&!already.has(grantIdFor(spell));
           }).sort((a,b)=>String(a.name).localeCompare(String(b.name)));
           options=eligible.map(spell=>String(spell.name));
@@ -97,7 +97,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
             const spellId=grantIdFor(spell);
             patch.spellAccessGrants=patch.spellAccessGrants.filter(grant=>grant.sourceChoiceId!==id);
             patch.spellAccessGrants.push({
-              classId:row.catalogId,classLevel:level,spellId,spellName:spell.name,spellLevel,
+              classId:row.catalogId,classLevel:level,spellId,spellName:spell.name,spellLevel,spellReferenceOnly:!!spell.referenceOnly,
               source:`${row.name} · ${feature.name}`,sourceChoiceId:id,sourceFeatureId:feature.sourceFeatureId||feature.id||null,
               sourceUrl:feature.sourceUrl||row.definition?.sourceUrl||row.definition?.url||null
             });
