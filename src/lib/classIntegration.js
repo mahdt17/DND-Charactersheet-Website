@@ -6,6 +6,7 @@ import legacyFeatureSummaries from '../data/class-feature-summaries-35.json' wit
 import {characterClasses,contentKey,progressionTables} from './advancement.js';
 import {normalizeEdition} from './content.js';
 import {reconcileSubclassSpells} from './subclassSpells.js';
+import {reconcileCompanions35,companionProgression35} from './companions35.js';
 
 export const CLASS_INTEGRATION_VERSION=1;
 const proficiencySupplements=proficiencySupplements35.entries||{};
@@ -825,7 +826,7 @@ export function reconcileClassGrants(character){
       spellSlots.push({id:'class-grant:'+meta.sourceClassId+':spell-slots',slots:profile.slots,history:profile.history,spellLevels:profile.spellLevels,level:profile.level,effectiveClassLevel:effectiveLevel,advancedBy:metaIds,...meta});
     }
   }
-  return {
+  const reconciled={
     ...character,
     spells:reconcileSubclassSpells(character),
     grantedFeatures:mergeDerived(character.grantedFeatures,features),
@@ -839,6 +840,7 @@ export function reconcileClassGrants(character){
     classSpellSlots:mergeDerived(character.classSpellSlots,spellSlots),
     classAutomation:{version:CLASS_INTEGRATION_VERSION,classes:derived.map(x=>x.report),incompleteClassIds:derived.filter(x=>!x.report.integrationComplete).map(x=>x.report.classId)}
   };
+  return reconcileCompanions35(reconciled);
 }
 
 export function classAutomationReport(character){

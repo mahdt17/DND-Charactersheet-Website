@@ -537,6 +537,7 @@ function blankCharacter(name) {
     inventory: [],
     actions: [],
     grantedFeatures: [],
+    companions: [],
     spells: [],
     spellInfo: null,
     spellNotes: "",
