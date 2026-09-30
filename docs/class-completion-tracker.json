@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "dc7e9498b62745afa44954208c7bcfe8b404ac2e",
+  "snapshotCommit": "e4e3023e84f731af7b2132ca165ba8fc437fba3b",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -9164,220 +9164,297 @@
       "name": "Epic Ranger",
       "sourceBook": "Prestige Class Epic Level Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/epic-ranger-57",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Epic Level Handbook Epic Ranger is source-verified as the 3.0 epic ranger continuation and must remain separate from the already-audited DMG v3.5 Epic Ranger record."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the ELH 3.0 epic ranger progression, favored-enemy/feat cadence and source-specific differences with version-isolation regressions."
     },
     {
       "sourceId": "classes/epic-rogue-1020",
       "name": "Epic Rogue",
       "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/epic-rogue-1020",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dungeon Master's Guide v.3.5 Epic Rogue is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests isolating this source/version."
     },
     {
       "sourceId": "classes/epic-rogue-58",
       "name": "Epic Rogue",
       "sourceBook": "Prestige Class Epic Level Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/epic-rogue-58",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Epic Level Handbook Epic Rogue is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests isolating this source/version."
     },
     {
       "sourceId": "classes/epic-runecaster-1009",
       "name": "Epic Runecaster",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/epic-runecaster-1009",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Epic Runecaster is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests."
     },
     {
       "sourceId": "classes/epic-shaaryan-hunter-1010",
       "name": "Epic Shaaryan Hunter",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/epic-shaaryan-hunter-1010",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Epic Shaaryan Hunter is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests."
     },
     {
       "sourceId": "classes/epic-shadow-adept-1011",
       "name": "Epic Shadow Adept",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/epic-shadow-adept-1011",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Epic Shadow Adept is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests."
     },
     {
       "sourceId": "classes/epic-shadowdancer-456",
       "name": "Epic Shadowdancer",
       "sourceBook": "Prestige Class Epic Level Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/epic-shadowdancer-456",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Epic Level Handbook Epic Shadowdancer is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests."
     },
     {
       "sourceId": "classes/epic-sorcerer-1021",
       "name": "Epic Sorcerer",
       "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/epic-sorcerer-1021",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dungeon Master's Guide v.3.5 Epic Sorcerer is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests isolating this source/version."
     },
     {
       "sourceId": "classes/epic-sorcerer-59",
       "name": "Epic Sorcerer",
       "sourceBook": "Prestige Class Epic Level Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/epic-sorcerer-59",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Epic Level Handbook Epic Sorcerer is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests isolating this source/version."
     },
     {
       "sourceId": "classes/epic-wizard-1022",
       "name": "Epic Wizard",
       "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/epic-wizard-1022",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dungeon Master's Guide v.3.5 Epic Wizard is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests isolating this source/version."
     },
     {
       "sourceId": "classes/epic-wizard-60",
       "name": "Epic Wizard",
       "sourceBook": "Prestige Class Epic Level Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/epic-wizard-60",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Epic Level Handbook Epic Wizard is source-verified as an epic continuation/progression record; exact post-cap advancement, bonus-feat cadence, scaling class features and source-specific epic exceptions still require automation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the source-specific epic continuation/progression and regression tests isolating this source/version."
     },
     {
       "sourceId": "classes/erudite-variant-psion-18",
@@ -9404,40 +9481,54 @@
       "name": "Escalation Mage",
       "sourceBook": "Prestige Class Faiths of Eberron",
       "sourceUrl": "https://new.dndtools.org/classes/escalation-mage-467",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Faiths of Eberron Escalation Mage is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/eternal-blade-869",
       "name": "Eternal Blade",
       "sourceBook": "Prestige Class Tome of Battle: The Book of Nine Swords",
       "sourceUrl": "https://new.dndtools.org/classes/eternal-blade-869",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome of Battle: The Book of Nine Swords Eternal Blade is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/eternal-order-paladin-929",
@@ -9464,60 +9555,81 @@
       "name": "Eunuch Warlock",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/eunuch-warlock-631",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Oriental Adventures Eunuch Warlock is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/evangelist-240",
       "name": "Evangelist",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/evangelist-240",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Divine Evangelist is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/evereskan-tomb-guardian-664",
       "name": "Evereskan Tomb Guardian",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/evereskan-tomb-guardian-664",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Evereskan Tomb Guardian is source-verified for Evereskan elves with BAB +4, stealth/survival/perception skills, Alertness, Track and 2nd-level arcane casting; it still needs full arcane advancement and tomb-guardian mechanics."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact regional/racial gate, selected arcane advancement and all tomb-defense/sense/combat abilities."
     },
     {
       "sourceId": "classes/evoker-variant-964",
@@ -9544,100 +9656,135 @@
       "name": "Exalted Arcanist",
       "sourceBook": "Prestige Class Book of Exalted Deeds",
       "sourceUrl": "https://new.dndtools.org/classes/exalted-arcanist-144",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Book of Exalted Deeds Exalted Arcanist is source-verified for good spontaneous arcane casters with Will +5, Knowledge (arcana) 9, Knowledge (religion) 4, Consecrate Spell, Purify Spell and 3rd-level spontaneous arcane casting."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact exalted prerequisites, selected spontaneous-caster advancement, exalted spell-list expansion, spell knowledge and bonus exalted feats."
     },
     {
       "sourceId": "classes/exemplar-184",
       "name": "Exemplar",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/exemplar-184",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Adventurer Exemplar is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/exorcist-of-the-silver-flame-436",
       "name": "Exorcist of the Silver Flame",
       "sourceBook": "Prestige Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/exorcist-of-the-silver-flame-436",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Eberron Campaign Setting Exorcist of the Silver Flame is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/exotic-weapon-master-311",
       "name": "Exotic Weapon Master",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/exotic-weapon-master-311",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Exotic Weapon Master is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/exotic-weapon-master-610",
       "name": "Exotic Weapon Master",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/exotic-weapon-master-610",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Exotic Weapon Master is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/expert-25",
@@ -9748,100 +9895,135 @@
       "name": "Extreme Explorer",
       "sourceBook": "Prestige Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/extreme-explorer-437",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Eberron Campaign Setting Extreme Explorer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/eye-of-gruumsh-312",
       "name": "Eye of Gruumsh",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/eye-of-gruumsh-312",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Eye of Gruumsh is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/eye-of-gruumsh-611",
       "name": "Eye of Gruumsh",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/eye-of-gruumsh-611",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Eye of Gruumsh is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/eye-of-horus-re-665",
       "name": "Eye of Horus-re",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/eye-of-horus-re-665",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Faerûn Eye of Horus-re is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/eye-of-lolth-429",
       "name": "Eye of Lolth",
       "sourceBook": "Prestige Class Drow of the Underdark",
       "sourceUrl": "https://new.dndtools.org/classes/eye-of-lolth-429",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Drow of the Underdark Eye of Lolth is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/factotum-35",
@@ -9874,60 +10056,81 @@
       "name": "Faith Scion",
       "sourceBook": "Prestige Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/faith-scion-875",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Unearthed Arcana Faith Scion is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fang-of-lolth-757",
       "name": "Fang of Lolth",
       "sourceBook": "Prestige Class Song and Silence: A Guidebook to Bards and Rogues",
       "sourceUrl": "https://new.dndtools.org/classes/fang-of-lolth-757",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Song and Silence: A Guidebook to Bards and Rogues Fang of Lolth is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fang-of-sseth-804",
       "name": "Fang of Sseth",
       "sourceBook": "Prestige Class Serpent Kingdoms",
       "sourceUrl": "https://new.dndtools.org/classes/fang-of-sseth-804",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Serpent Kingdoms Fang of Sseth is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fangshields-barbarian-930",
@@ -9994,40 +10197,54 @@
       "name": "Fatemaker",
       "sourceBook": "Prestige Class Planar Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/fatemaker-692",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Planar Handbook Fatemaker is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fatespinner-211",
       "name": "Fatespinner",
       "sourceBook": "Prestige Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/fatespinner-211",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Arcane Fatespinner is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fatespinner-844",
@@ -10165,40 +10382,54 @@
       "name": "Fiend-blooded",
       "sourceBook": "Prestige Class Heroes of Horror",
       "sourceUrl": "https://new.dndtools.org/classes/fiend-blooded-533",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Heroes of Horror Fiend-blooded is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fiendbinder-865",
       "name": "Fiendbinder",
       "sourceBook": "Prestige Class Tome of Magic",
       "sourceUrl": "https://new.dndtools.org/classes/fiendbinder-865",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Tome of Magic Fiendbinder is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fighter-41",
@@ -10307,560 +10538,756 @@
       "name": "Fist of Dal Quor",
       "sourceBook": "Prestige Class Secrets of Sarlona",
       "sourceUrl": "https://new.dndtools.org/classes/fist-of-dal-quor-814",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Secrets of Sarlona Fist of Dal Quor is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fist-of-hextor-769",
       "name": "Fist of Hextor",
       "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
       "sourceUrl": "https://new.dndtools.org/classes/fist-of-hextor-769",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Sword and Fist: A Guidebook to Monks and Fighters Fist of Hextor is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fist-of-raziel-145",
       "name": "Fist of Raziel",
       "sourceBook": "Prestige Class Book of Exalted Deeds",
       "sourceUrl": "https://new.dndtools.org/classes/fist-of-raziel-145",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Book of Exalted Deeds Fist of Raziel is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fist-of-the-forest-226",
       "name": "Fist of the Forest",
       "sourceBook": "Prestige Class Complete Champion",
       "sourceUrl": "https://new.dndtools.org/classes/fist-of-the-forest-226",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Champion Fist of the Forest is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fist-of-zuoken-910",
       "name": "Fist of Zuoken",
       "sourceBook": "Prestige Class Expanded Psionics Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/fist-of-zuoken-910",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Expanded Psionics Handbook Fist of Zuoken is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/flayerspawn-psychic-278",
       "name": "Flayerspawn Psychic",
       "sourceBook": "Prestige Class Complete Psionic",
       "sourceUrl": "https://new.dndtools.org/classes/flayerspawn-psychic-278",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Psionic Flayerspawn Psychic is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fleet-runner-ehlonna-984",
       "name": "Fleet Runner of Ehlonna",
       "sourceBook": "Prestige Class Dragon Compendium",
       "sourceUrl": "https://new.dndtools.org/classes/fleet-runner-ehlonna-984",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dragon Compendium Fleet Runner of Ehlonna is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fleshwarper-559",
       "name": "Fleshwarper",
       "sourceBook": "Prestige Class Lords of Madness",
       "sourceUrl": "https://new.dndtools.org/classes/fleshwarper-559",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Lords of Madness Fleshwarper is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/flux-adept-985",
       "name": "Flux Adept",
       "sourceBook": "Prestige Class Dragon Compendium",
       "sourceUrl": "https://new.dndtools.org/classes/flux-adept-985",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dragon Compendium Flux Adept is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fochlucan-lyrist-185",
       "name": "Fochlucan Lyrist",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/fochlucan-lyrist-185",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Adventurer Fochlucan Lyrist is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/foe-hunter-612",
       "name": "Foe Hunter",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/foe-hunter-612",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Foe Hunter is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/force-missile-mage-986",
       "name": "Force Missile Mage",
       "sourceBook": "Prestige Class Dragon Compendium",
       "sourceUrl": "https://new.dndtools.org/classes/force-missile-mage-986",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Dragon Compendium Force Missile Mage is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/forest-master-485",
       "name": "Forest Master",
       "sourceBook": "Prestige Class Faiths & Pantheons",
       "sourceUrl": "https://new.dndtools.org/classes/forest-master-485",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Faiths & Pantheons Forest Master is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/forest-reeve-227",
       "name": "Forest Reeve",
       "sourceBook": "Prestige Class Complete Champion",
       "sourceUrl": "https://new.dndtools.org/classes/forest-reeve-227",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Champion Forest Reeve is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/forsaker-613",
       "name": "Forsaker",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/forsaker-613",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Forsaker is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/fortunes-friend-293",
       "name": "Fortune's Friend",
       "sourceBook": "Prestige Class Complete Scoundrel",
       "sourceUrl": "https://new.dndtools.org/classes/fortunes-friend-293",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Scoundrel Fortune's Friend is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/frenzied-berserker-313",
       "name": "Frenzied Berserker",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/frenzied-berserker-313",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Frenzied Berserker is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/frenzied-berserker-614",
       "name": "Frenzied Berserker",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/frenzied-berserker-614",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Frenzied Berserker is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/frost-mage-502",
       "name": "Frost Mage",
       "sourceBook": "Prestige Class Frostburn",
       "sourceUrl": "https://new.dndtools.org/classes/frost-mage-502",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Frostburn Frost Mage is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/frostrager-503",
       "name": "Frostrager",
       "sourceBook": "Prestige Class Frostburn",
       "sourceUrl": "https://new.dndtools.org/classes/frostrager-503",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Frostburn Frostrager is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/gatecrasher-602",
       "name": "Gatecrasher",
       "sourceBook": "Prestige Class Manual of the Planes",
       "sourceUrl": "https://new.dndtools.org/classes/gatecrasher-602",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Manual of the Planes Gatecrasher is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/gatekeeper-mystagogue-652",
       "name": "Gatekeeper Mystagogue",
       "sourceBook": "Prestige Class Player's Guide to Eberron",
       "sourceUrl": "https://new.dndtools.org/classes/gatekeeper-mystagogue-652",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Player's Guide to Eberron Gatekeeper Mystagogue is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/geomancer-241",
       "name": "Geomancer",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/geomancer-241",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Divine Geomancer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/geomancer-615",
       "name": "Geomancer",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/geomancer-615",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers Geomancer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation independently from the same-named alternate source version."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage with source/version isolation."
     },
     {
       "sourceId": "classes/geometer-212",
       "name": "Geometer",
       "sourceBook": "Prestige Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/geometer-212",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Arcane Geometer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/ghost-slayer-525",
       "name": "Ghost Slayer",
       "sourceBook": "Prestige Class Ghostwalk",
       "sourceUrl": "https://new.dndtools.org/classes/ghost-slayer-525",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Ghostwalk Ghost Slayer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/ghost-faced-killer-186",
       "name": "Ghost-faced Killer",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/ghost-faced-killer-186",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Adventurer Ghost-faced Killer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/ghostwalker-770",
       "name": "Ghostwalker",
       "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
       "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Sword and Fist Ghostwalker is source-verified with BAB +6, Intimidate 4, Move Silently 4, Endurance, Iron Will, Toughness and a restricted alignment set; its 3.0 progression remains source-specific."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the exact 3.0 gate and all ghostwalker defensive/mobility/combat features independently."
     },
     {
       "sourceId": "classes/giant-killer-808",
@@ -10927,80 +11354,108 @@
       "name": "Gladiator",
       "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
       "sourceUrl": "https://new.dndtools.org/classes/gladiator-771",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Sword and Fist: A Guidebook to Monks and Fighters Gladiator is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/glorious-servitor-541",
       "name": "Glorious Servitor",
       "sourceBook": "Prestige Class Lost Empires of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/glorious-servitor-541",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Lost Empires of Faerûn Glorious Servitor is source-verified with Mulhorand race/region, BAB +7, Diplomacy/Knowledge skills, Godsight, Improved Turning, 2nd-level divine casting, a Mulhorandi patron and church approval; source features are deity-dependent."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact religious/regional gate, patron-dependent bestial/divine features, faithfulness loss/atonement behavior and all seven levels."
     },
     {
       "sourceId": "classes/gnome-artificer-564",
       "name": "Gnome Artificer",
       "sourceBook": "Prestige Class Magic of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/gnome-artificer-564",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Magic of Faerûn Gnome Artificer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/gnome-giant-slayer-314",
       "name": "Gnome Giant-slayer",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/gnome-giant-slayer-314",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Warrior Gnome Giant-slayer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/golden-cup-paladin-933",
@@ -11047,200 +11502,270 @@
       "name": "Goldeye",
       "sourceBook": "Prestige Class Faiths & Pantheons",
       "sourceUrl": "https://new.dndtools.org/classes/goldeye-486",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Faiths & Pantheons Goldeye is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/goliath-liberator-732",
       "name": "Goliath Liberator",
       "sourceBook": "Prestige Class Races of Stone",
       "sourceUrl": "https://new.dndtools.org/classes/goliath-liberator-732",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Stone Goliath Liberator is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/gray-guard-294",
       "name": "Gray Guard",
       "sourceBook": "Prestige Class Complete Scoundrel",
       "sourceUrl": "https://new.dndtools.org/classes/gray-guard-294",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Scoundrel Gray Guard is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/gray-hand-enforcer-302",
       "name": "Gray Hand Enforcer",
       "sourceBook": "Prestige Class City of Splendors: Waterdeep",
       "sourceUrl": "https://new.dndtools.org/classes/gray-hand-enforcer-302",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "City of Splendors: Waterdeep Gray Hand Enforcer is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/great-rift-deep-defender-792",
       "name": "Great Rift Deep Defender",
       "sourceBook": "Prestige Class Shining South",
       "sourceUrl": "https://new.dndtools.org/classes/great-rift-deep-defender-792",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Shining South Great Rift Deep Defender is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/great-rift-skyguard-698",
       "name": "Great Rift Skyguard",
       "sourceBook": "Prestige Class Races of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/great-rift-skyguard-698",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Races of Faerûn Great Rift Skyguard is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/great-sea-corsair-793",
       "name": "Great Sea Corsair",
       "sourceBook": "Prestige Class Shining South",
       "sourceUrl": "https://new.dndtools.org/classes/great-sea-corsair-793",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Shining South Great Sea Corsair is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/green-star-adept-213",
       "name": "Green Star Adept",
       "sourceBook": "Prestige Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/green-star-adept-213",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Complete Arcane Green Star Adept is source-verified as a starmetal-dependent arcane prestige class whose progression mixes partial casting with progressive construct-like transformation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact starmetal/skill/casting prerequisites, resource consumption, source casting schedule and all transformation/stat/immunity changes."
     },
     {
       "sourceId": "classes/grim-psion-1023",
       "name": "Grim Psion",
       "sourceBook": "Prestige Class The Mind's Eye [Web 3.0]",
       "sourceUrl": "https://new.dndtools.org/classes/grim-psion-1023",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "The Mind's Eye [Web 3.0] Grim Psion is source-verified as a distinct prestige-class record; exact entry requirements, progression, persistent choices/resources and sheet automation still require implementation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact source prerequisites, feature progression, resources/choices and regression coverage."
     },
     {
       "sourceId": "classes/guardian-paramount-457",
       "name": "Guardian Paramount",
       "sourceBook": "Prestige Class Epic Level Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/guardian-paramount-457",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "Epic Level Handbook Guardian Paramount is source-verified with BAB +15, Spot 13, Alertness, Lightning Reflexes, Blinding Speed, Superior Initiative, uncanny dodge and evasion; it needs ally-protection resource automation."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "Exa source-faithful discovery plus SRD/D&DTools/RealmsHelps/archived source references verified this record's source/version, entry gate or progression.",
+        "Same-name 3.0/3.5 and alternate-source records were reviewed independently rather than inherited by class name.",
+        "Epic Level Handbook and Dungeon Master's Guide v3.5 epic continuations remain separate source records.",
+        "No Supabase write was made."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement exact epic gate, bonus-feat cadence, uncanny-dodge/evasion extension, protective aura, probability rerolls, callback and later Guardian Paramount abilities."
     },
     {
       "sourceId": "classes/guild-thief-514",
@@ -23940,5 +24465,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Third prestige 75-class source audit recorded on green baseline #1485; Exa/SRD fallback used after empty bulk extractor response."
+  "lastUpdatedNote": "Fourth prestige 75-class source audit recorded on green baseline #1486; source verification is not mechanical completion."
 }
