@@ -70,6 +70,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           const unlocked=(profile?.unlockedSpellLevels||profile?.history?.at(-1)?.unlockedSpellLevels||[]).map(Number).filter(Number.isFinite);
           const maxLevel=unlocked.length?Math.max(...unlocked):-1;
           const lists=(feature.spellLists||[]).map(norm),schools=(feature.spellSchools||[]).map(norm);
+          const spellSchoolsFor=spell=>norm(spell.school?.name||spell.school).split(/[^a-z]+/).filter(Boolean);
           const spellLevelFor=spell=>{
             const levels=[];
             for(const list of lists){
@@ -85,7 +86,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           const eligible=(context.spells||[]).filter(spell=>{
             const spellLevel=spellLevelFor(spell),integrityIssues=Array.isArray(spell.integrityIssues)?spell.integrityIssues:[];
             return (spell.edition||'3.5')==='3.5'&&integrityIssues.length===0&&String(spell.name||'').trim()&&spellLevel!==null&&spellLevel<=maxLevel&&
-              (!schools.length||schools.includes(norm(spell.school?.name||spell.school)))&&!ordinaryForClass(spell)&&!already.has(grantIdFor(spell));
+              (!schools.length||schools.some(school=>spellSchoolsFor(spell).includes(school)))&&!ordinaryForClass(spell)&&!already.has(grantIdFor(spell));
           }).sort((a,b)=>String(a.name).localeCompare(String(b.name)));
           options=eligible.map(spell=>String(spell.name));
           const existing=patch.featureChoices[id];
