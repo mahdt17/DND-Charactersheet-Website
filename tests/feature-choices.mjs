@@ -312,7 +312,9 @@ assert((dreadPickRecord.classes||[]).some(name=>['cleric','wizard'].includes(Str
 assert(!(dreadPickRecord.classes||[]).some(name=>String(name).toLowerCase()==='dread necromancer'),'Advanced Learning option is not already on the Dread Necromancer list');
 const dreadLearned=applyFeatureChoices(dreadReviewed8,dreadReviewedBefore,{[dreadLearning.id]:[dreadPick]},{spells:choiceSpells35});
 assert(Object.values(dreadLearned.featureChoices).some(choice=>choice.feature==='Advanced Learning'&&choice.choices?.[0]===dreadPick));
-assert(dreadLearned.spellAccessGrants?.some(grant=>grant.classId===dreadReviewedClass35.catalogId&&grant.spellName===dreadPick&&grant.sourceChoiceId===dreadLearning.id),'Dread Necromancer Advanced Learning persists a class-scoped spell-access grant');
+const dreadGrant=dreadLearned.spellAccessGrants?.find(grant=>grant.classId===dreadReviewedClass35.catalogId&&grant.spellName===dreadPick&&grant.sourceChoiceId===dreadLearning.id);
+assert(dreadGrant,'Dread Necromancer Advanced Learning persists a class-scoped spell-access grant');
+assert.equal(dreadGrant.spellReferenceOnly,!!dreadPickRecord.referenceOnly,'Advanced Learning grant preserves whether the chosen spell still has reference-only effect content');
 const dreadFamiliarStart={...legacyChoice,className:'Dread Necromancer',classDefinition:dreadReviewedClass35,classLevels:[{name:'Dread Necromancer',edition:'3.5',catalogId:dreadReviewedClass35.catalogId,level:7,definition:dreadReviewedClass35}],level:7};
 const dreadFamiliarPlan=featureChoicePlan(dreadFamiliarStart,null);
 const dreadFamiliar=dreadFamiliarPlan.groups.find(group=>group.label==='Summon Familiar');
