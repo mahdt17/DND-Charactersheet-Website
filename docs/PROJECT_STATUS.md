@@ -128,3 +128,13 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - All eight move from `pending_audit` to explicit `needs-review`. They are intentionally not promoted because each requires structured feature/state work beyond source completeness.
 - Canonical tracker totals after this source-audit batch: **44 complete, 51 needs-review, 1 source-conflict, 2 blocked, 956 pending audit**.
 
+## 2026-09-29/30 profiled 22-class source audit
+
+- Validate modernization #1479 passed at `538c6832cc5aa6b3d664f6d4a16f6ae2e29d4747`, including the existing full 3.5 regressions, build, and browser suites.
+- Audited all 22 remaining `pending_audit` base-class records that already had independently verified starting-training profiles but no reviewed feature-summary block.
+- Exa source discovery was grouped into five subsystem workstreams; Tavily advanced extraction passed all 22 exact new.dndtools pages without a Firecrawl fallback.
+- Miniatures Handbook Warmage is now complete: the source identifies Complete Arcane as another published appearance, the training profile already points to `classes/warmage-5`, and the source-equivalence regression now proves identical reconciled mechanics.
+- The other 21 records are now explicit `needs-review` entries with class-specific subsystem blockers (psionics/mantles, incarnum, Tome of Battle maneuvers, spellbook/spells-known models, domains/companions, ghost/monster progression, or configurable-class state).
+- Supabase remains unchanged.
+- Canonical tracker totals after this batch: **45 complete, 72 needs-review, 1 source-conflict, 2 blocked, 934 pending audit**.
+

@@ -122,3 +122,10 @@ Updated: 2026-09-29 (America/New_York)
 - Heavy subsystem blockers are preserved explicitly for Death Master (spellbook/minion/template), Spellthief (stolen-magic state), and Jester (performance/spells-known), while the racial paragons and Battle Dancer/Noble have narrower structured-state work.
 - Current tracker totals: **44 complete / 51 needs-review / 1 source-conflict / 2 blocked / 956 pending audit / 1054 total**.
 
+## 2026-09-29/30 profiled 22-class checkpoint
+
+- Green validation baseline: #1479 at `538c6832cc5aa6b3d664f6d4a16f6ae2e29d4747`.
+- Source-audited 22 profiled base classes with Exa discovery + Tavily exact extraction; 0 Firecrawl fallbacks and 0 Supabase writes.
+- Miniatures Handbook Warmage promoted through the source-equivalence invariant; 21 classes moved from `pending_audit` to source-verified `needs-review` with explicit subsystem blockers.
+- Current canonical tracker totals: **45 complete / 72 needs-review / 1 source-conflict / 2 blocked / 934 pending audit / 1054 total**.
+

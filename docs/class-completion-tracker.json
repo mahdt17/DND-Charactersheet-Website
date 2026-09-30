@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "b61de4ef934f46c4905a78a68cba2001b92c3b3b",
+  "snapshotCommit": "538c6832cc5aa6b3d664f6d4a16f6ae2e29d4747",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -754,20 +754,27 @@
       "name": "Ardent",
       "sourceBook": "Base Class Complete Psionic",
       "sourceUrl": "https://new.dndtools.org/classes/ardent-10",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Ardent feature-summary block exists yet; mantle selection/granted abilities, power-point progression, powers known, and mantle-constrained power access are not represented as structured persisted choices."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Ardent summaries, implement reusable mantle + psionic power selection/access, then verify level-up, power points, persistence, and mantle changes."
     },
     {
       "sourceId": "classes/ardent-dilettante-685",
@@ -874,20 +881,27 @@
       "name": "Artificer",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/artificer-36",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Artificer feature-summary block exists yet; infusion access, craft reserve, item-creation feat cadence, Use Magic Device prerequisite emulation, Retain Essence, and homunculus construction/upgrading are not fully structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Artificer summaries, implement infusion/crafting-resource workflows and item-creation choices, then route homunculus state through the companion subsystem with persistence regressions."
     },
     {
       "sourceId": "classes/ashworm-dragoon-749",
@@ -3395,20 +3409,27 @@
       "name": "Crusader",
       "sourceBook": "Base Class Tome of Battle: The Book of Nine Swords",
       "sourceUrl": "https://new.dndtools.org/classes/crusader-115",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Crusader feature-summary block exists yet; maneuvers known/readied, random granted maneuvers and recovery, stances, Steely Resolve delayed-damage state, and Furious Counterstrike are not modeled as a martial-maneuver subsystem."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Build the reusable Tome of Battle maneuver/stance/readied/recovery model, then add Crusader granted-maneuver and delayed-damage regressions."
     },
     {
       "sourceId": "classes/cryokineticist-500",
@@ -4621,20 +4642,27 @@
       "name": "Divine Mind",
       "sourceBook": "Base Class Complete Psionic",
       "sourceUrl": "https://new.dndtools.org/classes/divine-mind-11",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Divine Mind feature-summary block exists yet; deity/mantle choices, mantle-granted abilities and auras, multi-aura activation/switching, power points, and mantle-restricted powers known are not fully structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Divine Mind summaries and implement shared mantle, psychic-aura, and psionic power-selection subsystems with level-up/persistence coverage."
     },
     {
       "sourceId": "classes/divine-oracle-238",
@@ -6061,40 +6089,54 @@
       "name": "Eidolon",
       "sourceBook": "Base Class Ghostwalk",
       "sourceUrl": "https://new.dndtools.org/classes/eidolon-72",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Eidolon feature-summary block exists yet; the ghost-only entry requirement and recurring Ghost-descriptor bonus-feat choices are not represented as structured prerequisite/choice state."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Eidolon summaries, enforce the ghost prerequisite, and implement recurring Ghost-feat selection with prerequisite and persistence regressions."
     },
     {
       "sourceId": "classes/eidoloncer-73",
       "name": "Eidoloncer",
       "sourceBook": "Base Class Ghostwalk",
       "sourceUrl": "https://new.dndtools.org/classes/eidoloncer-73",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Eidoloncer feature-summary block exists yet; ghost-only entry, per-level advancement of an existing spellcasting class, recurring Ghost feats, and life-epiphany level conversion are not fully modeled."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Eidoloncer summaries, reuse constrained casting-advancement selection, add Ghost-feat choices, and define/test life-epiphany conversion behavior."
     },
     {
       "sourceId": "classes/eldeen-ranger-435",
@@ -10442,20 +10484,27 @@
       "name": "Incarnate",
       "sourceBook": "Base Class Magic of Incarnum",
       "sourceUrl": "https://new.dndtools.org/classes/incarnate-81",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Incarnate feature-summary block exists yet; soulmeld shaping, essentia allocation/capacity, chakra binds, alignment-dependent Incarnum Radiance, and related incarnum state are not structurally automated."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Design the reusable incarnum subsystem for soulmelds, essentia and chakra binds, then add Incarnate alignment/radiance and level-progression regressions."
     },
     {
       "sourceId": "classes/incarnum-blade-591",
@@ -11774,20 +11823,27 @@
       "name": "Lurk",
       "sourceBook": "Base Class Complete Psionic",
       "sourceUrl": "https://new.dndtools.org/classes/lurk-12",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Lurk feature-summary block exists yet; power points/powers known plus the daily Lurk Augment pool, selectable augments, multi-augment use, and power-point augmentation are not represented as structured actions/resources."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Lurk summaries, complete psionic powers-known support, and model Lurk Augments as level-gated resource-backed choices/actions with persistence tests."
     },
     {
       "sourceId": "classes/lurking-terror-548",
@@ -13149,20 +13205,27 @@
       "name": "Mystic",
       "sourceBook": "Base Class Dragonlance Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/mystic-26",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Dragonlance Mystic feature-summary block exists yet; spontaneous cleric-list spells-known acquisition/replacement, single-domain choice, domain-known spells/granted power, and alignment-domain restrictions are not fully structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Mystic summaries, implement its spells-known/replacement progression and domain model, then verify source restrictions and save/reopen behavior."
     },
     {
       "sourceId": "classes/mystic-fire-knight-paladin-937",
@@ -14351,20 +14414,27 @@
       "name": "Pixie",
       "sourceBook": "Base Class Savage Species",
       "sourceUrl": "https://new.dndtools.org/classes/pixie-948",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Savage Species Pixie feature-summary block exists yet; staged monster-class racial changes such as ability adjustments, flight/invisibility and spell-like abilities, damage reduction, spell resistance, and effective level progression are not modeled as structured racial/class deltas."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Pixie monster-class summaries and implement reusable staged racial/monster-class state changes with level-by-level persistence regressions."
     },
     {
       "sourceId": "classes/planar-champion-603",
@@ -14757,20 +14827,27 @@
       "name": "Psychic Rogue",
       "sourceBook": "Base Class The Mind's Eye [Web 3.5]",
       "sourceUrl": "https://new.dndtools.org/classes/psychic-rogue-1050",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Psychic Rogue feature-summary block exists yet; power points/powers known and source-specific psionic progression are not fully integrated with its rogue/special-ability progression."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Psychic Rogue summaries, complete power selection/catalog integration, and regression-test psionic progression alongside sneak attack and special-ability choices."
     },
     {
       "sourceId": "classes/psychic-theurge-990",
@@ -16814,20 +16891,27 @@
       "name": "Shadowcaster",
       "sourceBook": "Base Class Tome of Magic",
       "sourceUrl": "https://new.dndtools.org/classes/shadowcaster-113",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Shadowcaster feature-summary block exists yet; fundamentals and mysteries known, path prerequisites, daily uses, and mystery transitions between spell, spell-like, and supernatural abilities are not structurally automated."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Shadowcaster summaries and build a mystery/path subsystem that tracks acquisition, uses, type transitions, and bonus-feat progression."
     },
     {
       "sourceId": "classes/shadowcraft-mage-736",
@@ -16974,20 +17058,27 @@
       "name": "Shaman",
       "sourceBook": "Base Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/shaman-85",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Oriental Adventures Shaman feature-summary block exists yet; prepared shaman spellcasting, two-to-three spirit domains with granted powers/domain slots, spontaneous cure/inflict alignment choice, turning/rebuking behavior, and Animal Companion state are not fully structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed OA Shaman summaries, integrate domain/spontaneous-preparation behavior and companion state, then add alignment/domain/companion level-up regressions."
     },
     {
       "sourceId": "classes/shaper-form-989",
@@ -17200,20 +17291,27 @@
       "name": "Shugenja",
       "sourceBook": "Base Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/shugenja-86",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Oriental Adventures Shugenja feature-summary block exists yet; school/favored-element selection, prohibited-element restrictions, school-determined spells, and source-specific spells-known progression are not fully modeled for this OA record."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add OA-specific Shugenja summaries, implement school/element restrictions and school spells, then regression-test spells known, casting eligibility, and source-specific differences."
     },
     {
       "sourceId": "classes/silver-key-420",
@@ -17460,20 +17558,27 @@
       "name": "Sohei",
       "sourceBook": "Base Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/sohei-87",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Sohei feature-summary block exists yet; Ki Frenzy uses/effects/fatigue, Weapon Focus choice, prepared divine casting from 4th level, bonus feat grants, damage reduction scaling, and ex-Sohei state are not fully structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Sohei summaries, model Ki Frenzy as a resource-backed action and its source restrictions, then integrate spell preparation and level-scaled defensive features."
     },
     {
       "sourceId": "classes/solar-channeler-788",
@@ -17689,20 +17794,27 @@
       "name": "Soulborn",
       "sourceBook": "Base Class Magic of Incarnum",
       "sourceUrl": "https://new.dndtools.org/classes/soulborn-82",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Soulborn feature-summary block exists yet; alignment opposition, Smite Opposition, soulmeld shaping, essentia, chakra binds, and Incarnum Defense are not represented in a structured incarnum/alignment subsystem."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed Soulborn summaries and reuse the incarnum subsystem for soulmeld/essentia/binds while implementing opposition/alignment-specific class effects."
     },
     {
       "sourceId": "classes/soulbow-280",
@@ -17861,20 +17973,27 @@
       "name": "Spellcaster",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/spellcaster-131",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Unearthed Arcana generic Spellcaster feature-summary block exists yet; its 1st-level configurable good save, four class skills, simple-weapon choice, arcane/divine mode, casting ability, mixed spell lists, spells known, and bonus feats require persisted source-defined configuration."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add reviewed generic Spellcaster summaries and build a configurable-class setup model for saves/skills/weapon/casting mode plus mixed-list spells-known progression."
     },
     {
       "sourceId": "classes/spelldancer-572",
@@ -18739,20 +18858,27 @@
       "name": "Swordsage",
       "sourceBook": "Base Class Tome of Battle: The Book of Nine Swords",
       "sourceUrl": "https://new.dndtools.org/classes/swordsage-116",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Swordsage feature-summary block exists yet; maneuvers known/readied, recovery, stances, discipline-focus choices, and related discipline-specific effects are not modeled as a martial-maneuver subsystem."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the shared Tome of Battle maneuver/stance/readied/recovery model, then add Swordsage discipline-focus and level-progression regressions."
     },
     {
       "sourceId": "classes/sybil-823",
@@ -19551,20 +19677,27 @@
       "name": "Totemist",
       "sourceBook": "Base Class Magic of Incarnum",
       "sourceUrl": "https://new.dndtools.org/classes/totemist-83",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Totemist feature-summary block exists yet; soulmeld shaping, essentia allocation/capacity, Totem Chakra binding, chakra-bind progression, and totem-specific state are not structurally automated."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Build/reuse the incarnum subsystem and add Totemist-specific Totem Chakra/bind progression with level-up and persistence regressions."
     },
     {
       "sourceId": "classes/transmuter-variant-967",
@@ -20471,20 +20604,27 @@
       "name": "Warblade",
       "sourceBook": "Base Class Tome of Battle: The Book of Nine Swords",
       "sourceUrl": "https://new.dndtools.org/classes/warblade-117",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Warblade feature-summary block exists yet; maneuvers known/readied/recovery, stances, Weapon Aptitude, bonus-feat choices, and Battle Clarity/Ardor/Cunning/Mastery effects are not fully structured."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement the shared Tome of Battle maneuver subsystem, then add Warblade recovery, Weapon Aptitude, bonus-feat, and battle-feature regressions."
     },
     {
       "sourceId": "classes/warchief-581",
@@ -20604,20 +20744,25 @@
       "name": "Warmage",
       "sourceBook": "Base Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/warmage-79",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "complete",
+      "sourceReview": "verified",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/warmage-5",
       "featureRequirements": [],
       "gaps": [],
       "dependencies": [],
-      "evidence": [],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "evidence": [
+        "Miniatures Handbook Warmage explicitly identifies Complete Arcane as another published appearance, and its verified training profile points to classes/warmage-5.",
+        "The source-equivalent mechanics invariant now includes classes/warmage-79 -> classes/warmage-5 and passed Validate modernization #1479 at 538c6832cc5aa6b3d664f6d4a16f6ae2e29d4747.",
+        "Exact-source Tavily extraction passed with full level-20 progression, class skills, intact mechanics, and no contamination.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
+      "verifiedCommit": "538c6832cc5aa6b3d664f6d4a16f6ae2e29d4747",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36662865082",
+      "nextAction": "Preserve as verified source-equivalent to classes/warmage-5; re-audit only if the shared Warmage/class-integration behavior changes."
     },
     {
       "sourceId": "classes/warmaster-782",
@@ -21617,20 +21762,27 @@
       "name": "Wu Jen",
       "sourceBook": "Base Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/wu-jen-88",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
+      "gaps": [
+        "No reviewed Oriental Adventures Wu Jen feature-summary block exists yet; spellbook acquisition/preparation, Taboos, Spell Secret, Elemental Mastery, and source-specific OA mechanics are not fully materialized."
+      ],
       "dependencies": [],
-      "evidence": [],
+      "evidence": [
+        "2026-09-29/30 Exa family-level discovery found corroborating D&D 3.5 source/reference coverage for this exact class family.",
+        "Tavily advanced extraction of the exact new.dndtools class page passed source-integrity checks (expected progression structure, class skills, intact class text/tables, and no login/footer contamination).",
+        "Starting-training profile was already independently verified in the repository; the remaining blocker is feature/system automation, not source retrieval.",
+        "No Firecrawl fallback or Supabase write was required."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Add OA-specific Wu Jen summaries, complete spellbook acquisition/preparation, and implement Taboo/Spell Secret/Elemental Mastery selections with persistence tests."
     },
     {
       "sourceId": "classes/wyrm-wizard-377",
