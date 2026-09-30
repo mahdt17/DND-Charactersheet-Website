@@ -1,0 +1,969 @@
+{
+  "version": 1,
+  "creatures": [
+    {
+      "id": "monsters/wolf-596",
+      "name": "Wolf",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/wolf-596",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 283,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "2d8+4",
+      "hp": 13,
+      "initiative": 2,
+      "speed": {
+        "land": 50
+      },
+      "ac": {
+        "total": 14,
+        "touch": 12,
+        "flatFooted": 12
+      },
+      "baseAttack": 1,
+      "grapple": 2,
+      "attacks": [
+        "Bite +3 melee (1d6+1)"
+      ],
+      "abilities": {
+        "str": 13,
+        "dex": 15,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 5,
+        "ref": 5,
+        "will": 1
+      },
+      "specialAbilities": [
+        "Trip",
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Track",
+        "Weapon Focus"
+      ]
+    },
+    {
+      "id": "monsters/ape-531",
+      "name": "Ape",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/ape-531",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 268,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "4d8+11",
+      "hp": 29,
+      "initiative": 2,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 14,
+        "touch": 11,
+        "flatFooted": 12
+      },
+      "baseAttack": 3,
+      "grapple": 12,
+      "attacks": [
+        "Claws +7 melee (1d6+5)",
+        "Bite +2 melee (1d6+2)"
+      ],
+      "abilities": {
+        "str": 21,
+        "dex": 15,
+        "con": 14,
+        "int": 2,
+        "wis": 12,
+        "cha": 7
+      },
+      "saves": {
+        "fort": 6,
+        "ref": 6,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Alertness",
+        "Toughness"
+      ]
+    },
+    {
+      "id": "monsters/raven-575",
+      "name": "Raven",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/raven-575",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 278,
+      "size": "Tiny",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "1/4d8",
+      "hp": 1,
+      "initiative": 2,
+      "speed": {
+        "land": 10,
+        "fly": null
+      },
+      "ac": {
+        "total": 14,
+        "touch": 14,
+        "flatFooted": 12
+      },
+      "baseAttack": 0,
+      "grapple": -13,
+      "attacks": [
+        "Claws +4 melee (1d2-5)"
+      ],
+      "abilities": {
+        "str": 1,
+        "dex": 15,
+        "con": 10,
+        "int": 2,
+        "wis": 14,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 2,
+        "ref": 4,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision"
+      ],
+      "feats": [
+        "Alertness",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/devil-imp-73",
+      "name": "Imp",
+      "sourceName": "Devil, Imp",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/devil-imp-73",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 56,
+      "size": "Tiny",
+      "type": "Outsider",
+      "subtypes": [
+        "Evil",
+        "Extraplanar",
+        "Lawful"
+      ],
+      "hitDice": "3d8",
+      "hp": 13,
+      "initiative": 3,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 18,
+        "touch": 15,
+        "flatFooted": 15
+      },
+      "baseAttack": 3,
+      "grapple": -5,
+      "attacks": [
+        "Sting +8 melee (1d4 plus poison)"
+      ],
+      "abilities": {
+        "str": 8,
+        "dex": 17,
+        "con": 10,
+        "int": 10,
+        "wis": 12,
+        "cha": 14
+      },
+      "saves": {
+        "fort": 3,
+        "ref": 6,
+        "will": 4
+      },
+      "specialAbilities": [
+        "Poison",
+        "Spell-Like Abilities",
+        "Alternate Form"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/warhorse-heavy-555",
+      "name": "Warhorse, Heavy",
+      "aliases": [
+        "Heavy Warhorse",
+        "Warhorse"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/warhorse-heavy-555",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 273,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "4d8+12",
+      "hp": 30,
+      "initiative": 1,
+      "speed": {
+        "land": 50
+      },
+      "ac": {
+        "total": 14,
+        "touch": 10,
+        "flatFooted": 13
+      },
+      "baseAttack": 3,
+      "grapple": 11,
+      "attacks": [
+        "Hoof +6 melee (1d6+4)",
+        "Bite +1 melee (1d4+2)"
+      ],
+      "abilities": {
+        "str": 18,
+        "dex": 13,
+        "con": 17,
+        "int": 2,
+        "wis": 13,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 7,
+        "ref": 5,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Endurance",
+        "Run"
+      ]
+    },
+    {
+      "id": "monsters/unicorn-500",
+      "name": "Unicorn",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/unicorn-500",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 249,
+      "size": "Large",
+      "type": "Magical Beast",
+      "subtypes": [],
+      "hitDice": "4d10+20",
+      "hp": 42,
+      "initiative": 3,
+      "speed": {
+        "land": 60
+      },
+      "ac": {
+        "total": 18,
+        "touch": 12,
+        "flatFooted": 15
+      },
+      "baseAttack": 4,
+      "grapple": 13,
+      "attacks": [
+        "Horn +11 melee (1d8+8)",
+        "Hoof +3 melee (1d4+2)"
+      ],
+      "abilities": {
+        "str": 20,
+        "dex": 17,
+        "con": 21,
+        "int": 10,
+        "wis": 21,
+        "cha": 24
+      },
+      "saves": {
+        "fort": 9,
+        "ref": 7,
+        "will": 6
+      },
+      "specialAbilities": [
+        "Darkvision",
+        "Immunity to Poison",
+        "Immunity to Charm",
+        "Immunity to Compulsion",
+        "Low-Light Vision",
+        "Magic Circle Against Evil",
+        "Scent",
+        "Wild Empathy"
+      ],
+      "feats": [
+        "Alertness",
+        "Skill Focus"
+      ]
+    }
+  ],
+  "profiles": {
+    "druid-animal-companion": {
+      "sourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion",
+      "relationshipType": "animal-companion",
+      "stackContributions": true,
+      "choices": [
+        [
+          "Badger",
+          1,
+          0
+        ],
+        [
+          "Camel",
+          1,
+          0
+        ],
+        [
+          "Dire Rat",
+          1,
+          0
+        ],
+        [
+          "Dog",
+          1,
+          0
+        ],
+        [
+          "Riding Dog",
+          1,
+          0
+        ],
+        [
+          "Eagle",
+          1,
+          0
+        ],
+        [
+          "Hawk",
+          1,
+          0
+        ],
+        [
+          "Horse (light or heavy)",
+          1,
+          0
+        ],
+        [
+          "Owl",
+          1,
+          0
+        ],
+        [
+          "Pony",
+          1,
+          0
+        ],
+        [
+          "Snake (Small or Medium viper)",
+          1,
+          0
+        ],
+        [
+          "Wolf",
+          1,
+          0
+        ],
+        [
+          "Porpoise",
+          1,
+          0
+        ],
+        [
+          "Shark (Medium)",
+          1,
+          0
+        ],
+        [
+          "Squid",
+          1,
+          0
+        ],
+        [
+          "Ape",
+          4,
+          3
+        ],
+        [
+          "Bear (black)",
+          4,
+          3
+        ],
+        [
+          "Bison",
+          4,
+          3
+        ],
+        [
+          "Boar",
+          4,
+          3
+        ],
+        [
+          "Cheetah",
+          4,
+          3
+        ],
+        [
+          "Crocodile",
+          4,
+          3
+        ],
+        [
+          "Dire Badger",
+          4,
+          3
+        ],
+        [
+          "Dire Bat",
+          4,
+          3
+        ],
+        [
+          "Dire Weasel",
+          4,
+          3
+        ],
+        [
+          "Leopard",
+          4,
+          3
+        ],
+        [
+          "Lizard (monitor)",
+          4,
+          3
+        ],
+        [
+          "Shark (Large)",
+          4,
+          3
+        ],
+        [
+          "Snake (constrictor)",
+          4,
+          3
+        ],
+        [
+          "Snake (Large viper)",
+          4,
+          3
+        ],
+        [
+          "Wolverine",
+          4,
+          3
+        ],
+        [
+          "Bear (brown)",
+          7,
+          6
+        ],
+        [
+          "Dire Wolverine",
+          7,
+          6
+        ],
+        [
+          "Crocodile (giant)",
+          7,
+          6
+        ],
+        [
+          "Deinonychus",
+          7,
+          6
+        ],
+        [
+          "Dire Ape",
+          7,
+          6
+        ],
+        [
+          "Dire Boar",
+          7,
+          6
+        ],
+        [
+          "Dire Wolf",
+          7,
+          6
+        ],
+        [
+          "Elasmosaurus",
+          7,
+          6
+        ],
+        [
+          "Lion",
+          7,
+          6
+        ],
+        [
+          "Rhinoceros",
+          7,
+          6
+        ],
+        [
+          "Snake (Huge viper)",
+          7,
+          6
+        ],
+        [
+          "Tiger",
+          7,
+          6
+        ],
+        [
+          "Bear (polar)",
+          10,
+          9
+        ],
+        [
+          "Dire Lion",
+          10,
+          9
+        ],
+        [
+          "Megaraptor",
+          10,
+          9
+        ],
+        [
+          "Shark (Huge)",
+          10,
+          9
+        ],
+        [
+          "Snake (giant constrictor)",
+          10,
+          9
+        ],
+        [
+          "Whale (orca)",
+          10,
+          9
+        ],
+        [
+          "Dire Bear",
+          13,
+          12
+        ],
+        [
+          "Elephant",
+          13,
+          12
+        ],
+        [
+          "Octopus (giant)",
+          13,
+          12
+        ],
+        [
+          "Dire Shark",
+          16,
+          15
+        ],
+        [
+          "Dire Tiger",
+          16,
+          15
+        ],
+        [
+          "Squid (giant)",
+          16,
+          15
+        ],
+        [
+          "Triceratops",
+          16,
+          15
+        ],
+        [
+          "Tyrannosaurus",
+          16,
+          15
+        ]
+      ],
+      "progression": [
+        {
+          "minLevel": 1,
+          "bonusHD": 0,
+          "naturalArmorAdjustment": 0,
+          "strDexAdjustment": 0,
+          "bonusTricks": 1,
+          "specialAbilities": [
+            "Link",
+            "Share Spells"
+          ]
+        },
+        {
+          "minLevel": 3,
+          "bonusHD": 2,
+          "naturalArmorAdjustment": 2,
+          "strDexAdjustment": 1,
+          "bonusTricks": 2,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion"
+          ]
+        },
+        {
+          "minLevel": 6,
+          "bonusHD": 4,
+          "naturalArmorAdjustment": 4,
+          "strDexAdjustment": 2,
+          "bonusTricks": 3,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion"
+          ]
+        },
+        {
+          "minLevel": 9,
+          "bonusHD": 6,
+          "naturalArmorAdjustment": 6,
+          "strDexAdjustment": 3,
+          "bonusTricks": 4,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion",
+            "Multiattack"
+          ]
+        },
+        {
+          "minLevel": 12,
+          "bonusHD": 8,
+          "naturalArmorAdjustment": 8,
+          "strDexAdjustment": 4,
+          "bonusTricks": 5,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion",
+            "Multiattack"
+          ]
+        },
+        {
+          "minLevel": 15,
+          "bonusHD": 10,
+          "naturalArmorAdjustment": 10,
+          "strDexAdjustment": 5,
+          "bonusTricks": 6,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion",
+            "Multiattack",
+            "Improved Evasion"
+          ]
+        },
+        {
+          "minLevel": 18,
+          "bonusHD": 12,
+          "naturalArmorAdjustment": 12,
+          "strDexAdjustment": 6,
+          "bonusTricks": 7,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion",
+            "Multiattack",
+            "Improved Evasion"
+          ]
+        }
+      ]
+    },
+    "standard-familiar": {
+      "sourceUrl": "https://www.d20srd.org/srd/classes/sorcererWizard.htm#familiars",
+      "relationshipType": "familiar",
+      "stackContributions": true,
+      "progression": [
+        {
+          "minLevel": 1,
+          "naturalArmorAdjustment": 1,
+          "intelligence": 6,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link"
+          ]
+        },
+        {
+          "minLevel": 3,
+          "naturalArmorAdjustment": 2,
+          "intelligence": 7,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link",
+            "Deliver Touch Spells"
+          ]
+        },
+        {
+          "minLevel": 5,
+          "naturalArmorAdjustment": 3,
+          "intelligence": 8,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link",
+            "Deliver Touch Spells",
+            "Speak with Master"
+          ]
+        },
+        {
+          "minLevel": 7,
+          "naturalArmorAdjustment": 4,
+          "intelligence": 9,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link",
+            "Deliver Touch Spells",
+            "Speak with Master",
+            "Speak with Animals of Its Kind"
+          ]
+        },
+        {
+          "minLevel": 9,
+          "naturalArmorAdjustment": 5,
+          "intelligence": 10,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link",
+            "Deliver Touch Spells",
+            "Speak with Master",
+            "Speak with Animals of Its Kind"
+          ]
+        },
+        {
+          "minLevel": 11,
+          "naturalArmorAdjustment": 6,
+          "intelligence": 11,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link",
+            "Deliver Touch Spells",
+            "Speak with Master",
+            "Speak with Animals of Its Kind",
+            "Spell Resistance"
+          ]
+        },
+        {
+          "minLevel": 13,
+          "naturalArmorAdjustment": 7,
+          "intelligence": 12,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link",
+            "Deliver Touch Spells",
+            "Speak with Master",
+            "Speak with Animals of Its Kind",
+            "Spell Resistance",
+            "Scry on Familiar"
+          ]
+        },
+        {
+          "minLevel": 15,
+          "naturalArmorAdjustment": 8,
+          "intelligence": 13,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link",
+            "Deliver Touch Spells",
+            "Speak with Master",
+            "Speak with Animals of Its Kind",
+            "Spell Resistance",
+            "Scry on Familiar"
+          ]
+        },
+        {
+          "minLevel": 17,
+          "naturalArmorAdjustment": 9,
+          "intelligence": 14,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link",
+            "Deliver Touch Spells",
+            "Speak with Master",
+            "Speak with Animals of Its Kind",
+            "Spell Resistance",
+            "Scry on Familiar"
+          ]
+        },
+        {
+          "minLevel": 19,
+          "naturalArmorAdjustment": 10,
+          "intelligence": 15,
+          "specialAbilities": [
+            "Alertness",
+            "Improved Evasion",
+            "Share Spells",
+            "Empathic Link",
+            "Deliver Touch Spells",
+            "Speak with Master",
+            "Speak with Animals of Its Kind",
+            "Spell Resistance",
+            "Scry on Familiar"
+          ]
+        }
+      ]
+    },
+    "paladin-special-mount": {
+      "sourceUrl": "https://www.d20srd.org/srd/classes/paladin.htm#specialMount",
+      "relationshipType": "special-mount",
+      "stackContributions": false,
+      "progression": [
+        {
+          "minLevel": 5,
+          "bonusHD": 2,
+          "naturalArmorAdjustment": 4,
+          "strengthAdjustment": 1,
+          "intelligence": 6,
+          "specialAbilities": [
+            "Empathic Link",
+            "Improved Evasion",
+            "Share Spells",
+            "Share Saving Throws"
+          ]
+        },
+        {
+          "minLevel": 8,
+          "bonusHD": 4,
+          "naturalArmorAdjustment": 6,
+          "strengthAdjustment": 2,
+          "intelligence": 7,
+          "specialAbilities": [
+            "Empathic Link",
+            "Improved Evasion",
+            "Share Spells",
+            "Share Saving Throws",
+            "Improved Speed"
+          ]
+        },
+        {
+          "minLevel": 11,
+          "bonusHD": 6,
+          "naturalArmorAdjustment": 8,
+          "strengthAdjustment": 3,
+          "intelligence": 8,
+          "specialAbilities": [
+            "Empathic Link",
+            "Improved Evasion",
+            "Share Spells",
+            "Share Saving Throws",
+            "Improved Speed",
+            "Command Creatures of Its Kind"
+          ]
+        },
+        {
+          "minLevel": 15,
+          "bonusHD": 8,
+          "naturalArmorAdjustment": 10,
+          "strengthAdjustment": 4,
+          "intelligence": 9,
+          "specialAbilities": [
+            "Empathic Link",
+            "Improved Evasion",
+            "Share Spells",
+            "Share Saving Throws",
+            "Improved Speed",
+            "Command Creatures of Its Kind",
+            "Spell Resistance"
+          ]
+        }
+      ]
+    },
+    "healer-companion": {
+      "sourceUrl": "https://new.dndtools.org/classes/healer-77",
+      "relationshipType": "class-companion",
+      "stackContributions": false,
+      "progression": [
+        {
+          "minLevel": 8,
+          "bonusHD": 0,
+          "naturalArmorAdjustment": 0,
+          "strDexIntAdjustment": 0,
+          "specialAbilities": [
+            "Empathic Link",
+            "Improved Evasion",
+            "Share Saving Throws",
+            "Share Spells"
+          ]
+        },
+        {
+          "minLevel": 12,
+          "bonusHD": 2,
+          "naturalArmorAdjustment": 2,
+          "strDexIntAdjustment": 2,
+          "specialAbilities": [
+            "Empathic Link",
+            "Improved Evasion",
+            "Share Saving Throws",
+            "Share Spells"
+          ]
+        },
+        {
+          "minLevel": 15,
+          "bonusHD": 4,
+          "naturalArmorAdjustment": 4,
+          "strDexIntAdjustment": 2,
+          "specialAbilities": [
+            "Empathic Link",
+            "Improved Evasion",
+            "Share Saving Throws",
+            "Share Spells",
+            "Devotion"
+          ]
+        },
+        {
+          "minLevel": 18,
+          "bonusHD": 6,
+          "naturalArmorAdjustment": 6,
+          "strDexIntAdjustment": 2,
+          "specialAbilities": [
+            "Empathic Link",
+            "Improved Evasion",
+            "Share Saving Throws",
+            "Share Spells",
+            "Devotion",
+            "Improved Speed",
+            "Spell Resistance"
+          ]
+        }
+      ]
+    }
+  }
+}
