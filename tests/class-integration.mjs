@@ -915,7 +915,8 @@ const sourceEquivalent35Profiles=[
   ['classes/wizard-47','classes/wizard-99'],
   ['classes/wizard-71','classes/wizard-99'],
   ['classes/wizard-110','classes/wizard-99'],
-  ['classes/favored-soul-76','classes/favored-soul-7']
+  ['classes/favored-soul-76','classes/favored-soul-7'],
+  ['classes/warmage-79','classes/warmage-5']
 ];
 const mechanicsSnapshot35=sheet=>({
   features:(sheet.grantedFeatures||[]).map(item=>item.name).sort(),
