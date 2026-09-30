@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "831c5f7ffc0bd92e2c50d1055919c1e432c81833",
+  "snapshotCommit": "d7bc51975028f8788157c72268472e74d880c7bb",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -1493,26 +1493,27 @@
       "name": "Beguiler",
       "sourceBook": "Base Class Player's Handbook II",
       "sourceUrl": "https://new.dndtools.org/classes/beguiler-100",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 9,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Advanced Learning choices are recorded generically but are not yet materialized as permanent additions to actual Beguiler spell access/known-spell state."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "Structured Advanced Learning now filters real catalog spells by Wizard list, source-allowed enchantment/illusion schools, unlocked spell level, and exclusion of native Beguiler spells, then persists the selection as a source-owned spell-access grant.",
+        "Browser regression advances a real Beguiler from level 6 to 7, requires Advanced Learning, saves the class-scoped grant, and verifies save/reopen persistence.",
+        "Validate modernization #1476 passed at d7bc51975028f8788157c72268472e74d880c7bb, including feature-choice tests, full 3.5 regressions, build, catalog/advancement browser coverage, and the remaining browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Materialize Advanced Learning into source-owned spell access with level/school eligibility and persistence regressions."
+      "verifiedCommit": "d7bc51975028f8788157c72268472e74d880c7bb",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36658615218",
+      "nextAction": "Preserve as verified. Re-audit only if shared spell-choice, class-integration, or level-up behavior changes."
     },
     {
       "sourceId": "classes/beholder-mage-557",
@@ -5329,17 +5330,19 @@
       "existingProfileParent": null,
       "featureRequirements": [],
       "gaps": [
-        "Advanced Learning is persisted as a generic source choice rather than a permanent spell-list addition, and full evil-familiar state remains a companion subsystem."
+        "Full evil-familiar creature state, scaling, persistence, and lifecycle remain a companion-state subsystem; Advanced Learning itself is now structurally integrated."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "Advanced Learning now preserves reviewed spell-list/school metadata, filters by source eligibility and unlocked spell level, excludes native Dread Necromancer spells, and persists the chosen spell as a class-scoped spell-access grant.",
+        "Validate modernization #1476 passed the Dread Advanced Learning regression at d7bc51975028f8788157c72268472e74d880c7bb; the remaining blocker is the separate familiar-state subsystem."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Integrate Advanced Learning with spell access and complete familiar-state automation before promotion."
+      "nextAction": "Complete Dread Necromancer evil-familiar companion state and lifecycle, then add companion creation/scaling/save-reopen/removal regressions before promotion."
     },
     {
       "sourceId": "classes/dread-pirate-182",
@@ -20526,26 +20529,27 @@
       "name": "Warmage",
       "sourceBook": "Base Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/warmage-5",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 9,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Advanced Learning choices are recorded generically but are not yet materialized as permanent additions to actual Warmage spell access."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "Structured Advanced Learning now filters source-eligible spell metadata by allowed school/list/level and materializes the chosen spell as a permanent source-owned Warmage spell-access grant.",
+        "Existing Warmage level 1-20 class integration, source-derived training progression, and Advanced Learning persistence regressions remain green.",
+        "Validate modernization #1476 passed at d7bc51975028f8788157c72268472e74d880c7bb, including feature-choice tests, full 3.5 regressions, build, and browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Materialize Warmage Advanced Learning with evocation/level eligibility and persistence regressions."
+      "verifiedCommit": "d7bc51975028f8788157c72268472e74d880c7bb",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36658615218",
+      "nextAction": "Preserve as verified. Re-audit only if shared spell-choice, class-integration, or level-up behavior changes."
     },
     {
       "sourceId": "classes/warmage-79",

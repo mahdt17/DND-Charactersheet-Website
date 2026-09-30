@@ -107,3 +107,11 @@ Updated: 2026-09-29 (America/New_York)
 - 28 source-equivalent published-appearance records were processed through the existing parent-equivalence invariant: 12 complete-parent reprints promoted; 16 incomplete-parent reprints moved to explicit `needs-review` with inherited blockers.
 - Current canonical tracker totals: **42 complete / 45 needs-review / 1 source-conflict / 2 blocked / 964 pending audit / 1054 total**.
 
+## 2026-09-29 Advanced Learning checkpoint
+
+- Green validation baseline: #1476 at `d7bc51975028f8788157c72268472e74d880c7bb`.
+- Beguiler and Warmage promoted to complete after source-restricted Advanced Learning choices became permanent class-scoped spell-access grants.
+- The level-up UI now supplies the 3.5 spell reference index to class-feature planning and final application, matching the unit-tested integration path.
+- Dread Necromancer Advanced Learning is fixed; only evil-familiar companion state remains before promotion.
+- Current tracker totals: **44 complete / 43 needs-review / 1 source-conflict / 2 blocked / 964 pending audit / 1054 total**.
+

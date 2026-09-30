@@ -111,3 +111,12 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Firecrawl fallback usage remains zero; Supabase remains unchanged.
 - Canonical tracker totals after this checkpoint: **42 complete, 45 needs-review, 1 source-conflict, 2 blocked, 964 pending audit**.
 
+## 2026-09-29 Advanced Learning integration checkpoint
+
+- Validate modernization #1476 passed at `d7bc51975028f8788157c72268472e74d880c7bb` after repairing structured Advanced Learning metadata propagation and wiring the 3.5 spell catalog into the real level-up UI.
+- Beguiler is complete: Advanced Learning now enforces Wizard-list, school, level, and native-list exclusions; the level 6 → 7 browser path requires a valid choice and verifies permanent grant persistence after save/reopen.
+- Warmage is complete: Advanced Learning now materializes a permanent source-owned spell-access grant with source eligibility and persistence regressions.
+- Dread Necromancer remains `needs-review`: Advanced Learning is fixed, leaving only the independent evil-familiar companion-state/lifecycle blocker.
+- Firecrawl fallback usage remained zero and Supabase was not changed.
+- Canonical tracker totals: **44 complete, 43 needs-review, 1 source-conflict, 2 blocked, 964 pending audit**.
+
