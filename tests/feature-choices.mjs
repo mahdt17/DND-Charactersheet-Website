@@ -304,7 +304,8 @@ const dreadLearning=dreadAdvancePlan.groups.find(group=>group.label==='Advanced 
 assert(dreadLearning,'Dread Necromancer level 8 requests its next Advanced Learning spell');
 assert.equal(dreadLearning.choiceKind,'spell-access');
 assert(!dreadLearning.options.includes('Enervation'),'Dread Necromancer Advanced Learning excludes spells already on the native class list');
-assert(dreadLearning.options.length>0,'Dread Necromancer Advanced Learning offers at least one verified eligible necromancy spell outside the native class list');
+const dreadDebugCandidates=choiceSpells35.filter(spell=>(spell.classes||[]).some(name=>['cleric','wizard'].includes(String(name).toLowerCase()))&&/necromancy/i.test(String(spell.school?.name||spell.school||''))).slice(0,12).map(spell=>({name:spell.name,level:spell.level,classLevels:spell.classLevels,school:spell.school,referenceOnly:spell.referenceOnly,integrityIssues:spell.integrityIssues}));
+assert(dreadLearning.options.length>0,`Dread Necromancer Advanced Learning offers at least one eligible necromancy spell outside the native class list; maxSpellLevel=${dreadLearning.maxSpellLevel}; sample=${JSON.stringify(dreadDebugCandidates)}`);
 const dreadPick=dreadLearning.options[0],dreadPickRecord=choiceSpells35.find(spell=>spell.name===dreadPick);
 assert(dreadPickRecord,'Advanced Learning option resolves to a verified catalog spell');
 assert.match(String(dreadPickRecord.school?.name||dreadPickRecord.school||''),/Necromancy/i,'Advanced Learning option is a necromancy spell');
