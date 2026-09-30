@@ -136,7 +136,8 @@ assert.equal(featureChoicePlan(JSON.parse(JSON.stringify(rogueSwapApplied)),null
 const wizardSwapPlan=featureChoicePlan(swapBase(wizardSwap35,5),null);
 assert.deepEqual(wizardSwapPlan.groups.filter(group=>/^Bonus Feats?$/i.test(group.label)).map(group=>group.level),[1,5]);
 for(const group of wizardSwapPlan.groups){assert(group.options.includes('Power Attack'));assert(!group.options.includes('Alertness'));}
-const wizardGoodPicks=Object.fromEntries(wizardSwapPlan.groups.map((group,index)=>[group.id,[index?'Combat Expertise':'Power Attack']]));
+assert(wizardSwapPlan.groups.some(group=>group.choiceKind==='familiar'),'Wizard Variant retains the inherited Wizard familiar choice');
+const wizardGoodPicks=Object.fromEntries(wizardSwapPlan.groups.map((group,index)=>[group.id,[group.choiceKind==='familiar'?'Raven':index?'Combat Expertise':'Power Attack']]));
 const wizardSwapApplied=applyFeatureChoices(swapBase(wizardSwap35,5),null,wizardGoodPicks);
 assert(!wizardSwapApplied.feats.some(feat=>feat.name==='Scribe Scroll'&&feat.sourceClassId===wizardSwap35.catalogId));
 assert.equal(featureChoicePlan(JSON.parse(JSON.stringify(wizardSwapApplied)),null).groups.length,0,'Wizard Variant Fighter-list bonus feats persist across save/reopen');
