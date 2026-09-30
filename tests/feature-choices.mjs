@@ -73,6 +73,39 @@ assert(swCompanionLevel8Group.options.includes('Ape')&&!swCompanionLevel8Group.o
 const swCompanionSelected=applyFeatureChoices(companionChoiceBase(swCompanionSorcerer35,8),null,{[swCompanionLevel8Group.id]:['Ape']});
 assert.equal(swCompanionSelected.grantedFeatures.find(feature=>feature.companionName==='Ape')?.companionEffectiveDruidLevel,1);
 
+
+const rangerCompanionClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/ranger-96'),choiceReference35);
+const rangerCompanionLevel4=featureChoicePlan(companionChoiceBase(rangerCompanionClass35,4),null);
+const rangerCompanionLevel4Group=rangerCompanionLevel4.groups.find(group=>group.choiceKind==='animal-companion');
+assert(rangerCompanionLevel4Group,'Ranger companion choices use the generic companion engine');
+assert.equal(rangerCompanionLevel4Group.effectiveCompanionLevel,2,'Ranger level 4 contributes half level');
+assert(rangerCompanionLevel4Group.options.includes('Wolf'));
+assert(!rangerCompanionLevel4Group.options.includes('Ape'));
+const rangerCompanionLevel8=featureChoicePlan(companionChoiceBase(rangerCompanionClass35,8),null);
+const rangerCompanionLevel8Group=rangerCompanionLevel8.groups.find(group=>group.choiceKind==='animal-companion');
+assert.equal(rangerCompanionLevel8Group?.effectiveCompanionLevel,4);
+assert(rangerCompanionLevel8Group.options.includes('Ape')&&!rangerCompanionLevel8Group.options.includes('Dire Wolf'));
+
+for(const [sourceId,minLevel] of [['classes/adept-917',2],['classes/sorcerer-98',1],['classes/wizard-99',1]]){
+  const definition=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId===sourceId),choiceReference35);
+  const plan=featureChoicePlan(companionChoiceBase(definition,minLevel),null);
+  const familiar=plan.groups.find(group=>group.choiceKind==='familiar');
+  assert(familiar,sourceId+' exposes a guided standard familiar choice');
+  assert.equal(familiar.companionProfileId,'standard-familiar');
+  assert(familiar.options.includes('Raven')&&familiar.options.includes('Bat'));
+}
+const hexbladeCompanionClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/hexblade-19'),choiceReference35);
+const hexbladeCompanionLevel4=featureChoicePlan(companionChoiceBase(hexbladeCompanionClass35,4),null);
+const hexbladeFamiliar=hexbladeCompanionLevel4.groups.find(group=>group.choiceKind==='familiar');
+assert(hexbladeFamiliar,'Hexblade level 4 exposes its familiar');
+assert.equal(hexbladeFamiliar.effectiveCompanionLevel,1,'Hexblade contributes class level minus three');
+
+const dreadCompanionClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/dread-necromancer-75'),choiceReference35);
+const dreadCompanionLevel7=featureChoicePlan(companionChoiceBase(dreadCompanionClass35,7),null);
+const dreadFamiliar=dreadCompanionLevel7.groups.find(group=>group.choiceKind==='familiar');
+assert.deepEqual(dreadFamiliar?.options,['Imp','Quasit','Vargouille','Ghostly Visage']);
+assert.equal(dreadFamiliar?.companionProfileId,'standard-familiar');
+
 const thugChoiceClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/thug-132'),choiceReference35);
 const thugChoiceBase=(level)=>({ruleset:'3.5',mechanics:'3.5',className:'Thug',classDefinition:thugChoiceClass35,classLevels:[{name:'Thug',edition:'3.5',catalogId:thugChoiceClass35.catalogId,level,definition:thugChoiceClass35}],level,abilities:{str:14,dex:14,con:14,int:12,wis:10,cha:10},actions:[],feats:[],resources:[],trainingGrants:[],featureChoices:{}});
 assert.equal(featureChoicePlan(thugChoiceBase(1),null).groups.filter(group=>/^Bonus Feats?$/i.test(group.label)).length,0,'Thug has no level-1 Fighter bonus-feat choice');
