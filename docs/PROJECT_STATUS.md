@@ -147,3 +147,12 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Alternate source-faithful references were used for older pages whose parsed D&DTools record omitted a labeled requirements block, including Agent Retriever, Akodo Champion, and Anointed Knight.
 - Canonical tracker totals after this audit: **45 complete, 92 needs-review, 1 source-conflict, 2 blocked, 914 pending audit**.
 
+## 2026-09-29/30 prestige second 20-class source audit
+
+- Validation baseline #1481 passed at `f636202f739ca0d316697ea2854f7138947e75a9`.
+- Source-audited the next 20 pending prestige-class records with Exa + Tavily; 0 Firecrawl fallbacks and 0 Supabase writes.
+- All 20 move to explicit `needs-review`; none were promoted from successful extraction alone because reviewed summaries/training and structured prestige mechanics are absent.
+- Duplicate names remain source-independent: both Arachnomancers, both Arcane Devotees, both Arcane Tricksters, and both Archmages preserve their source/version differences.
+- Exact prestige requirements were recovered with alternate source-faithful references where the parsed page omitted fields, including Arcane Archer, Arcane Hierophant, Arcanopath Monk, Arch Psion, Ardent Dilettante, Argent Fist, Ashworm Dragoon, Astral Dancer and Atavist.
+- Canonical tracker totals: **45 complete, 112 needs-review, 1 source-conflict, 2 blocked, 894 pending audit**.
+

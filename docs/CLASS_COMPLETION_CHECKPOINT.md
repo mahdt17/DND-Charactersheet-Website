@@ -136,3 +136,10 @@ Updated: 2026-09-29 (America/New_York)
 - The batch explicitly preserves source-specific differences for duplicate class names and records prestige prerequisites as part of completion rather than treating progression-table extraction as enough.
 - Tracker totals: **45 complete / 92 needs-review / 1 source-conflict / 2 blocked / 914 pending / 1054 total**.
 
+## 2026-09-29/30 prestige second 20-class audit
+
+- Green baseline: #1481 at `f636202f739ca0d316697ea2854f7138947e75a9`.
+- Twenty additional prestige classes moved from `pending_audit` to source-verified `needs-review` with exact prerequisite/mechanics blockers.
+- No source-complete record was marked mechanically complete without reviewed summaries, automation and regression evidence.
+- Tracker totals: **45 complete / 112 needs-review / 1 source-conflict / 2 blocked / 894 pending / 1054 total**.
+
