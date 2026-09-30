@@ -129,3 +129,10 @@ Updated: 2026-09-29 (America/New_York)
 - Miniatures Handbook Warmage promoted through the source-equivalence invariant; 21 classes moved from `pending_audit` to source-verified `needs-review` with explicit subsystem blockers.
 - Current canonical tracker totals: **45 complete / 72 needs-review / 1 source-conflict / 2 blocked / 934 pending audit / 1054 total**.
 
+## 2026-09-29/30 prestige 20-class audit
+
+- Baseline #1480 at `9325426767c8e9e39724883243815a9b9faef238` was green before this data-only audit.
+- Twenty prestige-class records were moved from `pending_audit` to source-verified `needs-review` with exact entry/mechanics blockers.
+- The batch explicitly preserves source-specific differences for duplicate class names and records prestige prerequisites as part of completion rather than treating progression-table extraction as enough.
+- Tracker totals: **45 complete / 92 needs-review / 1 source-conflict / 2 blocked / 914 pending / 1054 total**.
+

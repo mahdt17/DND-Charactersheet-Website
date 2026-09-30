@@ -138,3 +138,12 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Supabase remains unchanged.
 - Canonical tracker totals after this batch: **45 complete, 72 needs-review, 1 source-conflict, 2 blocked, 934 pending audit**.
 
+## 2026-09-29/30 prestige 20-class source audit
+
+- Green validation baseline before audit: #1480 at `9325426767c8e9e39724883243815a9b9faef238`.
+- Source-audited 20 previously pending prestige-class records using Exa discovery plus Tavily exact-page extraction; 0 Firecrawl fallbacks and 0 Supabase writes.
+- No class was promoted from source completeness alone. All 20 move to explicit `needs-review` because prestige prerequisites and/or class-specific structured mechanics are not yet fully automated.
+- Same-name source records (Acolyte of the Skin, Alienist, Animal Lord) remain independent because their source requirements/progression differ materially; no name-based inheritance was used.
+- Alternate source-faithful references were used for older pages whose parsed D&DTools record omitted a labeled requirements block, including Agent Retriever, Akodo Champion, and Anointed Knight.
+- Canonical tracker totals after this audit: **45 complete, 92 needs-review, 1 source-conflict, 2 blocked, 914 pending audit**.
+
