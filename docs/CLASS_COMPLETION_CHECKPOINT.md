@@ -159,3 +159,11 @@ Updated: 2026-09-29 (America/New_York)
 - Exa discovery + Tavily exact extraction were used across the batch; Firecrawl fallback searches on ambiguous same-name pairs returned no additional usable pages, and Supabase was not written.
 - Duplicate-name source versions remain independent, and Bloodscaled Fury is explicitly locked to the source-faithful BAB +22 requirement.
 - Tracker totals: **45 complete / 207 needs-review / 1 source-conflict / 2 blocked / 799 pending / 1054 total**.
+
+## 2026-09-30 second prestige 75-class audit
+
+- Green baseline: #1484 at `e52020e104b8342cf59f29b838529ef5e447e129`.
+- **75** additional prestige-class records (**Cyre Scout → Dragonslayer**) moved from `pending_audit` to source-verified `needs-review` in one atomic source-audit checkpoint.
+- Exact source/version extraction used Tavily with Exa source-faithful recovery for omitted prerequisites. Firecrawl duplicate/source fallbacks yielded no additional usable pages; Supabase was not written.
+- Duplicate-name/version records remain independent. Dragon Rider (Dragonlance) and Dragonrider (Draconomicon) are explicitly separate.
+- Tracker totals: **45 complete / 282 needs-review / 1 source-conflict / 2 blocked / 724 pending / 1054 total**.

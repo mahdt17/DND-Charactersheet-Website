@@ -174,3 +174,12 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Same-name records remain source-independent, including Black Flame Zealot, Bladesinger, Blighter, Blood Magus, Bloodhound, Cavalier, Church Inquisitor, Consecrated Harrier, Constructor, Contemplative and Crystal Master.
 - Bloodscaled Fury preserves the verified **BAB +22** entry requirement despite a truncated "+2" summary on the exact new.dndtools page.
 - Canonical tracker totals: **45 complete, 207 needs-review, 1 source-conflict, 2 blocked, 799 pending audit**.
+
+## 2026-09-30 second prestige 75-class source audit
+
+- Green validation baseline #1484 at `e52020e104b8342cf59f29b838529ef5e447e129` (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36671735034).
+- Source-audited **75** additional pending prestige-class records, **Cyre Scout through Dragonslayer**, in one atomic checkpoint using exact-page Tavily extraction plus Exa source-faithful prerequisite recovery. Firecrawl fallback searches on ambiguous duplicate/source pairs yielded no additional usable pages. Supabase remained unchanged.
+- All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted merely because source research succeeded.
+- Same-name/source variants remain independent, including Divine Champion, Divine Disciple, Divine Oracle and Divine Seeker. Dragon Rider (Dragonlance) and Dragonrider (Draconomicon) are also kept fully separate.
+- Demonwrecker Arcane keeps its parsed prerequisite discrepancy explicit for implementation-time resolution rather than silently normalizing the record.
+- Canonical tracker totals: **45 complete, 282 needs-review, 1 source-conflict, 2 blocked, 724 pending audit**.
