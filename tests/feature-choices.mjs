@@ -296,7 +296,7 @@ assert.throws(()=>applyFeatureChoices(warlockChoice35,null,{[warlockEnergy.id]:[
 const warlockResistant=applyFeatureChoices(warlockChoice35,null,{[warlockEnergy.id]:['Fire','Cold']});
 assert(Object.values(warlockResistant.featureChoices).some(choice=>choice.feature==='Energy Resistance'&&choice.choices?.length===2));
 
-const dreadReviewedClass35={name:'Dread Necromancer',edition:'3.5',sourceId:'classes/dread-necromancer-75',catalogId:'dndtools:classes/dread-necromancer-75',sourceUrl:'https://new.dndtools.org/classes/dread-necromancer-75',progression:[['Class Level','Special'],['4th','Advanced learning'],['7th','Summon familiar'],['8th','Advanced learning']]};
+const dreadReviewedClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/dread-necromancer-75'),choiceReference35);
 const dreadReviewed8={...legacyChoice,className:'Dread Necromancer',classDefinition:dreadReviewedClass35,classLevels:[{name:'Dread Necromancer',edition:'3.5',catalogId:dreadReviewedClass35.catalogId,level:8,definition:dreadReviewedClass35}],level:8};
 const dreadReviewedBefore={...dreadReviewed8,classLevels:[{...dreadReviewed8.classLevels[0],level:7}],level:7};
 const dreadAdvancePlan=featureChoicePlan(dreadReviewed8,dreadReviewedBefore,{}, {spells:choiceSpells35});
