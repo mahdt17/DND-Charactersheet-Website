@@ -3224,7 +3224,15 @@
           "name": "Animal Companion (Ex)",
           "level": 1,
           "referencedSourceId": "classes/druid-92",
-          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion"
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion",
+          "choiceKind": "animal-companion",
+          "choiceCount": 1,
+          "companionRelationshipType": "animal-companion",
+          "companionProfileId": "druid-animal-companion",
+          "companionContribution": {
+            "mode": "full"
+          },
+          "companionChoiceRequired": true
         },
         {
           "name": "Nature Sense (Ex)",
@@ -3277,7 +3285,17 @@
           "name": "Animal Companion (Ex)",
           "level": 1,
           "referencedSourceId": "classes/druid-92",
-          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion"
+          "referencedSourceUrl": "https://www.d20srd.org/srd/classes/druid.htm#animalCompanion",
+          "choiceKind": "animal-companion",
+          "choiceCount": 1,
+          "companionRelationshipType": "animal-companion",
+          "companionProfileId": "druid-animal-companion",
+          "companionContribution": {
+            "mode": "fraction",
+            "numerator": 1,
+            "denominator": 2
+          },
+          "companionChoiceRequired": true
         }
       ],
       "verified": true,

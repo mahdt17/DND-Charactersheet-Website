@@ -556,7 +556,7 @@ function coalesceFeatures(row){
       current.history.push(history);
       if(description&&description.length>(current.description||'').length)current.description=description;
       if(feature.progressionText)current.progressionText=feature.progressionText;
-      for(const field of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','spellLists','spellSchools','actionType','actionTypeByLevel','resource','reviewedSourceUrl'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
+      for(const field of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','companionRelationshipType','companionProfileId','companionContribution','companionChoiceRequired','companionExceptions','companionDefaultCreatureId','companionTemplate','spellLists','spellSchools','actionType','actionTypeByLevel','resource','reviewedSourceUrl'])if(current[field]==null&&feature[field]!=null)current[field]=feature[field];
     }
   }
   return [...map.values()].sort((a,b)=>a.level-b.level||a.name.localeCompare(b.name));
