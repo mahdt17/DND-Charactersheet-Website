@@ -134,7 +134,7 @@ function CharacterSheet({char,patchCharacter,back,levelUp,roll:rawRoll,show,remo
   const exhaustion=exhaustionLevel(char),effects=conditionEffects(char),passivePerception=10+modifier(abilities.wis)+(char.expertise?.Perception?2:char.skillProf.Perception?1:0)*pb;
   const classFeatureRows=is35(char)?(classFeatures(char)||grantedClassFeatures(char)):((char.grantedFeatures?.length?char.grantedFeatures:null)||classFeatures(char)||grantedClassFeatures(char));
   const featureFeatCatalog=useReferenceIndex((tab==='features'||tab==='feats')&&is35(char)?['feats','spells']:[],'3.5');
-  const featCatalogEntries=featureFeatCatalog.entries.filter(entry=>/feat/i.test(entry.category||'')),featSpellEntries=featureFeatCatalog.entries.filter(entry=>entry.category==='spell');
+  const featCatalogEntries=featureFeatCatalog.entries.filter(entry=>/feat/i.test(entry.category||'')),featSpellEntries=[...homebrew.filter(entry=>entry.category==='spell'),...featureFeatCatalog.entries.filter(entry=>entry.category==='spell')];
   const featByName=new Map(featCatalogEntries.map(feat=>[feat.name.toLocaleLowerCase(),feat]));
   const featById=new Map(featCatalogEntries.map(feat=>[feat.catalogId||feat.id,feat]));
   function roll(expression,label,options={}){const kind=options.kind||(/attack/i.test(label||'')?'attack':/saving throw| save$/i.test(label||'')?'save':'check');const d20=kind!=='damage'&&!/damage|healing/i.test(label||'')&&/^1d20(?:[+-]\d+)?$/.test(expression);return rawRoll(expression,label,{...options,disadvantage:d20&&(kind==='attack'?effects.attackDisadvantage:kind==='save'?effects.saveDisadvantage:effects.checkDisadvantage),penalty:d20?effects.penalty:0});}
