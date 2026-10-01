@@ -463,4 +463,44 @@ assert.equal(
 );
 console.log('PASS optional replacement picks are skippable but complete when enabled');
 
+const lowChaHexMissed=baseCharacter('classes/hexblade-19','Hexblade',5,11);
+assert.equal(spellAcquisitionEvents35(lowChaHexMissed,{
+  classId:'dndtools:classes/hexblade-19',previousClassLevel:4,targetClassLevel:5
+}).filter(event=>event.kind==='choose-known-spells').length,0,'still-insufficient Charisma does not create the footnoted Hexblade spells');
+
+const raisedChaHex={
+  ...lowChaHexMissed,
+  abilities:{...lowChaHexMissed.abilities,cha:12},
+  spellAcquisition35:{
+    'dndtools:classes/hexblade-19':{profileId:'hexblade-35',classLevel:4,active:true,orphaned:false,acquisitions:[]}
+  }
+};
+const raisedChaEvents=spellAcquisitionEvents35(raisedChaHex,{
+  classId:'dndtools:classes/hexblade-19',previousClassLevel:4,targetClassLevel:5
+});
+assert.deepEqual(
+  raisedChaEvents.filter(event=>event.kind==='choose-known-spells').map(event=>[event.spellLevel,event.count]),
+  [[1,2]],
+  'raising Charisma later backfills a newly legal missing Hexblade known-spell quota'
+);
+
+const partialHex={
+  ...raisedChaHex,
+  spellAcquisition35:{
+    'dndtools:classes/hexblade-19':{
+      profileId:'hexblade-35',classLevel:4,active:true,orphaned:false,
+      acquisitions:[{id:'hex-known-one',spellKey:'spell:one',spellName:'One',spellLevel:1,active:true,affectsQuota:true,origin:'level-up'}]
+    }
+  }
+};
+assert.deepEqual(
+  spellAcquisitionEvents35(partialHex,{
+    classId:'dndtools:classes/hexblade-19',previousClassLevel:4,targetClassLevel:5
+  }).filter(event=>event.kind==='choose-known-spells').map(event=>[event.spellLevel,event.count]),
+  [[1,1]],
+  'backfill events request only the still-missing quota'
+);
+console.log('PASS known-table acquisition events backfill a newly legal missing quota');
+
+
 
