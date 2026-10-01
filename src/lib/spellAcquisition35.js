@@ -343,7 +343,7 @@ export function reconcileSpellAcquisition35(character){
   }
 
   for(const [key,rawBucket] of Object.entries({...state})){
-    const bucket=cloneBucket(rawBucket),classId=bucket.classId||key,profile=profileData(bucket.profileId)||spellAcquisitionProfile35(classId);
+    const bucket=cloneBucket(rawBucket),classId=bucket.classId||key,rawProfile=profileData(bucket.profileId),profile=rawProfile?{id:bucket.profileId,...rawProfile}:spellAcquisitionProfile35(classId);
     if(!profile)continue;
     const row=activeClasses.get(cleanId(classId));
     if(!row){
