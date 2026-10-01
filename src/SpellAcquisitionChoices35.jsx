@@ -36,7 +36,7 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
         };
         return <div key={key}>
           <p className="l-notice">Automatic level 0 spellbook entries: {cantrips.length} legal Wizard spells will be added when you finish creation.</p>
-          <SpellPicker label="Starting Wizard level 1 spells" spells={first} selected={selected} limit={event.firstLevelChoices} onToggle={toggle}/>
+          <SpellPicker label="Starting spells" spells={first} selected={selected} limit={event.firstLevelChoices} onToggle={toggle}/>
         </div>;
       }
       if(event.kind==='wizard-free-spellbook-additions'){
