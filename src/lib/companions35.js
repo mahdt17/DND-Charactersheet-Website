@@ -73,10 +73,26 @@ function relationshipKey(feature){
   if(relation==='familiar'||relation==='animal-companion')return relation+':'+profile;
   return relation+':'+profile+':'+String(feature.sourceClassId||'class')+':'+String(feature.sourceFeatureId||feature.name||'feature');
 }
-function lifecycleRule(relationshipType){
-  if(relationshipType==='familiar')return {replacementCondition:'year-and-a-day',restrictionText:'A dead or dismissed familiar cannot be replaced until a year and a day of campaign time has passed.',available:true};
+function lifecycleRule(relationshipType,profileId){
+  if(relationshipType==='familiar')return {
+    replacementCondition:'year-and-a-day',
+    restrictionText:'A dead or dismissed familiar cannot be replaced until a year and a day of campaign time has passed.',
+    consequenceText:'The source also calls for a DC 15 Fortitude save to reduce the master’s XP loss; record XP manually if your campaign tracks it.',
+    available:true
+  };
   if(relationshipType==='animal-companion')return {replacementCondition:'24-hours-prayer',restrictionText:'A released or lost animal companion can be replaced after 24 uninterrupted hours of campaign-time prayer.',available:true};
-  if(relationshipType==='special-mount')return {replacementCondition:'30-days-or-paladin-level',restrictionText:'A lost special mount is unavailable for 30 campaign days or until the paladin gains a level, whichever comes first.',available:true,called:false};
+  if(relationshipType==='special-mount')return {
+    replacementCondition:'30-days-or-paladin-level',
+    restrictionText:'A lost special mount is unavailable for 30 campaign days or until the paladin gains a level, whichever comes first.',
+    consequenceText:'During this period the paladin takes the source-defined penalty associated with losing the mount.',
+    available:true,called:false
+  };
+  if(profileId==='healer-companion')return {
+    replacementCondition:'30-days-or-healer-level',
+    restrictionText:'A dead healer companion is unavailable for 30 campaign days or until the healer gains a level, whichever comes first.',
+    consequenceText:'During this period the healer takes a -4 penalty on attack rolls and weapon damage rolls.',
+    available:true,called:false
+  };
   return {replacementCondition:'source-defined',restrictionText:'Use the source-defined replacement condition for this companion.',available:true};
 }
 function baseCreatureFor(name,id){
@@ -221,7 +237,7 @@ export function reconcileCompanions35(character){
       ?'Missing source-locked creature record for '+(selectedName||baseCreatureId||'selected companion')+'.'
       :distinctSelections.length>1?'Conflicting companion selections exist for one shared relationship.':'';
     if(incompleteReason)incompleteReasons.push(incompleteReason);
-    const lifecycle={...lifecycleRule(relationshipType),...(old?.lifecycle||{})};
+    const lifecycle={...lifecycleRule(relationshipType,profileId),...(old?.lifecycle||{})};
     automatic.push({
       id,groupKey:group.key,automatic:true,edition:'3.5',relationshipType,profileId,
       name:old?.name||selectedName||base?.name||'Companion',sourceCreatureName:selectedName||base?.name||'',
@@ -249,14 +265,14 @@ export function reconcileCompanions35(character){
 export function transitionCompanion35(character,companionId,event,options={}){
   const companions=safeArray(character?.companions).map(companion=>{
     if(companion?.id!==companionId)return companion;
-    const baseLifecycle={...lifecycleRule(companion.relationshipType),...(companion.lifecycle||{})};
+    const baseLifecycle={...lifecycleRule(companion.relationshipType,companion.profileId),...(companion.lifecycle||{})};
     if(event==='mark-dead')return {...companion,status:'dead',lifecycle:{...baseLifecycle,available:false,reason:'dead'}};
     if(event==='release')return {...companion,status:'released',lifecycle:{...baseLifecycle,available:false,reason:'released'}};
     if(event==='dismiss')return {...companion,status:'dismissed',lifecycle:{...baseLifecycle,available:false,reason:'dismissed'}};
     if(event==='confirm-replacement-available')return {...companion,lifecycle:{...baseLifecycle,available:true,reason:null}};
     if(event==='restore')return {...companion,status:'active',lifecycle:{...baseLifecycle,available:true,reason:null}};
     if(event==='call')return {...companion,status:'active',lifecycle:{...baseLifecycle,called:true}};
-    if(event==='uncall')return {...companion,status:'uncalled',lifecycle:{...baseLifecycle,called:false}};
+    if(event==='uncall')return {...companion,status:'active',lifecycle:{...baseLifecycle,called:false}};
     return companion;
   });
   return {...character,companions};
