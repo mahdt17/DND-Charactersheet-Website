@@ -383,6 +383,63 @@ export function reconcileSpellAcquisition35(character){
     };
   }
 
+  // Synchronize structured feat-owned acquisitions before class quota/rule validation.
+  const featSelections=[];
+  for(const feat of Array.isArray(character?.feats)?character.feats:[]){
+    const choices=feat?.spellAcquisitionChoices35;
+    if(!choices||!['known-spell','spellbook-entry'].includes(choices.effect)||!choices.targetClassId)continue;
+    for(const entry of Array.isArray(choices.entries)?choices.entries:[]){
+      const keyValue=runtimeSpellKey(entry),instanceId=String(feat.id||feat.catalogId||feat.name||'');
+      if(!keyValue||!instanceId)continue;
+      featSelections.push({
+        targetClassId:choices.targetClassId,
+        feat,
+        entry,
+        id:'feat-acquisition:'+instanceId+':'+keyValue,
+        spellKey:keyValue
+      });
+    }
+  }
+  const desiredFeatIds=new Set(featSelections.map(item=>item.id));
+  for(const [stateKey,bucketRaw] of Object.entries(state)){
+    const bucket=cloneBucket(bucketRaw);
+    bucket.acquisitions=(bucket.acquisitions||[]).filter(acquisition=>acquisition.origin!=='feat'||desiredFeatIds.has(acquisition.id));
+    state[stateKey]=bucket;
+  }
+  for(const selection of featSelections){
+    const profile=spellAcquisitionProfile35(selection.targetClassId);
+    if(!profile)continue;
+    const stateKey=exactStateKey(state,selection.targetClassId);
+    const existing=cloneBucket(state[stateKey]);
+    const row=activeClassRows(character).find(item=>cleanId(item.catalogId||item.definition?.catalogId||item.definition?.id||item.definition?.sourceId||'')===cleanId(selection.targetClassId));
+    if(!row)continue;
+    const acquisitions=existing.acquisitions||[];
+    const next={
+      id:selection.id,
+      spellKey:selection.spellKey,
+      spellName:String(selection.entry?.name||''),
+      spellLevel:Number(selection.entry?.level),
+      acquiredAtClassLevel:Math.max(1,Number(row.level)||1),
+      origin:'feat',
+      sourceEventId:'feat:'+String(selection.feat.id||selection.feat.catalogId||selection.feat.name||''),
+      sourceFeatId:String(selection.feat.catalogId||selection.feat.sourceId||''),
+      sourceFeatInstanceId:String(selection.feat.id||selection.feat.catalogId||selection.feat.name||''),
+      active:true,
+      affectsQuota:selection.feat.spellAcquisitionChoices35?.affectsQuota===true,
+      spell:{...selection.entry}
+    };
+    const index=acquisitions.findIndex(item=>item.id===selection.id);
+    if(index>=0)acquisitions[index]=next; else acquisitions.push(next);
+    state[stateKey]={
+      profileId:profile.id,classId:selection.targetClassId,classLevel:Math.max(1,Number(row.level)||1),
+      active:true,orphaned:false,
+      acquisitions,replacements:existing.replacements||[],campaignEntries:existing.campaignEntries||[],
+      ...existing,
+      profileId:profile.id,classId:selection.targetClassId,classLevel:Math.max(1,Number(row.level)||1),
+      active:true,orphaned:false,acquisitions
+    };
+  }
+
   for(const [key,rawBucket] of Object.entries({...state})){
     const bucket=cloneBucket(rawBucket),classId=bucket.classId||key,rawProfile=profileData(bucket.profileId),profile=rawProfile?{id:bucket.profileId,...rawProfile}:spellAcquisitionProfile35(classId);
     if(!profile)continue;
