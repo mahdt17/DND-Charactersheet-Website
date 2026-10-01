@@ -132,6 +132,9 @@ try{
   assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
   await next();
   await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  const pendingWizardChoices=page.getByRole('button',{name:'Save level and choices',exact:true});
+  assert.equal(await pendingWizardChoices.count(),0,'Wizard 2 must not open a new class-feature choice dialog');
+  assert.deepEqual(errors,[],'Wizard level-up must not throw a browser runtime error');
   await page.locator('.sheet-identity').filter({hasText:'LEVEL 2'}).waitFor();
   const wizardLevel2Saved=await saved(wizardName);
   const wizardLevel2Bucket=wizardLevel2Saved.spellAcquisition35[wizardKey];
