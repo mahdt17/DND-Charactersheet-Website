@@ -348,6 +348,12 @@ The existing `char.spells` collection remains the runtime spell list consumed by
 
 Acquisition state becomes the authoritative provenance/ownership source for acquisition-profile classes, while `char.spells` remains a derived/runtime representation.
 
+Synchronization must be deterministic and idempotent:
+- every active acquisition produces at most one runtime spell entry for its source class;
+- runtime spell removal must not erase acquisition history unless the corresponding acquisition event is explicitly removed/corrected;
+- preparation flags live on the runtime spell entry and must survive reconciliation when the acquisition remains valid;
+- reconciliation must never duplicate a spell because it is both present in `char.spells` and represented in acquisition state.
+
 Avoid a wholesale migration of unrelated modern-edition spell data.
 
 ## Wizard Details
@@ -440,7 +446,9 @@ This is different from campaign Wizard acquisition.
 
 - Acquisition state is keyed by exact class/source ID.
 - Removing a class removes only source-owned acquisition records for that class.
-- Wizard copied/researched spellbook entries require a defined policy: they remain attached to that Wizard acquisition profile while the class exists; if the Wizard class is removed, they should be preserved in an archival/correction state rather than silently deleted.
+- Wizard copied/researched spellbook entries remain attached to that exact Wizard acquisition profile while the class exists.
+- If that Wizard class is removed, its acquisition record remains persisted with `active: false` and `orphaned: true`; its source-owned runtime `char.spells` entries are removed from active casting/preparation views, but the acquisition history is preserved for correction/re-adding the class.
+- Re-adding the same exact Wizard source record may reactivate compatible preserved acquisition history after normal legality reconciliation; it must not silently reactivate illegal or prohibited-school entries.
 - Spells granted by feats, domains, subclasses, other classes, or custom spell-access grants must remain intact.
 - Two spellcasting classes that can legally access the same spell may each own their own acquisition record; runtime spell display may coalesce only if provenance remains recoverable.
 
