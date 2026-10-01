@@ -71,10 +71,10 @@ try{
   const wizRegion=page.getByRole('region',{name:'3.5 spell acquisition choices',exact:true});
   await wizRegion.waitFor();
   assert.match(await wizRegion.innerText(),/Automatic level 0 spellbook entries:/);
-  assert.equal(await wizRegion.getByRole('heading',{name:'Starting Wizard level 1 spells',exact:true}).count(),1);
+  assert.equal(await wizRegion.getByRole('heading',{name:'Starting spells',exact:true}).count(),1);
   assert.equal(await wizRegion.getByRole('button',{name:/Select Charm Person/}).count(),0,'prohibited Enchantment is excluded from Wizard acquisition options');
   assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
-  for(const name of ['Magic Missile','Mage Armor','Shield','Grease'])await selectSpell('Starting Wizard level 1 spells',name);
+  for(const name of ['Magic Missile','Mage Armor','Shield','Grease'])await selectSpell('Starting spells',name);
   assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'INT 12 Wizard requires exactly four starting 1st-level spellbook choices');
   await next();
   await page.getByLabel('Wizard 1 Familiar: Raven',{exact:true}).check();
