@@ -363,6 +363,11 @@ const sorcStartPicks=Object.fromEntries(sorcererStartEvents.map(event=>[
   Array.from({length:event.count},(_,i)=>'spell-'+event.spellLevel+'-'+i)
 ]));
 assert.equal(spellAcquisitionPicksComplete35(sorcererStartEvents,sorcStartPicks),true);
+assert.equal(
+  spellAcquisitionPicksComplete35(sorcererStartEvents,sorcStartPicks,new Set(['spell-0-0','spell-0-1','spell-0-2','spell-0-3','spell-1-0'])),
+  false,
+  'stale spell picks become incomplete when legality changes'
+);
 
 const wizardStartEvents=spellAcquisitionEvents35(wizardOwnership,{
   classId:wizardId,previousClassLevel:0,targetClassLevel:1
