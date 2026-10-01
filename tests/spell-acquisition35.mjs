@@ -571,7 +571,7 @@ assert.equal(
   copied.spellAcquisition35[wizardId].acquisitions.filter(x=>x.origin==='wizard-free-level-up').length,
   'campaign spellbook additions never consume the two-free-spells-per-level quota'
 );
-console.log('PASS Wizard campaign spellbook acquisition provenance and legality');\n
+console.log('PASS Wizard campaign spellbook acquisition provenance and legality');
 
 const duskbladeId='dndtools:classes/duskblade-102';
 const duskbladeProfile=spellAcquisitionProfile35(duskbladeId);
