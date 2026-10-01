@@ -15,7 +15,8 @@ const {
   validateSpellReplacement35,
   reconcileSpellAcquisition35,
   applySpellAcquisitionEvent35,
-  activeAcquiredSpells35
+  activeAcquiredSpells35,
+  spellAcquisitionPicksComplete35
 } = engine;
 
 assert.equal(SPELL_ACQUISITION35_VERSION, 1);
@@ -345,3 +346,56 @@ const excessReconciled=reconcileSpellAcquisition35(excess);
 assert(excessReconciled.spellAcquisition35Incomplete.some(entry=>entry.classId==='dndtools:classes/sorcerer-98'&&entry.reasons.some(reason=>/quota exceeded/i.test(reason))));
 
 console.log('PASS persisted 3.5 spell acquisition reconciliation, multiclass ownership, archival, and runtime synchronization');
+
+
+const sorcerer1=baseCharacter('classes/sorcerer-98','Sorcerer',1,18);
+const sorcererStartEvents=spellAcquisitionEvents35(sorcerer1,{
+  classId:'dndtools:classes/sorcerer-98',previousClassLevel:0,targetClassLevel:1
+});
+assert.deepEqual(
+  sorcererStartEvents.filter(event=>event.kind==='choose-known-spells').map(event=>[event.spellLevel,event.count]),
+  [[0,4],[1,2]],
+  'Level-1 Sorcerer setup requires exact source-table known-spell counts'
+);
+assert.equal(spellAcquisitionPicksComplete35(sorcererStartEvents,{}),false);
+const sorcStartPicks=Object.fromEntries(sorcererStartEvents.map(event=>[
+  event.eventId,
+  Array.from({length:event.count},(_,i)=>'spell-'+event.spellLevel+'-'+i)
+]));
+assert.equal(spellAcquisitionPicksComplete35(sorcererStartEvents,sorcStartPicks),true);
+
+const wizardStartEvents=spellAcquisitionEvents35(wizardOwnership,{
+  classId:wizardId,previousClassLevel:0,targetClassLevel:1
+});
+assert.equal(wizardStartEvents.length,1);
+assert.equal(spellAcquisitionPicksComplete35(wizardStartEvents,{}),false);
+assert.equal(spellAcquisitionPicksComplete35(wizardStartEvents,{
+  [wizardStartEvents[0].eventId]:{firstLevel:Array.from({length:wizardStartEvents[0].firstLevelChoices},(_,i)=>'wizard-first-'+i)}
+}),true);
+
+const hexblade1=baseCharacter('classes/hexblade-19','Hexblade',1,18);
+assert.deepEqual(spellAcquisitionEvents35(hexblade1,{
+  classId:'dndtools:classes/hexblade-19',previousClassLevel:0,targetClassLevel:1
+}),[],'Hexblade level 1 has no spell acquisition');
+
+const wizardStartEvent=wizardStartEvents[0];
+const legalCantrip=spell('dndtools:spells/acid-splash','Acid Splash',0,['Wizard'],'Conjuration');
+const legalFirst=spell('dndtools:spells/magic-missile','Magic Missile',1,['Wizard'],'Evocation');
+const illegalFirst=spell('dndtools:spells/charm-person','Charm Person',1,['Wizard'],'Enchantment');
+const wizardWithProhibition={
+  ...wizardOwnership,
+  classLevels:[{catalogId:wizardId,name:'Wizard',edition:'3.5',level:1}],
+  level:1,
+  spells:[],
+  spellAcquisition35:{},
+  legacyCastingChoices:{[wizardId]:{school:'Evocation',prohibited:['Enchantment','Necromancy']}}
+};
+assert.throws(()=>applySpellAcquisitionEvent35(wizardWithProhibition,wizardStartEvent,{
+  cantrips:[legalCantrip],
+  firstLevel:[
+    illegalFirst,
+    ...Array.from({length:wizardStartEvent.firstLevelChoices-1},(_,i)=>spell('spell:legal-'+i,'Legal '+i,1,['Wizard'],'Evocation'))
+  ]
+}),/prohibited/i,'engine rejects prohibited Wizard starting spells even if malformed UI submits one');
+
+console.log('PASS 3.5 guided setup acquisition requirements and prohibited-school validation');
