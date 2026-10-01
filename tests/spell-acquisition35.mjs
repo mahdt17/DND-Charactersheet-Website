@@ -12,7 +12,10 @@ const {
   spellAcquisitionProfile35,
   spellKnownLimits35,
   spellAcquisitionEvents35,
-  validateSpellReplacement35
+  validateSpellReplacement35,
+  reconcileSpellAcquisition35,
+  applySpellAcquisitionEvent35,
+  activeAcquiredSpells35
 } = engine;
 
 assert.equal(SPELL_ACQUISITION35_VERSION, 1);
@@ -185,3 +188,160 @@ assert.equal(validateSpellReplacement35(replacementCharacter, sorcReplace, {
 }).valid, false, 'replacement cannot duplicate a spell already known through the same class');
 
 console.log('PASS 3.5 spell acquisition profiles, known tables, events, and replacement rules');
+
+
+const spell = (catalogId,name,level,classes,school='Evocation') => ({
+  catalogId,name,level,classes,school,edition:'3.5',category:'spell',
+  description:name+' test spell.'
+});
+
+const sorcerer2=baseCharacter('classes/sorcerer-98','Sorcerer',2,18);
+const sorcerer2Event=spellAcquisitionEvents35(sorcerer2,{
+  classId:'dndtools:classes/sorcerer-98',
+  previousClassLevel:1,
+  targetClassLevel:2
+}).find(event=>event.kind==='choose-known-spells'&&event.spellLevel===0);
+assert(sorcerer2Event&&sorcerer2Event.count===1);
+
+const learnedDetect=applySpellAcquisitionEvent35(sorcerer2,sorcerer2Event,[
+  spell('dndtools:spells/detect-magic','Detect Magic',0,['Sorcerer'],'Divination')
+]);
+const learnedBucket=learnedDetect.spellAcquisition35['dndtools:classes/sorcerer-98'];
+assert.equal(learnedBucket.profileId,'sorcerer-35');
+assert.equal(learnedBucket.classLevel,2);
+assert.equal(learnedBucket.acquisitions.length,1);
+assert.equal(learnedBucket.acquisitions[0].origin,'level-up');
+assert.equal(learnedBucket.acquisitions[0].sourceEventId,sorcerer2Event.eventId);
+assert.equal(learnedBucket.acquisitions[0].spellLevel,0);
+assert.equal(learnedBucket.acquisitions[0].affectsQuota,true);
+
+const reconciledKnown=reconcileSpellAcquisition35(learnedDetect);
+assert.equal(reconciledKnown.spells.length,1);
+assert.equal(reconciledKnown.spells[0].name,'Detect Magic');
+assert.equal(reconciledKnown.spells[0].castingClassId,'dndtools:classes/sorcerer-98');
+assert.deepEqual(reconciledKnown.spells[0].spellAcquisitionIds,[learnedBucket.acquisitions[0].id]);
+assert.equal(reconciledKnown.spells[0].prepared,true,'known-table spells are castable without preparation');
+const reconciledAgain=reconcileSpellAcquisition35(reconciledKnown);
+assert.deepEqual(reconciledAgain.spells,reconciledKnown.spells,'reconciliation is idempotent');
+
+const preparedWizardSpell=spell('dndtools:spells/magic-missile','Magic Missile',1,['Wizard'],'Evocation');
+const wizardId='dndtools:classes/wizard-99';
+const wizardOwnership={
+  ruleset:'3.5',level:3,abilities:{int:18,cha:10,wis:10},
+  classLevels:[{catalogId:wizardId,name:'Wizard',edition:'3.5',level:3}],
+  spells:[{...preparedWizardSpell,id:'runtime-mm',castingClassId:wizardId,prepared:true}],
+  spellAcquisition35:{
+    [wizardId]:{
+      profileId:'wizard-35',classLevel:3,active:true,orphaned:false,
+      acquisitions:[{
+        id:'wizard-mm',spellKey:preparedWizardSpell.catalogId,spellName:preparedWizardSpell.name,spellLevel:1,
+        acquiredAtClassLevel:1,origin:'starting',sourceEventId:'wizard-start',active:true,affectsQuota:false,spell:preparedWizardSpell
+      }],
+      replacements:[],campaignEntries:[]
+    }
+  }
+};
+const wizardReconciled=reconcileSpellAcquisition35(wizardOwnership);
+assert.equal(wizardReconciled.spells.length,1,'legacy runtime row is adopted instead of duplicated');
+assert.equal(wizardReconciled.spells[0].id,'runtime-mm');
+assert.equal(wizardReconciled.spells[0].prepared,true,'prepared flag survives reconciliation');
+assert.deepEqual(wizardReconciled.spells[0].spellAcquisitionIds,['wizard-mm']);
+
+const sharedSpell=spell('dndtools:spells/arcane-mark','Arcane Mark',0,['Sorcerer','Wizard'],'Universal');
+const multi={
+  ruleset:'3.5',level:4,abilities:{int:18,cha:18,wis:10},
+  classLevels:[
+    {catalogId:'dndtools:classes/sorcerer-98',name:'Sorcerer',edition:'3.5',level:2},
+    {catalogId:wizardId,name:'Wizard',edition:'3.5',level:2}
+  ],
+  spells:[],
+  spellAcquisition35:{
+    'dndtools:classes/sorcerer-98':{
+      profileId:'sorcerer-35',classLevel:2,active:true,orphaned:false,
+      acquisitions:[{id:'sorc-mark',spellKey:sharedSpell.catalogId,spellName:sharedSpell.name,spellLevel:0,acquiredAtClassLevel:1,origin:'starting',sourceEventId:'sorc-start',active:true,affectsQuota:true,spell:sharedSpell}]
+    },
+    [wizardId]:{
+      profileId:'wizard-35',classLevel:2,active:true,orphaned:false,
+      acquisitions:[{id:'wiz-mark',spellKey:sharedSpell.catalogId,spellName:sharedSpell.name,spellLevel:0,acquiredAtClassLevel:1,origin:'starting',sourceEventId:'wiz-start',active:true,affectsQuota:false,spell:sharedSpell}]
+    }
+  }
+};
+const multiReconciled=reconcileSpellAcquisition35(multi);
+assert.equal(multiReconciled.spells.filter(row=>row.name==='Arcane Mark').length,2,'two classes preserve independent runtime ownership');
+assert.equal(activeAcquiredSpells35(multiReconciled,wizardId).length,1);
+assert.equal(activeAcquiredSpells35(multiReconciled,'dndtools:classes/sorcerer-98').length,1);
+
+const sameClassDuplicate={
+  ...wizardOwnership,
+  spells:[],
+  spellAcquisition35:{
+    [wizardId]:{
+      ...wizardOwnership.spellAcquisition35[wizardId],
+      acquisitions:[
+        wizardOwnership.spellAcquisition35[wizardId].acquisitions[0],
+        {...wizardOwnership.spellAcquisition35[wizardId].acquisitions[0],id:'wizard-mm-feat',origin:'feat',sourceFeatId:'feat:test',affectsQuota:false}
+      ]
+    }
+  }
+};
+const sameClassReconciled=reconcileSpellAcquisition35(sameClassDuplicate);
+assert.equal(sameClassReconciled.spells.length,1,'same class + same spell coalesces to one runtime row');
+assert.deepEqual(new Set(sameClassReconciled.spells[0].spellAcquisitionIds),new Set(['wizard-mm','wizard-mm-feat']));
+
+const unrelated=spell('dndtools:spells/bless','Bless',1,['Cleric'],'Enchantment');
+const withUnrelated=reconcileSpellAcquisition35({...wizardOwnership,spells:[
+  ...wizardOwnership.spells,
+  {...unrelated,id:'domain-bless',castingClassId:'dndtools:classes/cleric-91',auto:true,source:'Healing Domain'}
+]});
+assert(withUnrelated.spells.some(row=>row.id==='domain-bless'),'unrelated domain/feature spell survives reconciliation');
+
+const removedWizard=reconcileSpellAcquisition35({...wizardOwnership,classLevels:[
+  {catalogId:'dndtools:classes/fighter-90',name:'Fighter',edition:'3.5',level:3}
+]});
+assert.equal(removedWizard.spellAcquisition35[wizardId].active,false);
+assert.equal(removedWizard.spellAcquisition35[wizardId].orphaned,true);
+assert.equal(removedWizard.spells.some(row=>row.castingClassId===wizardId),false,'orphaned Wizard runtime spells leave active casting views');
+assert.equal(removedWizard.spellAcquisition35[wizardId].acquisitions.length,1,'Wizard acquisition history is archived, not deleted');
+
+const readdedWizard=reconcileSpellAcquisition35({...removedWizard,classLevels:[
+  {catalogId:wizardId,name:'Wizard',edition:'3.5',level:3}
+]});
+assert.equal(readdedWizard.spellAcquisition35[wizardId].active,true);
+assert.equal(readdedWizard.spellAcquisition35[wizardId].orphaned,false);
+assert(readdedWizard.spells.some(row=>row.name==='Magic Missile'),'same exact Wizard source can reactivate compatible archived history');
+
+const enchantmentSpell=spell('dndtools:spells/charm-person','Charm Person',1,['Wizard'],'Enchantment');
+const archivedEnchantment={
+  ...removedWizard,
+  spellAcquisition35:{
+    [wizardId]:{
+      ...removedWizard.spellAcquisition35[wizardId],
+      acquisitions:[{id:'wizard-charm',spellKey:enchantmentSpell.catalogId,spellName:enchantmentSpell.name,spellLevel:1,acquiredAtClassLevel:1,origin:'starting',sourceEventId:'wizard-start',active:true,affectsQuota:false,spell:enchantmentSpell}]
+    }
+  },
+  legacyCastingChoices:{[wizardId]:{school:'Evocation',prohibited:['Enchantment','Necromancy']}}
+};
+const prohibitedReadd=reconcileSpellAcquisition35({...archivedEnchantment,classLevels:[
+  {catalogId:wizardId,name:'Wizard',edition:'3.5',level:3}
+]});
+assert.equal(prohibitedReadd.spells.some(row=>row.name==='Charm Person'),false,'prohibited archived spell is not silently reactivated');
+assert(prohibitedReadd.spellAcquisition35Incomplete.some(entry=>entry.classId===wizardId&&entry.reasons.some(reason=>/prohibited/i.test(reason))));
+
+const excess={
+  ...sorcerer2,
+  spells:[],
+  spellAcquisition35:{
+    'dndtools:classes/sorcerer-98':{
+      profileId:'sorcerer-35',classLevel:2,active:true,orphaned:false,
+      acquisitions:Array.from({length:6},(_,i)=>({
+        id:'extra-'+i,spellKey:'spell:extra-'+i,spellName:'Extra '+i,spellLevel:0,acquiredAtClassLevel:1,
+        origin:'starting',sourceEventId:'start',active:true,affectsQuota:true,
+        spell:spell('spell:extra-'+i,'Extra '+i,0,['Sorcerer'],'Universal')
+      }))
+    }
+  }
+};
+const excessReconciled=reconcileSpellAcquisition35(excess);
+assert(excessReconciled.spellAcquisition35Incomplete.some(entry=>entry.classId==='dndtools:classes/sorcerer-98'&&entry.reasons.some(reason=>/quota exceeded/i.test(reason))));
+
+console.log('PASS persisted 3.5 spell acquisition reconciliation, multiclass ownership, archival, and runtime synchronization');
