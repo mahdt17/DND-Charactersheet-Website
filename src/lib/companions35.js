@@ -278,6 +278,37 @@ export function transitionCompanion35(character,companionId,event,options={}){
   return {...character,companions};
 }
 
+const selectableReplacementProfiles35=new Set(['druid-animal-companion','ranger-animal-companion','healer-companion']);
+export function companionReplacementOptions35(companion){
+  if(!companion||companion.status==='active'||companion.lifecycle?.available!==true||!selectableReplacementProfiles35.has(companion.profileId))return [];
+  return companionChoiceOptions35(companion.profileId,Math.max(0,Number(companion.effectiveMasterLevel)||0));
+}
+export function replaceCompanion35(character,companionId,selection){
+  const companion=safeArray(character?.companions).find(item=>item?.id===companionId);
+  if(!companion)throw Error('Companion replacement target is missing.');
+  const option=companionReplacementOptions35(companion).find(item=>item.name===selection);
+  if(!option)throw Error('Choose a currently legal source companion before replacing this companion.');
+  const sourceClassIds=safeArray(companion.sourceClassIds);
+  const sourceClassId=sourceClassIds[0];
+  if(!sourceClassId)throw Error('Companion replacement is missing its source class.');
+  const entries=Object.entries(character?.featureChoices||{});
+  const matching=entries.filter(([,choice])=>choice?.companionProfileId===companion.profileId&&sourceClassIds.includes(choice?.sourceClassId));
+  const choiceKey=matching[0]?.[0]||`companion-replacement:${slug35(companion.profileId)}:${slug35(sourceClassId)}`;
+  const prior=matching[0]?.[1]||{};
+  const featureChoices=Object.fromEntries(entries.filter(([key,choice])=>!(choice?.companionProfileId===companion.profileId&&sourceClassIds.includes(choice?.sourceClassId))||key===choiceKey));
+  featureChoices[choiceKey]={
+    ...prior,
+    sourceClassId,
+    feature:prior.feature||companion.sourceFeatureIds?.[0]||'Companion',
+    choices:[option.name],
+    choiceKind:prior.choiceKind||(companion.relationshipType==='animal-companion'?'animal-companion':'companion'),
+    companionProfileId:companion.profileId,
+    baseCreatureId:option.baseCreatureId,
+    levelAdjustment:option.levelAdjustment
+  };
+  return reconcileCompanions35({...character,featureChoices,companions:safeArray(character?.companions).filter(item=>item?.id!==companionId)});
+}
+
 
 export function companionMasterEffects35(character){
   const result={hpBonus:0,saveBonuses:{fort:0,ref:0,will:0},skillBonuses:{},conditionalSkillBonuses:{},languageChoices:[]};

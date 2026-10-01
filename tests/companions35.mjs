@@ -16,6 +16,8 @@ const {
   companionEffectiveLevel35,
   reconcileCompanions35,
   transitionCompanion35,
+  companionReplacementOptions35,
+  replaceCompanion35,
   companionMasterEffects35
 }=engine;
 
@@ -219,6 +221,17 @@ assert.equal(animalUp.companions[0].derivedStats.baseAttack,4,'animal companion 
 assert.deepEqual(animalUp.companions[0].derivedStats.saves,{fort:7,ref:8,will:3},'animal companion good Fort/Ref and poor Will saves advance with total HD');
 assert.deepEqual(animalUp.companions[0].derivedStats.ac,{total:17,touch:12,flatFooted:14},'Dex progression and natural armor both affect AC correctly');
 console.log('PASS bonus HD increases deterministic derived combat statistics');
+const animalReleased=transitionCompanion35(animalState,animal.id,'release');
+assert.throws(()=>replaceCompanion35(animalReleased,animal.id,'Wolf'),/legal source companion/,'replacement cannot bypass the source-defined waiting state');
+const animalReplacementReady=transitionCompanion35(animalReleased,animal.id,'confirm-replacement-available');
+assert(companionReplacementOptions35(animalReplacementReady.companions[0]).some(option=>option.name==='Wolf'));
+const animalReplaced=replaceCompanion35(animalReplacementReady,animal.id,'Wolf');
+assert.equal(animalReplaced.companions.length,1);
+assert.equal(animalReplaced.companions[0].sourceCreatureName,'Wolf');
+assert.equal(animalReplaced.companions[0].baseCreatureId,'monsters/wolf-596');
+assert.equal(animalReplaced.companions[0].status,'active');
+assert.equal(Object.values(animalReplaced.featureChoices).filter(choice=>choice.companionProfileId==='druid-animal-companion').length,1,'replacement updates the existing source choice instead of creating conflicts');
+console.log('PASS source-defined animal companion replacement changes the persisted creature choice');
 
 const familiarFeatures=[
   sourceFeature('dndtools:classes/wizard-99','Familiar','standard-familiar','familiar',{mode:'full'}),
@@ -356,6 +369,16 @@ assert.equal(healerLammasu.companions.length,1,'Healer alternative replaces rath
 assert.equal(healerLammasu.companions[0].baseCreatureId,'monsters/lammasu-355');
 assert.equal(healerLammasu.companions[0].effectiveCompanionLevel,8,'Lammasu uses healer level -4');
 assert.equal(healerLammasu.companions[0].incomplete,false);
+assert.equal(healerLammasu.companions[0].template,'celestial','Healer alternatives retain the celestial companion template marker');
+const healerDead=transitionCompanion35(healerLammasu,healerLammasu.companions[0].id,'mark-dead');
+const healerReplacementReady=transitionCompanion35(healerDead,healerDead.companions[0].id,'confirm-replacement-available');
+assert.deepEqual(companionReplacementOptions35(healerReplacementReady.companions[0]).map(option=>option.name),['Unicorn','Lammasu','Gynosphinx','Water Naga','Androsphinx','Couatl']);
+const healerCouatl=replaceCompanion35(healerReplacementReady,healerReplacementReady.companions[0].id,'Couatl');
+assert.equal(healerCouatl.companions.length,1);
+assert.equal(healerCouatl.companions[0].baseCreatureId,'monsters/couatl-48');
+assert.equal(healerCouatl.companions[0].effectiveCompanionLevel,4,'Couatl uses healer level -8 at healer 12');
+assert.equal(healerCouatl.companions[0].template,'celestial');
+assert.equal(healerCouatl.companions[0].status,'active');
 const healerCalled=transitionCompanion35(healerState,healerState.companions[0].id,'call');
 assert.equal(healerCalled.companions[0].lifecycle.called,true,'Healer companion call state is tracked');
 const healerReturned=transitionCompanion35(healerCalled,healerCalled.companions[0].id,'uncall');

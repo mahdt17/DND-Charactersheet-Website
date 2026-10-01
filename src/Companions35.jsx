@@ -1,5 +1,5 @@
-import React from 'react';
-import {transitionCompanion35} from './lib/companions35';
+import React,{useState} from 'react';
+import {transitionCompanion35,companionReplacementOptions35,replaceCompanion35} from './lib/companions35';
 
 const relationshipLabel=value=>({
   'animal-companion':'Animal Companion',
@@ -18,6 +18,7 @@ function masterBenefitText(benefit){
 }
 
 export default function Companions35({char,patch}){
+  const [replacementSelections,setReplacementSelections]=useState({});
   const companions=Array.isArray(char.companions)?char.companions:[];
   const classNames=ids=>(ids||[]).map(id=>char.classLevels?.find(row=>row.catalogId===id)?.name).filter(Boolean);
   const updateCompanion=(companionId,values)=>{
@@ -26,6 +27,11 @@ export default function Companions35({char,patch}){
   const transition=(companion,event)=>{
     const next=transitionCompanion35(char,companion.id,event);
     patch({companions:next.companions});
+  };
+  const replace=(companion,name)=>{
+    const next=replaceCompanion35(char,companion.id,name);
+    setReplacementSelections(values=>({...values,[companion.id]:''}));
+    patch({featureChoices:next.featureChoices,companions:next.companions,companionAutomation:next.companionAutomation});
   };
   return <section aria-label="Companions">
     <h2>Companions</h2>
@@ -38,6 +44,8 @@ export default function Companions35({char,patch}){
       const inactive=companion.status&&companion.status!=='active';
       const replacementBlocked=inactive&&companion.lifecycle?.available===false;
       const replacementReady=inactive&&companion.lifecycle?.available===true;
+      const replacementOptions=companionReplacementOptions35(companion);
+      const replacementSelection=replacementSelections[companion.id]||'';
       return <details className="feature-detail" open key={companion.id}>
         <summary>{companion.name}<span>{relationshipLabel(companion.relationshipType)} · {companion.status||'active'}</span></summary>
         <p><strong>{relationshipLabel(companion.relationshipType)}</strong>{sources.length?' · '+sources.join(' + '):''}</p>
@@ -73,8 +81,10 @@ export default function Companions35({char,patch}){
           {!inactive&&['special-mount','class-companion'].includes(companion.relationshipType)&&companion.lifecycle?.called===false&&<button type="button" className="l-button" aria-label={`Call ${companion.name}`} onClick={()=>transition(companion,'call')}>Call companion</button>}
           {!inactive&&['special-mount','class-companion'].includes(companion.relationshipType)&&companion.lifecycle?.called===true&&<button type="button" className="l-button" aria-label={`Return ${companion.name}`} onClick={()=>transition(companion,'uncall')}>Return companion</button>}
           {replacementBlocked&&<button type="button" className="l-button" aria-label={`Confirm ${companion.name} replacement available`} onClick={()=>transition(companion,'confirm-replacement-available')}>Confirm replacement available</button>}
-          {replacementReady&&<button type="button" className="l-button" aria-label={`Restore ${companion.name}`} onClick={()=>transition(companion,'restore')}>Restore</button>}
+          {replacementReady&&replacementOptions.length===0&&<button type="button" className="l-button" aria-label={`Restore ${companion.name}`} onClick={()=>transition(companion,'restore')}>Restore</button>}
         </div>
+        {replacementReady&&replacementOptions.length>0&&<div className="form-grid"><label className="l-field"><span>Replacement companion</span><select aria-label={`${companion.name} replacement companion`} value={replacementSelection} onChange={event=>setReplacementSelections(values=>({...values,[companion.id]:event.target.value}))}><option value="">Choose a source-legal replacement</option>{replacementOptions.map(option=><option key={option.name} value={option.name}>{option.name}</option>)}</select></label><button type="button" className="l-button primary" disabled={!replacementSelection} aria-label={replacementSelection?`Choose ${replacementSelection} as replacement for ${companion.name}`:`Choose replacement for ${companion.name}`} onClick={()=>replace(companion,replacementSelection)}>Choose replacement</button></div>}
+
         {companion.sourceUrl&&<p><a href={companion.sourceUrl} target="_blank" rel="noreferrer">Read creature source</a></p>}
       </details>;
     })}
