@@ -203,8 +203,13 @@ function acquisitionFromSpell(event,spell,{origin,affectsQuota=true,ordinal=0}={
 export function spellAcquisitionPicksComplete35(events,picks={},legalSpellIds=null){
   const legal=legalSpellIds==null?null:legalSpellIds instanceof Set?legalSpellIds:new Set(legalSpellIds);
   const validIds=selected=>!legal||selected.every(id=>legal.has(id));
-  return (Array.isArray(events)?events:[]).filter(event=>event?.required!==false).every(event=>{
+  return (Array.isArray(events)?events:[]).every(event=>{
     const value=picks?.[event.eventId||event.id];
+    if(event.kind==='optional-replacement'){
+      if(!value?.enabled)return true;
+      return Boolean(value.removedSpellKey&&value.addedSpellId)&&validIds([value.addedSpellId]);
+    }
+    if(event?.required===false)return true;
     if(event.kind==='choose-known-spells'||event.kind==='wizard-free-spellbook-additions'){
       const selected=Array.isArray(value)?value.filter(Boolean):[];
       return selected.length===Number(event.count||0)&&new Set(selected).size===selected.length&&validIds(selected);
