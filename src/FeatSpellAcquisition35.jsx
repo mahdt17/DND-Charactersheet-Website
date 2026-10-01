@@ -16,13 +16,17 @@ function withoutChoices(feat){
 
 export default function FeatSpellAcquisition35({feat,char,spells=[],onChange}){
   const initialTarget=feat?.spellAcquisitionChoices35?.targetClassId||'';
-  const initialIds=Array.isArray(feat?.spellAcquisitionChoices35?.entries)?feat.spellAcquisitionChoices35.entries.map(keyOf):[];
+  const initialIds=Array.isArray(feat?.spellAcquisitionChoices35?.entries)&&feat.spellAcquisitionChoices35.entries.length
+    ?feat.spellAcquisitionChoices35.entries.map(keyOf)
+    :Array.isArray(feat?.spellAcquisitionChoices35?.pendingSpellIds)?feat.spellAcquisitionChoices35.pendingSpellIds:[];
   const [targetClassId,setTargetClassId]=useState(initialTarget);
   const [selected,setSelected]=useState(initialIds);
 
   useEffect(()=>{
     setTargetClassId(feat?.spellAcquisitionChoices35?.targetClassId||'');
-    setSelected(Array.isArray(feat?.spellAcquisitionChoices35?.entries)?feat.spellAcquisitionChoices35.entries.map(keyOf):[]);
+    setSelected(Array.isArray(feat?.spellAcquisitionChoices35?.entries)&&feat.spellAcquisitionChoices35.entries.length
+      ?feat.spellAcquisitionChoices35.entries.map(keyOf)
+      :Array.isArray(feat?.spellAcquisitionChoices35?.pendingSpellIds)?feat.spellAcquisitionChoices35.pendingSpellIds:[]);
   },[feat?.id,feat?.spellAcquisitionChoices35]);
 
   const working=useMemo(()=>targetClassId
@@ -41,7 +45,7 @@ export default function FeatSpellAcquisition35({feat,char,spells=[],onChange}){
   const target=targetClassId||plan.targetClass?.classId||'';
   const chooseTarget=value=>{
     setTargetClassId(value);setSelected([]);
-    onChange(withoutChoices({...feat,spellAcquisitionChoices35:{targetClassId:value}}));
+    onChange({...feat,spellAcquisitionChoices35:{targetClassId:value,effect:plan.effect,affectsQuota:Boolean(plan.affectsQuota),entries:[],pendingSpellIds:[]}});
   };
   const toggle=spell=>{
     const id=keyOf(spell);
@@ -49,8 +53,8 @@ export default function FeatSpellAcquisition35({feat,char,spells=[],onChange}){
     setSelected(next);
     if(target&&next.length===plan.count){
       try{onChange(setFeatSpellAcquisitionChoices35(working,char,{targetClassId:target,spellIds:next},spells));}
-      catch{onChange(withoutChoices(working));}
-    }else onChange(withoutChoices(working));
+      catch{onChange({...working,spellAcquisitionChoices35:{targetClassId:target,effect:plan.effect,affectsQuota:Boolean(plan.affectsQuota),entries:[],pendingSpellIds:next}});}
+    }else onChange({...working,spellAcquisitionChoices35:{targetClassId:target,effect:plan.effect,affectsQuota:Boolean(plan.affectsQuota),entries:[],pendingSpellIds:next}});
   };
 
   return <section aria-label={`Feat spell acquisition · ${feat.name}`} className="feature-detail">
