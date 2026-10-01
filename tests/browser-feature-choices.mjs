@@ -123,11 +123,13 @@ try {
  assert.equal(await page.getByLabel('Dog current HP',{exact:true}).inputValue(),'6','replacement begins with its source-derived maximum HP');
  assert.equal(await page.getByLabel('Dog companion notes',{exact:true}).inputValue(),'','replacement does not inherit the former companion notes');
  assert.match(await companionsRegion.innerText(),/active/i);
+ await page.waitForTimeout(700);
+ const persistedDogReplacement=await saved(druidCompanionName);
+ assert(Object.values(persistedDogReplacement.featureChoices||{}).some(choice=>choice.companionProfileId==='druid-animal-companion'&&choice.choices?.[0]==='Dog'),'replacement persists the updated source choice after the debounced save');
  await page.getByRole('button',{name:'All characters',exact:true}).click();
  await page.locator('.character-card').filter({hasText:druidCompanionName}).getByRole('button',{name:'Open character'}).click();
  await page.getByRole('tab',{name:'Companions',exact:true}).click();
  assert.equal(await page.getByLabel('Dog current HP',{exact:true}).inputValue(),'6','replacement companion survives save/reopen');
- assert.equal((await saved(druidCompanionName)).featureChoices&&Object.values((await saved(druidCompanionName)).featureChoices).some(choice=>choice.companionProfileId==='druid-animal-companion'&&choice.choices?.[0]==='Dog'),true,'replacement persists the updated source choice');
  console.log('PASS 3.5 Druid guided Animal Companion selection, lifecycle replacement choice and save/reopen');
 
  const swCompanionName='Guided Sorcerer Wizard Companion 3.5';
