@@ -254,6 +254,21 @@ assert.equal(paladinState.companions[0]?.effectiveCompanionLevel,5);
 assert.equal(paladinState.companions[0]?.progression.bonusHD,2);
 assert.equal(paladinState.companions[0]?.lifecycle.replacementCondition,'30-days-or-paladin-level');
 
+
+const smallPaladinFeature=sourceFeature('dndtools:classes/paladin-95','Special Mount','paladin-special-mount','special-mount',{mode:'full'},{
+  companionChoiceRequired:false,
+  companionDefaultCreatureId:'monsters/warhorse-heavy-555',
+  companionDefaultCreatureByMasterSize:{Small:'monsters/pony-war-571',Medium:'monsters/warhorse-heavy-555'}
+});
+const smallPaladinState=reconcileCompanions35({
+  id:'small-paladin-owner',ruleset:'3.5',level:5,hp:{current:38,max:38,temp:0},
+  race:'Halfling',raceDefinition:{name:'Halfling',size:'Small'},
+  classLevels:[{catalogId:'dndtools:classes/paladin-95',name:'Paladin',edition:'3.5',level:5}],
+  grantedFeatures:[smallPaladinFeature],featureChoices:{},companions:[]
+});
+assert.equal(smallPaladinState.companions[0]?.baseCreatureId,'monsters/pony-war-571','Small paladin defaults to a warpony');
+assert.equal(smallPaladinState.companions[0]?.sourceCreatureName,'Warpony');
+
 const healerFeature=sourceFeature('dndtools:classes/healer-77','Unicorn Companion','healer-companion','class-companion',{mode:'full'},{
   companionChoiceRequired:false,companionDefaultCreatureId:'monsters/unicorn-500',companionTemplate:'celestial'
 });
