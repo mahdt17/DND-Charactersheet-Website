@@ -299,3 +299,19 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Promoted exactly `classes/duskblade-102`; its documented final blocker was the persisted source-specific Spells Known/replacement workflow.
 - Canonical tracker totals: **66 complete, 636 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+
+## 2026-10-01 Magewright mastered-repertoire and preparation checkpoint
+
+- Verified implementation head: `faaa79b8150a361f397957ffb0f1746756acdd91`.
+- Spell acquisition checks #75 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36941670234.
+- Companion engine checks #100 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36941670267.
+- Validate modernization #1600 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36941670249. It passed the full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, every general/specialized browser suite, guided feature-choice coverage, level-up feat coverage, fantasy presentation/dice, and production-loading checks.
+- Added a reusable `mastered-repertoire` acquisition profile for Magewright. At 1st level it records a number of mastered spells equal to the current Intelligence modifier; class levels 4, 8, 12, 16, and 20 create the source-defined mastery event using the current Intelligence modifier, with one additional 0-level spell on each post-1st event.
+- Mastery selections are persisted by exact class source, enforce current maximum spell level and ability-score legality, prevent duplicate selections, and archive/restore with the exact source class. Guided creation and level-up both persist the structured `mastered` plus `bonusCantrips` payload.
+- Magewright now uses the existing 3.5 per-slot preparation engine without being treated as a Wizard spellbook caster. Its mastered repertoire is the preparation pool, acquired runtime spells remain unprepared until placed into daily slots, and casting expends the prepared copy normally.
+- The Spells management UI keeps Magewright repertoire ownership acquisition-controlled, so users cannot bypass Spell Mastery by freely adding class spells.
+- Added engine, preparation, and end-to-end browser regressions covering trigger levels, Intelligence-scaled counts, illegal selections, persistence, source removal/restoration, creation, manual-add lockout, daily preparation, and casting.
+- Promoted exactly `classes/magewright-1029`; its tracker-recorded Spell Mastery blocker and the independently audited preparation-mode gap are both closed.
+- Canonical tracker totals: **67 complete, 635 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+

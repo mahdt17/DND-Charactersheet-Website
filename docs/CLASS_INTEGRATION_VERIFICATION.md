@@ -479,3 +479,51 @@ Verification evidence:
 Tracker impact: **66 complete, 636 needs-review, 1 source-conflict, 2 blocked,
 349 pending audit**. No Supabase schema, policy, catalog, or live character data
 was changed. Nothing was deployed or merged.
+
+## 3.5 Magewright mastered-repertoire checkpoint (2026-10-01)
+
+Magewright now has source-owned spell acquisition and prepared casting that match
+its distinct 3.5 model: a limited mastered repertoire, no spellbook, and daily
+preparation from the spells it has mastered.
+
+At class level 1, the acquisition engine requires a number of mastered spells
+equal to the Magewright's current Intelligence modifier. New Spell Mastery events
+occur at class levels 4, 8, 12, and 16 when a new spell level becomes available,
+and again at level 20. Each post-1st event also requires one additional 0-level
+spell. Event selections enforce the source-defined maximum spell level, the
+Intelligence requirement to learn/cast that spell level, distinct choices, and
+exact Magewright spell-list ownership.
+
+The mastered repertoire persists independently from runtime spell rows. Completed
+events are not duplicated on reopen, source removal archives the exact
+Magewright-owned history, and re-adding the same source restores compatible
+repertoire state. The creation and level-up adapters both preserve the structured
+`mastered` and `bonusCantrips` choice payload rather than flattening it.
+
+Magewright is also registered with the existing per-slot 3.5 preparation engine.
+Acquired repertoire spells are not marked spontaneously castable; instead they
+become candidates for daily prepared slots, and casting expends the selected
+prepared copy. The Manage Spells surface recognizes the acquisition profile and
+does not expose unrestricted manual class-spell addition.
+
+Regression coverage includes every mastery trigger, Intelligence-scaled counts,
+maximum-level and duplicate rejection, source removal/restoration, prepared-slot
+use and expenditure, plus a browser flow covering creation, persisted repertoire,
+manual-add lockout, daily preparation, and casting.
+
+Completion impact is limited to `classes/magewright-1029`, which moves from
+needs-review to complete.
+
+Verification evidence:
+- implementation head: `faaa79b8150a361f397957ffb0f1746756acdd91`
+- Spell acquisition checks #75: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36941670234
+- Companion engine checks #100: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36941670267
+- Validate modernization #1600: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36941670249
+- #1600 passed all full catalog regressions, production build, every
+  general/specialized browser suite, guided feature-choice and level-up-feat
+  coverage, fantasy presentation/dice, and production-loading checks.
+
+Tracker impact: **67 complete, 635 needs-review, 1 source-conflict, 2 blocked,
+349 pending audit**. No Supabase schema, policy, catalog, or live character data
+was changed. Nothing was deployed or merged.
+

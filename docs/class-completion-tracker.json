@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "e5bdc37d14a5801195268017a5f2fecb45e9fcdb",
+  "snapshotCommit": "faaa79b8150a361f397957ffb0f1746756acdd91",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -15349,26 +15349,29 @@
       "name": "Magewright",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/magewright-1029",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Spell Mastery repertoire acquisition and expansion when new spell levels unlock are described but not represented as structured persisted spell choices."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 exact Magewright source review verified a mastered repertoire equal to the current Intelligence modifier at 1st level and again when new spell levels unlock at class levels 4, 8, 12, and 16, plus another mastery event at 20th; each post-1st event also grants one additional 0-level spell.",
+        "Implemented a reusable mastered-repertoire spell-acquisition profile with exact source ownership, trigger-level persistence, Intelligence-scaled counts, spell-level/ability legality, duplicate prevention, source-class archival/restoration, and guided creation/level-up choices.",
+        "Magewright is now registered with the existing 3.5 per-slot preparation engine: its mastered repertoire is available for Wizard-style daily preparation without a spellbook, runtime repertoire rows are not treated as spontaneous prepared spells, and prepared copies expend normally.",
+        "Browser regression verifies real Magewright creation, persisted repertoire, manual-add lockout in Manage Spells, daily preparation, and casting/spending an acquired spell; engine regressions cover all mastery trigger levels, invalid selections, persistence, removal, and restoration.",
+        "Spell acquisition checks #75, Companion engine checks #100, and Validate modernization #1600 all passed at faaa79b8150a361f397957ffb0f1746756acdd91."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Magewright mastered-spell repertoire progression and verify creation, level-up, and save/reopen."
+      "verifiedCommit": "faaa79b8150a361f397957ffb0f1746756acdd91",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36941670249",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared spell-acquisition, legacy-preparation, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/magical-trickster-295",
@@ -26109,5 +26112,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Duskblade flexible spell-acquisition checkpoint recorded on green Spell acquisition checks #70, Companion engine checks #95, and Validate modernization #1595; classes/duskblade-102 was promoted after its final persisted Spells Known/replacement blocker was closed."
+  "lastUpdatedNote": "Magewright mastered-repertoire and prepared-casting checkpoint recorded on green Spell acquisition checks #75, Companion engine checks #100, and Validate modernization #1600; classes/magewright-1029 was promoted after its final structured Spell Mastery blocker and the audited preparation-mode gap were closed."
 }
