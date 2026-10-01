@@ -2883,12 +2883,12 @@
     {
       "name": "Animal Companion (Ex)",
       "level": 4,
-      "description": "Gain an animal companion using the druid companion rules, but your effective druid level is one-half your ranger level. Alternative companion lists use the same source-listed effective-level adjustments.",
+      "description": "At 4th level, gain an animal companion using the druid companion progression, but your effective druid level is one-half your ranger level. Standard Ranger choices include the source-listed land animals; in an aquatic campaign the DM may also allow crocodile, porpoise, Medium shark, and squid. Stronger alternatives use the normal source-listed effective-level adjustments.",
       "sourceSha256": "7de61cd35376caa0c09a173eff7dad68cdc69cefb1417a0032fe6fc4d9c72a88",
       "choiceKind": "animal-companion",
       "choiceCount": 1,
       "companionRelationshipType": "animal-companion",
-      "companionProfileId": "druid-animal-companion",
+      "companionProfileId": "ranger-animal-companion",
       "companionContribution": {
         "mode": "fraction",
         "numerator": 1,

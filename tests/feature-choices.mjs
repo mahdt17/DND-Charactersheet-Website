@@ -74,6 +74,21 @@ assert.equal(healerLammasuRecorded35?.baseCreatureId,'monsters/lammasu-355');
 assert.equal(healerLammasuRecorded35?.levelAdjustment,4);
 console.log('PASS Healer level-12 alternative companion selection is guided and source-locked');
 
+for(const rangerSourceId of ['classes/ranger-96','classes/ranger-44','classes/ranger-68','classes/ranger-108']){
+  const rangerDefinition35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId===rangerSourceId),choiceReference35);
+  const rangerCompanionPlan35=featureChoicePlan(companionChoiceBase(rangerDefinition35,4),null);
+  const rangerCompanionGroup35=rangerCompanionPlan35.groups.find(group=>group.choiceKind==='animal-companion');
+  assert(rangerCompanionGroup35,rangerSourceId+' exposes its level-4 Animal Companion choice');
+  assert.equal(rangerCompanionGroup35.companionProfileId,'ranger-animal-companion');
+  assert.equal(rangerCompanionGroup35.effectiveCompanionLevel,2);
+  assert(rangerCompanionGroup35.options.includes('Crocodile'),rangerSourceId+' includes source-defined aquatic Crocodile at Ranger 4');
+  const rangerCrocodile35=applyFeatureChoices(companionChoiceBase(rangerDefinition35,4),null,{[rangerCompanionGroup35.id]:['Crocodile']});
+  const rangerCrocodileChoice35=Object.values(rangerCrocodile35.featureChoices||{}).find(choice=>choice.companionProfileId==='ranger-animal-companion');
+  assert.equal(rangerCrocodileChoice35?.baseCreatureId,'monsters/crocodile-544');
+  assert.equal(rangerCrocodileChoice35?.levelAdjustment,0);
+}
+console.log('PASS all four source-equivalent Ranger records use the Ranger-specific source-locked companion profile');
+
 const swCompanionRaw35=choiceClasses35.find(record=>record.sourceId==='classes/sorcererwizard-variant-957');
 const swCompanionUnresolved35=annotateClassGrantKinds(swCompanionRaw35,choiceReference35);
 assert.equal(swCompanionUnresolved35.inheritanceRequired,true);

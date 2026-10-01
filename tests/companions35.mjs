@@ -135,6 +135,12 @@ const allAnimalOptions=companionChoiceOptions35('druid-animal-companion',20);
 assert.equal(allAnimalOptions.length,58,'complete PHB/SRD animal companion list is atomic after grouped-option expansion');
 for(const option of allAnimalOptions){assert(option.baseCreatureId,option.name+' must point to an exact source creature');const base=companionCreature35(option.baseCreatureId);assert(base,option.name+' source creature must exist in the companion catalog');assert.equal(base.edition,'3.5');}
 console.log('PASS every legal Druid/Ranger animal companion choice has source-locked 3.5 creature data');
+const rangerOptions2=companionChoiceOptions35('ranger-animal-companion',2);
+assert(rangerOptions2.some(x=>x.name==='Crocodile'&&x.levelAdjustment===0&&x.baseCreatureId==='monsters/crocodile-544'),'Ranger aquatic starting list includes source-locked Crocodile');
+assert(!companionChoiceOptions35('druid-animal-companion',2).some(x=>x.name==='Crocodile'),'Druid still gates Crocodile to its level-4 alternative list');
+assert(companionChoiceOptions35('druid-animal-companion',4).some(x=>x.name==='Crocodile'&&x.levelAdjustment===3),'Druid Crocodile remains a level-4 alternative with -3 adjustment');
+for(const option of companionChoiceOptions35('ranger-animal-companion',20))assert(companionCreature35(option.baseCreatureId),option.name+' Ranger companion remains source-locked');
+console.log('PASS Ranger-specific aquatic Crocodile rule is isolated from the Druid profile');
 const animalOptions4=companionChoiceOptions35('druid-animal-companion',4);
 assert(animalOptions4.some(x=>x.name==='Ape'&&x.levelAdjustment===3));
 assert(animalOptions4.some(x=>x.name==='Crocodile'));

@@ -4930,6 +4930,457 @@
           "monsters/couatl-48"
         ]
       ]
+    },
+    "ranger-animal-companion": {
+      "sourceUrl": "https://new.dndtools.org/classes/ranger-96",
+      "relationshipType": "animal-companion",
+      "stackContributions": true,
+      "choices": [
+        [
+          "Badger",
+          0,
+          0,
+          "monsters/badger-533"
+        ],
+        [
+          "Camel",
+          0,
+          0,
+          "monsters/camel-541"
+        ],
+        [
+          "Dire Rat",
+          0,
+          0,
+          "monsters/rat-dire-89"
+        ],
+        [
+          "Dog",
+          0,
+          0,
+          "monsters/dog-546"
+        ],
+        [
+          "Riding Dog",
+          0,
+          0,
+          "monsters/dog-riding-548"
+        ],
+        [
+          "Eagle",
+          0,
+          0,
+          "monsters/eagle-550"
+        ],
+        [
+          "Hawk",
+          0,
+          0,
+          "monsters/hawk-552"
+        ],
+        [
+          "Horse (Light)",
+          0,
+          0,
+          "monsters/horse-light-554"
+        ],
+        [
+          "Horse (Heavy)",
+          0,
+          0,
+          "monsters/horse-heavy-553"
+        ],
+        [
+          "Owl",
+          0,
+          0,
+          "monsters/owl-568"
+        ],
+        [
+          "Pony",
+          0,
+          0,
+          "monsters/pony-570"
+        ],
+        [
+          "Snake (Small Viper)",
+          0,
+          0,
+          "monsters/snake-viper-small-584"
+        ],
+        [
+          "Snake (Medium Viper)",
+          0,
+          0,
+          "monsters/snake-viper-medium-585"
+        ],
+        [
+          "Wolf",
+          0,
+          0,
+          "monsters/wolf-596"
+        ],
+        [
+          "Porpoise",
+          0,
+          0,
+          "monsters/porpoise-572"
+        ],
+        [
+          "Shark (Medium)",
+          0,
+          0,
+          "monsters/shark-medium-578"
+        ],
+        [
+          "Squid",
+          0,
+          0,
+          "monsters/squid-588"
+        ],
+        [
+          "Ape",
+          4,
+          3,
+          "monsters/ape-531"
+        ],
+        [
+          "Bear (black)",
+          4,
+          3,
+          "monsters/bear-black-536"
+        ],
+        [
+          "Bison",
+          4,
+          3,
+          "monsters/bison-539"
+        ],
+        [
+          "Boar",
+          4,
+          3,
+          "monsters/boar-540"
+        ],
+        [
+          "Cheetah",
+          4,
+          3,
+          "monsters/cheetah-543"
+        ],
+        [
+          "Crocodile",
+          0,
+          0,
+          "monsters/crocodile-544"
+        ],
+        [
+          "Dire Badger",
+          4,
+          3,
+          "monsters/badger-dire-84"
+        ],
+        [
+          "Dire Bat",
+          4,
+          3,
+          "monsters/bat-dire-85"
+        ],
+        [
+          "Dire Weasel",
+          4,
+          3,
+          "monsters/weasel-dire-92"
+        ],
+        [
+          "Leopard",
+          4,
+          3,
+          "monsters/leopard-558"
+        ],
+        [
+          "Lizard (monitor)",
+          4,
+          3,
+          "monsters/lizard-monitor-561"
+        ],
+        [
+          "Shark (Large)",
+          4,
+          3,
+          "monsters/shark-large-579"
+        ],
+        [
+          "Snake (constrictor)",
+          4,
+          3,
+          "monsters/snake-constrictor-581"
+        ],
+        [
+          "Snake (Large viper)",
+          4,
+          3,
+          "monsters/snake-viper-large-586"
+        ],
+        [
+          "Wolverine",
+          4,
+          3,
+          "monsters/wolverine-597"
+        ],
+        [
+          "Bear (brown)",
+          7,
+          6,
+          "monsters/bear-brown-537"
+        ],
+        [
+          "Dire Wolverine",
+          7,
+          6,
+          "monsters/wolverine-dire-94"
+        ],
+        [
+          "Crocodile (giant)",
+          7,
+          6,
+          "monsters/crocodile-giant-545"
+        ],
+        [
+          "Deinonychus",
+          7,
+          6,
+          "monsters/dinosaur-deinonychus-78"
+        ],
+        [
+          "Dire Ape",
+          7,
+          6,
+          "monsters/ape-dire-83"
+        ],
+        [
+          "Dire Boar",
+          7,
+          6,
+          "monsters/boar-dire-87"
+        ],
+        [
+          "Dire Wolf",
+          7,
+          6,
+          "monsters/wolf-dire-93"
+        ],
+        [
+          "Elasmosaurus",
+          7,
+          6,
+          "monsters/dinosaur-elasmosaurus-79"
+        ],
+        [
+          "Lion",
+          7,
+          6,
+          "monsters/lion-559"
+        ],
+        [
+          "Rhinoceros",
+          7,
+          6,
+          "monsters/rhinoceros-577"
+        ],
+        [
+          "Snake (Huge viper)",
+          7,
+          6,
+          "monsters/snake-viper-huge-587"
+        ],
+        [
+          "Tiger",
+          7,
+          6,
+          "monsters/tiger-590"
+        ],
+        [
+          "Bear (polar)",
+          10,
+          9,
+          "monsters/bear-polar-538"
+        ],
+        [
+          "Dire Lion",
+          10,
+          9,
+          "monsters/lion-dire-88"
+        ],
+        [
+          "Megaraptor",
+          10,
+          9,
+          "monsters/dinosaur-megaraptor-80"
+        ],
+        [
+          "Shark (Huge)",
+          10,
+          9,
+          "monsters/shark-huge-580"
+        ],
+        [
+          "Snake (giant constrictor)",
+          10,
+          9,
+          "monsters/snake-giant-constrictor-582"
+        ],
+        [
+          "Whale (orca)",
+          10,
+          9,
+          "monsters/whale-orca-595"
+        ],
+        [
+          "Dire Bear",
+          13,
+          12,
+          "monsters/bear-dire-86"
+        ],
+        [
+          "Elephant",
+          13,
+          12,
+          "monsters/elephant-551"
+        ],
+        [
+          "Octopus (giant)",
+          13,
+          12,
+          "monsters/octopus-giant-567"
+        ],
+        [
+          "Dire Shark",
+          16,
+          15,
+          "monsters/shark-dire-90"
+        ],
+        [
+          "Dire Tiger",
+          16,
+          15,
+          "monsters/tiger-dire-91"
+        ],
+        [
+          "Squid (giant)",
+          16,
+          15,
+          "monsters/squid-giant-589"
+        ],
+        [
+          "Triceratops",
+          16,
+          15,
+          "monsters/dinosaur-triceratops-81"
+        ],
+        [
+          "Tyrannosaurus",
+          16,
+          15,
+          "monsters/dinosaur-tyrannosaurus-82"
+        ]
+      ],
+      "progression": [
+        {
+          "minLevel": 1,
+          "bonusHD": 0,
+          "naturalArmorAdjustment": 0,
+          "strDexAdjustment": 0,
+          "bonusTricks": 1,
+          "specialAbilities": [
+            "Link",
+            "Share Spells"
+          ]
+        },
+        {
+          "minLevel": 3,
+          "bonusHD": 2,
+          "naturalArmorAdjustment": 2,
+          "strDexAdjustment": 1,
+          "bonusTricks": 2,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion"
+          ]
+        },
+        {
+          "minLevel": 6,
+          "bonusHD": 4,
+          "naturalArmorAdjustment": 4,
+          "strDexAdjustment": 2,
+          "bonusTricks": 3,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion"
+          ]
+        },
+        {
+          "minLevel": 9,
+          "bonusHD": 6,
+          "naturalArmorAdjustment": 6,
+          "strDexAdjustment": 3,
+          "bonusTricks": 4,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion",
+            "Multiattack"
+          ]
+        },
+        {
+          "minLevel": 12,
+          "bonusHD": 8,
+          "naturalArmorAdjustment": 8,
+          "strDexAdjustment": 4,
+          "bonusTricks": 5,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion",
+            "Multiattack"
+          ]
+        },
+        {
+          "minLevel": 15,
+          "bonusHD": 10,
+          "naturalArmorAdjustment": 10,
+          "strDexAdjustment": 5,
+          "bonusTricks": 6,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion",
+            "Multiattack",
+            "Improved Evasion"
+          ]
+        },
+        {
+          "minLevel": 18,
+          "bonusHD": 12,
+          "naturalArmorAdjustment": 12,
+          "strDexAdjustment": 6,
+          "bonusTricks": 7,
+          "specialAbilities": [
+            "Link",
+            "Share Spells",
+            "Evasion",
+            "Devotion",
+            "Multiattack",
+            "Improved Evasion"
+          ]
+        }
+      ]
     }
   }
 }
