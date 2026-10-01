@@ -404,3 +404,26 @@ assert.throws(()=>applySpellAcquisitionEvent35(wizardWithProhibition,wizardStart
 }),/prohibited/i,'engine rejects prohibited Wizard starting spells even if malformed UI submits one');
 
 console.log('PASS 3.5 guided setup acquisition requirements and prohibited-school validation');
+
+const wizardLevel3Character={
+  ...wizardOwnership,
+  level:3,
+  classLevels:[{catalogId:wizardId,name:'Wizard',edition:'3.5',level:3}],
+  spellAcquisition35:wizardOwnership.spellAcquisition35
+};
+const wizardLevel3Free=spellAcquisitionEvents35(wizardLevel3Character,{
+  classId:wizardId,previousClassLevel:2,targetClassLevel:3
+}).find(event=>event.kind==='wizard-free-spellbook-additions');
+assert(wizardLevel3Free);
+assert.equal(wizardLevel3Free.maxSpellLevel,2);
+const wizardFreeApplied=applySpellAcquisitionEvent35(wizardLevel3Character,wizardLevel3Free,[
+  spell('dndtools:spells/scorching-ray','Scorching Ray',2,['Wizard'],'Evocation'),
+  spell('dndtools:spells/web','Web',2,['Wizard'],'Conjuration')
+]);
+assert.equal(
+  wizardFreeApplied.spellAcquisition35[wizardId].acquisitions.filter(x=>x.origin==='wizard-free-level-up'&&x.acquiredAtClassLevel===3).length,
+  2,
+  'Wizard free level-up additions accept mixed legal spell levels up to the event maximum'
+);
+console.log('PASS Wizard free spellbook additions are not incorrectly constrained to level 0');
+
