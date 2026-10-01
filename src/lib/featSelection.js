@@ -1,5 +1,6 @@
 import {contentKey,requirements,qualified} from './advancement.js';
 import {featMagicState,featMagicProfile} from './featMagic.js';
+import {featSpellAcquisitionComplete35} from './featSpellAcquisition35.js';
 
 // Check against the character before this selection: a feat cannot satisfy its
 // own prerequisites. Existing selections are preserved, not revalidated here.
@@ -8,6 +9,7 @@ export function validFeatSelection(feat,char,{required=true}={}) {
   if(feat.integrityIssues?.length)return false;
   if(char.ruleset!=='custom'&&(feat.edition||'2014')!==(char.ruleset||'2014'))return false;
   const magic=featMagicState(feat,char);if(!magic.valid||magic.supported&&!magic.complete)return false;
+  if(!featSpellAcquisitionComplete35(feat,char))return false;
   const repeatMagic=featMagicProfile(feat,char)?.kind==='initiate'&&(feat.edition||char.ruleset)==='2024';
   if(!repeatMagic&&(char.feats||[]).some(f=>contentKey(f)===contentKey(feat)))return false;
   if(feat.source==='Homebrew'&&!feat.catalogId&&!feat.eligibilityReviewed)return false;
