@@ -55,9 +55,16 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
     if(managedAcquisition){
       acquisitionResult=acquisitionTarget;
       for(const event of acquisitionEvents.filter(event=>event.required!==false)){
-        const ids=Array.isArray(acquisitionPicks[event.eventId||event.id])?acquisitionPicks[event.eventId||event.id]:[];
-        const selection=ids.map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean);
-        acquisitionResult=applySpellAcquisitionEvent35(acquisitionResult,event,selection);
+        const value=acquisitionPicks[event.eventId||event.id];
+        if(event.kind==='magewright-spell-mastery'){
+          const mastered=(Array.isArray(value?.mastered)?value.mastered:[]).map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean);
+          const bonusCantrips=(Array.isArray(value?.bonusCantrips)?value.bonusCantrips:[]).map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean);
+          acquisitionResult=applySpellAcquisitionEvent35(acquisitionResult,event,{mastered,bonusCantrips});
+        }else{
+          const ids=Array.isArray(value)?value:[];
+          const selection=ids.map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean);
+          acquisitionResult=applySpellAcquisitionEvent35(acquisitionResult,event,selection);
+        }
       }
       for(const event of acquisitionEvents.filter(event=>event.kind==='optional-replacement')){
         const pick=acquisitionPicks[event.eventId||event.id];

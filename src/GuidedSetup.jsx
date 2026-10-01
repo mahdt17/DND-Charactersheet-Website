@@ -110,6 +110,10 @@ export default function GuidedSetup({onCancel,onFinish,homebrew:customEntries=[]
     const firstLevel=(Array.isArray(value?.firstLevel)?value.firstLevel:[]).map(id=>entries[id]).filter(Boolean);
     const cantrips=Object.values(entries).filter(spell=>Number(spell?.level)===0&&acquisitionLegalIds.has(keyOf(spell)));
     char=applySpellAcquisitionEvent35(char,event,{cantrips,firstLevel});
+   }else if(event.kind==='magewright-spell-mastery'){
+    const mastered=(Array.isArray(value?.mastered)?value.mastered:[]).map(id=>entries[id]).filter(Boolean);
+    const bonusCantrips=(Array.isArray(value?.bonusCantrips)?value.bonusCantrips:[]).map(id=>entries[id]).filter(Boolean);
+    char=applySpellAcquisitionEvent35(char,event,{mastered,bonusCantrips});
    }
   }
  }
