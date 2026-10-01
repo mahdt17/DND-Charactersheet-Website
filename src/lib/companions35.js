@@ -166,6 +166,9 @@ export function reconcileCompanions35(character){
     if(Array.isArray(exceptions.omitAbilities)&&exceptions.omitAbilities.length){
       progression={...progression,specialAbilities:(progression.specialAbilities||[]).filter(name=>!exceptions.omitAbilities.includes(name))};
     }
+    if(exceptions.deliverTouchAbilities){
+      progression={...progression,specialAbilities:[...new Set([...(progression.specialAbilities||[]),'Deliver Dread Necromancer Touch Abilities'])]};
+    }
     const derivedStats=derivedStats35(base,profileId,progression,character,exceptions);
     const maxHp=defaultHitPoints(base,profileId,character);
     const previousCurrent=Number(old?.hp?.current);
