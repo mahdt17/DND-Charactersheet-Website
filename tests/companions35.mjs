@@ -15,7 +15,8 @@ const {
   companionProgression35,
   companionEffectiveLevel35,
   reconcileCompanions35,
-  transitionCompanion35
+  transitionCompanion35,
+  companionMasterEffects35
 }=engine;
 
 assert.equal(COMPANION_ENGINE_VERSION,1);
@@ -83,6 +84,27 @@ for(const [name,id,type] of [
   assert.equal(base.id,id);
   assert.equal(base.type,type);
 }
+
+
+const familiarBenefitExpectations={
+  Bat:{type:'skill',skill:'Listen',bonus:3},
+  Cat:{type:'skill',skill:'Move Silently',bonus:3},
+  Hawk:{type:'skill',skill:'Spot',bonus:3,condition:'bright light'},
+  Lizard:{type:'skill',skill:'Climb',bonus:3},
+  Owl:{type:'skill',skill:'Spot',bonus:3,condition:'shadows'},
+  Rat:{type:'save',save:'fort',bonus:2},
+  Raven:{type:'skill',skill:'Appraise',bonus:3},
+  Snake:{type:'skill',skill:'Bluff',bonus:3},
+  Toad:{type:'hp',bonus:3},
+  Weasel:{type:'save',save:'ref',bonus:2}
+};
+for(const [name,expected] of Object.entries(familiarBenefitExpectations)){
+  const base=companionCreature35(name);
+  assert(base?.familiarMasterBenefit,name+' familiar must define its master benefit');
+  assert.deepEqual(base.familiarMasterBenefit,expected,name+' master benefit matches the 3.5 familiar table');
+}
+assert.equal(companionCreature35('Raven')?.familiarLanguageChoice,true,'Raven familiar can speak one language chosen by its master');
+console.log('PASS familiar species benefits are structured');
 
 const animal1=companionProgression35('druid-animal-companion',1);
 assert.deepEqual(
@@ -205,6 +227,27 @@ assert.equal(familiar.derivedStats.abilities.int,8);
 assert.equal(familiar.derivedStats.type,'Magical Beast');
 assert.equal(familiar.derivedStats.baseAttack,2,'familiar uses the master BAB when it is better than its normal BAB');
 assert.deepEqual(familiar.derivedStats.saves,{fort:2,ref:4,will:8},'familiar uses the better master base saves with its own ability modifiers');
+
+
+const familiarMasterEffects=companionMasterEffects35(familiarState);
+assert.equal(familiarMasterEffects.skillBonuses.Appraise,3,'Raven grants +3 Appraise while active and in range');
+assert.equal(familiarMasterEffects.hpBonus,0);
+assert.equal(familiarMasterEffects.saveBonuses.fort,0);
+assert.equal(familiarMasterEffects.languageChoices.length,1,'Raven exposes its one spoken-language choice');
+assert.equal(familiarMasterEffects.languageChoices[0].companionId,familiar.id);
+
+const toadState=reconcileCompanions35({...familiarCharacter,featureChoices:{familiar:choice('dndtools:classes/wizard-99','Familiar','Toad','standard-familiar','monsters/toad-591')}});
+assert.equal(companionMasterEffects35(toadState).hpBonus,3,'Toad grants +3 master hit points');
+
+const ratState=reconcileCompanions35({...familiarCharacter,featureChoices:{familiar:choice('dndtools:classes/wizard-99','Familiar','Rat','standard-familiar','monsters/rat-574')}});
+assert.equal(companionMasterEffects35(ratState).saveBonuses.fort,2,'Rat grants +2 Fortitude');
+
+const hawkState=reconcileCompanions35({...familiarCharacter,featureChoices:{familiar:choice('dndtools:classes/wizard-99','Familiar','Hawk','standard-familiar','monsters/hawk-552')}});
+assert.deepEqual(companionMasterEffects35(hawkState).conditionalSkillBonuses.Spot,[{id:hawkState.companions[0].id+':Spot:bright light',companionId:hawkState.companions[0].id,bonus:3,condition:'bright light'}]);
+
+const deadRat=transitionCompanion35(ratState,ratState.companions[0].id,'mark-dead');
+assert.equal(companionMasterEffects35(deadRat).saveBonuses.fort,0,'inactive familiar benefits do not apply');
+console.log('PASS familiar master effects aggregate without mutating base character values');
 
 const sorcererOnly=reconcileCompanions35({
   ...familiarState,level:2,
