@@ -502,5 +502,75 @@ assert.deepEqual(
 );
 console.log('PASS known-table acquisition events backfill a newly legal missing quota');
 
+const campaignWizard={
+  ...wizardOwnership,
+  level:3,
+  currency:{gp:100},
+  inventory:[{id:'scroll-1',name:'Scroll of Fireball'}],
+  classLevels:[{catalogId:wizardId,name:'Wizard',edition:'3.5',level:3}],
+  legacyCastingChoices:{[wizardId]:{school:'Evocation',prohibited:['Enchantment','Necromancy']}}
+};
+const fireball=spell('dndtools:spells/fireball','Fireball',3,['Wizard'],'Evocation');
+const haste=spell('dndtools:spells/haste','Haste',3,['Wizard'],'Transmutation');
+const charm=spell('dndtools:spells/charm-person-campaign','Charm Person',1,['Wizard'],'Enchantment');
+const clericOnly=spell('dndtools:spells/cure-light','Cure Light Wounds',1,['Cleric'],'Conjuration');
+
+assert.throws(()=>recordWizardCampaignAcquisition35(campaignWizard,wizardId,fireball,{
+  origin:'copied-scroll',sourceNote:'Recovered scroll',confirmed:false
+}),/confirm/i,'campaign acquisition requires explicit completion confirmation');
+assert.throws(()=>recordWizardCampaignAcquisition35(campaignWizard,wizardId,fireball,{
+  origin:'copied-scroll',sourceNote:'',confirmed:true
+}),/source note/i,'campaign acquisition records where the spell came from');
+assert.throws(()=>recordWizardCampaignAcquisition35(campaignWizard,wizardId,charm,{
+  origin:'copied-spellbook',sourceNote:'Enemy spellbook',confirmed:true
+}),/prohibited/i,'Wizard cannot copy a prohibited-school spell');
+assert.throws(()=>recordWizardCampaignAcquisition35(campaignWizard,wizardId,clericOnly,{
+  origin:'copied-scroll',sourceNote:'Cleric scroll',confirmed:true
+}),/Wizard spell list/i,'campaign acquisition must be a legal Wizard spell');
+
+const campaignCandidates=wizardCampaignSpellCandidates35(campaignWizard,wizardId,[
+  fireball,haste,charm,clericOnly,preparedWizardSpell
+]);
+assert(campaignCandidates.some(x=>x.catalogId===fireball.catalogId),'Wizard may record a source-valid spellbook copy even before the spell level is castable');
+assert(!campaignCandidates.some(x=>x.catalogId===charm.catalogId),'prohibited schools are excluded from campaign candidates');
+assert(!campaignCandidates.some(x=>x.catalogId===clericOnly.catalogId),'non-Wizard spells are excluded');
+assert(!campaignCandidates.some(x=>x.catalogId===preparedWizardSpell.catalogId),'already-owned spellbook entries are excluded');
+
+const copied=recordWizardCampaignAcquisition35(campaignWizard,wizardId,fireball,{
+  origin:'copied-scroll',
+  sourceNote:'Recovered from the Ash Tower vault',
+  confirmed:true,
+  spellcraftOutcome:'passed',
+  campaignCostNote:'Paid transcription materials at the table',
+  campaignTimeNote:'One day study + 24 hours writing confirmed'
+});
+const copiedBucket=copied.spellAcquisition35[wizardId];
+const copiedAcquisition=copiedBucket.acquisitions.find(x=>x.spellKey===fireball.catalogId);
+assert.equal(copiedAcquisition.origin,'copied-scroll');
+assert.equal(copiedAcquisition.affectsQuota,false);
+assert.equal(copiedAcquisition.active,true);
+assert(copied.spells.some(x=>x.name==='Fireball'&&x.castingClassId===wizardId));
+assert.equal(copiedBucket.campaignEntries.length,1);
+assert.equal(copiedBucket.campaignEntries[0].confirmed,true);
+assert.equal(copiedBucket.campaignEntries[0].sourceNote,'Recovered from the Ash Tower vault');
+assert.equal(copiedBucket.campaignEntries[0].spellcraftOutcome,'passed');
+assert.deepEqual(copied.currency,campaignWizard.currency,'recording campaign acquisition does not deduct currency automatically');
+assert.deepEqual(copied.inventory,campaignWizard.inventory,'recording a copied scroll does not consume inventory automatically');
+assert.throws(()=>recordWizardCampaignAcquisition35(copied,wizardId,fireball,{
+  origin:'copied-scroll',sourceNote:'Duplicate scroll',confirmed:true
+}),/already.*spellbook/i,'same Wizard profile cannot acquire the same spell twice');
+
+const researched=recordWizardCampaignAcquisition35(copied,wizardId,haste,{
+  origin:'independent-research',sourceNote:'Downtime research project',confirmed:true
+});
+assert.equal(researched.spellAcquisition35[wizardId].acquisitions.find(x=>x.spellKey===haste.catalogId)?.origin,'independent-research');
+assert.equal(
+  researched.spellAcquisition35[wizardId].acquisitions.filter(x=>x.origin==='wizard-free-level-up').length,
+  copied.spellAcquisition35[wizardId].acquisitions.filter(x=>x.origin==='wizard-free-level-up').length,
+  'campaign spellbook additions never consume the two-free-spells-per-level quota'
+);
+console.log('PASS Wizard campaign spellbook acquisition provenance and legality');
+
+
 
 
