@@ -82,13 +82,23 @@ function lifecycleRule(relationshipType){
 function baseCreatureFor(name,id){
   return companionCreature35(id)||companionCreature35(name);
 }
-function parseHitDieSides(hitDice){
-  const match=String(hitDice||'').match(/(?:\d+|\d+\/\d+)d(\d+)/i);
-  return match?Number(match[1]):null;
+function parseHitDice(hitDice){
+  const match=String(hitDice||'').match(/(\d+(?:\/\d+)?)d(\d+)/i);
+  if(!match)return {count:null,sides:null};
+  const raw=match[1],count=raw.includes('/')?Number(raw.split('/')[0])/Number(raw.split('/')[1]):Number(raw);
+  return {count:Number.isFinite(count)?count:null,sides:Number(match[2])||null};
+}
+const abilityModifier=score=>Number.isFinite(Number(score))?Math.floor((Number(score)-10)/2):0;
+const goodSaveBase=hd=>2+Math.floor(Math.max(0,Number(hd)||0)/2);
+const poorSaveBase=hd=>Math.floor(Math.max(0,Number(hd)||0)/3);
+const threeQuarterBab=hd=>Math.floor(Math.max(0,Number(hd)||0)*3/4);
+function baseSaveFromStat(base,key,abilityKey){
+  const total=Number(base?.saves?.[key]);
+  return Number.isFinite(total)?total-abilityModifier(base?.abilities?.[abilityKey]):0;
 }
 function derivedStats35(base,profileId,progression,character,exceptions={}){
   if(!base)return null;
-  const abilities={...(base.abilities||{})};
+  const abilities={...(base.abilities||{})},baseAbilities={...(base.abilities||{})};
   let type=base.type;
   if(profileId==='druid-animal-companion'){
     const adjustment=Number(progression.strDexAdjustment)||0;
@@ -107,22 +117,52 @@ function derivedStats35(base,profileId,progression,character,exceptions={}){
     for(const key of ['str','dex','int'])if(Number.isFinite(Number(abilities[key])))abilities[key]=Number(abilities[key])+adjustment;
   }
   const naturalArmorAdjustment=Number(progression.naturalArmorAdjustment)||0;
+  const dexDelta=abilityModifier(abilities.dex)-abilityModifier(baseAbilities.dex);
   const ac=base.ac?{
-    total:Number(base.ac.total||0)+naturalArmorAdjustment,
-    touch:Number(base.ac.touch||0),
+    total:Number(base.ac.total||0)+naturalArmorAdjustment+dexDelta,
+    touch:Number(base.ac.touch||0)+dexDelta,
     flatFooted:Number(base.ac.flatFooted||0)+naturalArmorAdjustment
   }:null;
-  const bonusHD=Number(progression.bonusHD)||0;
+  const bonusHD=Math.max(0,Number(progression.bonusHD)||0);
+  const parsedHD=parseHitDice(base.hitDice);
+  const totalHitDice=Number.isFinite(parsedHD.count)?parsedHD.count+bonusHD:null;
+  let baseAttack=Number(base.baseAttack)||0,saves={...(base.saves||{})};
+  if(profileId==='standard-familiar'){
+    baseAttack=Math.max(baseAttack,Number(character?.bab)||0);
+    const masterBase=character?.save35||{};
+    const ownBase={
+      fort:baseSaveFromStat(base,'fort','con'),
+      ref:baseSaveFromStat(base,'ref','dex'),
+      will:baseSaveFromStat(base,'will','wis')
+    };
+    saves={
+      fort:Math.max(ownBase.fort,Number(masterBase.fort)||0)+abilityModifier(abilities.con),
+      ref:Math.max(ownBase.ref,Number(masterBase.ref)||0)+abilityModifier(abilities.dex),
+      will:Math.max(ownBase.will,Number(masterBase.will)||0)+abilityModifier(abilities.wis)
+    };
+  }else if(['druid-animal-companion','paladin-special-mount','healer-companion'].includes(profileId)&&Number.isFinite(totalHitDice)){
+    baseAttack=threeQuarterBab(totalHitDice);
+    saves={
+      fort:goodSaveBase(totalHitDice)+abilityModifier(abilities.con),
+      ref:goodSaveBase(totalHitDice)+abilityModifier(abilities.dex),
+      will:poorSaveBase(totalHitDice)+abilityModifier(abilities.wis)
+    };
+  }
   return {
     size:base.size,type,subtypes:[...(base.subtypes||[])],hitDice:base.hitDice,baseHitPoints:base.hp,
-    bonusHD,hitDieSides:parseHitDieSides(base.hitDice),ac,abilities,speed:{...(base.speed||{})},
-    baseAttack:base.baseAttack,grapple:base.grapple,attacks:[...(base.attacks||[])],saves:{...(base.saves||{})},
+    bonusHD,totalHitDice,hitDieSides:parsedHD.sides,bonusHitDieSides:bonusHD?8:null,ac,abilities,speed:{...(base.speed||{})},
+    baseAttack,grapple:base.grapple,attacks:[...(base.attacks||[])],saves,
     specialAbilities:[...(base.specialAbilities||[])]
   };
 }
-function defaultHitPoints(base,profileId,character){
+function defaultHitPoints(base,profileId,character,progression){
   if(profileId==='standard-familiar')return Math.max(1,Math.floor((Number(character?.hp?.max)||0)/2));
-  return Math.max(1,Number(base?.hp)||1);
+  const baseHp=Math.max(1,Number(base?.hp)||1);
+  const bonusHD=Math.max(0,Number(progression?.bonusHD)||0);
+  if(!bonusHD)return baseHp;
+  const conBonus=abilityModifier(base?.abilities?.con);
+  const bonusAverage=bonusHD*(4.5+conBonus);
+  return Math.max(1,Math.floor(baseHp+bonusAverage));
 }
 
 export function reconcileCompanions35(character){
@@ -172,7 +212,7 @@ export function reconcileCompanions35(character){
       progression={...progression,specialAbilities:[...new Set([...(progression.specialAbilities||[]),'Deliver Dread Necromancer Touch Abilities'])]};
     }
     const derivedStats=derivedStats35(base,profileId,progression,character,exceptions);
-    const maxHp=defaultHitPoints(base,profileId,character);
+    const maxHp=defaultHitPoints(base,profileId,character,progression);
     const previousCurrent=Number(old?.hp?.current);
     const currentHp=Number.isFinite(previousCurrent)?Math.min(maxHp,Math.max(0,previousCurrent)):maxHp;
     const id=old?.id||'companion35:'+slug35(group.key);
