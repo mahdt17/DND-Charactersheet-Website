@@ -198,7 +198,7 @@ records have proficiency source text. The audit now states its scope explicitly.
 Source-specific spell acquisition and preparation for other classes,
 metamagic preparation, bonus slots
 for unreviewed casting classes, additional subclass casting progressions,
-complete power/invocation catalogs and effects, binding/incarnum, companions,
+complete power/invocation catalogs and effects, binding/incarnum, remaining companion creature catalogs and alternate-companion selection flows,
 domain granted powers, remaining training rules, additional spell-granting feats,
 and non-spell feat effects still need structured source work. Cross-edition slot
 conversions remain table-controlled. A spell access grant is an explicit
@@ -277,3 +277,63 @@ Talent is granted as a feat; its power-point contribution remains separate work.
 - [3.5 Paladin progression](https://www.d20srd.org/srd/classes/paladin.htm)
 - [Druid source-linked reprints](https://new.dndtools.org/classes/druid-106)
 - [Paladin source-linked reprints](https://new.dndtools.org/classes/paladin-107)
+
+
+## 3.5 Companion Engine checkpoint (2026-10-01)
+
+The 3.5 companion work is now a dedicated reusable subsystem rather than a set
+of class-name patches. `src/lib/companions35.js` owns effective-level
+contributions, progression, source ownership, deterministic reconciliation,
+derived combat statistics, lifecycle transitions, and familiar master effects.
+`src/data/companions35.json` is source-locked to 3.5 references and the engine
+fails closed when a selected creature has no exact local record; it never falls
+back to the 5e monster catalog.
+
+The first production profiles cover Druid/Ranger animal companions, standard
+familiars, Paladin special mounts, and Healer companions. Familiar-granting class
+levels stack through contribution rules, including Hexblade's class-level-minus-3
+contribution. Ranger uses half class level. Dread Necromancer keeps its familiar's
+original creature type, omits Speak with Animals of Its Kind, and exposes its
+touch-delivery exception.
+
+Persisted companion records preserve player-owned nickname, current HP, notes and
+lifecycle state across recalculation. Bonus HD now drive deterministic total HD,
+HP, BAB and base saves, and Dexterity progression contributes to AC. Standard
+familiars use the master's BAB when better and the better master/familiar base
+save with the familiar's own ability modifier. The source-specific familiar
+benefits to the master are structured as derived effects rather than mutations:
+skill/save/HP bonuses, conditional Hawk/Owl Spot bonuses, and Raven's chosen
+spoken language.
+
+The character sheet has a dedicated 3.5 Companions tab for creature statistics,
+progression, source, HP, notes and legal lifecycle controls. Paladin standard
+mount defaults are size-aware (heavy warhorse for Medium masters, warpony for
+Small masters). Paladin and Healer calling state is tracked separately from
+death/replacement state. Campaign-time restrictions remain explicit game state
+rather than wall-clock timers.
+
+Source-locked creature coverage includes all standard familiars, all four reviewed
+Dread Necromancer familiars, Wolf/Ape animal-companion representatives, Heavy
+Warhorse/Warpony and Unicorn. Exact 3.5 source pages were also matched and
+researched for the full core animal-companion list and the five Healer alternative
+companions. Those larger data sets remain incremental because several parsed
+monster pages omit secondary movement modes; incomplete source parses are not
+silently imported.
+
+Completion impact is deliberately conservative. Adept, Dread Necromancer and the
+four verified Paladin source records move to complete because companion state was
+their remaining blocker. Healer and Ranger remain needs-review with narrowed
+alternative/full-creature-catalog work. Hexblade, Sorcerer and Wizard families
+lose their familiar blocker but retain their independent spells-known or
+spellbook acquisition blockers.
+
+Verification evidence:
+- code head: `324603885c0cbe9a4731e1a79fe7eafd6b4f9801`
+- Companion engine checks #18: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790956
+- Validate modernization #1518: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790949
+- #1518 passed the full 3.5 class/feat/spell/item regressions, build, general and
+  edition browser tests, casting/setup, catalog/advancement, spell-access and the
+  remaining specialized browser suites.
+
+No Supabase schema, policy, catalog, or live character data was changed. Nothing
+was deployed or merged.

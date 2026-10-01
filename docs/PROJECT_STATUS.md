@@ -224,3 +224,35 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Duplicate/source variants remain independent, including Nightcloak and Order of the Bow Initiate.
 - All 75 move from `pending_audit` to source-verified `needs-review`; none were promoted on source research alone.
 - Canonical tracker totals: **45 complete, 657 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+
+
+## 2026-10-01 3.5 Companion Engine checkpoint
+
+- Verified code head: `324603885c0cbe9a4731e1a79fe7eafd6b4f9801`.
+- Companion engine checks #18 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790956.
+- Validate modernization #1518 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790949. The run included the complete
+  3.5 class/feat/spell/item regressions, production build, general browser tests,
+  edition-browser coverage, casting/setup, catalog/advancement, class spell access,
+  and the specialized feature/resource/presentation/loading browser suites.
+- Added a permanent source-locked 3.5 Companion Engine with persisted source
+  ownership, effective-level contribution rules, progression, multiclass familiar
+  stacking, deterministic derived statistics, lifecycle state, familiar master
+  benefits, and a dedicated Companions character-sheet tab.
+- Standard familiars, all four reviewed Dread Necromancer familiar choices,
+  Paladin Heavy Warhorse/Warpony defaults, Unicorn, Wolf and Ape are backed by
+  exact 3.5 records. Missing creature records fail closed rather than falling
+  back to 5e data.
+- Promoted six records whose remaining companion blocker is now resolved:
+  Adept, Dread Necromancer, PHB v.3.5 Paladin, Eberron Paladin, Forgotten Realms
+  Paladin, and Sandstorm Paladin.
+- Healer remains needs-review only for its optional level-12+ alternative companion
+  replacement flow. Ranger source records remain needs-review for complete
+  source-locked legal-animal data and grouped-choice expansion. Hexblade/Sorcerer/
+  Wizard records retain only their independent spells-known/spellbook blockers
+  from this companion cluster.
+- Exact reference pages were matched and researched for the full legal core
+  animal-companion list and Healer alternatives, but incomplete parsed movement
+  data is intentionally not bulk-imported.
+- Canonical tracker totals: **51 complete, 651 needs-review, 1 source-conflict,
+  2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.

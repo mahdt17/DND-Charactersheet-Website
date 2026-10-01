@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-09-30",
+  "snapshotDate": "2026-10-01",
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "7e55323587f2dda045ff0e3a81919444fafd42b0",
+  "snapshotCommit": "324603885c0cbe9a4731e1a79fe7eafd6b4f9801",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -179,26 +179,27 @@
       "name": "Adept",
       "sourceBook": "Base Class Dungeon Master's Guide v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/adept-917",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Full familiar creature state, statistics, progression, replacement/death handling, and sheet integration remain a companion subsystem."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 the 3.5 Companion Engine materializes Adept Summon Familiar as persisted source-owned familiar state with exact standard-familiar choices, progression, derived statistics, master benefits, replacement/death handling, save/reopen reconciliation, and source-removal cleanup.",
+        "2026-10-01 Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including companion-state, class-integration, feature-choice, and guided browser regressions.",
+        "2026-10-01 Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including the full 3.5 class/feat/spell/item regressions, production build, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement/reuse the structured familiar subsystem, then add creation/level-up/save-reopen regressions for Adept."
+      "verifiedCommit": "324603885c0cbe9a4731e1a79fe7eafd6b4f9801",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790949",
+      "nextAction": "Preserve as verified; re-audit only if shared companion rules, source inheritance, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/aerial-avenger-980",
@@ -6866,28 +6867,29 @@
       "name": "Dread Necromancer",
       "sourceBook": "Base Class Heroes of Horror",
       "sourceUrl": "https://new.dndtools.org/classes/dread-necromancer-75",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 16,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Full evil-familiar creature state, scaling, persistence, and lifecycle remain a companion-state subsystem; Advanced Learning itself is now structurally integrated."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
         "No Firecrawl fallback was required.",
         "Advanced Learning now preserves reviewed spell-list/school metadata, filters by source eligibility and unlocked spell level, excludes native Dread Necromancer spells, and persists the chosen spell as a class-scoped spell-access grant.",
-        "Validate modernization #1476 passed the Dread Advanced Learning regression at d7bc51975028f8788157c72268472e74d880c7bb; the remaining blocker is the separate familiar-state subsystem."
+        "Validate modernization #1476 passed the Dread Advanced Learning regression at d7bc51975028f8788157c72268472e74d880c7bb; the remaining blocker is the separate familiar-state subsystem.",
+        "2026-10-01 the 3.5 Companion Engine materializes all four reviewed Dread Necromancer familiar choices (Imp, Quasit, Vargouille, Ghostly Visage), preserves original creature type, omits Speak with Animals of Its Kind, adds Dread touch-delivery behavior, and covers scaling/persistence/lifecycle.",
+        "2026-10-01 Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including companion-state, class-integration, feature-choice, and guided browser regressions.",
+        "2026-10-01 Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including the full 3.5 class/feat/spell/item regressions, production build, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete Dread Necromancer evil-familiar companion state and lifecycle, then add companion creation/scaling/save-reopen/removal regressions before promotion."
+      "verifiedCommit": "324603885c0cbe9a4731e1a79fe7eafd6b4f9801",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790949",
+      "nextAction": "Preserve as verified; re-audit only if shared companion rules, source inheritance, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/dread-pirate-182",
@@ -12287,17 +12289,19 @@
       "existingProfileParent": null,
       "featureRequirements": [],
       "gaps": [
-        "Unicorn Companion calling is tracked, but full companion creature state, scaling statistics, abilities, persistence, and lifecycle are not materialized."
+        "The default celestial Unicorn Companion is now materialized with Healer-specific progression, derived statistics, calling, persistence, and 30-days-or-healer-level death/replacement lifecycle. The optional level-12+ alternative-companion replacement flow still needs source-locked selection/data for Lammasu, Gynosphinx, Water Naga, Androsphinx, and Couatl."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 Companion Engine coverage resolves the default Unicorn Companion state/scaling/calling/lifecycle blocker; exact Healer source research also identified the remaining five alternative companions and their -4/-8 effective-level adjustments.",
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Route Unicorn Companion through the structured companion model and verify level scaling, save/reopen, and removal."
+      "nextAction": "Add optional level-12+ Healer companion replacement selection and source-locked records for Lammasu, Gynosphinx, Water Naga, Androsphinx, and Couatl through the existing Companion Engine."
     },
     {
       "sourceId": "classes/heartwarder-487",
@@ -12475,17 +12479,19 @@
       "existingProfileParent": null,
       "featureRequirements": [],
       "gaps": [
-        "Hexblade class features are reviewed, but full Familiar state and the source-specific spells-known acquisition/replacement path are not structured."
+        "Familiar state, stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is the source-specific Hexblade spells-known acquisition/replacement path."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 the Companion Engine resolves Hexblade Familiar state using class-level-minus-3 contribution and shared familiar stacking.",
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Complete familiar state plus Hexblade known-spell progression/replacement and add persistence regressions."
+      "nextAction": "Implement Hexblade spells-known progression/acquisition/replacement and its persistence regressions; the familiar blocker is resolved."
     },
     {
       "sourceId": "classes/hexer-616",
@@ -17910,101 +17916,105 @@
       "name": "Paladin",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-107",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/paladin-95",
       "featureRequirements": [],
-      "gaps": [
-        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/paladin-95.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/paladin-95."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/paladin-95.",
+        "2026-10-01 the 3.5 Companion Engine materializes Paladin Special Mount state with source progression, bonus-HD derived statistics, persistent call/return/death/replacement lifecycle, and size-aware standard defaults (heavy warhorse for Medium masters; warpony for Small masters).",
+        "2026-10-01 Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including companion-state, class-integration, feature-choice, and guided browser regressions.",
+        "2026-10-01 Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including the full 3.5 class/feat/spell/item regressions, production build, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
+      "verifiedCommit": "324603885c0cbe9a4731e1a79fe7eafd6b4f9801",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790949",
+      "nextAction": "Preserve as verified; re-audit only if shared companion rules, source inheritance, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/paladin-43",
       "name": "Paladin",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-43",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/paladin-95",
       "featureRequirements": [],
-      "gaps": [
-        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/paladin-95.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/paladin-95."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/paladin-95.",
+        "2026-10-01 the 3.5 Companion Engine materializes Paladin Special Mount state with source progression, bonus-HD derived statistics, persistent call/return/death/replacement lifecycle, and size-aware standard defaults (heavy warhorse for Medium masters; warpony for Small masters).",
+        "2026-10-01 Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including companion-state, class-integration, feature-choice, and guided browser regressions.",
+        "2026-10-01 Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including the full 3.5 class/feat/spell/item regressions, production build, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
+      "verifiedCommit": "324603885c0cbe9a4731e1a79fe7eafd6b4f9801",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790949",
+      "nextAction": "Preserve as verified; re-audit only if shared companion rules, source inheritance, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/paladin-67",
       "name": "Paladin",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-67",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/paladin-95",
       "featureRequirements": [],
-      "gaps": [
-        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/paladin-95.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/paladin-95."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/paladin-95.",
+        "2026-10-01 the 3.5 Companion Engine materializes Paladin Special Mount state with source progression, bonus-HD derived statistics, persistent call/return/death/replacement lifecycle, and size-aware standard defaults (heavy warhorse for Medium masters; warpony for Small masters).",
+        "2026-10-01 Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including companion-state, class-integration, feature-choice, and guided browser regressions.",
+        "2026-10-01 Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including the full 3.5 class/feat/spell/item regressions, production build, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
+      "verifiedCommit": "324603885c0cbe9a4731e1a79fe7eafd6b4f9801",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790949",
+      "nextAction": "Preserve as verified; re-audit only if shared companion rules, source inheritance, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/paladin-95",
       "name": "Paladin",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/paladin-95",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 15,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Special Mount calling is tracked, but the mount's creature state, scaling statistics, special abilities, persistence, and lifecycle are not fully materialized."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 the 3.5 Companion Engine materializes Paladin Special Mount state with source progression, bonus-HD derived statistics, persistent call/return/death/replacement lifecycle, and size-aware standard defaults (heavy warhorse for Medium masters; warpony for Small masters).",
+        "2026-10-01 Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including companion-state, class-integration, feature-choice, and guided browser regressions.",
+        "2026-10-01 Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801, including the full 3.5 class/feat/spell/item regressions, production build, and all browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete structured Paladin mount state using the companion subsystem and verify creation/level-up/save-reopen behavior."
+      "verifiedCommit": "324603885c0cbe9a4731e1a79fe7eafd6b4f9801",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36821790949",
+      "nextAction": "Preserve as verified; re-audit only if shared companion rules, source inheritance, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/paladin-of-freedom-125",
@@ -19244,16 +19254,18 @@
       "existingProfileParent": "classes/ranger-96",
       "featureRequirements": [],
       "gaps": [
-        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+        "Ranger Animal Companion now uses persisted companion state, half-level effective-Druid scaling, alternative level adjustments, progression, save/reopen reconciliation, and source-removal cleanup. Completion still requires source-locked stat records for every legal animal choice and correct expansion of grouped choices such as light/heavy horse and Small/Medium viper."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/ranger-96.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96.",
+        "2026-10-01 the generic Companion Engine implements Ranger half-level companion contribution and persistent companion reconciliation; exact 3.5 reference pages were matched for the full legal animal list, but incomplete parsed movement data prevented a blind bulk import.",
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
+      "nextAction": "Populate the complete source-locked 3.5 animal-companion creature catalog and expand grouped legal choices through the existing Companion Engine; keep fail-closed behavior for any unresolved creature."
     },
     {
       "sourceId": "classes/ranger-44",
@@ -19269,16 +19281,18 @@
       "existingProfileParent": "classes/ranger-96",
       "featureRequirements": [],
       "gaps": [
-        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+        "Ranger Animal Companion now uses persisted companion state, half-level effective-Druid scaling, alternative level adjustments, progression, save/reopen reconciliation, and source-removal cleanup. Completion still requires source-locked stat records for every legal animal choice and correct expansion of grouped choices such as light/heavy horse and Small/Medium viper."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/ranger-96.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96.",
+        "2026-10-01 the generic Companion Engine implements Ranger half-level companion contribution and persistent companion reconciliation; exact 3.5 reference pages were matched for the full legal animal list, but incomplete parsed movement data prevented a blind bulk import.",
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
+      "nextAction": "Populate the complete source-locked 3.5 animal-companion creature catalog and expand grouped legal choices through the existing Companion Engine; keep fail-closed behavior for any unresolved creature."
     },
     {
       "sourceId": "classes/ranger-68",
@@ -19294,16 +19308,18 @@
       "existingProfileParent": "classes/ranger-96",
       "featureRequirements": [],
       "gaps": [
-        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+        "Ranger Animal Companion now uses persisted companion state, half-level effective-Druid scaling, alternative level adjustments, progression, save/reopen reconciliation, and source-removal cleanup. Completion still requires source-locked stat records for every legal animal choice and correct expansion of grouped choices such as light/heavy horse and Small/Medium viper."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/ranger-96.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96.",
+        "2026-10-01 the generic Companion Engine implements Ranger half-level companion contribution and persistent companion reconciliation; exact 3.5 reference pages were matched for the full legal animal list, but incomplete parsed movement data prevented a blind bulk import.",
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
+      "nextAction": "Populate the complete source-locked 3.5 animal-companion creature catalog and expand grouped legal choices through the existing Companion Engine; keep fail-closed behavior for any unresolved creature."
     },
     {
       "sourceId": "classes/ranger-96",
@@ -19319,17 +19335,19 @@
       "existingProfileParent": null,
       "featureRequirements": [],
       "gaps": [
-        "Favored Enemy and combat-style choices are structured, but the Ranger Animal Companion is still description-only rather than a persisted half-level companion choice/state."
+        "Ranger Animal Companion now uses persisted companion state, half-level effective-Druid scaling, alternative level adjustments, progression, save/reopen reconciliation, and source-removal cleanup. Completion still requires source-locked stat records for every legal animal choice and correct expansion of grouped choices such as light/heavy horse and Small/Medium viper."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 the generic Companion Engine implements Ranger half-level companion contribution and persistent companion reconciliation; exact 3.5 reference pages were matched for the full legal animal list, but incomplete parsed movement data prevented a blind bulk import.",
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Route Ranger Animal Companion through the structured companion model with half-level scaling and persistence/removal regressions."
+      "nextAction": "Populate the complete source-locked 3.5 animal-companion creature catalog and expand grouped legal choices through the existing Companion Engine; keep fail-closed behavior for any unresolved creature."
     },
     {
       "sourceId": "classes/ranger-variant-21",
@@ -21729,16 +21747,18 @@
       "existingProfileParent": "classes/sorcerer-98",
       "featureRequirements": [],
       "gaps": [
-        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is source-specific Sorcerer spells-known acquisition/replacement."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/sorcerer-98.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98.",
+        "2026-10-01 the Companion Engine resolves Sorcerer Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
+      "nextAction": "Implement Sorcerer spells-known progression/acquisition/replacement and persistence regressions; the familiar blocker is resolved."
     },
     {
       "sourceId": "classes/sorcerer-46",
@@ -21754,16 +21774,18 @@
       "existingProfileParent": "classes/sorcerer-98",
       "featureRequirements": [],
       "gaps": [
-        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is source-specific Sorcerer spells-known acquisition/replacement."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/sorcerer-98.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98.",
+        "2026-10-01 the Companion Engine resolves Sorcerer Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
+      "nextAction": "Implement Sorcerer spells-known progression/acquisition/replacement and persistence regressions; the familiar blocker is resolved."
     },
     {
       "sourceId": "classes/sorcerer-70",
@@ -21779,16 +21801,18 @@
       "existingProfileParent": "classes/sorcerer-98",
       "featureRequirements": [],
       "gaps": [
-        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is source-specific Sorcerer spells-known acquisition/replacement."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/sorcerer-98.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98.",
+        "2026-10-01 the Companion Engine resolves Sorcerer Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
+      "nextAction": "Implement Sorcerer spells-known progression/acquisition/replacement and persistence regressions; the familiar blocker is resolved."
     },
     {
       "sourceId": "classes/sorcerer-98",
@@ -21804,17 +21828,19 @@
       "existingProfileParent": null,
       "featureRequirements": [],
       "gaps": [
-        "Core spell-list access exists, but source-specific spells-known acquisition/replacement and full Familiar creature state/lifecycle are not structured."
+        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is source-specific Sorcerer spells-known acquisition/replacement."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 the Companion Engine resolves Sorcerer Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Implement Sorcerer known-spell progression/replacement and complete Familiar state before promotion."
+      "nextAction": "Implement Sorcerer spells-known progression/acquisition/replacement and persistence regressions; the familiar blocker is resolved."
     },
     {
       "sourceId": "classes/sorcererwizard-variant-957",
@@ -25668,16 +25694,18 @@
       "existingProfileParent": "classes/wizard-99",
       "featureRequirements": [],
       "gaps": [
-        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is full Wizard spellbook acquisition/learning state."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/wizard-99.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99.",
+        "2026-10-01 the Companion Engine resolves Wizard Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
+      "nextAction": "Complete Wizard spellbook acquisition/learning and persistence regressions; the familiar blocker is resolved."
     },
     {
       "sourceId": "classes/wizard-47",
@@ -25693,16 +25721,18 @@
       "existingProfileParent": "classes/wizard-99",
       "featureRequirements": [],
       "gaps": [
-        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is full Wizard spellbook acquisition/learning state."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/wizard-99.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99.",
+        "2026-10-01 the Companion Engine resolves Wizard Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
+      "nextAction": "Complete Wizard spellbook acquisition/learning and persistence regressions; the familiar blocker is resolved."
     },
     {
       "sourceId": "classes/wizard-71",
@@ -25718,16 +25748,18 @@
       "existingProfileParent": "classes/wizard-99",
       "featureRequirements": [],
       "gaps": [
-        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is full Wizard spellbook acquisition/learning state."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/wizard-99.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99.",
+        "2026-10-01 the Companion Engine resolves Wizard Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
+      "nextAction": "Complete Wizard spellbook acquisition/learning and persistence regressions; the familiar blocker is resolved."
     },
     {
       "sourceId": "classes/wizard-99",
@@ -25743,17 +25775,19 @@
       "existingProfileParent": null,
       "featureRequirements": [],
       "gaps": [
-        "Preparation, specialization, and bonus-feat mechanics are substantially covered, but full spellbook acquisition/learning state and complete Familiar creature state/lifecycle remain incomplete."
+        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is full Wizard spellbook acquisition/learning state."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 the Companion Engine resolves Wizard Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Complete Wizard spellbook acquisition/learning plus Familiar state before promotion."
+      "nextAction": "Complete Wizard spellbook acquisition/learning and persistence regressions; the familiar blocker is resolved."
     },
     {
       "sourceId": "classes/wizard-of-high-sorcery-353",
@@ -26040,5 +26074,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Seventh prestige 75-class source audit recorded on green baseline #1489; source verification is not mechanical completion."
+  "lastUpdatedNote": "3.5 Companion Engine checkpoint recorded on green Companion engine checks #18 and Validate modernization #1518; companion blockers were promoted or narrowed without over-promoting records that still need creature-data or spell-system work."
 }
