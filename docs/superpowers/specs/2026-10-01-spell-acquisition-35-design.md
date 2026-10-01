@@ -231,7 +231,32 @@ Initial acquisition origins:
 - `copied-spellbook`
 - `copied-scroll`
 - `independent-research`
+- `feat`
 - `manual-source`
+
+Feat-granted magic must remain source-distinct from ordinary class acquisition.
+
+The existing feat-spell subsystem remains authoritative for feats that directly grant their own spell casting/use, including feat-specific uses, ritual-only casting, or permission to spend normal spell slots.
+
+The existing spell-access grant subsystem remains authoritative when a feat or feature merely adds a spell to a legal class list or otherwise permits access; this does **not** automatically make that spell known, place it in a spellbook, or consume a normal class acquisition quota.
+
+When a feat explicitly says the character **learns an additional spell**, **knows an additional spell**, or **adds a spell to a spellbook**, the acquisition engine may create a source-owned acquisition with `origin: 'feat'`. That acquisition must also record whether the source says it counts against the class's normal spells-known/spellbook quota.
+
+A feat-created acquisition should therefore carry semantics equivalent to:
+
+```js
+{
+  origin: 'feat',
+  sourceFeatId,
+  sourceFeatName,
+  affectsQuota: false,
+  acquisitionEffect: 'known-spell' // or 'spellbook-entry'
+}
+```
+
+If the feat is removed, only acquisition records owned by that feat are removed unless the same spell remains owned through another independent acquisition source.
+
+Feat spell-like abilities remain actions/resources and are not ordinary spell acquisitions.
 
 Class feature grants that already use the existing spell-access subsystem must remain separate unless the source explicitly says they become ordinary known/spellbook spells.
 
@@ -330,7 +355,9 @@ The normal spell-management page should distinguish:
 
 For Sorcerer/Hexblade:
 
-- ordinary manual add/remove of acquired spells should be disabled except through legal correction/replacement flows.
+- ordinary manual add/remove of class-acquired spells should be disabled except through legal correction/replacement flows;
+- feat-origin acquisitions that explicitly teach an additional spell remain visible as separately sourced known spells and do not consume the ordinary known-spell quota unless their source says otherwise;
+- feat casting that does not teach a spell remains in the existing Feat Spellbook and is not copied into class acquisition state.
 
 For Wizard:
 
@@ -502,7 +529,11 @@ Cover:
 - source class removal;
 - multiclass isolation;
 - duplicate spell identity handling;
-- feature/domain/feat spell grants remain untouched.
+- feat spells that grant their own casting remain in the feat-spell subsystem;
+- feat access-only grants do not become acquired spells;
+- feat-origin learned/known/spellbook spells can be recorded separately without consuming normal class quota unless the feat says they do;
+- removing a feat removes only the acquisition records it owns;
+- feature/domain/other spell grants remain untouched.
 
 ### Browser tests
 
@@ -567,3 +598,4 @@ Do not reopen the already-resolved companion blocker for these records.
 - Do not treat legal spell-list membership as proof of acquisition.
 - Do not treat acquisition as preparation.
 - Do not treat preparation as current castability.
+- Do not collapse feat spell casting, feat spell access, and feat spell acquisition into one behavior; preserve their separate existing subsystems and source ownership.
