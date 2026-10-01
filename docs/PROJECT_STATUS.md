@@ -256,3 +256,17 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Canonical tracker totals: **51 complete, 651 needs-review, 1 source-conflict,
   2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+
+
+## 2026-10-01 3.5 Spell Acquisition Engine checkpoint
+
+- Verified implementation head: `b0d613a22aaf56efe83f8f31696ce08f88bbc8c4`.
+- Spell acquisition checks #58 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977364.
+- Companion engine checks #83 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977553.
+- Validate modernization #1583 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372.
+- Added source-owned 3.5 acquisition history and reconciliation for PHB/source-equivalent Sorcerers and Wizards plus Complete Warrior Hexblade, with exact class-level acquisition deltas, legal replacements, multiclass isolation, and preparation-preserving runtime synchronization.
+- Wizard creation/level-up/campaign spellbook acquisition is structured separately from preparation. Campaign additions record source/provenance and explicit confirmation without simulating source-defined time, cost, checks, or scroll consumption.
+- Reviewed feat learned-spell/spellbook grants resolve immediately, remain separate from access-only and feat-casting subsystems, preserve feat provenance, and clean up independently. Class-feature-selected feats now retain canonical acquisition metadata and block final save until required choices are resolved.
+- Promoted exactly nine records whose final blocker was spell acquisition: Hexblade; four source-verified Sorcerer records; four source-verified Wizard records.
+- Canonical tracker totals: **60 complete, 642 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.

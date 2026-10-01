@@ -149,7 +149,10 @@ now verifies that background Magic Initiate must be configured before continuing
   `prepared` flag does not create copies. Removing a class removes its preparation
   ledger, slot expenditure and slot overrides.
 - Spontaneous 3.5 casters can spend a higher-level slot on a lower-level spell.
-  Their known-spell acquisition remains a separate source-review task.
+  Sorcerer and Hexblade acquisition is now source-managed through exact class-level
+  known-spell tables and legal replacement events. Other spontaneous 3.5 casting
+  classes remain source-specific unless they already use a verified fixed-list or
+  dedicated acquisition model.
 - Clerics configure cure/inflict conversion according to alignment and deity;
   Druids can convert to Summon Nature's Ally. Casting lets the player choose the
   prepared standard copy to sacrifice, of the same level or higher. Domain and
@@ -195,7 +198,7 @@ For 3.5, only 66 records have full local feature prose; 988 use progression
 summaries. Only 100 source proficiency supplements are verified, and 203 class
 records have proficiency source text. The audit now states its scope explicitly.
 
-Source-specific spell acquisition and preparation for other classes,
+Source-specific spell acquisition for 3.5 classes outside the verified Sorcerer/Hexblade/Wizard profiles, preparation for other classes,
 metamagic preparation, bonus slots
 for unreviewed casting classes, additional subclass casting progressions,
 complete power/invocation catalogs and effects, binding/incarnum, remaining companion creature catalogs and alternate-companion selection flows,
@@ -337,3 +340,48 @@ Verification evidence:
 
 No Supabase schema, policy, catalog, or live character data was changed. Nothing
 was deployed or merged.
+
+
+## 3.5 Spell Acquisition Engine checkpoint (2026-10-01)
+
+The reusable 3.5 spell-acquisition subsystem is complete for the exact reviewed
+Hexblade, Sorcerer, and Wizard source records covered by the tracker. Acquisition
+state is persisted separately from runtime spell rows, uses exact source-class IDs,
+and reconciles ownership idempotently without conflating acquisition, preparation,
+access, or current castability.
+
+Sorcerer uses exact per-spell-level spells-known tables and even-level legal
+replacement events. Hexblade uses its delayed spell access, exact known-spell
+progression, and replacements at class levels 12, 15, and 18. Wizard creation
+records all legal 0-level spellbook entries plus the required first-level choices,
+level-up requires exactly two free spellbook additions, and campaign copying or
+research records provenance/confirmation without simulating time, cost, checks, or
+scroll consumption.
+
+Feat-driven spell acquisition remains separate from feat casting and access-only
+effects. Reviewed learned-spell/spellbook feats resolve immediately in creation or
+level-up, preserve source feat ownership, do not consume ordinary known-spell quota
+unless structured metadata says so, and are removed independently when their feat
+source disappears. Class-feature-selected feats now preserve canonical feat
+metadata and must resolve the same mandatory spell acquisition before final save.
+
+The source-specific verification pass promoted exactly nine records whose only
+remaining blocker was acquisition state:
+- `classes/hexblade-19`
+- `classes/sorcerer-98`, `classes/sorcerer-46`,
+  `classes/sorcerer-70`, `classes/sorcerer-109`
+- `classes/wizard-99`, `classes/wizard-47`,
+  `classes/wizard-71`, `classes/wizard-110`
+
+Verification evidence:
+- implementation head: `b0d613a22aaf56efe83f8f31696ce08f88bbc8c4`
+- Spell acquisition checks #58: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977364
+- Companion engine checks #83: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977553
+- Validate modernization #1583: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372
+- #1583 passed the full 3.5 class/feat/spell/item regressions, production build,
+  edition/general browser suites, guided feature choices, level-up feat coverage,
+  spell-access/casting/resource suites, and production-loading checks.
+
+Tracker impact: **60 complete, 642 needs-review, 1 source-conflict, 2 blocked,
+349 pending audit**. No Supabase schema, policy, catalog, or live character data
+was changed. Nothing was deployed or merged.

@@ -1,6 +1,6 @@
 # D&D 3.5 Spell Acquisition Engine Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Add a reusable D&D 3.5 spell-acquisition layer that correctly owns Sorcerer/Hexblade known spells, Wizard spellbook entries, legal replacements, and feat-driven learned/spellbook grants without disturbing the verified casting/preparation systems.
 
@@ -51,7 +51,7 @@
 - Produces: `validateSpellReplacement35(character, event, {removedSpellKey, addedSpell})`
 - Produces: `SPELL_ACQUISITION35_VERSION`
 
-- [ ] **Step 1: Write failing unit tests for source profiles and exact tables**
+- [x] **Step 1: Write failing unit tests for source profiles and exact tables**
 
 In `tests/spell-acquisition35.mjs`, assert:
 - PHB Sorcerer and its existing verified source-equivalent records resolve to the same `sorcerer-35` acquisition profile without losing exact class IDs.
@@ -64,7 +64,7 @@ In `tests/spell-acquisition35.mjs`, assert:
 - Hexblade representative rows (8, 12, 20) match the reviewed source table.
 - Wizard profile is `spellbook`, not `known-table`.
 
-- [ ] **Step 2: Write failing event/replacement tests**
+- [x] **Step 2: Write failing event/replacement tests**
 
 Assert:
 - Sorcerer delta events are generated per spell level, not as one total count.
@@ -76,13 +76,13 @@ Assert:
 - Wizard level 1 creates a starting-spellbook event.
 - Wizard level 2+ creates exactly one `wizard-free-spellbook-additions` event with count 2.
 
-- [ ] **Step 3: Run the unit test and verify RED**
+- [x] **Step 3: Run the unit test and verify RED**
 
 Run: `node tests/spell-acquisition35.mjs`
 
 Expected: FAIL because the module/data do not exist.
 
-- [ ] **Step 4: Populate `src/data/spell-acquisition35.json`**
+- [x] **Step 4: Populate `src/data/spell-acquisition35.json`**
 
 Include:
 - exact source-class → profile mappings for the reviewed Sorcerer/Wizard source records and Hexblade;
@@ -93,13 +93,13 @@ Include:
 
 Do not infer source equivalence beyond mappings already supported by the repository.
 
-- [ ] **Step 5: Implement pure event/rule functions in `src/lib/spellAcquisition35.js`**
+- [x] **Step 5: Implement pure event/rule functions in `src/lib/spellAcquisition35.js`**
 
 The event engine must operate on class level, never total character level.
 
 Events must use stable event IDs derived from exact class ID + class level + event kind + spell level.
 
-- [ ] **Step 6: Add dedicated CI workflow**
+- [x] **Step 6: Add dedicated CI workflow**
 
 `.github/workflows/spell-acquisition35.yml` runs:
 ```bash
@@ -110,7 +110,7 @@ node tests/legacy-casting-choices.mjs
 node tests/legacy-preparation.mjs
 ```
 
-- [ ] **Step 7: Run focused regressions**
+- [x] **Step 7: Run focused regressions**
 
 Run:
 ```bash
@@ -122,7 +122,7 @@ node tests/legacy-preparation.mjs
 
 Expected: PASS.
 
-- [ ] **Step 8: Commit**
+- [x] **Step 8: Commit**
 
 Commit message: `feat: add 3.5 spell acquisition rule engine`
 
@@ -144,7 +144,7 @@ Commit message: `feat: add 3.5 spell acquisition rule engine`
 - Produces: `activeAcquiredSpells35(character, classId)`
 - Persisted state: `character.spellAcquisition35[classId]`
 
-- [ ] **Step 1: Write failing persistence/reconciliation tests**
+- [x] **Step 1: Write failing persistence/reconciliation tests**
 
 Assert:
 - acquisition records persist exact class ID, profile ID, acquired class level, spell level, origin, and stable source event ID;
@@ -160,7 +160,7 @@ Assert:
 - a newly prohibited Wizard spell is not silently reactivated;
 - source-owned excess/illegal acquisitions produce precise incomplete reasons rather than silent deletion/repair.
 
-- [ ] **Step 2: Run unit/class tests and verify RED**
+- [x] **Step 2: Run unit/class tests and verify RED**
 
 Run:
 ```bash
@@ -169,7 +169,7 @@ node tests/class-integration.mjs
 node tests/multiclass-casting.mjs
 ```
 
-- [ ] **Step 3: Implement reconciliation and event application**
+- [x] **Step 3: Implement reconciliation and event application**
 
 Persist acquisition state separately from `char.spells`.
 
@@ -179,13 +179,13 @@ Runtime synchronization rules:
 - preserve runtime preparation/user display fields when the acquisition identity remains stable;
 - never remove spells owned by another subsystem.
 
-- [ ] **Step 4: Integrate reconciliation into class progression**
+- [x] **Step 4: Integrate reconciliation into class progression**
 
 Call `reconcileSpellAcquisition35` from the existing 3.5 class reconciliation path after class/source IDs are stable.
 
 Class removal uses source ownership rather than name matching.
 
-- [ ] **Step 5: Verify multiclass/runtime compatibility**
+- [x] **Step 5: Verify multiclass/runtime compatibility**
 
 Run:
 ```bash
@@ -197,7 +197,7 @@ node tests/spell-access.mjs
 
 Expected: PASS.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 Commit message: `feat: persist and reconcile 3.5 spell ownership`
 
@@ -217,7 +217,7 @@ Commit message: `feat: persist and reconcile 3.5 spell ownership`
 - Consumes: `applySpellAcquisitionEvent35`
 - Produces: controlled UI selections keyed by acquisition event ID
 
-- [ ] **Step 1: Write failing creation-state tests**
+- [x] **Step 1: Write failing creation-state tests**
 
 Assert:
 - level-1 Sorcerer setup exposes exactly 4 level-0 + 2 level-1 mandatory acquisitions;
@@ -226,7 +226,7 @@ Assert:
 - Hexblade level 1 exposes no spell-acquisition choices;
 - unresolved mandatory events mark the setup state invalid.
 
-- [ ] **Step 2: Write failing browser creation flows**
+- [x] **Step 2: Write failing browser creation flows**
 
 In `tests/browser-spell-acquisition35.mjs`:
 - create a Sorcerer and verify Continue/Create remains disabled until exact mandatory spells are selected;
@@ -236,7 +236,7 @@ In `tests/browser-spell-acquisition35.mjs`:
 - verify the exact starting 1st-level selection count;
 - save/reopen and verify owned spellbook/known state remains stable.
 
-- [ ] **Step 3: Verify RED**
+- [x] **Step 3: Verify RED**
 
 Run:
 ```bash
@@ -244,7 +244,7 @@ node tests/spell-acquisition35.mjs
 node tests/browser-spell-acquisition35.mjs
 ```
 
-- [ ] **Step 4: Implement `SpellAcquisitionChoices35.jsx`**
+- [x] **Step 4: Implement `SpellAcquisitionChoices35.jsx`**
 
 Render event-specific spell pickers:
 - group by event and spell level;
@@ -252,7 +252,7 @@ Render event-specific spell pickers:
 - do not duplicate source filtering in the component;
 - report unresolved mandatory counts.
 
-- [ ] **Step 5: Replace 3.5 unlimited setup selection only for acquisition-profile classes**
+- [x] **Step 5: Replace 3.5 unlimited setup selection only for acquisition-profile classes**
 
 In `GuidedSetup.jsx`:
 - keep existing manual behavior for unsupported 3.5 classes;
@@ -260,7 +260,7 @@ In `GuidedSetup.jsx`:
 - build final `char.spells` through acquisition reconciliation;
 - creation cannot finish with unresolved mandatory acquisition events.
 
-- [ ] **Step 6: Run creation regressions**
+- [x] **Step 6: Run creation regressions**
 
 Run:
 ```bash
@@ -272,7 +272,7 @@ node tests/browser-feature-choices.mjs
 
 Expected: PASS.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 Commit message: `feat: enforce 3.5 starting spell acquisition`
 
@@ -292,7 +292,7 @@ Commit message: `feat: enforce 3.5 starting spell acquisition`
 - Consumes: `validateSpellReplacement35`
 - Produces: atomic level-up + acquisition result
 
-- [ ] **Step 1: Write failing level-up unit tests**
+- [x] **Step 1: Write failing level-up unit tests**
 
 Assert:
 - Sorcerer 1→2 requires only the table delta;
@@ -304,7 +304,7 @@ Assert:
 - Wizard multiclass advancement uses Wizard class level, not total character level;
 - advancing an unrelated class creates no Wizard/Sorcerer/Hexblade acquisition event.
 
-- [ ] **Step 2: Write failing browser level-up flows**
+- [x] **Step 2: Write failing browser level-up flows**
 
 Cover:
 - Sorcerer gains only the required new spell(s);
@@ -314,7 +314,7 @@ Cover:
 - Hexblade first-spell acquisition appears on reaching class level 4;
 - saved acquisition state survives reopen.
 
-- [ ] **Step 3: Verify RED**
+- [x] **Step 3: Verify RED**
 
 Run:
 ```bash
@@ -322,7 +322,7 @@ node tests/spell-acquisition35.mjs
 node tests/browser-spell-acquisition35.mjs
 ```
 
-- [ ] **Step 4: Integrate acquisition events into `EditionLevelUp.jsx`**
+- [x] **Step 4: Integrate acquisition events into `EditionLevelUp.jsx`**
 
 Remove `manual = Infinity` only for classes with a supported acquisition profile.
 
@@ -330,13 +330,13 @@ Mandatory events block Apply Level Up until resolved.
 
 Optional replacement events remain skippable.
 
-- [ ] **Step 5: Make `LevelUp.jsx` pass exact class/source context**
+- [x] **Step 5: Make `LevelUp.jsx` pass exact class/source context**
 
 The draft used by `EditionLevelUp` must carry the exact source class ID and previous/target class level so acquisition never uses total character level accidentally.
 
 Apply class progression, feat choice, feature choice, and spell acquisition atomically.
 
-- [ ] **Step 6: Run level-up and casting regressions**
+- [x] **Step 6: Run level-up and casting regressions**
 
 Run:
 ```bash
@@ -349,7 +349,7 @@ node tests/legacy-preparation.mjs
 
 Expected: PASS.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 Commit message: `feat: enforce 3.5 level-up spell acquisition`
 
@@ -371,7 +371,7 @@ Commit message: `feat: enforce 3.5 level-up spell acquisition`
 - `details.confirmed`: boolean
 - Optional details: `spellcraftOutcome`, `campaignCostNote`, `campaignTimeNote`
 
-- [ ] **Step 1: Write failing Wizard campaign-acquisition tests**
+- [x] **Step 1: Write failing Wizard campaign-acquisition tests**
 
 Assert:
 - prohibited-school spells cannot be recorded;
@@ -382,7 +382,7 @@ Assert:
 - copied/researched entries do not consume the two-free-spells-per-level quota;
 - removing/re-adding Wizard follows the archival policy from Task 2.
 
-- [ ] **Step 2: Write failing browser flow**
+- [x] **Step 2: Write failing browser flow**
 
 From a Wizard's Spells tab:
 - open Manage spells;
@@ -394,7 +394,7 @@ From a Wizard's Spells tab:
 - save and verify the spell appears in the normal spellbook/preparation UI;
 - verify a prohibited spell never appears as a legal candidate.
 
-- [ ] **Step 3: Verify RED**
+- [x] **Step 3: Verify RED**
 
 Run:
 ```bash
@@ -402,19 +402,19 @@ node tests/spell-acquisition35.mjs
 node tests/browser-spell-acquisition35.mjs
 ```
 
-- [ ] **Step 4: Implement campaign acquisition API**
+- [x] **Step 4: Implement campaign acquisition API**
 
 Do not simulate time, cost, scroll consumption, or Spellcraft success.
 
 The API records confirmed campaign state and provenance only.
 
-- [ ] **Step 5: Implement `WizardSpellbookAcquisition35.jsx` and integrate into `EditionSpellbook.jsx`**
+- [x] **Step 5: Implement `WizardSpellbookAcquisition35.jsx` and integrate into `EditionSpellbook.jsx`**
 
 Only show it for active 3.5 Wizard spellbook profiles.
 
 The existing preparation/casting UI continues to consume reconciled `char.spells`.
 
-- [ ] **Step 6: Run Wizard/preparation regressions**
+- [x] **Step 6: Run Wizard/preparation regressions**
 
 Run:
 ```bash
@@ -427,7 +427,7 @@ node tests/browser-casting-gaps.mjs
 
 Expected: PASS.
 
-- [ ] **Step 7: Commit**
+- [x] **Step 7: Commit**
 
 Commit message: `feat: add Wizard campaign spellbook acquisition`
 
@@ -462,7 +462,7 @@ Commit message: `feat: add Wizard campaign spellbook acquisition`
 - `affectsQuota`: boolean, default false
 - `required`: boolean, default true for learned/spellbook choice grants
 
-- [ ] **Step 1: Write failing feat semantics tests**
+- [x] **Step 1: Write failing feat semantics tests**
 
 Use structured reviewed-style fixture feats and assert:
 - `known-spell` choice produces a mandatory picker and an `origin:'feat'` acquisition;
@@ -474,7 +474,7 @@ Use structured reviewed-style fixture feats and assert:
 - `affectsQuota:true` is counted where the source explicitly requires it;
 - removing a feat removes only acquisitions owned by that feat unless another source independently owns the spell.
 
-- [ ] **Step 2: Write failing browser feat flows**
+- [x] **Step 2: Write failing browser feat flows**
 
 Cover:
 - during character creation, selecting a feat with "learn an additional spell" immediately exposes its spell picker and blocks Create Character until resolved;
@@ -483,7 +483,7 @@ Cover:
 - an access-only feat does not add the spell to known/spellbook ownership;
 - feat-spell casting still appears in the existing Feat Spells region, proving subsystem separation.
 
-- [ ] **Step 3: Verify RED**
+- [x] **Step 3: Verify RED**
 
 Run:
 ```bash
@@ -492,13 +492,13 @@ node tests/browser-spell-acquisition35.mjs
 node tests/browser-feature-choices.mjs
 ```
 
-- [ ] **Step 4: Implement feat acquisition helper**
+- [x] **Step 4: Implement feat acquisition helper**
 
 Do not parse arbitrary feat prose at runtime.
 
 Only reviewed/structured `spellAcquisition35` metadata enables automation; unstructured feat text remains unresolved/manual rather than guessed.
 
-- [ ] **Step 5: Implement `FeatSpellAcquisition35.jsx`**
+- [x] **Step 5: Implement `FeatSpellAcquisition35.jsx`**
 
 Render immediately adjacent to the selected feat.
 
@@ -506,7 +506,7 @@ Mandatory choice grants expose incomplete state until valid.
 
 Fixed named grants display what will be added automatically rather than asking the player to re-select it.
 
-- [ ] **Step 6: Integrate all supported feat attachment flows**
+- [x] **Step 6: Integrate all supported feat attachment flows**
 
 - `FeatChoices.jsx`: newly selected/editable feats.
 - `LevelUpFeatChoice.jsx`: level-up feat selection.
@@ -514,13 +514,13 @@ Fixed named grants display what will be added automatically rather than asking t
 - `LevelUp.jsx`: apply feat + feat acquisition atomically.
 - Class-feature-selected feats: after `applyFeatureChoices` resolves the feat record, surface any mandatory structured feat acquisition before final save rather than leaving a hidden incomplete feat.
 
-- [ ] **Step 7: Reconcile feat-origin acquisitions into runtime spells**
+- [x] **Step 7: Reconcile feat-origin acquisitions into runtime spells**
 
 Feat ownership is exact by feat ID/source.
 
 Removing the feat removes only feat-owned acquisitions/runtime entries.
 
-- [ ] **Step 8: Run feat/casting/acquisition regressions**
+- [x] **Step 8: Run feat/casting/acquisition regressions**
 
 Run:
 ```bash
@@ -533,7 +533,7 @@ node tests/spell-access.mjs
 
 Expected: PASS.
 
-- [ ] **Step 9: Commit**
+- [x] **Step 9: Commit**
 
 Commit message: `feat: resolve feat-driven 3.5 spell acquisition immediately`
 
@@ -551,7 +551,7 @@ Commit message: `feat: resolve feat-driven 3.5 spell acquisition immediately`
 - Consumes all engine/UI behavior from Tasks 1–6.
 - Produces verified tracker evidence only after complete CI succeeds.
 
-- [ ] **Step 1: Run source-specific class audit against implemented behavior**
+- [x] **Step 1: Run source-specific class audit against implemented behavior**
 
 Audit:
 - `classes/hexblade-19`
@@ -566,11 +566,11 @@ Audit:
 
 Confirm no independent blocker remains before promotion.
 
-- [ ] **Step 2: Add exact source-record regressions where generic tests are insufficient**
+- [x] **Step 2: Add exact source-record regressions where generic tests are insufficient**
 
 At minimum verify each source-equivalent Sorcerer/Wizard record resolves its reviewed acquisition profile through exact source ID/inheritance evidence.
 
-- [ ] **Step 3: Run the complete local validation set**
+- [x] **Step 3: Run the complete local validation set**
 
 Run:
 ```bash
@@ -595,11 +595,11 @@ node tests/browser-spell-acquisition35.mjs
 
 Expected: PASS.
 
-- [ ] **Step 4: Commit implementation checkpoint before tracker promotion**
+- [x] **Step 4: Commit implementation checkpoint before tracker promotion**
 
 Commit message: `chore: checkpoint 3.5 spell acquisition verification`
 
-- [ ] **Step 5: Require both dedicated and full CI green**
+- [x] **Step 5: Require both dedicated and full CI green**
 
 Require:
 - Spell acquisition checks — success.
@@ -607,7 +607,7 @@ Require:
 
 If either fails, use `superpowers:systematic-debugging`, reproduce the failing gate, fix test-first, and rerun.
 
-- [ ] **Step 6: Update tracker/docs conservatively**
+- [x] **Step 6: Update tracker/docs conservatively**
 
 Promote only records whose acquisition blocker and all other blockers are gone.
 
@@ -619,8 +619,22 @@ Record:
 
 Do not reopen resolved companion blockers.
 
-- [ ] **Step 7: Final post-documentation verification**
+- [x] **Step 7: Final post-documentation verification**
 
 Run the dedicated acquisition workflow and Validate modernization from the documentation/tracker head.
 
 PR #8 must remain open, draft, unmerged; no deployment or Supabase mutation.
+
+
+## Completion checkpoint (2026-10-01)
+
+- Tasks 1–7 are complete.
+- Verified implementation head: `b0d613a22aaf56efe83f8f31696ce08f88bbc8c4`.
+- Spell acquisition checks #58: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977364
+- Companion engine checks #83: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977553
+- Validate modernization #1583: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372
+- The final source audit found no independent blocker on the nine targeted
+  Hexblade/Sorcerer/Wizard records, so the tracker/docs checkpoint promotes only
+  those nine records.
+- PR #8 remains draft/open/unmerged. Nothing was deployed and Supabase was not
+  modified.

@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "324603885c0cbe9a4731e1a79fe7eafd6b4f9801",
+  "snapshotCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -12470,28 +12470,30 @@
       "name": "Hexblade",
       "sourceBook": "Base Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/hexblade-19",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 10,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Familiar state, stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is the source-specific Hexblade spells-known acquisition/replacement path."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
         "No Firecrawl fallback was required.",
         "2026-10-01 the Companion Engine resolves Hexblade Familiar state using class-level-minus-3 contribution and shared familiar stacking.",
-        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801.",
+        "2026-10-01 exact source/source-equivalence audit rechecked this record against the implemented acquisition profile; no independent blocker remained after the verified companion and spell-acquisition work.",
+        "The 3.5 Spell Acquisition Engine now enforces Complete Warrior Hexblade spells-known progression, first legal access, exact class-level deltas, and replacements at 12/15/18 with source-owned persisted history.",
+        "Class-feature-selected feats now preserve canonical feat metadata, surface structured learned/spellbook acquisition immediately, block final save until mandatory choices are resolved, and reconcile feat-owned spells independently.",
+        "Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583 passed at b0d613a22aaf56efe83f8f31696ce08f88bbc8c4."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Hexblade spells-known progression/acquisition/replacement and its persistence regressions; the familiar blocker is resolved."
+      "verifiedCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372",
+      "nextAction": "Complete; preserve exact-source acquisition, companion, persistence, feat-provenance, and source-removal regressions. Re-audit only if shared 3.5 spell acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/hexer-616",
@@ -21738,109 +21740,117 @@
       "name": "Sorcerer",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/sorcerer-109",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/sorcerer-98",
       "featureRequirements": [],
-      "gaps": [
-        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is source-specific Sorcerer spells-known acquisition/replacement."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/sorcerer-98.",
         "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98.",
         "2026-10-01 the Companion Engine resolves Sorcerer Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
-        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801.",
+        "2026-10-01 exact source/source-equivalence audit rechecked this record against the implemented acquisition profile; no independent blocker remained after the verified companion and spell-acquisition work.",
+        "The 3.5 Spell Acquisition Engine now enforces Sorcerer spells-known tables, per-spell-level acquisition deltas, even-level replacement rules, source-owned persistence, multiclass isolation, and feat-driven learned spells without consuming ordinary quota unless structured source metadata says so.",
+        "Class-feature-selected feats now preserve canonical feat metadata, surface structured learned/spellbook acquisition immediately, block final save until mandatory choices are resolved, and reconcile feat-owned spells independently.",
+        "Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583 passed at b0d613a22aaf56efe83f8f31696ce08f88bbc8c4."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Sorcerer spells-known progression/acquisition/replacement and persistence regressions; the familiar blocker is resolved."
+      "verifiedCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372",
+      "nextAction": "Complete; preserve exact-source acquisition, companion, persistence, feat-provenance, and source-removal regressions. Re-audit only if shared 3.5 spell acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/sorcerer-46",
       "name": "Sorcerer",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/sorcerer-46",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/sorcerer-98",
       "featureRequirements": [],
-      "gaps": [
-        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is source-specific Sorcerer spells-known acquisition/replacement."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/sorcerer-98.",
         "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98.",
         "2026-10-01 the Companion Engine resolves Sorcerer Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
-        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801.",
+        "2026-10-01 exact source/source-equivalence audit rechecked this record against the implemented acquisition profile; no independent blocker remained after the verified companion and spell-acquisition work.",
+        "The 3.5 Spell Acquisition Engine now enforces Sorcerer spells-known tables, per-spell-level acquisition deltas, even-level replacement rules, source-owned persistence, multiclass isolation, and feat-driven learned spells without consuming ordinary quota unless structured source metadata says so.",
+        "Class-feature-selected feats now preserve canonical feat metadata, surface structured learned/spellbook acquisition immediately, block final save until mandatory choices are resolved, and reconcile feat-owned spells independently.",
+        "Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583 passed at b0d613a22aaf56efe83f8f31696ce08f88bbc8c4."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Sorcerer spells-known progression/acquisition/replacement and persistence regressions; the familiar blocker is resolved."
+      "verifiedCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372",
+      "nextAction": "Complete; preserve exact-source acquisition, companion, persistence, feat-provenance, and source-removal regressions. Re-audit only if shared 3.5 spell acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/sorcerer-70",
       "name": "Sorcerer",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/sorcerer-70",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/sorcerer-98",
       "featureRequirements": [],
-      "gaps": [
-        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is source-specific Sorcerer spells-known acquisition/replacement."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/sorcerer-98.",
         "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/sorcerer-98.",
         "2026-10-01 the Companion Engine resolves Sorcerer Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
-        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801.",
+        "2026-10-01 exact source/source-equivalence audit rechecked this record against the implemented acquisition profile; no independent blocker remained after the verified companion and spell-acquisition work.",
+        "The 3.5 Spell Acquisition Engine now enforces Sorcerer spells-known tables, per-spell-level acquisition deltas, even-level replacement rules, source-owned persistence, multiclass isolation, and feat-driven learned spells without consuming ordinary quota unless structured source metadata says so.",
+        "Class-feature-selected feats now preserve canonical feat metadata, surface structured learned/spellbook acquisition immediately, block final save until mandatory choices are resolved, and reconcile feat-owned spells independently.",
+        "Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583 passed at b0d613a22aaf56efe83f8f31696ce08f88bbc8c4."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Sorcerer spells-known progression/acquisition/replacement and persistence regressions; the familiar blocker is resolved."
+      "verifiedCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372",
+      "nextAction": "Complete; preserve exact-source acquisition, companion, persistence, feat-provenance, and source-removal regressions. Re-audit only if shared 3.5 spell acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/sorcerer-98",
       "name": "Sorcerer",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/sorcerer-98",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 5,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is source-specific Sorcerer spells-known acquisition/replacement."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
         "No Firecrawl fallback was required.",
         "2026-10-01 the Companion Engine resolves Sorcerer Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
-        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801.",
+        "2026-10-01 exact source/source-equivalence audit rechecked this record against the implemented acquisition profile; no independent blocker remained after the verified companion and spell-acquisition work.",
+        "The 3.5 Spell Acquisition Engine now enforces Sorcerer spells-known tables, per-spell-level acquisition deltas, even-level replacement rules, source-owned persistence, multiclass isolation, and feat-driven learned spells without consuming ordinary quota unless structured source metadata says so.",
+        "Class-feature-selected feats now preserve canonical feat metadata, surface structured learned/spellbook acquisition immediately, block final save until mandatory choices are resolved, and reconcile feat-owned spells independently.",
+        "Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583 passed at b0d613a22aaf56efe83f8f31696ce08f88bbc8c4."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Sorcerer spells-known progression/acquisition/replacement and persistence regressions; the familiar blocker is resolved."
+      "verifiedCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372",
+      "nextAction": "Complete; preserve exact-source acquisition, companion, persistence, feat-provenance, and source-removal regressions. Re-audit only if shared 3.5 spell acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/sorcererwizard-variant-957",
@@ -25685,109 +25695,117 @@
       "name": "Wizard",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/wizard-110",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/wizard-99",
       "featureRequirements": [],
-      "gaps": [
-        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is full Wizard spellbook acquisition/learning state."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/wizard-99.",
         "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99.",
         "2026-10-01 the Companion Engine resolves Wizard Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
-        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801.",
+        "2026-10-01 exact source/source-equivalence audit rechecked this record against the implemented acquisition profile; no independent blocker remained after the verified companion and spell-acquisition work.",
+        "The 3.5 Spell Acquisition Engine now enforces Wizard starting spellbook acquisition, two free spellbook additions per Wizard level, prohibited-school filtering, campaign spellbook additions with recorded provenance/confirmation, and preparation-preserving ownership reconciliation.",
+        "Class-feature-selected feats now preserve canonical feat metadata, surface structured learned/spellbook acquisition immediately, block final save until mandatory choices are resolved, and reconcile feat-owned spells independently.",
+        "Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583 passed at b0d613a22aaf56efe83f8f31696ce08f88bbc8c4."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete Wizard spellbook acquisition/learning and persistence regressions; the familiar blocker is resolved."
+      "verifiedCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372",
+      "nextAction": "Complete; preserve exact-source acquisition, companion, persistence, feat-provenance, and source-removal regressions. Re-audit only if shared 3.5 spell acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/wizard-47",
       "name": "Wizard",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/wizard-47",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/wizard-99",
       "featureRequirements": [],
-      "gaps": [
-        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is full Wizard spellbook acquisition/learning state."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/wizard-99.",
         "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99.",
         "2026-10-01 the Companion Engine resolves Wizard Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
-        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801.",
+        "2026-10-01 exact source/source-equivalence audit rechecked this record against the implemented acquisition profile; no independent blocker remained after the verified companion and spell-acquisition work.",
+        "The 3.5 Spell Acquisition Engine now enforces Wizard starting spellbook acquisition, two free spellbook additions per Wizard level, prohibited-school filtering, campaign spellbook additions with recorded provenance/confirmation, and preparation-preserving ownership reconciliation.",
+        "Class-feature-selected feats now preserve canonical feat metadata, surface structured learned/spellbook acquisition immediately, block final save until mandatory choices are resolved, and reconcile feat-owned spells independently.",
+        "Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583 passed at b0d613a22aaf56efe83f8f31696ce08f88bbc8c4."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete Wizard spellbook acquisition/learning and persistence regressions; the familiar blocker is resolved."
+      "verifiedCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372",
+      "nextAction": "Complete; preserve exact-source acquisition, companion, persistence, feat-provenance, and source-removal regressions. Re-audit only if shared 3.5 spell acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/wizard-71",
       "name": "Wizard",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/wizard-71",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/wizard-99",
       "featureRequirements": [],
-      "gaps": [
-        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is full Wizard spellbook acquisition/learning state."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/wizard-99.",
         "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/wizard-99.",
         "2026-10-01 the Companion Engine resolves Wizard Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
-        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801.",
+        "2026-10-01 exact source/source-equivalence audit rechecked this record against the implemented acquisition profile; no independent blocker remained after the verified companion and spell-acquisition work.",
+        "The 3.5 Spell Acquisition Engine now enforces Wizard starting spellbook acquisition, two free spellbook additions per Wizard level, prohibited-school filtering, campaign spellbook additions with recorded provenance/confirmation, and preparation-preserving ownership reconciliation.",
+        "Class-feature-selected feats now preserve canonical feat metadata, surface structured learned/spellbook acquisition immediately, block final save until mandatory choices are resolved, and reconcile feat-owned spells independently.",
+        "Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583 passed at b0d613a22aaf56efe83f8f31696ce08f88bbc8c4."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete Wizard spellbook acquisition/learning and persistence regressions; the familiar blocker is resolved."
+      "verifiedCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372",
+      "nextAction": "Complete; preserve exact-source acquisition, companion, persistence, feat-provenance, and source-removal regressions. Re-audit only if shared 3.5 spell acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/wizard-99",
       "name": "Wizard",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/wizard-99",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 6,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Standard Familiar creature state, multiclass stacking, progression, persistence, lifecycle, and master benefits are now structured; the remaining blocker is full Wizard spellbook acquisition/learning state."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
         "No Firecrawl fallback was required.",
         "2026-10-01 the Companion Engine resolves Wizard Familiar state and familiar-granting-class stacking with source-locked standard familiar records and master benefits.",
-        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801."
+        "Companion engine checks #18 and Validate modernization #1518 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801.",
+        "2026-10-01 exact source/source-equivalence audit rechecked this record against the implemented acquisition profile; no independent blocker remained after the verified companion and spell-acquisition work.",
+        "The 3.5 Spell Acquisition Engine now enforces Wizard starting spellbook acquisition, two free spellbook additions per Wizard level, prohibited-school filtering, campaign spellbook additions with recorded provenance/confirmation, and preparation-preserving ownership reconciliation.",
+        "Class-feature-selected feats now preserve canonical feat metadata, surface structured learned/spellbook acquisition immediately, block final save until mandatory choices are resolved, and reconcile feat-owned spells independently.",
+        "Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583 passed at b0d613a22aaf56efe83f8f31696ce08f88bbc8c4."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete Wizard spellbook acquisition/learning and persistence regressions; the familiar blocker is resolved."
+      "verifiedCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36921977372",
+      "nextAction": "Complete; preserve exact-source acquisition, companion, persistence, feat-provenance, and source-removal regressions. Re-audit only if shared 3.5 spell acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/wizard-of-high-sorcery-353",
@@ -26074,5 +26092,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "3.5 Companion Engine checkpoint recorded on green Companion engine checks #18 and Validate modernization #1518; companion blockers were promoted or narrowed without over-promoting records that still need creature-data or spell-system work."
+  "lastUpdatedNote": "3.5 Spell Acquisition Engine checkpoint recorded on green Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583; Hexblade, four Sorcerer, and four Wizard records were promoted after their final acquisition blockers were closed."
 }
