@@ -44,12 +44,27 @@ function hexbladeConditionalAccess(character,profile,classLevel,spellLevel){
   return {conditional:true,allowed:abilityScore(character,'cha')>=minimum,minimumAbilityScore:minimum};
 }
 
-function knownEventsForLevel(character,classId,profileId,profile,classLevel){
+function quotaCounts(character,classId){
+  const bucket=acquisitionBucket(character,classId);
+  if(!bucket)return null;
+  const counts={};
+  for(const item of bucket.acquisitions||[]){
+    if(item?.active===false||item?.affectsQuota===false)continue;
+    const level=Number(item.spellLevel);
+    if(!Number.isInteger(level)||level<0)continue;
+    counts[level]=(counts[level]||0)+1;
+  }
+  return counts;
+}
+function knownEventsForLevel(character,classId,profileId,profile,classLevel,simulatedCounts=null){
   const previous=spellKnownLimits35(profileId,classLevel-1);
   const current=spellKnownLimits35(profileId,classLevel);
+  const managed=simulatedCounts!=null;
   const events=[];
   for(const spellLevel of Object.keys(current).map(Number).sort((a,b)=>a-b)){
-    const count=Math.max(0,(current[spellLevel]||0)-(previous[spellLevel]||0));
+    const count=managed
+      ?Math.max(0,(current[spellLevel]||0)-(simulatedCounts[spellLevel]||0))
+      :Math.max(0,(current[spellLevel]||0)-(previous[spellLevel]||0));
     if(!count)continue;
     const gate=profileId==='hexblade-35'?hexbladeConditionalAccess(character,profile,classLevel,spellLevel):{conditional:false,allowed:true};
     if(!gate.allowed)continue;
@@ -64,8 +79,10 @@ function knownEventsForLevel(character,classId,profileId,profile,classLevel){
       count,
       required:true,
       conditionalAccess:Boolean(gate.conditional),
-      minimumAbilityScore:gate.minimumAbilityScore
+      minimumAbilityScore:gate.minimumAbilityScore,
+      backfill:managed&&count>Math.max(0,(current[spellLevel]||0)-(previous[spellLevel]||0))
     });
+    if(managed)simulatedCounts[spellLevel]=(simulatedCounts[spellLevel]||0)+count;
   }
   if(replacementAvailable(profile,classLevel)){
     const highest=Math.max(0,Number(profile.maxSpellLevelByClassLevel?.[String(classLevel)])||0);
@@ -92,9 +109,10 @@ export function spellAcquisitionEvents35(character,{classId,previousClassLevel=0
   const previous=Math.max(0,Math.floor(Number(previousClassLevel)||0));
   const target=Math.max(previous,Math.floor(Number(targetClassLevel)||0));
   const events=[];
+  const simulatedCounts=profile.kind==='known-table'?quotaCounts(character,exactClassId):null;
   for(let classLevel=previous+1;classLevel<=target;classLevel++){
     if(profile.kind==='known-table'){
-      events.push(...knownEventsForLevel(character,exactClassId,profile.id,profile,classLevel));
+      events.push(...knownEventsForLevel(character,exactClassId,profile.id,profile,classLevel,simulatedCounts));
       continue;
     }
     if(profile.kind==='spellbook'&&classLevel===1){
