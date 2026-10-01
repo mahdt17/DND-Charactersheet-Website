@@ -15,7 +15,7 @@ async function openCharacter(name){
   await page.locator('.sheet-identity').filter({hasText:name}).waitFor();
 }
 
-async function begin35(name,classId,className,{cha15=false}={}){
+async function begin35(name,classId,className,{cha15=false,int15=false}={}){
   if(await page.getByRole('button',{name:'All characters',exact:true}).count())await page.getByRole('button',{name:'All characters',exact:true}).click();
   await page.getByRole('button',{name:'Create character',exact:true}).click();
   await page.getByLabel('Character name',{exact:true}).fill(name);
@@ -25,6 +25,7 @@ async function begin35(name,classId,className,{cha15=false}={}){
   await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
   await next();
   if(cha15)await page.getByLabel(/Charisma · total/).selectOption('15');
+  if(int15)await page.getByLabel(/Intelligence · total/).selectOption('15');
   await next();
   const language=page.getByLabel('Human / Intelligence language 1',{exact:true});
   if(await language.count())await language.selectOption('Draconic');
@@ -260,6 +261,44 @@ try{
   assert.equal(hexBucket.acquisitions.filter(x=>x.origin==='level-up'&&x.acquiredAtClassLevel===4).length,2);
   assert(Object.values(hexSaved.featureChoices||{}).some(choice=>choice?.sourceClassId==='dndtools:classes/hexblade-19'&&choice?.choices?.includes('Raven')));
   console.log('PASS 3.5 Hexblade first known-spell acquisition at class level 4');
+
+
+  const duskbladeName='Acquisition Duskblade',duskbladeKey='dndtools:classes/duskblade-102';
+  await page.getByRole('button',{name:'All characters',exact:true}).click();
+  await begin35(duskbladeName,'classes/duskblade-102','Duskblade',{int15:true});
+  const duskStart=page.getByRole('region',{name:'3.5 spell acquisition choices',exact:true});
+  await duskStart.waitFor();
+  const duskCantrips=duskStart.getByRole('region',{name:'Known level 0 spells',exact:true});
+  const duskFirst=duskStart.getByRole('region',{name:'Known level 1 spells',exact:true});
+  assert.equal(await duskCantrips.count(),1);
+  assert.equal(await duskFirst.count(),1);
+  assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Duskblade creation blocks until all starting known spells are chosen');
+  for(let i=0;i<4;i++)await duskCantrips.getByRole('button',{name:/^Select /}).first().click();
+  for(let i=0;i<2;i++)await duskFirst.getByRole('button',{name:/^Select /}).first().click();
+  assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
+  await next();
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:duskbladeName}).waitFor();
+  const duskCreated=await saved(duskbladeName),duskCreatedBucket=duskCreated.spellAcquisition35?.[duskbladeKey];
+  assert(duskCreatedBucket,'Duskblade acquisition bucket is persisted');
+  assert.equal(duskCreatedBucket.acquisitions.filter(x=>x.active!==false&&x.spellLevel===0).length,4);
+  assert.equal(duskCreatedBucket.acquisitions.filter(x=>x.active!==false&&x.spellLevel===1).length,2);
+
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+  await next();
+  const duskFlex=page.getByRole('region',{name:'Known spell up to level 1',exact:true});
+  await duskFlex.waitFor();
+  assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Duskblade level 2 blocks until its flexible known spell is chosen');
+  await duskFlex.getByRole('button',{name:/^Select /}).first().click();
+  assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
+  await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 2'}).waitFor();
+  const duskLevel2=await saved(duskbladeName),duskLevel2Bucket=duskLevel2.spellAcquisition35[duskbladeKey];
+  assert.equal(duskLevel2Bucket.acquisitions.filter(x=>x.origin==='level-up'&&x.acquiredAtClassLevel===2&&x.active!==false).length,1);
+  assert(duskLevel2.spells.some(x=>x.castingClassId===duskbladeKey&&x.prepared===true),'Duskblade learned spells materialize as spontaneous castable spells');
+  console.log('PASS 3.5 Duskblade starting and flexible level-up spell acquisition UI');
 
   await openCharacter(wizardName);
   const wizardBeforeCampaign=await saved(wizardName);
