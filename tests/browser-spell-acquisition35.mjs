@@ -174,6 +174,46 @@ try{
   assert(sorcererLevel4Bucket.acquisitions.some(x=>x.spellName==='Ray of Frost'&&x.origin==='replacement'&&x.active!==false));
   console.log('PASS 3.5 Sorcerer optional level-4 spell replacement');
 
+  const hexbladeName='Acquisition Hexblade';
+  await page.getByRole('button',{name:'All characters',exact:true}).click();
+  await begin35(hexbladeName,'classes/hexblade-19','Hexblade',{cha15:true});
+  await next();
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:hexbladeName}).waitFor();
+
+  for(const expectedLevel of [2,3]){
+    await page.getByRole('button',{name:'Level up',exact:true}).click();
+    await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+    await next();
+    assert.equal(await page.getByRole('region',{name:/Known level \d+ spells/}).count(),0,'Hexblade has no mandatory known-spell acquisition before level 4');
+    await next();
+    await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+    await page.locator('.sheet-identity').filter({hasText:`LEVEL ${expectedLevel}`}).waitFor();
+  }
+
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+  await next();
+  const hexbladeKnown=page.getByRole('region',{name:'Known level 1 spells',exact:true});
+  await hexbladeKnown.waitFor();
+  const hexSelect=hexbladeKnown.getByRole('button',{name:/^Select /});
+  assert((await hexSelect.count())>=2);
+  await hexSelect.nth(0).click();
+  await hexSelect.nth(0).click();
+  await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  const hexFamiliar=page.getByLabel('Hexblade 4 Familiar: Raven',{exact:true});
+  await hexFamiliar.waitFor();
+  await hexFamiliar.check();
+  await page.getByRole('button',{name:'Save level and choices',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 4'}).waitFor();
+  const hexSaved=await saved(hexbladeName);
+  const hexBucket=hexSaved.spellAcquisition35['dndtools:classes/hexblade-19'];
+  assert.equal(hexBucket.acquisitions.filter(x=>x.active!==false&&x.spellLevel===1&&x.affectsQuota!==false).length,2);
+  assert.equal(hexBucket.acquisitions.filter(x=>x.origin==='level-up'&&x.acquiredAtClassLevel===4).length,2);
+  assert(Object.values(hexSaved.featureChoices||{}).some(choice=>choice?.sourceClassId==='dndtools:classes/hexblade-19'&&choice?.choices?.includes('Raven')));
+  console.log('PASS 3.5 Hexblade first known-spell acquisition at class level 4');
+
   assert.deepEqual(errors,[]);
 }catch(error){
   await page.screenshot({path:'test-results/spell-acquisition35-failure.png',fullPage:true}).catch(()=>{});
