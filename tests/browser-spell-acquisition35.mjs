@@ -301,6 +301,41 @@ try{
   assert(duskLevel2.spells.some(x=>x.castingClassId===duskbladeKey&&x.prepared===true),'Duskblade learned spells materialize as spontaneous castable spells');
   console.log('PASS 3.5 Duskblade starting and flexible level-up spell acquisition UI');
 
+  const magewrightName='Acquisition Magewright',magewrightKey='dndtools:classes/magewright-1029';
+  await page.getByRole('button',{name:'All characters',exact:true}).click();
+  await begin35(magewrightName,'classes/magewright-1029','Magewright',{int15:true});
+  const mageMastery=page.getByRole('region',{name:'Magewright spell mastery',exact:true});
+  await mageMastery.waitFor();
+  const masteredPicker=mageMastery.getByRole('region',{name:'Mastered spells',exact:true});
+  assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Magewright creation blocks until its mastered repertoire is chosen');
+  for(let i=0;i<2;i++)await masteredPicker.getByRole('button',{name:/^Select /}).first().click();
+  assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
+  await next();
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:magewrightName}).waitFor();
+  const mageCreated=await saved(magewrightName),mageBucket=mageCreated.spellAcquisition35?.[magewrightKey];
+  assert(mageBucket,'Magewright mastered repertoire is persisted');
+  assert.equal(mageBucket.acquisitions.filter(x=>x.active!==false).length,2);
+  assert(mageCreated.spells.filter(x=>x.castingClassId===magewrightKey).every(x=>x.prepared===false),'mastered Magewright spells are not treated as spontaneous prepared spells');
+
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  await page.getByRole('button',{name:'Manage spells',exact:true}).click();
+  assert.match(await page.getByText(/Spell ownership for this 3\.5 class is controlled by its acquisition history/).innerText(),/acquisition history/);
+  assert.equal(await page.getByRole('region',{name:'Available class spells',exact:true}).count(),0,'Magewright cannot bypass Spell Mastery by manually adding repertoire spells');
+  await page.getByRole('button',{name:'Done',exact:true}).click();
+
+  const masteredForPrep=mageBucket.acquisitions.find(x=>x.active!==false);
+  assert(masteredForPrep,'Magewright needs at least one mastered spell for preparation regression');
+  await page.getByRole('button',{name:'Prepare daily spells',exact:true}).click();
+  const magePrep=page.getByLabel(`Prepare Standard level ${masteredForPrep.spellLevel} slot 1`,{exact:true});
+  await magePrep.selectOption({label:masteredForPrep.spellName});
+  await page.getByRole('button',{name:'Finish daily preparation',exact:true}).click();
+  const masteredItem=page.locator('.spell-item').filter({hasText:masteredForPrep.spellName}).first();
+  await masteredItem.getByRole('button',{name:'Cast',exact:true}).click();
+  await page.getByRole('button',{name:'Cast & spend slot',exact:true}).click();
+  assert.match(await page.getByRole('region',{name:'Daily spell preparation',exact:true}).innerText(),new RegExp(`Standard level ${masteredForPrep.spellLevel} slot 1: Spent`));
+  console.log('PASS 3.5 Magewright mastered repertoire creation, manual-add lockout, preparation and casting UI');
+
   await openCharacter(wizardName);
   const wizardBeforeCampaign=await saved(wizardName);
   assert(!wizardBeforeCampaign.spellAcquisition35[wizardKey].acquisitions.some(x=>x.spellName==='Scorching Ray'),'Scorching Ray is not already owned before campaign acquisition');
