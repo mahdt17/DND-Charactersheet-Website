@@ -200,6 +200,21 @@ function acquisitionFromSpell(event,spell,{origin,affectsQuota=true,ordinal=0}={
     spell:{...spell}
   };
 }
+export function spellAcquisitionPicksComplete35(events,picks={}){
+  return (Array.isArray(events)?events:[]).filter(event=>event?.required!==false).every(event=>{
+    const value=picks?.[event.eventId||event.id];
+    if(event.kind==='choose-known-spells'||event.kind==='wizard-free-spellbook-additions'){
+      const selected=Array.isArray(value)?value.filter(Boolean):[];
+      return selected.length===Number(event.count||0)&&new Set(selected).size===selected.length;
+    }
+    if(event.kind==='wizard-starting-spellbook'){
+      const selected=Array.isArray(value?.firstLevel)?value.firstLevel.filter(Boolean):[];
+      return selected.length===Number(event.firstLevelChoices||0)&&new Set(selected).size===selected.length;
+    }
+    return true;
+  });
+}
+
 function profileBucket(character,event){
   const state={...(character?.spellAcquisition35||{})};
   const key=exactStateKey(state,event.classId);
@@ -277,6 +292,7 @@ export function applySpellAcquisitionEvent35(character,event,selection){
     if(firstLevel.some(spell=>Number(spell?.level)!==1)||cantrips.some(spell=>Number(spell?.level)!==0))throw Error('Wizard starting spellbook selections have invalid spell levels.');
     spells=[...cantrips,...firstLevel];
     if(new Set(spells.map(spellKey)).size!==spells.length)throw Error('Wizard starting spellbook entries must be distinct.');
+    if(spells.some(spell=>isProhibitedWizardSpell(character,event.classId,{spell})))throw Error('A prohibited Wizard school spell cannot be added to the starting spellbook.');
     origin='starting';
     affectsQuota=false;
   }else throw Error('Unsupported spell acquisition event.');
