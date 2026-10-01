@@ -11,14 +11,25 @@ import Requirements from './Requirements';
 import Dialog from './Dialog';
 import {multiclassTrainingPlan,trainingChoicesValid} from './lib/training';
 import {annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections} from './lib/classIntegration';
+import FeatSpellAcquisition35 from './FeatSpellAcquisition35';
+import {featSpellAcquisitionProfile35,featSpellAcquisitionComplete35} from './lib/featSpellAcquisition35';
+import {reconcileSpellAcquisition35} from './lib/spellAcquisition35';
 
 export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
   const [flow,setFlow]=useState('existing'),[selected,setSelected]=useState(''),[query,setQuery]=useState(''),[confirmations,setConfirmations]=useState({}),[proceed,setProceed]=useState(false),[reviewed,setReviewed]=useState(false);
-  const [trainingChoices,setTrainingChoices]=useState({}),[pending,setPending]=useState(null),[featurePicks,setFeaturePicks]=useState({}),[inheritanceChoice,setInheritanceChoice]=useState(''),[castingTargets,setCastingTargets]=useState({});
+  const [trainingChoices,setTrainingChoices]=useState({}),[pending,setPending]=useState(null),[featurePicks,setFeaturePicks]=useState({}),[featureFeatOverrides,setFeatureFeatOverrides]=useState({}),[inheritanceChoice,setInheritanceChoice]=useState(''),[castingTargets,setCastingTargets]=useState({});
   const ruleset=char.ruleset||'2014',spellReference=useReferenceIndex(['3.5','custom'].includes(ruleset)?['spells']:[],ruleset);
-  const featureContext={spells:[...homebrew.filter(entry=>entry?.category==='spell'),...spellReference.entries]};
-  const featurePlan=pending?featureChoicePlan(pending,char,featurePicks,featureContext):null;
   const catalog=useReferenceIndex(['classes','feats'],ruleset),rows=characterClasses(char);
+  const featureContext={
+    spells:[...homebrew.filter(entry=>entry?.category==='spell'),...spellReference.entries],
+    feats:[...homebrew.filter(entry=>/feat/i.test(entry?.category||'')),...catalog.entries.filter(entry=>/feat/i.test(entry?.category||''))]
+  };
+  const featurePlan=pending?featureChoicePlan(pending,char,featurePicks,featureContext):null;
+  const featureApplied=pending&&featurePlan?.valid?applyFeatureChoices(pending,char,featurePicks,featureContext):null;
+  const featureResolved=featureApplied?{...featureApplied,feats:(featureApplied.feats||[]).map(feat=>featureFeatOverrides[feat.sourceChoiceId]?{...feat,...featureFeatOverrides[feat.sourceChoiceId],id:feat.id,sourceChoiceId:feat.sourceChoiceId}:feat)}:null;
+  const featureAcquisitionFeats=(featureResolved?.feats||[]).filter(feat=>feat.sourceType==='class-choice'&&featSpellAcquisitionProfile35(feat));
+  const featureAcquisitionsComplete=featureAcquisitionFeats.every(feat=>featSpellAcquisitionComplete35(feat,featureResolved));
+
   const all=classOptions(char.ruleset||'2014',[...homebrew,...catalog.entries]);
   const options=flow==='existing'?rows.map(r=>({...r.definition,name:r.name,catalogId:r.catalogId,edition:r.edition})):all.filter(c=>(flow==='prestige')===prestige(c)&&!rows.some(r=>r.catalogId===contentKey(c)||(r.name===c.name&&r.edition===c.edition)));
   const record=options.find(c=>contentKey(c)===selected)||(flow==='existing'?options[0]:null),row=rows.find(r=>r.catalogId===contentKey(record||{}));
@@ -41,14 +52,14 @@ export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
       classDefinition:advanced.classLevels[0].definition,subclass:advanced.classLevels[0].subclass,
       advancementNotes:[...(char.advancementNotes||[]),{level:advanced.level,classId:contentKey(candidate),reviewed,trainingMode:training.mode,notes:'Review feature choices, resources, and any manual spellcasting conversions in the source.'}]};
     const plan=featureChoicePlan(next,char,{},featureContext);
-    if(plan.groups.length){setPending(next);setFeaturePicks({});}else onFinish(applyFeatureChoices(next,char,{},featureContext));
+    if(plan.groups.length){setPending(next);setFeaturePicks({});setFeatureFeatOverrides({});}else onFinish(applyFeatureChoices(next,char,{},featureContext));
   }
   if(proceed&&candidate) {
     const draft={...char,classLevels:undefined,className:candidate.name,classDefinition:candidate,subclass:row?.subclass||'',level:row?.level||0,castingAbility:row?.castingAbility||(row?.catalogId===rows[0]?.catalogId?char.castingAbility:undefined),hitDie:`d${candidate.hit_die||8}`,ruleset:char.ruleset==='custom'?'custom':candidate.edition,
       spells:spellsForClass(char,contentKey(candidate))};
     const existingSpells=new Set(draft.spells);
     const done=next=>finish({...next,spells:[...(char.spells||[]).filter(s=>!existingSpells.has(s)),...next.spells.map(s=>({...s,castingClassId:contentKey(candidate)}))]});
-    return <><div hidden={!!pending}>{draft.ruleset==='2014'&&candidate.name!=='Artificer'?<LevelUpWizard char={draft} characterLevel={char.level+1} homebrew={homebrew} onCancel={()=>setProceed(false)} onFinish={done}/>:<EditionLevelUp char={draft} characterLevel={char.level+1} sourceClassId={contentKey(candidate)} acquisitionCharacter={char} homebrew={homebrew} onCancel={()=>setProceed(false)} onFinish={done}/>}</div>{pending&&<Dialog title="Complete class feature choices" wide onClose={()=>setPending(null)}><ClassFeatureChoices plan={featurePlan} picks={featurePicks} onChange={setFeaturePicks}/><p>These choices apply when you save the level-up.</p><div className="l-toolbar"><button className="l-button" onClick={()=>setPending(null)}>Back to level review</button><button className="l-button primary" disabled={!featurePlan.valid} onClick={()=>onFinish(applyFeatureChoices(pending,char,featurePicks,featureContext))}>Save level and choices</button></div></Dialog>}</>;
+    return <><div hidden={!!pending}>{draft.ruleset==='2014'&&candidate.name!=='Artificer'?<LevelUpWizard char={draft} characterLevel={char.level+1} homebrew={homebrew} onCancel={()=>setProceed(false)} onFinish={done}/>:<EditionLevelUp char={draft} characterLevel={char.level+1} sourceClassId={contentKey(candidate)} acquisitionCharacter={char} homebrew={homebrew} onCancel={()=>setProceed(false)} onFinish={done}/>}</div>{pending&&<Dialog title="Complete class feature choices" wide onClose={()=>setPending(null)}><ClassFeatureChoices plan={featurePlan} picks={featurePicks} onChange={next=>{setFeaturePicks(next);setFeatureFeatOverrides({});}}/>{featureAcquisitionFeats.map(feat=><FeatSpellAcquisition35 key={feat.id} feat={feat} char={featureResolved} spells={featureContext.spells} onChange={next=>setFeatureFeatOverrides({...featureFeatOverrides,[feat.sourceChoiceId]:next})}/>)}<p>These choices apply when you save the level-up.</p><div className="l-toolbar"><button className="l-button" onClick={()=>{setPending(null);setFeatureFeatOverrides({});}}>Back to level review</button><button className="l-button primary" disabled={!featurePlan.valid||!featureAcquisitionsComplete} onClick={()=>onFinish(reconcileSpellAcquisition35(featureResolved))}>Save level and choices</button></div></Dialog>}</>;
 
   }
   return <Dialog title="Choose how to level up" wide onClose={onCancel}>

@@ -15,8 +15,18 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
   const rows=characterClasses(current),oldRows=before?characterClasses(before):[];
   const patch={featureChoices:{...c.featureChoices},trainingGrants:[...(c.trainingGrants||[])],feats:[...(c.feats||[])],spellAccessGrants:[...(c.spellAccessGrants||[])]},groups=[];
   const addChoiceFeat=(id,row,feature,level,value)=>{
+    const canonical=(context.feats||[]).find(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.name)===norm(value))||null;
     patch.feats=patch.feats.filter(feat=>feat.sourceChoiceId!==id);
-    patch.feats.push({id:`class-choice:${id}:${slug(value)}`,name:value,level,description:`Chosen from ${row.name} · ${feature.name}.`,sourceType:'class-choice',automatic:true,sourceChoiceId:id,sourceClassId:row.catalogId,sourceClassName:row.name,sourceClassLevel:level,sourceFeatureId:feature.sourceFeatureId||feature.id||null,edition:'3.5',source:row.name,sourceUrl:feature.sourceUrl||row.definition?.sourceUrl||row.definition?.url||null});
+    patch.feats.push({
+      ...(canonical||{}),
+      id:`class-choice:${id}:${slug(value)}`,
+      ...(canonical?.catalogId||canonical?.sourceId||canonical?.id?{catalogId:canonical.catalogId||canonical.sourceId||canonical.id}:{}),
+      name:value,level,
+      description:canonical?.description||`Chosen from ${row.name} · ${feature.name}.`,
+      sourceType:'class-choice',automatic:true,sourceChoiceId:id,sourceClassId:row.catalogId,sourceClassName:row.name,sourceClassLevel:level,
+      sourceFeatureId:feature.sourceFeatureId||feature.id||null,edition:'3.5',source:row.name,
+      sourceUrl:canonical?.sourceUrl||feature.sourceUrl||row.definition?.sourceUrl||row.definition?.url||null
+    });
   };
   for(const row of rows.filter(item=>item.edition==='3.5')) {
     const oldLevel=oldRows.find(item=>item.catalogId===row.catalogId)?.level||0;

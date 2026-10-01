@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import {createCatalogService} from '../src/lib/catalog.js';
 import {annotateClassGrantKinds} from '../src/lib/classIntegration.js';
 import {featureChoicePlan,applyFeatureChoices,skillNames} from '../src/lib/featureChoices.js';
+import {featSpellAcquisitionProfile35,featSpellAcquisitionComplete35} from '../src/lib/featSpellAcquisition35.js';
 const make=(edition,name,level,extra={})=>({ruleset:edition,className:name,level,classDefinition:{name,edition},skillProf:{Stealth:true,Arcana:true,Athletics:true,Perception:true},expertise:{},languages:'Common',...extra});
 for(const edition of ['2014','2024']) {
  for(const cls of ['Rogue','Bard','Ranger','Wizard'])for(let level=1;level<=20;level++) {
@@ -378,8 +379,17 @@ const hexbladeBonus=hexbladePlan.groups.find(group=>group.label==='Bonus Feat');
 assert(hexbladeBonus,'Hexblade level 10 requests a bonus feat');
 assert(hexbladeBonus.options.includes('Spell Penetration'));
 assert(!hexbladeBonus.options.includes('Power Attack'),'Hexblade bonus feat remains source-restricted');
-const hexbladeChosen=applyFeatureChoices(hexbladeChoice35,hexbladeBefore35,{[hexbladeBonus.id]:['Spell Penetration']});
-assert(hexbladeChosen.feats.some(feat=>feat.name==='Spell Penetration'&&feat.sourceType==='class-choice'));
+const structuredSpellFeat={
+  id:'reviewed:spell-penetration-teaching-test',catalogId:'reviewed:spell-penetration-teaching-test',name:'Spell Penetration',edition:'3.5',
+  description:'Reviewed fixture feat with a mandatory learned-spell choice.',
+  spellAcquisition35:{effect:'known-spell',count:1,required:true,affectsQuota:false}
+};
+const hexbladeChosen=applyFeatureChoices(hexbladeChoice35,hexbladeBefore35,{[hexbladeBonus.id]:['Spell Penetration']},{feats:[structuredSpellFeat]});
+const chosenHexbladeFeat=hexbladeChosen.feats.find(feat=>feat.name==='Spell Penetration'&&feat.sourceType==='class-choice');
+assert(chosenHexbladeFeat,'Hexblade class-feature feat choice materializes a feat');
+assert.equal(chosenHexbladeFeat.catalogId,structuredSpellFeat.catalogId,'class-feature feat choice preserves canonical feat identity');
+assert.equal(featSpellAcquisitionProfile35(chosenHexbladeFeat)?.effect,'known-spell','class-feature feat choice preserves structured spell-acquisition metadata');
+assert.equal(featSpellAcquisitionComplete35(chosenHexbladeFeat,hexbladeChosen),false,'mandatory class-feature feat spell acquisition remains incomplete until resolved');
 
 const marshalClass35={name:'Marshal',edition:'3.5',sourceId:'classes/marshal-78',catalogId:'dndtools:classes/marshal-78',sourceUrl:'https://new.dndtools.org/classes/marshal-78',progression:[['Level','Special'],['1st','Skill Focus (Diplomacy), minor aura'],['2nd','Major aura +1'],['3rd','—'],['4th','Grant move action 1/day'],['5th','—']]};
 const marshal5={...legacyChoice,className:'Marshal',classDefinition:marshalClass35,classLevels:[{name:'Marshal',edition:'3.5',catalogId:marshalClass35.catalogId,level:5,definition:marshalClass35}],level:5};
