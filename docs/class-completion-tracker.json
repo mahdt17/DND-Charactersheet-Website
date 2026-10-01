@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "8d08de8c763b6c5559e605bf26626090db49e199",
+  "snapshotCommit": "e5bdc37d14a5801195268017a5f2fecb45e9fcdb",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -7482,26 +7482,28 @@
       "name": "Duskblade",
       "sourceBook": "Base Class Player's Handbook II",
       "sourceUrl": "https://new.dndtools.org/classes/duskblade-102",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 9,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "The source-specific Spells Known acquisition and odd-level spell-replacement rules are described but not represented as persisted structured spell choices."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 exact Duskblade source review verified the level-1 2 cantrips + Intelligence-bonus cantrips + 2 first-level spells, one additional spell of any castable level at every later class level, and the optional same-level replacement at level 5 and every subsequent odd level with the replacement level at least two below the highest castable spell level.",
+        "Implemented reusable flex-known spell acquisition with exact source-class ownership, event-level persistence, duplicate-event suppression, spontaneous runtime spell materialization, same-level replacement validation, source-class archival/restoration, and a guided flexible-level picker.",
+        "Browser regression verifies Duskblade creation and level-2 flexible acquisition through the real creation/level-up UI; unit regressions cover level-5/9 replacement limits, illegal over-level picks, persistence, removal, and restoration.",
+        "Spell acquisition checks #70, Companion engine checks #95, and Validate modernization #1595 all passed at e5bdc37d14a5801195268017a5f2fecb45e9fcdb."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Duskblade known-spell gain/replacement choices with eligibility and persistence regressions."
+      "verifiedCommit": "e5bdc37d14a5801195268017a5f2fecb45e9fcdb",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36937080868",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared spell-acquisition or class-integration behavior changes."
     },
     {
       "sourceId": "classes/dwarf-paragon-1001",
@@ -26107,5 +26109,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "3.5 Companion source-lock completion checkpoint recorded on green Companion engine checks #89, Spell acquisition checks #64, and Validate modernization #1589; Healer and four source-verified Ranger records were promoted after their final companion catalog/replacement blockers were closed."
+  "lastUpdatedNote": "Duskblade flexible spell-acquisition checkpoint recorded on green Spell acquisition checks #70, Companion engine checks #95, and Validate modernization #1595; classes/duskblade-102 was promoted after its final persisted Spells Known/replacement blocker was closed."
 }

@@ -285,3 +285,17 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Canonical tracker totals: **65 complete, 637 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
 
+## 2026-10-01 Duskblade flexible spell-acquisition checkpoint
+
+- Verified implementation head: `e5bdc37d14a5801195268017a5f2fecb45e9fcdb`.
+- Spell acquisition checks #70 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36937080860.
+- Companion engine checks #95 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36937080985.
+- Validate modernization #1595 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36937080868. It passed the full 3.5 class/feat/spell/item regressions, production build, general/edition/casting/catalog browser suites, class spell access, subclass/feat magic, domain/power/invocation/ritual, resource tracker, guided feature choice, level-up feat, fantasy presentation/dice, and production-loading checks.
+- Added a reusable `flex-known` acquisition profile for source classes whose spells known are gained as one spell of any currently castable level rather than from a fixed per-spell-level table.
+- Duskblade level 1 now requires two 0-level spells, additional 0-level spells equal to the Intelligence bonus at acquisition time, and two 1st-level spells. Every later Duskblade class level requires one additional legal spell up to the current source-defined maximum spell level.
+- Beginning at Duskblade 5 and at every later odd class level, the engine exposes one optional same-level replacement. The replaced spell level must be at least two levels below the highest spell level the Duskblade can cast at that class level.
+- Acquisition events persist by exact class source and are not re-awarded after completion. Duskblade known spells materialize in the normal Spells section as spontaneous castable spells, retain multiclass ownership, and their acquisition history is archived/restored if the exact source class is removed and later re-added.
+- Added engine regressions for start counts, flexible-level legality, replacement timing/limits, persistence, removal/restoration and a browser regression covering real Duskblade creation plus level-2 acquisition UI.
+- Promoted exactly `classes/duskblade-102`; its documented final blocker was the persisted source-specific Spells Known/replacement workflow.
+- Canonical tracker totals: **66 complete, 636 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.

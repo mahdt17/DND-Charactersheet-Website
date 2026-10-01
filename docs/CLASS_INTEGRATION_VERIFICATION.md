@@ -429,3 +429,53 @@ Tracker impact: **65 complete, 637 needs-review, 1 source-conflict, 2 blocked,
 349 pending audit**. No Supabase schema, policy, catalog, or live character data
 was changed. Nothing was deployed or merged.
 
+## 3.5 Duskblade flexible spell-acquisition checkpoint (2026-10-01)
+
+Duskblade now uses the reusable 3.5 spell-acquisition subsystem without being
+forced into the Sorcerer/Hexblade fixed known-table model. The new `flex-known`
+profile preserves the source rule that each class level after 1st grants one
+spell of any level the Duskblade can currently cast.
+
+At class level 1, guided acquisition requires two 0-level spells plus additional
+0-level spells equal to the character's Intelligence bonus at that acquisition
+event, and two 1st-level spells. Once those source events are completed they are
+persisted by exact Duskblade source ID and are not recalculated merely because
+Intelligence later changes.
+
+At class level 2 and every later Duskblade level, one required flexible acquisition
+event accepts a legal Duskblade spell from level 0 through the class's current
+maximum spell level. Beginning at level 5 and on every subsequent odd Duskblade
+level, a separate optional replacement event permits one known spell to be replaced
+by another Duskblade spell of the same spell level; that spell level must be at
+least two levels below the highest level the Duskblade can currently cast.
+
+The implementation keeps acquisition history separate from runtime spell rows.
+Known Duskblade spells reconcile into the normal Spells section as spontaneous
+castable spells, preserve exact class ownership in multiclass characters, do not
+duplicate completed acquisition events on reopen, and archive rather than erase
+their source-owned history if the Duskblade class is removed. Re-adding the same
+source class restores compatible history.
+
+Regression coverage includes source-profile mapping, Intelligence-based starting
+counts, flexible-level legality, level-5 and level-9 replacement caps, even-level
+replacement exclusion, persisted event deduplication, spontaneous runtime
+materialization, class removal/restoration, and an end-to-end browser test that
+creates a Duskblade and completes its level-2 flexible spell choice through the
+actual UI.
+
+Completion impact is intentionally limited to `classes/duskblade-102`, whose
+tracker entry identified persisted Spells Known acquisition/replacement as its
+remaining blocker. It moves from needs-review to complete.
+
+Verification evidence:
+- implementation head: `e5bdc37d14a5801195268017a5f2fecb45e9fcdb`
+- Spell acquisition checks #70: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36937080860
+- Companion engine checks #95: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36937080985
+- Validate modernization #1595: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36937080868
+- #1595 passed the full 3.5 class/feat/spell/item regressions, production build,
+  every general/specialized browser suite, guided feature-choice coverage, and
+  production-loading checks.
+
+Tracker impact: **66 complete, 636 needs-review, 1 source-conflict, 2 blocked,
+349 pending audit**. No Supabase schema, policy, catalog, or live character data
+was changed. Nothing was deployed or merged.
