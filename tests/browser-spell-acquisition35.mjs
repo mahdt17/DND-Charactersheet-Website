@@ -9,6 +9,11 @@ const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
 const next=()=>page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).click();
 const choose=name=>page.locator('.creation-choice').filter({has:page.locator('.creation-choice-title',{hasText:new RegExp('^'+name+'$')})}).first().click();
 const saved=async name=>page.evaluate(async name=>{const rows=JSON.parse((await window.storage.get('char-index')).value);return JSON.parse((await window.storage.get('char-detail:'+rows.find(r=>r.name===name).id)).value);},name);
+async function openCharacter(name){
+  if(await page.getByRole('button',{name:'All characters',exact:true}).count())await page.getByRole('button',{name:'All characters',exact:true}).click();
+  await page.locator('.character-card').filter({hasText:name}).getByRole('button',{name:'Open character'}).click();
+  await page.locator('.sheet-identity').filter({hasText:name}).waitFor();
+}
 
 async function begin35(name,classId,className,{cha15=false}={}){
   if(await page.getByRole('button',{name:'All characters',exact:true}).count())await page.getByRole('button',{name:'All characters',exact:true}).click();
@@ -93,6 +98,45 @@ try{
   const wizardReloaded=await saved(wizardName);
   assert.deepEqual(wizardReloaded.spellAcquisition35[wizardKey].acquisitions.map(x=>x.id).sort(),wizBucket.acquisitions.map(x=>x.id).sort());
   console.log('PASS guided 3.5 Wizard starting spellbook, prohibited-school filtering, persistence and reopen');
+
+  await openCharacter(sorcererName);
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+  await next();
+  const sorcLevel2=page.getByRole('region',{name:'Known level 0 spells',exact:true});
+  await sorcLevel2.waitFor();
+  assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Sorcerer level-up blocks until its exact acquisition delta is resolved');
+  assert.equal(await sorcLevel2.getByRole('button',{name:/^Select /}).count()>0,true);
+  await selectSpell('Known level 0 spells','Prestidigitation');
+  assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
+  await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 2'}).waitFor();
+  const sorcererLevel2Saved=await saved(sorcererName);
+  const sorcererLevel2Bucket=sorcererLevel2Saved.spellAcquisition35['dndtools:classes/sorcerer-98'];
+  assert.equal(sorcererLevel2Bucket.acquisitions.filter(x=>x.active!==false&&x.affectsQuota!==false&&x.spellLevel===0).length,5);
+  assert.equal(sorcererLevel2Bucket.acquisitions.filter(x=>x.origin==='level-up'&&x.acquiredAtClassLevel===2).length,1);
+  console.log('PASS 3.5 Sorcerer level-up acquisition event integration');
+
+  await openCharacter(wizardName);
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+  await next();
+  const wizardLevel2=page.getByRole('region',{name:'Wizard free spellbook additions',exact:true});
+  await wizardLevel2.waitFor();
+  assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Wizard level-up blocks until exactly two free additions are chosen');
+  const wizardButtons=wizardLevel2.getByRole('button',{name:/^Select /});
+  assert((await wizardButtons.count())>=2);
+  await wizardButtons.nth(0).click();
+  await wizardButtons.nth(0).click();
+  assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
+  await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 2'}).waitFor();
+  const wizardLevel2Saved=await saved(wizardName);
+  const wizardLevel2Bucket=wizardLevel2Saved.spellAcquisition35[wizardKey];
+  assert.equal(wizardLevel2Bucket.acquisitions.filter(x=>x.origin==='wizard-free-level-up'&&x.acquiredAtClassLevel===2&&x.active!==false).length,2);
+  console.log('PASS 3.5 Wizard two-free-spellbook-additions level-up integration');
 
   assert.deepEqual(errors,[]);
 }catch(error){
