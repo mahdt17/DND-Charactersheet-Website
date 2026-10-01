@@ -1,6 +1,6 @@
 import {legacyChoiceKey,legacyChoices,validLegacyChoices,domainSpell} from './legacyCastingChoices.js';
 
-const preparedClasses=new Set(['Wizard','Cleric','Cloistered Cleric','Druid','Paladin','Ranger']);
+const preparedClasses=new Set(['Wizard','Cleric','Cloistered Cleric','Druid','Paladin','Ranger','Magewright']);
 const norm=value=>String(value?.name||value||'').trim().toLowerCase();
 export const usesLegacyPreparation=c=>(c.classDefinition?.edition||c.mechanics||c.ruleset)==='3.5'&&preparedClasses.has(c.className);
 export const preparationKey=slot=>`${slot.pool}:${slot.level}:${slot.index}`;

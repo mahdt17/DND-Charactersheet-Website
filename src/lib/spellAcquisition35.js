@@ -111,6 +111,21 @@ function replacementAlreadyApplied(character,classId,id){
   const bucket=acquisitionBucket(character,classId);
   return (bucket?.replacements||[]).some(item=>item?.id===id);
 }
+function masteredRepertoireEventsForLevel(character,classId,profileId,profile,classLevel){
+  if(!(profile.triggerLevels||[]).map(Number).includes(Number(classLevel)))return [];
+  const id=eventId(classId,classLevel,'magewright-spell-mastery','all');
+  if(eventAlreadyApplied(character,classId,id))return [];
+  const abilityKey=String(profile.mastery?.countAbilityModifier||'int');
+  const count=Math.max(0,modifier(abilityScore(character,abilityKey)));
+  const bonusCantripCount=classLevel===1?0:Math.max(0,Number(profile.mastery?.bonusCantripAfterFirstTrigger)||0);
+  if(count===0&&bonusCantripCount===0)return [];
+  return [{
+    id,eventId:id,kind:'magewright-spell-mastery',classId,profileId,classLevel,
+    count,bonusCantripCount,required:true,
+    maxSpellLevel:Math.max(0,Number(profile.maxSpellLevelByClassLevel?.[String(classLevel)])||0)
+  }];
+}
+
 function flexKnownEventsForLevel(character,classId,profileId,profile,classLevel){
   const events=[];
   if(classLevel===1){
@@ -165,6 +180,10 @@ export function spellAcquisitionEvents35(character,{classId,previousClassLevel=0
     }
     if(profile.kind==='flex-known'){
       events.push(...flexKnownEventsForLevel(character,exactClassId,profile.id,profile,classLevel));
+      continue;
+    }
+    if(profile.kind==='mastered-repertoire'){
+      events.push(...masteredRepertoireEventsForLevel(character,exactClassId,profile.id,profile,classLevel));
       continue;
     }
     if(profile.kind==='spellbook'&&classLevel===1){
@@ -288,6 +307,15 @@ export function spellAcquisitionPicksComplete35(events,picks={},legalSpellIds=nu
       const selected=Array.isArray(value?.firstLevel)?value.firstLevel.filter(Boolean):[];
       return selected.length===Number(event.firstLevelChoices||0)&&new Set(selected).size===selected.length&&validIds(selected);
     }
+    if(event.kind==='magewright-spell-mastery'){
+      const mastered=Array.isArray(value?.mastered)?value.mastered.filter(Boolean):[];
+      const bonusCantrips=Array.isArray(value?.bonusCantrips)?value.bonusCantrips.filter(Boolean):[];
+      const selected=[...mastered,...bonusCantrips];
+      return mastered.length===Number(event.count||0)
+        &&bonusCantrips.length===Number(event.bonusCantripCount||0)
+        &&new Set(selected).size===selected.length
+        &&validIds(selected);
+    }
     return true;
   });
 }
@@ -315,7 +343,7 @@ function profileBucket(character,event){
   };
   return {state,key,bucket:state[key],profile};
 }
-function validateEventSpells(event,spells,profile,{count=event.count,exactLevel=event.spellLevel,maxLevel=event.maxSpellLevel}={}){
+function validateEventSpells(event,spells,profile,{count=event.count,exactLevel=event.spellLevel,maxLevel=event.maxSpellLevel,character=null}={}){
   if(!Array.isArray(spells)||spells.length!==Number(count||0))throw Error('Choose exactly '+Number(count||0)+' spells for this acquisition.');
   const seen=new Set();
   for(const spell of spells){
@@ -327,6 +355,7 @@ function validateEventSpells(event,spells,profile,{count=event.count,exactLevel=
     if(!Number.isInteger(level)||level<0||level>9)throw Error('Each acquired spell needs a verified spell level.');
     if(exactLevel!=null&&Number.isInteger(Number(exactLevel))&&level!==Number(exactLevel))throw Error('Choose spells of the required spell level.');
     if(Number.isInteger(Number(maxLevel))&&level>Number(maxLevel))throw Error('This spell level is not available for this acquisition.');
+    if(profile?.spellAbility&&character&&abilityScore(character,profile.spellAbility)<10+level)throw Error('The character does not have the required ability score to acquire a spell of this level.');
     if(profile?.className&&classNames(spell).length&&!classNames(spell).includes(String(profile.className).toLowerCase()))throw Error('Choose spells from the '+profile.className+' spell list.');
   }
 }
@@ -361,6 +390,15 @@ export function applySpellAcquisitionEvent35(character,event,selection){
     spells=Array.isArray(selection)?selection:[];
     validateEventSpells(event,spells,profile,{count:event.count,exactLevel:null,maxLevel:event.maxSpellLevel});
     origin='level-up';
+  }else if(event.kind==='magewright-spell-mastery'){
+    const mastered=Array.isArray(selection?.mastered)?selection.mastered:[];
+    const bonusCantrips=Array.isArray(selection?.bonusCantrips)?selection.bonusCantrips:[];
+    validateEventSpells(event,mastered,profile,{count:event.count,exactLevel:null,maxLevel:event.maxSpellLevel,character});
+    validateEventSpells(event,bonusCantrips,profile,{count:event.bonusCantripCount,exactLevel:0,maxLevel:0,character});
+    spells=[...mastered,...bonusCantrips];
+    if(new Set(spells.map(spellKey)).size!==spells.length)throw Error('Choose distinct spells for this acquisition.');
+    origin=Number(event.classLevel)===1?'starting':'spell-mastery';
+    affectsQuota=false;
   }else if(event.kind==='wizard-free-spellbook-additions'){
     spells=Array.isArray(selection)?selection:[];
     validateEventSpells(event,spells,profile,{count:event.count,exactLevel:null,maxLevel:event.maxSpellLevel});
@@ -502,7 +540,7 @@ export function reconcileSpellAcquisition35(character){
     const row=activeClasses.get(cleanId(classId));
     if(!row){
       for(const acquisition of bucket.acquisitions||[])retiredPairs.add(runtimeGroupKey(classId,acquisition.spellKey));
-      if(profile.kind==='spellbook'||profile.kind==='flex-known'){
+      if(profile.kind==='spellbook'||profile.kind==='flex-known'||profile.kind==='mastered-repertoire'){
         state[key]={...bucket,classId,active:false,orphaned:true};
       }else delete state[key];
       continue;

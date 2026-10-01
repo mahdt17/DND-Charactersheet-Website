@@ -39,6 +39,40 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
           onToggle={spell=>toggleIds(event,spell,event.count)}
         />;
       }
+      if(event.kind==='magewright-spell-mastery'){
+        const value=picks[key]||{};
+        const mastered=Array.isArray(value.mastered)?value.mastered:[];
+        const bonusCantrips=Array.isArray(value.bonusCantrips)?value.bonusCantrips:[];
+        const alreadyOwned=new Set(activeAcquiredSpells35(character,event.classId).map(item=>item.spellKey));
+        const selectedElsewhere=new Set(Object.entries(picks).filter(([id])=>id!==key).flatMap(([,pick])=>{
+          if(Array.isArray(pick))return pick;
+          return [...(Array.isArray(pick?.firstLevel)?pick.firstLevel:[]),...(Array.isArray(pick?.mastered)?pick.mastered:[]),...(Array.isArray(pick?.bonusCantrips)?pick.bonusCantrips:[])];
+        }));
+        const masteryLegal=spells.filter(spell=>Number(spell.level)<=Number(event.maxSpellLevel)&&!alreadyOwned.has(keyOf(spell))&&!selectedElsewhere.has(keyOf(spell))&&!bonusCantrips.includes(keyOf(spell)));
+        const cantripLegal=spells.filter(spell=>Number(spell.level)===0&&!alreadyOwned.has(keyOf(spell))&&!selectedElsewhere.has(keyOf(spell))&&!mastered.includes(keyOf(spell)));
+        const toggleList=(field,selected,limit,spell)=>{
+          const id=keyOf(spell);
+          const next=selected.includes(id)?selected.filter(x=>x!==id):selected.length<limit?[...selected,id]:selected;
+          setPick(event,{...value,[field]:next});
+        };
+        return <section key={key} aria-label="Magewright spell mastery">
+          <p className="l-notice">Choose the spells this Magewright has mastered and can prepare without a spellbook.</p>
+          {event.count>0&&<SpellPicker
+            label="Mastered spells"
+            spells={masteryLegal}
+            selected={mastered}
+            limit={event.count}
+            onToggle={spell=>toggleList('mastered',mastered,event.count,spell)}
+          />}
+          {event.bonusCantripCount>0&&<SpellPicker
+            label="Additional mastered level 0 spell"
+            spells={cantripLegal}
+            selected={bonusCantrips}
+            limit={event.bonusCantripCount}
+            onToggle={spell=>toggleList('bonusCantrips',bonusCantrips,event.bonusCantripCount,spell)}
+          />}
+        </section>;
+      }
       if(event.kind==='wizard-starting-spellbook'){
         const cantrips=spells.filter(spell=>Number(spell.level)===0);
         const first=spells.filter(spell=>Number(spell.level)===1);
