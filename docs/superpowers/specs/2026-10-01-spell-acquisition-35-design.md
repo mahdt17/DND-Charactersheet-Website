@@ -256,6 +256,27 @@ A feat-created acquisition should therefore carry semantics equivalent to:
 
 If the feat is removed, only acquisition records owned by that feat are removed unless the same spell remains owned through another independent acquisition source.
 
+### Immediate feat-resolution workflow
+
+Feat-driven spell acquisition must resolve **during the same workflow that grants the feat**.
+
+The application must inspect the feat's reviewed spell-grant semantics immediately after the feat is selected:
+
+- If the feat says **learn / know an additional spell of the user's choice**, immediately open a filtered spell picker containing only legal choices from that feat. The feat-selection workflow is incomplete until all mandatory spell choices are resolved.
+- If the feat says **add a specific named spell to your spellbook / spells known**, no picker is needed. The acquisition engine automatically creates the feat-owned acquisition and the spell appears in the normal Spells section immediately.
+- If the feat says **add one spell of your choice to your spellbook**, immediately prompt for the legal choice, then create the feat-owned spellbook entry automatically.
+- If the feat merely says **add a spell to your class spell list / gain access to a spell**, update spell access only. Do not automatically mark it known or place it in a spellbook.
+- If the feat grants **one or more casts of a spell**, keep the spell in the existing feat-spell subsystem; do not create a class acquisition unless the source separately says the spell is learned/known/added to a spellbook.
+- If the feat grants a **spell-like ability**, continue to represent that as an action/resource rather than an ordinary spell acquisition.
+
+This behavior applies consistently during:
+- initial character creation;
+- level-up feat selection;
+- later feat acquisition/editing workflows;
+- any other UI that attaches a reviewed feat to the character.
+
+A feat with unresolved mandatory spell-acquisition choices must expose an incomplete state and must not silently count as fully configured.
+
 Feat spell-like abilities remain actions/resources and are not ordinary spell acquisitions.
 
 Class feature grants that already use the existing spell-access subsystem must remain separate unless the source explicitly says they become ordinary known/spellbook spells.
@@ -327,6 +348,7 @@ For relevant 3.5 classes:
 - Sorcerer creation must require the exact level-1 known spells.
 - Wizard creation must automatically materialize legal 0-level spellbook entries and require the correct number of selected 1st-level spells based on Intelligence bonus.
 - Hexblade creation at level 1 requires no spell choice.
+- If a selected feat creates a mandatory learned/known/spellbook acquisition, the spell picker or automatic named-spell insertion must resolve before character creation can finish.
 
 The creation flow must not expose arbitrary unlimited 3.5 spell selection for these classes once an acquisition profile is available.
 
@@ -338,10 +360,11 @@ On class level gain:
 
 1. reconcile the pre-level state;
 2. compute acquisition events at the target class level;
-3. require all mandatory new-spell events;
-4. offer but do not require a legal replacement event when the source permits one;
-5. preserve unrelated spellbook/known state;
-6. apply acquisition state atomically with the level-up result.
+3. require all mandatory class new-spell events;
+4. resolve any mandatory feat-created spell-acquisition choices produced by a feat selected during the same level-up flow;
+5. offer but do not require a legal replacement event when the source permits one;
+6. preserve unrelated spellbook/known state;
+7. apply class, feat, and acquisition state atomically with the level-up result.
 
 Multiclass level-up must use the class being advanced, not total character level, for acquisition rules.
 
@@ -548,6 +571,10 @@ Cover:
 - Wizard campaign "add to spellbook" flow;
 - Hexblade reaching 4 and selecting its first known spells;
 - Hexblade level 12 optional replacement;
+- feat selection that says "learn an additional spell" immediately prompts for the required spell and blocks completion until resolved;
+- feat selection that says "add this spell to your spellbook" automatically inserts the named spell without a second manual spell-management step;
+- access-only feat grants do not become acquired spells;
+- removing a feat removes only the feat-owned acquisition when no other independent source owns that spell;
 - save/reopen;
 - multiclass class switching;
 - class removal/correction.
