@@ -15,7 +15,7 @@ export default function FeatChoices({char,patch,homebrew=[],editable=false,locke
  const hasAcquisition=(char.feats||[]).some(f=>featSpellAcquisitionProfile35(f));
  const reference=useReferenceIndex(open||hasAcquisition?['feats','spells']:[],char.ruleset||'2014');
  useEffect(()=>setPage(0),[query]);
- const referenceFeats=reference.entries.filter(entry=>/feat/i.test(entry.category||'')),spellEntries=reference.entries.filter(entry=>entry.category==='spell');
+ const referenceFeats=reference.entries.filter(entry=>/feat/i.test(entry.category||'')),spellEntries=[...homebrew.filter(entry=>entry.category==='spell'),...reference.entries.filter(entry=>entry.category==='spell')];
  const candidates=[...feats14.map(f=>({...f,edition:'2014'})),...modern.feats.map(f=>({...f,edition:'2024'})),...featSupplements,...(legacy.feats||[]),...homebrew.filter(f=>f.category==='feat'),...referenceFeats].filter(f=>(char.ruleset==='custom'||f.edition===(char.ruleset||'2014'))&&f.name.toLowerCase().includes(query.toLowerCase()));
  return <section aria-label="Feat choices"><h3>Review feat selections</h3>{editable&&(char.feats||[]).slice(lockedCount).map(f=><div className="feature-detail" key={f.id||keyOf(f)}><strong>{f.name}</strong><p>{f.description||f.desc?.join('\n')}</p><FeatMagicChoices feat={f} char={char} onChange={next=>patch({feats:char.feats.map(x=>x===f?next:x)})}/><FeatSpellAcquisition35 feat={f} char={char} spells={spellEntries} onChange={next=>patch({feats:char.feats.map(x=>x===f?next:x)})}/><button className="l-button" onClick={()=>patch({feats:char.feats.filter(x=>x!==f)})}>Remove {f.name}</button></div>)}
  {full&&<p role="status">One feat selected for this level. Remove it to choose another.</p>}
