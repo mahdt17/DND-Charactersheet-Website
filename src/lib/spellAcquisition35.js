@@ -250,7 +250,7 @@ function validateEventSpells(event,spells,profile,{count=event.count,exactLevel=
     seen.add(key);
     const level=Number(spell?.level);
     if(!Number.isInteger(level)||level<0||level>9)throw Error('Each acquired spell needs a verified spell level.');
-    if(Number.isInteger(Number(exactLevel))&&level!==Number(exactLevel))throw Error('Choose spells of the required spell level.');
+    if(exactLevel!=null&&Number.isInteger(Number(exactLevel))&&level!==Number(exactLevel))throw Error('Choose spells of the required spell level.');
     if(Number.isInteger(Number(maxLevel))&&level>Number(maxLevel))throw Error('This spell level is not available for this acquisition.');
     if(profile?.className&&classNames(spell).length&&!classNames(spell).includes(String(profile.className).toLowerCase()))throw Error('Choose spells from the '+profile.className+' spell list.');
   }
