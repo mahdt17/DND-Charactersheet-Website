@@ -214,6 +214,32 @@ try{
   assert(Object.values(hexSaved.featureChoices||{}).some(choice=>choice?.sourceClassId==='dndtools:classes/hexblade-19'&&choice?.choices?.includes('Raven')));
   console.log('PASS 3.5 Hexblade first known-spell acquisition at class level 4');
 
+  await openCharacter(wizardName);
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  await page.getByRole('button',{name:'Manage spells',exact:true}).click();
+  assert.equal(await page.getByRole('region',{name:'Available class spells',exact:true}).count(),0,'managed Wizard no longer exposes unrestricted manual spell ownership');
+  await page.getByRole('button',{name:'Add spell to spellbook',exact:true}).click();
+  const campaignAdd=page.getByRole('region',{name:'Wizard campaign spellbook acquisition',exact:true});
+  await campaignAdd.waitFor();
+  const campaignPicker=campaignAdd.getByRole('region',{name:'Spell to add to spellbook',exact:true});
+  await campaignPicker.getByLabel('Search spells',{exact:true}).fill('Scorching Ray');
+  await campaignPicker.getByRole('button',{name:'Select Scorching Ray (3.5e)',exact:true}).first().click();
+  await campaignAdd.getByLabel('Acquisition source',{exact:true}).selectOption('copied-scroll');
+  await campaignAdd.getByLabel('Spell source note',{exact:true}).fill('Scroll recovered during the campaign');
+  const recordCampaign=campaignAdd.getByRole('button',{name:'Record spellbook acquisition',exact:true});
+  assert(await recordCampaign.isDisabled(),'campaign requirements must be explicitly confirmed');
+  await campaignAdd.getByLabel('Campaign requirements completed',{exact:true}).check();
+  assert(!await recordCampaign.isDisabled());
+  await recordCampaign.click();
+  await page.locator('.spell-item').filter({hasText:'Scorching Ray'}).waitFor();
+  const wizardCampaignSaved=await saved(wizardName);
+  const wizardCampaignBucket=wizardCampaignSaved.spellAcquisition35[wizardKey];
+  const scorching=wizardCampaignBucket.acquisitions.find(x=>x.spellName==='Scorching Ray');
+  assert.equal(scorching.origin,'copied-scroll');
+  assert.equal(scorching.affectsQuota,false);
+  assert(wizardCampaignBucket.campaignEntries.some(x=>x.spellKey===scorching.spellKey&&x.confirmed===true));
+  console.log('PASS Wizard campaign spellbook acquisition from Manage Spells');
+
   assert.deepEqual(errors,[]);
 }catch(error){
   await page.screenshot({path:'test-results/spell-acquisition35-failure.png',fullPage:true}).catch(()=>{});
