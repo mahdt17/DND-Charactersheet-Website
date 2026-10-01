@@ -403,7 +403,7 @@ export function reconcileSpellAcquisition35(character){
   const desiredFeatIds=new Set(featSelections.map(item=>item.id));
   for(const [stateKey,bucketRaw] of Object.entries(state)){
     const bucket=cloneBucket(bucketRaw);
-    bucket.acquisitions=(bucket.acquisitions||[]).filter(acquisition=>acquisition.origin!=='feat'||desiredFeatIds.has(acquisition.id));
+    bucket.acquisitions=(bucket.acquisitions||[]).filter(acquisition=>acquisition.origin!=='feat'||!acquisition.sourceFeatInstanceId||desiredFeatIds.has(acquisition.id));
     state[stateKey]=bucket;
   }
   for(const selection of featSelections){
