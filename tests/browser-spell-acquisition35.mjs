@@ -141,6 +141,39 @@ try{
   assert.equal(wizardLevel2Bucket.acquisitions.filter(x=>x.origin==='wizard-free-level-up'&&x.acquiredAtClassLevel===2&&x.active!==false).length,2);
   console.log('PASS 3.5 Wizard two-free-spellbook-additions level-up integration');
 
+  await openCharacter(sorcererName);
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+  await next();
+  await selectSpell('Known level 1 spells','Mage Armor');
+  await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 3'}).waitFor();
+
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+  await next();
+  await selectSpell('Known level 0 spells','Read Magic');
+  await selectSpell('Known level 2 spells','Invisibility');
+  const replacement=page.getByRole('region',{name:'Optional spell replacement',exact:true});
+  await replacement.waitFor();
+  const continueButton=page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true});
+  assert(!await continueButton.isDisabled(),'optional Sorcerer replacement can be skipped');
+  await replacement.getByLabel('Replace one known spell this level',{exact:true}).check();
+  assert(await continueButton.isDisabled(),'opting into replacement requires a complete replacement choice');
+  await replacement.getByLabel('Known spell to replace',{exact:true}).selectOption({label:'Acid Splash'});
+  await selectSpell('Replacement level 0 spells','Ray of Frost');
+  assert(!await continueButton.isDisabled(),'legal optional replacement completes the level-up spell step');
+  await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 4'}).waitFor();
+  const sorcererLevel4Saved=await saved(sorcererName);
+  const sorcererLevel4Bucket=sorcererLevel4Saved.spellAcquisition35['dndtools:classes/sorcerer-98'];
+  assert.equal(sorcererLevel4Bucket.replacements.length,1);
+  assert(sorcererLevel4Bucket.acquisitions.some(x=>x.spellName==='Acid Splash'&&x.active===false));
+  assert(sorcererLevel4Bucket.acquisitions.some(x=>x.spellName==='Ray of Frost'&&x.origin==='replacement'&&x.active!==false));
+  console.log('PASS 3.5 Sorcerer optional level-4 spell replacement');
+
   assert.deepEqual(errors,[]);
 }catch(error){
   await page.screenshot({path:'test-results/spell-acquisition35-failure.png',fullPage:true}).catch(()=>{});
