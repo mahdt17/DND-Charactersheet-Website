@@ -61,6 +61,29 @@ const unicorn=companionCreature35('Unicorn');
 assert.equal(unicorn.hp,42);
 assert.equal(unicorn.abilities.cha,24);
 
+
+const standardFamiliarOptions=companionChoiceOptions35('standard-familiar',1);
+assert.deepEqual(standardFamiliarOptions.map(option=>option.name),['Bat','Cat','Hawk','Lizard','Owl','Rat','Raven','Snake','Toad','Weasel']);
+for(const option of standardFamiliarOptions){
+  assert(option.baseCreatureId,option.name+' familiar must point to an exact 3.5 creature record');
+  const base=companionCreature35(option.baseCreatureId);
+  assert(base,option.name+' familiar base creature must be source-locked');
+  assert.equal(base.edition,'3.5');
+}
+console.log('PASS every standard familiar choice has a source-locked creature record');
+
+for(const [name,id,type] of [
+  ['Imp','monsters/devil-imp-73','Outsider'],
+  ['Quasit','monsters/demon-quasit-59','Outsider'],
+  ['Vargouille','monsters/vargouille-505','Outsider'],
+  ['Ghostly Visage','monsters/ghostly-visage-heroes-of-horror','Undead']
+]){
+  const base=companionCreature35(name);
+  assert(base,name+' Dread Necromancer familiar must have a source-locked creature record');
+  assert.equal(base.id,id);
+  assert.equal(base.type,type);
+}
+
 const animal1=companionProgression35('druid-animal-companion',1);
 assert.deepEqual(
   {
@@ -192,6 +215,56 @@ const missing=reconcileCompanions35({
 assert.equal(missing.companions.length,1,'unresolved source state remains visible rather than substituting another creature');
 assert.equal(missing.companions[0].incomplete,true);
 assert.match(missing.companionAutomation.incompleteReasons[0],/source-locked creature/i);
+
+
+const dreadFeature=sourceFeature('dndtools:classes/dread-necromancer-75','Summon Familiar','standard-familiar','familiar',{mode:'full'},{
+  companionExceptions:{choiceOptionsFromFeature:true,retainCreatureType:true,omitAbilities:['Speak with Animals of Its Kind'],deliverTouchAbilities:true}
+});
+for(const [name,baseCreatureId] of [
+  ['Imp','monsters/devil-imp-73'],
+  ['Quasit','monsters/demon-quasit-59'],
+  ['Vargouille','monsters/vargouille-505'],
+  ['Ghostly Visage','monsters/ghostly-visage-heroes-of-horror']
+]){
+  const dreadState=reconcileCompanions35({
+    id:'dread-'+name,ruleset:'3.5',level:7,hp:{current:40,max:40,temp:0},
+    classLevels:[{catalogId:'dndtools:classes/dread-necromancer-75',name:'Dread Necromancer',edition:'3.5',level:7}],
+    grantedFeatures:[dreadFeature],
+    featureChoices:{familiar:choice('dndtools:classes/dread-necromancer-75','Summon Familiar',name,'standard-familiar',baseCreatureId)},
+    companions:[]
+  });
+  const dread=dreadState.companions[0];
+  assert(dread,name+' Dread familiar materializes');
+  assert.equal(dread.incomplete,false,name+' Dread familiar has complete base creature state');
+  assert.equal(dread.derivedStats.type,companionCreature35(baseCreatureId).type,'Dread familiar preserves its original creature type');
+  assert(!dread.specialAbilities.includes('Speak with Animals of Its Kind'),'Dread familiar omits speak-with-kind');
+  assert(dread.specialAbilities.includes('Deliver Dread Necromancer Touch Abilities'),'Dread familiar exposes its touch-delivery exception');
+}
+
+const paladinFeature=sourceFeature('dndtools:classes/paladin-95','Special Mount','paladin-special-mount','special-mount',{mode:'full'},{
+  companionChoiceRequired:false,companionDefaultCreatureId:'monsters/warhorse-heavy-555'
+});
+const paladinState=reconcileCompanions35({
+  id:'paladin-owner',ruleset:'3.5',level:5,hp:{current:42,max:42,temp:0},
+  classLevels:[{catalogId:'dndtools:classes/paladin-95',name:'Paladin',edition:'3.5',level:5}],
+  grantedFeatures:[paladinFeature],featureChoices:{},companions:[]
+});
+assert.equal(paladinState.companions[0]?.baseCreatureId,'monsters/warhorse-heavy-555');
+assert.equal(paladinState.companions[0]?.effectiveCompanionLevel,5);
+assert.equal(paladinState.companions[0]?.progression.bonusHD,2);
+assert.equal(paladinState.companions[0]?.lifecycle.replacementCondition,'30-days-or-paladin-level');
+
+const healerFeature=sourceFeature('dndtools:classes/healer-77','Unicorn Companion','healer-companion','class-companion',{mode:'full'},{
+  companionChoiceRequired:false,companionDefaultCreatureId:'monsters/unicorn-500',companionTemplate:'celestial'
+});
+const healerState=reconcileCompanions35({
+  id:'healer-owner',ruleset:'3.5',level:8,hp:{current:30,max:30,temp:0},
+  classLevels:[{catalogId:'dndtools:classes/healer-77',name:'Healer',edition:'3.5',level:8}],
+  grantedFeatures:[healerFeature],featureChoices:{},companions:[]
+});
+assert.equal(healerState.companions[0]?.baseCreatureId,'monsters/unicorn-500');
+assert.equal(healerState.companions[0]?.template,'celestial');
+assert.equal(healerState.companions[0]?.progression.bonusHD,0);
 
 const dead=transitionCompanion35(familiarState,familiar.id,'mark-dead');
 assert.equal(dead.companions[0].status,'dead');
