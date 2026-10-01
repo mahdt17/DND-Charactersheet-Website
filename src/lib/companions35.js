@@ -232,6 +232,10 @@ export function reconcileCompanions35(character){
       hp:{max:maxHp,current:currentHp},
       status:old?.status||'active',lifecycle,notes:old?.notes||'',
       template:primary.companionTemplate||old?.template||null,
+      masterBenefits:profileId==='standard-familiar'&&base?.familiarMasterBenefit?[{...base.familiarMasterBenefit}]:[],
+      masterBenefitActive:old?.masterBenefitActive!==false,
+      familiarLanguageChoice:Boolean(profileId==='standard-familiar'&&base?.familiarLanguageChoice),
+      familiarLanguage:old?.familiarLanguage||'',
       exceptions,incomplete,incompleteReason:incompleteReason||null
     });
   }
@@ -256,4 +260,25 @@ export function transitionCompanion35(character,companionId,event,options={}){
     return companion;
   });
   return {...character,companions};
+}
+
+
+export function companionMasterEffects35(character){
+  const result={hpBonus:0,saveBonuses:{fort:0,ref:0,will:0},skillBonuses:{},conditionalSkillBonuses:{},languageChoices:[]};
+  for(const companion of safeArray(character?.companions)){
+    if(companion?.relationshipType!=='familiar'||companion?.status!=='active'||companion?.masterBenefitActive===false)continue;
+    for(const benefit of safeArray(companion.masterBenefits)){
+      const bonus=Number(benefit?.bonus)||0;
+      if(benefit?.type==='hp')result.hpBonus+=bonus;
+      else if(benefit?.type==='save'&&['fort','ref','will'].includes(benefit.save))result.saveBonuses[benefit.save]+=bonus;
+      else if(benefit?.type==='skill'&&benefit.skill){
+        if(benefit.condition){
+          const id=companion.id+':'+benefit.skill+':'+benefit.condition;
+          (result.conditionalSkillBonuses[benefit.skill]??=[]).push({id,companionId:companion.id,bonus,condition:benefit.condition});
+        }else result.skillBonuses[benefit.skill]=(result.skillBonuses[benefit.skill]||0)+bonus;
+      }
+    }
+    if(companion.familiarLanguageChoice)result.languageChoices.push({companionId:companion.id,language:companion.familiarLanguage||'',count:1});
+  }
+  return result;
 }

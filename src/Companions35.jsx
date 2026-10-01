@@ -9,6 +9,13 @@ const relationshipLabel=value=>({
 }[value]||'Companion');
 
 const abilityLabels={str:'STR',dex:'DEX',con:'CON',int:'INT',wis:'WIS',cha:'CHA'};
+function masterBenefitText(benefit){
+  if(!benefit)return '';
+  if(benefit.type==='hp')return `Master gains ${benefit.bonus>0?'+':''}${benefit.bonus} hit points`;
+  if(benefit.type==='save')return `Master gains ${benefit.bonus>0?'+':''}${benefit.bonus} ${String(benefit.save||'').toUpperCase()} save`;
+  if(benefit.type==='skill')return `Master gains ${benefit.bonus>0?'+':''}${benefit.bonus} ${benefit.skill}${benefit.condition?` (${benefit.condition})`:''}`;
+  return 'Source-defined familiar benefit';
+}
 
 export default function Companions35({char,patch}){
   const companions=Array.isArray(char.companions)?char.companions:[];
@@ -54,6 +61,8 @@ export default function Companions35({char,patch}){
           companion.progression?.bonusTricks!=null?`${companion.progression.bonusTricks} bonus trick${companion.progression.bonusTricks===1?'':'s'}`:null
         ].filter(Boolean).join(' · ')||'Source-defined progression'}</p>
         {companion.specialAbilities?.length>0&&<p><strong>Special abilities:</strong> {companion.specialAbilities.join(', ')}</p>}
+        {companion.masterBenefits?.length>0&&<><p><strong>Master benefit:</strong> {companion.masterBenefits.map(masterBenefitText).join(' · ')}</p><label className="l-check"><input type="checkbox" checked={companion.masterBenefitActive!==false} onChange={event=>updateCompanion(companion.id,{masterBenefitActive:event.target.checked})}/> Familiar is within 1 mile of the master</label></>}
+        {companion.familiarLanguageChoice&&<label className="l-field"><span>Raven spoken language</span><input aria-label={`${companion.name} familiar language`} value={companion.familiarLanguage||''} onChange={event=>updateCompanion(companion.id,{familiarLanguage:event.target.value})} placeholder="Choose one language the master knows"/></label>}
         {companion.lifecycle?.restrictionText&&inactive&&<p className="l-notice">{companion.lifecycle.restrictionText}{replacementBlocked?' Replacement is currently marked unavailable.':''}</p>}
         <label className="l-field"><span>Companion notes</span><textarea aria-label={`${companion.name} companion notes`} rows={3} value={companion.notes||''} onChange={event=>updateCompanion(companion.id,{notes:event.target.value})}/></label>
         <div className="l-toolbar">

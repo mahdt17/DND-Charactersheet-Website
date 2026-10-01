@@ -148,7 +148,13 @@
       ],
       "movementNotes": {
         "fly": "average"
-      }
+      },
+      "familiarMasterBenefit": {
+        "type": "skill",
+        "skill": "Appraise",
+        "bonus": 3
+      },
+      "familiarLanguageChoice": true
     },
     {
       "id": "monsters/devil-imp-73",
@@ -356,6 +362,11 @@
       ],
       "movementNotes": {
         "fly": "good"
+      },
+      "familiarMasterBenefit": {
+        "type": "skill",
+        "skill": "Listen",
+        "bonus": 3
       }
     },
     {
@@ -405,7 +416,12 @@
       "feats": [
         "Stealthy",
         "Weapon Finesse"
-      ]
+      ],
+      "familiarMasterBenefit": {
+        "type": "skill",
+        "skill": "Move Silently",
+        "bonus": 3
+      }
     },
     {
       "id": "monsters/hawk-552",
@@ -456,6 +472,12 @@
       ],
       "movementNotes": {
         "fly": "average"
+      },
+      "familiarMasterBenefit": {
+        "type": "skill",
+        "skill": "Spot",
+        "bonus": 3,
+        "condition": "bright light"
       }
     },
     {
@@ -504,7 +526,12 @@
       "feats": [
         "Stealthy",
         "Weapon Finesse"
-      ]
+      ],
+      "familiarMasterBenefit": {
+        "type": "skill",
+        "skill": "Climb",
+        "bonus": 3
+      }
     },
     {
       "id": "monsters/owl-568",
@@ -555,6 +582,12 @@
       ],
       "movementNotes": {
         "fly": "average"
+      },
+      "familiarMasterBenefit": {
+        "type": "skill",
+        "skill": "Spot",
+        "bonus": 3,
+        "condition": "shadows"
       }
     },
     {
@@ -605,7 +638,12 @@
       "feats": [
         "Stealthy",
         "Weapon Finesse"
-      ]
+      ],
+      "familiarMasterBenefit": {
+        "type": "save",
+        "save": "fort",
+        "bonus": 2
+      }
     },
     {
       "id": "monsters/snake-viper-tiny-583",
@@ -660,7 +698,12 @@
       "aliases": [
         "Tiny Viper",
         "Viper"
-      ]
+      ],
+      "familiarMasterBenefit": {
+        "type": "skill",
+        "skill": "Bluff",
+        "bonus": 3
+      }
     },
     {
       "id": "monsters/toad-591",
@@ -705,7 +748,11 @@
       ],
       "feats": [
         "Alertness"
-      ]
+      ],
+      "familiarMasterBenefit": {
+        "type": "hp",
+        "bonus": 3
+      }
     },
     {
       "id": "monsters/weasel-592",
@@ -755,7 +802,12 @@
       "feats": [
         "Agile",
         "Weapon Finesse"
-      ]
+      ],
+      "familiarMasterBenefit": {
+        "type": "save",
+        "save": "ref",
+        "bonus": 2
+      }
     },
     {
       "id": "monsters/demon-quasit-59",
