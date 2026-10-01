@@ -52,6 +52,14 @@ try{
  const combined={...w,classLevels:[{name:'Wizard',edition:'3.5',level:5,catalogId:wid,definition:w.classDefinition},{name:'Cleric',edition:'3.5',level:5,catalogId:cid,definition:c.classDefinition}],legacyPreparation:{...w.legacyPreparation,...c.legacyPreparation},classSlotsUsed:{...w.classSlotsUsed,...c.classSlotsUsed},spells:[...w.spells.map(s=>({...s,castingClassId:wid})),...c.spells.map(s=>({...s,castingClassId:cid}))],legacyCastingChoices:c.legacyCastingChoices};
  const own=a.classCharacter(combined,combined.classLevels[1]);assert.equal(options(own,armor).length,0);
  const {removeClassProgression}=await server.ssrLoadModule('/src/lib/classIntegration.js');assert.equal(removeClassProgression(combined,cid).legacyPreparation[cid],undefined);
+ let mage=make('Magewright');mage.spells=['Mending','Identify','Make Whole'].map(spell);const [mageMendingPrepared,mageIdentifyPrepared,mageMakeWholePrepared]=mage.spells;
+ assert(p.usesLegacyPreparation(mage),'Magewright uses prepared 3.5 casting despite not using a spellbook');
+ const mageState=state(mage);assert(mageState.some(x=>x.pool==='standard'&&x.level===0));assert(mageState.some(x=>x.pool==='standard'&&x.level===1));
+ mage=prepare(mage,{'standard:0:0':mageMendingPrepared.id,'standard:1:0':mageIdentifyPrepared.id,'standard:2:0':mageMakeWholePrepared.id});
+ assert(options(mage,mageMendingPrepared).some(x=>x.pool==='standard'&&x.level===0));
+ assert(options(mage,mageIdentifyPrepared).some(x=>x.pool==='standard'&&x.level===1));
+ assert(options(mage,mageMakeWholePrepared).some(x=>x.pool==='standard'&&x.level===2));
+ mage=cast(mage,mageIdentifyPrepared,'standard',1);assert(!options(mage,mageIdentifyPrepared).some(x=>x.level===1),'Magewright prepared copies are expended normally');
  assert(play.availableSlots({...make('Sorcerer'),slotOverride:[0,0,1]},{level:1}).some(x=>x.level===2),'Spontaneous casters can use a higher-level slot');
  console.log('PASS 3.5 per-slot preparation, duplicate copies, higher slots, level 0, restrictions, expenditure, daily/open preparation, recent casts, persistence, class ownership and source removal');
 }finally{await server.close();}

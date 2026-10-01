@@ -692,3 +692,106 @@ const duskbladeReadded=reconcileSpellAcquisition35({
 assert(duskbladeReadded.spells.some(row=>row.name==='Swift Expeditious Retreat'),'re-adding the same Duskblade source restores compatible acquisition history');
 
 console.log('PASS Duskblade flexible known-spell acquisition, replacement timing, persistence, and archival');
+
+const magewrightId='dndtools:classes/magewright-1029';
+const magewrightProfile=spellAcquisitionProfile35(magewrightId);
+assert(magewrightProfile,'Magewright must resolve an acquisition profile');
+assert.equal(magewrightProfile.id,'magewright-35');
+assert.equal(magewrightProfile.kind,'mastered-repertoire');
+
+const magewright1={
+  ...baseCharacter('classes/magewright-1029','Magewright',1,10),
+  abilities:{str:10,dex:10,con:10,int:15,wis:10,cha:10}
+};
+const magewrightStart=spellAcquisitionEvents35(magewright1,{
+  classId:magewrightId,previousClassLevel:0,targetClassLevel:1
+});
+assert.equal(magewrightStart.length,1);
+assert.equal(magewrightStart[0].kind,'magewright-spell-mastery');
+assert.equal(magewrightStart[0].count,2,'Magewright 1 masters spells equal to current INT modifier');
+assert.equal(magewrightStart[0].bonusCantripCount,0);
+assert.equal(magewrightStart[0].maxSpellLevel,1);
+assert.equal(spellAcquisitionPicksComplete35(magewrightStart,{}),false);
+assert.equal(spellAcquisitionPicksComplete35(magewrightStart,{
+  [magewrightStart[0].eventId]:{mastered:['spell:mending','spell:identify'],bonusCantrips:[]}
+},new Set(['spell:mending','spell:identify'])),true);
+
+const magewright2={...magewright1,level:2,classLevels:[{catalogId:magewrightId,name:'Magewright',edition:'3.5',level:2}]};
+assert.deepEqual(spellAcquisitionEvents35(magewright2,{
+  classId:magewrightId,previousClassLevel:1,targetClassLevel:2
+}),[],'Magewright does not gain Spell Mastery at class level 2');
+
+const magewright4={
+  ...magewright1,
+  level:4,
+  abilities:{...magewright1.abilities,int:16},
+  classLevels:[{catalogId:magewrightId,name:'Magewright',edition:'3.5',level:4}]
+};
+const magewright4Event=spellAcquisitionEvents35(magewright4,{
+  classId:magewrightId,previousClassLevel:3,targetClassLevel:4
+})[0];
+assert(magewright4Event);
+assert.equal(magewright4Event.kind,'magewright-spell-mastery');
+assert.equal(magewright4Event.count,3);
+assert.equal(magewright4Event.bonusCantripCount,1,'new spell-level access also grants one additional 0-level spell');
+assert.equal(magewright4Event.maxSpellLevel,2);
+
+for(const [level,maxSpellLevel] of [[8,3],[12,4],[16,5],[20,5]]){
+  const c={...magewright1,level,abilities:{...magewright1.abilities,int:18},classLevels:[{catalogId:magewrightId,name:'Magewright',edition:'3.5',level}]};
+  const event=spellAcquisitionEvents35(c,{classId:magewrightId,previousClassLevel:level-1,targetClassLevel:level})[0];
+  assert(event,'Magewright '+level+' gains a Spell Mastery event');
+  assert.equal(event.count,4);
+  assert.equal(event.bonusCantripCount,1);
+  assert.equal(event.maxSpellLevel,maxSpellLevel);
+}
+
+const mageMending=spell('spell:mage-mending','Mending',0,['Magewright'],'Transmutation');
+const mageIdentify=spell('spell:mage-identify','Identify',1,['Magewright'],'Divination');
+const mageStartApplied=applySpellAcquisitionEvent35(magewright1,magewrightStart[0],{
+  mastered:[mageMending,mageIdentify],
+  bonusCantrips:[]
+});
+const mageStartBucket=mageStartApplied.spellAcquisition35[magewrightId];
+assert.equal(mageStartBucket.acquisitions.length,2);
+assert(mageStartBucket.acquisitions.every(x=>x.origin==='starting'));
+assert(mageStartApplied.spells.every(x=>x.castingClassId===magewrightId&&x.prepared===false),'Magewright repertoire is available to preparation but is not spontaneously castable');
+assert.equal(spellAcquisitionEvents35(mageStartApplied,{
+  classId:magewrightId,previousClassLevel:0,targetClassLevel:1
+}).length,0,'completed Magewright Spell Mastery event is not offered again');
+
+const mageMakeWhole=spell('spell:mage-make-whole','Make Whole',2,['Magewright'],'Transmutation');
+const mageArcaneLock=spell('spell:mage-arcane-lock','Arcane Lock',2,['Magewright'],'Abjuration');
+const mageUnseen=spell('spell:mage-unseen-servant','Unseen Servant',1,['Magewright'],'Conjuration');
+const mageDetect=spell('spell:mage-detect-magic','Detect Magic',0,['Magewright'],'Divination');
+const mageAt4={...mageStartApplied,level:4,abilities:{...mageStartApplied.abilities,int:16},classLevels:[{catalogId:magewrightId,name:'Magewright',edition:'3.5',level:4}]};
+const mage4Applied=applySpellAcquisitionEvent35(mageAt4,magewright4Event,{
+  mastered:[mageMakeWhole,mageArcaneLock,mageUnseen],
+  bonusCantrips:[mageDetect]
+});
+assert.equal(mage4Applied.spellAcquisition35[magewrightId].acquisitions.filter(x=>x.acquiredAtClassLevel===4&&x.active!==false).length,4);
+assert.equal(mage4Applied.spellAcquisition35[magewrightId].acquisitions.filter(x=>x.acquiredAtClassLevel===4&&x.spellLevel===0&&x.active!==false).length,1);
+assert.throws(()=>applySpellAcquisitionEvent35(mageAt4,magewright4Event,{
+  mastered:[
+    spell('spell:mage-too-high','Too High',3,['Magewright'],'Evocation'),
+    mageArcaneLock,
+    mageUnseen
+  ],
+  bonusCantrips:[mageDetect]
+}),/not available/i,'Magewright mastery cannot select a spell above its newly accessible level');
+assert.throws(()=>applySpellAcquisitionEvent35(mageAt4,magewright4Event,{
+  mastered:[mageMakeWhole,mageArcaneLock,mageDetect],
+  bonusCantrips:[mageDetect]
+}),/distinct/i,'the bonus 0-level mastery cannot duplicate another spell selected in the same event');
+
+const mageRemoved=reconcileSpellAcquisition35({...mageStartApplied,classLevels:[
+  {catalogId:'dndtools:classes/fighter-90',name:'Fighter',edition:'3.5',level:1}
+]});
+assert.equal(mageRemoved.spells.some(x=>x.castingClassId===magewrightId),false);
+assert.equal(mageRemoved.spellAcquisition35[magewrightId]?.orphaned,true,'Magewright repertoire history is archived with its source class');
+const mageReadded=reconcileSpellAcquisition35({...mageRemoved,classLevels:[
+  {catalogId:magewrightId,name:'Magewright',edition:'3.5',level:1}
+]});
+assert(mageReadded.spells.some(x=>x.name==='Mending'),'re-adding the exact Magewright source restores its mastered repertoire');
+
+console.log('PASS Magewright mastered repertoire acquisition, trigger levels, legality, persistence and archival');
+
