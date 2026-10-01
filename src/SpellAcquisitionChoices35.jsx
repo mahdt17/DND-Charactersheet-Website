@@ -26,6 +26,19 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
           onToggle={spell=>toggleIds(event,spell,event.count)}
         />;
       }
+      if(event.kind==='choose-flex-known-spells'){
+        const alreadyOwned=new Set(activeAcquiredSpells35(character,event.classId).map(item=>item.spellKey));
+        const selectedElsewhere=new Set(Object.entries(picks).filter(([id])=>id!==key).flatMap(([,pick])=>Array.isArray(pick)?pick:(Array.isArray(pick?.firstLevel)?pick.firstLevel:[])));
+        const legal=spells.filter(spell=>Number(spell.level)<=Number(event.maxSpellLevel)&&!alreadyOwned.has(keyOf(spell))&&!selectedElsewhere.has(keyOf(spell)));
+        return <SpellPicker
+          key={key}
+          label={`Known spell up to level ${event.maxSpellLevel}`}
+          spells={legal}
+          selected={Array.isArray(picks[key])?picks[key]:[]}
+          limit={event.count}
+          onToggle={spell=>toggleIds(event,spell,event.count)}
+        />;
+      }
       if(event.kind==='wizard-starting-spellbook'){
         const cantrips=spells.filter(spell=>Number(spell.level)===0);
         const first=spells.filter(spell=>Number(spell.level)===1);

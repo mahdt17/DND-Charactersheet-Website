@@ -33,6 +33,7 @@ function replacementAvailable(profile,classLevel){
   const rule=profile?.replacement;
   if(!rule)return false;
   if(rule.mode==='even-from')return classLevel>=Number(rule.startLevel||0)&&classLevel%2===0;
+  if(rule.mode==='odd-from')return classLevel>=Number(rule.startLevel||0)&&classLevel%2===1;
   if(rule.mode==='levels')return (rule.levels||[]).includes(classLevel);
   return false;
 }
@@ -102,6 +103,53 @@ function knownEventsForLevel(character,classId,profileId,profile,classLevel,simu
   return events;
 }
 
+function eventAlreadyApplied(character,classId,id){
+  const bucket=acquisitionBucket(character,classId);
+  return (bucket?.acquisitions||[]).some(item=>item?.sourceEventId===id);
+}
+function replacementAlreadyApplied(character,classId,id){
+  const bucket=acquisitionBucket(character,classId);
+  return (bucket?.replacements||[]).some(item=>item?.id===id);
+}
+function flexKnownEventsForLevel(character,classId,profileId,profile,classLevel){
+  const events=[];
+  if(classLevel===1){
+    const intBonus=Math.max(0,modifier(abilityScore(character,'int')));
+    for(const row of profile.startingKnown||[]){
+      const spellLevel=Number(row.spellLevel),id=eventId(classId,classLevel,'choose-known-spells',spellLevel);
+      if(eventAlreadyApplied(character,classId,id))continue;
+      const abilityBonus=row.abilityBonusChoices==='int'?intBonus:0;
+      events.push({
+        id,eventId:id,kind:'choose-known-spells',classId,profileId,classLevel,spellLevel,
+        count:Math.max(0,Number(row.baseChoices)||0)+abilityBonus,
+        required:true
+      });
+    }
+  }else{
+    const id=eventId(classId,classLevel,'choose-flex-known-spells','all');
+    if(!eventAlreadyApplied(character,classId,id)){
+      events.push({
+        id,eventId:id,kind:'choose-flex-known-spells',classId,profileId,classLevel,
+        count:Math.max(0,Number(profile.levelUpKnown?.count)||0),
+        required:true,
+        maxSpellLevel:Math.max(0,Number(profile.maxSpellLevelByClassLevel?.[String(classLevel)])||0)
+      });
+    }
+  }
+  if(replacementAvailable(profile,classLevel)){
+    const id=eventId(classId,classLevel,'optional-replacement','one');
+    if(!replacementAlreadyApplied(character,classId,id)){
+      const highest=Math.max(0,Number(profile.maxSpellLevelByClassLevel?.[String(classLevel)])||0);
+      events.push({
+        id,eventId:id,kind:'optional-replacement',classId,profileId,classLevel,
+        count:Number(profile.replacement?.count)||1,required:false,
+        highestCastableSpellLevel:highest,maxReplacementSpellLevel:highest-2
+      });
+    }
+  }
+  return events;
+}
+
 export function spellAcquisitionEvents35(character,{classId,previousClassLevel=0,targetClassLevel}={}){
   const exactClassId=String(classId||'').trim();
   const profile=spellAcquisitionProfile35(exactClassId);
@@ -113,6 +161,10 @@ export function spellAcquisitionEvents35(character,{classId,previousClassLevel=0
   for(let classLevel=previous+1;classLevel<=target;classLevel++){
     if(profile.kind==='known-table'){
       events.push(...knownEventsForLevel(character,exactClassId,profile.id,profile,classLevel,simulatedCounts));
+      continue;
+    }
+    if(profile.kind==='flex-known'){
+      events.push(...flexKnownEventsForLevel(character,exactClassId,profile.id,profile,classLevel));
       continue;
     }
     if(profile.kind==='spellbook'&&classLevel===1){
@@ -228,7 +280,7 @@ export function spellAcquisitionPicksComplete35(events,picks={},legalSpellIds=nu
       return Boolean(value.removedSpellKey&&value.addedSpellId)&&validIds([value.addedSpellId]);
     }
     if(event?.required===false)return true;
-    if(event.kind==='choose-known-spells'||event.kind==='wizard-free-spellbook-additions'){
+    if(event.kind==='choose-known-spells'||event.kind==='choose-flex-known-spells'||event.kind==='wizard-free-spellbook-additions'){
       const selected=Array.isArray(value)?value.filter(Boolean):[];
       return selected.length===Number(event.count||0)&&new Set(selected).size===selected.length&&validIds(selected);
     }
@@ -300,11 +352,15 @@ export function applySpellAcquisitionEvent35(character,event,selection){
     return reconcileSpellAcquisition35({...character,spellAcquisition35:state});
   }
 
-  let spells=[],origin='level-up',affectsQuota=profile.kind==='known-table';
+  let spells=[],origin='level-up',affectsQuota=profile.kind==='known-table'||profile.kind==='flex-known';
   if(event.kind==='choose-known-spells'){
     spells=Array.isArray(selection)?selection:[];
     validateEventSpells(event,spells,profile);
     origin=Number(event.classLevel)===1?'starting':'level-up';
+  }else if(event.kind==='choose-flex-known-spells'){
+    spells=Array.isArray(selection)?selection:[];
+    validateEventSpells(event,spells,profile,{count:event.count,exactLevel:null,maxLevel:event.maxSpellLevel});
+    origin='level-up';
   }else if(event.kind==='wizard-free-spellbook-additions'){
     spells=Array.isArray(selection)?selection:[];
     validateEventSpells(event,spells,profile,{count:event.count,exactLevel:null,maxLevel:event.maxSpellLevel});
@@ -446,7 +502,7 @@ export function reconcileSpellAcquisition35(character){
     const row=activeClasses.get(cleanId(classId));
     if(!row){
       for(const acquisition of bucket.acquisitions||[])retiredPairs.add(runtimeGroupKey(classId,acquisition.spellKey));
-      if(profile.kind==='spellbook'){
+      if(profile.kind==='spellbook'||profile.kind==='flex-known'){
         state[key]={...bucket,classId,active:false,orphaned:true};
       }else delete state[key];
       continue;
@@ -481,6 +537,27 @@ export function reconcileSpellAcquisition35(character){
       for(const [level,count] of Object.entries(counts)){
         const limit=Number(limits[level]||0);
         if(count>limit)reasons.push('Known-spell quota exceeded at spell level '+level+': '+count+' owned, '+limit+' allowed.');
+      }
+    }
+    if(profile.kind==='flex-known'){
+      const sourceCounts={};
+      for(const acquisition of acquisitions.filter(item=>item.active!==false&&item.affectsQuota!==false)){
+        const acquiredAt=Math.max(1,Number(acquisition.acquiredAtClassLevel)||1);
+        const spellLevel=Number(acquisition.spellLevel);
+        const maxLevel=Math.max(0,Number(profile.maxSpellLevelByClassLevel?.[String(acquiredAt)])||0);
+        if(acquiredAt===1){
+          if(![0,1].includes(spellLevel))reasons.push((acquisition.spellName||acquisition.spellKey)+' is not a legal Duskblade starting spell level.');
+        }else if(spellLevel>maxLevel){
+          reasons.push((acquisition.spellName||acquisition.spellKey)+' was above the Duskblade spell level available when it was learned.');
+        }
+        if(acquisition.origin!=='replacement'&&acquisition.sourceEventId){
+          sourceCounts[acquisition.sourceEventId]=(sourceCounts[acquisition.sourceEventId]||0)+1;
+        }
+      }
+      for(const [sourceId,count] of Object.entries(sourceCounts)){
+        if(sourceId.includes(':choose-flex-known-spells:')&&count>Math.max(0,Number(profile.levelUpKnown?.count)||0)){
+          reasons.push('Flexible known-spell event contains too many active acquisitions: '+sourceId+'.');
+        }
       }
     }
     for(const acquisition of acquisitions){
@@ -522,7 +599,7 @@ export function reconcileSpellAcquisition35(character){
       spellAcquisitionClassId:group.classId,
       spellAcquisitionIds:group.acquisitions.map(item=>item.id).filter(Boolean).sort(),
       spellAcquisitionOrigins:[...new Set(group.acquisitions.map(item=>item.origin).filter(Boolean))],
-      prepared:old?.prepared??(profile?.kind==='known-table')
+      prepared:old?.prepared??(profile?.kind==='known-table'||profile?.kind==='flex-known')
     });
   }
 
