@@ -174,6 +174,53 @@ try{
   assert(sorcererLevel4Bucket.acquisitions.some(x=>x.spellName==='Ray of Frost'&&x.origin==='replacement'&&x.active!==false));
   console.log('PASS 3.5 Sorcerer optional level-4 spell replacement');
 
+  // Advance once without a feat so Extra Spell is tested at character level 6, where the normal 3.5 feat cadence and caster-level prerequisite both apply.
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+  await next();
+  await selectSpell('Known level 1 spells','Burning Hands');
+  await selectSpell('Known level 2 spells','Scorching Ray');
+  await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 5'}).waitFor();
+
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+  await page.getByRole('button',{name:'Choose from feat catalog',exact:true}).click();
+  await page.getByLabel('Search feats',{exact:true}).fill('Extra Spell');
+  const extraDetails=page.locator('[data-catalog-id="dndtools:feats/extra-spell-1044"]');
+  await extraDetails.waitFor();
+  await extraDetails.locator('summary').click();
+  const prereqCheck=extraDetails.getByRole('checkbox');
+  if(await prereqCheck.count())await prereqCheck.first().check();
+  await extraDetails.getByRole('button',{name:'Add feat',exact:true}).click();
+
+  const extraRegion=page.getByRole('region',{name:'Feat spell acquisition · Extra Spell',exact:true});
+  await extraRegion.waitFor();
+  const level6Continue=page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true});
+  assert(await level6Continue.isDisabled(),'Extra Spell blocks level-up until its learned spell is chosen immediately');
+  await selectSpell('Extra Spell spell choice','Web');
+  assert(!await level6Continue.isDisabled(),'resolving Extra Spell immediately completes the feat portion of level-up');
+  await level6Continue.click();
+
+  await selectSpell('Known level 0 spells','Dancing Lights');
+  await selectSpell('Known level 3 spells','Fireball');
+  const level6Replacement=page.getByRole('region',{name:'Optional spell replacement',exact:true});
+  await level6Replacement.waitFor();
+  await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 6'}).waitFor();
+
+  const sorcererLevel6Saved=await saved(sorcererName);
+  const sorcererLevel6Bucket=sorcererLevel6Saved.spellAcquisition35['dndtools:classes/sorcerer-98'];
+  const extraAcquisition=sorcererLevel6Bucket.acquisitions.find(x=>x.origin==='feat'&&x.spellName==='Web'&&x.active!==false);
+  assert(extraAcquisition,'Extra Spell acquisition is persisted immediately with feat provenance');
+  assert.equal(extraAcquisition.affectsQuota,false,'Extra Spell does not consume the Sorcerer known-spell quota');
+  assert.equal(sorcererLevel6Bucket.acquisitions.filter(x=>x.active!==false&&x.affectsQuota!==false&&x.spellLevel===2).length,2,'ordinary Sorcerer level-2 known-spell quota remains exactly two');
+  assert(sorcererLevel6Saved.spells.some(x=>x.name==='Web'&&x.castingClassId==='dndtools:classes/sorcerer-98'),'feat-learned spell appears in the normal Spells section');
+  assert(sorcererLevel6Saved.feats.some(f=>f.name==='Extra Spell'&&f.spellAcquisitionChoices35?.entries?.some(entry=>entry.name==='Web')));
+  console.log('PASS immediate Extra Spell choice, feat provenance, quota isolation and normal spell-list materialization');
+
   const hexbladeName='Acquisition Hexblade';
   await page.getByRole('button',{name:'All characters',exact:true}).click();
   await begin35(hexbladeName,'classes/hexblade-19','Hexblade',{cha15:true});
