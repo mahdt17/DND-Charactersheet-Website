@@ -27,8 +27,9 @@ async function begin35(name,classId,className,{cha15=false,int15=false}={}){
   if(cha15)await page.getByLabel(/Charisma · total/).selectOption('15');
   if(int15)await page.getByLabel(/Intelligence · total/).selectOption('15');
   await next();
-  const language=page.getByLabel('Human / Intelligence language 1',{exact:true});
-  if(await language.count())await language.selectOption('Draconic');
+  const languages=page.getByLabel(/Human \/ Intelligence language \d+/);
+  const languageChoices=['Draconic','Dwarven','Elven','Giant','Gnome','Goblin','Orc'];
+  for(let i=0;i<await languages.count();i++)await languages.nth(i).selectOption(languageChoices[i]);
   await next();
 }
 
