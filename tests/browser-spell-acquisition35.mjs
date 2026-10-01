@@ -215,6 +215,8 @@ try{
   console.log('PASS 3.5 Hexblade first known-spell acquisition at class level 4');
 
   await openCharacter(wizardName);
+  const wizardBeforeCampaign=await saved(wizardName);
+  assert(!wizardBeforeCampaign.spellAcquisition35[wizardKey].acquisitions.some(x=>x.spellName==='Scorching Ray'),'Scorching Ray is not already owned before campaign acquisition');
   await page.getByRole('tab',{name:'Spells',exact:true}).click();
   await page.getByRole('button',{name:'Manage spells',exact:true}).click();
   assert.equal(await page.getByRole('region',{name:'Available class spells',exact:true}).count(),0,'managed Wizard no longer exposes unrestricted manual spell ownership');
@@ -232,16 +234,9 @@ try{
   assert(!await recordCampaign.isDisabled());
   await recordCampaign.click();
   await page.locator('.spell-item').filter({hasText:'Scorching Ray'}).waitFor();
-  await page.waitForFunction(async ({name,classId})=>{
-    const indexRecord=await window.storage.get('char-index');
-    if(!indexRecord)return false;
-    const rows=JSON.parse(indexRecord.value),row=rows.find(item=>item.name===name);
-    if(!row)return false;
-    const detail=await window.storage.get('char-detail:'+row.id);
-    if(!detail)return false;
-    const character=JSON.parse(detail.value),bucket=character.spellAcquisition35?.[classId];
-    return Boolean(bucket?.acquisitions?.some(item=>item.spellName==='Scorching Ray'&&item.origin==='copied-scroll'));
-  },{name:wizardName,classId:wizardKey});
+  const saveStatus=page.locator('.save-status');
+  await saveStatus.filter({hasText:'Saving…'}).waitFor();
+  await saveStatus.filter({hasText:'All changes saved'}).waitFor();
   const wizardCampaignSaved=await saved(wizardName);
   const wizardCampaignBucket=wizardCampaignSaved.spellAcquisition35[wizardKey];
   const scorching=wizardCampaignBucket.acquisitions.find(x=>x.spellName==='Scorching Ray');
