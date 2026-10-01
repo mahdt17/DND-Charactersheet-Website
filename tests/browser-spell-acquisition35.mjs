@@ -26,10 +26,13 @@ async function begin35(name,classId,className,{cha15=false}={}){
   await next();
 }
 
-async function selectSpell(region,name){
-  const button=region.getByRole('button',{name:new RegExp('^Select '+name)}).first();
+async function selectSpell(pickerLabel,name){
+  const picker=page.getByRole('region',{name:pickerLabel,exact:true});
+  await picker.getByPlaceholder('Search by name…').fill(name);
+  const button=picker.getByRole('button',{name:new RegExp('^Select '+name)}).first();
   assert.equal(await button.count(),1,'Expected legal acquisition option '+name);
   await button.click();
+  await picker.getByPlaceholder('Search by name…').fill('');
 }
 
 try{
@@ -44,8 +47,8 @@ try{
   assert.equal(await sorcRegion.getByRole('heading',{name:'Known level 0 spells',exact:true}).count(),1);
   assert.equal(await sorcRegion.getByRole('heading',{name:'Known level 1 spells',exact:true}).count(),1);
   assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Sorcerer setup blocks until exact known-spell choices are resolved');
-  for(const name of ['Acid Splash','Detect Magic','Light','Mage Hand'])await selectSpell(sorcRegion,name);
-  for(const name of ['Magic Missile','Shield'])await selectSpell(sorcRegion,name);
+  for(const name of ['Acid Splash','Detect Magic','Light','Mage Hand'])await selectSpell('Known level 0 spells',name);
+  for(const name of ['Magic Missile','Shield'])await selectSpell('Known level 1 spells',name);
   assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
   await next();
   await page.getByLabel('Sorcerer 1 Familiar: Raven',{exact:true}).check();
@@ -71,7 +74,7 @@ try{
   assert.equal(await wizRegion.getByRole('heading',{name:'Starting Wizard level 1 spells',exact:true}).count(),1);
   assert.equal(await wizRegion.getByRole('button',{name:/Select Charm Person/}).count(),0,'prohibited Enchantment is excluded from Wizard acquisition options');
   assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
-  for(const name of ['Magic Missile','Mage Armor','Shield','Grease'])await selectSpell(wizRegion,name);
+  for(const name of ['Magic Missile','Mage Armor','Shield','Grease'])await selectSpell('Starting Wizard level 1 spells',name);
   assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'INT 12 Wizard requires exactly four starting 1st-level spellbook choices');
   await next();
   await page.getByLabel('Wizard 1 Familiar: Raven',{exact:true}).check();
