@@ -571,8 +571,124 @@ assert.equal(
   copied.spellAcquisition35[wizardId].acquisitions.filter(x=>x.origin==='wizard-free-level-up').length,
   'campaign spellbook additions never consume the two-free-spells-per-level quota'
 );
-console.log('PASS Wizard campaign spellbook acquisition provenance and legality');
+console.log('PASS Wizard campaign spellbook acquisition provenance and legality');\n
 
+const duskbladeId='dndtools:classes/duskblade-102';
+const duskbladeProfile=spellAcquisitionProfile35(duskbladeId);
+assert(duskbladeProfile,'Duskblade must resolve an acquisition profile');
+assert.equal(duskbladeProfile.id,'duskblade-35');
+assert.equal(duskbladeProfile.kind,'flex-known');
 
+const duskblade1={
+  ...baseCharacter('classes/duskblade-102','Duskblade',1,10),
+  abilities:{str:10,dex:10,con:10,int:16,wis:10,cha:10}
+};
+const duskbladeStart=spellAcquisitionEvents35(duskblade1,{
+  classId:duskbladeId,previousClassLevel:0,targetClassLevel:1
+});
+assert.deepEqual(
+  duskbladeStart.filter(event=>event.kind==='choose-known-spells').map(event=>[event.spellLevel,event.count]),
+  [[0,5],[1,2]],
+  'Duskblade 1 learns two cantrips plus INT bonus cantrips and two 1st-level spells'
+);
+assert.equal(spellAcquisitionPicksComplete35(duskbladeStart,{}),false);
 
+const duskblade2={
+  ...duskblade1,
+  level:2,
+  classLevels:[{catalogId:duskbladeId,name:'Duskblade',edition:'3.5',level:2}]
+};
+const duskblade2Events=spellAcquisitionEvents35(duskblade2,{
+  classId:duskbladeId,previousClassLevel:1,targetClassLevel:2
+});
+const duskblade2Learn=duskblade2Events.find(event=>event.kind==='choose-flex-known-spells');
+assert(duskblade2Learn,'Duskblade gains one flexible known spell at every class level after 1st');
+assert.equal(duskblade2Learn.count,1);
+assert.equal(duskblade2Learn.maxSpellLevel,1);
+assert.equal(spellAcquisitionPicksComplete35(duskblade2Events,{
+  [duskblade2Learn.eventId]:['spell:swift-expeditious-retreat']
+},new Set(['spell:swift-expeditious-retreat'])),true);
 
+const duskblade5={
+  ...duskblade1,
+  level:5,
+  classLevels:[{catalogId:duskbladeId,name:'Duskblade',edition:'3.5',level:5}]
+};
+const duskblade5Events=spellAcquisitionEvents35(duskblade5,{
+  classId:duskbladeId,previousClassLevel:4,targetClassLevel:5
+});
+assert.equal(duskblade5Events.find(event=>event.kind==='choose-flex-known-spells')?.maxSpellLevel,2);
+const duskblade5Replace=duskblade5Events.find(event=>event.kind==='optional-replacement');
+assert(duskblade5Replace,'Duskblade 5 offers its first optional replacement');
+assert.equal(duskblade5Replace.maxReplacementSpellLevel,0);
+
+const duskblade6={
+  ...duskblade5,
+  level:6,
+  classLevels:[{catalogId:duskbladeId,name:'Duskblade',edition:'3.5',level:6}]
+};
+assert(!spellAcquisitionEvents35(duskblade6,{
+  classId:duskbladeId,previousClassLevel:5,targetClassLevel:6
+}).some(event=>event.kind==='optional-replacement'),'even Duskblade levels do not offer replacement');
+
+const duskblade9={
+  ...duskblade5,
+  level:9,
+  classLevels:[{catalogId:duskbladeId,name:'Duskblade',edition:'3.5',level:9}]
+};
+const duskblade9Replace=spellAcquisitionEvents35(duskblade9,{
+  classId:duskbladeId,previousClassLevel:8,targetClassLevel:9
+}).find(event=>event.kind==='optional-replacement');
+assert(duskblade9Replace);
+assert.equal(duskblade9Replace.highestCastableSpellLevel,3);
+assert.equal(duskblade9Replace.maxReplacementSpellLevel,1);
+
+assert.throws(()=>applySpellAcquisitionEvent35(duskblade2,duskblade2Learn,[
+  spell('spell:duskblade-too-high','Too High',2,['Duskblade'],'Evocation')
+]),/not available/i,'flexible Duskblade acquisition rejects spells above the current maximum');
+
+const duskbladeLearned=applySpellAcquisitionEvent35(duskblade2,duskblade2Learn,[
+  spell('spell:swift-expeditious-retreat','Swift Expeditious Retreat',1,['Duskblade'],'Transmutation')
+]);
+assert.equal(duskbladeLearned.spellAcquisition35[duskbladeId].profileId,'duskblade-35');
+assert.equal(duskbladeLearned.spellAcquisition35[duskbladeId].acquisitions.length,1);
+assert.equal(duskbladeLearned.spells.find(row=>row.name==='Swift Expeditious Retreat')?.prepared,true,'Duskblade known spells are castable without preparation');
+assert.equal(spellAcquisitionEvents35(duskbladeLearned,{
+  classId:duskbladeId,previousClassLevel:1,targetClassLevel:2
+}).some(event=>event.kind==='choose-flex-known-spells'),false,'completed Duskblade acquisition events are not offered again');
+
+const duskbladeReplacementBase={
+  ...duskblade5,
+  spellAcquisition35:{
+    [duskbladeId]:{
+      profileId:'duskblade-35',classId:duskbladeId,classLevel:5,active:true,orphaned:false,
+      acquisitions:[
+        {id:'dusk-cantrip',spellKey:'spell:acid-splash',spellName:'Acid Splash',spellLevel:0,acquiredAtClassLevel:1,origin:'starting',sourceEventId:duskbladeId+':1:choose-known-spells:0',active:true,affectsQuota:true,spell:spell('spell:acid-splash','Acid Splash',0,['Duskblade'],'Conjuration')},
+        {id:'dusk-first',spellKey:'spell:true-strike',spellName:'True Strike',spellLevel:1,acquiredAtClassLevel:1,origin:'starting',sourceEventId:duskbladeId+':1:choose-known-spells:1',active:true,affectsQuota:true,spell:spell('spell:true-strike','True Strike',1,['Duskblade'],'Divination')}
+      ],
+      replacements:[],campaignEntries:[]
+    }
+  }
+};
+assert.equal(validateSpellReplacement35(duskbladeReplacementBase,duskblade5Replace,{
+  removedSpellKey:'spell:acid-splash',
+  addedSpell:spell('spell:ray-of-frost','Ray of Frost',0,['Duskblade'],'Evocation')
+}).valid,true);
+assert.equal(validateSpellReplacement35(duskbladeReplacementBase,duskblade5Replace,{
+  removedSpellKey:'spell:true-strike',
+  addedSpell:spell('spell:magic-weapon','Magic Weapon',1,['Duskblade'],'Transmutation')
+}).valid,false,'Duskblade replacement must be at least two levels below the highest castable spell level');
+
+const duskbladeRemoved=reconcileSpellAcquisition35({
+  ...duskbladeLearned,
+  classLevels:[{catalogId:'dndtools:classes/fighter-90',name:'Fighter',edition:'3.5',level:2}]
+});
+assert.equal(duskbladeRemoved.spells.some(row=>row.castingClassId===duskbladeId),false,'removed Duskblade spells leave active casting views');
+assert.equal(duskbladeRemoved.spellAcquisition35[duskbladeId]?.orphaned,true,'Duskblade acquisition history is archived when its source class is removed');
+const duskbladeReadded=reconcileSpellAcquisition35({
+  ...duskbladeRemoved,
+  classLevels:[{catalogId:duskbladeId,name:'Duskblade',edition:'3.5',level:2}]
+});
+assert(duskbladeReadded.spells.some(row=>row.name==='Swift Expeditious Retreat'),'re-adding the same Duskblade source restores compatible acquisition history');
+
+console.log('PASS Duskblade flexible known-spell acquisition, replacement timing, persistence, and archival');
