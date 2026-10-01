@@ -44,3 +44,6 @@ jobs:
       - run: node tests/multiclass-casting.mjs
       - run: node tests/legacy-casting-choices.mjs
       - run: node tests/legacy-preparation.mjs
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - run: node tests/browser-spell-acquisition35.mjs
