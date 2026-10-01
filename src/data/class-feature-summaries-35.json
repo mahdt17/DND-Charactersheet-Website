@@ -2666,7 +2666,11 @@
         "mode": "full"
       },
       "companionChoiceRequired": false,
-      "companionDefaultCreatureId": "monsters/warhorse-heavy-555"
+      "companionDefaultCreatureId": "monsters/warhorse-heavy-555",
+      "companionDefaultCreatureByMasterSize": {
+        "Small": "monsters/pony-war-571",
+        "Medium": "monsters/warhorse-heavy-555"
+      }
     },
     {
       "name": "Remove Disease (Sp)",

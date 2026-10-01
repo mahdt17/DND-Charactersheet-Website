@@ -149,7 +149,9 @@ export function reconcileCompanions35(character){
     const distinctSelections=[...new Set(choices.flatMap(choice=>choice?.choices||[]).map(String).filter(Boolean))];
     const chosen=choices.find(choice=>choice?.baseCreatureId)||choices[0]||null;
     const selectedName=String(chosen?.choices?.[0]||old?.sourceCreatureName||old?.name||'').trim();
-    const defaultCreatureId=group.features.map(feature=>feature.companionDefaultCreatureId).find(Boolean)||null;
+    const masterSize=String(character?.raceDefinition?.size||character?.size||'').trim();
+    const sizeDefault=group.features.map(feature=>feature.companionDefaultCreatureByMasterSize?.[masterSize]).find(Boolean)||null;
+    const defaultCreatureId=sizeDefault||group.features.map(feature=>feature.companionDefaultCreatureId).find(Boolean)||null;
     const baseCreatureId=chosen?.baseCreatureId||defaultCreatureId||baseCreatureFor(selectedName,null)?.id||old?.baseCreatureId||null;
     if(!selectedName&&!baseCreatureId)continue;
     const base=baseCreatureFor(selectedName,baseCreatureId);
