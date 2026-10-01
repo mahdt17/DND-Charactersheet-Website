@@ -43,7 +43,9 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   const selectedCantrips=added.filter(s=>s.level===0),selectedSpells=added.filter(s=>s.level!==0);
   const hp=Math.max(1,hpGain+modifier(effective.con))+(mechanics(char)==='2024'&&char.race==='Dwarf'?1:0)+(modifier(effective.con)-modifier(effectiveAbilities(char).con))*char.level;
   function toggle(s){setAdded(list=>list.some(x=>keyOf(x)===keyOf(s))?list.filter(x=>keyOf(x)!==keyOf(s)):[...list,s]);}
-  const featCharacter={...draft,level:characterLevel};
+  const featRows=Array.isArray(fullBase.classLevels)?fullBase.classLevels.map(row=>row.catalogId===acquisitionClassId?{...row,level:target}:row):[];
+  if(acquisitionClassId&&!featRows.some(row=>row.catalogId===acquisitionClassId))featRows.push({catalogId:acquisitionClassId,name:char.className,edition:char.ruleset,level:target,definition:char.classDefinition});
+  const featCharacter={...fullBase,level:characterLevel,abilities:nextAbilities,classLevels:featRows.length?featRows:fullBase.classLevels};
   const featValid=validFeatSelection(feat,featCharacter,{required:asi&&mode==='feat'});
   const choicesValid=(!needsSubclass||subclass.trim().length>1)&&(!(manual||mode==='feat')||featValid)&&(!asi||(mode==='feat'?featValid:first&&second&&Object.values(effective).every(n=>n<=20)));
   const spellsValid=managedAcquisition?spellAcquisitionPicksComplete35(acquisitionEvents,acquisitionPicks,acquisitionLegalIds):added.every(s=>candidates.some(x=>keyOf(x)===keyOf(s)))&&(manual||selectedCantrips.length===cantripGain&&selectedSpells.length===spellGain);
