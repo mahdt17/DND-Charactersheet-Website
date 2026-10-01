@@ -232,6 +232,16 @@ try{
   assert(!await recordCampaign.isDisabled());
   await recordCampaign.click();
   await page.locator('.spell-item').filter({hasText:'Scorching Ray'}).waitFor();
+  await page.waitForFunction(async ({name,classId})=>{
+    const indexRecord=await window.storage.get('char-index');
+    if(!indexRecord)return false;
+    const rows=JSON.parse(indexRecord.value),row=rows.find(item=>item.name===name);
+    if(!row)return false;
+    const detail=await window.storage.get('char-detail:'+row.id);
+    if(!detail)return false;
+    const character=JSON.parse(detail.value),bucket=character.spellAcquisition35?.[classId];
+    return Boolean(bucket?.acquisitions?.some(item=>item.spellName==='Scorching Ray'&&item.origin==='copied-scroll'));
+  },{name:wizardName,classId:wizardKey});
   const wizardCampaignSaved=await saved(wizardName);
   const wizardCampaignBucket=wizardCampaignSaved.spellAcquisition35[wizardKey];
   const scorching=wizardCampaignBucket.acquisitions.find(x=>x.spellName==='Scorching Ray');
