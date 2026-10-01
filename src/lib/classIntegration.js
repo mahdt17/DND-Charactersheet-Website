@@ -7,6 +7,7 @@ import {characterClasses,contentKey,progressionTables} from './advancement.js';
 import {normalizeEdition} from './content.js';
 import {reconcileSubclassSpells} from './subclassSpells.js';
 import {reconcileCompanions35,companionProgression35} from './companions35.js';
+import {reconcileSpellAcquisition35} from './spellAcquisition35.js';
 
 export const CLASS_INTEGRATION_VERSION=1;
 const proficiencySupplements=proficiencySupplements35.entries||{};
@@ -840,7 +841,7 @@ export function reconcileClassGrants(character){
     classSpellSlots:mergeDerived(character.classSpellSlots,spellSlots),
     classAutomation:{version:CLASS_INTEGRATION_VERSION,classes:derived.map(x=>x.report),incompleteClassIds:derived.filter(x=>!x.report.integrationComplete).map(x=>x.report.classId)}
   };
-  return reconcileCompanions35(reconciled);
+  return reconcileSpellAcquisition35(reconcileCompanions35(reconciled));
 }
 
 export function classAutomationReport(character){
