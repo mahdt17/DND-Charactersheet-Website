@@ -16,7 +16,9 @@ const {
   reconcileSpellAcquisition35,
   applySpellAcquisitionEvent35,
   activeAcquiredSpells35,
-  spellAcquisitionPicksComplete35
+  spellAcquisitionPicksComplete35,
+  wizardCampaignSpellCandidates35,
+  recordWizardCampaignAcquisition35
 } = engine;
 
 assert.equal(SPELL_ACQUISITION35_VERSION, 1);

@@ -479,3 +479,89 @@ export function reconcileSpellAcquisition35(character){
 
   return {...character,spellAcquisition35:state,spellAcquisition35Incomplete:incomplete,spells:[...preserved,...runtime]};
 }
+
+
+const wizardCampaignOrigins=new Set(['copied-spellbook','copied-scroll','independent-research','manual-source']);
+function wizardListSpell35(spell){
+  const names=new Set(classNames(spell));
+  for(const name of Object.keys(spell?.classLevels||{}))names.add(norm(name));
+  return names.has('wizard');
+}
+function activeClassLevel35(character,classId){
+  const normalized=cleanId(classId);
+  const row=activeClassRows(character).find(item=>cleanId(item.catalogId||item.definition?.catalogId||item.definition?.id||item.definition?.sourceId||'')===normalized);
+  return Math.max(0,Number(row?.level)||0);
+}
+export function wizardCampaignSpellCandidates35(character,classId,spells=[]){
+  const profile=spellAcquisitionProfile35(classId);
+  if(profile?.id!=='wizard-35')return [];
+  const owned=new Set(activeAcquiredSpells35(character,classId).map(item=>String(item.spellKey||'')));
+  return (Array.isArray(spells)?spells:[]).filter(spell=>{
+    const key=spellKey(spell);
+    if(!key||owned.has(key))return false;
+    if(spell?.edition&&spell.edition!=='3.5')return false;
+    if(!wizardListSpell35(spell))return false;
+    if(isProhibitedWizardSpell(character,classId,{spell}))return false;
+    return true;
+  });
+}
+export function recordWizardCampaignAcquisition35(character,classId,spell,details={}){
+  const profile=spellAcquisitionProfile35(classId);
+  if(profile?.id!=='wizard-35')throw Error('Choose an active 3.5 Wizard class for spellbook acquisition.');
+  if(details.confirmed!==true)throw Error('Confirm that the campaign spellbook acquisition requirements were completed.');
+  const sourceNote=String(details.sourceNote||'').trim();
+  if(!sourceNote)throw Error('Record a source note describing where the spell came from.');
+  const origin=String(details.origin||'').trim();
+  if(!wizardCampaignOrigins.has(origin))throw Error('Choose a supported Wizard campaign acquisition source.');
+  if(!spellKey(spell))throw Error('Choose a spell with a stable catalog identity.');
+  if(spell?.edition&&spell.edition!=='3.5')throw Error('Choose a D&D 3.5 spell.');
+  if(!wizardListSpell35(spell))throw Error('Choose a spell from the Wizard spell list.');
+  if(isProhibitedWizardSpell(character,classId,{spell}))throw Error('A prohibited Wizard school spell cannot be added to this spellbook.');
+
+  const state={...(character?.spellAcquisition35||{})};
+  const key=exactStateKey(state,classId);
+  const existing=cloneBucket(state[key]);
+  if((existing.acquisitions||[]).some(item=>String(item.spellKey||'')===spellKey(spell)&&item.active!==false))
+    throw Error('This Wizard already has that spell in the spellbook.');
+
+  const classLevel=activeClassLevel35(character,classId);
+  if(classLevel<1)throw Error('This Wizard class is not active on the character.');
+  const id=[classId,'campaign',spellKey(spell),origin].join(':');
+  const acquisition={
+    id,
+    spellKey:spellKey(spell),
+    spellName:String(spell?.name||''),
+    spellLevel:Number(spell?.level),
+    acquiredAtClassLevel:classLevel,
+    origin,
+    sourceEventId:id,
+    active:true,
+    affectsQuota:false,
+    spell:{...spell},
+    campaignSourceNote:sourceNote
+  };
+  const entry={
+    id,
+    classId,
+    spellKey:acquisition.spellKey,
+    spellName:acquisition.spellName,
+    spellLevel:acquisition.spellLevel,
+    origin,
+    sourceNote,
+    confirmed:true,
+    spellcraftOutcome:details.spellcraftOutcome??null,
+    campaignCostNote:String(details.campaignCostNote||'').trim(),
+    campaignTimeNote:String(details.campaignTimeNote||'').trim()
+  };
+  state[key]={
+    profileId:'wizard-35',
+    classId,
+    classLevel,
+    active:true,
+    orphaned:false,
+    acquisitions:[...(existing.acquisitions||[]),acquisition],
+    replacements:existing.replacements||[],
+    campaignEntries:[...(existing.campaignEntries||[]),entry]
+  };
+  return reconcileSpellAcquisition35({...character,spellAcquisition35:state});
+}
