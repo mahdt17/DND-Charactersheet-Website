@@ -173,6 +173,12 @@ assert.equal(animalUp.companions[0].hp.current,7,'current HP survives level-up r
 assert.equal(animalUp.companions[0].effectiveMasterLevel,8);
 assert.equal(animalUp.companions[0].effectiveCompanionLevel,5);
 assert.equal(animalUp.companions[0].progression.bonusHD,2);
+assert.equal(animalUp.companions[0].derivedStats.totalHitDice,6,'bonus HD increases total companion HD');
+assert.equal(animalUp.companions[0].hp.max,42,'bonus HD increases companion maximum HP using d8 average plus Constitution modifier');
+assert.equal(animalUp.companions[0].derivedStats.baseAttack,4,'animal companion BAB advances as a druid of total HD');
+assert.deepEqual(animalUp.companions[0].derivedStats.saves,{fort:7,ref:8,will:3},'animal companion good Fort/Ref and poor Will saves advance with total HD');
+assert.deepEqual(animalUp.companions[0].derivedStats.ac,{total:17,touch:12,flatFooted:14},'Dex progression and natural armor both affect AC correctly');
+console.log('PASS bonus HD increases deterministic derived combat statistics');
 
 const familiarFeatures=[
   sourceFeature('dndtools:classes/wizard-99','Familiar','standard-familiar','familiar',{mode:'full'}),
@@ -186,7 +192,7 @@ const familiarCharacter={
   ],
   grantedFeatures:familiarFeatures,
   featureChoices:{familiar:choice('dndtools:classes/wizard-99','Familiar','Raven','standard-familiar','monsters/raven-575')},
-  companions:[]
+  companions:[],bab:2,save35:{fort:1,ref:1,will:6}
 };
 const familiarState=reconcileCompanions35(familiarCharacter);
 assert.equal(familiarState.companions.length,1,'qualifying familiar classes share one familiar');
@@ -197,6 +203,8 @@ assert.equal(familiar.effectiveMasterLevel,5,'familiar-granting class contributi
 assert.equal(familiar.hp.max,11,'familiar HP is half master total HP and ignores temporary HP');
 assert.equal(familiar.derivedStats.abilities.int,8);
 assert.equal(familiar.derivedStats.type,'Magical Beast');
+assert.equal(familiar.derivedStats.baseAttack,2,'familiar uses the master BAB when it is better than its normal BAB');
+assert.deepEqual(familiar.derivedStats.saves,{fort:2,ref:4,will:8},'familiar uses the better master base saves with its own ability modifiers');
 
 const sorcererOnly=reconcileCompanions35({
   ...familiarState,level:2,
