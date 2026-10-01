@@ -1646,16 +1646,20 @@
         "unit": "call",
         "recoveryText": "The daily companion call refreshes with the character's daily recovery."
       },
-      "description": "Once per day as a full-round action, call your celestial unicorn companion. It appears adjacent to you and remains for 2 hours per healer level unless dismissed earlier. Alternative celestial companions become available from 12th level with the source-listed effective-level adjustments; full companion statistics remain a companion-state subsystem.",
+      "description": "Once per day as a full-round action, call your celestial unicorn companion. It appears adjacent to you and remains for 2 hours per healer level unless dismissed earlier. At 12th level or higher, you may instead select Lammasu, Gynosphinx, Water Naga, Androsphinx, or Couatl; the alternative uses the source-listed effective-level adjustment (-4 for Lammasu/Gynosphinx/Water Naga, -8 for Androsphinx/Couatl).",
       "sourceSha256": "49fed856ce6ad5a9615916b4e8fb94b7ec7142565198def54c24bc9579708aa2",
       "companionRelationshipType": "class-companion",
       "companionProfileId": "healer-companion",
       "companionContribution": {
         "mode": "full"
       },
-      "companionChoiceRequired": false,
+      "companionChoiceRequired": true,
       "companionDefaultCreatureId": "monsters/unicorn-500",
-      "companionTemplate": "celestial"
+      "companionTemplate": "celestial",
+      "choiceKind": "companion",
+      "choiceLevels": [
+        12
+      ]
     },
     {
       "name": "Cleanse Blindness",

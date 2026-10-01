@@ -1035,6 +1035,3074 @@
         "War Pony",
         "Pony, War"
       ]
+    },
+    {
+      "id": "monsters/badger-533",
+      "name": "Badger",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/badger-533",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 268,
+      "size": "Small",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "1d8+2",
+      "hp": 6,
+      "initiative": 3,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 15,
+        "touch": 14,
+        "flatFooted": 12
+      },
+      "baseAttack": 0,
+      "grapple": -5,
+      "attacks": [
+        "2 claws +4 melee (1d2-1) and bite -1 melee (1d3-1)"
+      ],
+      "abilities": {
+        "str": 8,
+        "dex": 17,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 4,
+        "ref": 5,
+        "will": 1
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Rage"
+      ],
+      "feats": [
+        "Agile",
+        "Track",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/camel-541",
+      "name": "Camel",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/camel-541",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 270,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+6",
+      "hp": 19,
+      "initiative": 3,
+      "speed": {
+        "land": 50
+      },
+      "ac": {
+        "total": 13,
+        "touch": 12,
+        "flatFooted": 10
+      },
+      "baseAttack": 2,
+      "grapple": 10,
+      "attacks": [
+        "Bite +0 melee* (1d4+2*)"
+      ],
+      "abilities": {
+        "str": 18,
+        "dex": 16,
+        "con": 14,
+        "int": 2,
+        "wis": 11,
+        "cha": 4
+      },
+      "saves": {
+        "fort": 5,
+        "ref": 6,
+        "will": 1
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Alertness",
+        "Endurance"
+      ]
+    },
+    {
+      "id": "monsters/rat-dire-89",
+      "name": "Dire Rat",
+      "sourceName": "Rat, Dire",
+      "aliases": [
+        "Rat, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/rat-dire-89",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 64,
+      "size": "Small",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "1d8+1",
+      "hp": 5,
+      "initiative": 3,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 15,
+        "touch": 14,
+        "flatFooted": 12
+      },
+      "baseAttack": 0,
+      "grapple": -4,
+      "attacks": [
+        "Bite +4 melee (1d4 plus disease)"
+      ],
+      "abilities": {
+        "str": 10,
+        "dex": 17,
+        "con": 12,
+        "int": 1,
+        "wis": 12,
+        "cha": 4
+      },
+      "saves": {
+        "fort": 3,
+        "ref": 5,
+        "will": 3
+      },
+      "specialAbilities": [
+        "Disease",
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Alertness",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/dog-546",
+      "name": "Dog",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/dog-546",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 271,
+      "size": "Small",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "1d8+2",
+      "hp": 6,
+      "initiative": 3,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 15,
+        "touch": 14,
+        "flatFooted": 12
+      },
+      "baseAttack": 0,
+      "grapple": -3,
+      "attacks": [
+        "Bite +2 melee (1d4+1)"
+      ],
+      "abilities": {
+        "str": 13,
+        "dex": 17,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 4,
+        "ref": 5,
+        "will": 1
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Alertness",
+        "Track"
+      ]
+    },
+    {
+      "id": "monsters/dog-riding-548",
+      "name": "Riding Dog",
+      "sourceName": "Dog, Riding",
+      "aliases": [
+        "Dog, Riding"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/dog-riding-548",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 272,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "2d8+4",
+      "hp": 13,
+      "initiative": 2,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 16,
+        "touch": 12,
+        "flatFooted": 14
+      },
+      "baseAttack": 1,
+      "grapple": 13,
+      "attacks": [
+        "Bite +3 melee (1d6+3)"
+      ],
+      "abilities": {
+        "str": 15,
+        "dex": 15,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 5,
+        "ref": 5,
+        "will": 1
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Alertness",
+        "Track"
+      ]
+    },
+    {
+      "id": "monsters/eagle-550",
+      "name": "Eagle",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/eagle-550",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 272,
+      "size": "Small",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "1d8+1",
+      "hp": 5,
+      "initiative": 2,
+      "speed": {
+        "land": 10
+      },
+      "ac": {
+        "total": 14,
+        "touch": 13,
+        "flatFooted": 12
+      },
+      "baseAttack": 0,
+      "grapple": -4,
+      "attacks": [
+        "2 talons +3 melee (1d4) and bite -2 melee (1d4)"
+      ],
+      "abilities": {
+        "str": 10,
+        "dex": 15,
+        "con": 12,
+        "int": 2,
+        "wis": 14,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 3,
+        "ref": 4,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision"
+      ],
+      "feats": [
+        "Alertness",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/horse-light-554",
+      "name": "Horse (Light)",
+      "sourceName": "Horse, Light",
+      "aliases": [
+        "Horse, Light"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/horse-light-554",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 273,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+6",
+      "hp": 19,
+      "initiative": 1,
+      "speed": {
+        "land": 60
+      },
+      "ac": {
+        "total": 13,
+        "touch": 10,
+        "flatFooted": 12
+      },
+      "baseAttack": 2,
+      "grapple": 8,
+      "attacks": [
+        "2 hooves -2 melee (1d4+1°)"
+      ],
+      "abilities": {
+        "str": 14,
+        "dex": 13,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 5,
+        "ref": 4,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Endurance",
+        "Run"
+      ]
+    },
+    {
+      "id": "monsters/horse-heavy-553",
+      "name": "Horse (Heavy)",
+      "sourceName": "Horse, Heavy",
+      "aliases": [
+        "Horse, Heavy"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/horse-heavy-553",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 273,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+6",
+      "hp": 19,
+      "initiative": 1,
+      "speed": {
+        "land": 50
+      },
+      "ac": {
+        "total": 13,
+        "touch": 10,
+        "flatFooted": 12
+      },
+      "baseAttack": 2,
+      "grapple": 9,
+      "attacks": [
+        "2 hooves -1 melee (1d6+1°)"
+      ],
+      "abilities": {
+        "str": 16,
+        "dex": 13,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 5,
+        "ref": 4,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Endurance",
+        "Run"
+      ]
+    },
+    {
+      "id": "monsters/pony-570",
+      "name": "Pony",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/pony-570",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 277,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "2d8+2",
+      "hp": 11,
+      "initiative": 1,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 13,
+        "touch": 11,
+        "flatFooted": 12
+      },
+      "baseAttack": 1,
+      "grapple": 2,
+      "attacks": [
+        "2 hooves -3 melee (1d3*)"
+      ],
+      "abilities": {
+        "str": 13,
+        "dex": 13,
+        "con": 12,
+        "int": 2,
+        "wis": 11,
+        "cha": 4
+      },
+      "saves": {
+        "fort": 4,
+        "ref": 4,
+        "will": 0
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Endurance"
+      ]
+    },
+    {
+      "id": "monsters/snake-viper-small-584",
+      "name": "Snake (Small Viper)",
+      "sourceName": "Snake, Viper Small",
+      "aliases": [
+        "Snake, Viper Small"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/snake-viper-small-584",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 281,
+      "size": "Small",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "1d8",
+      "hp": 4,
+      "initiative": 7,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 17,
+        "touch": 14,
+        "flatFooted": 14
+      },
+      "baseAttack": 0,
+      "grapple": -6,
+      "attacks": [
+        "Bite +4 melee (1d2-2 plus poison)"
+      ],
+      "abilities": {
+        "str": 6,
+        "dex": 17,
+        "con": 11,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 2,
+        "ref": 5,
+        "will": 1
+      },
+      "specialAbilities": [
+        "Poison",
+        "Scent"
+      ],
+      "feats": [
+        "Improved Initiative",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/snake-viper-medium-585",
+      "name": "Snake (Medium Viper)",
+      "sourceName": "Snake, Viper Medium",
+      "aliases": [
+        "Snake, Viper Medium"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/snake-viper-medium-585",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 281,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "2d8",
+      "hp": 9,
+      "initiative": 7,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 16,
+        "touch": 13,
+        "flatFooted": 13
+      },
+      "baseAttack": 1,
+      "grapple": 0,
+      "attacks": [
+        "Bite +4 melee (1d4-1 plus poison)"
+      ],
+      "abilities": {
+        "str": 8,
+        "dex": 17,
+        "con": 11,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 3,
+        "ref": 6,
+        "will": 1
+      },
+      "specialAbilities": [
+        "Poison",
+        "Scent"
+      ],
+      "feats": [
+        "Improved Initiative",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/porpoise-572",
+      "name": "Porpoise",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/porpoise-572",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 278,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "2d8+2",
+      "hp": 11,
+      "initiative": 3,
+      "speed": {
+        "swim": 80
+      },
+      "ac": {
+        "total": 15,
+        "touch": 13,
+        "flatFooted": 12
+      },
+      "baseAttack": 1,
+      "grapple": 1,
+      "attacks": [
+        "Slam +4 melee (2d4)"
+      ],
+      "abilities": {
+        "str": 11,
+        "dex": 17,
+        "con": 13,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 4,
+        "ref": 6,
+        "will": 1
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Blindsight",
+        "Hold Breath"
+      ],
+      "feats": [
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/shark-medium-578",
+      "name": "Shark (Medium)",
+      "sourceName": "Shark, Medium",
+      "aliases": [
+        "Shark, Medium"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/shark-medium-578",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 279,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [
+        "Aquatic"
+      ],
+      "hitDice": "3d8+3",
+      "hp": 16,
+      "initiative": 2,
+      "speed": {
+        "swim": 60
+      },
+      "ac": {
+        "total": 15,
+        "touch": 12,
+        "flatFooted": 13
+      },
+      "baseAttack": 2,
+      "grapple": 3,
+      "attacks": [
+        "Bite +4 melee (1d6+1)"
+      ],
+      "abilities": {
+        "str": 13,
+        "dex": 15,
+        "con": 13,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 4,
+        "ref": 5,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Blindsense",
+        "Keen Scent"
+      ],
+      "feats": [
+        "Alertness",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/squid-588",
+      "name": "Squid",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/squid-588",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 281,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [
+        "Aquatic"
+      ],
+      "hitDice": "3d8",
+      "hp": 13,
+      "initiative": 3,
+      "speed": {
+        "swim": 60
+      },
+      "ac": {
+        "total": 16,
+        "touch": 13,
+        "flatFooted": 13
+      },
+      "baseAttack": 2,
+      "grapple": 8,
+      "attacks": [
+        "Arms +4 melee (0) and bite -1 melee (1d6+1)"
+      ],
+      "abilities": {
+        "str": 14,
+        "dex": 17,
+        "con": 11,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 3,
+        "ref": 6,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Improved Grab",
+        "Ink Cloud",
+        "Jet",
+        "Low-Light Vision"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/bear-black-536",
+      "name": "Bear (black)",
+      "sourceName": "Bear, Black",
+      "aliases": [
+        "Bear, Black"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/bear-black-536",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 269,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+6",
+      "hp": 19,
+      "initiative": 1,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 13,
+        "touch": 11,
+        "flatFooted": 12
+      },
+      "baseAttack": 2,
+      "grapple": 6,
+      "attacks": [
+        "2 claws +6 melee (1d4+4) and bite +1 melee (1d6+2)"
+      ],
+      "abilities": {
+        "str": 19,
+        "dex": 13,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 5,
+        "ref": 4,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": [
+        "Endurance",
+        "Run"
+      ]
+    },
+    {
+      "id": "monsters/bison-539",
+      "name": "Bison",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/bison-539",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 269,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "5d8+15",
+      "hp": 37,
+      "initiative": 0,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 13,
+        "touch": 9,
+        "flatFooted": 13
+      },
+      "baseAttack": 3,
+      "grapple": 13,
+      "attacks": [
+        "Gore +8 melee (1d8+9)"
+      ],
+      "abilities": {
+        "str": 22,
+        "dex": 10,
+        "con": 16,
+        "int": 2,
+        "wis": 11,
+        "cha": 4
+      },
+      "saves": {
+        "fort": 7,
+        "ref": 4,
+        "will": 1
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Stampede"
+      ],
+      "feats": [
+        "Alertness",
+        "Endurance"
+      ]
+    },
+    {
+      "id": "monsters/boar-540",
+      "name": "Boar",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/boar-540",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 270,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+12",
+      "hp": 25,
+      "initiative": 0,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 16,
+        "touch": 10,
+        "flatFooted": 16
+      },
+      "baseAttack": 2,
+      "grapple": 4,
+      "attacks": [
+        "Gore +4 melee (1d8+3)"
+      ],
+      "abilities": {
+        "str": 15,
+        "dex": 10,
+        "con": 17,
+        "int": 2,
+        "wis": 13,
+        "cha": 4
+      },
+      "saves": {
+        "fort": 6,
+        "ref": 3,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Ferocity"
+      ],
+      "feats": [
+        "Alertness",
+        "Toughness"
+      ]
+    },
+    {
+      "id": "monsters/cheetah-543",
+      "name": "Cheetah",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/cheetah-543",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 271,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+6",
+      "hp": 19,
+      "initiative": 4,
+      "speed": {
+        "land": 50
+      },
+      "ac": {
+        "total": 15,
+        "touch": 14,
+        "flatFooted": 11
+      },
+      "baseAttack": 2,
+      "grapple": 5,
+      "attacks": [
+        "Bite +6 melee (1d6+3) and 2 claws +1 melee (1d2+1)"
+      ],
+      "abilities": {
+        "str": 16,
+        "dex": 19,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 5,
+        "ref": 7,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Trip",
+        "Sprint"
+      ],
+      "feats": [
+        "Alertness",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/crocodile-544",
+      "name": "Crocodile",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/crocodile-544",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 271,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+9",
+      "hp": 22,
+      "initiative": 1,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 15,
+        "touch": 11,
+        "flatFooted": 14
+      },
+      "baseAttack": 2,
+      "grapple": 6,
+      "attacks": [
+        "Bite +6 melee (1d8+6) or tail slap +6 melee (1d12+6)"
+      ],
+      "abilities": {
+        "str": 19,
+        "dex": 12,
+        "con": 17,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 6,
+        "ref": 4,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Improved Grab",
+        "Hold Breath"
+      ],
+      "feats": [
+        "Alertness",
+        "Skill Focus"
+      ]
+    },
+    {
+      "id": "monsters/badger-dire-84",
+      "name": "Dire Badger",
+      "sourceName": "Badger, Dire",
+      "aliases": [
+        "Badger, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/badger-dire-84",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 62,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+15",
+      "hp": 28,
+      "initiative": 3,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 16,
+        "touch": 13,
+        "flatFooted": 13
+      },
+      "baseAttack": 2,
+      "grapple": 4,
+      "attacks": [
+        "2 claws +4 melee (1d4+2) and bite -1 melee (1d6+1)"
+      ],
+      "abilities": {
+        "str": 14,
+        "dex": 17,
+        "con": 19,
+        "int": 2,
+        "wis": 12,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 7,
+        "ref": 6,
+        "will": 4
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Rage"
+      ],
+      "feats": [
+        "Alertness",
+        "Toughness",
+        "Track"
+      ]
+    },
+    {
+      "id": "monsters/bat-dire-85",
+      "name": "Dire Bat",
+      "sourceName": "Bat, Dire",
+      "aliases": [
+        "Bat, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/bat-dire-85",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 62,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "4d8+12",
+      "hp": 30,
+      "initiative": 6,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 20,
+        "touch": 15,
+        "flatFooted": 14
+      },
+      "baseAttack": 3,
+      "grapple": 10,
+      "attacks": [
+        "Bite +5 melee (1d8+4)"
+      ],
+      "abilities": {
+        "str": 17,
+        "dex": 22,
+        "con": 17,
+        "int": 2,
+        "wis": 14,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 7,
+        "ref": 10,
+        "will": 6
+      },
+      "specialAbilities": [
+        "Blindsense"
+      ],
+      "feats": [
+        "Alertness",
+        "Stealthy"
+      ]
+    },
+    {
+      "id": "monsters/weasel-dire-92",
+      "name": "Dire Weasel",
+      "sourceName": "Weasel, Dire",
+      "aliases": [
+        "Weasel, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/weasel-dire-92",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 65,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8",
+      "hp": 13,
+      "initiative": 4,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 16,
+        "touch": 14,
+        "flatFooted": 12
+      },
+      "baseAttack": 2,
+      "grapple": 4,
+      "attacks": [
+        "Bite +6 melee (1d6+3)"
+      ],
+      "abilities": {
+        "str": 14,
+        "dex": 19,
+        "con": 10,
+        "int": 2,
+        "wis": 12,
+        "cha": 11
+      },
+      "saves": {
+        "fort": 3,
+        "ref": 7,
+        "will": 4
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Attach",
+        "Blood Drain"
+      ],
+      "feats": [
+        "Alertness",
+        "Stealthy",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/leopard-558",
+      "name": "Leopard",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/leopard-558",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 274,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+6",
+      "hp": 19,
+      "initiative": 4,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 15,
+        "touch": 14,
+        "flatFooted": 11
+      },
+      "baseAttack": 2,
+      "grapple": 5,
+      "attacks": [
+        "Bite +6 melee (1d6+3) and 2 claws +1 melee (1d3+1)"
+      ],
+      "abilities": {
+        "str": 16,
+        "dex": 19,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 5,
+        "ref": 7,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Improved Grab",
+        "Pounce",
+        "Rake"
+      ],
+      "feats": [
+        "Alertness",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/lizard-monitor-561",
+      "name": "Lizard (monitor)",
+      "sourceName": "Lizard, Monitor",
+      "aliases": [
+        "Lizard, Monitor"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/lizard-monitor-561",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 275,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+9",
+      "hp": 22,
+      "initiative": 2,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 15,
+        "touch": 12,
+        "flatFooted": 13
+      },
+      "baseAttack": 2,
+      "grapple": 5,
+      "attacks": [
+        "Bite +5 melee (1d8+4)"
+      ],
+      "abilities": {
+        "str": 17,
+        "dex": 15,
+        "con": 17,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 5,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision"
+      ],
+      "feats": [
+        "Alertness",
+        "Great Fortitude"
+      ]
+    },
+    {
+      "id": "monsters/shark-large-579",
+      "name": "Shark (Large)",
+      "sourceName": "Shark, Large",
+      "aliases": [
+        "Shark, Large"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/shark-large-579",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 279,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [
+        "Aquatic"
+      ],
+      "hitDice": "7d8+7",
+      "hp": 38,
+      "initiative": 6,
+      "speed": {
+        "swim": 60
+      },
+      "ac": {
+        "total": 15,
+        "touch": 11,
+        "flatFooted": 13
+      },
+      "baseAttack": 5,
+      "grapple": 12,
+      "attacks": [
+        "Bite +7 melee (1d8+4)"
+      ],
+      "abilities": {
+        "str": 17,
+        "dex": 15,
+        "con": 13,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 7,
+        "will": 3
+      },
+      "specialAbilities": [
+        "Blindsense",
+        "Keen Scent"
+      ],
+      "feats": [
+        "Alertness",
+        "Great Fortitude",
+        "Improved Initiative"
+      ]
+    },
+    {
+      "id": "monsters/snake-constrictor-581",
+      "name": "Snake (constrictor)",
+      "sourceName": "Snake, Constrictor",
+      "aliases": [
+        "Snake, Constrictor"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/snake-constrictor-581",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 279,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+6",
+      "hp": 19,
+      "initiative": 3,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 15,
+        "touch": 13,
+        "flatFooted": 12
+      },
+      "baseAttack": 2,
+      "grapple": 5,
+      "attacks": [
+        "Bite +5 melee (1d3+4)"
+      ],
+      "abilities": {
+        "str": 17,
+        "dex": 17,
+        "con": 13,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 4,
+        "ref": 6,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Scent",
+        "Constrict",
+        "Improved Grab"
+      ],
+      "feats": [
+        "Alertness",
+        "Toughness"
+      ]
+    },
+    {
+      "id": "monsters/snake-viper-large-586",
+      "name": "Snake (Large viper)",
+      "sourceName": "Snake, Viper Large",
+      "aliases": [
+        "Snake, Viper Large"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/snake-viper-large-586",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 281,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8",
+      "hp": 13,
+      "initiative": 7,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 15,
+        "touch": 12,
+        "flatFooted": 12
+      },
+      "baseAttack": 2,
+      "grapple": 6,
+      "attacks": [
+        "Bite +4 melee (1d4 plus poison)"
+      ],
+      "abilities": {
+        "str": 10,
+        "dex": 17,
+        "con": 11,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 3,
+        "ref": 6,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Poison",
+        "Scent"
+      ],
+      "feats": [
+        "Improved Initiative",
+        "Weapon Finesse"
+      ]
+    },
+    {
+      "id": "monsters/wolverine-597",
+      "name": "Wolverine",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/wolverine-597",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 283,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "3d8+15",
+      "hp": 28,
+      "initiative": 2,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 14,
+        "touch": 12,
+        "flatFooted": 12
+      },
+      "baseAttack": 2,
+      "grapple": 4,
+      "attacks": [
+        "2 claws +4 melee (1d4+2) and bite -1 melee (1d6+1)"
+      ],
+      "abilities": {
+        "str": 14,
+        "dex": 15,
+        "con": 19,
+        "int": 2,
+        "wis": 12,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 7,
+        "ref": 5,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Rage"
+      ],
+      "feats": [
+        "Alertness",
+        "Toughness",
+        "Track"
+      ]
+    },
+    {
+      "id": "monsters/bear-brown-537",
+      "name": "Bear (brown)",
+      "sourceName": "Bear, Brown",
+      "aliases": [
+        "Bear, Brown"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/bear-brown-537",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 269,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "6d8+24",
+      "hp": 51,
+      "initiative": 1,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 15,
+        "touch": 10,
+        "flatFooted": 14
+      },
+      "baseAttack": 4,
+      "grapple": 16,
+      "attacks": [
+        "2 claws +11 melee (1d8+8) and bite +6 melee (2d6+4)"
+      ],
+      "abilities": {
+        "str": 27,
+        "dex": 13,
+        "con": 19,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 9,
+        "ref": 6,
+        "will": 3
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Improved Grab"
+      ],
+      "feats": [
+        "Endurance",
+        "Run",
+        "Track"
+      ]
+    },
+    {
+      "id": "monsters/wolverine-dire-94",
+      "name": "Dire Wolverine",
+      "sourceName": "Wolverine, Dire",
+      "aliases": [
+        "Wolverine, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/wolverine-dire-94",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 66,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "5d8+23",
+      "hp": 45,
+      "initiative": 3,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 16,
+        "touch": 12,
+        "flatFooted": 13
+      },
+      "baseAttack": 3,
+      "grapple": 13,
+      "attacks": [
+        "2 claws +8 melee (1d6+6) and bite +3 melee (1d8+3)"
+      ],
+      "abilities": {
+        "str": 22,
+        "dex": 17,
+        "con": 19,
+        "int": 2,
+        "wis": 12,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 7,
+        "will": 5
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Rage"
+      ],
+      "feats": [
+        "Alertness",
+        "Toughness",
+        "Track"
+      ]
+    },
+    {
+      "id": "monsters/crocodile-giant-545",
+      "name": "Crocodile (giant)",
+      "sourceName": "Crocodile, Giant",
+      "aliases": [
+        "Crocodile, Giant"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/crocodile-giant-545",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 271,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "7d8+28",
+      "hp": 59,
+      "initiative": 1,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 16,
+        "touch": 9,
+        "flatFooted": 15
+      },
+      "baseAttack": 5,
+      "grapple": 21,
+      "attacks": [
+        "Bite +11 melee (2d8+12) or tail slap +11 melee (1d12+12)"
+      ],
+      "abilities": {
+        "str": 27,
+        "dex": 12,
+        "con": 19,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 9,
+        "ref": 6,
+        "will": 3
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Improved Grab",
+        "Hold Breath"
+      ],
+      "feats": [
+        "Alertness",
+        "Endurance",
+        "Skill Focus"
+      ]
+    },
+    {
+      "id": "monsters/dinosaur-deinonychus-78",
+      "name": "Deinonychus",
+      "sourceName": "Dinosaur, Deinonychus",
+      "aliases": [
+        "Dinosaur, Deinonychus"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/dinosaur-deinonychus-78",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 60,
+      "size": "Medium",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "4d8+16",
+      "hp": 34,
+      "initiative": 2,
+      "speed": {
+        "land": 60
+      },
+      "ac": {
+        "total": 17,
+        "touch": 12,
+        "flatFooted": 15
+      },
+      "baseAttack": 3,
+      "grapple": 7,
+      "attacks": [
+        "Talons +7 melee (1d8+4) and 2 foreclaws +2 melee (1d3+2) and bite +2 melee (2d4+2)"
+      ],
+      "abilities": {
+        "str": 19,
+        "dex": 15,
+        "con": 19,
+        "int": 2,
+        "wis": 12,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 6,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Pounce",
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/ape-dire-83",
+      "name": "Dire Ape",
+      "sourceName": "Ape, Dire",
+      "aliases": [
+        "Ape, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/ape-dire-83",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 62,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "5d8+13",
+      "hp": 35,
+      "initiative": 2,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 15,
+        "touch": 11,
+        "flatFooted": 13
+      },
+      "baseAttack": 3,
+      "grapple": 13,
+      "attacks": [
+        "2 claws +8 melee (1d6+6) and bite +3 melee (1d8+3)"
+      ],
+      "abilities": {
+        "str": 22,
+        "dex": 15,
+        "con": 14,
+        "int": 2,
+        "wis": 12,
+        "cha": 7
+      },
+      "saves": {
+        "fort": 6,
+        "ref": 6,
+        "will": 5
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Rend"
+      ],
+      "feats": [
+        "Alertness",
+        "Toughness"
+      ]
+    },
+    {
+      "id": "monsters/boar-dire-87",
+      "name": "Dire Boar",
+      "sourceName": "Boar, Dire",
+      "aliases": [
+        "Boar, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/boar-dire-87",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 63,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "7d8+21",
+      "hp": 52,
+      "initiative": 0,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 15,
+        "touch": 9,
+        "flatFooted": 15
+      },
+      "baseAttack": 5,
+      "grapple": 17,
+      "attacks": [
+        "Gore +12 melee (1d8+12)"
+      ],
+      "abilities": {
+        "str": 27,
+        "dex": 10,
+        "con": 17,
+        "int": 2,
+        "wis": 13,
+        "cha": 8
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 5,
+        "will": 8
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Ferocity"
+      ],
+      "feats": [
+        "Alertness",
+        "Endurance",
+        "Iron Will"
+      ]
+    },
+    {
+      "id": "monsters/wolf-dire-93",
+      "name": "Dire Wolf",
+      "sourceName": "Wolf, Dire",
+      "aliases": [
+        "Wolf, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/wolf-dire-93",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 65,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "6d8+18",
+      "hp": 45,
+      "initiative": 2,
+      "speed": {
+        "land": 50
+      },
+      "ac": {
+        "total": 14,
+        "touch": 11,
+        "flatFooted": 12
+      },
+      "baseAttack": 4,
+      "grapple": 15,
+      "attacks": [
+        "Bite +11 melee (1d8+10)"
+      ],
+      "abilities": {
+        "str": 25,
+        "dex": 15,
+        "con": 17,
+        "int": 2,
+        "wis": 12,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 7,
+        "will": 6
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Trip"
+      ],
+      "feats": [
+        "Alertness",
+        "Run",
+        "Track",
+        "Weapon Focus"
+      ]
+    },
+    {
+      "id": "monsters/dinosaur-elasmosaurus-79",
+      "name": "Elasmosaurus",
+      "sourceName": "Dinosaur, Elasmosaurus",
+      "aliases": [
+        "Dinosaur, Elasmosaurus"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/dinosaur-elasmosaurus-79",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 60,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "10d8+66",
+      "hp": 111,
+      "initiative": 2,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 13,
+        "touch": 10,
+        "flatFooted": 11
+      },
+      "baseAttack": 7,
+      "grapple": 23,
+      "attacks": [
+        "Bite +13 melee (2d8+12)"
+      ],
+      "abilities": {
+        "str": 26,
+        "dex": 14,
+        "con": 22,
+        "int": 2,
+        "wis": 13,
+        "cha": 9
+      },
+      "saves": {
+        "fort": 15,
+        "ref": 9,
+        "will": 4
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/lion-559",
+      "name": "Lion",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/lion-559",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 274,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "5d8+10",
+      "hp": 32,
+      "initiative": 3,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 15,
+        "touch": 12,
+        "flatFooted": 12
+      },
+      "baseAttack": 3,
+      "grapple": 12,
+      "attacks": [
+        "2 claws +7 melee (1d4+5) and bite +2 melee (1d8+2)"
+      ],
+      "abilities": {
+        "str": 21,
+        "dex": 17,
+        "con": 15,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 6,
+        "ref": 7,
+        "will": 2
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Pounce",
+        "Improved Grab",
+        "Rake"
+      ],
+      "feats": [
+        "Alertness",
+        "Run"
+      ]
+    },
+    {
+      "id": "monsters/rhinoceros-577",
+      "name": "Rhinoceros",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/rhinoceros-577",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 278,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "8d8+40",
+      "hp": 76,
+      "initiative": 0,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 16,
+        "touch": 9,
+        "flatFooted": 16
+      },
+      "baseAttack": 6,
+      "grapple": 18,
+      "attacks": [
+        "Gore +13 melee (2d6+12)"
+      ],
+      "abilities": {
+        "str": 26,
+        "dex": 10,
+        "con": 21,
+        "int": 2,
+        "wis": 13,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 11,
+        "ref": 6,
+        "will": 3
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Powerful Charge"
+      ],
+      "feats": [
+        "Alertness",
+        "Endurance",
+        "Improved Natural Attack"
+      ]
+    },
+    {
+      "id": "monsters/snake-viper-huge-587",
+      "name": "Snake (Huge viper)",
+      "sourceName": "Snake, Viper Huge",
+      "aliases": [
+        "Snake, Viper Huge"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/snake-viper-huge-587",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 281,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "6d8+6",
+      "hp": 33,
+      "initiative": 6,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 15,
+        "touch": 10,
+        "flatFooted": 15
+      },
+      "baseAttack": 4,
+      "grapple": 15,
+      "attacks": [
+        "Bite +6 melee (1d6+4 plus poison)"
+      ],
+      "abilities": {
+        "str": 16,
+        "dex": 15,
+        "con": 13,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 6,
+        "ref": 7,
+        "will": 3
+      },
+      "specialAbilities": [
+        "Poison",
+        "Scent"
+      ],
+      "feats": [
+        "Improved Initiative",
+        "Run",
+        "Weapon Focus"
+      ]
+    },
+    {
+      "id": "monsters/tiger-590",
+      "name": "Tiger",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/tiger-590",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 281,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "6d8+18",
+      "hp": 45,
+      "initiative": 2,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 14,
+        "touch": 11,
+        "flatFooted": 12
+      },
+      "baseAttack": 4,
+      "grapple": 14,
+      "attacks": [
+        "2 claws +9 melee (1d8+6) and bite +4 melee (2d6+3)"
+      ],
+      "abilities": {
+        "str": 23,
+        "dex": 15,
+        "con": 17,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 7,
+        "will": 3
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Improved Grab",
+        "Pounce",
+        "Rake"
+      ],
+      "feats": [
+        "Alertness",
+        "Improved Natural Attack",
+        "Improved Natural Attack"
+      ]
+    },
+    {
+      "id": "monsters/bear-polar-538",
+      "name": "Bear (polar)",
+      "sourceName": "Bear, Polar",
+      "aliases": [
+        "Bear, Polar"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/bear-polar-538",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 269,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "6d8+24",
+      "hp": 51,
+      "initiative": 1,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 15,
+        "touch": 10,
+        "flatFooted": 14
+      },
+      "baseAttack": 4,
+      "grapple": 16,
+      "attacks": [
+        "2 claws +11 melee (1d8+8) and bite +6 melee (2d6+4)"
+      ],
+      "abilities": {
+        "str": 27,
+        "dex": 13,
+        "con": 19,
+        "int": 2,
+        "wis": 12,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 9,
+        "ref": 6,
+        "will": 3
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Improved Grab"
+      ],
+      "feats": [
+        "Endurance",
+        "Run",
+        "Track"
+      ]
+    },
+    {
+      "id": "monsters/lion-dire-88",
+      "name": "Dire Lion",
+      "sourceName": "Lion, Dire",
+      "aliases": [
+        "Lion, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/lion-dire-88",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 63,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "8d8+24",
+      "hp": 60,
+      "initiative": 2,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 15,
+        "touch": 11,
+        "flatFooted": 13
+      },
+      "baseAttack": 6,
+      "grapple": 17,
+      "attacks": [
+        "2 claws +13 melee (1d6+7) and bite +7 melee (1d8+3)"
+      ],
+      "abilities": {
+        "str": 25,
+        "dex": 15,
+        "con": 17,
+        "int": 2,
+        "wis": 12,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 9,
+        "ref": 8,
+        "will": 7
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Improved Grab",
+        "Pounce",
+        "Rake"
+      ],
+      "feats": [
+        "Alertness",
+        "Run",
+        "Weapon Focus"
+      ]
+    },
+    {
+      "id": "monsters/dinosaur-megaraptor-80",
+      "name": "Megaraptor",
+      "sourceName": "Dinosaur, Megaraptor",
+      "aliases": [
+        "Dinosaur, Megaraptor"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/dinosaur-megaraptor-80",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 60,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "8d8+43",
+      "hp": 79,
+      "initiative": 2,
+      "speed": {
+        "land": 60
+      },
+      "ac": {
+        "total": 17,
+        "touch": 11,
+        "flatFooted": 15
+      },
+      "baseAttack": 6,
+      "grapple": 15,
+      "attacks": [
+        "Talons +10 melee (2d6+5) and 2 foreclaws +5 melee (1d4+2) and bite +45 melee (1d8+2)"
+      ],
+      "abilities": {
+        "str": 21,
+        "dex": 15,
+        "con": 21,
+        "int": 2,
+        "wis": 15,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 10,
+        "ref": 8,
+        "will": 4
+      },
+      "specialAbilities": [
+        "Pounce",
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/shark-huge-580",
+      "name": "Shark (Huge)",
+      "sourceName": "Shark, Huge",
+      "aliases": [
+        "Shark, Huge"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/shark-huge-580",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 279,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [
+        "Aquatic"
+      ],
+      "hitDice": "10d8+20",
+      "hp": 65,
+      "initiative": 6,
+      "speed": {
+        "swim": 60
+      },
+      "ac": {
+        "total": 15,
+        "touch": 10,
+        "flatFooted": 13
+      },
+      "baseAttack": 7,
+      "grapple": 20,
+      "attacks": [
+        "Bite +10 melee (2d6+7)"
+      ],
+      "abilities": {
+        "str": 21,
+        "dex": 15,
+        "con": 15,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 11,
+        "ref": 9,
+        "will": 6
+      },
+      "specialAbilities": [
+        "Blindsense",
+        "Keen Scent"
+      ],
+      "feats": [
+        "Alertness",
+        "Great Fortitude",
+        "Improved Initiative",
+        "Iron Will"
+      ]
+    },
+    {
+      "id": "monsters/snake-giant-constrictor-582",
+      "name": "Snake (giant constrictor)",
+      "sourceName": "Snake, Giant Constrictor",
+      "aliases": [
+        "Snake, Giant Constrictor"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/snake-giant-constrictor-582",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 280,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "11d8+14",
+      "hp": 63,
+      "initiative": 3,
+      "speed": {
+        "land": 20
+      },
+      "ac": {
+        "total": 15,
+        "touch": 11,
+        "flatFooted": 12
+      },
+      "baseAttack": 8,
+      "grapple": 23,
+      "attacks": [
+        "Bite +13 melee (1d8+10)"
+      ],
+      "abilities": {
+        "str": 25,
+        "dex": 17,
+        "con": 13,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 10,
+        "will": 4
+      },
+      "specialAbilities": [
+        "Scent",
+        "Constrict",
+        "Improved Grab"
+      ],
+      "feats": [
+        "Alertness",
+        "Endurance",
+        "Skill Focus",
+        "Toughness"
+      ]
+    },
+    {
+      "id": "monsters/whale-orca-595",
+      "name": "Whale (orca)",
+      "sourceName": "Whale, Orca",
+      "aliases": [
+        "Whale, Orca"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/whale-orca-595",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 283,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "9d8+48",
+      "hp": 88,
+      "initiative": 2,
+      "speed": {
+        "swim": 50
+      },
+      "ac": {
+        "total": 16,
+        "touch": 10,
+        "flatFooted": 14
+      },
+      "baseAttack": 6,
+      "grapple": 22,
+      "attacks": [
+        "Bite +12 melee (2d6+12)"
+      ],
+      "abilities": {
+        "str": 27,
+        "dex": 15,
+        "con": 21,
+        "int": 2,
+        "wis": 14,
+        "cha": 6
+      },
+      "saves": {
+        "fort": 11,
+        "ref": 8,
+        "will": 5
+      },
+      "specialAbilities": [
+        "Blindsight [...] data",
+        "Get Career Advice",
+        "Special Abilities",
+        "Blindsight",
+        "Hold Breath",
+        "Low-Light Vision"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/bear-dire-86",
+      "name": "Dire Bear",
+      "sourceName": "Bear, Dire",
+      "aliases": [
+        "Bear, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/bear-dire-86",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 63,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "12d8+51",
+      "hp": 105,
+      "initiative": 1,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 17,
+        "touch": 10,
+        "flatFooted": 16
+      },
+      "baseAttack": 9,
+      "grapple": 23,
+      "attacks": [
+        "2 claws +19 melee (2d4+10) and bite +13 melee (2d8+5)"
+      ],
+      "abilities": {
+        "str": 31,
+        "dex": 13,
+        "con": 19,
+        "int": 2,
+        "wis": 12,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 12,
+        "ref": 9,
+        "will": 9
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Improved Grab"
+      ],
+      "feats": [
+        "Alertness",
+        "Endurance",
+        "Run",
+        "Toughness",
+        "Weapon Focus"
+      ]
+    },
+    {
+      "id": "monsters/elephant-551",
+      "name": "Elephant",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/elephant-551",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 272,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "11d8+55",
+      "hp": 104,
+      "initiative": 0,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 15,
+        "touch": 8,
+        "flatFooted": 15
+      },
+      "baseAttack": 8,
+      "grapple": 26,
+      "attacks": [
+        "Slam +16 melee (2d6+10) and 2 stamps +11 melee (2d6+5), or gore +16 melee (2d8+15)"
+      ],
+      "abilities": {
+        "str": 30,
+        "dex": 10,
+        "con": 21,
+        "int": 2,
+        "wis": 13,
+        "cha": 7
+      },
+      "saves": {
+        "fort": 12,
+        "ref": 7,
+        "will": 6
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Trample"
+      ],
+      "feats": [
+        "Alertness",
+        "Endurance",
+        "Iron Will",
+        "Skill Focus"
+      ]
+    },
+    {
+      "id": "monsters/octopus-giant-567",
+      "name": "Octopus (giant)",
+      "sourceName": "Octopus, Giant",
+      "aliases": [
+        "Octopus, Giant"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/octopus-giant-567",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 276,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [
+        "Aquatic"
+      ],
+      "hitDice": "8d8+11",
+      "hp": 47,
+      "initiative": 2,
+      "speed": {
+        "swim": 30
+      },
+      "ac": {
+        "total": 18,
+        "touch": 11,
+        "flatFooted": 16
+      },
+      "baseAttack": 6,
+      "grapple": 15,
+      "attacks": [
+        "8 tentacles +10 melee (1d4+5) and bite +5 melee (1d8+2)"
+      ],
+      "abilities": {
+        "str": 20,
+        "dex": 15,
+        "con": 13,
+        "int": 2,
+        "wis": 12,
+        "cha": 3
+      },
+      "saves": {
+        "fort": 7,
+        "ref": 8,
+        "will": 3
+      },
+      "specialAbilities": [
+        "Improved Grab",
+        "Ink Cloud",
+        "Constrict",
+        "Jet",
+        "Low-Light Vision"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/shark-dire-90",
+      "name": "Dire Shark",
+      "sourceName": "Shark, Dire",
+      "aliases": [
+        "Shark, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/shark-dire-90",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 64,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "18d8+66",
+      "hp": 147,
+      "initiative": 2,
+      "speed": {
+        "swim": 60
+      },
+      "ac": {
+        "total": 17,
+        "touch": 10,
+        "flatFooted": 15
+      },
+      "baseAttack": 13,
+      "grapple": 27,
+      "attacks": [
+        "Bite +18 melee (2d8+9)"
+      ],
+      "abilities": {
+        "str": 23,
+        "dex": 15,
+        "con": 17,
+        "int": 1,
+        "wis": 12,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 14,
+        "ref": 13,
+        "will": 12
+      },
+      "specialAbilities": [
+        "Improved Grab",
+        "Swallow Whole",
+        "Keen Scent"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/tiger-dire-91",
+      "name": "Dire Tiger",
+      "sourceName": "Tiger, Dire",
+      "aliases": [
+        "Tiger, Dire"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/tiger-dire-91",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 65,
+      "size": "Large",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "16d8+48",
+      "hp": 120,
+      "initiative": 2,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 17,
+        "touch": 11,
+        "flatFooted": 15
+      },
+      "baseAttack": 12,
+      "grapple": 24,
+      "attacks": [
+        "2 claws +20 melee (2d4+8) and bite +14 melee (2d6+4)"
+      ],
+      "abilities": {
+        "str": 27,
+        "dex": 15,
+        "con": 17,
+        "int": 2,
+        "wis": 12,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 13,
+        "ref": 12,
+        "will": 11
+      },
+      "specialAbilities": [
+        "Low-Light Vision",
+        "Scent",
+        "Improved Grab",
+        "Pounce",
+        "Rake"
+      ],
+      "feats": [
+        "Alertness",
+        "Improved Natural Attack",
+        "Improved Natural Attack",
+        "Run",
+        "Stealthy",
+        "Weapon Focus"
+      ]
+    },
+    {
+      "id": "monsters/squid-giant-589",
+      "name": "Squid (giant)",
+      "sourceName": "Squid, Giant",
+      "aliases": [
+        "Squid, Giant"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/squid-giant-589",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 281,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [
+        "Aquatic"
+      ],
+      "hitDice": "12d8+18",
+      "hp": 72,
+      "initiative": 3,
+      "speed": {
+        "swim": 80
+      },
+      "ac": {
+        "total": 17,
+        "touch": 11,
+        "flatFooted": 14
+      },
+      "baseAttack": 9,
+      "grapple": 29,
+      "attacks": [
+        "10 tentacles +15 melee (1d6+8) and bite +10 melee (2d8+4)"
+      ],
+      "abilities": {
+        "str": 26,
+        "dex": 17,
+        "con": 13,
+        "int": 1,
+        "wis": 12,
+        "cha": 2
+      },
+      "saves": {
+        "fort": 9,
+        "ref": 11,
+        "will": 5
+      },
+      "specialAbilities": [
+        "Constrict",
+        "Improved Grab",
+        "Ink Cloud",
+        "Jet",
+        "Low-Light Vision"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/dinosaur-triceratops-81",
+      "name": "Triceratops",
+      "sourceName": "Dinosaur, Triceratops",
+      "aliases": [
+        "Dinosaur, Triceratops"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/dinosaur-triceratops-81",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 61,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "16d8+124",
+      "hp": 196,
+      "initiative": -1,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 18,
+        "touch": 7,
+        "flatFooted": 18
+      },
+      "baseAttack": 12,
+      "grapple": 30,
+      "attacks": [
+        "Gore +20 melee (2d8+15)"
+      ],
+      "abilities": {
+        "str": 30,
+        "dex": 9,
+        "con": 25,
+        "int": 1,
+        "wis": 12,
+        "cha": 7
+      },
+      "saves": {
+        "fort": 19,
+        "ref": 9,
+        "will": 6
+      },
+      "specialAbilities": [
+        "Powerful Charge",
+        "Trample",
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/dinosaur-tyrannosaurus-82",
+      "name": "Tyrannosaurus",
+      "sourceName": "Dinosaur, Tyrannosaurus",
+      "aliases": [
+        "Dinosaur, Tyrannosaurus"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/dinosaur-tyrannosaurus-82",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 61,
+      "size": "Huge",
+      "type": "Animal",
+      "subtypes": [],
+      "hitDice": "18d8+99",
+      "hp": 180,
+      "initiative": 1,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 14,
+        "touch": 9,
+        "flatFooted": 13
+      },
+      "baseAttack": 13,
+      "grapple": 30,
+      "attacks": [
+        "Bite +20 melee (3d6+13)"
+      ],
+      "abilities": {
+        "str": 28,
+        "dex": 12,
+        "con": 21,
+        "int": 2,
+        "wis": 15,
+        "cha": 10
+      },
+      "saves": {
+        "fort": 16,
+        "ref": 12,
+        "will": 8
+      },
+      "specialAbilities": [
+        "Upskill Teams",
+        "Special Abilities",
+        "Improved Grab",
+        "Swallow Whole",
+        "Low-Light Vision",
+        "Scent"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/lammasu-355",
+      "name": "Lammasu",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/lammasu-355",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 165,
+      "size": "Large",
+      "type": "Magical Beast",
+      "subtypes": [],
+      "hitDice": "7d10+21",
+      "hp": 59,
+      "initiative": 1,
+      "speed": {
+        "land": 30,
+        "fly": 60
+      },
+      "ac": {
+        "total": 20,
+        "touch": 10,
+        "flatFooted": 19
+      },
+      "baseAttack": 7,
+      "grapple": 17,
+      "attacks": [
+        "2 claws +12 melee (1d6+6)"
+      ],
+      "abilities": {
+        "str": 23,
+        "dex": 12,
+        "con": 17,
+        "int": 16,
+        "wis": 17,
+        "cha": 14
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 8,
+        "will": 7
+      },
+      "specialAbilities": [
+        "Breath Weapon",
+        "Pounce",
+        "Rake",
+        "Spells",
+        "Spell-Like Abilities",
+        "Darkvision",
+        "Low-Light Vision",
+        "Magic Circle Against Evil"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/sphinx-gynosphinx-472",
+      "name": "Gynosphinx",
+      "sourceName": "Sphinx, Gynosphinx",
+      "aliases": [
+        "Sphinx, Gynosphinx"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/sphinx-gynosphinx-472",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 233,
+      "size": "Large",
+      "type": "Magical Beast",
+      "subtypes": [],
+      "hitDice": "8d10+8",
+      "hp": 52,
+      "initiative": 5,
+      "speed": {
+        "land": 40
+      },
+      "ac": {
+        "total": 21,
+        "touch": 10,
+        "flatFooted": 20
+      },
+      "baseAttack": 8,
+      "grapple": 16,
+      "attacks": [
+        "2 claws +11 melee (1d6+4)"
+      ],
+      "abilities": {
+        "str": 19,
+        "dex": 12,
+        "con": 13,
+        "int": 18,
+        "wis": 19,
+        "cha": 19
+      },
+      "saves": {
+        "fort": 7,
+        "ref": 7,
+        "will": 8
+      },
+      "specialAbilities": [
+        "Pounce",
+        "Rake",
+        "Spell-Like Abilities",
+        "Darkvision",
+        "Low-Light Vision"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/naga-water-406",
+      "name": "Water Naga",
+      "sourceName": "Naga, Water",
+      "aliases": [
+        "Naga, Water"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/naga-water-406",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 193,
+      "size": "Large",
+      "type": "Aberration",
+      "subtypes": [
+        "Aquatic"
+      ],
+      "hitDice": "7d8+28",
+      "hp": 59,
+      "initiative": 1,
+      "speed": {
+        "land": 30
+      },
+      "ac": {
+        "total": 15,
+        "touch": 10,
+        "flatFooted": 14
+      },
+      "baseAttack": 5,
+      "grapple": 12,
+      "attacks": [
+        "Bite +7 melee (2d6+4 plus poison)"
+      ],
+      "abilities": {
+        "str": 16,
+        "dex": 13,
+        "con": 18,
+        "int": 10,
+        "wis": 17,
+        "cha": 15
+      },
+      "saves": {
+        "fort": 6,
+        "ref": 5,
+        "will": 8
+      },
+      "specialAbilities": [
+        "Poison",
+        "Spells",
+        "Darkvision"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/sphinx-androsphinx-470",
+      "name": "Androsphinx",
+      "sourceName": "Sphinx, Androsphinx",
+      "aliases": [
+        "Sphinx, Androsphinx"
+      ],
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/sphinx-androsphinx-470",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 232,
+      "size": "Large",
+      "type": "Magical Beast",
+      "subtypes": [],
+      "hitDice": "12d10+48",
+      "hp": 114,
+      "initiative": 0,
+      "speed": {
+        "land": 50
+      },
+      "ac": {
+        "total": 22,
+        "touch": 9,
+        "flatFooted": 22
+      },
+      "baseAttack": 12,
+      "grapple": 23,
+      "attacks": [
+        "2 claws +18 melee (2d4+7)"
+      ],
+      "abilities": {
+        "str": 25,
+        "dex": 10,
+        "con": 19,
+        "int": 16,
+        "wis": 17,
+        "cha": 17
+      },
+      "saves": {
+        "fort": 12,
+        "ref": 8,
+        "will": 7
+      },
+      "specialAbilities": [
+        "Pounce",
+        "Rake",
+        "Roar",
+        "Spells",
+        "Darkvision",
+        "Low-Light Vision"
+      ],
+      "feats": []
+    },
+    {
+      "id": "monsters/couatl-48",
+      "name": "Couatl",
+      "edition": "3.5",
+      "sourceUrl": "https://new.dndtools.org/monsters/couatl-48",
+      "sourceBook": "Monster Manual v.3.5",
+      "page": 37,
+      "size": "Large",
+      "type": "Outsider",
+      "subtypes": [
+        "Native"
+      ],
+      "hitDice": "9d8+18",
+      "hp": 58,
+      "initiative": 7,
+      "speed": {
+        "land": 20,
+        "fly": 60
+      },
+      "ac": {
+        "total": 21,
+        "touch": 12,
+        "flatFooted": 18
+      },
+      "baseAttack": 9,
+      "grapple": 17,
+      "attacks": [
+        "Bite +12 melee (1d3+6 plus poison)"
+      ],
+      "abilities": {
+        "str": 18,
+        "dex": 16,
+        "con": 14,
+        "int": 17,
+        "wis": 19,
+        "cha": 17
+      },
+      "saves": {
+        "fort": 8,
+        "ref": 9,
+        "will": 10
+      },
+      "specialAbilities": [
+        "Constrict",
+        "Improved Grab",
+        "Poison",
+        "Psionics",
+        "Spells",
+        "Ethereal Jaunt",
+        "Darkvision",
+        "Telepathy"
+      ],
+      "feats": []
     }
   ],
   "profiles": {
@@ -1046,282 +4114,350 @@
         [
           "Badger",
           0,
-          0
+          0,
+          "monsters/badger-533"
         ],
         [
           "Camel",
           0,
-          0
+          0,
+          "monsters/camel-541"
         ],
         [
           "Dire Rat",
           0,
-          0
+          0,
+          "monsters/rat-dire-89"
         ],
         [
           "Dog",
           0,
-          0
+          0,
+          "monsters/dog-546"
         ],
         [
           "Riding Dog",
           0,
-          0
+          0,
+          "monsters/dog-riding-548"
         ],
         [
           "Eagle",
           0,
-          0
+          0,
+          "monsters/eagle-550"
         ],
         [
           "Hawk",
           0,
-          0
+          0,
+          "monsters/hawk-552"
         ],
         [
-          "Horse (light or heavy)",
+          "Horse (Light)",
           0,
-          0
+          0,
+          "monsters/horse-light-554"
+        ],
+        [
+          "Horse (Heavy)",
+          0,
+          0,
+          "monsters/horse-heavy-553"
         ],
         [
           "Owl",
           0,
-          0
+          0,
+          "monsters/owl-568"
         ],
         [
           "Pony",
           0,
-          0
+          0,
+          "monsters/pony-570"
         ],
         [
-          "Snake (Small or Medium viper)",
+          "Snake (Small Viper)",
           0,
-          0
+          0,
+          "monsters/snake-viper-small-584"
+        ],
+        [
+          "Snake (Medium Viper)",
+          0,
+          0,
+          "monsters/snake-viper-medium-585"
         ],
         [
           "Wolf",
           0,
-          0
+          0,
+          "monsters/wolf-596"
         ],
         [
           "Porpoise",
           0,
-          0
+          0,
+          "monsters/porpoise-572"
         ],
         [
           "Shark (Medium)",
           0,
-          0
+          0,
+          "monsters/shark-medium-578"
         ],
         [
           "Squid",
           0,
-          0
+          0,
+          "monsters/squid-588"
         ],
         [
           "Ape",
           4,
-          3
+          3,
+          "monsters/ape-531"
         ],
         [
           "Bear (black)",
           4,
-          3
+          3,
+          "monsters/bear-black-536"
         ],
         [
           "Bison",
           4,
-          3
+          3,
+          "monsters/bison-539"
         ],
         [
           "Boar",
           4,
-          3
+          3,
+          "monsters/boar-540"
         ],
         [
           "Cheetah",
           4,
-          3
+          3,
+          "monsters/cheetah-543"
         ],
         [
           "Crocodile",
           4,
-          3
+          3,
+          "monsters/crocodile-544"
         ],
         [
           "Dire Badger",
           4,
-          3
+          3,
+          "monsters/badger-dire-84"
         ],
         [
           "Dire Bat",
           4,
-          3
+          3,
+          "monsters/bat-dire-85"
         ],
         [
           "Dire Weasel",
           4,
-          3
+          3,
+          "monsters/weasel-dire-92"
         ],
         [
           "Leopard",
           4,
-          3
+          3,
+          "monsters/leopard-558"
         ],
         [
           "Lizard (monitor)",
           4,
-          3
+          3,
+          "monsters/lizard-monitor-561"
         ],
         [
           "Shark (Large)",
           4,
-          3
+          3,
+          "monsters/shark-large-579"
         ],
         [
           "Snake (constrictor)",
           4,
-          3
+          3,
+          "monsters/snake-constrictor-581"
         ],
         [
           "Snake (Large viper)",
           4,
-          3
+          3,
+          "monsters/snake-viper-large-586"
         ],
         [
           "Wolverine",
           4,
-          3
+          3,
+          "monsters/wolverine-597"
         ],
         [
           "Bear (brown)",
           7,
-          6
+          6,
+          "monsters/bear-brown-537"
         ],
         [
           "Dire Wolverine",
           7,
-          6
+          6,
+          "monsters/wolverine-dire-94"
         ],
         [
           "Crocodile (giant)",
           7,
-          6
+          6,
+          "monsters/crocodile-giant-545"
         ],
         [
           "Deinonychus",
           7,
-          6
+          6,
+          "monsters/dinosaur-deinonychus-78"
         ],
         [
           "Dire Ape",
           7,
-          6
+          6,
+          "monsters/ape-dire-83"
         ],
         [
           "Dire Boar",
           7,
-          6
+          6,
+          "monsters/boar-dire-87"
         ],
         [
           "Dire Wolf",
           7,
-          6
+          6,
+          "monsters/wolf-dire-93"
         ],
         [
           "Elasmosaurus",
           7,
-          6
+          6,
+          "monsters/dinosaur-elasmosaurus-79"
         ],
         [
           "Lion",
           7,
-          6
+          6,
+          "monsters/lion-559"
         ],
         [
           "Rhinoceros",
           7,
-          6
+          6,
+          "monsters/rhinoceros-577"
         ],
         [
           "Snake (Huge viper)",
           7,
-          6
+          6,
+          "monsters/snake-viper-huge-587"
         ],
         [
           "Tiger",
           7,
-          6
+          6,
+          "monsters/tiger-590"
         ],
         [
           "Bear (polar)",
           10,
-          9
+          9,
+          "monsters/bear-polar-538"
         ],
         [
           "Dire Lion",
           10,
-          9
+          9,
+          "monsters/lion-dire-88"
         ],
         [
           "Megaraptor",
           10,
-          9
+          9,
+          "monsters/dinosaur-megaraptor-80"
         ],
         [
           "Shark (Huge)",
           10,
-          9
+          9,
+          "monsters/shark-huge-580"
         ],
         [
           "Snake (giant constrictor)",
           10,
-          9
+          9,
+          "monsters/snake-giant-constrictor-582"
         ],
         [
           "Whale (orca)",
           10,
-          9
+          9,
+          "monsters/whale-orca-595"
         ],
         [
           "Dire Bear",
           13,
-          12
+          12,
+          "monsters/bear-dire-86"
         ],
         [
           "Elephant",
           13,
-          12
+          12,
+          "monsters/elephant-551"
         ],
         [
           "Octopus (giant)",
           13,
-          12
+          12,
+          "monsters/octopus-giant-567"
         ],
         [
           "Dire Shark",
           16,
-          15
+          15,
+          "monsters/shark-dire-90"
         ],
         [
           "Dire Tiger",
           16,
-          15
+          15,
+          "monsters/tiger-dire-91"
         ],
         [
           "Squid (giant)",
           16,
-          15
+          15,
+          "monsters/squid-giant-589"
         ],
         [
           "Triceratops",
           16,
-          15
+          15,
+          "monsters/dinosaur-triceratops-81"
         ],
         [
           "Tyrannosaurus",
           16,
-          15
+          15,
+          "monsters/dinosaur-tyrannosaurus-82"
         ]
       ],
       "progression": [
@@ -1755,6 +4891,44 @@
             "Spell Resistance"
           ]
         }
+      ],
+      "choices": [
+        [
+          "Unicorn",
+          12,
+          0,
+          "monsters/unicorn-500"
+        ],
+        [
+          "Lammasu",
+          12,
+          4,
+          "monsters/lammasu-355"
+        ],
+        [
+          "Gynosphinx",
+          12,
+          4,
+          "monsters/sphinx-gynosphinx-472"
+        ],
+        [
+          "Water Naga",
+          12,
+          4,
+          "monsters/naga-water-406"
+        ],
+        [
+          "Androsphinx",
+          12,
+          8,
+          "monsters/sphinx-androsphinx-470"
+        ],
+        [
+          "Couatl",
+          12,
+          8,
+          "monsters/couatl-48"
+        ]
       ]
     }
   }

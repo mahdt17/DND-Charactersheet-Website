@@ -62,6 +62,18 @@ const druidCompanionLevel1Selected=applyFeatureChoices(companionChoiceBase(druid
 assert(Object.values(druidCompanionLevel1Selected.featureChoices).some(choice=>choice.choiceKind==='animal-companion'&&choice.choices?.[0]==='Wolf'));
 assert.equal(featureChoicePlan(JSON.parse(JSON.stringify(druidCompanionLevel1Selected)),null).groups.length,0,'Level-1 Animal Companion selection persists across save/reopen');
 
+const healerCompanionClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/healer-77'),choiceReference35);
+const healer11Choice35=companionChoiceBase(healerCompanionClass35,11),healer12Choice35=companionChoiceBase(healerCompanionClass35,12);
+const healerAlternativePlan35=featureChoicePlan(healer12Choice35,healer11Choice35);
+const healerAlternativeGroup35=healerAlternativePlan35.groups.find(group=>group.label==='Unicorn Companion'&&group.companionProfileId==='healer-companion');
+assert(healerAlternativeGroup35,'Healer level 12 requests the source-defined optional companion replacement choice');
+assert.deepEqual(healerAlternativeGroup35.options,['Unicorn','Lammasu','Gynosphinx','Water Naga','Androsphinx','Couatl']);
+const healerLammasuChoice35=applyFeatureChoices(healer12Choice35,healer11Choice35,{[healerAlternativeGroup35.id]:['Lammasu']});
+const healerLammasuRecorded35=Object.values(healerLammasuChoice35.featureChoices||{}).find(choice=>choice.companionProfileId==='healer-companion');
+assert.equal(healerLammasuRecorded35?.baseCreatureId,'monsters/lammasu-355');
+assert.equal(healerLammasuRecorded35?.levelAdjustment,4);
+console.log('PASS Healer level-12 alternative companion selection is guided and source-locked');
+
 const swCompanionRaw35=choiceClasses35.find(record=>record.sourceId==='classes/sorcererwizard-variant-957');
 const swCompanionUnresolved35=annotateClassGrantKinds(swCompanionRaw35,choiceReference35);
 assert.equal(swCompanionUnresolved35.inheritanceRequired,true);
