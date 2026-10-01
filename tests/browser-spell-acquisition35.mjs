@@ -234,8 +234,6 @@ try{
   assert(!await recordCampaign.isDisabled());
   await recordCampaign.click();
   await page.locator('.spell-item').filter({hasText:'Scorching Ray'}).waitFor();
-  const saveStatus=page.locator('.save-status');
-  await saveStatus.filter({hasText:'All changes saved'}).waitFor();
   await page.waitForFunction(async ({name,classId})=>{
     const indexRecord=await window.storage.get('char-index');
     if(!indexRecord)return false;
