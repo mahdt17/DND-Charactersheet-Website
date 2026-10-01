@@ -427,3 +427,40 @@ assert.equal(
 );
 console.log('PASS Wizard free spellbook additions are not incorrectly constrained to level 0');
 
+const sorcererLevel4Events=spellAcquisitionEvents35(baseCharacter('classes/sorcerer-98','Sorcerer',4,18),{
+  classId:'dndtools:classes/sorcerer-98',previousClassLevel:3,targetClassLevel:4
+});
+const optionalLevel4=sorcererLevel4Events.find(event=>event.kind==='optional-replacement');
+assert(optionalLevel4);
+const requiredLevel4=sorcererLevel4Events.filter(event=>event.required!==false);
+const requiredPicks=Object.fromEntries(requiredLevel4.map(event=>[
+  event.eventId,Array.from({length:event.count},(_,i)=>'legal-'+event.spellLevel+'-'+i)
+]));
+const legalLevel4Ids=new Set([
+  ...Object.values(requiredPicks).flat(),
+  'spell:ray-of-frost'
+]);
+assert.equal(
+  spellAcquisitionPicksComplete35(sorcererLevel4Events,requiredPicks,legalLevel4Ids),
+  true,
+  'optional replacement picks are skippable'
+);
+assert.equal(
+  spellAcquisitionPicksComplete35(sorcererLevel4Events,{
+    ...requiredPicks,
+    [optionalLevel4.eventId]:{enabled:true}
+  },legalLevel4Ids),
+  false,
+  'opting into replacement requires both replacement fields'
+);
+assert.equal(
+  spellAcquisitionPicksComplete35(sorcererLevel4Events,{
+    ...requiredPicks,
+    [optionalLevel4.eventId]:{enabled:true,removedSpellKey:'spell:acid-splash',addedSpellId:'spell:ray-of-frost'}
+  },legalLevel4Ids),
+  true,
+  'enabled optional replacement is complete with a legal replacement selection'
+);
+console.log('PASS optional replacement picks are skippable but complete when enabled');
+
+
