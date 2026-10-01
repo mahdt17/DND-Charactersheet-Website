@@ -385,3 +385,47 @@ Verification evidence:
 Tracker impact: **60 complete, 642 needs-review, 1 source-conflict, 2 blocked,
 349 pending audit**. No Supabase schema, policy, catalog, or live character data
 was changed. Nothing was deployed or merged.
+
+## 3.5 Companion source-lock completion checkpoint (2026-10-01)
+
+The Companion Engine now has exact local 3.5 creature records for the complete
+legal core Druid/Ranger animal-companion option set and for all Healer celestial
+companion alternatives. Grouped choices are no longer placeholders: light horse
+and heavy horse are separate options, as are Small and Medium vipers, and all
+legal options resolve to source-locked creature IDs.
+
+Ranger has its own source-faithful companion profile rather than blindly sharing
+the Druid choice table. Ranger still contributes one-half class level for
+companion progression, but the PHB aquatic-campaign starting exception allows
+Crocodile at Ranger 4; Druid keeps Crocodile in its higher-level alternative
+list. The PHB, Eberron, Forgotten Realms, and Sandstorm Ranger records are
+source-equivalent and regression-tested against this profile.
+
+Healer level 12+ supports Unicorn, Lammasu, Gynosphinx, Water Naga, Androsphinx,
+and Couatl. The three -4 and two -8 alternatives use the source-defined
+effective-level adjustments, retain Healer's celestial companion marker, and
+use the existing calling/death/replacement lifecycle. After a source-defined
+replacement condition becomes available, the Companions tab can choose a
+different currently legal source creature. Replacement rewrites the persisted
+source choice, removes the former automatic companion, creates the selected
+creature from its own source-derived state, and does not carry the former
+creature's HP or notes forward.
+
+Completion impact is limited to records whose documented final blocker was this
+companion work: `classes/healer-77` plus `classes/ranger-96`,
+`classes/ranger-44`, `classes/ranger-68`, and `classes/ranger-108`.
+All five move from needs-review to complete.
+
+Verification evidence:
+- implementation head: `8d08de8c763b6c5559e605bf26626090db49e199`
+- Companion engine checks #89: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36930570641
+- Spell acquisition checks #64: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36930570489
+- Validate modernization #1589: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36930570642
+- #1589 passed the full 3.5 class/feat/spell/item regressions, production build,
+  every general/specialized browser suite, guided feature-choice coverage, and
+  production-loading checks.
+
+Tracker impact: **65 complete, 637 needs-review, 1 source-conflict, 2 blocked,
+349 pending audit**. No Supabase schema, policy, catalog, or live character data
+was changed. Nothing was deployed or merged.
+

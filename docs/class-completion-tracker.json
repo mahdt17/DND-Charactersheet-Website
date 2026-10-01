@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "b0d613a22aaf56efe83f8f31696ce08f88bbc8c4",
+  "snapshotCommit": "8d08de8c763b6c5559e605bf26626090db49e199",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -12280,28 +12280,31 @@
       "name": "Healer",
       "sourceBook": "Base Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/healer-77",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 15,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "The default celestial Unicorn Companion is now materialized with Healer-specific progression, derived statistics, calling, persistence, and 30-days-or-healer-level death/replacement lifecycle. The optional level-12+ alternative-companion replacement flow still needs source-locked selection/data for Lammasu, Gynosphinx, Water Naga, Androsphinx, and Couatl."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
         "No Firecrawl fallback was required.",
         "2026-10-01 Companion Engine coverage resolves the default Unicorn Companion state/scaling/calling/lifecycle blocker; exact Healer source research also identified the remaining five alternative companions and their -4/-8 effective-level adjustments.",
-        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed.",
+        "2026-10-01 Healer level 12+ companion selection is structured for Unicorn, Lammasu, Gynosphinx, Water Naga, Androsphinx, and Couatl with the source-defined -4/-8 effective-level adjustments; all six resolve to exact source-locked creature records.",
+        "2026-10-01 Healer alternatives retain the celestial companion marker and the source-defined calling/death/replacement lifecycle; once replacement is available, the Companions tab can select another currently legal source companion.",
+        "2026-10-01 the Companion Engine source-lock completion imports exact 3.5 creature records for every legal core Druid/Ranger animal-companion option and all five Healer alternatives; grouped horse/viper choices are atomic and unresolved source records continue to fail closed.",
+        "2026-10-01 source-legal replacement now updates the persisted companion choice after the applicable campaign-time replacement condition is confirmed, without carrying the former creature's HP or notes into the replacement.",
+        "Companion engine checks #89, Spell acquisition checks #64, and Validate modernization #1589 passed at 8d08de8c763b6c5559e605bf26626090db49e199; #1589 passed full 3.5 class/feat/spell/item regressions, build, and the complete browser matrix including guided feature choices and production loading."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Add optional level-12+ Healer companion replacement selection and source-locked records for Lammasu, Gynosphinx, Water Naga, Androsphinx, and Couatl through the existing Companion Engine."
+      "nextAction": "Preserve as verified; re-audit only if shared companion source data, replacement lifecycle, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/heartwarder-487",
@@ -19247,109 +19250,121 @@
       "name": "Ranger",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-108",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/ranger-96",
       "featureRequirements": [],
-      "gaps": [
-        "Ranger Animal Companion now uses persisted companion state, half-level effective-Druid scaling, alternative level adjustments, progression, save/reopen reconciliation, and source-removal cleanup. Completion still requires source-locked stat records for every legal animal choice and correct expansion of grouped choices such as light/heavy horse and Small/Medium viper."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/ranger-96.",
         "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96.",
         "2026-10-01 the generic Companion Engine implements Ranger half-level companion contribution and persistent companion reconciliation; exact 3.5 reference pages were matched for the full legal animal list, but incomplete parsed movement data prevented a blind bulk import.",
-        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed.",
+        "2026-10-01 the Ranger-specific companion profile preserves half-Ranger-level effective-Druid scaling and the source-specific aquatic starting exception: Crocodile is legal at Ranger 4 without changing the Druid Crocodile adjustment.",
+        "2026-10-01 all 58 atomic Ranger companion choices point to exact local 3.5 creature records, including expanded light/heavy horse and Small/Medium viper choices.",
+        "2026-10-01 the Companion Engine source-lock completion imports exact 3.5 creature records for every legal core Druid/Ranger animal-companion option and all five Healer alternatives; grouped horse/viper choices are atomic and unresolved source records continue to fail closed.",
+        "2026-10-01 source-legal replacement now updates the persisted companion choice after the applicable campaign-time replacement condition is confirmed, without carrying the former creature's HP or notes into the replacement.",
+        "Companion engine checks #89, Spell acquisition checks #64, and Validate modernization #1589 passed at 8d08de8c763b6c5559e605bf26626090db49e199; #1589 passed full 3.5 class/feat/spell/item regressions, build, and the complete browser matrix including guided feature choices and production loading."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Populate the complete source-locked 3.5 animal-companion creature catalog and expand grouped legal choices through the existing Companion Engine; keep fail-closed behavior for any unresolved creature."
+      "nextAction": "Preserve as verified; re-audit only if shared companion source data, replacement lifecycle, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/ranger-44",
       "name": "Ranger",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-44",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/ranger-96",
       "featureRequirements": [],
-      "gaps": [
-        "Ranger Animal Companion now uses persisted companion state, half-level effective-Druid scaling, alternative level adjustments, progression, save/reopen reconciliation, and source-removal cleanup. Completion still requires source-locked stat records for every legal animal choice and correct expansion of grouped choices such as light/heavy horse and Small/Medium viper."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/ranger-96.",
         "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96.",
         "2026-10-01 the generic Companion Engine implements Ranger half-level companion contribution and persistent companion reconciliation; exact 3.5 reference pages were matched for the full legal animal list, but incomplete parsed movement data prevented a blind bulk import.",
-        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed.",
+        "2026-10-01 the Ranger-specific companion profile preserves half-Ranger-level effective-Druid scaling and the source-specific aquatic starting exception: Crocodile is legal at Ranger 4 without changing the Druid Crocodile adjustment.",
+        "2026-10-01 all 58 atomic Ranger companion choices point to exact local 3.5 creature records, including expanded light/heavy horse and Small/Medium viper choices.",
+        "2026-10-01 the Companion Engine source-lock completion imports exact 3.5 creature records for every legal core Druid/Ranger animal-companion option and all five Healer alternatives; grouped horse/viper choices are atomic and unresolved source records continue to fail closed.",
+        "2026-10-01 source-legal replacement now updates the persisted companion choice after the applicable campaign-time replacement condition is confirmed, without carrying the former creature's HP or notes into the replacement.",
+        "Companion engine checks #89, Spell acquisition checks #64, and Validate modernization #1589 passed at 8d08de8c763b6c5559e605bf26626090db49e199; #1589 passed full 3.5 class/feat/spell/item regressions, build, and the complete browser matrix including guided feature choices and production loading."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Populate the complete source-locked 3.5 animal-companion creature catalog and expand grouped legal choices through the existing Companion Engine; keep fail-closed behavior for any unresolved creature."
+      "nextAction": "Preserve as verified; re-audit only if shared companion source data, replacement lifecycle, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/ranger-68",
       "name": "Ranger",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-68",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/ranger-96",
       "featureRequirements": [],
-      "gaps": [
-        "Ranger Animal Companion now uses persisted companion state, half-level effective-Druid scaling, alternative level adjustments, progression, save/reopen reconciliation, and source-removal cleanup. Completion still requires source-locked stat records for every legal animal choice and correct expansion of grouped choices such as light/heavy horse and Small/Medium viper."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/ranger-96.",
         "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/ranger-96.",
         "2026-10-01 the generic Companion Engine implements Ranger half-level companion contribution and persistent companion reconciliation; exact 3.5 reference pages were matched for the full legal animal list, but incomplete parsed movement data prevented a blind bulk import.",
-        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed.",
+        "2026-10-01 the Ranger-specific companion profile preserves half-Ranger-level effective-Druid scaling and the source-specific aquatic starting exception: Crocodile is legal at Ranger 4 without changing the Druid Crocodile adjustment.",
+        "2026-10-01 all 58 atomic Ranger companion choices point to exact local 3.5 creature records, including expanded light/heavy horse and Small/Medium viper choices.",
+        "2026-10-01 the Companion Engine source-lock completion imports exact 3.5 creature records for every legal core Druid/Ranger animal-companion option and all five Healer alternatives; grouped horse/viper choices are atomic and unresolved source records continue to fail closed.",
+        "2026-10-01 source-legal replacement now updates the persisted companion choice after the applicable campaign-time replacement condition is confirmed, without carrying the former creature's HP or notes into the replacement.",
+        "Companion engine checks #89, Spell acquisition checks #64, and Validate modernization #1589 passed at 8d08de8c763b6c5559e605bf26626090db49e199; #1589 passed full 3.5 class/feat/spell/item regressions, build, and the complete browser matrix including guided feature choices and production loading."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Populate the complete source-locked 3.5 animal-companion creature catalog and expand grouped legal choices through the existing Companion Engine; keep fail-closed behavior for any unresolved creature."
+      "nextAction": "Preserve as verified; re-audit only if shared companion source data, replacement lifecycle, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/ranger-96",
       "name": "Ranger",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/ranger-96",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 15,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Ranger Animal Companion now uses persisted companion state, half-level effective-Druid scaling, alternative level adjustments, progression, save/reopen reconciliation, and source-removal cleanup. Completion still requires source-locked stat records for every legal animal choice and correct expansion of grouped choices such as light/heavy horse and Small/Medium viper."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
         "No Firecrawl fallback was required.",
         "2026-10-01 the generic Companion Engine implements Ranger half-level companion contribution and persistent companion reconciliation; exact 3.5 reference pages were matched for the full legal animal list, but incomplete parsed movement data prevented a blind bulk import.",
-        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed."
+        "Companion engine checks #18 passed at 324603885c0cbe9a4731e1a79fe7eafd6b4f9801; full Validate modernization #1518 also passed.",
+        "2026-10-01 the Ranger-specific companion profile preserves half-Ranger-level effective-Druid scaling and the source-specific aquatic starting exception: Crocodile is legal at Ranger 4 without changing the Druid Crocodile adjustment.",
+        "2026-10-01 all 58 atomic Ranger companion choices point to exact local 3.5 creature records, including expanded light/heavy horse and Small/Medium viper choices.",
+        "2026-10-01 the Companion Engine source-lock completion imports exact 3.5 creature records for every legal core Druid/Ranger animal-companion option and all five Healer alternatives; grouped horse/viper choices are atomic and unresolved source records continue to fail closed.",
+        "2026-10-01 source-legal replacement now updates the persisted companion choice after the applicable campaign-time replacement condition is confirmed, without carrying the former creature's HP or notes into the replacement.",
+        "Companion engine checks #89, Spell acquisition checks #64, and Validate modernization #1589 passed at 8d08de8c763b6c5559e605bf26626090db49e199; #1589 passed full 3.5 class/feat/spell/item regressions, build, and the complete browser matrix including guided feature choices and production loading."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Populate the complete source-locked 3.5 animal-companion creature catalog and expand grouped legal choices through the existing Companion Engine; keep fail-closed behavior for any unresolved creature."
+      "nextAction": "Preserve as verified; re-audit only if shared companion source data, replacement lifecycle, or class-integration behavior changes."
     },
     {
       "sourceId": "classes/ranger-variant-21",
@@ -26092,5 +26107,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "3.5 Spell Acquisition Engine checkpoint recorded on green Spell acquisition checks #58, Companion engine checks #83, and Validate modernization #1583; Hexblade, four Sorcerer, and four Wizard records were promoted after their final acquisition blockers were closed."
+  "lastUpdatedNote": "3.5 Companion source-lock completion checkpoint recorded on green Companion engine checks #89, Spell acquisition checks #64, and Validate modernization #1589; Healer and four source-verified Ranger records were promoted after their final companion catalog/replacement blockers were closed."
 }

@@ -270,3 +270,18 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Promoted exactly nine records whose final blocker was spell acquisition: Hexblade; four source-verified Sorcerer records; four source-verified Wizard records.
 - Canonical tracker totals: **60 complete, 642 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+
+## 2026-10-01 3.5 Companion source-lock completion checkpoint
+
+- Verified implementation head: `8d08de8c763b6c5559e605bf26626090db49e199`.
+- Companion engine checks #89 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36930570641.
+- Spell acquisition checks #64 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36930570489.
+- Validate modernization #1589 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36930570642. It passed the full 3.5 class/feat/spell/item regressions, production build, general/edition/casting/catalog browser suites, class spell access, subclass/feat magic, domain/power/invocation/ritual, resource tracker, guided feature choice, level-up feat, fantasy presentation/dice, and production-loading checks.
+- Source-locked companion coverage now includes every legal core Druid/Ranger animal-companion option plus all five Healer alternatives. The previous grouped light/heavy horse and Small/Medium viper entries are expanded into atomic choices, and every legal option points to an exact local 3.5 creature record.
+- Ranger now uses a distinct source-faithful profile so the PHB aquatic-starting-list Crocodile exception is available at Ranger 4 while Druid retains Crocodile as its stronger alternative. All four source-equivalent Ranger records use that same verified behavior.
+- Healer level 12+ now exposes Unicorn, Lammasu, Gynosphinx, Water Naga, Androsphinx, and Couatl with the source-defined effective-level adjustments. Later source-legal replacement is supported from the Companions tab after the campaign-time replacement condition is confirmed.
+- Companion replacement changes the underlying persisted source choice instead of adding a conflicting duplicate; a new creature starts from its own source-derived HP/state and does not inherit the prior creature's HP or notes.
+- Promoted exactly five records whose final companion blocker is now closed: Healer and Ranger from Player's Handbook v.3.5, Eberron Campaign Setting, Forgotten Realms Campaign Setting, and Sandstorm.
+- Canonical tracker totals: **65 complete, 637 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+
