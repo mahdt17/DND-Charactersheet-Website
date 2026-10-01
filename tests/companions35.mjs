@@ -8,6 +8,8 @@ try {
   assert.fail('3.5 companion engine must exist before these regressions can pass: '+error.message);
 }
 
+const {conditionEffects}=await import('../src/lib/play.js');
+
 const {
   COMPANION_ENGINE_VERSION,
   companionCreature35,
@@ -238,6 +240,8 @@ assert.equal(familiarMasterEffects.languageChoices[0].companionId,familiar.id);
 
 const toadState=reconcileCompanions35({...familiarCharacter,featureChoices:{familiar:choice('dndtools:classes/wizard-99','Familiar','Toad','standard-familiar','monsters/toad-591')}});
 assert.equal(companionMasterEffects35(toadState).hpBonus,3,'Toad grants +3 master hit points');
+assert.equal(conditionEffects(toadState).maxHP,25,'Toad familiar HP benefit reaches the derived character max-HP path without mutating stored base HP');
+assert.equal(toadState.hp.max,22,'stored master base HP remains unchanged');
 
 const ratState=reconcileCompanions35({...familiarCharacter,featureChoices:{familiar:choice('dndtools:classes/wizard-99','Familiar','Rat','standard-familiar','monsters/rat-574')}});
 assert.equal(companionMasterEffects35(ratState).saveBonuses.fort,2,'Rat grants +2 Fortitude');
@@ -331,6 +335,7 @@ const healerState=reconcileCompanions35({
 assert.equal(healerState.companions[0]?.baseCreatureId,'monsters/unicorn-500');
 assert.equal(healerState.companions[0]?.template,'celestial');
 assert.equal(healerState.companions[0]?.progression.bonusHD,0);
+assert.equal(healerState.companions[0]?.lifecycle.replacementCondition,'30-days-or-healer-level','Healer companion death uses the source-defined 30-day-or-level rule');
 
 const dead=transitionCompanion35(familiarState,familiar.id,'mark-dead');
 assert.equal(dead.companions[0].status,'dead');
