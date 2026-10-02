@@ -542,8 +542,8 @@ export function applySpellAcquisitionEvent35(character,event,selection){
     const firstLevel=Array.isArray(selection?.firstLevel)?selection.firstLevel:[];
     if(firstLevel.length!==Number(event.firstLevelChoices||0))throw Error('Choose the required starting 1st-level spellbook spells.');
     if(firstLevel.some(spell=>Number(spell?.level)!==1)||cantrips.some(spell=>Number(spell?.level)!==0))throw Error('Starting spellbook selections have invalid spell levels.');
-    if(spells.some(spell=>!spellMatchesProfileList(profile,spell)))throw Error('Choose spells from the '+(profile.spellLists?.join('/')||profile.className)+' spell list.');
     spells=[...cantrips,...firstLevel];
+    if(spells.some(spell=>!spellMatchesProfileList(profile,spell)))throw Error('Choose spells from the '+(profile.spellLists?.join('/')||profile.className)+' spell list.');
     if(new Set(spells.map(spellKey)).size!==spells.length)throw Error('Wizard starting spellbook entries must be distinct.');
     if(profile.id==='wizard-35'&&spells.some(spell=>isProhibitedWizardSpell(character,event.classId,{spell})))throw Error('A prohibited Wizard school spell cannot be added to the starting spellbook.');
     origin='starting';
