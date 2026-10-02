@@ -527,3 +527,65 @@ Tracker impact: **67 complete, 635 needs-review, 1 source-conflict, 2 blocked,
 349 pending audit**. No Supabase schema, policy, catalog, or live character data
 was changed. Nothing was deployed or merged.
 
+
+## 3.5 Favored Soul spell-acquisition and deity-weapon checkpoint (2026-10-01)
+
+The reviewed Complete Divine Favored Soul and its source-equivalent Miniatures
+Handbook appearance now use the reusable 3.5 spell-acquisition subsystem for
+their source-defined spontaneous spells known.
+
+The shared `favored-soul-35` profile stores the complete level 1-20 spells-known
+table. At 1st level guided acquisition requires four 0-level spells and three
+1st-level spells. Later class levels generate only the exact per-spell-level
+deltas. Starting at Favored Soul 4 and at every even Favored Soul level
+thereafter, the engine exposes one optional replacement: the replacement must
+be the same spell level as the spell being exchanged, and that level must be
+at least two levels below the highest Favored Soul spell level currently
+castable.
+
+Favored Soul is explicitly source-reviewed as using the Cleric spell list.
+Acquisition validation therefore recognizes the existing reviewed
+Favored Soul -> Cleric list relationship instead of requiring catalog spell
+rows to name Favored Soul directly. Spells outside the reviewed Cleric list
+are rejected. Acquired spells reconcile into the normal Spells section as
+spontaneously castable Favored Soul spells with exact source-class ownership.
+
+The acquisition profile also preserves source-owned history across class
+removal and re-addition. Removing the exact Favored Soul source archives its
+acquisition bucket and retires its runtime spell rows; re-adding the same
+source restores compatible known-spell history without inventing new picks.
+
+The already-reviewed Deity's favored weapon proficiency choice is now linked
+to the class's later feat grants. At class level 3, Deity's Weapon Focus offers
+Weapon Focus for the persisted favored weapon. At class level 12, Deity's
+Weapon Specialization does the same for Weapon Specialization. If the exact
+linked feat is already owned, the class retains the source-defined ability to
+choose a different feat through the existing manual class feat-choice path.
+
+Regression coverage includes both exact source mappings, representative
+spells-known table rows, class-level acquisition deltas, even/odd replacement
+timing, Cleric-list acceptance and non-Cleric rejection, spontaneous runtime
+materialization, exact-source archival/restoration, persisted favored-weapon
+linkage, level-3 and level-12 feat targeting, and a browser flow that creates
+a Favored Soul with the source's 4/3 starting spells, records Longsword as the
+deity's favored weapon, advances to level 3, and verifies Weapon Focus
+(Longsword) is the guided class feature choice.
+
+Completion impact is limited to `classes/favored-soul-7` and
+`classes/favored-soul-76`. Both move from needs-review to complete because
+their tracker-recorded final blocker covered exactly the spell-acquisition /
+replacement and deity-favored-weapon state closed by this checkpoint.
+
+Verification evidence:
+- implementation head: `1ccbc5ad3d9a14b32ec66cf1c50c52838e06072e`
+- Spell acquisition checks #86: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36946352369
+- Companion engine checks #111: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36946352373
+- Validate modernization #1611: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36946352401
+- #1611 passed all full catalog regressions, production build, every
+  general/specialized browser suite, guided feature-choice and level-up-feat
+  coverage, fantasy presentation/dice, and production-loading checks.
+
+Tracker impact: **69 complete, 633 needs-review, 1 source-conflict, 2 blocked,
+349 pending audit**. No Supabase schema, policy, catalog, or live character data
+was changed. Nothing was deployed or merged.
+
