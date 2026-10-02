@@ -666,7 +666,8 @@
         "mode": "even-from",
         "startLevel": 4,
         "count": 1
-      }
+      },
+      "archiveOnRemoval": true
     }
   }
 }
