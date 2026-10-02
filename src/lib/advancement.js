@@ -49,10 +49,37 @@ export function progressionRow(record,level) {
   }
   return {};
 }
-export function baseProgression(record,level) {
+const genericSaveKeys={fortitude:'fort',reflex:'ref',will:'will'};
+function genericSaveChoices(character,classId){
+  const target=String(classId||'').replace(/^dndtools:/,'');
+  const match=Object.values(character?.featureChoices||{}).find(choice=>{
+    const source=String(choice?.sourceClassId||choice?.classId||'').replace(/^dndtools:/,'');
+    return source===target&&norm(choice?.feature)==='base save bonuses';
+  });
+  return new Set((match?.choices||[]).map(value=>genericSaveKeys[norm(value)]).filter(Boolean));
+}
+export function baseProgression(record,level,character=null,classId=null) {
   if(level===0)return {bab:0,fort:0,ref:0,will:0};
   const r=progressionRow(record,level),get=pattern=>{const key=Object.keys(r).find(k=>pattern.test(k));return key==null?null:parseInt(r[key]);};
-  return {bab:get(/^BAB$|Base Attack/i),fort:get(/^Fort/i),ref:get(/^Ref/i),will:get(/^Will/i)};
+  const bab=get(/^BAB$|Base Attack/i);
+  const explicit={fort:get(/^Fort/i),ref:get(/^Ref/i),will:get(/^Will/i)};
+  if(Object.values(explicit).some(Number.isFinite))return {bab,...explicit};
+  const good=get(/^Good Saves?$/i),poor=get(/^Poor Saves?$/i);
+  if(!Number.isFinite(good)||!Number.isFinite(poor))return {bab,...explicit};
+  const choices=genericSaveChoices(character,classId||contentKey(record));
+  if(!choices.size)return {bab,fort:null,ref:null,will:null};
+  return {bab,fort:choices.has('fort')?good:poor,ref:choices.has('ref')?good:poor,will:choices.has('will')?good:poor};
+}
+export function recalculateLegacyBaseProgression35(character){
+  const total={bab:0,fort:0,ref:0,will:0};
+  for(const row of characterClasses(character)){
+    if(normalizeEdition(row.edition||row.definition?.edition)!=='3.5')continue;
+    const record=row.definition||(row.catalogId===contentKey(character.classDefinition||{})?character.classDefinition:null);
+    if(!record)continue;
+    const progression=baseProgression(record,row.level,character,row.catalogId||contentKey(record));
+    for(const key of Object.keys(total))if(Number.isFinite(progression[key]))total[key]+=progression[key];
+  }
+  return {...character,bab:total.bab,save35:{fort:total.fort,ref:total.ref,will:total.will}};
 }
 function evaluateOne(p,c) {
   const text=String(p.text||p.description||p.name||'').trim(),kind=p.kind||p.type||'text';
