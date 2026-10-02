@@ -70,7 +70,15 @@ try {
  assert.match(await page.getByRole('region',{name:'3.5 casting choices'}).innerText(),/Healing granted power:/);
  assert.match(await page.getByRole('region',{name:'3.5 casting choices'}).innerText(),/Sun granted power:/);
  await next();
- assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Cleric becomes creatable after deity and domains are selected');
+ for(const [label,value] of [
+  ['Cleric 1 Deity, Domains, and Domain Spells choice','Pelor; Healing, Sun'],
+  ['Cleric 1 Spontaneous Casting choice','Positive energy'],
+  ['Cleric 1 Turn or Rebuke Undead (Su) choice','Positive energy']
+ ]){
+  const field=page.getByLabel(label,{exact:true});
+  if(await field.count())await field.fill(value);
+ }
+ assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'Cleric becomes creatable after structured domains and existing Cleric source choices are complete');
  await page.getByRole('button',{name:'Create Character',exact:true}).click();
  await page.locator('.sheet-identity').filter({hasText:clericDomainName}).waitFor();
  const clericDomainSaved=await saved(clericDomainName);
