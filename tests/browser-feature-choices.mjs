@@ -73,7 +73,7 @@ try {
  for(const [label,value] of [
   ['Cleric 1 Deity, Domains, and Domain Spells choice','Pelor; Healing, Sun'],
   ['Cleric 1 Spontaneous Casting choice','Positive energy'],
-  ['Cleric 1 Turn or Rebuke Undead (Su) choice','Positive energy']
+  ['Cleric 1 Turn or Rebuke Undead choice','Positive energy']
  ]){
   const field=page.getByLabel(label,{exact:true});
   if(await field.count())await field.fill(value);
