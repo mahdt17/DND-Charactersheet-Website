@@ -970,6 +970,17 @@ assert.equal(spiritApplied.spellAcquisition35[spiritId].dailyRetrievalReady,fals
 const spiritRested=restSpellAcquisition35(spiritApplied,'long');
 assert.equal(spiritRested.spellAcquisition35[spiritId].dailyRetrievalReady,true);
 assert.equal(activeAcquiredSpells35(spiritRested,spiritId).length,0,'daily recovery clears yesterday’s retrieved repertoire');
+
+const staleReadySpirit=reconcileSpellAcquisition35({
+  ...spiritApplied,
+  spellAcquisition35:{
+    ...spiritApplied.spellAcquisition35,
+    [spiritId]:{...spiritApplied.spellAcquisition35[spiritId],dailyRetrievalReady:true}
+  }
+});
+assert.equal(activeAcquiredSpells35(staleReadySpirit,spiritId).length,0,'reconciliation cannot retain a stale daily repertoire once retrieval is ready');
+assert.equal(staleReadySpirit.spellAcquisition35[spiritId].acquisitions.filter(item=>item.origin==='daily-retrieval').length,0);
+
 assert.equal(
   spellAcquisitionEvents35(spiritRested,{classId:spiritId,previousClassLevel:1,targetClassLevel:1})
     .filter(event=>event.kind==='retrieve-daily-spells').length,

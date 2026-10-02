@@ -716,6 +716,9 @@ export function reconcileSpellAcquisition35(character){
 
     const reasons=[];
     let acquisitions=bucket.acquisitions||[];
+    if(profile.kind==='daily-retrieval'&&bucket.dailyRetrievalReady===true){
+      acquisitions=acquisitions.filter(item=>item.origin!=='daily-retrieval');
+    }
     if(profile.kind==='spellbook'&&profile.id==='wizard-35'){
       acquisitions=acquisitions.map(acquisition=>{
         const prohibited=isProhibitedWizardSpell(character,classId,acquisition);
