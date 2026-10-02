@@ -413,11 +413,11 @@
         },
         "Power": {
           "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
-          "description": "While this aura is active, you and affected allies gain a circumstance bonus on melee damage rolls equal to your current draconic aura bonus."
+          "description": "While this aura is active, you and affected allies gain a bonus on melee damage rolls equal to your current draconic aura bonus."
         },
         "Presence": {
           "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
-          "description": "While this aura is active, you and affected allies gain a circumstance bonus on Bluff, Diplomacy, and Intimidate checks equal to your current draconic aura bonus."
+          "description": "While this aura is active, you and affected allies gain a bonus on Bluff, Diplomacy, and Intimidate checks equal to your current draconic aura bonus."
         },
         "Resistance": {
           "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
@@ -425,7 +425,7 @@
         },
         "Senses": {
           "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
-          "description": "While this aura is active, you and affected allies gain a circumstance bonus on Listen checks, Spot checks, and initiative checks equal to your current draconic aura bonus."
+          "description": "While this aura is active, you and affected allies gain a bonus on Listen checks, Spot checks, and initiative checks equal to your current draconic aura bonus."
         },
         "Toughness": {
           "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
