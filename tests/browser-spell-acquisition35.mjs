@@ -179,7 +179,7 @@ try{
   await page.getByRole('button',{name:'Level up',exact:true}).click();
   await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
   await next();
-  const wizardLevel2=page.getByRole('region',{name:'Wizard free spellbook additions',exact:true});
+  const wizardLevel2=page.getByRole('region',{name:'Free spellbook additions',exact:true});
   await wizardLevel2.waitFor();
   assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Wizard level-up blocks until exactly two free additions are chosen');
   const wizardButtons=wizardLevel2.getByRole('button',{name:/^Select /});
