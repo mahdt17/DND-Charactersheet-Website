@@ -4828,7 +4828,37 @@
             "Extend Spell",
             "Still Spell",
             "Silent Spell"
-          ]
+          ],
+          "optionMechanics": {
+            "Enlarge Spell": {
+              "metamagic": "enlarge",
+              "rangeMultiplier": 2,
+              "spellLevelAdjustment": 0,
+              "permanent": true,
+              "description": "The chosen spell is permanently enlarged as Enlarge Spell without increasing its spell level."
+            },
+            "Extend Spell": {
+              "metamagic": "extend",
+              "durationMultiplier": 2,
+              "spellLevelAdjustment": 0,
+              "permanent": true,
+              "description": "The chosen spell is permanently extended as Extend Spell without increasing its spell level."
+            },
+            "Still Spell": {
+              "metamagic": "still",
+              "removesSomatic": true,
+              "spellLevelAdjustment": 0,
+              "permanent": true,
+              "description": "The chosen spell is permanently stilled as Still Spell without increasing its spell level."
+            },
+            "Silent Spell": {
+              "metamagic": "silent",
+              "removesVerbal": true,
+              "spellLevelAdjustment": 0,
+              "permanent": true,
+              "description": "The chosen spell is permanently silenced as Silent Spell without increasing its spell level."
+            }
+          }
         }
       ],
       "uniqueChoiceCombination": true
@@ -4983,7 +5013,79 @@
       },
       "uniqueChoices": true,
       "description": "Choose one taboo at 1st level and one additional taboo each time you gain a Spell Secret. Violating any taboo prevents further spellcasting for the rest of that day. The source examples include dietary, ownership, offering, grooming, contact, alcohol, color, fire, and facing-direction restrictions.",
-      "sourceSha256": "0e65a027838cdc80217d775a82623a69d793cc39f6754d9f09a730747cd6fa7e"
+      "sourceSha256": "0e65a027838cdc80217d775a82623a69d793cc39f6754d9f09a730747cd6fa7e",
+      "choiceOptionMechanics": {
+        "Cannot eat meat": {
+          "description": "Taboo: Cannot eat meat. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        },
+        "Cannot own more than can be carried": {
+          "description": "Taboo: Cannot own more than can be carried. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        },
+        "Must make a daily offering to spirit powers": {
+          "description": "Taboo: Must make a daily offering to spirit powers. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        },
+        "Cannot bathe": {
+          "description": "Taboo: Cannot bathe. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        },
+        "Cannot cut hair": {
+          "description": "Taboo: Cannot cut hair. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        },
+        "Cannot touch a dead body": {
+          "description": "Taboo: Cannot touch a dead body. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        },
+        "Cannot drink alcohol": {
+          "description": "Taboo: Cannot drink alcohol. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        },
+        "Cannot wear a certain color": {
+          "description": "Taboo: Cannot wear a certain color. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        },
+        "Cannot light a fire": {
+          "description": "Taboo: Cannot light a fire. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        },
+        "Cannot sit facing in a certain direction": {
+          "description": "Taboo: Cannot sit facing in a certain direction. If this taboo is violated, the Wu Jen cannot cast further spells for the rest of that day.",
+          "actionType": "Restriction",
+          "violationEffect": {
+            "spellcastingDisabledUntil": "daily-recovery"
+          }
+        }
+      }
     }
   ],
   "classes/thug-132": [

@@ -24,7 +24,6 @@ const {
   spellbookCampaignSpellCandidates35,
   recordSpellbookCampaignAcquisition35,
   shugenjaOrderSpellMatches35,
-  validateSpellReplacement35
 } = engine;
 
 assert.equal(SPELL_ACQUISITION35_VERSION, 1);

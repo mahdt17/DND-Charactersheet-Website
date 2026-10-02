@@ -4,6 +4,7 @@ import {createCatalogService} from '../src/lib/catalog.js';
 import {annotateClassGrantKinds} from '../src/lib/classIntegration.js';
 import {featureChoicePlan,applyFeatureChoices,skillNames} from '../src/lib/featureChoices.js';
 import {featSpellAcquisitionProfile35,featSpellAcquisitionComplete35} from '../src/lib/featSpellAcquisition35.js';
+import {classSpellModifiers35,wuJenSpellElement35} from '../src/lib/classSpellModifiers35.js';
 const make=(edition,name,level,extra={})=>({ruleset:edition,className:name,level,classDefinition:{name,edition},skillProf:{Stealth:true,Arcana:true,Athletics:true,Perception:true},expertise:{},languages:'Common',...extra});
 for(const edition of ['2014','2024']) {
  for(const cls of ['Rogue','Bard','Ranger','Wizard'])for(let level=1;level<=20;level++) {
@@ -688,5 +689,25 @@ const spellSecretGroup=wuJenChoice3Plan.groups.find(group=>group.label==='Spell 
 assert.equal(spellSecretGroup?.kind,'source-choice-parts');
 assert.deepEqual(spellSecretGroup.choiceParts[0].options,['Fire Shuriken','Magic Missile']);
 assert.deepEqual(spellSecretGroup.choiceParts[1].options,['Enlarge Spell','Extend Spell','Still Spell','Silent Spell']);
-const wuJenSecretChosen=applyFeatureChoices(wuJenChoice3,{...wuJenChoice3,level:2,classLevels:[{...wuJenChoice3.classLevels[0],level:2}]},{[spellSecretGroup.id]:['Magic Missile','Silent Spell']});
+const wuJenChoice3Taboo=wuJenChoice3Plan.groups.find(group=>group.label==='Taboos');
+const wuJenSecretChosen=applyFeatureChoices(wuJenChoice3,{...wuJenChoice3,level:2,classLevels:[{...wuJenChoice3.classLevels[0],level:2}]},{[spellSecretGroup.id]:['Magic Missile','Silent Spell'],[wuJenChoice3Taboo.id]:['Cannot eat meat']});
 assert(Object.values(wuJenSecretChosen.featureChoices).some(choice=>choice.feature==='Spell Secret'&&choice.choices.join('|')==='Magic Missile|Silent Spell'));
+
+assert.equal(wuJenSpellElement35({name:'Fireball',level:3}),'Fire');
+assert.equal(wuJenSpellElement35({name:'Endure Elements',level:1}),'All');
+const secretRuntime=classSpellModifiers35(wuJenSecretChosen,wuJenChoiceClass35.catalogId,{name:'Magic Missile',level:1},3);
+assert(secretRuntime.spellSecrets.includes('Silent Spell'));
+assert.equal(secretRuntime.removesVerbal,true);
+assert.equal(secretRuntime.spellLevelAdjustment,0);
+const masteryRuntime=classSpellModifiers35(masteredFireWuJen,wuJenClass35.catalogId,{name:'Fireball',level:3},6);
+assert.equal(masteryRuntime.casterLevelBonus,2);
+assert.equal(masteryRuntime.effectiveCasterLevel,8);
+assert.equal(masteryRuntime.saveBonusAgainst,2);
+const allMasteryRuntime=classSpellModifiers35(masteredFireWuJen,wuJenClass35.catalogId,{name:'Endure Elements',level:1},6);
+assert.equal(allMasteryRuntime.casterLevelBonus,2,'All-element Wu Jen spells benefit from any Elemental Mastery');
+const metalNoMastery=classSpellModifiers35(masteredFireWuJen,wuJenClass35.catalogId,{name:'Magic Weapon',level:1},6);
+assert.equal(metalNoMastery.casterLevelBonus,0);
+const tabooFeature=(wuJenSecretChosen.grantedFeatures||[]).find(feature=>feature.selectedFromFeature==='Taboos'&&feature.name==='Cannot eat meat');
+assert.equal(tabooFeature?.selectedOptionMechanics?.violationEffect?.spellcastingDisabledUntil,'daily-recovery','selected Wu Jen taboos materialize their spellcasting consequence');
+const linkedSecretFeature=(wuJenSecretChosen.grantedFeatures||[]).find(feature=>feature.selectedFromFeature==='Spell Secret'&&feature.selectedChoiceParts);
+assert(linkedSecretFeature?.selectedChoiceParts.some(part=>part.value==='Silent Spell'&&part.mechanics?.removesVerbal===true),'Spell Secret linked choice materializes its selected +0-level metamagic mechanics');

@@ -695,6 +695,28 @@ function derivedForRow(row,character=null){
         });
       }
     }
+    if(choice&&Array.isArray(feature.choiceParts)&&feature.choiceParts.length&&character?.featureChoices){
+      const linkedChoices=Object.values(character.featureChoices)
+        .filter(entry=>entry?.sourceClassId===row.catalogId&&featureMatchKey(entry?.feature)===featureMatchKey(feature.name));
+      for(const entry of linkedChoices){
+        const values=(entry?.choices||[]).map(value=>String(value||'').trim());
+        if(values.length<feature.choiceParts.length||values.some(value=>!value))continue;
+        const parts=feature.choiceParts.map((part,index)=>{
+          const value=values[index],mechanicEntry=Object.entries(part?.optionMechanics||{}).find(([name])=>featureMatchKey(name)===featureMatchKey(value));
+          const mechanics=(mechanicEntry?.[1]&&typeof mechanicEntry[1]==='object')?mechanicEntry[1]:{};
+          return {id:part.id||String(index),label:part.label||('Choice '+(index+1)),value,mechanics};
+        });
+        const linkedLevel=Math.max(1,Number(entry?.level)||feature.level);
+        const linkedId=id+':linked:'+linkedLevel+':'+slug(values.join('-'));
+        const selectedText=parts.map(part=>part.label+': '+part.value).join(' · ');
+        derivedFeatures.push({
+          id:linkedId,index:linkedId,name:feature.name+' · '+values.join(' · '),level:linkedLevel,latestLevel:linkedLevel,kind:'feature',
+          description:selectedText+'. '+String(feature.description||''),descriptionSource:'rule-text',desc:[selectedText],
+          progressionHistory:[{level:linkedLevel,text:selectedText}],selectedFromFeature:feature.name,selectedChoiceParts:parts,
+          ...meta,sourceClassLevel:linkedLevel,sourceFeatureId:(featureId||slug(feature.name))+':linked:'+linkedLevel+':'+slug(values.join('-'))
+        });
+      }
+    }
     if(choice&&feature.choiceOptionMechanics&&character?.featureChoices){
       const selectedChoices=Object.values(character.featureChoices)
         .filter(entry=>entry?.sourceClassId===row.catalogId&&featureMatchKey(entry?.feature)===featureMatchKey(feature.name))
