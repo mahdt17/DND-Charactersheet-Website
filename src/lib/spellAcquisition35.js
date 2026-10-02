@@ -549,7 +549,7 @@ export function reconcileSpellAcquisition35(character){
     const row=activeClasses.get(cleanId(classId));
     if(!row){
       for(const acquisition of bucket.acquisitions||[])retiredPairs.add(runtimeGroupKey(classId,acquisition.spellKey));
-      if(profile.kind==='spellbook'||profile.kind==='flex-known'||profile.kind==='mastered-repertoire'){
+      if(profile.kind==='spellbook'||profile.kind==='flex-known'||profile.kind==='mastered-repertoire'||profile.archiveOnRemoval){
         state[key]={...bucket,classId,active:false,orphaned:true};
       }else delete state[key];
       continue;
