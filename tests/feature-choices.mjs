@@ -30,6 +30,39 @@ for(const edition of ['2014','2024']) {
  assert.deepEqual(featureChoicePlan({...c,ruleset:'custom'}).groups,[]);
  assert.deepEqual(featureChoicePlan({...c,classDefinition:{name:'Rogue',edition,source:'Homebrew'}}).groups,[]);
 }
+
+const genericClasses=await service.load('3.5/classes');
+const genericReference=[...genericClasses];
+const genericExpert=annotateClassGrantKinds(genericClasses.find(record=>record.sourceId==='classes/expert2-124'),genericReference);
+const genericWarrior=annotateClassGrantKinds(genericClasses.find(record=>record.sourceId==='classes/warrior2-135'),genericReference);
+for(const [record,required] of [[genericExpert,2],[genericWarrior,1]]){
+  const character=make('3.5',record.name,1,{
+    classDefinition:record,
+    classLevels:[{catalogId:record.catalogId,name:record.name,edition:'3.5',level:1,definition:record}],
+    featureChoices:{}
+  });
+  const plan=featureChoicePlan(character,null);
+  const saves=plan.groups.find(group=>group.label==='Base Save Bonuses');
+  assert(saves,record.name+' exposes its generic base-save choice');
+  assert.equal(saves.choiceKind,'source');
+  assert.equal(saves.required,required);
+  assert.deepEqual(saves.options,['Fortitude','Reflex','Will']);
+  assert.equal(plan.valid,false);
+}
+const expertChoiceCharacter=make('3.5','Expert',1,{
+  classDefinition:genericExpert,
+  classLevels:[{catalogId:genericExpert.catalogId,name:'Expert',edition:'3.5',level:1,definition:genericExpert}],
+  featureChoices:{}
+});
+const expertSaveGroup=featureChoicePlan(expertChoiceCharacter,null).groups.find(group=>group.label==='Base Save Bonuses');
+const expertChosen=applyFeatureChoices(expertChoiceCharacter,null,{[expertSaveGroup.id]:['Fortitude','Reflex']});
+assert.deepEqual(
+  Object.values(expertChosen.featureChoices).find(choice=>choice.feature==='Base Save Bonuses')?.choices,
+  ['Fortitude','Reflex'],
+  'generic save progression choice persists as exact source-owned feature state'
+);
+assert.equal(featureChoicePlan(expertChosen,null).groups.some(group=>group.label==='Base Save Bonuses'),false,'persisted generic save choice is not requested again');
+
 const wizard=featureChoicePlan(make('2024','Wizard',2),make('2024','Wizard',1));assert.deepEqual(wizard.groups[0].options,['Arcana']);
 const capped=featureChoicePlan(make('2024','Rogue',6,{skillProf:{Stealth:true},expertise:{Stealth:true}}),make('2024','Rogue',5));assert.equal(capped.groups[0].required,0);assert.equal(capped.valid,true);
 const life=applyFeatureChoices(make('2014','Cleric',1,{subclass:'Life Domain'}),null,{});assert.equal(life.trainingGrants[0].proficiencies[0].index,'heavy-armor');assert.equal(applyFeatureChoices(life,null,{}).trainingGrants.length,1);
