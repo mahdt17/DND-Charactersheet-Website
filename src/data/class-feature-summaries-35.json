@@ -1480,7 +1480,9 @@
         3
       ],
       "description": "At 3rd level, gain Weapon Focus with your deity's favored weapon. Record the specific Weapon Focus feat for that favored weapon; if you already have it, the source allows a different feat instead.",
-      "sourceSha256": "9cc15c5f61142548ff1918092f6b1f2d0a883d720c7e184500af00ceb5025504"
+      "sourceSha256": "9cc15c5f61142548ff1918092f6b1f2d0a883d720c7e184500af00ceb5025504",
+      "choiceFromProficiencyId": "deity-favored-weapon",
+      "choiceFeatPrefix": "Weapon Focus"
     },
     {
       "name": "Energy Resistance",
@@ -1526,7 +1528,9 @@
         12
       ],
       "description": "At 12th level, gain Weapon Specialization with your deity's favored weapon. Record the specific Weapon Specialization feat for that favored weapon; if you already have it, the source allows a different feat instead.",
-      "sourceSha256": "963172f58a7bfad2e70845c974cabf8be394c663fa1f947914d51297a3d054e9"
+      "sourceSha256": "963172f58a7bfad2e70845c974cabf8be394c663fa1f947914d51297a3d054e9",
+      "choiceFromProficiencyId": "deity-favored-weapon",
+      "choiceFeatPrefix": "Weapon Specialization"
     },
     {
       "name": "Wings",
