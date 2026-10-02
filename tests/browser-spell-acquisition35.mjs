@@ -101,6 +101,51 @@ try{
   assert.deepEqual(wizardReloaded.spellAcquisition35[wizardKey].acquisitions.map(x=>x.id).sort(),wizBucket.acquisitions.map(x=>x.id).sort());
   console.log('PASS guided 3.5 Wizard starting spellbook, prohibited-school filtering, persistence and reopen');
 
+  const favoredSoulName='Acquisition Favored Soul 3.5',favoredSoulKey='dndtools:classes/favored-soul-7';
+  await begin35(favoredSoulName,'classes/favored-soul-7','Favored Soul',{cha15:true});
+  const favoredSoulRegion=page.getByRole('region',{name:'3.5 spell acquisition choices',exact:true});
+  await favoredSoulRegion.waitFor();
+  assert.equal(await favoredSoulRegion.getByRole('heading',{name:'Known level 0 spells',exact:true}).count(),1);
+  assert.equal(await favoredSoulRegion.getByRole('heading',{name:'Known level 1 spells',exact:true}).count(),1);
+  for(const name of ['Detect Magic','Guidance','Light','Resistance'])await selectSpell('Known level 0 spells',name);
+  for(const name of ['Bless','Cure Light Wounds','Divine Favor'])await selectSpell('Known level 1 spells',name);
+  await next();
+  await page.getByLabel('Favored Soul 1 Deity’s favored weapon choice',{exact:true}).fill('Longsword');
+  assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:favoredSoulName}).waitFor();
+  const favoredSoulCreated=await saved(favoredSoulName),favoredSoulBucket=favoredSoulCreated.spellAcquisition35?.[favoredSoulKey];
+  assert(favoredSoulBucket,'Favored Soul acquisition bucket is persisted');
+  assert.equal(favoredSoulBucket.acquisitions.filter(x=>x.active!==false&&x.spellLevel===0).length,4);
+  assert.equal(favoredSoulBucket.acquisitions.filter(x=>x.active!==false&&x.spellLevel===1).length,3);
+  assert(favoredSoulCreated.spells.filter(x=>x.castingClassId===favoredSoulKey).every(x=>x.prepared===true),'Favored Soul acquired spells are spontaneous castable spells');
+  assert(Object.values(favoredSoulCreated.featureChoices||{}).some(choice=>choice?.sourceClassId===favoredSoulKey&&choice?.choices?.includes('Longsword')),'Favored Soul deity weapon persists from creation');
+
+  for(const expectedLevel of [2,3]){
+    await page.getByRole('button',{name:'Level up',exact:true}).click();
+    await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+    await next();
+    const mandatory=page.getByRole('region',{name:/^Known level \d+ spells$/});
+    const count=await mandatory.count();
+    for(let i=0;i<count;i++){
+      const picker=mandatory.nth(i);
+      const select=picker.getByRole('button',{name:/^Select /}).first();
+      await select.click();
+    }
+    await next();
+    await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+    if(expectedLevel===3){
+      const focus=page.getByLabel('Favored Soul 3 Deity’s Weapon Focus: Weapon Focus (Longsword)',{exact:true});
+      await focus.waitFor();
+      await focus.check();
+      await page.getByRole('button',{name:'Save level and choices',exact:true}).click();
+    }
+    await page.locator('.sheet-identity').filter({hasText:`LEVEL ${expectedLevel}`}).waitFor();
+  }
+  const favoredSoulLevel3=await saved(favoredSoulName);
+  assert(favoredSoulLevel3.feats.some(feat=>feat.name==='Weapon Focus (Longsword)'&&feat.sourceClassId===favoredSoulKey),'Favored Soul level 3 grants Weapon Focus for the persisted deity weapon');
+  console.log('PASS guided 3.5 Favored Soul starting known spells and deity-weapon feat linkage');
+
   await openCharacter(sorcererName);
   await page.getByRole('button',{name:'Level up',exact:true}).click();
   await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
