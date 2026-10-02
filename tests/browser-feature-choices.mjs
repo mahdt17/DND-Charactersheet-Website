@@ -54,6 +54,30 @@ try {
  assert(Object.values(commonerReloaded.featureChoices||{}).some(choice=>choice.choices?.[0]==='Club'),'Commoner source choice survives save/reopen');
  console.log('PASS 3.5 Commoner required simple-weapon choice, source-valid options, persistence and training grant');
 
+ const genericWarriorName='Guided Generic Warrior 3.5';
+ await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.getByRole('button',{name:'Create character',exact:true}).click();
+ await page.getByLabel('Character name',{exact:true}).fill(genericWarriorName);
+ await page.locator('.creation-choice').filter({hasText:'3.5e'}).click();await next();
+ await page.getByLabel('Search class').fill('Warrior');await page.locator('[data-catalog-id="dndtools:classes/warrior2-135"]').click();await next();
+ await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
+ await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
+ assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'generic Warrior creation waits for source-defined choices');
+ for(const skill of ['Climb','Handle Animal','Intimidate','Jump','Ride','Swim'])await page.getByLabel(`Warrior 1 Class skills: ${skill}`,{exact:true}).check();
+ await page.getByLabel('Warrior 1 Base Save Bonuses: Will',{exact:true}).check();
+ await page.getByLabel('Warrior 1 Bonus Feats choice',{exact:true}).fill('Power Attack');
+ assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'generic Warrior becomes creatable after class skills, save progression and bonus feat are chosen');
+ await page.getByRole('button',{name:'Create Character',exact:true}).click();
+ await page.locator('.sheet-identity').filter({hasText:genericWarriorName}).waitFor();
+ const genericWarriorSaved=await saved(genericWarriorName);
+ assert.deepEqual(genericWarriorSaved.save35,{fort:0,ref:0,will:2});
+ assert(Object.values(genericWarriorSaved.featureChoices||{}).some(choice=>choice.sourceClassId==='dndtools:classes/warrior2-135'&&choice.feature==='Base Save Bonuses'&&choice.choices?.[0]==='Will'));
+ await page.getByRole('button',{name:'All characters',exact:true}).click();
+ await page.locator('.character-card').filter({hasText:genericWarriorName}).getByRole('button',{name:'Open character'}).click();
+ const genericWarriorReloaded=await saved(genericWarriorName);
+ assert.deepEqual(genericWarriorReloaded.save35,{fort:0,ref:0,will:2},'generic Warrior save progression survives save/reopen');
+ console.log('PASS 3.5 generic Warrior selected save progression drives persisted base saves');
+
  const expertName='Guided Expert 3.5';
  await page.getByRole('button',{name:'All characters',exact:true}).click();
  await page.getByRole('button',{name:'Create character',exact:true}).click();
