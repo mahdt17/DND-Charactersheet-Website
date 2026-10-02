@@ -315,3 +315,19 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Canonical tracker totals: **67 complete, 635 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
 
+
+## 2026-10-01 Favored Soul spell-acquisition and deity-weapon checkpoint
+
+- Verified implementation head: `1ccbc5ad3d9a14b32ec66cf1c50c52838e06072e`.
+- Spell acquisition checks #86 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36946352369.
+- Companion engine checks #111 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36946352373.
+- Validate modernization #1611 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36946352401. It passed the full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, every general/specialized browser suite, guided feature-choice coverage, level-up feat coverage, fantasy presentation/dice, and production-loading checks.
+- Added a shared `favored-soul-35` known-table acquisition profile for the reviewed Complete Divine record and its source-equivalent Miniatures Handbook appearance. It enforces the exact spells-known table, class-level deltas, spontaneous Cleric-list ownership, and the source's optional one-spell replacement at 4th level and every even Favored Soul level thereafter.
+- Favored Soul acquisition validation now uses the class's reviewed Cleric-list relationship rather than requiring runtime spell rows to be labeled directly with Favored Soul. Wizard-only/non-Cleric choices fail closed.
+- Favored Soul acquisition history is persisted by exact source class, materializes into the normal Spells section as spontaneous castable spells, archives on source removal, and restores compatible history when the same source class returns.
+- The existing persisted Deity's favored weapon proficiency choice now drives Deity's Weapon Focus at 3rd level and Deity's Weapon Specialization at 12th level. If the exact linked feat is already owned, the source-defined alternative-feat exception falls back to the existing class feat-choice path.
+- Added engine and browser regressions covering both source mappings, representative spells-known rows, starting 4/3 spell choices, Cleric-list legality, level-up deltas/replacement timing, removal/restoration, real character creation, persisted favored weapon, and the level-3 linked Weapon Focus flow.
+- Promoted exactly `classes/favored-soul-7` and `classes/favored-soul-76`; their tracker-recorded spells-known/replacement and deity-favored-weapon blockers are closed.
+- Canonical tracker totals: **69 complete, 633 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+
