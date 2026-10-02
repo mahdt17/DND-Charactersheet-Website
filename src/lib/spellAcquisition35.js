@@ -1,4 +1,5 @@
 import data from '../data/spell-acquisition35.json' with {type:'json'};
+import shugenjaData from '../data/shugenja-spell-acquisition35.json' with {type:'json'};
 
 export const SPELL_ACQUISITION35_VERSION=1;
 
@@ -112,6 +113,67 @@ function knownEventsForLevel(character,classId,profileId,profile,classLevel,simu
   return events;
 }
 
+
+function selectedFeatureChoice(character,classId,featureName){
+  const normalizedClass=cleanId(classId),wanted=norm(featureName);
+  return Object.values(character?.featureChoices||{}).find(choice=>
+    cleanId(choice?.sourceClassId)===normalizedClass&&norm(choice?.feature)===wanted
+  )?.choices?.[0]||'';
+}
+function sourceSpellNameKeys(value){
+  const raw=String(value||'').replace(/\([^)]*\)/g,' ').replace(/[’']/g,"'").trim();
+  const base=norm(raw),keys=new Set([base]);
+  const comma=raw.match(/^(.+),\s*(Greater|Lesser|Mass)$/i);
+  if(comma)keys.add(norm(comma[2]+' '+comma[1]));
+  const prefix=raw.match(/^(Greater|Lesser|Mass)\s+(.+)$/i);
+  if(prefix)keys.add(norm(prefix[2]+', '+prefix[1]));
+  return keys;
+}
+function shugenjaSpellElement(spell){
+  const level=Number(spell?.level),keys=sourceSpellNameKeys(spell?.name);
+  const match=(shugenjaData.spellElements||[]).find(row=>Number(row.level)===level&&[...sourceSpellNameKeys(row.name)].some(key=>keys.has(key)));
+  return match?.element||null;
+}
+function shugenjaContext(character,classId){
+  const focus=String(selectedFeatureChoice(character,classId,'Element Focus')||'').trim();
+  const order=String(selectedFeatureChoice(character,classId,'Shugenja Order')||'').trim();
+  const allowed=shugenjaData.orderFavoredElements?.[order]||[];
+  return {focus,order,allowed,prohibited:{Air:'Earth',Earth:'Air',Fire:'Water',Water:'Fire'}[focus]||null};
+}
+function partitionedKnownEventsForLevel(character,classId,profileId,profile,classLevel){
+  const current=profile.partitionedKnownTable?.[String(classLevel)]||{},previous=profile.partitionedKnownTable?.[String(classLevel-1)]||{};
+  const context=shugenjaContext(character,classId),events=[];
+  for(const spellLevel of Object.keys(current).map(Number).sort((a,b)=>a-b)){
+    const now=current[String(spellLevel)]||{},before=previous[String(spellLevel)]||{};
+    const favoredCount=Math.max(0,Number(now.favored||0)-Number(before.favored||0));
+    const unrestrictedCount=Math.max(0,Number(now.unrestricted||0)-Number(before.unrestricted||0));
+    const orderNew=Number(now.order||0)>Number(before.order||0);
+    const orderSpellName=orderNew?shugenjaData.orders?.[context.order]?.[String(spellLevel)]||'':'';
+    if(!favoredCount&&!unrestrictedCount&&!orderSpellName)continue;
+    const id=eventId(classId,classLevel,'choose-partitioned-known-spells',spellLevel);
+    if(eventAlreadyApplied(character,classId,id))continue;
+    events.push({id,eventId:id,kind:'choose-partitioned-known-spells',classId,profileId,classLevel,spellLevel,
+      favoredCount,unrestrictedCount,orderSpellName,favoredElement:context.focus,prohibitedElement:context.prohibited,required:true});
+  }
+  if(replacementAvailable(profile,classLevel)){
+    const id=eventId(classId,classLevel,'optional-replacement','one');
+    if(!replacementAlreadyApplied(character,classId,id)){
+      const highest=Math.max(0,Number(profile.maxSpellLevelByClassLevel?.[String(classLevel)])||0);
+      events.push({id,eventId:id,kind:'optional-replacement',classId,profileId,classLevel,count:Number(profile.replacement?.count)||1,
+        required:false,highestCastableSpellLevel:highest,maxReplacementSpellLevel:highest-2});
+    }
+  }
+  return events;
+}
+function dailyRetrievalEvent(character,classId,profileId,profile,classLevel){
+  const bucket=acquisitionBucket(character,classId);
+  if(bucket?.dailyRetrievalReady===false)return [];
+  const limits=profile.retrievalTable?.[String(classLevel)]||{};
+  if(!Object.keys(limits).length)return [];
+  const id=eventId(classId,classLevel,'retrieve-daily-spells','all');
+  return [{id,eventId:id,kind:'retrieve-daily-spells',classId,profileId,classLevel,limits:Object.fromEntries(Object.entries(limits).map(([k,v])=>[Number(k),Number(v)])),required:true}];
+}
+
 function eventAlreadyApplied(character,classId,id){
   const bucket=acquisitionBucket(character,classId);
   return (bucket?.acquisitions||[]).some(item=>item?.sourceEventId===id);
@@ -187,6 +249,10 @@ export function spellAcquisitionEvents35(character,{classId,previousClassLevel=0
       events.push(...knownEventsForLevel(character,exactClassId,profile.id,profile,classLevel,simulatedCounts));
       continue;
     }
+    if(profile.kind==='partitioned-known'){
+      events.push(...partitionedKnownEventsForLevel(character,exactClassId,profile.id,profile,classLevel));
+      continue;
+    }
     if(profile.kind==='flex-known'){
       events.push(...flexKnownEventsForLevel(character,exactClassId,profile.id,profile,classLevel));
       continue;
@@ -223,6 +289,7 @@ export function spellAcquisitionEvents35(character,{classId,previousClassLevel=0
       });
     }
   }
+  if(profile.kind==='daily-retrieval')events.push(...dailyRetrievalEvent(character,exactClassId,profile.id,profile,target));
   return events;
 }
 
@@ -312,6 +379,21 @@ export function spellAcquisitionPicksComplete35(events,picks={},legalSpellIds=nu
       const selected=Array.isArray(value)?value.filter(Boolean):[];
       return selected.length===Number(event.count||0)&&new Set(selected).size===selected.length&&validIds(selected);
     }
+    if(event.kind==='choose-partitioned-known-spells'){
+      const favored=Array.isArray(value?.favored)?value.favored.filter(Boolean):[];
+      const unrestricted=Array.isArray(value?.unrestricted)?value.unrestricted.filter(Boolean):[];
+      const selected=[...favored,...unrestricted];
+      return favored.length===Number(event.favoredCount||0)&&unrestricted.length===Number(event.unrestrictedCount||0)
+        &&new Set(selected).size===selected.length&&validIds(selected);
+    }
+    if(event.kind==='retrieve-daily-spells'){
+      const byLevel=value?.byLevel||{};
+      const selected=Object.values(byLevel).flatMap(v=>Array.isArray(v)?v.filter(Boolean):[]);
+      return Object.entries(event.limits||{}).every(([level,count])=>{
+        const ids=Array.isArray(byLevel[level])?byLevel[level].filter(Boolean):[];
+        return ids.length===Number(count)&&new Set(ids).size===ids.length&&validIds(ids);
+      })&&new Set(selected).size===selected.length;
+    }
     if(event.kind==='wizard-starting-spellbook'){
       const selected=Array.isArray(value?.firstLevel)?value.firstLevel.filter(Boolean):[];
       return selected.length===Number(event.firstLevelChoices||0)&&new Set(selected).size===selected.length&&validIds(selected);
@@ -390,8 +472,50 @@ export function applySpellAcquisitionEvent35(character,event,selection){
     return reconcileSpellAcquisition35({...character,spellAcquisition35:state});
   }
 
-  let spells=[],origin='level-up',affectsQuota=profile.kind==='known-table'||profile.kind==='flex-known';
-  if(event.kind==='choose-known-spells'){
+  let spells=[],origin='level-up',affectsQuota=['known-table','flex-known','partitioned-known'].includes(profile.kind);
+  if(event.kind==='choose-partitioned-known-spells'){
+    const favored=Array.isArray(selection?.favored)?selection.favored:[];
+    const unrestricted=Array.isArray(selection?.unrestricted)?selection.unrestricted:[];
+    const orderSpell=selection?.orderSpell||null,context=shugenjaContext(character,event.classId);
+    if(!context.focus||!context.order)throw Error('Choose Shugenja Order and Element Focus before learning spells.');
+    if(context.allowed.length&&!context.allowed.includes(context.focus))throw Error('The selected Shugenja Order does not allow that favored element.');
+    validateEventSpells(event,favored,profile,{count:event.favoredCount,exactLevel:event.spellLevel,character});
+    validateEventSpells(event,unrestricted,profile,{count:event.unrestrictedCount,exactLevel:event.spellLevel,character});
+    for(const spell of favored){
+      const element=shugenjaSpellElement(spell);
+      if(element!==context.focus&&element!=='All')throw Error('Choose favored-element Shugenja spells for the favored spell quota.');
+    }
+    for(const spell of unrestricted){
+      const element=shugenjaSpellElement(spell);
+      if(!element)throw Error('This Shugenja spell is missing reviewed elemental classification.');
+      if(context.prohibited&&element===context.prohibited)throw Error('A Shugenja cannot learn a spell from the prohibited element.');
+    }
+    const expected=String(event.orderSpellName||'').trim();
+    if(Boolean(expected)!==Boolean(orderSpell))throw Error('Choose the fixed Shugenja Order spell for this spell level.');
+    if(orderSpell&&(Number(orderSpell.level)!==Number(event.spellLevel)||!sourceSpellNameKeys(orderSpell.name).has(norm(expected))))throw Error('Choose the fixed Shugenja Order spell for this spell level.');
+    spells=[...favored,...unrestricted,...(orderSpell?[orderSpell]:[])];
+    if(new Set(spells.map(spellKey)).size!==spells.length)throw Error('Choose distinct spells for this acquisition.');
+    const eventKey=event.eventId||event.id;
+    bucket.acquisitions=(bucket.acquisitions||[]).filter(item=>item.sourceEventId!==eventKey);
+    for(const [index,spell] of favored.entries())bucket.acquisitions.push(acquisitionFromSpell(event,spell,{origin:'favored-known',affectsQuota:true,ordinal:index}));
+    for(const [index,spell] of unrestricted.entries())bucket.acquisitions.push(acquisitionFromSpell(event,spell,{origin:'unrestricted-known',affectsQuota:true,ordinal:favored.length+index}));
+    if(orderSpell)bucket.acquisitions.push(acquisitionFromSpell(event,orderSpell,{origin:'order-spell',affectsQuota:true,ordinal:favored.length+unrestricted.length}));
+    state[key]=bucket;
+    return reconcileSpellAcquisition35({...character,spellAcquisition35:state});
+  }else if(event.kind==='retrieve-daily-spells'){
+    const byLevel=selection?.byLevel||{},picked=[];
+    for(const [level,count] of Object.entries(event.limits||{})){
+      const levelSpells=Array.isArray(byLevel[level])?byLevel[level]:[];
+      validateEventSpells(event,levelSpells,profile,{count,exactLevel:Number(level),character});
+      picked.push(...levelSpells);
+    }
+    if(new Set(picked.map(spellKey)).size!==picked.length)throw Error('Choose distinct spells for the daily retrieved repertoire.');
+    bucket.acquisitions=(bucket.acquisitions||[]).filter(item=>item.origin!=='daily-retrieval');
+    for(const [index,spell] of picked.entries())bucket.acquisitions.push(acquisitionFromSpell(event,spell,{origin:'daily-retrieval',affectsQuota:false,ordinal:index}));
+    bucket.dailyRetrievalReady=false;
+    state[key]=bucket;
+    return reconcileSpellAcquisition35({...character,spellAcquisition35:state});
+  }else if(event.kind==='choose-known-spells'){
     spells=Array.isArray(selection)?selection:[];
     validateEventSpells(event,spells,profile);
     origin=Number(event.classLevel)===1?'starting':'level-up';
@@ -416,11 +540,12 @@ export function applySpellAcquisitionEvent35(character,event,selection){
   }else if(event.kind==='wizard-starting-spellbook'){
     const cantrips=Array.isArray(selection?.cantrips)?selection.cantrips:[];
     const firstLevel=Array.isArray(selection?.firstLevel)?selection.firstLevel:[];
-    if(firstLevel.length!==Number(event.firstLevelChoices||0))throw Error('Choose the required starting 1st-level Wizard spells.');
-    if(firstLevel.some(spell=>Number(spell?.level)!==1)||cantrips.some(spell=>Number(spell?.level)!==0))throw Error('Wizard starting spellbook selections have invalid spell levels.');
+    if(firstLevel.length!==Number(event.firstLevelChoices||0))throw Error('Choose the required starting 1st-level spellbook spells.');
+    if(firstLevel.some(spell=>Number(spell?.level)!==1)||cantrips.some(spell=>Number(spell?.level)!==0))throw Error('Starting spellbook selections have invalid spell levels.');
+    if(spells.some(spell=>!spellMatchesProfileList(profile,spell)))throw Error('Choose spells from the '+(profile.spellLists?.join('/')||profile.className)+' spell list.');
     spells=[...cantrips,...firstLevel];
     if(new Set(spells.map(spellKey)).size!==spells.length)throw Error('Wizard starting spellbook entries must be distinct.');
-    if(spells.some(spell=>isProhibitedWizardSpell(character,event.classId,{spell})))throw Error('A prohibited Wizard school spell cannot be added to the starting spellbook.');
+    if(profile.id==='wizard-35'&&spells.some(spell=>isProhibitedWizardSpell(character,event.classId,{spell})))throw Error('A prohibited Wizard school spell cannot be added to the starting spellbook.');
     origin='starting';
     affectsQuota=false;
   }else throw Error('Unsupported spell acquisition event.');
@@ -557,7 +682,7 @@ export function reconcileSpellAcquisition35(character){
 
     const reasons=[];
     let acquisitions=bucket.acquisitions||[];
-    if(profile.kind==='spellbook'){
+    if(profile.kind==='spellbook'&&profile.id==='wizard-35'){
       acquisitions=acquisitions.map(acquisition=>{
         const prohibited=isProhibitedWizardSpell(character,classId,acquisition);
         if(prohibited&&(acquisition.active!==false||acquisition.suspendedByRule==='prohibited-school')){
@@ -646,7 +771,7 @@ export function reconcileSpellAcquisition35(character){
       spellAcquisitionClassId:group.classId,
       spellAcquisitionIds:group.acquisitions.map(item=>item.id).filter(Boolean).sort(),
       spellAcquisitionOrigins:[...new Set(group.acquisitions.map(item=>item.origin).filter(Boolean))],
-      prepared:old?.prepared??(profile?.kind==='known-table'||profile?.kind==='flex-known')
+      prepared:old?.prepared??(['known-table','flex-known','partitioned-known','daily-retrieval'].includes(profile?.kind))
     });
   }
 
@@ -661,6 +786,20 @@ export function reconcileSpellAcquisition35(character){
   return {...character,spellAcquisition35:state,spellAcquisition35Incomplete:incomplete,spells:[...preserved,...runtime]};
 }
 
+
+export function restSpellAcquisition35(character,rest='long'){
+  if(rest!=='long')return character;
+  const state=Object.fromEntries(Object.entries(character?.spellAcquisition35||{}).map(([key,bucket])=>[key,cloneBucket(bucket)]));
+  let changed=false;
+  for(const [key,bucket] of Object.entries(state)){
+    const profile=profileData(bucket?.profileId);
+    if(profile?.kind!=='daily-retrieval'||bucket?.active===false)continue;
+    bucket.acquisitions=(bucket.acquisitions||[]).filter(item=>item.origin!=='daily-retrieval');
+    bucket.dailyRetrievalReady=true;
+    state[key]=bucket;changed=true;
+  }
+  return changed?reconcileSpellAcquisition35({...character,spellAcquisition35:state}):character;
+}
 
 const wizardCampaignOrigins=new Set(['copied-spellbook','copied-scroll','independent-research','manual-source']);
 function wizardListSpell35(spell){
