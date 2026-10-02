@@ -54,8 +54,14 @@ const expertChoiceCharacter=make('3.5','Expert',1,{
   classLevels:[{catalogId:genericExpert.catalogId,name:'Expert',edition:'3.5',level:1,definition:genericExpert}],
   featureChoices:{}
 });
-const expertSaveGroup=featureChoicePlan(expertChoiceCharacter,null).groups.find(group=>group.label==='Base Save Bonuses');
-const expertChosen=applyFeatureChoices(expertChoiceCharacter,null,{[expertSaveGroup.id]:['Fortitude','Reflex']});
+const expertChoicePlan=featureChoicePlan(expertChoiceCharacter,null);
+const expertSaveGroup=expertChoicePlan.groups.find(group=>group.label==='Base Save Bonuses');
+const expertPicks=Object.fromEntries(expertChoicePlan.groups.map(group=>{
+  if(group.id===expertSaveGroup.id)return [group.id,['Fortitude','Reflex']];
+  if((group.options||[]).length>=group.required)return [group.id,group.options.slice(0,group.required)];
+  return [group.id,Array.from({length:group.required},(_,index)=>'Test choice '+(index+1))];
+}));
+const expertChosen=applyFeatureChoices(expertChoiceCharacter,null,expertPicks);
 assert.deepEqual(
   Object.values(expertChosen.featureChoices).find(choice=>choice.feature==='Base Save Bonuses')?.choices,
   ['Fortitude','Reflex'],
