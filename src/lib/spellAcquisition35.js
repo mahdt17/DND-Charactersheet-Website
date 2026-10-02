@@ -856,7 +856,7 @@ export function recordSpellbookCampaignAcquisition35(character,classId,spell,det
   const key=exactStateKey(state,classId);
   const existing=cloneBucket(state[key]);
   if((existing.acquisitions||[]).some(item=>String(item.spellKey||'')===spellKey(spell)&&item.active!==false))
-    throw Error('This spellbook already contains that spell.');
+    throw Error('This spell is already recorded in this spellbook.');
 
   const classLevel=activeClassLevel35(character,classId);
   if(classLevel<1)throw Error('This spellbook class is not active on the character.');

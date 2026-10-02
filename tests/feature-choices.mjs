@@ -669,15 +669,15 @@ const mysteryPlan=featureChoicePlan(shugenjaChoice1,null,{[shugenjaOrderGroup.id
 assert.deepEqual(mysteryPlan.groups.find(group=>group.label==='Element Focus').options,['Air','Earth','Fire','Water']);
 
 const wuJenChoiceClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/wu-jen-6'),choiceReference35);
-const wuJen3=companionChoiceBase(wuJenChoiceClass35,3);
-wuJen3.spells=[
+const wuJenChoice3=companionChoiceBase(wuJenChoiceClass35,3);
+wuJenChoice3.spells=[
   {id:'wu-magic-missile',catalogId:'spell:magic-missile',name:'Magic Missile',level:1,castingClassId:wuJenChoiceClass35.catalogId},
   {id:'wu-fire-shuriken',catalogId:'spell:fire-shuriken',name:'Fire Shuriken',level:2,castingClassId:wuJenChoiceClass35.catalogId}
 ];
-const wuJen3Plan=featureChoicePlan(wuJen3,{...wuJen3,level:2,classLevels:[{...wuJen3.classLevels[0],level:2}]});
+const wuJen3Plan=featureChoicePlan(wuJenChoice3,{...wuJenChoice3,level:2,classLevels:[{...wuJenChoice3.classLevels[0],level:2}]});
 const spellSecretGroup=wuJen3Plan.groups.find(group=>group.label==='Spell Secret');
 assert.equal(spellSecretGroup?.kind,'source-choice-parts');
 assert.deepEqual(spellSecretGroup.choiceParts[0].options,['Fire Shuriken','Magic Missile']);
 assert.deepEqual(spellSecretGroup.choiceParts[1].options,['Enlarge Spell','Extend Spell','Still Spell','Silent Spell']);
-const wuJenSecretChosen=applyFeatureChoices(wuJen3,{...wuJen3,level:2,classLevels:[{...wuJen3.classLevels[0],level:2}]},{[spellSecretGroup.id]:['Magic Missile','Silent Spell']});
+const wuJenSecretChosen=applyFeatureChoices(wuJenChoice3,{...wuJenChoice3,level:2,classLevels:[{...wuJenChoice3.classLevels[0],level:2}]},{[spellSecretGroup.id]:['Magic Missile','Silent Spell']});
 assert(Object.values(wuJenSecretChosen.featureChoices).some(choice=>choice.feature==='Spell Secret'&&choice.choices.join('|')==='Magic Missile|Silent Spell'));
