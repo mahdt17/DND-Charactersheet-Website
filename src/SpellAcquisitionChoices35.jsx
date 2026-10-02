@@ -1,7 +1,7 @@
 import React from 'react';
 import SpellPicker from './EditionSpellPicker';
 import {keyOf} from './lib/editions';
-import {activeAcquiredSpells35} from './lib/spellAcquisition35';
+import {activeAcquiredSpells35,shugenjaSpellElement35} from './lib/spellAcquisition35';
 
 export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},onChange,character=null}){
   if(!events.length)return null;
@@ -38,6 +38,35 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
           limit={event.count}
           onToggle={spell=>toggleIds(event,spell,event.count)}
         />;
+      }
+      if(event.kind==='choose-partitioned-known-spells'){
+        const value=picks[key]||{},favored=Array.isArray(value.favored)?value.favored:[],unrestricted=Array.isArray(value.unrestricted)?value.unrestricted:[];
+        const used=new Set([...favored,...unrestricted,...(value.orderSpellId?[value.orderSpellId]:[])]);
+        const levelSpells=spells.filter(spell=>Number(spell.level)===Number(event.spellLevel));
+        const favoredLegal=levelSpells.filter(spell=>['All',event.favoredElement].includes(shugenjaSpellElement35(spell))&&(!used.has(keyOf(spell))||favored.includes(keyOf(spell))));
+        const unrestrictedLegal=levelSpells.filter(spell=>shugenjaSpellElement35(spell)!==event.prohibitedElement&&(!used.has(keyOf(spell))||unrestricted.includes(keyOf(spell))));
+        const orderLegal=event.orderSpellName?levelSpells.filter(spell=>String(spell.name||'').toLowerCase().replace(/[’']/g,"'")===String(event.orderSpellName).toLowerCase().replace(/[’']/g,"'")):[];
+        const toggle=(field,selected,limit,spell)=>{
+          const id=keyOf(spell),next=selected.includes(id)?selected.filter(x=>x!==id):selected.length<limit?[...selected,id]:selected;
+          setPick(event,{...value,[field]:next});
+        };
+        return <section key={key} aria-label={`Shugenja level ${event.spellLevel} known spells`}>
+          <p className="l-notice">Favored element: {event.favoredElement}. {event.prohibitedElement?event.prohibitedElement+' spells are prohibited. ':''}{event.orderSpellName?`Order spell: ${event.orderSpellName}.`:''}</p>
+          {event.orderSpellName&&<SpellPicker label="Fixed Order spell" spells={orderLegal} selected={value.orderSpellId?[value.orderSpellId]:[]} limit={1} onToggle={spell=>setPick(event,{...value,orderSpellId:value.orderSpellId===keyOf(spell)?'':keyOf(spell)})}/>}
+          {event.favoredCount>0&&<SpellPicker label={`Favored-element level ${event.spellLevel} spells`} spells={favoredLegal} selected={favored} limit={event.favoredCount} onToggle={spell=>toggle('favored',favored,event.favoredCount,spell)}/>}
+          {event.unrestrictedCount>0&&<SpellPicker label={`Additional level ${event.spellLevel} spells`} spells={unrestrictedLegal} selected={unrestricted} limit={event.unrestrictedCount} onToggle={spell=>toggle('unrestricted',unrestricted,event.unrestrictedCount,spell)}/>}
+        </section>;
+      }
+      if(event.kind==='retrieve-daily-spells'){
+        const value=picks[key]||{},byLevel=value.byLevel||{};
+        const setLevel=(level,selected,limit,spell)=>{
+          const id=keyOf(spell),next=selected.includes(id)?selected.filter(x=>x!==id):selected.length<limit?[...selected,id]:selected;
+          setPick(event,{...value,byLevel:{...byLevel,[level]:next}});
+        };
+        return <section key={key} aria-label="Spirit Shaman daily spell retrieval">
+          <p className="l-notice">Retrieve the day’s Druid spells. These are the spells available for spontaneous casting until the next daily retrieval.</p>
+          {Object.entries(event.limits||{}).map(([level,limit])=>{const selected=Array.isArray(byLevel[level])?byLevel[level]:[];return <SpellPicker key={level} label={`Retrieved level ${level} spells`} spells={spells.filter(spell=>Number(spell.level)===Number(level))} selected={selected} limit={limit} onToggle={spell=>setLevel(level,selected,limit,spell)}/>;})}
+        </section>;
       }
       if(event.kind==='magewright-spell-mastery'){
         const value=picks[key]||{};
@@ -83,7 +112,7 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
           setPick(event,{...value,firstLevel:next});
         };
         return <div key={key}>
-          <p className="l-notice">Automatic level 0 spellbook entries: {cantrips.length} legal Wizard spells will be added when you finish creation.</p>
+          <p className="l-notice">Automatic level 0 spellbook entries: {cantrips.length} legal class spells will be added when you finish creation.</p>
           <SpellPicker label="Starting spells" spells={first} selected={selected} limit={event.firstLevelChoices} onToggle={toggle}/>
         </div>;
       }
@@ -91,7 +120,7 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
         const legal=spells.filter(spell=>Number(spell.level)<=Number(event.maxSpellLevel));
         return <SpellPicker
           key={key}
-          label="Wizard free spellbook additions"
+          label="Free spellbook additions"
           spells={legal}
           selected={Array.isArray(picks[key])?picks[key]:[]}
           limit={event.count}

@@ -1,16 +1,17 @@
 import React,{useMemo,useState} from 'react';
 import SpellPicker from './EditionSpellPicker';
 import {keyOf} from './lib/editions';
-import {recordWizardCampaignAcquisition35,wizardCampaignSpellCandidates35} from './lib/spellAcquisition35';
+import {recordSpellbookCampaignAcquisition35,spellbookCampaignSpellCandidates35,spellAcquisitionProfile35} from './lib/spellAcquisition35';
 
 export default function WizardSpellbookAcquisition35({char,classId,spells=[],patch}){
   const [open,setOpen]=useState(false),[selectedKey,setSelectedKey]=useState(''),[origin,setOrigin]=useState('copied-spellbook'),[sourceNote,setSourceNote]=useState(''),[confirmed,setConfirmed]=useState(false),[error,setError]=useState('');
-  const candidates=useMemo(()=>wizardCampaignSpellCandidates35(char,classId,spells),[char,classId,spells]);
+  const profile=spellAcquisitionProfile35(classId),className=profile?.className||'Spellbook caster';
+  const candidates=useMemo(()=>spellbookCampaignSpellCandidates35(char,classId,spells),[char,classId,spells]);
   const selected=candidates.find(spell=>keyOf(spell)===selectedKey)||null;
   if(!open)return <button type="button" className="l-button" onClick={()=>{setOpen(true);setError('');}}>Add spell to spellbook</button>;
   const save=()=>{
     try{
-      const next=recordWizardCampaignAcquisition35(char,classId,selected,{
+      const next=recordSpellbookCampaignAcquisition35(char,classId,selected,{
         origin,sourceNote,confirmed,
         campaignTimeNote:'Campaign study/transcription requirements confirmed by the user'
       });
@@ -22,9 +23,9 @@ export default function WizardSpellbookAcquisition35({char,classId,spells=[],pat
       setSelectedKey('');setSourceNote('');setConfirmed(false);setError('');setOpen(false);
     }catch(e){setError(e.message);}
   };
-  return <section aria-label="Wizard campaign spellbook acquisition" className="feature-detail">
+  return <section aria-label={`${className} campaign spellbook acquisition`} className="feature-detail">
     <div className="l-section-head"><h3>Add spell to spellbook</h3><button type="button" className="l-button" onClick={()=>setOpen(false)}>Cancel</button></div>
-    <p className="l-notice">Record a spell your Wizard acquired during play. Confirm the source, study/check, campaign time, and transcription requirements at your table. This does not automatically spend gold, consume a scroll, or advance campaign time.</p>
+    <p className="l-notice">Record a spell this {className} acquired during play. Confirm the source, study/check, campaign time, and transcription requirements at your table. This does not automatically spend gold, consume a scroll, or advance campaign time.</p>
     <SpellPicker label="Spell to add to spellbook" spells={candidates} selected={selectedKey?[selectedKey]:[]} limit={1} onToggle={spell=>setSelectedKey(selectedKey===keyOf(spell)?'':keyOf(spell))}/>
     <label className="l-field"><span>Acquisition source</span><select aria-label="Acquisition source" value={origin} onChange={e=>setOrigin(e.target.value)}>
       <option value="copied-spellbook">Copied from another spellbook</option>

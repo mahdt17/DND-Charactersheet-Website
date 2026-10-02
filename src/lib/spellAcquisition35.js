@@ -129,10 +129,22 @@ function sourceSpellNameKeys(value){
   if(prefix)keys.add(norm(prefix[2]+', '+prefix[1]));
   return keys;
 }
-function shugenjaSpellElement(spell){
+export function shugenjaSpellElement35(spell){
   const level=Number(spell?.level),keys=sourceSpellNameKeys(spell?.name);
   const match=(shugenjaData.spellElements||[]).find(row=>Number(row.level)===level&&[...sourceSpellNameKeys(row.name)].some(key=>keys.has(key)));
   return match?.element||null;
+}
+export function spellAcquisitionCandidates35(character,classId,spells=[]){
+  const profile=spellAcquisitionProfile35(classId);
+  if(!profile)return [];
+  const context=profile.id==='shugenja-35'?shugenjaContext(character,classId):null;
+  const orderNames=new Set(context?.order?Object.values(shugenjaData.orders?.[context.order]||{}).flatMap(sourceSpellNameKeys):[]);
+  return (Array.isArray(spells)?spells:[]).filter(spell=>{
+    if(spell?.edition&&spell.edition!=='3.5')return false;
+    if(spellMatchesProfileList(profile,spell))return true;
+    if(profile.id==='shugenja-35')return [...sourceSpellNameKeys(spell?.name)].some(key=>orderNames.has(key));
+    return false;
+  });
 }
 function shugenjaContext(character,classId){
   const focus=String(selectedFeatureChoice(character,classId,'Element Focus')||'').trim();
@@ -382,9 +394,10 @@ export function spellAcquisitionPicksComplete35(events,picks={},legalSpellIds=nu
     if(event.kind==='choose-partitioned-known-spells'){
       const favored=Array.isArray(value?.favored)?value.favored.filter(Boolean):[];
       const unrestricted=Array.isArray(value?.unrestricted)?value.unrestricted.filter(Boolean):[];
-      const selected=[...favored,...unrestricted];
+      const orderIds=event.orderSpellName?[value?.orderSpellId].filter(Boolean):[];
+      const selected=[...favored,...unrestricted,...orderIds];
       return favored.length===Number(event.favoredCount||0)&&unrestricted.length===Number(event.unrestrictedCount||0)
-        &&new Set(selected).size===selected.length&&validIds(selected);
+        &&orderIds.length===(event.orderSpellName?1:0)&&new Set(selected).size===selected.length&&validIds(selected);
     }
     if(event.kind==='retrieve-daily-spells'){
       const byLevel=value?.byLevel||{};
@@ -482,11 +495,11 @@ export function applySpellAcquisitionEvent35(character,event,selection){
     validateEventSpells(event,favored,profile,{count:event.favoredCount,exactLevel:event.spellLevel,character});
     validateEventSpells(event,unrestricted,profile,{count:event.unrestrictedCount,exactLevel:event.spellLevel,character});
     for(const spell of favored){
-      const element=shugenjaSpellElement(spell);
+      const element=shugenjaSpellElement35(spell);
       if(element!==context.focus&&element!=='All')throw Error('Choose favored-element Shugenja spells for the favored spell quota.');
     }
     for(const spell of unrestricted){
-      const element=shugenjaSpellElement(spell);
+      const element=shugenjaSpellElement35(spell);
       if(!element)throw Error('This Shugenja spell is missing reviewed elemental classification.');
       if(context.prohibited&&element===context.prohibited)throw Error('A Shugenja cannot learn a spell from the prohibited element.');
     }
@@ -812,22 +825,23 @@ function activeClassLevel35(character,classId){
   const row=activeClassRows(character).find(item=>cleanId(item.catalogId||item.definition?.catalogId||item.definition?.id||item.definition?.sourceId||'')===normalized);
   return Math.max(0,Number(row?.level)||0);
 }
-export function wizardCampaignSpellCandidates35(character,classId,spells=[]){
+export function spellbookCampaignSpellCandidates35(character,classId,spells=[]){
   const profile=spellAcquisitionProfile35(classId);
-  if(profile?.id!=='wizard-35')return [];
+  if(profile?.kind!=='spellbook'||(profile.id!=='wizard-35'&&!profile.campaignAcquisition))return [];
   const owned=new Set(activeAcquiredSpells35(character,classId).map(item=>String(item.spellKey||'')));
-  return (Array.isArray(spells)?spells:[]).filter(spell=>{
+  return spellAcquisitionCandidates35(character,classId,spells).filter(spell=>{
     const key=spellKey(spell);
     if(!key||owned.has(key))return false;
-    if(spell?.edition&&spell.edition!=='3.5')return false;
-    if(!wizardListSpell35(spell))return false;
-    if(isProhibitedWizardSpell(character,classId,{spell}))return false;
+    if(profile.id==='wizard-35'&&isProhibitedWizardSpell(character,classId,{spell}))return false;
     return true;
   });
 }
-export function recordWizardCampaignAcquisition35(character,classId,spell,details={}){
+export function wizardCampaignSpellCandidates35(character,classId,spells=[]){
+  return spellAcquisitionProfile35(classId)?.id==='wizard-35'?spellbookCampaignSpellCandidates35(character,classId,spells):[];
+}
+export function recordSpellbookCampaignAcquisition35(character,classId,spell,details={}){
   const profile=spellAcquisitionProfile35(classId);
-  if(profile?.id!=='wizard-35')throw Error('Choose an active 3.5 Wizard class for spellbook acquisition.');
+  if(profile?.kind!=='spellbook'||(profile.id!=='wizard-35'&&!profile.campaignAcquisition))throw Error('Choose an active supported 3.5 spellbook class for spellbook acquisition.');
   if(details.confirmed!==true)throw Error('Confirm that the campaign spellbook acquisition requirements were completed.');
   const sourceNote=String(details.sourceNote||'').trim();
   if(!sourceNote)throw Error('Record a source note describing where the spell came from.');
@@ -835,17 +849,17 @@ export function recordWizardCampaignAcquisition35(character,classId,spell,detail
   if(!wizardCampaignOrigins.has(origin))throw Error('Choose a supported Wizard campaign acquisition source.');
   if(!spellKey(spell))throw Error('Choose a spell with a stable catalog identity.');
   if(spell?.edition&&spell.edition!=='3.5')throw Error('Choose a D&D 3.5 spell.');
-  if(!wizardListSpell35(spell))throw Error('Choose a spell from the Wizard spell list.');
-  if(isProhibitedWizardSpell(character,classId,{spell}))throw Error('A prohibited Wizard school spell cannot be added to this spellbook.');
+  if(!spellMatchesProfileList(profile,spell))throw Error('Choose a spell from the '+(profile.spellLists?.join('/')||profile.className)+' spell list.');
+  if(profile.id==='wizard-35'&&isProhibitedWizardSpell(character,classId,{spell}))throw Error('A prohibited Wizard school spell cannot be added to this spellbook.');
 
   const state={...(character?.spellAcquisition35||{})};
   const key=exactStateKey(state,classId);
   const existing=cloneBucket(state[key]);
   if((existing.acquisitions||[]).some(item=>String(item.spellKey||'')===spellKey(spell)&&item.active!==false))
-    throw Error('This Wizard already has that spell in the spellbook.');
+    throw Error('This spellbook already contains that spell.');
 
   const classLevel=activeClassLevel35(character,classId);
-  if(classLevel<1)throw Error('This Wizard class is not active on the character.');
+  if(classLevel<1)throw Error('This spellbook class is not active on the character.');
   const id=[classId,'campaign',spellKey(spell),origin].join(':');
   const acquisition={
     id,
@@ -874,7 +888,7 @@ export function recordWizardCampaignAcquisition35(character,classId,spell,detail
     campaignTimeNote:String(details.campaignTimeNote||'').trim()
   };
   state[key]={
-    profileId:'wizard-35',
+    profileId:profile.id,
     classId,
     classLevel,
     active:true,
@@ -884,4 +898,9 @@ export function recordWizardCampaignAcquisition35(character,classId,spell,detail
     campaignEntries:[...(existing.campaignEntries||[]),entry]
   };
   return reconcileSpellAcquisition35({...character,spellAcquisition35:state});
+}
+
+export function recordWizardCampaignAcquisition35(character,classId,spell,details={}){
+  if(spellAcquisitionProfile35(classId)?.id!=='wizard-35')throw Error('Choose an active 3.5 Wizard class for spellbook acquisition.');
+  return recordSpellbookCampaignAcquisition35(character,classId,spell,details);
 }

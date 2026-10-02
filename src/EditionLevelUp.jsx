@@ -8,7 +8,7 @@ import {modern,mechanics,is35,levelRecord,spellCounts,spellAccess,permittedSpell
 import {useReferenceIndex} from './lib/referenceIndex';
 import SpellPicker from './EditionSpellPicker';
 import SpellAcquisitionChoices35 from './SpellAcquisitionChoices35';
-import {spellAcquisitionProfile35,spellAcquisitionEvents35,spellAcquisitionPicksComplete35,applySpellAcquisitionEvent35} from './lib/spellAcquisition35';
+import {spellAcquisitionProfile35,spellAcquisitionEvents35,spellAcquisitionPicksComplete35,applySpellAcquisitionEvent35,spellAcquisitionCandidates35} from './lib/spellAcquisition35';
 import {contentKey} from './lib/advancement';
 import {castingSubclassNames} from './lib/subclassCasting';
 import {focusDialog} from './GuidedSetup';
@@ -36,7 +36,8 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
     classLevels:Array.isArray(fullBase.classLevels)?fullBase.classLevels.map(row=>row.catalogId===acquisitionClassId?{...row,level:target}:row):fullBase.classLevels
   }:null;
   const acquisitionEvents=managedAcquisition?spellAcquisitionEvents35(acquisitionTarget,{classId:acquisitionClassId,previousClassLevel:char.level,targetClassLevel:target}):[];
-  const candidates=permittedSpells(draft,[...homebrew,...reference.entries]).filter(s=>!spellAccess(draft,s).alwaysPrepared&&!current.some(c=>keyOf(c)===keyOf(s)));
+  const allReference=[...homebrew,...reference.entries];
+  const candidates=(managedAcquisition?spellAcquisitionCandidates35(acquisitionTarget,acquisitionClassId,allReference):permittedSpells(draft,allReference)).filter(s=>managedAcquisition||!spellAccess(draft,s).alwaysPrepared&&!current.some(c=>keyOf(c)===keyOf(s)));
   const acquisitionLegalIds=new Set(candidates.map(keyOf));
   const cantripGain=managedAcquisition?0:manual?Infinity:Math.max(0,counts.cantrips-current.filter(s=>s.level===0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
   const spellGain=managedAcquisition?0:manual?Infinity:Math.max(0,(counts.mode==='spellbook'||counts.mode==='known'?counts.known:counts.prepared||0)-current.filter(s=>s.level>0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
@@ -56,7 +57,19 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
       acquisitionResult=acquisitionTarget;
       for(const event of acquisitionEvents.filter(event=>event.required!==false)){
         const value=acquisitionPicks[event.eventId||event.id];
-        if(event.kind==='magewright-spell-mastery'){
+        if(event.kind==='choose-partitioned-known-spells'){
+          const favored=(value?.favored||[]).map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean);
+          const unrestricted=(value?.unrestricted||[]).map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean);
+          const orderSpell=value?.orderSpellId?candidates.find(spell=>keyOf(spell)===value.orderSpellId):null;
+          acquisitionResult=applySpellAcquisitionEvent35(acquisitionResult,event,{favored,unrestricted,orderSpell});
+        }else if(event.kind==='retrieve-daily-spells'){
+          const byLevel=Object.fromEntries(Object.entries(value?.byLevel||{}).map(([level,ids])=>[level,(ids||[]).map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean)]));
+          acquisitionResult=applySpellAcquisitionEvent35(acquisitionResult,event,{byLevel});
+        }else if(event.kind==='wizard-starting-spellbook'){
+          const firstLevel=(value?.firstLevel||[]).map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean);
+          const cantrips=candidates.filter(spell=>Number(spell.level)===0);
+          acquisitionResult=applySpellAcquisitionEvent35(acquisitionResult,event,{cantrips,firstLevel});
+        }else if(event.kind==='magewright-spell-mastery'){
           const mastered=(Array.isArray(value?.mastered)?value.mastered:[]).map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean);
           const bonusCantrips=(Array.isArray(value?.bonusCantrips)?value.bonusCantrips:[]).map(id=>candidates.find(spell=>keyOf(spell)===id)).filter(Boolean);
           acquisitionResult=applySpellAcquisitionEvent35(acquisitionResult,event,{mastered,bonusCantrips});

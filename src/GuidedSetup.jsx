@@ -17,7 +17,7 @@ import SpellAcquisitionChoices35 from './SpellAcquisitionChoices35';
 import {useReferenceIndex} from './lib/referenceIndex';
 import {prestige,normalizeAdvancement,requirements,qualified,recalculateLegacyBaseProgression35} from './lib/advancement';
 import {annotateClassGrantKinds} from './lib/classIntegration';
-import {spellAcquisitionProfile35,spellAcquisitionEvents35,spellAcquisitionPicksComplete35,applySpellAcquisitionEvent35,reconcileSpellAcquisition35} from './lib/spellAcquisition35';
+import {spellAcquisitionProfile35,spellAcquisitionEvents35,spellAcquisitionPicksComplete35,applySpellAcquisitionEvent35,reconcileSpellAcquisition35,spellAcquisitionCandidates35} from './lib/spellAcquisition35';
 import FeatChoices from './FeatChoices';
 import {featMagicState} from './lib/featMagic';
 import FeatSpellAcquisition35 from './FeatSpellAcquisition35';
@@ -68,7 +68,7 @@ export default function GuidedSetup({onCancel,onFinish,homebrew:customEntries=[]
  const acquisitionClassId=acquisitionClassId35(c),acquisitionProfile=is35(draft)?spellAcquisitionProfile35(acquisitionClassId||c):null,managedAcquisition=Boolean(acquisitionProfile&&acquisitionClassId);
  const acquisitionModel=managedAcquisition?{...draft,classLevels:[{catalogId:acquisitionClassId,name:c?.name||draft.className,edition:'3.5',level:1,definition:c}],activeCastingClassId:acquisitionClassId}:draft;
  const counts=spellCounts(draft,totals[draft.castingAbility||({Bard:'cha',Cleric:'wis',Druid:'wis',Paladin:'cha',Ranger:'wis',Sorcerer:'cha',Warlock:'cha',Wizard:'int'}[draft.className])]||10);
- const spells=permittedSpells(acquisitionModel,homebrew).filter(s=>!spellAccess(acquisitionModel,s).alwaysPrepared),acquisitionEvents=managedAcquisition?spellAcquisitionEvents35(acquisitionModel,{classId:acquisitionClassId,previousClassLevel:0,targetClassLevel:1}):[],acquisitionPicks=draft.spellAcquisitionPicks35||{},acquisitionLegalIds=new Set(spells.map(keyOf));
+ const spells=(managedAcquisition?spellAcquisitionCandidates35(acquisitionModel,acquisitionClassId,homebrew):permittedSpells(acquisitionModel,homebrew)).filter(s=>managedAcquisition||!spellAccess(acquisitionModel,s).alwaysPrepared),acquisitionEvents=managedAcquisition?spellAcquisitionEvents35(acquisitionModel,{classId:acquisitionClassId,previousClassLevel:0,targetClassLevel:1}):[],acquisitionPicks=draft.spellAcquisitionPicks35||{},acquisitionLegalIds=new Set(spells.map(keyOf));
  const manual=(is35(draft)||draft.ruleset==='custom')&&!managedAcquisition,spellLimit=managedAcquisition?0:manual?Infinity:counts.mode==='spellbook'?counts.known:counts.mode==='known'?counts.known:counts.prepared;
  const cantripLimit=managedAcquisition?0:manual?Infinity:counts.cantrips;
  const skillOptions=coreClassSkillOptions(c)||c?.proficiency_choices?.[0]?.from?.options?.map(x=>(x.item?.name||'').replace('Skill: ','')).filter(Boolean)||SKILLS.map(x=>x[0]);
@@ -103,9 +103,17 @@ export default function GuidedSetup({onCancel,onFinish,homebrew:customEntries=[]
   const entries={...(draft.spellAcquisitionEntries35||{}),...Object.fromEntries(spells.map(spell=>[keyOf(spell),spell]))};
   for(const event of acquisitionEvents.filter(event=>event.required!==false)){
    const value=acquisitionPicks[event.eventId||event.id];
-   if(event.kind==='choose-known-spells'||event.kind==='wizard-free-spellbook-additions'){
+   if(event.kind==='choose-known-spells'||event.kind==='choose-flex-known-spells'||event.kind==='wizard-free-spellbook-additions'){
     const selection=(Array.isArray(value)?value:[]).map(id=>entries[id]).filter(Boolean);
     char=applySpellAcquisitionEvent35(char,event,selection);
+   }else if(event.kind==='choose-partitioned-known-spells'){
+    const favored=(value?.favored||[]).map(id=>entries[id]).filter(Boolean);
+    const unrestricted=(value?.unrestricted||[]).map(id=>entries[id]).filter(Boolean);
+    const orderSpell=value?.orderSpellId?entries[value.orderSpellId]:null;
+    char=applySpellAcquisitionEvent35(char,event,{favored,unrestricted,orderSpell});
+   }else if(event.kind==='retrieve-daily-spells'){
+    const byLevel=Object.fromEntries(Object.entries(value?.byLevel||{}).map(([level,ids])=>[level,(ids||[]).map(id=>entries[id]).filter(Boolean)]));
+    char=applySpellAcquisitionEvent35(char,event,{byLevel});
    }else if(event.kind==='wizard-starting-spellbook'){
     const firstLevel=(Array.isArray(value?.firstLevel)?value.firstLevel:[]).map(id=>entries[id]).filter(Boolean);
     const cantrips=Object.values(entries).filter(spell=>Number(spell?.level)===0&&acquisitionLegalIds.has(keyOf(spell)));
