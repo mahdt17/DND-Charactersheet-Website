@@ -234,6 +234,45 @@ assert.equal(cleric1.grantedFeatures.find(feature=>feature.name==='Spontaneous C
 assert.match(cleric1.grantedFeatures.find(feature=>/Deity, Domains/i.test(feature.name))?.description||'',/two permitted domains/i);
 assert.match(cleric1.grantedFeatures.find(feature=>/Turn or Rebuke Undead/i.test(feature.name))?.description||'',/3 \+ your Charisma modifier times per day/i);
 
+
+const clericPelorBase={...baseCharacter([{catalogId:reviewedCleric35.catalogId,name:'Cleric',edition:'3.5',level:1,definition:reviewedCleric35}]),alignment:'Neutral Good',legacyCastingChoices:{[reviewedCleric35.catalogId]:{deity:'Pelor',domains:['Healing','Sun']}}};
+const clericPelor=reconcileClassGrants(clericPelorBase);
+assert(clericPelor.grantedFeatures.some(feature=>feature.name==='Healing Domain Granted Power'&&feature.sourceType==='domain'),'Healing granted power materializes as source-owned feature state');
+assert(clericPelor.grantedFeatures.some(feature=>feature.name==='Sun Domain Granted Power'&&feature.sourceType==='domain'),'Sun granted power materializes as source-owned feature state');
+assert(clericPelor.actions.some(action=>action.name==='Greater Turning'&&action.sourceType==='domain'),'Sun domain creates its actionable greater-turning power');
+assert.equal(clericPelor.resources.find(resource=>resource.name==='Sun Domain Greater Turning')?.max,1,'Sun domain tracks its once-per-day granted power');
+
+const clericWarBase={...baseCharacter([{catalogId:reviewedCleric35.catalogId,name:'Cleric',edition:'3.5',level:1,definition:reviewedCleric35}]),alignment:'Chaotic Good',legacyCastingChoices:{[reviewedCleric35.catalogId]:{deity:'Corellon Larethian',domains:['Good','War']}}};
+const clericWar=reconcileClassGrants(clericWarBase);
+assert(clericWar.feats.some(feat=>feat.name==='Weapon Focus (Longsword)'&&feat.sourceType==='domain'),'War domain binds Weapon Focus to the chosen deity favored weapon');
+assert(clericWar.trainingGrants.some(grant=>grant.sourceType==='domain'&&(grant.proficiencies||[]).some(item=>item.name==='Longsword')),'War domain grants deity favored-weapon proficiency');
+
+const clericKnowledgeBase={...baseCharacter([{catalogId:reviewedCleric35.catalogId,name:'Cleric',edition:'3.5',level:1,definition:reviewedCleric35}]),alignment:'Neutral',legacyCastingChoices:{[reviewedCleric35.catalogId]:{deity:'Boccob',domains:['Knowledge','Magic']}}};
+const clericKnowledge=reconcileClassGrants(clericKnowledgeBase);
+assert(clericKnowledge.classSkills35.some(skill=>skill.name==='Knowledge (arcana)'&&skill.sourceType==='domain'),'Knowledge domain adds Knowledge skills as class skills');
+assert(clericKnowledge.classSkills35.some(skill=>skill.name==='Knowledge (religion)'&&skill.sourceType==='domain'));
+
+const cloisteredCleric35=exact35('classes/cloistered-cleric-120');
+const cloisteredDomainsBase={...baseCharacter([{catalogId:cloisteredCleric35.catalogId,name:'Cloistered Cleric',edition:'3.5',level:1,definition:cloisteredCleric35}]),alignment:'Neutral',legacyCastingChoices:{[cloisteredCleric35.catalogId]:{deity:'Boccob',domains:['Magic','Trickery']}}};
+const cloisteredDomains=reconcileClassGrants(cloisteredDomainsBase);
+assert(cloisteredDomains.grantedFeatures.some(feature=>feature.name==='Knowledge Domain Granted Power'&&feature.sourceClassId===cloisteredCleric35.catalogId),'Cloistered Cleric receives mandatory Knowledge granted power in addition to two selected domains');
+assert(cloisteredDomains.classSkills35.some(skill=>skill.name==='Knowledge (planes)'&&skill.sourceClassId===cloisteredCleric35.catalogId));
+
+for(const sourceId of ['classes/cleric-105','classes/cleric-39','classes/cleric-63','classes/cleric-91']){
+  const record=exact35(sourceId),configuredSource={...baseCharacter([{catalogId:record.catalogId,name:'Cleric',edition:'3.5',level:1,definition:record}]),alignment:'Neutral Good',legacyCastingChoices:{[record.catalogId]:{deity:'Pelor',domains:['Good','Healing']}}};
+  const reconciled=reconcileClassGrants(configuredSource);
+  assert(reconciled.grantedFeatures.some(feature=>feature.name==='Healing Domain Granted Power'&&feature.sourceClassId===record.catalogId),sourceId+' receives the shared exact-source domain engine');
+}
+
+const clericDomainMulti=reconcileClassGrants({...clericWar,className:'Fighter',classDefinition:fighter35,level:2,classLevels:[
+  {catalogId:fighter35.catalogId,name:'Fighter',edition:'3.5',level:1,definition:fighter35},
+  {catalogId:reviewedCleric35.catalogId,name:'Cleric',edition:'3.5',level:1,definition:reviewedCleric35}
+]});
+const clericDomainRemoved=removeClassProgression(clericDomainMulti,reviewedCleric35.catalogId);
+assert(!clericDomainRemoved.grantedFeatures.some(feature=>feature.sourceType==='domain'&&feature.sourceClassId===reviewedCleric35.catalogId),'removing Cleric removes its domain features');
+assert(!clericDomainRemoved.feats.some(feat=>feat.sourceType==='domain'&&feat.sourceClassId===reviewedCleric35.catalogId),'removing Cleric removes War-domain feat grants');
+assert(!clericDomainRemoved.legacyCastingChoices?.[reviewedCleric35.catalogId],'removing Cleric clears its source-owned deity/domain choice state');
+
 const clericVariant35=exact35('classes/cleric-variant-972');
 const clericVariant20Base=baseCharacter([{catalogId:clericVariant35.catalogId,name:'Cleric Variant',edition:'3.5',level:20,definition:clericVariant35}]);
 const clericVariant20=reconcileClassGrants(clericVariant20Base);
