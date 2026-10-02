@@ -795,3 +795,95 @@ assert(mageReadded.spells.some(x=>x.name==='Mending'),'re-adding the exact Magew
 
 console.log('PASS Magewright mastered repertoire acquisition, trigger levels, legality, persistence and archival');
 
+
+
+const favoredSoulIds=[
+  'dndtools:classes/favored-soul-7',
+  'dndtools:classes/favored-soul-76'
+];
+for(const id of favoredSoulIds){
+  const profile=spellAcquisitionProfile35(id);
+  assert(profile,id+' must resolve the reviewed Favored Soul acquisition profile');
+  assert.equal(profile.id,'favored-soul-35');
+  assert.equal(profile.kind,'known-table');
+}
+assert.deepEqual(spellKnownLimits35('favored-soul-35',1),{0:4,1:3});
+assert.deepEqual(spellKnownLimits35('favored-soul-35',4),{0:6,1:4,2:3});
+assert.deepEqual(spellKnownLimits35('favored-soul-35',10),{0:9,1:6,2:6,3:5,4:4,5:3});
+assert.deepEqual(spellKnownLimits35('favored-soul-35',20),{0:9,1:6,2:6,3:6,4:6,5:6,6:6,7:6,8:5,9:4});
+
+const favoredSoulId=favoredSoulIds[0];
+const favoredSoul4={
+  ...baseCharacter('classes/favored-soul-7','Favored Soul',4,18),
+  abilities:{str:10,dex:10,con:10,int:10,wis:16,cha:18}
+};
+const favoredSoul4Events=spellAcquisitionEvents35(favoredSoul4,{
+  classId:favoredSoulId,previousClassLevel:3,targetClassLevel:4
+});
+assert.deepEqual(
+  favoredSoul4Events.filter(event=>event.kind==='choose-known-spells').map(event=>[event.spellLevel,event.count]),
+  [[0,1],[2,3]],
+  'Favored Soul level 4 gains only its source table deltas'
+);
+const favoredSoul4Replace=favoredSoul4Events.find(event=>event.kind==='optional-replacement');
+assert(favoredSoul4Replace,'Favored Soul level 4 offers its optional known-spell swap');
+assert.equal(favoredSoul4Replace.maxReplacementSpellLevel,0);
+const favoredSoul6={...favoredSoul4,level:6,classLevels:[{catalogId:favoredSoulId,name:'Favored Soul',edition:'3.5',level:6}]};
+const favoredSoul6Replace=spellAcquisitionEvents35(favoredSoul6,{
+  classId:favoredSoulId,previousClassLevel:5,targetClassLevel:6
+}).find(event=>event.kind==='optional-replacement');
+assert(favoredSoul6Replace,'Favored Soul level 6 offers its optional known-spell swap');
+assert.equal(favoredSoul6Replace.maxReplacementSpellLevel,1);
+const favoredSoul5={...favoredSoul4,level:5,classLevels:[{catalogId:favoredSoulId,name:'Favored Soul',edition:'3.5',level:5}]};
+assert(!spellAcquisitionEvents35(favoredSoul5,{
+  classId:favoredSoulId,previousClassLevel:4,targetClassLevel:5
+}).some(event=>event.kind==='optional-replacement'),'odd Favored Soul levels do not offer replacement');
+
+const favoredSoulStart=spellAcquisitionEvents35({
+  ...favoredSoul4,level:1,classLevels:[{catalogId:favoredSoulId,name:'Favored Soul',edition:'3.5',level:1}]
+},{
+  classId:favoredSoulId,previousClassLevel:0,targetClassLevel:1
+});
+const fsCantripEvent=favoredSoulStart.find(event=>event.kind==='choose-known-spells'&&event.spellLevel===0);
+const fsFirstEvent=favoredSoulStart.find(event=>event.kind==='choose-known-spells'&&event.spellLevel===1);
+assert.equal(fsCantripEvent?.count,4);
+assert.equal(fsFirstEvent?.count,3);
+
+const clericCantrips=[
+  spell('spell:guidance','Guidance',0,['Cleric'],'Divination'),
+  spell('spell:light','Light',0,['Cleric'],'Evocation'),
+  spell('spell:resistance','Resistance',0,['Cleric'],'Abjuration'),
+  spell('spell:virtue','Virtue',0,['Cleric'],'Transmutation')
+];
+const clericFirsts=[
+  spell('spell:bless','Bless',1,['Cleric'],'Enchantment'),
+  spell('spell:cure-light-wounds','Cure Light Wounds',1,['Cleric'],'Conjuration'),
+  spell('spell:divine-favor','Divine Favor',1,['Cleric'],'Evocation')
+];
+let favoredSoulApplied=applySpellAcquisitionEvent35({
+  ...favoredSoul4,level:1,classLevels:[{catalogId:favoredSoulId,name:'Favored Soul',edition:'3.5',level:1}]
+},fsCantripEvent,clericCantrips);
+favoredSoulApplied=applySpellAcquisitionEvent35(favoredSoulApplied,fsFirstEvent,clericFirsts);
+assert.equal(activeAcquiredSpells35(favoredSoulApplied,favoredSoulId).length,7);
+assert(favoredSoulApplied.spells.every(row=>row.castingClassId===favoredSoulId&&row.prepared===true),'Favored Soul known spells are spontaneously castable');
+assert.throws(()=>applySpellAcquisitionEvent35({
+  ...favoredSoul4,level:1,classLevels:[{catalogId:favoredSoulId,name:'Favored Soul',edition:'3.5',level:1}]
+},fsFirstEvent,[
+  spell('spell:magic-missile','Magic Missile',1,['Wizard'],'Evocation'),
+  clericFirsts[1],
+  clericFirsts[2]
+]),/spell list/i,'Favored Soul acquisition rejects spells that are not on the Cleric list');
+
+const favoredSoulRemoved=reconcileSpellAcquisition35({
+  ...favoredSoulApplied,
+  classLevels:[{catalogId:'dndtools:classes/fighter-90',name:'Fighter',edition:'3.5',level:1}]
+});
+assert.equal(favoredSoulRemoved.spells.some(row=>row.castingClassId===favoredSoulId),false);
+assert.equal(favoredSoulRemoved.spellAcquisition35[favoredSoulId]?.orphaned,true,'Favored Soul acquisition history archives with its exact source class');
+const favoredSoulReadded=reconcileSpellAcquisition35({
+  ...favoredSoulRemoved,
+  classLevels:[{catalogId:favoredSoulId,name:'Favored Soul',edition:'3.5',level:1}]
+});
+assert(favoredSoulReadded.spells.some(row=>row.name==='Bless'),'re-adding the exact Favored Soul source restores compatible known spells');
+
+console.log('PASS Favored Soul source-equivalent known-spell acquisition, Cleric-list eligibility, replacement timing, and archival');
