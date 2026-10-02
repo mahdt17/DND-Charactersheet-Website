@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "faaa79b8150a361f397957ffb0f1746756acdd91",
+  "snapshotCommit": "1ccbc5ad3d9a14b32ec66cf1c50c52838e06072e",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -10275,51 +10275,57 @@
       "name": "Favored Soul",
       "sourceBook": "Base Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/favored-soul-7",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 7,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Favored Soul uses the Cleric list, but source-specific spells-known acquisition/replacement and deity-linked favored-weapon choices are not fully represented as structured persisted state."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-01 exact Favored Soul source review with Exa, Tavily, and Firecrawl confirmed the Complete Divine spells-known table, spontaneous Cleric-list casting, optional one-spell replacement at 4th level and every even class level thereafter, deity-favored-weapon proficiency, Deity’s Weapon Focus at 3rd level, and Deity’s Weapon Specialization at 12th level.",
+        "Implemented the shared source-owned favored-soul-35 known-table acquisition profile for the reviewed Complete Divine and source-equivalent Miniatures Handbook records, including exact class-level deltas, Cleric-list inheritance, even-level same-level replacement limits, spontaneous runtime materialization, and exact-source archival/restoration.",
+        "The persisted deity-favored-weapon proficiency choice now drives Deity’s Weapon Focus and Deity’s Weapon Specialization automatically; if the exact linked feat is already owned, the source-defined alternative-feat fallback remains available through the existing class-choice path.",
+        "Engine and browser regressions cover exact source mappings, representative spells-known rows, creation with 4 cantrips and 3 1st-level spells, Cleric-list eligibility, illegal-list rejection, level-up deltas, replacement timing, source removal/restoration, persisted deity weapon, and the level-3 linked Weapon Focus flow.",
+        "Spell acquisition checks #86, Companion engine checks #111, and Validate modernization #1611 all passed at 1ccbc5ad3d9a14b32ec66cf1c50c52838e06072e."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement spells-known gain/replacement and deity/favored-weapon linkage, then add creation and level-up regressions."
+      "verifiedCommit": "1ccbc5ad3d9a14b32ec66cf1c50c52838e06072e",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36946352401",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared spell-acquisition, feature-choice, or class-training behavior changes."
     },
     {
       "sourceId": "classes/favored-soul-76",
       "name": "Favored Soul",
       "sourceBook": "Base Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/favored-soul-76",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/favored-soul-7",
       "featureRequirements": [],
-      "gaps": [
-        "Favored Soul uses the Cleric list, but source-specific spells-known acquisition/replacement and deity-linked favored-weapon choices are not fully represented as structured persisted state."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/favored-soul-7.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/favored-soul-7."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/favored-soul-7.",
+        "2026-10-01 exact Favored Soul source review with Exa, Tavily, and Firecrawl confirmed the Complete Divine spells-known table, spontaneous Cleric-list casting, optional one-spell replacement at 4th level and every even class level thereafter, deity-favored-weapon proficiency, Deity’s Weapon Focus at 3rd level, and Deity’s Weapon Specialization at 12th level.",
+        "Implemented the shared source-owned favored-soul-35 known-table acquisition profile for the reviewed Complete Divine and source-equivalent Miniatures Handbook records, including exact class-level deltas, Cleric-list inheritance, even-level same-level replacement limits, spontaneous runtime materialization, and exact-source archival/restoration.",
+        "The persisted deity-favored-weapon proficiency choice now drives Deity’s Weapon Focus and Deity’s Weapon Specialization automatically; if the exact linked feat is already owned, the source-defined alternative-feat fallback remains available through the existing class-choice path.",
+        "Engine and browser regressions cover exact source mappings, representative spells-known rows, creation with 4 cantrips and 3 1st-level spells, Cleric-list eligibility, illegal-list rejection, level-up deltas, replacement timing, source removal/restoration, persisted deity weapon, and the level-3 linked Weapon Focus flow.",
+        "Spell acquisition checks #86, Companion engine checks #111, and Validate modernization #1611 all passed at 1ccbc5ad3d9a14b32ec66cf1c50c52838e06072e."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement spells-known gain/replacement and deity/favored-weapon linkage, then add creation and level-up regressions."
+      "verifiedCommit": "1ccbc5ad3d9a14b32ec66cf1c50c52838e06072e",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36946352401",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared spell-acquisition, feature-choice, or class-training behavior changes."
     },
     {
       "sourceId": "classes/fiend-of-blasphemy-471",
@@ -26112,5 +26118,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Magewright mastered-repertoire and prepared-casting checkpoint recorded on green Spell acquisition checks #75, Companion engine checks #100, and Validate modernization #1600; classes/magewright-1029 was promoted after its final structured Spell Mastery blocker and the audited preparation-mode gap were closed."
+  "lastUpdatedNote": "Favored Soul spell-acquisition and deity-weapon checkpoint recorded on green Spell acquisition checks #86, Companion engine checks #111, and Validate modernization #1611; classes/favored-soul-7 and classes/favored-soul-76 were promoted after their final structured spells-known/replacement and deity-favored-weapon blockers were closed."
 }
