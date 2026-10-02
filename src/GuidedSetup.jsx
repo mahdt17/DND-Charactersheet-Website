@@ -15,7 +15,7 @@ import EquipmentChoice,{resolveEquipment} from './StartingEquipment';
 import SpellPicker from './EditionSpellPicker';
 import SpellAcquisitionChoices35 from './SpellAcquisitionChoices35';
 import {useReferenceIndex} from './lib/referenceIndex';
-import {prestige,normalizeAdvancement,requirements,qualified} from './lib/advancement';
+import {prestige,normalizeAdvancement,requirements,qualified,recalculateLegacyBaseProgression35} from './lib/advancement';
 import {annotateClassGrantKinds} from './lib/classIntegration';
 import {spellAcquisitionProfile35,spellAcquisitionEvents35,spellAcquisitionPicksComplete35,applySpellAcquisitionEvent35,reconcileSpellAcquisition35} from './lib/spellAcquisition35';
 import FeatChoices from './FeatChoices';
@@ -97,7 +97,7 @@ export default function GuidedSetup({onCancel,onFinish,homebrew:customEntries=[]
  if(is35(char)){char.bab=legacyProgression(char).bab;char.skillRanks={};char.save35=legacyProgression(char);}
  char.ac=is35(char)?10+modifier(totals.dex):armorFor(char,totals);char.languages=languageRules.manual?(draft.manualLanguages||''):languages.names.join(', ');
  if(typeof char.languages!=='string')char.languages=char.languages.map(x=>x.name||x).join(', ');
- if(is35(char)){char=applyFeatureChoices(char,null,draft.featurePicks||{},featureContext);char={...char,feats:(char.feats||[]).map(feat=>draft.classChoiceFeatOverrides35?.[feat.sourceChoiceId]?{...feat,...draft.classChoiceFeatOverrides35[feat.sourceChoiceId],id:feat.id,sourceChoiceId:feat.sourceChoiceId}:feat)};}
+ if(is35(char)){char=applyFeatureChoices(char,null,draft.featurePicks||{},featureContext);char=recalculateLegacyBaseProgression35(char);char={...char,feats:(char.feats||[]).map(feat=>draft.classChoiceFeatOverrides35?.[feat.sourceChoiceId]?{...feat,...draft.classChoiceFeatOverrides35[feat.sourceChoiceId],id:feat.id,sourceChoiceId:feat.sourceChoiceId}:feat)};}
  if(rules==='2014'&&draft.ruleset!=='custom')char=syncProgression(char,1);delete char.spellChoices;delete char.spellIds;delete char.cantripIds;delete char.gear;delete char.bgGear;if(!is35(char))char=applyFeatureChoices(char,null,draft.featurePicks||{});delete char.featurePicks;char=normalizeAdvancement(char);
  if(managedAcquisition){
   const entries={...(draft.spellAcquisitionEntries35||{}),...Object.fromEntries(spells.map(spell=>[keyOf(spell),spell]))};
