@@ -1299,7 +1299,8 @@
       "name": "Class Skills",
       "level": 1,
       "description": "Choose any twelve skills as class skills; Craft and Profession are also class skills.",
-      "sourceSha256": "652dd666985ed5168d904c055a48d25dba1a9cd3ec78c6505aac84fcf0347c3b"
+      "sourceSha256": "652dd666985ed5168d904c055a48d25dba1a9cd3ec78c6505aac84fcf0347c3b",
+      "choiceRequired": false
     },
     {
       "name": "Weapon and Armor Proficiency",
@@ -3975,7 +3976,8 @@
       "name": "Class Skills",
       "level": 1,
       "description": "Choose any six skills as class skills; Craft is also a class skill.",
-      "sourceSha256": "1c0fac40ac702791bb5524d252b51edc2c24d9fefa9df727591f3f60f946a856"
+      "sourceSha256": "1c0fac40ac702791bb5524d252b51edc2c24d9fefa9df727591f3f60f946a856",
+      "choiceRequired": false
     },
     {
       "name": "Weapon and Armor Proficiency",
