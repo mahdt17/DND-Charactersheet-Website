@@ -345,3 +345,19 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Canonical tracker totals: **71 complete, 631 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
 
+## 2026-10-02 shared Cleric deity / domain automation checkpoint
+
+- Verified implementation head: `c39e0a6212d40b84a270a64c770e23fb45bf4485`.
+- Companion engine checks #134 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537928.
+- Spell acquisition checks #109 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537917.
+- Validate modernization #1634 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537916.
+- Added one shared 3.5 Cleric deity/domain engine rather than source-specific patches. The engine now owns all 22 SRD domain granted powers as structured data and materializes selected powers into source-owned features, actions, resources, class skills, training grants, and feats as appropriate.
+- Added reviewed core-deity alignment/domain/favored-weapon metadata and optional deityless spiritual-focus support. Known deity selections constrain available domains and enforce the one-step alignment rule; deityless Clerics still use alignment-compatible domains.
+- War domain now grants deity-favored-weapon proficiency and Weapon Focus against the selected deity's favored weapon. Knowledge and Trickery domain skills are represented as class skills; active/limited domain powers create the corresponding action/resource state.
+- Cloistered Cleric automatically receives Knowledge in addition to two selected domains and receives its granted power/class-skill effects through the same shared engine.
+- Class removal now also removes the source-owned `legacyCastingChoices` entry, preventing orphaned deity/domain state after multiclass removal.
+- Direct browser coverage verifies a Player's Handbook Cleric selecting Pelor, deity-based domain filtering, Healing/Sun power descriptions, structured Greater Turning state, persisted deity/domain selections, and save/reopen behavior.
+- Promoted exactly `classes/cleric-105`, `classes/cleric-39`, `classes/cleric-63`, `classes/cleric-91`, and `classes/cloistered-cleric-120`.
+- Canonical tracker totals: **76 complete, 626 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+

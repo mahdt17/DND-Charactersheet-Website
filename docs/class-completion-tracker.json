@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "38932019ada42fe61c38647ae2a77c0b4040ab31",
+  "snapshotCommit": "c39e0a6212d40b84a270a64c770e23fb45bf4485",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -3555,101 +3555,121 @@
       "name": "Cleric",
       "sourceBook": "Base Class Sandstorm",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-105",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/cleric-91",
       "featureRequirements": [],
-      "gaps": [
-        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/cleric-91.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/cleric-91."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/cleric-91.",
+        "2026-10-02 added a shared 3.5 Cleric deity/domain engine with the complete 22-domain SRD granted-power catalog, alignment-domain enforcement, core deity/domain/favored-weapon metadata, deityless spiritual-focus support, and source-owned feature/action/resource/training/feat/class-skill materialization.",
+        "War domain now binds Martial Weapon Proficiency/Weapon Focus behavior to the selected deity's favored weapon; Knowledge and Trickery domain class-skill grants, once-per-day powers, Charisma-based elemental-turning pools, and level-scaled Travel rounds are persisted as structured sheet state.",
+        "Cloistered Cleric automatically receives Knowledge as a third domain in addition to its two selected domains, including its granted power and Knowledge class-skill automation.",
+        "Source-equivalent Cleric records in Sandstorm, Eberron Campaign Setting, Forgotten Realms Campaign Setting, and Player's Handbook v.3.5 all use the same exact-source domain engine and retain source isolation.",
+        "Removing a Cleric class removes its source-owned domain features, War-domain feat/training grants, resources, class skills, and legacy deity/domain choice state while preserving unrelated character data.",
+        "Browser regression creates a Player's Handbook Cleric, selects Pelor, verifies deity filtering excludes Fire and permits Healing/Sun, persists selections, materializes Healing/Sun powers and Greater Turning, and verifies save/reopen persistence.",
+        "Companion engine checks #134, Spell acquisition checks #109, and Validate modernization #1634 all passed at c39e0a6212d40b84a270a64c770e23fb45bf4485."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
+      "verifiedCommit": "c39e0a6212d40b84a270a64c770e23fb45bf4485",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537916",
+      "nextAction": "Preserve as verified. Re-audit only if shared Cleric domain/deity, legacy casting-choice, or class-grant reconciliation behavior changes."
     },
     {
       "sourceId": "classes/cleric-39",
       "name": "Cleric",
       "sourceBook": "Base Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-39",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/cleric-91",
       "featureRequirements": [],
-      "gaps": [
-        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/cleric-91.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/cleric-91."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/cleric-91.",
+        "2026-10-02 added a shared 3.5 Cleric deity/domain engine with the complete 22-domain SRD granted-power catalog, alignment-domain enforcement, core deity/domain/favored-weapon metadata, deityless spiritual-focus support, and source-owned feature/action/resource/training/feat/class-skill materialization.",
+        "War domain now binds Martial Weapon Proficiency/Weapon Focus behavior to the selected deity's favored weapon; Knowledge and Trickery domain class-skill grants, once-per-day powers, Charisma-based elemental-turning pools, and level-scaled Travel rounds are persisted as structured sheet state.",
+        "Cloistered Cleric automatically receives Knowledge as a third domain in addition to its two selected domains, including its granted power and Knowledge class-skill automation.",
+        "Source-equivalent Cleric records in Sandstorm, Eberron Campaign Setting, Forgotten Realms Campaign Setting, and Player's Handbook v.3.5 all use the same exact-source domain engine and retain source isolation.",
+        "Removing a Cleric class removes its source-owned domain features, War-domain feat/training grants, resources, class skills, and legacy deity/domain choice state while preserving unrelated character data.",
+        "Browser regression creates a Player's Handbook Cleric, selects Pelor, verifies deity filtering excludes Fire and permits Healing/Sun, persists selections, materializes Healing/Sun powers and Greater Turning, and verifies save/reopen persistence.",
+        "Companion engine checks #134, Spell acquisition checks #109, and Validate modernization #1634 all passed at c39e0a6212d40b84a270a64c770e23fb45bf4485."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
+      "verifiedCommit": "c39e0a6212d40b84a270a64c770e23fb45bf4485",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537916",
+      "nextAction": "Preserve as verified. Re-audit only if shared Cleric domain/deity, legacy casting-choice, or class-grant reconciliation behavior changes."
     },
     {
       "sourceId": "classes/cleric-63",
       "name": "Cleric",
       "sourceBook": "Base Class Forgotten Realms Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-63",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": "classes/cleric-91",
       "featureRequirements": [],
-      "gaps": [
-        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 exact source identity rechecked as a source-equivalent published appearance of classes/cleric-91.",
-        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/cleric-91."
+        "The source-equivalent class regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833 compares full reconciled mechanics, reviewed descriptions, training, progression, and structural completeness against classes/cleric-91.",
+        "2026-10-02 added a shared 3.5 Cleric deity/domain engine with the complete 22-domain SRD granted-power catalog, alignment-domain enforcement, core deity/domain/favored-weapon metadata, deityless spiritual-focus support, and source-owned feature/action/resource/training/feat/class-skill materialization.",
+        "War domain now binds Martial Weapon Proficiency/Weapon Focus behavior to the selected deity's favored weapon; Knowledge and Trickery domain class-skill grants, once-per-day powers, Charisma-based elemental-turning pools, and level-scaled Travel rounds are persisted as structured sheet state.",
+        "Cloistered Cleric automatically receives Knowledge as a third domain in addition to its two selected domains, including its granted power and Knowledge class-skill automation.",
+        "Source-equivalent Cleric records in Sandstorm, Eberron Campaign Setting, Forgotten Realms Campaign Setting, and Player's Handbook v.3.5 all use the same exact-source domain engine and retain source isolation.",
+        "Removing a Cleric class removes its source-owned domain features, War-domain feat/training grants, resources, class skills, and legacy deity/domain choice state while preserving unrelated character data.",
+        "Browser regression creates a Player's Handbook Cleric, selects Pelor, verifies deity filtering excludes Fire and permits Healing/Sun, persists selections, materializes Healing/Sun powers and Greater Turning, and verifies save/reopen persistence.",
+        "Companion engine checks #134, Spell acquisition checks #109, and Validate modernization #1634 all passed at c39e0a6212d40b84a270a64c770e23fb45bf4485."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
+      "verifiedCommit": "c39e0a6212d40b84a270a64c770e23fb45bf4485",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537916",
+      "nextAction": "Preserve as verified. Re-audit only if shared Cleric domain/deity, legacy casting-choice, or class-grant reconciliation behavior changes."
     },
     {
       "sourceId": "classes/cleric-91",
       "name": "Cleric",
       "sourceBook": "Base Class Player's Handbook v.3.5",
       "sourceUrl": "https://new.dndtools.org/classes/cleric-91",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 8,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Domain spell-slot support exists, but domain granted powers and remaining deity/domain source restrictions are not fully automated."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-02 added a shared 3.5 Cleric deity/domain engine with the complete 22-domain SRD granted-power catalog, alignment-domain enforcement, core deity/domain/favored-weapon metadata, deityless spiritual-focus support, and source-owned feature/action/resource/training/feat/class-skill materialization.",
+        "War domain now binds Martial Weapon Proficiency/Weapon Focus behavior to the selected deity's favored weapon; Knowledge and Trickery domain class-skill grants, once-per-day powers, Charisma-based elemental-turning pools, and level-scaled Travel rounds are persisted as structured sheet state.",
+        "Cloistered Cleric automatically receives Knowledge as a third domain in addition to its two selected domains, including its granted power and Knowledge class-skill automation.",
+        "Source-equivalent Cleric records in Sandstorm, Eberron Campaign Setting, Forgotten Realms Campaign Setting, and Player's Handbook v.3.5 all use the same exact-source domain engine and retain source isolation.",
+        "Removing a Cleric class removes its source-owned domain features, War-domain feat/training grants, resources, class skills, and legacy deity/domain choice state while preserving unrelated character data.",
+        "Browser regression creates a Player's Handbook Cleric, selects Pelor, verifies deity filtering excludes Fire and permits Healing/Sun, persists selections, materializes Healing/Sun powers and Greater Turning, and verifies save/reopen persistence.",
+        "Companion engine checks #134, Spell acquisition checks #109, and Validate modernization #1634 all passed at c39e0a6212d40b84a270a64c770e23fb45bf4485."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete structured domain granted powers/deity restrictions and add creation/level-up/domain browser regressions."
+      "verifiedCommit": "c39e0a6212d40b84a270a64c770e23fb45bf4485",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537916",
+      "nextAction": "Preserve as verified. Re-audit only if shared Cleric domain/deity, legacy casting-choice, or class-grant reconciliation behavior changes."
     },
     {
       "sourceId": "classes/cleric-variant-972",
@@ -3713,25 +3733,30 @@
       "name": "Cloistered Cleric",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/cloistered-cleric-120",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 4,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Starting training is now source-verified (simple weapons and light armor), but Cloistered Cleric still depends on incomplete structured Cleric domain granted-power and deity/domain-restriction automation."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Unearthed Arcana source verification confirms simple weapons and light armor, plus the Cloistered Cleric class-skill/domain changes.",
-        "Validate modernization #1461 passed the new Cloistered Cleric training regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833; the remaining blocker is domain automation rather than source/training coverage."
+        "Validate modernization #1461 passed the new Cloistered Cleric training regression at 831c5f7ffc0bd92e2c50d1055919c1e432c81833; the remaining blocker is domain automation rather than source/training coverage.",
+        "2026-10-02 added a shared 3.5 Cleric deity/domain engine with the complete 22-domain SRD granted-power catalog, alignment-domain enforcement, core deity/domain/favored-weapon metadata, deityless spiritual-focus support, and source-owned feature/action/resource/training/feat/class-skill materialization.",
+        "War domain now binds Martial Weapon Proficiency/Weapon Focus behavior to the selected deity's favored weapon; Knowledge and Trickery domain class-skill grants, once-per-day powers, Charisma-based elemental-turning pools, and level-scaled Travel rounds are persisted as structured sheet state.",
+        "Cloistered Cleric automatically receives Knowledge as a third domain in addition to its two selected domains, including its granted power and Knowledge class-skill automation.",
+        "Source-equivalent Cleric records in Sandstorm, Eberron Campaign Setting, Forgotten Realms Campaign Setting, and Player's Handbook v.3.5 all use the same exact-source domain engine and retain source isolation.",
+        "Removing a Cleric class removes its source-owned domain features, War-domain feat/training grants, resources, class skills, and legacy deity/domain choice state while preserving unrelated character data.",
+        "Browser regression creates a Player's Handbook Cleric, selects Pelor, verifies deity filtering excludes Fire and permits Healing/Sun, persists selections, materializes Healing/Sun powers and Greater Turning, and verifies save/reopen persistence.",
+        "Companion engine checks #134, Spell acquisition checks #109, and Validate modernization #1634 all passed at c39e0a6212d40b84a270a64c770e23fb45bf4485."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Complete the shared Cleric domain granted-power/deity restriction subsystem, including the mandatory Knowledge domain, then add creation/level-up/domain browser regressions."
+      "verifiedCommit": "c39e0a6212d40b84a270a64c770e23fb45bf4485",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537916",
+      "nextAction": "Preserve as verified. Re-audit only if shared Cleric domain/deity, legacy casting-choice, or class-grant reconciliation behavior changes."
     },
     {
       "sourceId": "classes/cloud-anchorite-499",
@@ -26124,5 +26149,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Unearthed Arcana generic Expert/Warrior base-save checkpoint recorded on green Companion engine checks #128, Spell acquisition checks #103, and Validate modernization #1628; classes/expert2-124 and classes/warrior2-135 were promoted together after their shared persisted good-save/poor-save blocker was closed."
+  "lastUpdatedNote": "Shared Cleric deity/domain checkpoint recorded after Companion engine checks #134, Spell acquisition checks #109, and Validate modernization #1634 all passed at c39e0a6212d40b84a270a64c770e23fb45bf4485; classes/cleric-105, classes/cleric-39, classes/cleric-63, classes/cleric-91, and classes/cloistered-cleric-120 were promoted together after their shared domain granted-power/deity-restriction blocker was closed."
 }

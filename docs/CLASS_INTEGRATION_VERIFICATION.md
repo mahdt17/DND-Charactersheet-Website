@@ -607,3 +607,21 @@ Verification evidence:
 
 Tracker impact: **71 complete, 631 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**. No Supabase or deployment changes were made.
 
+## Shared Cleric deity / domain automation checkpoint (2026-10-02)
+
+The Player's Handbook Cleric, its reviewed source-equivalent appearances, and Cloistered Cleric now use a single source-owned 3.5 deity/domain subsystem. It retains the previously verified domain spell-slot path while adding the missing granted-power and deity-restriction layer.
+
+The domain catalog now contains structured granted-power metadata for all 22 SRD domains. Reconciliation materializes each selected domain's effect into the normal character-state collections: descriptive granted features, actions, per-day or level-scaled resources, class-skill grants, favored-weapon training, and War-domain Weapon Focus where applicable. This keeps domain effects visible on the sheet and removable by exact source class rather than leaving them as display-only casting metadata.
+
+Known deity selections use reviewed alignment, domain, and favored-weapon data to constrain the domain picker and validate one-step alignment compatibility. The deityless Cleric path remains supported. Cloistered Cleric receives Knowledge automatically as a third domain while selecting two normal domains.
+
+Regression coverage verifies all five promoted source records, Pelor domain filtering, deity/alignment invalid combinations, deityless compatibility, Cloistered Knowledge, War favored-weapon grants, Knowledge-domain class skills, exact-source source-equivalent behavior, class removal cleanup, and a complete creation/save/reopen browser flow.
+
+Verification evidence:
+- implementation head: `c39e0a6212d40b84a270a64c770e23fb45bf4485`
+- Companion engine checks #134: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537928
+- Spell acquisition checks #109: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537917
+- Validate modernization #1634: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36963537916
+
+Tracker impact: **76 complete, 626 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**. No deployment or Supabase changes were made.
+
