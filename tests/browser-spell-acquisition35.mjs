@@ -15,7 +15,7 @@ async function openCharacter(name){
   await page.locator('.sheet-identity').filter({hasText:name}).waitFor();
 }
 
-async function begin35(name,classId,className,{cha15=false,int15=false}={}){
+async function begin35(name,classId,className,{cha15=false,int15=false,wis15=false}={}){
   if(await page.getByRole('button',{name:'All characters',exact:true}).count())await page.getByRole('button',{name:'All characters',exact:true}).click();
   await page.getByRole('button',{name:'Create character',exact:true}).click();
   await page.getByLabel('Character name',{exact:true}).fill(name);
@@ -26,11 +26,21 @@ async function begin35(name,classId,className,{cha15=false,int15=false}={}){
   await next();
   if(cha15)await page.getByLabel(/Charisma · total/).selectOption('15');
   if(int15)await page.getByLabel(/Intelligence · total/).selectOption('15');
+  if(wis15)await page.getByLabel(/Wisdom · total/).selectOption('15');
   await next();
   const languages=page.getByLabel(/Human \/ Intelligence language \d+/);
   const languageChoices=['Draconic','Dwarven','Elven','Giant','Gnome','Goblin','Orc'];
   for(let i=0;i<await languages.count();i++)await languages.nth(i).selectOption(languageChoices[i]);
   await next();
+}
+
+
+async function selectSpellIn(picker,name){
+  await picker.getByPlaceholder('Search by name…').fill(name);
+  const button=picker.getByRole('button',{name:new RegExp('^Select '+name)}).first();
+  assert.equal(await button.count(),1,'Expected legal acquisition option '+name);
+  await button.click();
+  await picker.getByPlaceholder('Search by name…').fill('');
 }
 
 async function selectSpell(pickerLabel,name){
@@ -429,6 +439,125 @@ try{
   assert.equal(scorching.affectsQuota,false);
   assert(wizardCampaignBucket.campaignEntries.some(x=>x.spellKey===scorching.spellKey&&x.confirmed===true));
   console.log('PASS Wizard campaign spellbook acquisition from Manage Spells');
+
+
+  const shugenjaName='Acquisition Shugenja 3.5',shugenjaKey='dndtools:classes/shugenja-8';
+  await page.getByRole('button',{name:'All characters',exact:true}).click();
+  await begin35(shugenjaName,'classes/shugenja-8','Shugenja',{cha15:true});
+  await page.getByLabel('Shugenja 1 Shugenja Order: Order of the Consuming Flame',{exact:true}).check();
+  const fireFocus=page.getByLabel('Shugenja 1 Element Focus: Fire',{exact:true});
+  await fireFocus.waitFor();
+  await fireFocus.check();
+  const shugenja0=page.getByRole('region',{name:'Shugenja level 0 known spells',exact:true});
+  const shugenja1=page.getByRole('region',{name:'Shugenja level 1 known spells',exact:true});
+  await shugenja0.waitFor();await shugenja1.waitFor();
+  const shOrder0=shugenja0.getByRole('region',{name:'Fixed Order spell',exact:true});
+  const shFavored0=shugenja0.getByRole('region',{name:'Favored-element level 0 spells',exact:true});
+  const shOpen0=shugenja0.getByRole('region',{name:'Additional level 0 spells',exact:true});
+  assert.equal(await shFavored0.getByRole('button',{name:/Select Detect Magic/}).count(),0,'All-element spells are not offered in the favored-element quota picker');
+  assert.equal(await shOpen0.getByRole('button',{name:/Select Create Water/}).count(),0,'Fire Shugenja cannot select prohibited Water spells');
+  await selectSpellIn(shOrder0,'Flare');
+  await selectSpellIn(shFavored0,'Dancing Lights');
+  await selectSpellIn(shFavored0,'Disrupt Undead');
+  await selectSpellIn(shOpen0,'Detect Magic');
+  await selectSpellIn(shOpen0,'Read Magic');
+  const shOrder1=shugenja1.getByRole('region',{name:'Fixed Order spell',exact:true});
+  const shFavored1=shugenja1.getByRole('region',{name:'Favored-element level 1 spells',exact:true});
+  const shOpen1=shugenja1.getByRole('region',{name:'Additional level 1 spells',exact:true});
+  await selectSpellIn(shOrder1,'Burning Hands');
+  await selectSpellIn(shFavored1,'Cause Fear');
+  await selectSpellIn(shOpen1,'Endure Elements');
+  assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'Shugenja setup becomes valid only after Order, Element Focus, and exact source quotas are complete');
+  await next();
+  assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:shugenjaName}).waitFor();
+  const shugenjaSaved=await saved(shugenjaName),shugenjaBucket=shugenjaSaved.spellAcquisition35?.[shugenjaKey];
+  assert(shugenjaBucket,'Shugenja acquisition history persists');
+  assert.equal(shugenjaBucket.acquisitions.filter(x=>x.active!==false).length,8);
+  assert.equal(shugenjaBucket.acquisitions.filter(x=>x.origin==='order-spell').length,2);
+  assert(Object.values(shugenjaSaved.featureChoices||{}).some(choice=>choice.sourceClassId===shugenjaKey&&choice.feature==='Shugenja Order'&&choice.choices?.[0]==='Order of the Consuming Flame'));
+  assert(Object.values(shugenjaSaved.featureChoices||{}).some(choice=>choice.sourceClassId===shugenjaKey&&choice.feature==='Element Focus'&&choice.choices?.[0]==='Fire'));
+  console.log('PASS Shugenja Order-driven Element Focus, partitioned known-spell UI, prohibited element filtering and persistence');
+
+  const spiritName='Acquisition Spirit Shaman 3.5',spiritKey='dndtools:classes/spirit-shaman-9';
+  await page.getByRole('button',{name:'All characters',exact:true}).click();
+  await begin35(spiritName,'classes/spirit-shaman-9','Spirit Shaman',{cha15:true,wis15:true});
+  const spiritDaily=page.getByRole('region',{name:'Spirit Shaman daily spell retrieval',exact:true});
+  await spiritDaily.waitFor();
+  for(const name of ['Detect Magic','Guidance','Light'])await selectSpellIn(spiritDaily.getByRole('region',{name:'Retrieved level 0 spells',exact:true}),name);
+  await selectSpellIn(spiritDaily.getByRole('region',{name:'Retrieved level 1 spells',exact:true}),'Entangle');
+  await next();
+  await page.getByLabel('Spirit Shaman 1 Spirit Guide: Wolf',{exact:true}).check();
+  assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:spiritName}).waitFor();
+  const spiritCreated=await saved(spiritName),spiritBucket=spiritCreated.spellAcquisition35?.[spiritKey];
+  assert.equal(spiritBucket?.dailyRetrievalReady,false);
+  assert.equal(spiritBucket?.acquisitions.filter(x=>x.active!==false).length,4);
+  assert(spiritCreated.feats?.some(feat=>feat.name==='Alertness'&&feat.sourceClassId===spiritKey),'Spirit Guide grants source-owned Alertness');
+  await page.getByRole('button',{name:'Rest',exact:true}).click();
+  await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
+  await page.waitForFunction(async ({name,key})=>{
+    const rows=JSON.parse((await window.storage.get('char-index')).value),row=rows.find(item=>item.name===name);
+    const detail=JSON.parse((await window.storage.get('char-detail:'+row.id)).value);
+    return detail.spellAcquisition35?.[key]?.dailyRetrievalReady===true;
+  },{name:spiritName,key:spiritKey});
+  const spiritRested=await saved(spiritName);
+  assert.equal(spiritRested.spellAcquisition35[spiritKey].acquisitions.filter(x=>x.active!==false).length,0,'long rest clears yesterday’s Spirit Shaman retrieved repertoire');
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  await page.getByRole('button',{name:'Manage spells',exact:true}).click();
+  const spiritReRetrieve=page.getByRole('region',{name:'Daily spell retrieval',exact:true});
+  await spiritReRetrieve.waitFor();
+  const re0=spiritReRetrieve.getByRole('region',{name:'Retrieved level 0 spells',exact:true});
+  const re1=spiritReRetrieve.getByRole('region',{name:'Retrieved level 1 spells',exact:true});
+  for(let i=0;i<3;i++)await re0.getByRole('button',{name:/^Select /}).first().click();
+  await re1.getByRole('button',{name:/^Select /}).first().click();
+  await spiritReRetrieve.getByRole('button',{name:'Retrieve spells for today',exact:true}).click();
+  await page.waitForFunction(async ({name,key})=>{
+    const rows=JSON.parse((await window.storage.get('char-index')).value),row=rows.find(item=>item.name===name);
+    const detail=JSON.parse((await window.storage.get('char-detail:'+row.id)).value),bucket=detail.spellAcquisition35?.[key];
+    return bucket?.dailyRetrievalReady===false&&bucket?.acquisitions?.filter(item=>item.active!==false).length===4;
+  },{name:spiritName,key:spiritKey});
+  console.log('PASS Spirit Shaman creation retrieval, Spirit Guide, long-rest reset and daily re-retrieval UI');
+
+  const wuJenName='Acquisition Wu Jen 3.5',wuJenKey='dndtools:classes/wu-jen-6';
+  await page.getByRole('button',{name:'All characters',exact:true}).click();
+  await begin35(wuJenName,'classes/wu-jen-6','Wu Jen',{int15:true});
+  const wuRegion=page.getByRole('region',{name:'3.5 spell acquisition choices',exact:true});
+  await wuRegion.waitFor();
+  const wuStart=wuRegion.getByRole('region',{name:'Starting spells',exact:true});
+  for(let i=0;i<5;i++)await wuStart.getByRole('button',{name:/^Select /}).first().click();
+  assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'INT 15 Wu Jen requires five starting first-level spellbook choices');
+  await next();
+  await page.getByLabel('Wu Jen 1 Taboos: Cannot eat meat',{exact:true}).check();
+  const wuBonusFeat=page.getByLabel('Wu Jen 1 Bonus Feat choice',{exact:true});
+  if(await wuBonusFeat.count())await wuBonusFeat.fill('Extend Spell');
+  assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
+  await page.getByRole('button',{name:'Create Character',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:wuJenName}).waitFor();
+  const wuCreated=await saved(wuJenName),wuBucket=wuCreated.spellAcquisition35?.[wuJenKey];
+  assert(wuBucket,'Wu Jen spellbook acquisition history persists');
+  assert.equal(wuBucket.acquisitions.filter(x=>x.active!==false&&x.spellLevel===1&&x.origin==='starting').length,5);
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  await page.getByRole('button',{name:'Manage spells',exact:true}).click();
+  await page.getByRole('button',{name:'Add spell to spellbook',exact:true}).click();
+  const wuCampaign=page.getByRole('region',{name:'Wu Jen campaign spellbook acquisition',exact:true});
+  await wuCampaign.waitFor();
+  const wuCampaignPicker=wuCampaign.getByRole('region',{name:'Spell to add to spellbook',exact:true});
+  await wuCampaignPicker.getByLabel('Search spells',{exact:true}).fill('Fire Shuriken');
+  await wuCampaignPicker.getByRole('button',{name:/^Select Fire Shuriken/}).first().click();
+  await wuCampaign.getByLabel('Acquisition source',{exact:true}).selectOption('copied-spellbook');
+  await wuCampaign.getByLabel('Spell source note',{exact:true}).fill('Copied from a recovered Wu Jen spellbook');
+  await wuCampaign.getByLabel('Campaign requirements completed',{exact:true}).check();
+  await wuCampaign.getByRole('button',{name:'Record spellbook acquisition',exact:true}).click();
+  await page.waitForFunction(async ({name,key})=>{
+    const rows=JSON.parse((await window.storage.get('char-index')).value),row=rows.find(item=>item.name===name);
+    const detail=JSON.parse((await window.storage.get('char-detail:'+row.id)).value);
+    return detail.spellAcquisition35?.[key]?.acquisitions?.some(item=>item.spellName==='Fire Shuriken'&&item.origin==='copied-spellbook');
+  },{name:wuJenName,key:wuJenKey});
+  console.log('PASS Wu Jen starting spellbook and generic campaign spellbook acquisition UI');
+
 
   assert.deepEqual(errors,[]);
 }catch(error){
