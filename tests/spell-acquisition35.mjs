@@ -412,6 +412,18 @@ assert.throws(()=>applySpellAcquisitionEvent35(wizardWithProhibition,wizardStart
 
 console.log('PASS 3.5 guided setup acquisition requirements and prohibited-school validation');
 
+const wizardCandidateCharacter={
+  ...wizard,
+  legacyCastingChoices:{['dndtools:classes/wizard-99']:{school:'Evocation',prohibited:['Enchantment','Necromancy']}}
+};
+const wizardCandidateRows=spellAcquisitionCandidates35(wizardCandidateCharacter,'dndtools:classes/wizard-99',[
+  spell('spell:magic-missile-candidate','Magic Missile',1,['Wizard'],'Evocation'),
+  spell('spell:charm-person-candidate','Charm Person',1,['Wizard'],'Enchantment'),
+  spell('spell:touch-fatigue-candidate','Touch of Fatigue',0,['Wizard'],'Necromancy')
+]);
+assert.deepEqual(wizardCandidateRows.map(row=>row.name),['Magic Missile'],'generic Wizard acquisition candidates preserve prohibited-school restrictions');
+
+
 const wizardLevel3Character={
   ...wizardOwnership,
   level:3,

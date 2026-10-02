@@ -145,6 +145,7 @@ export function spellAcquisitionCandidates35(character,classId,spells=[]){
   const orderNames=new Set(context?.order?Object.values(shugenjaData.orders?.[context.order]||{}).flatMap(name=>[...sourceSpellNameKeys(name)]):[]);
   return (Array.isArray(spells)?spells:[]).filter(spell=>{
     if(spell?.edition&&spell.edition!=='3.5')return false;
+    if(profile.id==='wizard-35'&&isProhibitedWizardSpell(character,classId,{spell}))return false;
     if(spellMatchesProfileList(profile,spell))return true;
     if(profile.id==='shugenja-35')return [...sourceSpellNameKeys(spell?.name)].some(key=>orderNames.has(key));
     return false;
