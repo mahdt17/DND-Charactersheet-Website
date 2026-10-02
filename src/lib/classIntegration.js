@@ -81,7 +81,7 @@ function reviewedFeatureMetadata(record,name){
   if(!row)return {};
   const metadata={};
   if(row.sourceUrl)metadata.reviewedSourceUrl=row.sourceUrl;
-  for(const key of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','choiceFromProficiencyId','choiceFeatPrefix','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','companionRelationshipType','companionProfileId','companionContribution','companionChoiceRequired','companionExceptions','companionDefaultCreatureId','companionDefaultCreatureByMasterSize','companionTemplate','spellLists','spellSchools','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
+  for(const key of ['referencedSourceId','referencedSourceUrl','featName','choiceRequired','choiceKind','choiceCount','choiceCountByLevel','choiceLevels','choiceOptions','choiceOptionsByLevel','choiceOptionMechanics','choiceOptionPrerequisites','choiceOptionsFromFeatureMechanic','choiceFromProficiencyId','choiceFeatPrefix','uniqueChoices','ignorePrerequisites','companionLevelMultiplier','companionRelationshipType','companionProfileId','companionContribution','companionChoiceRequired','companionExceptions','companionDefaultCreatureId','companionDefaultCreatureByMasterSize','companionTemplate','spellLists','spellSchools','actionType','actionTypeByLevel','resource'])if(row[key]!=null)metadata[key]=row[key];
   return metadata;
 }
 const slug=value=>norm(value).replace(/\s+/g,'-')||'grant';
@@ -653,7 +653,7 @@ function needsChoice(feature){
 
 function derivedForRow(row,character=null){
   const edition=normalizeEdition(row.edition||row.definition?.edition),features=coalesceFeatures(row);
-  const derivedFeatures=[],actions=[],feats=[],resources=[],tracks=[],spellSlots=[];
+  const derivedFeatures=[],actions=[],feats=[],resources=[],tracks=[],spellSlots=[],choiceClassSkills=[];
   for(const feature of features){
     const featureId=feature.sourceFeatureId||slug(feature.name),meta={...sourceInfo(row,feature.level,featureId),...(feature.reviewedSourceUrl?{sourceUrl:feature.reviewedSourceUrl}:{}),...(feature.referencedSourceId?{referencedSourceId:feature.referencedSourceId}:{}),...(feature.referencedSourceUrl?{referencedSourceUrl:feature.referencedSourceUrl}:{})};
     const id='class-grant:'+meta.sourceClassId+':feature:'+slug(feature.name);
@@ -663,7 +663,7 @@ function derivedForRow(row,character=null){
     const description=localRuleText||row.name+' progression: '+progressionSummary+'.';
     const descriptionSource=localRuleText?'rule-text':'progression';
     const choice=feature.choiceRequired===false?false:Boolean(feature.choiceKind)||needsChoice(feature);
-    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptions:feature.choiceOptions||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,choiceOptionMechanics:feature.choiceOptionMechanics||undefined,choiceOptionPrerequisites:feature.choiceOptionPrerequisites||undefined,choiceFromProficiencyId:feature.choiceFromProficiencyId||undefined,choiceFeatPrefix:feature.choiceFeatPrefix||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,companionLevelMultiplier:feature.companionLevelMultiplier||undefined,companionRelationshipType:feature.companionRelationshipType||undefined,companionProfileId:feature.companionProfileId||undefined,companionContribution:feature.companionContribution||undefined,companionChoiceRequired:feature.companionChoiceRequired,companionExceptions:feature.companionExceptions||undefined,companionDefaultCreatureId:feature.companionDefaultCreatureId||undefined,companionDefaultCreatureByMasterSize:feature.companionDefaultCreatureByMasterSize||undefined,companionTemplate:feature.companionTemplate||undefined,spellLists:feature.spellLists||undefined,spellSchools:feature.spellSchools||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
+    const base={id,index:id,name:feature.name,level:feature.level,latestLevel:feature.latestLevel||feature.level,kind:choice?'choice':'feature',choiceKind:feature.choiceKind||undefined,choiceCount:feature.choiceCount||undefined,choiceCountByLevel:feature.choiceCountByLevel||undefined,choiceLevels:feature.choiceLevels||undefined,choiceOptions:feature.choiceOptions||undefined,choiceOptionsByLevel:feature.choiceOptionsByLevel||undefined,choiceOptionMechanics:feature.choiceOptionMechanics||undefined,choiceOptionPrerequisites:feature.choiceOptionPrerequisites||undefined,choiceOptionsFromFeatureMechanic:feature.choiceOptionsFromFeatureMechanic||undefined,choiceFromProficiencyId:feature.choiceFromProficiencyId||undefined,choiceFeatPrefix:feature.choiceFeatPrefix||undefined,uniqueChoices:feature.uniqueChoices||undefined,ignorePrerequisites:feature.ignorePrerequisites||undefined,companionLevelMultiplier:feature.companionLevelMultiplier||undefined,companionRelationshipType:feature.companionRelationshipType||undefined,companionProfileId:feature.companionProfileId||undefined,companionContribution:feature.companionContribution||undefined,companionChoiceRequired:feature.companionChoiceRequired,companionExceptions:feature.companionExceptions||undefined,companionDefaultCreatureId:feature.companionDefaultCreatureId||undefined,companionDefaultCreatureByMasterSize:feature.companionDefaultCreatureByMasterSize||undefined,companionTemplate:feature.companionTemplate||undefined,spellLists:feature.spellLists||undefined,spellSchools:feature.spellSchools||undefined,description,descriptionSource,desc:[description],progressionHistory:history,...meta};
     derivedFeatures.push(base);
     if(choice&&feature.choiceKind==='animal-companion'&&character?.featureChoices){
       const selectedEntry=Object.values(character.featureChoices)
@@ -715,8 +715,35 @@ function derivedForRow(row,character=null){
         derivedFeatures.push({
           id:selectedId,index:selectedId,name:selectedName,level:selected.level,latestLevel:selected.level,kind:'feature',
           description:mechanicDescription,descriptionSource:'rule-text',desc:[mechanicDescription],progressionHistory:[{level:selected.level,text:optionName}],
-          selectedFromFeature:feature.name,...selectedMeta
+          selectedFromFeature:feature.name,selectedOptionMechanics:mechanic,...selectedMeta
         });
+        for(const skill of Array.isArray(mechanic.classSkills)?mechanic.classSkills:[]){
+          const value=String(skill||'').trim();
+          if(value)choiceClassSkills.push(value);
+        }
+        for(const effect of Array.isArray(mechanic.effects)?mechanic.effects:[]){
+          const effectLevel=Math.max(1,Number(effect?.level)||selected.level);
+          if(effectLevel>row.level)continue;
+          const effectName=String(effect?.name||optionName).trim(),effectDescription=String(effect?.description||'').trim();
+          if(!effectName||!effectDescription)continue;
+          const effectId=selectedId+':effect:'+slug(effectName);
+          const effectMeta={...selectedMeta,sourceClassLevel:effectLevel,sourceFeatureId:(featureId||slug(feature.name))+':choice:'+slug(optionName)+':effect:'+slug(effectName),...(effect.sourceUrl?{referencedSourceUrl:effect.sourceUrl}:{})};
+          derivedFeatures.push({
+            id:effectId,index:effectId,name:effectName,level:effectLevel,latestLevel:effectLevel,kind:'feature',
+            description:effectDescription,descriptionSource:'rule-text',desc:[effectDescription],progressionHistory:[{level:effectLevel,text:effectName}],
+            selectedFromFeature:feature.name,selectedOption:optionName,selectedOptionEffect:effect,...effectMeta
+          });
+          const effectUsage=structuredUsage(effect,row.level,character);
+          const effectActionType=String(effect.actionType||'').trim();
+          if(effectActionType||effectUsage){
+            actions.push({id:'class-grant:'+meta.sourceClassId+':action:'+slug(effectName),name:effectName,type:effectActionType||'Special action',description:effectDescription,notes:optionName,...effectMeta});
+          }
+          if(edition==='3.5'&&effectUsage&&effectUsage.max>0){
+            const reset=effectUsage.reset|| (effectUsage.period==='short rest'?'short':effectUsage.period==='rest'?'long':effectUsage.period==='day'||effectUsage.period==='long rest'?'long':'none');
+            const recoveryText=effectUsage.recoveryText|| (effectUsage.period==='week'?'Recover after one week; track the elapsed time manually.':'');
+            resources.push({id:'class-grant:'+meta.sourceClassId+':resource:'+slug(effectName),classResourceKey:'class-grant:'+meta.sourceClassId+':resource:'+slug(effectName),name:effectName,max:effectUsage.max,used:0,reset,shortRecovery:reset==='short'?'all':0,recoveryText:recoveryText||undefined,unit:effectUsage.unit||undefined,...effectMeta});
+          }
+        }
         const mechanicUsage=structuredUsage(mechanic,row.level,character);
         const mechanicActionType=String(mechanic.actionType||'').trim();
         if(mechanicActionType||mechanicUsage){
@@ -786,7 +813,7 @@ function derivedForRow(row,character=null){
     .flatMap(choice=>choice.choices||[]):[];
   const hasClassSkillChoice=edition==='3.5'&&Array.isArray(record.classSkillChoices)&&record.classSkillChoices.length>0;
   const fixedClassSkills=hasClassSkillChoice?[]:(Array.isArray(record.classSkills)?record.classSkills:[]);
-  const classSkillNames=edition==='3.5'?[...new Set([...fixedClassSkills,...chosenClassSkills])]:[];
+  const classSkillNames=edition==='3.5'?[...new Set([...fixedClassSkills,...chosenClassSkills,...choiceClassSkills])]:[];
   return {
     row,features:derivedFeatures,actions,feats,resources,tracks,spellSlots,training,
     classSkills:classSkillNames.map(name=>({id:'class-grant:'+row.catalogId+':class-skill:'+slug(name),name,sourceType:'class',automatic:true,sourceClassId:row.catalogId,sourceClassName:row.name,sourceUrl:record.classSkillSourceUrl||record.sourceUrl||null,edition:'3.5'})),

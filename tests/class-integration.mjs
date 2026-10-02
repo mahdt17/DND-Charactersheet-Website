@@ -1383,4 +1383,62 @@ for(const sourceId of largeSafeBatch35){
 }
 console.log('PASS large 9-class exact-source batch: completeness, reviewed descriptions, training, idempotence and source removal');
 
+
+const dragonShaman35=exact35('classes/dragon-shaman-101');
+const dragonShaman1=baseCharacter([{catalogId:dragonShaman35.catalogId,name:'Dragon Shaman',edition:'3.5',level:1,definition:dragonShaman35}]);
+const dragonPlan1=featureChoicePlan(dragonShaman1,null,{},{feats:feats35});
+const dragonTotemGroup=dragonPlan1.groups.find(group=>group.label==='Totem Dragon');
+const dragonAuraGroup=dragonPlan1.groups.find(group=>group.label==='Draconic Aura');
+assert(dragonTotemGroup&&dragonAuraGroup,'Dragon Shaman creation exposes totem and aura choices');
+const dragonPicks1={
+  [dragonTotemGroup.id]:['Black'],
+  [dragonAuraGroup.id]:['Energy Shield','Power','Vigor']
+};
+const dragonChosen1=applyFeatureChoices(dragonShaman1,null,dragonPicks1,{feats:feats35});
+for(const skill of ['Hide','Move Silently','Swim'])assert.equal(legacyClassSkillStatus(dragonChosen1,skill).classSkill,true,'Black totem class skill: '+skill);
+assert(dragonChosen1.grantedFeatures.some(feature=>feature.name==='Energy Shield'&&/natural attack/i.test(feature.description)),'selected draconic aura materializes exact effect text');
+assert(dragonChosen1.grantedFeatures.some(feature=>feature.name==='Black'&&feature.selectedOptionMechanics?.breathWeapon?.energy==='acid'),'totem selection persists structured breath mechanics');
+
+const dragonShaman2={...dragonChosen1,level:2,classLevels:[{...dragonChosen1.classLevels[0],level:2,definition:dragonShaman35}]};
+const dragonPlan2=featureChoicePlan(dragonShaman2,dragonChosen1,{},{feats:feats35});
+const dragonSkillFocus=dragonPlan2.groups.find(group=>group.label==='Skill Focus');
+assert.deepEqual(new Set(dragonSkillFocus?.options||[]),new Set(['Skill Focus (Hide)','Skill Focus (Move Silently)','Skill Focus (Swim)']),'Skill Focus is constrained by the selected totem skills');
+const dragonChosen2=applyFeatureChoices(dragonShaman2,dragonChosen1,{[dragonSkillFocus.id]:['Skill Focus (Hide)']},{feats:feats35});
+assert(dragonChosen2.feats.some(feat=>feat.name==='Skill Focus (Hide)'&&feat.sourceClassId===dragonShaman35.catalogId),'totem-constrained Skill Focus is persisted as a class feat');
+
+const dragonShaman9=reconcileClassGrants({...dragonChosen2,level:9,classLevels:[{...dragonChosen2.classLevels[0],level:9,definition:dragonShaman35}]});
+assert(dragonShaman9.grantedFeatures.some(feature=>feature.name==='Draconic Adaptation · Water Breathing'),'Black totem materializes its level-3 adaptation');
+assert(dragonShaman9.grantedFeatures.some(feature=>feature.name==='Totem Breath · Line of acid'&&feature.selectedOptionEffect?.energy==='acid'),'Black totem materializes line/acid breath mechanics at level 4');
+assert(dragonShaman9.grantedFeatures.some(feature=>feature.name==='Energy Immunity · Acid'),'Black totem materializes acid immunity at level 9');
+assert.deepEqual(reconcileClassGrants(dragonShaman9),dragonShaman9,'Dragon Shaman choice mechanics reconcile idempotently');
+
+const marshal35=exact35('classes/marshal-78');
+const marshal2=baseCharacter([{catalogId:marshal35.catalogId,name:'Marshal',edition:'3.5',level:2,definition:marshal35}]);
+const marshalPlan2=featureChoicePlan(marshal2,null,{},{feats:feats35});
+const minorAuraGroup=marshalPlan2.groups.find(group=>group.label==='Minor Aura');
+const majorAuraGroup=marshalPlan2.groups.find(group=>group.label==='Major Aura');
+assert(minorAuraGroup&&majorAuraGroup,'Marshal creation exposes minor and major aura choices');
+const marshalChosen2=applyFeatureChoices(marshal2,null,{
+  [minorAuraGroup.id]:['Motivate Dexterity'],
+  [majorAuraGroup.id]:['Motivate Urgency']
+},{feats:feats35});
+assert(marshalChosen2.grantedFeatures.some(feature=>feature.name==='Motivate Dexterity'&&/initiative/i.test(feature.description)),'selected minor aura materializes its exact effect');
+assert(marshalChosen2.grantedFeatures.some(feature=>feature.name==='Motivate Urgency'&&/5 feet/i.test(feature.description)),'selected major aura materializes its exact effect');
+
+const marshal20=reconcileClassGrants({...marshalChosen2,level:20,classLevels:[{...marshalChosen2.classLevels[0],level:20,definition:marshal35}]});
+assert.equal(marshal20.resources.find(resource=>resource.name==='Grant Move Action')?.max,5,'Marshal Grant Move Action scales to five daily uses at level 20');
+assert(marshal20.actions.some(action=>action.name==='Grant Move Action'&&/standard/i.test(action.type)),'Marshal Grant Move Action remains an explicit sheet action');
+assert.deepEqual(reconcileClassGrants(marshal20),marshal20,'Marshal aura/resource mechanics reconcile idempotently');
+
+const dragonPlusMarshal=reconcileClassGrants(baseCharacter([
+  {catalogId:marshal35.catalogId,name:'Marshal',edition:'3.5',level:2,definition:marshal35},
+  {catalogId:dragonShaman35.catalogId,name:'Dragon Shaman',edition:'3.5',level:9,definition:dragonShaman35}
+]));
+const dragonPlusMarshalChosen=reconcileClassGrants({...dragonPlusMarshal,featureChoices:{...dragonShaman9.featureChoices,...marshalChosen2.featureChoices}});
+const dragonRemoved=removeClassProgression(dragonPlusMarshalChosen,dragonShaman35.catalogId);
+assert(!dragonRemoved.grantedFeatures.some(feature=>feature.sourceClassId===dragonShaman35.catalogId),'removing Dragon Shaman clears selected totem/aura effects');
+assert(!dragonRemoved.classSkills35.some(skill=>skill.sourceClassId===dragonShaman35.catalogId),'removing Dragon Shaman clears totem-granted class skills');
+assert(dragonRemoved.grantedFeatures.some(feature=>feature.sourceClassId===marshal35.catalogId),'removing Dragon Shaman preserves Marshal effects');
+console.log('PASS shared option-mechanics cohort: Dragon Shaman totems/auras/class skills/Skill Focus and Marshal auras/resources');
+
 console.log('PASS class reconciliation: reviewed features, level-scaled actions, multiclassing, source isolation, idempotence, and safe removal');

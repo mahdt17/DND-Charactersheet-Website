@@ -40,6 +40,23 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
         const level=Number(event.level)||feature.sourceClassLevel||feature.level;
         const id=`3.5:${row.catalogId}:${level}:${feature.sourceFeatureId||feature.id}:${index}`;
         let options=(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value));
+        if(feature.choiceOptionsFromFeatureMechanic&&typeof feature.choiceOptionsFromFeatureMechanic==='object'){
+          const config=feature.choiceOptionsFromFeatureMechanic;
+          const driverName=String(config.feature||'').trim(),field=String(config.field||'').trim();
+          const driverFeature=features.find(item=>norm(item?.name)===norm(driverName));
+          const driverChoice=Object.values(patch.featureChoices||{}).find(choice=>choice?.sourceClassId===row.catalogId&&norm(choice?.feature)===norm(driverName));
+          const driverValue=String(driverChoice?.choices?.[0]||'').trim();
+          const mechanicEntry=driverFeature&&driverValue?Object.entries(driverFeature.choiceOptionMechanics||{}).find(([name])=>norm(name)===norm(driverValue)):null;
+          const mechanic=(mechanicEntry?.[1]&&typeof mechanicEntry[1]==='object')?mechanicEntry[1]:{};
+          const values=Array.isArray(mechanic?.[field])?mechanic[field].map(value=>String(value||'').trim()).filter(Boolean):[];
+          const prefix=String(config.prefix||'').trim();
+          const format=value=>prefix?`${prefix} (${value})`:value;
+          const owned=new Set((patch.feats||[]).map(feat=>norm(feat?.name)));
+          options=values.map(format).filter(value=>!config.excludeOwned||!owned.has(norm(value)));
+          if(!options.length&&config.fallback==='classSkills'){
+            options=(current.classSkills35||[]).filter(item=>item?.sourceClassId===row.catalogId).map(item=>format(item.name)).filter(value=>!config.excludeOwned||!owned.has(norm(value)));
+          }
+        }
         if(feature.choiceFromProficiencyId&&feature.choiceFeatPrefix){
           const suffix=`:proficiency:${feature.choiceFromProficiencyId}`;
           const linkedChoice=Object.entries(patch.featureChoices||{}).find(([choiceId,choice])=>
@@ -196,7 +213,7 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           return Array.isArray(requirements)?requirements.map(String):requirements?[String(requirements)]:[];
         };
         const unmetPrerequisites=selected.flatMap(value=>requirementsFor(value).filter(requiredName=>!priorSelections.some(existing=>norm(existing)===norm(requiredName))));
-        const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length||selected.every(value=>options.includes(value)))&&unmetPrerequisites.length===0;
+        const requiresResolvedOptions=Boolean(feature.choiceOptionsFromFeatureMechanic); const valid=selected.length===required&&new Set(selected.map(norm)).size===required&&(!options.length?!requiresResolvedOptions:selected.every(value=>options.includes(value)))&&unmetPrerequisites.length===0;
         const detail=String(feature.description||'').trim();
         const sourceText=detail?(norm(detail).includes(norm(feature.name))?detail:`${feature.name}: ${detail}`):(event.text||feature.name);
         const group={id,level,kind:'source-choice',choiceKind,count:required,required,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,options,selected,valid,ignorePrerequisites:!!feature.ignorePrerequisites,optionPrerequisites,unmetPrerequisites};

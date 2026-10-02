@@ -405,7 +405,37 @@
       },
       "uniqueChoices": true,
       "description": "Project one known draconic aura at a time as a swift action; dismiss or replace it with a free action. At 1st level choose three of Energy Shield, Power, Presence, Resistance, Senses, Toughness, and Vigor; learn one additional aura at 3rd, 5th, 7th, and 9th until all seven are known. Aura bonus starts at +1 and improves to +2 at 5th, +3 at 10th, +4 at 15th, and +5 at 20th.",
-      "sourceSha256": "b8df6e26bee12736f2b04e9583c1d466448df246666938e085b08d5c8bfd28b9"
+      "sourceSha256": "b8df6e26bee12736f2b04e9583c1d466448df246666938e085b08d5c8bfd28b9",
+      "choiceOptionMechanics": {
+        "Energy Shield": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "description": "While this aura is active, a creature that strikes you or an affected ally with a natural attack or nonreach melee weapon takes 2 points of your totem dragon's breath-weapon energy damage for each point of your current draconic aura bonus."
+        },
+        "Power": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "description": "While this aura is active, you and affected allies gain a circumstance bonus on melee damage rolls equal to your current draconic aura bonus."
+        },
+        "Presence": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "description": "While this aura is active, you and affected allies gain a circumstance bonus on Bluff, Diplomacy, and Intimidate checks equal to your current draconic aura bonus."
+        },
+        "Resistance": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "description": "While this aura is active, you and affected allies gain resistance to your totem dragon's breath-weapon energy type equal to 5 × your current draconic aura bonus."
+        },
+        "Senses": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "description": "While this aura is active, you and affected allies gain a circumstance bonus on Listen checks, Spot checks, and initiative checks equal to your current draconic aura bonus."
+        },
+        "Toughness": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "description": "While this aura is active, you and affected allies gain damage reduction /magic equal to your current draconic aura bonus (maximum DR 5/magic at 20th level)."
+        },
+        "Vigor": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "description": "While this aura is active, you and affected allies at or below one-half normal hit points gain fast healing equal to your current draconic aura bonus."
+        }
+      }
     },
     {
       "name": "Totem Dragon",
@@ -429,7 +459,423 @@
         ]
       },
       "description": "Choose one true-dragon totem: black, blue, brass, bronze, copper, gold, green, red, silver, or white. Your alignment must be within one step of the source-listed alignments for that dragon. The choice determines three additional class skills, your breath weapon's energy type and shape, your adaptation, and later energy immunity.",
-      "sourceSha256": "a02a97692bb5cd5b24e79d18062fbb93561d0921bf13a0bfb9df42bf19a1b2cc"
+      "sourceSha256": "a02a97692bb5cd5b24e79d18062fbb93561d0921bf13a0bfb9df42bf19a1b2cc",
+      "choiceOptionMechanics": {
+        "Black": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Hide",
+            "Move Silently",
+            "Swim"
+          ],
+          "acceptableAlignments": [
+            "NE",
+            "CE",
+            "CN"
+          ],
+          "breathWeapon": {
+            "shape": "line",
+            "energy": "acid"
+          },
+          "description": "Totem class skills: Hide, Move Silently, Swim. Breath weapon: line of acid. At 3rd level gain Water Breathing; at 9th level gain immunity to acid.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Water Breathing",
+              "description": "You can breathe underwater indefinitely and can freely use spells and other abilities underwater. This extraordinary adaptation is always active. At 13th level, the class's adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Line of acid",
+              "description": "Your dragon-shaman breath weapon uses a line and deals acid damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "line",
+              "energy": "acid"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Acid",
+              "description": "You are immune to acid damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "acid"
+            }
+          ]
+        },
+        "Blue": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Bluff",
+            "Hide",
+            "Spellcraft"
+          ],
+          "acceptableAlignments": [
+            "NE",
+            "LE",
+            "LN"
+          ],
+          "breathWeapon": {
+            "shape": "line",
+            "energy": "electricity"
+          },
+          "description": "Totem class skills: Bluff, Hide, Spellcraft. Breath weapon: line of electricity. At 3rd level gain Ventriloquism; at 9th level gain immunity to electricity.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Ventriloquism",
+              "description": "You can use ventriloquism as a spell-like ability at will. Caster level equals your dragon-shaman level; the save DC uses Charisma. At 13th level, the adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "actionType": "At will"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Line of electricity",
+              "description": "Your dragon-shaman breath weapon uses a line and deals electricity damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "line",
+              "energy": "electricity"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Electricity",
+              "description": "You are immune to electricity damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "electricity"
+            }
+          ]
+        },
+        "Brass": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Bluff",
+            "Gather Information",
+            "Survival"
+          ],
+          "acceptableAlignments": [
+            "NG",
+            "CG",
+            "CN"
+          ],
+          "breathWeapon": {
+            "shape": "line",
+            "energy": "fire"
+          },
+          "description": "Totem class skills: Bluff, Gather Information, Survival. Breath weapon: line of fire. At 3rd level gain Endure Elements; at 9th level gain immunity to fire.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Endure Elements",
+              "description": "You can use endure elements on yourself as a spell-like ability at will. Caster level equals your dragon-shaman level. At 13th level, the adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "actionType": "At will"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Line of fire",
+              "description": "Your dragon-shaman breath weapon uses a line and deals fire damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "line",
+              "energy": "fire"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Fire",
+              "description": "You are immune to fire damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "fire"
+            }
+          ]
+        },
+        "Bronze": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Disguise",
+            "Survival",
+            "Swim"
+          ],
+          "acceptableAlignments": [
+            "NG",
+            "LG",
+            "LN"
+          ],
+          "breathWeapon": {
+            "shape": "line",
+            "energy": "electricity"
+          },
+          "description": "Totem class skills: Disguise, Survival, Swim. Breath weapon: line of electricity. At 3rd level gain Water Breathing; at 9th level gain immunity to electricity.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Water Breathing",
+              "description": "You can breathe underwater indefinitely and can freely use spells and other abilities underwater. This extraordinary adaptation is always active. At 13th level, the class's adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Line of electricity",
+              "description": "Your dragon-shaman breath weapon uses a line and deals electricity damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "line",
+              "energy": "electricity"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Electricity",
+              "description": "You are immune to electricity damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "electricity"
+            }
+          ]
+        },
+        "Copper": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Bluff",
+            "Hide",
+            "Jump"
+          ],
+          "acceptableAlignments": [
+            "NG",
+            "CG",
+            "CN"
+          ],
+          "breathWeapon": {
+            "shape": "line",
+            "energy": "acid"
+          },
+          "description": "Totem class skills: Bluff, Hide, Jump. Breath weapon: line of acid. At 3rd level gain Spider Climb; at 9th level gain immunity to acid.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Spider Climb",
+              "description": "You can use spider climb on yourself as a spell-like ability at will. Caster level equals your dragon-shaman level. At 13th level, the adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "actionType": "At will"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Line of acid",
+              "description": "Your dragon-shaman breath weapon uses a line and deals acid damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "line",
+              "energy": "acid"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Acid",
+              "description": "You are immune to acid damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "acid"
+            }
+          ]
+        },
+        "Gold": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Disguise",
+            "Heal",
+            "Swim"
+          ],
+          "acceptableAlignments": [
+            "NG",
+            "LG",
+            "LN"
+          ],
+          "breathWeapon": {
+            "shape": "cone",
+            "energy": "fire"
+          },
+          "description": "Totem class skills: Disguise, Heal, Swim. Breath weapon: cone of fire. At 3rd level gain Water Breathing; at 9th level gain immunity to fire.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Water Breathing",
+              "description": "You can breathe underwater indefinitely and can freely use spells and other abilities underwater. This extraordinary adaptation is always active. At 13th level, the class's adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Cone of fire",
+              "description": "Your dragon-shaman breath weapon uses a cone and deals fire damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "cone",
+              "energy": "fire"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Fire",
+              "description": "You are immune to fire damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "fire"
+            }
+          ]
+        },
+        "Green": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Bluff",
+            "Hide",
+            "Move Silently"
+          ],
+          "acceptableAlignments": [
+            "NE",
+            "LE",
+            "LN"
+          ],
+          "breathWeapon": {
+            "shape": "cone",
+            "energy": "acid"
+          },
+          "description": "Totem class skills: Bluff, Hide, Move Silently. Breath weapon: cone of acid. At 3rd level gain Water Breathing; at 9th level gain immunity to acid.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Water Breathing",
+              "description": "You can breathe underwater indefinitely and can freely use spells and other abilities underwater. This extraordinary adaptation is always active. At 13th level, the class's adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Cone of acid",
+              "description": "Your dragon-shaman breath weapon uses a cone and deals acid damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "cone",
+              "energy": "acid"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Acid",
+              "description": "You are immune to acid damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "acid"
+            }
+          ]
+        },
+        "Red": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Appraise",
+            "Bluff",
+            "Jump"
+          ],
+          "acceptableAlignments": [
+            "NE",
+            "CE",
+            "CN"
+          ],
+          "breathWeapon": {
+            "shape": "cone",
+            "energy": "fire"
+          },
+          "description": "Totem class skills: Appraise, Bluff, Jump. Breath weapon: cone of fire. At 3rd level gain Treasure Seeker; at 9th level gain immunity to fire.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Treasure Seeker",
+              "description": "You gain a +5 competence bonus on Appraise and Search checks. This extraordinary adaptation is always active. At 13th level, the adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Cone of fire",
+              "description": "Your dragon-shaman breath weapon uses a cone and deals fire damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "cone",
+              "energy": "fire"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Fire",
+              "description": "You are immune to fire damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "fire"
+            }
+          ]
+        },
+        "Silver": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Bluff",
+            "Disguise",
+            "Jump"
+          ],
+          "acceptableAlignments": [
+            "NG",
+            "LG",
+            "LN"
+          ],
+          "breathWeapon": {
+            "shape": "cone",
+            "energy": "cold"
+          },
+          "description": "Totem class skills: Bluff, Disguise, Jump. Breath weapon: cone of cold. At 3rd level gain Feather Fall; at 9th level gain immunity to cold.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Feather Fall",
+              "description": "You can use feather fall on yourself as a spell-like ability at will. Caster level equals your dragon-shaman level. At 13th level, the adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "actionType": "At will"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Cone of cold",
+              "description": "Your dragon-shaman breath weapon uses a cone and deals cold damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "cone",
+              "energy": "cold"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Cold",
+              "description": "You are immune to cold damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "cold"
+            }
+          ]
+        },
+        "White": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+          "classSkills": [
+            "Hide",
+            "Move Silently",
+            "Swim"
+          ],
+          "acceptableAlignments": [
+            "NE",
+            "CE",
+            "CN"
+          ],
+          "breathWeapon": {
+            "shape": "cone",
+            "energy": "cold"
+          },
+          "description": "Totem class skills: Hide, Move Silently, Swim. Breath weapon: cone of cold. At 3rd level gain Icewalker; at 9th level gain immunity to cold.",
+          "effects": [
+            {
+              "level": 3,
+              "name": "Draconic Adaptation · Icewalker",
+              "description": "You can walk across icy surfaces without reducing your speed or making Balance checks. This extraordinary adaptation is always active. At 13th level, the adaptation-sharing rule can extend it to allies.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html"
+            },
+            {
+              "level": 4,
+              "name": "Totem Breath · Cone of cold",
+              "description": "Your dragon-shaman breath weapon uses a cone and deals cold damage; its damage, save DC, recharge, and range scale using the Dragon Shaman Breath Weapon feature.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "shape": "cone",
+              "energy": "cold"
+            },
+            {
+              "level": 9,
+              "name": "Energy Immunity · Cold",
+              "description": "You are immune to cold damage, the energy type of your chosen totem dragon's breath weapon.",
+              "sourceUrl": "https://srd.dndtools.org/srd/classes/basePhb2/dragonShaman.html",
+              "energy": "cold"
+            }
+          ]
+        }
+      }
     },
     {
       "name": "Skill Focus",
@@ -441,7 +887,15 @@
         16
       ],
       "description": "At 2nd, 8th, and 16th level, gain Skill Focus tied to one of the three class skills granted by your chosen totem dragon. Each selection should use a different totem-granted skill; if all three are already covered, the source permits another dragon-shaman class skill.",
-      "sourceSha256": "db974b74baf3aa7d9ac06065749b0104d63f8743c53c72ba32c0624cc451c697"
+      "sourceSha256": "db974b74baf3aa7d9ac06065749b0104d63f8743c53c72ba32c0624cc451c697",
+      "choiceOptionsFromFeatureMechanic": {
+        "feature": "Totem Dragon",
+        "field": "classSkills",
+        "prefix": "Skill Focus",
+        "excludeOwned": true,
+        "fallback": "classSkills"
+      },
+      "uniqueChoices": true
     },
     {
       "name": "Draconic Adaptation",
@@ -2240,7 +2694,69 @@
       },
       "description": "Each time your minor-auras-known count increases, choose another minor aura. A minor aura lets affected allies add your Charisma bonus to the source-listed category of rolls. You know 1 minor aura at 1st level and eventually 8 at 19th level.",
       "sourceSha256": "6284f4abbbde17a06e3af7f4d2920812e8138b68762b8a853673700747efca96",
-      "uniqueChoices": true
+      "uniqueChoices": true,
+      "choiceOptionMechanics": {
+        "Accurate Strike": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) to rolls made to confirm critical hits."
+        },
+        "Art of War": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on disarm, trip, bull rush, and sunder attempts."
+        },
+        "Demand Fortitude": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on Fortitude saves."
+        },
+        "Determined Caster": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on rolls to overcome spell resistance."
+        },
+        "Force of Will": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on Will saves."
+        },
+        "Master of Opportunity": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) to Armor Class against attacks of opportunity."
+        },
+        "Master of Tactics": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on damage rolls when flanking."
+        },
+        "Motivate Charisma": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on Charisma checks and Charisma-based skill checks."
+        },
+        "Motivate Constitution": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on Constitution checks and Constitution-based skill checks."
+        },
+        "Motivate Dexterity": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on Dexterity checks, Dexterity-based skill checks, and initiative checks."
+        },
+        "Motivate Intelligence": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on Intelligence checks and Intelligence-based skill checks."
+        },
+        "Motivate Strength": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on Strength checks and Strength-based skill checks."
+        },
+        "Motivate Wisdom": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on Wisdom checks and Wisdom-based skill checks."
+        },
+        "Over the Top": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on damage rolls when charging."
+        },
+        "Watchful Eye": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies add your Charisma bonus (if any) on Reflex saves."
+        }
+      }
     },
     {
       "name": "Major Aura",
@@ -2302,7 +2818,37 @@
       },
       "description": "Each time your major-auras-known count increases, choose another major aura. The major aura bonus is +1 at 2nd level, +2 at 7th, +3 at 14th, and +4 at 20th. You know 1 major aura at 2nd level and eventually 5 at 20th level.",
       "sourceSha256": "00b25007528636030495be2eaa87918bf60c754d74c3f563a47948f1ddf347f5",
-      "uniqueChoices": true
+      "uniqueChoices": true,
+      "choiceOptionMechanics": {
+        "Hardy Soldiers": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies gain damage reduction X/-, where X is your current major-aura bonus (+1 at 2nd level, +2 at 7th, +3 at 14th, +4 at 20th)."
+        },
+        "Motivate Ardor": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies gain a circumstance bonus on damage rolls equal to your current major-aura bonus."
+        },
+        "Motivate Attack": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies gain a circumstance bonus on melee attack rolls equal to your current major-aura bonus."
+        },
+        "Motivate Care": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies gain a circumstance bonus to Armor Class equal to your current major-aura bonus."
+        },
+        "Motivate Urgency": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies increase base land speed by 5 feet × your current major-aura bonus."
+        },
+        "Resilient Troops": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies gain a circumstance bonus on all saving throws equal to your current major-aura bonus."
+        },
+        "Steady Hand": {
+          "sourceUrl": "https://srd.dndtools.org/srd/classes/baseMh/marshal.html",
+          "description": "Affected allies gain a circumstance bonus on ranged attack rolls equal to your current major-aura bonus."
+        }
+      }
     },
     {
       "name": "Skill Focus (Diplomacy)",
@@ -2316,7 +2862,19 @@
       "level": 4,
       "actionType": "Standard action",
       "description": "As a standard action, grant an immediate extra move action to any or all allies within 30 feet, but not yourself. Uses increase from 1/day at 4th level to 2/day at 8th, 3/day at 12th, 4/day at 16th, and 5/day at 20th. A creature can benefit from only one such extra move action in a round.",
-      "sourceSha256": "62ba91a91511da08653e90626f7c5b656d087ee7e030b3ca24b20422813d1db1"
+      "sourceSha256": "62ba91a91511da08653e90626f7c5b656d087ee7e030b3ca24b20422813d1db1",
+      "resource": {
+        "maxByLevel": {
+          "4": 1,
+          "8": 2,
+          "12": 3,
+          "16": 4,
+          "20": 5
+        },
+        "reset": "long",
+        "unit": "uses",
+        "recoveryText": "Grant Move Action uses refresh with the character's daily recovery."
+      }
     }
   ],
   "classes/monk-94": [
