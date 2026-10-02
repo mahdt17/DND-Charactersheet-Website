@@ -3938,6 +3938,81 @@
       "sourceSha256": "9877e43fd6b4113e13ff5a520f9f2f12aa9a978c852ba93939d07ac400edac16"
     },
     {
+      "name": "Shugenja Order",
+      "level": 1,
+      "choiceKind": "source",
+      "choiceLevels": [
+        1
+      ],
+      "choiceOptionsByLevel": {
+        "1": [
+          "Order of the All-Seeing Eye",
+          "Order of the Consuming Flame",
+          "Order of the Forbidding Wasteland",
+          "Order of the Gentle Rain",
+          "Order of the Impenetrable Crucible",
+          "Order of the Ineffable Mystery",
+          "Order of the Perfect Sculpture",
+          "Order of the Spring Zephyr"
+        ]
+      },
+      "choiceOptionMechanics": {
+        "Order of the All-Seeing Eye": {
+          "allowedElements": [
+            "Air"
+          ],
+          "description": "This order specializes in air magic, so Air is the normal favored element."
+        },
+        "Order of the Consuming Flame": {
+          "allowedElements": [
+            "Fire"
+          ],
+          "description": "This order specializes in fire magic, so Fire is the normal favored element."
+        },
+        "Order of the Forbidding Wasteland": {
+          "allowedElements": [
+            "Water"
+          ],
+          "description": "This order specializes in water magic, so Water is the normal favored element."
+        },
+        "Order of the Gentle Rain": {
+          "allowedElements": [
+            "Water"
+          ],
+          "description": "This order specializes in water magic, so Water is the normal favored element."
+        },
+        "Order of the Impenetrable Crucible": {
+          "allowedElements": [
+            "Earth"
+          ],
+          "description": "This order specializes in earth magic, so Earth is the normal favored element."
+        },
+        "Order of the Ineffable Mystery": {
+          "allowedElements": [
+            "Air",
+            "Earth",
+            "Fire",
+            "Water"
+          ],
+          "description": "This order can specialize in any of the four ordinary elements. The source also describes a special Void tradition, which requires separate source review rather than being inferred as an ordinary element."
+        },
+        "Order of the Perfect Sculpture": {
+          "allowedElements": [
+            "Earth"
+          ],
+          "description": "This order specializes in earth magic, so Earth is the normal favored element."
+        },
+        "Order of the Spring Zephyr": {
+          "allowedElements": [
+            "Air"
+          ],
+          "description": "This order specializes in air magic, so Air is the normal favored element."
+        }
+      },
+      "description": "Choose a Shugenja Order at 1st level. The order fixes the order spell learned at every spell level and usually determines the favored element; the Order of the Ineffable Mystery can use any of the four ordinary elements and also has the source's special Void tradition.",
+      "sourceUrl": "https://new.dndtools.org/classes/shugenja-8"
+    },
+    {
       "name": "Element Focus",
       "level": 1,
       "choiceKind": "source",
@@ -3952,8 +4027,12 @@
           "Water"
         ]
       },
-      "description": "Choose air, earth, fire, or water as your favored element. At least half the non-order spells you know at each spell level must belong to that element, and you gain the source's Spell Focus benefit for spells of the favored element regardless of school. Air prohibits earth, earth prohibits air, fire prohibits water, and water prohibits fire. The source describes Void as a special Order of the Ineffable Mystery exception rather than a general choice.",
-      "sourceSha256": "2e58b4f707cae90d603cd0b5efe0e721eb88f30e203217a0766f1f9ec9af4251"
+      "description": "Choose air, earth, fire, or water as your favored element, subject to your Shugenja Order. At least half the non-order spells you know at each spell level must belong to that element, and you gain the source's Spell Focus benefit for spells of the favored element regardless of school. Air prohibits earth, earth prohibits air, fire prohibits water, and water prohibits fire. The Order of the Ineffable Mystery can use any of the four ordinary elements; Void remains the source's special exception rather than a normal elemental-list choice.",
+      "sourceSha256": "2e58b4f707cae90d603cd0b5efe0e721eb88f30e203217a0766f1f9ec9af4251",
+      "choiceOptionsFromFeatureMechanic": {
+        "feature": "Shugenja Order",
+        "field": "allowedElements"
+      }
     },
     {
       "name": "Sense Elements",
@@ -4733,8 +4812,26 @@
         15,
         18
       ],
-      "description": "At 3rd level and at 9th, 12th, 15th, and 18th level, select one spell you know and permanently apply one of Enlarge Spell, Extend Spell, Still Spell, or Silent Spell to that spell without increasing its spell level. Record the spell and applied modification together; the same spell may receive different secrets more than once.",
-      "sourceSha256": "bf3131127033c8c614bea9fa090e591822015ba15dfad8ab9a9ef2d9647f67f2"
+      "description": "At 3rd level and at 9th, 12th, 15th, and 18th level, choose one spell you know and permanently apply Enlarge Spell, Extend Spell, Still Spell, or Silent Spell without increasing its spell level. The same spell may be chosen again only for a different modification; the spell and modification cannot later be changed, and you do not need to know the applied metamagic feat.",
+      "sourceSha256": "bf3131127033c8c614bea9fa090e591822015ba15dfad8ab9a9ef2d9647f67f2",
+      "choiceParts": [
+        {
+          "id": "spell",
+          "label": "Known Wu Jen spell",
+          "source": "owned-class-spells"
+        },
+        {
+          "id": "secret",
+          "label": "Permanent modification",
+          "options": [
+            "Enlarge Spell",
+            "Extend Spell",
+            "Still Spell",
+            "Silent Spell"
+          ]
+        }
+      ],
+      "uniqueChoiceCombination": true
     },
     {
       "name": "Elemental Mastery",
@@ -4753,7 +4850,44 @@
         ]
       },
       "description": "At 6th level, choose earth, fire, metal, water, or wood. Spells of the mastered element use an effective caster level 2 higher for level-dependent variables and caster-level checks, and you gain +2 on saving throws against spells of that element. Spells marked All benefit from any elemental mastery.",
-      "sourceSha256": "26f658836c243ea75a70a330e6dbf76c3e0d3dbe5bfd8e74315d65195b9a3594"
+      "sourceSha256": "26f658836c243ea75a70a330e6dbf76c3e0d3dbe5bfd8e74315d65195b9a3594",
+      "choiceOptionMechanics": {
+        "Earth": {
+          "description": "Mastery of Earth: Wu Jen spells of this element use an effective caster level 2 higher for level-dependent variables and caster-level checks, and you gain a +2 competence bonus on saves against spells of this element. Wu Jen spells marked All also benefit.",
+          "spellElement": "Earth",
+          "casterLevelBonus": 2,
+          "saveBonus": 2,
+          "saveBonusType": "competence"
+        },
+        "Fire": {
+          "description": "Mastery of Fire: Wu Jen spells of this element use an effective caster level 2 higher for level-dependent variables and caster-level checks, and you gain a +2 competence bonus on saves against spells of this element. Wu Jen spells marked All also benefit.",
+          "spellElement": "Fire",
+          "casterLevelBonus": 2,
+          "saveBonus": 2,
+          "saveBonusType": "competence"
+        },
+        "Metal": {
+          "description": "Mastery of Metal: Wu Jen spells of this element use an effective caster level 2 higher for level-dependent variables and caster-level checks, and you gain a +2 competence bonus on saves against spells of this element. Wu Jen spells marked All also benefit.",
+          "spellElement": "Metal",
+          "casterLevelBonus": 2,
+          "saveBonus": 2,
+          "saveBonusType": "competence"
+        },
+        "Water": {
+          "description": "Mastery of Water: Wu Jen spells of this element use an effective caster level 2 higher for level-dependent variables and caster-level checks, and you gain a +2 competence bonus on saves against spells of this element. Wu Jen spells marked All also benefit.",
+          "spellElement": "Water",
+          "casterLevelBonus": 2,
+          "saveBonus": 2,
+          "saveBonusType": "competence"
+        },
+        "Wood": {
+          "description": "Mastery of Wood: Wu Jen spells of this element use an effective caster level 2 higher for level-dependent variables and caster-level checks, and you gain a +2 competence bonus on saves against spells of this element. Wu Jen spells marked All also benefit.",
+          "spellElement": "Wood",
+          "casterLevelBonus": 2,
+          "saveBonus": 2,
+          "saveBonusType": "competence"
+        }
+      }
     },
     {
       "name": "Spellbooks",

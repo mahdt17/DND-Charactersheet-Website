@@ -650,3 +650,34 @@ assert.equal(learnedGrant.source,'Warmage · Advanced Learning');
 
 assert.equal(skillNames.length,18);
 console.log('PASS Expertise milestones and eligibility, Lore skill dependencies, Life training, class languages, 3.5 source-choice prompts, multiclass attribution, preserved choices, duplicates and manual combinations');
+
+
+const shugenjaChoiceClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/shugenja-8'),choiceReference35);
+const shugenjaChoice1=companionChoiceBase(shugenjaChoiceClass35,1);
+const shugenjaChoicePlan=featureChoicePlan(shugenjaChoice1,null);
+const shugenjaOrderGroup=shugenjaChoicePlan.groups.find(group=>group.label==='Shugenja Order');
+const shugenjaElementGroup=shugenjaChoicePlan.groups.find(group=>group.label==='Element Focus');
+assert(shugenjaOrderGroup&&shugenjaElementGroup,'Shugenja exposes Order and Element Focus as guided source choices');
+const consumingPicks={[shugenjaOrderGroup.id]:['Order of the Consuming Flame']};
+const consumingPlan=featureChoicePlan(shugenjaChoice1,null,consumingPicks);
+const consumingElement=consumingPlan.groups.find(group=>group.label==='Element Focus');
+assert.deepEqual(consumingElement.options,['Fire'],'Shugenja Order drives the legal favored element before spell acquisition');
+const validShugenja=applyFeatureChoices(shugenjaChoice1,null,{...consumingPicks,[consumingElement.id]:['Fire']});
+assert(Object.values(validShugenja.featureChoices).some(choice=>choice.feature==='Shugenja Order'&&choice.choices[0]==='Order of the Consuming Flame'));
+assert.throws(()=>applyFeatureChoices(shugenjaChoice1,null,{...consumingPicks,[consumingElement.id]:['Water']}),/Complete/,'order-incompatible Shugenja elements are rejected');
+const mysteryPlan=featureChoicePlan(shugenjaChoice1,null,{[shugenjaOrderGroup.id]:['Order of the Ineffable Mystery']});
+assert.deepEqual(mysteryPlan.groups.find(group=>group.label==='Element Focus').options,['Air','Earth','Fire','Water']);
+
+const wuJenChoiceClass35=annotateClassGrantKinds(choiceClasses35.find(record=>record.sourceId==='classes/wu-jen-6'),choiceReference35);
+const wuJen3=companionChoiceBase(wuJenChoiceClass35,3);
+wuJen3.spells=[
+  {id:'wu-magic-missile',catalogId:'spell:magic-missile',name:'Magic Missile',level:1,castingClassId:wuJenChoiceClass35.catalogId},
+  {id:'wu-fire-shuriken',catalogId:'spell:fire-shuriken',name:'Fire Shuriken',level:2,castingClassId:wuJenChoiceClass35.catalogId}
+];
+const wuJen3Plan=featureChoicePlan(wuJen3,{...wuJen3,level:2,classLevels:[{...wuJen3.classLevels[0],level:2}]});
+const spellSecretGroup=wuJen3Plan.groups.find(group=>group.label==='Spell Secret');
+assert.equal(spellSecretGroup?.kind,'source-choice-parts');
+assert.deepEqual(spellSecretGroup.choiceParts[0].options,['Fire Shuriken','Magic Missile']);
+assert.deepEqual(spellSecretGroup.choiceParts[1].options,['Enlarge Spell','Extend Spell','Still Spell','Silent Spell']);
+const wuJenSecretChosen=applyFeatureChoices(wuJen3,{...wuJen3,level:2,classLevels:[{...wuJen3.classLevels[0],level:2}]},{[spellSecretGroup.id]:['Magic Missile','Silent Spell']});
+assert(Object.values(wuJenSecretChosen.featureChoices).some(choice=>choice.feature==='Spell Secret'&&choice.choices.join('|')==='Magic Missile|Silent Spell'));

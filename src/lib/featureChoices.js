@@ -30,7 +30,13 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
   };
   for(const row of rows.filter(item=>item.edition==='3.5')) {
     const oldLevel=oldRows.find(item=>item.catalogId===row.catalogId)?.level||0;
-    const features=(current.grantedFeatures||[]).filter(feature=>feature.sourceClassId===row.catalogId&&feature.kind==='choice');
+    const sourceFeatures=(current.grantedFeatures||[]).filter(feature=>feature.sourceClassId===row.catalogId&&feature.kind==='choice');
+    const features=[...sourceFeatures].sort((a,b)=>{
+      const aDriver=norm(a?.choiceOptionsFromFeatureMechanic?.feature),bDriver=norm(b?.choiceOptionsFromFeatureMechanic?.feature);
+      if(aDriver&&aDriver===norm(b?.name))return 1;
+      if(bDriver&&bDriver===norm(a?.name))return -1;
+      return Number(a?.sourceClassLevel||a?.level||0)-Number(b?.sourceClassLevel||b?.level||0);
+    });
     for(const feature of features) {
       const events=(Array.isArray(feature.choiceLevels)&&feature.choiceLevels.length
         ?feature.choiceLevels.map(level=>({level,text:feature.name}))
@@ -75,6 +81,35 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           options=options.filter(value=>!already.has(norm(value)));
         }
         const choiceKind=feature.choiceKind||'source';
+        if(Array.isArray(feature.choiceParts)&&feature.choiceParts.length){
+          const existing=patch.featureChoices[id];
+          if(existing)continue;
+          const raw=Array.isArray(picks[id])?picks[id]:picks[id]?[picks[id]]:[];
+          const selected=raw.map(value=>String(value||'').trim());
+          const choiceParts=feature.choiceParts.map(part=>{
+            let partOptions=(part.options||[]).map(value=>String(value));
+            if(part.source==='owned-class-spells'){
+              partOptions=(current.spells||[])
+                .filter(spell=>!spell?.auto&&(!spell?.castingClassId||spell.castingClassId===row.catalogId))
+                .map(spell=>String(spell?.name||'').trim()).filter(Boolean)
+                .filter((value,index,array)=>array.findIndex(other=>norm(other)===norm(value))===index)
+                .sort((a,b)=>a.localeCompare(b));
+            }
+            return {...part,options:partOptions};
+          });
+          const priorCombinations=Object.values(patch.featureChoices||{})
+            .filter(choice=>choice?.sourceClassId===row.catalogId&&norm(choice?.feature)===norm(feature.name))
+            .map(choice=>(choice.choices||[]).map(value=>norm(value)).join('|'));
+          const selectedKey=selected.map(value=>norm(value)).join('|');
+          const valid=selected.length===choiceParts.length
+            &&choiceParts.every((part,index)=>selected[index]&&part.options.includes(selected[index]))
+            &&(!feature.uniqueChoiceCombination||!priorCombinations.includes(selectedKey));
+          const detail=String(feature.description||'').trim();
+          const sourceText=detail?(norm(detail).includes(norm(feature.name))?detail:`${feature.name}: ${detail}`):(event.text||feature.name);
+          groups.push({id,level,kind:'source-choice-parts',choiceKind,count:choiceParts.length,required:choiceParts.length,label:feature.name,className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,sourceText,sourceUrl:feature.sourceUrl,choiceParts,selected,valid});
+          if(valid)patch.featureChoices[id]={className:row.name,classId:row.catalogId,sourceClassId:row.catalogId,edition:'3.5',level,feature:feature.name,choices:[...selected],sourceText,choiceKind};
+          continue;
+        }
         if(feature.companionProfileId&&feature.companionChoiceRequired!==false){
           const contribution={...(feature.companionContribution||{mode:'full'}),level:row.level};
           const effectiveCompanionLevel=companionEffectiveLevel35([contribution],0);
