@@ -42,7 +42,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   const acquisitionPrereqsComplete=!acquisitionRequiredLabels.size||[...acquisitionRequiredLabels].every(label=>acquisitionRequiredGroups.some(group=>group.label===label&&group.valid));
   const acquisitionTarget=managedAcquisition?{...acquisitionFeatureBase,featureChoices:{...(acquisitionFeatureBase.featureChoices||{}),...(acquisitionFeaturePlan?.patch?.featureChoices||{})}}:null;
   const acquisitionEvents=managedAcquisition&&acquisitionPrereqsComplete?spellAcquisitionEvents35(acquisitionTarget,{classId:acquisitionClassId,previousClassLevel:char.level,targetClassLevel:target}):[];
-  const candidates=(managedAcquisition?spellAcquisitionCandidates35(acquisitionTarget,acquisitionClassId,allReference):permittedSpells(draft,allReference)).filter(s=>managedAcquisition||!spellAccess(draft,s).alwaysPrepared&&!current.some(c=>keyOf(c)===keyOf(s)));
+  const candidates=(managedAcquisition?spellAcquisitionCandidates35(acquisitionTarget,acquisitionClassId,allReference):permittedSpells(draft,allReference)).filter(s=>managedAcquisition?!current.some(c=>keyOf(c)===keyOf(s)):!spellAccess(draft,s).alwaysPrepared&&!current.some(c=>keyOf(c)===keyOf(s)));
   const acquisitionLegalIds=new Set(candidates.map(keyOf));
   const cantripGain=managedAcquisition?0:manual?Infinity:Math.max(0,counts.cantrips-current.filter(s=>s.level===0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);
   const spellGain=managedAcquisition?0:manual?Infinity:Math.max(0,(counts.mode==='spellbook'||counts.mode==='known'?counts.known:counts.prepared||0)-current.filter(s=>s.level>0&&!s.auto&&!spellAccess(draft,s).alwaysPrepared).length);

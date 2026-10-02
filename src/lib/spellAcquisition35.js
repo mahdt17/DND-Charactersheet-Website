@@ -129,6 +129,10 @@ function sourceSpellNameKeys(value){
   if(prefix)keys.add(norm(prefix[2]+', '+prefix[1]));
   return keys;
 }
+export function shugenjaOrderSpellMatches35(spell,sourceName){
+  const spellKeys=sourceSpellNameKeys(spell?.name),sourceKeys=sourceSpellNameKeys(sourceName);
+  return [...spellKeys].some(key=>sourceKeys.has(key));
+}
 export function shugenjaSpellElement35(spell){
   const level=Number(spell?.level),keys=sourceSpellNameKeys(spell?.name);
   const match=(shugenjaData.spellElements||[]).find(row=>Number(row.level)===level&&[...sourceSpellNameKeys(row.name)].some(key=>keys.has(key)));
@@ -138,7 +142,7 @@ export function spellAcquisitionCandidates35(character,classId,spells=[]){
   const profile=spellAcquisitionProfile35(classId);
   if(!profile)return [];
   const context=profile.id==='shugenja-35'?shugenjaContext(character,classId):null;
-  const orderNames=new Set(context?.order?Object.values(shugenjaData.orders?.[context.order]||{}).flatMap(sourceSpellNameKeys):[]);
+  const orderNames=new Set(context?.order?Object.values(shugenjaData.orders?.[context.order]||{}).flatMap(name=>[...sourceSpellNameKeys(name)]):[]);
   return (Array.isArray(spells)?spells:[]).filter(spell=>{
     if(spell?.edition&&spell.edition!=='3.5')return false;
     if(spellMatchesProfileList(profile,spell))return true;
@@ -265,6 +269,40 @@ export function spellAcquisitionEvents35(character,{classId,previousClassLevel=0
       events.push(...partitionedKnownEventsForLevel(character,exactClassId,profile.id,profile,classLevel));
       continue;
     }
+    if(profile.kind==='partitioned-known'){
+      const context=shugenjaContext(character,classId),classLevel=Math.max(1,Number(row.level)||1);
+      if(!context.order)reasons.push('Shugenja Order is not recorded.');
+      if(!context.focus)reasons.push('Shugenja Element Focus is not recorded.');
+      if(context.focus&&context.allowed.length&&!context.allowed.includes(context.focus))reasons.push('The selected Shugenja Order does not allow the recorded favored element.');
+      const active=acquisitions.filter(item=>item.active!==false&&item.affectsQuota!==false);
+      const byLevel=new Map();
+      for(const acquisition of active){
+        const spellLevel=Number(acquisition.spellLevel);
+        if(!byLevel.has(spellLevel))byLevel.set(spellLevel,[]);
+        byLevel.get(spellLevel).push(acquisition);
+        if(acquisition.origin==='order-spell'){
+          const expected=shugenjaData.orders?.[context.order]?.[String(spellLevel)]||'';
+          if(!expected||!shugenjaOrderSpellMatches35(acquisition.spell,expected))reasons.push((acquisition.spellName||acquisition.spellKey)+' does not match the selected Shugenja Order spell at level '+spellLevel+'.');
+          continue;
+        }
+        const element=shugenjaSpellElement35(acquisition.spell);
+        if(!element)reasons.push((acquisition.spellName||acquisition.spellKey)+' is missing reviewed Shugenja elemental classification.');
+        else if(context.prohibited&&element===context.prohibited)reasons.push((acquisition.spellName||acquisition.spellKey)+' belongs to the prohibited Shugenja element '+context.prohibited+'.');
+      }
+      for(const [spellLevel,levelAcquisitions] of byLevel){
+        const rule=profile.partitionedKnownTable?.[String(classLevel)]?.[String(spellLevel)];
+        if(!rule){reasons.push('Shugenja known-spell level '+spellLevel+' is not available at class level '+classLevel+'.');continue;}
+        const discretionary=levelAcquisitions.filter(item=>item.origin!=='order-spell');
+        const expectedDiscretionary=Number(rule.favored||0)+Number(rule.unrestricted||0);
+        if(discretionary.length>expectedDiscretionary)reasons.push('Shugenja known-spell quota exceeded at spell level '+spellLevel+': '+discretionary.length+' discretionary spells owned, '+expectedDiscretionary+' allowed.');
+        if(discretionary.length>=expectedDiscretionary){
+          const favored=discretionary.filter(item=>['All',context.focus].includes(shugenjaSpellElement35(item.spell))).length;
+          if(favored<Number(rule.favored||0))reasons.push('Shugenja favored-element quota is not met at spell level '+spellLevel+': '+favored+' favored, '+Number(rule.favored||0)+' required.');
+        }
+        const orderEntries=levelAcquisitions.filter(item=>item.origin==='order-spell');
+        if(orderEntries.length>Number(rule.order||0))reasons.push('Too many Shugenja Order spells are recorded at spell level '+spellLevel+'.');
+      }
+    }
     if(profile.kind==='flex-known'){
       events.push(...flexKnownEventsForLevel(character,exactClassId,profile.id,profile,classLevel));
       continue;
@@ -328,6 +366,22 @@ export function validateSpellReplacement35(character,event,{removedSpellKey,adde
   const profile=profileData(event.profileId);
   if(profile&&!spellMatchesProfileList(profile,addedSpell))return {valid:false,reason:'The replacement spell is not on this class spell list.'};
   if(acquisitions.some(item=>item?.active!==false&&String(item.spellKey||'')===addedKey))return {valid:false,reason:'This class already knows that spell.'};
+  if(event.profileId==='shugenja-35'){
+    if(removed.origin==='order-spell')return {valid:false,reason:'A Shugenja Order spell is fixed by the selected Order and cannot be replaced.'};
+    const context=shugenjaContext(character,event.classId);
+    if(!context.focus||!context.order)return {valid:false,reason:'Choose the Shugenja Order and Element Focus before replacing spells.'};
+    if(context.allowed.length&&!context.allowed.includes(context.focus))return {valid:false,reason:'The selected Shugenja Order does not allow that favored element.'};
+    const addedElement=shugenjaSpellElement35(addedSpell);
+    if(!addedElement)return {valid:false,reason:'This Shugenja spell is missing reviewed elemental classification.'};
+    if(context.prohibited&&addedElement===context.prohibited)return {valid:false,reason:'A Shugenja cannot learn a replacement spell from the prohibited element.'};
+    const classLevel=Math.max(1,Number(event.classLevel)||Number(bucket?.classLevel)||1);
+    const requiredFavored=Number(profile?.partitionedKnownTable?.[String(classLevel)]?.[String(addedLevel)]?.favored||0);
+    const remaining=acquisitions.filter(item=>item?.active!==false&&item.affectsQuota!==false&&item.origin!=='order-spell'
+      &&String(item.spellKey||'')!==String(removedSpellKey||'')&&Number(item.spellLevel)===addedLevel);
+    const favoredAfter=remaining.filter(item=>['All',context.focus].includes(shugenjaSpellElement35(item.spell))).length
+      +(['All',context.focus].includes(addedElement)?1:0);
+    if(favoredAfter<requiredFavored)return {valid:false,reason:'The replacement would violate the Shugenja favored-element spell quota.'};
+  }
   return {valid:true,removed,addedSpellKey:addedKey,spellLevel:addedLevel};
 }
 

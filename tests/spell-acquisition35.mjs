@@ -22,7 +22,9 @@ const {
   restSpellAcquisition35,
   spellAcquisitionCandidates35,
   spellbookCampaignSpellCandidates35,
-  recordSpellbookCampaignAcquisition35
+  recordSpellbookCampaignAcquisition35,
+  shugenjaOrderSpellMatches35,
+  validateSpellReplacement35
 } = engine;
 
 assert.equal(SPELL_ACQUISITION35_VERSION, 1);
@@ -1012,3 +1014,45 @@ assert(activeAcquiredSpells35(wuJenCampaignAdded,wuJenId).some(row=>row.spellNam
 assert.throws(()=>recordSpellbookCampaignAcquisition35(wuJenCampaignAdded,wuJenId,wuJenCampaignSpell,{
   confirmed:true,origin:'copied-spellbook',sourceNote:'Duplicate copy'
 }),/already.*spellbook/i);
+
+
+assert(shugenjaOrderSpellMatches35({name:'Lesser Restoration'},'Restoration, Lesser'),'Shugenja source-name variants resolve the same fixed Order spell');
+
+const shugenja4Replacement={
+  ...shugenjaCandidateCharacter,
+  level:4,
+  classLevels:[{catalogId:shugenjaId,name:'Shugenja',edition:'3.5',level:4}],
+  spellAcquisition35:{
+    [shugenjaId]:{
+      profileId:'shugenja-35',classId:shugenjaId,classLevel:4,active:true,orphaned:false,replacements:[],campaignEntries:[],
+      acquisitions:[
+        {id:'sh-o',spellKey:'spell:flare',spellName:'Flare',spellLevel:0,origin:'order-spell',active:true,affectsQuota:true,spell:spell('spell:flare','Flare',0,['Shugenja'])},
+        {id:'sh-f1',spellKey:'spell:dancing-lights',spellName:'Dancing Lights',spellLevel:0,origin:'favored-known',active:true,affectsQuota:true,spell:spell('spell:dancing-lights','Dancing Lights',0,['Shugenja'])},
+        {id:'sh-f2',spellKey:'spell:disrupt-undead',spellName:'Disrupt Undead',spellLevel:0,origin:'favored-known',active:true,affectsQuota:true,spell:spell('spell:disrupt-undead','Disrupt Undead',0,['Shugenja'])},
+        {id:'sh-f3',spellKey:'spell:light',spellName:'Light',spellLevel:0,origin:'favored-known',active:true,affectsQuota:true,spell:spell('spell:light','Light',0,['Shugenja'])},
+        {id:'sh-u1',spellKey:'spell:detect-magic',spellName:'Detect Magic',spellLevel:0,origin:'unrestricted-known',active:true,affectsQuota:true,spell:spell('spell:detect-magic','Detect Magic',0,['Shugenja'],'Divination')},
+        {id:'sh-u2',spellKey:'spell:read-magic',spellName:'Read Magic',spellLevel:0,origin:'unrestricted-known',active:true,affectsQuota:true,spell:spell('spell:read-magic','Read Magic',0,['Shugenja'],'Divination')},
+        {id:'sh-u3',spellKey:'spell:mage-hand',spellName:'Mage Hand',spellLevel:0,origin:'unrestricted-known',active:true,affectsQuota:true,spell:spell('spell:mage-hand','Mage Hand',0,['Shugenja'],'Transmutation')}
+      ]
+    }
+  }
+};
+const shugenja4ReplacementEvent=spellAcquisitionEvents35(shugenja4Replacement,{classId:shugenjaId,previousClassLevel:3,targetClassLevel:4}).find(event=>event.kind==='optional-replacement');
+assert(shugenja4ReplacementEvent,'Shugenja level 4 offers its source-defined replacement');
+assert.equal(validateSpellReplacement35(shugenja4Replacement,shugenja4ReplacementEvent,{removedSpellKey:'spell:flare',addedSpell:spell('spell:ghost-sound','Ghost Sound',0,['Shugenja'],'Illusion')}).valid,false,'fixed Order spells cannot be replaced');
+assert.match(validateSpellReplacement35(shugenja4Replacement,shugenja4ReplacementEvent,{removedSpellKey:'spell:mage-hand',addedSpell:spell('spell:create-water','Create Water',0,['Shugenja'],'Conjuration')}).reason,/prohibited element/i);
+assert.match(validateSpellReplacement35(shugenja4Replacement,shugenja4ReplacementEvent,{removedSpellKey:'spell:dancing-lights',addedSpell:spell('spell:resistance','Resistance',0,['Shugenja'],'Abjuration')}).reason,/favored-element.*quota/i);
+assert.equal(validateSpellReplacement35(shugenja4Replacement,shugenja4ReplacementEvent,{removedSpellKey:'spell:mage-hand',addedSpell:spell('spell:guidance','Guidance',0,['Shugenja'],'Divination')}).valid,true,'a legal same-level replacement that preserves Element Focus remains available');
+
+const malformedShugenja={
+  ...shugenja4Replacement,
+  spellAcquisition35:{
+    [shugenjaId]:{
+      ...shugenja4Replacement.spellAcquisition35[shugenjaId],
+      acquisitions:shugenja4Replacement.spellAcquisition35[shugenjaId].acquisitions.map(item=>item.id==='sh-f1'
+        ?{...item,spellKey:'spell:resistance',spellName:'Resistance',origin:'replacement',spell:spell('spell:resistance','Resistance',0,['Shugenja'],'Abjuration')}
+        :item)
+    }
+  }
+};
+assert(reconcileSpellAcquisition35(malformedShugenja).spellAcquisition35[shugenjaId].incompleteReasons.some(reason=>/favored-element quota/i.test(reason)),'reconciliation catches malformed Shugenja saves that no longer honor Element Focus');

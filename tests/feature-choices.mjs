@@ -683,8 +683,8 @@ wuJenChoice3.spells=[
   {id:'wu-magic-missile',catalogId:'spell:magic-missile',name:'Magic Missile',level:1,castingClassId:wuJenChoiceClass35.catalogId},
   {id:'wu-fire-shuriken',catalogId:'spell:fire-shuriken',name:'Fire Shuriken',level:2,castingClassId:wuJenChoiceClass35.catalogId}
 ];
-const wuJen3Plan=featureChoicePlan(wuJenChoice3,{...wuJenChoice3,level:2,classLevels:[{...wuJenChoice3.classLevels[0],level:2}]});
-const spellSecretGroup=wuJen3Plan.groups.find(group=>group.label==='Spell Secret');
+const wuJenChoice3Plan=featureChoicePlan(wuJenChoice3,{...wuJenChoice3,level:2,classLevels:[{...wuJenChoice3.classLevels[0],level:2}]});
+const spellSecretGroup=wuJenChoice3Plan.groups.find(group=>group.label==='Spell Secret');
 assert.equal(spellSecretGroup?.kind,'source-choice-parts');
 assert.deepEqual(spellSecretGroup.choiceParts[0].options,['Fire Shuriken','Magic Missile']);
 assert.deepEqual(spellSecretGroup.choiceParts[1].options,['Enlarge Spell','Extend Spell','Still Spell','Silent Spell']);

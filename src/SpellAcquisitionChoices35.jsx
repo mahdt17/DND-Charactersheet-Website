@@ -1,7 +1,7 @@
 import React from 'react';
 import SpellPicker from './EditionSpellPicker';
 import {keyOf} from './lib/editions';
-import {activeAcquiredSpells35,shugenjaSpellElement35} from './lib/spellAcquisition35';
+import {activeAcquiredSpells35,shugenjaSpellElement35,shugenjaOrderSpellMatches35,validateSpellReplacement35} from './lib/spellAcquisition35';
 
 export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},onChange,character=null}){
   if(!events.length)return null;
@@ -45,7 +45,7 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
         const levelSpells=spells.filter(spell=>Number(spell.level)===Number(event.spellLevel));
         const favoredLegal=levelSpells.filter(spell=>['All',event.favoredElement].includes(shugenjaSpellElement35(spell))&&(!used.has(keyOf(spell))||favored.includes(keyOf(spell))));
         const unrestrictedLegal=levelSpells.filter(spell=>shugenjaSpellElement35(spell)!==event.prohibitedElement&&(!used.has(keyOf(spell))||unrestricted.includes(keyOf(spell))));
-        const orderLegal=event.orderSpellName?levelSpells.filter(spell=>String(spell.name||'').toLowerCase().replace(/[’']/g,"'")===String(event.orderSpellName).toLowerCase().replace(/[’']/g,"'")):[];
+        const orderLegal=event.orderSpellName?levelSpells.filter(spell=>shugenjaOrderSpellMatches35(spell,event.orderSpellName)):[];
         const toggle=(field,selected,limit,spell)=>{
           const id=keyOf(spell),next=selected.includes(id)?selected.filter(x=>x!==id):selected.length<limit?[...selected,id]:selected;
           setPick(event,{...value,[field]:next});
@@ -129,12 +129,12 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
       }
       if(event.kind==='optional-replacement'){
         const value=picks[key]||{},owned=activeAcquiredSpells35(character,event.classId)
-          .filter(item=>item.affectsQuota!==false&&Number(item.spellLevel)<=Number(event.maxReplacementSpellLevel))
+          .filter(item=>item.affectsQuota!==false&&Number(item.spellLevel)<=Number(event.maxReplacementSpellLevel)&&(event.profileId!=='shugenja-35'||item.origin!=='order-spell'))
           .sort((a,b)=>Number(a.spellLevel)-Number(b.spellLevel)||String(a.spellName).localeCompare(String(b.spellName)));
         const removed=owned.find(item=>item.spellKey===value.removedSpellKey)||null;
         const alreadyOwned=new Set(activeAcquiredSpells35(character,event.classId).map(item=>item.spellKey));
         const selectedElsewhere=new Set(Object.entries(picks).filter(([id])=>id!==key).flatMap(([,pick])=>Array.isArray(pick)?pick:(Array.isArray(pick?.firstLevel)?pick.firstLevel:[])));
-        const replacements=removed?spells.filter(spell=>Number(spell.level)===Number(removed.spellLevel)&&!alreadyOwned.has(keyOf(spell))&&!selectedElsewhere.has(keyOf(spell))):[];
+        const replacements=removed?spells.filter(spell=>Number(spell.level)===Number(removed.spellLevel)&&!alreadyOwned.has(keyOf(spell))&&!selectedElsewhere.has(keyOf(spell))&&validateSpellReplacement35(character,event,{removedSpellKey:removed.spellKey,addedSpell:spell}).valid):[];
         const enabled=Boolean(value.enabled);
         return <section key={key} aria-label="Optional spell replacement" className="creation-section">
           <h4>Optional spell replacement</h4>
