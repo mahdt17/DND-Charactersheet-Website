@@ -40,6 +40,16 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
         const level=Number(event.level)||feature.sourceClassLevel||feature.level;
         const id=`3.5:${row.catalogId}:${level}:${feature.sourceFeatureId||feature.id}:${index}`;
         let options=(feature.choiceOptionsByLevel?.[String(level)]||feature.choiceOptions||[]).map(value=>String(value));
+        if(feature.choiceFromProficiencyId&&feature.choiceFeatPrefix){
+          const suffix=`:proficiency:${feature.choiceFromProficiencyId}`;
+          const linkedChoice=Object.entries(patch.featureChoices||{}).find(([choiceId,choice])=>
+            choice?.sourceClassId===row.catalogId&&choiceId.endsWith(suffix)
+          )?.[1];
+          const linkedValue=String(linkedChoice?.choices?.[0]||'').trim();
+          const linkedFeat=linkedValue?`${feature.choiceFeatPrefix} (${linkedValue})`:'';
+          const alreadyOwned=linkedFeat&&patch.feats.some(feat=>norm(feat?.name)===norm(linkedFeat));
+          options=linkedFeat&&!alreadyOwned?[linkedFeat]:[];
+        }
         if(feature.uniqueChoices){
           const already=new Set(Object.values(patch.featureChoices||{})
             .filter(choice=>choice?.sourceClassId===row.catalogId&&choice?.feature===feature.name)
