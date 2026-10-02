@@ -13,7 +13,16 @@ const abilityScore=(character,key)=>Math.max(0,Number(character?.abilities?.[key
 const modifier=score=>Math.floor((Number(score)-10)/2);
 const eventId=(classId,classLevel,kind,spellLevel)=>[classId,classLevel,kind,spellLevel??'all'].join(':');
 const spellKey=spell=>String(spell?.catalogId||spell?.spellKey||spell?.id||spell?.index||spell?.name||'').trim();
-const classNames=spell=>(Array.isArray(spell?.classes)?spell.classes:[]).map(x=>String(x?.name||x||'').trim().toLowerCase());
+const classNames=spell=>[
+  ...(Array.isArray(spell?.classes)?spell.classes:[]).map(x=>String(x?.name||x||'').trim().toLowerCase()),
+  ...Object.keys(spell?.classLevels||{}).map(x=>String(x||'').trim().toLowerCase())
+];
+const profileSpellLists=profile=>(Array.isArray(profile?.spellLists)&&profile.spellLists.length?profile.spellLists:[profile?.className]).map(x=>String(x||'').trim().toLowerCase()).filter(Boolean);
+const spellMatchesProfileList=(profile,spell)=>{
+  const listed=classNames(spell);
+  if(!listed.length)return true;
+  return profileSpellLists(profile).some(name=>listed.includes(name));
+};
 
 export function spellAcquisitionProfile35(classIdOrDefinition){
   const sourceId=classSourceId(classIdOrDefinition);
@@ -238,7 +247,7 @@ export function validateSpellReplacement35(character,event,{removedSpellKey,adde
   if(addedLevel!==Number(removed.spellLevel))return {valid:false,reason:'The replacement spell must be the same spell level.'};
   if(addedLevel>Number(event.maxReplacementSpellLevel))return {valid:false,reason:'The replacement spell level is too high for this class-level swap.'};
   const profile=profileData(event.profileId);
-  if(profile?.className&&!classNames(addedSpell).includes(String(profile.className).toLowerCase()))return {valid:false,reason:'The replacement spell is not on this class spell list.'};
+  if(profile&&!spellMatchesProfileList(profile,addedSpell))return {valid:false,reason:'The replacement spell is not on this class spell list.'};
   if(acquisitions.some(item=>item?.active!==false&&String(item.spellKey||'')===addedKey))return {valid:false,reason:'This class already knows that spell.'};
   return {valid:true,removed,addedSpellKey:addedKey,spellLevel:addedLevel};
 }
@@ -356,7 +365,7 @@ function validateEventSpells(event,spells,profile,{count=event.count,exactLevel=
     if(exactLevel!=null&&Number.isInteger(Number(exactLevel))&&level!==Number(exactLevel))throw Error('Choose spells of the required spell level.');
     if(Number.isInteger(Number(maxLevel))&&level>Number(maxLevel))throw Error('This spell level is not available for this acquisition.');
     if(profile?.spellAbility&&character&&abilityScore(character,profile.spellAbility)<10+level)throw Error('The character does not have the required ability score to acquire a spell of this level.');
-    if(profile?.className&&classNames(spell).length&&!classNames(spell).includes(String(profile.className).toLowerCase()))throw Error('Choose spells from the '+profile.className+' spell list.');
+    if(profile&&!spellMatchesProfileList(profile,spell))throw Error('Choose spells from the '+(profile.spellLists?.join('/')||profile.className)+' spell list.');
   }
 }
 export function applySpellAcquisitionEvent35(character,event,selection){
