@@ -1425,10 +1425,10 @@ const marshalChosen2=applyFeatureChoices(marshal2,null,{
 assert(marshalChosen2.grantedFeatures.some(feature=>feature.name==='Motivate Dexterity'&&/initiative/i.test(feature.description)),'selected minor aura materializes its exact effect');
 assert(marshalChosen2.grantedFeatures.some(feature=>feature.name==='Motivate Urgency'&&/5 feet/i.test(feature.description)),'selected major aura materializes its exact effect');
 
-const marshal20=reconcileClassGrants({...marshalChosen2,level:20,classLevels:[{...marshalChosen2.classLevels[0],level:20,definition:marshal35}]});
-assert.equal(marshal20.resources.find(resource=>resource.name==='Grant Move Action')?.max,5,'Marshal Grant Move Action scales to five daily uses at level 20');
-assert(marshal20.actions.some(action=>action.name==='Grant Move Action'&&/standard/i.test(action.type)),'Marshal Grant Move Action remains an explicit sheet action');
-assert.deepEqual(reconcileClassGrants(marshal20),marshal20,'Marshal aura/resource mechanics reconcile idempotently');
+const marshalChoice20=reconcileClassGrants({...marshalChosen2,level:20,classLevels:[{...marshalChosen2.classLevels[0],level:20,definition:marshal35}]});
+assert.equal(marshalChoice20.resources.find(resource=>resource.name==='Grant Move Action')?.max,5,'Marshal Grant Move Action scales to five daily uses at level 20');
+assert(marshalChoice20.actions.some(action=>action.name==='Grant Move Action'&&/standard/i.test(action.type)),'Marshal Grant Move Action remains an explicit sheet action');
+assert.deepEqual(reconcileClassGrants(marshalChoice20),marshalChoice20,'Marshal aura/resource mechanics reconcile idempotently');
 
 const dragonPlusMarshal=reconcileClassGrants(baseCharacter([
   {catalogId:marshal35.catalogId,name:'Marshal',edition:'3.5',level:2,definition:marshal35},
