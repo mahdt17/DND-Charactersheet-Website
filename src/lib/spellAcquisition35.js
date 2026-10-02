@@ -545,7 +545,7 @@ export function applySpellAcquisitionEvent35(character,event,selection){
     spells=[...cantrips,...firstLevel];
     if(spells.some(spell=>!spellMatchesProfileList(profile,spell)))throw Error('Choose spells from the '+(profile.spellLists?.join('/')||profile.className)+' spell list.');
     if(new Set(spells.map(spellKey)).size!==spells.length)throw Error('Wizard starting spellbook entries must be distinct.');
-    if(profile.id==='wizard-35'&&spells.some(spell=>isProhibitedWizardSpell(character,event.classId,{spell})))throw Error('A prohibited Wizard school spell cannot be added to the starting spellbook.');
+    if(event.profileId==='wizard-35'&&spells.some(spell=>isProhibitedWizardSpell(character,event.classId,{spell})))throw Error('A prohibited Wizard school spell cannot be added to the starting spellbook.');
     origin='starting';
     affectsQuota=false;
   }else throw Error('Unsupported spell acquisition event.');
