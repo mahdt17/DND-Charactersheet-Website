@@ -1,4 +1,4 @@
-import {characterClasses} from './advancement.js';
+import {characterClasses,requirements,qualified,contentKey} from './advancement.js';
 import {recordedTraining} from './training.js';
 import {reconcileClassGrants,spellSlotProgression} from './classIntegration.js';
 import {companionChoiceOptions35,companionEffectiveLevel35} from './companions35.js';
@@ -81,6 +81,16 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
           options=options.filter(value=>!already.has(norm(value)));
         }
         const choiceKind=feature.choiceKind||'source';
+        if(choiceKind==='feat'&&feature.choiceFeatType){
+          const requiredType=norm(feature.choiceFeatType),owned=new Set((patch.feats||[]).map(feat=>contentKey(feat)||norm(feat?.name)));
+          options=(context.feats||[])
+            .filter(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.featType)===requiredType)
+            .filter(feat=>!owned.has(contentKey(feat))&&!owned.has(norm(feat?.name)))
+            .filter(feat=>qualified(requirements(feat,current,feat.prerequisiteConfirmations||{})))
+            .map(feat=>String(feat.name||'').trim()).filter(Boolean)
+            .filter((name,index,array)=>array.findIndex(other=>norm(other)===norm(name))===index)
+            .sort((a,b)=>a.localeCompare(b));
+        }
         if(Array.isArray(feature.choiceParts)&&feature.choiceParts.length){
           const existing=patch.featureChoices[id];
           if(existing)continue;

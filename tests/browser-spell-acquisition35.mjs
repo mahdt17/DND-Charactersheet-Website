@@ -533,8 +533,8 @@ try{
   assert(!await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled(),'INT 15 Wu Jen requires five starting first-level spellbook choices');
   await next();
   await page.getByLabel('Wu Jen 1 Taboos: Cannot eat meat',{exact:true}).check();
-  const wuBonusFeat=page.getByLabel('Wu Jen 1 Bonus Feat choice',{exact:true});
-  if(await wuBonusFeat.count())await wuBonusFeat.fill('Extend Spell');
+  const wuBonusFeat=page.getByLabel('Wu Jen 1 Bonus Feat: Extend Spell',{exact:true});
+  await wuBonusFeat.waitFor();await wuBonusFeat.check();
   assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled());
   await page.getByRole('button',{name:'Create Character',exact:true}).click();
   await page.locator('.sheet-identity').filter({hasText:wuJenName}).waitFor();

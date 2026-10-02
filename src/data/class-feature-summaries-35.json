@@ -4799,7 +4799,8 @@
         1
       ],
       "description": "At 1st level, gain one bonus metamagic feat. The selected feat must actually be a metamagic feat and normal prerequisites still apply.",
-      "sourceSha256": "e2fc541ff6dd63f1f4da2951cffdbe2c69828d90d4bc401ae21b7a761cf34b5e"
+      "sourceSha256": "e2fc541ff6dd63f1f4da2951cffdbe2c69828d90d4bc401ae21b7a761cf34b5e",
+      "choiceFeatType": "Metamagic feat"
     },
     {
       "name": "Spell Secret",

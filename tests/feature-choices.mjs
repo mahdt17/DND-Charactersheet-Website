@@ -589,17 +589,19 @@ assert(Object.values(fireShugenja.featureChoices).some(choice=>choice.feature===
 
 const wuJenClass35={name:'Wu Jen',edition:'3.5',sourceId:'classes/wu-jen-6',catalogId:'dndtools:classes/wu-jen-6',sourceUrl:'https://new.dndtools.org/classes/wu-jen-6',progression:[['Level','Special'],['1st','Watchful spirit, bonus feat'],['3rd','Spell secret'],['6th','Elemental mastery']]};
 const wuJen1={...legacyChoice,className:'Wu Jen',classDefinition:wuJenClass35,classLevels:[{name:'Wu Jen',edition:'3.5',catalogId:wuJenClass35.catalogId,level:1,definition:wuJenClass35}],level:1};
-const wuJenPlan=featureChoicePlan(wuJen1,null);
+const wuJenPlan=featureChoicePlan(wuJen1,null,{}, {feats:choiceFeats35});
 const wuJenFeat=wuJenPlan.groups.find(group=>group.label==='Bonus Feat');
 const wuJenTaboo=wuJenPlan.groups.find(group=>group.label==='Taboos');
 assert.equal(wuJenFeat?.choiceKind,'feat');
+assert(wuJenFeat.options.includes('Empower Spell')&&wuJenFeat.options.includes('Extend Spell'),'Wu Jen Bonus Feat offers catalog metamagic feats');
+assert(!wuJenFeat.options.includes('Power Attack'),'Wu Jen Bonus Feat excludes non-metamagic feats');
 assert(wuJenTaboo?.options.includes('Cannot eat meat'));
-const wuJenChosen=applyFeatureChoices(wuJen1,null,{[wuJenFeat.id]:['Empower Spell'],[wuJenTaboo.id]:['Cannot eat meat']});
+const wuJenChosen=applyFeatureChoices(wuJen1,null,{[wuJenFeat.id]:['Empower Spell'],[wuJenTaboo.id]:['Cannot eat meat']},{feats:choiceFeats35});
 assert(wuJenChosen.feats.some(feat=>feat.name==='Empower Spell'&&feat.sourceType==='class-choice'));
 
 const wuJen3={...wuJenChosen,classLevels:[{...wuJen1.classLevels[0],level:3}],level:3};
 const wuJen2={...wuJenChosen,classLevels:[{...wuJen1.classLevels[0],level:2}],level:2};
-const wuJen3Plan=featureChoicePlan(wuJen3,wuJen2);
+const wuJen3Plan=featureChoicePlan(wuJen3,wuJen2,{}, {feats:choiceFeats35});
 const spellSecret=wuJen3Plan.groups.find(group=>group.label==='Spell Secret');
 const nextTaboo=wuJen3Plan.groups.find(group=>group.label==='Taboos');
 assert(spellSecret,'Wu Jen level 3 requests a Spell Secret');
@@ -607,7 +609,7 @@ assert(!nextTaboo.options.includes('Cannot eat meat'),'Wu Jen later taboos exclu
 
 const wuJen6={...wuJenChosen,classLevels:[{...wuJen1.classLevels[0],level:6}],level:6};
 const wuJen5={...wuJenChosen,classLevels:[{...wuJen1.classLevels[0],level:5}],level:5};
-const wuJen6Plan=featureChoicePlan(wuJen6,wuJen5);
+const wuJen6Plan=featureChoicePlan(wuJen6,wuJen5,{}, {feats:choiceFeats35});
 const mastery=wuJen6Plan.groups.find(group=>group.label==='Elemental Mastery');
 assert.deepEqual(mastery?.options,['Earth','Fire','Metal','Water','Wood']);
 const masteredFireWuJen=applyFeatureChoices(wuJen6,wuJen5,{[mastery.id]:['Fire']});
