@@ -5,6 +5,7 @@ import {createCatalogService} from '../src/lib/catalog.js';
 import {featureChoicePlan,applyFeatureChoices} from '../src/lib/featureChoices.js';
 import {validLegacyChoices,prohibitedSpell,restrictedCastingOptions} from '../src/lib/legacyCastingChoices.js';
 import {reconcileClassGrants,removeClassProgression,classAutomationReport,annotateClassGrantKinds,castingAdvancementPlan,castingAdvancementSelectionsValid,applyCastingAdvancementSelections,legacyClassSkillStatus} from '../src/lib/classIntegration.js';
+import {baseProgression,recalculateLegacyBaseProgression35} from '../src/lib/advancement.js';
 
 const baseCharacter=(classLevels,ruleset='3.5')=>({
   id:'test-character',name:'Automation Test',ruleset,mechanics:ruleset,level:classLevels.reduce((n,row)=>n+row.level,0),
@@ -970,6 +971,31 @@ assert.equal(genericExpertSheet.classAutomation.classes[0].proficiencyChoices.le
 const genericWarrior=annotateClassGrantKinds(classes35.find(item=>item.sourceId==='classes/warrior2-135'),reference35);
 const genericWarriorSheet=reconcileClassGrants(baseCharacter([{catalogId:genericWarrior.catalogId,name:genericWarrior.name,edition:'3.5',level:20,definition:genericWarrior}]));
 assert(genericWarriorSheet.classSkillRules35.length===1,'generic Warrior preserves dynamic class-skill rule');
+
+
+const genericExpertChoiceBase={...baseCharacter([{catalogId:genericExpert.catalogId,name:'Expert',edition:'3.5',level:1,definition:genericExpert}]),featureChoices:{}};
+const genericExpertSaveGroup=featureChoicePlan(genericExpertChoiceBase,null).groups.find(group=>group.label==='Base Save Bonuses');
+const genericExpertChosen=applyFeatureChoices(genericExpertChoiceBase,null,{[genericExpertSaveGroup.id]:['Fortitude','Reflex']});
+assert.deepEqual(baseProgression(genericExpert,1,genericExpertChosen,genericExpert.catalogId),{bab:0,fort:2,ref:2,will:0});
+assert.deepEqual(baseProgression(genericExpert,6,genericExpertChosen,genericExpert.catalogId),{bab:4,fort:5,ref:5,will:2});
+
+const genericWarriorChoiceBase={...baseCharacter([{catalogId:genericWarrior.catalogId,name:'Warrior',edition:'3.5',level:1,definition:genericWarrior}]),featureChoices:{}};
+const genericWarriorSaveGroup=featureChoicePlan(genericWarriorChoiceBase,null).groups.find(group=>group.label==='Base Save Bonuses');
+const genericWarriorChosen=applyFeatureChoices(genericWarriorChoiceBase,null,{[genericWarriorSaveGroup.id]:['Will']});
+assert.deepEqual(baseProgression(genericWarrior,1,genericWarriorChosen,genericWarrior.catalogId),{bab:1,fort:0,ref:0,will:2});
+assert.deepEqual(baseProgression(genericWarrior,6,genericWarriorChosen,genericWarrior.catalogId),{bab:6,fort:2,ref:2,will:5});
+
+const genericMulti=recalculateLegacyBaseProgression35({
+  ...genericExpertChosen,
+  className:'Expert',classDefinition:genericExpert,level:2,
+  classLevels:[
+    {catalogId:genericExpert.catalogId,name:'Expert',edition:'3.5',level:1,definition:genericExpert},
+    {catalogId:genericWarrior.catalogId,name:'Warrior',edition:'3.5',level:1,definition:genericWarrior}
+  ],
+  featureChoices:{...genericExpertChosen.featureChoices,...genericWarriorChosen.featureChoices}
+});
+assert.equal(genericMulti.bab,1,'generic Expert/Warrior multiclass BAB sums by class');
+assert.deepEqual(genericMulti.save35,{fort:2,ref:2,will:2},'generic Expert/Warrior save choices remain source-isolated and sum correctly');
 
 const warmage35=integrated35('Warmage');
 const warmage1=reconcileClassGrants(baseCharacter([{catalogId:warmage35.catalogId,name:'Warmage',edition:'3.5',level:1,definition:warmage35}]));
