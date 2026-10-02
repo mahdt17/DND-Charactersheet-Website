@@ -544,7 +544,7 @@ export function applySpellAcquisitionEvent35(character,event,selection){
       picked.push(...levelSpells);
     }
     if(new Set(picked.map(spellKey)).size!==picked.length)throw Error('Choose distinct spells for the daily retrieved repertoire.');
-    bucket.acquisitions=(bucket.acquisitions||[]).filter(item=>item.origin!=='daily-retrieval');
+    bucket.acquisitions=(bucket.acquisitions||[]).filter(item=>item.origin==='feat');
     for(const [index,spell] of picked.entries())bucket.acquisitions.push(acquisitionFromSpell(event,spell,{origin:'daily-retrieval',affectsQuota:false,ordinal:index}));
     bucket.dailyRetrievalReady=false;
     state[key]=bucket;
@@ -717,7 +717,7 @@ export function reconcileSpellAcquisition35(character){
     const reasons=[];
     let acquisitions=bucket.acquisitions||[];
     if(profile.kind==='daily-retrieval'&&bucket.dailyRetrievalReady===true){
-      acquisitions=acquisitions.filter(item=>item.origin!=='daily-retrieval');
+      acquisitions=acquisitions.filter(item=>item.origin==='feat');
     }
     if(profile.kind==='spellbook'&&profile.id==='wizard-35'){
       acquisitions=acquisitions.map(acquisition=>{
@@ -865,7 +865,7 @@ export function restSpellAcquisition35(character,rest='long'){
   for(const [key,bucket] of Object.entries(state)){
     const profile=profileData(bucket?.profileId);
     if(profile?.kind!=='daily-retrieval'||bucket?.active===false)continue;
-    bucket.acquisitions=(bucket.acquisitions||[]).filter(item=>item.origin!=='daily-retrieval');
+    bucket.acquisitions=(bucket.acquisitions||[]).filter(item=>item.origin==='feat');
     bucket.dailyRetrievalReady=true;
     state[key]=bucket;changed=true;
   }

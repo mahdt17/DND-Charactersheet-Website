@@ -981,6 +981,20 @@ const staleReadySpirit=reconcileSpellAcquisition35({
 assert.equal(activeAcquiredSpells35(staleReadySpirit,spiritId).length,0,'reconciliation cannot retain a stale daily repertoire once retrieval is ready');
 assert.equal(staleReadySpirit.spellAcquisition35[spiritId].acquisitions.filter(item=>item.origin==='daily-retrieval').length,0);
 
+const legacyStaleReadySpirit=reconcileSpellAcquisition35({
+  ...spiritApplied,
+  spellAcquisition35:{
+    ...spiritApplied.spellAcquisition35,
+    [spiritId]:{
+      ...spiritApplied.spellAcquisition35[spiritId],
+      dailyRetrievalReady:true,
+      acquisitions:spiritApplied.spellAcquisition35[spiritId].acquisitions.map((item,index)=>index===0?{...item,origin:'starting'}:item)
+    }
+  }
+});
+assert.equal(activeAcquiredSpells35(legacyStaleReadySpirit,spiritId).length,0,'ready daily-retrieval profiles clear stale class-owned repertoire entries regardless of legacy origin labels');
+
+
 assert.equal(
   spellAcquisitionEvents35(spiritRested,{classId:spiritId,previousClassLevel:1,targetClassLevel:1})
     .filter(event=>event.kind==='retrieve-daily-spells').length,
