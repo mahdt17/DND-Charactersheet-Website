@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "1ccbc5ad3d9a14b32ec66cf1c50c52838e06072e",
+  "snapshotCommit": "38932019ada42fe61c38647ae2a77c0b4040ab31",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -9874,25 +9874,28 @@
       "name": "Expert",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/expert2-124",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "The Unearthed Arcana generic class requires player-selected base save progressions that are not currently modeled as a persisted class choice."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery and Tavily extraction verified the exact Unearthed Arcana class page, level-20 progression, training, class-skill rule, and bonus-feat progression.",
-        "Repository search found reviewed Base Save Bonuses prose but no structured good-save/poor-save choice model in class integration, advancement, or guided setup."
+        "Repository search found reviewed Base Save Bonuses prose but no structured good-save/poor-save choice model in class integration, advancement, or guided setup.",
+        "2026-10-01 implemented a shared source-owned generic-class base-save choice: Unearthed Arcana Expert selects two good save progressions and Warrior selects one from Fortitude, Reflex, and Will; selections persist independently by exact class source.",
+        "The advancement engine now maps generic Good Save(s)/Poor Save(s) progression columns onto Fortitude/Reflex/Will from the persisted class choice during creation, later class levels, and multiclass recomputation without changing ordinary classes that already publish explicit Fort/Ref/Will columns.",
+        "Regression coverage verifies Expert level-1 and level-6 math, Warrior level-1 and level-6 math, exact-source Expert/Warrior multiclass accumulation, persistence, no repeated save prompt, and suppression of a redundant manual Class Skills prompt while retaining the existing dynamic class-skill rule.",
+        "End-to-end browser coverage creates a generic Warrior with Will as its good save, verifies base saves {fort:0, ref:0, will:2}, persists the exact source-owned selection, reopens the character, and confirms the same save totals.",
+        "Companion engine checks #128, Spell acquisition checks #103, and Validate modernization #1628 all passed at 38932019ada42fe61c38647ae2a77c0b4040ab31."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement and persist the generic-class base-save selection, apply it to progression, and add creation/level-up/save-reopen regressions before completion."
+      "verifiedCommit": "38932019ada42fe61c38647ae2a77c0b4040ab31",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36956703858",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared generic-class choice, advancement, or class-training behavior changes."
     },
     {
       "sourceId": "classes/extreme-explorer-437",
@@ -25056,25 +25059,28 @@
       "name": "Warrior",
       "sourceBook": "Base Class Unearthed Arcana",
       "sourceUrl": "https://new.dndtools.org/classes/warrior2-135",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "The Unearthed Arcana generic class requires player-selected base save progressions that are not currently modeled as a persisted class choice."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery and Tavily extraction verified the exact Unearthed Arcana class page, level-20 progression, training, class-skill rule, and bonus-feat progression.",
-        "Repository search found reviewed Base Save Bonuses prose but no structured good-save/poor-save choice model in class integration, advancement, or guided setup."
+        "Repository search found reviewed Base Save Bonuses prose but no structured good-save/poor-save choice model in class integration, advancement, or guided setup.",
+        "2026-10-01 implemented a shared source-owned generic-class base-save choice: Unearthed Arcana Expert selects two good save progressions and Warrior selects one from Fortitude, Reflex, and Will; selections persist independently by exact class source.",
+        "The advancement engine now maps generic Good Save(s)/Poor Save(s) progression columns onto Fortitude/Reflex/Will from the persisted class choice during creation, later class levels, and multiclass recomputation without changing ordinary classes that already publish explicit Fort/Ref/Will columns.",
+        "Regression coverage verifies Expert level-1 and level-6 math, Warrior level-1 and level-6 math, exact-source Expert/Warrior multiclass accumulation, persistence, no repeated save prompt, and suppression of a redundant manual Class Skills prompt while retaining the existing dynamic class-skill rule.",
+        "End-to-end browser coverage creates a generic Warrior with Will as its good save, verifies base saves {fort:0, ref:0, will:2}, persists the exact source-owned selection, reopens the character, and confirms the same save totals.",
+        "Companion engine checks #128, Spell acquisition checks #103, and Validate modernization #1628 all passed at 38932019ada42fe61c38647ae2a77c0b4040ab31."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement and persist the generic-class base-save selection, apply it to progression, and add creation/level-up/save-reopen regressions before completion."
+      "verifiedCommit": "38932019ada42fe61c38647ae2a77c0b4040ab31",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36956703858",
+      "nextAction": "Preserve as verified. Do not re-audit unless shared generic-class choice, advancement, or class-training behavior changes."
     },
     {
       "sourceId": "classes/warrior-of-darkness-179",
@@ -26118,5 +26124,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Favored Soul spell-acquisition and deity-weapon checkpoint recorded on green Spell acquisition checks #86, Companion engine checks #111, and Validate modernization #1611; classes/favored-soul-7 and classes/favored-soul-76 were promoted after their final structured spells-known/replacement and deity-favored-weapon blockers were closed."
+  "lastUpdatedNote": "Unearthed Arcana generic Expert/Warrior base-save checkpoint recorded on green Companion engine checks #128, Spell acquisition checks #103, and Validate modernization #1628; classes/expert2-124 and classes/warrior2-135 were promoted together after their shared persisted good-save/poor-save blocker was closed."
 }

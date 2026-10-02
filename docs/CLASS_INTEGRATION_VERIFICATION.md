@@ -589,3 +589,21 @@ Tracker impact: **69 complete, 633 needs-review, 1 source-conflict, 2 blocked,
 349 pending audit**. No Supabase schema, policy, catalog, or live character data
 was changed. Nothing was deployed or merged.
 
+## Unearthed Arcana generic Expert / Warrior base-save checkpoint (2026-10-01)
+
+Generic Expert and generic Warrior now share a structured source-owned save-progression choice rather than relying on unresolved `Good Save(s)` / `Poor Save(s)` table columns. Expert selects exactly two distinct good saves at first class level; Warrior selects exactly one. The available choices are Fortitude, Reflex, and Will, and the selected values persist through the existing 3.5 `featureChoices` model under the exact class source ID.
+
+The advancement engine resolves generic save columns only when a class table does not already provide explicit Fortitude, Reflex, and Will values. Selected saves receive the source table's good-save progression and the remaining saves receive the poor-save progression. This applies during creation, later class-level advancement, and multiclass recomputation, while ordinary 3.5 class progression remains unchanged.
+
+Regression coverage verifies Expert at levels 1 and 6, Warrior at levels 1 and 6, exact-source Expert/Warrior multiclass accumulation, persisted save choices, no re-prompt after completion, and an end-to-end Warrior creation/save/reopen flow with Will selected as the good save.
+
+Completion impact is limited to `classes/expert2-124` and `classes/warrior2-135`.
+
+Verification evidence:
+- implementation head: `38932019ada42fe61c38647ae2a77c0b4040ab31`
+- Companion engine checks #128: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36956703851
+- Spell acquisition checks #103: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36956703874
+- Validate modernization #1628: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36956703858
+
+Tracker impact: **71 complete, 631 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**. No Supabase or deployment changes were made.
+

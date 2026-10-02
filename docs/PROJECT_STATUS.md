@@ -331,3 +331,17 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Canonical tracker totals: **69 complete, 633 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
 
+## 2026-10-01 Unearthed Arcana generic Expert / Warrior base-save checkpoint
+
+- Verified implementation head: `38932019ada42fe61c38647ae2a77c0b4040ab31`.
+- Companion engine checks #128 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36956703851.
+- Spell acquisition checks #103 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36956703874.
+- Validate modernization #1628 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36956703858.
+- Added one reusable generic-class save progression path. Unearthed Arcana Expert chooses two good saves and Warrior chooses one from Fortitude, Reflex, and Will. The exact source-owned choice persists in `featureChoices`.
+- Generic `Good Save(s)` / `Poor Save(s)` progression columns now resolve through that persisted choice during creation, later levels, and multiclass recomputation. Classes with explicit Fortitude/Reflex/Will tables are unchanged.
+- Regression coverage verifies level-1 and level-6 Expert/Warrior save math, exact-source multiclass accumulation, no repeated save prompt, persistence, and save/reopen behavior.
+- The reviewed Class Skills prose no longer creates a redundant manual feature-choice prompt for these generic classes; their existing dynamic `classSkillRule` remains authoritative.
+- Promoted exactly `classes/expert2-124` and `classes/warrior2-135`.
+- Canonical tracker totals: **71 complete, 631 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+
