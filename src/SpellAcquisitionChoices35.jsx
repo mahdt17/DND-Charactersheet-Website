@@ -43,7 +43,7 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
         const value=picks[key]||{},favored=Array.isArray(value.favored)?value.favored:[],unrestricted=Array.isArray(value.unrestricted)?value.unrestricted:[];
         const used=new Set([...favored,...unrestricted,...(value.orderSpellId?[value.orderSpellId]:[])]);
         const levelSpells=spells.filter(spell=>Number(spell.level)===Number(event.spellLevel));
-        const favoredLegal=levelSpells.filter(spell=>['All',event.favoredElement].includes(shugenjaSpellElement35(spell))&&(!used.has(keyOf(spell))||favored.includes(keyOf(spell))));
+        const favoredLegal=levelSpells.filter(spell=>shugenjaSpellElement35(spell)===event.favoredElement&&(!used.has(keyOf(spell))||favored.includes(keyOf(spell)));
         const unrestrictedLegal=levelSpells.filter(spell=>shugenjaSpellElement35(spell)!==event.prohibitedElement&&(!used.has(keyOf(spell))||unrestricted.includes(keyOf(spell))));
         const orderLegal=event.orderSpellName?levelSpells.filter(spell=>shugenjaOrderSpellMatches35(spell,event.orderSpellName)):[];
         const toggle=(field,selected,limit,spell)=>{

@@ -296,7 +296,7 @@ export function spellAcquisitionEvents35(character,{classId,previousClassLevel=0
         const expectedDiscretionary=Number(rule.favored||0)+Number(rule.unrestricted||0);
         if(discretionary.length>expectedDiscretionary)reasons.push('Shugenja known-spell quota exceeded at spell level '+spellLevel+': '+discretionary.length+' discretionary spells owned, '+expectedDiscretionary+' allowed.');
         if(discretionary.length>=expectedDiscretionary){
-          const favored=discretionary.filter(item=>['All',context.focus].includes(shugenjaSpellElement35(item.spell))).length;
+          const favored=discretionary.filter(item=>shugenjaSpellElement35(item.spell)===context.focus).length;
           if(favored<Number(rule.favored||0))reasons.push('Shugenja favored-element quota is not met at spell level '+spellLevel+': '+favored+' favored, '+Number(rule.favored||0)+' required.');
         }
         const orderEntries=levelAcquisitions.filter(item=>item.origin==='order-spell');
@@ -378,8 +378,8 @@ export function validateSpellReplacement35(character,event,{removedSpellKey,adde
     const requiredFavored=Number(profile?.partitionedKnownTable?.[String(classLevel)]?.[String(addedLevel)]?.favored||0);
     const remaining=acquisitions.filter(item=>item?.active!==false&&item.affectsQuota!==false&&item.origin!=='order-spell'
       &&String(item.spellKey||'')!==String(removedSpellKey||'')&&Number(item.spellLevel)===addedLevel);
-    const favoredAfter=remaining.filter(item=>['All',context.focus].includes(shugenjaSpellElement35(item.spell))).length
-      +(['All',context.focus].includes(addedElement)?1:0);
+    const favoredAfter=remaining.filter(item=>shugenjaSpellElement35(item.spell)===context.focus).length
+      +(addedElement===context.focus?1:0);
     if(favoredAfter<requiredFavored)return {valid:false,reason:'The replacement would violate the Shugenja favored-element spell quota.'};
   }
   return {valid:true,removed,addedSpellKey:addedKey,spellLevel:addedLevel};
@@ -550,7 +550,7 @@ export function applySpellAcquisitionEvent35(character,event,selection){
     validateEventSpells(event,unrestricted,profile,{count:event.unrestrictedCount,exactLevel:event.spellLevel,character});
     for(const spell of favored){
       const element=shugenjaSpellElement35(spell);
-      if(element!==context.focus&&element!=='All')throw Error('Choose favored-element Shugenja spells for the favored spell quota.');
+      if(element!==context.focus)throw Error('Choose spells of the Shugenja favored element for the favored spell quota.');
     }
     for(const spell of unrestricted){
       const element=shugenjaSpellElement35(spell);
