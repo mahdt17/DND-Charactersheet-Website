@@ -31,7 +31,8 @@ for(const edition of ['2014','2024']) {
  assert.deepEqual(featureChoicePlan({...c,classDefinition:{name:'Rogue',edition,source:'Homebrew'}}).groups,[]);
 }
 
-const genericClasses=await service.load('3.5/classes');
+const genericService=createCatalogService({fetcher:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile('public'+url,'utf8'))})});
+const genericClasses=await genericService.load('3.5/classes');
 const genericReference=[...genericClasses];
 const genericExpert=annotateClassGrantKinds(genericClasses.find(record=>record.sourceId==='classes/expert2-124'),genericReference);
 const genericWarrior=annotateClassGrantKinds(genericClasses.find(record=>record.sourceId==='classes/warrior2-135'),genericReference);
