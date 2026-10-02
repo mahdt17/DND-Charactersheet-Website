@@ -1282,7 +1282,18 @@
       "name": "Base Save Bonuses",
       "level": 1,
       "description": "Use two good save progressions and one poor save progression, as defined by the generic Expert class.",
-      "sourceSha256": "92a0d753fb1077e1798124b92ee330440ef2dd09883cadd81ccb6340d87ff671"
+      "sourceSha256": "92a0d753fb1077e1798124b92ee330440ef2dd09883cadd81ccb6340d87ff671",
+      "choiceKind": "source",
+      "choiceLevels": [
+        1
+      ],
+      "choiceOptions": [
+        "Fortitude",
+        "Reflex",
+        "Will"
+      ],
+      "choiceCount": 2,
+      "uniqueChoices": true
     },
     {
       "name": "Class Skills",
@@ -3947,7 +3958,18 @@
       "name": "Base Save Bonuses",
       "level": 1,
       "description": "Use one good save progression and two poor save progressions, as defined by the generic Warrior class.",
-      "sourceSha256": "6e2da9fb8d204ca60c37e565422f7b0cfad02aa65e8d5df46a3a993731623b7e"
+      "sourceSha256": "6e2da9fb8d204ca60c37e565422f7b0cfad02aa65e8d5df46a3a993731623b7e",
+      "choiceKind": "source",
+      "choiceLevels": [
+        1
+      ],
+      "choiceOptions": [
+        "Fortitude",
+        "Reflex",
+        "Will"
+      ],
+      "choiceCount": 1,
+      "uniqueChoices": true
     },
     {
       "name": "Class Skills",
