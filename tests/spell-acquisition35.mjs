@@ -18,7 +18,8 @@ const {
   activeAcquiredSpells35,
   spellAcquisitionPicksComplete35,
   wizardCampaignSpellCandidates35,
-  recordWizardCampaignAcquisition35
+  recordWizardCampaignAcquisition35,
+  restSpellAcquisition35
 } = engine;
 
 assert.equal(SPELL_ACQUISITION35_VERSION, 1);
@@ -887,3 +888,97 @@ const favoredSoulReadded=reconcileSpellAcquisition35({
 assert(favoredSoulReadded.spells.some(row=>row.name==='Bless'),'re-adding the exact Favored Soul source restores compatible known spells');
 
 console.log('PASS Favored Soul source-equivalent known-spell acquisition, Cleric-list eligibility, replacement timing, and archival');
+
+
+// Shared Complete Divine / Complete Arcane acquisition cohort.
+const shugenjaId='dndtools:classes/shugenja-8';
+const shugenjaProfile=spellAcquisitionProfile35(shugenjaId);
+assert.equal(shugenjaProfile?.kind,'partitioned-known','Shugenja uses the shared partitioned-known acquisition mode');
+assert.deepEqual(shugenjaProfile?.requiredFeatureChoices,['Element Focus','Shugenja Order']);
+
+const shugenja1={
+  ...baseCharacter('classes/shugenja-8','Shugenja',1,18),
+  featureChoices:{
+    focus:{sourceClassId:shugenjaId,feature:'Element Focus',choiceKind:'source',choices:['Fire'],level:1},
+    order:{sourceClassId:shugenjaId,feature:'Shugenja Order',choiceKind:'source',choices:['Order of the Consuming Flame'],level:1}
+  }
+};
+const shugenjaStart=spellAcquisitionEvents35(shugenja1,{classId:shugenjaId,previousClassLevel:0,targetClassLevel:1});
+assert.deepEqual(
+  shugenjaStart.filter(event=>event.kind==='choose-partitioned-known-spells').map(event=>[
+    event.spellLevel,event.favoredCount,event.unrestrictedCount,event.orderSpellName
+  ]),
+  [[0,2,2,'Flare'],[1,1,1,'Burning Hands']],
+  'Shugenja level 1 separates fixed order, favored-element and unrestricted known-spell picks'
+);
+const sh0=shugenjaStart.find(event=>event.kind==='choose-partitioned-known-spells'&&event.spellLevel===0);
+const shFire=[
+  spell('spell:dancing-lights','Dancing Lights',0,['Shugenja']),
+  spell('spell:disrupt-undead','Disrupt Undead',0,['Shugenja'])
+];
+const shOpen=[
+  spell('spell:detect-magic','Detect Magic',0,['Shugenja'],'Divination'),
+  spell('spell:guidance','Guidance',0,['Shugenja'],'Divination')
+];
+const shOrder=spell('spell:flare','Flare',0,['Shugenja']);
+const shApplied=applySpellAcquisitionEvent35(shugenja1,sh0,{favored:shFire,unrestricted:shOpen,orderSpell:shOrder});
+assert.equal(activeAcquiredSpells35(shApplied,shugenjaId).length,5);
+assert.equal(activeAcquiredSpells35(shApplied,shugenjaId).filter(x=>x.origin==='order-spell').length,1);
+assert.throws(()=>applySpellAcquisitionEvent35(shugenja1,sh0,{
+  favored:shFire,
+  unrestricted:[spell('spell:create-water','Create Water',0,['Shugenja']),shOpen[0]],
+  orderSpell:shOrder
+}),/prohibited element/i,'Fire-focused Shugenja cannot learn Water spells even in unrestricted picks');
+
+const spiritId='dndtools:classes/spirit-shaman-9';
+const spiritProfile=spellAcquisitionProfile35(spiritId);
+assert.equal(spiritProfile?.kind,'daily-retrieval','Spirit Shaman uses the shared daily-retrieval mode');
+const spirit1={
+  ...baseCharacter('classes/spirit-shaman-9','Spirit Shaman',1,18),
+  abilities:{str:10,dex:10,con:10,int:10,wis:18,cha:16}
+};
+const spiritStart=spellAcquisitionEvents35(spirit1,{classId:spiritId,previousClassLevel:0,targetClassLevel:1});
+const retrieve=spiritStart.find(event=>event.kind==='retrieve-daily-spells');
+assert.deepEqual(retrieve?.limits,{0:3,1:1});
+const druidRetrieved={
+  0:[
+    spell('spell:detect-magic-druid','Detect Magic',0,['Druid'],'Divination'),
+    spell('spell:guidance-druid','Guidance',0,['Druid'],'Divination'),
+    spell('spell:light-druid','Light',0,['Druid'])
+  ],
+  1:[spell('spell:entangle','Entangle',1,['Druid'],'Transmutation')]
+};
+const spiritApplied=applySpellAcquisitionEvent35(spirit1,retrieve,{byLevel:druidRetrieved});
+assert.equal(activeAcquiredSpells35(spiritApplied,spiritId).length,4);
+assert.equal(spiritApplied.spellAcquisition35[spiritId].dailyRetrievalReady,false);
+const spiritRested=restSpellAcquisition35(spiritApplied,'long');
+assert.equal(spiritRested.spellAcquisition35[spiritId].dailyRetrievalReady,true);
+assert.equal(activeAcquiredSpells35(spiritRested,spiritId).length,0,'daily recovery clears yesterday’s retrieved repertoire');
+assert.equal(
+  spellAcquisitionEvents35(spiritRested,{classId:spiritId,previousClassLevel:1,targetClassLevel:1})
+    .filter(event=>event.kind==='retrieve-daily-spells').length,
+  1,
+  'after daily recovery Spirit Shaman can retrieve a fresh repertoire'
+);
+
+const wuJenId='dndtools:classes/wu-jen-6';
+const wuJenProfile=spellAcquisitionProfile35(wuJenId);
+assert.equal(wuJenProfile?.kind,'spellbook','Wu Jen reuses the generic spellbook acquisition mode');
+const wuJen1={
+  ...baseCharacter('classes/wu-jen-6','Wu Jen',1,10),
+  abilities:{str:10,dex:10,con:10,int:18,wis:10,cha:10}
+};
+const wuJenStart=spellAcquisitionEvents35(wuJen1,{classId:wuJenId,previousClassLevel:0,targetClassLevel:1});
+assert.equal(wuJenStart.length,1);
+assert.equal(wuJenStart[0].kind,'wizard-starting-spellbook');
+assert.equal(wuJenStart[0].firstLevelChoices,7,'Wu Jen starts with 3 + Intelligence bonus first-level spells');
+assert.equal(wuJenStart[0].automaticCantrips,true);
+const wuJen2={...wuJen1,level:2,classLevels:[{catalogId:wuJenId,name:'Wu Jen',edition:'3.5',level:2}]};
+assert.deepEqual(
+  spellAcquisitionEvents35(wuJen2,{classId:wuJenId,previousClassLevel:1,targetClassLevel:2})
+    .filter(event=>event.kind==='wizard-free-spellbook-additions').map(event=>event.count),
+  [2],
+  'Wu Jen gains two free spellbook additions at each new Wu Jen level'
+);
+
+console.log('PASS Shugenja partitioned known spells, Spirit Shaman daily retrieval, and Wu Jen shared spellbook acquisition');

@@ -21,7 +21,7 @@ try{
  const prepare=(c,choices,daily=true)=>({...c,...p.prepareLegacySpells(c,pools(c),choices,c.spells,x=>e.spellAccess(c,x),{daily})});
  const cast=(c,s,pool,level)=>({...c,...p.spendPreparedSpell(c,s,pools(c),{pool,level},x=>e.spellAccess(c,x))});
  let w=make('Wizard');w.spells=['Magic Missile','Mage Armor','Detect Magic'].map(spell);const [missile,armor,detect]=w.spells,wid=l.legacyChoiceKey(w);
- assert(p.usesLegacyPreparation(w));assert(!p.usesLegacyPreparation({...w,ruleset:'2014',classDefinition:{edition:'2014'}}));assert(!p.usesLegacyPreparation(make('Sorcerer')));
+ assert(p.usesLegacyPreparation(w));assert(p.usesLegacyPreparation(make('Wu Jen')),'Wu Jen prepares spells per slot like a Wizard');assert(!p.usesLegacyPreparation({...w,ruleset:'2014',classDefinition:{edition:'2014'}}));assert(!p.usesLegacyPreparation(make('Sorcerer')));
  assert.deepEqual(options({...w,spells:[{...missile,prepared:true}]},missile),[],'Old prepared booleans cannot bypass copy counts');
  w=prepare(w,{'standard:1:0':missile.id,'standard:1:1':missile.id,'standard:2:0':missile.id,'standard:0:0':detect.id});
  assert.deepEqual(options(w,missile),[{pool:'standard',level:1,remaining:2},{pool:'standard',level:2,remaining:1}]);
