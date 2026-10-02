@@ -38,6 +38,7 @@ async function begin35(name,classId,className,{cha15=false,int15=false,wis15=fal
 async function selectSpellIn(picker,name){
   await picker.getByPlaceholder('Search by name…').fill(name);
   const button=picker.getByRole('button',{name:new RegExp('^Select '+name)}).first();
+  await button.waitFor();
   assert.equal(await button.count(),1,'Expected legal acquisition option '+name);
   await button.click();
   await picker.getByPlaceholder('Search by name…').fill('');
@@ -47,6 +48,7 @@ async function selectSpell(pickerLabel,name){
   const picker=page.getByRole('region',{name:pickerLabel,exact:true});
   await picker.getByPlaceholder('Search by name…').fill(name);
   const button=picker.getByRole('button',{name:new RegExp('^Select '+name)}).first();
+  await button.waitFor();
   assert.equal(await button.count(),1,'Expected legal acquisition option '+name);
   await button.click();
   await picker.getByPlaceholder('Search by name…').fill('');
