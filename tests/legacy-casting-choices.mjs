@@ -19,7 +19,7 @@ try{
  assert(!l.validLegacyChoices({...pelorCleric,legacyCastingChoices:{[id]:{deity:'Pelor',domains:['Fire','Healing']}}}),'known deity blocks domains it does not grant');
  assert(!l.validLegacyChoices({...pelorCleric,alignment:'Lawful Evil'}),'cleric alignment must remain within one step of the chosen deity');
  assert(l.validLegacyChoices({...cleric,alignment:'Neutral',legacyCastingChoices:{[id]:{domains:['Fire','Healing']}}}),'deityless cleric may choose compatible spiritual domains');
- const cloistered=make('Cloistered Cleric'),cid=l.legacyChoiceKey(cloistered),cloisteredConfigured={...cloistered,legacyCastingChoices:{[cid]:{deity:'Boccob',domains:['Magic','Trickery']}}};
+ const cloisteredDefinition=normalizeCatalogRecord(classes.find(c=>c.id==='classes/cloistered-cleric-120'),'dndtools','classes'),cloistered={ruleset:'3.5',className:'Cloistered Cleric',classDefinition:cloisteredDefinition,level:5,abilities:{int:18,wis:18,cha:14},spells:[],feats:[]},cid=l.legacyChoiceKey(cloistered),cloisteredConfigured={...cloistered,legacyCastingChoices:{[cid]:{deity:'Boccob',domains:['Magic','Trickery']}}};
  assert(l.validLegacyChoices(cloisteredConfigured));
  assert.deepEqual(l.selectedDomains35(cloisteredConfigured).map(d=>d.name),['Magic','Trickery','Knowledge'],'Cloistered Cleric automatically adds Knowledge after its two normal domains');
  assert(!l.availableDomains35(cloisteredConfigured).some(d=>d.name==='Knowledge'),'Cloistered Cleric cannot spend one of its two normal domain picks on Knowledge');
