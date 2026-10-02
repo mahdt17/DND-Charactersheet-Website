@@ -19,7 +19,10 @@ const {
   spellAcquisitionPicksComplete35,
   wizardCampaignSpellCandidates35,
   recordWizardCampaignAcquisition35,
-  restSpellAcquisition35
+  restSpellAcquisition35,
+  spellAcquisitionCandidates35,
+  spellbookCampaignSpellCandidates35,
+  recordSpellbookCampaignAcquisition35
 } = engine;
 
 assert.equal(SPELL_ACQUISITION35_VERSION, 1);
@@ -982,3 +985,30 @@ assert.deepEqual(
 );
 
 console.log('PASS Shugenja partitioned known spells, Spirit Shaman daily retrieval, and Wu Jen shared spellbook acquisition');
+
+
+const shugenjaCandidatePool=[
+  spell('spell:sh-fire','Dancing Lights',0,['Shugenja']),
+  spell('spell:order-fireball','Fireball',4,['Wizard']),
+  spell('spell:unrelated','Magic Missile',1,['Wizard'])
+];
+const shugenjaCandidateCharacter={
+  ...shugenja1,
+  featureChoices:{
+    ...shugenja1.featureChoices,
+    order:{sourceClassId:shugenjaId,feature:'Shugenja Order',choices:['Order of the Consuming Flame'],level:1}
+  }
+};
+const shugenjaCandidates=spellAcquisitionCandidates35(shugenjaCandidateCharacter,shugenjaId,shugenjaCandidatePool);
+assert(shugenjaCandidates.some(row=>row.name==='Fireball'),'fixed Shugenja Order spells are legal acquisition candidates even when outside the native Shugenja list');
+assert(!shugenjaCandidates.some(row=>row.name==='Magic Missile'),'unrelated off-list spells remain excluded');
+
+const wuJenCampaignSpell=spell('spell:wu-campaign','Magic Weapon',1,['Wu Jen'],'Transmutation');
+assert(spellbookCampaignSpellCandidates35(wuJen1,wuJenId,[wuJenCampaignSpell]).some(row=>row.name==='Magic Weapon'));
+const wuJenCampaignAdded=recordSpellbookCampaignAcquisition35(wuJen1,wuJenId,wuJenCampaignSpell,{
+  confirmed:true,origin:'copied-spellbook',sourceNote:'Copied from a recovered spellbook'
+});
+assert(activeAcquiredSpells35(wuJenCampaignAdded,wuJenId).some(row=>row.spellName==='Magic Weapon'),'Wu Jen campaign spellbook additions persist through the generic spellbook path');
+assert.throws(()=>recordSpellbookCampaignAcquisition35(wuJenCampaignAdded,wuJenId,wuJenCampaignSpell,{
+  confirmed:true,origin:'copied-spellbook',sourceNote:'Duplicate copy'
+}),/already.*spellbook/i);

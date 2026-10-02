@@ -384,6 +384,7 @@ assert(spiritGuideChoice,'Spirit Shaman requests its reviewed spirit-guide form'
 assert(spiritGuideChoice.options.includes('Wolf')&&spiritGuideChoice.options.includes('Owl'));
 const spiritGuided=applyFeatureChoices(spiritShamanChoice35,null,{[spiritGuideChoice.id]:['Wolf']});
 assert(Object.values(spiritGuided.featureChoices).some(choice=>choice.feature==='Spirit Guide'&&choice.choices?.[0]==='Wolf'));
+assert(spiritGuided.feats?.some(feat=>feat.name==='Alertness'&&feat.sourceClassId===spiritShamanClass35.catalogId),'Spirit Guide automatically grants source-owned Alertness');
 
 const psychicWarriorClass35={name:'Psychic Warrior',edition:'3.5',sourceId:'classes/psychic-warrior-138',catalogId:'dndtools:classes/psychic-warrior-138',sourceUrl:'https://new.dndtools.org/classes/psychic-warrior-138',progression:[['Class Level','Special'],['1st','Bonus feat'],['2nd','Bonus feat'],['5th','Bonus feat']]};
 const psychicWarriorChoice35={...legacyChoice,className:'Psychic Warrior',classDefinition:psychicWarriorClass35,classLevels:[{name:'Psychic Warrior',edition:'3.5',catalogId:psychicWarriorClass35.catalogId,level:2,definition:psychicWarriorClass35}],level:2};
@@ -577,9 +578,12 @@ assert(secondResistance.options.includes('Cold'));
 const shugenjaClass35={name:'Shugenja',edition:'3.5',sourceId:'classes/shugenja-8',catalogId:'dndtools:classes/shugenja-8',sourceUrl:'https://new.dndtools.org/classes/shugenja-8',progression:[['Level','Special'],['1st','Elemental focus, sense elements']]};
 const shugenja1={...legacyChoice,className:'Shugenja',classDefinition:shugenjaClass35,classLevels:[{name:'Shugenja',edition:'3.5',catalogId:shugenjaClass35.catalogId,level:1,definition:shugenjaClass35}],level:1};
 const shugenjaPlan=featureChoicePlan(shugenja1,null);
-const elementFocus=shugenjaPlan.groups.find(group=>group.label==='Element Focus');
-assert.deepEqual(elementFocus?.options,['Air','Earth','Fire','Water']);
-const fireShugenja=applyFeatureChoices(shugenja1,null,{[elementFocus.id]:['Fire']});
+const shugenjaOrder=shugenjaPlan.groups.find(group=>group.label==='Shugenja Order');
+assert(shugenjaOrder?.options.includes('Order of the Consuming Flame'));
+const shugenjaOrderedPlan=featureChoicePlan(shugenja1,null,{[shugenjaOrder.id]:['Order of the Consuming Flame']});
+const elementFocus=shugenjaOrderedPlan.groups.find(group=>group.label==='Element Focus');
+assert.deepEqual(elementFocus?.options,['Fire']);
+const fireShugenja=applyFeatureChoices(shugenja1,null,{[shugenjaOrder.id]:['Order of the Consuming Flame'],[elementFocus.id]:['Fire']});
 assert(Object.values(fireShugenja.featureChoices).some(choice=>choice.feature==='Element Focus'&&choice.choices?.[0]==='Fire'));
 
 const wuJenClass35={name:'Wu Jen',edition:'3.5',sourceId:'classes/wu-jen-6',catalogId:'dndtools:classes/wu-jen-6',sourceUrl:'https://new.dndtools.org/classes/wu-jen-6',progression:[['Level','Special'],['1st','Watchful spirit, bonus feat'],['3rd','Spell secret'],['6th','Elemental mastery']]};
@@ -605,6 +609,11 @@ const wuJen5={...wuJenChosen,classLevels:[{...wuJen1.classLevels[0],level:5}],le
 const wuJen6Plan=featureChoicePlan(wuJen6,wuJen5);
 const mastery=wuJen6Plan.groups.find(group=>group.label==='Elemental Mastery');
 assert.deepEqual(mastery?.options,['Earth','Fire','Metal','Water','Wood']);
+const masteredFireWuJen=applyFeatureChoices(wuJen6,wuJen5,{[mastery.id]:['Fire']});
+const elementalMasteryFeature=(masteredFireWuJen.grantedFeatures||[]).find(feature=>feature.selectedFromFeature==='Elemental Mastery'&&feature.name==='Fire');
+assert(elementalMasteryFeature,'Wu Jen selected Elemental Mastery materializes as a source-owned feature');
+assert.equal(elementalMasteryFeature.selectedOptionMechanics?.casterLevelBonus,2);
+assert.equal(elementalMasteryFeature.selectedOptionMechanics?.saveBonus,2);
 
 const dragonfireClass35={name:'Dragonfire Adept',edition:'3.5',sourceId:'classes/dragonfire-adept-29',catalogId:'dndtools:classes/dragonfire-adept-29',sourceUrl:'https://new.dndtools.org/classes/dragonfire-adept-29',progression:[['Level','Special'],['1st','Breath weapon 1d6, Dragontouched, least invocations'],['2nd','Breath effect, scales +2'],['5th','Breath weapon 3d6, breath effect']]};
 const dragonfire2={...legacyChoice,className:'Dragonfire Adept',classDefinition:dragonfireClass35,classLevels:[{name:'Dragonfire Adept',edition:'3.5',catalogId:dragonfireClass35.catalogId,level:2,definition:dragonfireClass35}],level:2};
