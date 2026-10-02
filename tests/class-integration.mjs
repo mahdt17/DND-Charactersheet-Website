@@ -974,14 +974,26 @@ assert(genericWarriorSheet.classSkillRules35.length===1,'generic Warrior preserv
 
 
 const genericExpertChoiceBase={...baseCharacter([{catalogId:genericExpert.catalogId,name:'Expert',edition:'3.5',level:1,definition:genericExpert}]),featureChoices:{}};
-const genericExpertSaveGroup=featureChoicePlan(genericExpertChoiceBase,null).groups.find(group=>group.label==='Base Save Bonuses');
-const genericExpertChosen=applyFeatureChoices(genericExpertChoiceBase,null,{[genericExpertSaveGroup.id]:['Fortitude','Reflex']});
+const genericExpertPlan=featureChoicePlan(genericExpertChoiceBase,null);
+const genericExpertSaveGroup=genericExpertPlan.groups.find(group=>group.label==='Base Save Bonuses');
+const genericExpertPicks=Object.fromEntries(genericExpertPlan.groups.map(group=>{
+  if(group.id===genericExpertSaveGroup.id)return [group.id,['Fortitude','Reflex']];
+  if((group.options||[]).length>=group.required)return [group.id,group.options.slice(0,group.required)];
+  return [group.id,Array.from({length:group.required},(_,index)=>'Expert test choice '+(index+1))];
+}));
+const genericExpertChosen=applyFeatureChoices(genericExpertChoiceBase,null,genericExpertPicks);
 assert.deepEqual(baseProgression(genericExpert,1,genericExpertChosen,genericExpert.catalogId),{bab:0,fort:2,ref:2,will:0});
 assert.deepEqual(baseProgression(genericExpert,6,genericExpertChosen,genericExpert.catalogId),{bab:4,fort:5,ref:5,will:2});
 
 const genericWarriorChoiceBase={...baseCharacter([{catalogId:genericWarrior.catalogId,name:'Warrior',edition:'3.5',level:1,definition:genericWarrior}]),featureChoices:{}};
-const genericWarriorSaveGroup=featureChoicePlan(genericWarriorChoiceBase,null).groups.find(group=>group.label==='Base Save Bonuses');
-const genericWarriorChosen=applyFeatureChoices(genericWarriorChoiceBase,null,{[genericWarriorSaveGroup.id]:['Will']});
+const genericWarriorPlan=featureChoicePlan(genericWarriorChoiceBase,null);
+const genericWarriorSaveGroup=genericWarriorPlan.groups.find(group=>group.label==='Base Save Bonuses');
+const genericWarriorPicks=Object.fromEntries(genericWarriorPlan.groups.map(group=>{
+  if(group.id===genericWarriorSaveGroup.id)return [group.id,['Will']];
+  if((group.options||[]).length>=group.required)return [group.id,group.options.slice(0,group.required)];
+  return [group.id,Array.from({length:group.required},(_,index)=>'Warrior test choice '+(index+1))];
+}));
+const genericWarriorChosen=applyFeatureChoices(genericWarriorChoiceBase,null,genericWarriorPicks);
 assert.deepEqual(baseProgression(genericWarrior,1,genericWarriorChosen,genericWarrior.catalogId),{bab:1,fort:0,ref:0,will:2});
 assert.deepEqual(baseProgression(genericWarrior,6,genericWarriorChosen,genericWarrior.catalogId),{bab:6,fort:2,ref:2,will:5});
 
