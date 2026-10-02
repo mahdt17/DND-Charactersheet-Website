@@ -63,10 +63,9 @@ try {
  await page.getByLabel('Search race').fill('Human');await choose('Human');await next();
  await next();await next();await page.getByLabel('Human / Intelligence language 1',{exact:true}).selectOption('Draconic');await next();await next();
  assert(await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'generic Warrior creation waits for source-defined choices');
- for(const skill of ['Climb','Handle Animal','Intimidate','Jump','Ride','Swim'])await page.getByLabel(`Warrior 1 Class skills: ${skill}`,{exact:true}).check();
  await page.getByLabel('Warrior 1 Base Save Bonuses: Will',{exact:true}).check();
  await page.getByLabel('Warrior 1 Bonus Feats choice',{exact:true}).fill('Power Attack');
- assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'generic Warrior becomes creatable after class skills, save progression and bonus feat are chosen');
+ assert(!await page.getByRole('button',{name:'Create Character',exact:true}).isDisabled(),'generic Warrior becomes creatable after its save progression and bonus feat are chosen');
  await page.getByRole('button',{name:'Create Character',exact:true}).click();
  await page.locator('.sheet-identity').filter({hasText:genericWarriorName}).waitFor();
  const genericWarriorSaved=await saved(genericWarriorName);
