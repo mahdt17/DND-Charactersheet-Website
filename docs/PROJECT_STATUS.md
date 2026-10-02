@@ -361,3 +361,18 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Canonical tracker totals: **76 complete, 626 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
 
+
+## 2026-10-02 shared source-selected option-mechanics checkpoint
+
+- Verified implementation head: `4bb5627b0ffe44ac6518c1e3733be20caa42ff9f`.
+- Companion engine checks #138 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36981723606.
+- Spell acquisition checks #113 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36981723657.
+- Validate modernization #1638 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36981723586. It passed the full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and the complete browser suite.
+- Added one reusable selected-option mechanics path rather than Dragon Shaman/Marshal-specific reconciliation branches. Persisted class choices can now materialize option-owned class skills, level-gated dependent features, actions/resources, and later-choice legal-option sets.
+- Dragon Shaman now materializes all seven reviewed draconic-aura effects and all ten totem profiles. Totem selection drives the source class skills, breath shape/energy, 3rd-level adaptation, 9th-level immunity, and the legal Skill Focus choices at 2nd/8th/16th level. The final source recheck preserves the PHB II aura bonuses as untyped rather than borrowing Marshal's circumstance typing.
+- Marshal now materializes all fifteen reviewed minor-aura effects and seven major-aura effects. Grant Move Action has structured daily-use scaling from 1/day at level 4 through 5/day at level 20 while remaining a standard action.
+- Regression coverage verifies creation/level-up choice behavior, selected-effect materialization, class-skill integration, dependent Skill Focus eligibility, resource scaling, idempotence, exact-source removal cleanup, and Dragon Shaman/Marshal coexistence.
+- Promoted exactly `classes/dragon-shaman-101` and `classes/marshal-78`.
+- Canonical tracker totals: **78 complete, 624 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+

@@ -625,3 +625,23 @@ Verification evidence:
 
 Tracker impact: **76 complete, 626 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**. No deployment or Supabase changes were made.
 
+
+## Shared source-selected option mechanics: Dragon Shaman / Marshal (2026-10-02)
+
+The source-choice pipeline now has one reusable materialization layer for option-specific class mechanics. A reviewed choice option may grant class skills, expose structured downstream mechanics, add level-gated dependent effects, create actions/resources where appropriate, and supply the legal option set for a later class-feature choice. This closes the prior pattern where a class choice could be persisted while its selected mechanical meaning remained display-only.
+
+Dragon Shaman uses this path for all seven PHB II draconic auras and all ten true-dragon totems. Each selected totem carries its three source class skills, breath shape and energy type, 3rd-level draconic adaptation, and 9th-level energy immunity. The normal class-skill collection consumes those selected totem skills, and Skill Focus at 2nd, 8th, and 16th level derives its legal feat choices from the selected totem instead of exposing unrelated skills. A final source-text recheck confirmed that the Dragon Shaman aura bonuses are not labeled as circumstance bonuses, so their structured descriptions deliberately remain untyped.
+
+Marshal uses the same selected-option path for all fifteen minor auras and seven major auras from Miniatures Handbook. Selected aura names now materialize their reviewed effects on the sheet. Grant Move Action also has structured daily-use progression: one use at 4th level, two at 8th, three at 12th, four at 16th, and five at 20th, with the reviewed standard-action behavior retained.
+
+Regression coverage exercises Dragon Shaman creation choices, Black-totem class skills, aura effects, totem-driven Skill Focus, level-3/4/9 dependent mechanics, Marshal minor/major aura effects, Grant Move Action scaling, reconciliation idempotence, exact-source removal cleanup, and multiclass coexistence.
+
+Verification evidence:
+- implementation head: `4bb5627b0ffe44ac6518c1e3733be20caa42ff9f`
+- Companion engine checks #138: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36981723606
+- Spell acquisition checks #113: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36981723657
+- Validate modernization #1638: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36981723586
+- #1638 passed the full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all general/specialized browser suites.
+
+Completion impact is limited to `classes/dragon-shaman-101` and `classes/marshal-78`. Tracker impact: **78 complete, 624 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**. No deployment or Supabase changes were made.
+

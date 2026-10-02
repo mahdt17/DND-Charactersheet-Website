@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "c39e0a6212d40b84a270a64c770e23fb45bf4485",
+  "snapshotCommit": "4bb5627b0ffe44ac6518c1e3733be20caa42ff9f",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -6570,26 +6570,29 @@
       "name": "Dragon Shaman",
       "sourceBook": "Base Class Player's Handbook II",
       "sourceUrl": "https://new.dndtools.org/classes/dragon-shaman-101",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 13,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Totem Dragon and aura selections persist, but the selected totem/aura options do not yet materialize all option-specific mechanics such as class skills, breath energy/shape, adaptation, immunity, Skill Focus eligibility, and individual aura effects."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-02 added reusable selected-option mechanic materialization so persisted source choices can grant class skills, level-gated effects, actions/resources, and later-choice option sets without class-specific reconciliation branches.",
+        "All seven draconic auras now materialize their source-reviewed individual effects; the final source check preserves PHB II's untyped aura-bonus wording rather than incorrectly assigning Marshal-style circumstance typing.",
+        "All ten totem dragons now carry source-reviewed class skills, breath shape/energy, 3rd-level adaptation, and 9th-level energy immunity; the selected totem's class skills feed the normal class-skill model and constrain the 2nd/8th/16th-level Skill Focus choices.",
+        "Regression coverage verifies creation choices, Black totem class skills, aura effect materialization, totem-driven Skill Focus, level-3/4/9 dependent effects, idempotence, exact-source removal cleanup, and coexistence with Marshal.",
+        "Companion engine checks #138, Spell acquisition checks #113, and Validate modernization #1638 all passed at 4bb5627b0ffe44ac6518c1e3733be20caa42ff9f."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Add structured option-mechanic payloads for totems and auras, then verify creation, level-up, persistence, and source removal."
+      "verifiedCommit": "4bb5627b0ffe44ac6518c1e3733be20caa42ff9f",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36981723586",
+      "nextAction": "Preserve as verified. Re-audit only if shared source-choice mechanics, Dragon Shaman totem/aura behavior, or class-skill/feat reconciliation changes."
     },
     {
       "sourceId": "classes/dragonfire-adept-29",
@@ -15594,26 +15597,28 @@
       "name": "Marshal",
       "sourceBook": "Base Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/marshal-78",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 6,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Minor/Major Aura selections persist, but selected aura names are not materialized into option-specific sheet effects/descriptions."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-02 added reusable selected-option mechanic materialization and applied it to every reviewed Marshal minor and major aura rather than keeping selected aura names as display-only state.",
+        "All fifteen minor auras and seven major auras now materialize their source-reviewed individual effects. Grant Move Action has structured daily-use scaling from 1/day at 4th level through 5/day at 20th while remaining an explicit standard action.",
+        "Regression coverage verifies minor/major aura selection, selected-effect materialization, level-20 Grant Move Action scaling, idempotence, and exact-source coexistence/removal behavior with Dragon Shaman.",
+        "Companion engine checks #138, Spell acquisition checks #113, and Validate modernization #1638 all passed at 4bb5627b0ffe44ac6518c1e3733be20caa42ff9f."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Add structured Marshal aura option mechanics and creation/level-up/persistence/source-removal regressions."
+      "verifiedCommit": "4bb5627b0ffe44ac6518c1e3733be20caa42ff9f",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36981723586",
+      "nextAction": "Preserve as verified. Re-audit only if shared source-choice mechanics, Marshal aura behavior, or class-resource reconciliation changes."
     },
     {
       "sourceId": "classes/martyred-champion-of-ilmater-673",
@@ -26149,5 +26154,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Shared Cleric deity/domain checkpoint recorded after Companion engine checks #134, Spell acquisition checks #109, and Validate modernization #1634 all passed at c39e0a6212d40b84a270a64c770e23fb45bf4485; classes/cleric-105, classes/cleric-39, classes/cleric-63, classes/cleric-91, and classes/cloistered-cleric-120 were promoted together after their shared domain granted-power/deity-restriction blocker was closed."
+  "lastUpdatedNote": "Shared source-selected option-mechanics checkpoint recorded after Companion engine checks #138, Spell acquisition checks #113, and Validate modernization #1638 all passed at 4bb5627b0ffe44ac6518c1e3733be20caa42ff9f; classes/dragon-shaman-101 and classes/marshal-78 were promoted together after option-specific sheet mechanics, dependent choice behavior, and resource scaling were closed."
 }
