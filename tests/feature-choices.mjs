@@ -48,6 +48,7 @@ for(const [record,required] of [[genericExpert,2],[genericWarrior,1]]){
   assert.equal(saves.choiceKind,'source');
   assert.equal(saves.required,required);
   assert.deepEqual(saves.options,['Fortitude','Reflex','Will']);
+  assert.equal(plan.groups.some(group=>group.label==='Class Skills'),false,record.name+' dynamic class-skill rule is not duplicated as a manual feature choice');
   assert.equal(plan.valid,false);
 }
 const expertChoiceCharacter=make('3.5','Expert',1,{
