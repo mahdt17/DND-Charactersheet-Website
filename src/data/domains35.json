@@ -48,7 +48,21 @@
         "name": "Elemental Swarm",
         "sourceUrl": "https://www.d20srd.org/srd/spells/elementalSwarm.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Turn or destroy earth creatures, or rebuke/command/bolster air creatures; 3 + Charisma modifier uses per day.",
+      "action": {
+        "name": "Air Domain Elemental Turning",
+        "type": "Special"
+      },
+      "resource": {
+        "name": "Air Domain Elemental Turning",
+        "maxMode": "charisma",
+        "base": 3,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#airDomain"
+    }
   },
   {
     "name": "Animal",
@@ -99,7 +113,24 @@
         "name": "Shapechange",
         "sourceUrl": "https://www.d20srd.org/srd/spells/shapechange.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Use speak with animals once per day; Knowledge (nature) is a class skill.",
+      "action": {
+        "name": "Speak with Animals (Animal Domain)",
+        "type": "Spell-like ability"
+      },
+      "resource": {
+        "name": "Animal Domain Speak with Animals",
+        "maxMode": "fixed",
+        "max": 1,
+        "reset": "long"
+      },
+      "classSkills": [
+        "Knowledge (nature)"
+      ],
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#animalDomain"
+    }
   },
   {
     "name": "Chaos",
@@ -150,7 +181,15 @@
         "name": "Summon Monster IX",
         "sourceUrl": "https://www.d20srd.org/srd/spells/summonMonsterIX.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Cast chaos spells at +1 caster level.",
+      "casterLevelBonus": {
+        "amount": 1,
+        "descriptor": "chaos"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#chaosDomain"
+    }
   },
   {
     "name": "Death",
@@ -201,7 +240,21 @@
         "name": "Wail of the Banshee",
         "sourceUrl": "https://www.d20srd.org/srd/spells/wailOfTheBanshee.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Use death touch once per day; roll 1d6 per cleric level against the target's current hit points.",
+      "action": {
+        "name": "Death Touch",
+        "type": "Melee touch"
+      },
+      "resource": {
+        "name": "Death Domain Death Touch",
+        "maxMode": "fixed",
+        "max": 1,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#deathDomain"
+    }
   },
   {
     "name": "Destruction",
@@ -252,7 +305,21 @@
         "name": "Implosion",
         "sourceUrl": "https://www.d20srd.org/srd/spells/implosion.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Smite once per day with +4 to the attack roll and cleric level added to damage.",
+      "action": {
+        "name": "Destruction Domain Smite",
+        "type": "Melee attack"
+      },
+      "resource": {
+        "name": "Destruction Domain Smite",
+        "maxMode": "fixed",
+        "max": 1,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#destructionDomain"
+    }
   },
   {
     "name": "Earth",
@@ -303,7 +370,21 @@
         "name": "Elemental Swarm",
         "sourceUrl": "https://www.d20srd.org/srd/spells/elementalSwarm.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Turn or destroy air creatures, or rebuke/command/bolster earth creatures; 3 + Charisma modifier uses per day.",
+      "action": {
+        "name": "Earth Domain Elemental Turning",
+        "type": "Special"
+      },
+      "resource": {
+        "name": "Earth Domain Elemental Turning",
+        "maxMode": "charisma",
+        "base": 3,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#earthDomain"
+    }
   },
   {
     "name": "Evil",
@@ -354,7 +435,15 @@
         "name": "Summon Monster IX",
         "sourceUrl": "https://www.d20srd.org/srd/spells/summonMonsterIX.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Cast evil spells at +1 caster level.",
+      "casterLevelBonus": {
+        "amount": 1,
+        "descriptor": "evil"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#evilDomain"
+    }
   },
   {
     "name": "Fire",
@@ -405,7 +494,21 @@
         "name": "Elemental Swarm",
         "sourceUrl": "https://www.d20srd.org/srd/spells/elementalSwarm.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Turn or destroy water creatures, or rebuke/command/bolster fire creatures; 3 + Charisma modifier uses per day.",
+      "action": {
+        "name": "Fire Domain Elemental Turning",
+        "type": "Special"
+      },
+      "resource": {
+        "name": "Fire Domain Elemental Turning",
+        "maxMode": "charisma",
+        "base": 3,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#fireDomain"
+    }
   },
   {
     "name": "Good",
@@ -456,7 +559,15 @@
         "name": "Summon Monster IX",
         "sourceUrl": "https://www.d20srd.org/srd/spells/summonMonsterIX.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Cast good spells at +1 caster level.",
+      "casterLevelBonus": {
+        "amount": 1,
+        "descriptor": "good"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#goodDomain"
+    }
   },
   {
     "name": "Healing",
@@ -507,7 +618,15 @@
         "name": "Heal, Mass",
         "sourceUrl": "https://www.d20srd.org/srd/spells/healMass.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Cast healing spells at +1 caster level.",
+      "casterLevelBonus": {
+        "amount": 1,
+        "subschool": "healing"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#healingDomain"
+    }
   },
   {
     "name": "Knowledge",
@@ -558,7 +677,27 @@
         "name": "Foresight",
         "sourceUrl": "https://www.d20srd.org/srd/spells/foresight.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "All Knowledge skills become cleric class skills, and divination spells are cast at +1 caster level.",
+      "casterLevelBonus": {
+        "amount": 1,
+        "school": "divination"
+      },
+      "classSkills": [
+        "Knowledge (arcana)",
+        "Knowledge (architecture and engineering)",
+        "Knowledge (dungeoneering)",
+        "Knowledge (geography)",
+        "Knowledge (history)",
+        "Knowledge (local)",
+        "Knowledge (nature)",
+        "Knowledge (nobility and royalty)",
+        "Knowledge (religion)",
+        "Knowledge (planes)"
+      ],
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#knowledgeDomain"
+    }
   },
   {
     "name": "Law",
@@ -609,7 +748,15 @@
         "name": "Summon Monster IX",
         "sourceUrl": "https://www.d20srd.org/srd/spells/summonMonsterIX.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Cast law spells at +1 caster level.",
+      "casterLevelBonus": {
+        "amount": 1,
+        "descriptor": "law"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#lawDomain"
+    }
   },
   {
     "name": "Luck",
@@ -660,7 +807,21 @@
         "name": "Miracle",
         "sourceUrl": "https://www.d20srd.org/srd/spells/miracle.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Once per day, reroll one roll just made and use the new result.",
+      "action": {
+        "name": "Good Fortune",
+        "type": "Special"
+      },
+      "resource": {
+        "name": "Luck Domain Good Fortune",
+        "maxMode": "fixed",
+        "max": 1,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#luckDomain"
+    }
   },
   {
     "name": "Magic",
@@ -711,7 +872,15 @@
         "name": "Mage's Disjunction",
         "sourceUrl": "https://www.d20srd.org/srd/spells/magesDisjunction.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Use spell-completion and spell-trigger items as a wizard of half your cleric level (minimum 1); actual wizard levels stack.",
+      "effectiveWizardLevel": {
+        "mode": "half-cleric-min-1",
+        "stacks": true
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#magicDomain"
+    }
   },
   {
     "name": "Plant",
@@ -762,7 +931,24 @@
         "name": "Shambler",
         "sourceUrl": "https://www.d20srd.org/srd/spells/shambler.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Rebuke or command plant creatures 3 + Charisma modifier times per day; Knowledge (nature) is a class skill.",
+      "action": {
+        "name": "Rebuke or Command Plants",
+        "type": "Special"
+      },
+      "resource": {
+        "name": "Plant Domain Rebuke Plants",
+        "maxMode": "charisma",
+        "base": 3,
+        "reset": "long"
+      },
+      "classSkills": [
+        "Knowledge (nature)"
+      ],
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#plantDomain"
+    }
   },
   {
     "name": "Protection",
@@ -813,7 +999,21 @@
         "name": "Prismatic Sphere",
         "sourceUrl": "https://www.d20srd.org/srd/spells/prismaticSphere.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Once per day, grant a touched creature a resistance bonus equal to cleric level on its next saving throw.",
+      "action": {
+        "name": "Protective Ward",
+        "type": "Standard action"
+      },
+      "resource": {
+        "name": "Protection Domain Protective Ward",
+        "maxMode": "fixed",
+        "max": 1,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#protectionDomain"
+    }
   },
   {
     "name": "Strength",
@@ -864,7 +1064,21 @@
         "name": "Crushing Hand",
         "sourceUrl": "https://www.d20srd.org/srd/spells/crushingHand.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Once per day as a free action, gain an enhancement bonus to Strength equal to cleric level for 1 round.",
+      "action": {
+        "name": "Feat of Strength",
+        "type": "Free action"
+      },
+      "resource": {
+        "name": "Strength Domain Feat of Strength",
+        "maxMode": "fixed",
+        "max": 1,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#strengthDomain"
+    }
   },
   {
     "name": "Sun",
@@ -915,7 +1129,21 @@
         "name": "Prismatic Sphere",
         "sourceUrl": "https://www.d20srd.org/srd/spells/prismaticSphere.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Once per day, use a greater turning in place of a regular turning; affected undead are destroyed instead of turned.",
+      "action": {
+        "name": "Greater Turning",
+        "type": "Special"
+      },
+      "resource": {
+        "name": "Sun Domain Greater Turning",
+        "maxMode": "fixed",
+        "max": 1,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#sunDomain"
+    }
   },
   {
     "name": "Travel",
@@ -966,7 +1194,21 @@
         "name": "Astral Projection",
         "sourceUrl": "https://www.d20srd.org/srd/spells/astralProjection.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Act as though under freedom of movement for a total of 1 round per cleric level each day.",
+      "action": {
+        "name": "Freedom of Movement (Travel Domain)",
+        "type": "Special"
+      },
+      "resource": {
+        "name": "Travel Domain Freedom of Movement",
+        "maxMode": "classLevel",
+        "reset": "long",
+        "unit": "rounds"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#travelDomain"
+    }
   },
   {
     "name": "Trickery",
@@ -1017,7 +1259,16 @@
         "name": "Time Stop",
         "sourceUrl": "https://www.d20srd.org/srd/spells/timeStop.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Bluff, Disguise, and Hide become cleric class skills.",
+      "classSkills": [
+        "Bluff",
+        "Disguise",
+        "Hide"
+      ],
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#trickeryDomain"
+    }
   },
   {
     "name": "War",
@@ -1068,7 +1319,13 @@
         "name": "Power Word Kill",
         "sourceUrl": "https://www.d20srd.org/srd/spells/powerWordKill.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Gain proficiency with the deity's favored martial weapon if needed and Weapon Focus with that weapon.",
+      "favoredWeaponProficiency": true,
+      "favoredWeaponFocus": true,
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#warDomain"
+    }
   },
   {
     "name": "Water",
@@ -1119,6 +1376,20 @@
         "name": "Elemental Swarm",
         "sourceUrl": "https://www.d20srd.org/srd/spells/elementalSwarm.htm"
       }
-    ]
+    ],
+    "grantedPower": {
+      "description": "Turn or destroy fire creatures, or rebuke/command/bolster water creatures; 3 + Charisma modifier uses per day.",
+      "action": {
+        "name": "Water Domain Elemental Turning",
+        "type": "Special"
+      },
+      "resource": {
+        "name": "Water Domain Elemental Turning",
+        "maxMode": "charisma",
+        "base": 3,
+        "reset": "long"
+      },
+      "sourceUrl": "https://www.d20srd.org/srd/spellLists/clericDomains.htm#waterDomain"
+    }
   }
 ]

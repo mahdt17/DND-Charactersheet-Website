@@ -8,6 +8,7 @@ import {normalizeEdition} from './content.js';
 import {reconcileSubclassSpells} from './subclassSpells.js';
 import {reconcileCompanions35,companionProgression35} from './companions35.js';
 import {reconcileSpellAcquisition35} from './spellAcquisition35.js';
+import {reconcileDomainGrants35} from './legacyCastingChoices.js';
 
 export const CLASS_INTEGRATION_VERSION=1;
 const proficiencySupplements=proficiencySupplements35.entries||{};
@@ -841,7 +842,7 @@ export function reconcileClassGrants(character){
     classSpellSlots:mergeDerived(character.classSpellSlots,spellSlots),
     classAutomation:{version:CLASS_INTEGRATION_VERSION,classes:derived.map(x=>x.report),incompleteClassIds:derived.filter(x=>!x.report.integrationComplete).map(x=>x.report.classId)}
   };
-  return reconcileSpellAcquisition35(reconcileCompanions35(reconciled));
+  return reconcileSpellAcquisition35(reconcileCompanions35(reconcileDomainGrants35(reconciled)));
 }
 
 export function classAutomationReport(character){
@@ -880,6 +881,7 @@ export function removeClassProgression(character,classId){
     trainingGrants,
     spells,
     spellAccessGrants,
+    legacyCastingChoices:Object.fromEntries(Object.entries(character.legacyCastingChoices||{}).filter(([id])=>id!==classId)),
     legacyPreparation:Object.fromEntries(Object.entries(character.legacyPreparation||{}).filter(([id])=>id!==classId)),
     classSlotsUsed:Object.fromEntries(Object.entries(character.classSlotsUsed||{}).filter(([id])=>id!==classId)),
     classRestrictedSlotsUsed:Object.fromEntries(Object.entries(character.classRestrictedSlotsUsed||{}).filter(([id])=>id!==classId)),
