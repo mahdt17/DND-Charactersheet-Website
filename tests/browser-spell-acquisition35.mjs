@@ -649,6 +649,7 @@ try{
     const detail=JSON.parse(detailRecord.value);
     return detail.dailySpellLike35?.[key]?.selections?.[0]?.used===true;
   },{name:factotumName,key:factotumKey});
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
   assert.equal(await page.locator('.spell-item').filter({hasText:'Detect Magic'}).first().getByRole('button',{name:'Used today',exact:true}).count(),1,'used Arcane Dilettante state survives save/reopen');
   await page.getByRole('button',{name:'Rest',exact:true}).click();
   await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
