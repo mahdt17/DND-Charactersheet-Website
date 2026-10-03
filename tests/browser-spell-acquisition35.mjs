@@ -597,6 +597,16 @@ try{
   await selectSpellIn(factotumPicker,'Detect Magic');
   await factotumDaily.getByRole('button',{name:'Prepare Arcane Dilettante repertoire',exact:true}).click();
   await page.locator('.spell-item').filter({hasText:'Detect Magic'}).waitFor();
+  await page.waitForFunction(async ({name,key})=>{
+    const indexRecord=await window.storage.get('char-index');
+    if(!indexRecord)return false;
+    const rows=JSON.parse(indexRecord.value),row=rows.find(item=>item.name===name);
+    if(!row)return false;
+    const detailRecord=await window.storage.get('char-detail:'+row.id);
+    if(!detailRecord)return false;
+    const detail=JSON.parse(detailRecord.value),bucket=detail.dailySpellLike35?.[key];
+    return bucket?.ready===false&&bucket?.selections?.length===1;
+  },{name:factotumName,key:factotumKey});
   const preparedFactotum=await saved(factotumName);
   assert.equal(preparedFactotum.dailySpellLike35?.[factotumKey]?.selections?.length,1);
   assert.equal(preparedFactotum.dailySpellLike35[factotumKey].ready,false);
