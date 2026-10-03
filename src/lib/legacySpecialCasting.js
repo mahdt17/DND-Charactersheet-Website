@@ -13,9 +13,9 @@ export function specialCastingProfile(c){
   const ability=abilities[c.className],score=Number(c.abilities?.[ability]||10)+Number(c.abilityBonuses?.[ability]||0),bonus=Math.max(0,Math.floor((score-10)/2));
   return {kind:'power',id,ability,level,known,maximum,points:base+Math.floor(bonus*level/2),discipline:c.legacyCastingChoices?.[id]?.discipline};
  }
- if(c.className==='Warlock'){
+ if(c.className==='Warlock'||c.className==='Dragonfire Adept'){
   const known=value(/^invocations? known$/i);if(!Number.isFinite(known))return null;
-  return {kind:'invocation',id,ability:'cha',level:c.level,known,grade:c.level>=16?3:c.level>=11?2:c.level>=6?1:0};
+  return {kind:'invocation',id,className:c.className,ability:'cha',level:c.level,known,grade:c.level>=16?3:c.level>=11?2:c.level>=6?1:0};
  }
  return null;
 }
@@ -24,8 +24,8 @@ export function specialCastingAccess(c,s){
  if(s.edition&&s.edition!=='3.5')return {allowed:false,level:s.level,reason:'This ability belongs to a different edition.'};
  if(p.kind==='invocation'){
   const grade=['least','lesser','greater','dark'].indexOf(norm(s.school).replace(/\s+invocation.*$/,''));
-  const allowed=grade>=0&&grade<=p.grade&&(s.classes||[]).some(x=>norm(x)==='warlock');
-  return {allowed,level:s.classLevels?.Warlock??s.level,reason:allowed?'Warlock invocation':'Choose a Warlock invocation of an unlocked grade.'};
+  const className=p.className||c.className,allowed=grade>=0&&grade<=p.grade&&(s.classes||[]).some(x=>norm(x)===norm(className));
+  return {allowed,level:s.classLevels?.[className]??s.level,reason:allowed?className+' invocation':'Choose a '+className+' invocation of an unlocked grade.'};
  }
  const names=[c.className,...(c.className==='Wilder'?['Psion']:[]),...(c.className==='Psion'&&psionDisciplines[p.discipline]?[psionDisciplines[p.discipline]]:[])];
  const levels=Object.entries(s.classLevels||{}).filter(([name])=>names.some(n=>norm(n)===norm(name))).map(([,level])=>level);
