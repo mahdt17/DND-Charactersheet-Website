@@ -33,6 +33,8 @@ for(const [id,name,first,second] of [
  // Older setup saved invocations without source IDs or acquisition history.
  const legacy={...c,spells:[{...a,id:'legacy-known',catalogId:'legacy-catalog:'+a.name,castingClassId:undefined,notes:'Keep my notes',rollFormula:'1d6'},{id:'custom-note',name:'Table spell',level:1}]};
  const migrated=inv.prepareInvocationAdvancement35(legacy,key,1);
+ const singleClass=inv.prepareInvocationAdvancement35({...legacy,classLevels:undefined},key,1);
+ assert.equal(singleClass.spells.filter(s=>s.invocationGrant).length,1,'Single-class legacy saves can migrate before advancement normalization');
  assert.equal(inv.activeInvocations35(migrated,key)[0]?.invocationName,first);
  assert.equal(migrated.spells.find(s=>s.invocationGrant)?.notes,'Keep my notes');
  assert.equal(migrated.spells.find(s=>s.invocationGrant)?.rollFormula,'1d6');

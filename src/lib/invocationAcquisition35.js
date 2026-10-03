@@ -7,7 +7,7 @@ const norm=value=>String(value||'').trim().toLowerCase();
 const gradeIndex=value=>grades.indexOf(norm(value));
 const keyOf=row=>String(row?.catalogId||row?.id||'');
 const profileFor=classId=>profileData.profiles?.[cleanId(classId)]||null;
-const classRows=character=>Array.isArray(character?.classLevels)?character.classLevels:[];
+const classRows=character=>Array.isArray(character?.classLevels)?character.classLevels:character?.classDefinition?.catalogId?[{catalogId:character.classDefinition.catalogId,name:character.className,edition:character.classDefinition.edition||character.ruleset,level:character.level,definition:character.classDefinition}]:[];
 const activeRow=(character,classId)=>classRows(character).find(row=>cleanId(row?.catalogId||row?.definition?.catalogId||row?.definition?.id||row?.definition?.sourceId)===cleanId(classId));
 const bucketFor=(character,classId)=>{
  const state=character?.invocationAcquisition35||{};
