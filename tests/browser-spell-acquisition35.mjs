@@ -621,6 +621,17 @@ try{
   assert.match(await factotumCast.innerText(),/save DC 12/i);
   assert.match(await factotumCast.innerText(),/Costs 1 Inspiration/i);
   await factotumCast.getByRole('button',{name:'Use & spend Inspiration',exact:true}).click();
+  await page.waitForFunction(async ({name,key})=>{
+    const indexRecord=await window.storage.get('char-index');
+    if(!indexRecord)return false;
+    const rows=JSON.parse(indexRecord.value),row=rows.find(item=>item.name===name);
+    if(!row)return false;
+    const detailRecord=await window.storage.get('char-detail:'+row.id);
+    if(!detailRecord)return false;
+    const detail=JSON.parse(detailRecord.value),bucket=detail.dailySpellLike35?.[key];
+    const resource=(detail.resources||[]).find(item=>item.name==='Inspiration'&&item.sourceClassId===key);
+    return bucket?.selections?.[0]?.used===true&&Number(resource?.used||0)===1;
+  },{name:factotumName,key:factotumKey});
 
   const factotumUsed=await saved(factotumName);
   assert.equal(factotumUsed.resources.find(resource=>resource.name==='Inspiration'&&resource.sourceClassId===factotumKey)?.used,1);
