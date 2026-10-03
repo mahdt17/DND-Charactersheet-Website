@@ -661,3 +661,12 @@ Verification evidence:
 
 Completion impact is limited to `classes/spirit-shaman-9` and `classes/wu-jen-6`; `classes/shugenja-8` remains `needs-review` solely for the unresolved source-defined Void specialization. Tracker impact: **80 complete, 622 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**. PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made, and no Firecrawl fallback was used for the Void source recheck.
 
+
+
+## 2026-10-03 Factotum Arcane Dilettante verification
+
+Factotum (`classes/factotum-35`) now has structured Arcane Dilettante daily spell-like preparation instead of an untracked manual-spell workaround. The shared daily spell-like model enforces the reviewed per-level repertoire count, maximum spell level, distinct spell names, and the source rule limiting the highest available spell level to one prepared choice. Eligible choices come from Sorcerer/Wizard source access, and metamagic adjustments are validated without consuming ordinary spell slots.
+
+Prepared Arcane Dilettante entries persist as source-owned daily selections, spend one Inspiration when used, become unavailable after their single daily use, retain caster-level/save-DC metadata, survive JSON save/reopen, and reset only on daily/long-rest recovery. Reconciliation removes stale entries when the class is removed or no longer supports them.
+
+Regression coverage is in `tests/daily-spell-like35.mjs` and the Factotum cohort in `tests/browser-spell-acquisition35.mjs`. The promotion gate passed at `5bea34cc793a28ed55abbbf29b040226d7174ee1`: Validate modernization #1685, Spell acquisition checks #160, and Companion engine checks #185 all succeeded.

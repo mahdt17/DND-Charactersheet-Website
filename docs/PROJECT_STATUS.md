@@ -388,3 +388,14 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Canonical tracker totals: **80 complete, 622 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made. The Void recheck used Exa and Tavily; no Firecrawl fallback was used.
 
+
+
+## 2026-10-03 Factotum Arcane Dilettante completion checkpoint
+
+- Factotum (`classes/factotum-35`) is promoted to **complete** at verified implementation head `5bea34cc793a28ed55abbbf29b040226d7174ee1`.
+- Arcane Dilettante now uses a reusable daily spell-like repertoire engine: exact class-level count/maximum-spell-level progression, distinct Sorcerer/Wizard choices, one maximum-level selection, source-safe metamagic adjustments, persisted daily preparation, one-use state, Inspiration spending, and long-rest reset.
+- Reconciliation handles class ownership, class-level changes, source removal and JSON save/reopen without leaving stale spell-like entries.
+- Browser coverage verifies level-up to Factotum 2, daily repertoire management, use/save-DC/caster-level behavior, Inspiration expenditure, persistence, reopen, and daily recovery.
+- Validation evidence: modernization #1685, spell acquisition #160, and companion #185 are green on the verified implementation head.
+- Canonical tracker totals are now **81 complete**, **621 needs-review**, **1 source-conflict**, **2 blocked**, and **349 pending audit**.
+- PR #8 remains open, draft, unmerged, and undeployed. Supabase was not modified. Research continued Exa/Tavily-first with no new Firecrawl fallback.

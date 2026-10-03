@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "4760b21fac6acac9e1e6b4ca3844de531ae3a84f",
+  "snapshotCommit": "5bea34cc793a28ed55abbbf29b040226d7174ee1",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -10065,26 +10065,27 @@
       "name": "Factotum",
       "sourceBook": "Base Class Dungeonscape",
       "sourceUrl": "https://new.dndtools.org/classes/factotum-35",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 15,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Arcane Dilettante daily preparation of distinct sorcerer/wizard spells, maximum-level constraints, one-use-per-prepared-spell state, and metamagic restrictions are not represented as structured daily casting choices."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "2026-10-03 Arcane Dilettante uses a reusable daily spell-like repertoire engine with source-level progression, distinct Sorcerer/Wizard selections, maximum-level and one-maximum-level constraints, metamagic validation, persisted prepared choices, one-use-per-selection state, Inspiration spending, class/source reconciliation, and long-rest reset.",
+        "2026-10-03 Unit and browser regressions cover level-up availability, legal daily preparation, save DC/caster level, use-state persistence/reopen, no spell-slot spending, daily recovery, and source ownership/removal.",
+        "2026-10-03 Validate modernization #1685, Spell acquisition checks #160, and Companion engine checks #185 all passed at 5bea34cc793a28ed55abbbf29b040226d7174ee1.",
+        "Research routing remained Exa/Tavily-first; no new Firecrawl fallback was required."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement structured Arcane Dilettante daily spell selection/use state and add rest, casting, and persistence regressions."
+      "verifiedCommit": "5bea34cc793a28ed55abbbf29b040226d7174ee1",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37101312733",
+      "nextAction": "Verified complete for the reviewed Arcane Dilettante scope; preserve regressions while extending other legacy subsystems."
     },
     {
       "sourceId": "classes/faith-scion-875",
@@ -26161,5 +26162,5 @@
       "nextAction": "Audit existing coverage and source differences; preserve already verified work."
     }
   ],
-  "lastUpdatedNote": "Shared source-selected option-mechanics checkpoint recorded after Companion engine checks #138, Spell acquisition checks #113, and Validate modernization #1638 all passed at 4bb5627b0ffe44ac6518c1e3733be20caa42ff9f; classes/dragon-shaman-101 and classes/marshal-78 were promoted together after option-specific sheet mechanics, dependent choice behavior, and resource scaling were closed."
+  "lastUpdatedNote": "Factotum Arcane Dilettante promoted after reusable daily spell-like automation and full green CI at 5bea34cc793a28ed55abbbf29b040226d7174ee1."
 }
