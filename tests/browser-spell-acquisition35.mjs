@@ -497,13 +497,17 @@ try{
   const spiritCreated=await saved(spiritName),spiritBucket=spiritCreated.spellAcquisition35?.[spiritKey];
   assert.equal(spiritBucket?.dailyRetrievalReady,false);
   assert.equal(spiritBucket?.acquisitions.filter(x=>x.active!==false).length,4);
+  assert(spiritBucket?.acquisitions.filter(x=>x.active!==false).every(x=>x.origin==='daily-retrieval'),'created Spirit Shaman repertoire is persisted as daily-retrieval state');
   assert(spiritCreated.feats?.some(feat=>feat.name==='Alertness'&&feat.sourceClassId===spiritKey),'Spirit Guide grants source-owned Alertness');
   await page.getByRole('button',{name:'Rest',exact:true}).click();
   await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
   await page.waitForFunction(async ({name,key})=>{
     const rows=JSON.parse((await window.storage.get('char-index')).value),row=rows.find(item=>item.name===name);
-    const detail=JSON.parse((await window.storage.get('char-detail:'+row.id)).value);
-    return detail.spellAcquisition35?.[key]?.dailyRetrievalReady===true;
+    if(!row)return false;
+    const stored=await window.storage.get('char-detail:'+row.id);
+    if(!stored)return false;
+    const detail=JSON.parse(stored.value),bucket=detail.spellAcquisition35?.[key];
+    return bucket?.dailyRetrievalReady===true&&(bucket?.acquisitions||[]).filter(item=>item.active!==false).length===0;
   },{name:spiritName,key:spiritKey});
   const spiritRested=await saved(spiritName);
   assert.equal(spiritRested.spellAcquisition35[spiritKey].acquisitions.filter(x=>x.active!==false).length,0,'long rest clears yesterday’s Spirit Shaman retrieved repertoire');
