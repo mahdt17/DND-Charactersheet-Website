@@ -83,13 +83,23 @@ function sourceChoicePlan(c,previous,picks={},context={}) {
         const choiceKind=feature.choiceKind||'source';
         if(choiceKind==='feat'&&feature.choiceFeatType){
           const requiredType=norm(feature.choiceFeatType),owned=new Set((patch.feats||[]).map(feat=>contentKey(feat)||norm(feat?.name)));
-          options=(context.feats||[])
-            .filter(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.featType)===requiredType)
-            .filter(feat=>!owned.has(contentKey(feat))&&!owned.has(norm(feat?.name)))
-            .filter(feat=>qualified(requirements(feat,current,feat.prerequisiteConfirmations||{})))
-            .map(feat=>String(feat.name||'').trim()).filter(Boolean)
-            .filter((name,index,array)=>array.findIndex(other=>norm(other)===norm(name))===index)
-            .sort((a,b)=>a.localeCompare(b));
+          const featContext=Array.isArray(context.feats)?context.feats:[];
+          if(featContext.length){
+            const typedAll=new Set(featContext
+              .filter(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.featType)===requiredType)
+              .map(feat=>norm(feat.name)));
+            const explicitExceptions=options.filter(name=>!typedAll.has(norm(name)));
+            const eligibleTyped=featContext
+              .filter(feat=>(feat.edition||'3.5')==='3.5'&&norm(feat.featType)===requiredType)
+              .filter(feat=>!owned.has(contentKey(feat))&&!owned.has(norm(feat?.name)))
+              .filter(feat=>qualified(requirements(feat,current,feat.prerequisiteConfirmations||{})))
+              .map(feat=>String(feat.name||'').trim()).filter(Boolean);
+            options=[...new Set([...eligibleTyped,...explicitExceptions].filter(Boolean))]
+              .filter(name=>!owned.has(norm(name)))
+              .sort((a,b)=>a.localeCompare(b));
+          }else{
+            options=options.filter(name=>!owned.has(norm(name)));
+          }
         }
         if(Array.isArray(feature.choiceParts)&&feature.choiceParts.length){
           const existing=patch.featureChoices[id];
