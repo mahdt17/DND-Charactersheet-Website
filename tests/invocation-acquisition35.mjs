@@ -99,6 +99,11 @@ import * as special from '../src/lib/legacySpecialCasting.js';
   assert.deepEqual(reduced.spells.filter(s=>s.invocationGrant).map(s=>s.name),['Baleful Utterance'],'Level reduction retires later invocation acquisitions');
   const lostState=reconcileInvocationAcquisition35({...w2Applied,classLevels:[],invocationAcquisition35:{}});
   assert(!lostState.spells.some(s=>s.invocationGrant),'Generated invocations require an active owning acquisition');
+  const customized={...w1Applied,spells:w1Applied.spells.map(s=>({...s,notes:'Table reminder',rollFormula:'2d6',rollAttack:true}))};
+  const customizedResult=reconcileInvocationAcquisition35(customized);
+  assert.equal(customizedResult.spells[0].notes,'Table reminder','Reconciliation preserves player annotations');
+  assert.equal(customizedResult.spells[0].rollFormula,'2d6');
+  assert.equal(customizedResult.spells[0].rollAttack,true);
 
   const effects=['Frost Breath','Lightning Breath','Sickening Breath','Acid Breath','Shaped Breath','Slow Breath','Weakening Breath','Cloud Breath','Enduring Breath','Sleep Breath','Thunder Breath','Discorporating Breath of Bahamut','Force Breath','Paralyzing Breath','Fivefold Breath of Tiamat'];
   assert.deepEqual(effects.map(name=>breathEffectMechanics35(name)?.name),effects);
@@ -111,6 +116,18 @@ import * as special from '../src/lib/legacySpecialCasting.js';
   assert.equal(breathEffectMechanics35('Thunder Breath').damageType,'sonic');
   assert.equal(breathEffectMechanics35('Paralyzing Breath').condition,'paralyzed');
   assert.equal(breathEffectMechanics35('Fivefold Breath of Tiamat').specialCombination,true);
+  assert.equal(breathEffectMechanics35('Enduring Breath').canCombine,false,'Enduring Breath does not grant permission to combine effects');
+  assert.equal(breathEffectMechanics35('Cloud Breath').combinesWithArea,'cone');
+  assert.equal(breathEffectMechanics35('Sleep Breath').saveCondition,'exhausted');
+  assert.equal(breathEffectMechanics35('Sleep Breath').maximumTargetHitDice,'class-level');
+  assert.equal(breathEffectMechanics35('Paralyzing Breath').save,'Fortitude');
+  assert.equal(breathEffectMechanics35('Force Breath').forceEffect,true);
+  const bahamut=breathEffectMechanics35('Discorporating Breath of Bahamut');
+  assert.equal(bahamut.requiredAlignment,'non-evil');assert.equal(bahamut.affectsObjects,false);
+  assert.deepEqual(bahamut.selfDamage,{perClassLevel:2,otherwisePerClassLevel:4,preferredAlignment:'good',canMitigate:false});
+  const tiamat=breathEffectMechanics35('Fivefold Breath of Tiamat');
+  assert.equal(tiamat.actionType,'Full-round action');assert.equal(tiamat.preventsBreathNextRound,true);
+  assert.deepEqual(tiamat.breaths.map(b=>[b.area,b.damageType]),[['cone','acid'],['cone','cold'],['cone','fire'],['line','acid'],['line','electricity']]);
 
   console.log('PASS shared Warlock/Dragonfire Adept invocation catalogs, progression, replacements, runtime ownership, save DCs and Dragonfire breath mechanics');
 }

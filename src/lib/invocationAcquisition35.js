@@ -139,13 +139,17 @@ export function reconcileInvocationAcquisition35(character){
   if(reasons.length)incomplete.push({classId:cleanId(profile.classId),reasons:[...new Set(reasons)]});
  }
  const existing=Array.isArray(character?.spells)?character.spells:[],runtime=[];
+ const previousRuntime=new Map(existing.filter(spell=>spell.invocationGrant).map(spell=>[spell.invocationAcquisitionId,spell]));
  for(const [key,bucket] of Object.entries(state)){
   if(bucket.active===false)continue;const profile=profileFor(bucket.classId||key);if(!profile)continue;
   const legal=new Map(invocationCatalog35(profile.classId).map(row=>[row.catalogId,row])),seen=new Set(),max=gradeIndex(profile.maxGradeByLevel[bucket.classLevel]);
   for(const item of activeRows(bucket)){
    const canonical=legal.get(item.invocationKey);
    if(!canonical||gradeIndex(canonical.grade)>max||seen.has(item.invocationKey)||Number(item.acquiredAtClassLevel)>bucket.classLevel||seen.size>=Number(profile.knownByLevel[bucket.classLevel]||0))continue;
-   seen.add(item.invocationKey);runtime.push(runtimeFrom({...item,invocation:canonical},bucket.classId||key,profile));
+   seen.add(item.invocationKey);
+   const spell=runtimeFrom({...item,invocation:canonical},bucket.classId||key,profile),previous=previousRuntime.get(item.id);
+   for(const field of ['notes','rollFormula','rollAttack'])if(previous&&Object.hasOwn(previous,field))spell[field]=previous[field];
+   runtime.push(spell);
   }
  }
  const preserved=existing.filter(spell=>!spell?.invocationGrant);
@@ -201,14 +205,16 @@ const breathEffects={
  'Shaped Breath':{name:'Shaped Breath',minLevel:5,safeSquares:4,canCombine:true},
  'Slow Breath':{name:'Slow Breath',minLevel:5,area:'cone',replacesDamage:true,condition:'slowed',save:'Fortitude',durationRounds:2,saveDurationRounds:1},
  'Weakening Breath':{name:'Weakening Breath',minLevel:5,area:'cone',replacesDamage:true,save:'Fortitude',strengthPenalty:-6,durationRounds:4,saveDurationRounds:2},
- 'Cloud Breath':{name:'Cloud Breath',minLevel:10,area:'20-foot-radius cloud',replacesArea:true,canCombine:true},
- 'Enduring Breath':{name:'Enduring Breath',minLevel:10,nextRoundDamageMultiplier:0.5,noSecondSave:true,canCombine:true},
- 'Sleep Breath':{name:'Sleep Breath',minLevel:10,area:'cone',replacesDamage:true,condition:'sleep',save:'Will',durationRounds:1},
+ 'Cloud Breath':{name:'Cloud Breath',minLevel:10,area:'20-foot-radius spread',center:'self',replacesArea:true,canCombine:true,combinesWithArea:'cone',additionalEffects:1},
+ 'Enduring Breath':{name:'Enduring Breath',minLevel:10,nextRoundDamageMultiplier:0.5,damageBasis:'initial-damage-taken',noSecondSave:true,canCombine:false},
+ 'Sleep Breath':{name:'Sleep Breath',minLevel:10,area:'cone',replacesDamage:true,condition:'sleep',save:'Will',durationRounds:1,saveCondition:'exhausted',saveDurationRounds:1,livingTargetsOnly:true,maximumTargetHitDice:'class-level'},
  'Thunder Breath':{name:'Thunder Breath',minLevel:10,area:'cone',damageType:'sonic',save:'Fortitude',replacesDamageType:true},
- 'Discorporating Breath of Bahamut':{name:'Discorporating Breath of Bahamut',minLevel:15,area:'line',damageMultiplier:2,disintegrates:true},
- 'Force Breath':{name:'Force Breath',minLevel:15,area:'line',damageType:'force',replacesDamageType:true},
- 'Paralyzing Breath':{name:'Paralyzing Breath',minLevel:15,area:'cone',replacesDamage:true,condition:'paralyzed',durationRounds:1},
- 'Fivefold Breath of Tiamat':{name:'Fivefold Breath of Tiamat',minLevel:15,specialCombination:true}
+ 'Discorporating Breath of Bahamut':{name:'Discorporating Breath of Bahamut',minLevel:15,area:'line',damageType:'untyped',replacesDamageType:true,damageMultiplier:2,disintegrates:true,disintegratesAtHitPoints:0,save:'Fortitude',saveEffect:'half-damage',affectsObjects:false,requiredAlignment:'non-evil',selfDamage:{perClassLevel:2,otherwisePerClassLevel:4,preferredAlignment:'good',canMitigate:false}},
+ 'Force Breath':{name:'Force Breath',minLevel:15,area:'line',damageType:'untyped',forceEffect:true,affectsIncorporealNormally:true,replacesDamageType:true},
+ 'Paralyzing Breath':{name:'Paralyzing Breath',minLevel:15,area:'cone',replacesDamage:true,condition:'paralyzed',durationRounds:1,save:'Fortitude',saveEffect:'negates'},
+ 'Fivefold Breath of Tiamat':{name:'Fivefold Breath of Tiamat',minLevel:15,specialCombination:true,actionType:'Full-round action',requiredAlignment:'non-good',preventsBreathNextRound:true,save:'Reflex',saveEffect:'half-damage',selfDamage:{perClassLevel:2,otherwisePerClassLevel:4,preferredAlignment:'evil',canMitigate:false},breaths:[{area:'cone',damageType:'acid'},{area:'cone',damageType:'cold'},{area:'cone',damageType:'fire'},{area:'line',damageType:'acid'},{area:'line',damageType:'electricity'}]}
 };
-export function breathEffectMechanics35(name){const row=breathEffects[name];return row?{...row}:null;}
-export function dragonfireBreathEffects35(){return Object.values(breathEffects).map(row=>({...row}));}
+// Source review: Dragon Magic pp. 77–78 (Exa extraction, 2026-10-03).
+const breathSource={sourceBook:'Dragon Magic',sourcePages:'77–78',sourceUrl:'https://dtdnd.neocities.org/books/player/Dragon%20Magic.pdf'};
+export function breathEffectMechanics35(name){const row=breathEffects[name];return row?structuredClone({...breathSource,...row}):null;}
+export function dragonfireBreathEffects35(){return Object.keys(breathEffects).map(breathEffectMechanics35);}
