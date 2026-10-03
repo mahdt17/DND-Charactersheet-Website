@@ -592,6 +592,17 @@ try{
   await page.getByRole('tab',{name:'Spells',exact:true}).click();
   await page.getByRole('button',{name:'Manage spells',exact:true}).click();
   const factotumDaily=page.getByRole('region',{name:'Arcane Dilettante daily repertoire',exact:true});
+  if(await factotumDaily.count()===0){
+    const factotumTrace=await saved(factotumName);
+    console.log('TRACE Factotum daily UI state '+JSON.stringify({
+      ruleset:factotumTrace.ruleset,
+      className:factotumTrace.className,
+      level:factotumTrace.level,
+      classLevels:factotumTrace.classLevels?.map(row=>({catalogId:row.catalogId,name:row.name,edition:row.edition,level:row.level,definitionId:row.definition?.catalogId||row.definition?.id||row.definition?.sourceId})),
+      dailySpellLike35:factotumTrace.dailySpellLike35,
+      spellTabText:(await page.locator('main').innerText()).slice(-5000)
+    }));
+  }
   await factotumDaily.waitFor();
   const factotumPicker=factotumDaily.getByRole('region',{name:'Arcane Dilettante daily spells',exact:true});
   await selectSpellIn(factotumPicker,'Detect Magic');
