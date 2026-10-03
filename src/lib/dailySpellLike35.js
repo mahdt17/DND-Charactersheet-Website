@@ -141,7 +141,7 @@ function resolveMetamagic(character,spell,choices,maxLevel){
     if(adjustment==null)throw Error('This metamagic feat does not have a source-safe preparation level adjustment.');
     if(/^heighten spell$/i.test(feat.name))heightenTarget=Math.max(heightenTarget,targetLevel);
     else fixedAdjustment+=adjustment;
-    resolved.push({name:feat.name,adjustment,targetLevel:/^heighten spell$/i.test(feat.name)?targetLevel:undefined});
+    resolved.push({name:feat.name,adjustment,...(/^heighten spell$/i.test(feat.name)?{targetLevel}:{})});
   }
   const preparedLevel=heightenTarget+fixedAdjustment,effectiveLevel=heightenTarget;
   if(preparedLevel>maxLevel)throw Error('The metamagic-adjusted Arcane Dilettante spell exceeds the maximum spell level.');
