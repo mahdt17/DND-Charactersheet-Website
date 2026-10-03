@@ -20,7 +20,7 @@ export default function InvocationChoices35({character,events=[],picks={},onChan
    return <div className="feature-detail" key={id}>
     <label className="l-check"><input type="checkbox" checked={enabled} onChange={e=>onChange({...picks,[id]:{skip:!e.target.checked}})}/>{'Replace an invocation at class level '+event.classLevel}</label>
     {enabled&&<>
-     <label className="l-field"><span>{'Invocation to replace at class level '+event.classLevel}</span><select value={removed} onChange={e=>onChange({...picks,[id]:{skip:false,removedInvocationKey:e.target.value}})}><option value="">Choose an invocation you already knew</option>{owned.filter(row=>row.acquiredAtClassLevel<event.classLevel).map(row=><option key={row.invocationKey} value={row.invocationKey}>{row.invocationName}</option>)}</select></label>
+     <label className="l-field"><span>{'Invocation to replace at class level '+event.classLevel}</span><select aria-label={'Invocation to replace at class level '+event.classLevel} value={removed} onChange={e=>onChange({...picks,[id]:{skip:false,removedInvocationKey:e.target.value}})}><option value="">Choose an invocation you already knew</option>{owned.filter(row=>row.acquiredAtClassLevel<event.classLevel).map(row=><option key={row.invocationKey} value={row.invocationKey}>{row.invocationName}</option>)}</select></label>
      {removed&&<SpellPicker label={'Replacement invocation at class level '+event.classLevel} spells={candidates} selected={added?[added]:[]} limit={1} onToggle={row=>onChange({...picks,[id]:{...value,addedInvocationKey:added===row.catalogId?'':row.catalogId}})}/>}
     </>}
    </div>;
