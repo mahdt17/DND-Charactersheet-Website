@@ -569,6 +569,74 @@ try{
   console.log('PASS Wu Jen starting spellbook and generic campaign spellbook acquisition UI');
 
 
+  const factotumName='Acquisition Factotum 3.5',factotumKey='dndtools:classes/factotum-35';
+  await page.getByRole('button',{name:'All characters',exact:true}).click();
+  await begin35(factotumName,'classes/factotum-35','Factotum',{int15:true});
+  assert.equal(await page.getByRole('region',{name:'3.5 spell acquisition choices',exact:true}).count(),0,'Factotum 1 has no Arcane Dilettante repertoire yet');
+  await next();
+  const createFactotum=page.getByRole('button',{name:'Create Character',exact:true});
+  assert(!await createFactotum.isDisabled());
+  await createFactotum.click();
+  await page.locator('.sheet-identity').filter({hasText:factotumName}).waitFor();
+
+  await page.getByRole('button',{name:'Level up',exact:true}).click();
+  await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+  await next();
+  await next();
+  await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+  await page.locator('.sheet-identity').filter({hasText:'LEVEL 2'}).waitFor();
+  const factotum2=await saved(factotumName);
+  const inspiration=factotum2.resources.find(resource=>resource.name==='Inspiration'&&resource.sourceClassId===factotumKey);
+  assert.equal(inspiration?.max,3,'Factotum 2 retains its source-owned Inspiration pool');
+
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  await page.getByRole('button',{name:'Manage spells',exact:true}).click();
+  const factotumDaily=page.getByRole('region',{name:'Arcane Dilettante daily repertoire',exact:true});
+  await factotumDaily.waitFor();
+  const factotumPicker=factotumDaily.getByRole('region',{name:'Arcane Dilettante daily spells',exact:true});
+  await selectSpellIn(factotumPicker,'Detect Magic');
+  await factotumDaily.getByRole('button',{name:'Prepare Arcane Dilettante repertoire',exact:true}).click();
+  await page.locator('.spell-item').filter({hasText:'Detect Magic'}).waitFor();
+  const preparedFactotum=await saved(factotumName);
+  assert.equal(preparedFactotum.dailySpellLike35?.[factotumKey]?.selections?.length,1);
+  assert.equal(preparedFactotum.dailySpellLike35[factotumKey].ready,false);
+  assert(preparedFactotum.spells.some(spell=>spell.dailySpellLikeGrant&&spell.castingClassId===factotumKey&&spell.name==='Detect Magic'));
+
+  await page.getByRole('button',{name:'Done',exact:true}).click();
+  const detectMagicItem=page.locator('.spell-item').filter({hasText:'Detect Magic'}).first();
+  await detectMagicItem.getByRole('button',{name:'Use',exact:true}).click();
+  const factotumCast=page.getByRole('dialog').filter({hasText:'Use Detect Magic'});
+  await factotumCast.waitFor();
+  assert.match(await factotumCast.innerText(),/caster level 2/i);
+  assert.match(await factotumCast.innerText(),/save DC 11/i);
+  assert.match(await factotumCast.innerText(),/Costs 1 Inspiration/i);
+  await factotumCast.getByRole('button',{name:'Use & spend Inspiration',exact:true}).click();
+
+  const factotumUsed=await saved(factotumName);
+  assert.equal(factotumUsed.resources.find(resource=>resource.name==='Inspiration'&&resource.sourceClassId===factotumKey)?.used,1);
+  assert.equal(factotumUsed.dailySpellLike35[factotumKey].selections[0].used,true);
+  assert.equal(Object.values(factotumUsed.classSlotsUsed?.[factotumKey]||{}).reduce((sum,value)=>sum+Number(value||0),0),0,'Arcane Dilettante does not spend spell slots');
+  assert.equal(await detectMagicItem.getByRole('button',{name:'Used today',exact:true}).count(),1);
+
+  await openCharacter(factotumName);
+  const reopenedFactotum=await saved(factotumName);
+  assert.equal(reopenedFactotum.dailySpellLike35[factotumKey].selections[0].used,true,'used Arcane Dilettante state survives save/reopen');
+  await page.getByRole('button',{name:'Rest',exact:true}).click();
+  await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
+  await page.waitForFunction(async ({name,key})=>{
+    const rows=JSON.parse((await window.storage.get('char-index')).value),row=rows.find(item=>item.name===name);
+    if(!row)return false;
+    const detail=JSON.parse((await window.storage.get('char-detail:'+row.id)).value),bucket=detail.dailySpellLike35?.[key];
+    return bucket?.ready===true&&(bucket?.selections||[]).length===0&&!detail.spells.some(spell=>spell.dailySpellLikeGrant&&spell.castingClassId===key);
+  },{name:factotumName,key:factotumKey});
+  await page.getByRole('tab',{name:'Spells',exact:true}).click();
+  await page.getByRole('button',{name:'Manage spells',exact:true}).click();
+  const factotumFresh=page.getByRole('region',{name:'Arcane Dilettante daily repertoire',exact:true});
+  await factotumFresh.waitFor();
+  assert.equal(await factotumFresh.getByRole('region',{name:'Arcane Dilettante daily spells',exact:true}).count(),1,'long rest reopens a fresh Arcane Dilettante selection');
+  console.log('PASS Factotum Arcane Dilettante level-up, daily preparation, Inspiration spending, persistence and rest reset');
+
+
   assert.deepEqual(errors,[]);
 }catch(error){
   await page.screenshot({path:'test-results/spell-acquisition35-failure.png',fullPage:true}).catch(()=>{});
