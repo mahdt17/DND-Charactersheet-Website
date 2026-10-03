@@ -40,16 +40,17 @@ export function invocationSaveDc35(character,classId,invocation){
 }
 export function invocationEvents35(character,{classId,previousClassLevel=0,targetClassLevel}={}){
  const profile=profileFor(classId);if(!profile)return [];
+ classId=activeRow(character,classId)?.catalogId||classId;
  const target=Math.max(0,Number(targetClassLevel??activeRow(character,classId)?.level)||0),previous=Math.max(0,Number(previousClassLevel)||0);
  const events=[];
  for(let level=previous+1;level<=target;level++){
   const before=Number(profile.knownByLevel?.[String(level-1)]||0),now=Number(profile.knownByLevel?.[String(level)]||0),count=Math.max(0,now-before);
   if(!count)continue;
   const chooseId=eventId(classId,level,'choose-invocations');
-  if(!eventApplied(character,classId,chooseId))events.push({id:chooseId,eventId:chooseId,kind:'choose-invocations',classId:cleanId(classId),profileId:profile.id,classLevel:level,count,maxGrade:profile.maxGradeByLevel?.[String(level)]||'least',required:true});
+  if(!eventApplied(character,classId,chooseId))events.push({id:chooseId,eventId:chooseId,kind:'choose-invocations',classId,profileId:profile.id,classLevel:level,count,maxGrade:profile.maxGradeByLevel?.[String(level)]||'least',required:true});
   if(before>0){
    const replaceId=eventId(classId,level,'optional-invocation-replacement');
-   if(!replacementApplied(character,classId,replaceId))events.push({id:replaceId,eventId:replaceId,kind:'optional-invocation-replacement',classId:cleanId(classId),profileId:profile.id,classLevel:level,count:1,maxGrade:profile.maxGradeByLevel?.[String(level)]||'least',required:false});
+   if(!replacementApplied(character,classId,replaceId))events.push({id:replaceId,eventId:replaceId,kind:'optional-invocation-replacement',classId,profileId:profile.id,classLevel:level,count:1,maxGrade:profile.maxGradeByLevel?.[String(level)]||'least',required:false});
   }
  }
  return events;
@@ -73,7 +74,7 @@ function validateInvocation(event,profile,row){
 function runtimeFrom(item,classId,profile){
  const row=item.invocation||{};
  return {...row,id:`invocation-grant:${cleanId(classId)}:${item.invocationKey}`,catalogId:row.catalogId||item.invocationKey,
-  edition:'3.5',category:'invocation',castingClassId:cleanId(classId),invocationGrant:true,invocationAcquisitionId:item.id,
+  edition:'3.5',category:'invocation',castingClassId:classId,invocationGrant:true,invocationAcquisitionId:item.id,
   invocationGrade:row.grade,invocationType:row.invocationType,level:Number(row.equivalentLevel??row.level)||0,prepared:true,
   description:'Source-linked 3.5 invocation. Use the linked source for the full effect text.',sourceUrl:row.sourceUrl,
   classes:[profile.className],classLevels:{[profile.className]:Number(row.equivalentLevel??row.level)||0}};
@@ -92,8 +93,8 @@ export function validateInvocationReplacement35(character,event,{removedInvocati
 }
 export function applyInvocationEvent35(character,event,selection){
  const profile=profileFor(event?.classId);if(!profile)throw Error('Unsupported invocation class.');
- const state={...(character?.invocationAcquisition35||{})},stateKey=Object.keys(state).find(k=>cleanId(k)===cleanId(event.classId))||cleanId(event.classId);
- const bucket=cloneBucket(state[stateKey]||{profileId:profile.id,classId:cleanId(event.classId),classLevel:event.classLevel,active:true,orphaned:false,acquisitions:[],replacements:[]});
+ const state={...(character?.invocationAcquisition35||{})},stateKey=Object.keys(state).find(k=>cleanId(k)===cleanId(event.classId))||event.classId;
+ const bucket=cloneBucket(state[stateKey]||{profileId:profile.id,classId:event.classId,classLevel:event.classLevel,active:true,orphaned:false,acquisitions:[],replacements:[]});
  if(event.kind==='choose-invocations'){
   const rows=Array.isArray(selection)?selection.filter(Boolean):[];
   if(rows.length!==Number(event.count||0)||new Set(rows.map(keyOf)).size!==rows.length)throw Error('Choose the exact number of distinct invocations.');
@@ -128,7 +129,7 @@ export function reconcileInvocationAcquisition35(character){
    const rowData=legal.get(item.invocationKey);if(!rowData)reasons.push((item.invocationName||item.invocationKey)+' is not on this class invocation list.');
    else if(gradeIndex(rowData.grade)>max)reasons.push((rowData.name||item.invocationKey)+' is above the unlocked invocation grade.');
   }
-  state[key]={...bucket,profileId:profile.id,classId:cleanId(profile.classId),classLevel:level,active:true,orphaned:false,incompleteReasons:[...new Set(reasons)]};
+  state[key]={...bucket,profileId:profile.id,classId:row.catalogId||key,classLevel:level,active:true,orphaned:false,incompleteReasons:[...new Set(reasons)]};
   if(reasons.length)incomplete.push({classId:cleanId(profile.classId),reasons:[...new Set(reasons)]});
  }
  const existing=Array.isArray(character?.spells)?character.spells:[],runtime=[];
@@ -136,8 +137,8 @@ export function reconcileInvocationAcquisition35(character){
   if(bucket.active===false)continue;const profile=profileFor(bucket.classId||key);if(!profile)continue;
   for(const item of activeRows(bucket))runtime.push(runtimeFrom(item,bucket.classId||key,profile));
  }
- const activeClassIds=new Set(Object.values(state).filter(b=>b.active!==false).map(b=>cleanId(b.classId)));
- const preserved=existing.filter(spell=>!spell?.invocationGrant||!activeClassIds.has(cleanId(spell.castingClassId)));
+ const ownedClassIds=new Set(Object.entries(state).filter(([key,b])=>profileFor(b.classId||key)).map(([key,b])=>cleanId(b.classId||key)));
+ const preserved=existing.filter(spell=>!spell?.invocationGrant||!ownedClassIds.has(cleanId(spell.castingClassId)));
  return {...character,invocationAcquisition35:state,invocationAcquisition35Incomplete:incomplete,spells:[...preserved,...runtime]};
 }
 

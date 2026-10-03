@@ -1,10 +1,7 @@
 import assert from 'node:assert/strict';
-import {createServer} from 'vite';
-
-const server=await createServer({server:{middlewareMode:true},optimizeDeps:{noDiscovery:true,include:[]}});
-try{
-  const inv=await server.ssrLoadModule('/src/lib/invocationAcquisition35.js');
-  const special=await server.ssrLoadModule('/src/lib/legacySpecialCasting.js');
+import * as inv from '../src/lib/invocationAcquisition35.js';
+import * as special from '../src/lib/legacySpecialCasting.js';
+{
   const {
     invocationProfile35,invocationCatalog35,invocationEvents35,invocationPicksComplete35,
     applyInvocationEvent35,reconcileInvocationAcquisition35,activeInvocations35,
@@ -89,4 +86,4 @@ try{
   assert.equal(breathEffectMechanics35('Fivefold Breath of Tiamat').specialCombination,true);
 
   console.log('PASS shared Warlock/Dragonfire Adept invocation catalogs, progression, replacements, runtime ownership, save DCs and Dragonfire breath mechanics');
-}finally{await server.close();}
+}

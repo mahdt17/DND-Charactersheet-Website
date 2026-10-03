@@ -1,4 +1,5 @@
 import {characterClasses,classCharacter,progressionRow,contentKey} from './advancement.js';
+import {invocationProfile35} from './invocationAcquisition35.js';
 const abilities={Psion:'int','Psychic Warrior':'wis',Wilder:'cha'};
 export const psionDisciplines={Clairsentience:'Seer',Metacreativity:'Shaper',Psychokinesis:'Kineticist',Psychometabolism:'Egoist',Psychoportation:'Nomad',Telepathy:'Telepath'};
 const norm=x=>String(x?.name||x||'').trim().toLowerCase();
@@ -14,8 +15,9 @@ export function specialCastingProfile(c){
   return {kind:'power',id,ability,level,known,maximum,points:base+Math.floor(bonus*level/2),discipline:c.legacyCastingChoices?.[id]?.discipline};
  }
  if(c.className==='Warlock'||c.className==='Dragonfire Adept'){
-  const known=value(/^invocations? known$/i);if(!Number.isFinite(known))return null;
-  return {kind:'invocation',id,className:c.className,ability:'cha',level:c.level,known,grade:c.level>=16?3:c.level>=11?2:c.level>=6?1:0};
+  const sourceId=c.activeCastingClassId||c.classDefinition?.catalogId||(c.classLevels||[]).find(r=>r.name===c.className)?.catalogId||id;
+  const profile=invocationProfile35(sourceId),known=profile?Number(profile.knownByLevel[c.level]):value(/^invocations? known$/i);if(!Number.isFinite(known))return null;
+  return {kind:'invocation',id:sourceId,className:c.className,ability:'cha',level:c.level,known,grade:c.level>=16?3:c.level>=11?2:c.level>=6?1:0};
  }
  return null;
 }
