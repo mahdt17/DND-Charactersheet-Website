@@ -499,6 +499,7 @@ try{
   assert.equal(spiritBucket?.acquisitions.filter(x=>x.active!==false).length,4);
   assert(spiritBucket?.acquisitions.filter(x=>x.active!==false).every(x=>x.origin==='daily-retrieval'),'created Spirit Shaman repertoire is persisted as daily-retrieval state');
   assert(spiritCreated.feats?.some(feat=>feat.name==='Alertness'&&feat.sourceClassId===spiritKey),'Spirit Guide grants source-owned Alertness');
+  await page.evaluate(()=>{window.__ledgerCharacterTrace=[];});
   await page.getByRole('button',{name:'Rest',exact:true}).click();
   await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
   await page.waitForFunction(async ({name,key})=>{
@@ -509,6 +510,9 @@ try{
     const detail=JSON.parse(stored.value),bucket=detail.spellAcquisition35?.[key];
     return bucket?.dailyRetrievalReady===true&&(bucket?.acquisitions||[]).filter(item=>item.active!==false).length===0;
   },{name:spiritName,key:spiritKey});
+  await page.waitForTimeout(900);
+  const spiritTrace=await page.evaluate(()=>window.__ledgerCharacterTrace||[]);
+  console.log('TRACE Spirit Shaman ledger writes',JSON.stringify(spiritTrace));
   const spiritRested=await saved(spiritName);
   assert.equal(spiritRested.spellAcquisition35[spiritKey].acquisitions.filter(x=>x.active!==false).length,0,'long rest clears yesterday’s Spirit Shaman retrieved repertoire');
   await page.getByRole('tab',{name:'Spells',exact:true}).click();

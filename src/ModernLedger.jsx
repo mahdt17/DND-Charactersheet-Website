@@ -88,6 +88,19 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false})
   }
   function storeCharacter(next){
     next=normalize(next);
+    if(typeof window!=='undefined'&&Array.isArray(window.__ledgerCharacterTrace)){
+      const spiritKey=Object.keys(next.spellAcquisition35||{}).find(key=>key.includes('classes/spirit-shaman-9'));
+      if(spiritKey){
+        const bucket=next.spellAcquisition35[spiritKey];
+        window.__ledgerCharacterTrace.push({
+          name:next.name,
+          ready:bucket?.dailyRetrievalReady,
+          active:(bucket?.acquisitions||[]).filter(item=>item.active!==false).length,
+          origins:(bucket?.acquisitions||[]).filter(item=>item.active!==false).map(item=>item.origin),
+          stack:new Error('ledger character write').stack
+        });
+      }
+    }
     const current=charactersRef.current||[],list=current.some(c=>c.id===next.id)?current.map(c=>c.id===next.id?next:c):[...current,next];
     charactersRef.current=list;setCharacters(list);schedule(next);return next;
   }
