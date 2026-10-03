@@ -81,7 +81,7 @@ try{
     assert.equal(await castDialog.getByLabel('Spell slot',{exact:true}).count(),0,'Invocations spend no spell slot');
     await castDialog.getByRole('button',{name:'Use',exact:true}).click();
     await page.getByRole('button',{name:'Manage spells',exact:true}).click();
-    assert.equal(await page.getByRole('region',{name:'Choose spells',exact:true}).count(),0,'Managed invocations cannot bypass acquisition through the generic spell picker');
+    assert.equal(await page.getByRole('region',{name:'Available class spells',exact:true}).count(),0,'Managed invocations cannot bypass acquisition through the generic spell picker');
     await openCharacter(name);
     assert.equal((await saved(name)).spells.filter(x=>x.invocationGrant&&x.castingClassId===key).length,1);
     if(className==='Warlock'){

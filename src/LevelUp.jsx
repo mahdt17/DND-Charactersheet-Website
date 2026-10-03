@@ -48,6 +48,8 @@ export default function LevelUp({char,homebrew=[],onFinish,onCancel}) {
     const advanced=applyCastingAdvancementSelections(advancedBase,castingPlan,effectiveCastingTargets);
     const next={...char,...classResult,...advanced,abilities:classResult.abilities,spells:classResult.spells,feats:classResult.feats,notes:classResult.notes,
       featureChoices:classResult.featureChoices??advanced.featureChoices,
+      invocationAcquisition35:classResult.invocationAcquisition35??advanced.invocationAcquisition35,
+      invocationAcquisition35Incomplete:classResult.invocationAcquisition35Incomplete??advanced.invocationAcquisition35Incomplete,
       spellAcquisition35:classResult.spellAcquisition35??advanced.spellAcquisition35,
       spellAcquisition35Incomplete:classResult.spellAcquisition35Incomplete??advanced.spellAcquisition35Incomplete,
       classDefinition:advanced.classLevels[0].definition,subclass:advanced.classLevels[0].subclass,

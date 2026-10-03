@@ -8,6 +8,8 @@ import {modern,mechanics,is35,levelRecord,spellCounts,spellAccess,permittedSpell
 import {useReferenceIndex} from './lib/referenceIndex';
 import SpellPicker from './EditionSpellPicker';
 import SpellAcquisitionChoices35 from './SpellAcquisitionChoices35';
+import InvocationChoices35 from './InvocationChoices35';
+import {invocationProfile35,invocationEvents35,invocationChoicesComplete35,applyInvocationChoices35} from './lib/invocationAcquisition35';
 import ClassFeatureChoices from './ClassFeatureChoices';
 import {featureChoicePlan} from './lib/featureChoices';
 import {spellAcquisitionProfile35,spellAcquisitionEvents35,spellAcquisitionPicksComplete35,applySpellAcquisitionEvent35,spellAcquisitionCandidates35} from './lib/spellAcquisition35';
@@ -33,6 +35,10 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   const fullBase=acquisitionCharacter||char;
   const targetRows=Array.isArray(fullBase.classLevels)?fullBase.classLevels.map(row=>row.catalogId===acquisitionClassId?{...row,level:target,definition:row.definition||char.classDefinition}:row):[];
   if(acquisitionClassId&&!targetRows.some(row=>row.catalogId===acquisitionClassId))targetRows.push({catalogId:acquisitionClassId,name:char.className,edition:char.ruleset,level:target,definition:char.classDefinition});
+  const [invocationPicks,setInvocationPicks]=useState({});
+  const invocationProfile=is35(char)?invocationProfile35(acquisitionClassId):null;
+  const invocationTarget={...fullBase,level:characterLevel,abilities:nextAbilities,classLevels:targetRows};
+  const invocationEvents=invocationProfile?invocationEvents35(invocationTarget,{classId:acquisitionClassId,previousClassLevel:char.level,targetClassLevel:target}):[];
   const acquisitionFeatureBase=managedAcquisition?{...fullBase,level:characterLevel,abilities:nextAbilities,className:char.className,classDefinition:char.classDefinition,classLevels:targetRows}:null;
   const allReference=[...homebrew,...reference.entries];
   const acquisitionFeatureContext={spells:allReference.filter(entry=>entry?.category==='spell'),feats:allReference.filter(entry=>/feat/i.test(entry?.category||''))};
@@ -54,7 +60,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   const featCharacter={...fullBase,level:characterLevel,abilities:nextAbilities,classLevels:featRows.length?featRows:fullBase.classLevels};
   const featValid=validFeatSelection(feat,featCharacter,{required:asi&&mode==='feat'});
   const choicesValid=acquisitionPrereqsComplete&&(!needsSubclass||subclass.trim().length>1)&&(!(manual||mode==='feat')||featValid)&&(!asi||(mode==='feat'?featValid:first&&second&&Object.values(effective).every(n=>n<=20)));
-  const spellsValid=managedAcquisition?spellAcquisitionPicksComplete35(acquisitionEvents,acquisitionPicks,acquisitionLegalIds):added.every(s=>candidates.some(x=>keyOf(x)===keyOf(s)))&&(manual||selectedCantrips.length===cantripGain&&selectedSpells.length===spellGain);
+  const spellsValid=invocationProfile?invocationChoicesComplete35(invocationTarget,invocationEvents,invocationPicks):managedAcquisition?spellAcquisitionPicksComplete35(acquisitionEvents,acquisitionPicks,acquisitionLegalIds):added.every(s=>candidates.some(x=>keyOf(x)===keyOf(s)))&&(manual||selectedCantrips.length===cantripGain&&selectedSpells.length===spellGain);
   function finish(){
     if(!choicesValid||!spellsValid)return;
     let acquisitionResult=null,finalSpells=[...current,...added.map(s=>({...s,id:crypto.randomUUID(),prepared:manual||counts.mode!=='spellbook'}))];
@@ -92,7 +98,9 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
       }
       finalSpells=(acquisitionResult.spells||[]).filter(spell=>spell.castingClassId===acquisitionClassId);
     }
-    const result={...draft,subclass:subclass.trim(),featureChoices:acquisitionTarget?.featureChoices||draft.featureChoices,hp:{...char.hp,max:char.hp.max+hp,current:Math.min(char.hp.max+hp,char.hp.current+hp)},spells:finalSpells,notes:[char.notes,notes].filter(Boolean).join('\n\n'),...(acquisitionResult?{spellAcquisition35:acquisitionResult.spellAcquisition35,spellAcquisition35Incomplete:acquisitionResult.spellAcquisition35Incomplete}:{})};
+    const invocationResult=invocationProfile?applyInvocationChoices35(invocationTarget,invocationEvents,invocationPicks):null;
+    if(invocationResult)finalSpells=invocationResult.spells.filter(spell=>spell.castingClassId===acquisitionClassId);
+    const result={...draft,...(invocationResult?{invocationAcquisition35:invocationResult.invocationAcquisition35,invocationAcquisition35Incomplete:invocationResult.invocationAcquisition35Incomplete}:{}),subclass:subclass.trim(),featureChoices:acquisitionTarget?.featureChoices||draft.featureChoices,hp:{...char.hp,max:char.hp.max+hp,current:Math.min(char.hp.max+hp,char.hp.current+hp)},spells:finalSpells,notes:[char.notes,notes].filter(Boolean).join('\n\n'),...(acquisitionResult?{spellAcquisition35:acquisitionResult.spellAcquisition35,spellAcquisition35Incomplete:acquisitionResult.spellAcquisition35Incomplete}:{})};
     if((manual||mode==='feat')&&feat)result.feats=[...(char.feats||[]),{...feat,level:characterLevel}];
     if(is35(result)){const before=legacyProgression(char),after=legacyProgression(result);result.bab=(Number(char.bab)||0)+after.bab-before.bab;result.save35=Object.fromEntries(['fort','ref','will'].map(k=>[k,(char.save35?.[k]||0)+after[k]-before[k]]));}
     onFinish(result);
@@ -105,7 +113,7 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
       {(manual||mode==='feat')&&<LevelUpFeatChoice char={featCharacter} feat={feat} onChange={setFeat} homebrew={homebrew}/>}
       {manual&&<div className="form-grid">{ABILITIES.map(a=><label className="creation-field" key={a.key}><span>{a.label} (base)</span><input type="number" min="1" max="30" value={abilities[a.key]} onChange={e=>setAbilities({...abilities,[a.key]:Math.max(1,Math.min(30,Number(e.target.value)||1))})}/></label>)}</div>}
       <label className="creation-field"><span>Feature choices and level-up notes</span><textarea rows={5} value={notes} onChange={e=>setNotes(e.target.value)}/></label></>}
-    {step===1&&<><h2>New spell choices</h2>{managedAcquisition?<><p className="l-notice">Choose only the spells this class gains at this class level. Existing known spells and spellbook entries remain unchanged.</p><SpellAcquisitionChoices35 events={acquisitionEvents} spells={candidates} picks={acquisitionPicks} onChange={setAcquisitionPicks} character={acquisitionTarget}/>{!acquisitionEvents.filter(event=>event.required!==false).length&&<p>No mandatory spell acquisitions are required at this class level.</p>}</>:<>{cantripGain>0&&<SpellPicker label="New cantrips" spells={candidates.filter(s=>s.level===0)} selected={selectedCantrips.map(keyOf)} limit={cantripGain} onToggle={toggle}/>} {spellGain>0&&<SpellPicker label="New spells" spells={candidates.filter(s=>s.level!==0)} selected={selectedSpells.map(keyOf)} limit={spellGain} onToggle={toggle}/>} {!cantripGain&&!spellGain&&<p>No additional spell choices are required at this level.</p>}</>}</>}
+    {step===1&&<><h2>New spell choices</h2>{invocationProfile?<InvocationChoices35 character={invocationTarget} events={invocationEvents} picks={invocationPicks} onChange={setInvocationPicks}/>:managedAcquisition?<><p className="l-notice">Choose only the spells this class gains at this class level. Existing known spells and spellbook entries remain unchanged.</p><SpellAcquisitionChoices35 events={acquisitionEvents} spells={candidates} picks={acquisitionPicks} onChange={setAcquisitionPicks} character={acquisitionTarget}/>{!acquisitionEvents.filter(event=>event.required!==false).length&&<p>No mandatory spell acquisitions are required at this class level.</p>}</>:<>{cantripGain>0&&<SpellPicker label="New cantrips" spells={candidates.filter(s=>s.level===0)} selected={selectedCantrips.map(keyOf)} limit={cantripGain} onToggle={toggle}/>} {spellGain>0&&<SpellPicker label="New spells" spells={candidates.filter(s=>s.level!==0)} selected={selectedSpells.map(keyOf)} limit={spellGain} onToggle={toggle}/>} {!cantripGain&&!spellGain&&<p>No additional spell choices are required at this level.</p>}</>}</>}
     {step===2&&<><h2>Review level {target}</h2><p>Maximum HP: {char.hp.max} → {char.hp.max+hp}</p><p>Subclass: {subclass||'None'}</p><p>{added.length} new spells{(manual||mode==='feat')&&feat?` · Feat: ${feat.name}`:''}</p><div className="review-grid">{ABILITIES.map(a=><div className="review-stat" key={a.key}><span>{a.label}</span><strong>{effective[a.key]}</strong></div>)}</div></>}
     </div><div className="creation-footer"><button className="creation-secondary" onClick={()=>step?setStep(step-1):onCancel()}>{step?'Back':'Cancel'}</button><button className="creation-primary" disabled={!choicesValid||(step>0&&!spellsValid)} onClick={()=>step===2?finish():setStep(step+1)}>{step===2?'Apply level up':'Continue'}</button></div></section></div></div>;
 }
