@@ -399,3 +399,16 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Validation evidence: modernization #1685, spell acquisition #160, and companion #185 are green on the verified implementation head.
 - Canonical tracker totals are now **81 complete**, **621 needs-review**, **1 source-conflict**, **2 blocked**, and **349 pending audit**.
 - PR #8 remains open, draft, unmerged, and undeployed. Supabase was not modified. Research continued Exa/Tavily-first with no new Firecrawl fallback.
+
+## 2026-10-03 shared invocation acquisition checkpoint
+
+- Verified implementation head: `700f21cf504aaa72fc2629f9d5580ec26f1adfe7`.
+- Warlock and Dragonfire Adept now share guided invocation selection during creation and advancement, grade/count validation, same-or-lower-grade replacement, source-owned at-will casting, and persisted acquisition history. Managed repertoires use this validated path on the Spells surface.
+- Reconciliation preserves exact source identity and user notes, retires removed sources and invalid/later-level grants, restores compatible sources, prevents duplicate acquisitions, and retains replacement history. Older saves adopt their existing invocations before advancement without reopening historical acquisition slots or losing unrelated spells.
+- Browser regressions cover both classes' creation, Warlock advancement/replacement, legacy-save migration, at-will use, and save/reopen. Engine regressions cover eligibility, replay prevention, malformed state, removal/restoration, level reduction, and exact source ownership.
+- Dragonfire Adept Breath Effect metadata was rechecked against Dragon Magic pp. 77–78 using Exa. Selected-effect/action integration remains unfinished; invocation-specific effects also remain incomplete. Neither class is promoted.
+- Spirit Shaman and Wu Jen retain their previously verified complete status. Shugenja remains needs-review solely for the unresolved Ineffable Mystery Void specialization.
+- CI: [Spell acquisition checks](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37149739795), [Companion engine checks](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37149739758), and [Validate modernization](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37149739731) all passed.
+- Recounted totals are unchanged: **81 complete, 621 needs-review, 1 source-conflict, 2 blocked, 349 pending audit** (1,054 records). There are **627 recorded gap statements across 624 records**, and **973 unfinished records**, including pending audits.
+- Next coherent cohort: invocation-specific effect automation and Dragonfire Adept Breath Effect choices, reusing the existing selected-option mechanics and action/resource paths.
+- PR #8 remains open, draft, and unmerged. Nothing was deployed; Supabase was untouched. No Firecrawl calls were needed.

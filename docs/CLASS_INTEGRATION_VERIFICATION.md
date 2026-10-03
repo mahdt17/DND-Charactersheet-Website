@@ -670,3 +670,21 @@ Factotum (`classes/factotum-35`) now has structured Arcane Dilettante daily spel
 Prepared Arcane Dilettante entries persist as source-owned daily selections, spend one Inspiration when used, become unavailable after their single daily use, retain caster-level/save-DC metadata, survive JSON save/reopen, and reset only on daily/long-rest recovery. Reconciliation removes stale entries when the class is removed or no longer supports them.
 
 Regression coverage is in `tests/daily-spell-like35.mjs` and the Factotum cohort in `tests/browser-spell-acquisition35.mjs`. The promotion gate passed at `5bea34cc793a28ed55abbbf29b040226d7174ee1`: Validate modernization #1685, Spell acquisition checks #160, and Companion engine checks #185 all succeeded.
+
+## Shared invocation acquisition and saved-character lifecycle (2026-10-03)
+
+Warlock (`classes/warlock-4`) and Dragonfire Adept (`classes/dragonfire-adept-29`) now use one acquisition engine and one guided selection component for creation and advancement. Their separate source profiles retain grade unlocks, known-count progressions, and replacement eligibility. Optional replacement consumes its opportunity once, replaces only a previously known invocation with a same-or-lower-grade choice, and cannot reopen the original acquisition event.
+
+Runtime invocations retain the exact owning class ID, caster-level/Charisma save-DC metadata, and at-will behavior. Reconciliation detects malformed catalog/grade data and duplicates, suppresses later-level or excess grants after level reduction, removes orphaned grants, and restores compatible source histories. Existing notes and roll customization survive reconciliation. Legacy saved repertoires are adopted before advancement, preserve source descriptions and unrelated spells, and use a baseline instead of fabricated acquisition chronology.
+
+Coverage: `tests/invocation-acquisition35.mjs`, `tests/invocation-lifecycle35.mjs`, and invocation scenarios in `tests/browser-spell-acquisition35.mjs`. Browser scenarios verify fresh Warlock/Dragonfire Adept creation, Warlock acquisition/replacement, actual older-save migration, at-will use without spending spell slots, managed-picker restrictions, and persistence/reopen. The existing specialist-caster and Factotum scenarios continue to pass.
+
+Verification at `700f21cf504aaa72fc2629f9d5580ec26f1adfe7`:
+- [Spell acquisition checks](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37149739795): focused acquisition/lifecycle suites and the full spell-acquisition browser suite.
+- [Companion engine checks](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37149739758): companion engine and browser coverage.
+- [Validate modernization](https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37149739731): broad class/feat/spell/item regressions, production build, and browser suites.
+- Direct local engine suites and an application syntax bundle passed. Local Vite/browser execution was blocked by Windows child-process pipe permissions; the complete build and browser evidence above comes from CI.
+
+A source recheck of [Dragon Magic pp. 77–78](https://dtdnd.neocities.org/books/player/Dragon%20Magic.pdf) via Exa corrected Cloud, Enduring, Sleep, Force, Paralyzing, Bahamut, and Tiamat Breath Effect metadata. These helpers are not yet connected to all selected-option/action mechanics. Invocation-specific effect automation is also incomplete, so both class records remain needs-review. No promotion is implied by green acquisition tests.
+
+Tracker totals remain 81 complete / 621 needs-review / 1 source-conflict / 2 blocked / 349 pending audit; 627 gap statements span 624 records, and 973 records are unfinished. Spirit Shaman and Wu Jen remain complete; Shugenja's Void source ambiguity is unchanged. PR #8 stays open/draft/unmerged; no deployment, Supabase modification, or Firecrawl use occurred.
