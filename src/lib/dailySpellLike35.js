@@ -128,7 +128,7 @@ export function dailySpellLikeMetamagicOptions35(character,spell,maxLevel){
 
 function resolveMetamagic(character,spell,choices,maxLevel){
   const base=Math.max(0,Number(spell.dailySpellLikeBaseLevel??spell.level)||0),seen=new Set();
-  let preparedLevel=base,effectiveLevel=base;
+  let fixedAdjustment=0,heightenTarget=base;
   const resolved=[];
   for(const raw of Array.isArray(choices)?choices:[]){
     const name=String(raw?.name||raw||'').trim(),key=norm(name);
@@ -139,16 +139,14 @@ function resolveMetamagic(character,spell,choices,maxLevel){
     const targetLevel=raw?.targetLevel==null?null:Number(raw.targetLevel);
     const adjustment=metamagicLevelAdjustment35(feat,{baseLevel:base,targetLevel});
     if(adjustment==null)throw Error('This metamagic feat does not have a source-safe preparation level adjustment.');
-    if(/^heighten spell$/i.test(feat.name)){
-      effectiveLevel=targetLevel;
-      preparedLevel=Math.max(preparedLevel,targetLevel);
-    }else preparedLevel+=adjustment;
+    if(/^heighten spell$/i.test(feat.name))heightenTarget=Math.max(heightenTarget,targetLevel);
+    else fixedAdjustment+=adjustment;
     resolved.push({name:feat.name,adjustment,targetLevel:/^heighten spell$/i.test(feat.name)?targetLevel:undefined});
   }
+  const preparedLevel=heightenTarget+fixedAdjustment,effectiveLevel=heightenTarget;
   if(preparedLevel>maxLevel)throw Error('The metamagic-adjusted Arcane Dilettante spell exceeds the maximum spell level.');
   return {metamagic:resolved,modifiedLevel:preparedLevel,effectiveLevel};
 }
-
 function selectionId(spell,metamagic,index){
   const suffix=(metamagic||[]).map(item=>norm(item.name)+(item.targetLevel!=null?'-'+item.targetLevel:'')).join('-')||'plain';
   return 'daily-spell-like:'+norm(spell?.name)+':'+suffix+':'+index;
