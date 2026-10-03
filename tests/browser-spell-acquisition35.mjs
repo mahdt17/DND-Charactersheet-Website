@@ -59,8 +59,8 @@ try{
   await page.goto('http://127.0.0.1:5183/');
   await page.getByRole('button',{name:'Explore the demo'}).click();
 
-  for(const [classId,className,first] of [['classes/warlock-4','Warlock','Baleful Utterance'],['classes/dragonfire-adept-29','Dragonfire Adept','Draconic Knowledge']]){
-    const name='Invocation '+className,key='dndtools:'+classId;
+  for(const [classId,className,first,legacySave] of [['classes/warlock-4','Warlock','Baleful Utterance'],['classes/dragonfire-adept-29','Dragonfire Adept','Draconic Knowledge'],['classes/warlock-4','Warlock','Baleful Utterance',true]]){
+    const name=(legacySave?'Legacy Invocation ':'Invocation ')+className,key='dndtools:'+classId;
     await begin35(name,classId,className,{cha15:true});
     const choices=page.getByRole('region',{name:'3.5 invocation choices',exact:true});
     await choices.waitFor();
@@ -84,6 +84,17 @@ try{
     assert.equal(await page.getByRole('region',{name:'Available class spells',exact:true}).count(),0,'Managed invocations cannot bypass acquisition through the generic spell picker');
     await openCharacter(name);
     assert.equal((await saved(name)).spells.filter(x=>x.invocationGrant&&x.castingClassId===key).length,1);
+    if(legacySave){
+      await page.getByRole('button',{name:'All characters',exact:true}).click();
+      await page.evaluate(async name=>{
+        const rows=JSON.parse((await window.storage.get('char-index')).value),row=rows.find(x=>x.name===name);
+        const data=JSON.parse((await window.storage.get('char-detail:'+row.id)).value);
+        delete data.invocationAcquisition35;delete data.invocationAcquisition35Incomplete;
+        data.spells=data.spells.map(s=>{const old={...s,id:'legacy:'+s.name};delete old.invocationGrant;delete old.invocationAcquisitionId;delete old.castingClassId;return old;});
+        await window.storage.set('char-detail:'+row.id,JSON.stringify(data));
+      },name);
+      await openCharacter(name);
+    }
     if(className==='Warlock'){
       await page.getByRole('button',{name:'Level up',exact:true}).click();
       await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
@@ -105,7 +116,7 @@ try{
       await openCharacter(name);
       assert.equal((await saved(name)).spells.filter(s=>s.invocationGrant).length,2);
     }
-    console.log('PASS '+className+' invocation creation, at-will use, persistence'+(className==='Warlock'?', advancement and replacement':''));
+    console.log('PASS '+(legacySave?'legacy-save ':'')+className+' invocation creation, at-will use, persistence'+(className==='Warlock'?', advancement and replacement':''));
   }
 
   const sorcererName='Acquisition Sorcerer 3.5';

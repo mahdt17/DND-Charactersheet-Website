@@ -44,6 +44,7 @@ export function invocationEvents35(character,{classId,previousClassLevel=0,targe
  const target=Math.max(0,Number(targetClassLevel??activeRow(character,classId)?.level)||0),previous=Math.max(0,Number(previousClassLevel)||0);
  const events=[];
  for(let level=previous+1;level<=target;level++){
+  if(level<=Number(bucketFor(character,classId)?.legacyBaselineLevel||0))continue;
   const before=Number(profile.knownByLevel?.[String(level-1)]||0),now=Number(profile.knownByLevel?.[String(level)]||0),count=Math.max(0,now-before);
   if(!count)continue;
   const chooseId=eventId(classId,level,'choose-invocations');
@@ -75,10 +76,10 @@ function validateInvocation(event,profile,row){
 }
 function runtimeFrom(item,classId,profile){
  const row=item.invocation||{};
- return {...row,id:`invocation-grant:${cleanId(classId)}:${item.invocationKey}`,catalogId:row.catalogId||item.invocationKey,
+ return {...item.legacySpell,...row,id:`invocation-grant:${cleanId(classId)}:${item.invocationKey}`,catalogId:row.catalogId||item.invocationKey,
   edition:'3.5',category:'invocation',castingClassId:classId,invocationGrant:true,invocationAcquisitionId:item.id,
   invocationGrade:row.grade,invocationType:row.invocationType,level:Number(row.equivalentLevel??row.level)||0,prepared:true,
-  description:'Source-linked 3.5 invocation. Use the linked source for the full effect text.',sourceUrl:row.sourceUrl,
+  description:item.legacySpell?.description||'Source-linked 3.5 invocation. Use the linked source for the full effect text.',sourceUrl:row.sourceUrl,
   classes:[profile.className],classLevels:{[profile.className]:Number(row.equivalentLevel??row.level)||0}};
 }
 export function validateInvocationReplacement35(character,event,{removedInvocationKey,addedInvocation}={}){
@@ -169,6 +170,27 @@ export function applyInvocationChoices35(character,events,picks={}){
 }
 export function invocationChoicesComplete35(character,events,picks={}){
  try{applyInvocationChoices35(character,events,picks);return true;}catch{return false;}
+}
+
+// Older saves know their repertoire but not when each invocation was learned.
+// Record that conservative baseline without inventing historical choices.
+export function prepareInvocationAdvancement35(character,classId,previousClassLevel){
+ const profile=profileFor(classId),level=Math.max(0,Number(previousClassLevel)||0);
+ if(!profile||!level||bucketFor(character,classId))return character;
+ const primary=classRows(character)[0]?.catalogId||character.classDefinition?.catalogId;
+ const catalog=invocationCatalog35(classId),adopted=new Set(),acquisitions=[];
+ for(const spell of character.spells||[]){
+  if(spell.invocationGrant||spell.auto||cleanId(spell.castingClassId||primary)!==cleanId(classId))continue;
+  if(spell.category!=='invocation'&&!/invocation/i.test(spell.school||''))continue;
+  const matches=catalog.filter(row=>row.catalogId===spell.catalogId||norm(row.name)===norm(spell.name));
+  if(matches.length!==1)continue;
+  const row=matches[0];adopted.add(spell);
+  if(acquisitions.some(item=>item.invocationKey===row.catalogId))continue;
+  acquisitions.push({id:`legacy-invocation35:${cleanId(classId)}:${row.catalogId}`,sourceEventId:`legacy-invocation35:${cleanId(classId)}`,invocationKey:row.catalogId,invocationName:row.name,grade:row.grade,equivalentLevel:row.equivalentLevel,origin:'legacy',acquiredAtClassLevel:level,active:true,invocation:row,legacySpell:{...spell}});
+ }
+ const bucket={profileId:profile.id,classId,classLevel:level,legacyBaselineLevel:level,active:true,acquisitions,replacements:[]};
+ const spells=(character.spells||[]).filter(spell=>!adopted.has(spell)).map(spell=>!spell.castingClassId&&cleanId(primary)===cleanId(classId)?{...spell,castingClassId:classId}:spell);
+ return reconcileInvocationAcquisition35({...character,spells,invocationAcquisition35:{...(character.invocationAcquisition35||{}),[classId]:bucket}});
 }
 
 const breathEffects={

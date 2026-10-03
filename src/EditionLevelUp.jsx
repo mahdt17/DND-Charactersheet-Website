@@ -9,7 +9,7 @@ import {useReferenceIndex} from './lib/referenceIndex';
 import SpellPicker from './EditionSpellPicker';
 import SpellAcquisitionChoices35 from './SpellAcquisitionChoices35';
 import InvocationChoices35 from './InvocationChoices35';
-import {invocationProfile35,invocationEvents35,invocationChoicesComplete35,applyInvocationChoices35} from './lib/invocationAcquisition35';
+import {invocationProfile35,invocationEvents35,invocationChoicesComplete35,applyInvocationChoices35,prepareInvocationAdvancement35} from './lib/invocationAcquisition35';
 import ClassFeatureChoices from './ClassFeatureChoices';
 import {featureChoicePlan} from './lib/featureChoices';
 import {spellAcquisitionProfile35,spellAcquisitionEvents35,spellAcquisitionPicksComplete35,applySpellAcquisitionEvent35,spellAcquisitionCandidates35} from './lib/spellAcquisition35';
@@ -37,7 +37,8 @@ export default function EditionLevelUp({char,onCancel,onFinish,homebrew=[],chara
   if(acquisitionClassId&&!targetRows.some(row=>row.catalogId===acquisitionClassId))targetRows.push({catalogId:acquisitionClassId,name:char.className,edition:char.ruleset,level:target,definition:char.classDefinition});
   const [invocationPicks,setInvocationPicks]=useState({});
   const invocationProfile=is35(char)?invocationProfile35(acquisitionClassId):null;
-  const invocationTarget={...fullBase,level:characterLevel,abilities:nextAbilities,classLevels:targetRows};
+  const invocationBase=invocationProfile?prepareInvocationAdvancement35(fullBase,acquisitionClassId,char.level):fullBase;
+  const invocationTarget={...invocationBase,level:characterLevel,abilities:nextAbilities,classLevels:targetRows};
   const invocationEvents=invocationProfile?invocationEvents35(invocationTarget,{classId:acquisitionClassId,previousClassLevel:char.level,targetClassLevel:target}):[];
   const acquisitionFeatureBase=managedAcquisition?{...fullBase,level:characterLevel,abilities:nextAbilities,className:char.className,classDefinition:char.classDefinition,classLevels:targetRows}:null;
   const allReference=[...homebrew,...reference.entries];
