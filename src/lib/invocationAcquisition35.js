@@ -18,8 +18,8 @@ const bucketFor=(character,classId)=>{
 const eventId=(classId,level,kind,suffix='all')=>`invocation35:${cleanId(classId)}:${level}:${kind}:${suffix}`;
 const acquisitionKey=item=>String(item?.invocationKey||item?.catalogId||'');
 function cloneBucket(bucket={}){return {...bucket,acquisitions:(bucket.acquisitions||[]).map(x=>({...x,invocation:x.invocation?{...x.invocation}:x.invocation})),replacements:(bucket.replacements||[]).map(x=>({...x}))};}
-function activeRows(bucket){return (bucket?.acquisitions||[]).filter(item=>item.active!==false);}
-function eventApplied(character,classId,id){return activeRows(bucketFor(character,classId)).some(item=>item.sourceEventId===id);}
+function activeRows(bucket){return bucket?.active===false?[]:(bucket?.acquisitions||[]).filter(item=>item.active!==false);}
+function eventApplied(character,classId,id){return (bucketFor(character,classId)?.acquisitions||[]).some(item=>item.sourceEventId===id);}
 function replacementApplied(character,classId,id){return (bucketFor(character,classId)?.replacements||[]).some(item=>item.eventId===id);}
 function abilityScore(character,ability){return Number(character?.abilities?.[ability]||10)+Number(character?.abilityBonuses?.[ability]||0);}
 function mod(score){return Math.floor((Number(score)||10)/2)-5;}
@@ -67,6 +67,8 @@ export function invocationPicksComplete35(events,picks={},legalIds=null){
 }
 function validateInvocation(event,profile,row){
  if(!row||cleanId(row.classId)!==cleanId(event.classId))throw Error('Choose an invocation from this class invocation list.');
+ const canonical=invocationCatalog35(event.classId).find(item=>keyOf(item)===keyOf(row));
+ if(!canonical||canonical.grade!==row.grade||canonical.equivalentLevel!==row.equivalentLevel)throw Error('Choose an unmodified invocation from the class catalog.');
  const max=gradeIndex(event.maxGrade),actual=gradeIndex(row.grade);
  if(actual<0||actual>max)throw Error('Choose an invocation from an unlocked grade.');
  if(profile&&cleanId(profile.classId)!==cleanId(row.classId))throw Error('Choose an invocation owned by this class.');
@@ -84,6 +86,7 @@ export function validateInvocationReplacement35(character,event,{removedInvocati
  const profile=profileFor(event.classId),bucket=bucketFor(character,event.classId),active=activeRows(bucket);
  const removed=active.find(item=>acquisitionKey(item)===String(removedInvocationKey||''));
  if(!removed)return {valid:false,reason:'Choose an active invocation to replace.'};
+ if(Number(removed.acquiredAtClassLevel)>=Number(event.classLevel))return {valid:false,reason:'Choose an invocation you already knew at an earlier class level.'};
  if(!addedInvocation)return {valid:false,reason:'Choose a replacement invocation.'};
  try{validateInvocation(event,profile,addedInvocation);}catch(error){return {valid:false,reason:error.message};}
  const addKey=keyOf(addedInvocation);if(!addKey)return {valid:false,reason:'Replacement invocation has no stable identity.'};
@@ -93,6 +96,7 @@ export function validateInvocationReplacement35(character,event,{removedInvocati
 }
 export function applyInvocationEvent35(character,event,selection){
  const profile=profileFor(event?.classId);if(!profile)throw Error('Unsupported invocation class.');
+ if(event.kind==='optional-invocation-replacement'&&replacementApplied(character,event.classId,event.eventId||event.id))throw Error('This invocation replacement opportunity is already resolved.');
  const state={...(character?.invocationAcquisition35||{})},stateKey=Object.keys(state).find(k=>cleanId(k)===cleanId(event.classId))||event.classId;
  const bucket=cloneBucket(state[stateKey]||{profileId:profile.id,classId:event.classId,classLevel:event.classLevel,active:true,orphaned:false,acquisitions:[],replacements:[]});
  if(event.kind==='choose-invocations'){
@@ -122,10 +126,11 @@ export function reconcileInvocationAcquisition35(character){
   const profile=profileFor(bucket.classId||key);if(!profile)continue;
   const row=rows.find(r=>cleanId(r.catalogId||r.definition?.catalogId||r.definition?.id||r.definition?.sourceId)===cleanId(profile.classId));
   if(!row){state[key]={...bucket,active:false,orphaned:true};continue;}
-  const level=Math.max(1,Number(row.level)||1),limit=Number(profile.knownByLevel?.[String(level)]||0),max=gradeIndex(profile.maxGradeByLevel?.[String(level)]||'least'),active=activeRows(bucket),reasons=[];
+  const level=Math.max(1,Number(row.level)||1),limit=Number(profile.knownByLevel?.[String(level)]||0),max=gradeIndex(profile.maxGradeByLevel?.[String(level)]||'least'),active=activeRows({...bucket,active:true}),reasons=[],seen=new Set();
   if(active.length>limit)reasons.push(`Invocation known limit exceeded: ${active.length} owned, ${limit} allowed.`);
   const legal=new Map(invocationCatalog35(profile.classId).map(row=>[row.catalogId,row]));
   for(const item of active){
+   if(seen.has(item.invocationKey))reasons.push('Duplicate invocation: '+item.invocationKey);seen.add(item.invocationKey);
    const rowData=legal.get(item.invocationKey);if(!rowData)reasons.push((item.invocationName||item.invocationKey)+' is not on this class invocation list.');
    else if(gradeIndex(rowData.grade)>max)reasons.push((rowData.name||item.invocationKey)+' is above the unlocked invocation grade.');
   }
@@ -135,11 +140,35 @@ export function reconcileInvocationAcquisition35(character){
  const existing=Array.isArray(character?.spells)?character.spells:[],runtime=[];
  for(const [key,bucket] of Object.entries(state)){
   if(bucket.active===false)continue;const profile=profileFor(bucket.classId||key);if(!profile)continue;
-  for(const item of activeRows(bucket))runtime.push(runtimeFrom(item,bucket.classId||key,profile));
+  const legal=new Map(invocationCatalog35(profile.classId).map(row=>[row.catalogId,row])),seen=new Set(),max=gradeIndex(profile.maxGradeByLevel[bucket.classLevel]);
+  for(const item of activeRows(bucket)){
+   const canonical=legal.get(item.invocationKey);
+   if(!canonical||gradeIndex(canonical.grade)>max||seen.has(item.invocationKey)||Number(item.acquiredAtClassLevel)>bucket.classLevel||seen.size>=Number(profile.knownByLevel[bucket.classLevel]||0))continue;
+   seen.add(item.invocationKey);runtime.push(runtimeFrom({...item,invocation:canonical},bucket.classId||key,profile));
+  }
  }
- const ownedClassIds=new Set(Object.entries(state).filter(([key,b])=>profileFor(b.classId||key)).map(([key,b])=>cleanId(b.classId||key)));
- const preserved=existing.filter(spell=>!spell?.invocationGrant||!ownedClassIds.has(cleanId(spell.castingClassId)));
+ const preserved=existing.filter(spell=>!spell?.invocationGrant);
  return {...character,invocationAcquisition35:state,invocationAcquisition35Incomplete:incomplete,spells:[...preserved,...runtime]};
+}
+
+// Creation, advancement and recovery of missing choices use the same atomic adapter.
+export function applyInvocationChoices35(character,events,picks={}){
+ let result=character;
+ for(const event of events||[]){
+  const pick=picks[event.eventId||event.id],catalog=invocationCatalog35(event.classId);
+  if(event.kind==='choose-invocations'){
+   const ids=Array.isArray(pick)?pick:[];
+   const selected=ids.map(id=>catalog.find(row=>row.catalogId===id));
+   if(selected.some(row=>!row))throw Error('Choose invocations from the class catalog.');
+   result=applyInvocationEvent35(result,event,selected);
+  }else{
+   result=applyInvocationEvent35(result,event,!pick||pick.skip!==false?{skip:true}:{removedInvocationKey:pick.removedInvocationKey,addedInvocation:catalog.find(row=>row.catalogId===pick.addedInvocationKey)});
+  }
+ }
+ return result;
+}
+export function invocationChoicesComplete35(character,events,picks={}){
+ try{applyInvocationChoices35(character,events,picks);return true;}catch{return false;}
 }
 
 const breathEffects={

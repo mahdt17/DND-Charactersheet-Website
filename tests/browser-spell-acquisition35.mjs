@@ -59,6 +59,55 @@ try{
   await page.goto('http://127.0.0.1:5183/');
   await page.getByRole('button',{name:'Explore the demo'}).click();
 
+  for(const [classId,className,first] of [['classes/warlock-4','Warlock','Baleful Utterance'],['classes/dragonfire-adept-29','Dragonfire Adept','Draconic Knowledge']]){
+    const name='Invocation '+className,key='dndtools:'+classId;
+    await begin35(name,classId,className,{cha15:true});
+    const choices=page.getByRole('region',{name:'3.5 invocation choices',exact:true});
+    await choices.waitFor();
+    assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
+    await selectSpell('Invocations at class level 1',first);
+    await next();
+    await page.getByRole('button',{name:'Create Character',exact:true}).click();
+    await page.locator('.sheet-identity').filter({hasText:name}).waitFor();
+    await page.waitForFunction(async ({name,key})=>{
+      const rows=JSON.parse((await window.storage.get('char-index')).value),row=rows.find(x=>x.name===name);
+      if(!row)return false;const data=JSON.parse((await window.storage.get('char-detail:'+row.id)).value);
+      return data.spells.filter(x=>x.invocationGrant&&x.castingClassId===key).length===1;
+    },{name,key});
+    await page.getByRole('tab',{name:'Spells',exact:true}).click();
+    const item=page.locator('.spell-item').filter({hasText:first}).first();
+    await item.getByRole('button',{name:'Use',exact:true}).click();
+    const castDialog=page.getByRole('dialog').last();
+    assert.equal(await castDialog.getByLabel('Spell slot',{exact:true}).count(),0,'Invocations spend no spell slot');
+    await castDialog.getByRole('button',{name:'Use',exact:true}).click();
+    await page.getByRole('button',{name:'Manage spells',exact:true}).click();
+    assert.equal(await page.getByRole('region',{name:'Choose spells',exact:true}).count(),0,'Managed invocations cannot bypass acquisition through the generic spell picker');
+    await openCharacter(name);
+    assert.equal((await saved(name)).spells.filter(x=>x.invocationGrant&&x.castingClassId===key).length,1);
+    if(className==='Warlock'){
+      await page.getByRole('button',{name:'Level up',exact:true}).click();
+      await page.getByRole('button',{name:'Continue to level choices',exact:true}).click();
+      await next();
+      assert(await page.locator('.creation-footer').getByRole('button',{name:'Continue',exact:true}).isDisabled());
+      await selectSpell('Invocations at class level 2','Beguiling Influence');
+      await page.getByLabel('Replace an invocation at class level 2',{exact:true}).check();
+      await page.getByLabel('Invocation to replace at class level 2',{exact:true}).selectOption({label:first});
+      await selectSpell('Replacement invocation at class level 2','See the Unseen');
+      await next();await page.getByRole('button',{name:'Apply level up',exact:true}).click();
+      await page.locator('.sheet-identity').filter({hasText:'LEVEL 2'}).waitFor();
+      await page.waitForFunction(async ({name,key})=>{
+        const rows=JSON.parse((await window.storage.get('char-index')).value),row=rows.find(x=>x.name===name);
+        const data=JSON.parse((await window.storage.get('char-detail:'+row.id)).value);
+        return data.level===2&&data.invocationAcquisition35?.[key]?.replacements?.length===1;
+      },{name,key});
+      const advanced=await saved(name);
+      assert.deepEqual(advanced.spells.filter(s=>s.invocationGrant).map(s=>s.name).sort(),['Beguiling Influence','See the Unseen']);
+      await openCharacter(name);
+      assert.equal((await saved(name)).spells.filter(s=>s.invocationGrant).length,2);
+    }
+    console.log('PASS '+className+' invocation creation, at-will use, persistence'+(className==='Warlock'?', advancement and replacement':''));
+  }
+
   const sorcererName='Acquisition Sorcerer 3.5';
   await begin35(sorcererName,'classes/sorcerer-98','Sorcerer',{cha15:true});
   const sorcRegion=page.getByRole('region',{name:'3.5 spell acquisition choices',exact:true});

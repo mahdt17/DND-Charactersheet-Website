@@ -6,6 +6,7 @@ on:
       - "src/lib/spellAcquisition35.js"
       - "src/lib/invocationAcquisition35.js"
       - "src/data/invocations35.json"
+      - "src/data/invocation-acquisition35.json"
       - "src/InvocationChoices35.jsx"
       - "src/lib/dailySpellLike35.js"
       - "src/DailySpellLike35.jsx"
@@ -24,6 +25,7 @@ on:
       - "src/lib/advancement.js"
       - "tests/spell-acquisition35.mjs"
       - "tests/invocation-acquisition35.mjs"
+      - "tests/invocation-lifecycle35.mjs"
       - "tests/daily-spell-like35.mjs"
       - "tests/feat-spell-acquisition35.mjs"
       - "tests/browser-spell-acquisition35.mjs"
@@ -48,6 +50,7 @@ jobs:
       - run: npm ci
       - run: node tests/spell-acquisition35.mjs
       - run: node tests/invocation-acquisition35.mjs
+      - run: node tests/invocation-lifecycle35.mjs
       - run: node tests/daily-spell-like35.mjs
       - run: node tests/feat-spell-acquisition35.mjs
       - run: node tests/spell-access.mjs

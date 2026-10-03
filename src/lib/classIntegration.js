@@ -9,6 +9,7 @@ import {reconcileSubclassSpells} from './subclassSpells.js';
 import {reconcileCompanions35,companionProgression35} from './companions35.js';
 import {reconcileSpellAcquisition35} from './spellAcquisition35.js';
 import {reconcileDailySpellLike35} from './dailySpellLike35.js';
+import {reconcileInvocationAcquisition35} from './invocationAcquisition35.js';
 import {reconcileDomainGrants35} from './legacyCastingChoices.js';
 
 export const CLASS_INTEGRATION_VERSION=1;
@@ -892,7 +893,7 @@ export function reconcileClassGrants(character){
     classSpellSlots:mergeDerived(character.classSpellSlots,spellSlots),
     classAutomation:{version:CLASS_INTEGRATION_VERSION,classes:derived.map(x=>x.report),incompleteClassIds:derived.filter(x=>!x.report.integrationComplete).map(x=>x.report.classId)}
   };
-  return reconcileDailySpellLike35(reconcileSpellAcquisition35(reconcileCompanions35(reconcileDomainGrants35(reconciled))));
+  return reconcileInvocationAcquisition35(reconcileDailySpellLike35(reconcileSpellAcquisition35(reconcileCompanions35(reconcileDomainGrants35(reconciled)))));
 }
 
 export function classAutomationReport(character){
