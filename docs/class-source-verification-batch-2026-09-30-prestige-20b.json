@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-29/30",
+  "repository": "mahdt17/DND-Charactersheet-Website",
+  "branch": "codex/class-integration-engine",
+  "validationBaselineCommit": "f636202f739ca0d316697ea2854f7138947e75a9",
+  "validationBaselineRun": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36666452001",
+  "discoveryProvider": "Exa",
+  "extractionProvider": "Tavily",
+  "selected": 20,
+  "firecrawlFallbacks": 0,
+  "supabaseWrites": 0,
+  "outcome": {
+    "complete": 0,
+    "needsReview": 20
+  },
+  "records": [
+    {
+      "sourceId": "classes/arachnomancer-895",
+      "name": "Arachnomancer",
+      "sourceBook": "Prestige Class Underdark",
+      "sourceUrl": "https://new.dndtools.org/classes/arachnomancer-895",
+      "status": "needs-review",
+      "gaps": [
+        "Underdark Arachnomancer needs exact prestige prerequisites, selective spellcasting advancement, Spider Magic spell-list additions, Spiderform progression, poison/command/web actions and resources."
+      ],
+      "nextAction": "Add reviewed Underdark summaries; implement exact prerequisites, selective casting, spider forms/spell-list additions/actions/resources, then level-by-level regressions."
+    },
+    {
+      "sourceId": "classes/arachnomancer2-425",
+      "name": "Arachnomancer",
+      "sourceBook": "Prestige Class Drow of the Underdark",
+      "sourceUrl": "https://new.dndtools.org/classes/arachnomancer2-425",
+      "status": "needs-review",
+      "gaps": [
+        "Drow of the Underdark Arachnomancer differs materially from the Underdark version; evil/skill/Verminfriend/spell entry rules, selective casting, Spider domain, Spider Shape, Tremorsense, Webwalking and climb-speed mechanics are not structured."
+      ],
+      "nextAction": "Implement this record independently (no same-name inheritance), including exact prerequisites, Spider domain, casting schedule, shape/tremorsense/movement state."
+    },
+    {
+      "sourceId": "classes/arboreal-guardian-522",
+      "name": "Arboreal Guardian",
+      "sourceBook": "Prestige Class Ghostwalk",
+      "sourceUrl": "https://new.dndtools.org/classes/arboreal-guardian-522",
+      "status": "needs-review",
+      "gaps": [
+        "Arboreal Guardian needs elf/half-elf-or-special-admission, skill/feat/entangle/patron prerequisites, selective divine advancement, natural-armor scaling, bonded-tree features, blindsight and daily SLAs."
+      ],
+      "nextAction": "Add reviewed summaries; implement exact prerequisites/casting target plus bonded-tree, armor, movement and SLA resources through level 10."
+    },
+    {
+      "sourceId": "classes/arcane-archer-378",
+      "name": "Arcane Archer",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/arcane-archer-378",
+      "status": "needs-review",
+      "gaps": [
+        "Arcane Archer needs elf/half-elf, BAB +6, Point Blank Shot, Precise Shot, Weapon Focus (bow), 1st-level arcane casting prerequisites plus Enhance Arrow and special-arrow state."
+      ],
+      "nextAction": "Add reviewed summaries; enforce exact prerequisites and model arrow enhancement plus Imbue/Seeker/Phase/Hail/Death Arrow actions/resources."
+    },
+    {
+      "sourceId": "classes/arcane-devotee-509",
+      "name": "Arcane Devotee",
+      "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
+      "sourceUrl": "https://new.dndtools.org/classes/arcane-devotee-509",
+      "status": "needs-review",
+      "gaps": [
+        "FRCS Arcane Devotee needs Knowledge (religion) 8, Spellcraft 8, Enlarge Spell, 4th-level arcane casting, patron deity, full casting advancement, daily Enlarge uses and source-specific divine features."
+      ],
+      "nextAction": "Implement the FRCS record independently with exact prerequisites, casting target, deity/alignment state, Enlarge resource, defense scaling, bonus feat and Divine Shroud."
+    },
+    {
+      "sourceId": "classes/arcane-devotee-657",
+      "name": "Arcane Devotee",
+      "sourceBook": "Prestige Class Player's Guide to Faerûn",
+      "sourceUrl": "https://new.dndtools.org/classes/arcane-devotee-657",
+      "status": "needs-review",
+      "gaps": [
+        "PGtF Arcane Devotee has revised requirements/mechanics versus FRCS; its Knowledge (religion) 5, Spellcraft 8, Enlarge Spell, 4th-level arcane/patron rules, Reach of the Holy, Divine Synergy and full casting are not structured."
+      ],
+      "nextAction": "Implement the PGtF record independently (no same-name inheritance), including revised prerequisites, casting, Reach uses and source-specific divine features."
+    },
+    {
+      "sourceId": "classes/arcane-hierophant-741",
+      "name": "Arcane Hierophant",
+      "sourceBook": "Prestige Class Races of the Wild",
+      "sourceUrl": "https://new.dndtools.org/classes/arcane-hierophant-741",
+      "status": "needs-review",
+      "gaps": [
+        "Arcane Hierophant needs nonlawful/BAB +4/Knowledge (arcana+nature) 8/2nd-level arcane+divine/Trackless Step prerequisites, dual casting, druid armor restrictions, Wild Shape stacking, companion-familiar merge and Channel Animal/Plant."
+      ],
+      "nextAction": "Add reviewed summaries after reusable familiar/companion state exists; implement dual casting targets, prerequisites, Wild Shape stacking, companion-familiar merge and channel resources."
+    },
+    {
+      "sourceId": "classes/arcane-trickster-379",
+      "name": "Arcane Trickster",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/arcane-trickster-379",
+      "status": "needs-review",
+      "gaps": [
+        "DMG v.3.5 Arcane Trickster needs nonlawful alignment, four skill requirements, mage hand + 3rd-level arcane casting, sneak attack +2d6, full casting, ranged legerdemain uses and sneak-attack resources."
+      ],
+      "nextAction": "Add reviewed summaries; enforce exact prerequisites, full casting target and source-owned legerdemain/sneak-attack resources, then regression-test all ten levels."
+    },
+    {
+      "sourceId": "classes/arcane-trickster-838",
+      "name": "Arcane Trickster",
+      "sourceBook": "Prestige Class Tome and Blood: A Guidebook to Wizards and Sorcerers",
+      "sourceUrl": "https://new.dndtools.org/classes/arcane-trickster-838",
+      "status": "needs-review",
+      "gaps": [
+        "Tome and Blood Arcane Trickster must remain independent from the DMG v.3.5 record; its exact 3.0 entry/progression and trickster/casting mechanics are not source-reviewed or structured."
+      ],
+      "nextAction": "Audit and implement the Tome and Blood record independently, preserving exact source/edition differences and avoiding same-name inheritance."
+    },
+    {
+      "sourceId": "classes/arcanopath-monk-981",
+      "name": "Arcanopath Monk",
+      "sourceBook": "Prestige Class Dragon Compendium",
+      "sourceUrl": "https://new.dndtools.org/classes/arcanopath-monk-981",
+      "status": "needs-review",
+      "gaps": [
+        "Arcanopath Monk needs lawful/BAB +4/Knowledge (arcana) 8/Deflect Arrows/Dodge/IUS/Mobility plus monastery/slain-caster prerequisites, anti-spellcaster strikes, Deflect/Reflect Spell and forgotten-spell state."
+      ],
+      "nextAction": "Add reviewed summaries; enforce exact prerequisites, then model spell deflection/reflection, prepared-spell-loss state and anti-caster actions/resources."
+    },
+    {
+      "sourceId": "classes/arch-psion-992",
+      "name": "Arch Psion",
+      "sourceBook": "Prestige Class The Mind's Eye [Web 3.0]",
+      "sourceUrl": "https://new.dndtools.org/classes/arch-psion-992",
+      "status": "needs-review",
+      "gaps": [
+        "Arch Psion needs high-rank psionic skills/feat requirements, 7th-level manifestation and three-discipline knowledge, manifesting advancement, and High Psionics choices with permanent PP costs; psionics remains incomplete."
+      ],
+      "nextAction": "Add reviewed summaries after reusable psionic catalog/powers-known support; implement prerequisites, manifesting target, High Psionics choices and permanent PP-cost state."
+    },
+    {
+      "sourceId": "classes/archmage-380",
+      "name": "Archmage",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/archmage-380",
+      "status": "needs-review",
+      "gaps": [
+        "DMG v.3.5 Archmage needs Knowledge (arcana) 15, Spellcraft 15, Skill Focus (Spellcraft), Spell Focus in two schools, 7th-level casting/five-school knowledge, full casting and repeated High Arcana choices with permanent slot sacrifices."
+      ],
+      "nextAction": "Add reviewed summaries; implement exact prerequisites/casting target and reusable High Arcana choice/slot-sacrifice mechanics with persistence."
+    },
+    {
+      "sourceId": "classes/archmage-510",
+      "name": "Archmage",
+      "sourceBook": "Prestige Class Forgotten Realms Campaign Setting",
+      "sourceUrl": "https://new.dndtools.org/classes/archmage-510",
+      "status": "needs-review",
+      "gaps": [
+        "FRCS Archmage must remain source-independent from the later DMG record; its exact older High Arcana/casting behavior is not reviewed or structured."
+      ],
+      "nextAction": "Audit the FRCS record independently, preserve edition/source differences, and implement exact prerequisites plus source-specific High Arcana choices and casting advancement."
+    },
+    {
+      "sourceId": "classes/ardent-dilettante-685",
+      "name": "Ardent Dilettante",
+      "sourceBook": "Prestige Class Planar Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/ardent-dilettante-685",
+      "status": "needs-review",
+      "gaps": [
+        "Ardent Dilettante has escalating entry gates at 1st/4th/7th/10th level, spellcasting advancement after 1st, bonus feats, daily SLAs, sensory abilities and spell-copy state that are not structured."
+      ],
+      "nextAction": "Add reviewed summaries and reusable mid-prestige-level requirement gates; then model casting target, bonus feats, daily abilities and See It Again persistence."
+    },
+    {
+      "sourceId": "classes/argent-fist-468",
+      "name": "Argent Fist",
+      "sourceBook": "Prestige Class Faiths of Eberron",
+      "sourceUrl": "https://new.dndtools.org/classes/argent-fist-468",
+      "status": "needs-review",
+      "gaps": [
+        "Argent Fist needs lawful-good/BAB +5/Knowledge (religion) 4/Knight or Monastic Training/IUS plus Evasion/Smite/Turn/Silver Flame/order prerequisites, Monk-Paladin stacking and turn/smite/ki/healing resources."
+      ],
+      "nextAction": "Add reviewed summaries; implement multi-class-feature prerequisites/stacking, then model turn-attempt spending, smite/ki/healing and Silver Flame effects."
+    },
+    {
+      "sourceId": "classes/argent-savant-224",
+      "name": "Argent Savant",
+      "sourceBook": "Prestige Class Complete Arcane",
+      "sourceUrl": "https://new.dndtools.org/classes/argent-savant-224",
+      "status": "needs-review",
+      "gaps": [
+        "Argent Savant needs Knowledge (arcana) 6/Spellcraft 12 plus five force spells including one 5th-level spell, selective arcane advancement after 1st, force-specific modifiers and Unbind Force."
+      ],
+      "nextAction": "Add reviewed summaries; implement force-spell prerequisite validation/casting target and force-specific modifiers plus Unbind Force regression coverage."
+    },
+    {
+      "sourceId": "classes/ashworm-dragoon-749",
+      "name": "Ashworm Dragoon",
+      "sourceBook": "Prestige Class Sandstorm",
+      "sourceUrl": "https://new.dndtools.org/classes/ashworm-dragoon-749",
+      "status": "needs-review",
+      "gaps": [
+        "Ashworm Dragoon needs BAB +5/Handle Animal 4/Ride 8/Mounted Combat/Ride-By Attack/ridden-ashworm prerequisites, persistent ashworm mount/replacement, saddle scaling, sting uses, mounted defenses/attacks and bonus feats."
+      ],
+      "nextAction": "Add reviewed summaries; enforce exact prerequisites, route the ashworm through mount lifecycle, and regression-test mounted resources/feats/movement through level 10."
+    },
+    {
+      "sourceId": "classes/assassin-381",
+      "name": "Assassin",
+      "sourceBook": "Prestige Class Dungeon Master's Guide v.3.5",
+      "sourceUrl": "https://new.dndtools.org/classes/assassin-381",
+      "status": "needs-review",
+      "gaps": [
+        "DMG v.3.5 Assassin needs evil alignment/Disguise 4/Hide 8/Move Silently 8/special-kill entry rules, standalone Int-based spellcasting/spells-known replacement, Death Attack study state, poison/uncanny/hide mechanics."
+      ],
+      "nextAction": "Add reviewed summaries; enforce exact prerequisites, implement standalone spell-known/replacement and Death Attack state, then regression-test poison/uncanny/hide features."
+    },
+    {
+      "sourceId": "classes/astral-dancer-686",
+      "name": "Astral Dancer",
+      "sourceBook": "Prestige Class Planar Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "status": "needs-review",
+      "gaps": [
+        "Astral Dancer needs Balance/Jump/Tumble 8 plus Dodge/Mobility/Spring Attack prerequisites and conditional no-gravity movement, maneuverability, evasion, Astral Dodge scaling, agility and Lightning Speed."
+      ],
+      "nextAction": "Add reviewed summaries; enforce exact prerequisites, then model Astral/no-gravity conditional movement and defense state with level-by-level regressions."
+    },
+    {
+      "sourceId": "classes/atavist-717",
+      "name": "Atavist",
+      "sourceBook": "Prestige Class Races of Eberron",
+      "sourceUrl": "https://new.dndtools.org/classes/atavist-717",
+      "status": "needs-review",
+      "gaps": [
+        "Atavist needs LG/LN Kalashtar, Concentration 8, Improved Unarmed Strike-or-mind-blade entry rules, Spiritual Lineage choice, mind-blade/unarmed stacking, psionic focus spending, mindlink/temp PP/supportive bonuses and later quori abilities."
+      ],
+      "nextAction": "Add reviewed summaries; implement exact prerequisites and persistent Spiritual Lineage, then integrate stacking and psionic-focus/mindlink resources with the psionic subsystem."
+    }
+  ]
+}

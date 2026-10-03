@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-29",
+  "repository": "mahdt17/DND-Charactersheet-Website",
+  "branch": "codex/class-integration-engine",
+  "validationCommit": "538c6832cc5aa6b3d664f6d4a16f6ae2e29d4747",
+  "validationRun": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36662865082",
+  "discoveryProvider": "Exa",
+  "extractionProvider": "Tavily",
+  "exaWorkstreams": 5,
+  "tavilyExactPages": 22,
+  "firecrawlFallbacks": 0,
+  "supabaseWrites": 0,
+  "objectiveGate": "Exact source identity + expected source progression structure + class skills + intact feature/table text + no login/footer contamination.",
+  "totals": {
+    "selected": 22,
+    "complete": 1,
+    "needsReview": 21,
+    "sourceConflicts": 0
+  },
+  "records": [
+    {
+      "sourceId": "classes/ardent-10",
+      "name": "Ardent",
+      "sourceBook": "Base Class Complete Psionic",
+      "sourceUrl": "https://new.dndtools.org/classes/ardent-10",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Ardent feature-summary block exists yet; mantle selection/granted abilities, power-point progression, powers known, and mantle-constrained power access are not represented as structured persisted choices."
+      ],
+      "nextAction": "Add reviewed Ardent summaries, implement reusable mantle + psionic power selection/access, then verify level-up, power points, persistence, and mantle changes.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/artificer-36",
+      "name": "Artificer",
+      "sourceBook": "Base Class Eberron Campaign Setting",
+      "sourceUrl": "https://new.dndtools.org/classes/artificer-36",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Artificer feature-summary block exists yet; infusion access, craft reserve, item-creation feat cadence, Use Magic Device prerequisite emulation, Retain Essence, and homunculus construction/upgrading are not fully structured."
+      ],
+      "nextAction": "Add reviewed Artificer summaries, implement infusion/crafting-resource workflows and item-creation choices, then route homunculus state through the companion subsystem with persistence regressions.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/crusader-115",
+      "name": "Crusader",
+      "sourceBook": "Base Class Tome of Battle: The Book of Nine Swords",
+      "sourceUrl": "https://new.dndtools.org/classes/crusader-115",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Crusader feature-summary block exists yet; maneuvers known/readied, random granted maneuvers and recovery, stances, Steely Resolve delayed-damage state, and Furious Counterstrike are not modeled as a martial-maneuver subsystem."
+      ],
+      "nextAction": "Build the reusable Tome of Battle maneuver/stance/readied/recovery model, then add Crusader granted-maneuver and delayed-damage regressions.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/divine-mind-11",
+      "name": "Divine Mind",
+      "sourceBook": "Base Class Complete Psionic",
+      "sourceUrl": "https://new.dndtools.org/classes/divine-mind-11",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Divine Mind feature-summary block exists yet; deity/mantle choices, mantle-granted abilities and auras, multi-aura activation/switching, power points, and mantle-restricted powers known are not fully structured."
+      ],
+      "nextAction": "Add reviewed Divine Mind summaries and implement shared mantle, psychic-aura, and psionic power-selection subsystems with level-up/persistence coverage.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/eidolon-72",
+      "name": "Eidolon",
+      "sourceBook": "Base Class Ghostwalk",
+      "sourceUrl": "https://new.dndtools.org/classes/eidolon-72",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Eidolon feature-summary block exists yet; the ghost-only entry requirement and recurring Ghost-descriptor bonus-feat choices are not represented as structured prerequisite/choice state."
+      ],
+      "nextAction": "Add reviewed Eidolon summaries, enforce the ghost prerequisite, and implement recurring Ghost-feat selection with prerequisite and persistence regressions.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/eidoloncer-73",
+      "name": "Eidoloncer",
+      "sourceBook": "Base Class Ghostwalk",
+      "sourceUrl": "https://new.dndtools.org/classes/eidoloncer-73",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Eidoloncer feature-summary block exists yet; ghost-only entry, per-level advancement of an existing spellcasting class, recurring Ghost feats, and life-epiphany level conversion are not fully modeled."
+      ],
+      "nextAction": "Add reviewed Eidoloncer summaries, reuse constrained casting-advancement selection, add Ghost-feat choices, and define/test life-epiphany conversion behavior.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/incarnate-81",
+      "name": "Incarnate",
+      "sourceBook": "Base Class Magic of Incarnum",
+      "sourceUrl": "https://new.dndtools.org/classes/incarnate-81",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Incarnate feature-summary block exists yet; soulmeld shaping, essentia allocation/capacity, chakra binds, alignment-dependent Incarnum Radiance, and related incarnum state are not structurally automated."
+      ],
+      "nextAction": "Design the reusable incarnum subsystem for soulmelds, essentia and chakra binds, then add Incarnate alignment/radiance and level-progression regressions.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/lurk-12",
+      "name": "Lurk",
+      "sourceBook": "Base Class Complete Psionic",
+      "sourceUrl": "https://new.dndtools.org/classes/lurk-12",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Lurk feature-summary block exists yet; power points/powers known plus the daily Lurk Augment pool, selectable augments, multi-augment use, and power-point augmentation are not represented as structured actions/resources."
+      ],
+      "nextAction": "Add reviewed Lurk summaries, complete psionic powers-known support, and model Lurk Augments as level-gated resource-backed choices/actions with persistence tests.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/mystic-26",
+      "name": "Mystic",
+      "sourceBook": "Base Class Dragonlance Campaign Setting",
+      "sourceUrl": "https://new.dndtools.org/classes/mystic-26",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Dragonlance Mystic feature-summary block exists yet; spontaneous cleric-list spells-known acquisition/replacement, single-domain choice, domain-known spells/granted power, and alignment-domain restrictions are not fully structured."
+      ],
+      "nextAction": "Add reviewed Mystic summaries, implement its spells-known/replacement progression and domain model, then verify source restrictions and save/reopen behavior.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/pixie-948",
+      "name": "Pixie",
+      "sourceBook": "Base Class Savage Species",
+      "sourceUrl": "https://new.dndtools.org/classes/pixie-948",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Savage Species Pixie feature-summary block exists yet; staged monster-class racial changes such as ability adjustments, flight/invisibility and spell-like abilities, damage reduction, spell resistance, and effective level progression are not modeled as structured racial/class deltas."
+      ],
+      "nextAction": "Add reviewed Pixie monster-class summaries and implement reusable staged racial/monster-class state changes with level-by-level persistence regressions.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/psychic-rogue-1050",
+      "name": "Psychic Rogue",
+      "sourceBook": "Base Class The Mind's Eye [Web 3.5]",
+      "sourceUrl": "https://new.dndtools.org/classes/psychic-rogue-1050",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Psychic Rogue feature-summary block exists yet; power points/powers known and source-specific psionic progression are not fully integrated with its rogue/special-ability progression."
+      ],
+      "nextAction": "Add reviewed Psychic Rogue summaries, complete power selection/catalog integration, and regression-test psionic progression alongside sneak attack and special-ability choices.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/shadowcaster-113",
+      "name": "Shadowcaster",
+      "sourceBook": "Base Class Tome of Magic",
+      "sourceUrl": "https://new.dndtools.org/classes/shadowcaster-113",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Shadowcaster feature-summary block exists yet; fundamentals and mysteries known, path prerequisites, daily uses, and mystery transitions between spell, spell-like, and supernatural abilities are not structurally automated."
+      ],
+      "nextAction": "Add reviewed Shadowcaster summaries and build a mystery/path subsystem that tracks acquisition, uses, type transitions, and bonus-feat progression.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/shaman-85",
+      "name": "Shaman",
+      "sourceBook": "Base Class Oriental Adventures",
+      "sourceUrl": "https://new.dndtools.org/classes/shaman-85",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Oriental Adventures Shaman feature-summary block exists yet; prepared shaman spellcasting, two-to-three spirit domains with granted powers/domain slots, spontaneous cure/inflict alignment choice, turning/rebuking behavior, and Animal Companion state are not fully structured."
+      ],
+      "nextAction": "Add reviewed OA Shaman summaries, integrate domain/spontaneous-preparation behavior and companion state, then add alignment/domain/companion level-up regressions.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/shugenja-86",
+      "name": "Shugenja",
+      "sourceBook": "Base Class Oriental Adventures",
+      "sourceUrl": "https://new.dndtools.org/classes/shugenja-86",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Oriental Adventures Shugenja feature-summary block exists yet; school/favored-element selection, prohibited-element restrictions, school-determined spells, and source-specific spells-known progression are not fully modeled for this OA record."
+      ],
+      "nextAction": "Add OA-specific Shugenja summaries, implement school/element restrictions and school spells, then regression-test spells known, casting eligibility, and source-specific differences.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/sohei-87",
+      "name": "Sohei",
+      "sourceBook": "Base Class Oriental Adventures",
+      "sourceUrl": "https://new.dndtools.org/classes/sohei-87",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Sohei feature-summary block exists yet; Ki Frenzy uses/effects/fatigue, Weapon Focus choice, prepared divine casting from 4th level, bonus feat grants, damage reduction scaling, and ex-Sohei state are not fully structured."
+      ],
+      "nextAction": "Add reviewed Sohei summaries, model Ki Frenzy as a resource-backed action and its source restrictions, then integrate spell preparation and level-scaled defensive features.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/soulborn-82",
+      "name": "Soulborn",
+      "sourceBook": "Base Class Magic of Incarnum",
+      "sourceUrl": "https://new.dndtools.org/classes/soulborn-82",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Soulborn feature-summary block exists yet; alignment opposition, Smite Opposition, soulmeld shaping, essentia, chakra binds, and Incarnum Defense are not represented in a structured incarnum/alignment subsystem."
+      ],
+      "nextAction": "Add reviewed Soulborn summaries and reuse the incarnum subsystem for soulmeld/essentia/binds while implementing opposition/alignment-specific class effects.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/spellcaster-131",
+      "name": "Spellcaster",
+      "sourceBook": "Base Class Unearthed Arcana",
+      "sourceUrl": "https://new.dndtools.org/classes/spellcaster-131",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Unearthed Arcana generic Spellcaster feature-summary block exists yet; its 1st-level configurable good save, four class skills, simple-weapon choice, arcane/divine mode, casting ability, mixed spell lists, spells known, and bonus feats require persisted source-defined configuration."
+      ],
+      "nextAction": "Add reviewed generic Spellcaster summaries and build a configurable-class setup model for saves/skills/weapon/casting mode plus mixed-list spells-known progression.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/swordsage-116",
+      "name": "Swordsage",
+      "sourceBook": "Base Class Tome of Battle: The Book of Nine Swords",
+      "sourceUrl": "https://new.dndtools.org/classes/swordsage-116",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Swordsage feature-summary block exists yet; maneuvers known/readied, recovery, stances, discipline-focus choices, and related discipline-specific effects are not modeled as a martial-maneuver subsystem."
+      ],
+      "nextAction": "Implement the shared Tome of Battle maneuver/stance/readied/recovery model, then add Swordsage discipline-focus and level-progression regressions.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/totemist-83",
+      "name": "Totemist",
+      "sourceBook": "Base Class Magic of Incarnum",
+      "sourceUrl": "https://new.dndtools.org/classes/totemist-83",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Totemist feature-summary block exists yet; soulmeld shaping, essentia allocation/capacity, Totem Chakra binding, chakra-bind progression, and totem-specific state are not structurally automated."
+      ],
+      "nextAction": "Build/reuse the incarnum subsystem and add Totemist-specific Totem Chakra/bind progression with level-up and persistence regressions.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/warblade-117",
+      "name": "Warblade",
+      "sourceBook": "Base Class Tome of Battle: The Book of Nine Swords",
+      "sourceUrl": "https://new.dndtools.org/classes/warblade-117",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Warblade feature-summary block exists yet; maneuvers known/readied/recovery, stances, Weapon Aptitude, bonus-feat choices, and Battle Clarity/Ardor/Cunning/Mastery effects are not fully structured."
+      ],
+      "nextAction": "Implement the shared Tome of Battle maneuver subsystem, then add Warblade recovery, Weapon Aptitude, bonus-feat, and battle-feature regressions.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    },
+    {
+      "sourceId": "classes/warmage-79",
+      "name": "Warmage",
+      "sourceBook": "Base Class Miniatures Handbook",
+      "sourceUrl": "https://new.dndtools.org/classes/warmage-79",
+      "status": "complete",
+      "sourceReview": "verified",
+      "gaps": [],
+      "nextAction": "Preserve as verified source-equivalent to classes/warmage-5; re-audit only if the shared Warmage/class-integration behavior changes.",
+      "verifiedCommit": "538c6832cc5aa6b3d664f6d4a16f6ae2e29d4747",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/36662865082"
+    },
+    {
+      "sourceId": "classes/wu-jen-88",
+      "name": "Wu Jen",
+      "sourceBook": "Base Class Oriental Adventures",
+      "sourceUrl": "https://new.dndtools.org/classes/wu-jen-88",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "gaps": [
+        "No reviewed Oriental Adventures Wu Jen feature-summary block exists yet; spellbook acquisition/preparation, Taboos, Spell Secret, Elemental Mastery, and source-specific OA mechanics are not fully materialized."
+      ],
+      "nextAction": "Add OA-specific Wu Jen summaries, complete spellbook acquisition/preparation, and implement Taboo/Spell Secret/Elemental Mastery selections with persistence tests.",
+      "verifiedCommit": null,
+      "ciRunUrl": null
+    }
+  ]
+}
