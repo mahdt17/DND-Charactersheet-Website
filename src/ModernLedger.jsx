@@ -63,18 +63,29 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false})
   const {preferences}=usePresentation();
   const [characters,setCharacters]=useState([]),[workspace,setWorkspace]=useState(workspaceBlank),[ready,setReady]=useState(false),[error,setError]=useState(''),[saveState,setSaveState]=useState('All changes saved');
   const [page,setPage]=useState('characters'),[selected,setSelected]=useState(null),[wizard,setWizard]=useState(null),[search,setSearch]=useState(''),[menu,setMenu]=useState(false),[navCollapsed,setNavCollapsed]=useState(false),[diceOpen,setDiceOpen]=useState(false),[rolls,setRolls]=useState([]),[mode,setMode]=useState('normal'),[detail,setDetail]=useState(null),[deleteTarget,setDeleteTarget]=useState(null);
-  const pending=useRef(new Map()),timers=useRef(new Map()),chains=useRef(new Map()),fileRef=useRef(null),charactersRef=useRef(characters),[busy,setBusy]=useState(false);
+  const pending=useRef(new Map()),timers=useRef(new Map()),chains=useRef(new Map()),saveGenerations=useRef(new Map()),fileRef=useRef(null),charactersRef=useRef(characters),[busy,setBusy]=useState(false);
   charactersRef.current=charactersRef.current.length||characters.length?charactersRef.current:characters;
   async function load(){setError('');try{const index=await window.storage.get('char-index');const items=index?JSON.parse(index.value):[];const data=await Promise.all(items.filter(c=>c.id!=='ledger-workspace').map(c=>get(c.id)));const loaded=data.filter(Boolean).map(normalize);charactersRef.current=loaded;setCharacters(loaded);setWorkspace(await get('ledger-workspace')||workspaceBlank());setReady(true);}catch(e){setError(`Could not load your ledger. ${e.message}`);}}
   useEffect(()=>{load();},[]);
   useEffect(()=>{const handler=e=>{if(pending.current.size){e.preventDefault();e.returnValue='';}};window.addEventListener('beforeunload',handler);return()=>window.removeEventListener('beforeunload',handler);},[]);
-  async function save(record){
+  async function save(record,generation=saveGenerations.current.get(record.id)||0){
     const previous=chains.current.get(record.id)||Promise.resolve();
-    const task=previous.catch(()=>{}).then(()=>put(record));chains.current.set(record.id,task);
-    try{await task;if(pending.current.get(record.id)===record)pending.current.delete(record.id);setSaveState(pending.current.size?'Saving…':'All changes saved');return true;}
-    catch(e){setError(`Changes could not be saved. ${e.message}`);setSaveState('Unsaved changes');return false;}
+    const task=previous.catch(()=>{}).then(async()=>{
+      if(generation!==(saveGenerations.current.get(record.id)||0))return false;
+      await put(record);return true;
+    });chains.current.set(record.id,task);
+    try{
+      await task;
+      if(generation===(saveGenerations.current.get(record.id)||0)&&pending.current.get(record.id)===record)pending.current.delete(record.id);
+      setSaveState(pending.current.size?'Saving…':'All changes saved');return true;
+    }catch(e){setError(`Changes could not be saved. ${e.message}`);setSaveState('Unsaved changes');return false;}
   }
-  function schedule(record){pending.current.set(record.id,record);clearTimeout(timers.current.get(record.id));setSaveState('Saving…');timers.current.set(record.id,setTimeout(()=>save(record),450));}
+  function schedule(record){
+    const generation=(saveGenerations.current.get(record.id)||0)+1;
+    saveGenerations.current.set(record.id,generation);
+    pending.current.set(record.id,record);clearTimeout(timers.current.get(record.id));setSaveState('Saving…');
+    timers.current.set(record.id,setTimeout(()=>save(record,generation),450));
+  }
   function storeCharacter(next){
     next=normalize(next);
     const current=charactersRef.current||[],list=current.some(c=>c.id===next.id)?current.map(c=>c.id===next.id?next:c):[...current,next];
@@ -88,9 +99,9 @@ export default function ModernLedger({theme,onToggleTheme,onSignOut,demo=false})
     return storeCharacter(next);
   }
   function updateWorkspace(next){setWorkspace(next);schedule(next);}
-  async function flush(){const entries=[...pending.current.values()];entries.forEach(r=>clearTimeout(timers.current.get(r.id)));const results=await Promise.all(entries.map(save));return results.every(Boolean);}
+  async function flush(){const entries=[...pending.current.values()];entries.forEach(r=>clearTimeout(timers.current.get(r.id)));const results=await Promise.all(entries.map(r=>save(r,saveGenerations.current.get(r.id)||0)));return results.every(Boolean);}
   async function finish(next){if(busy)return;next=normalize(next);setBusy(true);try{if(!(await flush()))return;await put(next);const current=charactersRef.current||[],list=current.some(c=>c.id===next.id)?current.map(c=>c.id===next.id?next:c):[...current,next];charactersRef.current=list;setCharacters(list);setSelected(next.id);setPage('characters');setWizard(null);}catch(e){setError(`Could not save your character. ${e.message}`);}finally{setBusy(false);}}
-  async function remove(){setBusy(true);try{const key=deleteTarget.id;clearTimeout(timers.current.get(key));await (chains.current.get(key)||Promise.resolve()).catch(()=>{});await window.storage.delete(`char-detail:${key}`);pending.current.delete(key);const list=(charactersRef.current||[]).filter(c=>c.id!==key);charactersRef.current=list;setCharacters(list);if(selected===key)setSelected(null);setDeleteTarget(null);}catch(e){setError(e.message);}finally{setBusy(false);}}
+  async function remove(){setBusy(true);try{const key=deleteTarget.id;saveGenerations.current.set(key,(saveGenerations.current.get(key)||0)+1);clearTimeout(timers.current.get(key));await (chains.current.get(key)||Promise.resolve()).catch(()=>{});await window.storage.delete(`char-detail:${key}`);pending.current.delete(key);const list=(charactersRef.current||[]).filter(c=>c.id!==key);charactersRef.current=list;setCharacters(list);if(selected===key)setSelected(null);setDeleteTarget(null);}catch(e){setError(e.message);}finally{setBusy(false);}}
   function roll(expression,label,options={}){try{const result=rollDice(expression,rollMode(options.mode??mode,options.disadvantage));const penalty=options.penalty||0;const r={...result,total:result.total+penalty,bonus:result.bonus+penalty,label:(label||expression)+(penalty?` (${signed(penalty)} exhaustion)`:'')};setRolls(list=>[r,...list].slice(0,50));if(!options.inline)setDiceOpen(true);return r;}catch(e){setError(e.message);return null;}}
   async function importCharacter(event){const file=event.target.files?.[0];event.target.value='';if(!file)return;try{if(file.size>2e6)throw new Error('Use a character JSON file under 2 MB.');const parsed=JSON.parse(await file.text());if(!parsed || typeof parsed.name!=='string'||!parsed.abilities||!Object.keys(parsed.abilities).every(k=>['str','dex','con','int','wis','cha'].includes(k))||!ABILITIES.every(a=>Number.isFinite(parsed.abilities[a.key]))||!Number.isInteger(parsed.level)||parsed.level<1||parsed.level>20||!parsed.hp||!Number.isFinite(parsed.hp.max)||!Number.isFinite(parsed.hp.current)||['inventory','spells','actions'].some(k=>parsed[k]!=null&&!Array.isArray(parsed[k])))throw new Error('This file is not a valid Adventurer’s Ledger character.');await finish(normalize({...parsed,id:id(),kind:undefined}));}catch(e){setError(e.message);}}
   const char=characters.find(c=>c.id===selected);
