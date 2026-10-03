@@ -7,6 +7,7 @@ import {conditionEffects,conditionNames,exhaustionLevel} from './lib/play';
 import {restSpellSlots} from './lib/multiclassCasting';
 import {restFeatMagic} from './lib/featMagic';
 import {restSpellAcquisition35} from './lib/spellAcquisition35';
+import {restDailySpellLike35} from './lib/dailySpellLike35';
 import {hitDicePools,needsHitDiceReview,recoveryLimit,defaultRecovery,setSpentHitDice,spendHitDice,recoverHitDice} from './lib/hitDice';
 
 function Count({label,value=0,max,onChange,disabled=false}) {
@@ -38,7 +39,7 @@ export default function RestDialog({char,patch,roll,constitution,abilities,onClo
   function takeRest() {
     try {
       const conditions=conditionNames(char);
-      if(legacy)patch(current=>{const acquisition=restSpellAcquisition35(current,'long'),currentConditions=conditionNames(current);return {hp:changeHP(current.hp,current.level,true),...restSpellSlots(current,'long'),...restFeatMagic(current,'long'),...restResources(current,'long',{},abilities),conditions:currentConditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted'),spellAcquisition35:acquisition.spellAcquisition35,spellAcquisition35Incomplete:acquisition.spellAcquisition35Incomplete,spells:acquisition.spells};});
+      if(legacy)patch(current=>{const daily=restDailySpellLike35(current,'long'),acquisition=restSpellAcquisition35(daily,'long'),currentConditions=conditionNames(current);return {hp:changeHP(current.hp,current.level,true),...restSpellSlots(current,'long'),...restFeatMagic(current,'long'),...restResources(current,'long',{},abilities),conditions:currentConditions.filter(c=>c!=='Fatigued'&&c!=='Exhausted'),dailySpellLike35:daily.dailySpellLike35,spellAcquisition35:acquisition.spellAcquisition35,spellAcquisition35Incomplete:acquisition.spellAcquisition35Incomplete,spells:acquisition.spells};});
       else if(rest==='long')patch({
         ...(recoverExhaustion?{exhaustion:Math.max(0,exhaustion-1),conditions:conditions.filter(c=>c.toLowerCase()!=='exhaustion')}:{}),
         hp:{...char.hp,current:conditionEffects({...char,exhaustion:recoverExhaustion?Math.max(0,exhaustion-1):exhaustion}).maxHP,temp:0},
