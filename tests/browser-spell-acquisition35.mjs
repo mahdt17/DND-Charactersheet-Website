@@ -608,7 +608,7 @@ try{
   const factotumCast=page.getByRole('dialog').filter({hasText:'Use Detect Magic'});
   await factotumCast.waitFor();
   assert.match(await factotumCast.innerText(),/caster level 2/i);
-  assert.match(await factotumCast.innerText(),/save DC 11/i);
+  assert.match(await factotumCast.innerText(),/save DC 12/i);
   assert.match(await factotumCast.innerText(),/Costs 1 Inspiration/i);
   await factotumCast.getByRole('button',{name:'Use & spend Inspiration',exact:true}).click();
 
