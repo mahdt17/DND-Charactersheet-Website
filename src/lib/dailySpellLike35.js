@@ -241,3 +241,26 @@ export function restDailySpellLike35(character,rest='long'){
   const spells=(character.spells||[]).filter(spell=>!(spell.dailySpellLikeGrant&&affected.has(cleanId(spell.dailySpellLikeClassId||spell.castingClassId))));
   return {...character,dailySpellLike35:state,spells};
 }
+
+
+export function reconcileDailySpellLike35(character){
+  const state={...(character?.dailySpellLike35||{})},activeRows=character?.classLevels||[];
+  const retired=new Set();
+  for(const [key,bucket] of Object.entries(state)){
+    const profile=Object.values(profiles).find(item=>item.id===bucket?.profileId);
+    if(!profile)continue;
+    const classId=bucket.classId||key,wanted=cleanId(classId);
+    const row=activeRows.find(item=>cleanId(item?.catalogId||item?.definition?.catalogId||item?.definition?.id||item?.definition?.sourceId)===wanted);
+    const classLevel=Math.max(0,Number(row?.level)||0),count=row?stepped(profile.countByLevel,classLevel,0):0,maxLevel=row?stepped(profile.maxLevelByLevel,classLevel,-1):-1;
+    const selections=Array.isArray(bucket?.selections)?bucket.selections:[];
+    const invalid=!row||count<=0||selections.length>count||selections.some(selection=>Number(selection?.modifiedLevel)>maxLevel);
+    if(invalid){
+      retired.add(wanted);
+      delete state[key];
+      continue;
+    }
+    state[key]={...bucket,classId:key};
+  }
+  const spells=(character?.spells||[]).filter(spell=>!(spell?.dailySpellLikeGrant&&retired.has(cleanId(spell.dailySpellLikeClassId||spell.castingClassId))));
+  return {...character,dailySpellLike35:state,spells};
+}

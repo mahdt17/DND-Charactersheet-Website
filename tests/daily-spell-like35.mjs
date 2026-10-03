@@ -7,7 +7,8 @@ import {
   dailySpellLikeMetamagicOptions35,
   prepareDailySpellLike35,
   spendDailySpellLike35,
-  restDailySpellLike35
+  restDailySpellLike35,
+  reconcileDailySpellLike35
 } from '../src/lib/dailySpellLike35.js';
 
 const factotumId='dndtools:classes/factotum-35';
@@ -133,6 +134,12 @@ const longRest=restDailySpellLike35(prepared,'long');
 assert.equal(longRest.dailySpellLike35[factotumId].ready,true);
 assert.equal(longRest.dailySpellLike35[factotumId].selections.length,0);
 assert.equal(longRest.spells.filter(row=>row.dailySpellLikeGrant).length,0,'8-hour/daily recovery retires the prior repertoire');
+
+const removedFactotum=reconcileDailySpellLike35({...prepared,classLevels:[{catalogId:'dndtools:classes/fighter-46',name:'Fighter',edition:'3.5',level:9}]});
+assert.equal(removedFactotum.dailySpellLike35[factotumId],undefined,'removing Factotum retires source-owned Arcane Dilettante state');
+assert.equal(removedFactotum.spells.filter(row=>row.dailySpellLikeGrant).length,0,'removing Factotum retires source-owned daily spell-like runtime spells');
+const belowFeature=reconcileDailySpellLike35({...prepared,level:1,classLevels:[{catalogId:factotumId,name:'Factotum',edition:'3.5',level:1}]});
+assert.equal(belowFeature.dailySpellLike35[factotumId],undefined,'dropping below Arcane Dilettante level retires the daily repertoire');
 
 const roundTrip=JSON.parse(JSON.stringify(prepared));
 assert.deepEqual(roundTrip.dailySpellLike35,prepared.dailySpellLike35,'daily repertoire state is serializable for save/reopen persistence');
