@@ -94,7 +94,7 @@ export function metamagicLevelAdjustment35(feat,{baseLevel=0,targetLevel=null}={
   if(/^sudden\b/i.test(name)||/without (?:increasing|raising) (?:the )?(?:spell(?:'s)? )?level[^.]{0,80}without (?:specially )?prepar/i.test(text))return null;
   if(/^heighten spell$/i.test(name)){
     const target=Number(targetLevel),base=Math.max(0,Number(baseLevel)||0);
-    if(!Number.isInteger(target)||target<base||target>9)return null;
+    if(!Number.isInteger(target)||target<=base||target>9)return null;
     return target-base;
   }
   let match=text.match(/(?:spell )?slot(?: of)?\s+(?:a|the)?\s*(zero|one|two|three|four|five|six|seven|eight|nine|\d+)\s+levels?\s+higher/i)
@@ -103,7 +103,7 @@ export function metamagicLevelAdjustment35(feat,{baseLevel=0,targetLevel=null}={
     const value=numberWord(match[1]);
     return Number.isFinite(value)?value:null;
   }
-  if(/(?:slot|spell slot)\s+(?:of |at )?(?:the )?(?:spell(?:'s)? )?normal level|uses? (?:a )?(?:spell )?slot of (?:the )?spell(?:'s)? normal level|does not (?:increase|raise) (?:the )?(?:spell(?:'s)? )?level|without increasing (?:the )?(?:spell(?:'s)? )?level/i.test(text))return 0;
+  if(/(?:slot|spell slot)\s+(?:of |at )?(?:the |its )?(?:spell(?:'s)? )?normal level|uses? (?:a )?(?:spell )?slot of (?:the |its )?(?:spell(?:'s)? )?normal level|does not (?:increase|raise) (?:the )?(?:spell(?:'s)? )?level|without increasing (?:the )?(?:spell(?:'s)? )?level/i.test(text))return 0;
   return null;
 }
 
