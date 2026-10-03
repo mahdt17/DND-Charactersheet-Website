@@ -644,4 +644,20 @@ Verification evidence:
 - #1638 passed the full 3.5 class/feat/spell/item regressions, 5e item regressions, production build, and all general/specialized browser suites.
 
 Completion impact is limited to `classes/dragon-shaman-101` and `classes/marshal-78`. Tracker impact: **78 complete, 624 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**. No deployment or Supabase changes were made.
+## Shared specialist-caster acquisition: Spirit Shaman / Wu Jen; Shugenja Void hold (2026-10-03)
+
+The reusable 3.5 acquisition subsystem now covers two additional source-defined casting models without creating isolated class-specific spell databases. Spirit Shaman uses a daily-retrieval profile over the reviewed Druid list. The retrieved repertoire is exact-source state, is the repertoire available for spontaneous casting that day, and is retired by long-rest recovery before a fresh daily selection is made. The reviewed Spirit Guide rule explicitly states that its chosen animal form grants no different form-specific benefit; the choice persists, grants the source-owned Alertness feat, and the later Follow the Guide and Guide Magic features remain normal reviewed class grants.
+
+Wu Jen now uses the shared spellbook path rather than Wizard-only code. The starting spellbook includes all legal 0-level Wu Jen spells and 3 + Intelligence-bonus 1st-level choices, later Wu Jen levels add two free legal spells, and campaign spellbook copying uses the same provenance-aware acquisition path without inheriting Wizard school prohibitions. Spell Secret is stored as one linked choice pairing an owned Wu Jen spell with Enlarge, Extend, Still, or Silent Spell at +0 spell level; Elemental Mastery uses the reviewed Wu Jen spell-element overlay to expose its +2 effective caster-level and saving-throw mechanics for the selected element and All spells; selected Taboos retain the reviewed rest-of-day spellcasting consequence.
+
+Shugenja's ordinary elemental casting path is also implemented and verified: its Order is chosen before Element Focus, fixed Order spells can be legal off-list additions, the favored and unrestricted known-spell quotas are separate, opposed elements are excluded, even-level replacements preserve Element Focus, and reconciliation detects malformed persisted state. End-to-end coverage verifies those flows. The class is deliberately not promoted yet, however, because a 2026-10-03 exact-source Exa/Tavily recheck confirmed that the Order of the Ineffable Mystery also trains Shugenjas who specialize in Void. The available Complete Divine/D&DTools text does not provide a sufficiently explicit Void spell/favored-quota/prohibited-element mapping to automate that path without inventing rules, so the tracker now isolates that as Shugenja's remaining blocker.
+
+Verification evidence:
+- implementation head: `4760b21fac6acac9e1e6b4ca3844de531ae3a84f`
+- Companion engine checks #167: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37088797608
+- Spell acquisition checks #142: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37088797618
+- Validate modernization #1667: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37088797619
+- Browser acquisition coverage explicitly passed Shugenja Order/Element Focus and spell persistence, Spirit Shaman creation/retrieval/long-rest/re-retrieval, and Wu Jen starting/campaign spellbook flows.
+
+Completion impact is limited to `classes/spirit-shaman-9` and `classes/wu-jen-6`; `classes/shugenja-8` remains `needs-review` solely for the unresolved source-defined Void specialization. Tracker impact: **80 complete, 622 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**. PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made, and no Firecrawl fallback was used for the Void source recheck.
 

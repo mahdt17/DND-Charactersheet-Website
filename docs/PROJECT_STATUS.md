@@ -375,4 +375,16 @@ Supabase is intentionally not being expanded for this class/catalog work. The ru
 - Promoted exactly `classes/dragon-shaman-101` and `classes/marshal-78`.
 - Canonical tracker totals: **78 complete, 624 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
 - PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made.
+## 2026-10-03 shared Spirit Shaman / Wu Jen casting checkpoint; Shugenja Void hold
+
+- Verified implementation head: `4760b21fac6acac9e1e6b4ca3844de531ae3a84f`.
+- Companion engine checks #167 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37088797608.
+- Spell acquisition checks #142 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37088797618.
+- Validate modernization #1667 passed: https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37088797619. The full validation gate, production build, class/feat/spell/item regressions, and browser suites are green at the implementation head.
+- Spirit Shaman now uses reusable daily-retrieval state over the reviewed Druid list. Creation records the exact retrieved repertoire, long-rest recovery retires the prior day's repertoire and reopens retrieval, and the Spells surface supports the next day's selection. Spirit Guide persists its source choice and grants Alertness; the reviewed source explicitly says the guide's chosen animal form grants no form-specific benefit.
+- Wu Jen now reuses the shared spellbook engine for its complete starting spellbook, two free spells per new class level, preparation, and campaign copying. Spell Secret is a linked known-spell/permanent-metamagic choice, Elemental Mastery materializes reviewed element-specific caster-level/save mechanics, and Taboos materialize their daily spellcasting restriction.
+- Shugenja's ordinary Air/Earth/Fire/Water paths are now fully structured and green: Order-driven Element Focus, fixed Order spells, favored/unrestricted known-spell quotas, prohibited elements, replacements, persistence, reconciliation, and browser coverage. It is intentionally **not** promoted because the exact source also permits an Ineffable Mystery Shugenja to specialize in Void, while the available source text does not define enough of that Void acquisition/quota mapping to implement without guessing. The remaining tracker blocker is narrowed to that exact source path.
+- Promoted exactly `classes/spirit-shaman-9` and `classes/wu-jen-6`. `classes/shugenja-8` remains `needs-review` for the Void specialization only.
+- Canonical tracker totals: **80 complete, 622 needs-review, 1 source-conflict, 2 blocked, 349 pending audit**.
+- PR #8 remains draft/open/unmerged. No deployment or Supabase changes were made. The Void recheck used Exa and Tavily; no Firecrawl fallback was used.
 

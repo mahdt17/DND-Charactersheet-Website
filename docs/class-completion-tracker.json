@@ -4,7 +4,7 @@
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "4bb5627b0ffe44ac6518c1e3733be20caa42ff9f",
+  "snapshotCommit": "4760b21fac6acac9e1e6b4ca3844de531ae3a84f",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -21448,17 +21448,20 @@
       "existingProfileParent": null,
       "featureRequirements": [],
       "gaps": [
-        "Element Focus choice persists, but focused/opposed element spell-access restrictions and source-specific spells-known acquisition are not fully applied."
+        "Air/Earth/Fire/Water Order and Element Focus spell acquisition, prohibited elements, fixed order spells, replacements, persistence, and reconciliation are structured and green, but the exact Complete Divine source also allows Order of the Ineffable Mystery shugenjas to specialize in Void. The reviewed source text does not define enough of the Void favored-spell/quota and prohibited-element mapping to automate that player path without inference."
       ],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-03 the shared partitioned-known engine now covers ordinary Air/Earth/Fire/Water Shugenja Orders, exact fixed Order spells (including off-list additions), favored/unrestricted known-spell quotas, opposed-element exclusions, even-level replacements, persistence, and malformed-save reconciliation.",
+        "End-to-end browser coverage verifies Order-driven Element Focus, favored/unrestricted spell pickers, prohibited-element filtering, fixed Order spells, and persistence; Spell acquisition checks #142 and Validate modernization #1667 are green.",
+        "2026-10-03 Exa plus Tavily exact-source recheck confirmed that Order of the Ineffable Mystery also trains Void-specialized shugenjas, while the available Complete Divine/D&DTools text did not provide a source-faithful Void spell/quota mapping sufficient for implementation without guessing. No Firecrawl fallback was used for this recheck."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Apply Element Focus to spell access and implement Shugenja spells-known progression with regression coverage."
+      "nextAction": "Resolve the exact Complete Divine mechanics for Order of the Ineffable Mystery Void specialization—especially what counts toward favored-element spells-known quotas and any prohibited-element rule—from an authoritative source before promotion. Do not infer those rules from L5R or homebrew spell lists."
     },
     {
       "sourceId": "classes/shugenja-86",
@@ -22396,26 +22399,28 @@
       "name": "Spirit Shaman",
       "sourceBook": "Base Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/spirit-shaman-9",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 18,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Spirit Guide choice persists and Druid-list access is mapped, but daily Spells Retrieved selection and option-specific Spirit Guide mechanics are not fully structured."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-03 added reusable daily-retrieval acquisition state for Spirit Shaman using the reviewed Druid list and exact retrieved-spells progression; the active repertoire persists by exact class source.",
+        "Long-rest recovery now clears the prior day's retrieved repertoire and reopens the daily retrieval flow; end-to-end browser coverage verifies creation retrieval, persistence, long-rest reset, and re-retrieval.",
+        "The reviewed Spirit Guide rule states that the selected animal form grants no form-specific benefit. The persisted guide choice grants the source-owned Alertness feat, while Follow the Guide and Guide Magic remain their reviewed class features.",
+        "Companion engine checks #167, Spell acquisition checks #142, and Validate modernization #1667 all passed at 4760b21fac6acac9e1e6b4ca3844de531ae3a84f."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement daily Spells Retrieved state and Spirit Guide option mechanics with rest/persistence regressions."
+      "verifiedCommit": "4760b21fac6acac9e1e6b4ca3844de531ae3a84f",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37088797619",
+      "nextAction": "Preserve as verified. Re-audit only if Spirit Shaman daily retrieval/rest lifecycle, Druid-list acquisition, or Spirit Guide source-choice reconciliation changes."
     },
     {
       "sourceId": "classes/spur-lord-537",
@@ -25945,26 +25950,28 @@
       "name": "Wu Jen",
       "sourceBook": "Base Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/wu-jen-6",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "passed",
       "existingDirectSummaryCount": 9,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Spell Secret, Elemental Mastery, and Taboos are selectable/recordable, but their selected option mechanics and complete spellbook acquisition are not fully materialized."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "2026-09-29 Exa discovery found corroborating D&D 3.5 references for this exact class.",
         "2026-09-29 Tavily advanced extraction of the exact new.dndtools source passed level-20 progression, class-skills, table-integrity, key-feature, and contamination checks.",
-        "No Firecrawl fallback was required."
+        "No Firecrawl fallback was required.",
+        "2026-10-03 generalized spellbook acquisition for Wu Jen: every legal 0-level spell, 3 + Intelligence-bonus starting 1st-level spells, two free additions at each new Wu Jen level, and campaign spellbook copying without Wizard school restrictions.",
+        "Spell Secret is now a linked known-spell plus permanent +0-level metamagic choice; Elemental Mastery uses a reviewed Wu Jen element overlay to expose the +2 effective caster-level and saving-throw mechanics for matching and All-element spells; selected Taboos materialize their daily spellcasting restriction.",
+        "Regression coverage verifies Spell Secret uniqueness and persistence, Elemental Mastery spell modifiers, Taboo consequences, starting spellbook acquisition, and generic campaign spellbook copying.",
+        "Companion engine checks #167, Spell acquisition checks #142, and Validate modernization #1667 all passed at 4760b21fac6acac9e1e6b4ca3844de531ae3a84f."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Apply selected Spell Secret/Elemental Mastery/Taboo mechanics and complete Wu Jen spellbook acquisition with persistence regressions."
+      "verifiedCommit": "4760b21fac6acac9e1e6b4ca3844de531ae3a84f",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37088797619",
+      "nextAction": "Preserve as verified. Re-audit only if shared spellbook acquisition, Wu Jen element mapping, Spell Secret, Elemental Mastery, or Taboo reconciliation changes."
     },
     {
       "sourceId": "classes/wu-jen-88",
