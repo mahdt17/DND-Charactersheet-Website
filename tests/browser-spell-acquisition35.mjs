@@ -605,7 +605,11 @@ try{
     const detailRecord=await window.storage.get('char-detail:'+row.id);
     if(!detailRecord)return false;
     const detail=JSON.parse(detailRecord.value),bucket=detail.dailySpellLike35?.[key];
-    return bucket?.ready===false&&bucket?.selections?.length===1;
+    const valid=bucket?.ready===false&&bucket?.selections?.length===1;
+    if(!valid){window.__factotumPreparedStableSince=0;return false;}
+    const now=Date.now();
+    if(!window.__factotumPreparedStableSince){window.__factotumPreparedStableSince=now;return false;}
+    return now-window.__factotumPreparedStableSince>=800;
   },{name:factotumName,key:factotumKey});
   const preparedFactotum=await saved(factotumName);
   assert.equal(preparedFactotum.dailySpellLike35?.[factotumKey]?.selections?.length,1);
@@ -630,7 +634,11 @@ try{
     if(!detailRecord)return false;
     const detail=JSON.parse(detailRecord.value),bucket=detail.dailySpellLike35?.[key];
     const resource=(detail.resources||[]).find(item=>item.name==='Inspiration'&&item.sourceClassId===key);
-    return bucket?.selections?.[0]?.used===true&&Number(resource?.used||0)===1;
+    const valid=bucket?.selections?.[0]?.used===true&&Number(resource?.used||0)===1;
+    if(!valid){window.__factotumUsedStableSince=0;return false;}
+    const now=Date.now();
+    if(!window.__factotumUsedStableSince){window.__factotumUsedStableSince=now;return false;}
+    return now-window.__factotumUsedStableSince>=800;
   },{name:factotumName,key:factotumKey});
 
   const factotumUsed=await saved(factotumName);
