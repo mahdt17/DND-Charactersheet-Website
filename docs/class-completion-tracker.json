@@ -27417,80 +27417,116 @@
       "name": "War Hulk",
       "sourceBook": "Prestige Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/war-hulk-580",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for War Hulk; verified mechanics requiring integration include Ability Boost, No Time to Think, Great Swing, Mighty Rock Throwing, Mighty Swing, Sweeping Boulder, Toughness, Massive Sweeping Boulder, Massive Swing. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Miniatures Handbook record at https://new.dndtools.org/classes/war-hulk-580.",
+        "Exact-page mechanics identified include: Ability Boost, No Time to Think, Great Swing, Mighty Rock Throwing, Mighty Swing, Sweeping Boulder, Toughness, Massive Sweeping Boulder, Massive Swing.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement War Hulk in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/war-mind-916",
       "name": "War Mind",
       "sourceBook": "Prestige Class Expanded Psionics Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/war-mind-916",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for War Mind; verified mechanics requiring integration include Power Points/Day, Powers Known, Maximum Power Level Known, Chain of Personal Superiority, Chain of Defensive Posture, Enduring Body, Sweeping Strike, Chain of Overwhelming Force. Primary implementation cohort: psionics/manifesting."
+      ],
+      "dependencies": [
+        "Cohort: psionics/manifesting. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Expanded Psionics Handbook record at https://new.dndtools.org/classes/war-mind-916.",
+        "Exact-page mechanics identified include: Power Points/Day, Powers Known, Maximum Power Level Known, Chain of Personal Superiority, Chain of Defensive Posture, Enduring Body, Sweeping Strike, Chain of Overwhelming Force.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement War Mind in the psionics/manifesting cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/war-weaver-529",
       "name": "War Weaver",
       "sourceBook": "Prestige Class Heroes of Battle",
       "sourceUrl": "https://new.dndtools.org/classes/war-weaver-529",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for War Weaver; verified mechanics requiring integration include Eldritch Tapestry, Quiescent Weaving, Spellcasting, Enlarged Tapestry. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Heroes of Battle record at https://new.dndtools.org/classes/war-weaver-529.",
+        "Exact-page mechanics identified include: Eldritch Tapestry, Quiescent Weaving, Spellcasting, Enlarged Tapestry.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement War Weaver in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/war-wizard-of-cormyr-574",
       "name": "War Wizard of Cormyr",
       "sourceBook": "Prestige Class Magic of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/war-wizard-of-cormyr-574",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for War Wizard of Cormyr; verified mechanics requiring integration include Spellcasting, Spells per Day, Weapon Focus, Metamagic Feat, Widen Spell, Enhanced Spell Area. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Magic of Faerûn record at https://new.dndtools.org/classes/war-wizard-of-cormyr-574.",
+        "Exact-page mechanics identified include: Spellcasting, Spells per Day, Weapon Focus, Metamagic Feat, Widen Spell, Enhanced Spell Area.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement War Wizard of Cormyr in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warblade-117",
@@ -27524,40 +27560,58 @@
       "name": "Warchief",
       "sourceBook": "Prestige Class Miniatures Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/warchief-581",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warchief; verified mechanics requiring integration include Tribal Frenzy, Ability Boost, Devoted Bodyguards. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Miniatures Handbook record at https://new.dndtools.org/classes/warchief-581.",
+        "Exact-page mechanics identified include: Tribal Frenzy, Ability Boost, Devoted Bodyguards.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warchief in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warforged-juggernaut-440",
       "name": "Warforged Juggernaut",
       "sourceBook": "Prestige Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warforged Juggernaut; verified mechanics requiring integration include Armor Spikes, Expert Bull Rush, Powerful Charge, Extended Charge, Healing Immunity. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Eberron Campaign Setting record at https://new.dndtools.org/classes/warforged-juggernaut-440.",
+        "Exact-page mechanics identified include: Armor Spikes, Expert Bull Rush, Powerful Charge, Extended Charge, Healing Immunity.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warforged Juggernaut in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warlock-4",
@@ -27590,20 +27644,29 @@
       "name": "Warlord of Utterdark",
       "sourceBook": "Prestige Class Web 3.0",
       "sourceUrl": "https://new.dndtools.org/classes/warlord-of-utterdark-1059",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warlord of Utterdark; verified mechanics requiring integration include Darkvision, Bulwark of Evil, Vile Strike, Dark God’s Blessing, Bonus Feats. Primary implementation cohort: persistent choice."
+      ],
+      "dependencies": [
+        "Cohort: persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Web 3.0 record at https://new.dndtools.org/classes/warlord-of-utterdark-1059.",
+        "Exact-page mechanics identified include: Darkvision, Bulwark of Evil, Vile Strike, Dark God’s Blessing, Bonus Feats.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warlord of Utterdark in the persistent choice cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warmage-5",
@@ -27662,60 +27725,87 @@
       "name": "Warmaster",
       "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
       "sourceUrl": "https://new.dndtools.org/classes/warmaster-782",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warmaster; verified mechanics requiring integration include Prestige Class Sword and Fist, Brotherhood, Leadership Bonus, Battle Cry, Direct Troops, Tower, Rally Troops, Hard March, Keep. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Sword and Fist: A Guidebook to Monks and Fighters record at https://new.dndtools.org/classes/warmaster-782.",
+        "Exact-page mechanics identified include: Prestige Class Sword and Fist, Brotherhood, Leadership Bonus, Battle Cry, Direct Troops, Tower, Rally Troops, Hard March, Keep.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warmaster in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warpriest-255",
       "name": "Warpriest",
       "sourceBook": "Prestige Class Complete Divine",
       "sourceUrl": "https://new.dndtools.org/classes/warpriest-255",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warpriest; verified mechanics requiring integration include Spells per Day/Spells Known, Bonus Domain, Rally, Turn or Rebuke Undead, Inflame, Mass Cure Light Wounds, Fear Aura, Heroes’ Feast, Haste. Primary implementation cohort: casting/progression, domain/divine."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Divine record at https://new.dndtools.org/classes/warpriest-255.",
+        "Exact-page mechanics identified include: Spells per Day/Spells Known, Bonus Domain, Rally, Turn or Rebuke Undead, Inflame, Mass Cure Light Wounds, Fear Aura, Heroes’ Feast, Haste.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warpriest in the casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warpriest-370",
       "name": "Warpriest",
       "sourceBook": "Prestige Class Defenders of the Faith: A Guidebook to Clerics and Paladins",
       "sourceUrl": "https://new.dndtools.org/classes/warpriest-370",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warpriest; verified mechanics requiring integration include Spells per Day, Prestige Domain, Turn or Rebuke Undead, Rally, Inflame, Healing Circle, Heroes’ Feast, Fear Aura, Mass Haste. Primary implementation cohort: casting/progression, domain/divine, paladin/favored-enemy."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression, domain/divine, paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Defenders of the Faith: A Guidebook to Clerics and Paladins record at https://new.dndtools.org/classes/warpriest-370.",
+        "Exact-page mechanics identified include: Spells per Day, Prestige Domain, Turn or Rebuke Undead, Rally, Inflame, Healing Circle, Heroes’ Feast, Fear Aura, Mass Haste.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warpriest in the casting/progression, domain/divine, paladin/favored-enemy cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warrior-28",
@@ -27820,420 +27910,607 @@
       "name": "Warrior of Darkness",
       "sourceBook": "Prestige Class Book of Vile Darkness",
       "sourceUrl": "https://new.dndtools.org/classes/warrior-of-darkness-179",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warrior of Darkness; verified mechanics requiring integration include Black Magic Oil, Darkling Weapon, Black Magic Elixir, Scarred Flesh, Repellent Flesh. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Book of Vile Darkness record at https://new.dndtools.org/classes/warrior-of-darkness-179.",
+        "Exact-page mechanics identified include: Black Magic Oil, Darkling Weapon, Black Magic Elixir, Scarred Flesh, Repellent Flesh.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warrior of Darkness in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warrior-skald-701",
       "name": "Warrior Skald",
       "sourceBook": "Prestige Class Races of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/warrior-skald-701",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warrior Skald; verified mechanics requiring integration include Among the Northlanders dwell bardic musicians who live for two things, Bardic Music, Words of Rejuvenation, Demoralize, Marcher’s Chant, Inspire Heroism, Words of Fear, Words of Panic, Words of Fury. Primary implementation cohort: performance/action-resource."
+      ],
+      "dependencies": [
+        "Cohort: performance/action-resource. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Races of Faerûn record at https://new.dndtools.org/classes/warrior-skald-701.",
+        "Exact-page mechanics identified include: Among the Northlanders dwell bardic musicians who live for two things, Bardic Music, Words of Rejuvenation, Demoralize, Marcher’s Chant, Inspire Heroism, Words of Fear, Words of Panic, Words of Fury.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warrior Skald in the performance/action-resource cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warshaper-339",
       "name": "Warshaper",
       "sourceBook": "Prestige Class Complete Warrior",
       "sourceUrl": "https://new.dndtools.org/classes/warshaper-339",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warshaper; verified mechanics requiring integration include Morphic Immunities, Morphic Weapons, Morphic Body, Morphic Reach, Morphic Healing, Flashmorph/Multimorph. Primary implementation cohort: transformation/wild-shape."
+      ],
+      "dependencies": [
+        "Cohort: transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Warrior record at https://new.dndtools.org/classes/warshaper-339.",
+        "Exact-page mechanics identified include: Morphic Immunities, Morphic Weapons, Morphic Body, Morphic Reach, Morphic Healing, Flashmorph/Multimorph.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warshaper in the transformation/wild-shape cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/warsling-sniper-702",
       "name": "Warsling Sniper",
       "sourceBook": "Prestige Class Races of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/warsling-sniper-702",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Warsling Sniper; verified mechanics requiring integration include Warsling Sneak Attack, Sniper’s Vision, Improved Critical, Improved Ricochet. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Races of Faerûn record at https://new.dndtools.org/classes/warsling-sniper-702.",
+        "Exact-page mechanics identified include: Warsling Sneak Attack, Sniper’s Vision, Improved Critical, Improved Ricochet.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Warsling Sniper in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wary-swordknight-paladin-946",
       "name": "Wary Swordknight (Paladin)",
       "sourceBook": "Wary Swordknight",
       "sourceUrl": "https://new.dndtools.org/classes/wary-swordknight-paladin-946",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wary Swordknight (Paladin); verified mechanics requiring integration include Tougher than Small, Uncanny Dodge, Haste. Primary implementation cohort: paladin/favored-enemy."
+      ],
+      "dependencies": [
+        "Cohort: paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Wary Swordknight record at https://new.dndtools.org/classes/wary-swordknight-paladin-946.",
+        "Exact-page mechanics identified include: Tougher than Small, Uncanny Dodge, Haste.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wary Swordknight (Paladin) in the paladin/favored-enemy cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/watch-detective-623",
       "name": "Watch Detective",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/watch-detective-623",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Watch Detective; verified mechanics requiring integration include City Watch Training, Expertise, Obsessive Specialty, Profile, Cooperative Interrogation, Superior Disarming, Deductive Augury, Skill Synergy, No Subdual Penalty. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers record at https://new.dndtools.org/classes/watch-detective-623.",
+        "Exact-page mechanics identified include: City Watch Training, Expertise, Obsessive Specialty, Profile, Cooperative Interrogation, Superior Disarming, Deductive Augury, Skill Synergy, No Subdual Penalty.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Watch Detective in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wavekeeper-832",
       "name": "Wavekeeper",
       "sourceBook": "Prestige Class Stormwrack",
       "sourceUrl": "https://new.dndtools.org/classes/wavekeeper-832",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wavekeeper; verified mechanics requiring integration include Spellcasting, Masterful Swimmer, Mysteries of the Sea, Beast of the Sea, Wave Master, Mastery of Breath, Water Breathing, Current Mastery, Wave Form. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Stormwrack record at https://new.dndtools.org/classes/wavekeeper-832.",
+        "Exact-page mechanics identified include: Spellcasting, Masterful Swimmer, Mysteries of the Sea, Beast of the Sea, Wave Master, Mastery of Breath, Water Breathing, Current Mastery, Wave Form.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wavekeeper in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/waverider-824",
       "name": "Waverider",
       "sourceBook": "Prestige Class Savage Species",
       "sourceUrl": "https://new.dndtools.org/classes/waverider-824",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Waverider; verified mechanics requiring integration include Waverider Mount, Mounted Weapon Bonus, Trident Charge, Ride Bonus, Breach, Sound, Improved Mounted Archery, Full Mounted Attack, Skim. Primary implementation cohort: companion/mount."
+      ],
+      "dependencies": [
+        "Cohort: companion/mount. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Savage Species record at https://new.dndtools.org/classes/waverider-824.",
+        "Exact-page mechanics identified include: Waverider Mount, Mounted Weapon Bonus, Trident Charge, Ride Bonus, Breach, Sound, Improved Mounted Archery, Full Mounted Attack, Skim.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Waverider in the companion/mount cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/waveservant-496",
       "name": "Waveservant",
       "sourceBook": "Prestige Class Faiths & Pantheons",
       "sourceUrl": "https://new.dndtools.org/classes/waveservant-496",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Waveservant; verified mechanics requiring integration include Spells per Day/Spells Known, Ocean Spells, Water Breathing, Drowned Legion, Freedom of Movement, Aquatic Servants, Sahuagin Rage, Deep Sight, Nose of the Shark. Primary implementation cohort: casting/progression, domain/divine."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Faiths & Pantheons record at https://new.dndtools.org/classes/waveservant-496.",
+        "Exact-page mechanics identified include: Spells per Day/Spells Known, Ocean Spells, Water Breathing, Drowned Legion, Freedom of Movement, Aquatic Servants, Sahuagin Rage, Deep Sight, Nose of the Shark.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Waveservant in the casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wayfarer-guide-221",
       "name": "Wayfarer Guide",
       "sourceBook": "Prestige Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/wayfarer-guide-221",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wayfarer Guide; verified mechanics requiring integration include Spell, Spells per Day/Spells Known, Enhanced Capacity, Improved Range, Extra Teleportation, Enhanced Accuracy. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Arcane record at https://new.dndtools.org/classes/wayfarer-guide-221.",
+        "Exact-page mechanics identified include: Spell, Spells per Day/Spells Known, Enhanced Capacity, Improved Range, Extra Teleportation, Enhanced Accuracy.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wayfarer Guide in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wayfarer-guide-850",
       "name": "Wayfarer Guide",
       "sourceBook": "Base Class Tome and Blood: A Guidebook to Wizards and Sorcerers",
       "sourceUrl": "https://new.dndtools.org/classes/wayfarer-guide-850",
-      "status": "pending_audit",
-      "sourceReview": "pending",
+      "status": "blocked",
+      "sourceReview": "blocked",
       "featureIntegration": "pending",
       "sheetAutomation": "pending",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "Exact-source identity is confirmed for Wayfarer Guide (Base Class Tome and Blood: A Guidebook to Wizards and Sorcerers), but the available exact page does not expose enough mechanics to audit the record safely without importing mechanics from another printing/source."
+      ],
+      "dependencies": [
+        "Independent exact-source mechanics for this record; do not infer from another printing or same-name class."
+      ],
+      "evidence": [
+        "2026-10-03 exact-source audit confirmed Wayfarer Guide at https://new.dndtools.org/classes/wayfarer-guide-850.",
+        "Exa exact-page retrieval was attempted first but did not expose a complete mechanics set; the record was failed closed rather than inferred.",
+        "No Firecrawl was used because the connected account is low on credits and the unresolved source can be represented safely as blocked."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Keep Wayfarer Guide blocked and source-specific until independently verifiable mechanics for this exact record are available."
     },
     {
       "sourceId": "classes/weapon-master-783",
       "name": "Weapon Master",
       "sourceBook": "Prestige Class Sword and Fist: A Guidebook to Monks and Fighters",
       "sourceUrl": "https://new.dndtools.org/classes/weapon-master-783",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Weapon Master; verified mechanics requiring integration include Prestige Class Sword and Fist, Proficiency, Ki Damage, Increased Multiplier, Superior Weapon Focus, Superior Combat Reflexes, Ki Critical, Ki Whirlwind, Multiclass Note. Primary implementation cohort: persistent choice."
+      ],
+      "dependencies": [
+        "Cohort: persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Sword and Fist: A Guidebook to Monks and Fighters record at https://new.dndtools.org/classes/weapon-master-783.",
+        "Exact-page mechanics identified include: Prestige Class Sword and Fist, Proficiency, Ki Damage, Increased Multiplier, Superior Weapon Focus, Superior Combat Reflexes, Ki Critical, Ki Whirlwind, Multiclass Note.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Weapon Master in the persistent choice cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/weapon-master-kensei-649",
       "name": "Weapon Master (Kensei)",
       "sourceBook": "Weapon Master",
       "sourceUrl": "https://new.dndtools.org/classes/weapon-master-kensei-649",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Weapon Master (Kensei); verified mechanics requiring integration include Weapon of Choice, Ki Damage, Increased Multiplier, Superior Weapon Focus, Superior Combat Reflexes, Ki Critical, Ki Whirlwind Attack. Primary implementation cohort: persistent choice."
+      ],
+      "dependencies": [
+        "Cohort: persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Weapon Master record at https://new.dndtools.org/classes/weapon-master-kensei-649.",
+        "Exact-page mechanics identified include: Weapon of Choice, Ki Damage, Increased Multiplier, Superior Weapon Focus, Superior Combat Reflexes, Ki Critical, Ki Whirlwind Attack.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Weapon Master (Kensei) in the persistent choice cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wearer-of-purple-424",
       "name": "Wearer of Purple",
       "sourceBook": "Prestige Class Dragons of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/wearer-of-purple-424",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wearer of Purple; verified mechanics requiring integration include Spells per Day/Spells Known, New Domain, Frightful Presence, Paralyzing Gaze, Rebuke sacred Ones. Primary implementation cohort: casting/progression, domain/divine."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Dragons of Faerûn record at https://new.dndtools.org/classes/wearer-of-purple-424.",
+        "Exact-page mechanics identified include: Spells per Day/Spells Known, New Domain, Frightful Presence, Paralyzing Gaze, Rebuke sacred Ones.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wearer of Purple in the casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wearer-of-purple-497",
       "name": "Wearer of Purple",
       "sourceBook": "Prestige Class Faiths & Pantheons",
       "sourceUrl": "https://new.dndtools.org/classes/wearer-of-purple-497",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wearer of Purple; verified mechanics requiring integration include Spells per Day/Spells Known, New Domain, Frightful Presence, Paralyzing Gaze, Rebuke sacred Ones. Primary implementation cohort: casting/progression, domain/divine."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Faiths & Pantheons record at https://new.dndtools.org/classes/wearer-of-purple-497.",
+        "Exact-page mechanics identified include: Spells per Day/Spells Known, New Domain, Frightful Presence, Paralyzing Gaze, Rebuke sacred Ones.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wearer of Purple in the casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/weretouched-master-441",
       "name": "Weretouched Master",
       "sourceBook": "Prestige Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/weretouched-master-441",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Weretouched Master; verified mechanics requiring integration include Weretouched I, Bear or Tiger, Boar or Wolverine, Rat or Wolf, Wild Empathy, Bonus Shifter Feat, Weretouched II, Frightful Shifting, Alternate Form. Primary implementation cohort: transformation/wild-shape."
+      ],
+      "dependencies": [
+        "Cohort: transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Eberron Campaign Setting record at https://new.dndtools.org/classes/weretouched-master-441.",
+        "Exact-page mechanics identified include: Weretouched I, Bear or Tiger, Boar or Wolverine, Rat or Wolf, Wild Empathy, Bonus Shifter Feat, Weretouched II, Frightful Shifting, Alternate Form.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Weretouched Master in the transformation/wild-shape cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/whisperknife-747",
       "name": "Whisperknife",
       "sourceBook": "Prestige Class Races of the Wild",
       "sourceUrl": "https://new.dndtools.org/classes/whisperknife-747",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Whisperknife; verified mechanics requiring integration include Rapid Shot, Uncanny Dodge, Sneak Attack, Defensive Throw, Improved Catch, Close Defense, Fast Movement, Poison Use, Vengeful Strike. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Races of the Wild record at https://new.dndtools.org/classes/whisperknife-747.",
+        "Exact-page mechanics identified include: Rapid Shot, Uncanny Dodge, Sneak Attack, Defensive Throw, Improved Catch, Close Defense, Fast Movement, Poison Use, Vengeful Strike.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Whisperknife in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wild-mage-222",
       "name": "Wild Mage",
       "sourceBook": "Prestige Class Complete Arcane",
       "sourceUrl": "https://new.dndtools.org/classes/wild-mage-222",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wild Mage; verified mechanics requiring integration include Spells per Day/Spells Known, Wild Magic, Random Deflector, Student of Chaos, Chaotic Mind, Reckless Dweomer, Wildstrike. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Arcane record at https://new.dndtools.org/classes/wild-mage-222.",
+        "Exact-page mechanics identified include: Spells per Day/Spells Known, Wild Magic, Random Deflector, Student of Chaos, Chaotic Mind, Reckless Dweomer, Wildstrike.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wild Mage in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wild-plains-outrider-202",
       "name": "Wild Plains Outrider",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/wild-plains-outrider-202",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wild Plains Outrider; verified mechanics requiring integration include Animal Companion/Special Mount, Ride Bonus, Wild Plains Stalker, Wild Plains Swiftness, Wild Plains Offensive, Multiclassing Note. Primary implementation cohort: companion/mount."
+      ],
+      "dependencies": [
+        "Cohort: companion/mount. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Adventurer record at https://new.dndtools.org/classes/wild-plains-outrider-202.",
+        "Exact-page mechanics identified include: Animal Companion/Special Mount, Ride Bonus, Wild Plains Stalker, Wild Plains Swiftness, Wild Plains Offensive, Multiclassing Note.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wild Plains Outrider in the companion/mount cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wild-scout-813",
       "name": "Wild Scout",
       "sourceBook": "Base Class Silver Marches",
       "sourceUrl": "https://new.dndtools.org/classes/wild-scout-813",
-      "status": "pending_audit",
-      "sourceReview": "pending",
+      "status": "blocked",
+      "sourceReview": "blocked",
       "featureIntegration": "pending",
       "sheetAutomation": "pending",
       "validation": "pending",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "Exact-source identity is confirmed for Wild Scout (Base Class Silver Marches), but the available exact page does not expose enough mechanics to audit the record safely without importing mechanics from another printing/source."
+      ],
+      "dependencies": [
+        "Independent exact-source mechanics for this record; do not infer from another printing or same-name class."
+      ],
+      "evidence": [
+        "2026-10-03 exact-source audit confirmed Wild Scout at https://new.dndtools.org/classes/wild-scout-813.",
+        "Exa exact-page retrieval was attempted first but did not expose a complete mechanics set; the record was failed closed rather than inferred.",
+        "No Firecrawl was used because the connected account is low on credits and the unresolved source can be represented safely as blocked."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Keep Wild Scout blocked and source-specific until independently verifiable mechanics for this exact record are available."
     },
     {
       "sourceId": "classes/wild-soul-274",
       "name": "Wild Soul",
       "sourceBook": "Prestige Class Complete Mage",
       "sourceUrl": "https://new.dndtools.org/classes/wild-soul-274",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wild Soul; verified mechanics requiring integration include Spellcasting, Seelie Courtier, Spontaneous Spells, Seelie Bond, Summon Seelie Ally. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Mage record at https://new.dndtools.org/classes/wild-soul-274.",
+        "Exact-page mechanics identified include: Spellcasting, Seelie Courtier, Spontaneous Spells, Seelie Bond, Summon Seelie Ally.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wild Soul in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wilder-140",
@@ -28300,160 +28577,232 @@
       "name": "Wildrunner",
       "sourceBook": "Prestige Class Races of the Wild",
       "sourceUrl": "https://new.dndtools.org/classes/wildrunner-748",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wildrunner; verified mechanics requiring integration include Fast Movement, Trackless Step, Primal Scream, Enemies Shaken, Pounce, Enemies Cower, Fast Healing, Scent, Endure Elements. Primary implementation cohort: transformation/wild-shape."
+      ],
+      "dependencies": [
+        "Cohort: transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Races of the Wild record at https://new.dndtools.org/classes/wildrunner-748.",
+        "Exact-page mechanics identified include: Fast Movement, Trackless Step, Primal Scream, Enemies Shaken, Pounce, Enemies Cower, Fast Healing, Scent, Endure Elements.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wildrunner in the transformation/wild-shape cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/windrider-624",
       "name": "Windrider",
       "sourceBook": "Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers",
       "sourceUrl": "https://new.dndtools.org/classes/windrider-624",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Windrider; verified mechanics requiring integration include Spells per Day, Appraise Mount, Chosen Mount, Windrider Level, Bonus Hit Dice, Natural Armor, Strength Adjustment, Empathic Link, Mount Proficiency. Primary implementation cohort: casting/progression, companion/mount, persistent choice."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression, companion/mount, persistent choice. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Masters of the Wild: A Guidebook to Barbarians, Druids, and Rangers record at https://new.dndtools.org/classes/windrider-624.",
+        "Exact-page mechanics identified include: Spells per Day, Appraise Mount, Chosen Mount, Windrider Level, Bonus Hit Dice, Natural Armor, Strength Adjustment, Empathic Link, Mount Proficiency.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Windrider in the casting/progression, companion/mount, persistent choice cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/windwalker-498",
       "name": "Windwalker",
       "sourceBook": "Prestige Class Faiths & Pantheons",
       "sourceUrl": "https://new.dndtools.org/classes/windwalker-498",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Windwalker; verified mechanics requiring integration include Spells per Day, Air and Travel Spells, Soft Fall, Cold Resistance, Portalsense, Smite Fiend, Windsong, Ride the Winds. Primary implementation cohort: casting/progression, performance/action-resource, paladin/favored-enemy."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression, performance/action-resource, paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Faiths & Pantheons record at https://new.dndtools.org/classes/windwalker-498.",
+        "Exact-page mechanics identified include: Spells per Day, Air and Travel Spells, Soft Fall, Cold Resistance, Portalsense, Smite Fiend, Windsong, Ride the Winds.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Windwalker in the casting/progression, performance/action-resource, paladin/favored-enemy cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/windwright-captain-446",
       "name": "Windwright Captain",
       "sourceBook": "Prestige Class Explorer's Handbook",
       "sourceUrl": "https://new.dndtools.org/classes/windwright-captain-446",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Windwright Captain; verified mechanics requiring integration include Spellcasting/Infusions, Dragonmark Control, Master Pilot, Shipboard Fighter, Acquire Ship, Uncanny Dodge, Rebuke Elementals, Lesser Shipbond, Greater Shipbond. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Explorer's Handbook record at https://new.dndtools.org/classes/windwright-captain-446.",
+        "Exact-page mechanics identified include: Spellcasting/Infusions, Dragonmark Control, Master Pilot, Shipboard Fighter, Acquire Ship, Uncanny Dodge, Rebuke Elementals, Lesser Shipbond, Greater Shipbond.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Windwright Captain in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/winterhaunt-of-iborighu-508",
       "name": "Winterhaunt of Iborighu",
       "sourceBook": "Prestige Class Frostburn",
       "sourceUrl": "https://new.dndtools.org/classes/winterhaunt-of-iborighu-508",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Winterhaunt of Iborighu; verified mechanics requiring integration include Spells per Day/Spells Known, Cloak ofWinter’s Chill, Resistance to Cold, Frozen Skin, Coldstrike, Constant Piercing Cold, Cold Subtype, Summon the Entombed, Wintry Apotheosis. Primary implementation cohort: casting/progression, transformation/wild-shape."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression, transformation/wild-shape. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Frostburn record at https://new.dndtools.org/classes/winterhaunt-of-iborighu-508.",
+        "Exact-page mechanics identified include: Spells per Day/Spells Known, Cloak ofWinter’s Chill, Resistance to Cold, Frozen Skin, Coldstrike, Constant Piercing Cold, Cold Subtype, Summon the Entombed, Wintry Apotheosis.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Winterhaunt of Iborighu in the casting/progression, transformation/wild-shape cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/witch-hunter-650",
       "name": "Witch Hunter",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/witch-hunter-650",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Witch Hunter; verified mechanics requiring integration include Spells per Day, Detect Evil, Resist Evil Magic. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Oriental Adventures record at https://new.dndtools.org/classes/witch-hunter-650.",
+        "Exact-page mechanics identified include: Spells per Day, Detect Evil, Resist Evil Magic.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Witch Hunter in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/witch-slayer-855",
       "name": "Witch Slayer",
       "sourceBook": "Prestige Class Tome of Magic",
       "sourceUrl": "https://new.dndtools.org/classes/witch-slayer-855",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Witch Slayer; verified mechanics requiring integration include Smite Spirit Sharer, Mettle, Locate Possession, Slippery Mind, Momentary Disjunction, Multiclass Note. Primary implementation cohort: paladin/favored-enemy."
+      ],
+      "dependencies": [
+        "Cohort: paladin/favored-enemy. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Tome of Magic record at https://new.dndtools.org/classes/witch-slayer-855.",
+        "Exact-page mechanics identified include: Smite Spirit Sharer, Mettle, Locate Possession, Slippery Mind, Momentary Disjunction, Multiclass Note.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Witch Slayer in the paladin/favored-enemy cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/witchborn-binder-599",
       "name": "Witchborn Binder",
       "sourceBook": "Prestige Class Magic of Incarnum",
       "sourceUrl": "https://new.dndtools.org/classes/witchborn-binder-599",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Witchborn Binder; verified mechanics requiring integration include Meldshaping, Detect Magic, Meldshield, Royal Purse, Dispelling Orb, Essentia, Mage Shackles, Word of Abrogation, Spiritflay. Primary implementation cohort: incarnum."
+      ],
+      "dependencies": [
+        "Cohort: incarnum. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Magic of Incarnum record at https://new.dndtools.org/classes/witchborn-binder-599.",
+        "Exact-page mechanics identified include: Meldshaping, Detect Magic, Meldshield, Royal Purse, Dispelling Orb, Essentia, Mage Shackles, Word of Abrogation, Spiritflay.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Witchborn Binder in the incarnum cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wizard-110",
@@ -28577,20 +28926,29 @@
       "name": "Wizard of High Sorcery",
       "sourceBook": "Prestige Class Dragonlance Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/wizard-of-high-sorcery-353",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wizard of High Sorcery; verified mechanics requiring integration include Spells per Day, Enhanced Specialization, Item of Power, Moon Magic. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Dragonlance Campaign Setting record at https://new.dndtools.org/classes/wizard-of-high-sorcery-353.",
+        "Exact-page mechanics identified include: Spells per Day, Enhanced Specialization, Item of Power, Moon Magic.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wizard of High Sorcery in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wizard-variant-959",
@@ -28628,20 +28986,29 @@
       "name": "Wonderworker",
       "sourceBook": "Prestige Class Book of Exalted Deeds",
       "sourceUrl": "https://new.dndtools.org/classes/wonderworker-158",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wonderworker; verified mechanics requiring integration include Bonus Exalted Feat, Bonus Spells per Day. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Book of Exalted Deeds record at https://new.dndtools.org/classes/wonderworker-158.",
+        "Exact-page mechanics identified include: Bonus Exalted Feat, Bonus Spells per Day.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wonderworker in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/wu-jen-6",
@@ -28703,160 +29070,232 @@
       "name": "Wyrm Wizard",
       "sourceBook": "Prestige Class Dragon Magic",
       "sourceUrl": "https://new.dndtools.org/classes/wyrm-wizard-377",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Wyrm Wizard; verified mechanics requiring integration include Spellcasting, Knowledge of the Wyrm, Spell Research, Draconic Discovery, Convert Counterspell, Break Spell Resistance. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Dragon Magic record at https://new.dndtools.org/classes/wyrm-wizard-377.",
+        "Exact-page mechanics identified include: Spellcasting, Knowledge of the Wyrm, Spell Research, Draconic Discovery, Convert Counterspell, Break Spell Resistance.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Wyrm Wizard in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/yakuza-651",
       "name": "Yakuza",
       "sourceBook": "Prestige Class Oriental Adventures",
       "sourceUrl": "https://new.dndtools.org/classes/yakuza-651",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Yakuza; verified mechanics requiring integration include Uncanny Dodge, Defensive Roll, Improved Evasion, Yakuza Knowledge, Leadership, Slippery Mind. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Oriental Adventures record at https://new.dndtools.org/classes/yakuza-651.",
+        "Exact-page mechanics identified include: Uncanny Dodge, Defensive Roll, Improved Evasion, Yakuza Knowledge, Leadership, Slippery Mind.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Yakuza in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/yathchol-webrider-906",
       "name": "Yathchol Webrider",
       "sourceBook": "Prestige Class Underdark",
       "sourceUrl": "https://new.dndtools.org/classes/yathchol-webrider-906",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Yathchol Webrider; verified mechanics requiring integration include Web Hide, Web Ride, Spider Climbing, Summon Spider, Web Blast. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Underdark record at https://new.dndtools.org/classes/yathchol-webrider-906.",
+        "Exact-page mechanics identified include: Web Hide, Web Ride, Spider Climbing, Summon Spider, Web Blast.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Yathchol Webrider in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/yathrinshee-683",
       "name": "Yathrinshee",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/yathrinshee-683",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Yathrinshee; verified mechanics requiring integration include Spells per Day/Spells Known, Rebuke Undead, Necromancer, Threnody, Curse of the Revenancer, Zone of Desecration, Keening. Primary implementation cohort: casting/progression."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Player's Guide to Faerûn record at https://new.dndtools.org/classes/yathrinshee-683.",
+        "Exact-page mechanics identified include: Spells per Day/Spells Known, Rebuke Undead, Necromancer, Threnody, Curse of the Revenancer, Zone of Desecration, Keening.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Yathrinshee in the casting/progression cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/yuan-ti-cultist-825",
       "name": "Yuan-ti Cultist",
       "sourceBook": "Prestige Class Savage Species",
       "sourceUrl": "https://new.dndtools.org/classes/yuan-ti-cultist-825",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Yuan-ti Cultist; verified mechanics requiring integration include Spellcasting, Outer Circle, Spit Poison, Suffering Prestige Domain, Sticks to Snakes, Third Circle, Snake Darts, Psionic Focus, Second Circle. Primary implementation cohort: psionics/manifesting, casting/progression, domain/divine."
+      ],
+      "dependencies": [
+        "Cohort: psionics/manifesting, casting/progression, domain/divine. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Savage Species record at https://new.dndtools.org/classes/yuan-ti-cultist-825.",
+        "Exact-page mechanics identified include: Spellcasting, Outer Circle, Spit Poison, Suffering Prestige Domain, Sticks to Snakes, Third Circle, Snake Darts, Psionic Focus, Second Circle.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Yuan-ti Cultist in the psionics/manifesting, casting/progression, domain/divine cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/zerth-cenobite-282",
       "name": "Zerth Cenobite",
       "sourceBook": "Prestige Class Complete Psionic",
       "sourceUrl": "https://new.dndtools.org/classes/zerth-cenobite-282",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Zerth Cenobite; verified mechanics requiring integration include Manifesting, Power Points/Day, Powers Known, Maximum Power Level Known, Monk Abilities, Temporal Distillation, Backslip, Timeless Step, Precognition. Primary implementation cohort: psionics/manifesting."
+      ],
+      "dependencies": [
+        "Cohort: psionics/manifesting. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Psionic record at https://new.dndtools.org/classes/zerth-cenobite-282.",
+        "Exact-page mechanics identified include: Manifesting, Power Points/Day, Powers Known, Maximum Power Level Known, Monk Abilities, Temporal Distillation, Backslip, Timeless Step, Precognition.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Zerth Cenobite in the psionics/manifesting cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/zhentarim-skymage-539",
       "name": "Zhentarim Skymage",
       "sourceBook": "Prestige Class Lords of Darkness",
       "sourceUrl": "https://new.dndtools.org/classes/zhentarim-skymage-539",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Zhentarim Skymage; verified mechanics requiring integration include Spellcasting, Spells per Day, Bonus Scrolls, Flying Mount, Flying Feat, Spell Focus, Share Spells, Skill Focus, Enlarge Spell. Primary implementation cohort: casting/progression, companion/mount."
+      ],
+      "dependencies": [
+        "Cohort: casting/progression, companion/mount. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Lords of Darkness record at https://new.dndtools.org/classes/zhentarim-skymage-539.",
+        "Exact-page mechanics identified include: Spellcasting, Spells per Day, Bonus Scrolls, Flying Mount, Flying Feat, Spell Focus, Share Spells, Skill Focus, Enlarge Spell.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Zhentarim Skymage in the casting/progression, companion/mount cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     },
     {
       "sourceId": "classes/zhentarim-spy-684",
       "name": "Zhentarim Spy",
       "sourceBook": "Prestige Class Player's Guide to Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/zhentarim-spy-684",
-      "status": "pending_audit",
-      "sourceReview": "pending",
-      "featureIntegration": "pending",
-      "sheetAutomation": "pending",
-      "validation": "pending",
+      "status": "needs-review",
+      "sourceReview": "verified",
+      "featureIntegration": "partial",
+      "sheetAutomation": "partial",
+      "validation": "blocked",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [],
-      "dependencies": [],
-      "evidence": [],
+      "gaps": [
+        "No exact sourceId-backed runtime profile exists for Zhentarim Spy; verified mechanics requiring integration include Cover Identity, Sneak Attack, Undetectable Alignment, Poison Use, Unlikely Cover, Slippery Mind, Deep Cover. Primary implementation cohort: action/resource and feature-reconciliation."
+      ],
+      "dependencies": [
+        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
+      ],
+      "evidence": [
+        "2026-10-03 Exa bulk extraction verified the exact Prestige Class Player's Guide to Faerûn record at https://new.dndtools.org/classes/zhentarim-spy-684.",
+        "Exact-page mechanics identified include: Cover Identity, Sneak Attack, Undetectable Alignment, Poison Use, Unlikely Cover, Slippery Mind, Deep Cover.",
+        "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
+        "No Firecrawl, Supabase write, merge, or deployment was performed."
+      ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Audit existing coverage and source differences; preserve already verified work."
+      "nextAction": "Implement Zhentarim Spy in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior."
     }
   ],
   "lastUpdatedNote": "Factotum Arcane Dilettante promoted after reusable daily spell-like automation and full green CI at 5bea34cc793a28ed55abbbf29b040226d7174ee1."
