@@ -120,7 +120,7 @@ export default function SpellAcquisitionChoices35({events=[],spells=[],picks={},
         const legal=spells.filter(spell=>Number(spell.level)<=Number(event.maxSpellLevel));
         return <SpellPicker
           key={key}
-          label="Free spellbook additions"
+          label={event.profileId==='wizard-35'?'Wizard free spellbook additions':'Free spellbook additions'}
           spells={legal}
           selected={Array.isArray(picks[key])?picks[key]:[]}
           limit={event.count}
