@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - "src/lib/spellAcquisition35.js"
+      - "src/lib/dailySpellLike35.js"
+      - "src/DailySpellLike35.jsx"
       - "src/data/spell-acquisition35.json"
       - "src/SpellAcquisitionChoices35.jsx"
       - "src/WizardSpellbookAcquisition35.jsx"
@@ -18,6 +20,7 @@ on:
       - "src/lib/classIntegration.js"
       - "src/lib/advancement.js"
       - "tests/spell-acquisition35.mjs"
+      - "tests/daily-spell-like35.mjs"
       - "tests/feat-spell-acquisition35.mjs"
       - "tests/browser-spell-acquisition35.mjs"
       - ".github/workflows/spell-acquisition35.yml"
@@ -40,6 +43,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node tests/spell-acquisition35.mjs
+      - run: node tests/daily-spell-like35.mjs
       - run: node tests/feat-spell-acquisition35.mjs
       - run: node tests/spell-access.mjs
       - run: node tests/class-integration.mjs
