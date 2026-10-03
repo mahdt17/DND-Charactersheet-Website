@@ -611,11 +611,6 @@ try{
     if(!window.__factotumPreparedStableSince){window.__factotumPreparedStableSince=now;return false;}
     return now-window.__factotumPreparedStableSince>=800;
   },{name:factotumName,key:factotumKey});
-  const preparedFactotum=await saved(factotumName);
-  assert.equal(preparedFactotum.dailySpellLike35?.[factotumKey]?.selections?.length,1);
-  assert.equal(preparedFactotum.dailySpellLike35[factotumKey].ready,false);
-  assert(preparedFactotum.spells.some(spell=>spell.dailySpellLikeGrant&&spell.castingClassId===factotumKey&&spell.name==='Detect Magic'));
-
   await page.getByRole('button',{name:'Done',exact:true}).click();
   const detectMagicItem=page.locator('.spell-item').filter({hasText:'Detect Magic'}).first();
   await detectMagicItem.getByRole('button',{name:'Use',exact:true}).click();
@@ -634,22 +629,27 @@ try{
     if(!detailRecord)return false;
     const detail=JSON.parse(detailRecord.value),bucket=detail.dailySpellLike35?.[key];
     const resource=(detail.resources||[]).find(item=>item.name==='Inspiration'&&item.sourceClassId===key);
-    const valid=bucket?.selections?.[0]?.used===true&&Number(resource?.used||0)===1;
+    const slotsSpent=Object.values(detail.classSlotsUsed?.[key]||{}).reduce((sum,value)=>sum+Number(value||0),0);
+    const runtime=detail.spells?.some(spell=>spell.dailySpellLikeGrant&&spell.castingClassId===key&&spell.name==='Detect Magic'&&spell.dailySpellLikeUsed===true);
+    const valid=bucket?.selections?.[0]?.used===true&&Number(resource?.used||0)===1&&slotsSpent===0&&runtime;
     if(!valid){window.__factotumUsedStableSince=0;return false;}
     const now=Date.now();
     if(!window.__factotumUsedStableSince){window.__factotumUsedStableSince=now;return false;}
     return now-window.__factotumUsedStableSince>=800;
   },{name:factotumName,key:factotumKey});
 
-  const factotumUsed=await saved(factotumName);
-  assert.equal(factotumUsed.resources.find(resource=>resource.name==='Inspiration'&&resource.sourceClassId===factotumKey)?.used,1);
-  assert.equal(factotumUsed.dailySpellLike35[factotumKey].selections[0].used,true);
-  assert.equal(Object.values(factotumUsed.classSlotsUsed?.[factotumKey]||{}).reduce((sum,value)=>sum+Number(value||0),0),0,'Arcane Dilettante does not spend spell slots');
   assert.equal(await detectMagicItem.getByRole('button',{name:'Used today',exact:true}).count(),1);
 
   await openCharacter(factotumName);
-  const reopenedFactotum=await saved(factotumName);
-  assert.equal(reopenedFactotum.dailySpellLike35[factotumKey].selections[0].used,true,'used Arcane Dilettante state survives save/reopen');
+  await page.waitForFunction(async ({name,key})=>{
+    const rows=JSON.parse((await window.storage.get('char-index')).value),row=rows.find(item=>item.name===name);
+    if(!row)return false;
+    const detailRecord=await window.storage.get('char-detail:'+row.id);
+    if(!detailRecord)return false;
+    const detail=JSON.parse(detailRecord.value);
+    return detail.dailySpellLike35?.[key]?.selections?.[0]?.used===true;
+  },{name:factotumName,key:factotumKey});
+  assert.equal(await page.locator('.spell-item').filter({hasText:'Detect Magic'}).first().getByRole('button',{name:'Used today',exact:true}).count(),1,'used Arcane Dilettante state survives save/reopen');
   await page.getByRole('button',{name:'Rest',exact:true}).click();
   await page.getByRole('button',{name:'Complete long rest',exact:true}).click();
   await page.waitForFunction(async ({name,key})=>{
