@@ -28506,17 +28506,15 @@
       "name": "Streetfighter",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/streetfighter-197",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 6,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Streetfighter; verified mechanics requiring integration include Always Ready, Streetwise, Stand Tough, Sneak Attack, Uncanny Dodge. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -28524,11 +28522,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Adventurer record at https://new.dndtools.org/classes/streetfighter-197.",
         "Exact-page mechanics identified include: Always Ready, Streetwise, Stand Tough, Sneak Attack, Uncanny Dodge.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on fac2a5011fc19962e7d8cce4f3a8b8f105776905.",
+        "Regression coverage verifies reviewed rule-text materialization, level-scaled resources/actions where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "GitHub Actions validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37166737462 passed the cohort test, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort metadata checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Streetfighter exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "fac2a5011fc19962e7d8cce4f3a8b8f105776905",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37166737462",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -28707,17 +28708,15 @@
       "name": "Survivor",
       "sourceBook": "Prestige Class Savage Species",
       "sourceUrl": "https://new.dndtools.org/classes/survivor-822",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 5,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Survivor; verified mechanics requiring integration include Uncanny Dodge, Evasion, Improved Evasion, Damage Reduction. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -28725,11 +28724,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Savage Species record at https://new.dndtools.org/classes/survivor-822.",
         "Exact-page mechanics identified include: Uncanny Dodge, Evasion, Improved Evasion, Damage Reduction.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on fac2a5011fc19962e7d8cce4f3a8b8f105776905.",
+        "Regression coverage verifies reviewed rule-text materialization, level-scaled resources/actions where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "GitHub Actions validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37166737462 passed the cohort test, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort metadata checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Survivor exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "fac2a5011fc19962e7d8cce4f3a8b8f105776905",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37166737462",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -29401,17 +29403,15 @@
       "name": "Tempest",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/tempest-198",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 5,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Tempest; verified mechanics requiring integration include Tempest Defense, Ambidexterity, Two-Weapon Versatility, Two-Weapon Spring Attack. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -29419,11 +29419,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Adventurer record at https://new.dndtools.org/classes/tempest-198.",
         "Exact-page mechanics identified include: Tempest Defense, Ambidexterity, Two-Weapon Versatility, Two-Weapon Spring Attack.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on fac2a5011fc19962e7d8cce4f3a8b8f105776905.",
+        "Regression coverage verifies reviewed rule-text materialization, level-scaled resources/actions where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "GitHub Actions validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37166737462 passed the cohort test, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort metadata checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Tempest exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "fac2a5011fc19962e7d8cce4f3a8b8f105776905",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37166737462",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -29795,17 +29798,15 @@
       "name": "Thief-acrobat",
       "sourceBook": "Prestige Class Complete Adventurer",
       "sourceUrl": "https://new.dndtools.org/classes/thief-acrobat-199",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
-      "existingDirectSummaryCount": 0,
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
+      "existingDirectSummaryCount": 10,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Thief-acrobat; verified mechanics requiring integration include Fast Acrobatics, Kip Up, Steady Stance, Agile Fighting, Slow Fall, Acrobatic Charge, Defensive Roll, Skill Mastery, Improved Evasion. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
+      "gaps": [],
       "dependencies": [
         "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
       ],
@@ -29813,11 +29814,14 @@
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Complete Adventurer record at https://new.dndtools.org/classes/thief-acrobat-199.",
         "Exact-page mechanics identified include: Fast Acrobatics, Kip Up, Steady Stance, Agile Fighting, Slow Fall, Acrobatic Charge, Defensive Roll, Skill Mastery, Improved Evasion.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-03 implementation added an exact sourceId-backed reviewed feature profile and verified proficiency behavior on fac2a5011fc19962e7d8cce4f3a8b8f105776905.",
+        "Regression coverage verifies reviewed rule-text materialization, level-scaled resources/actions where applicable, exact training, idempotent reconciliation, source removal, and preservation of unrelated manual data.",
+        "GitHub Actions validation https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37166737462 passed the cohort test, all-class lifecycle sweep, source identity/description audit, class automation audit, cohort metadata checker, multiclass/training/resources/feature-choice checks, and full 3.5 class regressions before promotion."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Thief-acrobat exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "fac2a5011fc19962e7d8cce4f3a8b8f105776905",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37166737462",
+      "nextAction": "Complete: preserve exact-source profile and regression coverage; revisit only if a concrete source or runtime regression is found.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -33783,5 +33787,5 @@
       "implementationCohort": "class actions/resources and feature reconciliation"
     }
   ],
-  "lastUpdatedNote": "Implementation phase initialized: all 960 needs-review records are classified into canonical reusable implementation cohorts; completion status is unchanged pending runtime wiring and regression validation."
+  "lastUpdatedNote": "Implementation cohort checkpoint: Streetfighter, Survivor, Tempest, and Thief-acrobat promoted after exact-source profiles and class-level regression validation. Current statuses: 85 complete, 956 needs-review, 12 blocked, 1 source-conflict."
 }
