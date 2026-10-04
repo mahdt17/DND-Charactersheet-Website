@@ -6984,7 +6984,8 @@
       "name": "Animal Messenger",
       "level": 3,
       "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
-      "description": "Use animal messenger as a spell-like ability with caster level equal to your Deepwarden level."
+      "description": "Use animal messenger as a spell-like ability with caster level equal to your Deepwarden level.",
+      "actionType": "Standard action"
     },
     {
       "name": "Uncanny Dodge",
@@ -7002,7 +7003,8 @@
       "name": "Sending",
       "level": 6,
       "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
-      "description": "Use sending as a spell-like ability with caster level equal to your Deepwarden level."
+      "description": "Use sending as a spell-like ability with caster level equal to your Deepwarden level.",
+      "actionType": "10 minutes"
     },
     {
       "name": "Swift Tracker",
@@ -7020,7 +7022,8 @@
       "name": "Greater Animal Messenger",
       "level": 9,
       "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
-      "description": "Your animal messenger ability can use an animal of up to Small size instead of only a Tiny animal."
+      "description": "Your animal messenger ability can use an animal of up to Small size instead of only a Tiny animal.",
+      "actionType": "Standard action"
     }
   ],
   "classes/astral-dancer-686": [
