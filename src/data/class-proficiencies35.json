@@ -3871,6 +3871,200 @@
       "proficiencies": [],
       "verified": true,
       "explicitNoProficiencies": true
+    },
+    "classes/akodo-champion-625": {
+      "name": "Akodo Champion",
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "proficiencyText": "Weapon and Armor Proficiency: Akodo champions do not gain any additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/master-of-the-unseen-hand-323": {
+      "name": "Master of the Unseen Hand",
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "proficiencyText": "Weapon and Armor Proficiency: Masters of the unseen hand gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/disciple-of-the-eye-712": {
+      "name": "Disciple of the Eye",
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "proficiencyText": "Weapon and Armor Proficiency: Disciple of the Eye grants no additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/void-incarnate-1057": {
+      "name": "Void Incarnate",
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "proficiencyText": "Weapon and Armor Proficiency: The void incarnate gains no proficiency in armor or weapons.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/vigilant-sentinel-of-aerenal-589": {
+      "name": "Vigilant Sentinel of Aerenal",
+      "sourceUrl": "https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589",
+      "proficiencyText": "Weapon and Armor Proficiency: Vigilant Sentinel of Aerenal grants no additional weapon or armor proficiency.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/ghostwalker-770": {
+      "name": "Ghostwalker",
+      "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
+      "proficiencyText": "Weapon and Armor Proficiency: The ghostwalker is proficient with all simple and martial weapons, light and medium types of armor, and shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/yathchol-webrider-906": {
+      "name": "Yathchol Webrider",
+      "sourceUrl": "https://new.dndtools.org/classes/yathchol-webrider-906",
+      "proficiencyText": "Weapon and Armor Proficiency: Yathchol webriders are proficient with the club, hand/light/heavy crossbows, daggers, dart, light and heavy mace, morningstar, quarterstaff, rapier, sap, shortbow, and short sword, plus light armor; no shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "club",
+          "name": "Club",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-hand",
+          "name": "Hand crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-light",
+          "name": "Light crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "crossbow-heavy",
+          "name": "Heavy crossbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "dagger",
+          "name": "Dagger",
+          "kind": "weapons"
+        },
+        {
+          "index": "dart",
+          "name": "Dart",
+          "kind": "weapons"
+        },
+        {
+          "index": "light-mace",
+          "name": "Light mace",
+          "kind": "weapons"
+        },
+        {
+          "index": "heavy-mace",
+          "name": "Heavy mace",
+          "kind": "weapons"
+        },
+        {
+          "index": "morningstar",
+          "name": "Morningstar",
+          "kind": "weapons"
+        },
+        {
+          "index": "quarterstaff",
+          "name": "Quarterstaff",
+          "kind": "weapons"
+        },
+        {
+          "index": "rapier",
+          "name": "Rapier",
+          "kind": "weapons"
+        },
+        {
+          "index": "sap",
+          "name": "Sap",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortbow",
+          "name": "Shortbow",
+          "kind": "weapons"
+        },
+        {
+          "index": "shortsword",
+          "name": "Short sword",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/union-sentinel-461": {
+      "name": "Union Sentinel",
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "proficiencyText": "Weapon and Armor Proficiency: Union Sentinels are proficient with all simple and martial weapons, all armor, and all shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
