@@ -7470,13 +7470,21 @@
       "name": "Range Increment Bonus",
       "level": 1,
       "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
-      "description": "Increase the range increment of each projectile weapon you use by 10 feet per Deepwood Sniper level, applying this increase after other range multipliers."
+      "description": "Increase the range increment of each projectile weapon you use by 10 feet per Deepwood Sniper level, applying this increase after other range multipliers.",
+      "aliases": [
+        "Range Increment Bonus +10 ft./level"
+      ]
     },
     {
       "name": "Concealment Reduction",
       "level": 2,
       "sourceUrl": "https://new.dndtools.org/classes/deepwood-sniper-609",
-      "description": "Reduce your miss chance against concealment by 10 percentage points at 2nd level, 20 points at 6th, and 30 points at 10th, never below 0%."
+      "description": "Reduce your miss chance against concealment by 10 percentage points at 2nd level, 20 points at 6th, and 30 points at 10th, never below 0%.",
+      "aliases": [
+        "Concealment Reduction 10%",
+        "Concealment Reduction 20%",
+        "Concealment Reduction 30%"
+      ]
     },
     {
       "name": "Magic Weapon",
