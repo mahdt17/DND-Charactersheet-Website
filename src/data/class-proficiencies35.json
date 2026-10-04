@@ -4065,6 +4065,89 @@
         }
       ],
       "verified": true
+    },
+    "classes/battlerager-694": {
+      "name": "Battlerager",
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "proficiencyText": "Weapon and Armor Proficiency: Battleragers gain no proficiency with any weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/warforged-juggernaut-440": {
+      "name": "Warforged Juggernaut",
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "proficiencyText": "Weapon and Armor Proficiency: Warforged juggernauts gain no proficiency with any weapons, armor, or shields except as class features explicitly state.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/bloodscaled-fury-394": {
+      "name": "Bloodscaled Fury",
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "proficiencyText": "Weapon and Armor Proficiency: A bloodscaled fury gains no proficiency with any weapons, armor, or shields.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/sybil-823": {
+      "name": "Sybil",
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "proficiencyText": "Weapon and Armor Proficiency: A sybil neither gains nor loses proficiency with any weapons, armor, or shields by gaining levels in this class.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/sun-soul-monk-305": {
+      "name": "Sun Soul Monk",
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "proficiencyText": "Weapon and Armor Proficiency: Sun Soul monks are proficient with all simple weapons, but gain no new proficiency with any armor. A light mace counts as a special monk weapon for flurry of blows.",
+      "proficiencies": [
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
+    },
+    "classes/blessed-gruumsh-982": {
+      "name": "Blessed of Gruumsh",
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "proficiencyText": "Weapon and Armor Proficiency: A blessed of Gruumsh is proficient with all simple and martial weapons, all types of armor, and with shields except tower shields.",
+      "proficiencies": [
+        {
+          "index": "light-armor",
+          "name": "Light armor",
+          "kind": "armor"
+        },
+        {
+          "index": "medium-armor",
+          "name": "Medium armor",
+          "kind": "armor"
+        },
+        {
+          "index": "heavy-armor",
+          "name": "Heavy armor",
+          "kind": "armor"
+        },
+        {
+          "index": "shields",
+          "name": "Shields (except tower shields)",
+          "kind": "armor"
+        },
+        {
+          "index": "simple-weapons",
+          "name": "Simple weapons",
+          "kind": "weapons"
+        },
+        {
+          "index": "martial-weapons",
+          "name": "Martial weapons",
+          "kind": "weapons"
+        }
+      ],
+      "verified": true
     }
   }
 }
