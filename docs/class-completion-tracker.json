@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "snapshotDate": "2026-10-01",
+  "snapshotDate": "2026-10-04",
   "repository": "mahdt17/DND-Charactersheet-Website",
   "branch": "codex/class-integration-engine",
   "pullRequest": 8,
-  "snapshotCommit": "5bea34cc793a28ed55abbbf29b040226d7174ee1",
+  "snapshotCommit": "e32a696ee37d5a67afbac6171d9ac3bda08afd04",
   "scope": "All D&D 3.5 class records; preserve modern-edition behavior.",
   "inventoryCount": 1054,
   "directSummaryRecordCount": 50,
@@ -1958,27 +1958,27 @@
       "name": "Battlerager",
       "sourceBook": "Prestige Class Races of Faerûn",
       "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Races of Faerûn Battlerager needs dwarf, nonlawful alignment, BAB +5, Intimidate 8, Knowledge (religion) 2, Perform 2, Cleave, Endurance, Power Attack and rage, plus extra-rage, fixed feats and natural-armor/fear-resistance features."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa discovery confirmed exact/source-faithful prestige-class references and entry requirements.",
         "Tavily advanced extraction of the exact new.dndtools page retrieved progression and class mechanics without login/footer contamination.",
         "Alternate source-faithful references were used where the parsed page omitted part of the requirements block.",
-        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made."
+        "Firecrawl grouped fallback search returned no usable additional source pages; no Supabase write was made.",
+        "2026-10-04: Exact-source feature, fixed-feat, proficiency, prerequisite, action and resource regressions passed. Parenthetical abilities retain independent unlocks and spent counters, including migration of existing saved resources.",
+        "Full Validate modernization #1755 passed at e32a696ee37d5a67afbac6171d9ac3bda08afd04 (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014), including live content regressions, build and browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Enforce the complete source entry gate; stack rage uses safely, grant source feats at the proper levels, and model Gruff/Rock Gut/Fearless/Natural Armor without conflating other battleragers.",
+      "verifiedCommit": "e32a696ee37d5a67afbac6171d9ac3bda08afd04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014",
+      "nextAction": "Preserve exact-source profiles, independent resource identities, and lifecycle regression coverage.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -2814,27 +2814,27 @@
       "name": "Blessed of Gruumsh",
       "sourceBook": "Prestige Class Dragon Compendium",
       "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Dragon Compendium Blessed of Gruumsh needs its orc/half-orc, nongood, martial/religious and eye-removal ritual gate plus Divine Blessing/Evil Eye resources."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
         "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
         "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-04: Exact-source feature, fixed-feat, proficiency, prerequisite, action and resource regressions passed. Parenthetical abilities retain independent unlocks and spent counters, including migration of existing saved resources.",
+        "Full Validate modernization #1755 passed at e32a696ee37d5a67afbac6171d9ac3bda08afd04 (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014), including live content regressions, build and browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement exact source entry gate, Divine Blessing scaling, Fist/Keen Eye/three Evil Eye variants, Thunderous Roar and weekly True Orc resource.",
+      "verifiedCommit": "e32a696ee37d5a67afbac6171d9ac3bda08afd04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014",
+      "nextAction": "Preserve exact-source profiles, independent resource identities, and lifecycle regression coverage.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -3066,27 +3066,27 @@
       "name": "Bloodscaled Fury",
       "sourceBook": "Prestige Class Draconomicon",
       "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "Draconomicon Bloodscaled Fury is an epic dragon class requiring BAB +22; exact source-faithful references resolve the new-page truncation. It also needs dragon/rage/frightful-presence gating and 12-level fury/scales resources."
-      ],
+      "gaps": [],
       "dependencies": [],
       "evidence": [
         "Exa discovery confirmed the exact/source-faithful prestige-class identity and source/version.",
         "Tavily advanced extraction of the exact new.dndtools record retrieved source progression and class mechanics; source-faithful mirrors were used where entry blocks were incomplete.",
         "Firecrawl fallback searches were attempted for ambiguous same-name/version pairs and returned no additional usable source pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-04: Exact-source feature, fixed-feat, proficiency, prerequisite, action and resource regressions passed. Parenthetical abilities retain independent unlocks and spent counters, including migration of existing saved resources.",
+        "Full Validate modernization #1755 passed at e32a696ee37d5a67afbac6171d9ac3bda08afd04 (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014), including live content regressions, build and browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Preserve BAB +22 and implement the dragon/rage/frightful-presence gate, draconic fury, Scales of Blood, rend, extended/incite/tireless fury and Blinding Speed.",
+      "verifiedCommit": "e32a696ee37d5a67afbac6171d9ac3bda08afd04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014",
+      "nextAction": "Preserve exact-source profiles, independent resource identities, and lifecycle regression coverage.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -28668,29 +28668,27 @@
       "name": "Sun Soul Monk",
       "sourceBook": "Prestige Class City of Splendors: Waterdeep",
       "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Sun Soul Monk; verified mechanics requiring integration include Monk Abilities, Sun Soul, Low-Light Vision, Sun Soulray, Flaming Fists, Abundant Step, Greater Sun Soul, Darkvision, Sun Soulbeam. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
-      "dependencies": [
-        "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
-      ],
+      "gaps": [],
+      "dependencies": [],
       "evidence": [
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class City of Splendors: Waterdeep record at https://new.dndtools.org/classes/sun-soul-monk-305.",
         "Exact-page mechanics identified include: Monk Abilities, Sun Soul, Low-Light Vision, Sun Soulray, Flaming Fists, Abundant Step, Greater Sun Soul, Darkvision, Sun Soulbeam.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-04: Exact-source feature, fixed-feat, proficiency, prerequisite, action and resource regressions passed. Parenthetical abilities retain independent unlocks and spent counters, including migration of existing saved resources.",
+        "Full Validate modernization #1755 passed at e32a696ee37d5a67afbac6171d9ac3bda08afd04 (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014), including live content regressions, build and browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Sun Soul Monk exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "e32a696ee37d5a67afbac6171d9ac3bda08afd04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014",
+      "nextAction": "Preserve exact-source profiles, independent resource identities, and lifecycle regression coverage.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -29032,29 +29030,27 @@
       "name": "Sybil",
       "sourceBook": "Prestige Class Savage Species",
       "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Sybil; verified mechanics requiring integration include Divine Insight, Reclusive Insight, Riddle, Conundrum, Mystery, Koan, Apocrypha, Lesser Geas, Mysterious Lore. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
-      "dependencies": [
-        "Cohort: action/resource and feature-reconciliation. Reuse existing shared class integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
-      ],
+      "gaps": [],
+      "dependencies": [],
       "evidence": [
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Savage Species record at https://new.dndtools.org/classes/sybil-823.",
         "Exact-page mechanics identified include: Divine Insight, Reclusive Insight, Riddle, Conundrum, Mystery, Koan, Apocrypha, Lesser Geas, Mysterious Lore.",
         "Current branch 2bc7e65813cbca2c8414c08471dbc1c701225d89 has no completed exact sourceId-backed runtime profile for this record.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-04: Exact-source feature, fixed-feat, proficiency, prerequisite, action and resource regressions passed. Parenthetical abilities retain independent unlocks and spent counters, including migration of existing saved resources.",
+        "Full Validate modernization #1755 passed at e32a696ee37d5a67afbac6171d9ac3bda08afd04 (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014), including live content regressions, build and browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement the Sybil exact-source profile as part of the action/resource and feature-reconciliation cohort, wiring verified features into reusable shared engines and adding regression coverage for level-up, source removal, and multiclass/reconciliation.",
+      "verifiedCommit": "e32a696ee37d5a67afbac6171d9ac3bda08afd04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014",
+      "nextAction": "Preserve exact-source profiles, independent resource identities, and lifecycle regression coverage.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -31917,29 +31913,27 @@
       "name": "Warforged Juggernaut",
       "sourceBook": "Prestige Class Eberron Campaign Setting",
       "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
-      "status": "needs-review",
+      "status": "complete",
       "sourceReview": "verified",
-      "featureIntegration": "partial",
-      "sheetAutomation": "partial",
-      "validation": "blocked",
+      "featureIntegration": "complete",
+      "sheetAutomation": "complete",
+      "validation": "verified",
       "existingDirectSummaryCount": 0,
       "existingProfileParent": null,
       "featureRequirements": [],
-      "gaps": [
-        "No exact sourceId-backed runtime profile exists for Warforged Juggernaut; verified mechanics requiring integration include Armor Spikes, Expert Bull Rush, Powerful Charge, Extended Charge, Healing Immunity. Primary implementation cohort: action/resource and feature-reconciliation."
-      ],
-      "dependencies": [
-        "Cohort: action/resource and feature-reconciliation. Reuse existing shared integration, source-owned feature/action/resource lifecycle, casting/domain/choice/companion/favored-enemy infrastructure where applicable."
-      ],
+      "gaps": [],
+      "dependencies": [],
       "evidence": [
         "2026-10-03 Exa bulk extraction verified the exact Prestige Class Eberron Campaign Setting record at https://new.dndtools.org/classes/warforged-juggernaut-440.",
         "Exact-page mechanics identified include: Armor Spikes, Expert Bull Rush, Powerful Charge, Extended Charge, Healing Immunity.",
         "Current branch 4db0b62652d680c390c43cf892345866e8b7f919 was checked across class feature, integration, choice, advancement, resource, proficiency, spell-acquisition and companion runtime data; no exact sourceId-backed implementation exists.",
-        "No Firecrawl, Supabase write, merge, or deployment was performed."
+        "No Firecrawl, Supabase write, merge, or deployment was performed.",
+        "2026-10-04: Exact-source feature, fixed-feat, proficiency, prerequisite, action and resource regressions passed. Parenthetical abilities retain independent unlocks and spent counters, including migration of existing saved resources.",
+        "Full Validate modernization #1755 passed at e32a696ee37d5a67afbac6171d9ac3bda08afd04 (https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014), including live content regressions, build and browser suites."
       ],
-      "verifiedCommit": null,
-      "ciRunUrl": null,
-      "nextAction": "Implement Warforged Juggernaut in the action/resource and feature-reconciliation cohort using reusable engines where applicable, then regression-test level-up, source removal, and multiclass/reconciliation behavior.",
+      "verifiedCommit": "e32a696ee37d5a67afbac6171d9ac3bda08afd04",
+      "ciRunUrl": "https://github.com/mahdt17/DND-Charactersheet-Website/actions/runs/37177430014",
+      "nextAction": "Preserve exact-source profiles, independent resource identities, and lifecycle regression coverage.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],
@@ -33825,5 +33819,5 @@
       "implementationCohort": "class actions/resources and feature reconciliation"
     }
   ],
-  "lastUpdatedNote": "Implementation checkpoint: seven additional ordinary-mechanics classes promoted after exact-source configuration and class-level validation. Current statuses: 92 complete, 949 needs-review, 12 blocked, 1 source-conflict. Dervish remains needs-review because the exact live source omits the Movement Mastery rule block."
+  "lastUpdatedNote": "Six-class fixed-mechanics batch verified against exact implementation commit and complete CI run; 123 complete, 918 needs-review, 12 blocked, 1 source-conflict."
 }
