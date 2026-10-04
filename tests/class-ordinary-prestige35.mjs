@@ -23,7 +23,7 @@ const cases=[
  {id:'classes/menacing-brute-707',level:5,features:['Demoralizing Stare','Resourceful Search','Sneak Attack','Ruthless Cut','Making an Example'],resources:[['Resourceful Search',1]],training:[]},
  {id:'classes/cavelord-896',level:10,features:['Tunnelrunner','Cave Tracker','Lesser Cavesense','Tunnelswimmer','Strength of Stones','Greater Cavesense','Changestones','Bones of the Earth'],resources:[['Strength of Stones',1],['Changestones',1]],actions:['Strength of Stones'],training:['light-armor','medium-armor','heavy-armor','shields','simple-weapons','martial-weapons']},
  {id:'classes/daidoji-bodyguard-630',level:10,features:['Defensive Refocus','Defensive Awareness','Evasion','Moving the Shadow','Damage Reduction','Defensive Roll'],resources:[['Defensive Roll',1]],actions:['Defensive Refocus'],training:[]},
- {id:'classes/dark-lantern-475',level:10,features:['Citadel Training','Sneak Attack','Nondetection','Skill Mastery','Slippery Mind','Hide in Plain Sight'],training:[]},
+ {id:'classes/dark-lantern-475',level:10,features:['Citadel Training','Sneak Attack','Nondetection','Skill Mastery','Slippery Mind','Hide in Plain Sight'],prerequisites:['Base Attack Bonus:+5','Skills:Bluff 4 ranks','Diplomacy 4 ranks','Gather Information 4 ranks','Region of Origin:Breland','Special:Cannot be illiterate or affiliated with a religion'],training:[]},
  {id:'classes/deepwarden-729',level:10,features:['Track','Trap Sense','Stone Warden','Animal Messenger','Uncanny Dodge','Stubborn Mind','Sending','Swift Tracker','Improved Uncanny Dodge','Greater Animal Messenger'],training:['light-armor','medium-armor','heavy-armor','shields','simple-weapons','martial-weapons']},
  {id:'classes/astral-dancer-686',level:10,features:['Relative Altitude','Evasion','Improved Maneuverability','Astral Dodge','Improved Evasion','Astral Agility','Lightning Speed'],actions:['Astral Agility'],training:[]}
 ];
@@ -38,6 +38,8 @@ for(const spec of cases){
    assert.equal(feature.descriptionSource,'rule-text',spec.id+' '+name+' must use reviewed rule text');
  }
  assert.equal(classAutomationReport(once).classes[0].descriptionComplete,true,spec.id+' reviewed descriptions must be complete');
+ const prerequisiteText=(definition.prerequisites||[]).map(item=>String(item.label||'')+':'+String(item.text||'')).join(' | ');
+ for(const expected of spec.prerequisites||[]) assert(prerequisiteText.includes(expected),spec.id+' missing prerequisite '+expected);
  for(const [name,max] of [...(spec.resource?[spec.resource]:[]),...(spec.resources||[])]){
    assert.equal(once.resources.find(item=>item.name===name)?.max,max,spec.id+' '+name+' resource maximum');
  }
