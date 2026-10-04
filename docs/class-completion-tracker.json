@@ -6180,18 +6180,20 @@
       "existingProfileParent": null,
       "featureRequirements": [],
       "gaps": [
-        "Complete Warrior Dervish needs BAB +5, Perform (dance) 3, Tumble 3, Combat Expertise, Dodge, Mobility and Weapon Focus with a slashing melee weapon, plus armor-limited dance/mobility and slashing-blade mechanics."
+        "Complete Warrior Dervish needs BAB +5, Perform (dance) 3, Tumble 3, Combat Expertise, Dodge, Mobility and Weapon Focus with a slashing melee weapon, plus armor-limited dance/mobility and slashing-blade mechanics.",
+        "Exact-source implementation remains blocked on the live DnD Tools page omitting the Movement Mastery rule block even though the advancement table grants it at 1st level; Exa, Tavily, and a one-credit last-resort Firecrawl scrape all reproduced the omission."
       ],
       "dependencies": [],
       "evidence": [
         "Tavily advanced extraction reviewed the exact new.dndtools source/version page for prerequisites, advancement and class mechanics.",
         "Exa source-faithful discovery was used to recover omitted prerequisite blocks and independently verify ambiguous records and source variants.",
         "Firecrawl fallback searches were attempted for duplicated/ambiguous source pairs and returned no additional usable pages.",
-        "No Supabase write was made."
+        "No Supabase write was made.",
+        "2026-10-03 source recovery: Exa and Tavily both failed to surface a Movement Mastery rule block; a last-resort Firecrawl scrape of the exact page also omitted the block while retaining the progression-table reference. No rule was guessed."
       ],
       "verifiedCommit": null,
       "ciRunUrl": null,
-      "nextAction": "Implement exact prerequisites, light/no-armor checks, dervish-dance uses and legal movement/attack sequencing, AC/fast-movement scaling, slashing blades and capstone dance features.",
+      "nextAction": "Recover the exact Complete Warrior Movement Mastery text from another source representation before completing Dervish; continue the rest of the cohort independently.",
       "implementationCohorts": [
         "class actions/resources and feature reconciliation"
       ],

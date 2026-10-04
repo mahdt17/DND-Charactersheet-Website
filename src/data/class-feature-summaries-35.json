@@ -6431,5 +6431,101 @@
       "description": "Take no damage on a successful Reflex save against applicable attacks and only half damage on a failed save.",
       "sourceSha256": "a1a7ff6417fdcb38f9395fc114ca07436e22a2f8e4f158deb769f6e92a7402bf"
     }
+  ],
+  "classes/dark-hunter-307": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Gain no new weapon or armor proficiencies from Dark Hunter.",
+      "sourceSha256": "98fedd65306e185b797386526e6a261869dc3122da783007046f838663ff4420"
+    },
+    {
+      "name": "Improved Stonecunning",
+      "level": 1,
+      "description": "Gain dwarf-like stonecunning; if you already have stonecunning, improve its bonus from +2 to +4 on checks to notice unusual stonework and on Search checks to detect stonework traps.",
+      "sourceSha256": "00997a710ae68cdbbb2ebbcc2dd42f296d9212961afc4b1cc84d46b3fc4c525e"
+    },
+    {
+      "name": "Enhanced Darkvision",
+      "level": 2,
+      "description": "At 2nd level gain darkvision 30 feet if you lacked it, or add 30 feet to existing natural/extraordinary darkvision; at 4th level increase the range by another 30 feet. It stacks with natural or extraordinary darkvision improvements but not magically granted darkvision.",
+      "sourceSha256": "e338ebafefa543fbe38d691db03ae7afcc194035c1c964dd2322c3cefd1e0fca"
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 3,
+      "description": "Gain +1d6 sneak attack damage under the normal sneak attack conditions; ranged attacks require the target within 30 feet, and this bonus stacks with sneak attack from other sources.",
+      "sourceSha256": "63937855c81f72abbc1057d181aba237a04cb45d3382144537cc8d34ba8b88ed"
+    },
+    {
+      "name": "Stone’s Hue",
+      "level": 4,
+      "description": "While within 5 feet of a stone or earth wall, gain a +10 circumstance bonus on Hide checks and may hide in the open by blending with the wall.",
+      "sourceSha256": "906433dd9238f1c0a986c80895f1e5bcf5cfd8810f88e0a94296dc8532a5662c"
+    },
+    {
+      "name": "Death Attack",
+      "level": 5,
+      "actionType": "Special action",
+      "description": "After studying a victim for 3 rounds, make a damaging melee sneak attack within the next 3 rounds to attempt either paralysis or death. The Fortitude save DC is 10 + Dark Hunter level + Intelligence modifier; a failed paralysis save leaves the victim helpless for 1d6 rounds + class level.",
+      "sourceSha256": "ce1cc260b535e2977da1151a75b6a7df9568f76f2c901aae6a38b825e62d29d8"
+    }
+  ],
+  "classes/darkwood-stalker-308": [
+    {
+      "name": "Weapon and Armor Proficiency",
+      "level": 1,
+      "description": "Gain no new weapon or armor proficiencies from Darkwood Stalker.",
+      "sourceSha256": "f6c1f7507689788f8ac01c1549120680d02cbec10ce8f7c44bfdd9a75e4f6612"
+    },
+    {
+      "name": "Ancient Foe",
+      "level": 1,
+      "description": "Against orcs gain +2 on Bluff, Listen, Sense Motive, Spot, and Survival checks and on qualifying weapon damage; the bonus becomes +4 at 4th, +6 at 7th, and +8 at 10th. It stacks with favored enemy bonuses.",
+      "sourceSha256": "90972225cd3c8d4c637a2abdef4808a4c64d0419182138a619331f0e9b9752f6"
+    },
+    {
+      "name": "Uncanny Dodge",
+      "level": 2,
+      "description": "Retain your Dexterity bonus to AC while flat-footed or attacked by an invisible opponent unless immobilized. If you already have Uncanny Dodge from another class, gain the normal Improved Uncanny Dodge interaction instead.",
+      "sourceSha256": "ad35ef25ec85573e6447a18d215b4c9d10fadc8f700967bf789317027396e972"
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 3,
+      "description": "Gain sneak attack damage against vulnerable foes under the standard sneak attack rules; progression increases it to +2d6 at 6th level and +3d6 at 9th.",
+      "sourceSha256": "ccc89d82a6a18fe3ff0064f5e8389505b398e1e50240d6b676b88d3db9a6961c"
+    },
+    {
+      "name": "Darkvision",
+      "level": 4,
+      "description": "Gain darkvision 30 feet at 4th level and 60 feet at 7th level. If you already have racial darkvision, this class feature does not increase it.",
+      "sourceSha256": "c5717aa54a3292e98677f0a86299f24cd5989da2d1391289059af110ac2938b0"
+    },
+    {
+      "name": "Improved Uncanny Dodge",
+      "level": 5,
+      "description": "You can no longer normally be flanked; a rogue at least four levels higher can still flank you. Levels in other classes that grant Uncanny Dodge stack as specified by the source when determining the rogue level required.",
+      "sourceSha256": "30dee8e2b0d4ce6facc028e8362265872c878e1096f8f6674b988e3ae8f3791d"
+    },
+    {
+      "name": "Dodge Critical",
+      "level": 8,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Dodge Critical refreshes with the character's daily recovery."
+      },
+      "description": "Once per day, when aware of a critical hit and not flat-footed, attempt a Reflex save against DC 20 + the weapon's enhancement bonus to turn the critical hit into a normal hit. Declare before damage is rolled.",
+      "sourceSha256": "0a98dcf86fc676b0e36de80672a02e2c50732d48391c8f66bc5dc889c0709441"
+    },
+    {
+      "name": "Death Attack",
+      "level": 10,
+      "actionType": "Special action",
+      "description": "After studying an orc for 3 rounds, make a damaging melee sneak attack within the next 3 rounds to attempt a killing blow. The Fortitude save DC is 10 + Darkwood Stalker level + Wisdom modifier.",
+      "sourceSha256": "3ce58fbcd6f28ab31a6d605b29ffde4a29c4ff8c15af62345e16adb5f502932e"
+    }
   ]
 }

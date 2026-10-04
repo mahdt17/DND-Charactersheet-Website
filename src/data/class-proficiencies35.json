@@ -3485,6 +3485,22 @@
         }
       ],
       "verified": true
+    },
+    "classes/dark-hunter-307": {
+      "name": "Dark Hunter",
+      "sourceUrl": "https://new.dndtools.org/classes/dark-hunter-307",
+      "proficiencyText": "Weapon and Armor Proficiency: Dark hunters gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
+    },
+    "classes/darkwood-stalker-308": {
+      "name": "Darkwood Stalker",
+      "sourceUrl": "https://new.dndtools.org/classes/darkwood-stalker-308",
+      "proficiencyText": "Weapon and Armor Proficiency: Darkwood stalkers gain no proficiency with any weapon or armor.",
+      "proficiencies": [],
+      "verified": true,
+      "explicitNoProficiencies": true
     }
   }
 }

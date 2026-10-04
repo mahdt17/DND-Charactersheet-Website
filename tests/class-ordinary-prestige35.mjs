@@ -13,7 +13,9 @@ const cases=[
  {id:'classes/streetfighter-197',level:5,features:['Always Ready','Streetwise','Stand Tough','Sneak Attack','Uncanny Dodge'],resource:['Stand Tough',2],training:[]},
  {id:'classes/survivor-822',level:5,features:['Uncanny Dodge','Evasion','Improved Evasion','Damage Reduction'],training:[]},
  {id:'classes/tempest-198',level:5,features:['Tempest Defense','Ambidexterity','Two-Weapon Versatility','Two-Weapon Spring Attack'],action:'Two-Weapon Spring Attack',training:[]},
- {id:'classes/thief-acrobat-199',level:5,features:['Fast Acrobatics','Kip Up','Steady Stance','Agile Fighting','Slow Fall','Acrobatic Charge','Defensive Roll','Skill Mastery','Improved Evasion'],resource:['Defensive Roll',2],action:'Kip Up',training:['simple-weapons']}
+ {id:'classes/thief-acrobat-199',level:5,features:['Fast Acrobatics','Kip Up','Steady Stance','Agile Fighting','Slow Fall','Acrobatic Charge','Defensive Roll','Skill Mastery','Improved Evasion'],resource:['Defensive Roll',2],action:'Kip Up',training:['simple-weapons']},
+ {id:'classes/dark-hunter-307',level:5,features:['Improved Stonecunning','Enhanced Darkvision','Sneak Attack','Stone’s Hue','Death Attack'],action:'Death Attack',training:[]},
+ {id:'classes/darkwood-stalker-308',level:10,features:['Ancient Foe','Uncanny Dodge','Sneak Attack','Darkvision','Improved Uncanny Dodge','Dodge Critical','Death Attack'],resource:['Dodge Critical',1],action:'Death Attack',training:[]}
 ];
 for(const spec of cases){
  const definition=exact(spec.id);
