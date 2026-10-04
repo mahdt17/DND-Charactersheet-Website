@@ -8426,5 +8426,610 @@
       "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
       "description": "Use imprisonment as a spell-like ability at caster level 20th once per week at 7th level; additional weekly uses are gained every five class levels thereafter."
     }
+  ],
+  "classes/battlerager-694": [
+    {
+      "name": "Rage",
+      "level": 1,
+      "actionType": "Free action",
+      "resource": {
+        "maxByLevel": {
+          "1": 1,
+          "3": 2,
+          "5": 3
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Rage scales with class level and refreshes on its long cycle."
+      },
+      "aliases": [
+        "Rage 1/day",
+        "Rage 2/day",
+        "Rage 3/day"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "description": "Gain one additional daily use of your existing rage at 1st, 3rd, and 5th Battlerager levels. If you can enter greater rage, these extra uses are greater rages as well."
+    },
+    {
+      "name": "Gruff",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "description": "Take a -4 penalty on Charisma checks and Charisma-based skill checks except Intimidate, and gain a +2 bonus on Intimidate checks."
+    },
+    {
+      "name": "Rock Gut",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "description": "Your dwarven racial bonus on saving throws against poison improves from +2 to +4."
+    },
+    {
+      "name": "Close-Quarter Fighting",
+      "level": 2,
+      "featName": "Close-Quarters Fighting",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "description": "Gain Close-Quarters Fighting as a bonus feat."
+    },
+    {
+      "name": "Fearless",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "description": "Become immune to fear and similar effects and gain a +2 insight bonus on saves against all mind-affecting spells and effects."
+    },
+    {
+      "name": "Improved Unarmed Strike",
+      "level": 3,
+      "featName": "Improved Unarmed Strike",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "description": "Gain Improved Unarmed Strike as a bonus feat."
+    },
+    {
+      "name": "Great Cleave",
+      "level": 4,
+      "featName": "Great Cleave",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "description": "Gain Great Cleave as a bonus feat."
+    },
+    {
+      "name": "Reckless Offensive",
+      "level": 4,
+      "featName": "Reckless Offensive",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "description": "Gain Reckless Offensive as a bonus feat."
+    },
+    {
+      "name": "Natural Armor",
+      "level": 5,
+      "sourceUrl": "https://new.dndtools.org/classes/battlerager-694",
+      "description": "Gain a +2 natural armor bonus at 5th level."
+    }
+  ],
+  "classes/blessed-gruumsh-982": [
+    {
+      "name": "Divine Blessing",
+      "level": 1,
+      "aliases": [
+        "Divine Blessing +1",
+        "Divine Blessing +2",
+        "Divine Blessing +3",
+        "Divine Blessing +4"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "description": "Gain a luck bonus to AC: +1 at 1st level, +2 at 4th, +3 at 7th, and +4 at 10th."
+    },
+    {
+      "name": "Fist of Gruumsh",
+      "level": 2,
+      "actionType": "Attack",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Fist of Gruumsh refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "description": "Once per day, before making an attack roll, empower one attack to deal +1d6 damage at levels 2-4, +2d6 at 5-7, or +3d6 at 8-10. A miss still expends the use."
+    },
+    {
+      "name": "Evil Eye (Eye of Disdain)",
+      "level": 3,
+      "actionType": "Attack action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Evil Eye (Eye of Disdain) refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "description": "Once per day make a 30-foot gaze attack for 1 round. A failed Will save (DC 10 + class level + Charisma modifier) imposes -1 on attacks, saves, and skill checks for 1 round per class level."
+    },
+    {
+      "name": "Keen Eye of Gruumsh",
+      "level": 5,
+      "actionType": "Attack",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Keen Eye of Gruumsh refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "description": "Once per day, before an attack roll, add a luck bonus equal to your Blessed of Gruumsh level to that attack. A miss expends the use."
+    },
+    {
+      "name": "Evil Eye (Eye of Fear)",
+      "level": 6,
+      "actionType": "Attack action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Evil Eye (Eye of Fear) refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "description": "Once per day make a 30-foot gaze attack for 1 round. A failed Will save causes fear as the fear spell at caster level equal to your class level."
+    },
+    {
+      "name": "Thunderous Roar of Gruumsh",
+      "level": 8,
+      "actionType": "Attack action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Thunderous Roar of Gruumsh refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "description": "Once per day, while able to roar audibly, double the number of attacks you make during that round."
+    },
+    {
+      "name": "Evil Eye (Eye of Curses)",
+      "level": 9,
+      "actionType": "Attack action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Evil Eye (Eye of Curses) refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "description": "Once per day make a 30-foot gaze attack for 1 round. A failed Fortitude save causes bestow curse as a sorcerer of your class level."
+    },
+    {
+      "name": "True Orc",
+      "level": 10,
+      "actionType": "Standard action",
+      "resource": {
+        "max": 1,
+        "reset": "week",
+        "unit": "use",
+        "recoveryText": "True Orc refreshes weekly."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/blessed-gruumsh-982",
+      "description": "Once per week, inspire all orcs within 100 feet who can hear you, including yourself, granting +4 morale on attack rolls, skill checks, and saving throws for 10 minutes."
+    }
+  ],
+  "classes/sun-soul-monk-305": [
+    {
+      "name": "Monk Abilities",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "Sun Soul Monk levels stack with monk levels for flurry of blows, unarmed damage, AC bonus, and unarmored speed bonus."
+    },
+    {
+      "name": "Sun Soul",
+      "level": 1,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "perLevel": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Sun Soul has one daily use per Sun Soul Monk level."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "Use daylight on yourself for 1 minute per caster level once per day per Sun Soul Monk level. Caster level equals your combined monk, paladin, and Sun Soul Monk levels."
+    },
+    {
+      "name": "Low-Light Vision",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "Gain low-light vision if you do not already have it."
+    },
+    {
+      "name": "Sun Soulray",
+      "level": 2,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "maxByLevel": {
+          "2": 1,
+          "4": 2,
+          "6": 3,
+          "8": 4
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Sun Soulray scales with class level and refreshes on its long cycle."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "Project searing light from an open palm. Use once per day at 2nd level, twice at 4th, three times at 6th, and four times at 8th and higher; caster level equals combined monk, paladin, and Sun Soul Monk levels."
+    },
+    {
+      "name": "Flaming Fists",
+      "level": 3,
+      "actionType": "Swift action",
+      "resource": {
+        "maxByLevel": {
+          "3": 1,
+          "6": 2,
+          "9": 3
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Flaming Fists scales with class level and refreshes on its long cycle."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "As a swift action, empower unarmed attacks for rounds equal to Wisdom bonus (minimum 1). At 3rd level they are flaming; at 6th, flaming burst; at 9th, choose flaming burst or brilliant energy for each use. Daily uses increase to two at 6th and three at 9th."
+    },
+    {
+      "name": "Abundant Step",
+      "level": 5,
+      "actionType": "Standard action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Abundant Step refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "Once per day use dimension door as a supernatural ability at caster level equal to half your combined monk and Sun Soul Monk levels, rounded down."
+    },
+    {
+      "name": "Greater Sun Soul",
+      "level": 7,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Greater Sun Soul refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "Once per day wreathe yourself in flames as the warm version of fire shield, at caster level equal to combined monk, paladin, and Sun Soul Monk levels."
+    },
+    {
+      "name": "Darkvision",
+      "level": 8,
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "Gain darkvision out to 60 feet if you do not already have it."
+    },
+    {
+      "name": "Sun Soulbeam",
+      "level": 10,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Sun Soulbeam refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "Once per day emit dazzling beams of light as sunbeam, at caster level equal to combined monk, paladin, and Sun Soul Monk levels."
+    },
+    {
+      "name": "Tongue of the Sun and Moon",
+      "level": 10,
+      "sourceUrl": "https://new.dndtools.org/classes/sun-soul-monk-305",
+      "description": "Speak with any living creature."
+    }
+  ],
+  "classes/warforged-juggernaut-440": [
+    {
+      "name": "Armor Spikes",
+      "level": 1,
+      "aliases": [
+        "Armor spikes 1d6",
+        "Armor spikes 1d8"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Grow adamantine armor spikes and become proficient with them. They deal 1d6 piercing damage on a successful grapple attack, increasing to 1d8 at 4th level."
+    },
+    {
+      "name": "Expert Bull Rush",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Add your Warforged Juggernaut level to Strength checks to make or resist bull rush attempts and to break down doors."
+    },
+    {
+      "name": "Powerful Charge",
+      "level": 1,
+      "featName": "Powerful Charge",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Gain Powerful Charge as a bonus feat."
+    },
+    {
+      "name": "Reserved",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Take a penalty equal to your Warforged Juggernaut level on Bluff, Diplomacy, Gather Information, and Sense Motive checks."
+    },
+    {
+      "name": "Charge Bonus",
+      "level": 2,
+      "aliases": [
+        "Charge bonus +1",
+        "bonus on charge +2"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Gain an extra +1 on charge attack rolls at 2nd level, increasing to +2 at 4th level."
+    },
+    {
+      "name": "Construct Perfection I",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Become immune to nonlethal damage and extra damage from critical hits."
+    },
+    {
+      "name": "Extended Charge",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Gain +5 feet to your speed when charging."
+    },
+    {
+      "name": "Construct Perfection II",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Gain immunity to all mind-affecting spells and abilities, including charms, compulsions, phantasms, patterns, and morale effects."
+    },
+    {
+      "name": "Healing Immunity",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Become immune to healing-subschooled spells that heal hit point damage and unable to benefit from consumable spells and magic items such as potions and heroes' feast."
+    },
+    {
+      "name": "Superior Bull Rush",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "After a successful bull rush, you may deal armor-spike damage plus Strength modifier; if the bull rush was part of a charge, add Powerful Charge or Greater Powerful Charge damage as appropriate."
+    },
+    {
+      "name": "Construct Perfection III",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Gain immunity to death effects and necromancy effects."
+    },
+    {
+      "name": "Construct Perfection IV",
+      "level": 5,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Become immune to ability damage and ability drain."
+    },
+    {
+      "name": "Greater Powerful Charge",
+      "level": 5,
+      "featName": "Greater Powerful charge",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/warforged-juggernaut-440",
+      "description": "Gain Greater Powerful Charge as a bonus feat."
+    }
+  ],
+  "classes/bloodscaled-fury-394": [
+    {
+      "name": "Fearsome Presence",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "description": "Increase the save DC of your frightful presence by your Bloodscaled Fury level. Creatures with Hit Dice no greater than half your class level + 4 become panicked on a failed save; others become shaken. Both conditions last 6d6 rounds."
+    },
+    {
+      "name": "Draconic Fury",
+      "level": 2,
+      "aliases": [
+        "Draconic fury +2/+1",
+        "Draconic fury +4/+2",
+        "Draconic fury +6/+3"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "description": "While raging, gain an additional +2 Strength, +2 Constitution, and +1 morale on Will saves at 2nd level; these extra bonuses improve by the same amount at 6th and again at 10th."
+    },
+    {
+      "name": "Scales of Blood",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "description": "While raging, increase spell resistance by your class level and improve damage reduction by 5. At 7th level the DR requires magic and cold iron to overcome; at 11th it requires epic and cold iron."
+    },
+    {
+      "name": "Rend",
+      "level": 4,
+      "featName": "Rend",
+      "ignorePrerequisites": true,
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "description": "Gain Rend as a bonus feat even if you do not meet its prerequisites."
+    },
+    {
+      "name": "Extended Fury",
+      "level": 5,
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "description": "Your rage lasts 6 + Constitution modifier rounds."
+    },
+    {
+      "name": "Incite Rage",
+      "level": 8,
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "description": "Whenever you enter rage, willing allies within 60 feet can also rage, gaining +4 Strength, +4 Constitution, +2 morale on Will saves, and -2 AC for as long as your rage continues; normal post-rage fatigue applies."
+    },
+    {
+      "name": "Tireless Fury",
+      "level": 9,
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "description": "You no longer become fatigued when your rage ends."
+    },
+    {
+      "name": "Blinding Speed",
+      "level": 12,
+      "actionType": "Free action",
+      "resource": {
+        "max": 12,
+        "reset": "long",
+        "unit": "round",
+        "recoveryText": "Blinding Speed provides 12 nonconsecutive rounds per day."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/bloodscaled-fury-394",
+      "description": "As a free action, act as though under haste for a total of 12 rounds per day; the rounds need not be consecutive."
+    }
+  ],
+  "classes/sybil-823": [
+    {
+      "name": "Divine Insight",
+      "level": 1,
+      "actionType": "Triggered",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Divine Insight refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Your insight score equals your Sybil level. Add it to Wisdom for divine bonus spells/save DCs, subtract it from Wisdom for other Wisdom checks and saves, and once per day choose before a Wisdom check or save to add the insight score instead."
+    },
+    {
+      "name": "Reclusive Insight",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "After 24 hours in complete solitude, for the next 24 hours add your insight score to Intelligence-based checks and subtract it from Intelligence for arcane bonus spells and save DCs."
+    },
+    {
+      "name": "Conundrum",
+      "level": 3,
+      "actionType": "Special",
+      "resource": {
+        "perLevel": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Conundrum can be used once per day per Sybil level."
+      },
+      "aliases": [
+        "Riddle: Conundrum"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Pose a simple riddle. A correct answer grants augury with no failure chance; a wrong answer deals 1 temporary ability damage to an ability score you choose. Use once per day per class level."
+    },
+    {
+      "name": "Lesser Geas",
+      "level": 4,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Lesser Geas refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Once per day use lesser geas as a divine spell cast by a cleric of your Sybil level plus any cleric levels."
+    },
+    {
+      "name": "Mysterious Lore",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Make a special lore check like bardic knowledge, adding your insight score and stacking with bard/loremaster levels. On a failed check you lose Reclusive Insight until you again spend 24 hours in solitude."
+    },
+    {
+      "name": "Mystery",
+      "level": 5,
+      "actionType": "Special",
+      "resource": {
+        "perLevel": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Mystery can be used once per day per Sybil level."
+      },
+      "aliases": [
+        "Riddle: Mystery"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Pose a moderately challenging riddle. A correct answer grants divination with no failure chance; a wrong answer deals 2 temporary ability damage to an ability score you choose. Use once per day per class level."
+    },
+    {
+      "name": "Geas/Quest",
+      "level": 6,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Geas/Quest refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Once per day use geas/quest as a divine spell cast by a cleric of your Sybil level plus any cleric levels."
+    },
+    {
+      "name": "Koan",
+      "level": 7,
+      "actionType": "Special",
+      "resource": {
+        "maxByLevel": {
+          "7": 3,
+          "8": 4,
+          "9": 4,
+          "10": 5
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Koan can be used once per day per two Sybil levels, rounded down."
+      },
+      "aliases": [
+        "Riddle: Koan"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Pose a challenging riddle. A correct answer grants commune with a like-minded extraplanar being; a wrong answer deals 2 temporary damage to every ability score. Use once per day per two class levels, rounded down."
+    },
+    {
+      "name": "Enigma",
+      "level": 8,
+      "actionType": "Special",
+      "resource": {
+        "max": 3,
+        "reset": "week",
+        "unit": "use",
+        "recoveryText": "Enigma can be used three times per week."
+      },
+      "aliases": [
+        "Riddle: Enigma"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Pose a difficult riddle. A correct answer grants accelerated legend lore; a wrong answer deals 2 temporary damage to every ability score, to a maximum -8 and never below score 1. Use no more than three times per week."
+    },
+    {
+      "name": "Limited Wish",
+      "level": 9,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "max": 1,
+        "reset": "year",
+        "unit": "use",
+        "recoveryText": "Limited Wish can be used once per year."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Once per year use limited wish as a divine spell cast by a cleric of your Sybil level plus any cleric levels."
+    },
+    {
+      "name": "Apocrypha",
+      "level": 10,
+      "actionType": "Special",
+      "resource": {
+        "max": 1,
+        "reset": "week",
+        "unit": "use",
+        "recoveryText": "Apocrypha can be used once per week."
+      },
+      "aliases": [
+        "Riddle: Apocrypha"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/sybil-823",
+      "description": "Pose a nearly impossible riddle. A correct answer grants discern location without prior contact with the subject; a wrong answer gives the questioner 2d6 negative levels. Use once per week."
+    }
   ]
 }
