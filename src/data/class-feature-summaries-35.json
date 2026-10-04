@@ -6812,5 +6812,260 @@
       "description": "When a melee attack drops a creature, foes within 30 feet must make a Will save (DC 15 + Charisma modifier) or cower until the start of their next turn; if the dropping blow was a critical hit, increase the save DC by 4.",
       "sourceSha256": "4151f0c0087ce50024b08a0358d15ee1d420879ebb6b5f0ffc8e4f0d8db3ca03"
     }
+  ],
+  "classes/cavelord-896": [
+    {
+      "name": "Tunnelrunner",
+      "level": 1,
+      "featName": "Tunnelrunner",
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "description": "Gain Tunnelrunner as a bonus feat at 1st level."
+    },
+    {
+      "name": "Cave Tracker",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "description": "In a cave or tunnel, follow tracks at normal speed without taking the usual -5 penalty on the Survival check."
+    },
+    {
+      "name": "Lesser Cavesense",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "description": "Gain darkvision out to 120 feet and a +4 competence bonus on Listen checks made in subterranean settings."
+    },
+    {
+      "name": "Tunnelswimmer",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "description": "Hold your breath three times longer than normal before risking drowning (normally six times Constitution score in rounds for a humanoid) and gain a 30-foot swim speed."
+    },
+    {
+      "name": "Strength of Stones",
+      "level": 5,
+      "actionType": "Free action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Strength of Stones daily uses refresh with the character's daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "description": "Once per day as a free action, gain an insight bonus to Strength equal to your Cavelord level for 1 minute."
+    },
+    {
+      "name": "Greater Cavesense",
+      "level": 7,
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "description": "Gain tremorsense with a 30-foot range."
+    },
+    {
+      "name": "Changestones",
+      "level": 8,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Changestones daily uses refresh with the character's daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "description": "Use changestones once per day as a spell-like ability at caster level 14th."
+    },
+    {
+      "name": "Bones of the Earth",
+      "level": 10,
+      "sourceUrl": "https://new.dndtools.org/classes/cavelord-896",
+      "description": "While in a cave, tunnel, or other Underdark environment, when damage would reduce you to -10 hit points or lower, attempt a Fortitude save (DC 5 + damage dealt; DC 6 for continuing bleeding). On success you turn to stone before dying, remain fixed in place for 24 hours, then return to flesh at 1 hit point with no prepared spells or power points. Significant damage to the stone form still kills you."
+    }
+  ],
+  "classes/daidoji-bodyguard-630": [
+    {
+      "name": "Defensive Refocus",
+      "level": 1,
+      "actionType": "Total defense action",
+      "sourceUrl": "https://new.dndtools.org/classes/daidoji-bodyguard-630",
+      "description": "You can refocus while using total defense. After doing so, on following rounds you move up in the initiative count as though you had rolled a 20 on initiative."
+    },
+    {
+      "name": "Defensive Awareness",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/daidoji-bodyguard-630",
+      "description": "At 2nd level retain your Dexterity bonus to AC while flat-footed or attacked by an invisible opponent unless immobilized. At 5th level you cannot normally be flanked except by a rogue at least four levels higher than your Daidoji Bodyguard level. At 10th level gain +1 on Reflex saves against traps. Levels in classes that grant uncanny dodge combine with this defensive-awareness progression as specified by the source."
+    },
+    {
+      "name": "Evasion",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/daidoji-bodyguard-630",
+      "description": "While wearing light or no armor, take no damage on a successful Reflex save against an effect that normally deals half damage."
+    },
+    {
+      "name": "Moving the Shadow",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/daidoji-bodyguard-630",
+      "description": "Gain a dodge bonus to AC against an opponent equal to that opponent's armor check penalty, if any."
+    },
+    {
+      "name": "Damage Reduction",
+      "level": 6,
+      "sourceUrl": "https://new.dndtools.org/classes/daidoji-bodyguard-630",
+      "description": "Gain damage reduction 3/— at 6th level, improving to 6/— at 9th level."
+    },
+    {
+      "name": "Defensive Roll",
+      "level": 8,
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Defensive Roll daily uses refresh with the character's daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/daidoji-bodyguard-630",
+      "description": "Once per day, when combat damage from a weapon or other blow would reduce you to 0 hit points or lower, make a Reflex save with DC equal to the damage dealt; on success take half damage. You must be aware of and able to react to the attack, and evasion does not apply to this save."
+    }
+  ],
+  "classes/dark-lantern-475": [
+    {
+      "name": "Citadel Training",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/dark-lantern-475",
+      "description": "Gain a +2 insight bonus on Diplomacy, Gather Information, Search, and Sense Motive checks."
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/dark-lantern-475",
+      "description": "Gain +1d6 sneak attack at 2nd level and another +1d6 every two class levels thereafter, reaching +5d6 at 10th level. This stacks with sneak attack from other classes."
+    },
+    {
+      "name": "Nondetection",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/dark-lantern-475",
+      "description": "Gain a permanent nondetection effect. A divination targeting you or anything you carry requires a caster-level check against DC 15 + your Dark Lantern level."
+    },
+    {
+      "name": "Skill Mastery",
+      "level": 5,
+      "sourceUrl": "https://new.dndtools.org/classes/dark-lantern-475",
+      "description": "You may take 10 on Climb, Disable Device, Open Lock, and Search checks even when stress or distractions would normally prevent taking 10."
+    },
+    {
+      "name": "Slippery Mind",
+      "level": 7,
+      "sourceUrl": "https://new.dndtools.org/classes/dark-lantern-475",
+      "description": "If you fail a save against an enchantment spell or effect, attempt one new save 1 round later at the same DC. You can also spend an action point to automatically break free of the enchantment."
+    },
+    {
+      "name": "Hide in Plain Sight",
+      "level": 9,
+      "sourceUrl": "https://new.dndtools.org/classes/dark-lantern-475",
+      "description": "Use the Hide skill even while being observed."
+    }
+  ],
+  "classes/deepwarden-729": [
+    {
+      "name": "Track",
+      "level": 1,
+      "featName": "Track",
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "Gain Track as a bonus feat at 1st level."
+    },
+    {
+      "name": "Trap Sense",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "Gain +1 on Reflex saves against traps and +1 dodge AC against attacks made by traps at 1st level. Both bonuses increase to +2 at 4th, +3 at 7th, and +4 at 10th; trap sense from multiple classes stacks."
+    },
+    {
+      "name": "Stone Warden",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "Use your Constitution bonus in place of your Dexterity bonus to AC when Constitution is higher. You lose this substituted bonus whenever you would normally be denied Dexterity to AC and remain considered flat-footed in that situation."
+    },
+    {
+      "name": "Animal Messenger",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "Use animal messenger as a spell-like ability with caster level equal to your Deepwarden level."
+    },
+    {
+      "name": "Uncanny Dodge",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "Retain your Dexterity bonus to AC, or the higher Constitution bonus supplied by Stone Warden, while flat-footed or attacked by an invisible opponent unless immobilized. If another class already grants uncanny dodge, use the normal improved-uncanny-dodge interaction."
+    },
+    {
+      "name": "Stubborn Mind",
+      "level": 5,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "If you fail a save against an enchantment spell or effect, attempt one new save 1 round later at the same DC. This also works against a mind flayer's mind blast, and you receive only this one extra chance."
+    },
+    {
+      "name": "Sending",
+      "level": 6,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "Use sending as a spell-like ability with caster level equal to your Deepwarden level."
+    },
+    {
+      "name": "Swift Tracker",
+      "level": 7,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "Follow tracks at normal speed without the usual -5 penalty, or at up to twice normal speed with a -10 penalty instead of -20."
+    },
+    {
+      "name": "Improved Uncanny Dodge",
+      "level": 8,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "You can no longer normally be flanked, except by a rogue with at least four more rogue levels than your relevant uncanny-dodge class levels. Levels from classes that grant uncanny dodge stack for this threshold as specified by the source."
+    },
+    {
+      "name": "Greater Animal Messenger",
+      "level": 9,
+      "sourceUrl": "https://new.dndtools.org/classes/deepwarden-729",
+      "description": "Your animal messenger ability can use an animal of up to Small size instead of only a Tiny animal."
+    }
+  ],
+  "classes/astral-dancer-686": [
+    {
+      "name": "Relative Altitude",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "description": "While on the Astral Plane or another no-gravity environment, you are always considered to have higher ground over an opponent and gain +1 on melee attack rolls."
+    },
+    {
+      "name": "Evasion",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "description": "At 2nd level gain evasion only in no-gravity environments. At 4th level and higher, evasion functions in all environments."
+    },
+    {
+      "name": "Improved Maneuverability",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "description": "In no gravity, at 3rd level a double move reduces maneuverability only to good and movement at four times speed reduces it only to poor. At 9th level a double move retains perfect maneuverability and four-times-speed movement reduces it only to average."
+    },
+    {
+      "name": "Astral Dodge",
+      "level": 5,
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "description": "At 5th level gain +2 dodge AC in no gravity or +1 in gravity. At 10th level these bonuses improve to +4 in no gravity or +2 in gravity."
+    },
+    {
+      "name": "Improved Evasion",
+      "level": 6,
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "description": "At 6th level gain improved evasion only in no-gravity environments; at 8th level and higher it functions in all environments."
+    },
+    {
+      "name": "Astral Agility",
+      "level": 7,
+      "actionType": "Move action",
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "description": "Once per round as a move action in a no-gravity environment, attempt to switch places with an adjacent creature of your size or smaller. The target may resist with an opposed Intelligence check; add your Astral Dancer level to your check. The resulting movement does not provoke attacks of opportunity."
+    },
+    {
+      "name": "Lightning Speed",
+      "level": 10,
+      "sourceUrl": "https://new.dndtools.org/classes/astral-dancer-686",
+      "description": "Your movement on the Astral Plane or a similar no-gravity environment never provokes attacks of opportunity."
+    }
   ]
 }
