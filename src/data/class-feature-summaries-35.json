@@ -7830,5 +7830,601 @@
       "sourceUrl": "https://new.dndtools.org/classes/tempest-621",
       "description": "While wearing light or no armor and not using a double weapon, gain a fourth off-hand attack at a -15 penalty after the normal off-hand iterative attacks."
     }
+  ],
+  "classes/akodo-champion-625": [
+    {
+      "name": "Detect Evil",
+      "level": 1,
+      "actionType": "Standard action",
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "description": "Use detect evil at will as a spell-like ability."
+    },
+    {
+      "name": "Ancestral Favor",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "description": "Add your positive Charisma modifier as a bonus on all saving throws."
+    },
+    {
+      "name": "Leadership",
+      "level": 2,
+      "featName": "Leadership",
+      "ignorePrerequisites": true,
+      "aliases": [
+        "Leadership feat"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "description": "Gain Leadership as a bonus feat at 2nd level."
+    },
+    {
+      "name": "Smite Evil",
+      "level": 2,
+      "actionType": "Attack",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Smite Evil daily uses refresh with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "description": "Once per day, on one normal melee attack against an evil creature, add your positive Charisma modifier to the attack roll and deal 1 extra damage per Akodo Champion level. A use is spent even if the chosen target is not evil."
+    },
+    {
+      "name": "Aura of Courage",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "description": "You are immune to fear. Allies within 10 feet gain a +4 morale bonus on saves against fear; granting the ally bonus is supernatural."
+    },
+    {
+      "name": "Great Leader",
+      "level": 4,
+      "aliases": [
+        "Great Leader (+1)",
+        "Great Leader (+2)",
+        "Great Leader (+3)"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "description": "Increase your Leadership score by +1 at 4th level, +2 at 7th, and +3 at 10th. This stacks with other Leadership bonuses."
+    },
+    {
+      "name": "Inspire Greatness",
+      "level": 5,
+      "aliases": [
+        "Inspire Greatness (1 ally)",
+        "Inspire Greatness (2 allies)",
+        "Inspire Greatness (3 allies)"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/akodo-champion-625",
+      "description": "While participating in the same battle, inspire one ally within 30 feet whose gaze you can meet, plus one additional ally at 7th and 9th levels. Each target gains +2 temporary d10 Hit Dice, +2 competence on attacks, and +1 competence on Fortitude saves. This is mind-affecting."
+    }
+  ],
+  "classes/ghostwalker-770": [
+    {
+      "name": "Painful Reckoning",
+      "level": 1,
+      "aliases": [
+        "Painful Reckoning +1",
+        "Painful Reckoning +2",
+        "Painful Reckoning +3",
+        "Painful Reckoning +4",
+        "Painful Reckoning +5",
+        "Painful Reckoning +6",
+        "Painful Reckoning +7",
+        "Painful Reckoning +8",
+        "Painful Reckoning +9",
+        "Painful Reckoning +10"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
+      "description": "After surviving an encounter in which you lost more than half your normal hit points, gain a bonus equal to your Ghostwalker level on AC, attack rolls, and damage rolls against the specific foes from that encounter; the anonymity restriction can reduce this against foes who know your name."
+    },
+    {
+      "name": "Resolute Aura",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
+      "description": "Add your Ghostwalker level as a bonus on Intimidate checks; this benefit does not function against enemies who know your name."
+    },
+    {
+      "name": "Anonymity",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
+      "description": "Enemies who know your name weaken your class powers: resolute aura does not affect them, painful reckoning is halved against them, and hostile named-aware enemies within 100 feet prevent you from using feign death, etherealness, or shadow walk."
+    },
+    {
+      "name": "Feign Death",
+      "level": 2,
+      "actionType": "Standard action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Feign Death daily uses refresh with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
+      "description": "Once per day enter a cataleptic state indistinguishable from death for up to 10 rounds per Ghostwalker level. You remain aware by smell and hearing, take half normal damage, and ignore paralysis, poison, and energy drain during the state, with injected poison taking effect when it ends."
+    },
+    {
+      "name": "Superior Iron Will",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
+      "description": "Gain an additional +2 bonus on Will saves that stacks with Iron Will."
+    },
+    {
+      "name": "Etherealness",
+      "level": 4,
+      "actionType": "Standard action",
+      "resource": {
+        "maxByLevel": {
+          "4": 1,
+          "7": 2,
+          "10": 3
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Etherealness scales with class level and refreshes with daily recovery."
+      },
+      "aliases": [
+        "Etherealness 1/day",
+        "Etherealness 2/day",
+        "Etherealness 3/day"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
+      "description": "Become ethereal as ethereal jaunt for 1 round per Ghostwalker level. Use once per day at 4th level, twice at 7th, and three times at 10th; Sword and Fist errata identifies this as supernatural."
+    },
+    {
+      "name": "Shadow Walk",
+      "level": 5,
+      "actionType": "Standard action",
+      "resource": {
+        "max": 3,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Shadow Walk daily uses refresh with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/ghostwalker-770",
+      "description": "Use shadow walk up to three times per day, traveling one mile per (11 minus Ghostwalker level) minutes for a maximum of 1 hour per Ghostwalker level per day. While shadow walking, heal 3 hit points per Ghostwalker level per hour; Sword and Fist errata identifies this as supernatural."
+    }
+  ],
+  "classes/master-of-the-unseen-hand-323": [
+    {
+      "name": "Improved Caster Level",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "description": "Add your Master of the Unseen Hand levels to the caster level used for your telekinesis spell, spell-like ability, or supernatural ability."
+    },
+    {
+      "name": "Versatile Telekinesis",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "description": "Switch freely among sustained force, combat maneuver, and violent thrust while one telekinesis effect continues; violent thrust normally ends the effect until Improved Violent Thrust changes that rule."
+    },
+    {
+      "name": "Telekinetic Wielder",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "description": "While concentrating on combat-maneuver telekinesis, wield an unattended or held weapon telekinetically, moving it up to 20 feet before one attack. Use caster level plus the relevant spellcasting ability modifier for the attack basis; weapon feats do not apply."
+    },
+    {
+      "name": "Sustained Concentration",
+      "level": 2,
+      "actionType": "Move action",
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "description": "Maintain concentration on telekinesis or use its sustained-force version as a move action instead of a standard action. You can cast another spell while maintaining it by succeeding on the source-specified Concentration check."
+    },
+    {
+      "name": "Full Attack Telekinesis",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "description": "When using combat-maneuver telekinesis or wielding a weapon telekinetically, make a full attack, gaining iterative telekinetic attacks according to caster level as described by the source."
+    },
+    {
+      "name": "Improved Violent Thrust",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "description": "For violent thrust, use caster level in place of base attack bonus and add the relevant spellcasting ability modifier to weapon damage. Violent thrust no longer ends telekinesis, but cannot be used again for 1d4 rounds."
+    },
+    {
+      "name": "Telekinetic Flight",
+      "level": 4,
+      "actionType": "Move action",
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "description": "Use sustained-force telekinesis to move yourself and willing creatures through the air 20 feet as a move action with perfect maneuverability, subject to caster-level carrying limits and the 40-foot tether described by the source."
+    },
+    {
+      "name": "Fling Skyward",
+      "level": 5,
+      "actionType": "Standard action",
+      "sourceUrl": "https://new.dndtools.org/classes/master-of-the-unseen-hand-323",
+      "description": "Use violent-thrust telekinesis to hurl a creature straight upward up to 10 feet per caster level. A Will save and spell resistance can negate it; the target falls at the start of your next action, and this use ends telekinesis."
+    }
+  ],
+  "classes/disciple-of-the-eye-712": [
+    {
+      "name": "Fast Movement",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "description": "Your Disciple of the Eye levels stack with monk levels for unarmored speed; without monk levels, treat your disciple level as monk level for this purpose."
+    },
+    {
+      "name": "Flurry of Blows",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "description": "Your Disciple of the Eye levels stack with monk levels for flurry-of-blows attack bonuses; without monk levels, treat your disciple level as monk level for this purpose."
+    },
+    {
+      "name": "Wandering Eyes",
+      "level": 1,
+      "actionType": "Standard action",
+      "resource": {
+        "perLevel": 1,
+        "reset": "long",
+        "unit": "minute",
+        "recoveryText": "Wandering Eyes grants 1 minute of use per Disciple of the Eye level each day, expendable in increments of at least 1 round."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "description": "As a standard action create a Fine dragon-shaped invisible sensor functioning as arcane eye. You have 1 minute of use per day per Disciple of the Eye level, spendable gradually in increments of at least 1 round; the sensor ends when you stop concentrating."
+    },
+    {
+      "name": "Natural Armor Bonus",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "description": "Gain +1 natural armor at 2nd level, increasing to +2 at 4th level."
+    },
+    {
+      "name": "Frightful Attack",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "description": "When you attack a foe with fewer Hit Dice than your character level, it must make a Will save (DC 10 + half character level + Charisma modifier) or be shaken for 1d4 rounds. Dragons and dragonblood creatures are immune, and a successful save grants 24-hour immunity."
+    },
+    {
+      "name": "Keen Senses",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "description": "See four times as far as a human in shadowy illumination and twice as far in normal light, and gain darkvision out to 120 feet if your existing darkvision is shorter."
+    },
+    {
+      "name": "Glare of the Enraged Dragon",
+      "level": 4,
+      "actionType": "Swift action",
+      "resource": {
+        "perLevel": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Glare of the Enraged Dragon has daily uses equal to Disciple of the Eye level."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "description": "As a swift action target a creature within 30 feet; it must make a Will save (DC 10 + half character level + Charisma modifier) or be shaken for 1d4 rounds, or frightened if already shaken. Use a number of times per day equal to your Disciple of the Eye level."
+    },
+    {
+      "name": "Blindsense",
+      "level": 5,
+      "sourceUrl": "https://new.dndtools.org/classes/disciple-of-the-eye-712",
+      "description": "Gain blindsense out to 30 feet; an existing blindsense range of 30 feet or more does not improve."
+    }
+  ],
+  "classes/void-incarnate-1057": [
+    {
+      "name": "Blank Aura",
+      "level": 1,
+      "actionType": "Standard action",
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "You and your equipment radiate no aura and cannot lower this personal effect. As a standard action, share it for 24 hours with one willing creature within 30 feet at 5th level and one additional creature every four levels thereafter; shared recipients must stay within range to benefit."
+    },
+    {
+      "name": "Improved Evasion",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "While wearing light or no armor, take no damage on a successful Reflex save against an effect that normally deals half damage and only half damage on a failed save."
+    },
+    {
+      "name": "Void Presence",
+      "level": 3,
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "Opponents unconsciously ignore you and are treated as flat-footed against you until you attack them, resuming at the start of your next turn. You can also create a Bluff diversion to hide as a move-equivalent action, and information-gathering checks about you have their DC increased by 20 + your class level."
+    },
+    {
+      "name": "Mettle of Fortitude",
+      "level": 4,
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "On a successful Fortitude save against an effect that normally allows a partial or half effect, suffer no effect."
+    },
+    {
+      "name": "Blank Mind",
+      "level": 5,
+      "actionType": "Standard action",
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "You are permanently protected by mind blank and cannot lower it. As a standard action, share the effect for 24 hours with willing creatures as the source's level-based sharing progression allows."
+    },
+    {
+      "name": "Mettle of Will",
+      "level": 6,
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "On a successful Will save against an effect that normally allows a partial or half effect, suffer no effect."
+    },
+    {
+      "name": "Null Strike",
+      "level": 7,
+      "actionType": "Attack",
+      "resource": {
+        "maxByLevel": {
+          "7": 1
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Null Strike scales with class level and refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "Once per day at 7th level, plus one additional use every four class levels thereafter, declare a melee or ranged attack to be a touch attack."
+    },
+    {
+      "name": "Improved Mettle of Fortitude",
+      "level": 8,
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "Against an effect allowing a Fortitude save for partial or half effect, take only the partial or half effect on a failed save and no effect on a successful save."
+    },
+    {
+      "name": "Empty Form",
+      "level": 9,
+      "actionType": "Standard action",
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "You permanently gain freedom of movement and immunity to force effects. As a standard action, share this effect for 24 hours with willing creatures according to the source's level-based sharing progression."
+    },
+    {
+      "name": "Improved Mettle of Will",
+      "level": 10,
+      "sourceUrl": "https://new.dndtools.org/classes/void-incarnate-1057",
+      "description": "Against an effect allowing a Will save for partial or half effect, take only the partial or half effect on a failed save and no effect on a successful save."
+    }
+  ],
+  "classes/yathchol-webrider-906": [
+    {
+      "name": "Web Hide",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/yathchol-webrider-906",
+      "description": "Hide in plain sight while within 5 feet of natural or magical webbing covering at least a 5-foot square."
+    },
+    {
+      "name": "Web Ride",
+      "level": 1,
+      "actionType": "Standard action",
+      "resource": {
+        "maxByLevel": {
+          "1": 20,
+          "4": 160,
+          "6": 320,
+          "8": 640,
+          "10": 1280
+        },
+        "reset": "long",
+        "unit": "foot",
+        "recoveryText": "Web Ride daily movement refreshes with daily recovery and scales by class level."
+      },
+      "aliases": [
+        "Web Ride (20 ft.)",
+        "Web Ride (160 ft.)",
+        "Web Ride (320 ft.)",
+        "Web Ride (640 ft.)",
+        "Web Ride (1,280 ft.)"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/yathchol-webrider-906",
+      "description": "Travel instantaneously between qualifying areas of webbing. Daily movement is 20 feet at 1st level, 160 at 4th, 320 at 6th, 640 at 8th, and 1,280 at 10th; each ride consumes movement rounded up to the next 10 feet."
+    },
+    {
+      "name": "Spider Climbing",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/yathchol-webrider-906",
+      "description": "With bare hands and feet free, gain a 20-foot climb speed and move on vertical surfaces and ceilings without Climb checks."
+    },
+    {
+      "name": "Summon Spider",
+      "level": 2,
+      "actionType": "Standard action",
+      "resource": {
+        "max": 1,
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Summon Spider daily uses refresh with daily recovery."
+      },
+      "aliases": [
+        "Summon Spider (Large)",
+        "Summon Spider (Huge)",
+        "Summon Spider (Gargantuan)"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/yathchol-webrider-906",
+      "description": "Once per day summon a Large monstrous spider or spider swarm at 2nd level (summon monster III equivalent), a Huge monstrous spider at 5th (summon monster V), or a Gargantuan monstrous spider at 9th (summon monster VII), with caster level 5 + class level."
+    },
+    {
+      "name": "Web Blast",
+      "level": 3,
+      "actionType": "Standard action",
+      "resource": {
+        "maxByLevel": {
+          "3": 2,
+          "7": 4,
+          "10": 6
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Web Blast scales with class level and refreshes with daily recovery."
+      },
+      "aliases": [
+        "Web Blast (2/day)",
+        "Web Blast (4/day)",
+        "Web Blast (6/day)"
+      ],
+      "sourceUrl": "https://new.dndtools.org/classes/yathchol-webrider-906",
+      "description": "As a standard action make a ranged touch attack to 60 feet for 4d6 bludgeoning damage; the target must make a Reflex save (DC 10 + class level + Constitution modifier) or be stuck until it escapes. Use twice per day at 3rd level, four times at 7th, and six times at 10th."
+    }
+  ],
+  "classes/vigilant-sentinel-of-aerenal-589": [
+    {
+      "name": "Code of Conduct",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589",
+      "description": "You must obey the order's directives and protect Aerenal to the best of your ability. Betrayal prevents further advancement and causes the order to hunt you, but does not remove class abilities already gained."
+    },
+    {
+      "name": "Master of Disguise",
+      "level": 1,
+      "sourceUrl": "https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589",
+      "description": "Gain a bonus on Disguise checks equal to your Vigilant Sentinel class level."
+    },
+    {
+      "name": "Nondetection",
+      "level": 1,
+      "actionType": "Standard action",
+      "sourceUrl": "https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589",
+      "description": "You are constantly protected by nondetection at caster level equal to character level; raise or lower the effect as a standard action."
+    },
+    {
+      "name": "Sneak Attack",
+      "level": 2,
+      "sourceUrl": "https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589",
+      "description": "Gain +1d6 sneak attack at 2nd level and +2d6 at 4th level; ranged sneak attacks work only within 30 feet."
+    },
+    {
+      "name": "Thought Theft",
+      "level": 3,
+      "actionType": "Standard action",
+      "sourceUrl": "https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589",
+      "description": "As a standard action, make Sense Motive against DC 10 + target Hit Dice + target Charisma modifier to glean vague surface information from a creature you can communicate with, granting +4 insight on the listed social skills against that target and related situations. A failure by 5 or more alerts the target."
+    },
+    {
+      "name": "Dimension Leap",
+      "level": 5,
+      "actionType": "Standard action",
+      "sourceUrl": "https://new.dndtools.org/classes/vigilant-sentinel-of-aerenal-589",
+      "description": "Use dimension leap as a spell-like ability at caster level equal to your Vigilant Sentinel level, usable once per minute."
+    }
+  ],
+  "classes/union-sentinel-461": [
+    {
+      "name": "Sending",
+      "level": 1,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "maxByLevel": {
+          "1": 1,
+          "8": 2
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Sending scales with class level and refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "description": "Use sending as a spell-like ability at caster level 15th once per day at 1st level and one additional time every seven class levels."
+    },
+    {
+      "name": "Shield of Law",
+      "level": 1,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "maxByLevel": {
+          "1": 1,
+          "4": 2,
+          "7": 3,
+          "10": 4
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Shield of Law scales with class level and refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "description": "Use shield of law as a spell-like ability at caster level 15th once per day at 1st level and one additional time every three class levels."
+    },
+    {
+      "name": "Freedom",
+      "level": 2,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "maxByLevel": {
+          "2": 1,
+          "8": 2
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Freedom scales with class level and refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "description": "Use freedom as a spell-like ability at caster level 18th once per day at 2nd level and one additional time every six class levels."
+    },
+    {
+      "name": "Knock",
+      "level": 2,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "maxByLevel": {
+          "2": 1,
+          "6": 2,
+          "10": 3
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Knock scales with class level and refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "description": "Use knock as a spell-like ability at caster level 15th once per day at 2nd level and one additional time every four class levels."
+    },
+    {
+      "name": "Dimensional Anchor",
+      "level": 3,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "maxByLevel": {
+          "3": 1,
+          "6": 2,
+          "9": 3
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Dimensional Anchor scales with class level and refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "description": "Use dimensional anchor as a spell-like ability at caster level 15th once per day at 3rd level and one additional time every three class levels."
+    },
+    {
+      "name": "Portal Guardian",
+      "level": 4,
+      "actionType": "Standard action",
+      "resource": {
+        "maxByLevel": {
+          "4": 1,
+          "10": 2
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Portal Guardian scales with class level and refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "description": "Once per day at 4th level and one additional time every six levels, while within 5 feet of a portal or gate prevent that portal from being activated from either side for as long as you remain adjacent."
+    },
+    {
+      "name": "Forcecage",
+      "level": 5,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "maxByLevel": {
+          "5": 1,
+          "10": 2
+        },
+        "reset": "long",
+        "unit": "use",
+        "recoveryText": "Forcecage scales with class level and refreshes with daily recovery."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "description": "Use forcecage as a spell-like ability at caster level 20th once per day at 5th level and one additional time every five class levels."
+    },
+    {
+      "name": "Imprisonment",
+      "level": 7,
+      "actionType": "Spell-like ability",
+      "resource": {
+        "max": 1,
+        "reset": "week",
+        "unit": "use",
+        "recoveryText": "Imprisonment refreshes weekly."
+      },
+      "sourceUrl": "https://new.dndtools.org/classes/union-sentinel-461",
+      "description": "Use imprisonment as a spell-like ability at caster level 20th once per week at 7th level; additional weekly uses are gained every five class levels thereafter."
+    }
   ]
 }
