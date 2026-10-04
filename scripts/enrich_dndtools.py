@@ -788,6 +788,27 @@ def legacy_class_fallback(entry: dict) -> dict:
     return result
 
 
+
+def merge_class_prerequisites(primary, fallback, min_bab=""):
+    """Fill prerequisite categories omitted by a truncated primary page without overwriting source-present rules."""
+    merged=list(primary or [])
+    existing={(clean(item.get("kind","")).casefold(), clean(item.get("text","")).replace("’","'").casefold()) for item in merged}
+    existing_kinds={clean(item.get("kind","")).casefold() for item in merged}
+    for item in fallback or []:
+        kind=clean(item.get("kind","")).casefold()
+        text_key=clean(item.get("text","")).replace("’","'").casefold()
+        if not kind or not text_key or (kind,text_key) in existing:
+            continue
+        if kind=="base_attack_bonus" and clean(min_bab):
+            continue
+        # A source-present category wins over a differing mirror rendering. The
+        # mirror only supplies categories the rebuilt page omitted entirely.
+        if kind in existing_kinds:
+            continue
+        merged.append(item)
+        existing.add((kind,text_key)); existing_kinds.add(kind)
+    return merged
+
 def parse_class(parser: DetailParser, entry: dict) -> dict:
     lines = parser.lines
     enriched=parse_class_core(parser,entry)
@@ -810,8 +831,10 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
 
     # The rebuilt site omits some requirements/variant inheritance that the older
     # D&D Tools mirror still exposes. Use the mirror only to fill structured gaps.
+    prerequisite_kinds={clean(item.get("kind","")).casefold() for item in enriched.get("prerequisites",[]) if isinstance(item,dict)}
     needs_fallback=(
         (enriched.get("prestige") and not enriched.get("prerequisites"))
+        or (enriched.get("prestige") and enriched.get("minBab") and "skills" not in prerequisite_kinds)
         or not enriched.get("progression")
         or not enriched.get("classSkills")
         or not enriched.get("hit_die")
@@ -820,7 +843,13 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     if needs_fallback:
         try:
             fallback=legacy_class_fallback(entry)
-            for key in ("prerequisites","hit_die","skillPoints","classSkills","classSkillRule","progression","advancement","inheritsFrom"):
+            if fallback.get("prerequisites"):
+                enriched["prerequisites"]=merge_class_prerequisites(
+                    enriched.get("prerequisites",[]),
+                    fallback.get("prerequisites",[]),
+                    enriched.get("minBab",""),
+                )
+            for key in ("hit_die","skillPoints","classSkills","classSkillRule","progression","advancement","inheritsFrom"):
                 if not enriched.get(key) and fallback.get(key):
                     enriched[key]=fallback[key]
             enriched["fallbackSourceUrl"]=fallback.get("fallbackSourceUrl")
@@ -2380,6 +2409,22 @@ def self_test():
     assert c["hit_die"] == 8 and c["skillPoints"] == "2 + Int" and c["prestige"]
     assert c["sourceBook"].endswith("Complete Warrior") and c["sourcePage"] == 79
     assert c["prerequisites"][0]["kind"] == "spells" and c["advancement"][0]["BAB"] == "+1"
+
+    merged_requirements=merge_class_prerequisites(
+        [
+            {"kind":"region_of_origin","label":"Region of Origin","text":"Breland."},
+            {"kind":"special","label":"Special","text":"Cannot be illiterate or affiliated with a religion."},
+        ],
+        [
+            {"kind":"base_attack_bonus","label":"Base Attack Bonus","text":"+5"},
+            {"kind":"skills","label":"Skills","text":"Bluff 4 ranks; Diplomacy 4 ranks; Gather Information 4 ranks"},
+            {"kind":"region_of_origin","label":"Region of Origin","text":"Breland."},
+            {"kind":"special","label":"Special","text":"Cannot be illiterate or affiliated with a religion."},
+        ],
+        "+5",
+    )
+    assert {item["kind"] for item in merged_requirements}=={"skills","region_of_origin","special"}
+    assert next(item for item in merged_requirements if item["kind"]=="skills")["text"].startswith("Bluff 4 ranks")
 
     # A secondary class-level casting table must not displace the real feature table.
     multi_table_html = """
