@@ -264,6 +264,10 @@ def parse_requirement_lines(lines: list[str]) -> list[dict]:
 
 
 def legacy_class_url(entry: dict) -> str:
+    supplement=class_supplements().get(entry.get("id"),{})
+    source_specific=clean(supplement.get("legacySourceUrl",""))
+    if source_specific:
+        return source_specific
     slug=urlparse(entry.get("url","")).path.rstrip("/").split("/")[-1]
     slug=re.sub(r"-\d+$","",slug)
     return f"{LEGACY_CLASS_BASE}/{slug}/"
@@ -817,7 +821,13 @@ def parse_class(parser: DetailParser, entry: dict) -> dict:
     # class name may contain the canonical mechanics (for example PHB vs setting books).
     sibling=sibling_class_fallback(entry)
     if sibling:
-        for key in ("prerequisites","hit_die","skillPoints","minBab","classSkills","classSkillRule","proficiencies","proficiencyText","proficiencyParseIncomplete","progression","advancement","inheritsFrom"):
+        sibling_keys=("prerequisites","hit_die","skillPoints","minBab","classSkills","classSkillRule","proficiencies","proficiencyText","proficiencyParseIncomplete","progression","advancement","inheritsFrom")
+        # A prestige record with its own minimum BAB is a concrete source/version,
+        # not a pointer. Do not borrow a same-named sibling's entry gate; let the
+        # identity-checked historical mirror recover that source's omitted gate.
+        if enriched.get("prestige") and enriched.get("minBab") and not enriched.get("prerequisites"):
+            sibling_keys=tuple(key for key in sibling_keys if key!="prerequisites")
+        for key in sibling_keys:
             if not enriched.get(key) and sibling.get(key):
                 enriched[key]=sibling[key]
         enriched["siblingSourceUrl"]=sibling.get("siblingSourceUrl")
@@ -2438,6 +2448,11 @@ def self_test():
         "",
     )
     assert {item["kind"] for item in special_only}=={"alignment","skills","feats","special"}
+
+    assert legacy_class_url({
+        "id":"classes/tempest-621",
+        "url":"https://new.dndtools.org/classes/tempest-621",
+    })=="https://dndtools.net/classes/masters-of-the-wild-a-guidebook-to-barbarians-druids-and-rangers--44/tempest/"
 
     # A secondary class-level casting table must not displace the real feature table.
     multi_table_html = """
