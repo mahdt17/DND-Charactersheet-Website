@@ -7094,7 +7094,8 @@
         "recoveryText": "Suggestion refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
-      "description": "Once per day produce an effect identical to suggestion. The save DC is 10 + your Disciple of Baalzebul level + your Charisma bonus."
+      "description": "Once per day produce an effect identical to suggestion. The save DC is 10 + your Disciple of Baalzebul level + your Charisma bonus.",
+      "actionType": "1 action"
     },
     {
       "name": "Summon Osyluth",
@@ -7106,7 +7107,8 @@
         "recoveryText": "Summon Osyluth refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
-      "description": "Once per day summon one osyluth, functioning as a summon monster spell cast by a 15th-level caster."
+      "description": "Once per day summon one osyluth, functioning as a summon monster spell cast by a 15th-level caster.",
+      "actionType": "1 full round"
     },
     {
       "name": "Insect Plague",
@@ -7118,7 +7120,8 @@
         "recoveryText": "Insect Plague refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
-      "description": "Once per day produce an effect identical to insect plague cast by a 15th-level spellcaster; the summoned insects are always biting flies."
+      "description": "Once per day produce an effect identical to insect plague cast by a 15th-level spellcaster; the summoned insects are always biting flies.",
+      "actionType": "1 full round"
     },
     {
       "name": "Beguiling Nature",
@@ -7130,7 +7133,8 @@
         "recoveryText": "Beguiling Nature can be used once every other day."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
-      "description": "Every other day produce an effect identical to mass charm. The Will save DC is 10 + your Disciple of Baalzebul level + your Charisma bonus."
+      "description": "Every other day produce an effect identical to mass charm. The Will save DC is 10 + your Disciple of Baalzebul level + your Charisma bonus.",
+      "actionType": "1 action"
     },
     {
       "name": "Summon Cornugon",
@@ -7142,7 +7146,8 @@
         "recoveryText": "Summon Cornugon refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-baalzebul-166",
-      "description": "Once per day summon one cornugon, functioning as a summon monster spell cast by a 15th-level caster."
+      "description": "Once per day summon one cornugon, functioning as a summon monster spell cast by a 15th-level caster.",
+      "actionType": "1 full round"
     },
     {
       "name": "King of Lies",
@@ -7181,7 +7186,8 @@
         "recoveryText": "Rusting Grasp refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
-      "description": "Once per day produce an effect identical to rusting grasp cast by a 15th-level caster."
+      "description": "Once per day produce an effect identical to rusting grasp cast by a 15th-level caster.",
+      "actionType": "1 action"
     },
     {
       "name": "Iron Power",
@@ -7199,7 +7205,8 @@
         "recoveryText": "Summon Erinyes refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
-      "description": "Once per day summon one erinyes as a summon monster spell cast by a 15th-level caster. At 9th level the same daily use summons 1d4 erinyes instead."
+      "description": "Once per day summon one erinyes as a summon monster spell cast by a 15th-level caster. At 9th level the same daily use summons 1d4 erinyes instead.",
+      "actionType": "1 full round"
     },
     {
       "name": "Greater Iron Hews",
@@ -7224,7 +7231,8 @@
         "recoveryText": "Ironskin refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
-      "description": "Once per day produce an effect identical to stoneskin cast by a 15th-level caster, affecting yourself only."
+      "description": "Once per day produce an effect identical to stoneskin cast by a 15th-level caster, affecting yourself only.",
+      "actionType": "1 action"
     },
     {
       "name": "Iron Body",
@@ -7236,7 +7244,8 @@
         "recoveryText": "Iron Body refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-dispater-167",
-      "description": "Once per day produce an effect identical to iron body cast by an 18th-level caster."
+      "description": "Once per day produce an effect identical to iron body cast by an 18th-level caster.",
+      "actionType": "1 action"
     }
   ],
   "classes/disciple-of-mammon-168": [
@@ -7256,7 +7265,8 @@
         "recoveryText": "Daily uses equal your Disciple of Mammon level."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
-      "description": "Once per day per class level, produce an effect identical to cheat cast by a 15th-level caster."
+      "description": "Once per day per class level, produce an effect identical to cheat cast by a 15th-level caster.",
+      "actionType": "1 action"
     },
     {
       "name": "Thief",
@@ -7268,7 +7278,8 @@
       "name": "Steal",
       "level": 3,
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
-      "description": "Call a single unattended object weighing no more than 5 pounds to you as if using telekinesis cast by a 15th-level caster."
+      "description": "Call a single unattended object weighing no more than 5 pounds to you as if using telekinesis cast by a 15th-level caster.",
+      "actionType": "1 action"
     },
     {
       "name": "Divert Attack",
@@ -7280,7 +7291,8 @@
         "recoveryText": "Divert Attack refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
-      "description": "Three times per day, redirect an opponent's melee attack meant for you to another character within the attacker's reach. The new target must also be a foe of the attacker; if none is available, the maneuver fails."
+      "description": "Three times per day, redirect an opponent's melee attack meant for you to another character within the attacker's reach. The new target must also be a foe of the attacker; if none is available, the maneuver fails.",
+      "actionType": "Triggered"
     },
     {
       "name": "Summon Osyluth",
@@ -7292,7 +7304,8 @@
         "recoveryText": "Summon Osyluth refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
-      "description": "Once per day summon one osyluth as a summon monster spell cast by a 15th-level caster."
+      "description": "Once per day summon one osyluth as a summon monster spell cast by a 15th-level caster.",
+      "actionType": "1 full round"
     },
     {
       "name": "Take Object",
@@ -7304,7 +7317,8 @@
       "name": "Enhance Value",
       "level": 7,
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
-      "description": "Spend 1 hour modifying a nonmagical item of value, then make an Appraise check; increase the object's value by 1% per point of the check result. You cannot enhance an item with an obvious fixed value such as a coin, and cannot enhance the same object twice."
+      "description": "Spend 1 hour modifying a nonmagical item of value, then make an Appraise check; increase the object's value by 1% per point of the check result. You cannot enhance an item with an obvious fixed value such as a coin, and cannot enhance the same object twice.",
+      "actionType": "1 hour"
     },
     {
       "name": "Divert Spell",
@@ -7316,7 +7330,8 @@
         "recoveryText": "Divert Spell refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
-      "description": "Once per day, redirect an opponent's spell targeted on you to another target within range that is also a foe of the attacker. If no such foe is available, the maneuver fails."
+      "description": "Once per day, redirect an opponent's spell targeted on you to another target within range that is also a foe of the attacker. If no such foe is available, the maneuver fails.",
+      "actionType": "Triggered"
     },
     {
       "name": "Nondetection",
@@ -7334,7 +7349,8 @@
         "recoveryText": "Summon Gelugon refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mammon-168",
-      "description": "Once per day summon one gelugon as a summon monster spell cast by an 18th-level caster."
+      "description": "Once per day summon one gelugon as a summon monster spell cast by an 18th-level caster.",
+      "actionType": "1 full round"
     }
   ],
   "classes/disciple-of-mephistopheles-169": [
@@ -7342,7 +7358,8 @@
       "name": "Hellfire Grasp",
       "level": 1,
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
-      "description": "At will, deal 1d6 fire damage as a touch attack. This damage is added to damage dealt by other unarmed attacks."
+      "description": "At will, deal 1d6 fire damage as a touch attack. This damage is added to damage dealt by other unarmed attacks.",
+      "actionType": "Attack"
     },
     {
       "name": "Fire Adept",
@@ -7360,7 +7377,8 @@
       "name": "Hellfire Blast",
       "level": 3,
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
-      "description": "At will, release hellfire as a ranged touch attack with a 30-foot range that deals 4d6 fire damage."
+      "description": "At will, release hellfire as a ranged touch attack with a 30-foot range that deals 4d6 fire damage.",
+      "actionType": "Attack"
     },
     {
       "name": "Flare",
@@ -7372,7 +7390,8 @@
         "recoveryText": "Daily uses equal your Disciple of Mephistopheles level."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
-      "description": "Once per day per class level, produce an effect identical to flare cast by a 15th-level caster."
+      "description": "Once per day per class level, produce an effect identical to flare cast by a 15th-level caster.",
+      "actionType": "1 action"
     },
     {
       "name": "Summon Hamatula",
@@ -7384,7 +7403,8 @@
         "recoveryText": "Summon Hamatula refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
-      "description": "Once per day summon one hamatula as a summon monster spell cast by a 15th-level caster. At 9th level the same daily use summons 1d4 hamatulas instead."
+      "description": "Once per day summon one hamatula as a summon monster spell cast by a 15th-level caster. At 9th level the same daily use summons 1d4 hamatulas instead.",
+      "actionType": "1 full round"
     },
     {
       "name": "Hellfire",
@@ -7396,7 +7416,8 @@
         "recoveryText": "Hellfire refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
-      "description": "Three times per day produce an effect identical to hellfire cast by a 15th-level caster."
+      "description": "Three times per day produce an effect identical to hellfire cast by a 15th-level caster.",
+      "actionType": "1 action"
     },
     {
       "name": "Fire Shield",
@@ -7408,7 +7429,8 @@
         "recoveryText": "Fire Shield refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
-      "description": "Twice per day produce an effect identical to fire shield cast by a 15th-level caster."
+      "description": "Twice per day produce an effect identical to fire shield cast by a 15th-level caster.",
+      "actionType": "1 action"
     },
     {
       "name": "Hellfire Storm",
@@ -7420,7 +7442,8 @@
         "recoveryText": "Hellfire Storm refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
-      "description": "Twice per day produce an effect identical to hellfire storm cast by a 15th-level caster."
+      "description": "Twice per day produce an effect identical to hellfire storm cast by a 15th-level caster.",
+      "actionType": "1 action"
     },
     {
       "name": "Body of Flame",
@@ -7432,7 +7455,8 @@
         "recoveryText": "Body of Flame refreshes with daily recovery."
       },
       "sourceUrl": "https://new.dndtools.org/classes/disciple-of-mephistopheles-169",
-      "description": "Once per day transform your body into flame for up to 10 minutes. Gain fire immunity and damage reduction 30/+1. Creatures you touch must make Reflex DC 15 or catch fire for 1d4 rounds; creatures hitting you with natural weapons or unarmed attacks take 2d6 fire damage and also risk catching fire on the same save."
+      "description": "Once per day transform your body into flame for up to 10 minutes. Gain fire immunity and damage reduction 30/+1. Creatures you touch must make Reflex DC 15 or catch fire for 1d4 rounds; creatures hitting you with natural weapons or unarmed attacks take 2d6 fire damage and also risk catching fire on the same save.",
+      "actionType": "Standard action"
     }
   ]
 }
